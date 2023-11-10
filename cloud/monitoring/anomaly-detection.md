@@ -176,13 +176,6 @@ Once you have created an Anomaly Detection service, you can see it in the follow
 
 ## FAQ
 
-### What services are offered and what is their associated SLA?
-
-The anomaly detection service is currently in closed beta test phase as described in the Centreon documentation. The
-purpose of this phase is to test our algorithms and their resulting predictions (floating thresholds).
-During this phase, Centreon will improve the anomaly detection feature based on user feedback. No SLA will be available
-during this phase.
-
 ### How long is the data stored?
 
 The data is kept for the entire validity of the license. This will allow the recalculation of models if necessary. An
