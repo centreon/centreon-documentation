@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-Le connecteur de supervision Centreon *Azure Discover* permet de découvrir l'ensemble des resources Azure rattachées à une souscription donnée.
+Le connecteur de supervision Centreon *Azure Discover* permet de découvrir l'ensemble des resources Azure rattachées à une souscription ou un locataire donné.
 Il s'appuie sur les API Azure Monitor afin de récuperer les éléments de l'infrastructure. Il s'appuie sur la collection des connecteur de supervision
 afin de modéliser une infrastructure Azure dans Centreon
 

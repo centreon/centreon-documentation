@@ -8,8 +8,8 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-The Centreon Monitoring Connector *Azure Discover* is a *super* Pack allowing to discover a whole Azure infrastructure for a given
-subscription.
+The Centreon Monitoring Connector *Azure Discover* allows you to discover a whole Azure infrastructure for a given
+subscription or a given tenant.
 This Pack relies on the Azure Monitor API to fetch the resources of the Azure infrastructure and on all of the Centreon Monitoring Connectors
 for Azure to set templates and proper monitoring indicators for each type of resource.
 
