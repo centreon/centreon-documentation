@@ -168,7 +168,6 @@ Modify the name of the service and then click the **Save** button.
 Once you have created an Anomaly Detection service, you can see it in the following places:
 
 - The **Monitoring > Resources Status** menu.
-- The **Monitoring > Status Details > Services** menu.
 - The **Monitoring > Performances > Graphs** menu.
 - The **Monitoring > Event Logs > Event Logs** menu.
 - The **service-monitoring** widget in the **Home > Custom Views** menu.

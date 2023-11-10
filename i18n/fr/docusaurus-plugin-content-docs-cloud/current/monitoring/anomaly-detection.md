@@ -172,7 +172,6 @@ Modifez le nom du service puis cliquez sur le bouton **Sauvegarder**.
 Une fois un service de type Anomaly Detection créé, vous pouvez le visualiser aux endroits suivants :
 
 - À la page **Supervision > Statut des ressources**.
-- À la page **Supervision > Détails des statuts > Services**.
 - À la page **Supervision > Informations de performance > Graphiques**.
 - À la page **Supervision > Journaux d'évènements**.
 - Dans le widget **service-monitoring** via le menu **Accueil > Vues personnalisées**.
