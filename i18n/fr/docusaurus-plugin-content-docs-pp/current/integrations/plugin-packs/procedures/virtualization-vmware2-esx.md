@@ -5,6 +5,12 @@ title: VMware ESX
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+VMWare est une solution de Virtualisation et d'infrastructure de Cloud Computing.
+
+Le connecteur de supervision Centreon s'appuie sur le SDK Centreon VMWare Connecteur pour requêter l'API du vCenter.
+
+Avec le connecteur, Centreon peut superviser les VMs, Datastores, ESXs, Clusters, etc.
+
 ## Contenu du pack
 
 ### Modèles
@@ -41,11 +47,11 @@ Le connecteur apporte les modèles de service suivants
 | Datastore-Usage        | Virt-VMWare2-Datastore-Usage-Generic-custom        | Contrôle permettant de vérifier le taux d'utilisation d'un datastore                                                                 |            |
 | Datastore-Vm-Count     | Virt-VMWare2-Datastore-Vm-Count-Generic-custom     | Contrôle permettant de vérifier le nombre de machines virtuelles allumées/éteintes/suspendues sur un datastore                       |            |
 | ESX-Alarms             | Virt-VMWare2-ESX-Alarms-Generic-custom             | Contrôle permettant de vérifier les alarmes d'un ESX                                                                                 |            |
-| Esx-Datastores-Latency | Virt-VMWare2-ESX-Datastores-Latency-Generic-custom | Contrôle permettant de vérifier la latence rencontré par le serveur ESX sur ses datastores                                           | X          |
+| Esx-Datastores-Latency | Virt-VMWare2-ESX-Datastores-Latency-Generic-custom | Contrôle permettant de vérifier la latence rencontrée par le serveur ESX sur ses datastores                                           | X          |
 | Esx-Service            | Virt-VMWare2-ESX-Service-Generic-custom            | Contrôle permettant de vérifier l'état des services d'un serveur ESX                                                                 |            |
 | Esx-Storage            | Virt-VMWare2-ESX-Storage-Generic-custom            | Contrôle permettant de vérifier les informations de stockage                                                                         |            |
 | Esx-Time               | Virt-VMWare2-ESX-Time-Generic-custom               | Contrôle permettant de vérifier le décalage de temps d'un serveur ESX                                                                |            |
-| Esx-Traffic            | Virt-VMWare2-ESX-Traffic-Generic-custom            | Contrôle permettant de vérifier le taux d'utilisation des interfaces réseaux physiques d'un serveur ESX. Les seuils sont en pourcent | X          |
+| Esx-Traffic            | Virt-VMWare2-ESX-Traffic-Generic-custom            | Contrôle permettant de vérifier le taux d'utilisation des interfaces réseau physiques d'un serveur ESX. Les seuils sont en pourcent | X          |
 | Esx-Uptime             | Virt-VMWare2-ESX-Uptime-Generic-custom             | Contrôle permettant de récuperer l'uptime en jours d'un serveur ESX                                                                  |            |
 | Esx-is-Maintenance     | Virt-VMWare2-ESX-Maintenance-Generic-custom        | Contrôle permettant de vérifier le mode de maintenance d'un serveur ESX                                                              |            |
 
@@ -515,7 +521,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 | Macro                      | Description                                                                                           | Valeur par défaut | Obligatoire |
 |:---------------------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | CENTREONVMWAREPORT         | Connector port (default: 5700)                                                                        | 5700              |             |
-| CENTREONVMWARECONTAINER    | Container to use (it depends of the connector configuration)                                          | default           |             |
+| CENTREONVMWARECONTAINER    | Container to use (it depends on the connector's configuration)                                          | default           |             |
 | CENTREONVMWAREHOST         | Connector hostname (required)                                                                         | localhost         |             |
 | ESXNAME                    | ESX hostname to check. If not set, we check all ESX                                                   |                   |             |
 | CENTREONVMWAREEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
@@ -694,7 +700,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 | UNKNOWNSTATUS          | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status} | %{status} !~ /^connected$/i |             |
 | WARNING                | Warning threshold (can use unit option)                                                                                                              |                             |             |
 | CRITICAL               | Critical threshold (can use unit option)                                                                                                             |                             |             |
-| WARNINGOVERHEADMEMORY  | Threshold overhead                                                                                                                                   |                             |             |
+| WARNINGOVERHEADMEMORY  | Overhead threshold                                                                                                                                   |                             |             |
 | CRITICALOVERHEADMEMORY | Critical threshold                                                                                                                                   |                             |             |
 | WARNINGSTATEMEMORY     | Warning threshold. For state != 'high': --warning-state=0                                                                                            |                             |             |
 | CRITICALSTATEMEMORY    | Critical threshold. For state != 'high': --warning-state=0                                                                                           |                             |             |

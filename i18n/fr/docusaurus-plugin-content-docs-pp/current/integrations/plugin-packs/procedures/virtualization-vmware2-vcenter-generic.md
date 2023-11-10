@@ -5,6 +5,12 @@ title: VMware vCenter
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+VMWare est une solution de Virtualisation et d'infrastructure de Cloud Computing.
+
+Le connecteur de supervision Centreon s'appuie sur le SDK VMWare pour requêter l'API du vCenter.
+
+Avec le connecteur, Centreon peut superviser les VMs, Datastores, ESXs, Clusters, etc.
+
 ## Contenu du pack
 
 ### Modèles
@@ -61,7 +67,7 @@ Le connecteur apporte les modèles de service suivants
 | Vm-Device-Global              | Virt-VMWare2-Vm-Device-Global-custom              | Contrôle permettant de vérifier le taux d'utilisation CPU d'une machine virtuelle                                                                    |            |
 | Vm-Limit-Global               | Virt-VMWare2-Vm-Limit-Global-custom               | Contrôle permettant de vérifier la définition de limites                                                                                             |            |
 | Vm-Memory-Global              | Virt-VMWare2-Vm-Memory-Global-custom              | Contrôle permettant de vérifier le taux d'utilisation mémoire des machines virtuelles                                                                |            |
-| Vm-Snapshot-Global            | Virt-VMWare2-Vm-Snapshot-Global-custom            | Contrôle permettant de vérifier l'âge des snapshosts sur plusieurs machine virtuelle                                                                 |            |
+| Vm-Snapshot-Global            | Virt-VMWare2-Vm-Snapshot-Global-custom            | Contrôle permettant de vérifier l'âge des snapshosts sur plusieurs machine virtuelles                                                                 |            |
 | Vm-Status-Global              | Virt-VMWare2-Vm-Status-Global-custom              | Contrôle permettant de vérifier l'état global de plusieurs machines virtuelles                                                                       |            |
 | Vm-Swap-Global                | Virt-VMWare2-Vm-Swap-Global-custom                | Contrôle permettant de vérifier si les machines virtuelles swappent                                                                                  |            |
 | Vm-Thinprovisioning-Global    | Virt-VMWare2-Vm-Thinprovisioning-Global-custom    | Contrôle permettant de vérifier si une machine virtuelle possède un disque en mode 'thinprovisioning' ou non                                         |            |
@@ -729,7 +735,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 | Macro                      | Description                                                                                           | Valeur par défaut | Obligatoire |
 |:---------------------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | CENTREONVMWAREPORT         | Connector port (default: 5700)                                                                        | 5700              |             |
-| CENTREONVMWARECONTAINER    | Container to use (it depends of the connector configuration)                                          | default           |             |
+| CENTREONVMWARECONTAINER    | Container to use (it depends on the connector's configuration)                                          | default           |             |
 | CENTREONVMWAREHOST         | Connector hostname (required)                                                                         | localhost         |             |
 | CENTREONVMWAREEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
@@ -985,7 +991,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 | UNKNOWNSTATUS          | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status} |                   |             |
 | WARNING                | Warning threshold (can use unit option)                                                                                                              |                   |             |
 | CRITICAL               | Critical threshold (can use unit option)                                                                                                             |                   |             |
-| WARNINGOVERHEADMEMORY  | Threshold overhead                                                                                                                                   |                   |             |
+| WARNINGOVERHEADMEMORY  | Overhead threshold                                                                                                                                  |                   |             |
 | CRITICALOVERHEADMEMORY | Critical threshold                                                                                                                                   |                   |             |
 | WARNINGSTATEMEMORY     | Warning threshold. For state != 'high': --warning-state=0                                                                                            |                   |             |
 | CRITICALSTATEMEMORY    | Critical threshold. For state != 'high': --warning-state=0                                                                                           |                   |             |
@@ -1352,7 +1358,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 | FILTER             | VM hostname to check. If not set, we check all VMs                                                  | .*                                                    |             |
 | NOTINSTALLEDSTATUS | Status if vmtools is not installed (default: critical)                                              | critical                                              | X           |
 | NOTRUNNINGSTATUS   | Status if vmtools is not running (default: critical)                                                | critical                                              | X           |
-| NOTUP2DATESTATUS   | Status if vmtools is not upd2date (default: warning)                                                | warning                                               |             |
+| NOTUP2DATESTATUS   | Status if vmtools is not up to date (default: warning)                                                | warning                                               |             |
 | VMUUID             |                                                                                                     |                                                       |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --disconnect-status='ok' --nopoweredon-skip --verbose |             |
 
