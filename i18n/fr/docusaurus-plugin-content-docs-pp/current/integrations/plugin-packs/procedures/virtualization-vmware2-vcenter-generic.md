@@ -824,7 +824,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro              | Description                                                                                                                                                | Valeur par défaut | Obligatoire |
 |:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER             | datastore name to list                                                                                                                                     | .*                |             |
+| FILTER             | The connector will only take into account alerts coming from the datastores listed here                                                                                                                                      | .*                |             |
 | UNKNOWNSTATUS      | Define the conditions to match for the status to be UNKNOWN (Default: '%{accessible} !~ /^true\|1$/i'). You can use the following variables: %{accessible} |                   |             |
 | WARNINGREAD        | Warning threshold                                                                                                                                          |                   |             |
 | CRITICALREAD       | Critical threshold                                                                                                                                         |                   |             |
@@ -843,7 +843,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro              | Description                                                                                                                                                | Valeur par défaut | Obligatoire |
 |:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER             | datastore name to list                                                                                                                                     | .*                |             |
+| FILTER             | The connector will only take into account alerts coming from the datastores listed here                                                                                                                                     | .*                |             |
 | UNKNOWNSTATUS      | Define the conditions to match for the status to be UNKNOWN (Default: '%{accessible} !~ /^true\|1$/i'). You can use the following variables: %{accessible} |                   |             |
 | WARNINGREAD        | Thresholds                                                                                                                                                 |                   |             |
 | CRITICALREAD       | Thresholds                                                                                                                                                 |                   |             |
@@ -866,7 +866,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro            | Description                                                                                                                                                | Valeur par défaut | Obligatoire |
 |:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER           | datastore name to list                                                                                                                                     | .*                |             |
+| FILTER           | The connector will only take into account alerts coming from the datastores listed here                                                                                                                                   | .*                |             |
 | UNKNOWNSTATUS    | Define the conditions to match for the status to be UNKNOWN (Default: '%{accessible} !~ /^true\|1$/i'). You can use the following variables: %{accessible} |                   |             |
 | WARNINGSNAPSHOT  | Warning threshold                                                                                                                                          |                   |             |
 | CRITICALSNAPSHOT | Critical threshold                                                                                                                                         |                   |             |
@@ -881,7 +881,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro               | Description                                                                                                                                                | Valeur par défaut | Obligatoire |
 |:--------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER              | datastore name to list                                                                                                                                     | .*                |             |
+| FILTER              | The connector will only take into account alerts coming from the datastores listed here                                                                                                                                     | .*                |             |
 | UNIT                |                                                                                                                                                            | %                 |             |
 | UNKNOWNSTATUS       | Define the conditions to match for the status to be UNKNOWN (Default: '%{accessible} !~ /^true\|1$/i'). You can use the following variables: %{accessible} |                   |             |
 | WARNINGPROVISIONED  | Thresholds. : 'usage' (B), 'usage-free' (B), 'usage-prct' (%), 'provisioned'                                                                               |                   |             |
@@ -897,7 +897,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro                  | Description                                                                                                                                                | Valeur par défaut | Obligatoire |
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER                 | datastore name to check                                                                                                                                    | .*                |             |
+| FILTER                 | The connector will only take into account alerts coming from the datastores listed here                                                                                                                                   | .*                |             |
 | UNKNOWNSTATUS          | Define the conditions to match for the status to be UNKNOWN (Default: '%{accessible} !~ /^true\|1$/i'). You can use the following variables: %{accessible} |                   |             |
 | WARNINGOFF             | Warning threshold                                                                                                                                          |                   |             |
 | CRITICALOFF            | Critical threshold                                                                                                                                         |                   |             |
@@ -921,7 +921,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 | Macro                      | Description                                                                                                                                                                 | Valeur par défaut           | Obligatoire |
 |:---------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
 | FILTER                     | ESX hostname to check. If not set, we check all ESX                                                                                                                         | .*                          |             |
-| FILTERTIME                 | Don't check alarm older (value in seconds)                                                                                                                                  | 3600                        |             |
+| FILTERTIME                 | The connector will ignore any alert older than the time period specified here (in seconds).                                                                                                                                 | 3600                        |             |
 | WARNINGSTATUS              | Define the conditions to match for the status to be WARNING (Default: '%{status} =~ /yellow/i). You can use the following variables: %{status}, %{name}, %{entity}, %{type} | %{status} =~ /yellow/i      |             |
 | CRITICALSTATUS             | Define the conditions to match for the status to be CRITICAL (Default: '%{status} =~ /red/i'). You can use the following variables: %{status}, %{name}, %{entity}, %{type}  | %{status} =~ /red/i         |             |
 | WARNINGTOTALALARMWARNING   | Warning threshold                                                                                                                                                           |                             |             |
