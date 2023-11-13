@@ -219,16 +219,16 @@ yum install centreon-plugin-Applications-Databases-Redis
 3. Appliquez le modèle d'hôte **App-DB-Redis-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modesdisponibles), c'est-à-dire la méthode de connexion à la ressource.
 
-| Macro             | Description                                                                                   | Valeur par défaut | Obligatoire |
-|:------------------|:----------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| REDISUSERNAME     |                                                                                               |                   | X           |
-| REDISPASSWORD     |                                                                                               |                   | X           |
-| REDISPORT         |                                                                                               | 6379              |             |
-| REDISSENTINELPORT |                                                                                               |                   |             |
-| REDISCUSTOMMODE   |                                                                                               | perlmod           |             |
-| REDISSENTINEL     |                                                                                               |                   | X           |
-| REDISSERVICE      |                                                                                               |                   | X           |
-| REDISEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro             | Description                                                                                                                                | Default value | Mandatory   |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:-----------:|
+| REDISUSERNAME     | Redis username (redis-cli >= 6.x mandatory)                                                                                                |               | X           |
+| REDISPASSWORD     | Redis password                                                                                                                             |               | X           |
+| REDISPORT         | Redis port                                                                                                                                 | 6379          |             |
+| REDISSENTINELPORT | Sentinel port                                                                                                                              | 26379         |             |
+| REDISCUSTOMMODE   | Name of the backend: perlmod or cli                                                                                                        | perlmod       |             |
+| REDISSENTINEL     | Sentinel server. Alternative of server option. service option is required.                                                                 |               | X           |
+| REDISSERVICE      | Service parameter                                                                                                                          |               | X           |
+| REDISEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |               |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -240,125 +240,125 @@ yum install centreon-plugin-Applications-Databases-Redis
 <Tabs groupId="sync">
 <TabItem value="Clients" label="Clients">
 
-| Macro                           | Description                                                                                 | Valeur par défaut | Obligatoire |
-|:--------------------------------|:--------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGBLOCKEDCLIENTS           |                                                                                             |                   |             |
-| CRITICALBLOCKEDCLIENTS          |                                                                                             |                   |             |
-| WARNINGCLIENTBIGGESTINPUTBUF    |                                                                                             |                   |             |
-| CRITICALCLIENTBIGGESTINPUTBUF   |                                                                                             |                   |             |
-| WARNINGCLIENTLONGESTOUTPUTLIST  |                                                                                             |                   |             |
-| CRITICALCLIENTLONGESTOUTPUTLIST |                                                                                             |                   |             |
-| WARNINGCONNECTEDCLIENTS         |                                                                                             |                   |             |
-| CRITICALCONNECTEDCLIENTS        |                                                                                             |                   |             |
+| Macro                           | Description                                                                                                                              | Default value     | Mandatory   |
+|:--------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGBLOCKEDCLIENTS           | Warning threshold for number of blocked clients                                                                                          |                   |             |
+| CRITICALBLOCKEDCLIENTS          | Critical threshold for number of blocked clients                                                                                         |                   |             |
+| WARNINGCLIENTBIGGESTINPUTBUF    | Warning threshold for biggest input buffer among current client connections                                                              |                   |             |
+| CRITICALCLIENTBIGGESTINPUTBUF   | Critical threshold for biggest input buffer among current client connections                                                             |                   |             |
+| WARNINGCLIENTLONGESTOUTPUTLIST  | Warning threshold for longest output list among current client connections                                                               |                   |             |
+| CRITICALCLIENTLONGESTOUTPUTLIST | Critical threshold for longest output list among current client connections                                                              |                   |             |
+| WARNINGCONNECTEDCLIENTS         | Warning threshold for number of connected clients                                                                                        |                   |             |
+| CRITICALCONNECTEDCLIENTS        | Critical threshold for number of connected clients                                                                                       |                   |             |
 | EXTRAOPTIONS                    | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Commands" label="Commands">
 
-| Macro                     | Description                                                                                 | Valeur par défaut | Obligatoire |
-|:--------------------------|:--------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGOPSPERSEC          |                                                                                             |                   |             |
-| CRITICALOPSPERSEC         |                                                                                             |                   |             |
-| WARNINGPROCESSEDCOMMANDS  |                                                                                             |                   |             |
-| CRITICALPROCESSEDCOMMANDS |                                                                                             |                   |             |
+| Macro                     | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:--------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGOPSPERSEC          | Warning threshold for number of commands processed per second                                                                            |                   |             |
+| CRITICALOPSPERSEC         | Critical threshold for number of commands processed per second                                                                           |                   |             |
+| WARNINGPROCESSEDCOMMANDS  | Warning threshold for number of commands processed by the server                                                                         |                   |             |
+| CRITICALPROCESSEDCOMMANDS | Critical threshold for number of commands processed by the server                                                                        |                   |             |
 | EXTRAOPTIONS              | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Connections" label="Connections">
 
-| Macro                       | Description                                                                                 | Valeur par défaut | Obligatoire |
-|:----------------------------|:--------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGRECEIVEDCONNECTIONS  |                                                                                             |                   |             |
-| CRITICALRECEIVEDCONNECTIONS |                                                                                             |                   |             |
-| WARNINGREJECTEDCONNECTIONS  |                                                                                             |                   |             |
-| CRITICALREJECTEDCONNECTIONS |                                                                                             |                   |             |
-| WARNINGTRAFFICIN            |                                                                                             |                   |             |
-| CRITICALTRAFFICIN           |                                                                                             |                   |             |
-| WARNINGTRAFFICOUT           |                                                                                             |                   |             |
-| CRITICALTRAFFICOUT          |                                                                                             |                   |             |
+| Macro                       | Description                                                                                                                              | Default value     | Mandatory   |
+|:----------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGRECEIVEDCONNECTIONS  | Warning threshold for received connections                                                                                               |                   |             |
+| CRITICALRECEIVEDCONNECTIONS | Critical threshold for received connections                                                                                              |                   |             |
+| WARNINGREJECTEDCONNECTIONS  | Warning threshold for rejected connections                                                                                               |                   |             |
+| CRITICALREJECTEDCONNECTIONS | Critical threshold for rejected connections                                                                                              |                   |             |
+| WARNINGTRAFFICIN            | Warning threshold for inbound traffic (b/s)                                                                                              |                   |             |
+| CRITICALTRAFFICIN           | Critical threshold for inbound traffic (b/s)                                                                                             |                   |             |
+| WARNINGTRAFFICOUT           | Warning threshold for outbound traffic (b/s)                                                                                             |                   |             |
+| CRITICALTRAFFICOUT          | Critical thresholdfor outbound traffic (b/s)                                                                                             |                   |             |
 | EXTRAOPTIONS                | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Macro                | Description                                                                                 | Valeur par défaut | Obligatoire |
-|:---------------------|:--------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGSYS           |                                                                                             |                   |             |
-| CRITICALSYS          |                                                                                             |                   |             |
-| WARNINGSYSCHILDREN   |                                                                                             |                   |             |
-| CRITICALSYSCHILDREN  |                                                                                             |                   |             |
-| WARNINGUSER          |                                                                                             |                   |             |
-| CRITICALUSER         |                                                                                             |                   |             |
-| WARNINGUSERCHILDREN  |                                                                                             |                   |             |
-| CRITICALUSERCHILDREN |                                                                                             |                   |             |
+| Macro                | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGSYS           | Warning threshold for Sys CPU utilization                                                                                                |                   |             |
+| CRITICALSYS          | Critical threshold for Sys CPU utilization                                                                                               |                   |             |
+| WARNINGSYSCHILDREN   | Warning threshold for Sys Children CPU utilization                                                                                       |                   |             |
+| CRITICALSYSCHILDREN  | Critical threshold for Sys Children CPU utilization                                                                                      |                   |             |
+| WARNINGUSER          | Warning threshold for User CPU utilization                                                                                               |                   |             |
+| CRITICALUSER         | Critical threshold for User CPU utilization                                                                                              |                   |             |
+| WARNINGUSERCHILDREN  | Warning threshold for User Children CPU utilization                                                                                      |                   |             |
+| CRITICALUSERCHILDREN | Critical threshold for User Children CPU utilization                                                                                     |                   |             |
 | EXTRAOPTIONS         | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro                          | Description                                                                                 | Valeur par défaut | Obligatoire |
-|:-------------------------------|:--------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| UNITS                          |                                                                                             | %                 |             |
-| WARNINGDATASET                 |                                                                                             |                   |             |
-| CRITICALDATASET                |                                                                                             |                   |             |
-| WARNINGDEFRAGRUNNING           |                                                                                             |                   |             |
-| CRITICALDEFRAGRUNNING          |                                                                                             |                   |             |
-| WARNINGFRAGMENTATIONRATIO      |                                                                                             |                   |             |
-| CRITICALFRAGMENTATIONRATIO     |                                                                                             |                   |             |
-| WARNINGLAZYFREEPENDINGOBJECTS  |                                                                                             |                   |             |
-| CRITICALLAZYFREEPENDINGOBJECTS |                                                                                             |                   |             |
-| WARNINGLUA                     |                                                                                             |                   |             |
-| CRITICALLUA                    |                                                                                             |                   |             |
-| WARNINGOVERHEAD                |                                                                                             |                   |             |
-| CRITICALOVERHEAD               |                                                                                             |                   |             |
-| WARNINGPEAK                    |                                                                                             |                   |             |
-| CRITICALPEAK                   |                                                                                             |                   |             |
-| WARNINGRSS                     |                                                                                             |                   |             |
-| CRITICALRSS                    |                                                                                             |                   |             |
-| WARNINGSTARTUP                 |                                                                                             |                   |             |
-| CRITICALSTARTUP                |                                                                                             |                   |             |
-| WARNINGUSED                    |                                                                                             |                   |             |
-| CRITICALUSED                   |                                                                                             |                   |             |
+| Macro                          | Description                                                                                                                              | Default value     | Mandatory   |
+|:-------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| UNITS                          | Units of thresholds (Default: '%') ('%', 'B')                                                                                            | %                 |             |
+| WARNINGDATASET                 | Warning threshold for Dataset memory utilization                                                                                         |                   |             |
+| CRITICALDATASET                | Critical threshold for Dataset memory utilization                                                                                        |                   |             |
+| WARNINGDEFRAGRUNNING           | Warning threshold for Running Defragmentation                                                                                            |                   |             |
+| CRITICALDEFRAGRUNNING          | Critical threshold for Running Defragmentation                                                                                           |                   |             |
+| WARNINGFRAGMENTATIONRATIO      | Warning threshold for Fragmentation Ratio                                                                                                |                   |             |
+| CRITICALFRAGMENTATIONRATIO     | Critical threshold for Fragmentation Ratio                                                                                               |                   |             |
+| WARNINGLAZYFREEPENDINGOBJECTS  | Warning threshold for Lazyfree Pending Objects                                                                                           |                   |             |
+| CRITICALLAZYFREEPENDINGOBJECTS | Critical threshold for Lazyfree Pending Objects                                                                                          |                   |             |
+| WARNINGLUA                     | Warning threshold for Lua memory utilization                                                                                             |                   |             |
+| CRITICALLUA                    | Critical threshold for Lua memory utilization                                                                                            |                   |             |
+| WARNINGOVERHEAD                | Warning threshold for Overhead memory utilization                                                                                        |                   |             |
+| CRITICALOVERHEAD               | Critical threshold for Overhead memory utilization                                                                                       |                   |             |
+| WARNINGPEAK                    | Warning threshold for Peak memory utilization                                                                                            |                   |             |
+| CRITICALPEAK                   | Critical threshold for Peak memory utilization                                                                                           |                   |             |
+| WARNINGRSS                     | Warning threshold for Rss memory utilization                                                                                             |                   |             |
+| CRITICALRSS                    | Critical threshold for Rss memory utilization                                                                                            |                   |             |
+| WARNINGSTARTUP                 | Warning threshold for Startup memory utilization                                                                                         |                   |             |
+| CRITICALSTARTUP                | Critical threshold for Startup memory utilization                                                                                        |                   |             |
+| WARNINGUSED                    | Warning threshold for Used memory utilization                                                                                            |                   |             |
+| CRITICALUSED                   | Critical threshold for Used memory utilization                                                                                           |                   |             |
 | EXTRAOPTIONS                   | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Persistence" label="Persistence">
 
-| Macro                       | Description                                                                                 | Valeur par défaut                 | Obligatoire |
-|:----------------------------|:--------------------------------------------------------------------------------------------|:----------------------------------|:-----------:|
-| WARNINGCHANGES              |                                                                                             |                                   |             |
-| CRITICALCHANGES             |                                                                                             |                                   |             |
-| WARNINGCURRENTSAVEDURATION  |                                                                                             |                                   |             |
-| CRITICALCURRENTSAVEDURATION |                                                                                             |                                   |             |
-| WARNINGLASTSAVE             |                                                                                             |                                   |             |
-| CRITICALLASTSAVE            |                                                                                             |                                   |             |
-| WARNINGLASTSAVEDURATION     |                                                                                             |                                   |             |
-| CRITICALLASTSAVEDURATION    |                                                                                             |                                   |             |
-| WARNINGSAVESIZE             |                                                                                             |                                   |             |
-| CRITICALSAVESIZE            |                                                                                             |                                   |             |
-| WARNINGSTATUS               |                                                                                             | %{sync\_status} =~ /in progress/i |             |
-| CRITICALSTATUS              |                                                                                             | %{link\_status} =~ /down/i        |             |
+| Macro                       | Description                                                                                                                              | Default value                     | Mandatory   |
+|:----------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------|:-----------:|
+| WARNINGCHANGES              | Warning threshold for changes since last save                                                                                            |                                   |             |
+| CRITICALCHANGES             | Critical threshold for changes since last save                                                                                           |                                   |             |
+| WARNINGCURRENTSAVEDURATION  | Warning threshold for duration of current save                                                                                           |                                   |             |
+| CRITICALCURRENTSAVEDURATION | Critical threshold for duration of current save                                                                                          |                                   |             |
+| WARNINGLASTSAVE             | Warning threshold for time since last successful save                                                                                    |                                   |             |
+| CRITICALLASTSAVE            | Critical threshold for time since last successful save                                                                                   |                                   |             |
+| WARNINGLASTSAVEDURATION     | Warning threshold for duration of last save                                                                                              |                                   |             |
+| CRITICALLASTSAVEDURATION    | Critical threshold for duration of last save                                                                                             |                                   |             |
+| WARNINGSAVESIZE             | Warning threshold for size of last save                                                                                                  |                                   |             |
+| CRITICALSAVESIZE            | Critical threshold for size of last save                                                                                                 |                                   |             |
+| WARNINGSTATUS               | Define the conditions to match for the status to be WARNING                                                                              | %{sync\_status} =~ /in progress/i |             |
+| CRITICALSTATUS              | Define the conditions to match for the status to be CRITICAL                                                                             | %{link\_status} =~ /down/i        |             |
 | EXTRAOPTIONS                | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                                   |             |
 
 </TabItem>
 <TabItem value="Replication" label="Replication">
 
-| Macro                    | Description                                                                                 | Valeur par défaut                 | Obligatoire |
-|:-------------------------|:--------------------------------------------------------------------------------------------|:----------------------------------|:-----------:|
-| WARNINGCONNECTEDSLAVES   |                                                                                             |                                   |             |
-| CRITICALCONNECTEDSLAVES  |                                                                                             |                                   |             |
-| WARNINGMASTERLASTIO      |                                                                                             |                                   |             |
-| CRITICALMASTERLASTIO     |                                                                                             |                                   |             |
-| WARNINGMASTERREPLOFFSET  |                                                                                             |                                   |             |
-| CRITICALMASTERREPLOFFSET |                                                                                             |                                   |             |
-| WARNINGSLAVEPRIORITY     |                                                                                             |                                   |             |
-| CRITICALSLAVEPRIORITY    |                                                                                             |                                   |             |
-| WARNINGSLAVEREADONLY     |                                                                                             |                                   |             |
-| CRITICALSLAVEREADONLY    |                                                                                             |                                   |             |
-| WARNINGSLAVEREPLOFFSET   |                                                                                             |                                   |             |
-| CRITICALSLAVEREPLOFFSET  |                                                                                             |                                   |             |
-| WARNINGSTATUS            |                                                                                             | %{sync\_status} =~ /in progress/i |             |
-| CRITICALSTATUS           |                                                                                             | %{link\_status} =~ /down/i        |             |
+| Macro                    | Description                                                                                                                              | Valeur par défaut                 | Obligatoire |
+|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------|:-----------:|
+| WARNINGCONNECTEDSLAVES   | Warning threshold for number of connected slaves                                                                                         |                                   |             |
+| CRITICALCONNECTEDSLAVES  | Critical threshold for number of connected slaves                                                                                        |                                   |             |
+| WARNINGMASTERLASTIO      | Warning threshold for last interaction with master                                                                                       |                                   |             |
+| CRITICALMASTERLASTIO     | Critical threshold for last interaction with master                                                                                      |                                   |             |
+| WARNINGMASTERREPLOFFSET  | Warning threshold for master replication offset                                                                                          |                                   |             |
+| CRITICALMASTERREPLOFFSET | Critical threshold for master replication offset                                                                                         |                                   |             |
+| WARNINGSLAVEPRIORITY     | Warning threshold for slave replication priority                                                                                         |                                   |             |
+| CRITICALSLAVEPRIORITY    | Critical threshold for slave replication priority                                                                                        |                                   |             |
+| WARNINGSLAVEREADONLY     | Warning threshold for slave readonly                                                                                                     |                                   |             |
+| CRITICALSLAVEREADONLY    | Critical threshold for slave readonly                                                                                                    |                                   |             |
+| WARNINGSLAVEREPLOFFSET   | Warning threshold for slave replication offset                                                                                           |                                   |             |
+| CRITICALSLAVEREPLOFFSET  | Critical threshold for slave replication offset                                                                                          |                                   |             |
+| WARNINGSTATUS            | Define the conditions to match for the status to be WARNING                                                                              | %{sync\_status} =~ /in progress/i |             |
+| CRITICALSTATUS           | Define the conditions to match for the status to be CRITICAL                                                                             | %{link\_status} =~ /down/i        |             |
 | EXTRAOPTIONS             | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                                   |             |
 
 </TabItem>
