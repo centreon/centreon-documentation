@@ -525,9 +525,9 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 | Macro                      | Description                                                                                           | Default value     | Mandatory   |
 |:---------------------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | CENTREONVMWAREPORT         | Connector port (default: 5700)                                                                        | 5700              |             |
-| CENTREONVMWARECONTAINER    | Container to use (it depends of the connector configuration)                                          | default           |             |
+| CENTREONVMWARECONTAINER    | Container to use (it depends on the connector's configuration)                                          | default           |             |
 | CENTREONVMWAREHOST         | Connector hostname (required)                                                                         | localhost         |             |
-| ESXNAME                    | ESX hostname to check. If not set, we check all ESX                                                   |                   |             |
+| ESXNAME                    | Hostnames of the ESX to monitor. If not set, we check all ESX                                                   |                   |             |
 | CENTREONVMWAREEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -1148,7 +1148,7 @@ All available options for each service template are listed below:
 | --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
 | --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
 | --statefile-cipher     | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
-| --esx-hostname         | ESX hostname to check. If not set, we check all ESX.                                                                                                                                                                                          |
+| --esx-hostname         | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                                                                                                          |
 | --filter               | Datacenter is a regexp.                                                                                                                                                                                                                       |
 | --scope-datacenter     | Search in following datacenter(s) (can be a regexp).                                                                                                                                                                                          |
 | --scope-cluster        | Search in following cluster(s) (can be a regexp).                                                                                                                                                                                             |
@@ -1164,7 +1164,7 @@ All available options for each service template are listed below:
 
 | Option             | Description                                                                                                                                            |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname     | ESX hostname to check. If not set, we check all ESX.                                                                                                   |
+| --esx-hostname     | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                   |
 | --filter           | ESX hostname is a regexp.                                                                                                                              |
 | --scope-datacenter | Search in following datacenter(s) (can be a regexp).                                                                                                   |
 | --scope-cluster    | Search in following cluster(s) (can be a regexp).                                                                                                      |
@@ -1179,7 +1179,7 @@ All available options for each service template are listed below:
 
 | Option             | Description                                                                                                                                            |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname     | ESX hostname to check. If not set, we check all ESX.                                                                                                   |
+| --esx-hostname     | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                   |
 | --filter           | ESX hostname is a regexp.                                                                                                                              |
 | --scope-datacenter | Search in following datacenter(s) (can be a regexp).                                                                                                   |
 | --scope-cluster    | Search in following cluster(s) (can be a regexp).                                                                                                      |
@@ -1196,7 +1196,7 @@ All available options for each service template are listed below:
 
 | Option                   | Description                                                                                                                                                   |
 |:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname           | ESX hostname to check. If not set, we check all ESX.                                                                                                          |
+| --esx-hostname           | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                          |
 | --filter                 | ESX hostname is a regexp.                                                                                                                                     |
 | --scope-datacenter       | Search in following datacenter(s) (can be a regexp).                                                                                                          |
 | --scope-cluster          | Search in following cluster(s) (can be a regexp).                                                                                                             |
@@ -1211,7 +1211,7 @@ All available options for each service template are listed below:
 
 | Option                     | Description                                                                                                                                            |
 |:---------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname             | ESX hostname to check. If not set, we check all ESX.                                                                                                   |
+| --esx-hostname             | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                   |
 | --filter                   | ESX hostname is a regexp.                                                                                                                              |
 | --scope-datacenter         | Search in following datacenter(s) (can be a regexp).                                                                                                   |
 | --scope-cluster            | Search in following cluster(s) (can be a regexp).                                                                                                      |
@@ -1222,7 +1222,7 @@ All available options for each service template are listed below:
 | --critical-status          | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{status}                             |
 | --warning-consumed-memory  | Warning threshold (can use unit option).                                                                                                               |
 | --critical-consumed-memory | Critical threshold (can use unit option).                                                                                                              |
-| --warning-overhead-memory  | Threshold overhead.                                                                                                                                    |
+| --warning-overhead-memory  | Overhead threshold.                                                                                                                                    |
 | --critical-overhead-memory | Critical threshold.                                                                                                                                    |
 | --warning-state-memory     | Warning threshold. For state != 'high': --warning-state=0                                                                                              |
 | --critical-state-memory    | Critical threshold. For state != 'high': --warning-state=0                                                                                             |
@@ -1233,7 +1233,7 @@ All available options for each service template are listed below:
 
 | Option                    | Description                                                                                                                                                                                      |
 |:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname            | ESX hostname to check. If not set, we check all ESX.                                                                                                                                             |
+| --esx-hostname            | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                                                             |
 | --filter                  | ESX hostname is a regexp.                                                                                                                                                                        |
 | --scope-datacenter        | Search in following datacenter(s) (can be a regexp).                                                                                                                                             |
 | --scope-cluster           | Search in following cluster(s) (can be a regexp).                                                                                                                                                |
@@ -1249,7 +1249,7 @@ All available options for each service template are listed below:
 
 | Option                    | Description                                                                                                                                                         |
 |:--------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname            | ESX hostname to check. If not set, we check all ESX.                                                                                                                |
+| --esx-hostname            | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                                |
 | --filter                  | ESX hostname is a regexp.                                                                                                                                           |
 | --scope-datacenter        | Search in following datacenter(s) (can be a regexp).                                                                                                                |
 | --scope-cluster           | Search in following cluster(s) (can be a regexp).                                                                                                                   |
@@ -1265,7 +1265,7 @@ All available options for each service template are listed below:
 
 | Option                    | Description                                                                                                                                                                                          |
 |:--------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname            | ESX hostname to check. If not set, we check all ESX.                                                                                                                                                 |
+| --esx-hostname            | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                                                                 |
 | --filter                  | ESX hostname is a regexp.                                                                                                                                                                            |
 | --scope-datacenter        | Search in following datacenter(s) (can be a regexp).                                                                                                                                                 |
 | --scope-cluster           | Search in following cluster(s) (can be a regexp).                                                                                                                                                    |
@@ -1288,7 +1288,7 @@ All available options for each service template are listed below:
 
 | Option             | Description                                                                                                                                            |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname     | ESX hostname to check. If not set, we check all ESX.                                                                                                   |
+| --esx-hostname     | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                   |
 | --filter           | ESX hostname is a regexp.                                                                                                                              |
 | --scope-datacenter | Search in following datacenter(s) (can be a regexp).                                                                                                   |
 | --scope-cluster    | Search in following cluster(s) (can be a regexp).                                                                                                      |
@@ -1303,7 +1303,7 @@ All available options for each service template are listed below:
 
 | Option             | Description                                                                                                                                            |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname     | ESX hostname to check. If not set, we check all ESX.                                                                                                   |
+| --esx-hostname     | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                   |
 | --filter           | ESX hostname is a regexp.                                                                                                                              |
 | --scope-datacenter | Search in following datacenter(s) (can be a regexp).                                                                                                   |
 | --scope-cluster    | Search in following cluster(s) (can be a regexp).                                                                                                      |
@@ -1318,7 +1318,7 @@ All available options for each service template are listed below:
 
 | Option                   | Description                                                                                                                                                                                                             |
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname           | ESX hostname to check. If not set, we check all ESX.                                                                                                                                                                    |
+| --esx-hostname           | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                                                                                    |
 | --filter                 | ESX hostname is a regexp.                                                                                                                                                                                               |
 | --scope-datacenter       | Search in following datacenter(s) (can be a regexp).                                                                                                                                                                    |
 | --scope-cluster          | Search in following cluster(s) (can be a regexp).                                                                                                                                                                       |
@@ -1338,7 +1338,7 @@ All available options for each service template are listed below:
 
 | Option             | Description                                                                                                                                            |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname     | ESX hostname to check. If not set, we check all ESX.                                                                                                   |
+| --esx-hostname     | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                   |
 | --filter           | ESX hostname is a regexp.                                                                                                                              |
 | --scope-datacenter | Search in following datacenter(s) (can be a regexp).                                                                                                   |
 | --scope-cluster    | Search in following cluster(s) (can be a regexp).                                                                                                      |
@@ -1353,7 +1353,7 @@ All available options for each service template are listed below:
 
 | Option             | Description                                                                                                                                            |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname     | ESX hostname to check. If not set, we check all ESX.                                                                                                   |
+| --esx-hostname     | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                   |
 | --filter           | ESX hostname is a regexp.                                                                                                                              |
 | --scope-datacenter | Search in following datacenter(s) (can be a regexp).                                                                                                   |
 | --scope-cluster    | Search in following cluster(s) (can be a regexp).                                                                                                      |
@@ -1368,7 +1368,7 @@ All available options for each service template are listed below:
 
 | Option                        | Description                                                                                                                                                 |
 |:------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname                | ESX hostname to check. If not set, we check all ESX.                                                                                                        |
+| --esx-hostname                | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                        |
 | --filter                      | ESX hostname is a regexp.                                                                                                                                   |
 | --scope-datacenter            | Search in following datacenter(s) (can be a regexp).                                                                                                        |
 | --scope-cluster               | Search in following cluster(s) (can be a regexp).                                                                                                           |

@@ -5,7 +5,7 @@ title: VMware ESX
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-VMWare est une solution de Virtualisation et d'infrastructure de Cloud Computing.
+VMWare est une solution de virtualisation et d'infrastructure de Cloud Computing.
 
 Le connecteur de supervision Centreon s'appuie sur le SDK Centreon VMWare Connecteur pour requêter l'API du vCenter.
 
@@ -523,7 +523,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 | CENTREONVMWAREPORT         | Connector port (default: 5700)                                                                        | 5700              |             |
 | CENTREONVMWARECONTAINER    | Container to use (it depends on the connector's configuration)                                          | default           |             |
 | CENTREONVMWAREHOST         | Connector hostname (required)                                                                         | localhost         |             |
-| ESXNAME                    | ESX hostname to check. If not set, we check all ESX                                                   |                   |             |
+| ESXNAME                    | Hostnames of the ESX to monitor. If not set, we check all ESX                                                   |                   |             |
 | CENTREONVMWAREEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -1146,7 +1146,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
 | --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
 | --statefile-cipher     | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
-| --esx-hostname         | ESX hostname to check. If not set, we check all ESX.                                                                                                                                                                                          |
+| --esx-hostname         | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                                                                                                          |
 | --filter               | Datacenter is a regexp.                                                                                                                                                                                                                       |
 | --scope-datacenter     | Search in following datacenter(s) (can be a regexp).                                                                                                                                                                                          |
 | --scope-cluster        | Search in following cluster(s) (can be a regexp).                                                                                                                                                                                             |
@@ -1162,7 +1162,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option             | Description                                                                                                                                            |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname     | ESX hostname to check. If not set, we check all ESX.                                                                                                   |
+| --esx-hostname     | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                   |
 | --filter           | ESX hostname is a regexp.                                                                                                                              |
 | --scope-datacenter | Search in following datacenter(s) (can be a regexp).                                                                                                   |
 | --scope-cluster    | Search in following cluster(s) (can be a regexp).                                                                                                      |
@@ -1177,7 +1177,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option             | Description                                                                                                                                            |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname     | ESX hostname to check. If not set, we check all ESX.                                                                                                   |
+| --esx-hostname     | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                   |
 | --filter           | ESX hostname is a regexp.                                                                                                                              |
 | --scope-datacenter | Search in following datacenter(s) (can be a regexp).                                                                                                   |
 | --scope-cluster    | Search in following cluster(s) (can be a regexp).                                                                                                      |
@@ -1194,7 +1194,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option                   | Description                                                                                                                                                   |
 |:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname           | ESX hostname to check. If not set, we check all ESX.                                                                                                          |
+| --esx-hostname           | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                          |
 | --filter                 | ESX hostname is a regexp.                                                                                                                                     |
 | --scope-datacenter       | Search in following datacenter(s) (can be a regexp).                                                                                                          |
 | --scope-cluster          | Search in following cluster(s) (can be a regexp).                                                                                                             |
@@ -1209,7 +1209,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option                     | Description                                                                                                                                            |
 |:---------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname             | ESX hostname to check. If not set, we check all ESX.                                                                                                   |
+| --esx-hostname             | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                   |
 | --filter                   | ESX hostname is a regexp.                                                                                                                              |
 | --scope-datacenter         | Search in following datacenter(s) (can be a regexp).                                                                                                   |
 | --scope-cluster            | Search in following cluster(s) (can be a regexp).                                                                                                      |
@@ -1231,7 +1231,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option                    | Description                                                                                                                                                                                      |
 |:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname            | ESX hostname to check. If not set, we check all ESX.                                                                                                                                             |
+| --esx-hostname            | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                                                             |
 | --filter                  | ESX hostname is a regexp.                                                                                                                                                                        |
 | --scope-datacenter        | Search in following datacenter(s) (can be a regexp).                                                                                                                                             |
 | --scope-cluster           | Search in following cluster(s) (can be a regexp).                                                                                                                                                |
@@ -1247,7 +1247,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option                    | Description                                                                                                                                                         |
 |:--------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname            | ESX hostname to check. If not set, we check all ESX.                                                                                                                |
+| --esx-hostname            | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                                |
 | --filter                  | ESX hostname is a regexp.                                                                                                                                           |
 | --scope-datacenter        | Search in following datacenter(s) (can be a regexp).                                                                                                                |
 | --scope-cluster           | Search in following cluster(s) (can be a regexp).                                                                                                                   |
@@ -1263,7 +1263,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option                    | Description                                                                                                                                                                                          |
 |:--------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname            | ESX hostname to check. If not set, we check all ESX.                                                                                                                                                 |
+| --esx-hostname            | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                                                                 |
 | --filter                  | ESX hostname is a regexp.                                                                                                                                                                            |
 | --scope-datacenter        | Search in following datacenter(s) (can be a regexp).                                                                                                                                                 |
 | --scope-cluster           | Search in following cluster(s) (can be a regexp).                                                                                                                                                    |
@@ -1286,7 +1286,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option             | Description                                                                                                                                            |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname     | ESX hostname to check. If not set, we check all ESX.                                                                                                   |
+| --esx-hostname     | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                   |
 | --filter           | ESX hostname is a regexp.                                                                                                                              |
 | --scope-datacenter | Search in following datacenter(s) (can be a regexp).                                                                                                   |
 | --scope-cluster    | Search in following cluster(s) (can be a regexp).                                                                                                      |
@@ -1301,7 +1301,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option             | Description                                                                                                                                            |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname     | ESX hostname to check. If not set, we check all ESX.                                                                                                   |
+| --esx-hostname     | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                   |
 | --filter           | ESX hostname is a regexp.                                                                                                                              |
 | --scope-datacenter | Search in following datacenter(s) (can be a regexp).                                                                                                   |
 | --scope-cluster    | Search in following cluster(s) (can be a regexp).                                                                                                      |
@@ -1316,7 +1316,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option                   | Description                                                                                                                                                                                                             |
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname           | ESX hostname to check. If not set, we check all ESX.                                                                                                                                                                    |
+| --esx-hostname           | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                                                                                    |
 | --filter                 | ESX hostname is a regexp.                                                                                                                                                                                               |
 | --scope-datacenter       | Search in following datacenter(s) (can be a regexp).                                                                                                                                                                    |
 | --scope-cluster          | Search in following cluster(s) (can be a regexp).                                                                                                                                                                       |
@@ -1336,7 +1336,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option             | Description                                                                                                                                            |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname     | ESX hostname to check. If not set, we check all ESX.                                                                                                   |
+| --esx-hostname     | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                   |
 | --filter           | ESX hostname is a regexp.                                                                                                                              |
 | --scope-datacenter | Search in following datacenter(s) (can be a regexp).                                                                                                   |
 | --scope-cluster    | Search in following cluster(s) (can be a regexp).                                                                                                      |
@@ -1351,7 +1351,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option             | Description                                                                                                                                            |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname     | ESX hostname to check. If not set, we check all ESX.                                                                                                   |
+| --esx-hostname     | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                   |
 | --filter           | ESX hostname is a regexp.                                                                                                                              |
 | --scope-datacenter | Search in following datacenter(s) (can be a regexp).                                                                                                   |
 | --scope-cluster    | Search in following cluster(s) (can be a regexp).                                                                                                      |
@@ -1366,7 +1366,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option                        | Description                                                                                                                                                 |
 |:------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname                | ESX hostname to check. If not set, we check all ESX.                                                                                                        |
+| --esx-hostname                | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                        |
 | --filter                      | ESX hostname is a regexp.                                                                                                                                   |
 | --scope-datacenter            | Search in following datacenter(s) (can be a regexp).                                                                                                        |
 | --scope-cluster               | Search in following cluster(s) (can be a regexp).                                                                                                           |

@@ -5,6 +5,12 @@ title: VMware vCenter
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+VMWare provides cloud computing and virtualization software and services.
+
+The Centreon Plugins and Monitoring Connectors rely on the Centreon VMWare Connector to request the vCenter API.
+
+With this connector, Centreon can monitor VMs, Datastores, ESXs, Clusters, etc.
+
 ## Pack assets
 
 ### Templates
@@ -732,7 +738,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 | Macro                      | Description                                                                                           | Default value     | Mandatory   |
 |:---------------------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | CENTREONVMWAREPORT         | Connector port (default: 5700)                                                                        | 5700              |             |
-| CENTREONVMWARECONTAINER    | Container to use (it depends of the connector configuration)                                          | default           |             |
+| CENTREONVMWARECONTAINER    | Container to use (it depends on the connector's configuration)                                          | default           |             |
 | CENTREONVMWAREHOST         | Connector hostname (required)                                                                         | localhost         |             |
 | CENTREONVMWAREEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
@@ -821,7 +827,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro              | Description                                                                                                                                                | Default value     | Mandatory   |
 |:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER             | datastore name to list                                                                                                                                     | .*                |             |
+| FILTER             | The connector will only take into account alerts coming from the datastores listed here                                                                                                                                    | .*                |             |
 | UNKNOWNSTATUS      | Define the conditions to match for the status to be UNKNOWN (Default: '%{accessible} !~ /^true\|1$/i'). You can use the following variables: %{accessible} |                   |             |
 | WARNINGREAD        | Warning threshold                                                                                                                                          |                   |             |
 | CRITICALREAD       | Critical threshold                                                                                                                                         |                   |             |
@@ -840,7 +846,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro              | Description                                                                                                                                                | Default value     | Mandatory   |
 |:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER             | datastore name to list                                                                                                                                     | .*                |             |
+| FILTER             | The connector will only take into account alerts coming from the datastores listed here                                                                                                                                    | .*                |             |
 | UNKNOWNSTATUS      | Define the conditions to match for the status to be UNKNOWN (Default: '%{accessible} !~ /^true\|1$/i'). You can use the following variables: %{accessible} |                   |             |
 | WARNINGREAD        | Thresholds                                                                                                                                                 |                   |             |
 | CRITICALREAD       | Thresholds                                                                                                                                                 |                   |             |
@@ -863,7 +869,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro            | Description                                                                                                                                                | Default value     | Mandatory   |
 |:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER           | datastore name to list                                                                                                                                     | .*                |             |
+| FILTER           | The connector will only take into account alerts coming from the datastores listed here                                                                                                                                     | .*                |             |
 | UNKNOWNSTATUS    | Define the conditions to match for the status to be UNKNOWN (Default: '%{accessible} !~ /^true\|1$/i'). You can use the following variables: %{accessible} |                   |             |
 | WARNINGSNAPSHOT  | Warning threshold                                                                                                                                          |                   |             |
 | CRITICALSNAPSHOT | Critical threshold                                                                                                                                         |                   |             |
@@ -878,7 +884,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro               | Description                                                                                                                                                | Default value     | Mandatory   |
 |:--------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER              | datastore name to list                                                                                                                                     | .*                |             |
+| FILTER              | The connector will only take into account alerts coming from the datastores listed here                                                                                                                                     | .*                |             |
 | UNIT                |                                                                                                                                                            | %                 |             |
 | UNKNOWNSTATUS       | Define the conditions to match for the status to be UNKNOWN (Default: '%{accessible} !~ /^true\|1$/i'). You can use the following variables: %{accessible} |                   |             |
 | WARNINGPROVISIONED  | Thresholds. : 'usage' (B), 'usage-free' (B), 'usage-prct' (%), 'provisioned'                                                                               |                   |             |
@@ -894,7 +900,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro                  | Description                                                                                                                                                | Default value     | Mandatory   |
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER                 | datastore name to check                                                                                                                                    | .*                |             |
+| FILTER                 | The connector will only take into account alerts coming from the datastores listed here                                                                                                                                   | .*                |             |
 | UNKNOWNSTATUS          | Define the conditions to match for the status to be UNKNOWN (Default: '%{accessible} !~ /^true\|1$/i'). You can use the following variables: %{accessible} |                   |             |
 | WARNINGOFF             | Warning threshold                                                                                                                                          |                   |             |
 | CRITICALOFF            | Critical threshold                                                                                                                                         |                   |             |
@@ -917,8 +923,8 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro                      | Description                                                                                                                                                                 | Default value               | Mandatory   |
 |:---------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
-| FILTER                     | ESX hostname to check. If not set, we check all ESX                                                                                                                         | .*                          |             |
-| FILTERTIME                 | Don't check alarm older (value in seconds)                                                                                                                                  | 3600                        |             |
+| FILTER                     | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                                         | .*                          |             |
+| FILTERTIME                 | The connector will ignore any alert older than the time period specified here (in seconds).                                                                                                                                  | 3600                        |             |
 | WARNINGSTATUS              | Define the conditions to match for the status to be WARNING (Default: '%{status} =~ /yellow/i). You can use the following variables: %{status}, %{name}, %{entity}, %{type} | %{status} =~ /yellow/i      |             |
 | CRITICALSTATUS             | Define the conditions to match for the status to be CRITICAL (Default: '%{status} =~ /red/i'). You can use the following variables: %{status}, %{name}, %{entity}, %{type}  | %{status} =~ /red/i         |             |
 | WARNINGTOTALALARMWARNING   | Warning threshold                                                                                                                                                           |                             |             |
@@ -932,7 +938,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro               | Description                                                                                                                                          | Default value     | Mandatory   |
 |:--------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER              | ESX hostname to check. If not set, we check all ESX                                                                                                  | .*                |             |
+| FILTER              | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                  | .*                |             |
 | UNKNOWNSTATUS       | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status} |                   |             |
 | WARNING             | Warning threshold                                                                                                                                    |                   |             |
 | CRITICAL            | Critical threshold                                                                                                                                   |                   |             |
@@ -949,7 +955,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro                | Description                                                                                                                                          | Default value     | Mandatory   |
 |:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERESXNAME        | ESX hostname to check. If not set, we check all ESX                                                                                                  | .*                |             |
+| FILTERESXNAME        | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                  | .*                |             |
 | FILTERDATASTORENAME  | Datastore to check. If not set, we check all datastores                                                                                              | .*                |             |
 | UNKNOWNSTATUS        | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status} |                   |             |
 | WARNINGREADLATENCY   | Warning threshold                                                                                                                                    |                   |             |
@@ -965,7 +971,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro                  | Description                                                                                                                                          | Default value               | Mandatory   |
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
-| FILTER                 | ESX hostname to check. If not set, we check all ESX                                                                                                  | .*                          |             |
+| FILTER                 | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                  | .*                          |             |
 | UNKNOWNSTATUS          | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status} | %{status} !~ /^connected$/i |             |
 | WARNINGPROBLEMS        | Thresholds                                                                                                                                           |                             |             |
 | CRITICALPROBLEMS       | Thresholds                                                                                                                                           |                             |             |
@@ -984,7 +990,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro                  | Description                                                                                                                                          | Default value     | Mandatory   |
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER                 | ESX hostname to check. If not set, we check all ESX                                                                                                  | .*                |             |
+| FILTER                 | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                  | .*                |             |
 | UNKNOWNSTATUS          | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status} |                   |             |
 | WARNING                | Warning threshold (can use unit option)                                                                                                              |                   |             |
 | CRITICAL               | Critical threshold (can use unit option)                                                                                                             |                   |             |
@@ -1001,7 +1007,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro                 | Description                                                                                                                                                                                   | Default value                                 | Mandatory   |
 |:----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-----------:|
-| FILTER                | ESX hostname to check. If not set, we check all ESX                                                                                                                                           | .*                                            |             |
+| FILTER                | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                                                           | .*                                            |             |
 | FILTERSERVICES        | Filter services you want to check (can be a regexp)                                                                                                                                           | ^(?!(snmpd\|xorg)$)                           |             |
 | UNKNOWNSTATUS         | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i && %{maintenance} =~ /false/i'). You can use the following variables: %{status}            |                                               |             |
 | CRITICALSERVICESTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%{policy} =~ /^on\|automatic/i && !%{running}'). You can use the following variables: %{running}, %{label}, %{policy} | %{policy} =~ /^on\|automatic/i && !%{running} |             |
@@ -1015,7 +1021,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro                 | Description                                                                                                                                                       | Default value                   | Mandatory   |
 |:----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------|:-----------:|
-| FILTER                | ESX hostname to check. If not set, we check all ESX                                                                                                               | .*                              |             |
+| FILTER                | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                               | .*                              |             |
 | UNKNOWNOVERALLSTATUS  | Define the conditions to match for the status to be WARNING (Default: '%{overall\_status} =~ /gray/i'). You can use the following variables: %{overall\_status}   | %{overall\_status} =~ /gray/i   |             |
 | UNKNOWNSTATUS         | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status}              |                                 |             |
 | WARNINGOVERALLSTATUS  | Define the conditions to match for the status to be WARNING (Default: '%{overall\_status} =~ /yellow/i'). You can use the following variables: %{overall\_status} | %{overall\_status} =~ /yellow/i |             |
@@ -1029,7 +1035,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro                   | Description                                                                                                                                                                                        | Default value                           | Mandatory   |
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------|:-----------:|
-| FILTER                  | ESX hostname to check. If not set, we check all ESX                                                                                                                                                | .*                                      |             |
+| FILTER                  | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                                                                | .*                                      |             |
 | FILTERADAPTERNAME       | Filter adapters by name (can be a regexp)                                                                                                                                                          |                                         |             |
 | FILTERLUNNAME           | Filter luns by name (can be a regexp)                                                                                                                                                              |                                         |             |
 | FILTERPATHNAME          | Filter paths by name (can be a regexp)                                                                                                                                                             |                                         |             |
@@ -1085,7 +1091,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro           | Description                                                                                                                                          | Default value     | Mandatory   |
 |:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER          | ESX hostname to check. If not set, we check all ESX                                                                                                  | .*                |             |
+| FILTER          | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                  | .*                |             |
 | UNKNOWNSTATUS   | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status} |                   |             |
 | WARNINGSTATUS   | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{status}                            |                   |             |
 | CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{status}                           |                   |             |
@@ -1100,7 +1106,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro          | Description                                                                                                                                          | Default value     | Mandatory   |
 |:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER         | ESX hostname to check. If not set, we check all ESX                                                                                                  | .*                |             |
+| FILTER         | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                  | .*                |             |
 | UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status} |                   |             |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{status}                            |                   |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{status}                           |                   |             |
@@ -1113,7 +1119,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro                  | Description                                                                                                                                                         | Default value     | Mandatory   |
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERESXNAME          | ESX hostname to check. If not set, we check all ESX                                                                                                                 | .*                |             |
+| FILTERESXNAME          | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                                 | .*                |             |
 | FILTERNICNAME          | ESX nic to check. If not set, we check all nics                                                                                                                     | .*                |             |
 | UNKNOWNSTATUS          | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status}                |                   |             |
 | UNKNOWNLINKSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{link\_status}, %{display}                                       |                   |             |
@@ -1140,7 +1146,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro          | Description                                                                                                                                          | Default value     | Mandatory   |
 |:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER         | ESX hostname to check. If not set, we check all ESX                                                                                                  | .*                |             |
+| FILTER         | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                  | .*                |             |
 | UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status} |                   |             |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{status}                            |                   |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{status}                           |                   |             |
@@ -1153,7 +1159,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro                  | Description                                                                                                                                          | Default value     | Mandatory   |
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER                 | ESX hostname to check. If not set, we check all ESX                                                                                                  | .*                |             |
+| FILTER                 | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                  | .*                |             |
 | UNKNOWNSTATUS          | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status} |                   |             |
 | WARNINGOFF             | Warning threshold                                                                                                                                    |                   |             |
 | CRITICALOFF            | Critical threshold                                                                                                                                   |                   |             |
@@ -1176,7 +1182,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro                     | Description                                                                                                                                              | Default value             | Mandatory   |
 |:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------|:-----------:|
-| FILTER                    | ESX hostname to check. If not set, we check all ESX                                                                                                      | .*                        |             |
+| FILTER                    | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                      | .*                        |             |
 | UNKNOWNSTATUS             | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status}     |                           |             |
 | CRITICALMAINTENANCESTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%{maintenance} !~ /false/'). You can use the following variables: %{maintenance} | %{maintenance} !~ /false/ |             |
 | WARNINGMAINTENANCESTATUS  | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{maintenance}                           |                           |             |
@@ -1189,7 +1195,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro                 | Description                                                                                                                                | Default value     | Mandatory   |
 |:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| UNIT                  | Select the unit for expires threshold. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is days | d                 | X           |
+| UNIT                  | Select the unit for performance data and thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is days | d                 | X           |
 | FILTERNAME            | Filter licenses by name (can be a regexp)                                                                                                  |                   |             |
 | FILTEREDITION         | Filter licenses by edition name (can be a regexp)                                                                                          |                   |             |
 | WARNINGEXPIRES        | Thresholds                                                                                                                                 |                   |             |
@@ -1209,7 +1215,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro            | Description                                                                                                                                                                                                                      | Default value     | Mandatory   |
 |:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER           | VM hostname to check. If not set, we check all VMs                                                                                                                                                                               | .*                |             |
+| FILTER           | Hostnames of the VMs to monitor. If not set, we check all VMs                                                                                                                                                                               | .*                |             |
 | VMUUID           |                                                                                                                                                                                                                                  |                   |             |
 | UNKNOWNSTATUS    | Define the conditions to match for the status to be UNKNOWN (Default: '%{connection\_state} !~ /^connected$/i or %{power\_state} !~ /^poweredOn$/i'). You can use the following variables: %{connection\_state}, %{power\_state} |                   |             |
 | WARNINGCPU       | Warning threshold                                                                                                                                                                                                                |                   |             |
@@ -1229,7 +1235,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro                   | Description                                                                                                                                                                                                                      | Default value     | Mandatory   |
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER                  | VM hostname to check. If not set, we check all VMs                                                                                                                                                                               | .*                |             |
+| FILTER                  | Hostnames of the VMs to monitor. If not set, we check all VMs                                                                                                                                                                               | .*                |             |
 | FILTERDATASTORENAME     | Datastore to check. If not set, we check all datastores                                                                                                                                                                          | .*                |             |
 | VMUUID                  |                                                                                                                                                                                                                                  |                   |             |
 | UNKNOWNSTATUS           | Define the conditions to match for the status to be UNKNOWN (Default: '%{connection\_state} !~ /^connected$/i or %{power\_state} !~ /^poweredOn$/i'). You can use the following variables: %{connection\_state}, %{power\_state} |                   |             |
@@ -1248,7 +1254,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro                        | Description                                                                                                                                                                | Default value     | Mandatory   |
 |:-----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER                       | VM hostname to check. If not set, we check all VMs                                                                                                                         | .*                |             |
+| FILTER                       | Hostnames of the VMs to monitor. If not set, we check all VMs                                                                                                                         | .*                |             |
 | VMUUID                       |                                                                                                                                                                            |                   |             |
 | FILTERDEVICE                 | Device to check (Required) (Example: --device='VirtualCdrom')                                                                                                              |                   | X           |
 | UNKNOWNSTATUS                | Define the conditions to match for the status to be UNKNOWN (Default: '%{connection\_state} !~ /^connected$/i'). You can use the following variables: %{connection\_state} |                   |             |
@@ -1263,7 +1269,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro                | Description                                                                                                                                                                                                                | Default value     | Mandatory   |
 |:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER               | VM hostname to check. If not set, we check all VMs                                                                                                                                                                         | .*                |             |
+| FILTER               | Hostnames of the VMs to monitor. If not set, we check all VMs                                                                                                                                                                         | .*                |             |
 | VMUUID               |                                                                                                                                                                                                                            |                   |             |
 | CRITICALCPUSTATUS    | Define the conditions to match for the status to be CRITICAL (Default: '%{connection\_state} !~ /^connected$/i \|\| %{limit} != -1'). You can use the following variables: %{connection\_state}, %{power\_state}, %{limit} | %{limit} != -1    |             |
 | WARNINGCPUSTATUS     | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{connection\_state}, %{power\_state}, %{limit}                                                            |                   |             |
@@ -1278,7 +1284,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro              | Description                                                                                                                                                                                                                      | Default value     | Mandatory   |
 |:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER             | VM hostname to check. If not set, we check all VMs                                                                                                                                                                               | .*                |             |
+| FILTER             | Hostnames of the VMs to monitor. If not set, we check all VMs                                                                                                                                                                               | .*                |             |
 | VMUUID             |                                                                                                                                                                                                                                  |                   |             |
 | UNKNOWNSTATUS      | Define the conditions to match for the status to be UNKNOWN (Default: '%{connection\_state} !~ /^connected$/i or %{power\_state} !~ /^poweredOn$/i'). You can use the following variables: %{connection\_state}, %{power\_state} |                   |             |
 | WARNING            | Warning threshold                                                                                                                                                                                                                |                   |             |
@@ -1300,7 +1306,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro        | Description                                                                                         | Default value                                         | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
-| FILTER       | VM hostname to check. If not set, we check all VMs                                                  | .*                                                    |             |
+| FILTER       | Hostnames of the VMs to monitor. If not set, we check all VMs                                                  | .*                                                    |             |
 | VMUUID       |                                                                                                     |                                                       |             |
 | WARNING      | Warning threshold for snapshot's age                                                                | 259200                                                |             |
 | CRITICAL     | Critical threshold for snapshot's age                                                               | 432000                                                |             |
@@ -1311,7 +1317,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro                 | Description                                                                                                                                                                                 | Default value                   | Mandatory   |
 |:----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------|:-----------:|
-| FILTER                | VM hostname to check. If not set, we check all VMs                                                                                                                                          | .*                              |             |
+| FILTER                | Hostnames of the VMs to monitor. If not set, we check all VMs                                                                                                                                          | .*                              |             |
 | UNKNOWNOVERALLSTATUS  | Define the conditions to match for the status to be UNKNOWN (Default: '%{overall\_status} =~ /gray/i'). You can use the following variables: %{overall\_status}                             | %{overall\_status} =~ /gray/i   |             |
 | VMUUID                |                                                                                                                                                                                             |                                 |             |
 | UNKNOWNSTATUS         | Define the conditions to match for the status to be UNKNOWN (Default: '%{connection\_state} !~ /^connected$/i'). You can use the following variables: %{connection\_state}, %{power\_state} |                                 |             |
@@ -1326,7 +1332,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro           | Description                                                                                                                                                                                                                      | Default value     | Mandatory   |
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER          | VM hostname to check. If not set, we check all VMs                                                                                                                                                                               | .*                |             |
+| FILTER          | Hostnames of the VMs to monitor. If not set, we check all VMs                                                                                                                                                                               | .*                |             |
 | VMUUID          |                                                                                                                                                                                                                                  |                   |             |
 | UNKNOWNSTATUS   | Define the conditions to match for the status to be UNKNOWN (Default: '%{connection\_state} !~ /^connected$/i or %{power\_state} !~ /^poweredOn$/i'). You can use the following variables: %{connection\_state}, %{power\_state} |                   |             |
 | WARNINGSTATUS   | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{connection\_state}, %{power\_state}                                                                            |                   |             |
@@ -1342,7 +1348,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro        | Description                                                                                         | Default value                                         | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
-| FILTER       | VM hostname to check. If not set, we check all VMs                                                  | .*                                                    |             |
+| FILTER       | Hostnames of the VMs to monitor. If not set, we check all VMs                                                  | .*                                                    |             |
 | STATUS       | Thinprovisioning status (default: none) Example: 'active,CRITICAL' or 'notactive,WARNING'           | active,WARNING                                        | X           |
 | VMUUID       |                                                                                                     |                                                       |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options) | --disconnect-status='ok' --nopoweredon-skip --verbose |             |
@@ -1352,7 +1358,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro              | Description                                                                                         | Default value                                         | Mandatory   |
 |:-------------------|:----------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
-| FILTER             | VM hostname to check. If not set, we check all VMs                                                  | .*                                                    |             |
+| FILTER             | Hostnames of the VMs to monitor. If not set, we check all VMs                                                  | .*                                                    |             |
 | NOTINSTALLEDSTATUS | Status if vmtools is not installed (default: critical)                                              | critical                                              | X           |
 | NOTRUNNINGSTATUS   | Status if vmtools is not running (default: critical)                                                | critical                                              | X           |
 | NOTUP2DATESTATUS   | Status if vmtools is not upd2date (default: warning)                                                | warning                                               |             |
@@ -1418,38 +1424,37 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
-/usr/lib/centreon/plugins/centreon_vmware_connector_client.pl \
-	--plugin=apps::vmware::connector::plugin \
-	--mode=vsan-cluster-usage \
-	--custommode=connector \
-	--connector-hostname='localhost' \
-	--connector-port='5700' \
-	--container='default'  \
-	--cluster-name='.*' \
-	--filter \
-	--warning-backend-read-usage='' \
-	--critical-backend-read-usage='' \
-	--warning-backend-write-usage='' \
-	--critical-backend-write-usage='' \
-	--warning-backend-congestions='' \
-	--critical-backend-congestions='' \
-	--warning-backend-outstanding-io='' \
-	--critical-backend-outstanding-io='' \
-	--warning-backend-throughput-read='' \
-	--critical-backend-throughput-read='' \
-	--warning-backend-throughput-write='' \
-	--critical-backend-throughput-write='' \
-	--warning-backend-latency-read='' \
-	--critical-backend-latency-read='' \
-	--warning-backend-latency-write='' \
-	--critical-backend-latency-write='' 
+/usr/lib/centreon/plugins//centreon_vmware_connector_client.pl \
+    --plugin=apps::vmware::connector::plugin \
+    --mode=snapshot-vm \
+    --custommode=connector \
+    --connector-hostname='localhost' \
+    --connector-port='5700' \
+    --container='vcenter01' \
+    --vm-hostname='.*' \
+    --filter \
+    --filter-uuid='' \
+    --warning='259200' \
+    --critical='432000' \
+    --disconnect-status='ok' \
+    --nopoweredon-skip \
+    --check-consolidation \
+    --verbose
 ```
 
-The expected command output is shown below:
+The expected output is shown below:
 
 ```bash
-OK: All clusters are ok | '*cluster*#cluster.vsan.backend.read.usage.iops'=iops;;;0;'*cluster*#cluster.vsan.backend.write.usage.iops'=iops;;;0;'*cluster*#cluster.vsan.backend.congestions.count'=;;;0;'*cluster*#cluster.vsan.backend.outstanding.io.count'=;;;0;'*cluster*#cluster.vsan.backend.throughput.read.bytespersecond'=B/s;;;0;'*cluster*#cluster.vsan.backend.throughput.write.bytespersecond'=B/s;;;0;'*cluster*#cluster.vsan.backend.latency.read.milliseconds'=ms;;;0;'*cluster*#cluster.vsan.backend.latency.write.milliseconds'=ms;;;0;
+CRITICAL: Snapshots for VM older than 432000 seconds: [TLS-LIN-001] | 'num_warning'=0;;;0; 'num_critical'=1;;;0;
+'TLS-LIN-001' snapshot create time: 2020-07-20T12:19:16.246902Z [only base os image]
 ```
+
+The command above checks the virtual machine snapshots (```--plugin=apps::vmware::connector::plugin --mode=snapshot-vm```).
+It connects to the VMWare daemon on **localhost** (```--connector-hostname='localhost'```) on the port **5700** (```--connector-port='5700'```).
+Then the command requests the container **vcenter01** (```--container='vcenter01'```).
+
+It will trigger a WARNING alert if the age of the snapshot is older than 3 days / 259200s (```--warning='259200'```),
+and a CRITICAL alert if the snapshot is older than 5 days / 432000s (```--critical='432000'```).
 
 ### Troubleshooting
 
@@ -1561,7 +1566,7 @@ All generic options are listed here:
 | --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --connector-hostname                       | Connector hostname (required).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --connector-port                           | Connector port (default: 5700).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| --container                                | Container to use (it depends of the connector configuration).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --container                                | Container to use (it depends on the connector's configuration).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --vsphere-address                          | Address of vpshere/ESX to connect.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --vsphere-username                         | Username of vpshere/ESX connection (with --vsphere-address).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --vsphere-password                         | Password of vpshere/ESX connection (with --vsphere-address).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
@@ -1739,7 +1744,7 @@ All available options for each service template are listed below:
 
 | Option             | Description                                                                                                                                                  |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --datastore-name   | datastore name to check.                                                                                                                                     |
+| --datastore-name   | The connector will only take into account alerts coming from the datastores listed here.                                                                                                                                     |
 | --filter           | Datastore name is a regexp.                                                                                                                                  |
 | --scope-datacenter | Search in following datacenter(s) (can be a regexp).                                                                                                         |
 | --unknown-status   | Define the conditions to match for the status to be UNKNOWN (Default: '%{accessible} !~ /^true\|1$/i'). You can use the following variables: %{accessible}   |
@@ -1765,11 +1770,11 @@ All available options for each service template are listed below:
 | --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
 | --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
 | --statefile-cipher     | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
-| --esx-hostname         | ESX hostname to check. If not set, we check all ESX.                                                                                                                                                                                          |
+| --esx-hostname         | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                                                                                                          |
 | --filter               | Datacenter is a regexp.                                                                                                                                                                                                                       |
 | --scope-datacenter     | Search in following datacenter(s) (can be a regexp).                                                                                                                                                                                          |
 | --scope-cluster        | Search in following cluster(s) (can be a regexp).                                                                                                                                                                                             |
-| --filter-time          | Don't check alarm older (value in seconds).                                                                                                                                                                                                   |
+| --filter-time          | The connector will ignore any alert older than the time period specified here (in seconds).                                                                                                                                                                                                   |
 | --memory               | Check new alarms only.                                                                                                                                                                                                                        |
 | --warning-status       | Define the conditions to match for the status to be WARNING (Default: '%{status} =~ /yellow/i). You can use the following variables: %{status}, %{name}, %{entity}, %{type}.                                                                  |
 | --critical-status      | Define the conditions to match for the status to be CRITICAL (Default: '%{status} =~ /red/i'). You can use the following variables: %{status}, %{name}, %{entity}, %{type}.                                                                   |
@@ -1781,7 +1786,7 @@ All available options for each service template are listed below:
 
 | Option             | Description                                                                                                                                            |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname     | ESX hostname to check. If not set, we check all ESX.                                                                                                   |
+| --esx-hostname     | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                   |
 | --filter           | ESX hostname is a regexp.                                                                                                                              |
 | --scope-datacenter | Search in following datacenter(s) (can be a regexp).                                                                                                   |
 | --scope-cluster    | Search in following cluster(s) (can be a regexp).                                                                                                      |
@@ -1796,7 +1801,7 @@ All available options for each service template are listed below:
 
 | Option             | Description                                                                                                                                            |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname     | ESX hostname to check. If not set, we check all ESX.                                                                                                   |
+| --esx-hostname     | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                   |
 | --filter           | ESX hostname is a regexp.                                                                                                                              |
 | --scope-datacenter | Search in following datacenter(s) (can be a regexp).                                                                                                   |
 | --scope-cluster    | Search in following cluster(s) (can be a regexp).                                                                                                      |
@@ -1813,7 +1818,7 @@ All available options for each service template are listed below:
 
 | Option                   | Description                                                                                                                                                   |
 |:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname           | ESX hostname to check. If not set, we check all ESX.                                                                                                          |
+| --esx-hostname           | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                          |
 | --filter                 | ESX hostname is a regexp.                                                                                                                                     |
 | --scope-datacenter       | Search in following datacenter(s) (can be a regexp).                                                                                                          |
 | --scope-cluster          | Search in following cluster(s) (can be a regexp).                                                                                                             |
@@ -1828,7 +1833,7 @@ All available options for each service template are listed below:
 
 | Option                     | Description                                                                                                                                            |
 |:---------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname             | ESX hostname to check. If not set, we check all ESX.                                                                                                   |
+| --esx-hostname             | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                   |
 | --filter                   | ESX hostname is a regexp.                                                                                                                              |
 | --scope-datacenter         | Search in following datacenter(s) (can be a regexp).                                                                                                   |
 | --scope-cluster            | Search in following cluster(s) (can be a regexp).                                                                                                      |
@@ -1839,7 +1844,7 @@ All available options for each service template are listed below:
 | --critical-status          | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{status}                             |
 | --warning-consumed-memory  | Warning threshold (can use unit option).                                                                                                               |
 | --critical-consumed-memory | Critical threshold (can use unit option).                                                                                                              |
-| --warning-overhead-memory  | Threshold overhead.                                                                                                                                    |
+| --warning-overhead-memory  | Overhead threshold.                                                                                                                                    |
 | --critical-overhead-memory | Critical threshold.                                                                                                                                    |
 | --warning-state-memory     | Warning threshold. For state != 'high': --warning-state=0                                                                                              |
 | --critical-state-memory    | Critical threshold. For state != 'high': --warning-state=0                                                                                             |
@@ -1850,7 +1855,7 @@ All available options for each service template are listed below:
 
 | Option                    | Description                                                                                                                                                                                      |
 |:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname            | ESX hostname to check. If not set, we check all ESX.                                                                                                                                             |
+| --esx-hostname            | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                                                             |
 | --filter                  | ESX hostname is a regexp.                                                                                                                                                                        |
 | --scope-datacenter        | Search in following datacenter(s) (can be a regexp).                                                                                                                                             |
 | --scope-cluster           | Search in following cluster(s) (can be a regexp).                                                                                                                                                |
@@ -1866,7 +1871,7 @@ All available options for each service template are listed below:
 
 | Option                    | Description                                                                                                                                                         |
 |:--------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname            | ESX hostname to check. If not set, we check all ESX.                                                                                                                |
+| --esx-hostname            | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                                |
 | --filter                  | ESX hostname is a regexp.                                                                                                                                           |
 | --scope-datacenter        | Search in following datacenter(s) (can be a regexp).                                                                                                                |
 | --scope-cluster           | Search in following cluster(s) (can be a regexp).                                                                                                                   |
@@ -1882,7 +1887,7 @@ All available options for each service template are listed below:
 
 | Option                    | Description                                                                                                                                                                                          |
 |:--------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname            | ESX hostname to check. If not set, we check all ESX.                                                                                                                                                 |
+| --esx-hostname            | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                                                                 |
 | --filter                  | ESX hostname is a regexp.                                                                                                                                                                            |
 | --scope-datacenter        | Search in following datacenter(s) (can be a regexp).                                                                                                                                                 |
 | --scope-cluster           | Search in following cluster(s) (can be a regexp).                                                                                                                                                    |
@@ -1905,7 +1910,7 @@ All available options for each service template are listed below:
 
 | Option             | Description                                                                                                                                            |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname     | ESX hostname to check. If not set, we check all ESX.                                                                                                   |
+| --esx-hostname     | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                   |
 | --filter           | ESX hostname is a regexp.                                                                                                                              |
 | --scope-datacenter | Search in following datacenter(s) (can be a regexp).                                                                                                   |
 | --scope-cluster    | Search in following cluster(s) (can be a regexp).                                                                                                      |
@@ -1920,7 +1925,7 @@ All available options for each service template are listed below:
 
 | Option             | Description                                                                                                                                            |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname     | ESX hostname to check. If not set, we check all ESX.                                                                                                   |
+| --esx-hostname     | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                   |
 | --filter           | ESX hostname is a regexp.                                                                                                                              |
 | --scope-datacenter | Search in following datacenter(s) (can be a regexp).                                                                                                   |
 | --scope-cluster    | Search in following cluster(s) (can be a regexp).                                                                                                      |
@@ -1935,7 +1940,7 @@ All available options for each service template are listed below:
 
 | Option                   | Description                                                                                                                                                                                                             |
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname           | ESX hostname to check. If not set, we check all ESX.                                                                                                                                                                    |
+| --esx-hostname           | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                                                                                    |
 | --filter                 | ESX hostname is a regexp.                                                                                                                                                                                               |
 | --scope-datacenter       | Search in following datacenter(s) (can be a regexp).                                                                                                                                                                    |
 | --scope-cluster          | Search in following cluster(s) (can be a regexp).                                                                                                                                                                       |
@@ -1955,7 +1960,7 @@ All available options for each service template are listed below:
 
 | Option             | Description                                                                                                                                            |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname     | ESX hostname to check. If not set, we check all ESX.                                                                                                   |
+| --esx-hostname     | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                   |
 | --filter           | ESX hostname is a regexp.                                                                                                                              |
 | --scope-datacenter | Search in following datacenter(s) (can be a regexp).                                                                                                   |
 | --scope-cluster    | Search in following cluster(s) (can be a regexp).                                                                                                      |
@@ -1970,7 +1975,7 @@ All available options for each service template are listed below:
 
 | Option             | Description                                                                                                                                            |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname     | ESX hostname to check. If not set, we check all ESX.                                                                                                   |
+| --esx-hostname     | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                   |
 | --filter           | ESX hostname is a regexp.                                                                                                                              |
 | --scope-datacenter | Search in following datacenter(s) (can be a regexp).                                                                                                   |
 | --scope-cluster    | Search in following cluster(s) (can be a regexp).                                                                                                      |
@@ -1985,7 +1990,7 @@ All available options for each service template are listed below:
 
 | Option                        | Description                                                                                                                                                 |
 |:------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --esx-hostname                | ESX hostname to check. If not set, we check all ESX.                                                                                                        |
+| --esx-hostname                | Hostnames of the ESX to monitor. If not set, we check all ESX.                                                                                                        |
 | --filter                      | ESX hostname is a regexp.                                                                                                                                   |
 | --scope-datacenter            | Search in following datacenter(s) (can be a regexp).                                                                                                        |
 | --scope-cluster               | Search in following cluster(s) (can be a regexp).                                                                                                           |
@@ -2004,7 +2009,7 @@ All available options for each service template are listed below:
 | --exclude-name           | Exclude licenses by name (can be a regexp).                                                                                                   |
 | --filter-edition         | Filter licenses by edition name (can be a regexp).                                                                                            |
 | --exclude-edition        | Exclude licenses by edition name (can be a regexp).                                                                                           |
-| --unit                   | Select the unit for expires threshold. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is days.   |
+| --unit                   | Select the unit for performance data and thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is days.   |
 | --warning-* --critical-* | Thresholds. Can be: 'total-licenses', 'usage', 'usage-free', 'usage-prct', 'expires'.                                                         |
 
 </TabItem>
@@ -2012,7 +2017,7 @@ All available options for each service template are listed below:
 
 | Option               | Description                                                                                                                                                                                                                        |
 |:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --vm-hostname        | VM hostname to check. If not set, we check all VMs.                                                                                                                                                                                |
+| --vm-hostname        | Hostnames of the VMs to monitor. If not set, we check all VMs.                                                                                                                                                                                |
 | --filter             | VM hostname is a regexp. Exemple : --vm-hostname='^((VM-PROD-*))' --filter                                                                                                                                                         |
 | --filter-description | Filter also virtual machines description (can be a regexp).                                                                                                                                                                        |
 | --filter-os          | Filter also virtual machines OS name (can be a regexp).                                                                                                                                                                            |
@@ -2030,7 +2035,7 @@ All available options for each service template are listed below:
 
 | Option                   | Description                                                                                                                                                                                                                        |
 |:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --vm-hostname            | VM hostname to check. If not set, we check all VMs.                                                                                                                                                                                |
+| --vm-hostname            | Hostnames of the VMs to monitor. If not set, we check all VMs.                                                                                                                                                                                |
 | --filter                 | VM hostname is a regexp.                                                                                                                                                                                                           |
 | --filter-description     | Filter also virtual machines description (can be a regexp).                                                                                                                                                                        |
 | --filter-os              | Filter also virtual machines OS name (can be a regexp).                                                                                                                                                                            |
@@ -2050,7 +2055,7 @@ All available options for each service template are listed below:
 
 | Option                | Description                                                                                                                                                                  |
 |:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --vm-hostname         | VM hostname to check. If not set, we check all VMs.                                                                                                                          |
+| --vm-hostname         | Hostnames of the VMs to monitor. If not set, we check all VMs.                                                                                                                          |
 | --filter              | VM hostname is a regexp.                                                                                                                                                     |
 | --filter-description  | Filter also virtual machines description (can be a regexp).                                                                                                                  |
 | --filter-os           | Filter also virtual machines OS name (can be a regexp).                                                                                                                      |
@@ -2070,7 +2075,7 @@ All available options for each service template are listed below:
 
 | Option                   | Description                                                                                                                                                                                                                   |
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --vm-hostname            | VM hostname to check. If not set, we check all VMs.                                                                                                                                                                           |
+| --vm-hostname            | Hostnames of the VMs to monitor. If not set, we check all VMs.                                                                                                                                                                           |
 | --filter                 | VM hostname is a regexp.                                                                                                                                                                                                      |
 | --filter-description     | Filter also virtual machines description (can be a regexp).                                                                                                                                                                   |
 | --filter-os              | Filter also virtual machines OS name (can be a regexp).                                                                                                                                                                       |
@@ -2088,7 +2093,7 @@ All available options for each service template are listed below:
 
 | Option                | Description                                                                                                                                                                                                                        |
 |:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --vm-hostname         | VM hostname to check. If not set, we check all VMs.                                                                                                                                                                                |
+| --vm-hostname         | Hostnames of the VMs to monitor. If not set, we check all VMs.                                                                                                                                                                                |
 | --filter              | VM hostname is a regexp.                                                                                                                                                                                                           |
 | --filter-description  | Filter also virtual machines description (can be a regexp).                                                                                                                                                                        |
 | --filter-os           | Filter also virtual machines OS name (can be a regexp).                                                                                                                                                                            |
@@ -2109,7 +2114,7 @@ All available options for each service template are listed below:
 
 | Option                | Description                                                                                                                                                   |
 |:----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --vm-hostname         | VM hostname to check. If not set, we check all VMs.                                                                                                           |
+| --vm-hostname         | Hostnames of the VMs to monitor. If not set, we check all VMs.                                                                                                           |
 | --filter              | VM hostname is a regexp.                                                                                                                                      |
 | --filter-description  | Filter also virtual machines description (can be a regexp).                                                                                                   |
 | --filter-os           | Filter also virtual machines OS name (can be a regexp).                                                                                                       |
@@ -2130,7 +2135,7 @@ All available options for each service template are listed below:
 
 | Option                    | Description                                                                                                                                                                                   |
 |:--------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --vm-hostname             | VM hostname to check. If not set, we check all VMs.                                                                                                                                           |
+| --vm-hostname             | Hostnames of the VMs to monitor. If not set, we check all VMs.                                                                                                                                           |
 | --filter                  | VM hostname is a regexp.                                                                                                                                                                      |
 | --filter-description      | Filter also virtual machines description (can be a regexp).                                                                                                                                   |
 | --filter-os               | Filter also virtual machines OS name (can be a regexp).                                                                                                                                       |
@@ -2149,7 +2154,7 @@ All available options for each service template are listed below:
 
 | Option                | Description                                                                                                                                                                                                                        |
 |:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --vm-hostname         | VM hostname to check. If not set, we check all VMs.                                                                                                                                                                                |
+| --vm-hostname         | Hostnames of the VMs to monitor. If not set, we check all VMs.                                                                                                                                                                                |
 | --filter              | VM hostname is a regexp.                                                                                                                                                                                                           |
 | --filter-description  | Filter also virtual machines description (can be a regexp).                                                                                                                                                                        |
 | --filter-os           | Filter also virtual machines OS name (can be a regexp).                                                                                                                                                                            |
@@ -2168,7 +2173,7 @@ All available options for each service template are listed below:
 
 | Option                    | Description                                                                                  |
 |:--------------------------|:---------------------------------------------------------------------------------------------|
-| --vm-hostname             | VM hostname to check. If not set, we check all VMs.                                          |
+| --vm-hostname             | Hostnames of the VMs to monitor. If not set, we check all VMs.                                          |
 | --filter                  | VM hostname is a regexp.                                                                     |
 | --filter-description      | Filter also virtual machines description (can be a regexp).                                  |
 | --filter-os               | Filter also virtual machines OS name (can be a regexp).                                      |
@@ -2185,7 +2190,7 @@ All available options for each service template are listed below:
 
 | Option                      | Description                                                   |
 |:----------------------------|:--------------------------------------------------------------|
-| --vm-hostname               | VM hostname to check. If not set, we check all VMs.           |
+| --vm-hostname               | Hostnames of the VMs to monitor. If not set, we check all VMs.           |
 | --filter                    | VM hostname is a regexp.                                      |
 | --filter-description        | Filter also virtual machines description (can be a regexp).   |
 | --filter-os                 | Filter also virtual machines OS name (can be a regexp).       |
