@@ -40,9 +40,29 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 
 1. Installez le Plugin sur chaque Centreon Poller censé découvrir les ressources Azure :
 
-```bash
-yum install centreon-plugin-Cloud-Azure-Management-Discover-Api
+<Tabs groupId="syncOS">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+``` shell
+dnf install centreon-plugin-Cloud-Azure-Management-Discover-Api
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+``` shell
+dnf install centreon-plugin-Cloud-Azure-Management-Discover-Api
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install centreon-plugin-cloud-azure-management-discover-api
+```
+
+</TabItem>
+</Tabs>
 
 2. Sur l'interface Web de Centreon, installez le Azure Discover Centreon Plugin Pack sur la page "Configuration > Plugin Packs > Manager" Vous serez invité à installer plusieurs autres Azure Plugin Packs en dépendances (ils serviront à définir les bons templates/indicateurs sur les éléments découverts).
 
@@ -52,15 +72,55 @@ yum install centreon-plugin-Cloud-Azure-Management-Discover-Api
 
 1. Installez le Plugin sur chaque Centreon Poller censé découvrir les ressources Azure :
 
-```bash
-yum install centreon-plugin-Cloud-Azure-Management-Discover-Api
+<Tabs groupId="syncOS">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+``` shell
+dnf install centreon-plugin-Cloud-Azure-Management-Discover-Api
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+``` shell
+dnf install centreon-plugin-Cloud-Azure-Management-Discover-Api
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install centreon-plugin-cloud-azure-management-discover-api
+```
+
+</TabItem>
+</Tabs>
 
 2. Installez le Centreon Plugin Pack RPM sur le serveur Centreon Central, installez tous les Centreon Plugin Packs pour Azure, afin de rendre toutes les dépendances disponibles :
 
-```bash
-yum install centreon-pack-cloud-azure\*
+<Tabs groupId="syncOS">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+``` shell
+dnf install centreon-pack-cloud-azure\*
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+``` shell
+dnf install centreon-pack-cloud-azure\*
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install centreon-pack-cloud-azure\*
+```
+
+</TabItem>
+</Tabs>
 
 3. Sur l'interface Web de Centreon, installez le Azure Discover Centreon Plugin Pack sur la page "Configuration > Plugin Packs > Manager" Vous serez invité à installer plusieurs autres Azure Plugin Packs en dépendances (ils serviront à définir les bons templates/indicateurs sur les éléments découverts).
 

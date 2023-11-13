@@ -42,9 +42,29 @@ Please find all the prerequisites needed for Centreon to get information from Az
 
 1. Install the Plugin on every Centreon Poller expected to discover Azure resources:
 
-```bash
-yum install centreon-plugin-Cloud-Azure-Management-Discover-Api
+<Tabs groupId="syncOS">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+``` shell
+dnf install centreon-plugin-Cloud-Azure-Management-Discover-Api
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+``` shell
+dnf install centreon-plugin-Cloud-Azure-Management-Discover-Api
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install centreon-plugin-cloud-azure-management-discover-api
+```
+
+</TabItem>
+</Tabs>
 
 2. On the Centreon Web interface, install the *Azure Discover* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 You'll be prompted to install several other Azure Monitoring Connectors as dependencies (they will be used to set the proper templates/indicators
@@ -55,16 +75,56 @@ on the discovered elements).
 
 1. Install the Plugin on every Centreon Poller expected to discover Azure resources:
 
-```bash
-yum install centreon-plugin-Cloud-Azure-Management-Discover-Api
+<Tabs groupId="syncOS">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+``` shell
+dnf install centreon-plugin-Cloud-Azure-Management-Discover-Api
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+``` shell
+dnf install centreon-plugin-Cloud-Azure-Management-Discover-Api
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install centreon-plugin-cloud-azure-management-discover-api
+```
+
+</TabItem>
+</Tabs>
 
 2. Install the Centreon Monitoring Connector RPM on the Centreon Central server, install all of the Centreon Monitoring Connectors for Azure, in order
 to make all the dependencies available:
 
-```bash
-yum install centreon-pack-cloud-azure\*
+<Tabs groupId="syncOS">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+``` shell
+dnf install centreon-pack-cloud-azure\*
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+``` shell
+dnf install centreon-pack-cloud-azure\*
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install centreon-pack-cloud-azure\*
+```
+
+</TabItem>
+</Tabs>
 
 3. On the Centreon Web interface, install the *Azure Discover* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
 You'll be prompted to install several other Azure Monitoring Connectors as dependencies (they will be used to set the proper templates/indicators
