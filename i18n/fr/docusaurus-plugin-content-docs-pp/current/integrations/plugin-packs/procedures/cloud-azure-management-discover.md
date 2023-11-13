@@ -20,7 +20,7 @@ afin de modéliser une infrastructure Azure dans Centreon
 
 ### Règles de découverte
 
-Le connecteur de supervision Centreon *Azure Discover* fournit deux *providers* de découverte d'Hôtes :
+Le connecteur de supervision Centreon *Azure Discover* comprend deux *fournisseurs* de découverte d'Hôtes :
 - **Microsoft Azure Management Discover** qui permet de découvrir l'ensemble des ressources Microsoft Azure rattachées à une *souscription* donnée.
 - **Azure Tenant Discovery** qui permet de découvrir l'ensemble des ressources Microsoft Azure de chaque *souscription* rattachée au locataire donné.
 
@@ -134,7 +134,7 @@ apt install centreon-pack-cloud-azure\*
 
 ### Paramètres d'accès
 
-Après avoir sélectionné le provider **Microsoft Azure Management Discover** ou **Azure Tenant Discovery**, renseignez les paramètres d'authentification ainsi que les options 
+Après avoir sélectionné le fournisseur **Microsoft Azure Management Discover** ou **Azure Tenant Discovery**, renseignez les paramètres d'authentification ainsi que les options 
 d'accès à l'API comme ci-après:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-accessparameters.png)
