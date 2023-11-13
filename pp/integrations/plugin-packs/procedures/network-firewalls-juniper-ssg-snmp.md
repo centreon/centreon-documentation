@@ -32,8 +32,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                           | Service Description                                                                          | Discovery  |
 |:---------------------|:-------------------------------------------|:---------------------------------------------------------------------------------------------|:----------:|
-| Traffic-Generic-Id   | Net-JuniperSSG-Traffic-Generic-Id-custom   | Check the bandwidth of the interface. For each checks the name of the interface will appear  |            |
-| Traffic-Generic-Name | Net-JuniperSSG-Traffic-Generic-Name-custom | Check the bandwidth of the interface. For each checks the name of the interface will appear  |            |
+| Traffic-Generic-Id   | Net-JuniperSSG-Traffic-Generic-Id-custom   | Check the bandwidth of the interface. For each check the name of the interface will appear  |            |
+| Traffic-Generic-Name | Net-JuniperSSG-Traffic-Generic-Name-custom | Check the bandwidth of the interface. For each check the name of the interface will appear  |            |
 | Traffic-Global       | Net-JuniperSSG-Traffic-Global-custom       | Check the bandwidth of  interfaces. For each checks the name of the interface will appear    |            |
 | Vpn-Status           | Net-JuniperSSG-Vpn-Status-custom           | Check VPN tunnels status                                                                     | X          |
 | Vpn-Usage            | Net-JuniperSSG-Vpn-Usage-custom            | Check VPN tunnels inbound and outbound traffic                                               |            |
@@ -51,7 +51,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name       | Description                                                                                                                                                                                                                                  |
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resource through a SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Juniper-SSG-custom** host template |
+| SNMP Agents     | Discover your resource through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Juniper-SSG-custom** host template |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
@@ -59,7 +59,7 @@ More information about discovering hosts automatically is available on the [dedi
 
 | Rule name                | Description |
 |:-------------------------|:------------|
-| Net-Juniper-SSG-Vpn-Name |             |
+| Net-Juniper-SSG-Vpn-Name | Discover VPN and monitor them with the Vpn-Status service template. |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -295,7 +295,7 @@ yum install centreon-plugin-Network-Firewalls-Juniper-Ssg-Snmp
 
 | Macro        | Description                                                                                         | Default value     | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACEID  | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces')                |                   |             |
+| INTERFACEID  | Set the interface (number expected) e.g.: 1,2,... (empty means 'check all interfaces')                |                   |             |
 | CRITICALIN   | Thresholds                                                                                          | 90                |             |
 | WARNINGIN    | Thresholds                                                                                          | 80                |             |
 | CRITICALOUT  | Thresholds                                                                                          | 90                |             |
@@ -307,7 +307,7 @@ yum install centreon-plugin-Network-Firewalls-Juniper-Ssg-Snmp
 
 | Macro         | Description                                                                                         | Default value     | Mandatory   |
 |:--------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACENAME | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces')                |                   |             |
+| INTERFACENAME | Set the interface (number expected) e.g.: 1,2,... (empty means 'check all interfaces')                |                   |             |
 | CRITICALIN    | Thresholds                                                                                          | 90                |             |
 | WARNINGIN     | Thresholds                                                                                          | 80                |             |
 | CRITICALOUT   | Thresholds                                                                                          | 90                |             |
@@ -319,7 +319,7 @@ yum install centreon-plugin-Network-Firewalls-Juniper-Ssg-Snmp
 
 | Macro          | Description                                                                                                                                                                                                         | Default value     | Mandatory   |
 |:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER         | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces')                                                                                                                                | .*                |             |
+| FILTER         | Set the interface (number expected) e.g.: 1,2,... (empty means 'check all interfaces')                                                                                                                                | .*                |             |
 | WARNINGIN      | Thresholds                                                                                                                                                                                                          | 80                |             |
 | CRITICALIN     | Thresholds                                                                                                                                                                                                          | 90                |             |
 | WARNINGOUT     | Thresholds                                                                                                                                                                                                          | 80                |             |
@@ -567,7 +567,7 @@ All available options for each service template are listed below:
 | --units-errors                                  | Units of thresholds for errors/discards (Default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                          |
 | --units-cast                                    | Units of thresholds for communication types (Default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                      |
 | --nagvis-perfdata                               | Display traffic perfdata to be compatible with nagvis widget.                                                                                                                                                                                                                              |
-| --interface                                     | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces').                                                                                                                                                                                                      |
+| --interface                                     | Set the interface (number expected) e.g.: 1,2,... (empty means 'check all interfaces').                                                                                                                                                                                                      |
 | --name                                          | Allows you to define the interface (in option --interface) byname instead of OID index. The name matching mode supports regular expressions.                                                                                                                                               |
 | --speed                                         | Set interface speed for incoming/outgoing traffic (in Mb).                                                                                                                                                                                                                                 |
 | --speed-in                                      | Set interface speed for incoming traffic (in Mb).                                                                                                                                                                                                                                          |

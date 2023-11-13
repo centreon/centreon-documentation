@@ -52,7 +52,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle | Description                                                                                                                                                                                                                                  |
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resource through a SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Juniper-SSG-custom** host template |
+| SNMP Agents     | Discover your resource through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Juniper-SSG-custom** host template |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -60,7 +60,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle          | Description |
 |:-------------------------|:------------|
-| Net-Juniper-SSG-Vpn-Name |             |
+| Net-Juniper-SSG-Vpn-Name | Découvre les VPN et les supervise avec le modèle de service Vpn-Status |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -294,7 +294,7 @@ yum install centreon-plugin-Network-Firewalls-Juniper-Ssg-Snmp
 
 | Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
 |:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACEID  | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces')                |                   |             |
+| INTERFACEID  | Set the interface (number expected) e.g.: 1,2,... (empty means 'check all interfaces')                |                   |             |
 | CRITICALIN   | Thresholds                                                                                          | 90                |             |
 | WARNINGIN    | Thresholds                                                                                          | 80                |             |
 | CRITICALOUT  | Thresholds                                                                                          | 90                |             |
@@ -334,8 +334,8 @@ yum install centreon-plugin-Network-Firewalls-Juniper-Ssg-Snmp
 | FILTERNAME         | Filter VPN name (can be a regexp)                                                                                                                                                             | .*                                                     |             |
 | CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL (Default: '%{p1state} eq "inactive" \|\| %{p2state} eq "inactive"'). You can use the following variables: %{p1state}, %{p2state} | %{p1state} eq "inactive" \|\| %{p2state} eq "inactive" |             |
 | WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{p1state}, %{p2state}                                                                      |                                                        |             |
-| WARNINGUPDATETIME  | Warning threshold for update time (in secondes)                                                                                                                                               |                                                        |             |
-| CRITICALUPDATETIME | Critical threshold for update time (in secondes)                                                                                                                                              |                                                        |             |
+| WARNINGUPDATETIME  | Warning threshold for update time (in seconds)                                                                                                                                               |                                                        |             |
+| CRITICALUPDATETIME | Critical threshold for update time (in seconds)                                                                                                                                              |                                                        |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                           | --verbose                                              |             |
 
 </TabItem>
@@ -591,8 +591,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-name          | Filter VPN name (can be a regexp).                                                                                                                                                              |
 | --warning-status       | Define the conditions to match for the status to be WARNING. You can use the following variables: %{p1state}, %{p2state}                                                                        |
 | --critical-status      | Define the conditions to match for the status to be CRITICAL (Default: '%{p1state} eq "inactive" \|\| %{p2state} eq "inactive"'). You can use the following variables: %{p1state}, %{p2state}   |
-| --warning-update-time  | Warning threshold for update time (in secondes).                                                                                                                                                |
-| --critical-update-time | Critical threshold for update time (in secondes).                                                                                                                                               |
+| --warning-update-time  | Warning threshold for update time (in seconds).                                                                                                                                                |
+| --critical-update-time | Critical threshold for update time (in seconds).                                                                                                                                               |
 
 </TabItem>
 <TabItem value="Vpn-Usage" label="Vpn-Usage">
