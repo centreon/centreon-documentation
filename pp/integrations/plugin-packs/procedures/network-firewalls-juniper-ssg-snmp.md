@@ -34,7 +34,7 @@ The connector brings the following service templates (sorted by the host templat
 |:---------------------|:-------------------------------------------|:---------------------------------------------------------------------------------------------|:----------:|
 | Traffic-Generic-Id   | Net-JuniperSSG-Traffic-Generic-Id-custom   | Check the bandwidth of the interface. For each check the name of the interface will appear  |            |
 | Traffic-Generic-Name | Net-JuniperSSG-Traffic-Generic-Name-custom | Check the bandwidth of the interface. For each check the name of the interface will appear  |            |
-| Traffic-Global       | Net-JuniperSSG-Traffic-Global-custom       | Check the bandwidth of  interfaces. For each checks the name of the interface will appear    |            |
+| Traffic-Global       | Net-JuniperSSG-Traffic-Global-custom       | Check the bandwidth of interfaces. For each check the name of the interface will appear    |            |
 | Vpn-Status           | Net-JuniperSSG-Vpn-Status-custom           | Check VPN tunnels status                                                                     | X          |
 | Vpn-Usage            | Net-JuniperSSG-Vpn-Usage-custom            | Check VPN tunnels inbound and outbound traffic                                               |            |
 
