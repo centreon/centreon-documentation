@@ -38,7 +38,7 @@ It brings the following Service Template:
 
 The target PHP FPM Web page must be reachable from the Centreon Poller on the 
 specified port in the *PHPFPMWEBPORT* Host Macro. More information in the 
-[Configuration](#Configuration) section.
+[configuration](#configuration) section.
 
 ## Setup
 
