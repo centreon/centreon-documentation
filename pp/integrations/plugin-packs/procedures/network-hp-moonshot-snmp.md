@@ -93,7 +93,7 @@ port.
 yum install centreon-plugin-Network-Hp-Moonshot-Snmp
 ```
 
-2. On the Centreon web interface, install the **HP Moonshot SNMP** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon web interface, install the **HP Moonshot SNMP** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 
@@ -111,7 +111,7 @@ yum install centreon-plugin-Network-Hp-Moonshot-Snmp
 yum install centreon-pack-network-hp-moonshot-snmp
 ```
 
-3. On the Centreon web interface, install the **HP Moonshot SNMP** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon web interface, install the **HP Moonshot SNMP** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

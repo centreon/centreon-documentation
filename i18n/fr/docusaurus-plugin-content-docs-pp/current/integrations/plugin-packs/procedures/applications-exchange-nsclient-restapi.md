@@ -51,7 +51,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
 2. On the Centreon Web interface, install the Centreon connecteur de supervision *Exchange NSClient API* 
-from the **Configuration > Monitoring Connectors Manager** page
+from the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -69,7 +69,7 @@ yum install centreon-pack-applications-exchange-nsclient-restapi
 ```
 
 3. On the Centreon Web interface, install the Centreon connecteur de supervision *Exchange NSClient API* 
-from the **Configuration > Monitoring Connectors Manager** page
+from the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

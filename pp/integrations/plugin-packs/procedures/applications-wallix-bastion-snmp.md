@@ -58,7 +58,7 @@ The Poller should be able to perform SNMP requests toward the Lenovo device over
 yum install centreon-plugin-Applications-Wallix-Bastion-Snmp
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Wallix Bastion SNMP* Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Wallix Bastion SNMP* Pack
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -75,7 +75,7 @@ yum install centreon-plugin-Applications-Wallix-Bastion-Snmp
 yum install centreon-pack-applications-wallix-bastion-snmp
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Wallix Bastion SNMP* Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Wallix Bastion SNMP* Pack
 
 </TabItem>
 </Tabs>

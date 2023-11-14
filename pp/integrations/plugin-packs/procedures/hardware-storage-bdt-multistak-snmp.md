@@ -60,7 +60,7 @@ yum install centreon-plugin-Hardware-Storage-Bdt-Multistak-Snmp
 yum install centreon-pack-hardware-storage-bdt-multistak-snmp
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *BDT MultiStak SNMP* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *BDT MultiStak SNMP* Monitoring Connector
 
 </TabItem>
 </Tabs>

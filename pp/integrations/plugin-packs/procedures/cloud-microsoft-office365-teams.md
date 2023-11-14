@@ -102,7 +102,7 @@ https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-wi
 yum install centreon-plugin-Cloud-Microsoft-Office365-Teams-Api
 ```
 
-2. On the Centreon Web interface, install the Centreon Monitoring Connector *Office365 Teams* from the **Configuration > Monitoring Connectors Manager** page
+2. On the Centreon Web interface, install the Centreon Monitoring Connector *Office365 Teams* from the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -119,7 +119,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Teams-Api
 yum install centreon-pack-cloud-microsoft-office365-teams
 ```
 
-3. On the Centreon Web interface, install the Centreon Monitoring Connector *Office365 Teams* from the **Configuration > Monitoring Connectors Manager** page
+3. On the Centreon Web interface, install the Centreon Monitoring Connector *Office365 Teams* from the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

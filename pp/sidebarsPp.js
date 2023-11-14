@@ -986,6 +986,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-docker-ssh'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-gcp-cloudsql-mysql'
         },
         {
@@ -2663,6 +2667,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-pdu-eaton-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-ups-ees-snmp'
         },
         {
           type: 'doc',

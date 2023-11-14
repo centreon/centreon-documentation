@@ -84,7 +84,7 @@ The Poller should be able to perform SNMP requests toward the Lenovo device over
 yum install centreon-plugin-Hardware-Pdu-Gude-Epc-Snmp
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Gude EPC SNMP* Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Gude EPC SNMP* Pack
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -101,7 +101,7 @@ yum install centreon-plugin-Hardware-Pdu-Gude-Epc-Snmp
 yum install centreon-pack-hardware-pdu-gude-epc-snmp
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Gude EPC SNMP* Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Gude EPC SNMP* Pack
 
 </TabItem>
 </Tabs>

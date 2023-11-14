@@ -91,7 +91,7 @@ sudo ./aws/install
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connectors Manager** menu.
+**Configuration > Monitoring Connector Manager** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -127,7 +127,7 @@ yum install centreon-pack-cloud-aws-cloudtrail
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Amazon CloudTrail** connector through
-the **Configuration > Monitoring Connectors Manager** menu.
+the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
 

@@ -115,7 +115,7 @@ The Poller should be able to perform SNMP requests toward the Infoblox device ov
 yum install centreon-plugin-Network-Infoblox-Snmp
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Infoblox SNMP* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Infoblox SNMP* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -132,7 +132,7 @@ yum install centreon-plugin-Network-Infoblox-Snmp
 yum install centreon-pack-network-infoblox-snmp
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Infoblox SNMP* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Infoblox SNMP* Monitoring Connector
 
 </TabItem>
 </Tabs>

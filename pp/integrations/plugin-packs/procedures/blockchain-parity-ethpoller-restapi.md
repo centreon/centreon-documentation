@@ -77,7 +77,7 @@ To get data from the API, the Poller must be able to communicate with it over th
 yum install centreon-plugin-Blockchain-Parity-Ethpoller-Restapi
 ```
 
-2. On the Centreon Web interface, install the *Ethpoller API* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+2. On the Centreon Web interface, install the *Ethpoller API* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -94,7 +94,7 @@ yum install centreon-plugin-Blockchain-Parity-Ethpoller-Restapi
 yum install centreon-pack-blockchain-parity-ethpoller-restapi
 ```
 
-3. On the Centreon Web interface, install the *Ethpoller API* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+3. On the Centreon Web interface, install the *Ethpoller API* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>
