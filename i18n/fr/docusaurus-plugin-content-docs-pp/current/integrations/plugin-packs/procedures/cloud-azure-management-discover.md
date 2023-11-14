@@ -20,7 +20,7 @@ afin de modéliser une infrastructure Azure dans Centreon
 
 ### Règles de découverte
 
-Le connecteur de supervision Centreon *Azure Discover* comprend deux *fournisseurs* de découverte d'Hôtes :
+Le connecteur de supervision Centreon *Azure Discover* comprend deux fournisseurs de découverte d'Hôtes :
 - **Microsoft Azure Management Discover** qui permet de découvrir l'ensemble des ressources Microsoft Azure rattachées à une souscription donnée.
 - **Azure Tenant Discovery** qui permet de découvrir l'ensemble des ressources Microsoft Azure de chaque souscription rattachée au locataire donné.
 

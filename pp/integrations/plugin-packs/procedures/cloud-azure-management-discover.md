@@ -42,7 +42,7 @@ Please find all the prerequisites needed for Centreon to get information from Az
 
 1. Install the Plugin on every Centreon Poller expected to discover Azure resources:
 
-<Tabs groupId="syncOS">
+<Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell
@@ -75,7 +75,7 @@ on the discovered elements).
 
 1. Install the Plugin on every Centreon Poller expected to discover Azure resources:
 
-<Tabs groupId="syncOS">
+<Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell
@@ -102,7 +102,7 @@ apt install centreon-plugin-cloud-azure-management-discover-api
 2. Install the Centreon Monitoring Connector RPM on the Centreon Central server, install all of the Centreon Monitoring Connectors for Azure, in order
 to make all the dependencies available:
 
-<Tabs groupId="syncOS">
+<Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell
@@ -151,7 +151,7 @@ as well as optional access parameters:
 The first time, a new credentials profile has to be created. You can do so by clicking the '+' button and set the proper Azure
 authentication parameters:
 
-<Tabs groupId="provider">
+<Tabs groupId="sync">
 <TabItem value="Microsoft Azure Management Discover" label="Microsoft Azure Management Discover">
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-credentials.png)
@@ -172,7 +172,7 @@ Click on *confirm* then *next* to go to the next step of the wizard and adjust t
 
 If necessary, adjust the following settings:
 
-<Tabs groupId="provider">
+<Tabs groupId="sync">
 <TabItem value="Microsoft Azure Management Discover" label="Microsoft Azure Management Discover">
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-discoparameters.png)
