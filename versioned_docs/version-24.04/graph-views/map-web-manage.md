@@ -2,7 +2,7 @@
 id: map-web-manage
 title: Managing maps in MAP
 ---
-TEST push
+
 This topic provides information about how to perform actions on your maps from the Centreon MAP interface. You can create two types of map:
 
 - **Standard maps:** to view graphical representations of your monitored infrastructure.
