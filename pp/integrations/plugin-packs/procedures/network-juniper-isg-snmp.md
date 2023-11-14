@@ -47,7 +47,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name       | Description                                                                                                                                                                                                                                       |
 |:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resource through a SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Juniper-Isg-SNMP-custom** host template |
+| SNMP Agents     | Discover your resources through a SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Juniper-Isg-SNMP-custom** host template |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
@@ -76,7 +76,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-Coming soon
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -235,8 +235,8 @@ yum install centreon-plugin-Network-Juniper-Isg-Snmp
 
 | Macro        | Description                                                                                         | Default value     | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold in percent (1min,5min,15min)                                                      |                   |             |
-| CRITICAL     | Critical threshold in percent (1min,5min,15min)                                                     |                   |             |
+| WARNING      | Warning threshold in percent for the average value during the last minute, the last 5 minutes and the last 15 minutes.                                                      |                   |             |
+| CRITICAL     | Critical threshold in percent for the average value during the last minute, the last 5 minutes and the last 15 minutes.                                                     |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 </TabItem>
@@ -272,7 +272,7 @@ yum install centreon-plugin-Network-Juniper-Isg-Snmp
 
 | Macro          | Description                                                                                                                                                                                                         | Default value     | Mandatory   |
 |:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER         | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces')                                                                                                                                | .*                |             |
+| FILTER         | Set the interface (number expected) e.g.: 1,2,... (empty means 'check all interfaces')                                                                                                                                | .*                |             |
 | WARNINGIN      | Thresholds                                                                                                                                                                                                          | 80                |             |
 | CRITICALIN     | Thresholds                                                                                                                                                                                                          | 90                |             |
 | WARNINGOUT     | Thresholds                                                                                                                                                                                                          | 80                |             |
@@ -419,8 +419,8 @@ All available options for each service template are listed below:
 
 | Option     | Description                                         |
 |:-----------|:----------------------------------------------------|
-| --warning  | Warning threshold in percent (1min,5min,15min).     |
-| --critical | Critical threshold in percent (1min,5min,15min).    |
+| --warning  | Warning threshold in percent for the average value during the last minute, the last 5 minutes and the last 15 minutes.     |
+| --critical | Critical threshold in percent for the average value during the last minute, the last 5 minutes and the last 15 minutes.   |
 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
