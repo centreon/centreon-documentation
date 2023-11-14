@@ -81,7 +81,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-Coming soon
+Pas de métriques pour ce service.
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
