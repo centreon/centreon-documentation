@@ -80,7 +80,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-Coming soon
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
