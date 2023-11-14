@@ -39,7 +39,7 @@ import TabItem from '@theme/TabItem';
 - [**VMware ESX**](../procedures/virtualization-vmware2-esx.md) - Fixed a bug in VMware health.
 - [**VMware vCenter**](../procedures/virtualization-vmware2-vcenter-generic.md) - Fixed the macro discovery command for datacenter discovery.
 - [**VMware vCenter**](../procedures/virtualization-vmware2-vcenter-generic.md) - Fixed a bug in VMware health.
-- [**Windows NSClient 0.5**](../procedures/operatingsystems-windows-nsclient-05-nrpe.md) - Fixed the certificate command.
+- [**Windows NSClient 0.5**](../procedures/operatingsystems-windows-nsclient-05-nrpe.md) - Fixed the certificate check command.
 - [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - Fixed the certificate check command.
 - [**Windows SNMP**](../procedures/operatingsystems-windows-snmp.md) - Fixed the bug on Windows SNMP Services monitoring returning "UNKNOWN: No service found." instead of CRITICAL.
 
