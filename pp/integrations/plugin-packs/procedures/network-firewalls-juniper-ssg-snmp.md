@@ -138,7 +138,7 @@ Coming soon
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your ressource.
+The SNMP service must be configured and activated on the host.
 Please refer to the official documentation from the constructor.
 
 ### Network flow
@@ -261,8 +261,8 @@ yum install centreon-plugin-Network-Firewalls-Juniper-Ssg-Snmp
 
 | Macro    | Description                                     | Default value     | Mandatory   |
 |:---------|:------------------------------------------------|:------------------|:-----------:|
-| CRITICAL | Critical threshold in percent (1min,5min,15min) | 90,85,80          |             |
-| WARNING  | Warning threshold in percent (1min,5min,15min)  | 80,75,70          |             |
+| CRITICAL | Critical threshold in percent for the average value during the last minute, the last 5 minutes and the last 15 minutes. | 90,85,80          |             |
+| WARNING  | Warning threshold in percent for the average value during the last minute, the last 5 minutes and the last 15 minutes.  | 80,75,70          |             |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
@@ -332,7 +332,7 @@ yum install centreon-plugin-Network-Firewalls-Juniper-Ssg-Snmp
 
 | Macro              | Description                                                                                                                                                                                   | Default value                                          | Mandatory   |
 |:-------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------|:-----------:|
-| FILTERNAME         | Filter VPN name (can be a regexp)                                                                                                                                                             | .*                                                     |             |
+| FILTERNAME         | Check only VPNs whose name match the given regular expression.                                                                                                                                                             | .*                                                     |             |
 | CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL (Default: '%{p1state} eq "inactive" \|\| %{p2state} eq "inactive"'). You can use the following variables: %{p1state}, %{p2state} | %{p1state} eq "inactive" \|\| %{p2state} eq "inactive" |             |
 | WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{p1state}, %{p2state}                                                                      |                                                        |             |
 | WARNINGUPDATETIME  | Warning threshold for update time (in secondes)                                                                                                                                               |                                                        |             |
@@ -344,7 +344,7 @@ yum install centreon-plugin-Network-Firewalls-Juniper-Ssg-Snmp
 
 | Macro              | Description                                                                                         | Default value     | Mandatory   |
 |:-------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNAME         | Filter VPN name (can be a regexp)                                                                   | .*                |             |
+| FILTERNAME         | Check only VPNs whose name match the given regular expression.                                                                   | .*                |             |
 | WARNINGTRAFFICIN   | Warning threshold                                                                                   |                   |             |
 | CRITICALTRAFFICIN  | Critical threshold                                                                                  |                   |             |
 | WARNINGTRAFFICOUT  | Warning threshold                                                                                   |                   |             |
@@ -490,8 +490,8 @@ All available options for each service template are listed below:
 
 | Option     | Description                                         |
 |:-----------|:----------------------------------------------------|
-| --warning  | Warning threshold in percent (1min,5min,15min).     |
-| --critical | Critical threshold in percent (1min,5min,15min).    |
+| --warning  | Warning threshold in percent for the average value of the last minute, the last 5 minutes and the last 15 minutes.     |
+| --critical | Critical threshold in percent for the average value of the last minute, the last 5 minutes and the last 15 minutes.    |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
@@ -587,7 +587,7 @@ All available options for each service template are listed below:
 
 | Option                 | Description                                                                                                                                                                                     |
 |:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-name          | Filter VPN name (can be a regexp).                                                                                                                                                              |
+| --filter-name          | Check only VPNs whose name match the given regular expression.                                                                                                                                                              |
 | --warning-status       | Define the conditions to match for the status to be WARNING. You can use the following variables: %{p1state}, %{p2state}                                                                        |
 | --critical-status      | Define the conditions to match for the status to be CRITICAL (Default: '%{p1state} eq "inactive" \|\| %{p2state} eq "inactive"'). You can use the following variables: %{p1state}, %{p2state}   |
 | --warning-update-time  | Warning threshold for update time (in secondes).                                                                                                                                                |
@@ -610,7 +610,7 @@ All available options for each service template are listed below:
 | --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
 | --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
 | --statefile-cipher     | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
-| --filter-name          | Filter VPN name (can be a regexp).                                                                                                                                                                                                            |
+| --filter-name          | Check only VPNs whose name match the given regular expression.                                                                                                                                                                                                            |
 | --warning-*            | Warning threshold. Can be: 'traffic-in', 'traffic-out'.                                                                                                                                                                                       |
 | --critical-*           | Critical threshold. Can be: 'traffic-in', 'traffic-out'.                                                                                                                                                                                      |
 
