@@ -3,7 +3,7 @@ id: cloud-release-notes
 title: Centreon Cloud release notes
 ---
 
-## XX October/November, 2023
+## XX November, 2023
 
 ### Centreon IT Edition
 
@@ -21,6 +21,10 @@ Associate users with resources and the statuses for which users will be notified
 * **Dashboards Beta**:
 
    With Dashboards, you can effortlessly create and share intuitive dashboards for real-time monitoring of metrics, host/service statuses, and much more. Join our [Dashboards Beta group](https://thewatch.centreon.com/groups/centreon-dashboards-beta-59) on our community platform The Watch!
+
+* **HTTPS connection between central and poller**:
+
+   Communication between the central server and the pollers is now done using HTTPS instead of going through Centreon's VPN.
 
 ### Centreon Business Edition
 
