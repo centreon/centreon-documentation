@@ -139,7 +139,7 @@ No metrics for this service.
 ### SNMP Configuration
 
 The SNMP service must be configured and activated on the host.
-Please refer to the official documentation from the constructor.
+Please refer to the official documentation from the constructor/editor.
 
 ### Network flow
 
