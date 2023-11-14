@@ -21,8 +21,8 @@ afin de modéliser une infrastructure Azure dans Centreon
 ### Règles de découverte
 
 Le connecteur de supervision Centreon *Azure Discover* comprend deux *fournisseurs* de découverte d'Hôtes :
-- **Microsoft Azure Management Discover** qui permet de découvrir l'ensemble des ressources Microsoft Azure rattachées à une *souscription* donnée.
-- **Azure Tenant Discovery** qui permet de découvrir l'ensemble des ressources Microsoft Azure de chaque *souscription* rattachée au locataire donné.
+- **Microsoft Azure Management Discover** qui permet de découvrir l'ensemble des ressources Microsoft Azure rattachées à une souscription donnée.
+- **Azure Tenant Discovery** qui permet de découvrir l'ensemble des ressources Microsoft Azure de chaque souscription rattachée au locataire donné.
 
 > Ces règles de découverte sont uniquement compatibles avec le *custom-mode* 'api'.
 
@@ -40,7 +40,7 @@ Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azu
 
 1. Installez le Plugin sur chaque Centreon Poller censé découvrir les ressources Azure :
 
-<Tabs groupId="syncOS">
+<Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell
@@ -72,7 +72,7 @@ apt install centreon-plugin-cloud-azure-management-discover-api
 
 1. Installez le Plugin sur chaque Centreon Poller censé découvrir les ressources Azure :
 
-<Tabs groupId="syncOS">
+<Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell
@@ -98,7 +98,7 @@ apt install centreon-plugin-cloud-azure-management-discover-api
 
 2. Installez le Centreon Plugin Pack RPM sur le serveur Centreon Central, installez tous les Centreon Plugin Packs pour Azure, afin de rendre toutes les dépendances disponibles :
 
-<Tabs groupId="syncOS">
+<Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell
@@ -146,7 +146,7 @@ d'accès à l'API comme ci-après:
 Dans le cadre d'une première utilisation, vous pouvez créer un nouveau profil d'accès à Azure en cliquant sur '+'. Renseignez ensuite
 les informations demandées comme ci-après:
 
-<Tabs groupId="provider">
+<Tabs groupId="sync">
 <TabItem value="Microsoft Azure Management Discover" label="Microsoft Azure Management Discover">
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-credentials.png)
@@ -167,7 +167,7 @@ Cliquez sur *confirm* puis sur *next* pour afficher la page des paramètres de l
 
 Renseignez si besoin les information ci-après:
 
-<Tabs groupId="provider">
+<Tabs groupId="sync">
 <TabItem value="Microsoft Azure Management Discover" label="Microsoft Azure Management Discover">
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-discoparameters.png)
