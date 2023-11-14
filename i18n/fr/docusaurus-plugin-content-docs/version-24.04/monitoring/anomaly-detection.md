@@ -319,13 +319,6 @@ Sending data from 2020-04-05T00:00:00 to 2020-04-06T00:00:00
 
 ## FAQ
 
-### Quels services sont offerts et quel est le SLA associé?
-
-Le service de détection d'anomalies est actuellement en phase de bêta test fermée. Le but de cette phase de test bêta
-fermée est de tester nos algorithmes de calcul de prédictions (seuils flottants). Au cours de cette phase, Centreon
-améliorera la fonctionnalité de détection d'anomalies en fonction du retour d'expérience des utilisateurs. Aucun SLA ne sera disponible
-pendant cette phase.
-
 ### Combien de temps les données sont-elles hébergées ?
 
 Les données sont conservées pendant toute la validité de la licence. Elles permettront de recalculer les modèles si
