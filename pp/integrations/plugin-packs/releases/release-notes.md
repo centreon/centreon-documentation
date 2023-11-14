@@ -8,6 +8,44 @@ import TabItem from '@theme/TabItem';
 
 ## 2023
 
+### November
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**ChapsVision CrossinG SNMP**](../procedures/network-chapsvision-crossing-snmp.md) - Initial release.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Centreon SQL Metrics**](../procedures/applications-monitoring-centreon-sql-metrics.md) - Added execution-time template and cleaned-up duplicate templates.
+- [**HTTP Server**](../procedures/applications-protocol-http.md) - Improved the troubleshooting/debug messages of HTTP Collections.
+- [**Printer standard**](../procedures/hardware-printers-standard-rfc3805-snmp.md) - The plugin now handles marker supplies of type "other".
+- [**Wazuh Rest API**](../procedures/applications-wazuh-restapi.md) - Updated the logo.
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Amazon CloudFront**](../procedures/cloud-aws-cloudfront.md) - Fixed the Cloud-Aws-CloudFront-Api-HostDiscovery host discovery command.
+- [**Azure Data Factory**](../procedures/cloud-azure-datafactory-factories.md) - Fixed the required plugin's package name.
+- [**Azure Discover**](../procedures/cloud-azure-management-discover.md) - Added the missing **Azure Tenant Discovery** host discovery provider.
+- [**Cisco Wap**](../procedures/network-cisco-wap-snmp.md) - Fixed the Net-Cisco-Wap-SNMP-Clients command.
+- [**HP Ilo XMLAPI**](../procedures/hardware-servers-hp-ilo-xmlapi.md) - Fixed the plugin that returned a CRITICAL state instead of a WARNING state.
+- [**Hitachi HCP SNMP**](../procedures/hardware-storage-hitachi-hcp-snmp.md) - Fixed the service discovery macro commands.
+- [**Juniper ISG**](../procedures/network-juniper-isg-snmp.md) - The Hardware mode returned an UNKNOWN state for fans in failed state.
+- [**Juniper SSG**](../procedures/network-firewalls-juniper-ssg-snmp.md) - The Hardware mode returned an UNKNOWN state for fans in failed state.
+- [**Netbackup SSH**](../procedures/applications-netbackup-ssh.md) - Fixed the App-Netbackup-SSH-Drive-Cleaning command.
+- [**SmarterMail Server**](../procedures/applications-smartermail-api.md) - Fixed the App-Smartermail-Api-Spools command.
+- [**VMware ESX**](../procedures/virtualization-vmware2-esx.md) - Fixed a bug in VMware health.
+- [**VMware vCenter**](../procedures/virtualization-vmware2-vcenter-generic.md) - Fixed the macro discovery command for datacenters discovery.
+- [**VMware vCenter**](../procedures/virtualization-vmware2-vcenter-generic.md) - Fixed a bug in VMware health.
+- [**Windows NSClient 0.5**](../procedures/operatingsystems-windows-nsclient-05-nrpe.md) - Fixed the certificate command.
+- [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - Fixed the certificate check command.
+- [**Windows SNMP**](../procedures/operatingsystems-windows-snmp.md) - Fixed the bug on Windows SNMP Services monitoring returning "UNKNOWN: No service found." instead of CRITICAL.
+
+</TabItem>
+</Tabs>
+
 ### October
 
 <Tabs groupId="sync">
