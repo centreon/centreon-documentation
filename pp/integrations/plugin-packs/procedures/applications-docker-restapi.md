@@ -80,7 +80,7 @@ ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
 yum install centreon-plugin-Applications-Docker-Restapi
 ```
 
-2. Install the "Docker-Restapi" Centreon Monitoring Connector from the **Configuration > Monitoring Connectors Manager** page
+2. Install the "Docker-Restapi" Centreon Monitoring Connector from the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -97,7 +97,7 @@ yum install centreon-plugin-Applications-Docker-Restapi
 yum install centreon-pack-applications-docker-restapi
 ```
 
-3. Install the "Docker-Restapi" Centreon Monitoring Connector from the **Configuration > Monitoring Connectors Manager** page
+3. Install the "Docker-Restapi" Centreon Monitoring Connector from the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

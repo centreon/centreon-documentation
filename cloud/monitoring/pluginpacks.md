@@ -27,13 +27,13 @@ fine-tuned later on). If you want to use a pack, you must install it on the cent
 ### Checking the monitoring procedure
 
 Some Monitoring Connectors require extra configuration steps. Read the monitoring procedure for each installed pack
-to understand the contents of the pack and to find out about any prerequisites. Go to page **Configuration > Monitoring Connectors Manager** and click the ``i`` icon of each pack to access its documentation:
+to understand the contents of the pack and to find out about any prerequisites. Go to page **Configuration > Monitoring Connector Manager** and click the ``i`` icon of each pack to access its documentation:
 
 ![image](../assets/configuration/pluginpacks/doc.png)
 
 ### Installing the pack
 
-You can access the Monitoring Connectors catalog on the **Configuration > Monitoring Connectors Manager** page:
+You can access the Monitoring Connectors catalog on the **Configuration > Monitoring Connector Manager** page:
 
 ![image](../assets/configuration/pluginpacks/pp_list.png)
 

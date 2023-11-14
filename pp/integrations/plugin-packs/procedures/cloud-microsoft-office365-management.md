@@ -114,7 +114,18 @@ Refer to the specific API reference for more details about each permission.
 
 #### Add permissions to Microsoft Graph
 
-You also need to specify permissions for **Microsoft Graph** for both *Application* and *Delegated* type of permission. You will have to set **ServiceHealth.Read.All**.
+You also need to specify permissions for **Microsoft Graph** for both the *Application* and *Delegated* types of permissions. You will have to set the following privileges:
+
+```
+  "roles": [
+    "ServiceMessage.Read.All",
+    "ServiceHealth.Read.All",
+    "Reports.Read.All",
+    "Directory.Read.All",
+    "User.Read.All",
+    "Application.Read.All"
+  ],
+```
 
 #### Request access tokens from Azure AD
 
@@ -136,7 +147,7 @@ https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-wi
 yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 ```
 
-2. On the Centreon Web interface, install the Pack on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon Web interface, install the Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 
@@ -154,7 +165,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 yum install centreon-pack-cloud-microsoft-office365-management 
 ```
 
-3. On the Centreon Web interface, install the Pack on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

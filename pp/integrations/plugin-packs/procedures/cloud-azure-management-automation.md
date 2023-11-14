@@ -66,7 +66,7 @@ Please find all the prerequisites needed for Centreon to get information from Az
 yum install centreon-plugin-Cloud-Azure-Management-Automation-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure Automation* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+2. On the Centreon Web interface, install the *Azure Automation* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -83,7 +83,7 @@ yum install centreon-plugin-Cloud-Azure-Management-Automation-Api
 yum install centreon-pack-cloud-azure-management-automation.noarch
 ```
 
-3. On the Centreon Web interface, install the *Azure Automation* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+3. On the Centreon Web interface, install the *Azure Automation* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

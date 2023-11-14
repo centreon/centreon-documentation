@@ -65,7 +65,7 @@ To use this Monitoring Connector, you must enable the Microsoft IIS Administrati
 yum install centreon-plugin-Applications-Webservers-Iis-Restapi
 ```
 
-2. On the Centreon Web interface, install the 'Microsoft IIS Server Restapi' Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+2. On the Centreon Web interface, install the 'Microsoft IIS Server Restapi' Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -82,7 +82,7 @@ yum install centreon-plugin-Applications-Webservers-Iis-Restapi
 yum install centreon-pack-applications-webservers-iis-restapi.noarch
 ```
 
-3. On the Centreon Web interface, install the 'Microsoft IIS Server Restapi' Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+3. On the Centreon Web interface, install the 'Microsoft IIS Server Restapi' Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

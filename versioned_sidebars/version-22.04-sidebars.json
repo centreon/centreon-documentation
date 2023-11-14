@@ -93,6 +93,10 @@
             },
             {
               "type": "doc",
+              "id": "version-22.04/installation/installation-of-a-central-server/unattended-install-central"
+            },
+            {
+              "type": "doc",
               "id": "version-22.04/installation/installation-of-a-central-server/using-virtual-machines"
             },
             {
@@ -112,6 +116,10 @@
             {
               "type": "doc",
               "id": "version-22.04/installation/installation-of-a-poller/using-packages"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/installation/installation-of-a-poller/unattended-install-poller"
             }
           ]
         },
@@ -122,6 +130,10 @@
             {
               "type": "doc",
               "id": "version-22.04/installation/installation-of-a-remote-server/using-packages"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/installation/installation-of-a-remote-server/unattended-install-remote"
             }
           ]
         },
@@ -657,6 +669,10 @@
                 {
                   "type": "doc",
                   "id": "version-22.04/graph-views/map-web-troubleshooting"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "version-22.04/api/map-api"
                   }
               ]
             }
@@ -720,6 +736,10 @@
             {
               "type": "doc",
               "id": "version-22.04/graph-views/troubleshooter"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/api/graph-views-api"
             }
           ]
         }
@@ -908,6 +928,10 @@
         {
           "type": "doc",
           "id": "version-22.04/administration/postfix"
+        },
+        {
+          "type": "doc",
+          "id": "version-22.04/administration/sql-proxy"
         }
       ]
     },
@@ -1309,6 +1333,10 @@
             {
               "type": "doc",
               "id": "version-22.04/api/rest-api-v2"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/api/map-api"
             },
             {
               "type": "doc",

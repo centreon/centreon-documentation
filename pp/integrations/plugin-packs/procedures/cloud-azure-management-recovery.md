@@ -79,7 +79,7 @@ Please find all the prerequisites needed for Centreon to get information from Az
 yum install centreon-plugin-Cloud-Azure-Management-Recovery-Api
 ```
 
-2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Azure Recovery** Centreon Monitoring Connector.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Azure Recovery** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -96,7 +96,7 @@ yum install centreon-plugin-Cloud-Azure-Management-Recovery-Api
 yum install centreon-pack-cloud-azure-management-recovery
 ```
 
-3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Azure Recovery** Centreon Monitoring Connector.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Azure Recovery** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

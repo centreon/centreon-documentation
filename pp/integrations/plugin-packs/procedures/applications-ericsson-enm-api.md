@@ -67,7 +67,7 @@ The pack supports only the authentication by username/password.
 yum install centreon-plugin-Applications-Ericsson-Enm-Api
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Ericsson ENM API* Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Ericsson ENM API* Pack
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -84,7 +84,7 @@ yum install centreon-plugin-Applications-Ericsson-Enm-Api
 yum install centreon-pack-applications-ericsson-enm-api
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Ericsson ENM API* Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Ericsson ENM API* Pack
 
 </TabItem>
 </Tabs>

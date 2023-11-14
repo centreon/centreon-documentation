@@ -66,7 +66,7 @@ apt install centreon-plugin-cloud-azure-management-discover-api
 </TabItem>
 </Tabs>
 
-2. On the Centreon Web interface, install the *Azure Discover* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+2. On the Centreon Web interface, install the *Azure Discover* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 You'll be prompted to install several other Azure Monitoring Connectors as dependencies (they will be used to set the proper templates/indicators
 on the discovered elements).
 
@@ -126,7 +126,7 @@ apt install centreon-pack-cloud-azure\*
 </TabItem>
 </Tabs>
 
-3. On the Centreon Web interface, install the *Azure Discover* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+3. On the Centreon Web interface, install the *Azure Discover* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 You'll be prompted to install several other Azure Monitoring Connectors as dependencies (they will be used to set the proper templates/indicators
 on the discovered elements).
 
