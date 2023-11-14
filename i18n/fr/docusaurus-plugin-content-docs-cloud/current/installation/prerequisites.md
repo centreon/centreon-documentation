@@ -5,7 +5,7 @@ title: Prérequis
 
 ## OS
 
-Le collecteur doit être installé sur un serveur Alma Linux 8 dédié, fraîchement installé.
+Le collecteur doit être installé sur un serveur dédié et fraîchement installé, sous Alma Linux/RHEL/Oracle Linux 8 ou 9, ou Debian 11.
 
 ## Hardware
 
