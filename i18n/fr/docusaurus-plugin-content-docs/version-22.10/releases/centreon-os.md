@@ -18,6 +18,31 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 22.10.15
+
+Release date: `Novermber 17, 2023`
+
+### 22.10.15
+
+Release date: `Novermber 17, 2023`
+
+#### Enhancements
+
+- [API] Added service search in hostGroups / serviceGroups endpoints.
+
+#### Bug fixes
+
+- [UX] Fixed incorrect day displayed in calendar component.	
+- [UI] Renamed "massive change" to "mass change" in the "more actions" selection box.
+- [Recurrent Downtimes] Fixed downtime when it contains a service group and this service group is linked to a service template.
+- [Ressources Status] Fixed list of resources when using h.alias filter.
+- [Packaging] Updated centreontrapd mode on debian central.
+
+#### Security fixes
+
+- [Security] Fixed SQLi in getHostServicesName method.
+- Fixed potential Fiexed XSS vulnerability in listing of discovered hosts.
+
 ### 22.10.14
 
 Release date: `October 4, 2023`
