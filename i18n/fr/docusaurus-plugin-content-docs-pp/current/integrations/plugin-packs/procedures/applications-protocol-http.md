@@ -208,7 +208,7 @@ yum install centreon-plugin-Applications-Protocol-Http
 
 | Macro           | Description                                                                                                                         | Valeur par défaut | Obligatoire |
 |:----------------|:------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| EXPECTEDCONTENT | --expected-string='toto' is a shortcut for --critical-content='%{content} !~ /toto/mi' Recommend to use directly --critical-content |                   |             |
+| EXPECTEDCONTENT | --expected-string='mypattern' is a shortcut for --critical-content='%{content} !~ /mypattern/mi'. It is recommended to use directly --critical-content |                   |             |
 | URLPATH         | Set path to get web page (Default: '/')                                                                                              | /                 |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                 |                   |             |
 
