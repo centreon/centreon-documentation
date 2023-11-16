@@ -22,7 +22,7 @@ Release date: `November 17, 2023`
 
 #### Security fix
 
-- [Security] Fixed SQLi in getHostServicesName method
+- [Security] Fixed SQLi in getHostServicesName method.
 
 ### 21.10.16
 
