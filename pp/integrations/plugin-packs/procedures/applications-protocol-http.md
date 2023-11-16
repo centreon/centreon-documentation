@@ -277,7 +277,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 /usr/lib/centreon/plugins/centreon_protocol_http.pl \
 	--plugin=apps::protocols::http::plugin \
 	--mode=response \
-	--hostname=10.0.0.1 \
+	--hostname=google.com \
 	--proto='http' \
 	--port='80' \
 	--urlpath='/' \
