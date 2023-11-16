@@ -16,6 +16,14 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 21.10.17
+
+Release date: `November 17, 2023`
+
+#### Security fix
+
+- [Security] Fixed SQLi in getHostServicesName method
+
 ### 21.10.16
 
 Release date: `September 26, 2023`
