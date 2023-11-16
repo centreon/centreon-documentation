@@ -357,6 +357,17 @@ Release date: `October 26, 2022`
 
 ## Centreon Collect
 
+### 22.10.6
+
+Release date: `November 17, 2023`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- Fixed a stability issue that could make Broker crash when BAM was enabled and the database was too slow.
+- Events propagation in BAM has been improved and should be faster.
+
 ### 22.10.5
 
 Release date: `September 26, 2023`
