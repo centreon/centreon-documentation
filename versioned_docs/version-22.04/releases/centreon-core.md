@@ -17,6 +17,19 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 22.04.17
+
+Release date: `November 17, 2023`
+
+#### Bug fixes
+
+- [Ressources Status] Fixed list of resources when using h.alias filter.	
+- [Install] Fixed SQL permissions for centreon database user to work with MBI product.
+
+#### Security fix
+
+- [Security] Fixed SQLi in getHostServicesName method.
+
 ### 22.04.16
 
 Release date: `September 25, 2023`
