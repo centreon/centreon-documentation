@@ -12,7 +12,7 @@ Le stream connector Splunk Metrics vous permet d'envoyer des données depuis Cen
 Si vous ne voulez récupérer que des métriques, utilisez le stream connector Splunk Metrics. Si vous voulez récupérer toutes les données des évènements, utilisez le stream connector Splunk Events.
 
 - Dans la plupart des cas, vous enverrez les données depuis le serveur central. Il est également possible de les envoyer depuis un serveur distant ou un collecteur (par exemple si vous voulez éviter que le serveur central ne représente un point de défaillance unique, ou bien si vous êtes un MSP et vous installez le stream connector sur un collecteur ou un serveur distant dans l'infratructure de votre client).
-- Par défaut, le strea connector Splunk Metrics envoie des métriques des évènements Broker [**host_status**](../../developer/developer-broker-mapping.md#host-status) et [**service_status**](../../developer/developer-broker-mapping.md#service-status). Ces métriques sont contenues dans le champ **perf_data** des évènements. Le format des évènements est décrit **[ici](#event-format)**.
+- Par défaut, le stream connector Splunk Metrics envoie des métriques des évènements Broker [**host_status**](../../developer/developer-broker-mapping.md#host-status) et [**service_status**](../../developer/developer-broker-mapping.md#service-status). Ces métriques sont contenues dans le champ **perf_data** des évènements. Le format des évènements est décrit **[ici](#event-format)**.
 - Ces évènements sont envoyés à chaque contrôle sur l'hôte ou le service. Des paramètres dédiés vous permettent de [ne pas envoyer certains évènements](#filtering-or-adapting-the-data-you-want-to-send-to-splunk).
 
 ## Installation
@@ -97,11 +97,11 @@ Le sourcetype correspondant au stream connector est "_json". D'autres informatio
 
 ### Filtrer ou adapter les données que vous voulez envoyer à Splunk
 
-Tous les stream connectors ont un jeu de [paramètres optionnels](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters) qui vous permettent de filtrer les données que vous enverrez à votre équipement Splunk, de reformatter les données, de définir un proxy...
+Tous les stream connectors ont un jeu de [paramètres optionnels](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters) qui vous permettent de filtrer les données que vous enverrez à votre équipement Splunk, de reformater les données, de définir un proxy...
 
 Chaque paramètre optionnel a une valeur par défaut, qui est indiquée dans la documentation correspondante.
 
-* Pour surcharger la valeur par défaut d'un paramètre, cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category**, afin d'ajouter un paramètre personnalisé. Par exemple, si vous ne voulez envoyer à Splunk que les évènmenes traités par un collecteur nommé "poller-1", entrez :
+* Pour surcharger la valeur par défaut d'un paramètre, cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category**, afin d'ajouter un paramètre personnalisé. Par exemple, si vous ne voulez envoyer à Splunk que les évènements traités par un collecteur nommé "poller-1", entrez :
 
    ```text
    type = string
