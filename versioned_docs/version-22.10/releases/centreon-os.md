@@ -38,7 +38,7 @@ Release date: `Novermber 17, 2023`
 #### Security fix
 
 - [Security] Fixed SQLi in getHostServicesName method.
-- Fixed potential Fiexed XSS vulnerability in listing of discovered hosts.
+- Fixed potential vulnerability in listing of discovered hosts.
   
 ### 22.10.14
 
