@@ -23,6 +23,48 @@ Read more about version 23.04 in our [blog post](https://www.centreon.com/centre
 
 ## Centreon Web
 
+### 23.04.10
+
+Release date: `November 17, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added the possibility to search for a service in hostGroups/serviceGroups endpoints.
+- [Configuration] Added the support of BBDO 3.0.1 for Centreon Broker configuration.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed an issue with Broker output types when creating an output using CLAPI.
+- [API] Fixed a security issue concerning some API responses.
+- [Authentication] Fixed authentication conditions that did not work with multiple values (SAML/OpenID Connect).
+- [Authentication] The "Reach Centreon Front-end" option is now automatically enabled for imported users authenticated through SSO.
+- [Authentication] Fixed an issue with the retrieval of attributes used to identify users.
+- [Authentication] Removed incorrect log message.
+- [Core] Fixed access to pages when Symfony debug mode was enabled.
+- [Event Logs] Fixed pagination.
+- [Install] Fixed SQL permissions to allow the "centreon" database user to use MBI.
+- [Install] Fixed an SQL issue occurring during the update process.
+- [Monitoring] Fixed a display issue on Firefox that occurred when the Information column in the Resources Status page contained a single quote.
+- [Packaging] Fixed an issue where centreontrapd was configured for a poller rather than for a central on Debian.
+- [Recurrent Downtimes] Fixed an issue that occurred when a downtime period contained a service group and this service group was linked to a service template.
+- [Ressources Status] Fixed an issue that occurred when using an h.alias filter on the list of resources.
+- [Resources Status] Fixed an issue where the "monitoring server" filter did not display all pollers authorized by the user's ACLs.
+- [UX] Fixed an issue where top menus in the banner were not closed after clicking on a link.
+
+</details>
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed SQLi in a method.
+- Fixed potential XSS vulnerability in the list of discovered hosts.
+
+</details>
+
 ### 23.04.9
 
 Release date: `October 05, 2023`
@@ -265,6 +307,20 @@ Release date: `April 26, 2023`
 </details>
 
 ## Centreon Collect
+
+### 23.04.5
+
+Release date: `November 17, 2023`
+
+#### Centreon Broker
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a stability issue that could make Broker crash when BAM was enabled and the database was too slow.
+- Event propagation in BAM has been improved and should be faster.
+
+</details>
 
 ### 23.04.4
 
