@@ -24,20 +24,20 @@ Release date: `November 17, 2023`
 
 #### Enhancements
 
-- [API] Added service search in hostGroups / serviceGroups endpoints.
+- [API] Added the possibility to search for a service in hostGroups/serviceGroups endpoints.
 
 #### Bug fixes
 
-- [UX] Fixed incorrect day displayed in calendar component.	
-- [UI] Renamed "massive change" to "mass change" in the "more actions" selection box.
-- [Recurrent Downtimes] Fixed downtime when it contains a service group and this service group is linked to a service template.
-- [Ressources Status] Fixed list of resources when using h.alias filter.
-- [Packaging] Updated centreontrapd mode on debian central.
+- [UX] Fixed an issue where an incorrect day was displayed in the calendar component.	
+- [UI] Renamed "massive change" to "mass change" in the "More actions" selection box.
+- [Recurrent Downtimes] Fixed an issue that occurred when a downtime period contained a service group and this service group was linked to a service template.
+- [Ressources Status] Fixed an issue that occurred when using an h.alias filter on the list of resources.
+- [Packaging] Fixed an issue where centreontrapd was configured for a poller rather than for a central on Debian.
 
 #### Security fixes
 
-- [Security] Fixed SQLi in getHostServicesName method.
-- Fixed potential vulnerability in listing of discovered hosts.
+- [Security] Fixed SQLi in a method.
+- Fixed potential vulnerability in the list of discovered hosts.
 
 ### 22.10.14
 
