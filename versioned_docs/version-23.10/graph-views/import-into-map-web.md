@@ -39,7 +39,7 @@ systemctl start centreon-map
   ```shell
   mkdir -p /usr/share/centreon/www/img/media/
   chown -R centreon-map:centreon-map /usr/share/centreon/
-  chmod -R 664 /usr/share/centreon/*
+  chmod -R 775 /usr/share/centreon/*
   ```
 
 2. To import your legacy maps into MAP, go to the **Monitoring > Map** page, then click the **Migrate** button. The following window appears:
@@ -52,10 +52,10 @@ systemctl start centreon-map
 
 4. When the migration has succeeded, you can close the window.
 
-5. If you have created a dedicated directory as indicated previously, you need now to copy it to **/usr/share/centreon/www/img/media/** on the central server:
-
-```shell
-  copie cmd
+5. If you have created a dedicated directory as indicated previously, you need now to copy it to **/usr/share/centreon/www/img/media/** on the central server. Assuming you have access rights to the servers involved, enter the following command:
+  
+  ```shell
+  rsync -avz /usr/share/centreon/www/img/media root@<IP_CENTREON_CENTRAL>:/usr/share/centreon/www/img/media
   ```
 
 Your legacy maps are now displayed on the **Map** page. 
