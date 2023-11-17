@@ -51,7 +51,7 @@ systemctl start centreon-map
 5. If you have created a dedicated directory as indicated previously, you need now to copy it to **/usr/share/centreon/www/img/media/** on the central server. Assuming you have access rights to the servers involved, enter the following command:
   
   ```shell
-  rsync -avz /usr/share/centreon/www/img/media root@<IP_CENTREON_CENTRAL>:/usr/share/centreon/www/img/media
+  scp -r /usr/share/centreon/www/img/media/* root@<IP_CENTREON_CENTRAL>:/usr/share/centreon/www/img/media/
   ```
 
 Your legacy maps are now displayed on the **Map** page. 
