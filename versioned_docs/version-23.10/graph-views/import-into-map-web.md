@@ -43,12 +43,8 @@ systemctl start centreon-map
   ```
 
 2. To import your legacy maps into MAP, go to the **Monitoring > Map** page, then click the **Migrate** button. The following window appears:
-
-  ![image](../assets/graph-views/ng/map-migrate-1.png)
-
+  
 3. Click **Migrate**.
- 
-  ![image](../assets/graph-views/ng/map-migrate-2.png)
 
 4. When the migration has succeeded, you can close the window.
 
