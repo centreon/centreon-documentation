@@ -22,12 +22,12 @@ Release date: `November 17, 2023`
 
 #### Bug fixes
 
-- [Ressources Status] Fixed list of resources when using h.alias filter.	
-- [Install] Fixed SQL permissions for centreon database user to work with MBI product.
+- [Ressources Status] Fixed an issue that occurred when using an h.alias filter on the list of resources.
+- [Install] Fixed SQL permissions to allow the "centreon" database user to use MBI.
 
 #### Security fix
 
-- [Security] Fixed SQLi in getHostServicesName method.
+- [Security] Fixed SQLi in a method.
 
 ### 22.04.16
 
