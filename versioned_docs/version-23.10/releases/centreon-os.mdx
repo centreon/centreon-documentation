@@ -30,12 +30,12 @@ Release date: `November 17, 2023`
 <details open>
   <summary>Enhancements</summary>
 
-- [API] Added new endpoint to list all metrics of a given service.
+- [API] Added new endpoint to list all metrics for a given service.
 - [Graph] Thickened curves.
-- [Widgets] simplified resource selection.
+- [Widgets] Simplified the selection of resources.
 - [UI] Updated dashboard global refresh icon.
-- [UX] Made the widget edition more accessible.
-- [UX] Displayed warning message when dashboard modifications have not been saved yet.
+- [UX] Made the widget edition command more accessible.
+- [UX] A warning message is now displayed when dashboard modifications have not been saved yet.
 - Added metrics by service listing endpoint to service resource type.
 
 </details>
@@ -43,23 +43,23 @@ Release date: `November 17, 2023`
 <details>
   <summary>Bug fixes</summary>
 
-- [API] Fixed issue when using special characters in metric name.
-- [API] Fixed an issue with password clearly displayed in Host & Service API response.
-- [Authentication] Fixed match with attribute used to identify users.
-- [Authentication] Enabled GUI access option for imported users authenticated through SSO.
-- [Core] Fixed access to pages when Symfony debug mode is enabled.
+- [API] Fixed issue occurring when using special characters in metric names.
+- [API] Fixed a security issue concerning some API responses.
+- [Authentication] Fixed an issue with the retrieval of attributes used to identify users.
+- [Authentication] The "Reach Centreon Front-end" option is now automatically enabled for imported users authenticated through SSO.
+- [Core] Fixed access to pages when Symfony debug mode was enabled.
 - [Event Logs] Fixed pagination.
-- [Packaging] Updated centreontrapd mode on debian central.
-- [Widget] Fixed issue when loading widget.
-- Fixed crash in partitioning script when database server does not support partitioning.
-- Fixed widgets get cloned when creating a new dashboard while editing a dashboard.
+- [Packaging] Fixed an issue where centreontrapd was configured for a poller rather than for a central on Debian.
+- [Widget] Fixed an issue that prevented a widget from loading correctly.
+- Fixed crash caused by partitioning script when database server did not support partitioning.
+- Fixed an issue where widgets were cloned in a new dashboard that was created while another dashboard was being edited at the same time.
 
 </details>
 
 <details open>
   <summary>Security fixes</summary>
 
-- Fixed potential XSS vulnerability in listing of discovered hosts.
+- Fixed potential XSS vulnerability in the list of discovered hosts.
 
 </details>
 
