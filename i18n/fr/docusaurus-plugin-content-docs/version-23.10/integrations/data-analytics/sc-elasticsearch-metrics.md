@@ -197,7 +197,7 @@ elastic-metrics.log |
 | number | log_level | niveau de verbosité, de 1 à 3, (1 = notice et errors, 2 =
 warning, notice et errors, 3 = warning, notice, errors, info, debug). Il est fortement recommandé de ne pas définir une valeur supérieure à 2. | 1 |
 | number | log_curl_commands | Affiche toutes les commandes curl utilisées par le stream connector dans le fichier de log (0 = ne rien afficher, 1 = logguer les commandes) | 0 |
-| number | send_data_test | Simule le fonctionnement du stream connector de bout en bout, mais envoie les données au fichier de log plutôt qu'à elasticsearch (0 = envoyer à elasticsearch, 1 = envoyer au fichier de log) | 0 |
+| number | send_data_test | Simule le fonctionnement du stream connector de bout en bout, mais envoie les données au fichier de log plutôt qu'à Elasticsearch (0 = envoyer à Elasticsearch, 1 = envoyer au fichier de log) | 0 |
 
 ## Commandes Curl : tester le stream connector
 

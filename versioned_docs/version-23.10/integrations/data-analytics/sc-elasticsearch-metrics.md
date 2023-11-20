@@ -62,7 +62,7 @@ You may need to configure your Elasticsearch server so that it can receive data 
 | Path            | /usr/share/centreon-broker/lua/elastic-metrics-apiv2.lua |
 | Filter category | Neb                                                     |
 
-5. To enable Centreon to connect to your Elasticsearch equipment, fill in the following mandatory parameters. The fields for the first entry are already present. Click on the **+Add a new entry** link located below the **Filter category** table to add another one.
+5. To enable Centreon to connect to your Elasticsearch server, fill in the following mandatory parameters. The fields for the first entry are already present. Click on the **+Add a new entry** link located below the **Filter category** table to add another one.
 
 | Type   | Name            | Description                       | Example                                           |
 | ------ | --------------- | --------------------------------------- | ------------------------------------------------------- |
@@ -202,7 +202,7 @@ elastic-metrics.log |
 | number | log_level | verbosity level, ranging from 1 to 3, (1 = notice and errors, 2 =
 warning, notice and errors, 3 = warning, notice, errors, info, debug). It is strongly recommended not to set a value beyond 2 | 1 |
 | number | log_curl_commands | displays all curl commands used by the stream connector in the log file (0 = display nothing, 1 = log the commands) | 0 |
-| number | send_data_test | simulates the end-to-end operation of the stream connector but sends the data to the log file instead of elasticsearch (0 = send to elasticsearch, 1 = send to the log file) | 0 |
+| number | send_data_test | simulates the end-to-end operation of the stream connector but sends the data to the log file instead of Elasticsearch (0 = send to Elasticsearch, 1 = send to the log file) | 0 |
 
 ## Curl commands: testing the stream connector
 
