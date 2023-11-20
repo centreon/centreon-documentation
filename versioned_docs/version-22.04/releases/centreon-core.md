@@ -502,7 +502,7 @@ By:
 
 ### 22.04.5
 
-Release date: `November 17, 2023`
+Release date: `November 20, 2023`
 
 #### Centreon Broker
 
