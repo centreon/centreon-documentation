@@ -1,8 +1,9 @@
-.github/**/*.yml    @centreon/owners-pipelines
-
-*.po                @centreon/owners-doc
-*.md                @centreon/owners-doc
-*.mdx               @centreon/owners-doc
+.github/**          @centreon/owners-pipelines
 
 *.js                @centreon/owners-react
 *.jsx               @centreon/owners-react
+
+*.pl                @centreon/owners-perl
+*.pm                @centreon/owners-perl
+
+*.sh                @centreon/owners-bash
