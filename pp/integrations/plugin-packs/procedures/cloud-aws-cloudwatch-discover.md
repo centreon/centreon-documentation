@@ -103,7 +103,7 @@ sudo ./aws/install
 yum install centreon-plugin-Cloud-Aws-Cloudwatch-Api
 ```
 
-2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **AWS Discover** Centreon Monitoring Connector.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **AWS Discover** Centreon Monitoring Connector.
  You'll be prompted to install several other AWS Monitoring Connectors as dependencies (they will be used to set the proper templates/indicators
 on the discovered elements).
 
@@ -123,7 +123,7 @@ to make all the dependencies available:
 yum install centreon-pack-cloud-aws\*
 ```
 
-3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **AWS Discover** Centreon Monitoring Connector.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **AWS Discover** Centreon Monitoring Connector.
 You'll be prompted to install several other AWS Monitoring Connectors as dependencies (they will be used to set the proper templates/indicators
 on the discovered elements).
 

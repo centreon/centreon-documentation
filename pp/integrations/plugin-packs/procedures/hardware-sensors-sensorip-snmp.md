@@ -78,7 +78,7 @@ SNMP port.
 yum install centreon-plugin-Hardware-Sensors-Sensorip-Snmp
 ```
 
-2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Sensor IP** Centreon Monitoring Connector.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Sensor IP** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -95,7 +95,7 @@ yum install centreon-plugin-Hardware-Sensors-Sensorip-Snmp
 yum install centreon-pack-hardware-sensors-sensorip-snmp
 ```
 
-3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Sensor IP** Centreon Monitoring Connector.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Sensor IP** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

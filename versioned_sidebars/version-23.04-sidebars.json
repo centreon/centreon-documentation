@@ -120,6 +120,10 @@
             },
             {
               "type": "doc",
+              "id": "version-23.04/installation/installation-of-a-central-server/unattended-install-central"
+            },
+            {
+              "type": "doc",
               "id": "version-23.04/installation/installation-of-a-central-server/using-virtual-machines"
             },
             {
@@ -139,6 +143,10 @@
             {
               "type": "doc",
               "id": "version-23.04/installation/installation-of-a-poller/using-packages"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.04/installation/installation-of-a-poller/unattended-install-poller"
             }
           ]
         },
@@ -149,6 +157,10 @@
             {
               "type": "doc",
               "id": "version-23.04/installation/installation-of-a-remote-server/using-packages"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.04/installation/installation-of-a-remote-server/unattended-install-remote"
             }
           ]
         },
@@ -492,10 +504,6 @@
         },
         {
           "type": "doc",
-          "id": "version-23.04/monitoring/basic-objects/customization"
-        },
-        {
-          "type": "doc",
           "id": "version-23.04/monitoring/basic-objects/contacts-create"
         },
         {
@@ -509,6 +517,10 @@
         {
           "type": "doc",
           "id": "version-23.04/administration/access-control-lists"
+        },
+        {
+          "type": "doc",
+          "id": "version-23.04/monitoring/basic-objects/customization"
         }
       ]
     },
@@ -656,6 +668,10 @@
                 {
                   "type": "doc",
                   "id": "version-23.04/graph-views/map-web-troubleshooting"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "version-23.04/api/map-api"
                   }
               ]
             }
@@ -720,6 +736,10 @@
             {
               "type": "doc",
               "id": "version-23.04/graph-views/troubleshooter"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.04/api/graph-views-api"
             }
           ]
         }
@@ -876,9 +896,23 @@
           "id": "version-23.04/administration/database-partitioning"
         },
         {
+        "type": "category",
+        "label": "Disaster recovery",
+        "link": {
           "type": "doc",
-          "id": "version-23.04/administration/backup"
+          "id": "administration/disaster-recovery"
         },
+        "items": [
+          {
+           "type": "doc",
+           "id": "version-23.04/administration/backup"
+          },
+          {
+            "type": "doc",
+            "id": "version-23.04/administration/backup-poller"
+           }
+          ]
+      },
         {
           "type": "doc",
           "id": "version-23.04/administration/knowledge-base"
@@ -894,6 +928,10 @@
         {
           "type": "doc",
           "id": "version-23.04/administration/postfix"
+        },
+        {
+          "type": "doc",
+          "id": "version-23.04/administration/sql-proxy"
         }
       ]
     },
@@ -1258,6 +1296,10 @@
             {
               "type": "doc",
               "id": "version-23.04/api/rest-api-v2"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.04/api/map-api"
             },
             {
               "type": "doc",

@@ -120,7 +120,7 @@ E.g: https://www.dell.com/support/manuals/fr-fr/powervault-me4024/me4_series_cli
 yum install centreon-plugin-Hardware-Storage-Dell-Me4-Restapi
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Dell Me4 Rest API* Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Dell Me4 Rest API* Pack
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -137,7 +137,7 @@ yum install centreon-plugin-Hardware-Storage-Dell-Me4-Restapi
 yum install centreon-pack-hardware-storage-dell-me4-restapi
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Dell Me4 Rest API* Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Dell Me4 Rest API* Pack
 
 </TabItem>
 </Tabs>

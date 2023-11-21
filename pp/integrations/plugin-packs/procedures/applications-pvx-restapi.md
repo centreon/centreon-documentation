@@ -135,7 +135,7 @@ In this example the API key is "secret:e40b1cc6-f629-43a4-8be6-14a9c9f036e0".
 yum install centreon-plugin-Applications-Pvx-Restapi
 ```
 
-2. On the Centreon Web interface, install the **PVX** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon Web interface, install the **PVX** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -152,7 +152,7 @@ yum install centreon-plugin-Applications-Pvx-Restapi
 yum install centreon-pack-applications-pvx-restapi
 ```
 
-3. On the Centreon Web interface, install the **PVX** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the **PVX** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

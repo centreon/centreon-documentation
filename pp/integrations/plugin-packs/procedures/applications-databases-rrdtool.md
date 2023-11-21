@@ -46,7 +46,7 @@ The plugin support query with:
 yum install centreon-plugin-Applications-Databases-Rrdtool
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *RRDtool* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *RRDtool* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -63,7 +63,7 @@ yum install centreon-plugin-Applications-Databases-Rrdtool
 yum install centreon-pack-applications-databases-rrdtool
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *RRDtool* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *RRDtool* Monitoring Connector
 
 </TabItem>
 </Tabs>

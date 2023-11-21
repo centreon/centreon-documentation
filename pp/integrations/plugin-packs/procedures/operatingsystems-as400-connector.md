@@ -171,7 +171,7 @@ A connector can act as a relay between several Hosts and several AS400 systems.
 yum install centreon-plugin-Operatingsystems-AS400-Connector
 ```
 
-2. On the Centreon Web interface, install the *IBM AS400 Connector* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page:
+2. On the Centreon Web interface, install the *IBM AS400 Connector* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page:
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -188,7 +188,7 @@ yum install centreon-plugin-Operatingsystems-AS400-Connector
 yum install centreon-pack-operatingsystems-as400-connector
 ```
 
-3. On the Centreon Web interface, install the *IBM AS400 Connector* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the *IBM AS400 Connector* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

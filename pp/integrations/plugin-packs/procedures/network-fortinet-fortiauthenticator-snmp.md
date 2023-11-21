@@ -106,7 +106,7 @@ yum install centreon-plugin-Network-Fortinet-Fortiauthenticator-Snmp
 ```
 
 2. On the Centreon Web interface, install the *Fortinet Fortiauthenticator SNMP* Monitoring Connector
-through **Configuration > Monitoring Connectors Manager** page.
+through **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -124,7 +124,7 @@ yum install centreon-pack-network-fortinet-fortiauthenticator-snmp
 ```
 
 3. On the Centreon Web interface, install the *Fortinet Fortiauthenticator SNMP* Monitoring Connector
-through **Configuration > Monitoring Connectors Manager** page.
+through **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

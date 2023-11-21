@@ -8,6 +8,81 @@ import TabItem from '@theme/TabItem';
 
 ## 2023
 
+### November
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**ChapsVision CrossinG SNMP**](../procedures/network-chapsvision-crossing-snmp.md) - Initial release.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Centreon SQL Metrics**](../procedures/applications-monitoring-centreon-sql-metrics.md) - Added execution-time template and cleaned up duplicate templates.
+- [**HTTP Server**](../procedures/applications-protocol-http.md) - Improved the troubleshooting/debug messages of HTTP Collections.
+- [**Printer standard**](../procedures/hardware-printers-standard-rfc3805-snmp.md) - The plugin now handles marker supplies of type "other".
+- [**Wazuh Rest API**](../procedures/applications-wazuh-restapi.md) - Updated the logo.
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Amazon CloudFront**](../procedures/cloud-aws-cloudfront.md) - Fixed the Cloud-Aws-CloudFront-Api-HostDiscovery host discovery command.
+- [**Azure Data Factory**](../procedures/cloud-azure-datafactory-factories.md) - Fixed the required plugin's package name.
+- [**Azure Discover**](../procedures/cloud-azure-management-discover.md) - Added the missing **Azure Tenant Discovery** host discovery provider.
+- [**Cisco Wap**](../procedures/network-cisco-wap-snmp.md) - Fixed the Net-Cisco-Wap-SNMP-Clients command.
+- [**HP Ilo XMLAPI**](../procedures/hardware-servers-hp-ilo-xmlapi.md) - Fixed the plugin that returned a CRITICAL state instead of a WARNING state.
+- [**Hitachi HCP SNMP**](../procedures/hardware-storage-hitachi-hcp-snmp.md) - Fixed the service discovery macro commands.
+- [**Juniper ISG**](../procedures/network-juniper-isg-snmp.md) - The Hardware mode no longer returns an UNKNOWN state for fans in a failed state.
+- [**Juniper SSG**](../procedures/network-firewalls-juniper-ssg-snmp.md) - The Hardware mode no longer returns an UNKNOWN state for fans in a failed state.
+- [**Netbackup SSH**](../procedures/applications-netbackup-ssh.md) - Fixed the App-Netbackup-SSH-Drive-Cleaning command.
+- [**SmarterMail Server**](../procedures/applications-smartermail-api.md) - Fixed the App-Smartermail-Api-Spools command.
+- [**VMware ESX**](../procedures/virtualization-vmware2-esx.md) - Fixed a bug in VMware health.
+- [**VMware vCenter**](../procedures/virtualization-vmware2-vcenter-generic.md) - Fixed the macro discovery command for datacenter discovery.
+- [**VMware vCenter**](../procedures/virtualization-vmware2-vcenter-generic.md) - Fixed a bug in VMware health.
+- [**Windows NSClient 0.5**](../procedures/operatingsystems-windows-nsclient-05-nrpe.md) - Fixed the certificate check command.
+- [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - Fixed the certificate check command.
+- [**Windows SNMP**](../procedures/operatingsystems-windows-snmp.md) - Fixed the bug on Windows SNMP Services monitoring returning "UNKNOWN: No service found." instead of CRITICAL.
+
+</TabItem>
+</Tabs>
+
+### October
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Docker SSH**](../procedures/applications-docker-ssh.md) - Initial release.
+- [**EES UPS SNMP**](../procedures/hardware-ups-ees-snmp.md) - Initial release.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Amazon EC2**](../procedures/cloud-aws-ec2.md) - New host check commands to monitor EC2 instances and auto-scaling groups.
+- [**Amazon RDS**](../procedures/cloud-aws-rds.md) - New host check command to monitor all RDS host templates.
+- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Option --printf-value of mode sql-string supports a new format for variable names (e.g. `--printf-value="%{value_field}"`).
+- [**MongoDB**](../procedures/applications-databases-mongodb.md) - Added the ability to collect shards statistics in Collection-Statistics and Database-Statistics.
+- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - Option --printf-value of mode sql-string supports a new format for variable names (e.g. `--printf-value="%{value_field}"`).
+- [**Oracle Database**](../procedures/applications-databases-oracle.md) - Option --printf-value of mode sql-string supports a new format for variable names (e.g. `--printf-value="%{value_field}"`).
+- [**Speedtest**](../procedures/applications-monitoring-speedtest.md) - Added the unit to jitter service.
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - Added `--database` option to the SQL statement command.
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**AWS Discover**](../procedures/cloud-aws-cloudwatch-discover.md) - Added the missing is\_password attribute to the host discovery provider.
+- [**Amazon FSx**](../procedures/cloud-aws-fsx.md) - Linked the freespace template to the right check command.
+- [**ArubaOS-CX SNMP**](../procedures/network-aruba-aoscx-snmp.md) - Fixed the hardware mode: "ready" states now give OK status.
+- [**Azure Functions**](../procedures/cloud-azure-compute-functions.md) - Linked Executions template to the right check command.
+- [**cAdvisor API**](../procedures/cloud-cadvisor-api.md) - Fixed a **Use of uninitialized value** error on Container-Usage mode.
+- [**Fortinet Fortigate Rest API**](../procedures/network-fortinet-fortigate-restapi.md) - Fixed a **Not an ARRAY reference**  error on System mode.
+
+</TabItem>
+</Tabs>
+
 ### September
 
 <Tabs groupId="sync">
@@ -131,15 +206,15 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Enhancements" label="Enhancements">
 
 - [**Aruba CPPM SNMP**](../procedures/network-aruba-cppm-snmp.md) - added swap monitoring.
-- [**Azure SQL Database**](../procedures/cloud-azure-database-sqldatabase.md) - added Cpu and Memory monitoring.
-- [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - added thresholds for Devices monitoring.
-- [**Cisco Standard**](../procedures/network-cisco-standard-snmp.md) - added Interfaces monitoring.
+- [**Azure SQL Database**](../procedures/cloud-azure-database-sqldatabase.md) - added CPU and Memory monitoring.
+- [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - added thresholds for devices monitoring.
+- [**Cisco Standard**](../procedures/network-cisco-standard-snmp.md) - added interfaces monitoring.
 - [**Cisco WLC**](../procedures/network-cisco-wlc-snmp.md) - added a host discovery rule.
-- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - refreshed dependencies to make host discovery work in any case others.
-- [**IP Fabric API**](../procedures/applications-ipfabric-api.md) - update path verification service.
+- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - added dependencies to avoid errors when using host discovery.
+- [**IP Fabric API**](../procedures/applications-ipfabric-api.md) - updated path verification service.
 - [**OneAccess SNMP**](../procedures/network-oneaccess-snmp.md) - added options to Cells-Radio monitoring.
-- [**Palo Alto firewall SNMP**](../procedures/network-firewalls-paloalto-standard-snmp.md) - added Interfaces monitoring.
-- [**Rubrik Rest API**](../procedures/applications-rubrik-restapi.md) - added jobs monitoring.
+- [**Palo Alto firewall SNMP**](../procedures/network-firewalls-paloalto-standard-snmp.md) - added interfaces monitoring.
+- [**Rubrik Rest API**](../procedures/applications-rubrik-restapi.md) - added job monitoring.
 
 </TabItem>
 <TabItem value="Fix" label="Fix">
@@ -211,7 +286,7 @@ import TabItem from '@theme/TabItem';
 
 ### April
 
-> In the Monitoring Connectors Manager, you may notice that all connectors have been updated. If they are not listed in the table below, they haven’t been modified: they have been republished in order to take into account the last version of their plugin.
+> In the Monitoring Connector Manager, you may notice that all connectors have been updated. If they are not listed in the table below, they haven’t been modified: they have been republished in order to take into account the last version of their plugin.
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
