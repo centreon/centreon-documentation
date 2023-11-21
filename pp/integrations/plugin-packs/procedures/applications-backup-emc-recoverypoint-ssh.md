@@ -15,6 +15,9 @@ Install this plugin on each needed poller:
 yum install centreon-plugin-Applications-Backup-Emc-Recoverypoint-Ssh
 ```
 
+tata
+toto
+
 Be sure to have with you the following information:
 
   - IP Address of the monitored server
