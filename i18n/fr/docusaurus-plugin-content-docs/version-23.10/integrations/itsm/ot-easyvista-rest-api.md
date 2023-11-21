@@ -9,7 +9,7 @@ Le fournisseur EasyVista open-tickets utilise l'API Rest d'EasyVista pour ouvrir
 
 ## Installer le fournisseur EasyVistaRest
 
-1. Téléchargez le dossier **EasyVistaRest** dans **/usr/share/centreon/www/modules/centreon-open-tickets/providers** sur votre serveur central.
+1. [Téléchargez](https://share.centreon.com/s/qypnoTgYfxHejaS) le dossier **EasyVistaRest** dans **/usr/share/centreon/www/modules/centreon-open-tickets/providers** sur votre serveur central.
 
 2. Modifiez le fichier **/usr/share/centreon/www/modules/centreon-open-tickets/providers/register.php** en ajoutant une ligne pour EasyVistaRest en fin de liste, comme suit:
 

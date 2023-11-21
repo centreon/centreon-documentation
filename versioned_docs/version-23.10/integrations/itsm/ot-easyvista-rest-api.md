@@ -10,7 +10,7 @@ about your monitoring alerts.
 
 ## Installing the EasyVistaRest provider
 
-1. Download the **EasyVistaRest** folder into **/usr/share/centreon/www/modules/centreon-open-tickets/providers** on the central server.
+1. [Download](https://share.centreon.com/s/qypnoTgYfxHejaS) the **EasyVistaRest** folder into **/usr/share/centreon/www/modules/centreon-open-tickets/providers** on the central server.
 
 2. Edit the **/usr/share/centreon/www/modules/centreon-open-tickets/providers/register.php** file by adding a line for EasyVistaRest at the end of the list, as follows:
 
