@@ -3,7 +3,7 @@ id: ot-easyvista
 title: EasyVista SOAP API
 ---
 
-> **SOAP** Service Manager web services are no longer maintained, so we recommend that you use the **Rest API** version to benefit from the latest enhancements and features.
+> **SOAP** Service Manager web services are no longer maintained, so we recommend that you use the [**Rest API** version](./ot-easyvista-rest-api.md) to benefit from the latest enhancements and features.
 
 ## How it works
 
