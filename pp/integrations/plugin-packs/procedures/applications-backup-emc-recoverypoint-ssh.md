@@ -7,6 +7,8 @@ title: EMC RecoveryPoint
 
 This chapter describes the prerequisites installation needed by plugins to run.
 
+
+toto tatat
 ### Centreon Plugin
 
 Install this plugin on each needed poller:
