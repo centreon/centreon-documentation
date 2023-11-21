@@ -3,10 +3,6 @@ id: ot-easyvista-rest-api
 title: EasyVista API Rest
 ---
 
-## Comment ça marche
-
-Le fournisseur EasyVista open-tickets utilise l'API Rest d'EasyVista pour ouvrir des tickets d'incident sur vos alertes de supervision.
-
 ## Installer le fournisseur EasyVistaRest
 
 1. [Téléchargez](https://share.centreon.com/s/qypnoTgYfxHejaS) le dossier **EasyVistaRest** dans **/usr/share/centreon/www/modules/centreon-open-tickets/providers** sur votre serveur central.

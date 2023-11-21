@@ -3,11 +3,6 @@ id: ot-easyvista-rest-api
 title: EasyVista RestAPI
 ---
 
-## How it works
-
-The EasyVista Open Tickets provider uses the EasyVista Rest API to open incidents
-about your monitoring alerts.
-
 ## Installing the EasyVistaRest provider
 
 1. [Download](https://share.centreon.com/s/qypnoTgYfxHejaS) the **EasyVistaRest** folder into **/usr/share/centreon/www/modules/centreon-open-tickets/providers** on the central server.
