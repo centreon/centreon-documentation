@@ -54,7 +54,7 @@ You can add custom fields for EasyVista RestAPI using EasyVista's specific synta
 
 #### Define the type of argument
 
-Now you need to define the type of the argument you previously set. As you have added custom fields, the argument should be **custom** type.
+Now you need to define the type of the argument you previously set. As you have added custom fields, the argument should have the **custom** type.
 
 1. In the **Common** section, click **+Add a new entry** in the **Lists** parameter.
 2. Enter **e_city** in the **Id** field and select **Custom** in the **Type** field.
