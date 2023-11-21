@@ -93,7 +93,7 @@ You can enter the name of the host or host group to which the stream connector b
 
 ## Testing the connector
 
-To help you analyze problems, this stream connector can perform three types of call to the EasyVista API Rest, with curl commands.
+To help you analyze problems, use the following curl commands to test the stream connector.
 
 > Note that you must adapt the following commands with your own values. For instance, ``<easy_vista_address>`` should be replaced with the address of your EasyVista server.
 
