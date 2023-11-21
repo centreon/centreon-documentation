@@ -5,7 +5,7 @@ title: EasyVista RestAPI
 
 ## How it works
 
-EasyVista open-tickets provider uses the EasyVista Rest API to open incidents
+The EasyVista Open Tickets provider uses the EasyVista Rest API to open incidents
 about your monitoring alerts.
 
 ## Installing the EasyVistaRest provider
