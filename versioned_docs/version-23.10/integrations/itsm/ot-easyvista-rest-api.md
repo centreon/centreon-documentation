@@ -91,7 +91,7 @@ Follow this procedure if you need to import assets from EasyVista:
 
 You can enter the name of the host or host group to which the stream connector belongs as a Configuration Item. If the ticket is open on several hosts at the same time, only common host groups will be listed.
 
-## Testing with calls to the EasyVista Rest API
+## Testing the connector
 
 To help you analyze problems, this stream connector can perform three types of call to the EasyVista API Rest, with curl commands.
 
