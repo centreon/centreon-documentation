@@ -3,59 +3,76 @@ id: ot-easyvista-rest-api
 title: EasyVista RestAPI
 ---
 
+EasyVista Open Tickets provider uses the EasyVista Rest API to open incidents about your monitoring alerts.
+
+## Requirements
+
+- Before going any further, make sure that you correctly setup [Centreon Open Tickets](https://docs.centreon.com/docs/alerts-notifications/ticketing-install/) into your Centreon instance.
+
+- Then you need to [configure Open Tickets](../../alerts-notifications/ticketing.md#hosts--services) in order for resources (hosts and services) to receive a ticket number.
+
 ## Installing the EasyVistaRest provider
 
-1. [Download](https://share.centreon.com/s/qypnoTgYfxHejaS) the **EasyVistaRest** folder into **/usr/share/centreon/www/modules/centreon-open-tickets/providers** on the central server.
+1. [Download](https://share.centreon.com/s/qypnoTgYfxHejaS) the **EasyVistaRest** folder into **/usr/share/centreon/www/modules/centreon-open-tickets/providers** on the central server, or a remote server.
 
 2. Edit the **/usr/share/centreon/www/modules/centreon-open-tickets/providers/register.php** file by adding a line for EasyVistaRest at the end, as follows:
 
-```shell
-$register_providers['RequestTracker2'] = 12;
-$register_providers['Itop'] = 13;
-$register_providers['EasyVistaRest'] = 14;
-```
+  ```shell
+  $register_providers['RequestTracker2'] = 12;
+  $register_providers['Itop'] = 13;
+  $register_providers['EasyVistaRest'] = 14;
+  ```
+  
+## Configuring your EasyVista server
 
-## Configuring the connector
+You may need to configure your EasyVista server so that it can receive data from Centreon. Please refer to EasyVista's documentation. Make sure EasyVista is able to receive data sent by Centreon: flows must not be blocked by EasyVista's configuration or by a security equipment.
 
-1. Go to **Configuration > Notification > Rules** to configure Centreon Open Tickets. This opens the **Rules** form.
+## Configuring the connector in Centreon
+
+1. In Centreon, go to **Configuration > Notification > Rules** to configure Centreon Open Tickets. This opens the **Rules** form.
 
 2. Click **Add** and enter a new **Rule name** for EasyVistaRest.
 
-3. Select **EasyvistaRest** in the **Provider** list.
+3. Select **EasyVistaRest** in the **Provider** list.
 
 ### Set mandatory parameters
 
-You must enter the following parameters:
+You must enter the following parameters in the **Easyvista Rest Api** section:
 
 - **Address**: IP address of the EasyVista server you want to open tickets on.
-- User account to access the API.
-- Select the authentication method: API token (Bearer token) or standard authentication (user and password). 
-  > The use of an API token (Bearer token) is recommended but you still can set a standard authentication. If you selected **API token**, refer to the [EasyVista documentation](https://wiki.easyvista.com/xwiki/bin/view/Documentation/Integration/WebService%20REST/?language=en#HProcedures).
-- **User token** parameter: enter **0** if you selected **Standard authentication**.
+- **API path**
+- **Account**: user account to access the API.
+- **Bearer token or account password**: the use of an API token (Bearer token) is recommended but you still can set a standard authentication. If you set a **Bearer token**, refer to the [EasyVista documentation](https://wiki.easyvista.com/xwiki/bin/view/Documentation/Integration/WebService%20REST/?language=en#HProcedures).
+- **Use token**: enter **0** if you set a standard authentication.
 
 ### Add EasyVista custom fields
 
-You can add custom fields on ticket opening forms using EasyVista's specific syntax.
+> You must refer to the custom fields you have created in EasyVista.
 
-> The name of a custom field must begin with ``e_``. In this example, we will add the **e_city** field name.
+Your custom fields will appear in the pop up that will allow you to open a ticket. You must use EasyVista's specific syntax: the name of a custom field must begin with ``e_``. 
 
-#### Define the ticket parameters
+In this procedure, we will add the **e_city** field.
 
-1. In the **Rules** form, click **+Add a new entry**.
+#### Add the field
+
+1. In the **Easyvista Rest Api** section, click **+Add a new entry**.
 2. In the **Argument** list, select **Custom Field**.
 3. Fill in the **Value** following this format: ``{$select.e_city.value}`` (with **e_city** in this example).
-  > The element **e_city** must be identical to the EasyVista field name, [see this step](#define-the-type-of-argument).
+  > The element **e_city** must be identical to the EasyVista field name.
   
-  > The element **.value** can be replaced with **.placeholder**, [see this step](#define-possible-values).
+  > The element **.value** can be replaced with **.placeholder**.
 4. Add as many entries as you need.
 
-#### Define the parameter type of the ticket
+#### Define the type of the field
 
 Now you need to define the type of the argument you previously set. As you have added custom fields, the argument should have the **custom** type.
 
 1. In the **Common** section, click **+Add a new entry** in the **Lists** parameter.
-2. Following our example, enter **e_city** in the **Id** field and select **Custom** in the **Type** field.
-  > Ensure the **Id** is identical to what you entered in the custom field: **e_city** in this case.
+2. Following our example, enter:
+   - **e_city** in the **Id** field,
+   - **Best cities** in the **Label** field,
+   - **Custom** in the **Type** field.
+  > Ensure the **Id** is identical to what you entered in the custom field above: **e_city** in this case.
 
 #### Define possible values
 
@@ -84,18 +101,16 @@ Follow this procedure if you need to import assets from EasyVista:
    - **Type:** Asset
    - **Filter:** search=field:value
 
-## Configuration Item management
-
-You can enter the name of the host or host group to which the stream connector belongs as a Configuration Item. If the ticket is open on several hosts at the same time, only common host groups will be listed.
-
 ## Testing the connector
 
 To help you analyze problems, use the following curl commands to test the stream connector.
 
-> Note that you must adapt the following commands with your own values. For instance, ``<easy_vista_address>`` should be replaced with the address of your EasyVista server.
+Note that you must adapt the following commands with your own values. For instance, ``<easy_vista_address>`` should be replaced with the address of your EasyVista server.
 
 The commands below assume that you are using the Bearer token authentication method.
 If you use the standard authentication method (user and password), you need to replace ``-H 'Authorization: Bearer`` with ``-u ':'``.
+
+> The commands below are given as examples.
 
 ### Test the opening of a ticket
 
@@ -105,7 +120,7 @@ application/json' -H 'Authorization: Bearer <token>' -d '{"requests":
 [{"catalog_guid:"1234","catalog_code":"1234"}]}'
 ```
 
-> The list of possible fields in the form is not exhaustive, see the [EasyVista documentation](https://wiki.easyvista.com/xwiki/bin/view/Documentation/Integration/WebService%20REST/REST%20API%20-%20Create%20an%20incident-request/).
+> This is an example. See the [EasyVista documentation](https://wiki.easyvista.com/xwiki/bin/view/Documentation/Integration/WebService%20REST/REST%20API%20-%20Create%20an%20incident-request/).
 
 
 ### Test the closing of a ticket
