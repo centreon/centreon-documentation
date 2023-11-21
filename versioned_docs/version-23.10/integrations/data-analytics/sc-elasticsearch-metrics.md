@@ -215,10 +215,10 @@ sg_1,sg_2 |
 
 Examples of Lua patterns for the **accepted_hosts** option:
 
-* All host names starting with "OPT":
+* All host names starting with "CENTREON":
 
 ```shell
-^OPT.*
+^CENTREON.*
 ```
 
 * All host names that do not end with a number:
@@ -239,11 +239,11 @@ Examples of Lua patterns for the **accepted_hosts** option:
 %l+
 ```
 
-* All host names that do not end with a number, or that start with "OPT" (if the **accepted_hosts_enable_split_pattern** option is enabled, you can combine several filters):
+* All host names that do not end with a number, or that start with "CENTREON" (if the **accepted_hosts_enable_split_pattern** option is enabled, you can combine several filters):
 
 
 ```shell
-^OPT.*,.*[^0-9]$
+^CENTREON.*,.*[^0-9]$
 ```
 
 ## Event format

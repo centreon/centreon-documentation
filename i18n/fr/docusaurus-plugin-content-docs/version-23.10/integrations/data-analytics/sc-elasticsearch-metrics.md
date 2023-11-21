@@ -209,10 +209,10 @@ Chaque paramètre optionnel a une valeur par défaut, qui est indiquée dans la 
 
 Exemples de patterns Lua pour l'option **accepted_hosts** :
 
-* Tous les hôtes dont le nom commence par "OPT" :
+* Tous les hôtes dont le nom commence par "CENTREON" :
 
 ```shell
-^OPT.*
+^CENTREON.*
 ```
 
 * Tous les hôtes dont le nom ne finit pas par un chiffre :
@@ -233,11 +233,11 @@ Exemples de patterns Lua pour l'option **accepted_hosts** :
 %l+
 ```
 
-* Tous les hôtes dont le nom ne finit pas par un chiffre, ou dont le nom commence par "OPT" (si l'option **accepted_hosts_enable_split_pattern** est activée, vous pouvez combiner plusieurs filtres) :
+* Tous les hôtes dont le nom ne finit pas par un chiffre, ou dont le nom commence par "CENTREON" (si l'option **accepted_hosts_enable_split_pattern** est activée, vous pouvez combiner plusieurs filtres) :
 
 
 ```shell
-^OPT.*,.*[^0-9]$
+^CENTREON.*,.*[^0-9]$
 ```
 
 ## Format des évènements
