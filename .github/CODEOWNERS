@@ -2,3 +2,8 @@
 
 *.js                @centreon/owners-react
 *.jsx               @centreon/owners-react
+
+*.pl                @centreon/owners-perl
+*.pm                @centreon/owners-perl
+
+*.sh                @centreon/owners-bash
