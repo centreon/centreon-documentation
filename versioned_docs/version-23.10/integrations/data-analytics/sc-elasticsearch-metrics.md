@@ -108,7 +108,6 @@ wget -O /usr/share/centreon-broker/lua/elastic-metrics-apiv2.lua https://raw.git
 
 ```shell
 chmod 644 /usr/share/centreon-broker/lua/elastic-events-apiv2.lua
-``` install centreon-stream-connector-elasticsearch
 ```
 
 </TabItem>
