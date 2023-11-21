@@ -159,7 +159,7 @@ de groupes de services envoyés) | 0 |
 
 7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les données que vous voulez que Centreon envoie à Elasticsearch](#filtering-or-adapting-the-data-you-want-to-send-to-elasticsearch).
 
-8. [Déployez la configuration](../../monitoring/monitoring-servers/deploying-a-configuration.md).
+8. [Déployez la configuration](https://docs.centreon.com/fr/docs/monitoring/monitoring-servers/deploying-a-configuration/).
 
 9. Redémarrez **centengine** sur tous les collecteurs :
 
