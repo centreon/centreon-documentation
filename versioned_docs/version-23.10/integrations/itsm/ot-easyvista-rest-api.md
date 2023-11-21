@@ -22,7 +22,7 @@ $register_providers['EasyVistaRest'] = 14;
 
 ## Configuring the connector
 
-1. Go to **Configuration > Notification > Rules** to configure Centreon Open Tickets. This opens the **Rules** form.
+1. In Centreon, go to **Configuration > Notification > Rules** to configure Centreon Open Tickets. This opens the **Rules** form.
 
 2. Click **Add** and enter a new **Rule name** for EasyVistaRest.
 
