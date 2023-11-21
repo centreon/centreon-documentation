@@ -403,7 +403,7 @@ Release date: `July 5, 2022`
 
 ### 22.04.2
 
-Release date: `November 21, 2022`
+Release date: `November 21, 2023`
 
 #### Bug fixes
 
