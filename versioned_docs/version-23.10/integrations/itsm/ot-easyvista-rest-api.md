@@ -20,7 +20,7 @@ $register_providers['Itop'] = 13;
 $register_providers['EasyVistaRest'] = 14;
 ```
 
-## Configuring the Open Tickets Rules form
+## Configuring the connector
 
 1. Go to **Configuration > Notification > Rules** to configure Centreon Open Tickets. This opens the **Rules** form.
 
