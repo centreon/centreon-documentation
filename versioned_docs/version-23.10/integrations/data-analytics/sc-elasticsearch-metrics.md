@@ -7,6 +7,7 @@ import TabItem from '@theme/TabItem';
 
 The Elasticsearch metrics stream connector allows you to send data from Centreon to Elasticsearch.
 It sends metrics using the Elasticsearch APIs.
+
 An appropriate index template is created automatically by the stream connector so that your data is indexed properly in Elasticsearch. (The index template is the description of the format of the data that will be sent.)
 
 ## Prerequisites
