@@ -111,7 +111,7 @@ application/json' -H 'Authorization: Bearer <token>' -d '{"requests":
 > The list of fields is not exhaustive. Examples are available in the [EasyVista documentation](https://wiki.easyvista.com/xwiki/bin/view/Documentation/Integration/WebService%20REST/REST%20API%20-%20Create%20an%20incident-request/).
 
 
-### Test the ticket closing
+### Test the closing of a ticket
 
 ```shell
 curl -X PUT -k 'https://<easy_vista_address>/api/v1/requests/<ticket_id>' -H
