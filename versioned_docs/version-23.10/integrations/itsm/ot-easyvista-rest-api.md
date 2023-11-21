@@ -98,7 +98,7 @@ To help you analyze problems, use the following curl commands to test the stream
 > Note that you must adapt the following commands with your own values. For instance, ``<easy_vista_address>`` should be replaced with the address of your EasyVista server.
 
 The commands below assume that you are using the Bearer token authentication method.
-If you use the standard authentication method (user and password), you need to replace ``-H 'Authorizaon: Bearer`` with ``-u ':'``.
+If you use the standard authentication method (user and password), you need to replace ``-H 'Authorization: Bearer`` with ``-u ':'``.
 
 ### Test the ticket opening
 
