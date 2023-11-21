@@ -1,0 +1,8 @@
+.github/**/*.yml    @centreon/owners-pipelines
+
+*.po                @centreon/owners-doc
+*.md                @centreon/owners-doc
+*.mdx               @centreon/owners-doc
+
+*.js                @centreon/owners-react
+*.jsx               @centreon/owners-react
