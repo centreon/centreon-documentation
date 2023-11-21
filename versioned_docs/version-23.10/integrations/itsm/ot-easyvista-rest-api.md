@@ -76,7 +76,7 @@ Now the custom field is configured, you need to associate possible values to it.
 
 All information sent from Centreon to EasyVista comes from Centreon. The only exception may be assets that can be retrieved from EasyVista APIs.
 
-> The filter field will follow this format: ``search=field:value1,field:value2`` according to the [EasyVista documentation](https://wiki.easyvista.com/xwiki/bin/view/Documentation/Integration/WebService%20REST/REST%20API%20-%20See%20a%20list%20of%20assets/).
+> The filter field will have the following format: ``search=field:value1,field:value2`` (see the [EasyVista documentation](https://wiki.easyvista.com/xwiki/bin/view/Documentation/Integration/WebService%20REST/REST%20API%20-%20See%20a%20list%20of%20assets/)).
 
 Follow this procedure if you need to import assets from EasyVista:
 
