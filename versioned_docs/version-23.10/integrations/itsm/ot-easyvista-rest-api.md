@@ -32,7 +32,7 @@ $register_providers['EasyVistaRest'] = 14;
 
 You must enter the following parameters:
 
-- **Address**: EasyVista IP address.
+- **Address**: IP address of the EasyVista server you want to open tickets on.
 - User account to access the API.
 - Select the authentication method: API token (Bearer token) or standard authentication (user and password). 
   > The use of an API token (Bearer token) is recommended but you still can set a standard authentication. If you set the authentication wih a Bearer token, you can find information in the [EasyVista documentation](https://wiki.easyvista.com/xwiki/bin/view/Documentation/Integration/WebService%20REST/#Procedure_RESTAPITokenSM) (only in French version).
