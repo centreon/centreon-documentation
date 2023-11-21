@@ -16,6 +16,21 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 22.04.13
+
+Release date: `November 21, 2023`
+
+#### Enhancements
+
+- [Viewer] Added the possibility to color the output widget (background or font) according to status.
+- [Migration] Improved the image migration process.
+
+#### Bug fixes
+
+- [Editor] Fixed an issue which caused links to disapear when editing anchor points.
+- Fixed an issue that caused server to crash on duplicated centreon modules.
+- [Server] Updated dependencies.
+
 ### 22.04.12
 
 Release date: `October 02, 2023`
@@ -186,6 +201,15 @@ The new MAP extension is now available in a full web version with a new server, 
 - Migration process: Integrated migration process of your legacy views.
 
 ## Centreon MAP Legacy
+
+### 22.04.13
+
+Release date: `November 21, 2023`
+
+#### Security fixes
+
+- Fixed image quality when migrating from Legacy to NG.
+- Fixed an issue that caused server to crash on duplicated centreon modules.
 
 ### 22.04.12
 
@@ -375,6 +399,14 @@ Release date: `July 5, 2022`
 - Compatibility with other 22.04 components.
 
 ## Centreon Auto Discovery
+
+### 22.04.2
+
+Release date: `November 21, 2023`
+
+#### Bug fixes
+
+- [Core] Updated dependencies.
 
 ### 22.04.1
 
