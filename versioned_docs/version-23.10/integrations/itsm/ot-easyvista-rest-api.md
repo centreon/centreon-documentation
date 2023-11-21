@@ -30,16 +30,18 @@ You must enter the following parameters:
 - **Address**: IP address of the EasyVista server you want to open tickets on.
 - User account to access the API.
 - Select the authentication method: API token (Bearer token) or standard authentication (user and password). 
-  > The use of an API token (Bearer token) is recommended but you still can set a standard authentication. If you selected **API token**, refer to the [EasyVista documentation](https://wiki.easyvista.com/xwiki/bin/view/Documentation/Integration/WebService%20REST/#Procedure_RESTAPITokenSM) (only available in French).
+  > The use of an API token (Bearer token) is recommended but you still can set a standard authentication. If you selected **API token**, refer to the [EasyVista documentation](https://wiki.easyvista.com/xwiki/bin/view/Documentation/Integration/WebService%20REST/?language=en#HProcedures).
 - **User token** parameter: enter **0** if you selected **Standard authentication**.
 
 ### Add EasyVista custom fields
 
-You can add custom fields for EasyVista RestAPI using EasyVista's specific syntax.
+You can add custom fields on ticket opening forms using EasyVista's specific syntax.
 
 > The name of a custom field must begin with ``e_``. In this example, we will add the **e_city** field name.
 
-1. In the **Rules** form, click **+Add a new entry** in the **EasyVista** section.
+#### Define the ticket parameters
+
+1. In the **Rules** form, click **+Add a new entry**.
 2. In the **Argument** list, select **Custom Field**.
 3. Fill in the **Value** following this format: ``{$select.e_city.value}`` (with **e_city** in this example).
   > The element **e_city** must be identical to the EasyVista field name, [see this step](#define-the-type-of-argument).
@@ -47,7 +49,7 @@ You can add custom fields for EasyVista RestAPI using EasyVista's specific synta
   > The element **.value** can be replaced with **.placeholder**, [see this step](#define-possible-values).
 4. Add as many entries as you need.
 
-#### Define the type of argument
+#### Define the parameter type of the ticket
 
 Now you need to define the type of the argument you previously set. As you have added custom fields, the argument should have the **custom** type.
 
@@ -69,9 +71,9 @@ Now the custom field is configured, you need to associate possible values to it.
 
 ### Set filters for assets
 
-All information sent from Centreon to EasyVista comes from Centreon. The only exception may be assets that can be retrieved from EasyVista APIs.
+All information sent from Centreon to EasyVista comes from Centreon. The only exception may be assets (equipments, configuration items and monitored resources) that can be retrieved from EasyVista APIs.
 
-> The filter field will have the following format (this is an example): ``search=field:value1,field:value2`` (see the [EasyVista documentation](https://wiki.easyvista.com/xwiki/bin/view/Documentation/Integration/WebService%20REST/REST%20API%20-%20See%20a%20list%20of%20assets/)).
+> The filter field will have the following format (this is an example): ``search=field:value1,field:value2`` (see the [EasyVista documentation](https://wiki.easyvista.com/xwiki/bin/view/Documentation/Integration/WebService%20REST/REST%20API%20-%20See%20a%20list%20of%20assets/?language=en)).
 
 Follow this procedure if you need to import assets from EasyVista:
 
@@ -103,7 +105,7 @@ application/json' -H 'Authorization: Bearer <token>' -d '{"requests":
 [{"catalog_guid:"1234","catalog_code":"1234"}]}'
 ```
 
-> The list of fields is not exhaustive. Examples are available in the [EasyVista documentation](https://wiki.easyvista.com/xwiki/bin/view/Documentation/Integration/WebService%20REST/REST%20API%20-%20Create%20an%20incident-request/).
+> The list of possible fields in the form is not exhaustive, see the [EasyVista documentation](https://wiki.easyvista.com/xwiki/bin/view/Documentation/Integration/WebService%20REST/REST%20API%20-%20Create%20an%20incident-request/).
 
 
 ### Test the closing of a ticket
