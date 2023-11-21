@@ -7,7 +7,7 @@ title: EasyVista RestAPI
 
 1. [Download](https://share.centreon.com/s/qypnoTgYfxHejaS) the **EasyVistaRest** folder into **/usr/share/centreon/www/modules/centreon-open-tickets/providers** on the central server.
 
-2. Edit the **/usr/share/centreon/www/modules/centreon-open-tickets/providers/register.php** file by adding a line for EasyVistaRest at the end of the list, as follows:
+2. Edit the **/usr/share/centreon/www/modules/centreon-open-tickets/providers/register.php** file by adding a line for EasyVistaRest at the end, as follows:
 
 ```shell
 $register_providers['RequestTracker2'] = 12;
@@ -39,7 +39,7 @@ You can add custom fields for EasyVista RestAPI using EasyVista's specific synta
 
 > The name of a custom field must begin with ``e_``. In this example, we will add the **e_city** field name.
 
-1. In the **EasyVista** section, click **+Add a new entry**.
+1. In the **Rules** form, click **+Add a new entry** in the **EasyVista** section.
 2. In the **Argument** list, select **Custom Field**.
 3. Fill in the **Value** following this format: ``{$select.e_city.value}`` (with **e_city** in this example).
   > The element **e_city** must be identical to the EasyVista field name, [see this step](#define-the-type-of-argument).
