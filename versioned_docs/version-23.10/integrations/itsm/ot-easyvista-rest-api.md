@@ -45,7 +45,7 @@ You can add custom fields for EasyVista RestAPI using EasyVista's specific synta
 > The name of a custom field must begin with ``e_``. In this example, we will add the **e_city** field name.
 
 1. In the **EasyVista** section, click **+Add a new entry**.
-2. Then select **Custom Field** in **Argument**.
+2. In the **Argument** list, select **Custom Field**.
 3. Fill in the **Value** as follows: ``{$select.e_city.value}``.
   > The element **e_city** must be identical to the EasyVista field name, [see this step](#define-the-type-of-argument).
   
