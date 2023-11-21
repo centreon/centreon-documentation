@@ -100,7 +100,7 @@ To help you analyze problems, use the following curl commands to test the stream
 The commands below assume that you are using the Bearer token authentication method.
 If you use the standard authentication method (user and password), you need to replace ``-H 'Authorization: Bearer`` with ``-u ':'``.
 
-### Test the ticket opening
+### Test the opening of a ticket
 
 ```shell
 curl -X POST -k 'https://<easy_vista_address>/api/v1/requests' -H 'Content-Type:
