@@ -28,15 +28,19 @@ Release date: `November 22, 2023`
 - [Editor] Handled metaservices in output widget.
 - [Migration] Improved the image migration process.
 
+#### Security fixes
+
+- [Server] Updated dependencies.
+
 #### Bug fixes
 
 - [Editor] Fixed an issue which caused links to disappear when editing anchor points.
 - [Geoviews] Fixed the display of tooltip when infrastructure view is defined.
-- [Server] Updated dependencies.
+- [Server] Fixed an issue that caused server to crash on duplicated Centreon modules.
 - [UX] Fixed miscellaneous translation issues.
 - [Viewer] Fixed issue with monitoring links containing a double slash.
 - [Viewer] Fixed the redirection to monitoring pages from tooltips.
-- Fixed an issue that caused server to crash on duplicated centreon modules.
+
 
 ### 22.10.12
 
@@ -231,11 +235,10 @@ The new MAP extension is now available in a full web version with a new server, 
 
 Release date: `November 22, 2023`
 
-#### Security fixes
+#### Bug fixes
 
+- [Server] Fixed an issue that caused server to crash on duplicated Centreon modules.
 - [Viewer] Fixed the redirection to monitoring pages from tooltips.
-- Fixed an issue that caused server to crash on duplicated centreon modules.
-- Fixed image quality when migrating from Legacy to NG.
  
 ### 22.10.12
 
