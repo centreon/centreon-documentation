@@ -53,7 +53,7 @@ Your custom fields will appear in the pop up that will allow you to open a ticke
 
 In this procedure, we will add the **e_city** field.
 
-#### Add the field
+#### Add the field to the form template
 
 1. In the **Easyvista Rest Api** section, click **+Add a new entry**.
 2. In the **Argument** list, select **Custom Field**.
