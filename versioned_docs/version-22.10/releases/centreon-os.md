@@ -201,7 +201,7 @@ Release date: `February 22, 2023`
 - [Authentication] Fixed a PHP error in IDP response with a string instead of an array for roles list.
 - [AnomalyDetection] Fixed an envelope computation error. 
 - [CLAPI] Removed mandatory password for LDAP users creation.
-- [Configuration] Fixed an issue that occurred when a massive change was performed on services right after one of them was disabled, causing all services to get the same host and template.
+- [Configuration] Fixed an issue that occurred when a mass change was performed on services right after one of them was disabled, causing all services to get the same host and template.
 - [Configuration] Fixed an installation error when the chrony package is already installed.
 - [Configuration] Fixed export of configuration when Anomaly Detection feature is configured.
 - [Core] Removed deprecated DBMS option in default configuration provided by Centreon.
