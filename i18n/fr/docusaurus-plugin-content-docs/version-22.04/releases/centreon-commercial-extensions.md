@@ -30,7 +30,7 @@ Release date: `November 22, 2023`
 #### Bug fixes
 
 - [Editor] Fixed an issue which caused links to disapear when editing anchor points.
-- [Server] Fixed an issue that caused server to crash on duplicated centreon modules.
+- [Server] Fixed an issue that caused server to crash on duplicated Centreon modules.
 
 ### 22.04.12
 
