@@ -22,7 +22,6 @@ Release date: `November 22, 2023`
 #### Enhancements
 
 - [Migration] Improved the image migration process.
-- [Viewer] Added the possibility to color the output widget (background or font) according to status.
 
 #### Security fixes
 
