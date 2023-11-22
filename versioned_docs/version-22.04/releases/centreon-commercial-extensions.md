@@ -210,7 +210,6 @@ Release date: `November 22, 2023`
 
 #### Bug fixes
 
-- [Migration] Fixed the image quality when migrating from Legacy to Engine.
 - [Server] Fixed an issue that caused server to crash on duplicated Centreon modules.
 
 ### 22.04.12
