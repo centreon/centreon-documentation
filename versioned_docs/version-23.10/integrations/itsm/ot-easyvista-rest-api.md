@@ -65,7 +65,7 @@ In this procedure, we will add the **e_city** field.
 
 #### Define the type of the field
 
-Now you need to define the type of the argument you previously set. As you have added custom fields, the argument should have the **custom** type.
+Now you need to define the type of the argument you previously added. As you have added custom fields, the argument should have the **custom** type.
 
 1. In the **Common** section, click **+Add a new entry** in the **Lists** parameter.
 2. Following our example, enter:
