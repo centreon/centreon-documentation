@@ -70,7 +70,7 @@ Now you need to define the type of the argument you previously added. As you hav
 1. In the **Common** section, click **+Add a new entry** in the **Lists** parameter.
 2. Following our example, enter:
    - **e_city** in the **Id** field,
-   - **Best cities** in the **Label** field,
+   - **City** in the **Label** field (this will be the label for the dropdown list in the ticket creation pop-up),
    - **Custom** in the **Type** field.
   > Ensure the **Id** is identical to what you entered in the custom field above: **e_city** in this case.
 
