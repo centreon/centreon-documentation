@@ -86,9 +86,9 @@ Maintenant que le champ personnalisé est configuré, vous devez lui associer de
 2. Remplissez les paramètres **Value** (par exemple le code postal de la ville) et **Label** (par exemple le nom de la ville).
 3. Ajoutez autant de nouvelles entrées que nécessaire. Dans notre exemple, il s'agirait de plusieurs villes avec leur code postal et leur nom.
 
-### Définir des filtres pour les ressources
+### Définir des filtres pour les biens (assets)
 
-Toutes les informations envoyées par Centreon à EasyVista proviennent de Centreon. La seule exception peut être les Assets (équipements, éléments de configuration et ressources supervisées) qui peuvent être récupérées à partir des API EasyVista.
+Toutes les informations envoyées par Centreon à EasyVista proviennent de Centreon. La seule exception peut être les biens, aussi nommés assets (équipements, éléments de configuration et ressources supervisées) qui peuvent être récupérées à partir des API EasyVista.
 
 > Le champ du filtre aura le format suivant (à titre d'exemple) : ``search=field:value1,field:value2`` (voir la [documentation EasyVista](https://wiki.easyvista.com/xwiki/bin/view/Documentation/Integration/WebService%20REST/REST%20API%20-%20See%20a%20list%20of%20assets/?language=fr)).
 
