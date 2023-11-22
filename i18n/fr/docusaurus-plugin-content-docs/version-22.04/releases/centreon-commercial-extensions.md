@@ -21,14 +21,17 @@ Release date: `November 22, 2023`
 
 #### Enhancements
 
-- [Viewer] Added the possibility to color the output widget (background or font) according to status.
 - [Migration] Improved the image migration process.
+- [Viewer] Added the possibility to color the output widget (background or font) according to status.
+
+#### Security fixes
+
+- [Server] Updated dependencies.
 
 #### Bug fixes
 
 - [Editor] Fixed an issue which caused links to disapear when editing anchor points.
-- Fixed an issue that caused server to crash on duplicated centreon modules.
-- [Server] Updated dependencies.
+- [Server] Fixed an issue that caused server to crash on duplicated centreon modules.
 
 ### 22.04.12
 
@@ -208,10 +211,10 @@ The new MAP extension is now available in a full web version with a new server, 
 
 Release date: `November 22, 2023`
 
-#### Security fixes
+#### Bug fixes
 
-- Fixed image quality when migrating from Legacy to NG
-- Fixed an issue that caused server to crash on duplicated centreon modules.
+- [Migration] Fixed the image quality when migrating from Legacy to Engine.
+- [Server] Fixed an issue that caused server to crash on duplicated Centreon modules.
 
 ### 22.04.12
 
