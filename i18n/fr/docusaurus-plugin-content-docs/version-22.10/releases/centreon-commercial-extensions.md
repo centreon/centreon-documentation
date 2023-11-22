@@ -19,7 +19,7 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ### 22.10.13
 
-Release date: `November 21, 2023`
+Release date: `November 22, 2023`
 
 #### Enhancements
 
@@ -228,7 +228,7 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ### 22.10.13
 
-Release date: `November 21, 2023`
+Release date: `November 22, 2023`
 
 #### Security fixes
 
@@ -338,7 +338,7 @@ Release date: `October 26, 2022`
 
 ### 22.10.5
 
-Release date: `November 21, 2023`
+Release date: `November 22, 2023`
 
 #### Bug fixes
 
@@ -461,7 +461,7 @@ Release date: `October 26, 2022`
 
 ### 22.10.5
 
-Release date: `November 21, 2023`
+Release date: `November 22, 2023`
 
 - [Core] Updated dependencies.
 
@@ -522,7 +522,7 @@ Release date: `October 26, 2022`
 
 ### 22.10.5
 
-Release date: `November 21, 2023`
+Release date: `November 22, 2023`
 
 #### Bug fixes
 
