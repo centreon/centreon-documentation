@@ -3,7 +3,7 @@ id: ot-easyvista-rest-api
 title: EasyVista RestAPI
 ---
 
-EasyVista Open Tickets provider uses the EasyVista Rest API to open incidents about your monitoring alerts.
+The EasyVista Open Tickets provider uses the EasyVista Rest API to open incidents about your monitoring alerts.
 
 ## Requirements
 
