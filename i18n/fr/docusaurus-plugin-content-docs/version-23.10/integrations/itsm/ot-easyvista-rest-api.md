@@ -47,20 +47,20 @@ Vous devez saisir les paramètres suivants dans la section **Easyvista Rest Api*
 
 ### Ajouter des champs personnalisés EasyVista
 
-> Vous devez vous référer aux champs personnalisés que vous avez créés dans EasyVista.
+> Si vous avez créé des champs personnalisés dans EasyVista, vous devez également les créer dans Centreon.
 
 Vos champs personnalisés apparaîtront dans la fenêtre pop-up qui vous permettra d'ouvrir un ticket. Vous devez utiliser la syntaxe spécifique à EasyVista : le nom d'un champ personnalisé doit commencer par ``e_``.
 
 Dans cet exemple, nous allons ajouter le champ **e_city**.
 
-#### Ajouter le champ
+#### Ajouter le champ au modèle du formulaire
 
 1. Dans la section **Easyvista Rest Api**, cliquez sur **+Add a new entry**.
 2. Dans la liste **Argument**, sélectionnez **Custom Field**.
 3. Remplissez la **Valeur** en suivant ce format : ``{$select.e_city.value}`` (avec **e_city** dans cet exemple).
-  > L'élément **e_city** doit être identique au nom du champ EasyVista.
+  > L'élément **e_city** doit être identique à l'ID EasyVista.
   
-  > L'élément **.value** peut être remplacé par **.placeholder**.
+  > L'élément **.value** peut être remplacé par **.placeholder**, voir cette [étape](#définir-les-valeurs-possibles).
 4. Ajoutez autant d'entrées que nécessaire.
 
 #### Définir le type du champ

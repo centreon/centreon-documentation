@@ -58,9 +58,9 @@ In this procedure, we will add the **e_city** field.
 1. In the **Easyvista Rest Api** section, click **+Add a new entry**.
 2. In the **Argument** list, select **Custom Field**.
 3. Fill in the **Value** using the following format: ``{$select.e_city.value}`` (with **e_city** in this example).
-  > The element **e_city** must be identical to the EasyVista field name.
+  > The element **e_city** must be identical to the EasyVista ID.
   
-  > The element **.value** can be replaced with **.placeholder**.
+  > The element **.value** can be replaced with **.placeholder**, see this [step](#define-possible-values).
 4. Add as many entries as you need.
 
 #### Define the type of the field
