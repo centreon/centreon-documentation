@@ -17,7 +17,7 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ### 21.10.12
 
-Release date: `November 21, 2023`
+Release date: `November 22, 2023`
 
 #### Security fixes
 
@@ -254,7 +254,7 @@ Release date: `February 18, 2022`
 
 ### 21.10.5
 
-Release date: `November 21, 2023`
+Release date: `November 22, 2023`
 
 #### Bug fixes
 
