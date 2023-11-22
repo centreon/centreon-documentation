@@ -18,7 +18,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 21.10.12
 
-Release date: `November 21, 2023`
+Release date: `November 22, 2023`
 
 #### Security fixes
 
@@ -255,7 +255,7 @@ Release date: `February 18, 2022`
 
 ### 21.10.5
 
-Release date: `Novemer 21, 2023`
+Release date: `Novemer 22, 2023`
 
 #### Bug fixes
 
