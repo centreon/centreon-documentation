@@ -18,7 +18,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 22.04.13
 
-Release date: `November 21, 2023`
+Release date: `November 22, 2023`
 
 #### Enhancements
 
@@ -204,7 +204,7 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ### 22.04.13
 
-Release date: `November 21, 2023`
+Release date: `November 22, 2023`
 
 #### Security fixes
 
@@ -402,7 +402,7 @@ Release date: `July 5, 2022`
 
 ### 22.04.2
 
-Release date: `November 21, 2023`
+Release date: `November 22, 2023`
 
 #### Bug fixes
 
