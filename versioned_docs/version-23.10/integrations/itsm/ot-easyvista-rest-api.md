@@ -47,7 +47,7 @@ You must enter the following parameters in the **Easyvista Rest Api** section:
 
 ### Add EasyVista custom fields
 
-> You must refer to the custom fields you have created in EasyVista.
+> If you have created custom fields in EasyVista, you must create them in Centreon too.
 
 Your custom fields will appear in the pop up that will allow you to open a ticket. You must use EasyVista's specific syntax: the name of a custom field must begin with ``e_``. 
 
