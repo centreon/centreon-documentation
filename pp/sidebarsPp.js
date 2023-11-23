@@ -1460,6 +1460,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-chapsvision-crossing-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-firewalls-checkpoint-snmp'
         },
         {

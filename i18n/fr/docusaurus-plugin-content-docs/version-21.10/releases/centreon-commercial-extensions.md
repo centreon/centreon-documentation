@@ -15,6 +15,14 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+### 21.10.12
+
+Release date: `November 22, 2023`
+
+#### Security fixes
+
+- [Server] Updated dependencies.
+
 ### 21.10.11
 
 Release date: `October 02, 2023`
@@ -244,6 +252,14 @@ Release date: `February 18, 2022`
 
 ## Centreon Auto Discovery
 
+### 21.10.5
+
+Release date: `November 22, 2023`
+
+#### Bug fixes
+
+- [Core] Updated dependencies.
+  
 ### 21.10.4
 
 Release date: `June 1, 2023`

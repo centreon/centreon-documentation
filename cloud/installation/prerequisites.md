@@ -5,7 +5,7 @@ title: Prerequisites
 
 ## OS
 
-The poller should be installed on a dedicated fresh Alma Linux 8 server. 
+The poller must be installed on a dedicated fresh Alma Linux/RHEL/Oracle Linux 8 or 9, or Debian 11 server.
 
 ## Hardware
 
@@ -43,11 +43,10 @@ Perform the partitioning following these recommendations:
 
 ## Network
 
-| Description | Direction | Protocol   | IP           | Port   |
-| ----------- | --------- | ---------- | ------------ | ------ |
-| VPN         | Outbound  | UDP        | VPN IP (TBA) | 1194   |
-| INTERNET    | Outbound  | HTTP/HTTPS | *            | 80/443 |
-| NTP         | Outbound  | UDP        | TBA          | 123    |
+| Description    | Direction | Protocol   | IP           | Port   |
+| -------------- | --------- | ---------- | ------------ | ------ |
+| INTERNET       | Outbound  | HTTPS      | *            | 443    |
+| NTP (optional) | Outbound  | UDP        | TBA          | 123    |
 
 | Source            | Destination         | Port/Protocol      | Monitoring protocol   |
 | ----------------- | ------------------- | ------------------ | --------------------- |

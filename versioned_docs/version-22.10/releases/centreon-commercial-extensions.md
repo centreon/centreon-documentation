@@ -18,6 +18,30 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon MAP
 
+### 22.10.13
+
+Release date: `November 22, 2023`
+
+#### Enhancements
+
+- [CEIP] Fixed telemetry error when Centreon MAP engine is configured.
+- [Editor] Handled metaservices in output widget.
+- [Migration] Improved the image migration process.
+
+#### Security fixes
+
+- [Server] Updated dependencies.
+
+#### Bug fixes
+
+- [Editor] Fixed an issue which caused links to disappear when editing anchor points.
+- [Geoviews] Fixed the display of tooltip when infrastructure view is defined.
+- [Server] Fixed an issue that caused server to crash on duplicated Centreon modules.
+- [UX] Fixed miscellaneous translation issues.
+- [Viewer] Fixed issue with monitoring links containing a double slash.
+- [Viewer] Fixed the redirection to monitoring pages from tooltips.
+
+
 ### 22.10.12
 
 Release date: `October 04, 2023`
@@ -207,6 +231,15 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ## Centreon MAP Legacy
 
+### 22.10.13
+
+Release date: `November 22, 2023`
+
+#### Bug fixes
+
+- [Server] Fixed an issue that caused server to crash on duplicated Centreon modules.
+- [Viewer] Fixed the redirection to monitoring pages from tooltips.
+ 
 ### 22.10.12
 
 Release date: `October 04, 2023`
@@ -307,6 +340,14 @@ Release date: `October 26, 2022`
 
 ## Centreon BAM
 
+### 22.10.5
+
+Release date: `November 22, 2023`
+
+#### Bug fixes
+
+- [UI] Renamed "massive change" to "mass change" in the "More actions" selectbox.
+  
 ### 22.10.4
 
 Release date: `July 20, 2023`
@@ -422,6 +463,12 @@ Release date: `October 26, 2022`
 
 ## Centreon Auto Discovery
 
+### 22.10.5
+
+Release date: `November 22, 2023`
+
+- [Core] Updated dependencies.
+
 ### 22.10.4
 
 Release date: `October 04, 2023`
@@ -476,6 +523,14 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon Anomaly Detection
+
+### 22.10.5
+
+Release date: `November 22, 2023`
+
+#### Bug fixes
+
+- [UI] Renamed "massive change" to "mass change" in the "More actions" selectbox.
 
 ### 22.10.4
 
