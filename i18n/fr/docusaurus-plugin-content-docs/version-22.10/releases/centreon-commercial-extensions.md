@@ -24,6 +24,7 @@ Release date: `November 22, 2023`
 #### Enhancements
 
 - [CEIP] Fixed telemetry error when Centreon MAP engine is configured.
+- [Editor] You can now add Centreon resources to a map by searching their names.
 - [Editor] Handled metaservices in output widget.
 - [Migration] Improved the image migration process.
 
