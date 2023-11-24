@@ -34,23 +34,31 @@ systemctl start centreon-map
 
 ### Step 3: Migrate maps
 
-1. To import your legacy maps into MAP, go to the **Monitoring > Map** page, then click the **Migrate** button. The following window appears:
+1. If you have custom images on your legacy maps, you need to create a dedicated directory (**/usr/share/centreon/www/img/media/**) on the MAP Legacy server:
+  
+  ```shell
+  mkdir -p /usr/share/centreon/www/img/media/
+  chown -R centreon-map:centreon-map /usr/share/centreon/
+  chmod -R 775 /usr/share/centreon/*
+  ```
 
-  ![image](../assets/graph-views/ng/map-migrate-1.png)
+2. To import your legacy maps into MAP, go to the **Monitoring > Map** page, then click the **Migrate** button. The following window appears:
+  
+3. Click **Migrate**.
 
-2. Click **Migrate**.
- 
-  ![image](../assets/graph-views/ng/map-migrate-2.png)
+4. When the migration has succeeded, you can close the window.
 
-3. When the migration has succeeded, you can close the window.
+5. If you have created a dedicated directory as indicated previously, you need now to copy it to **/usr/share/centreon/www/img/media/** on the central server. Assuming you have access rights to the servers involved, enter the following command:
+  
+  ```shell
+  scp -r /usr/share/centreon/www/img/media/* root@<IP_CENTREON_CENTRAL>:/usr/share/centreon/www/img/media/
+  ```
 
-  Your legacy maps are now displayed on the **Map** page. 
+Your legacy maps are now displayed on the **Map** page. 
 
 ## About images
 
-If you had imported images into your MAP (Legacy) desktop client in the **Medias** panel, note that the migration process has also migrated them automatically to Centreon MAP.
-
-The following example explains how the name of the image file is set after the migration:
+The migration process has migrated images from MAP Legacy to Centreon MAP. The following example explains how the name of the image file is set after the migration:
 
 - In MAP Legacy, your image was located in the **Medias** panel as follows:
   
