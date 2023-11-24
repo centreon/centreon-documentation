@@ -323,7 +323,7 @@ dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
 ```bash
 dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 subscription-manager repos --enable rhel-9-for-x86_64-highavailability-rpms
-dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
+dnf install centreon-ha-common pcs pacemaker corosync corosync-qdevice
 ```
 
 </TabItem>
@@ -331,7 +331,7 @@ dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
 
 ```bash
 dnf config-manager --enable ol9_addons
-dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
+dnf install centreon-ha-common pcs pacemaker corosync corosync-qdevice
 ```
 
 </TabItem>
@@ -1085,7 +1085,7 @@ pcs qdevice status net --full
 <TabItem value="Alma Linux 9" label="Alma Linux 9">
 
 ```bash
-dnf config-manager --enable ha
+dnf config-manager --enable highavailability
 dnf install pcs corosync-qnetd
 systemctl start pcsd.service
 systemctl enable pcsd.service
