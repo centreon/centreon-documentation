@@ -34,23 +34,31 @@ systemctl start centreon-map
 
 ### Étape 3 : migrer les cartes
 
-1. Pour importer vos anciennes cartes dans MAP, allez à la page **Supervision > Map**, puis cliquez sur le bouton **Migrer**. La fenêtre suivante apparaît :
+1. Si vous avez des images personnalisées dans vos anciennes cartes, vous devez créer un répertoire dédié (**/usr/share/centreon/www/img/media/**) sur le serveur MAP Legacy :
+  
+  ```shell
+  mkdir -p /usr/share/centreon/www/img/media/
+  chown -R centreon-map:centreon-map /usr/share/centreon/
+  chmod -R 775 /usr/share/centreon/*
+  ```
 
-  ![image](../assets/graph-views/ng/map-migrate-1.png)
+2. Pour importer vos anciennes cartes dans MAP, allez sur la page **Supervision > Map**, puis cliquez sur le bouton **Migrer**. La fenêtre suivante apparaît :
+  
+3. Cliquez sur **Migrer**.
 
-2. Cliquez sur **Migrate**.
- 
-  ![image](../assets/graph-views/ng/map-migrate-2.png)
+4. Lorsque la migration a réussi, vous pouvez fermer la fenêtre.
 
-3. Lorsque la migration a réussi, vous pouvez fermer la fenêtre.
+5. Si vous avez créé un répertoire dédié comme indiqué précédemment, vous devez maintenant le copier dans **/usr/share/centreon/www/img/media/** sur le serveur central. En supposant que vous ayez les droits d'accès aux serveurs concernés, entrez la commande suivante :
+  
+  ```shell
+  scp -r /usr/share/centreon/www/img/media/* root@<IP_CENTREON_CENTRAL>:/usr/share/centreon/www/img/media/
+  ```
 
 Vos anciennes cartes sont maintenant affichées dans la page **Map**. 
 
 ## À propos des images
 
-Si vous avez importé des images dans votre client MAP (Legacy) dans le panneau **Médias**, notez que le processus de migration les a également migrées automatiquement vers Centreon MAP.
-
-L'exemple suivant explique comment le nom du fichier image est défini après la migration :
+Le processus de migration a permis de migrer les images de MAP Legacy vers Centreon MAP. L'exemple suivant explique comment le nom du fichier image est défini après la migration :
 
 - Dans MAP Legacy, votre image était placée dans le panneau **Médias** dans le format suivant :
   
