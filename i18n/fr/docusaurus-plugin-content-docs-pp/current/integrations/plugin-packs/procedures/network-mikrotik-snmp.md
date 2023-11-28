@@ -121,7 +121,7 @@ Coming soon
 
 ### Configuration SNMP
 
-Afin de superviser votre ressource en SNMP,  il est nécessaire de configurer l'agent SNMP
+Afin de superviser votre ressource en SNMP, il est nécessaire de configurer l'agent SNMP
 sur la ressource comme indiqué sur la documentation officielle du constructeur.
 
 ### Flux réseau
