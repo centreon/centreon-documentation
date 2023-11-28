@@ -23,7 +23,7 @@ Le connecteur apporte les modèles de service suivants
 |:-------------------|:---------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------|
 | Connection-Time    | App-DB-MySQL-Connection-Time-custom    | Contrôle permettant de vérifier la durée de connexion au serveur. Ce temps est donné en secondes                                |
 | Connections-Number | App-DB-MySQL-Connections-Number-custom | Contrôle permettant de vérifier le nombre de connexions ouvertes                                                                |
-| Database-Size      | App-DB-MySQL-Database-Size-custom      | Contrôle permettant de vérifier la taille des bases de données. Aucunes alertes par défaut                                      |
+| Database-Size      | App-DB-MySQL-Database-Size-custom      | Contrôle permettant de vérifier la taille des bases de données. Aucune alerte par défaut                                      |
 | Myisam-Keycache    | App-DB-MySQL-Myisam-Keycache-custom    | Contrôle permettant de vérifier le taux de succès des tables MyISAM                                                             |
 | Open-Files         | App-DB-MySQL-Open-Files-custom         | Contrôle permettant de vérifier le nombre de fichiers ouverts                                                                   |
 | Queries            | App-DB-MySQL-Queries-custom            | Contrôle permettant de vérifier le nombre moyen de requêtes exécutées par seconde                                               |
