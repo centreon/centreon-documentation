@@ -23,7 +23,7 @@ Le connecteur apporte les modèles de service suivants
 |:------------|:-------------------------------------|:-----------------------------------------------|
 | Cpu         | Net-Mikrotik-Cpu-SNMP-custom         | Contrôle du taux d'utilisation des processeurs |
 | Environment | Net-Mikrotik-Environment-SNMP-custom | Contrôle l'état du matériel                    |
-| Memory      | Net-Mikrotik-Memory-SNMP-custom      | Contrôle du taux d'utilisation des mémoire     |
+| Memory      | Net-Mikrotik-Memory-SNMP-custom      | Contrôle du taux d'utilisation des mémoires     |
 | Signal      | Net-Mikrotik-Signal-SNMP-custom      | Contrôle le signal des bornes enregistrées     |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Mikrotik-SNMP-custom** est utilisé.
