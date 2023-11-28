@@ -67,7 +67,14 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Environment" label="Environment">
 
-Coming soon
+| Métrique                               | Unité    |
+|:---------------------------------------|:---------|
+| *device_name*#environment.current      | A	|
+| *device_name*#environment.fan.status   | N/A      |
+| *device_name*#environment.power.status | N/A      |
+| *device_name*#environment.status       | N/A      |
+| *device_name*#environment.temperature  | C|
+| *device_name*#environment.voltage      | V |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
