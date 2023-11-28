@@ -366,20 +366,20 @@ yum install centreon-plugin-Applications-Databases-Mysql
 |:-------------------|:----------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
 | FILTERDATABASE     | Filter by database name (can be a regexp)                                                        | ^(?!(information\_schema\|performance\_schema\|test)) |             |
 | FILTERPERFDATA     |                                                                                                     | database                                              |             |
-| WARNINGDBFREE      | Thresholds (                                                                                        |                                                       |             |
-| CRITICALDBFREE     | Thresholds (                                                                                        |                                                       |             |
-| WARNINGDBUSAGE     | Thresholds (                                                                                        |                                                       |             |
-| CRITICALDBUSAGE    | Thresholds (                                                                                        |                                                       |             |
-| WARNINGTABLEFRAG   | Thresholds (                                                                                        |                                                       |             |
-| CRITICALTABLEFRAG  | Thresholds (                                                                                        |                                                       |             |
-| WARNINGTABLEFREE   | Thresholds (                                                                                        |                                                       |             |
-| CRITICALTABLEFREE  | Thresholds (                                                                                        |                                                       |             |
-| WARNINGTABLEUSAGE  | Thresholds (                                                                                        |                                                       |             |
-| CRITICALTABLEUSAGE | Thresholds (                                                                                        |                                                       |             |
-| WARNINGTOTALFREE   | Thresholds (                                                                                        |                                                       |             |
-| CRITICALTOTALFREE  | Thresholds (                                                                                        |                                                       |             |
-| WARNINGTOTALUSAGE  | Thresholds (                                                                                        |                                                       |             |
-| CRITICALTOTALUSAGE | Thresholds (                                                                                        |                                                       |             |
+| WARNINGDBFREE      | Thresholds                                                                                         |                                                       |             |
+| CRITICALDBFREE     | Thresholds                                                                                         |                                                       |             |
+| WARNINGDBUSAGE     | Thresholds                                                                                         |                                                       |             |
+| CRITICALDBUSAGE    | Thresholds                                                                                         |                                                       |             |
+| WARNINGTABLEFRAG   | Thresholds                                                                                         |                                                       |             |
+| CRITICALTABLEFRAG  | Thresholds                                                                                         |                                                       |             |
+| WARNINGTABLEFREE   | Thresholds                                                                                         |                                                       |             |
+| CRITICALTABLEFREE  | Thresholds                                                                                         |                                                       |             |
+| WARNINGTABLEUSAGE  | Thresholds                                                                                         |                                                       |             |
+| CRITICALTABLEUSAGE | Thresholds                                                                                         |                                                       |             |
+| WARNINGTOTALFREE   | Thresholds                                                                                         |                                                       |             |
+| CRITICALTOTALFREE  | Thresholds                                                                                         |                                                       |             |
+| WARNINGTOTALUSAGE  | Thresholds                                                                                         |                                                       |             |
+| CRITICALTOTALUSAGE | Thresholds                                                                                         |                                                       |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options) | --verbose                                             |             |
 
 </TabItem>
