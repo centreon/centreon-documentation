@@ -530,7 +530,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--host=10.0.0.1 \
 	--username='USERNAME' \
 	--password='PASSWORD' \
-	--port=''  \
+	--port='3306'  \
 	--mode=queries \
 	--warning-total='' \
 	--critical-total=''
