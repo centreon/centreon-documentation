@@ -243,7 +243,7 @@ yum install centreon-plugin-Network-Mikrotik-Snmp
 | Macro           | Description                                                                                         | Valeur par défaut | Obligatoire |
 |:----------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNINGAVERAGE  | Warning threshold average CPU utilization                                                           |                   |             |
-| CRITICALAVERAGE | Critical threshold average CPU utilization                                                          |                   |             |
+| CRITICALAVERAGE | Critical threshold for average CPU utilization                                                          |                   |             |
 | WARNINGCORE     | Warning thresholds for each CPU core                                                                |                   |             |
 | CRITICALCORE    | Critical thresholds for each CPU core                                                               |                   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
