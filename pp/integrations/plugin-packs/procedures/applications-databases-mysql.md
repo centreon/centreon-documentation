@@ -258,7 +258,7 @@ yum install centreon-pack-applications-databases-mysql
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **MySQL/MariaDB** connector through
-the **Configuration > Monitoring Connectors Manager** menu.
+the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
 
