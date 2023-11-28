@@ -222,7 +222,7 @@ Listing of user privileges needed by service:
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connectors Manager** menu.
+**Configuration > Monitoring Connector Manager** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
