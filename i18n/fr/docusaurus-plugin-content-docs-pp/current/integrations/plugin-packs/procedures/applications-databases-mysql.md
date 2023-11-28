@@ -421,10 +421,10 @@ yum install centreon-plugin-Applications-Databases-Mysql
 | CRITICALSLAVELATENCY      | Thresholds                                                                                                                                                                                           |                                                   |             |
 | CRITICALSLAVESRUNNING     | Thresholds                                                                                                                                                                                           | 1:1                                               |             |
 | WARNINGSLAVESRUNNING      | Thresholds                                                                                                                                                                                           |                                                   |             |
-| WARNINGTHREADIOSTATUS     |                                                                                                                                                                                                      |                                                   |             |
-| CRITICALTHREADIOSTATUS    |                                                                                                                                                                                                      |                                                   |             |
-| WARNINGTHREADSQLSTATUS    |                                                                                                                                                                                                      |                                                   |             |
-| CRITICALTHREADSQLSTATUS   |                                                                                                                                                                                                      |                                                   |             |
+| WARNINGTHREADIOSTATUS     | Sets a warning threshold for the state of IO threads in replication.                                                                                                                                                                                                     |                                                   |             |
+| CRITICALTHREADIOSTATUS    | Sets a critical threshold for the state of IO threads in replication.                                                                                                                                                                                                     |                                                   |             |
+| WARNINGTHREADSQLSTATUS    | Sets a warning threshold for the state of SQL threads in replication.                                                                                                                                                                                                     |                                                   |             |
+| CRITICALTHREADSQLSTATUS   | Sets a critical threshold for the state of SQL threads in replication.                                                                                                                                                                                                     |                                                   |             |
 | EXTRAOPTIONS              | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                  | --verbose                                         |             |
 
 </TabItem>
@@ -530,7 +530,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--host=10.0.0.1 \
 	--username='USERNAME' \
 	--password='PASSWORD' \
-	--port=''  \
+	--port='3306'  \
 	--mode=queries \
 	--warning-total='' \
 	--critical-total=''
