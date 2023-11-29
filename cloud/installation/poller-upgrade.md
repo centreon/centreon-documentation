@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 To know the exact version of your poller, run the following command:
 
 ```shell
-rpm -qa |grep centreon
+rpm -qa | grep centreon-poller
 ```
 
 The output will look like this:
