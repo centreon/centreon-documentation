@@ -17,7 +17,7 @@ rpm -qa | grep centreon-poller
 The output will look like this:
 
 ```shell
-
+centreon-poller-23.04.10-1.el8.noarch
 ```
 
 ## Upgrading a poller
