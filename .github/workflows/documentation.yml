@@ -59,7 +59,7 @@ jobs:
 
       - name: Manage versions to build
         uses: actions/github-script@v6
-        if: ${{ steps.changes.outputs.global == 'false' }}
+        if: ${{ steps.changes.outputs.global == 'false' && steps.changes.outputs.versions_count < 100 }}
         with:
           script: |
             const available_versions = require('./versions.json');
@@ -123,7 +123,7 @@ jobs:
 
       - name: Manage versions to build
         uses: actions/github-script@v6
-        if: ${{ steps.changes.outputs.global == 'true' || (github.ref_name == 'staging' && github.event_name != 'pull_request') }}
+        if: ${{ steps.changes.outputs.global == 'true' || steps.changes.outputs.versions_count >= 100 || (github.ref_name == 'staging' && github.event_name != 'pull_request') }}
         with:
           script: |
             let build_versions = require('./versions.json');

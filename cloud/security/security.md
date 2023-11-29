@@ -92,7 +92,7 @@ Centreon uses up-to-date protocols, certificates, algorithms and software to gua
 | Communication protocols | TLS 1.2/TLS 1.3 |
 | Certificates | RSA 2048 bits |
 | Algorithms | PKCS #1 SHA-256 with RSA encryption |
-| Software | OpenSSL v1.1.x, OpenVPN 2.4.x |
+| Software | OpenSSL v1.1.x |
 
 ## Product security
 

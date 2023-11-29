@@ -1,6 +1,6 @@
 ---
-id: network-firewalls-juniper-ssg-snmp
-title: Juniper SSG
+id: network-chapsvision-crossing-snmp
+title: ChapsVision CrossinG SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,35 +9,28 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Juniper SSG** apporte un modèle d'hôte :
+Le connecteur de supervision **ChapsVision CrossinG SNMP** apporte un modèle d'hôte :
 
-* **Net-Juniper-SSG-custom**
+* **Net-Chapsvision-Crossing-SNMP-custom**
 
 Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="Net-Juniper-SSG-custom" label="Net-Juniper-SSG-custom">
+<TabItem value="Net-Chapsvision-Crossing-SNMP-custom" label="Net-Chapsvision-Crossing-SNMP-custom">
 
-| Alias    | Modèle de service              | Description                                                                                                               |
-|:---------|:-------------------------------|:--------------------------------------------------------------------------------------------------------------------------|
-| Cpu      | Net-JuniperSSG-Cpu-custom      | Contrôle du taux d'utilisation du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU |
-| Hardware | Net-JuniperSSG-Hardware-custom | Contrôle l'état du matériel                                                                                               |
-| Memory   | Net-JuniperSSG-Memory-custom   | Contrôle l'utilisation mémoire du matériel                                                                                |
-| Sessions | Net-JuniperSSG-Sessions-custom | Contrôle les sessions actives                                                                                             |
+| Alias     | Modèle de service                              | Description                   |
+|:----------|:-----------------------------------------------|:------------------------------|
+| Antivirus | Net-Chapsvision-Crossing-Antivirus-SNMP-custom | Contrôle l'état des antivirus |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Juniper-SSG-custom** est utilisé.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Chapsvision-Crossing-SNMP-custom** est utilisé.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias                | Modèle de service                          | Description                                                                                                      | Découverte |
-|:---------------------|:-------------------------------------------|:-----------------------------------------------------------------------------------------------------------------|:----------:|
-| Traffic-Generic-Id   | Net-JuniperSSG-Traffic-Generic-Id-custom   | Contrôle de la bande passante de l'interface. Pour chaque contrôle apparaîtra le nom de l'interface              |            |
-| Traffic-Generic-Name | Net-JuniperSSG-Traffic-Generic-Name-custom | Contrôle de la bande passante de l'interface. Pour chaque contrôle apparaîtra le nom de l'interface              |            |
-| Traffic-Global       | Net-JuniperSSG-Traffic-Global-custom       | Contrôle de la bande passante d'un ensemble d'interfaces. Pour chaque contrôle apparaîtra le nom de l'interface  |            |
-| Vpn-Status           | Net-JuniperSSG-Vpn-Status-custom           | Contrôle le statut des tunnels VPN                                                                               | X          |
-| Vpn-Usage            | Net-JuniperSSG-Vpn-Usage-custom            | Contrôle le trafic entrant et sortant des tunnels VPN                                                            |            |
+| Alias      | Modèle de service                               | Description             | Découverte |
+|:-----------|:------------------------------------------------|:------------------------|:----------:|
+| Interfaces | Net-Chapsvision-Crossing-Interfaces-SNMP-custom | Contrôle les interfaces | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -50,17 +43,17 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte d'hôtes
 
-| Nom de la règle | Description                                                                                                                                                                                                                                  |
-|:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resource through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Juniper-SSG-custom** host template |
+| Nom de la règle | Description                                                                                                                                                  |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
 #### Découverte de service
 
-| Nom de la règle          | Description |
-|:-------------------------|:------------|
-| Net-Juniper-SSG-Vpn-Name | Découvre les VPN et les supervise avec le modèle de service Vpn-Status |
+| Nom de la règle                              | Description                                                            |
+|:---------------------------------------------|:-----------------------------------------------------------------------|
+| Net-Chapsvision-Crossing-SNMP-Interface-Name | Découvre les interfaces réseau et supervise le statut et l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -70,67 +63,26 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
 
 <Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<TabItem value="Antivirus" label="Antivirus">
 
-| Métrique    | Unité |
-|:------------|:------|
-| cpu_1min    | %     |
-| cpu_5min    | %     |
-| cpu_15min   | %     |
-
-</TabItem>
-<TabItem value="Hardware" label="Hardware">
-
-Pas de métriques pour ce service.
+| Métrique                                               | Unité |
+|:-------------------------------------------------------|:------|
+| antivirus version                                      |       |
+| *antivirus_name*#antivirus.database.lastupdate.seconds | s     |
+| *antivirus_name*#antivirus.license.expires.seconds     |       |
 
 </TabItem>
-<TabItem value="Memory" label="Memory">
+<TabItem value="Interfaces" label="Interfaces">
 
-| Métrique    | Unité |
-|:------------|:------|
-| used        | B     |
-| fragmented  | N/A   |
-
-</TabItem>
-<TabItem value="Sessions" label="Sessions">
-
-| Métrique    | Unité |
-|:------------|:------|
-| usage       | N/A   |
-| failed      | /s    |
-
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
-
-</TabItem>
-<TabItem value="Traffic-*" label="Traffic-*">
-
-| Métrique                                             | Unité |
-|:-----------------------------------------------------|:------|
-| *interface_name*#status                              | N/A   |
-| *interface_name*#interface.traffic.in.bitspersecond  | b/s   |
-| *interface_name*#interface.traffic.out.bitspersecond | b/s   |
-
-> Concerne les modèles de service suivants : Traffic-Generic-Id, Traffic-Generic-Name, Traffic-Global
-
-</TabItem>
-<TabItem value="Vpn-Status" label="Vpn-Status">
-
-| Métrique          | Unité |
-|:------------------|:------|
-| *vpn*#status      | N/A   |
-| *vpn*#update-time | s     |
-
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
-
-</TabItem>
-<TabItem value="Vpn-Usage" label="Vpn-Usage">
-
-| Métrique          | Unité |
-|:------------------|:------|
-| *vpn*#traffic-in  | b/s   |
-| *vpn*#traffic-out | b/s   |
-
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+| Métrique                                                  | Unité |
+|:----------------------------------------------------------|:------|
+| interface status                                          |       |
+| *interface_name*#interface.traffic.in.bitspersecond       | b/s   |
+| *interface_name*#interface.traffic.out.bitspersecond      | b/s   |
+| *interface_name*#interface.packets.in.error.percentage    | %     |
+| *interface_name*#interface.packets.in.discard.percentage  | %     |
+| *interface_name*#interface.packets.out.error.percentage   | %     |
+| *interface_name*#interface.packets.out.discard.percentage | %     |
 
 </TabItem>
 </Tabs>
@@ -139,8 +91,8 @@ Pas de métriques pour ce service.
 
 ### Configuration SNMP
 
-Afin de superviser votre ressource en SNMP,  il est nécessaire de configurer l'agent SNMP
-sur la ressource comme indiqué sur la documentation officielle du constructeur.
+Afin de superviser votre ressource en SNMP, il est nécessaire de configurer l'agent SNMP
+sur la ressource comme indiqué dans la documentation officielle du constructeur.
 
 ### Flux réseau
 
@@ -161,34 +113,34 @@ associé à sa distribution :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-network-firewalls-juniper-ssg-snmp
+dnf install centreon-pack-network-chapsvision-crossing-snmp
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-network-firewalls-juniper-ssg-snmp
+dnf install centreon-pack-network-chapsvision-crossing-snmp
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-pack-network-firewalls-juniper-ssg-snmp
+apt install centreon-pack-network-chapsvision-crossing-snmp
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-network-firewalls-juniper-ssg-snmp
+yum install centreon-pack-network-chapsvision-crossing-snmp
 ```
 
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Juniper SSG**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **ChapsVision CrossinG SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
@@ -206,28 +158,28 @@ Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votr
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Network-Firewalls-Juniper-Ssg-Snmp
+dnf install centreon-plugin-Network-Chapsvision-Crossing-Snmp
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-Network-Firewalls-Juniper-Ssg-Snmp
+dnf install centreon-plugin-Network-Chapsvision-Crossing-Snmp
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-plugin-network-firewalls-juniper-ssg-snmp
+apt install centreon-plugin-network-chapsvision-crossing-snmp
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-plugin-Network-Firewalls-Juniper-Ssg-Snmp
+yum install centreon-plugin-Network-Chapsvision-Crossing-Snmp
 ```
 
 </TabItem>
@@ -239,14 +191,14 @@ yum install centreon-plugin-Network-Firewalls-Juniper-Ssg-Snmp
 
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
-3. Appliquez le modèle d'hôte **Net-Juniper-SSG-custom**.
+3. Appliquez le modèle d'hôte **Net-Chapsvision-Crossing-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
 > Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
 
 | Macro            | Description                                                                                           | Valeur par défaut | Obligatoire |
 |:-----------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -256,99 +208,75 @@ yum install centreon-plugin-Network-Firewalls-Juniper-Ssg-Snmp
 2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<TabItem value="Antivirus" label="Antivirus">
 
-| Macro    | Description                                     | Valeur par défaut | Obligatoire |
-|:---------|:------------------------------------------------|:------------------|:-----------:|
-| CRITICAL | Critical threshold in percent for the average value during the last minute, the last 5 minutes and the last 15 minutes. | 90,85,80          |             |
-| WARNING  | Warning threshold in percent for the average value during the last minute, the last 5 minutes and the last 15 minutes.  | 80,75,70          |             |
-
-</TabItem>
-<TabItem value="Hardware" label="Hardware">
-
-| Macro    | Description                                                                                                       | Valeur par défaut | Obligatoire |
-|:---------|:------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING  | Set warning threshold for temperatures (syntax: type,instance,threshold) Example: --warning='temperature,.*,30'   |                   |             |
-| CRITICAL | Set critical threshold for temperatures (syntax: type,instance,threshold) Example: --critical='temperature,.*,40' |                   |             |
-
-</TabItem>
-<TabItem value="Memory" label="Memory">
-
-| Macro    | Description                   | Valeur par défaut | Obligatoire |
-|:---------|:------------------------------|:------------------|:-----------:|
-| CRITICAL | Critical threshold in percent | 90                |             |
-| WARNING  | Warning threshold in percent  | 80                |             |
+| Macro                      | Description                                                                                                                                               | Valeur par défaut | Obligatoire |
+|:---------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| ANTIVIRUS1DATEFORMAT       | Define the date format for the first antivirus                                                                                                            | %Y/%m/%d          |             |
+| ANTIVIRUS2DATEFORMAT       | Define the date format for the second antivirus                                                                                                           | %Y/%m/%d          |             |
+| UNIT                       | Select the unit for the expired license threshold. May be 's'for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds | s                 |             |
+| WARNINGDATABASELASTUPDATE  | Thresholds                                                                                                                                                |                   |             |
+| CRITICALDATABASELASTUPDATE | Thresholds                                                                                                                                                |                   |             |
+| WARNINGLICENSEEXPIRES      | Thresholds                                                                                                                                                |                   |             |
+| CRITICALLICENSEEXPIRES     | Thresholds                                                                                                                                                |                   |             |
+| WARNINGVERSION             | Define the conditions the version must match for the returned status to be WARNING. You can use the following variables: %{version}, %{name}                                    |                   |             |
+| CRITICALVERSION            | Define the conditions the version must match for the status to be CRITICAL. You can use the following variables: %{version}, %{name}                                   |                   |             |
+| EXTRAOPTIONS               | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                  | --verbose         |             |
 
 </TabItem>
-<TabItem value="Sessions" label="Sessions">
+<TabItem value="Interfaces" label="Interfaces">
 
-| Macro          | Description        | Valeur par défaut | Obligatoire |
-|:---------------|:-------------------|:------------------|:-----------:|
-| WARNINGFAILED  | Warning threshold  |                   |             |
-| CRITICALFAILED | Critical threshold |                   |             |
-| WARNINGUSAGE   | Warning threshold  |                   |             |
-| CRITICALUSAGE  | Critical threshold |                   |             |
-
-</TabItem>
-<TabItem value="Traffic-Generic-Id" label="Traffic-Generic-Id">
-
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACEID  | Set the interface (number expected) e.g.: 1,2,... (empty means 'check all interfaces')                |                   |             |
-| CRITICALIN   | Thresholds                                                                                          | 90                |             |
-| WARNINGIN    | Thresholds                                                                                          | 80                |             |
-| CRITICALOUT  | Thresholds                                                                                          | 90                |             |
-| WARNINGOUT   | Thresholds                                                                                          | 80                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
-
-</TabItem>
-<TabItem value="Traffic-Generic-Name" label="Traffic-Generic-Name">
-
-| Macro         | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:--------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACENAME | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces')                |                   |             |
-| CRITICALIN    | Thresholds                                                                                          | 90                |             |
-| WARNINGIN     | Thresholds                                                                                          | 80                |             |
-| CRITICALOUT   | Thresholds                                                                                          | 90                |             |
-| WARNINGOUT    | Thresholds                                                                                          | 80                |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
-
-</TabItem>
-<TabItem value="Traffic-Global" label="Traffic-Global">
-
-| Macro          | Description                                                                                                                                                                                                         | Valeur par défaut | Obligatoire |
-|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER         | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces')                                                                                                                                | .*                |             |
-| WARNINGIN      | Thresholds                                                                                                                                                                                                          | 80                |             |
-| CRITICALIN     | Thresholds                                                                                                                                                                                                          | 90                |             |
-| WARNINGOUT     | Thresholds                                                                                                                                                                                                          | 80                |             |
-| CRITICALOUT    | Thresholds                                                                                                                                                                                                          | 90                |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                 | --verbose         |             |
-
-</TabItem>
-<TabItem value="Vpn-Status" label="Vpn-Status">
-
-| Macro              | Description                                                                                                                                                                                   | Valeur par défaut                                      | Obligatoire |
-|:-------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------|:-----------:|
-| FILTERNAME         | Check only VPNs whose name match the given regular expression.                                                                                                                                                             | .*                                                     |             |
-| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL (Default: '%{p1state} eq "inactive" \|\| %{p2state} eq "inactive"'). You can use the following variables: %{p1state}, %{p2state} | %{p1state} eq "inactive" \|\| %{p2state} eq "inactive" |             |
-| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{p1state}, %{p2state}                                                                      |                                                        |             |
-| WARNINGUPDATETIME  | Warning threshold for update time (in seconds)                                                                                                                                               |                                                        |             |
-| CRITICALUPDATETIME | Critical threshold for update time (in seconds)                                                                                                                                              |                                                        |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                           | --verbose                                              |             |
-
-</TabItem>
-<TabItem value="Vpn-Usage" label="Vpn-Usage">
-
-| Macro              | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNAME         | Check only VPNs whose name match the given regular expression.                                                                   | .*                |             |
-| WARNINGTRAFFICIN   | Warning threshold                                                                                   |                   |             |
-| CRITICALTRAFFICIN  | Critical threshold                                                                                  |                   |             |
-| WARNINGTRAFFICOUT  | Warning threshold                                                                                   |                   |             |
-| CRITICALTRAFFICOUT | Critical threshold                                                                                  |                   |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
+| Macro                  | Description                                                                                                                                                                                                         | Valeur par défaut                                     | Obligatoire |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
+| UNITSTRAFFIC           | Units of thresholds for the traffic ('percent\_delta', 'bps', 'counter')                                                                                                                                            | percent\_delta                                        |             |
+| UNITSERROR             | Units of thresholds for errors/discards ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter')                                                                                                                | percent\_delta                                        |             |
+| UNITSCAST              | Units of thresholds for communication types ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter')                                                                                                            | percent\_delta                                        |             |
+| OIDFILTER              | Define the OID to be used to filter interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                                                            | ifname                                                |             |
+| OIDDISPLAY             | Define the OID that will be used to name the interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                                                   | ifname                                                |             |
+| INTERFACENAME          | Set the interface (number expected) ex: 1,2,... (empty means 'check all interfaces')                                                                                                                                |                                                       |             |
+| WARNINGINBCAST         | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALINBCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGINDISCARD       | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALINDISCARD      | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGINERROR         | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALINERROR        | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGINMCAST         | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALINMCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGINTRAFFIC       | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALINTRAFFIC      | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGINUCAST         | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALINUCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGINVOLUME        | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALINVOLUME       | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGOUTBCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALOUTBCAST       | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGOUTDISCARD      | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALOUTDISCARD     | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGOUTERROR        | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALOUTERROR       | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGOUTMCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALOUTMCAST       | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGOUTTRAFFIC      | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALOUTTRAFFIC     | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGOUTUCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALOUTUCAST       | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGOUTVOLUME       | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALOUTVOLUME      | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGSPEED           | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALSPEED          | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                           | %{admstatus} eq "up" and %{opstatus} !~ /up\|dormant/ |             |
+| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                            |                                                       |             |
+| WARNINGTOTALADMINDOWN  | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALTOTALADMINDOWN | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGTOTALADMINUP    | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALTOTALADMINUP   | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGTOTALOPERDOWN   | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALTOTALOPERDOWN  | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGTOTALOPERUP     | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALTOTALOPERUP    | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| WARNINGTOTALPORT       | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALTOTALPORT      | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                            | --verbose                                             |             |
 
 </TabItem>
 </Tabs>
@@ -364,24 +292,21 @@ que le connecteur arrive bien à superviser une ressource en utilisant une comma
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_juniper_ssg_snmp.pl \
-	--plugin=network::juniper::ssg::snmp::plugin \
-	--mode=vpn-usage \
-	--hostname=10.0.0.1 \
+/usr/lib/centreon/plugins/centreon_chapsvision_crossing_snmp.pl \
+	--plugin=network::chapsvision::crossing::snmp::plugin \
+	--mode=antivirus \
+	--hostname='10.0.0.1' \
 	--snmp-version='2c' \
-	--snmp-community='my-snmp-community'  \
-	--filter-name='.*' \
-	--warning-traffic-in='' \
-	--critical-traffic-in='' \
-	--warning-traffic-out='' \
-	--critical-traffic-out='' \
+	--snmp-community='my-snmp-community' \
 	--verbose
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All VPN are ok | '*vpn*#traffic-in'=b/s;;;0;'*vpn*#traffic-out'=b/s;;;0;
+OK: All antivirus are ok | 'antivirus.database.lastupdate.seconds'=19486390s;;;0; 'antivirus.database.lastupdate.seconds'=19486390s;;;0; 'Eset#antivirus.license.expires.seconds'=60865610s;;;0;
+antivirus 'Clamav' version: 26750, database last update 7M 1w 5d 11h 29m 49s, permanent license
+antivirus 'Eset' version: 26420, database last update 7M 1w 5d 11h 29m 49s, license expires in 1y 11M 4d 9h 58m 31s
 ```
 
 ### Diagnostic des erreurs communes
@@ -400,25 +325,18 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_juniper_ssg_snmp.pl \
-	--plugin=network::juniper::ssg::snmp::plugin \
+/usr/lib/centreon/plugins/centreon_chapsvision_crossing_snmp.pl \
+	--plugin=network::chapsvision::crossing::snmp::plugin \
 	--list-mode
 ```
 
 Le plugin apporte les modes suivants :
 
-| Mode                                                                                                                                      | Modèle de service associé                                                                                                          |
-|:------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------|
-| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/juniper/common/screenos/snmp/mode/cpu.pm)]              | Net-JuniperSSG-Cpu-custom                                                                                                          |
-| hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/juniper/common/screenos/snmp/mode/hardware.pm)]    | Net-JuniperSSG-Hardware-custom                                                                                                     |
-| interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/interfaces.pm)]                       | Net-JuniperSSG-Traffic-Generic-Id-custom<br />Net-JuniperSSG-Traffic-Generic-Name-custom<br />Net-JuniperSSG-Traffic-Global-custom |
-| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]              | Not used in this Monitoring Connector                                                                                              |
-| list-vpn [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/juniper/common/screenos/snmp/mode/listvpn.pm)]     | Used for service discovery                                                                                                         |
-| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/juniper/common/screenos/snmp/mode/memory.pm)]        | Net-JuniperSSG-Memory-custom                                                                                                       |
-| nsrp [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/juniper/common/screenos/snmp/mode/nsrp.pm)]            | Not used in this Monitoring Connector                                                                                              |
-| sessions [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/juniper/common/screenos/snmp/mode/sessions.pm)]    | Net-JuniperSSG-Sessions-custom                                                                                                     |
-| vpn-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/juniper/common/screenos/snmp/mode/vpnstatus.pm)] | Net-JuniperSSG-Vpn-Status-custom                                                                                                   |
-| vpn-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/juniper/common/screenos/snmp/mode/vpnusage.pm)]   | Net-JuniperSSG-Vpn-Usage-custom                                                                                                    |
+| Mode                                                                                                                                    | Modèle de service associé                       |
+|:----------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------|
+| antivirus [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/chapsvision/crossing/snmp/mode/antivirus.pm)]   | Net-Chapsvision-Crossing-Antivirus-SNMP-custom  |
+| interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/chapsvision/crossing/snmp/mode/interfaces.pm)] | Net-Chapsvision-Crossing-Interfaces-SNMP-custom |
+| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]            | Used for service discovery                      |
 
 ### Options disponibles
 
@@ -487,56 +405,21 @@ Les options génériques sont listées ci-dessous :
 Les options disponibles pour chaque modèle de services sont listées ci-dessous :
 
 <Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<TabItem value="Antivirus" label="Antivirus">
 
-| Option     | Description                                         |
-|:-----------|:----------------------------------------------------|
-| --warning  | Warning threshold in percent for the average value during the last minute, the last 5 minutes and the last 15 minutes.     |
-| --critical | Critical threshold in percent for the average value during the last minute, the last 5 minutes and the last 15 minutes.    |
-
-</TabItem>
-<TabItem value="Hardware" label="Hardware">
-
-| Option               | Description                                                                                                                                                                                                                 |
-|:---------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --component          | Which component to check (Default: '.*'). Can be: 'fan', 'psu', 'module', 'temperature'.                                                                                                                                    |
-| --filter             | Exclude some parts (Example: --filter=psu --filter=module) You can also exclude items from specific instances: --filter=fan,1                                                                                               |
-| --no-component       | Define the expected status if no components are found (default: critical).                                                                                                                                                  |
-| --threshold-overload | Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='psu,WARNING,^(?!(active)$)'   |
-| --warning            | Set warning threshold for temperatures (syntax: type,instance,threshold) Example: --warning='temperature,.*,30'                                                                                                             |
-| --critical           | Set critical threshold for temperatures (syntax: type,instance,threshold) Example: --critical='temperature,.*,40'                                                                                                           |
+| Option                   | Description                                                                                                                                                  |
+|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='version'                                                                        |
+| --antivirus1-date-format | Define the date format for the first antivirus (default: '%Y/%m/%d').                                                                                        |
+| --antivirus2-date-format | Define the date format for the second antivirus (default: '%Y/%m/%d').                                                                                       |
+| --unknown-version        | Define the conditions the version must match for the status to be UNKNOWN. You can use the following variables: %{version}, %{name}                                       |
+| --warning-version        | Define the conditions the version must match for the status to be WARNING. You can use the following variables: %{version}, %{name}                                       |
+| --critical-version       | Define the conditions the version must match for the status to be CRITICAL. You can use the following variables: %{version}, %{name}                                      |
+| --unit                   | Select the unit for the expired license threshold. May be 's'for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.   |
+| --warning-* --critical-* | Thresholds. Can be: 'license-expires', 'database-last-update'.                                                                                               |
 
 </TabItem>
-<TabItem value="Memory" label="Memory">
-
-| Option     | Description                       |
-|:-----------|:----------------------------------|
-| --warning  | Warning threshold in percent.     |
-| --critical | Critical threshold in percent.    |
-
-</TabItem>
-<TabItem value="Sessions" label="Sessions">
-
-| Option                 | Description                                                                                                                                                                                                                                   |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --memcached            | Memcached server to use (only one server).                                                                                                                                                                                                    |
-| --redis-server         | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
-| --redis-attribute      | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
-| --redis-db             | Set Redis database index.                                                                                                                                                                                                                     |
-| --failback-file        | Failback on a local file if redis connection failed.                                                                                                                                                                                          |
-| --memexpiration        | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                |
-| --statefile-dir        | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
-| --statefile-suffix     | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                |
-| --statefile-concat-cwd | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
-| --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
-| --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
-| --statefile-cipher     | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
-| --filter-counters      | Only display some counters (regexp can be used). Example: --filter-counters='^usage$'                                                                                                                                                         |
-| --warning-*            | Warning threshold. Can be: 'usage' (%), 'failed'.                                                                                                                                                                                             |
-| --critical-*           | Critical threshold. Can be: 'usage' (%), 'failed'.                                                                                                                                                                                            |
-
-</TabItem>
-<TabItem value="Traffic-*" label="Traffic-*">
+<TabItem value="Interfaces" label="Interfaces">
 
 | Option                                          | Description                                                                                                                                                                                                                                                                                |
 |:------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -584,46 +467,14 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --show-cache                                    | Display cache interface datas.                                                                                                                                                                                                                                                             |
 
 </TabItem>
-<TabItem value="Vpn-Status" label="Vpn-Status">
-
-| Option                 | Description                                                                                                                                                                                     |
-|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-name          | Check only VPNs whose name match the given regular expression.                                                                                                                                                              |
-| --warning-status       | Define the conditions to match for the status to be WARNING. You can use the following variables: %{p1state}, %{p2state}                                                                        |
-| --critical-status      | Define the conditions to match for the status to be CRITICAL (Default: '%{p1state} eq "inactive" \|\| %{p2state} eq "inactive"'). You can use the following variables: %{p1state}, %{p2state}   |
-| --warning-update-time  | Warning threshold for update time (in seconds).                                                                                                                                                |
-| --critical-update-time | Critical threshold for update time (in seconds).                                                                                                                                               |
-
-</TabItem>
-<TabItem value="Vpn-Usage" label="Vpn-Usage">
-
-| Option                 | Description                                                                                                                                                                                                                                   |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --memcached            | Memcached server to use (only one server).                                                                                                                                                                                                    |
-| --redis-server         | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
-| --redis-attribute      | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
-| --redis-db             | Set Redis database index.                                                                                                                                                                                                                     |
-| --failback-file        | Failback on a local file if redis connection failed.                                                                                                                                                                                          |
-| --memexpiration        | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                |
-| --statefile-dir        | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
-| --statefile-suffix     | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                |
-| --statefile-concat-cwd | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
-| --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
-| --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
-| --statefile-cipher     | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
-| --filter-name          | Check only VPNs whose name match the given regular expression.                                                                                                                                                                                                            |
-| --warning-*            | Warning threshold. Can be: 'traffic-in', 'traffic-out'.                                                                                                                                                                                       |
-| --critical-*           | Critical threshold. Can be: 'traffic-in', 'traffic-out'.                                                                                                                                                                                      |
-
-</TabItem>
 </Tabs>
 
 Pour un mode, la liste de toutes les options disponibles et leur signification peut être
 affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_juniper_ssg_snmp.pl \
-	--plugin=network::juniper::ssg::snmp::plugin \
-	--mode=vpn-usage \
+/usr/lib/centreon/plugins/centreon_chapsvision_crossing_snmp.pl \
+	--plugin=network::chapsvision::crossing::snmp::plugin \
+	--mode=antivirus \
 	--help
 ```
