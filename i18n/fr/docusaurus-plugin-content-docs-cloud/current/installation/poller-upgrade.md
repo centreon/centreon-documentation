@@ -8,20 +8,6 @@ import TabItem from '@theme/TabItem';
 
 Cette procédure décrit la montée de version d'un collecteur, d'une version majeure à une autre (c'est-à-dire par exemple le passage de 23.04.x à 23.10.y).
 
-## Version du collecteur
-
-Pour connaître la version exacte de votre collecteur, utilisez la commande suivante :
-
-```shell
-rpm -qa |grep centreon
-```
-
-Le résultat ressemblera à ceci:
-
-```shell
-
-```
-
 ## Montée de version d'un collecteur
 
 ### Mise à jour des dépôts

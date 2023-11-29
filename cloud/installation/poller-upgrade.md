@@ -6,19 +6,7 @@ title: Upgrading a poller
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Poller version
-
-To know the exact version of your poller, run the following command:
-
-```shell
-rpm -qa | grep centreon-poller
-```
-
-The output will look like this:
-
-```shell
-centreon-poller-23.04.10-1.el8.noarch
-```
+This procedure describes how to upgrade a poller from one major version to another (e.g. from 23.04.x to 23.10.y).
 
 ## Upgrading a poller
 
