@@ -373,24 +373,24 @@ yum install centreon-plugin-Operatingsystems-Windows-Snmp
 </TabItem>
 <TabItem value="Service-Generic" label="Service-Generic">
 
-| Macro                   | Description                                                                                         | Default value     | Mandatory   |
-|:------------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SERVICENAME             | DEPRECATED. Use --filter-name instead                                                               |                   |             |
-| STATE                   | DEPRECATED. Use --critical/warning-status instead                                                   |                   |             |
-| FILTERNAME              | DEPRECATED. Use --filter-name instead                                                               |                   |             |
-| CRITICAL                | DEPRECATED. Use --critical-active instead                                                           | 1:                |             |
-| WARNING                 | DEPRECATED. Use --warning-active instead                                                            |                   |             |
-| WARNINGACTIVE           | Thresholds on services count                                                                        |                   |             |
-| CRITICALACTIVE          | Thresholds on services count                                                                        |                   |             |
-| WARNINGCONTINUEPENDING  | Thresholds on services count                                                                        |                   |             |
-| CRITICALCONTINUEPENDING | Thresholds on services count                                                                        |                   |             |
-| WARNINGPAUSED           | Thresholds on services count                                                                        |                   |             |
-| CRITICALPAUSED          | Thresholds on services count                                                                        |                   |             |
-| WARNINGPAUSEPENDING     | Thresholds on services count                                                                        |                   |             |
-| CRITICALPAUSEPENDING    | Thresholds on services count                                                                        |                   |             |
-| WARNINGSTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %{operating_state}, %{installed_state}  |                   |             |
-| CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{operating_state}, %{installed_state} |                   |             |
-| EXTRAOPTIONS            | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)            | --verbose         |             |
+| Macro                   | Description                                                                                         | Default value | Mandatory   |
+|:------------------------|:----------------------------------------------------------------------------------------------------|:--------------|:-----------:|
+| SERVICENAME             | DEPRECATED. Use --filter-name instead                                                               |               |             |
+| STATE                   | DEPRECATED. Use --critical/warning-status instead                                                   |               |             |
+| FILTERNAME              | DEPRECATED. Use --filter-name instead                                                               |               |             |
+| CRITICAL                | DEPRECATED. Use --critical-active instead                                                           |               |             |
+| WARNING                 | DEPRECATED. Use --warning-active instead                                                            |               |             |
+| WARNINGACTIVE           | Thresholds on services count                                                                        |               |             |
+| CRITICALACTIVE          | Thresholds on services count                                                                        | 1:            |             |
+| WARNINGCONTINUEPENDING  | Thresholds on services count                                                                        |               |             |
+| CRITICALCONTINUEPENDING | Thresholds on services count                                                                        |               |             |
+| WARNINGPAUSED           | Thresholds on services count                                                                        |               |             |
+| CRITICALPAUSED          | Thresholds on services count                                                                        |               |             |
+| WARNINGPAUSEPENDING     | Thresholds on services count                                                                        |               |             |
+| CRITICALPAUSEPENDING    | Thresholds on services count                                                                        |               |             |
+| WARNINGSTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %{operating_state}, %{installed_state}  |               |             |
+| CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{operating_state}, %{installed_state} |               |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)            | --verbose     |             |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
