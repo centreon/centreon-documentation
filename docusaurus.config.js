@@ -110,6 +110,8 @@ const config = {
                   label: Object.keys(accumulator).length === 0 ? `⭐ ${currentValue}` : currentValue,
                   banner: 'none',
                 }
+
+                return accumulator;
               },
               {}
             );
