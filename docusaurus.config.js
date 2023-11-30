@@ -43,8 +43,7 @@ const cloud = (() => {
   return true;
 })();
 
-//const baseUrl = process.env.BASE_URL ? process.env.BASE_URL : (archivedVersion ? `${archivedVersion}/` : '/');
-const baseUrl = '/';
+const baseUrl = process.env.BASE_URL ? process.env.BASE_URL : (archivedVersion ? `${archivedVersion}/` : '/');
 
 if (versions.length == 0 && !pp && !cloud) {
   throw new Error('Nothing is selected for build');
