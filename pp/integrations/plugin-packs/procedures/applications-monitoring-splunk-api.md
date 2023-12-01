@@ -21,7 +21,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias  | Service Template                                | Service Description                                                                                            |
 |:---------------|:------------------------------------------------|:---------------------------------------------------------------------------------------------------------------|
 | Index-Update   | App-Monitoring-Splunk-Index-Update-Api-custom   | Check indexes last update time                                                                                 |
-| Splunkd-Health | App-Monitoring-Splunk-Splunkd-Health-Api-custom | Check the overall health of splunkd. The health of splunkd is based on the health of all features reporting it |
+| Splunkd-Health | App-Monitoring-Splunk-Splunkd-Health-Api-custom | Check the overall health of splunkd. The status of splunk is based on the state of all the features composing it. |
 
 > The services listed above are created automatically when the **App-Monitoring-Splunk-Api-custom** host template is used.
 
