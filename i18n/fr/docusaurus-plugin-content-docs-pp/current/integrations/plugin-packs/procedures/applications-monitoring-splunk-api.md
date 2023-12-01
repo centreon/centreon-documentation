@@ -31,7 +31,8 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                | Modèle de service                      | Description                                                                                                    |
 |:---------------------|:---------------------------------------|:---------------------------------------------------------------------------------------------------------------|
-| Query-Matches-Number | App-Monitoring-Splunk-Query-Api-custom | Contrôle le nombre de résultats pour une requête donnée. La requête doit commencer par "search ". Par exemple  |
+| Query-Matches-Number | App-Monitoring-Splunk-Query-Api-custom | Contrôle le nombre de résultats pour une requête donnée. La requête doit commencer par "search ". Par exemple:  --query='search
+            host="prod-server" "ERROR" earliest=-150000min'  |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
