@@ -119,7 +119,7 @@ yum install centreon-pack-applications-monitoring-splunk-api
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Splunk** connector through
-the **Configuration > Monitoring Connectors Manager** menu.
+the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
 
