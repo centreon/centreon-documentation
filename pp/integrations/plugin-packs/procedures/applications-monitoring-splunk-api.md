@@ -30,7 +30,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                       | Service Description                                                            |
 |:---------------------|:---------------------------------------|:-------------------------------------------------------------------------------|
-| Query-Matches-Number | App-Monitoring-Splunk-Query-Api-custom | Check number of results for a query. Query has to start with "search ".Example |
+| Query-Matches-Number | App-Monitoring-Splunk-Query-Api-custom | Check number of results for a query. Query has to start with "search ".Example: --query='search
+            host="prod-server" "ERROR" earliest=-150000min' |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
