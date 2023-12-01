@@ -547,7 +547,7 @@ All available options for each service template are listed below:
 | Option             | Description                                   |
 |:-------------------|:----------------------------------------------|
 | --use-ucd          | Use UCD mib for cpu average.                  |
-| --warning-average  | Warning threshold average CPU utilization.    |
+| --warning-average  | Warning threshold for average CPU utilization.    |
 | --critical-average | Critical threshold for average CPU utilization.   |
 | --warning-core     | Warning threshold for each CPU core          |
 | --critical-core    | Critical threshold for each CPU core         |
