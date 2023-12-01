@@ -374,10 +374,10 @@ yum install centreon-plugin-Network-Mikrotik-Snmp
 
 | Macro          | Description                                                                                         | Valeur par défaut | Obligatoire |
 |:---------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGACCESS  |                                                                                                     |                   |             |
-| CRITICALACCESS |                                                                                                     |                   |             |
-| WARNINGCOUNT   |                                                                                                     |                   |             |
-| CRITICALCOUNT  |                                                                                                     |                   |             |
+| WARNINGACCESS  | Set a warning threshold for memory access metrics.                                                  |                   |             |
+| CRITICALACCESS | Set a critical threshold for memory access metrics.                                                 |                   |             |
+| WARNINGCOUNT   | Set a warning threshold for the count of memory-related events or errors.                           |                   |             |
+| CRITICALCOUNT  | Set a critical threshold for the count of memory-related events or errors.                          |                   |             |
 | WARNINGUSAGE   | Warning threshold                                                                                   |                   |             |
 | CRITICALUSAGE  | Critical threshold                                                                                  |                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
@@ -387,12 +387,12 @@ yum install centreon-plugin-Network-Mikrotik-Snmp
 
 | Macro                | Description                                                                                         | Valeur par défaut | Obligatoire |
 |:---------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGRXSTRENGTH    |                                                                                                     |                   |             |
-| CRITICALRXSTRENGTH   |                                                                                                     |                   |             |
-| WARNINGSIGNAL2NOISE  |                                                                                                     |                   |             |
-| CRITICALSIGNAL2NOISE |                                                                                                     |                   |             |
-| WARNINGTXSTRENGTH    |                                                                                                     |                   |             |
-| CRITICALTXSTRENGTH   |                                                                                                     |                   |             |
+| WARNINGRXSTRENGTH    | Set a warning threshold for receiving (Rx) signal strength.  					|                   |             |
+| CRITICALRXSTRENGTH   | Set a critical threshold for receiving signal strength.                                             |                   |             |
+| WARNINGSIGNAL2NOISE  | Set a warning threshold for the signal-to-noise ratio.                                              |                   |             |
+| CRITICALSIGNAL2NOISE | Set a critical threshold for the signal-to-noise ratio.                                             |                   |             |
+| WARNINGTXSTRENGTH    | Set a warning threshold for transmitting signal strength.                                   |                   |             |
+| CRITICALTXSTRENGTH   | Set a critical threshold for transmitting signal strength.                                |                   |             |
 | EXTRAOPTIONS         | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
