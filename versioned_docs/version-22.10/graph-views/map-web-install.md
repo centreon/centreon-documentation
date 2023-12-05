@@ -214,7 +214,7 @@ in order to create new Centreon Broker output. It will be revoked later.
 #### Package installation
 
 If you installed your Centreon MAP server from a "fresh OS installation"
-you need to install the **centreon-release** package:
+you need to install the Centreon repository:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -234,17 +234,19 @@ Installed:
 Complete!
 ```
 
-Now you can install the **centreon-release** package:
+Now you can install the Centreon repository:
 
 ```shell
-dnf install -y https://packages.centreon.com/rpm-standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el8/centreon-22.10.repo
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://packages.centreon.com/rpm-standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+yum install -y yum-utils
+yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el7/centreon-22.10.repo
 ```
 
 </TabItem>

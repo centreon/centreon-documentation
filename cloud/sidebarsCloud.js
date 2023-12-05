@@ -69,7 +69,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Installing a poller',
+      label: 'Managing pollers',
       items: [
         {
           type: 'doc',
@@ -78,6 +78,14 @@ module.exports = {
         {
           type: 'doc',
           id: 'installation/deploy-poller',
+        },
+        {
+          type: 'doc',
+          id: 'installation/poller-update',
+        },
+        {
+          type: 'doc',
+          id: 'installation/poller-upgrade',
         },
       ],
     },
@@ -420,6 +428,16 @@ module.exports = {
           {
             "type": "doc",
             "id": "security/security"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Release notes",
+        "items": [
+          {
+            "type": "doc",
+            "id": "releases/cloud-release-notes"
           }
         ]
       },

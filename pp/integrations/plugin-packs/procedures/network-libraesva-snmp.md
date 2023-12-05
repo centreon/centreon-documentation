@@ -133,7 +133,7 @@ port.
 yum install centreon-plugin-Network-Libraesva-Snmp
 ```
 
-2. On the Centreon web interface, install the **Libraesva SNMP** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon web interface, install the **Libraesva SNMP** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 
@@ -151,7 +151,7 @@ yum install centreon-plugin-Network-Libraesva-Snmp
 yum install centreon-pack-network-libraesva-snmp
 ```
 
-3. On the Centreon web interface, install the **Libraesva SNMP** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon web interface, install the **Libraesva SNMP** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

@@ -101,7 +101,7 @@ SNMP port.
 yum install centreon-plugin-Network-Cambium-Epmp-Snmp
 ```
 
-2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Cambium ePMP SNMP** Centreon Monitoring Connector.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Cambium ePMP SNMP** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -118,7 +118,7 @@ yum install centreon-plugin-Network-Cambium-Epmp-Snmp
 yum install centreon-pack-network-cambium-epmp-snmp
 ```
 
-3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Cambium ePMP SNMP** Centreon Monitoring Connector.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Cambium ePMP SNMP** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

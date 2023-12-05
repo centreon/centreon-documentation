@@ -62,7 +62,7 @@ The centreon-engine user performs a SSH connection to a remote system user. This
 yum install centreon-plugin-Applications-Drbd-Ssh.noarch
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *DRBD SSH* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *DRBD SSH* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -79,7 +79,7 @@ yum install centreon-plugin-Applications-Drbd-Ssh.noarch
 yum install ccentreon-pack-applications-drbd-ssh.noarch
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *DRBD SSH* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *DRBD SSH* Monitoring Connector
 
 </TabItem>
 </Tabs>

@@ -38,7 +38,8 @@ servers:
 Run the following commands:
 
 ```shell
-yum install -y https://packages.centreon.com/rpm-standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+yum install -y yum-utils
+yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el7/centreon-22.10.repo
 ```
 
 > If you are using a CentOS environment, you must install the *Software
@@ -253,7 +254,8 @@ The MariaDB components can now be upgraded.
 Run the following command on the dedicated DBMS server:
 
 ```shell
-yum install -y https://packages.centreon.com/rpm-standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+yum install -y yum-utils
+yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el7/centreon-22.10.repo
 ```
 
 #### Configuration
@@ -491,7 +493,8 @@ This procedure applies to a poller that is attached to a Central server.
 Run the following command:
 
 ```shell
-yum install -y https://packages.centreon.com/rpm-standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+yum install -y yum-utils
+yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el7/centreon-22.10.repo
 ```
 
 ### Upgrade the Centreon solution
