@@ -120,3 +120,5 @@ In edition mode, you can add several resources to your view in a single action.
 3. Then click the **Add to map** button.
 
 The resources you have selected are now added to the view!
+
+> You are able to add an element and save the map even if this element is not tied to any resource. It will then be displayed in yellow when you switch to view mode.

@@ -121,3 +121,5 @@ En mode édition, vous pouvez ajouter plusieurs ressources à votre vue en une s
 3. Cliquez ensuite sur le bouton **Ajouter à la carte**.
 
 Les ressources que vous avez sélectionnées sont maintenant ajoutées à la vue !
+
+> Vous pouvez ajouter un élément et enregistrer la carte même si cet élément n'est lié à aucune ressource. Il sera alors affiché en jaune lorsque vous passez en mode vue.
