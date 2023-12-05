@@ -433,6 +433,16 @@ module.exports = {
       },
       {
         "type": "category",
+        "label": "Release notes",
+        "items": [
+          {
+            "type": "doc",
+            "id": "releases/cloud-release-notes"
+          }
+        ]
+      },
+      {
+        "type": "category",
         "label": "Resources",
         "items": [
           {
