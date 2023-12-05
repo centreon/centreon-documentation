@@ -33,7 +33,7 @@ Les ressources sont contrôlées selon les paramètres suivants :
 
    - Donnez un nom à la règle dans le champ **Name** en haut du panneau.
    - Sélectionnez les groupes d'hôtes et/ou les groupes de services pour lesquels vous voulez que des notifications soient envoyées.Pour chaque type de ressource, sélectionnez les évènements qui déclencheront l'envoi d'une notification.
-   - Sélectionnez les utilisateurs (contacts et/ou groupes de contacts) qui recevront une notification en cas d'évènement.
+   - Sélectionnez les utilisateurs (contacts) qui recevront une notification en cas d'évènement.
    - Définissez un modèle d'email. Un modèle par déaut vous est fourni. Vous pouvez le mofifier et utiliser des macros (variables). POur insérer une macro dans votre modèle, utilisez le bouton **Macros** en bas à droite de l'encadré d'aperçu.
 	
     | Macro | Description | Exemple |

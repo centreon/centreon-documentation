@@ -33,7 +33,7 @@ Resources are checked according to the following parameters:
 
    - Enter a name for the rule in the **Name** field at the top of the panel.
    - Select the host groups and/or service groups you want to send notifications for. For each type of resource, select the events that will trigger a notification.
-   - Select the users (contacts and/or contact groups) you want to be notified in case of an event.
+   - Select the users (contacts) you want to be notified in case of an event.
    - Define an email template. A default template is provided. You can modify it and use macros (variables). To insert a macro in your template, use the **Macros** button at the bottom right of the preview box.
 	
     | Macro | Description | Example |
