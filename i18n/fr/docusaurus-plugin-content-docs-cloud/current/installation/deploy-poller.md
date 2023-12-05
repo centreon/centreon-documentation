@@ -52,7 +52,7 @@ bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: organization
 
 4. Une fois le script exécuté, [connectez-vous à votre serveur central](../getting-started/interface.md#accéder-à-linterface-du-serveur-central) et allez à la page **Configuration > Collecteurs > Collecteurs**. Le nouveau collecteur apparaît dans la liste des collecteurs.
    * Par défaut, le nom du collecteur est son hostname (celui-ci peut avoir été abrégé). Cliquez sur le nom du collecteur pour le renommer.
-   * Dans la colonne **Adresse IP**, l'adresse indiquée est celle du collecteur vu par le serveur central. En effet, pendant le processus d'installation, un VPN est installé : l'adresse IP est celle du collecteur à l'intérieur du VPN.
+   * Dans la colonne **Adresse IP**, l'adresse indiquée est celle du collecteur vu par le serveur central.
    * Le collecteur n'est pas encore démarré (**Non** dans la colonne **En cours d'exécution?**).
 
 ## Étape 2 : Exporter la configuration et redémarrer le collecteur

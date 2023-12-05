@@ -1124,10 +1124,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-databases-mysql'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-databases-oracle'
         },
         {
@@ -1461,6 +1457,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-cambium-epmp-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-chapsvision-crossing-snmp'
         },
         {
           type: 'doc',
