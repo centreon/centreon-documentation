@@ -101,7 +101,7 @@ port.
 yum install centreon-plugin-Network-Firewalls-Pfsense-Snmp
 ```
 
-2. On the Centreon Web interface, install the *pfSense* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+2. On the Centreon Web interface, install the *pfSense* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -118,7 +118,7 @@ yum install centreon-plugin-Network-Firewalls-Pfsense-Snmp
 yum install centreon-pack-network-firewalls-pfsense-snmp
 ```
 
-3. On the Centreon Web interface, install the *pfSense* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+3. On the Centreon Web interface, install the *pfSense* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

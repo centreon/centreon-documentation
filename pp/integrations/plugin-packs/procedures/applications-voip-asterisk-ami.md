@@ -74,7 +74,7 @@ More information in the [official documentation](https://wiki.asterisk.org/wiki/
 yum install centreon-plugin-Applications-Voip-Asterisk-Ami
 ```
 
-2. On the Centreon Web interface, install the **Asterisk VoIP Server** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon Web interface, install the **Asterisk VoIP Server** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -91,7 +91,7 @@ yum install centreon-plugin-Applications-Voip-Asterisk-Ami
 yum install centreon-pack-applications-voip-asterisk-ami
 ```
 
-3. On the Centreon Web interface, install the **Asterisk VoIP Server** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the **Asterisk VoIP Server** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

@@ -71,7 +71,7 @@ To control your Fiberstore, the SNMP must be configured.
 yum install centreon-plugin-Network-Fiberstore-Snmp
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Fiberstore SNMP* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Fiberstore SNMP* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -88,7 +88,7 @@ yum install centreon-plugin-Network-Fiberstore-Snmp
 yum install centreon-pack-network-fiberstore-snmp
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Fiberstore SNMP* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Fiberstore SNMP* Monitoring Connector
 
 </TabItem>
 </Tabs>

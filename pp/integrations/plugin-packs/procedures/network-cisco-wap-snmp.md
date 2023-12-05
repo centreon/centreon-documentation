@@ -101,7 +101,7 @@ The Centreon Poller must be able to reach the UDP/161 SNMP port of the Cisco Wap
 yum install centreon-plugin-Network-Cisco-Wap-Snmp
 ```
 
-2. On the Centreon Web interface, install the *Cisco Wap SNMP* Monitoring Connector through **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon Web interface, install the *Cisco Wap SNMP* Monitoring Connector through **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -118,7 +118,7 @@ yum install centreon-plugin-Network-Cisco-Wap-Snmp
 yum install centreon-pack-network-cisco-wap-snmp
 ```
 
-3. On the Centreon Web interface, install the *Cisco Wap SNMP* Monitoring Connector through **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the *Cisco Wap SNMP* Monitoring Connector through **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

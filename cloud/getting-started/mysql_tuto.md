@@ -26,7 +26,7 @@ GRANT SELECT ON *.* TO 'username'@'IP_POLLER';
 ### On the central server
 
 The database will be monitored using the **MySQL/MariaDB** Monitoring Connector.
-Go to **Configuration > Monitoring Connectors Manager** and install the **MySQL/MariaDB** Monitoring Connector:
+Go to **Configuration > Monitoring Connector Manager** and install the **MySQL/MariaDB** Monitoring Connector:
 
 ![image](../assets/getting-started/quick_start_mysql_0.gif)
 

@@ -103,7 +103,18 @@ Enfin, vous devez spécifier les autorisations que votre application requiert:
 
 #### Ajout d'autorisation pour Microsoft Graph
 
-Il est nécessaire de paramétrer des accès pour **Microsoft Graph** à la fois pour les types *Application* et *Délégué*, sélectionnez **ServiceHealth.Read.All**.
+Il est nécessaire de paramétrer des accès pour **Microsoft Graph** à la fois pour les types *Application* et *Délégué*. Définissez les privilèges suivants :
+
+```
+  "roles": [
+    "ServiceMessage.Read.All",
+    "ServiceHealth.Read.All",
+    "Reports.Read.All",
+    "Directory.Read.All",
+    "User.Read.All",
+    "Application.Read.All"
+  ],
+```
 
 #### Demande d’accès à Azure AD
 

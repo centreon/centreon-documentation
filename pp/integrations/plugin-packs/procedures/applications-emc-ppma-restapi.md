@@ -47,7 +47,7 @@ E.g: https://dl.dell.com/content/docu98223_PowerPath-Management-Appliance-3.x-Re
 yum install centreon-plugin-Applications-Emc-Ppma-Restapi
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Emc PPMA Rest API* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Emc PPMA Rest API* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -64,7 +64,7 @@ yum install centreon-plugin-Applications-Emc-Ppma-Restapi
 yum install centreon-pack-applications-emc-ppma-restapi
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Emc PPMA Rest API* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Emc PPMA Rest API* Monitoring Connector
 
 </TabItem>
 </Tabs>
