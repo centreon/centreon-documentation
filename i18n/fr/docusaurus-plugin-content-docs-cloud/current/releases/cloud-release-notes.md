@@ -15,7 +15,6 @@ Associate users with resources and the statuses for which users will be notified
 * **Resources Status**:
 
    - In addition to the current view (**All** view), you can now access to two new views to see only the services (**By Services** view), as well as a view to see the hosts and all their attached services (**By Hosts** view).
-  These two new views have been designed based on what was done in deprecated pages.
    - We have also completely redesigned filters, making it easier to select resources.
 
 * **Dashboards Beta**:
