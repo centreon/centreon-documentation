@@ -5,14 +5,12 @@ title: Configuring notifications
 
 By default, no notifications are sent by Centreon Cloud. To activate notification emails for specific resources, you need to create notification rules.
 
-Notifications are sent from the central server, according to the central server's time zone.
-
 ## In which cases can notifications be sent?
 
 For each notification rule, you define in which cases the notifications will be sent:
 
-* when a resource enters a non-ok status (**Warning**, **Critical** or **Unknown** for a service, **Down** or **Unreachable** for a host)
-* when a resource goes back to an OK status (**Recovery** notification).
+* When a resource enters a non-ok status (**Warning**, **Critical** or **Unknown** for a service, **Down** or **Unreachable** for a host).
+* When a resource goes back to an OK status (**Recovery** notification).
 
 ## How are resources checked?
 
@@ -32,7 +30,7 @@ Resources are checked according to the following parameters:
 3. Configure the notification rule:
 
    - Enter a name for the rule in the **Name** field at the top of the panel.
-   - Select the host groups and/or service groups you want to send notifications for. For each type of resource, select the events that will trigger a notification.
+   - Select the host groups and/or service groups and/or Business Views (Business Edition only) you want to send notifications for. For each type of resource, select the events that will trigger a notification.
    - Select the users (contacts) you want to be notified in case of an event.
    - Define an email template. A default template is provided. You can modify it and use macros (variables). To insert a macro in your template, use the **Macros** button at the bottom right of the preview box.
 	

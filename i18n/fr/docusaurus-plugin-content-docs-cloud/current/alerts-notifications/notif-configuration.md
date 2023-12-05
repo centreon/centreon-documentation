@@ -3,16 +3,14 @@ id: notif-configuration
 title: Configurer les notifications
 ---
 
-Par défaut, aucune notification n'est envoyée par Centreon Cloud. Pour activer les emails de notiication pour des ressources spécifiques, vous devez créer des règles de notification.
-
-Les notifications sont envoyées depuis le serveur central, selon le fuseau horaire du central.
+Par défaut, aucune notification n'est envoyée par Centreon Cloud. Pour activer les emails de notification pour des ressources spécifiques, vous devez créer des règles de notification.
 
 ## Dans quels cas des notifications peuvent-elles être envoyées ?
 
 Pour chaque règle de notification, vous définissez dans quel cas les notifications doivent être envoyées :
 
-* quand une ressource passe dans un statut non-ok (**Alerte**, **Critique** ou inconnu pour un service, **Indisponible** ou **Injoignable** pour un hôte)
-* quand une ressource revient dans un statut OK (notifications de type **Recovery**).
+* Quand une ressource passe dans un statut non-ok (**Alerte**, **Critique** ou inconnu pour un service, **Indisponible** ou **Injoignable** pour un hôte).
+* Quand une ressource revient dans un statut OK (notifications de type **Recovery**).
 
 ## Comment sont contrôlées les ressources?
 
@@ -32,7 +30,7 @@ Les ressources sont contrôlées selon les paramètres suivants :
 3. Configurez la règle de notification :
 
    - Donnez un nom à la règle dans le champ **Name** en haut du panneau.
-   - Sélectionnez les groupes d'hôtes et/ou les groupes de services pour lesquels vous voulez que des notifications soient envoyées.Pour chaque type de ressource, sélectionnez les évènements qui déclencheront l'envoi d'une notification.
+   - Sélectionnez les groupes d'hôtes et/ou les groupes de services et/ou les vues métier (Édition Business seulement) pour lesquels vous voulez que des notifications soient envoyées.Pour chaque type de ressource, sélectionnez les évènements qui déclencheront l'envoi d'une notification.
    - Sélectionnez les utilisateurs (contacts) qui recevront une notification en cas d'évènement.
    - Définissez un modèle d'email. Un modèle par déaut vous est fourni. Vous pouvez le mofifier et utiliser des macros (variables). POur insérer une macro dans votre modèle, utilisez le bouton **Macros** en bas à droite de l'encadré d'aperçu.
 	
