@@ -35,12 +35,12 @@ The output message for business activities has been modified to give more unders
 
 - [Editor] Improved the layout of the output widget edition window.
 - [Editor] You can now add Centreon resources to a map by searching their names.
+- [Server] Made link anchors consistent between viewer and editor.
+- [Server] You can now save maps that contain elements not associated with a Centreon resource.
 - [UI] You can now use the MAP module in French.
 - [UI] You can now use a button to save zoom and position in editor and viewer.
 - [UI] You can now hide the label of a resource.
 - [UI] Made the labels in the metric link window more explicit by replacing "metric 1" and "metric 2" by "metric in" and "metric out".
 - [UX] You can now duplicate maps.
-- [Server] Made link anchors consistent between viewer and editor.
-- [Server] You can now save maps that contain elements not associated with a Centreon resource.
 - [Viewer] Made resource status unique for hosts (include host status in inherited status computation).
 - [Viewer] You can now define a label for a URL shape.
