@@ -77,8 +77,8 @@ const cards = [
 ]
 
 const versionInfo = {
-  version: '23.04',
-  link: 'https://www.centreon.com/centreon-23-04-discover-the-latest-release/',
+  version: '23.10',
+  link: 'https://www.centreon.com/centreon-23-10-discover-the-latest-release/',
   target: '_blank'
 }
 
@@ -220,7 +220,7 @@ function SocialBlock() {
 
 export default function Home() {
   const { versions } = usePluginData('docusaurus-plugin-content-docs');
-  const defaultPath = versions?.[0]?.path ?? '/docs';
+  const defaultPath = versions?.[0]?.path ?? 'docs';
   const defaultPage = versions?.[0]?.mainDocId ?? 'getting-started/installation-first-steps';
   const defaultRoute = `${defaultPath}/${defaultPage}`;
 

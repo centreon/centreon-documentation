@@ -52,7 +52,7 @@ bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: organization
 
 4. When this is finished, [log in to your central server](../getting-started/interface.md#accessing-the-central-servers-interface) and go to **Configuration > Pollers > Pollers**. The new poller appears in the list of pollers.
    * By default, the name of the poller is its hostname (this may be shortened). Click the name to rename it.
-   * The address in the **IP Address** column is that of the poller as seen by the central server. During the installation process, a VPN is installed, so this IP address is that of the poller inside the VPN.
+   * The address in the **IP Address** column is that of the poller as seen by the central server.
    * The poller is not running yet (**No** in the **Is running?** column).
 
 ## Step 2: Exporting the configuration and restarting the poller
