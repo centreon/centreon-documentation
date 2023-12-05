@@ -315,11 +315,3 @@ The graph opens on the **Monitoring > Performances > Graphs** page, allowing you
 ![image](../assets/alerts/resources-status/graph-open2.png)
 
 You can also export the data for the graph as a CSV file. This will include all metrics.
-
-### Notification tab
-
-The Notification tab shows whether notifications are enabled for the selected resource. You can see the recipients of these notifications in the **Contacts** and **Contact groups** sections.
-
-To configure the recipients, click the **gear icon** in the **Contacts** or **Contact groups** section.
-
-![image](../assets/alerts/resources-status/notification_tab.png)

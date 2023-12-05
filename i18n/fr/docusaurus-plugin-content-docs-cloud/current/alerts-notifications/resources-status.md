@@ -331,11 +331,3 @@ Le graphique s'ouvre dans la page **Supervision > Informations de performance > 
 ![image](../assets/alerts/resources-status/graph-open2.png)
 
 Vous pouvez aussi exporter les données du graphique au format CSV. Toutes les métriques seront incluses.
-
-### Onglet Notification
-
-L'onglet Notification affiche si les notifications sont activées pour la ressource sélectionnée. Vous pouvez voir les destinataires de ces notifications dans les sections **Contacts** et **Contact groups**.
-
-Pour paramétrer les destinataires, cliquez sur l'icône "roue dentée" de la section **Contacts** ou **Contact groups**.
-
-![image](../assets/alerts/resources-status/notification_tab.png)
