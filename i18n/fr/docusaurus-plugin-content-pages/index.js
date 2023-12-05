@@ -6,7 +6,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { usePluginData } from '@docusaurus/useGlobalData';
 import styles from '/src/pages/index.module.css';
 
-const basePathImg = '/fr/img/homepage/';
+const basePathImg = './img/homepage/';
 
 const links = {
   social: [
@@ -32,53 +32,53 @@ const links = {
 const cards = [
   {
     title: "Centreon OnPrem",
-    href: "/fr/docs/getting-started/welcome/",
+    href: "docs/getting-started/welcome/",
     links: [
       {
         label: "Getting started",
-        href: "/fr/docs/getting-started/welcome"
+        href: "docs/getting-started/welcome"
       },{
         label: "Installation",
-        href: "/fr/docs/installation/introduction"
+        href: "docs/installation/introduction"
       },{
         label: "Mettre des ressources en supervision",
-        href: "/fr/docs/category/setting-up-the-monitoring/"
+        href: "docs/category/setting-up-the-monitoring/"
       },{
         label: "Service mapping",
-        href: "/fr/docs/service-mapping/introduction/"
+        href: "docs/service-mapping/introduction/"
       },{
         label: "Vues graphiques",
-        href: "/fr/docs/graph-views/introduction-map/"
+        href: "docs/graph-views/introduction-map/"
       },{
         label: "Reporting",
-        href: "/fr/docs/reporting/introduction/"
+        href: "docs/reporting/introduction/"
       },
     ]
   },
   {
     title: "Centreon Cloud",
-    href: "/fr/cloud/getting-started/architecture/",
+    href: "cloud/getting-started/architecture/",
     links: [
       {
         label: "Getting started",
-        href: "/fr/docs/getting-started/welcome"
+        href: "docs/getting-started/welcome"
       },{
         label: "Installer un collecteur",
-        href: "/fr/cloud/installation/prerequisites/"
+        href: "cloud/installation/prerequisites/"
       },{
         label: "Service mapping",
-        href: "/fr/cloud/service-mapping/introduction/"
+        href: "cloud/service-mapping/introduction/"
       },{
         label: "Vues graphiques",
-        href: "/fr/cloud/graph-views/introduction-map/"
+        href: "cloud/graph-views/introduction-map/"
       },
     ]
   }
 ]
 
 const versionInfo = {
-  version: '23.04',
-  link: 'https://www.centreon.com/fr/centreon-23-04-decouvrez-les-nouveautes-a-venir-ce-printemps/',
+  version: '23.10',
+  link: 'https://www.centreon.com/fr/centreon-23-10-decouvrez-les-dernieres-nouveautes/',
   target: '_blank'
 }
 
@@ -166,7 +166,7 @@ function HeadingBlock() {
   return (
     <div className={clsx(styles.headingContainer)}>
       <div className={clsx(styles.mainContainer)}>
-        <h1>Bienvenue dans la Documentation Centreon !</h1>
+        <h1>Bienvenue dans la Documentation Centreon !</h1>
         <SearchForm/>
         <HeadingCards cards={cards}/>
       </div>
@@ -220,7 +220,7 @@ function SocialBlock() {
 
 export default function Home() {
   const { versions } = usePluginData('docusaurus-plugin-content-docs');
-  const defaultPath = versions?.[0]?.path ?? '/fr/docs';
+  const defaultPath = versions?.[0]?.path ?? 'docs';
   const defaultPage = versions?.[0]?.mainDocId ?? 'getting-started/installation-first-steps';
   const defaultRoute = `${defaultPath}/${defaultPage}`;
 
