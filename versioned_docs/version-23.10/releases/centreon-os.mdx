@@ -1,0 +1,290 @@
+---
+id: centreon-os
+title: Centreon Open Source
+---
+
+import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
+
+## Introduction
+
+In this chapter, you can find all the changelogs concerning **Centreon Open Source**.
+
+> It is very important when you update your system to refer to this section in order to learn about behavior changes or
+> major changes that have been made on this version. This will inform you about the impact of installing these
+> versions on the features you use or the specific developments that you have built on your platform (modules,
+> widgets, plugins).
+
+If you have feature requests or want to report a bug, please go to our
+[Github](https://github.com/centreon/centreon/issues/new/choose).
+
+> Read more about version 23.10 in our [blog post](https://www.centreon.com/centreon-23-10-discover-the-latest-release/).
+
+<ExpandCollapseAll />
+
+## Centreon Web
+
+### 23.10.3
+
+Release date: `December 5, 2023`
+
+- No change on on-premises version. Changes are on cloud version.
+
+### 23.10.2
+
+Release date: `November 29, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Resources Status] Fixed the issue that automatically disabled the option to access the UI when user clicked on the compact/extended button.
+
+</details>
+
+### 23.10.1
+
+Release date: `November 17, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added new endpoint to list all metrics for a given service.
+- [Graph] Thickened curves.
+- [Widgets] Simplified the selection of resources.
+- [UI] Updated dashboard global refresh icon.
+- [UX] Made the widget edition command more accessible.
+- [UX] A warning message is now displayed when dashboard modifications have not been saved yet.
+- Added metrics by service listing endpoint to service resource type.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed issue occurring when using special characters in metric names.
+- [API] Fixed a security issue concerning some API responses.
+- [Authentication] Fixed an issue with the retrieval of attributes used to identify users.
+- [Authentication] The "Reach Centreon Front-end" option is now automatically enabled for imported users authenticated through SSO.
+- [Core] Fixed access to pages when Symfony debug mode was enabled.
+- [Event Logs] Fixed pagination.
+- [Packaging] Fixed an issue where centreontrapd was configured for a poller rather than for a central on Debian.
+- [Widget] Fixed an issue that prevented a widget from loading correctly.
+- Fixed crash caused by partitioning script when database server did not support partitioning.
+- Fixed an issue where widgets were cloned in a new dashboard that was created while another dashboard was being edited at the same time.
+
+</details>
+
+<details open>
+  <summary>Security fixes</summary>
+
+- Fixed potential XSS vulnerability in the list of discovered hosts.
+
+</details>
+
+### 23.10.0
+
+Release date: `October 30, 2023`
+
+<details open>
+<summary>New features</summary>
+
+- **Dashboards Beta**: with Dashboards, you can effortlessly create and share intuitive dashboards for real-time monitoring of metrics, host/service statuses, and much more. Join our [Dashboards Beta group](https://thewatch.centreon.com/groups/centreon-dashboards-beta-59) on our community platform The Watch!
+- **Resources Status**:
+   - In addition to the current view (**All** view), you can now access to two new views to see only the services (**By Services** view), as well as a view to see the hosts and all their attached services (**By Hosts** view).
+  These two new views have been designed based on what was done in deprecated pages.
+   - We have also completely redesigned filters, making it easier to select resources.
+
+   > Deprecated pages will be removed in the next major version.
+
+</details>
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [ACL] You can now manage API tokens with an action & menu access.
+- [API] API restrictions (ro/rw) are now applied while deleting a host or a service using the API.
+- [API] CLAPI now ignores empty lines and lines starting with the `#` character.
+- [API] The field "notify" has been added to the monitoring/services GET route.
+- [API] The field "is_activated" has been removed from host template and service template routes.
+- [API] Added service search in hostGroups/serviceGroups endpoints.
+- [API] Added telemetry and statistics to the token management API.
+- [API] Added a route to create a service template.
+- [API] Added a route to delete a service template.
+- [API] Added a route to list service templates.
+- [API] Added a route to create a host template.
+- [API] Added a route to delete a host template.
+- [API] Added a route to list commands.
+- [API] Added a route to handle templates of a host template (PATCH).
+- [API] Added a route to update a host category of a host template (PATCH).
+- [API] Added a route to link a service template to host templates (PATCH).
+- [API] Added a route to update a host category of a host template (POST).
+- [API] Added a route to update macros of a host template (PATCH).
+- [API] Added a route to handle templates of a host template (POST).
+- [API] Added a route to list host templates.
+- [API] Added a route to update/find host severity.
+- [API] Added a route to get a host category.
+- [API] Added a route to update a host category.
+- [API] Added a route to update one host group (PUT).
+- [API] Added a route to retrieve one host group (PUT).
+- [API] Added routes to create and delete hosts.
+- [API] Added routes to create, delete and list services.
+- [API] Added routes to create, delete and list tokens.
+- [API] Updated the service template creation route to handle relations with service groups.
+- [API] Updated the service template partial update route to handle relations with service groups.
+- [API] Updated the service template create route to handle macros.
+- [API] Updated the service template partial update route to handle macros.
+- [API] Updated the service template partial update route to handle all properties.
+- [API] Updated the service template create route to handle all properties.
+- [API] Updated the service template partial update route to link a service template to service categories.
+- [API] Updated the host template create route to handle all properties.
+- [API] Updated the service template partial update route to link a service template to host templates.
+- [API] Updated the AddHostTemplate route to handle macros (POST).
+- [API] Updated the host create API route to handle host groups.
+- [Authentication] Added user attributes received from IdP in Centreon login file if debug is enabled.
+- [Authentication] Removed password fields if contact is not local type.
+- [CEIP] Added a debug option to display CEIP telemetry data sent to Centreon.
+- [Configuration] Added the support of BBDO 3.0.1 for Centreon Broker configuration.
+- [Core] Implemented a simple feature flag system.
+- [Monitoring] The breadcrumb for monitoring legacy pages now states that we will remove these pages in the next major version.
+- [Resources Status] Added a tooltip to understand how to use filters.
+
+</details>
+
+<details>
+<summary>Bug fixes</summary>
+
+- [API] Fixed an issue where values for contact additive inheritance were not updated with new endpoints.
+- [API] Fixed issues on duplicate display, encoding and add_inherited_contact in host and host template endpoints.
+- [API] Fixed access to list of groups of resources regarding ACL definition.
+- [CLAPI] Fixed a bug that duplicated the host template / service template relations.
+- [CLAPI] Removed the possibility to link a regular resource with a template.
+- [CLAPI] Added the missing parameters to handle new Broker logging options (thanks to a [community member's contribution](https://github.com/centreon/centreon/pull/885)). 
+- [CLAPI] Fixed the export of severities to be able to reimport them.
+- [CLAPI] Fixed a PHP warning that was displayed when using getparam on a service.
+
+</details>
+
+<details open>
+  <summary>Breaking changes</summary>
+
+- All acknowledgements are not persistent. We removed the **Persistent** option from the acknowledgement window so that it cannot be unchecked. This is because an acknowledgement must persist even when Centreon engine is restarted.
+- [CLAPI] Macros are now displayed identically for hosts, host templates and service templates.
+
+</details>
+
+## Centreon Collect
+
+### 23.10.0
+
+Release date: `October 30, 2023`
+
+#### Centreon Engine
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 23.10 components.
+
+</details>
+
+#### Centreon Broker
+
+<details open>
+  <summary>New features</summary>
+
+- An **experimental** output type has been added to send internal performance data to OpenTelemetry receivers. This cannot be used from the WUI at the moment.
+- An **experimental** output type has been added to send the monitored metrics to VictoriaMetrics time-series databases. This cannot be used from the WUI at the moment.
+
+</details>
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Broker management of SQL database connections has been improved. It now uses auto-commited bulk inserts in tables where insert is safe while using transactions for all other write operations, keeping the latter bound to the same connection. This secures the utilization of up to 3 connections to the database, improving the performance in updating the real time data.
+- The RRD files used to store status history are now rebuilt at the same time as metric files.
+- Broker now ignores incorrect filter settings if these prevent some features from functioning.
+- New performance counters have been added to the gRPC API in order to track the longest queries and statements.
+
+</details>
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 23.10 components.
+
+</details>
+
+## Centreon Gorgone
+
+### 23.10.1
+
+Release date: `November 17, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Configuration] Fixed warning chmod during generation of configuration.
+
+</details>
+
+### 23.10.0
+
+Release date: `October 30, 2023`
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 23.10 components.
+
+</details>
+
+## Centreon High Availability
+
+### 23.10.0
+
+Release date: `October 30, 2023`
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 23.10 components.
+
+</details>
+
+## Centreon DSM
+
+### 23.10.0
+
+Release date: `October 30, 2023`
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 23.10 components.
+
+</details>
+
+## Centreon Open Tickets
+
+### 23.10.0
+
+Release date: `October 30, 2023`
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 23.10 components.
+
+</details>
+
+## Centreon AWIE
+
+### 23.10.0
+
+Release date: `October 30, 2023`
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 23.10 components.
+
+</details>
