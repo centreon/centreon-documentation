@@ -1,0 +1,4 @@
+.github/**          @centreon/owners-pipelines
+
+*.pl                @centreon/owners-perl
+*.pm                @centreon/owners-perl
