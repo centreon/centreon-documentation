@@ -122,4 +122,11 @@ En mode édition, vous pouvez ajouter plusieurs ressources à votre vue en une s
 
 Les ressources que vous avez sélectionnées sont maintenant ajoutées à la vue !
 
+## Sauvegarder la perspective de votre carte
+
+Pour une expérience utilisateur optimale, vous pouvez enregistrer la perspective (zoom et position) de votre carte. Ainsi, à chaque fois que vous ouvrez votre carte, vous la retrouvez dans la position qui vous convient le mieux.
+
+- **En mode édition :** la perspective est sauvegardée dès que vous cliquez sur le bouton **Enregistrer**.
+- **En mode vue :** cliquez sur le bouton **Sauvegarder la perspective** et un message vous confirmera que la perspective est sauvegardée.
+
 > Vous pouvez ajouter un élément et enregistrer la carte même si cet élément n'est lié à aucune ressource. Il sera alors affiché en jaune lorsque vous passez en mode vue.
