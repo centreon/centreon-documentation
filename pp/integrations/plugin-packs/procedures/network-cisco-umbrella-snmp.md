@@ -121,7 +121,7 @@ SNMP port.
 yum install centreon-plugin-Network-Cisco-Umbrella-Snmp
 ```
 
-2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Cisco Umbrella** Centreon Monitoring Connector.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Cisco Umbrella** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -138,7 +138,7 @@ yum install centreon-plugin-Network-Cisco-Umbrella-Snmp
 yum install centreon-pack-network-cisco-umbrella-snmp
 ```
 
-3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Cisco Umbrella** Centreon Monitoring Connector.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Cisco Umbrella** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

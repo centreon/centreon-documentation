@@ -84,7 +84,7 @@ HTTP.
 yum install centreon-plugin-Cloud-Prometheus-Api
 ```
 
-2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Prometheus Server** Centreon Monitoring Connector.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Prometheus Server** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -101,7 +101,7 @@ yum install centreon-plugin-Cloud-Prometheus-Api
 yum install centreon-pack-cloud-prometheus-api
 ```
 
-3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Prometheus Server** Centreon Monitoring Connector.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Prometheus Server** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

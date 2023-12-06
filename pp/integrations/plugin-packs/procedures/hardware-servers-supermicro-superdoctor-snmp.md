@@ -48,7 +48,7 @@ The Poller should be able to perform SNMP requests toward the Supermicro device 
 yum install centreon-plugin-Hardware-Servers-Supermicro-Superdoctor-Snmp
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Supermicro SuperDoctor SNMP* Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Supermicro SuperDoctor SNMP* Pack
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -65,7 +65,7 @@ yum install centreon-plugin-Hardware-Servers-Supermicro-Superdoctor-Snmp
 yum install centreon-pack-hardware-servers-supermicro-superdoctor-snmp
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Supermicro SuperDoctor SNMP* Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Supermicro SuperDoctor SNMP* Pack
 
 </TabItem>
 </Tabs>

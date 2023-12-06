@@ -48,8 +48,7 @@ The output of the `vgs` command must look like (what must be payed attention on 
 
 In order to keep the cluster safe from split-brain issues, a third server is mandatory to resolve the master's election in the event of a connection loss. The role of Quorum Device, can be held by a poller of the monitoring platform.
 
-In order to adhere to best practices and be as resilient as possible, the Quorum server placement
-Quorum server should be at a different site than the two primary nodes, with independent network attachments.
+In order to adhere to best practices and be as resilient as possible, the Quorum server should be at a different site than the two primary nodes, with independent network attachments.
 
 > **WARNING:** Be sure SELinux and Firewalld are disabled.
 

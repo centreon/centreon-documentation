@@ -80,7 +80,7 @@ The Poller should be able to perform SNMP requests toward the HP device over SNM
 yum install centreon-plugin-Hardware-Ups-Hp-Snmp
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *HP UPS SNMP* Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *HP UPS SNMP* Pack
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -97,7 +97,7 @@ yum install centreon-plugin-Hardware-Ups-Hp-Snmp
 yum install centreon-pack-hardware-ups-hp-snmp
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *HP UPS SNMP* Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *HP UPS SNMP* Pack
 
 </TabItem>
 </Tabs>

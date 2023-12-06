@@ -43,7 +43,7 @@ To monitoring your Salesforce instance, the Centreon poller must be allowed to r
 yum install centreon-plugin-Applications-Salesforce-Restapi
 ```
 
-2. Install the Salesforce Monitoring Connector on **Configuration > Monitoring Connectors Manager**Centreon Web UI page
+2. Install the Salesforce Monitoring Connector on **Configuration > Monitoring Connector Manager**Centreon Web UI page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -60,7 +60,7 @@ yum install centreon-plugin-Applications-Salesforce-Restapi
 yum install centreon-pack-applications-salesforce-restapi
 ```
 
-3. Install the Salesforce Monitoring Connector on **Configuration > Monitoring Connectors Manager**Centreon Web UI page:
+3. Install the Salesforce Monitoring Connector on **Configuration > Monitoring Connector Manager**Centreon Web UI page:
 
 </TabItem>
 </Tabs>

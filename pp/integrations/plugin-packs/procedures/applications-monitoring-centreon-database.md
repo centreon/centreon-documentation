@@ -180,7 +180,7 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-Database centreon-p
 
 ```
 
-2. On the Centreon Web interface, install the **Centreon Database** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon Web interface, install the **Centreon Database** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 
@@ -198,7 +198,7 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-Database centreon-p
 yum install centreon-pack-applications-monitoring-centreon-database
 ```
 
-3. On the Centreon Web interface, install the **Centreon Database** Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the **Centreon Database** Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 

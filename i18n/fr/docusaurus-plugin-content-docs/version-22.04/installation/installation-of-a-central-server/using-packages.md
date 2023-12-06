@@ -288,8 +288,7 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 
 #### Dépôt Centreon
 
-Pour installer le logiciel Centreon à partir des dépôts, vous devez d'abord installer le paquet
-**centreon-release**, qui fournira le fichier du dépôt.
+Pour installer le logiciel Centreon, vous devez d'abord installer le dépôt Centreon.
 
 Installez le dépôt Centreon à l'aide de la commande suivante :
 
@@ -297,14 +296,16 @@ Installez le dépôt Centreon à l'aide de la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://packages.centreon.com/artifactory/rpm-standard/22.04/el8/stable/noarch/centreon-release-22.04-1.el8.noarch.rpm
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.04/el8/centreon-22.04.repo
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://packages.centreon.com/artifactory/rpm-standard/22.04/el7/stable/noarch/centreon-release-22.04-1.el7.centos.noarch.rpm
+yum install -y yum-utils
+yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.04/el7/centreon-22.04.repo
 ```
 
 </TabItem>

@@ -26,7 +26,6 @@ Before deploying a poller, make sure the [prerequisites](prerequisites.md) for y
 5. On the server that will become your poller, in your terminal, paste the install command and execute it (this should take about 10 minutes).
 
 6. When this is finished, on your central server, go to **Configuration > Pollers > Pollers**. The new poller appears in the list of pollers.
-
    * By default, the name of the poller is its hostname (this may be shortened). Click the name to rename it.
    * The address in the **IP Address** column is that of the poller as seen by the central server.
    * The poller is not running yet (**No** in the **Is running?** column).
