@@ -111,6 +111,16 @@ The **Format** panel allows you to apply formatting options depending on the typ
 - **Text tab:** to format all text elements.
 - **Arrange tab:** to organize elements on the drawing canvas (size, position, alignment) and place them regarding different layers.
 
+### Add several resources using the bulk mode
+
+In edition mode, you can add several resources to your view in a single action.
+
+1. Click in the **Search a resource** bar above the view.
+2. In the dropdown list, select the resources you want in **Host groups, Hosts, Service groups, Services, Meta services and Business Activities**.
+3. Then click the **Add to map** button.
+
+The resources you have selected are now added to the view!
+
 ## Save the perspective of your map
 
 For an optimal user experience, you can save the perspective (zoom and position) of your map. So each time you open your map, you will find it in the position that suits you best.
