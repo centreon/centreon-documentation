@@ -109,6 +109,13 @@ Settings will be displayed depending on the type of element you have selected.
 The **Format** panel allows you to apply formatting options depending on the type of element you have selected.
 - **Style tab:** to customize shapes, links and text.
 - **Text tab:** to format all text elements.
-- **Arrange tab:** to organize elements on the drawing canvas (size, position, alignment) and place them according to different layers.
+- **Arrange tab:** to organize elements on the drawing canvas (size, position, alignment) and place them regarding different layers.
+
+## Save the perspective of your map
+
+For an optimal user experience, you can save the perspective (zoom and position) of your map. So each time you open your map, you will find it in the position that suits you best.
+
+- **In edition mode:** the perspective is saved as soon as you click on the **Save** button.
+- **In view mode:** click the **Save perspective** button and a message will confirm the perspective is saved.
 
 > You are able to add an element and save the map even if this element is not tied to any resource. It will then be displayed in yellow when you switch to view mode.
