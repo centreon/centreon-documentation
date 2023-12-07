@@ -81,7 +81,7 @@ You can create an Anomaly Detection service manually, or [use the creation wizar
 
    - The first predictions will appear in up to 36 hours. The service will then be in an OK status, until status changes are enabled (Step 3).
 
-## Step 2: Assess the relevance of the predictions
+### Step 2: Assess the relevance of the predictions
 
 At first, the predictions you receive will not be very relevant: Anomaly Detection needs to identify several repetitions of data patterns before it can compute a correct model. This means that the length of time needed to compute the model varies according to how often your data repeats (daily, weekly, etc.). In general, you will need to wait for about 6 weeks to obtain a stable model.
 
@@ -110,26 +110,11 @@ stable, you can activate status changes. Once you enable this option, the status
 
 5. [Deploy the configuration](monitoring-servers/deploying-a-configuration.md).
 
-### Activate the notification process
+### Step 4: Activate the notification process
 
-When you are satisfied that the status changes you see are relevant (they do happen when an incident starts or finishes), then your Anomaly Detection service is fully operational. You can then activate the notifications.
+Notifications on Anomaly Detection services comply with the regular [notification process](../alerts-notifications/notif-configuration.md). The notification options in the **Anomaly Detection** form are not functional.
 
-1. Go to **Configuration > Services > Anomaly Detection** and click the Anomaly Detection service you want.
-
-2. Complete the following fields:
-
-  - **Enable notification**: select **Enabled**.
-  - **Implied Contacts**: select who will receive notifications for this service.
-  - **Implied Contact Groups**: select the contact groups that will receive notifications for this service.
-  - **Notification Interval**: define how frequently notifications should be sent once the service has entered a CRITICAL HARD state and has not been acknowledged yet. The default value is **0**, which means only one notification will be sent per status change.
-  - **Notification Period**: select the time period during which these users may receive notifications.
-  - **Notification Type**: select the types of notifications you want to receive (when the service enters a CRITICAL state and/or when it goes back to normal).
-
-3. Click **Save**.
-
-4. [Deploy the configuration](./monitoring-servers/deploying-a-configuration.md).
-
-### Use the creation wizard
+## Use the creation wizard
 
 The creation wizard lets you highlight the services that follow patterns or have a regular stability (for which values are consistently included between two thresholds).
 
@@ -150,18 +135,7 @@ of the row. You arrive on the pre-filled creation form:
 Modify the name of the service and then click the **Save** button.
 
 > If the list is empty, it means that the calculation to determine which services
-> are of interest has not yet started.
->
-> This is done every six hours via a cron launched by the **gorgoned** process
-> (defined in the **/etc/centreon-gorgone/config.d/cron.d/42-anomalydetection.yaml** file).
->
->You can launch the first calculation manually via the following
-> command from the central Centreon server:
->
-> ```shell
-> su - centreon
-> perl /usr/share/centreon/bin/anomaly_detection --seasonality
-> ```
+> are of interest has not yet started. This is done every six hours.
 
 ## View the anomalies detected
 

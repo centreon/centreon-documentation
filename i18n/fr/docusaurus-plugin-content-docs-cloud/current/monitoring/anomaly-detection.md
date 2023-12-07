@@ -114,25 +114,9 @@ stable, vous pouvez activer les changements de statut. Une fois cette option act
 
 ### Étape 4 : Activer le processus de notification
 
-Lorsque vous êtes satisfait des changements de statut que vous constatez (que ceux-ci correspondent bien à des débuts ou fins d'incidents), alors votre service Anomaly Detection est pleinement opérationnel. Vous pouvez alors activer les notifications.
+Les notifications sur les services de détection d'anomalies sont conformes au [processus de notification](../alerts-notifications/notif-configuration.md) standard. Les options de notification dans le formulaire **Anomaly Detection** ne sont pas fonctionnelles.
 
-1. Allez à la page **Configuration > Services > Anomaly Detection** et
-cliquez sur le service Anomaly Detection désiré.
-
-2. Remplissez les champs suivants :
-
-   - **Enable notification**: sélectionnez **Activé**.
-   - **Contacts liés** : sélectionnez les contacts qui seront notifiés.
-   - **Groupes de contacts liés** : sélectionnez des groupes de contacts qui seront notifiés.
-   - **Intervalle de notification** : définissez la fréquence à laquelle envoyer des notifications une fois que le service est entré en  état CRITIQUE HARD et tant qu'il n'a pas été acquitté. La valeur par défaut est **0**, ce qui veut dire qu'une seule notification par changement d'état sera envoyée.
-   - **Période de notification** : sélectionnez la période de temps pendant laquelle ces utilisateurs pourront recevoir des notifications.
-   - **Type de notification** : sélectionnez les types de notification qui seront envoyées (lorsque le service passe en état CRITIQUE, et/ou quand il revient à la normale).
-
-3. Cliquez sur **Sauvegarder**.
-
-4. [Déployez la configuration](monitoring-servers/deploying-a-configuration.md).
-
-### Utiliser l'assistant de création
+## Utiliser l'assistant de création
 
 L'assistant de création permet de mettre en avant les services
 présentant soit une saisonnalité, soit une stabilité régulière (dont les valeurs sont comprises en permanence entre deux bornes).
@@ -154,18 +138,7 @@ gauche de la ligne. Vous arrivez sur le formulaire de création pré-rempli :
 Modifez le nom du service puis cliquez sur le bouton **Sauvegarder**.
 
 > Si la liste est vide, c'est que le calcul afin de déterminer les services
-> intéressants n'a pas encore démarré.
-> 
-> Celui-ci est réalisé toutes les 6 heures via un cron lancé par le processus
-> **gorgoned** (défini dans le fichier **/etc/centreon-gorgone/config.d/cron.d/42-anomalydetection.yaml**).
-> 
-> Il est possible de lancer le premier calcul manuellement via la commande
-> suivante depuis le serveur Centreon central :
->
-> ```shell
-> su - centreon
-> perl /usr/share/centreon/bin/anomaly_detection --seasonality
-> ```
+> intéressants n'a pas encore démarré. Celui-ci est réalisé toutes les 6 heures.
 
 ## Visualiser les anomalies détectées
 
