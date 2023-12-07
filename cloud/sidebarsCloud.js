@@ -197,6 +197,16 @@ module.exports = {
               }
             ]
           },
+          {
+            "type": "category",
+            "label": "Detecting anomalies",
+            "items": [
+              {
+                "type": "doc",
+                "id": "monitoring/anomaly-detection"
+              }
+            ]
+          },
         ]
       },
       {
