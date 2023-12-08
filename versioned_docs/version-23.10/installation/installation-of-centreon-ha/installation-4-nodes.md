@@ -313,7 +313,7 @@ dnf install centreon-ha-common pcs pacemaker corosync corosync-qdevice
 
 ```bash
 dnf config-manager --enable highavailability
-dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
+dnf install centreon-ha-common pcs pacemaker corosync corosync-qdevice
 ```
 
 </TabItem>
@@ -322,7 +322,7 @@ dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
 ```bash
 dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 subscription-manager repos --enable rhel-9-for-x86_64-highavailability-rpms
-dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
+dnf install centreon-ha-common pcs pacemaker corosync corosync-qdevice
 ```
 
 </TabItem>
@@ -330,7 +330,7 @@ dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
 
 ```bash
 dnf config-manager --enable ol9_addons
-dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
+dnf install centreon-ha-common pcs pacemaker corosync corosync-qdevice
 ```
 
 </TabItem>
@@ -1342,7 +1342,7 @@ pcs resource create "ms_mysql" \
     datadir="/var/lib/mysql" \
     socket="/run/mysqld/mysqld.sock" \
     binary="/usr/bin/mysqld_safe" \
-    node_list="@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@" \
+    node_list="@DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@" \
     replication_user="@MARIADB_REPL_USER@" \
     replication_passwd='@MARIADB_REPL_PASSWD@' \
     test_user="@MARIADB_REPL_USER@" \
