@@ -23,7 +23,7 @@ Release date: `December 8, 2023`
 
 #### Security fix
 
-- [Security] Prevented command injection in SENDTRAPCFG subcommand of clapi.
+- [Security] Prevented the command injection in SENDTRAPCFG gorgoned event.
 
 ### 22.04.17
 
