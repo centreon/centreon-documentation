@@ -18,6 +18,18 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon MAP
 
+### 22.10.14
+
+Release date: `December 8, 2023`
+
+#### Enhancements
+
+- [Viewer] Fixed status as font color for output widget.
+
+#### Bug fixes
+
+- [Editor] Removed border and fill colors parameters for Centreon Resources shapes.
+ 
 ### 22.10.13
 
 Release date: `November 22, 2023`
@@ -397,13 +409,21 @@ Release date: `October 26, 2022`
 
 ## Centreon MBI
 
+### 22.10.7
+
+Release date: `December 8, 2023`
+
+#### Bug fixes
+
+- [MBI] Updated dependency.
+
 ### 22.10.6
 
 Release date: `September 14, 2023`
 
 #### Bug fixes
 
-- [Packaging] Fixed a regression in centreon-bi-engine packaging that caused a broken dependency situation with Java
+- [Packaging] Fixed a regression in centreon-bi-engine packaging that caused a broken dependency situation with Java.
 
 ### 22.10.5
 
