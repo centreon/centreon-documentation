@@ -18,6 +18,20 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 22.10.16
+
+Release date: `December 8, 2023`
+
+#### Bug fixes
+
+- [Discovery] Fixed duplication of host groups in discovery job mappers.
+
+#### Security fixes
+
+- [Security] Updated symfony/http-kernel dependency.
+- [Security] Prevented command injection in SENDTRAPCFG gorgoned event.
+- [Security] Prevented command injection in SENDTRAPCFG subcommand of clapi.
+
 ### 22.10.15
 
 Release date: `November 17, 2023`
