@@ -21,10 +21,10 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias       | Modèle de service                                  | Description            |
 |:------------|:---------------------------------------------------|:-----------------------|
-| Hardware    | Hardware-Storage-Avid-Isis-Hardware-SNMP-custom    | Contrôler du matériel  |
-| Performance | Hardware-Storage-Avid-Isis-Performance-SNMP-custom | Contrôler du matériel  |
-| Status      | Hardware-Storage-Avid-Isis-Status-SNMP-custom      | Contrôler du matériel  |
-| Usage       | Hardware-Storage-Avid-Isis-Usage-SNMP-custom       | Contrôler du matériel  |
+| Hardware    | Hardware-Storage-Avid-Isis-Hardware-SNMP-custom    | Contrôle du matériel  |
+| Performance | Hardware-Storage-Avid-Isis-Performance-SNMP-custom | Contrôle du matériel  |
+| Status      | Hardware-Storage-Avid-Isis-Status-SNMP-custom      | Contrôle du matériel  |
+| Usage       | Hardware-Storage-Avid-Isis-Usage-SNMP-custom       | Contrôle du matériel  |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-Avid-Isis-SNMP-custom** est utilisé.
 
