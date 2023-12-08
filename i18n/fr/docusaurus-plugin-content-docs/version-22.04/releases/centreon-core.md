@@ -16,6 +16,14 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 22.04.18
+
+Release date: `December 8, 2023`
+
+#### Security fix
+
+- [Security] Prevented command injection in SENDTRAPCFG subcommand of clapi.
+
 ### 22.04.17
 
 Release date: `November 20, 2023`
