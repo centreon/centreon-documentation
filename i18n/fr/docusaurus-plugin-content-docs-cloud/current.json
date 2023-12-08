@@ -91,8 +91,8 @@
     "message": "Connecteurs de supervision",
     "description": "The label for link Monitoring Connectors in sidebar cloud, linking to /pp/integrations/plugin-packs/getting-started/introduction"
   },
-  "sidebar.cloud.category.Managing pollers": {
-    "message": "Gérer les collecteurs",
-    "description": "The label for category Managing pollers in sidebar cloud"
+  "sidebar.cloud.category.Detecting anomalies": {
+    "message": "Détecter des anomalies",
+    "description": "The label for category Detecting anomalies in sidebar cloud"
   }
 }
