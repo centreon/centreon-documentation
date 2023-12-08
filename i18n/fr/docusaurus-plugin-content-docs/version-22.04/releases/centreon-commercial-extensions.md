@@ -15,6 +15,15 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+### 22.04.14
+
+Release date: `December 8, 2023`
+
+#### Enhancements
+
+- [Editor] Handled meta services in output widget.
+- [Viewer] Fixed status as font color for output widget.
+
 ### 22.04.13
 
 Release date: `November 22, 2023`
@@ -361,6 +370,16 @@ Release date: `May 25, 2022`
 ### 22.04.0
 
 - Compatibility with other 22.04 components.
+
+## Centreon MBI
+
+### 22.04.5
+
+Release date: `December 8, 2023`
+
+#### Bug fix
+
+- [MBI] Updated dependency.
 
 ## Centreon MBI
 
