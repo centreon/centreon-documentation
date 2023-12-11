@@ -5,6 +5,8 @@ title: CyberPower Systems PDU SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+Les unités de distribution d'énergie (PDUs) CyberPower Basic fournissent une distribution d'énergie fiable et non-filtrée à partir d'un système UPS, d'un groupe électrogène ou d'une source d'énergie vers plusieurs appareils.
+
 ## Contenu du pack
 
 ### Modèles
@@ -35,7 +37,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle | Description                                                                                                                                                                                                                                           |
 |:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **HW-Pdu-Cyberpower-SNMP-custom** host template |
+| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **HW-Pdu-Cyberpower-SNMP-custom** host template. |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
