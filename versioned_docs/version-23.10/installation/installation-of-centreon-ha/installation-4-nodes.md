@@ -92,7 +92,7 @@ On a standard Centreon platform, cbd service manages two processes of `centreon-
 
 In the context of a *Centreon HA* cluster, both broker processes will be handled by a separate service, managed by the cluster.
 
-* `central-broker-master` known as the resource `cbd_central_broker`, linked to *systemd* service `cbd-sql`
+* `central-broker-master` known as the resource `cbd_central_broker`, linked to *systemd* service `cbd-sql`.
 * `central-rrd-master` known as the clone resource `cbd_rrd`, linked to *systemd* `cbd` service, the standard broker service of Centreon.
 
 To ensure that everything goes well, you will have to unlink central-broker-master from the `cbd` service by checking "No" for parameter "Link to cbd service" in *Configuration* > *Pollers* > *Broker configuration* > *central-broker-master* under the *General* tab.
@@ -400,7 +400,7 @@ systemctl start mysql
 su - mysql
 ```
 
-Once in `mysql`'s `bash` envinronment, run these commands on both nodes:
+Once in `mysql`'s `bash` environment, run these commands on both nodes:
 
 ```bash
 ssh-keygen -t ed25519 -a 100
@@ -567,7 +567,7 @@ max_allowed_packet=64M
 
 > **Important:** the value of `server-id` must be different from one server to the other. The values suggested in the comment 1 => Master and 2 => Slave are not mandatory, but recommended.
 
-**Reminder:** Remember to uncomment the right value for `innodb_buffer_pool_size` according to your own servers' memory size.
+**Reminder:** remember to uncomment the right value for `innodb_buffer_pool_size` according to your own servers' memory size.
 
 To apply the new configuration, restart the database server:
 
@@ -581,9 +581,9 @@ Make sure the restart went well:
 systemctl status mysql
 ```
 
-> **Warning:** Other files in `/etc/my.cnf.d/`, such as `centreon.cnf`, will be ignored from now on. Any customization will have to be added to `server.cnf`.
+> **Warning:** other files in `/etc/my.cnf.d/`, such as `centreon.cnf`, will be ignored from now on. Any customization will have to be added to `server.cnf`.
 
-> **Warning:** Remember to change the parameter `Mysql configuration file path` in **Administration > Parameters > Backup**
+> **Warning:** remember to change the parameter `Mysql configuration file path` in **Administration > Parameters > Backup**
 
 ### Securing the database server
 
@@ -822,15 +822,15 @@ Once the service is stopped **on the secondary node**, run the synchronization s
 
 This script will perform the following actions:
 
-* checking that MariaDB is stopped on the secondary node
-* stopping MariaDB on the primary node
-* mounting an LVM snapshot on the same volume group that holds `/var/lib/mysql` (or whatever mount point holds the MariaDB data files)
-* starting MariaDB again on the primary node
-* recording the current position in the binary log
-* disabling the `read_only` mode on the primary node (this node will now be able to write to its database)
-* synchronizing/overwriting all the data files (except for the `mysql` system database) 
-* unmounting the LVM snapshot
-* creating the replication thread that will keep both databases synchronized
+* Checking that MariaDB is stopped on the secondary node.
+* Stopping MariaDB on the primary node.
+* Mounting an LVM snapshot on the same volume group that holds `/var/lib/mysql` (or whatever mount point holds the MariaDB data files).
+* Starting MariaDB again on the primary node.
+* Recording the current position in the binary log.
+* Disabling the `read_only` mode on the primary node (this node will now be able to write to its database).
+* Synchronizing/overwriting all the data files (except for the `mysql` system database).
+* Unmounting the LVM snapshot.
+* Creating the replication thread that will keep both databases synchronized.
 
 This script's output is very verbose and you can't expect to understand everything, so to make sure it went well, focus on the last lines of its output, checking that it looks like this:
 
@@ -949,7 +949,7 @@ chmod 775 /tmp/centreon-autodisco/
 
 ### Stopping and disabling the services
 
-**Information:** These operations must be applied to all nodes `@CENTRAL_MASTER_NAME@`, `@CENTRAL_SLAVE_NAME@`, `@DATABASE_MASTER_NAME@` and `@DATABASE_SLAVE_NAME@`. The entire Centreon suite is installed as a dependency of centreon-ha, but it will not be used on the database nodes and will not cause any trouble.
+**Information:** these operations must be applied to all nodes `@CENTRAL_MASTER_NAME@`, `@CENTRAL_SLAVE_NAME@`, `@DATABASE_MASTER_NAME@` and `@DATABASE_SLAVE_NAME@`. The entire Centreon suite is installed as a dependency of centreon-ha, but it will not be used on the database nodes and will not cause any trouble.
 
 Centreon's application services will no longer be launched at boot time; they will be managed by the clustering tools. These services must therefore be stopped and disabled:
 
@@ -1414,12 +1414,13 @@ pcs resource create vip_mysql \
 
 Some resources must be running on only one node at a time (`centengine`, `gorgone`, `httpd`, ...), but some others can be running on both (the RRD broker and PHP). For the second kind, you must declare *clone* resources.
 
-> **Warning:** All the commands in this chapter should be run only once on the central node of your choice.
+> **Warning:** all the commands in this chapter should be run only once on the central node of your choice.
 
 ##### PHP8 resource
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```bash
 pcs resource create "php" \
     systemd:php-fpm \
@@ -1432,6 +1433,7 @@ pcs resource create "php" \
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
 ```bash
 pcs resource create "php" \
     systemd:php-fpm \
