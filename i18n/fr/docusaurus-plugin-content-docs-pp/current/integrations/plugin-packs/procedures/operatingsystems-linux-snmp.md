@@ -21,7 +21,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias  | Modèle de service           | Description                                                                                                                                                                  |
 |:-------|:----------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu    | OS-Linux-Cpu-SNMP-custom    | Contrôle du taux d'utilisation du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |
+| Cpu    | OS-Linux-Cpu-SNMP-custom    | Contrôle du taux d'utilisation du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur. |
 | Load   | OS-Linux-Load-SNMP-custom   | Contrôle de la charge serveur                                                                                                                                                |
 | Memory | OS-Linux-Memory-SNMP-custom | Contrôle du taux d'utilisation de la mémoire vive                                                                                                                            |
 | Swap   | OS-Linux-Swap-SNMP-custom   | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                       |
@@ -33,11 +33,11 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                      | Modèle de service                               | Description                                                                                                                                                                        | Découverte |
 |:---------------------------|:------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
-| Cpu-Detailed               | OS-Linux-Cpu-Detailed-SNMP-custom               | Contrôle du taux d'utilisation détaillé CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |            |
-| Disk-Generic-Id            | OS-Linux-Disk-Generic-Id-SNMP-custom            | Contrôle du taux d'espace libre disponible du disque. Pour chaque contrôle apparaîtra le nom du disque                                                                             |            |
-| Disk-Generic-Name          | OS-Linux-Disk-Generic-Name-SNMP-custom          | Contrôle du taux d'espace libre disponible du disque. Pour chaque contrôle apparaîtra le point de montage du disque                                                                |            |
-| Disk-Global                | OS-Linux-Disk-Global-SNMP-custom                | Contrôle du taux d'espace libre disponible des disques. Pour chaque contrôle apparaîtra le point de montage des disques                                                            | X          |
-| Disk-IO                    | OS-Linux-Disk-IO-SNMP-custom                    | Contrôle les accès disques du disque. Pour chaque contrôle apparaîtra le nom du disque                                                                                             | X          |
+| Cpu-Detailed               | OS-Linux-Cpu-Detailed-SNMP-custom               | Contrôle du taux d'utilisation détaillé CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur. |            |
+| Disk-Generic-Id            | OS-Linux-Disk-Generic-Id-SNMP-custom            | Contrôle du taux d'espace libre disponible du disque. Pour chaque contrôle, le nom du disque apparaîtra.                                                                            |            |
+| Disk-Generic-Name          | OS-Linux-Disk-Generic-Name-SNMP-custom          | Contrôle du taux d'espace libre disponible du disque. Pour chaque contrôle, le point de montage du disque apparaîtra.                                                                |            |
+| Disk-Global                | OS-Linux-Disk-Global-SNMP-custom                | Contrôle du taux d'espace libre disponible des disques. Pour chaque contrôle, le point de montage des disques apparaîtra.                                                           | X          |
+| Disk-IO                    | OS-Linux-Disk-IO-SNMP-custom                    | Contrôle les accès disques du disque. Pour chaque contrôle, le nom du disque apparaîtra.                                                                                             | X          |
 | Inodes-Global              | OS-Linux-Inodes-Global-SNMP-custom              | Contrôle l'utilisation des inodes                                                                                                                                                  | X          |
 | Ntp                        | OS-Linux-NTP-SNMP-custom                        | Contrôle la synchronisation avec un serveur NTP                                                                                                                                    |            |
 | Packet-Errors-Generic-Id   | Os-Linux-Packet-Errors-Generic-Id-SNMP-custom   | Contrôle le pourcentage de paquets en erreur/écarté d'une interface réseau                                                                                                         |            |
@@ -45,9 +45,9 @@ Le connecteur apporte les modèles de service suivants
 | Packet-Errors-Global       | Os-Linux-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écarté de plusieurs interfaces réseau                                                                                                 | X          |
 | Process-Generic            | OS-Linux-Process-Generic-SNMP-custom            | Contrôle permettant de vérifier le fonctionnement d'un processus/service Linux                                                                                                     | X          |
 | Tcpcon-Generic             | OS-Linux-Tcpcon-Generic-SNMP-custom             | Contrôle permettant de vérifier les connexions tcp Linux                                                                                                                           |            |
-| Traffic-Generic-Id         | OS-Linux-Traffic-Generic-Id-SNMP-custom         | Contrôle de la bande passante de l'interface. Pour chaque contrôle apparaîtra le nom de l'interface                                                                                |            |
-| Traffic-Generic-Name       | OS-Linux-Traffic-Generic-Name-SNMP-custom       | Contrôle de la bande passante de l'interface. Pour chaque contrôle apparaîtra le nom de l'interface                                                                                |            |
-| Traffic-Global             | OS-Linux-Traffic-Global-SNMP-custom             | Contrôle de la bande passante des interfaces. Pour chaque contrôle apparaîtra le nom de l'interface                                                                                | X          |
+| Traffic-Generic-Id         | OS-Linux-Traffic-Generic-Id-SNMP-custom         | Contrôle de la bande passante de l'interface. Pour chaque contrôle, le nom de l'interface apparaîtra.                                                                                |            |
+| Traffic-Generic-Name       | OS-Linux-Traffic-Generic-Name-SNMP-custom       | Contrôle de la bande passante de l'interface. Pour chaque contrôle, le nom de l'interface apparaîtra.                                                                               |            |
+| Traffic-Global             | OS-Linux-Traffic-Global-SNMP-custom             | Contrôle de la bande passante des interfaces. Pour chaque contrôle, le nom de l'interface apparaîtra.                                                                                | X          |
 | Uptime                     | OS-Linux-Uptime-SNMP-custom                     | Durée depuis laquelle le serveur tourne sans interruption                                                                                                                          |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
@@ -268,7 +268,7 @@ Afin de superviser vos équipements Linux, le serveur SNMP doit être configuré
 
 ## Configuration du serveur SNMP 
 
-:note: Les commandes ci-après peuvent changer en fonction de la distribution. Des documentations sont le cas échéant disponibles sur les sites officiels des éditeurs. 
+**Note :** les commandes ci-après peuvent changer en fonction de la distribution. Des documentations sont disponibles sur les sites officiels des éditeurs. 
 
 Ci-dessous, un exemple de fichier snmpd.conf (remplacer **my-snmp-community** par la communauté que vous souhaitez utiliser).
 
@@ -286,7 +286,7 @@ includeAllDisks 10%
 
 Il est nécessaire de redémarrer le processus SNMP après avoir modifié le fichier de configuration. 
 
-Assurez vous que le processus SNMP est configuré pour démarrer automatiquement lors du redémarrage du serveur.
+Assurez-vous que le processus SNMP est configuré pour démarrer automatiquement lors du redémarrage du serveur.
 
 ### Flux réseau
 
