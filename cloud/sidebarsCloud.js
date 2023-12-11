@@ -197,6 +197,16 @@ module.exports = {
               }
             ]
           },
+          {
+            "type": "category",
+            "label": "Detecting anomalies",
+            "items": [
+              {
+                "type": "doc",
+                "id": "monitoring/anomaly-detection"
+              }
+            ]
+          },
         ]
       },
       {
@@ -222,6 +232,10 @@ module.exports = {
               {
                 "type": "doc",
                 "id": "alerts-notifications/custom-views"
+              },
+              {
+                "type": "doc",
+                "id": "alerts-notifications/dashboards"
               }
             ]
           },
@@ -428,6 +442,16 @@ module.exports = {
           {
             "type": "doc",
             "id": "security/security"
+          }
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Release notes",
+        "items": [
+          {
+            "type": "doc",
+            "id": "releases/cloud-release-notes"
           }
         ]
       },
