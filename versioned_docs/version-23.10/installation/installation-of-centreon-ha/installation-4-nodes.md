@@ -32,7 +32,7 @@ you will need to open the following flows:
 
 A Centreon HA cluster can only be installed on top of an operating Centreon platform. Before following this procedure, it is mandatory that **[this installation procedure](../../installation/introduction.md)** has already been completed and that **about 5 GB free space has been spared on the LVM volume group** that carries the MariaDB data directory (`/var/lib/mysql` mount point by default).
 
-The output of the `vgs` command must look like this: (pay attention to the value under `VFree`):
+The output of the `vgs` command must look like this (pay attention to the value under `VFree`):
 
 ```text
   VG                    #PV #LV #SN Attr   VSize   VFree 
