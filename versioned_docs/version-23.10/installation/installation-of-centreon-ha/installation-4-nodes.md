@@ -32,14 +32,14 @@ you will need to open the following flows:
 
 A Centreon HA cluster can only be installed on top of an operating Centreon platform. Before following this procedure, it is mandatory that **[this installation procedure](../../installation/introduction.md)** has already been completed and that **about 5 GB free space has been spared on the LVM volume group** that carries the MariaDB data directory (`/var/lib/mysql` mount point by default).
 
-The output of the `vgs` command must look like this (pay attention to the value under `VFree`):
+The output of the `vgs` command must look like this: (pay attention to the value under `VFree`):
 
 ```text
   VG                    #PV #LV #SN Attr   VSize   VFree 
   centos_centreon-c1      1   5   0 wz--n- <31,00g <5,00g
 ```
 
-* MariaDB files `ibdata*` and `ib_logfile*` must be in the "datadir" directory or in a subdirectory (scripts `centreondb-smooth-backup.sh` and `mysql-sync-bigdb.sh` are not compatible with this operation).
+* MariaDB files `ibdata*` and `ib_logfile*` must be in the "datadir" directory or in a subdirectory (scripts `centreondb-smooth-backup.sh` and `mysql-sync-bigdb.sh` are not compatible with this operation);
 * MariaDB files `log-bin*` and `relay-log*` can be located in a directory (or a subdirectory) different from "datadir". They can also be on a different logical volume (`lvm`) than "datadir". However, the logical volume must be located in the volume group where "datadir" is stored.
 
 > **WARNING:** If these particular prerequisites are not effective, the database synchronization method described below will not work.
@@ -92,10 +92,10 @@ On a standard Centreon platform, cbd service manages two processes of `centreon-
 
 In the context of a *Centreon HA* cluster, both broker processes will be handled by a separate service, managed by the cluster.
 
-* `central-broker-master` known as the resource `cbd_central_broker`, linked to *systemd* service `cbd-sql`.
+* `central-broker-master` known as the resource `cbd_central_broker`, linked to *systemd* service `cbd-sql`
 * `central-rrd-master` known as the clone resource `cbd_rrd`, linked to *systemd* `cbd` service, the standard broker service of Centreon.
 
-To ensure that everything goes well, you will have to unlink central-broker-master from the `cbd` service by checking "No" for parameter "Link to cbd service" in **Configuration* > Pollers > Broker configuration > central-broker-master** under the **General** tab.
+To ensure that everything goes well, you will have to unlink central-broker-master from the `cbd` service by checking "No" for parameter "Link to cbd service" in *Configuration* > *Pollers* > *Broker configuration* > *central-broker-master* under the *General* tab.
 
 #### Double output stream toward RRD
 
@@ -133,7 +133,7 @@ rsync -a /etc/centreon-broker/*json @CENTRAL_SLAVE_IPADDR@:/etc/centreon-broker/
 
 ### Customizing poller reload command
 
-You might not be aware that the central broker daemon must be reloaded every time you update your central poller's configuration, hence the "Centreon Broker reload command" parameter in **Configuration > Pollers > Central**.
+You might not be aware that the central broker daemon must be reloaded every time you update your central poller's configuration, hence the "Centreon Broker reload command" parameter in *Configuration > Pollers > Central*.
 
 As stated above, the centreon-broker processes will be divided into `cbd` (for RRD) and `cbd-sql` (for central broker) services. With this in mind, the service that needs to be reloaded is `cbd-sql`, and no longer `cbd`. So you will have to set the "Centreon Broker reload command" parameter to `service cbd-sql reload`.
 
