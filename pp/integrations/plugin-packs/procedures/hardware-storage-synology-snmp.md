@@ -34,7 +34,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                                     | Service Description                                                                          |
 |:---------------------|:-----------------------------------------------------|:---------------------------------------------------------------------------------------------|
-| Disk-Global          | HW-Storage-Synology-Disk-Global-SNMP-custom          | Check the rate of free space on disks. For each checks the mount point of disks will appear  |
+| Disk-Global          | HW-Storage-Synology-Disk-Global-SNMP-custom          | Check the rate of free space on disks. For each check, the mount point of disks will appear.  |
 | Traffic-Generic-Id   | HW-Storage-Synology-Traffic-Generic-Id-SNMP-custom   | Check traffic of an network interface                                                        |
 | Traffic-Generic-Name | HW-Storage-Synology-Traffic-Generic-Name-SNMP-custom | Check traffic of an network interface                                                        |
 | Traffic-Global       | HW-Storage-Synology-Traffic-Global-SNMP-custom       | Check traffic of multiple network interfaces                                                 |

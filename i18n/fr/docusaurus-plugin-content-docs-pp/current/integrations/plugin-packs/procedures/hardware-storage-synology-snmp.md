@@ -35,7 +35,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                | Modèle de service                                    | Description                                                                                                              |
 |:---------------------|:-----------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------|
-| Disk-Global          | HW-Storage-Synology-Disk-Global-SNMP-custom          | Contrôle du taux d'espace libre disponible des disques. Pour chaque contrôle apparaîtra le point de montage des disques  |
+| Disk-Global          | HW-Storage-Synology-Disk-Global-SNMP-custom          | Contrôle du taux d'espace libre disponible des disques. Pour chaque contrôle, le point de montage des disques apparaîtra. |
 | Traffic-Generic-Id   | HW-Storage-Synology-Traffic-Generic-Id-SNMP-custom   | Contrôle le traffic réseau d'une interface réseau                                                                        |
 | Traffic-Generic-Name | HW-Storage-Synology-Traffic-Generic-Name-SNMP-custom | Contrôle le traffic réseau d'une interface réseau                                                                        |
 | Traffic-Global       | HW-Storage-Synology-Traffic-Global-SNMP-custom       | Contrôle le traffic réseau de plusieurs interfaces réseau                                                                |
