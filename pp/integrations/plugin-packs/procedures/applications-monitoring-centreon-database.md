@@ -5,7 +5,7 @@ title: Centreon Database
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Centreon Database Monitoring Connector will help you set up monitoring for Centreon monitoring database. 
+The Centreon Database Monitoring Connector will help you set up monitoring for Centreon monitoring database. 
 
 ## Pack assets
 
