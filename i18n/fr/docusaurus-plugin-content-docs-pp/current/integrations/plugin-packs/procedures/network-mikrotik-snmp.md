@@ -252,7 +252,7 @@ yum install centreon-plugin-Network-Mikrotik-Snmp
 | WARNINGAVERAGE  | Warning threshold for average CPU utilization                                                           |                   |             |
 | CRITICALAVERAGE | Critical threshold for average CPU utilization                                                          |                   |             |
 | WARNINGCORE     | Warning thresholds for each CPU core                                                                |                   |             |
-| CRITICALCORE    | Critical thresholds for each CPU core                                                               |                   |             |
+| CRITICALCORE    | Critical threshold for each CPU core                                                               |                   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
 
 </TabItem>
@@ -548,9 +548,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option             | Description                                   |
 |:-------------------|:----------------------------------------------|
 | --use-ucd          | Use UCD mib for cpu average.                  |
-| --warning-average  | Warning threshold average CPU utilization.    |
-| --critical-average | Critical threshold average CPU utilization.   |
-| --warning-core     | Warning thresholds for each CPU core          |
+| --warning-average  | Warning threshold for average CPU utilization.    |
+| --critical-average | Critical threshold for average CPU utilization.   |
+| --warning-core     | Warning threshold for each CPU core          |
 | --critical-core    | Critical threshold for each CPU core         |
 
 </TabItem>

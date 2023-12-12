@@ -177,7 +177,7 @@ yum install centreon-pack-network-mikrotik-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Mikrotik SNMP** connector through
-the **Configuration > Monitoring Connectors Manager** menu.
+the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
 
@@ -250,7 +250,7 @@ yum install centreon-plugin-Network-Mikrotik-Snmp
 
 | Macro           | Description                                                                                         | Default value     | Mandatory   |
 |:----------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGAVERAGE  | Warning threshold average CPU utilization                                                           |                   |             |
+| WARNINGAVERAGE  | Warning threshold for average CPU utilization                                                           |                   |             |
 | CRITICALAVERAGE | Critical threshold average CPU utilization                                                          |                   |             |
 | WARNINGCORE     | Warning thresholds for each CPU core                                                                |                   |             |
 | CRITICALCORE    | Critical thresholds for each CPU core                                                               |                   |             |
