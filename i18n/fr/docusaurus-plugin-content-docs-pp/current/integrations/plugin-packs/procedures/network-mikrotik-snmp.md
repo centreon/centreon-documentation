@@ -551,7 +551,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --warning-average  | Warning threshold average CPU utilization.    |
 | --critical-average | Critical threshold average CPU utilization.   |
 | --warning-core     | Warning thresholds for each CPU core          |
-| --critical-core    | Critical thresholds for each CPU core         |
+| --critical-core    | Critical threshold for each CPU core         |
 
 </TabItem>
 <TabItem value="Environment" label="Environment">
