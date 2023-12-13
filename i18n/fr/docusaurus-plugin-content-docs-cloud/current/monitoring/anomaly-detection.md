@@ -15,7 +15,7 @@ Avec la supervision classique, les alertes sont déclenchées à partir de seuil
 
 ![image](../../../docusaurus-plugin-content-docs/version-23.10/assets/monitoring/anomaly/simple_scheme.png)
 
-On détermine quelles sont les valeurs normales au cours du temps : la prévision permet de calculer un seuil bas et un seuil élevé. Lorsque le comportement du service dévie du modèle attendu, ces seuils sont dépassés (c'est-à-dire que la métrique descend en-dessous du seuil bas ou dépasse le seuil élevé). Le service passe en statut CRITIQUE et une notification est envoyée. Exemple: un serveur a habituellement peu de trafic la nuit. Une nuit, Centreon détecte des flux réseau plus élevés
+On détermine quelles sont les valeurs normales au cours du temps : la prévision permet de calculer un seuil bas et un seuil élevé. Lorsque le comportement du service dévie du modèle attendu, ces seuils sont dépassés (c'est-à-dire que la métrique descend en-dessous du seuil bas ou dépasse le seuil élevé). Le service passe en statut CRITIQUE et une notification est envoyée. Exemple : un serveur a habituellement peu de trafic la nuit. Une nuit, Centreon détecte des flux réseau plus élevés
 que la normale et déclenche une alerte. Cela permet à l'entreprise de se rendre compte d'un piratage.
 
 ### Fonctionnement
@@ -66,9 +66,9 @@ cliquez sur le bouton **Create manually**.
 
 2. Remplissez les champs suivants :
 
-    - **Description**: nom du service.
-    - **Statut**: permet d'activer ou désactiver le service. Si vous désactivez un service, après avoir déployé la configuration, celui-ci ne sera plus supervisé (notamment, il n'apparaîtra plus à la page **Statut des ressources**).
-    - **Select host - service**: définir le couple hôte/service sur lequel le service Anomaly Detection se basera.
+    - **Description** : nom du service.
+    - **Statut** : permet d'activer ou désactiver le service. Si vous désactivez un service, après avoir déployé la configuration, celui-ci ne sera plus supervisé (notamment, il n'apparaîtra plus à la page **Statut des ressources**).
+    - **Select host - service** : définir le couple hôte/service sur lequel le service Anomaly Detection se basera.
     - **Select metric** : sélectionnez la métrique sur laquelle appliquer la détection d'anomalie.
     - Dans un premier temps, laissez le champ **Enable notifications** à **Désactivé**. (L'option sera activée à l'étape 3.)
     - Dans la section **Categories & groups**, vous pouvez sélectionner un [**Niveau de criticité**](../monitoring/categories.md#criticité).
@@ -166,7 +166,7 @@ par l'utilisateur. Elles comprennent la date et l'heure du contrôle, l'identifi
 l'identifiant de l'indicateur associé, le nom des données de performance sur lesquelles les calculs seront effectués
 ainsi que la valeur des données de performance.
 
-### Comment l’envoi et le stockage de mes données sont-ils protégés?
+### Comment l’envoi et le stockage de mes données sont-ils protégés ?
 
 L’envoi de données à notre infrastructure Cloud ne comporte aucun risque.
 Les données sont chiffrées de bout en bout. Les données collectées ne contiennent que des métriques et
