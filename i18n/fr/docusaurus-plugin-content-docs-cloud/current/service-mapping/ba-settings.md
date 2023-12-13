@@ -40,26 +40,18 @@ pré-remplir les champs lors de la bascule de la configuration en mode
 ### Paramètres des activités métier
 
 Les paramètres ci-dessous permettent de définir les valeurs par défaut
-que prendront les activité métiers. Seule la commande de notification ne
-peut être surchargée au niveau des activités métier.
+que prendront les activité métiers.
 
 ![image](../assets/service-mapping/guide/default_ba_parameters.png)
 
 | Colonne                 | Description                                                                                            |
 |-------------------------|--------------------------------------------------------------------------------------------------------|
-| Seuil dégradé           | Seuil « Warning » : Correspond à un état dégradé de la BA. Une notification peut alors être envoyée.   |
-| Seuil non fonctionnel   | Seuil « Critical » : Correspond à un état critique de la BA. Une notification peut alors être envoyée. |
+| Seuil dégradé           | Seuil « Warning » : Correspond à un état dégradé de la BA.   |
+| Seuil non fonctionnel   | Seuil « Critical » : Correspond à un état critique de la BA. |
 | Période du rapport      | Période de reporting par défaut de la BA BA                                                            |
-| Période de notification | Période de notification par défaut de la BA                                                            |
-| Groupes de contact      | Groupes de contact notifiés par défaut de la BA                                                        |
-| Intervalle entre deux   | Intervalle de notification par défaut de la BA                                                         |
-
-Pour être en mesure d'envoyer des notifications aux utilisateurs ou
-solutions externes (Slack, OpenDuty etc..) appartenant au(x) groupe(s)
-de contacts sélectionnés, vous devez configurer la section "Business
-activity" pour les utilisateurs concernés :
-
-![image](../assets/service-mapping/guide/bam_user_notification.png)
+| Période de notification | Option actuellement inactive                                                          |
+| Groupes de contact      | Option actuellement inactive                                                        |
+| Intervalle entre deux   | Option actuellement inactive                                                           |
 
 ## Paramètres utilisateur
 
