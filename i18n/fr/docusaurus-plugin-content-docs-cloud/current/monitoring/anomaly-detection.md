@@ -114,7 +114,7 @@ stable, vous pouvez activer les changements de statut. Une fois cette option act
 
 ### Étape 4 : Activer le processus de notification
 
-Les notifications sur les services de détection d'anomalies sont conformes au [processus de notification](../alerts-notifications/notif-configuration.md) standard. Les options de notification dans le formulaire **Anomaly Detection** ne sont pas fonctionnelles.
+Les notifications sur les services de détection d'anomalies sont paramétrées de la même façon que les [notifications concernant les services standard](../alerts-notifications/notif-configuration.md). Les options de notification dans le formulaire **Anomaly Detection** ne sont pas fonctionnelles.
 
 ## Utiliser l'assistant de création
 
