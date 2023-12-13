@@ -112,7 +112,7 @@ stable, you can activate status changes. Once you enable this option, the status
 
 ### Step 4: Activate the notification process
 
-Notifications on Anomaly Detection services are configured in the same way as [notifications for regular services](../alerts-notifications/notif-configuration.md). The notification options in the **Anomaly Detection** form are not functional.
+Notifications on Anomaly Detection services are configured in the same way as [notifications for regular services](../alerts-notifications/notif-configuration.md). The notification options in the **Anomaly Detection** form are currently inactive.
 
 ## Use the creation wizard
 
