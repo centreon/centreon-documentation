@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit la procédure de montée de version de votre plateforme
-Centreon depuis la version 21.10 vers la version 23.10.
+Centreon depuis la version 21.10 vers la version 24.04.
 
 > Lorsque vous effectuez la montée de version de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs. Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon. De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
@@ -32,15 +32,17 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-1. Mettez à jour votre Centreon 21.10 jusqu'à la dernière version mineure.
+1. Sur votre plateforme 21.10, remplacez `https://packages.centreon.com/rpm-standard` par `https://archives.centreon.com/standard/` dans votre configuration YUM (par défaut, `/etc/yum.repos.d/centreon.repo`).
 
-2. Supprimez le fichier **centreon.repo** :
+2. Mettez à jour votre Centreon 21.10 jusqu'à la dernière version mineure.
+
+3. Supprimez le fichier **centreon.repo** :
 
    ```shell
    rm /etc/yum.repos.d/centreon.repo
    ```
 
-3. Installez le nouveau dépôt :
+4. Installez le nouveau dépôt :
 
 ```shell
 dnf install -y dnf-plugins-core

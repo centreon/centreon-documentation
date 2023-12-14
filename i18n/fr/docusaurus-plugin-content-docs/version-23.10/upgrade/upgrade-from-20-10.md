@@ -53,15 +53,17 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-1. Mettez à jour votre Centreon 20.10 jusqu'à la dernière version mineure.
+1. Sur votre plateforme 20.10, remplacez `https://packages.centreon.com/rpm-standard` par `https://archives.centreon.com/standard/` dans votre configuration YUM (par défaut, `/etc/yum.repos.d/centreon.repo`). 
 
-2. Supprimez le fichier **centreon.repo** :
+2. Mettez à jour votre Centreon 20.10 jusqu'à la dernière version mineure.
+
+3. Supprimez le fichier **centreon.repo** :
 
    ```shell
    rm /etc/yum.repos.d/centreon.repo
    ```
 
-3. Installez le nouveau dépôt :
+4. Installez le nouveau dépôt :
 
 ```shell
 dnf install -y dnf-plugins-core

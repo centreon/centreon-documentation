@@ -53,15 +53,17 @@ servers:
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-1. Update your Centreon 20.10 to the latest minor version.
+1. On your 20.10 platform, replace `https://packages.centreon.com/rpm-standard` by `https://archives.centreon.com/standard/` in your current YUM configuration (by default, `/etc/yum.repos.d/centreon.repo`).
 
-2. Remove the **centreon.repo** file:
+2. Update your Centreon 20.10 to the latest minor version.
+
+3. Remove the **centreon.repo** file:
 
    ```shell
    rm /etc/yum.repos.d/centreon.repo
    ```
 
-3. Install the new repository:
+4. Install the new repository:
 
 ```shell
 dnf install -y dnf-plugins-core
