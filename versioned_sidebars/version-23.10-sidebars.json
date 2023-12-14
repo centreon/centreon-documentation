@@ -643,6 +643,10 @@
         },
         {
           "type": "doc",
+          "id": "version-23.10/graph-views/install-ha"
+        },
+        {
+          "type": "doc",
           "id": "version-23.10/graph-views/map-web-update"
           },
       {
@@ -677,7 +681,7 @@
                     "type": "doc",
                     "id": "version-23.10/api/map-api"
                   }
-              ]
+                                ]
             }
           ,
             {
