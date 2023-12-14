@@ -6,15 +6,12 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-> Centreon-MAP nécessite une licence valide. Pour en acquérir une et récupérer les dépôts
-> nécessaires, contactez [Centreon] mailto:sales@centreon.com).
+> Centreon MAP nécessite une licence valide. Pour en acquérir une et récupérer les dépôts nécessaires, contactez [Centreon](mailto:sales@centreon.com).
 
 ## Aperçu
 
-Centreon-MAP HA repose sur les mêmes concepts que Centreon HA.
+Centreon MAP HA repose sur les mêmes concepts que Centreon HA.
 Vous trouverez toutes les informations sur l'[aperçu](../installation/installation-of-centreon-ha/overview.md).
-
-> **AVERTISSEMENT:** La documentation suivante n'est compatible qu'avec MariaDB 10.3 et CentOS 7.
 
 ## Prérequis
 
@@ -23,13 +20,12 @@ Vous trouverez toutes les informations sur l'[aperçu](../installation/installat
 Avant d'appliquer cette procédure, vous devez avoir une bonne connaissance de l'OS Linux, de Centreon, et des outils de clusters Pacemaker afin d'avoir une compréhension 
 correcte de ce qui est fait.
 
-> **AVERTISSEMENT:** Toute personne qui suit cette procédure le fait sous sa propre responsabilité. En aucun cas, la société Centreon ne peut être tenue responsable d'une 
+> **AVERTISSEMENT:** toute personne qui suit cette procédure le fait sous sa propre responsabilité. En aucun cas, la société Centreon ne peut être tenue responsable d'une 
 quelconque panne ou perte de données.
 
 ### Flux réseau
 
-En plus des flux nécessaires décrits dans la [documentation officielle](install.md#architecture), 
-vous devrez ouvrir les flux suivants :
+En plus des flux nécessaires décrits dans la [documentation officielle](map-web-install.md#architecture), vous devrez ouvrir les flux suivants :
 
 <Tabs groupId="sync">
 <TabItem value="2 Nœuds" label="2 Nœuds">
@@ -56,14 +52,12 @@ vous devrez ouvrir les flux suivants :
 </TabItem>
 </Tabs>
 
-### Installation de la plateforme MAP de Centreon
+### Installation de la plateforme Centreon MAP
 
-Un cluster Centreon-MAP HA ne peut être installé que sur la base d'une plateforme Centreon-MAP en fonctionnement.
-Avant de suivre cette procédure, il est nécessaire que **[cette procédure d'installation](install.md)** ait déjà été complétée
-et qu'un **environ 5GB d'espace libre soit disponible du volume groupe LVM** qui contient
-le répertoire de données MariaDB (point de montage `/var/lib/mysql` par défaut).
+Un cluster Centreon MAP HA ne peut être installé que sur la base d'une plateforme Centreon MAP en fonctionnement.
+Avant de suivre cette procédure, il est nécessaire que **[cette procédure d'installation](map-web-install.md)** ait déjà été complétée et qu'**environ 5GB d'espace libre soit disponible du volume groupe LVM** qui contient le répertoire de données MariaDB (point de montage `/var/lib/mysql` par défaut).
 
-La réponse de la commande `vgs` doit ressembler à ceci (ce à quoi il faut faire attention est la valeur sous la mention `VFree`) :
+La réponse de la commande `vgs` doit ressembler à ceci (bien vérifier la valeur sous la mention `VFree`) :
 
 ```bash
   VG      #PV #LV #SN Attr   VSize  VFree
@@ -71,8 +65,10 @@ La réponse de la commande `vgs` doit ressembler à ceci (ce à quoi il faut fai
   vg_root   1   2   0 wz--n-  9,00g    0 
 ```
 
-Les 2 serveurs Centreon-MAP doivent être liés au même serveur central.
-Le script `/etc/centreon-studio/diagnostic.sh` doit retourner `[OK]` sur **les deux** serveurs MAP :
+Les 2 serveurs Centreon MAP doivent être liés au même serveur central.
+Le script `/etc/centreon-map/diagnostic.sh` doit retourner `[OK]` sur **les deux** serveurs MAP :
+
+`Note: bien penser à updater les output`
 
 ```bash
 ########## Centreon-MAP server version ##########
@@ -113,7 +109,7 @@ Le script `/etc/centreon-studio/diagnostic.sh` doit retourner `[OK]` sur **les d
 
 ```
 
-> **AVERTISSEMENT:** Si ces prérequis spécifiques ne sont pas respectés, la méthode de synchronisation des bases de données décrite ci-dessous ne fonctionnera pas.
+> **AVERTISSEMENT:** si ces prérequis spécifiques ne sont pas respectés, la méthode de synchronisation des bases de données décrite ci-dessous ne fonctionnera pas.
 
 ### Configuration de Studio
 
