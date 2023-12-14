@@ -50,7 +50,7 @@ In addition of necessary flows describe on the [official documentation](map-web-
 </TabItem>
 </Tabs>
 
-### Centreon MAP platform
+### Install Centreon MAP platform
 
 A Centreon MAP HA cluster can only be installed on a base of an operating Centreon MAP platform.
 Before following this procedure, it is mandatory that **[this installation procedure](map-web-install.md)** has already been completed and that **about 5GB free space have been spared on the LVM volume group** that carries the MariaDB data directory (`/var/lib/mysql` mount point by default).
