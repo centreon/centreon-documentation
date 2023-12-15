@@ -242,7 +242,9 @@ Afin de superviser vos équipements Linux, le serveur SNMP doit être configuré
 
 **Note :** les commandes ci-après peuvent changer en fonction de la distribution. Des documentations sont disponibles sur les sites officiels des éditeurs. 
 
-Ci-dessous, un exemple de commande pour la mise en place d'un utilisateur SNMP v3 sur un serveur Linux.
+Pour la mise en place d'un utilisateur SNMP v3 sur un serveur Linux, voici un exemple de paramétrage qui fonctionnera sur la plupart des distributions.
+
+Connectez-vous en SSH sur l'hôte à superviser et lancez la commande suivante.
 
 ```
 systemctl stop snmpd.service
