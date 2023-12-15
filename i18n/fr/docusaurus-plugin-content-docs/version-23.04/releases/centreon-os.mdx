@@ -318,6 +318,22 @@ Release date: `April 26, 2023`
 
 ## Centreon Collect
 
+### 23.04.6
+
+Release date: `December 15, 2023`
+
+#### Centreon Broker
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Broker now drops metrics whose names are longer than 1000 characters to avoid errors in the database. An error is logged when it occurs.
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a bug that made Broker crash when rebuilding RRD files for unexisting metrics.
+
 ### 23.04.5
 
 Release date: `November 20, 2023`
