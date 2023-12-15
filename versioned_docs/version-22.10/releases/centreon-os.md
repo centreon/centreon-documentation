@@ -21,7 +21,7 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ### 22.10.16
 
-Release date: `December 8, 2023`
+Release date: `December 15, 2023`
 
 #### Bug fixes
 
@@ -30,8 +30,8 @@ Release date: `December 8, 2023`
 #### Security fixes
 
 - [Security] Updated symfony/http-kernel dependency.
-- [Security] Prevented command injection in SENDTRAPCFG gorgoned event.
-- [Security] Prevented command injection in SENDTRAPCFG subcommand of clapi.
+- [Security] Prevented the command injection in SENDTRAPCFG gorgoned event.
+- [Security] Prevented the command injection in SENDTRAPCFG subcommand of CLAPI.
 
 ### 22.10.15
 
