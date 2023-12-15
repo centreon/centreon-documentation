@@ -19,7 +19,7 @@ If you have feature requests or want to report a bug, please go to our
 
 ### 22.04.18
 
-Release date: `December 8, 2023`
+Release date: `December 15, 2023`
 
 #### Security fix
 
