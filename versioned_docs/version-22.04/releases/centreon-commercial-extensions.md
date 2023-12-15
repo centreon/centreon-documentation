@@ -18,11 +18,11 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 22.04.14
 
-Release date: `December 8, 2023`
+Release date: `December 15, 2023`
 
 #### Enhancements
 
-- [Editor] Handled meta services in output widget.
+- [Editor] Handled metaservices in output widget.
 - [Viewer] Fixed status as font color for output widget.
 
 ### 22.04.13
@@ -374,11 +374,11 @@ Release date: `May 25, 2022`
 
 ### 22.04.5
 
-Release date: `December 8, 2023`
+Release date: `December 15, 2023`
 
-#### Bug fix
+#### Security fix
 
-- [MBI] Updated dependency.
+- Updated dependency.
 
 ### 22.04.4
 
