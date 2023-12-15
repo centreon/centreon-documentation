@@ -502,7 +502,7 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 
 | Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PROCESSNAME  | Filter process name                                                                                |                   |             |
+| PROCESSNAME  | Regular expression to define which processes should be monitored based on the executable’s name.                                                    |                   |             |
 | PROCESSPATH  | Filter process path                                                                                |                   |             |
 | PROCESSARGS  | Filter process arguments                                                                           |                   |             |
 | CRITICAL     | Critical threshold of matching processes count                                                     | 1:                |             |
