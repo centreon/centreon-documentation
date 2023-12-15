@@ -1,6 +1,6 @@
 ---
 id: operatingsystems-linux-snmpv3
-title: Linux SNMP
+title: Linux SNMP v3
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
