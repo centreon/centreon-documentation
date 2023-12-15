@@ -244,7 +244,7 @@ Afin de superviser vos équipements Linux, le serveur SNMP doit être configuré
 
 Pour la mise en place d'un utilisateur SNMP v3 sur un serveur Linux, voici un exemple de paramétrage qui fonctionnera sur la plupart des distributions.
 
-Connectez-vous en SSH sur l'hôte à superviser et lancez les commandes suivantes.
+Connectez-vous en SSH sur l'hôte à superviser et lancez les commandes suivantes (remplacez les *passphrases* par les vôtres) :
 
 ```
 systemctl stop snmpd.service
@@ -259,6 +259,18 @@ adding the following line to /var/lib/snmp/snmpd.conf:
    createUser centreon SHA "centreonrocks" AES "linuxisgreat"
 adding the following line to /etc/snmp/snmpd.conf:
    rouser centreon
+```
+
+Si tout s'est bien déroulé, la commande suivante doit aboutir à ce résultat:
+
+```
+snmpget -v 3 -u centreon256 -a SHA256 -A centreonrocks -x AES -X linuxisgreat -l authPriv 127.0.0.1 .1.3.6.1.2.1.1.5.0
+```
+
+Résultat :
+
+```
+SNMPv2-MIB::sysName.0 = STRING: myhostname
 ```
 
 Assurez-vous que le processus SNMP est configuré pour démarrer automatiquement lors du redémarrage du serveur.

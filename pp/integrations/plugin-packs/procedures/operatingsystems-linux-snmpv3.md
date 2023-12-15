@@ -244,7 +244,7 @@ To monitor a Linux-based device, the SNMP service must be installed and configur
 
 Here is a way to configure a SNMP v3 user that should work on most major distibutions.
 
-Log in with SSH on the host to monitor and run the following commands:
+Log in with SSH on the host to monitor and run the following commands (replace the passphrases with yours):
 
 ```
 systemctl stop snmpd.service
@@ -259,6 +259,18 @@ adding the following line to /var/lib/snmp/snmpd.conf:
    createUser centreon SHA "centreonrocks" AES "linuxisgreat"
 adding the following line to /etc/snmp/snmpd.conf:
    rouser centreon
+```
+
+If all went well, the following command should return the same result as below:
+
+```
+snmpget -v 3 -u centreon256 -a SHA256 -A centreonrocks -x AES -X linuxisgreat -l authPriv 127.0.0.1 .1.3.6.1.2.1.1.5.0
+```
+
+Output:
+
+```
+SNMPv2-MIB::sysName.0 = STRING: myhostname
 ```
 
 Make sure that the SNMP server is configured to automatically start on boot.
