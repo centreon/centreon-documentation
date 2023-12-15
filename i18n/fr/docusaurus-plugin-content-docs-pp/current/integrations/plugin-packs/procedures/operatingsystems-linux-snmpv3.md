@@ -244,7 +244,7 @@ Afin de superviser vos équipements Linux, le serveur SNMP doit être configuré
 
 Pour la mise en place d'un utilisateur SNMP v3 sur un serveur Linux, voici un exemple de paramétrage qui fonctionnera sur la plupart des distributions.
 
-Connectez-vous en SSH sur l'hôte à superviser et lancez la commande suivante.
+Connectez-vous en SSH sur l'hôte à superviser et lancez les commandes suivantes.
 
 ```
 systemctl stop snmpd.service
@@ -503,8 +503,8 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 | Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | PROCESSNAME  | Regular expression to define which processes should be monitored based on the executable’s name.                                                    |                   |             |
-| PROCESSPATH  | Filter process path                                                                                |                   |             |
-| PROCESSARGS  | Filter process arguments                                                                           |                   |             |
+| PROCESSPATH  | Regular expression to define which processes should be monitored based on the executable’s path. |                   |             |
+| PROCESSARGS  | Regular expression to define which processes should be monitored based on the command’s arguments.  |                   |             |
 | CRITICAL     | Critical threshold of matching processes count                                                     | 1:                |             |
 | WARNING      | Warning threshold of matching processes count                                                      |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |

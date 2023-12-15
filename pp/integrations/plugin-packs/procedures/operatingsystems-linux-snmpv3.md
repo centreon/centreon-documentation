@@ -240,9 +240,12 @@ To monitor a Linux-based device, the SNMP service must be installed and configur
 
 ## net-snmp server configuration
 
-A detailed documentation on how to configure SNMP is available in the documentation of each Linux distribution.
+**Note:** The commands listed below may change depending on the distribution. A detailed documentation on how to configure SNMP is available in the documentation of each Linux distribution.
 
-Here is a way to configure a SNMP v3 user:
+Here is a way to configure a SNMP v3 user that should work on most major distibutions.
+
+Log in with SSH on the host to monitor and run the following commands:
+
 ```
 systemctl stop snmpd.service
 net-snmp-create-v3-user -ro -A centreonrocks -X linuxisgreat -a SHA -x AES centreon
@@ -501,9 +504,9 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 
 | Macro        | Description                                                                                        | Default value     | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PROCESSNAME  | Filter process name                                                                                |                   |             |
-| PROCESSPATH  | Filter process path                                                                                |                   |             |
-| PROCESSARGS  | Filter process arguments                                                                           |                   |             |
+| PROCESSNAME  | Regular expression to define which processes should be monitored based on the executable’s name.  |                   |             |
+| PROCESSPATH  | Regular expression to define which processes should be monitored based on the executable’s path.  |                   |             |
+| PROCESSARGS  | Regular expression to define which processes should be monitored based on the command’s arguments.  |                   |             |
 | CRITICAL     | Critical threshold of matching processes count                                                     | 1:                |             |
 | WARNING      | Warning threshold of matching processes count                                                      |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
@@ -851,7 +854,7 @@ All available options for each service template are listed below:
 | Option                   | Description                                                                                                                                                                                                                                                                                          |
 |:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --units                  | Units of thresholds (default: '%') ('%', 'absolute')(deprecated. Please use new counters directly)                                                                                                                                                                                                   |
-| --free                   | Thresholds are on free space left (deprecated. Please use newcounters directly)                                                                                                                                                                                                                      |
+| --free                   | Apply the thresholds on free space instead of on used space. This option is deprecated, please use --(warning|critical)-usage-free or  --(warning|critical)-swap-free instead. |
 | --swap                   | Check swap also.                                                                                                                                                                                                                                                                                     |
 | --warning-* --critical-* | Thresholds. Can be: 'usage' (B), 'usage-free' (B), 'usage-prct' (%), 'swap' (B), 'swap-free' (B), 'swap-prct' (%), 'buffer' (B), 'cached' (B), 'shared' (B).                                                                                                                                         |
 | --patch-redhat           | If using RedHat distribution with net-snmp \>= 5.7.2-43 and net-snmp \< 5.7.2-47. But you should update net-snmp!!!!  This version: used = memTotalReal - memAvailReal // free = memAvailReal  Others versions: used = memTotalReal - memAvailReal - memBuffer - memCached // free = total - used    |
@@ -947,7 +950,7 @@ All available options for each service template are listed below:
 | --critical-uptime      | Critical threshold.                                                                                                                                                                                                                           |
 | --add-sysdesc          | Display system description.                                                                                                                                                                                                                   |
 | --force-oid            | Can choose your oid (numeric format only).                                                                                                                                                                                                    |
-| --check-overload       | Uptime counter limit is 4294967296 and overflow. With that option, we manage the counter going back. But there is a few chance we can miss a reboot.                                                                                          |
+| --check-overload       | The uptime counter limit is 4294967296 centiseconds (~497 days). This option makes the plugin store the actual uptime by incrementing the number of revolutions of the counter when it resets to zero. |
 | --reboot-window        | To be used with check-overload option. Time in milliseconds (default: 5000) You increase the chance of not missing a reboot if you decrease that value.                                                                                       |
 | --unit                 | Select the time unit for thresholds. May be 's' for seconds, 'm'for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                                                                                                  |
 
