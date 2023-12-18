@@ -672,7 +672,7 @@ OK: All interfaces are ok | '*interface_name*#status'=;;;;'*interface_name*#inte
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+Rendez-vous sur la [documentation dédiée](https://docs.centreon.com/fr/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins)
 pour le diagnostic des erreurs communes des plugins Centreon.
 
 ### Modes disponibles
