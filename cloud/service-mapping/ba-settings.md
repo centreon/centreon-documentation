@@ -41,7 +41,7 @@ The default parameters below define values for BAs.
 | Reporting Period         | Time Default BA reporting time period                                                                 |
 | Notification Time Period | This option is currently inactive. In Centreon Cloud, BAs use [the same notification mechanism as hosts and services](https://docs.centreon.com/cloud/alerts-notifications/notif-configuration/).                                                                  |
 | Contact Groups           | This option is currently inactive. In Centreon Cloud, BAs use [the same notification mechanism as hosts and services](https://docs.centreon.com/cloud/alerts-notifications/notif-configuration/).                                                                  |
-| Notification Interval    | This option is currently inactive                                                                   |
+| Notification Interval    | This option is currently inactive. In Centreon Cloud, BAs use [the same notification mechanism as hosts and services](https://docs.centreon.com/cloud/alerts-notifications/notif-configuration/).                                                                   |
 | Height Impact Tree       | Default height for window showing impact tree                                                         |
 
 ## User settings
