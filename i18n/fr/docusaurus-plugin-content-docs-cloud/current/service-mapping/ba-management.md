@@ -207,7 +207,7 @@ Dans Centreon Cloud, lorsque vous crééz une activité métier, vous devez syst
 
 #### Notification
 
-Cette fonctionnalité n'est pas active actuellement.
+Cet écran n'est pas actif actuellement. Dans Centreon Cloud, les BA utilisent [le même mécanisme de notification que les hôtes et les services](https://docs.centreon.com/cloud/alerts-notifications/notif-configuration/).
 
 #### Rapport
 
