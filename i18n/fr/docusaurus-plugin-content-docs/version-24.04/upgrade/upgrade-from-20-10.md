@@ -50,10 +50,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 ### Installer les nouveaux dépôts
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-1. Sur votre plateforme 20.10, remplacez `https://packages.centreon.com/rpm-standard` par `https://archives.centreon.com/standard/` dans votre configuration YUM (par défaut, `/etc/yum.repos.d/centreon.repo`).
+1. Sur votre plateforme 20.10, remplacez `https://packages.centreon.com/rpm-standard` ou `https://yum.centreon.com/standard/` par `https://archives.centreon.com/standard/` dans votre configuration YUM (par défaut, `/etc/yum.repos.d/centreon.repo`).
 
 2. Mettez à jour votre Centreon 20.10 jusqu'à la dernière version mineure.
 
@@ -69,9 +66,6 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
 ```
-
-</TabItem>
-</Tabs>
 
 > Si vous avez une [licence offline](../administration/licenses.md#types-de-licences), supprimez également l'ancien dépôt des connecteurs de supervision, puis installez le nouveau dépôt.
 >
