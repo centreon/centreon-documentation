@@ -5,19 +5,23 @@ title: Splunk Metrics
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> Hello community! We're looking for a contributor to help us to translate the content in french. If it's you, let us know and ping us on [slack](https://centreon.slack.com).
+Le stream connector Splunk Metrics vous permet d'envoyer des données depuis Centreon vers des instances Splunk.
 
-## Before starting
+## Avant de commencer
 
-- You can send events from a central server, a remote server or a poller.
-- By default, this stream connector sends **metrics** from **host_status** and **service_status** events. The event format is shown **[there](#event-format)**.
-- Aformentioned events are fired each time a host or a service is checked. Various parameters let you filter out events.
+Si vous ne voulez récupérer que des métriques, utilisez le stream connector Splunk Metrics. Si vous voulez récupérer toutes les données des évènements, utilisez le stream connector Splunk Events.
+
+- Dans la plupart des cas, vous enverrez les données depuis le serveur central. Il est également possible de les envoyer depuis un serveur distant ou un collecteur (par exemple si vous voulez éviter que le serveur central ne représente un point de défaillance unique, ou bien si vous êtes un MSP et vous installez le stream connector sur un collecteur ou un serveur distant dans l'infratructure de votre client).
+- Par défaut, le stream connector Splunk Metrics envoie des métriques des évènements Broker [**host_status**](../../developer/developer-broker-mapping.md#host-status) et [**service_status**](../../developer/developer-broker-mapping.md#service-status). Ces métriques sont contenues dans le champ **perf_data** des évènements. Le format des évènements est décrit **[ici](#event-format)**.
+- Ces évènements sont envoyés à chaque contrôle sur l'hôte ou le service. Des paramètres dédiés vous permettent de [ne pas envoyer certains évènements](#filtering-or-adapting-the-data-you-want-to-send-to-splunk).
 
 ## Installation
 
-Connectez vous en tant que `root` sur le serveur Centreon central en utilisant votre client SSH préféré.
+Faites l'installation sur le serveur qui enverra les données à Splunk (serveur central, serveur distant, collecteur).
 
-Lancer la commande adaptée à votre système :
+1. Connectez-vous en tant que `root` sur le serveur Centreon central en utilisant votre client SSH préféré.
+
+2. Exécutez la commande suivante :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -45,74 +49,88 @@ apt install centreon-stream-connector-splunk
 </TabItem>
 </Tabs>
 
-## Configuration
+## Configurer votre équipement Splunk
 
-To configure your stream connector, you must **head over** the **Configuration --> Poller --> Broker configuration** menu. **Select** the **central-broker-master** configuration (or the appropriate broker configuration if it is a poller or a remote server that will send events) and **click** the **Output tab** when the broker form is displayed.
+Vous devrez paramétrer votre équipement Splunk pour qu'il puisse recevoir des données de la part de Centreon. Reportez-vous à la documentation Splunk.
+Assurez-vous que Splunk puisse recevoir les données envoyées par Centreon : les flux ne doivent pas être bloqués par la configuration de Splunk ou par un équipement de sécurité.
 
-**Add** a new **generic - stream connector** output and **set** the following fields as follow:
+Le sourcetype correspondant au stream connector est "_json". D'autres informations utiles peuvent être par exemple : "source": "http:my_index", "index": "my_index", "host": "Central". Vous pouvez également ajouter ces informations à la configuration de votre stream connector si nécessaire.
 
-| Field           | Value                                                   |
+## Configurer le stream connector dans Centreon
+
+1. Sur votre serveur central, allez à la page **Configuration > Collecteurs > Configuration de Centreon Broker**.
+2. Cliquez sur **central-broker-master** (ou sur la configuration du Broker correspondant si les évènements seront envoyés par un serveur distant ou un collecteur).
+3. Dans l'onglet **Output**, sélectionnez **Generic - Stream connector** dans la liste, puis cliquez sur **Ajouter**. Un nouvel output apparaît dans la liste.
+4. Remplissez les champs de la manière suivante :
+
+| Champ           | Valeur                                                  |
 | --------------- | ------------------------------------------------------- |
 | Name            | Splunk metrics                                          |
 | Path            | /usr/share/centreon-broker/lua/splunk-metrics-apiv2.lua |
 | Filter category | Neb                                                     |
 
-### Add Splunk mandatory parameters
+5. Pour permettre à Centreon de se connecter à votre équipement Splunk, remplissez les paramètres obligatoires suivants. La première entrée existe déjà. Cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category** pour en ajouter un autre.
 
-Each stream connector has a set of mandatory parameters. To add them you must **click** on the **+Add a new entry** button located **below** the **filter category** input.
-
-| Type   | Name            | Value explanation                       | Value exemple                                           |
+| Type   | Name            | Explication de "Value"                  | Exemple de valeur                                           |
 | ------ | --------------- | --------------------------------------- | ------------------------------------------------------- |
-| string | http_server_url | the url of the Splunk service collector | `https://mysplunk.centreon.com:8088/services/collector` |
-| string | splunk_token    | Token to use the event collector api    |                                                         |
+| string | http_server_url | L'URL du collecteur de services de Splunk | `https://mysplunk.centreon.com:8088/services/collector` |
+| string | splunk_token    | Jeton pour l'API du collecteur d'évènements    |                                                         |
 
-### Add Splunk optional parameters
+6. Renseignez les paramètres optionnels désirés (en utilisant le lien **+Add a new entry**) :
 
-Some stream connectors have a set of optional parameters dedicated to the Software that are associated with. To add them you must **click** on the **+Add a new entry** button located **below** the **filter category** input.
-
-| Type   | Name              | Value explanation                                               | default value                               |
+| Type   | Name              | Explication de "Value"                                              | Valeur par défaut                              |
 | ------ | ----------------- | --------------------------------------------------------------- | ------------------------------------------- |
-| string | splunk_sourcetype | Identifies the data structure of the event                      | _json                                       |
-| string | splunk_host       | Name or address of the server that generated the event          | Central                                     |
-| string | splunk_index      | Index where the events are stored                               |                                             |
-| string | splunk_source     | source of the http event collector. like `http:<name_of_index>` |                                             |
-| string | logfile           | the file in which logs are written                              | /var/log/centreon-broker/splunk-metrics.log |
-| number | log_level         | logging level from 1 (errors) to 3 (debug)                      | 1                                           |
+| string | logfile           | Fichier dans lequel les ogs sont écrits                              | /var/log/centreon-broker/splunk-metrics.log |
+| number | log_level         | Niveau de log, de 1 (erreurs) à 3 (débug)                      | 1                                           |
 
-### Standard parameters
+7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les données que vous voulez que Centreon envoie à Splunk](#filtering-or-adapting-the-data-you-want-to-send-to-splunk).
 
-All stream connectors can use a set of optional parameters that are made available through Centreon stream connectors lua modules.
+8. [Déployez la configuration](../../monitoring/monitoring-servers/deploying-a-configuration.md).
 
-All those parameters are documented **[here](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters)**
+9. Redémarrez **centengine** sur tous les collecteurs :
 
-Some of them are overridden by this stream connector.
+   ```shell
+   systemctl restart centengine
+   ```
 
-| Type   | Name                         | Default value for the stream connector |
-| ------ | ---------------------------- | -------------------------------------- |
-| string | accepted_categories          | neb                                    |
-| string | accepted_elements            | host_status,service_status             |
-| number | max_buffer_size              | 30                                     |
-| number | hard_only                    | 0                                      |
-| number | enable_service_status_dedup  | 0                                      |
-| number | enable_host_status_dedup     | 0                                      |
-| string | metric_name_regex            | `[^a-zA-Z0-9_]`                        |
-| string | metric_replacement_character | _                                      |
+   Splunk reçoit maintenant des données de Centreon. Pour tester le bon fonctionnement de l'intégration, voir [Commandes curl : tester le stream connector](#curl-commands-testing-the-stream-connector).
+
+### Filtrer ou adapter les données que vous voulez envoyer à Splunk
+
+Tous les stream connectors ont un jeu de [paramètres optionnels](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters) qui vous permettent de filtrer les données que vous enverrez à votre équipement Splunk, de reformater les données, de définir un proxy...
+
+Chaque paramètre optionnel a une valeur par défaut, qui est indiquée dans la documentation correspondante.
+
+* Pour surcharger la valeur par défaut d'un paramètre, cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category**, afin d'ajouter un paramètre personnalisé. Par exemple, si vous ne voulez envoyer à Splunk que les évènements traités par un collecteur nommé "poller-1", entrez :
+
+   ```text
+   type = string
+   name = accepted_pollers
+   value = poller-1
+   ```
+
+* Pour le stream connector Splunk Metrics, les données suivantes surchargent toujours les valeurs par défaut (il n'est pas nécessaire de les redéfinir dans l'interface).
+
+| Type   | Name                | Valeur par défaut pour le stream connector |
+| ------ | ------------------- | -------------------------------------- |
+| string | accepted_categories | neb                                    |
+| string | accepted_elements   | host_status,service_status             |
 
 ## Event bulking
 
-This stream connector is compatible with event bulking. Meaning that it is able to send more that one event in each call to the Splunk REST API.
+Ce stream connector est compatible avec l'event bulking. Cela signifie qu'il est capable d'envoyer plus d'un évènement lors de chaque appel à l'API REST Spunk.
 
-> The default value for this stream connector is 30. A small value is more likely to slow down the Centreon broker thus generating retention.
+Pour utiliser cette fonctionnalité, vous devez ajouter le paramètre suivant à la configuration de votre stream connector.
 
 | Type   | Name            | Value           |
 | ------ | --------------- | --------------- |
 | number | max_buffer_size | `more than one` |
 
-## Event format
+## Format des évènements
 
-This stream connector will send event with the following format.
+Ce stream connector envoie des évènements au format suivant :
 
-### service_status event
+### évènement service_status
 
 ```json
 {
@@ -120,22 +138,23 @@ This stream connector will send event with the following format.
   "source": "http:my_index",
   "index": "my_index",
   "host": "Central",
-  "time": 1630590530,
+  "time": 1675865364,
   "fields": {
     "event_type": "service",
     "state": 2,
     "state_type": 1,
     "hostname": "my_host",
     "service_description": "my_service",
-    "ctime": 1630590520,
-    "metric_name: database.used.percent": 80,
-    "instance": "my_db",
-    "subinstance": ["sub_1", "sub_2"]
+    "ctime": 1675865364,
+    "metric: pl": 0,
+    "metric: rta": 10,
+    "metric: rtmin": 5,
+    "metric: rtmax": 15
   }
 }
 ```
 
-### host_status event
+### évènement host_status
 
 ```json
 {
@@ -143,32 +162,38 @@ This stream connector will send event with the following format.
   "source": "http:my_index",
   "index": "my_index",
   "host": "Central",
-  "time": 1630590530,
+  "time": 1675865364,
   "fields": {
     "event_type": "host",
     "state": 1,
     "state_type": 1,
     "hostname": "my_host",
-    "ctime": 1630590520,
-    "metric_name: database.used.percent": 80,
-    "instance": "my_db",
-    "subinstance": ["sub_1", "sub_2"]
+    "ctime": 1675865364,
+    "metric: pl": 0,
+    "metric: rta": 10,
+    "metric: rtmin": 5,
+    "metric: rtmax": 15
   }
 }
 ```
 
 ### Custom event format
 
-You can"t change the format of the event for metrics oriented stream connectors.
+Il n'est pas possible de changer le format des évènements pour les stream connectors orientés métriques. Vous ne pouvez donc pas envoyer d'autres évènements Broker contenant des données de performance.
 
-## Curl commands
+## Commandes Curl : tester le stream connector
 
-Here is the list of all the curl commands that are used by the stream connector.
+### Envoyer des évènements
 
-### Send events
+Si vous voulez tester que les évènements sont envoyés correctement à Splunk :
 
-```shell
-curl -X POST -H "content-type: application/json" -H "authorization: Splunk <splunk_token>" '<http_server_url>' -d '{"sourcetype": "<splunk_sourcetype>","source": "<splunk_source>","index": "<splunk_index>","host": "<splunk_host>","time": <epoch_timestamp>,"event": {"event_type": "host","state": 1,"state_type": 1,"hostname":"my_host","ctime": 1630590520,"metric_name: database.used.percent": 80,"instance": "my_db","subinstance": ["sub_1", "sub_2"]}}'
-```
+1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à Splunk (le serveur central, un serveur distant ou un collecteur)
+2. Exécutez la commande suivante :
 
-You must replace all the *`<xxxx>`* inside the above command with their appropriate value. *<splunk_sourcetype>* may become *_json*.
+   ```shell
+   curl -X POST -H "content-type: application/json" -H "authorization: Splunk <splunk_token>" '<http_server_url>' -d '{"sourcetype": "<splunk_sourcetype>","source": "<splunk_source>","index": "<splunk_index>","host": "<splunk_host>","time": <epoch_timestamp>,"event": {"event_type": "host","state": 1,"state_type": 1,"hostname":"my_host","ctime": 1675865364,"metric: pl": 0,"metric: rta": 10,"metric: rtmin": 5,"metric: rtmax": 15}}'
+   ```
+
+   > Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par la valeur correcte. Par exemple, *<splunk_sourcetype>* pourra être remplacé par *_json*.
+
+3. Vérifiez que l'évènement a bien été reçu par Splunk.

@@ -94,28 +94,28 @@ const config = {
           showLastUpdateTime: true,
           includeCurrentVersion: false,
           onlyIncludeVersions: versions,
-          versions: {
-            '23.10': {
-              label: '⭐ 23.10',
-              banner:'none',
-            },
-            23.04: {
-              label: '23.04',
-              banner:'none',
-            },
-            '22.10': {
-              label: '22.10',
-              banner:'none',
-            },
-            22.04: {
-              label: '22.04',
-              banner:'none',
-            },
-            '21.10': {
-              label: '21.10',
-              banner:'none',
-            },
-          },
+          versions: (() => {
+            if (archivedVersion) {
+              return {
+                [archivedVersion]: {
+                  label: archivedVersion,
+                  banner:'unmaintained',
+                }
+              }
+            }
+
+            return versions.reduce(
+              (accumulator, currentValue) => {
+                accumulator[currentValue] = {
+                  label: Object.keys(accumulator).length === 0 ? `⭐ ${currentValue}` : currentValue,
+                  banner: 'none',
+                }
+
+                return accumulator;
+              },
+              {}
+            );
+          })(),
         },
         blog: false,
         theme: {

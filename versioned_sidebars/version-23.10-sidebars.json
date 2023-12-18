@@ -1146,6 +1146,10 @@
             },
             {
               "type": "doc",
+              "id": "version-23.10/integrations/itsm/ot-easyvista-rest-api"
+            },
+            {
+              "type": "doc",
               "id": "version-23.10/integrations/itsm/ot-glpi"
             },
             {
