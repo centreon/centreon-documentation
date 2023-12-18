@@ -669,7 +669,7 @@ OK: All interfaces are ok | '*interface_name*#status'=;;;;'*interface_name*#inte
 
 ### Troubleshooting
 
-Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
+Please find the [troubleshooting documentation](https://docs.centreon.com/fr/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins)
 for Centreon Plugins typical issues.
 
 ### Available modes
