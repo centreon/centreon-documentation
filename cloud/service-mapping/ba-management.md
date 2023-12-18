@@ -214,7 +214,7 @@ In Centreon Cloud, when you create a business activity, you must always add it t
 
 #### Notification
 
-This feature is not currently active.
+This screen is not currently active. In Centreon Cloud, BAs use [the same notification mechanism as hosts and services](https://docs.centreon.com/cloud/alerts-notifications/notif-configuration/).
 
 #### Reporting
 
