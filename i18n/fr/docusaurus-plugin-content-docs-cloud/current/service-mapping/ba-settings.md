@@ -50,7 +50,7 @@ que prendront les activité métiers.
 | Seuil non fonctionnel   | Seuil « Critical » : Correspond à un état critique de la BA. |
 | Période du rapport      | Période de reporting par défaut de la BA BA                                                            |
 | Période de notification | Option actuellement inactive. Dans Centreon Cloud, les BA utilisent [le même mécanisme de notification que les hôtes et les services](https://docs.centreon.com/cloud/alerts-notifications/notif-configuration/).                                                          |
-| Groupes de contact      | Option actuellement inactive                                                        |
+| Groupes de contact      | Option actuellement inactive. Dans Centreon Cloud, les BA utilisent [le même mécanisme de notification que les hôtes et les services](https://docs.centreon.com/cloud/alerts-notifications/notif-configuration/).                                                       |
 | Intervalle entre deux   | Option actuellement inactive                                                           |
 
 ## Paramètres utilisateur
