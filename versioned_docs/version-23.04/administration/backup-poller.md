@@ -12,13 +12,15 @@ title: Back up and restore your pollers
 You need to back up the following elements to be able to rebuild your poller from scratch in case of a problem.
 
 - Custom plugins (example: community plugins, or custom developments)
-- If you are using the **centreon-vmware-daemon** connector (installation and configuration): backup **/etc/centreon/centreon_vmware.pm**
 - If you are using the **centreon-as400** connector (installation and configuration): backup **/etc/centreon-as400/**
 - Synchronize the following files regularly (e.g. using the **rsync** command):
    - **/var/log/centreon-engine/retention.dat** (up to every 15 minutes) to keep acknowledgements, downtimes and statuses.
    - **/var/lib/centreon/centplugins/\*** (up to every 5 minutes) to keep the plugins cache.
    - **/etc/centreon-gorgone/config.d/\*** (once) to keep the connection information to the central server.
    - **/var/lib/centreon-gorgone/.keys/\*** (once) to keep the same fingerprint for ZeroMQ authentication.
+   - **/etc/snmp/centreon_traps/** (once a week), if you are using SNMP traps on the poller.
+   - **/etc/centreon/** (once a week).
+   - **/var/log/centreon-engine/** (once a week), as it contains **retention.dat** and all archives (necessary to rebuild the dashboards).
 
 ### Switching to the new poller
 
