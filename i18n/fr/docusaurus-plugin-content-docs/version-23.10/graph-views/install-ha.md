@@ -184,9 +184,11 @@ Centreon propose un paquet nommé `centreon-ha-common`, qui fournit tous les fic
 
 <Tabs groupId="sync">
 <TabItem value="Debian11" label="Debian 11">
+
 ```bash
 apt install centreon-ha-common pcs pacemaker corosync corosync-qdevice
 ```
+
 </TabItem>
 </Tabs>
 
@@ -246,6 +248,7 @@ Un cluster MariaDB primaire-secondaire sera mis en place afin que tout soit sync
 
 <Tabs groupId="sync">
 <TabItem value="Debian11" label="Debian 11">
+
 Pour des raisons d'optimisation et de fiabilité du cluster, vous devez ajouter ces options de réglage à la configuration de MariaDB dans le fichier `/etc/mysql/mariadb.conf.d/50-server.cnf`. Collez ces lignes (certaines doivent être modifiées) dans cette section :
 
 ```ini
