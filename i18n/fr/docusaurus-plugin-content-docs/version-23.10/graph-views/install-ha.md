@@ -32,7 +32,7 @@ En plus des flux nécessaires décrits dans la [documentation officielle](map-we
 
 | De                    | Destination           | Protocol | Port     | Application                                                                       |
 | :-------------------- | :-------------------- | :------- | :------- | :-------------------------------------------------------------------------------- |
-| Nœud Actif            | Nœud  Passif          | MySQL    | TCP 3306 | Synchronisation MySQL (Doit être également ouvert du nœud passif vers le nœud actif) |
+| Nœud Actif            | Nœud  Passif          | MariaDB    | TCP 3306 | Synchronisation MariaDB (Doit être également ouvert du nœud passif vers le nœud actif) |
 | MAP Servers + QDevice | MAP Servers + QDevice | Corosync | UDP 5404 | Communication à l'intérieur du cluster (Multicast)                                |
 | MAP Servers + QDevice | MAP Servers + QDevice | Corosync | UDP 5405 | Communication à l'intérieur du cluster (Unicast)                                  |
 | MAP Servers + QDevice | MAP Servers + QDevice | PCS      | TCP 2224 | Communication à l'intérieur du cluster                                            |
