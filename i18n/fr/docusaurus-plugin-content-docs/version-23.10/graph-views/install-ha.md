@@ -573,7 +573,7 @@ La commande suivante crée le cluster. Elle doit être exécutée **seulement su
 ```bash
 pcs cluster setup \
 	--force \
-	--name centreon_map_cluster \
+	centreon_map_cluster \
 	"@MAP_PRIMARY_NAME@" \
 	"@MAP_SECONDARY_NAME@"
 ```
