@@ -12,13 +12,15 @@ title: Sauvegarder et restaurer vos collecteurs
 Sauvegardez les éléments suivants afin d'être en mesure de complètement reconstruire votre collecteur en cas de problème.
 
 - Plugins personnalisés (par exemple: plugins de la communauté, ou développements spécifiques)
-- Si vous utilisez le connecteur **centreon-vmware-daemon** (installation et configuration): sauvegardez **/etc/centreon/centreon_vmware.pm**
 - Si vous utilisez le connecteur **centreon-as400** (installation et configuration): sauvegardez **/etc/centreon-as400/**
 - Synchronisez les fichiers suivants régulièrement (par exemple avec la commande **rsync**) :
    - **/var/log/centreon-engine/retention.dat** (jusqu'à toutes les 15 minutes) pour garder les acquittements, les plages de maintenance et les statuts.
    - **/var/lib/centreon/centplugins/\*** (jusqu'à toutes les 5 minutes) pour garder le cache des plugins.
    - **/etc/centreon-gorgone/config.d/\*** (une seule fois) pour garder les informations de connexion au serveur central.
    - **/var/lib/centreon-gorgone/.keys/\*** (une seule fois) pour garder l'empreinte pour l'authentification ZeroMQ.
+   - **/etc/snmp/centreon_traps/** (une fois par semaine), si vous utilisez des traps SNMP sur le poller.
+   - **/etc/centreon/** (une fois par semaine).
+   - **/var/log/centreon-engine/** (une fois par semaine), vu qu'il contient **retention.dat** et toutes les archives (nécessaires pour reconstruire les tableaux de bord). 
 
 ### Basculer vers le nouveau collecteur
 
