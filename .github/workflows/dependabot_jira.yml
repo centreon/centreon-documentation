@@ -23,7 +23,7 @@ jobs:
         run: echo "CURRENT_DATE=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
 
       - name: Login to Jira
-        uses: atlassian/gajira-login@v2.0.0
+        uses: atlassian/gajira-login@v3.0.1
         env:
           JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
           JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
