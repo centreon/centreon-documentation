@@ -19,7 +19,7 @@ You need to back up the following elements to be able to rebuild your poller fro
    - **/etc/centreon-gorgone/config.d/\*** (once) to keep the connection information to the central server.
    - **/var/lib/centreon-gorgone/.keys/\*** (once) to keep the same fingerprint for ZeroMQ authentication.
    - **/etc/snmp/centreon_traps/** (once a week), if you are using SNMP traps on the poller.
-   - **/etc/centreon/** (once a week)
+   - **/etc/centreon/** (once a week).
    - **/var/log/centreon-engine/** (once a week), as it contains **retention.dat** and all archives (necessary to rebuild the dashboards) 
 
 ### Switching to the new poller
