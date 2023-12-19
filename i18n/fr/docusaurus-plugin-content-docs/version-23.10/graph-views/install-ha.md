@@ -68,8 +68,6 @@ La réponse de la commande `vgs` doit ressembler à ceci (bien vérifier la vale
 Les deux serveurs Centreon MAP doivent être liés au même serveur central.
 Le script `/etc/centreon-map/diagnostic.sh` doit retourner `[OK]` sur **les deux** serveurs MAP :
 
-`Note: bien penser à updater les output`
-
 ```bash
 ########## Centreon-MAP server version ##########
 
@@ -180,7 +178,7 @@ EOF
 
 ### Installation des paquets système
 
-Centreon propose un paquet nommé `centreon-ha-common`, qui fournit tous les fichiers et dépendances nécessaires à un cluster Centreon. Ces paquets doivent être installés sur les deux nœuds de Centreon-MAP :
+Centreon propose un paquet nommé `centreon-ha-common`, qui fournit tous les fichiers et dépendances nécessaires à un cluster Centreon. Ces paquets doivent être installés sur les deux nœuds de Centreon MAP :
 
 <Tabs groupId="sync">
 <TabItem value="Debian11" label="Debian 11">
@@ -282,7 +280,7 @@ innodb_log_file_size = 200M
 </Tabs>
 
 > **Important :** la valeur de `server-id` doit être différente d'un serveur à l'autre. Les valeurs proposées dans le commentaire 1 => Primaire et 2 => Secondaire ne sont pas obligatoires mais recommandées.
-> `bind-address` permet d'indiquer sur quelle(s) adresse(s) MariaDB écoutera les connexions, si par exemple vous disposez de plusieurs interfaces publiques. `0.0.0.0` signifie "toutes les interfaces". 
+> `bind-address` permet d'indiquer sur quelle(s) adresse(s) MariaDB écoutera les connexions, si par exemple vous disposez de plusieurs interfaces publiques. `0.0.0.0` signifie "toutes les interfaces".
 
 Pour appliquer la nouvelle configuration, vous devez redémarrer le service de base de données :
 
