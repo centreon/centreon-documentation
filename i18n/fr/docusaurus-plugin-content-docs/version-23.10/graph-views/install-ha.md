@@ -261,7 +261,7 @@ slave_compressed_protocol=1
 datadir=/var/lib/mysql
 pid-file=/var/lib/mysql/mysql.pid
 
-ignore-db-dir=lost+found
+ignore_db_dirs=lost+found
 
 bind-address            = 0.0.0.0
 
