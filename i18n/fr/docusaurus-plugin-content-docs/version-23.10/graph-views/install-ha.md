@@ -32,7 +32,7 @@ En plus des flux nécessaires décrits dans la [documentation officielle](map-we
 
 | De                    | Destination           | Protocol | Port     | Application                                                                       |
 | :-------------------- | :-------------------- | :------- | :------- | :-------------------------------------------------------------------------------- |
-| Nœud Actif            | Nœud  Passif          | MySQL    | TCP 3306 | Synchronisation MySQL (Doit être également ouvert du nœud passif vers le nœud actif) |
+| Nœud Actif            | Nœud  Passif          | MariaDB    | TCP 3306 | Synchronisation MariaDB (Doit être également ouvert du nœud passif vers le nœud actif) |
 | MAP Servers + QDevice | MAP Servers + QDevice | Corosync | UDP 5404 | Communication à l'intérieur du cluster (Multicast)                                |
 | MAP Servers + QDevice | MAP Servers + QDevice | Corosync | UDP 5405 | Communication à l'intérieur du cluster (Unicast)                                  |
 | MAP Servers + QDevice | MAP Servers + QDevice | PCS      | TCP 2224 | Communication à l'intérieur du cluster                                            |
@@ -43,7 +43,7 @@ En plus des flux nécessaires décrits dans la [documentation officielle](map-we
 
 | De                         | Destination                 | Protocol | Port     | Application                                                                       |
 | :------------------------- | :-------------------------- | :------- | :------- | :-------------------------------------------------------------------------------- |
-| Nœud Base de données actif | Nœud Base de données passif | MySQL    | TCP 3306 | Synchronisation MySQL (Doit être également ouvert du nœud passif vers le nœud actif) |
+| Nœud Base de données actif | Nœud Base de données passif | MariaDB    | TCP 3306 | Synchronisation MariaDB (Doit être également ouvert du nœud passif vers le nœud actif) |
 | MAP Servers + DB + QDevice | MAP Servers + DB + QDevice  | Corosync | UDP 5404 | Communication à l'intérieur du cluster (Multicast)                                |
 | MAP Servers + DB + QDevice | MAP Servers + DB + QDevice  | Corosync | UDP 5405 | Communication à l'intérieur du cluster (Unicast)                                  |
 | MAP Servers + DB + QDevice | MAP Servers + DB + QDevice  | PCS      | TCP 2224 | Communication à l'intérieur du cluster                                            |
@@ -160,7 +160,7 @@ net.ipv4.tcp_keepalive_time = 200
 net.ipv4.tcp_keepalive_probes = 2
 net.ipv4.tcp_keepalive_intvl = 2
 EOF
-systemctl restart network
+systemctl restart networking
 ```
 
 ### Résolution de nom
@@ -264,7 +264,7 @@ slave_compressed_protocol=1
 datadir=/var/lib/mysql
 pid-file=/var/lib/mysql/mysql.pid
 
-ignore-db-dir=lost+found
+ignore_db_dirs=lost+found
 
 bind-address            = 0.0.0.0
 
@@ -310,10 +310,10 @@ Puis collez de part et d'autre les commandes SQL suivantes à l'invité MariaDB 
 
 ```sql
 CREATE USER '@MARIADB_CENTREON_USER@'@'@MAP_SECONDARY_IPADDR@' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@';
-GRANT ALL PRIVILEGES ON centreon_studio.* TO '@MARIADB_CENTREON_USER@'@'@MAP_SECONDARY_IPADDR@';
+GRANT ALL PRIVILEGES ON centreon_map.* TO '@MARIADB_CENTREON_USER@'@'@MAP_SECONDARY_IPADDR@';
 
 CREATE USER '@MARIADB_CENTREON_USER@'@'@MAP_PRIMARY_IPADDR@' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@';
-GRANT ALL PRIVILEGES ON centreon_studio.* TO '@MARIADB_CENTREON_USER@'@'@MAP_PRIMARY_IPADDR@';
+GRANT ALL PRIVILEGES ON centreon_map.* TO '@MARIADB_CENTREON_USER@'@'@MAP_PRIMARY_IPADDR@';
 ```
 
 ### Création du compte de réplication MariaDB
@@ -576,7 +576,7 @@ La commande suivante crée le cluster. Elle doit être exécutée **seulement su
 ```bash
 pcs cluster setup \
 	--force \
-	--name centreon_map_cluster \
+	centreon_map_cluster \
 	"@MAP_PRIMARY_NAME@" \
 	"@MAP_SECONDARY_NAME@"
 ```
@@ -721,7 +721,7 @@ Afin de forcer le cluster à faire tourner le groupe de ressources `centreon_map
 
 ```bash
 pcs constraint colocation add "centreon_map" with master "ms_mysql-clone"
-pcs constraint colocation add master "ms_mysql-master" with "centreon_map"
+pcs constraint colocation add master "ms_mysql-clone" with "centreon_map"
 ```
 
 Après cette étape, toutes les ressources doivent fonctionner sur le même nœud, la plateforme doit être redondante et fonctionner correctement.
