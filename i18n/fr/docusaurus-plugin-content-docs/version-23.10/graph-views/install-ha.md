@@ -160,7 +160,7 @@ net.ipv4.tcp_keepalive_time = 200
 net.ipv4.tcp_keepalive_probes = 2
 net.ipv4.tcp_keepalive_intvl = 2
 EOF
-systemctl restart network
+systemctl restart networking
 ```
 
 ### Résolution de nom
