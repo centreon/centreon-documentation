@@ -566,7 +566,6 @@ pcs host auth \
 	"@QDEVICE_NAME@" \
 	-u "hacluster" \
 	-p '@CENTREON_CLUSTER_PASSWD@' \
-	--force
 ```
 
 #### Création du cluster
@@ -575,7 +574,6 @@ La commande suivante crée le cluster. Elle doit être exécutée **seulement su
 
 ```bash
 pcs cluster setup \
-	--force \
 	centreon_map_cluster \
 	"@MAP_PRIMARY_NAME@" \
 	"@MAP_SECONDARY_NAME@"
