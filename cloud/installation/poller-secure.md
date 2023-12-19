@@ -303,6 +303,8 @@ Make sure you back up your custom plugins, and the following configuration files
    - /etc/centreon/centreon_vmware.pm
    - /etc/centreon-as400/
    - /var/lib/centreon/centplugins/*
+   - /var/log/centreon-engine/*.dat
+   - /var/lib/centreon-broker/*
 
 ## Allowing traffic to/from AWS IP ranges
 
@@ -324,7 +326,9 @@ Follow this porcedure to replace a failed poller by a new one:
    - /etc/centreon/centreon_vmware.pm
    - /etc/centreon-as400/
    - /var/lib/centreon/centplugins/*
-
+   - /var/log/centreon-engine/*.dat
+   - /var/lib/centreon-broker/*
+     
 3. Use the [**Mass change**](../monitoring/generic-actions.md#mass-change) feature to make sure the new poller now monitors all the hosts that the failed poller did.
 
 4. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for the new poller.
