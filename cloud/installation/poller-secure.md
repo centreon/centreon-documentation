@@ -23,19 +23,6 @@ have a dedicated user):
 passwd <account_name>
 ```
 
-In addition, it is important to verify that the Apache account does not have connection rights to the terminal.
-Execute the following command:
-
-```shell
-cat /etc/passwd | grep apache
-```
-
-You must have **/sbin/nologin** like:
-
-```shell
-apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
-```
-
 > As a reminder, the list of users and groups can be found [here](../installation/prerequisites.md#users-and-groups)
 
 ## Enable SELinux
@@ -103,131 +90,35 @@ Depending on the type of server, install the packages with the following command
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-<Tabs groupId="sync">
-<TabItem value="Central / Remote Server" label="Central / Remote Server">
-
-   ```shell
-   dnf install centreon-common-selinux \
-   centreon-web-selinux \
-   centreon-broker-selinux \
-   centreon-engine-selinux \
-   centreon-gorgoned-selinux \
-   centreon-plugins-selinux
-   ```
-
-</TabItem>
-<TabItem value="Poller" label="Poller">
-
-   ```shell
-   dnf install centreon-common-selinux \
-   centreon-broker-selinux \
-   centreon-engine-selinux \
-   centreon-gorgoned-selinux \
-   centreon-plugins-selinux
-   ```
-
-</TabItem>
-<TabItem value="Map server" label="Map server">
-
-   ```shell
-   dnf install centreon-map-selinux
-   ```
-
-</TabItem>
-<TabItem value="MBI server" label="MBI server">
-
-   ```shell
-   dnf install centreon-mbi-selinux
-   ```
-
-</TabItem>
-</Tabs>
+```shell
+dnf install centreon-common-selinux \
+centreon-broker-selinux \
+centreon-engine-selinux \
+centreon-gorgoned-selinux \
+centreon-plugins-selinux
+```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-<Tabs groupId="sync">
-<TabItem value="Central / Remote Server" label="Central / Remote Server">
-
-   ```shell
-   dnf install centreon-common-selinux \
-   centreon-web-selinux \
-   centreon-broker-selinux \
-   centreon-engine-selinux \
-   centreon-gorgoned-selinux \
-   centreon-plugins-selinux
-   ```
-
-</TabItem>
-<TabItem value="Poller" label="Poller">
-
-   ```shell
-   dnf install centreon-common-selinux \
-   centreon-broker-selinux \
-   centreon-engine-selinux \
-   centreon-gorgoned-selinux \
-   centreon-plugins-selinux
-   ```
-
-</TabItem>
-<TabItem value="Map server" label="Map server">
-
-   ```shell
-   dnf install centreon-map-selinux
-   ```
-
-</TabItem>
-<TabItem value="MBI server" label="MBI server">
-
-   ```shell
-   dnf install centreon-mbi-selinux
-   ```
-
-</TabItem>
-</Tabs>
+```shell
+dnf install centreon-common-selinux \
+centreon-broker-selinux \
+centreon-engine-selinux \
+centreon-gorgoned-selinux \
+centreon-plugins-selinux
+```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-<Tabs groupId="sync">
-<TabItem value="Central / Remote Server" label="Central / Remote Server">
-
-   ```shell
-   apt install centreon-common-selinux \
-   centreon-web-selinux \
-   centreon-broker-selinux \
-   centreon-engine-selinux \
-   centreon-gorgoned-selinux \
-   centreon-plugins-selinux
-   ```
-
-</TabItem>
-<TabItem value="Poller" label="Poller">
-
-   ```shell
-   apt install centreon-common-selinux \
-   centreon-broker-selinux \
-   centreon-engine-selinux \
-   centreon-gorgoned-selinux \
-   centreon-plugins-selinux
-   ```
-
-</TabItem>
-<TabItem value="Map server" label="Map server">
-
-   ```shell
-   apt install centreon-map-selinux
-   ```
-
-</TabItem>
-<TabItem value="MBI server" label="MBI server">
-
-   ```shell
-   apt install centreon-mbi-selinux
-   ```
-
-</TabItem>
-</Tabs>
+```shell
+apt install centreon-common-selinux \
+centreon-broker-selinux \
+centreon-engine-selinux \
+centreon-gorgoned-selinux \
+centreon-plugins-selinux
+```
 
 </TabItem>
 </Tabs>
@@ -247,7 +138,6 @@ centreon-common	0.0.10
 centreon-engine	0.0.8
 centreon-gorgoned	0.0.3
 centreon-plugins	0.0.2
-centreon-web	0.0.8
 ```
 
 ### Audit logs and enable SELinux
@@ -316,27 +206,6 @@ Then add rules for firewalld:
 > The list of network flows required for each type of server is defined
 > [here](../installation/architectures.md#tables-of-platform-flows).
 
-<Tabs groupId="sync">
-<TabItem value="Central / Remote Server" label="Central / Remote Server">
-
-Execute the following commands (change the port numbers if you have customized them):
-
-```shell
-# For default protocols
-firewall-cmd --zone=public --add-service=ssh --permanent
-firewall-cmd --zone=public --add-service=http --permanent
-firewall-cmd --zone=public --add-service=https --permanent
-firewall-cmd --zone=public --add-service=snmp --permanent
-firewall-cmd --zone=public --add-service=snmptrap --permanent
-# Centreon Gorgone
-firewall-cmd --zone=public --add-port=5556/tcp --permanent
-# Centreon Broker
-firewall-cmd --zone=public --add-port=5669/tcp --permanent
-```
-
-</TabItem>
-<TabItem value="Poller" label="Poller">
-
 Execute the following commands:
 
 ```shell
@@ -347,9 +216,6 @@ firewall-cmd --zone=public --add-service=snmptrap --permanent
 # Centreon Gorgone
 firewall-cmd --zone=public --add-port=5556/tcp --permanent
 ```
-
-</TabItem>
-</Tabs>
 
 Once the rules have been added, reload firewalld:
 
@@ -417,12 +283,6 @@ and enable for **IPv4** inputs and outputs:
 
 By default, ZMQ communications are secured; both external communications (with the poller) and internal ones (between gorgone processes).
 
-However, the gorgone HTTP API is unsecured by default. Only localhost can talk with gorgone, but the communication does not take place using SSL.
-
-You can [configure SSL](https://github.com/centreon/centreon/blob/develop/centreon-gorgone/docs/modules/core/httpserver.md) in the **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** file.
-
-Then you must configure gorgone using the **Administration > Parameters > Gorgone** page.
-
 ## Security Information and Event Management - SIEM
 
 Centreon event logs are available in the following directories:
@@ -433,15 +293,16 @@ Centreon event logs are available in the following directories:
 | /var/log/centreon-broker  | X              | X             | X      |                     |                     |
 | /var/log/centreon-engine  | X              | X             | X      |                     |                     |
 | /var/log/centreon-gorgone | X              | X             | X      |                     |                     |
-| /var/log/centreon-bi      | X              | X             |        |                     |                     |
-| /var/log/centreon-map     | X              | X             |        | X                   | X                   |
 
 > In addition, all actions to modify the Centreon configuration carried out by users are available via the
 [**Administration > Logs**](./logging-configuration-changes.md) menu.
 
 ## Backing up the platform
 
-Centreon offers to save the configuration of the platform. To do this, go to the [**Administration > Parameters > Backup**](./backup.md) menu.
+Make sure you back up your custom plugins, and the following configuration files:
+   - /etc/centreon/centreon_vmware.pm
+   - /etc/centreon-as400/
+   - /var/lib/centreon/centplugins/*
 
 ## Allowing traffic to/from AWS IP ranges
 
