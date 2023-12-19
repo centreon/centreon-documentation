@@ -718,7 +718,7 @@ Afin de forcer le cluster à faire tourner le groupe de ressources `centreon_map
 
 ```bash
 pcs constraint colocation add "centreon_map" with master "ms_mysql-clone"
-pcs constraint colocation add master "ms_mysql-master" with "centreon_map"
+pcs constraint colocation add master "ms_mysql-clone" with "centreon_map"
 ```
 
 Après cette étape, toutes les ressources doivent fonctionner sur le même nœud, la plateforme doit être redondante et fonctionner correctement.
