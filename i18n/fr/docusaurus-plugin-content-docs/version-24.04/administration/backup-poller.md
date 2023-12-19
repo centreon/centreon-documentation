@@ -20,7 +20,7 @@ Sauvegardez les éléments suivants afin d'être en mesure de complètement reco
    - **/var/lib/centreon-gorgone/.keys/\*** (une seule fois) pour garder l'empreinte pour l'authentification ZeroMQ.
    - **/etc/snmp/centreon_traps/** (une fois par semaine), si vous utilisez des traps SNMP sur le poller.
    - **/etc/centreon/** (une fois par semaine).
-   - **/var/log/centreon-engine/** (une fois par semaine), vu qu'il contient **retention.dat** et toutes les archives (nécessaires pour reconstruire les tableaux de bord). 
+   - **/var/log/centreon-engine/** (une fois par jour), vu qu'il contient **retention.dat** et toutes les archives (nécessaires pour reconstruire les tableaux de bord). 
 
 ### Basculer vers le nouveau collecteur
 
