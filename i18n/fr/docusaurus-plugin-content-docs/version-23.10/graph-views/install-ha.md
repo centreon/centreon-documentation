@@ -68,7 +68,47 @@ La réponse de la commande `vgs` doit ressembler à ceci (bien vérifier la vale
 Les deux serveurs Centreon MAP doivent être liés au même serveur central.
 Le script `/etc/centreon-map/diagnostic.sh` doit retourner `[OK]` sur **les deux** serveurs MAP :
 
-`Note: bien penser à updater les output`
+```bash
+########## Centreon Map server version ##########
+
+  [INFO] ii centreon-map-engine 23.10.3-bullseye amd64 Centreon Map service under Spring Boot framework
+
+########## System ##########
+
+  [INFO] SELinux is not available
+Unit firewalld.service could not be found.
+  [OK]   Firewall is disabled
+  [INFO] Physical memory available on the server: 4013532 kb.
+  [INFO] Number of CPU available on the server: 2 core(s)
+
+########## Java ##########
+
+  [OK]   Java 17 installed
+  [OK]   Optimization found for JVM: JAVA_OPTS="-Xms512m -Xmx3G -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/var/log/centreon-map -Dmanagement.endpoints.enabled-by-default=false -Dmanagement.endpoint.health.enabled=true -Dmanagement.endpoint.metrics.enabled=true"
+
+########## Database connection ##########
+
+  [OK]   Connection to centreon
+  [OK]   Connection to centreon_storage
+  [OK]   Connection to centreon_map
+
+########## Security ##########
+
+  [OK]   Token signing key
+
+########## Broker connection ##########
+
+  [OK]   Connection to @CENTRAL_IPADDR@ 5758 port
+
+########## Authentication ##########
+
+  [OK]   Centreon Central authentication using user centreon_map
+
+########## Protocol verification ##########
+
+    [OK] Centreon Map server configured to use HTTPS protocol
+    [INFO] Centreon Central configured in Map to use https protocol.
+    [OK]   Centreon Central successfully answered to HTTPS request
 
 ```bash
 ########## Centreon-MAP server version ##########
