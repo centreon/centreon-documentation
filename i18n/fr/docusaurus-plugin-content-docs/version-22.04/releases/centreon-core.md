@@ -16,6 +16,14 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 22.04.18
+
+Release date: `December 15, 2023`
+
+#### Security fix
+
+- [Security] Prevented the command injection in SENDTRAPCFG gorgoned event.
+
 ### 22.04.17
 
 Release date: `November 20, 2023`

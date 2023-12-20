@@ -36,19 +36,13 @@ The default parameters below define values for BAs.
 
 | Column                   | Description                                                                                           |
 | ------------------------ | ----------------------------------------------------------------------------------------------------- |
-| Warning Threshold        | *Warning* threshold: Corresponds to a warning condition of the BA. A notification can then be sent.   |
-| Critical Threshold       | *Critical* threshold: Corresponds to a critical condition of the BA. A notification can then be sent. |
+| Warning Threshold        | *Warning* threshold: Corresponds to a warning condition of the BA.  |
+| Critical Threshold       | *Critical* threshold: Corresponds to a critical condition of the BA. |
 | Reporting Period         | Time Default BA reporting time period                                                                 |
-| Notification Time Period | Default BA notification time period                                                                   |
-| Contact Groups           | Default BA notified contact groups                                                                    |
-| Notification Interval    | Default BA notification interval                                                                      |
+| Notification Time Period | This option is currently inactive. In Centreon Cloud, BAs use [the same notification mechanism as hosts and services](https://docs.centreon.com/cloud/alerts-notifications/notif-configuration/).                                                                  |
+| Contact Groups           | This option is currently inactive. In Centreon Cloud, BAs use [the same notification mechanism as hosts and services](https://docs.centreon.com/cloud/alerts-notifications/notif-configuration/).                                                                  |
+| Notification Interval    | This option is currently inactive. In Centreon Cloud, BAs use [the same notification mechanism as hosts and services](https://docs.centreon.com/cloud/alerts-notifications/notif-configuration/).                                                                   |
 | Height Impact Tree       | Default height for window showing impact tree                                                         |
-
-To be able to notify user/external solutions (Slack, OpenDuty etc.) belonging
-to the contact group you defined, you must configure the dedicated Business
-Activity notification section in the user's form:
-
-![image](../assets/service-mapping/guide/bam_user_notification.png)
 
 ## User settings
 
