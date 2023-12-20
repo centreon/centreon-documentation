@@ -783,7 +783,13 @@ Last change: Thu Feb 20 09:25:54 2020 by root via crm_attribute	on @MAP_PRIMARY_
 
 Online: [ @MAP_PRIMARY_NAME@ @MAP_SECONDARY_NAME@ ]
 
-Active resources:
+Full List of Resources:
+  * Clone Set: ms_mysql-clone [ms_mysql] (promotable):
+    * Masters: [ @MAP_PRIMARY_NAME@ ]
+    * Slaves: [ @MAP_SECONDARY_NAME@ ]
+  * Resource Group: centreon_map:
+    * mapvip	(ocf::heartbeat:IPaddr2):	 Started @MAP_PRIMARY_NAME@
+    * centreon-map	(systemd:centreon-map-engine):	 Started @MAP_PRIMARY_NAME@
 
  Master/Slave Set: ms_mysql-master [ms_mysql]
 	 Masters: [ @MAP_PRIMARY_NAME@ ]
