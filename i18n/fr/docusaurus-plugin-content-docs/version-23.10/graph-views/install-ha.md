@@ -779,7 +779,7 @@ Last updated: Thu Feb 20 13:14:17 2020
 Last change: Thu Feb 20 09:25:54 2020 by root via crm_attribute	on @MAP_PRIMARY_NAME@
 
 2 nodes configured
-14 resources configured
+4 resource instances configured
 
 Online: [ @MAP_PRIMARY_NAME@ @MAP_SECONDARY_NAME@ ]
 
