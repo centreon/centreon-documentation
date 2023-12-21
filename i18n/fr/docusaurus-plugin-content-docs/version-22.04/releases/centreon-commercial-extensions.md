@@ -375,7 +375,7 @@ Release date: `May 25, 2022`
 
 ### 22.04.5
 
-Release date: `December 15, 2023`
+Release date: `December 21, 2023`
 
 #### Security fix
 
