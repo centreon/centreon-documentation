@@ -22,6 +22,46 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 23.10.4
+
+Release date: `December 21, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added new endpoint to create a playlist of dashboards.
+- [API] Added new endpoint to share playlist of dashboards to contacts/contact groups.
+- [API] Added new endpoint to delete playlist of dashboards.
+- [Graph] Optimized legend.
+- [Map widget] Added information message when editing.
+- [UX] Reorganized rich text options for widget description.
+- [Widget] Added new "Status Grid" widget.
+- [Widget edit] Renamed "Add resource" button to "Refine filter".
+- [Widget edit] Made the dataset selection header sticky.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed an issue with the "Service group update" service template.
+- [API] POST/administration/tokens endpoint documentation now includes 201 response details.
+- [API] Fixed a visibility issue with configuration/users endpoint.
+- [Metrics Graph widget] Fixed an issue where labels for the ordinate axis were cropped.
+- [Server] URL patterns have been modified.
+- [Single Metric widget] Simplified metric selection.
+- [UI] Fixed a cursor issue that occurred when editing a widget.
+- [Widget edition] Fixed an issue that occurred when removing a resource or a metric.
+
+</details>
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Security] Prevented a command injection.
+
+</details>
+
 ### 23.10.3
 
 Release date: `December 5, 2023`
@@ -233,6 +273,17 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon Gorgone
+
+### 23.10.2
+
+Release date: `December 21, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Fixed a stability issue causing the kernel to kill the **gorgoned** process.
+
+</details>
 
 ### 23.10.1
 
