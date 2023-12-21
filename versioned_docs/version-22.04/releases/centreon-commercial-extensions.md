@@ -18,7 +18,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 22.04.14
 
-Release date: `December 15, 2023`
+Release date: `December 21, 2023`
 
 #### Enhancements
 
