@@ -28,7 +28,7 @@ Release date: `December 21, 2023`
 
 #### Bug fixes
 
-- [Editor] Removed border and fill colors parameters for Centreon Resources shapes.
+- [Editor] Removed border and fill colors parameters for Centreon resources shapes.
  
 ### 22.10.13
 
