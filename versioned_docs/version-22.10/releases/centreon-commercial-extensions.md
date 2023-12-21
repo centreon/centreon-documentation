@@ -24,7 +24,7 @@ Release date: `December 21, 2023`
 
 #### Enhancements
 
-- [Viewer] Fixed status as font color for output widget.
+- [Viewer] Fixed an issue with the "status as font color" option in the Output widget.
 
 #### Bug fixes
 
