@@ -423,7 +423,7 @@ Release date: `September 14, 2023`
 
 #### Bug fixes
 
-- [Packaging] Fixed a regression in centreon-bi-engine packaging that caused a broken dependency situation with Java.
+- [Packaging] Fixed a regression in the packaging of centreon-bi-engine that caused a broken dependency situation with Java.
 
 ### 22.10.5
 
