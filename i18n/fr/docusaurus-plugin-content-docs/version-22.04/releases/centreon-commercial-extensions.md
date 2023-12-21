@@ -21,7 +21,7 @@ Release date: `December 15, 2023`
 
 #### Enhancements
 
-- [Editor] Handled metaservices in output widget.
+- [Editor] Metaservices can now be displayed in the Output widget.
 - [Viewer] Fixed an issue with the "status as font color" option in the Output widget.
 
 ### 22.04.13
