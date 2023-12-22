@@ -29,7 +29,7 @@ Release date: `December 15, 2023`
 #### Security fixes
 
 - [Security] Updated symfony/http-kernel dependency.
-- [Security] Prevented the command injection.
+- [Security] Prevented a command injection.
 
 ### 22.10.15
 
