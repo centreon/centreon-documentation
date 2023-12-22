@@ -23,7 +23,7 @@ Release date: `December 15, 2023`
 
 #### Security fix
 
-- [Security] Prevented the command injection in SENDTRAPCFG gorgoned event.
+- [Security] Prevented a command injection.
 
 ### 22.04.17
 
