@@ -5,6 +5,12 @@ title: VMware VM
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Vue d'ensemble
+
+VMWare est une solution de Virtualisation et d'infrastructure de Cloud Computing.
+
+Le connecteur de supervision Centreon s'appuie sur le SDK VMWare pour requêter l'API du vCenter au travers d'un connecteur dédié.
+
 ## Contenu du pack
 
 ### Modèles
@@ -21,11 +27,11 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias               | Modèle de service                               | Description                                                                                                  |
 |:--------------------|:------------------------------------------------|:-------------------------------------------------------------------------------------------------------------|
-| Vm-Limit            | Virt-VMWare2-Vm-Limit-Generic-custom            | Contrôle permettant de vérifier la définition de limites                                                     |
-| Vm-Snapshot         | Virt-VMWare2-Vm-Snapshot-Generic-custom         | Contrôle permettant de vérifier l'âge des snapshosts sur la machine virtuelle                                |
-| Vm-Status           | Virt-VMWare2-Vm-Status-Generic-custom           | Contrôle permettant de vérifier l'état global d'une machine virtuelle                                        |
-| Vm-Thinprovisioning | Virt-VMWare2-Vm-Thinprovisioning-Generic-custom | Contrôle permettant de vérifier si une machine virtuelle possède un disque en mode 'thinprovisioning' ou non |
-| Vm-Tools            | Virt-VMWare2-Vm-Tools-Generic-custom            | Contrôle permettant de vérifier l'état des vmtools d'une machine virtuelle                                   |
+| Vm-Limit            | Virt-VMWare2-Vm-Limit-Generic-custom            | Contrôle permettant de vérifier la définition de limites.                                                     |
+| Vm-Snapshot         | Virt-VMWare2-Vm-Snapshot-Generic-custom         | Contrôle permettant de vérifier l'âge des snapshosts sur la machine virtuelle.                                |
+| Vm-Status           | Virt-VMWare2-Vm-Status-Generic-custom           | Contrôle permettant de vérifier l'état global d'une machine virtuelle.                                        |
+| Vm-Thinprovisioning | Virt-VMWare2-Vm-Thinprovisioning-Generic-custom | Contrôle permettant de vérifier si une machine virtuelle possède un disque en mode 'thinprovisioning' ou non. |
+| Vm-Tools            | Virt-VMWare2-Vm-Tools-Generic-custom            | Contrôle permettant de vérifier l'état des vmtools d'une machine virtuelle.                                   |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Virt-VMWare2-VM-custom** est utilisé.
 
@@ -34,11 +40,11 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias              | Modèle de service                              | Description                                                                                               |
 |:-------------------|:-----------------------------------------------|:----------------------------------------------------------------------------------------------------------|
-| Vm-Cpu             | Virt-VMWare2-Vm-Cpu-Generic-custom             | Contrôle permettant de vérifier le taux d'utilisation CPU d'une machine virtuelle                         |
+| Vm-Cpu             | Virt-VMWare2-Vm-Cpu-Generic-custom             | Contrôle permettant de vérifier le taux d'utilisation CPU d'une machine virtuelle.                         |
 | Vm-Datastores-Iops | Virt-VMWare2-Vm-Datastores-Iops-Generic-custom | Contrôle permettant de vérifier le taux d'utilisation des datastores rattachées à une machine virtuelle.  |
-| Vm-Device          | Virt-VMWare2-Vm-Device-Generic-custom          | Contrôle permettant de vérifier le taux d'utilisation CPU d'une machine virtuelle                         |
-| Vm-Memory          | Virt-VMWare2-Vm-Memory-Generic-custom          | Contrôle permettant de vérifier le taux d'utilisation mémoire d'une machine virtuelle                     |
-| Vm-Swap            | Virt-VMWare2-Vm-Swap-Generic-custom            | Contrôle permettant de vérifier si une machine virtuelle swappe                                           |
+| Vm-Device          | Virt-VMWare2-Vm-Device-Generic-custom          | Contrôle permettant de vérifier le taux d'utilisation CPU d'une machine virtuelle.                         |
+| Vm-Memory          | Virt-VMWare2-Vm-Memory-Generic-custom          | Contrôle permettant de vérifier le taux d'utilisation mémoire d'une machine virtuelle.                     |
+| Vm-Swap            | Virt-VMWare2-Vm-Swap-Generic-custom            | Contrôle permettant de vérifier si une machine virtuelle swappe.                                           |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -51,7 +57,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle | Description                     |
 |:----------------|:--------------------------------|
-| VMWare VM       | Discover VMWare Virtual Machine |
+| VMWare VM       | Discover VMWare Virtual Machine. |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -348,11 +354,11 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro                      | Description                                                                                           | Valeur par défaut | Obligatoire |
 |:---------------------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CENTREONVMWAREPORT         | Connector port (default: 5700)                                                                        | 5700              |             |
-| CENTREONVMWARECONTAINER    | Container to use (it depends of the connector configuration)                                          | default           |             |
-| CENTREONVMWAREHOST         | Connector hostname (required)                                                                         | localhost         |X             |
-| VMNAME                     | VM hostname to check. If not set, we check all VMs                                                    |                   |             |
-| VMUUID                     | Specify The VM UUID                                                                                                      |                   |             |
+| CENTREONVMWAREPORT         | Connector port (default: 5700).                                                                        | 5700              |             |
+| CENTREONVMWARECONTAINER    | Container to use (it depends of the connector configuration).                                          | default           |             |
+| CENTREONVMWAREHOST         | Connector hostname (required).                                                                         | localhost         |X             |
+| VMNAME                     | VM hostname to check. If not set, we check all VMs.                                                    |                   |             |
+| VMUUID                     | Specify The VM UUID.                                                                                                      |                   |             |
 | CENTREONVMWAREEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -385,7 +391,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro                   | Description                                                                                                                                                                                                                      | Valeur par défaut                                                            | Obligatoire |
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:-----------:|
-| FILTERDATASTORENAME     | Datastore to check. If not set, we check all datastores                                                                                                                                                                          | .*                                                                           |             |
+| FILTERDATASTORENAME     | Datastore to check. If not set, we check all datastores.                                                                                                                                                                          | .*                                                                           |             |
 | UNKNOWNSTATUS           | Define the conditions to match for the status to be UNKNOWN (Default: '%{connection\_state} !~ /^connected$/i or %{power\_state} !~ /^poweredOn$/i'). You can use the following variables: %{connection\_state}, %{power\_state} | %{connection\_state} !~ /^connected$/i or %{power\_state}  !~ /^poweredOn$/i |             |
 | WARNINGMAXTOTALLATENCY  | Thresholds                                                                                                                                                                                                                       |                                                                              |             |
 | CRITICALMAXTOTALLATENCY | Thresholds                                                                                                                                                                                                                       |                                                                              |             |
