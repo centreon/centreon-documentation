@@ -5,6 +5,12 @@ title: VMware VM
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Overview
+
+VMware is an software compagny based in USA. VMware provides cloud computing and virtualization software and services.
+
+The Centreon Plugin and Monitoring Connectors rely on the Centreon VMWare Connector to request the vCenter SDK.
+
 ## Pack assets
 
 ### Templates
@@ -20,11 +26,11 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias       | Service Template                                | Service Description                                                     |
 |:--------------------|:------------------------------------------------|:------------------------------------------------------------------------|
-| Vm-Limit            | Virt-VMWare2-Vm-Limit-Generic-custom            | Check limit definition                                                  |
-| Vm-Snapshot         | Virt-VMWare2-Vm-Snapshot-Generic-custom         | Check snapshot age of a virtual machine                                 |
-| Vm-Status           | Virt-VMWare2-Vm-Status-Generic-custom           | Check global status of a virtual machine                                |
-| Vm-Thinprovisioning | Virt-VMWare2-Vm-Thinprovisioning-Generic-custom | Check if a virtual machine has a disk in mode 'thinprovisioning' or not |
-| Vm-Tools            | Virt-VMWare2-Vm-Tools-Generic-custom            | Check vmtools state of a virtual machine                                |
+| Vm-Limit            | Virt-VMWare2-Vm-Limit-Generic-custom            | Check limit definition.                                                  |
+| Vm-Snapshot         | Virt-VMWare2-Vm-Snapshot-Generic-custom         | Check snapshot age of a virtual machine.                                 |
+| Vm-Status           | Virt-VMWare2-Vm-Status-Generic-custom           | Check global status of a virtual machine.                                |
+| Vm-Thinprovisioning | Virt-VMWare2-Vm-Thinprovisioning-Generic-custom | Check if a virtual machine has a disk in mode 'thinprovisioning' or not. |
+| Vm-Tools            | Virt-VMWare2-Vm-Tools-Generic-custom            | Check vmtools state of a virtual machine.                                |
 
 > The services listed above are created automatically when the **Virt-VMWare2-VM-custom** host template is used.
 
@@ -33,11 +39,11 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias      | Service Template                               | Service Description                                   |
 |:-------------------|:-----------------------------------------------|:------------------------------------------------------|
-| Vm-Cpu             | Virt-VMWare2-Vm-Cpu-Generic-custom             | Check CPU usage of a virtual machine                  |
+| Vm-Cpu             | Virt-VMWare2-Vm-Cpu-Generic-custom             | Check CPU usage of a virtual machine.                  |
 | Vm-Datastores-Iops | Virt-VMWare2-Vm-Datastores-Iops-Generic-custom | Check datastores IOPS linked to the virtual machine.  |
-| Vm-Device          | Virt-VMWare2-Vm-Device-Generic-custom          | Check CPU usage of a virtual machine                  |
-| Vm-Memory          | Virt-VMWare2-Vm-Memory-Generic-custom          | Check memory usage of a virtual machine               |
-| Vm-Swap            | Virt-VMWare2-Vm-Swap-Generic-custom            | Check if a virtual machine is swapping                |
+| Vm-Device          | Virt-VMWare2-Vm-Device-Generic-custom          | Check CPU usage of a virtual machine.                  |
+| Vm-Memory          | Virt-VMWare2-Vm-Memory-Generic-custom          | Check memory usage of a virtual machine.               |
+| Vm-Swap            | Virt-VMWare2-Vm-Swap-Generic-custom            | Check if a virtual machine is swapping.                |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
