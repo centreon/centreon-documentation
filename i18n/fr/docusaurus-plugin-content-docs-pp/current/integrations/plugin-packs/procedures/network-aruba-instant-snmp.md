@@ -28,8 +28,8 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias       | Modèle de service                         | Description                 |
 |:------------|:------------------------------------------|:----------------------------|
-| Ap-Usage    | Net-Aruba-Instant-Ap-Usage-SNMP-custom    | Contrôle les points d'accès |
-| Ssid-Status | Net-Aruba-Instant-Ssid-Status-SNMP-custom | Contrôle le status des SSID |
+| Ap-Usage    | Net-Aruba-Instant-Ap-Usage-SNMP-custom    | Contrôle les points d'accès. |
+| Ssid-Status | Net-Aruba-Instant-Ssid-Status-SNMP-custom | Contrôle le status des SSID. |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Aruba-Instant-SNMP-custom** est utilisé.
 
@@ -42,7 +42,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle | Description                                                                                                                                                                                                                                           |
 |:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Aruba-Instant-SNMP-custom** host template |
+| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Aruba-Instant-SNMP-custom** host template. |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
