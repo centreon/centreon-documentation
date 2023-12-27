@@ -28,8 +28,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                          | Service Description       |
 |:--------------|:------------------------------------------|:--------------------------|
-| Ap-Usage      | Net-Aruba-Instant-Ap-Usage-SNMP-custom    | Check access points usage |
-| Ssid-Status   | Net-Aruba-Instant-Ssid-Status-SNMP-custom | Check SSID status         |
+| Ap-Usage      | Net-Aruba-Instant-Ap-Usage-SNMP-custom    | Check access points usage. |
+| Ssid-Status   | Net-Aruba-Instant-Ssid-Status-SNMP-custom | Check SSID status.         |
 
 > The services listed above are created automatically when the **Net-Aruba-Instant-SNMP-custom** host template is used.
 
@@ -42,7 +42,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name       | Description                                                                                                                                                                                                                                           |
 |:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Aruba-Instant-SNMP-custom** host template |
+| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Aruba-Instant-SNMP-custom** host template. |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
