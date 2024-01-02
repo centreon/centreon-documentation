@@ -17,6 +17,10 @@ module.exports = {
               id: 'integrations/plugin-packs/getting-started/how-to-guides/azure-credential-configuration'
             },
             {
+              type: 'tototata',
+              id: 'doNotMergeMe'
+            },
+            {
               type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/centreon-nsclient-tutorial'
             },
