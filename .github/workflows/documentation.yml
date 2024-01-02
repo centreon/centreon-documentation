@@ -58,7 +58,7 @@ jobs:
               - 'versioned_sidebars/**'
 
       - name: Manage versions to build
-        uses: actions/github-script@v6
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
         if: ${{ steps.changes.outputs.global == 'false' && steps.changes.outputs.versions_count < 100 }}
         with:
           script: |
@@ -122,7 +122,7 @@ jobs:
             core.exportVariable('build_cloud', build_cloud);
 
       - name: Manage versions to build
-        uses: actions/github-script@v6
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
         if: ${{ steps.changes.outputs.global == 'true' || steps.changes.outputs.versions_count >= 100 || (github.ref_name == 'staging' && github.event_name != 'pull_request') }}
         with:
           script: |
@@ -140,7 +140,7 @@ jobs:
             core.exportVariable('build_cloud', '1');
 
       - name: Manage versions to build
-        uses: actions/github-script@v6
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
         id: filters
         with:
           script: |
@@ -172,7 +172,7 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: Set up Node
-        uses: actions/setup-node@1a4442cacd436585916779262731d5b162bc6ec7 # v3.8.2
+        uses: actions/setup-node@b39b52d1213e96004bfcb1c61a8a6fa8ab84f3e8 # v4.0.1
         with:
           node-version: 20
           cache: yarn
@@ -250,7 +250,7 @@ jobs:
 
     steps:
       - name: Prepare environment variables for comment
-        uses: actions/github-script@v6
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
         with:
           script: |
             const preview_urls = ${{ needs.get-versions.outputs.build_environments }}.map((environment) => {
