@@ -58,7 +58,7 @@ jobs:
               - 'versioned_sidebars/**'
 
       - name: Manage versions to build
-        uses: actions/github-script@v7
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
         if: ${{ steps.changes.outputs.global == 'false' && steps.changes.outputs.versions_count < 100 }}
         with:
           script: |
@@ -122,7 +122,7 @@ jobs:
             core.exportVariable('build_cloud', build_cloud);
 
       - name: Manage versions to build
-        uses: actions/github-script@v7
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
         if: ${{ steps.changes.outputs.global == 'true' || steps.changes.outputs.versions_count >= 100 || (github.ref_name == 'staging' && github.event_name != 'pull_request') }}
         with:
           script: |
@@ -140,7 +140,7 @@ jobs:
             core.exportVariable('build_cloud', '1');
 
       - name: Manage versions to build
-        uses: actions/github-script@v7
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
         id: filters
         with:
           script: |
@@ -250,7 +250,7 @@ jobs:
 
     steps:
       - name: Prepare environment variables for comment
-        uses: actions/github-script@v7
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
         with:
           script: |
             const preview_urls = ${{ needs.get-versions.outputs.build_environments }}.map((environment) => {
