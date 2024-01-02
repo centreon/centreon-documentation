@@ -291,7 +291,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: policy packages are ok |
+OK: policy packages are ok
 ```
 
 ### Diagnostic des erreurs communes
