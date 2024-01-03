@@ -22,7 +22,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias  | Modèle de service             | Description                                    |
 |:-------|:------------------------------|:-----------------------------------------------|
 | Cpu    | Net-Huawei-Cpu-SNMP-custom    | Contrôle du taux d'utilisation des processeurs. |
-| Memory | Net-Huawei-Memory-SNMP-custom | Contrôle du taux d'utilisation des mémoire.     |
+| Memory | Net-Huawei-Memory-SNMP-custom | Contrôle du taux d'utilisation des mémoires.     |
 | Uptime | Net-Huawei-Uptime-SNMP-custom | Contrôle l'uptime.                              |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Huawei-SNMP-custom** est utilisé.
