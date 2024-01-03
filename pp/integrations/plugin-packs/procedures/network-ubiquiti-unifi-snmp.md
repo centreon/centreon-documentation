@@ -709,7 +709,7 @@ All available options for each service template are listed below:
 | --force-oid            | Can choose your oid (numeric format only).                                                                                                                                                                                                    |
 | --check-overload       | Uptime counter limit is 4294967296 and overflow. With that option, we manage the counter going back. But there is a few chance we can miss a reboot.                                                                                          |
 | --reboot-window        | To be used with check-overload option. Time in milliseconds (default: 5000) You increase the chance of not missing a reboot if you decrease that value.                                                                                       |
-| --unit                 | Select the time unit for thresholds. May be 's' for seconds, 'm'for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                                                                                                  |
+| --unit                 | Select the time unit for thresholds. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                                                                                                  |
 
 </TabItem>
 <TabItem value="Virtual-Access-Points" label="Virtual-Access-Points">
