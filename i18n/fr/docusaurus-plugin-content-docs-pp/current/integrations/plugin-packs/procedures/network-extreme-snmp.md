@@ -286,7 +286,7 @@ yum install centreon-plugin-Network-Extreme-Snmp
 
 | Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACEID  | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')          |                   |             |
+| INTERFACEID  | Define which interfaces to check (number expected). Example: 1,2... (empty means 'check all interfaces')          |                   |             |
 | CRITICALIN   | Thresholds                                                                                         | 90                |             |
 | WARNINGIN    | Thresholds                                                                                         | 80                |             |
 | CRITICALOUT  | Thresholds                                                                                         | 90                |             |
