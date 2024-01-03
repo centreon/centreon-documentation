@@ -18,6 +18,14 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 22.10.17
+
+Release date: `January 2, 2024`
+
+#### Security fixes
+
+- [Security] Fixed an SQLi vulnerability.
+
 ### 22.10.16
 
 Release date: `December 15, 2023`
