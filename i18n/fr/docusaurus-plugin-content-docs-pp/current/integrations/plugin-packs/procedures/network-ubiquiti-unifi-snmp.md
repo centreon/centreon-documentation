@@ -177,7 +177,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 Afin de contrôler votre équipement Ubiquiti UniFi, le SNMP doit être configuré.
 
-Le flux SNMP UDP/161 doit être ouvert entre le Collecteur et l'équipement.
+Le flux SNMP UDP/161 doit être ouvert entre le collecteur et l'équipement.
 
 ## Installer le connecteur de supervision
 
