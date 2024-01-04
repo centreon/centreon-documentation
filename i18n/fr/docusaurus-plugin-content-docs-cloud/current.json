@@ -94,5 +94,9 @@
   "sidebar.cloud.category.Detecting anomalies": {
     "message": "Détecter des anomalies",
     "description": "The label for category Detecting anomalies in sidebar cloud"
+  },
+  "sidebar.cloud.category.Administration": {
+    "message": "Administration",
+    "description": "The label for category Administration in sidebar cloud"
   }
 }
