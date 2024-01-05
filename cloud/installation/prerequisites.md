@@ -55,7 +55,7 @@ Perform the partitioning following these recommendations:
 
 ## Allowing traffic to/from AWS IP ranges
 
-If you are filtering flows based on IP addresses, authorize the AWS IP ranges your poller needs to connect to.
+If you are filtering flows based on IP addresses, authorize the AWS IP ranges your poller needs to interact with.
 
 AWS provides a [list of their IP ranges](https://ip-ranges.amazonaws.com/ip-ranges.json). You can retrieve the list of IP addresses you want using a curl command. Example for AWS Ireland with the EC2 service for IPV6 and IPV4:
 

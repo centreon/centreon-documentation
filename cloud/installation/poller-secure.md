@@ -23,8 +23,6 @@ have a dedicated user):
 passwd <account_name>
 ```
 
-> As a reminder, the list of users and groups can be found [here](../installation/prerequisites.md#users-and-groups)
-
 ## Enable SELinux
 
 Centreon developed SELinux rules in order to strengthen the control of
@@ -202,9 +200,6 @@ systemctl start firewalld
 ```
 
 Then add rules for firewalld:
-
-> The list of network flows required for each type of server is defined
-> [here](../installation/architectures.md#tables-of-platform-flows).
 
 Execute the following commands:
 
