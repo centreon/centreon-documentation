@@ -251,9 +251,6 @@ Centreon event logs are available in the following directories:
 * /var/log/centreon-engine
 * /var/log/centreon-gorgone
 
-> In addition, all actions to modify the Centreon configuration carried out by users are available via the
-[**Administration > Logs**](./logging-configuration-changes.md) menu.
-
 ## Backing up the platform
 
 Make sure you back up your custom plugins, and the following configuration files:

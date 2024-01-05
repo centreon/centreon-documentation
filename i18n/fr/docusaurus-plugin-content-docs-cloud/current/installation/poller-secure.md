@@ -268,9 +268,6 @@ Les journaux des événements Centreon sont disponibles dans les répertoires su
 * /var/log/centreon-engine
 * /var/log/centreon-gorgone
 
-> In addition, all actions to modify the Centreon configuration carried out by users are available via the
-[**Administration > Logs**](./logging-configuration-changes.md) menu.
-
 ## Sauvegardez votre plateforme
 
 Assurez-vous de réaliser une sauvegarde de vos plugins personnalisés, et des fichiers de configuration suivants :
