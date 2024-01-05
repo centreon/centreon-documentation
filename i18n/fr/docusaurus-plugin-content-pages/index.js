@@ -57,11 +57,11 @@ const cards = [
   },
   {
     title: "Centreon Cloud",
-    href: "cloud/getting-started/architecture/",
+    href: "cloud/category/getting-started/",
     links: [
       {
         label: "Getting started",
-        href: "docs/getting-started/welcome"
+        href: "cloud/category/getting-started/"
       },{
         label: "Installer un collecteur",
         href: "cloud/installation/prerequisites/"

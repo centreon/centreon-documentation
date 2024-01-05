@@ -290,7 +290,7 @@ const config = {
             items = [
               ...items,
               {
-                to: '/cloud/getting-started/architecture',
+                to: '/cloud/category/getting-started',
                 label: 'Centreon Cloud',
                 position: 'left',
                 activeBaseRegex: '/cloud/',
