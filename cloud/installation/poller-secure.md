@@ -214,7 +214,7 @@ firewall-cmd --zone=public --add-service=ssh --permanent
 firewall-cmd --zone=public --add-service=snmp --permanent
 firewall-cmd --zone=public --add-service=snmptrap --permanent
 # Centreon Gorgone
-firewall-cmd --zone=public --add-port=5556/tcp --permanent
+firewall-cmd --zone=public --add-port=443/tcp --permanent
 ```
 
 Once the rules have been added, reload firewalld:
@@ -238,7 +238,7 @@ public (active)
   interfaces: eth0
   sources:
   services: http snmp snmptrap ssh
-  ports: 5556/tcp 5669/tcp
+  ports: 443/tcp
   protocols:
   forward: no
   masquerade: no
@@ -248,51 +248,13 @@ public (active)
   rich rules:
 ```
 
-## Secure communications between servers
-
-It is strongly recommended to secure communications between the different servers of the Centreon platform if some servers
-are not in a secure network.
-
-> The Table of network flows is available [here](../installation/architectures.md#table-of-network-flows).
-
-### Centreon Broker communication
-
-#### Centreon Broker and the firewall
-
-In certain cases, you may not be able to initialize the Centreon Broker data flow from the poller (or the Remote Server)
-to the Central Server or the Remote Server.
-[See the following configuration to invert the flow](../monitoring/monitoring-servers/advanced-configuration.md#centreon-broker-and-the-firewall).
-
-#### Centreon Broker flow authentication
-
-If you need to authenticate pollers that are sending data to the monitoring system, you can use the Centreon Broker
-authentication mechanism, which is based on X.509 certificates.
-[See the following configuration to authenticate the peer](../monitoring/monitoring-servers/advanced-configuration.md#centreon-broker-flow-authentication).
-
-#### Compress and encrypt Centreon Broker communication
-
-It is also possible to compress and encrypt Centreon Broker communication.
-Go to the **Configuration > Pollers > Broker configuration** menu, edit your Centreon Broker configuration
-and enable for **IPv4** inputs and outputs:
-
-- Enable TLS encryption: Auto
-- Enable negotiation: Yes
-- Compression (zlib): Auto
-
-### Centreon Gorgone communication
-
-By default, ZMQ communications are secured; both external communications (with the poller) and internal ones (between gorgone processes).
-
 ## Security Information and Event Management - SIEM
 
 Centreon event logs are available in the following directories:
 
-| Logs directory            | Central server | Remote Server | Poller | Centreon Map server | Centreon MBI Server |
-|---------------------------|----------------|---------------|--------|---------------------|---------------------|
-| /var/log/centreon         | X              | X             |        |                     |                     |
-| /var/log/centreon-broker  | X              | X             | X      |                     |                     |
-| /var/log/centreon-engine  | X              | X             | X      |                     |                     |
-| /var/log/centreon-gorgone | X              | X             | X      |                     |                     |
+* /var/log/centreon-broker
+* /var/log/centreon-engine
+* /var/log/centreon-gorgone
 
 > In addition, all actions to modify the Centreon configuration carried out by users are available via the
 [**Administration > Logs**](./logging-configuration-changes.md) menu.
@@ -300,24 +262,16 @@ Centreon event logs are available in the following directories:
 ## Backing up the platform
 
 Make sure you back up your custom plugins, and the following configuration files:
+
    - /etc/centreon/centreon_vmware.pm
    - /etc/centreon-as400/
    - /var/lib/centreon/centplugins/*
    - /var/log/centreon-engine/*.dat
    - /var/lib/centreon-broker/*
 
-## Allowing traffic to/from AWS IP ranges
-
-AWS provides a [list of their IP ranges](https://ip-ranges.amazonaws.com/ip-ranges.json). You can retrieve the list of IP addresses you want using a curl command. Example for AWS Ireland with the EC2 service for IPV6 and IPV4:
-
-```shell
-curl -s https://ip-ranges.amazonaws.com/ip-ranges.json | jq -r '.ipv6_prefixes[] | select(.region == "eu-west-1") | select(.service == "EC2") | .ipv6_prefix' 
-curl -s https://ip-ranges.amazonaws.com/ip-ranges.json | jq -r '.prefixes[] | select(.region == "eu-west-1") | select(.service == "EC2") | .ip_prefix' 
-```
-
 ## Disaster recovery for a poller
 
-Follow this porcedure to replace a failed poller by a new one:
+Follow this procedure to replace a failed poller by a new one:
 
 1. On a new machine, [install the new poller](./deploy-poller.md).
 

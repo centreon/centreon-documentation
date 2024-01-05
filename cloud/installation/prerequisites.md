@@ -52,3 +52,14 @@ Perform the partitioning following these recommendations:
 | ----------------- | ------------------- | ------------------ | --------------------- |
 | Centreon servers  | Devices to monitor  | 80/443 TCP         | API                   |
 | Centreon servers  | Database to monitor | 3306/1521/1433 TCP | MySQL/Oracle/MSSQL    |
+
+## Allowing traffic to/from AWS IP ranges
+
+If you are filtering flows based on IP addresses, authorize the AWS IP ranges your poller needs to connect to.
+
+AWS provides a [list of their IP ranges](https://ip-ranges.amazonaws.com/ip-ranges.json). You can retrieve the list of IP addresses you want using a curl command. Example for AWS Ireland with the EC2 service for IPV6 and IPV4:
+
+```shell
+curl -s https://ip-ranges.amazonaws.com/ip-ranges.json | jq -r '.ipv6_prefixes[] | select(.region == "eu-west-1") | select(.service == "EC2") | .ipv6_prefix' 
+curl -s https://ip-ranges.amazonaws.com/ip-ranges.json | jq -r '.prefixes[] | select(.region == "eu-west-1") | select(.service == "EC2") | .ip_prefix' 
+```
