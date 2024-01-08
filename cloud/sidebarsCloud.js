@@ -2,10 +2,10 @@ module.exports = {
   cloud: [
     {
       type: 'category',
-      label: 'Getting started',
+      label: 'Getting started with Centreon Cloud',
       link: {
-        type: "generated-index",
-        description: "Welcome to Centreon Cloud!"
+        type: "doc",
+        id: "getting-started/welcome"
       },
       items: [
         {

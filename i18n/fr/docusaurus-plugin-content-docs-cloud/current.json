@@ -95,8 +95,8 @@
     "message": "Détecter des anomalies",
     "description": "The label for category Detecting anomalies in sidebar cloud"
   },
-  "sidebar.cloud.category.Getting started.link.generated-index.description": {
-    "message": "Bienvenue sur Centreon Cloud !",
-    "description": "The generated-index page description for category Getting started in sidebar cloud"
+  "sidebar.cloud.category.Getting started with Centreon Cloud": {
+    "message": "Démarrer avec Centreon Cloud",
+    "description": "The label for category Getting started with Centreon Cloud in sidebar cloud"
   }
 }
