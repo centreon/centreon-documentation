@@ -95,6 +95,10 @@
     "message": "Détecter des anomalies",
     "description": "The label for category Detecting anomalies in sidebar cloud"
   },
+  "sidebar.cloud.category.Getting started with Centreon Cloud": {
+    "message": "Démarrer avec Centreon Cloud",
+    "description": "The label for category Getting started with Centreon Cloud in sidebar cloud"
+  },
   "sidebar.cloud.category.Administration": {
     "message": "Administration",
     "description": "The label for category Administration in sidebar cloud"

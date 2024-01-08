@@ -2,7 +2,11 @@ module.exports = {
   cloud: [
     {
       type: 'category',
-      label: 'Getting started',
+      label: 'Getting started with Centreon Cloud',
+      link: {
+        type: "doc",
+        id: "getting-started/welcome"
+      },
       items: [
         {
           type: 'doc',
@@ -23,6 +27,9 @@ module.exports = {
         {
           type: 'category',
           label: 'Tutorials',
+          link: {
+            type: "generated-index",
+          },
           items: [
             {
               type: 'doc',
