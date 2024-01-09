@@ -9,7 +9,7 @@ To create a host manually:
 2. Fill in the fields (see below), and then click **Save**.
 3. [Deploy the configuration](../monitoring-servers/deploying-a-configuration.md).
 
-## Configuration of the service
+## Configuration of the host
 
 ### General information
 
