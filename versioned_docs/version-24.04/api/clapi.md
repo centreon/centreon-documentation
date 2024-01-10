@@ -1975,7 +1975,7 @@ centreon -u admin -p 'centreon' -o ENGINECFG -a del -v "Centreon Engine cfg for 
 
 #### Setparam
 
-If you want to change a specific parameter of a Centreon Engine configuration, use the **SETPARAM** action. To 
+If you want to change a specific parameter of a Centreon Engine configuration, use the **SETPARAM** action. To
 identify the configuration to update, use its name:
 
 ``` shell
@@ -3746,6 +3746,8 @@ The parameters that you may change are the following:
 | ldap\_srv\_dns         | DNS server (only used when ldap\_dns\_use\_domain is set to 1) |
 | ldap\_store\_password  | Store password in database or not (0 or 1)                     |
 | ldap\_template         | Possible values: Posix, Active Directory                       |
+| ldap\_auto\_sync       | Enable LDAP synchronization on login (0 or 1)                  |
+| ldap\_sync\_interval   | Specify the interval between LDAP synchronizations (in hours)  |
 | protocol\_version      | Protocol version (2 or 3)                                      |
 | user\_base\_search     | User base search                                               |
 | user\_email            | User email                                                     |

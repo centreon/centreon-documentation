@@ -23,6 +23,28 @@ Read more about version 23.04 in our [blog post](https://www.centreon.com/centre
 
 ## Centreon Web
 
+### 23.04.13
+
+Release date: `January 2, 2024`
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed an SQLi vulnerability.
+
+</details>
+
+### 23.04.12
+
+Release date: `December 21, 2023`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Prevented a command injection.
+
+</details>
+
 ### 23.04.11
 
 Release date: `November 30, 2023`
@@ -319,6 +341,26 @@ Release date: `April 26, 2023`
 
 ## Centreon Collect
 
+### 23.04.6
+
+Release date: `December 15, 2023`
+
+#### Centreon Broker
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Broker now drops metrics whose names are longer than 1000 characters to avoid errors in the database. An error is logged when it occurs.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a bug that made Broker crash when rebuilding RRD files for unexisting metrics.
+
+</details>
+
 ### 23.04.5
 
 Release date: `November 20, 2023`
@@ -435,6 +477,30 @@ Compatibility with other 23.04 components.
 </details>
 
 ## Centreon Gorgone
+
+### 23.04.9
+
+Release date: `December 22, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Created package to install SELinux rules.
+- [Gorgone] Fixed a stability issue causing the kernel to kill the gorgoned process.
+
+</details>
+
+### 23.04.8
+
+Release date: `November 17, 2023`
+
+No changes for this module in this version.
+
+### 23.04.7
+
+Release date: `October 5, 2023`
+
+No changes for this module in this version.
 
 ### 23.04.6
 

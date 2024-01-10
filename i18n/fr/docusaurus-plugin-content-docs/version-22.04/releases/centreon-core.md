@@ -16,6 +16,22 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 22.04.19
+
+Release date: `January 2, 2024`
+
+#### Security fix
+
+- [Security] Fixed an SQLi vulnerability.
+
+### 22.04.18
+
+Release date: `December 15, 2023`
+
+#### Security fix
+
+- [Security] Prevented a command injection.
+
 ### 22.04.17
 
 Release date: `November 20, 2023`

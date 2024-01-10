@@ -189,7 +189,6 @@ you will be able to configure the following properties:
     to give access to this BA to non-admin users
 -   Display: All parameters concerning the way the BA will be accessible
     outside the BA monitoring page
--   Notification: who and when users are notified
 -   Reporting: What SLA and time period you want to use to calculate the BA
     availability statistics
 -   Event handler: parameters to auto-remediate the BA when state
@@ -215,8 +214,7 @@ In Centreon Cloud, when you create a business activity, you must always add it t
 
 #### Notification
 
-Configure when and for what status notifications should be sent when the BA's
-status changes. Add the **Notification** contact group so that users can be notified.
+This screen is not currently active. In Centreon Cloud, BAs use [the same notification mechanism as hosts and services](https://docs.centreon.com/cloud/alerts-notifications/notif-configuration/).
 
 #### Reporting
 
@@ -233,7 +231,7 @@ status changes. Add the **Notification** contact group so that users can be noti
     threshold.
 -   Service Level Objective in minutes (SLO): additional threshold in
     minutes to compare the availability. It can be seen as an “SLA
-    warning” threshold..
+    warning” threshold.
 -   Extra reporting time periods: Additional time period you may want
     to use in widget and reports
 
