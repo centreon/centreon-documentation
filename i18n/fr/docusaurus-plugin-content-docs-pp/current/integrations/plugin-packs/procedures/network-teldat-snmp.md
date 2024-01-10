@@ -46,17 +46,17 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte d'hôtes
 
-| Nom de la règle | Description                                                                                                                                                                                                                                    |
-|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Teldat-SNMP-custom** host template |
+| Nom de la règle | Description                                                                                                                                                                                                                             |
+|:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créer un modèle mapper pour le modèle d'hôte **Net-Teldat-SNMP-custom** |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
 #### Découverte de service
 
-| Nom de la règle                | Description                                                   |
-|:-------------------------------|:--------------------------------------------------------------|
-| Net-Teldat-SNMP-Interface-Name | Discover network interfaces and monitor bandwidth utilization |
+| Nom de la règle                | Description                                                            |
+|:-------------------------------|:-----------------------------------------------------------------------|
+| Net-Teldat-SNMP-Interface-Name | Découvre les interfaces réseau et supervise le statut et l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -72,11 +72,11 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 |:----------------------------------|:------|
 | modules.cellradio.detected.count  | count |
 | *cells*~status                    | N/A   |
-| *cells*~module.cellradio.rsrp.dbm | N/A   |
-| *cells*~module.cellradio.rsrq.dbm | N/A   |
-| *cells*~module.cellradio.snr.db   | N/A   |
-| *cells*~module.cellradio.rscp.dbm | N/A   |
-| *cells*~module.cellradio.csq.dbm  | N/A   |
+| *cells*~module.cellradio.rsrp.dbm | dBm   |
+| *cells*~module.cellradio.rsrq.dbm | dBm   |
+| *cells*~module.cellradio.snr.db   | dB    |
+| *cells*~module.cellradio.rscp.dbm | dBm   |
+| *cells*~module.cellradio.csq.dbm  | dBm   |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
@@ -125,7 +125,11 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
+Afin de superviser votre équipement, le SNMP v2 ou v3 doit être configuré.
+
 ### Flux réseau
+
+La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers le serveur supervisé.
 
 ## Installer le connecteur de supervision
 
@@ -224,9 +228,9 @@ yum install centreon-plugin-Network-Teldat-Snmp
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
 > Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
 
-| Macro            | Description                                                                                          | Valeur par défaut | Obligatoire |
-|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| Macro            | Description                                                                                                                                                                   | Valeur par défaut | Obligatoire |
+|:-----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SNMPEXTRAOPTIONS | N'importe quelle option que vous souhaiteriez ajouter à toutes les commandes (une option --verbose par exemple). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -238,73 +242,73 @@ yum install centreon-plugin-Network-Teldat-Snmp
 <Tabs groupId="sync">
 <TabItem value="Cells-Radio" label="Cells-Radio">
 
-| Macro                            | Description                                                                                                                                                                                                                                           | Valeur par défaut | Obligatoire |
-|:---------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGMODULECELLRADIOCSQ        | Thresholds                                                                                                                                                                                                                                            |                   |             |
-| CRITICALMODULECELLRADIOCSQ       | Thresholds                                                                                                                                                                                                                                            |                   |             |
-| WARNINGMODULECELLRADIORSCP       | Thresholds                                                                                                                                                                                                                                            |                   |             |
-| CRITICALMODULECELLRADIORSCP      | Thresholds                                                                                                                                                                                                                                            |                   |             |
-| WARNINGMODULECELLRADIORSRP       | Thresholds                                                                                                                                                                                                                                            |                   |             |
-| CRITICALMODULECELLRADIORSRP      | Thresholds                                                                                                                                                                                                                                            |                   |             |
-| WARNINGMODULECELLRADIORSRQ       | Thresholds                                                                                                                                                                                                                                            |                   |             |
-| CRITICALMODULECELLRADIORSRQ      | Thresholds                                                                                                                                                                                                                                            |                   |             |
-| WARNINGMODULECELLRADIOSNR        | Thresholds                                                                                                                                                                                                                                            |                   |             |
-| CRITICALMODULECELLRADIOSNR       | Thresholds                                                                                                                                                                                                                                            |                   |             |
-| WARNINGMODULESCELLRADIODETECTED  | Thresholds                                                                                                                                                                                                                                            |                   |             |
-| CRITICALMODULESCELLRADIODETECTED | Thresholds                                                                                                                                                                                                                                            |                   |             |
-| WARNINGSTATUS                    | Define the conditions to match for the status to be WARNING (default: '%{interfaceState} =~ /disconnect/'). You can use the following variables: %{simStatus}, %{interfaceState}, %{cellId}, %{simIcc}, %{operator}, %{imsi}                          |                   |             |
-| CRITICALSTATUS                   | Define the conditions to match for the status to be CRITICAL (default: '%{simStatus} =~ /LOCKED/ \|\| %{simStatus} =~ /DETECTING/'). You can use the following variables: %{simStatus}, %{interfaceState}, %{cellId}, %{simIcc}, %{operator}, %{imsi} |                   |             |
-| EXTRAOPTIONS                     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                                    | --verbose         |             |
+| Macro                            | Description                                                                                                                                                                     | Valeur par défaut                                         |  Obligatoire  |
+|:---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------|:-------------:|
+| WARNINGMODULECELLRADIOCSQ        | Thresholds                                                                                                                                                                      |                                                           |               |
+| CRITICALMODULECELLRADIOCSQ       | Thresholds                                                                                                                                                                      |                                                           |               |
+| WARNINGMODULECELLRADIORSCP       | Thresholds                                                                                                                                                                      |                                                           |               |
+| CRITICALMODULECELLRADIORSCP      | Thresholds                                                                                                                                                                      |                                                           |               |
+| WARNINGMODULECELLRADIORSRP       | Thresholds                                                                                                                                                                      |                                                           |               |
+| CRITICALMODULECELLRADIORSRP      | Thresholds                                                                                                                                                                      |                                                           |               |
+| WARNINGMODULECELLRADIORSRQ       | Thresholds                                                                                                                                                                      |                                                           |               |
+| CRITICALMODULECELLRADIORSRQ      | Thresholds                                                                                                                                                                      |                                                           |               |
+| WARNINGMODULECELLRADIOSNR        | Thresholds                                                                                                                                                                      |                                                           |               |
+| CRITICALMODULECELLRADIOSNR       | Thresholds                                                                                                                                                                      |                                                           |               |
+| WARNINGMODULESCELLRADIODETECTED  | Thresholds                                                                                                                                                                      |                                                           |               |
+| CRITICALMODULESCELLRADIODETECTED | Thresholds                                                                                                                                                                      |                                                           |               |
+| WARNINGSTATUS                    | Define the conditions to match for the status to be WARNING. You can use the following variables: %{simStatus}, %{interfaceState}, %{cellId}, %{simIcc}, %{operator}, %{imsi}   | '%{interfaceState} =~ /disconnect/'                       |               |
+| CRITICALSTATUS                   | Define the conditions to match for the status to be CRITICAL.  You can use the following variables: %{simStatus}, %{interfaceState}, %{cellId}, %{simIcc}, %{operator}, %{imsi} | '%{simStatus} =~ /LOCKED/ or %{simStatus} =~ /DETECTING/' |               |
+| EXTRAOPTIONS                     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                | --verbose                                                 |               |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      |                                                                                                    |                   |             |
-| CRITICAL     |                                                                                                    |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut  | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|:-----------:|
+| WARNING      |                                                                                                                                                  |                    |             |
+| CRITICAL     |                                                                                                                                                  |                    |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                    |             |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Macro              | Description                                                                                                                                                                              | Valeur par défaut                                     | Obligatoire |
-|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
-| OIDFILTER          | Choose OID used to filter interface (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                          | ifname                                                |             |
-| OIDDISPLAY         | Choose OID used to display interface (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                         | ifname                                                |             |
-| INTERFACENAME      | Set the interface (number expected) ex: 1,2,... (empty means 'check all interface')                                                                                                      |                                                       |             |
-| WARNINGINDISCARD   | Thresholds                                                                                                                                                                               |                                                       |             |
-| CRITICALINDISCARD  | Thresholds                                                                                                                                                                               |                                                       |             |
-| WARNINGINERROR     | Thresholds                                                                                                                                                                               |                                                       |             |
-| CRITICALINERROR    | Thresholds                                                                                                                                                                               |                                                       |             |
-| WARNINGINTRAFFIC   | Thresholds                                                                                                                                                                               |                                                       |             |
-| CRITICALINTRAFFIC  | Thresholds                                                                                                                                                                               |                                                       |             |
-| WARNINGOUTDISCARD  | Thresholds                                                                                                                                                                               |                                                       |             |
-| CRITICALOUTDISCARD | Thresholds                                                                                                                                                                               |                                                       |             |
-| WARNINGOUTERROR    | Thresholds                                                                                                                                                                               |                                                       |             |
-| CRITICALOUTERROR   | Thresholds                                                                                                                                                                               |                                                       |             |
-| WARNINGOUTTRAFFIC  | Thresholds                                                                                                                                                                               |                                                       |             |
-| CRITICALOUTTRAFFIC | Thresholds                                                                                                                                                                               |                                                       |             |
-| CRITICALSTATUS     | Set critical threshold for status (Default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} | %{admstatus} eq "up" and %{opstatus} !~ /up\|dormant/ |             |
-| WARNINGSTATUS      | Set warning threshold for status. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                            |                                                       |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                       | --verbose                                             |             |
+| Macro              | Description                                                                                                                                      | Valeur par défaut                                    | Obligatoire |
+|:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:-----------:|
+| OIDFILTER          | Choose OID used to filter interface (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                  | ifname                                               |             |
+| OIDDISPLAY         | Choose OID used to display interface (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                 | ifname                                               |             |
+| INTERFACENAME      | Set the interface (number expected) ex: 1,2,... (empty means 'check all interface')                                                              |                                                      |             |
+| WARNINGINDISCARD   | Thresholds                                                                                                                                       |                                                      |             |
+| CRITICALINDISCARD  | Thresholds                                                                                                                                       |                                                      |             |
+| WARNINGINERROR     | Thresholds                                                                                                                                       |                                                      |             |
+| CRITICALINERROR    | Thresholds                                                                                                                                       |                                                      |             |
+| WARNINGINTRAFFIC   | Thresholds                                                                                                                                       |                                                      |             |
+| CRITICALINTRAFFIC  | Thresholds                                                                                                                                       |                                                      |             |
+| WARNINGOUTDISCARD  | Thresholds                                                                                                                                       |                                                      |             |
+| CRITICALOUTDISCARD | Thresholds                                                                                                                                       |                                                      |             |
+| WARNINGOUTERROR    | Thresholds                                                                                                                                       |                                                      |             |
+| CRITICALOUTERROR   | Thresholds                                                                                                                                       |                                                      |             |
+| WARNINGOUTTRAFFIC  | Thresholds                                                                                                                                       |                                                      |             |
+| CRITICALOUTTRAFFIC | Thresholds                                                                                                                                       |                                                      |             |
+| CRITICALSTATUS     | Set critical threshold for status. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                   | %{admstatus} eq "up" and %{opstatus} !~ /up\dormant/ |             |
+| WARNINGSTATUS      | Set warning threshold for status. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                    |                                                      |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                                            |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      |                                                                                                    |                   |             |
-| CRITICAL     |                                                                                                    |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      |                                                                                                                                                  |                   |             |
+| CRITICAL     |                                                                                                                                                  |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Threshold warning                                                                                  |                   |             |
-| CRITICAL     | Threshold critical                                                                                 |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Threshold warning                                                                                                                                |                   |             |
+| CRITICAL     | Threshold critical                                                                                                                               |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --check-overload  |             |
 
 </TabItem>

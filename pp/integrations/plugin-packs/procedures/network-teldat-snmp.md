@@ -71,11 +71,11 @@ Here is the list of services for this connector, detailing all metrics linked to
 |:----------------------------------|:------|
 | modules.cellradio.detected.count  | count |
 | *cells*~status                    | N/A   |
-| *cells*~module.cellradio.rsrp.dbm | N/A   |
-| *cells*~module.cellradio.rsrq.dbm | N/A   |
-| *cells*~module.cellradio.snr.db   | N/A   |
-| *cells*~module.cellradio.rscp.dbm | N/A   |
-| *cells*~module.cellradio.csq.dbm  | N/A   |
+| *cells*~module.cellradio.rsrp.dbm | dBm   |
+| *cells*~module.cellradio.rsrq.dbm | dBm   |
+| *cells*~module.cellradio.snr.db   | dB    |
+| *cells*~module.cellradio.rscp.dbm | dBm   |
+| *cells*~module.cellradio.csq.dbm  | dBm   |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
@@ -124,7 +124,11 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
+To use this Pack, the SNMP service must be properly configured on your device.
+
 ### Network flow
+
+The target server must be reachable from the Centreon poller on the UDP/161 SNMP port.
 
 ## Installing the monitoring connector
 
@@ -239,24 +243,23 @@ yum install centreon-plugin-Network-Teldat-Snmp
 <Tabs groupId="sync">
 <TabItem value="Cells-Radio" label="Cells-Radio">
 
-| Macro                            | Description                                                                                                                                                                                                                                           | Default value     | Mandatory   |
-|:---------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGMODULECELLRADIOCSQ        | Thresholds                                                                                                                                                                                                                                            |                   |             |
-| CRITICALMODULECELLRADIOCSQ       | Thresholds                                                                                                                                                                                                                                            |                   |             |
-| WARNINGMODULECELLRADIORSCP       | Thresholds                                                                                                                                                                                                                                            |                   |             |
-| CRITICALMODULECELLRADIORSCP      | Thresholds                                                                                                                                                                                                                                            |                   |             |
-| WARNINGMODULECELLRADIORSRP       | Thresholds                                                                                                                                                                                                                                            |                   |             |
-| CRITICALMODULECELLRADIORSRP      | Thresholds                                                                                                                                                                                                                                            |                   |             |
-| WARNINGMODULECELLRADIORSRQ       | Thresholds                                                                                                                                                                                                                                            |                   |             |
-| CRITICALMODULECELLRADIORSRQ      | Thresholds                                                                                                                                                                                                                                            |                   |             |
-| WARNINGMODULECELLRADIOSNR        | Thresholds                                                                                                                                                                                                                                            |                   |             |
-| CRITICALMODULECELLRADIOSNR       | Thresholds                                                                                                                                                                                                                                            |                   |             |
-| WARNINGMODULESCELLRADIODETECTED  | Thresholds                                                                                                                                                                                                                                            |                   |             |
-| CRITICALMODULESCELLRADIODETECTED | Thresholds                                                                                                                                                                                                                                            |                   |             |
-| WARNINGSTATUS                    | Define the conditions to match for the status to be WARNING (default: '%{interfaceState} =~ /disconnect/'). You can use the following variables: %{simStatus}, %{interfaceState}, %{cellId}, %{simIcc}, %{operator}, %{imsi}                          |                   |             |
-| CRITICALSTATUS                   | Define the conditions to match for the status to be CRITICAL (default: '%{simStatus} =~ /LOCKED/ \|\| %{simStatus} =~ /DETECTING/'). You can use the following variables: %{simStatus}, %{interfaceState}, %{cellId}, %{simIcc}, %{operator}, %{imsi} |                   |             |
-| EXTRAOPTIONS                     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                                                    | --verbose         |             |
-
+| Macro                            | Description                                                                                                                                                                     | Default value                                             |      Mandatory       |
+|:---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------|:--------------------:|
+| WARNINGMODULECELLRADIOCSQ        | Thresholds                                                                                                                                                                      |                                                           |                      |
+| CRITICALMODULECELLRADIOCSQ       | Thresholds                                                                                                                                                                      |                                                           |                      |
+| WARNINGMODULECELLRADIORSCP       | Thresholds                                                                                                                                                                      |                                                           |                      |
+| CRITICALMODULECELLRADIORSCP      | Thresholds                                                                                                                                                                      |                                                           |                      |
+| WARNINGMODULECELLRADIORSRP       | Thresholds                                                                                                                                                                      |                                                           |                      |
+| CRITICALMODULECELLRADIORSRP      | Thresholds                                                                                                                                                                      |                                                           |                      |
+| WARNINGMODULECELLRADIORSRQ       | Thresholds                                                                                                                                                                      |                                                           |                      |
+| CRITICALMODULECELLRADIORSRQ      | Thresholds                                                                                                                                                                      |                                                           |                      |
+| WARNINGMODULECELLRADIOSNR        | Thresholds                                                                                                                                                                      |                                                           |                      |
+| CRITICALMODULECELLRADIOSNR       | Thresholds                                                                                                                                                                      |                                                           |                      |
+| WARNINGMODULESCELLRADIODETECTED  | Thresholds                                                                                                                                                                      |                                                           |                      |
+| CRITICALMODULESCELLRADIODETECTED | Thresholds                                                                                                                                                                      |                                                           |                      |
+| WARNINGSTATUS                    | Define the conditions to match for the status to be WARNING. You can use the following variables: %{simStatus}, %{interfaceState}, %{cellId}, %{simIcc}, %{operator}, %{imsi}   | '%{interfaceState} =~ /disconnect/'                       |                      |
+| CRITICALSTATUS                   | Define the conditions to match for the status to be CRITICAL.  You can use the following variables: %{simStatus}, %{interfaceState}, %{cellId}, %{simIcc}, %{operator}, %{imsi} | '%{simStatus} =~ /LOCKED/ or %{simStatus} =~ /DETECTING/' |                      |
+| EXTRAOPTIONS                     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                | --verbose                                                 |                      |
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
@@ -269,26 +272,26 @@ yum install centreon-plugin-Network-Teldat-Snmp
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Macro              | Description                                                                                                                                                                              | Default value                                         | Mandatory   |
-|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
-| OIDFILTER          | Choose OID used to filter interface (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                          | ifname                                                |             |
-| OIDDISPLAY         | Choose OID used to display interface (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                         | ifname                                                |             |
-| INTERFACENAME      | Set the interface (number expected) ex: 1,2,... (empty means 'check all interface')                                                                                                      |                                                       |             |
-| WARNINGINDISCARD   | Thresholds                                                                                                                                                                               |                                                       |             |
-| CRITICALINDISCARD  | Thresholds                                                                                                                                                                               |                                                       |             |
-| WARNINGINERROR     | Thresholds                                                                                                                                                                               |                                                       |             |
-| CRITICALINERROR    | Thresholds                                                                                                                                                                               |                                                       |             |
-| WARNINGINTRAFFIC   | Thresholds                                                                                                                                                                               |                                                       |             |
-| CRITICALINTRAFFIC  | Thresholds                                                                                                                                                                               |                                                       |             |
-| WARNINGOUTDISCARD  | Thresholds                                                                                                                                                                               |                                                       |             |
-| CRITICALOUTDISCARD | Thresholds                                                                                                                                                                               |                                                       |             |
-| WARNINGOUTERROR    | Thresholds                                                                                                                                                                               |                                                       |             |
-| CRITICALOUTERROR   | Thresholds                                                                                                                                                                               |                                                       |             |
-| WARNINGOUTTRAFFIC  | Thresholds                                                                                                                                                                               |                                                       |             |
-| CRITICALOUTTRAFFIC | Thresholds                                                                                                                                                                               |                                                       |             |
-| CRITICALSTATUS     | Set critical threshold for status (Default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} | %{admstatus} eq "up" and %{opstatus} !~ /up\|dormant/ |             |
-| WARNINGSTATUS      | Set warning threshold for status. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                            |                                                       |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                       | --verbose                                             |             |
+| Macro              | Description                                                                                                                                  | Default value                                             | Mandatory   |
+|:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------|:-----------:|
+| OIDFILTER          | Choose OID used to filter interface (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                              | ifname                                                    |             |
+| OIDDISPLAY         | Choose OID used to display interface (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                             | ifname                                                    |             |
+| INTERFACENAME      | Set the interface (number expected) ex: 1,2,... (empty means 'check all interface')                                                          |                                                           |             |
+| WARNINGINDISCARD   | Thresholds                                                                                                                                   |                                                           |             |
+| CRITICALINDISCARD  | Thresholds                                                                                                                                   |                                                           |             |
+| WARNINGINERROR     | Thresholds                                                                                                                                   |                                                           |             |
+| CRITICALINERROR    | Thresholds                                                                                                                                   |                                                           |             |
+| WARNINGINTRAFFIC   | Thresholds                                                                                                                                   |                                                           |             |
+| CRITICALINTRAFFIC  | Thresholds                                                                                                                                   |                                                           |             |
+| WARNINGOUTDISCARD  | Thresholds                                                                                                                                   |                                                           |             |
+| CRITICALOUTDISCARD | Thresholds                                                                                                                                   |                                                           |             |
+| WARNINGOUTERROR    | Thresholds                                                                                                                                   |                                                           |             |
+| CRITICALOUTERROR   | Thresholds                                                                                                                                   |                                                           |             |
+| WARNINGOUTTRAFFIC  | Thresholds                                                                                                                                   |                                                           |             |
+| CRITICALOUTTRAFFIC | Thresholds                                                                                                                                   |                                                           |             |
+| CRITICALSTATUS     | Set critical threshold for status. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}               | %{admstatus} eq "up" and %{opstatus} !~ /up\dormant/      |             |
+| WARNINGSTATUS      | Set warning threshold for status. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                |                                                           |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).       | --verbose                                                 |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
