@@ -378,6 +378,16 @@ Release date: `October 26, 2022`
 
 ## Centreon Collect
 
+### 22.10.7
+
+Release date: `January 11, 2024`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- Fixed a bug that made Broker crash when rebuilding RRD files for unexisting metrics.
+
 ### 22.10.6
 
 Release date: `November 20, 2023`
