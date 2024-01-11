@@ -593,13 +593,6 @@ systemctl status mariadb
 
 > **Attention:** n'oubliez pas de modifier le paramètre `Chemin d'accès au fichier de configuration MySQL` dans **Administration > Paramètres > Backup**.
 
-### Sécurisation de la base de données
-
-L'accès aux bases de données doit être limité de la façon la plus stricte possible. La commande `mysql_secure_installation` permet de supprimer les accès non protégés par des mots de passe et la base de données de test. Lancez cette commande et gardez les choix par défaut. Veuillez choisir un mot de passe complexe.
-
-```bash
-mysql_secure_installation
-```
 
 ### Création du compte centreon
 
