@@ -614,7 +614,7 @@ GRANT ALL PRIVILEGES ON centreon.* TO '@MARIADB_CENTREON_USER@'@'@DATABASE_MASTE
 GRANT ALL PRIVILEGES ON centreon_storage.* TO '@MARIADB_CENTREON_USER@'@'@DATABASE_MASTER_IPADDR@';
 ```
 
-Optionnellement, et pour que les scripts d'administration fonctionnent sur l'ensemble des nœuds du Cluster (Centraux Web inclus), les utilisateurs suivants :
+Optionnellement, et pour que les scripts d'administration fonctionnent sur l'ensemble des nœuds du Cluster (Centraux Web inclus), créer les utilisateurs suivants :
 
 ```sql
 CREATE USER '@MARIADB_CENTREON_USER@'@'@CENTRAL_SLAVE_IPADDR@' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@';
