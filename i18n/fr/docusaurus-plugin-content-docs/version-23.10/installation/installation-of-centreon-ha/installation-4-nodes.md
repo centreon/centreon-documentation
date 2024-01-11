@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 ### Compréhension
 
 Avant de suivre cette procédure, il est recommandé d'avoir un niveau de connaissance satisfaisant du système d'exploitation Linux, de Centreon
-et des outils de clustering Pacemaker-Corosync pour bien comprendre ce qui va être fait et savoir résoudre un incident éventuel.
+et des outils de clustering Pacemaker-Corosync pour bien comprendre ce qui va être fait et savoir résoudre un éventuel incident.
 
 ### Flux réseaux
 
