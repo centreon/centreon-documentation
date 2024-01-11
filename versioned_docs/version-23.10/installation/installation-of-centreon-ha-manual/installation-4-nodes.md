@@ -11,6 +11,8 @@ import TabItem from '@theme/TabItem';
 
 Before you follow this procedure, we recommend that you have a good knowledge of the Linux operating system and Centreon so you can understand what you are doing and correct any mistakes that might occur.
 
+> WARNING: Anyone following this procedure does so at their own risk. Under no circumstances shall Centreon be liable for any breakdown or data loss.
+
 ### Installation of Centreon
 
 The installation of a Centreon-HA cluster can only be done on the basis of a functional installation of Centreon. Before following this procedure, it is therefore essential to have applied **[this installation procedure](https://docs.centreon.com/docs/installation/introduction/)** through to the end, **reserving about 5 GB of free space** on the *volume group* that contains the MySQL data (mount point `/var/lib/mysql` by default).
