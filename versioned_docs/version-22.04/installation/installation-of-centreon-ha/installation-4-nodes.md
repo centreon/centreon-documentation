@@ -12,6 +12,8 @@ import TabItem from '@theme/TabItem';
 Before applying this procedure, you should have a good knowledge of Linux OS, of Centreon, 
 and of Pacemaker clustering tools in order to have a proper understanding of what is being done.
 
+> WARNING: Anyone following this procedure does so at their own risk. Under no circumstances shall Centreon be liable for any breakdown or data loss.
+
 ### Network Flows
 
 In addition of necessary flows describe on the [official documentation](../architectures.md#tables-of-network-flows),
