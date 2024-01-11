@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Understanding
 
-Before following this procedure, it is recommended to have a satisfactory level of knowledge of the Linux operating system and Centreon to understand what is going to be done and to be able to get out of a possible mistake.
+Before applying this procedure, you should have a good knowledge of Linux OS, Centreon, and Pacemaker-Corosync clustering tools in order to have a proper understanding of what is being done and to be able to correct any mistakes that might occur.
 
 > WARNING: Anyone following this procedure does so at their own risk. Under no circumstances shall Centreon be liable for any breakdown or data loss.
 
