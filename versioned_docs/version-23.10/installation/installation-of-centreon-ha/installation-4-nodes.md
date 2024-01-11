@@ -585,13 +585,6 @@ systemctl status mysql
 
 > **Warning:** remember to change the parameter `Mysql configuration file path` in **Administration > Parameters > Backup**
 
-### Securing the database server
-
-To avoid unnecessary exposure of your database, you should restrict access to it as much as possible. The `mysql_secure_installation` command will help you apply some basic security principles. You just need to run this command and let yourself be guided, choosing the recommended option at every step. We suggest you choose a strong password.
-
-```bash
-mysql_secure_installation
-```
 
 ### Creating the `centreon` MariaDB account
 
