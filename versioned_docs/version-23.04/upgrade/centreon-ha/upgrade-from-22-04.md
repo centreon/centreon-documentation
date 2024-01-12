@@ -31,7 +31,13 @@ When upgrading from an older version, you need to go through the [key rotation p
 
 ## Upgrade process
 
-To perform the upgrade:
+Before process the upgrade, stop Centreon-Broker-SQL on the **central master node**:
+
+```bash
+systemctl stop cbd-sql
+```
+
+Now, to perform the upgrade:
 
 > For the **active central node** and **active database node if needed** please [follow the official documentation](../../upgrade/upgrade-from-22-04.md) **until the "Post-upgrade actions" step included**.
 
@@ -271,8 +277,6 @@ pcs resource create "ms_mysql" \
 
 </TabItem>
 </Tabs>
-
-> **WARNING:** the syntax of the following command depends on the Linux distribution you are using.
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">

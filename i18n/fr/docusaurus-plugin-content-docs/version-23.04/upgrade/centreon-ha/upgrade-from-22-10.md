@@ -31,7 +31,13 @@ Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous deve
 
 ## Processus de mise à jour
 
-Pour effectuer la montée de version:
+Avant de procéder à la montée de version, arrêter Centreon-Broker-SQL sur le **nœud central primaire**:
+
+```bash
+systemctl stop cbd-sql
+```
+
+Maintenant, pour effectuer la montée de version:
 
 > Pour le **nœud central actif** et **le nœud base de données actif s'il existe** merci de [suivre la documentation officielle](../../upgrade/upgrade-from-22-04.md) **jusqu'à l'étape "Actions post montée de version" incluse**.
 

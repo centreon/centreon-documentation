@@ -31,7 +31,13 @@ When upgrading from an older version, you need to go through the [key rotation p
 
 ## Upgrade process
 
-To perform the upgrade:
+Before process the upgrade, stop Centreon-Broker-SQL on the **central master node**:
+
+```bash
+systemctl stop cbd-sql
+```
+
+Now, to perform the upgrade:
 
 > For the **active central node** and **active database node if needed** please [follow the official documentation](../../upgrade/upgrade-from-22-04.md) **until the "Post-upgrade actions" step included**.
 

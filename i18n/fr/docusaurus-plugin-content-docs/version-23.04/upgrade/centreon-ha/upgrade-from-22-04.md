@@ -31,7 +31,13 @@ Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous deve
 
 ## Processus de mise à jour
 
-Pour effectuer la montée de version:
+Avant de procéder à la montée de version, arrêter Centreon-Broker-SQL sur le **nœud central primaire**:
+
+```bash
+systemctl stop cbd-sql
+```
+
+Maintenant, pour effectuer la montée de version:
 
 > Pour le **nœud central actif** et **le nœud base de données actif s'il existe** merci de [suivre la documentation officielle](../../upgrade/upgrade-from-22-04.md) **jusqu'à l'étape "Actions post montée de version" incluse**.
 
@@ -214,7 +220,7 @@ systemctl restart cbd
 
 ### Nettoyer les fichiers de mémoire de broker
 
-> **WARNING:** exécuter cette commande uniquement sur le noeud central passif.
+> **WARNING:** exécuter cette commande uniquement sur le nœud central passif.
 
 Avant de reprendre la gestion des ressources du cluster, pour éviter les problèmes de broker, il faut nettoyer tous les fichiers *.memory.*, *.unprocessed.* ou *.queue.* :
 
@@ -228,7 +234,7 @@ rm -rf /var/lib/centreon-broker/central-broker-master.unprocessed*
 
 À exécuter **seulement sur un nœud central** :
 
-> **WARNING:** la syntaxe de la commande suivante dépend de la distribution Linux que vous utilisez.
+> **WARNING:** la syntaxe des commandes suivantes dépendent de la distribution Linux que vous utilisez.
 
 > Vous pouvez trouver les variables @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ @MARIADB_REPL_USER@ @MARIADB_REPL_USER@ dans `/etc/centreon-ha/mysql-resources.sh`.
 
@@ -272,8 +278,6 @@ pcs resource create "ms_mysql" \
 
 </TabItem>
 </Tabs>
-
-> **WARNING:** la syntaxe de la commande suivante dépend de la distribution Linux que vous utilisez.
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
