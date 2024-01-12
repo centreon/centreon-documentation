@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Teldat SNMP** apporte un modèle d'hôte :
+Le connecteur de supervision **Teldat Edge Routers SNMP** apporte un modèle d'hôte :
 
 * **Net-Teldat-SNMP-custom**
 

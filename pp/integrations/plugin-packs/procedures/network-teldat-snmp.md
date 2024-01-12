@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Teldat SNMP** brings a host template:
+The Monitoring Connector **Teldat Edge Routers SNMP** brings a host template:
 
 * **Net-Teldat-SNMP-custom**
 
