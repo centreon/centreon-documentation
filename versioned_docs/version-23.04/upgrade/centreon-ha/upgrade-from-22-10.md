@@ -39,9 +39,9 @@ systemctl stop cbd-sql
 
 Now, to perform the upgrade:
 
-> For the **active central node** and **active database node if needed** please [follow the official documentation](../../upgrade/upgrade-from-22-04.md) **until the "Post-upgrade actions" step included**.
+> For the **active central node** and **active database node if needed** please [follow the official documentation](../../upgrade/upgrade-from-22-10.md) **until the "Post-upgrade actions" step included**.
 
-> For the **passive central node** and **passive database node if needed**, please [follow the official documentation](../../upgrade/upgrade-from-22-04.md) **until the "Update your customized Apache configuration" step included only. Do not perform the "Finalizing the upgrade" step.**.
+> For the **passive central node** and **passive database node if needed**, please [follow the official documentation](../../upgrade/upgrade-from-22-10.md) **until the "Update your customized Apache configuration" step included only. Do not perform the "Finalizing the upgrade" step.**.
 
 Then on the two central nodes, restore the file `/etc/centreon-ha/centreon_central_sync.pm`:
 
