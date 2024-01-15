@@ -477,7 +477,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --plink-path            | plink command path (default: none)                                                                                                                                     |
 | --plink-option          | Specify plink options (example: --plink-option='-T').                                                                                                                  |
 | --libssh-strict-connect | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                    |
-| --filter-name           | Filter app name (can be a regexp).                                                                                                                                     |
+| --filter-name           | Define which applications should be monitored based on their names. This option will be treated as a regular expression.                                                                                                                                    |
 | --filter-counters       | Only display some counters (regexp can be used). Example: --filter-counters='calls'                                                                                    |
 | --warning-*-count       | Warning threshold. Replace * with 'calls', 'bytes-values' or 'bytes-keys'.                                                                                            |
 | --warning-*-persecond       | Warning threshold. Replace * with 'calls', 'bytes-values'or 'bytes-keys'.                                                                                            |
