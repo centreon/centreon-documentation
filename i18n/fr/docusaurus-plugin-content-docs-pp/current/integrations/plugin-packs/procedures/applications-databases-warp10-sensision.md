@@ -482,7 +482,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --warning-*-count       | Warning threshold. Replace * with 'calls', 'bytes-values' or 'bytes-keys'.                                                                                            |
 | --warning-*-persecond       | Warning threshold. Replace * with 'calls', 'bytes-values'or 'bytes-keys'.                                                                                            |
 | --critical-*-count      | Critical threshold. Replace * with 'calls', 'bytes-values' or 'bytes-keys'.                                                                                          |
-| --critical-*-count      | Critical threshold. Replace * with 'calls', 'bytes-values' or 'bytes-keys'.                                                                                          |
+| --critical-*-persecond      | Critical threshold. Replace * with 'calls', 'bytes-values' or 'bytes-keys'.                                                                                          |
 
 </TabItem>
 <TabItem value="Script-Statistics" label="Script-Statistics">
