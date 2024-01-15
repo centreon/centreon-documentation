@@ -281,7 +281,7 @@ yum install centreon-plugin-Hardware-Kvm-Avocent-Acs-8000-Snmp
 
 | Macro              | Description                                                                                                              | Default value     | Mandatory   |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNAME         | Filter by serial device name (can be a regexp)                                                                           | .*                |             |
+| FILTERNAME         | Filter by serial port name (can be a regexp).                                                                           | .*                |             |
 | UNKNOWNSTATUS      | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{display}  |                   |             |
 | WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{display}  |                   |             |
 | CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{display} |                   |             |
