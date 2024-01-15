@@ -1,6 +1,6 @@
 ---
-id: network-switchs-dell-xseries-snmp
-title: Dell Xseries
+id: hardware-kvm-avocent-acs-8000-snmp
+title: Avocent ACS 8000
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,26 +9,33 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Dell Xseries** apporte un modèle d'hôte :
+Le connecteur de supervision **Avocent ACS 8000** apporte un modèle d'hôte :
 
-* **Net-Dell-Xseries-SNMP-custom**
+* **HW-Kvm-Avocent-Acs-8000-SNMP-custom**
 
 Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="Net-Dell-Xseries-SNMP-custom" label="Net-Dell-Xseries-SNMP-custom">
+<TabItem value="HW-Kvm-Avocent-Acs-8000-SNMP-custom" label="HW-Kvm-Avocent-Acs-8000-SNMP-custom">
 
-| Alias      | Modèle de service                       | Description                       | Découverte |
-|:-----------|:----------------------------------------|:----------------------------------|:----------:|
-| Cpu        | Net-Dell-Xseries-Cpu-SNMP-custom        | Contrôle le CPU sur 5s, 1m et 5m  |            |
-| Hardware   | Net-Dell-Xseries-Hardware-SNMP-custom   | Contrôle les composants hardware  |            |
-| Interfaces | Net-Dell-Xseries-Interfaces-SNMP-custom | Contrôle les interfaces           | X          |
-| Uptime     | Net-Dell-Xseries-Uptime-SNMP-custom     | Contrôle l'uptime de l'équipement |            |
+| Alias           | Modèle de service                                   | Description                                               |
+|:----------------|:----------------------------------------------------|:----------------------------------------------------------|
+| Cpu-Detailed    | HW-Kvm-Avocent-Acs-8000-Cpu-Detailed-SNMP-custom    | Contrôle du taux d'utilisation détaillé CPU de la machine |
+| Hardware-Global | HW-Kvm-Avocent-Acs-8000-Hardware-Global-SNMP-custom | Contrôle le matériel                                      |
+| Load            | HW-Kvm-Avocent-Acs-8000-Load-SNMP-custom            | Contrôle de la charge serveur                             |
+| Memory          | HW-Kvm-Avocent-Acs-8000-Memory-SNMP-custom          | Contrôle du taux d'utilisation de la mémoire vive         |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Dell-Xseries-SNMP-custom** est utilisé.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Kvm-Avocent-Acs-8000-SNMP-custom** est utilisé.
 
-> Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
+</TabItem>
+<TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
+
+| Alias        | Modèle de service                                | Description |
+|:-------------|:-------------------------------------------------|:------------|
+| Serial-Ports | HW-Kvm-Avocent-Acs-8000-Serial-Ports-SNMP-custom | Contrôle les statuts et le traffic des ports série.           |
+
+> Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
 </TabItem>
 </Tabs>
@@ -37,75 +44,93 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte d'hôtes
 
-| Nom de la règle | Description                                                                                                                                                                                                                                          |
-|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Dell-Xseries-SNMP-custom** host template |
+| Nom de la règle | Description                                                                                                                                                                                                                                                 |
+|:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **HW-Kvm-Avocent-Acs-8000-SNMP-custom** host template |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
-
-#### Découverte de service
-
-| Nom de la règle                      | Description                                                   |
-|:-------------------------------------|:--------------------------------------------------------------|
-| Net-Dell-Xseries-SNMP-Interface-Name | Discover network interfaces and monitor bandwidth utilization |
-
-Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
-pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
 
 ### Métriques & statuts collectés
 
 Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
 
 <Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<TabItem value="Cpu-Detailed" label="Cpu-Detailed">
 
-| Métrique                      | Unité |
-|:------------------------------|:------|
-| cpu.utilization.1s.percentage | %     |
-| cpu.utilization.1m.percentage | %     |
-| cpu.utilization.5m.percentage | %     |
-
-</TabItem>
-<TabItem value="Hardware" label="Hardware">
-
-Pas de métrique pour ce service.
-
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
-
-| Métrique                                                  | Unité |
-|:----------------------------------------------------------|:------|
-| *interface_name*#status                                   | N/A   |
-| *interface_name*#interface.traffic.in.bitspersecond       | b/s   |
-| *interface_name*#interface.traffic.out.bitspersecond      | b/s   |
-| *interface_name*#interface.packets.in.discard.percentage  | %     |
-| *interface_name*#interface.packets.in.error.percentage    | %     |
-| *interface_name*#interface.packets.out.discard.percentage | %     |
-| *interface_name*#interface.packets.out.error.percentage   | %     |
-
-</TabItem>
-<TabItem value="Uptime" label="Uptime">
-
-| Métrique              | Unité |
-|:----------------------|:------|
-| system.uptime.seconds | s     |
+| Métrique                             | Unité |
+|:-------------------------------------|:------|
+| cpu.user.utilization.percentage      | %     |
+| cpu.nice.utilization.percentage      | %     |
+| cpu.system.utilization.percentage    | %     |
+| cpu.idle.utilization.percentage      | %     |
+| cpu.wait.utilization.percentage      | %     |
+| cpu.kernel.utilization.percentage    | %     |
+| cpu.interrupt.utilization.percentage | %     |
+| cpu.softirq.utilization.percentage   | %     |
+| cpu.steal.utilization.percentage     | %     |
+| cpu.guest.utilization.percentage     | %     |
+| cpu.guestnice.utilization.percentage | %     |
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+
+</TabItem>
+<TabItem value="Hardware-Global" label="Hardware-Global">
+
+| Métrique                | Unité |
+|:------------------------|:------|
+| hardware.psu.count      | count |
+
+</TabItem>
+<TabItem value="Load" label="Load">
+
+| Métrique               | Unité |
+|:-----------------------|:------|
+| load.1m.average.count  | count |
+| load.5m.average.count  | count |
+| load.15m.average.count | count |
+| load.1m.count          | count |
+| load.5m.count          | count |
+| load.15m.count         | count |
+
+</TabItem>
+<TabItem value="Memory" label="Memory">
+
+| Métrique                | Unité |
+|:------------------------|:------|
+| memory.usage.bytes      | B     |
+| memory.free.bytes       | B     |
+| memory.usage.percentage | %     |
+| memory.buffer.bytes     | B     |
+| memory.cached.bytes     | B     |
+| memory.shared.bytes     | B     |
+| swap.usage.bytes        | B     |
+| swap.free.bytes         | B     |
+| swap.usage.percentage   | %     |
+
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+
+</TabItem>
+<TabItem value="Serial-Ports" label="Serial-Ports">
+
+| Métrique                                       | Unité |
+|:-----------------------------------------------|:------|
+| *serials*#status                               | N/A   |
+| *serials*#serialport.traffic.in.bitspersecond  | b/s   |
+| *serials*#serialport.traffic.out.bitspersecond | b/s   |
 
 </TabItem>
 </Tabs>
 
 ## Prérequis
 
-### Configuration Dell Xseries Equipment  
+### Configuration SNMP
 
-Afin de contrôler vos équipements Dell Xseries, le SNMP v2 doit être configuré.
+Le service SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
 
-### Flux de réseaux
+### Flux réseau
 
-La communication doit être possible sur le port UDP 161 de l'équipement Dell Xseries supervisé depuis le Collecteur Centreon.
-
- 
+La communication doit être possible sur le port UDP 161 depuis le collecteur
+Centreon vers la ressource supervisée.
 
 ## Installer le connecteur de supervision
 
@@ -121,34 +146,34 @@ associé à sa distribution :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-network-switchs-dell-xseries-snmp
+dnf install centreon-pack-hardware-kvm-avocent-acs-8000-snmp
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-network-switchs-dell-xseries-snmp
+dnf install centreon-pack-hardware-kvm-avocent-acs-8000-snmp
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-pack-network-switchs-dell-xseries-snmp
+apt install centreon-pack-hardware-kvm-avocent-acs-8000-snmp
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-network-switchs-dell-xseries-snmp
+yum install centreon-pack-hardware-kvm-avocent-acs-8000-snmp
 ```
 
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Dell Xseries**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Avocent ACS 8000**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
@@ -166,28 +191,28 @@ Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votr
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Network-Dell-Xseries-Snmp
+dnf install centreon-plugin-Hardware-Kvm-Avocent-Acs-8000-Snmp
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-Network-Dell-Xseries-Snmp
+dnf install centreon-plugin-Hardware-Kvm-Avocent-Acs-8000-Snmp
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-plugin-network-dell-xseries-snmp
+apt install centreon-plugin-hardware-kvm-avocent-acs-8000-snmp
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-plugin-Network-Dell-Xseries-Snmp
+yum install centreon-plugin-Hardware-Kvm-Avocent-Acs-8000-Snmp
 ```
 
 </TabItem>
@@ -199,7 +224,7 @@ yum install centreon-plugin-Network-Dell-Xseries-Snmp
 
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
-3. Appliquez le modèle d'hôte **Net-Dell-Xseries-SNMP-custom**.
+3. Appliquez le modèle d'hôte **HW-Kvm-Avocent-Acs-8000-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
 > Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
@@ -216,58 +241,52 @@ yum install centreon-plugin-Network-Dell-Xseries-Snmp
 2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
-
-| Macro             | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGAVERAGE1M  | Thresholds                                                                                         |                   |             |
-| CRITICALAVERAGE1M | Thresholds                                                                                         |                   |             |
-| WARNINGAVERAGE1S  | Thresholds                                                                                         |                   |             |
-| CRITICALAVERAGE1S | Thresholds                                                                                         |                   |             |
-| WARNINGAVERAGE5M  | Thresholds                                                                                         |                   |             |
-| CRITICALAVERAGE5M | Thresholds                                                                                         |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
-
-</TabItem>
-<TabItem value="Hardware" label="Hardware">
+<TabItem value="Cpu-Detailed" label="Cpu-Detailed">
 
 | Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Define which component to check (default: '.*'). Can be: 'fan', 'psu', 'temperature'                      | .*                |             |
+| WARNINGIDLE  | Warning threshold in percent                                                                       | 20:               |             |
+| CRITICALIDLE | Critical threshold in percent                                                                      | 10:               |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
-<TabItem value="Interfaces" label="Interfaces">
-
-| Macro              | Description                                                                                                                                                                                                         | Valeur par défaut                            | Obligatoire |
-|:-------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------|:-----------:|
-| OIDFILTER          | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                                          | ifName                                       |             |
-| OIDDISPLAY         | Define the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                                 | ifName                                       |             |
-| INTERFACENAME      | Define which interfaces to monitor (number expected). Example: 1,2... (empty means 'check all interfaces').                                                                                                                           |                                              |             |
-| WARNINGINDISCARD   | Thresholds                                                                                                                                                                                                          |                                              |             |
-| CRITICALINDISCARD  | Thresholds                                                                                                                                                                                                          |                                              |             |
-| WARNINGINERROR     | Thresholds                                                                                                                                                                                                          |                                              |             |
-| CRITICALINERROR    | Thresholds                                                                                                                                                                                                          |                                              |             |
-| WARNINGINTRAFFIC   | Thresholds                                                                                                                                                                                                          |                                              |             |
-| CRITICALINTRAFFIC  | Thresholds                                                                                                                                                                                                          |                                              |             |
-| WARNINGOUTDISCARD  | Thresholds                                                                                                                                                                                                          |                                              |             |
-| CRITICALOUTDISCARD | Thresholds                                                                                                                                                                                                          |                                              |             |
-| WARNINGOUTERROR    | Thresholds                                                                                                                                                                                                          |                                              |             |
-| CRITICALOUTERROR   | Thresholds                                                                                                                                                                                                          |                                              |             |
-| WARNINGOUTTRAFFIC  | Thresholds                                                                                                                                                                                                          |                                              |             |
-| CRITICALOUTTRAFFIC | Thresholds                                                                                                                                                                                                          |                                              |             |
-| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} | %{admstatus} eq "up" and %{opstatus} ne "up" |             |
-| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                            |                                              |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                  |                                              |             |
-
-</TabItem>
-<TabItem value="Uptime" label="Uptime">
+<TabItem value="Hardware-Global" label="Hardware-Global">
 
 | Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold                                                                                  |                   |             |
-| CRITICAL     | Critical threshold                                                                                 |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --check-overload  |             |
+| COMPONENT    | Define which component to check (default: '.*'). Can be: 'psu'                                            | .*                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+
+</TabItem>
+<TabItem value="Load" label="Load">
+
+| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold (1min,5min,15min)                                                                | 4,3,2             |             |
+| CRITICAL     | Critical threshold (1min,5min,15min)                                                               | 6,5,4             |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+</TabItem>
+<TabItem value="Memory" label="Memory">
+
+| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Thresholds                                                                                         | 80                |             |
+| CRITICAL     | Thresholds                                                                                         | 90                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+</TabItem>
+<TabItem value="Serial-Ports" label="Serial-Ports">
+
+| Macro              | Description                                                                                                              | Valeur par défaut | Obligatoire |
+|:-------------------|:-------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERNAME         | Filter by serial port name (can be a regexp)                                                                           | .*                |             |
+| UNKNOWNSTATUS      | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{display}  |                   |             |
+| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{display}  |                   |             |
+| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{display} |                   |             |
+| WARNINGTRAFFICIN   | Thresholds                                                                                                               |                   |             |
+| CRITICALTRAFFICOUT | Thresholds                                                                                                               |                   |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
 
 </TabItem>
 </Tabs>
@@ -283,39 +302,26 @@ que le connecteur arrive bien à superviser une ressource en utilisant une comma
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_dell_xseries_snmp.pl \
-	--plugin=network::dell::xseries::snmp::plugin \
-	--mode=interfaces \
-	--hostname=10.0.0.1 \
+/usr/lib/centreon/plugins/centreon_kvm_avocent_8000.pl \
+	--plugin=hardware::kvm::avocent::acs::8000::snmp::plugin \
+	--mode=serial-ports \
+	--hostname='10.0.0.1' \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
-	--interface='' \
-	--name \
-	--add-status \
-	--add-traffic \
-	--add-errors \
+	--filter-name='.*' \
+	--unknown-status='' \
 	--warning-status='' \
-	--critical-status='%{admstatus} eq "up" and %{opstatus} ne "up"' \
-	--warning-in-traffic='' \
-	--critical-in-traffic='' \
-	--warning-out-traffic='' \
-	--critical-out-traffic='' \
-	--warning-in-discard='' \
-	--critical-in-discard='' \
-	--warning-out-discard='' \
-	--critical-out-discard='' \
-	--warning-in-error='' \
-	--critical-in-error='' \
-	--warning-out-error='' \
-	--critical-out-error='' \
-	--oid-filter='ifName' \
-	--oid-display='ifName' 
+	--critical-status='' \
+	--warning-traffic-in='' \
+	--critical-traffic-in='' \
+	--warning-traffic-out='' \
+	--critical-traffic-out='' 
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All interfaces are ok | '*interface_name*#status'=;;;;'*interface_name*#interface.traffic.in.bitspersecond'=b/s;;;;'*interface_name*#interface.traffic.out.bitspersecond'=b/s;;;;'*interface_name*#interface.packets.in.discard.percentage'=%;;;;100'*interface_name*#interface.packets.in.error.percentage'=%;;;;100'*interface_name*#interface.packets.out.discard.percentage'=%;;;;100'*interface_name*#interface.packets.out.error.percentage'=%;;;;100
+OK: All serial ports are ok | '*serials*#status'=;;;;'*serials*#serialport.traffic.in.bitspersecond'=b/s;;;0;'*serials*#serialport.traffic.out.bitspersecond'=b/s;;;0;
 ```
 
 ### Diagnostic des erreurs communes
@@ -334,20 +340,20 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_dell_xseries_snmp.pl \
-	--plugin=network::dell::xseries::snmp::plugin \
+/usr/lib/centreon/plugins/centreon_kvm_avocent_8000.pl \
+	--plugin=hardware::kvm::avocent::acs::8000::snmp::plugin \
 	--list-mode
 ```
 
 Le plugin apporte les modes suivants :
 
-| Mode                                                                                                                             | Modèle de service associé               |
-|:---------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------|
-| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/radlan/snmp/mode/cpu.pm)]              | Net-Dell-Xseries-Cpu-SNMP-custom        |
-| hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/radlan/snmp/mode/environment.pm)] | Net-Dell-Xseries-Hardware-SNMP-custom   |
-| interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/interfaces.pm)]              | Net-Dell-Xseries-Interfaces-SNMP-custom |
-| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]     | Used for service discovery              |
-| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/uptime.pm)]                      | Net-Dell-Xseries-Uptime-SNMP-custom     |
+| Mode                                                                                                                                        | Modèle de service associé                           |
+|:--------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------|
+| cpu-detailed [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/cpudetailed.pm)]                      | HW-Kvm-Avocent-Acs-8000-Cpu-Detailed-SNMP-custom    |
+| hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/kvm/avocent/acs/8000/snmp/mode/hardware.pm)]        | HW-Kvm-Avocent-Acs-8000-Hardware-Global-SNMP-custom |
+| load [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/loadaverage.pm)]                              | HW-Kvm-Avocent-Acs-8000-Load-SNMP-custom            |
+| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/memory.pm)]                                 | HW-Kvm-Avocent-Acs-8000-Memory-SNMP-custom          |
+| serial-ports [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/kvm/avocent/acs/8000/snmp/mode/serialports.pm)] | HW-Kvm-Avocent-Acs-8000-Serial-Ports-SNMP-custom    |
 
 ### Options disponibles
 
@@ -384,7 +390,7 @@ Les options génériques sont listées ci-dessous :
 | --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --source-encoding                          | Define the character encoding of the response sent by the monitored resource. Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --hostname                                 | Name or address of the host to monitor (mandatory).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --snmp-community                           | SNMP community (default value: public). It is recommended to use a read-only community.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --snmp-version                             | Version of the SNMP protocol. 1 for SNMP v1 (default), 2 for SNMP v2c, 3 for SNMP v3.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
@@ -416,76 +422,7 @@ Les options génériques sont listées ci-dessous :
 Les options disponibles pour chaque modèle de services sont listées ci-dessous :
 
 <Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
-
-| Option                   | Description                                                                  |
-|:-------------------------|:-----------------------------------------------------------------------------|
-| --warning-* --critical-* | Thresholds. Can be: 'average-1s' (%), 'average-1m' (%), 'average-5m' (%).    |
-
-</TabItem>
-<TabItem value="Hardware" label="Hardware">
-
-| Option               | Description                                                                                                                                                                                                                  |
-|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --component          | Define which component to check (default: '.*'). Can be: 'fan', 'psu', 'temperature'.                                                                                                                                               |
-| --filter             | Exclude the items given as a comma-separated list (example: --filter=psu). You can also exclude items from specific instances: --filter=psu,0                                                                                |
-| --absent-problem     | Return an error if an entity is not 'present' (default is skipping) (comma separated list) Can be specific or global: --absent-problem=fan#2#                                                                                |
-| --no-component       | Define the expected status if no components are found (default: critical).                                                                                                                                                   |
-| --threshold-overload | Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='fan,CRITICAL,^(?!(normal)$)'   |
-| --warning            | Set warning threshold (syntax: type,regexp,threshold) Example: --warning='temperature,.*,30'                                                                                                                                 |
-| --critical           | Set critical threshold (syntax: type,regexp,threshold) Example: --critical='temperature,.*,40'                                                                                                                               |
-
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
-
-| Option                                          | Description                                                                                                                                                                                                                                                                                |
-|:------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --memcached                                     | Memcached server to use (only one server).                                                                                                                                                                                                                                                 |
-| --redis-server                                  | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                            |
-| --redis-attribute                               | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                    |
-| --redis-db                                      | Set Redis database index.                                                                                                                                                                                                                                                                  |
-| --failback-file                                 | Failback on a local file if Redis connection fails.                                                                                                                                                                                                                                        |
-| --memexpiration                                 | Time to keep data in seconds (default: 86400).                                                                                                                                                                                                                                             |
-| --statefile-dir                                 | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                     |
-| --statefile-suffix                              | Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                                                             |
-| --statefile-concat-cwd                          | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.                                                |
-| --statefile-format                              | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                      |
-| --statefile-key                                 | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                               |
-| --statefile-cipher                              | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                                                                         |
-| --add-global                                    | Check global port statistics (by default if no --add-* option is set).                                                                                                                                                                                                                     |
-| --add-status                                    | Check interface status.                                                                                                                                                                                                                                                                    |
-| --add-duplex-status                             | Check duplex status (with --warning-status and --critical-status).                                                                                                                                                                                                                         |
-| --add-traffic                                   | Check interface traffic.                                                                                                                                                                                                                                                                   |
-| --add-errors                                    | Check interface errors.                                                                                                                                                                                                                                                                    |
-| --add-cast                                      | Check interface cast.                                                                                                                                                                                                                                                                      |
-| --add-speed                                     | Check interface speed.                                                                                                                                                                                                                                                                     |
-| --add-volume                                    | Check interface data volume between two checks (not supposed to be graphed, useful for BI reporting).                                                                                                                                                                                      |
-| --check-metrics                                 | If the expression is true, metrics are checked (default: '%{opstatus} eq "up"').                                                                                                                                                                                                           |
-| --warning-status                                | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                                                                                                   |
-| --critical-status                               | Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                                        |
-| --warning-* --critical-*                        | Thresholds. Can be: 'total-port', 'total-admin-up', 'total-admin-down', 'total-oper-up', 'total-oper-down', 'in-traffic', 'out-traffic', 'in-error', 'in-discard', 'out-error', 'out-discard', 'in-ucast', 'in-bcast', 'in-mcast', 'out-ucast', 'out-bcast', 'out-mcast', 'speed' (b/s).   |
-| --units-traffic                                 | Units of thresholds for the traffic (default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                                                                                                      |
-| --units-errors                                  | Units of thresholds for errors/discards (default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                          |
-| --units-cast                                    | Units of thresholds for communication types (default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                      |
-| --nagvis-perfdata                               | Display traffic perfdata to be compatible with nagvis widget.                                                                                                                                                                                                                              |
-| --interface                                     | Define which interfaces to monitor (number expected). Example: 1,2... (empty means 'check all interfaces').                                                                                                                                                                                                 |
-| --name                                          | Allows you to define the interface (in option --interface) by name instead of OID index. The name matching mode supports regular expressions.                                                                                                                                               |
-| --speed                  | Define the actual maximum traffic speed you can have on the interfaces in megabits per second.                                                                                                                                                                                                                                 |
-| --speed-in               | Define the actual maximum incoming traffic speed you can have on the interfaces in megabits per second.                                                                                                                                                                                                                                          |
-| --speed-out              | Define the actual maximum outgoing traffic speed you can have on the interfaces in megabits per second. 
-|
-| --map-speed-dsl                                 | Get interface speed configuration for interface type 'adsl' and 'vdsl2'.  Syntax: --map-speed-dsl=interface-src-name,interface-dsl-name  E.g: --map-speed-dsl=Et0.835,Et0-vdsl2                                                                                                            |
-| --force-counters64                              | Force to use 64-bit counters only. Can be used to improve performance.                                                                                                                                                                                                                    |
-| --force-counters32                              | Force to use 32-bit counters (even in snmp v2c and v3). Should be used when 64-bit counters are buggy.                                                                                                                                                                                   |
-| --reload-cache-time                             | Time in minutes before reloading cache file (default: 180).                                                                                                                                                                                                                                |
-| --oid-filter                                    | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                                |
-| --oid-display                                   | Define the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                       |
-| --oid-extra-display                             | Add an OID to display.                                                                                                                                                                                                                                                                     |
-| --display-transform-src --display-transform-dst | Modify the interface name displayed by using a regular expression.  Example: adding --display-transform-src='eth' --display-transform-dst='ens' will replace all occurrences of 'eth' with 'ens'                                                                                           |
-| --show-cache                                    | Display cache interface datas.                                                                                                                                                                                                                                                             |
-
-</TabItem>
-<TabItem value="Uptime" label="Uptime">
+<TabItem value="Cpu-Detailed" label="Cpu-Detailed">
 
 | Option                 | Description                                                                                                                                                                                                                                   |
 |:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -501,13 +438,62 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
 | --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
 | --statefile-cipher     | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
-| --warning-uptime       | Warning threshold.                                                                                                                                                                                                                            |
-| --critical-uptime      | Critical threshold.                                                                                                                                                                                                                           |
-| --add-sysdesc          | Display system description.                                                                                                                                                                                                                   |
-| --force-oid            | Replace the default OID in order to retrieve the uptime.                                                                                                                                                                                                    |
-| --check-overload       | The uptime counter limit is 4294967296 centiseconds (~497 days). This option makes the plugin store the actual uptime by incrementing the number of revolutions of the counter when it resets to zero.                                                                                         |
-| --reboot-window        | To be used with check-overload option. Time in milliseconds (default: 5000) You increase the chance of not missing a reboot if you decrease that value.                                                                                       |
-| --unit                 | Select the time unit for thresholds. May be 's' for seconds, 'm'for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                                                                                                  |
+| --warning-*            | Warning threshold in percent. Can be: 'user', 'nice', 'system', 'idle', 'wait', 'kernel', 'interrupt', 'softirq', 'steal', 'guest', 'guestnice'.                                                                                              |
+| --critical-*           | Critical threshold in percent. Can be: 'user', 'nice', 'system', 'idle', 'wait', 'kernel', 'interrupt', 'softirq', 'steal', 'guest', 'guestnice'.                                                                                             |
+
+</TabItem>
+<TabItem value="Hardware-Global" label="Hardware-Global">
+
+| Option               | Description                                                                                                                                                                                                                         |
+|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --component          | Define which component to check (default: '.*'). Can be: 'psu'.                                                                                                                                                                            |
+| --filter             | Exclude the items given as a comma-separated list (example: --filter=psu). You can also exclude items from specific instances: --filter=psu,1                                                                                       |
+| --absent-problem     | Return an error if an entity is not 'present' (default is skipping) (comma separated list). Can be specific or global: --absent-problem=psu                                                                                          |
+| --no-component       | Define the expected status if no components are found (default: critical).                                                                                                                                                          |
+| --threshold-overload | Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='psu,CRITICAL,^(?!(statePowerOn)$)'    |
+
+</TabItem>
+<TabItem value="Load" label="Load">
+
+| Option     | Description                             |
+|:-----------|:----------------------------------------|
+| --warning  | Warning threshold (1min,5min,15min).    |
+| --critical | Critical threshold (1min,5min,15min).   |
+| --average  | Load average for the number of CPUs.    |
+
+</TabItem>
+<TabItem value="Memory" label="Memory">
+
+| Option                   | Description                                                                                                                                                                                                                                                                                          |
+|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --units                  | Units of thresholds (default: '%') ('%', 'absolute')(deprecated. Please use new counters directly)                                                                                                                                                                                                   |
+| --free                   | Apply thresholds on free space instead of on used space (deprecated, please use new counters directly).                                                                                                                                                                                                                      |
+| --swap                   | Check swap also.                                                                                                                                                                                                                                                                                     |
+| --warning-* --critical-* | Thresholds. Can be: 'usage' (B), 'usage-free' (B), 'usage-prct' (%), 'swap' (B), 'swap-free' (B), 'swap-prct' (%), 'buffer' (B), 'cached' (B), 'shared' (B).                                                                                                                                         |
+| --patch-redhat           | If using RedHat distribution with net-snmp \>= 5.7.2-43 and net-snmp \< 5.7.2-47. But you should update net-snmp!!!!  This version: used = memTotalReal - memAvailReal // free = memAvailReal  Others versions: used = memTotalReal - memAvailReal - memBuffer - memCached // free = total - used    |
+
+</TabItem>
+<TabItem value="Serial-Ports" label="Serial-Ports">
+
+| Option                   | Description                                                                                                                                                                                                                                   |
+|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --memcached              | Memcached server to use (only one server).                                                                                                                                                                                                    |
+| --redis-server           | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
+| --redis-attribute        | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
+| --redis-db               | Set Redis database index.                                                                                                                                                                                                                     |
+| --failback-file          | Failback on a local file if Redis connection fails.                                                                                                                                                                                           |
+| --memexpiration          | Time to keep data in seconds (default: 86400).                                                                                                                                                                                                |
+| --statefile-dir          | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
+| --statefile-suffix       | Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                |
+| --statefile-concat-cwd   | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
+| --statefile-format       | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
+| --statefile-key          | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
+| --statefile-cipher       | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
+| --filter-name            | Filter by serial port name (can be a regexp).                                                                                                                                                                                               |
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{display}                                                                                                                       |
+| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{display}                                                                                                                       |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{display}                                                                                                                      |
+| --warning-* --critical-* | Thresholds. Can be: 'traffic-in', 'traffic-out'.                                                                                                                                                                                              |
 
 </TabItem>
 </Tabs>
@@ -516,8 +502,8 @@ Pour un mode, la liste de toutes les options disponibles et leur signification p
 affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_dell_xseries_snmp.pl \
-	--plugin=network::dell::xseries::snmp::plugin \
-	--mode=interfaces \
+/usr/lib/centreon/plugins/centreon_kvm_avocent_8000.pl \
+	--plugin=hardware::kvm::avocent::acs::8000::snmp::plugin \
+	--mode=serial-ports \
 	--help
 ```
