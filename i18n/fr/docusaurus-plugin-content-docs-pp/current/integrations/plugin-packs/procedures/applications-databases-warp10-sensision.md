@@ -170,8 +170,8 @@ yum install centreon-plugin-Applications-Databases-Warp10-Sensision
 
 | Macro                       | Description                                                                                          | Valeur par défaut | Obligatoire |
 |:----------------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARP10SENSISIONUSERNAME     | Endpoint username                                                                                    |                   |             |
-| WARP10SENSISIONPASSWORD     | Endpoint password                                                                                    |                   |             |
+| WARP10SENSISIONUSERNAME     | Username to access the endpoint.                                                             |                   |             |
+| WARP10SENSISIONPASSWORD     | Password to access the endpoint.                                      |                   |             |
 | WARP10SENSISIONPROTO        | Specify https if needed (default: 'http')                                                            | http              |             |
 | WARP10SENSISIONPORT         | Port used (default: 80)                                                                              | 80                |             |
 | WARP10SENSISIONURLPATH      | URL to scrape metrics from (default: '/metrics')                                                     | /metrics          |             |
@@ -189,7 +189,7 @@ yum install centreon-plugin-Applications-Databases-Warp10-Sensision
 
 | Macro                        | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-----------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERAPPNAME                | Filter app name (can be a regexp)                                                                  |                   |             |
+| FILTERAPPNAME                | Define which applications should be monitored based on their names. This option will be treated as a regular expression.                                                                  |                   |             |
 | WARNINGBYTESKEYSCOUNT        | Thresholds.                                                                                        |                   |             |
 | CRITICALBYTESKEYSCOUNT       | Thresholds.                                                                                        |                   |             |
 | WARNINGBYTESKEYSPERSECOND    | Thresholds.                                                                                        |                   |             |
@@ -213,7 +213,7 @@ yum install centreon-plugin-Applications-Databases-Warp10-Sensision
 
 | Macro                           | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:--------------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERAPPNAME                   | Filter function name (can be a regexp)                                                             |                   |             |
+| FILTERAPPNAME                   | Define which functions should be monitored based on their names. This option will be treated as a regular expression. |                   |             |
 | WARNINGBOOTSTRAPLOADSCOUNT      | Thresholds.                                                                                        |                   |             |
 | CRITICALBOOTSTRAPLOADSCOUNT     | Thresholds.                                                                                        |                   |             |
 | WARNINGBOOTSTRAPLOADSPERSECOND  | Thresholds.                                                                                        |                   |             |
@@ -405,7 +405,7 @@ Les options spécifiques aux **custom modes** sont listées ci-dessous :
 | Option                 | Description                                                                                                                                                                                                                                   |
 |:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --hostname             | Hostname of the resource to query (with SSH).                                                                                                                                                                                                                 |
-| --command              | Command to get information (default: 'cat').                                                                                                                                                                                                  |
+| --command              | System command that will be used to get information (default: 'cat').                                                                                                                                                                            |
 | --command-path         | Command path.                                                                                                                                                                                                                                 |
 | --command-options      | Command options.                                                                                                                                                                                                                              |
 | --memcached            | Memcached server to use (only one server).                                                                                                                                                                                                    |
@@ -426,12 +426,12 @@ Les options spécifiques aux **custom modes** sont listées ci-dessous :
 
 | Option                 | Description                                                                                                                                                                                                                                   |
 |:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --hostname             | Endpoint hostname.                                                                                                                                                                                                                            |
+| --hostname             | Address of the server that hosts the API endpoint.                                                                                                                                                                                                              |
 | --port                 | Port of the resource to connect to (default: 80).                                                                                                                                                                                                                       |
 | --proto                | Specify https if needed (default: 'http')                                                                                                                                                                                                     |
 | --urlpath              | URL to scrape metrics from (default: '/metrics').                                                                                                                                                                                             |
-| --username             | Endpoint username.                                                                                                                                                                                                                            |
-| --password             | Endpoint password.                                                                                                                                                                                                                            |
+| --username             | Username to access the endpoint.                                                                                                                                                                                          |
+| --password             | Password to access the endpoint.                                                                                                                                                                                          |
 | --timeout              | Set HTTP timeout (default: 10).                                                                                                                                                                                                               |
 | --http-peer-addr       | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                           |
 | --proxyurl             | Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                      |
@@ -479,8 +479,10 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --libssh-strict-connect | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                    |
 | --filter-name           | Filter app name (can be a regexp).                                                                                                                                     |
 | --filter-counters       | Only display some counters (regexp can be used). Example: --filter-counters='calls'                                                                                    |
-| --warning-*-count       | /persecondWarning threshold. Can be: 'calls', 'bytes-values', 'bytes-keys'.                                                                                            |
-| --critical-*-count      | /persecondCritical threshold. Can be: 'calls', 'bytes-values', 'bytes-keys'.                                                                                           |
+| --warning-*-count       | Warning threshold. Replace * with 'calls', 'bytes-values' or 'bytes-keys'.                                                                                            |
+| --warning-*-persecond       | Warning threshold. Replace * with 'calls', 'bytes-values'or 'bytes-keys'.                                                                                            |
+| --critical-*-count      | Critical threshold. Replace * with 'calls', 'bytes-values' or 'bytes-keys'.                                                                                          |
+| --critical-*-count      | Critical threshold. Replace * with 'calls', 'bytes-values' or 'bytes-keys'.                                                                                          |
 
 </TabItem>
 <TabItem value="Script-Statistics" label="Script-Statistics">
@@ -489,8 +491,10 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-name      | Filter function name (can be a regexp).                                                                                                |
 | --filter-counters  | Only display some counters (regexp can be used). Example: --filter-counters='^time$\|uses'                                             |
-| --warning-*-count  | /persecondWarning threshold. Can be: 'time-total' (delta), 'requests', 'ops', 'errors', 'bootstrap-loads', 'time' (delta), 'uses'.     |
-| --critical-*-count | /persecondCritical threshold. Can be: 'time-total' (delta), 'requests', 'ops', 'errors', 'bootstrap-loads', 'time' (delta), 'uses'.    |
+| --warning-*-count  | Warning threshold. Replace * with 'time-total' (delta), 'requests', 'ops', 'errors', 'bootstrap-loads', 'time' (delta), 'uses'.     |
+| --warning-*-persecond  | Warning threshold. Replace * with 'time-total' (delta), 'requests', 'ops', 'errors', 'bootstrap-loads', 'time' (delta), 'uses'.     |
+| --critical-*-count  | Critical threshold. Replace * with 'time-total' (delta), 'requests', 'ops', 'errors', 'bootstrap-loads', 'time' (delta), 'uses'.     |
+| --critical-*-persecond  | Critical threshold. Replace * with 'time-total' (delta), 'requests', 'ops', 'errors', 'bootstrap-loads', 'time' (delta), 'uses'.     |
 
 </TabItem>
 </Tabs>
