@@ -94,6 +94,10 @@ module.exports = {
           type: 'doc',
           id: 'installation/poller-upgrade',
         },
+        {
+          type: 'doc',
+          id: 'installation/poller-secure',
+        },
       ],
     },
     {

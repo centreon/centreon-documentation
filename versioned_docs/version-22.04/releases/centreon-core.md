@@ -17,6 +17,12 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 22.04.20
+
+Release date: `January 11, 2024`
+
+No changes for this module in this version.
+
 ### 22.04.19
 
 Release date: `January 2, 2024`

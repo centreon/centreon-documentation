@@ -16,6 +16,12 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 22.04.20
+
+Release date: `January 11, 2024`
+
+No changes for this module in this version.
+
 ### 22.04.19
 
 Release date: `January 2, 2024`
