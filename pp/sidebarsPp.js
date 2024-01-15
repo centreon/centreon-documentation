@@ -1170,6 +1170,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-kvm-avocent-acs-8000-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-devices-video-axis-snmp'
         },
         {
