@@ -158,7 +158,7 @@ yum install centreon-plugin-Applications-Vmware-Vcsa-Restapi
 
 | Macro          | Description                                                                                                                                                | Default value        | Mandatory   |
 |:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|:-----------:|
-| FILTERSERVICE  | Filter service (can be a regexp)                                                                                                                           |                      |             |
+| FILTERSERVICE  | Define which services should be monitored based on the services' names. This option will be treated as a regular expression.                                                                                                                        |                      |             |
 | UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{health}, %{display}                                    |                      |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%{health} !~ /green/'). You can use the following variables: %{health}, %{display} | %{health} !~ /green/ |             |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{health}, %{display}                                    |                      |             |
