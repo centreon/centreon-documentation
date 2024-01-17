@@ -23,11 +23,23 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 - Serveur Centreon Central,
 - Serveur de gestion de base de données.
 
+## Mise à jour de la version mineure
+
+1. Sur votre plateforme 21.10, remplacez `https://packages.centreon.com/rpm-standard` ou `https://yum.centreon.com/standard/` par `https://archives.centreon.com/standard/` dans votre configuration YUM (par défaut, `/etc/yum.repos.d/centreon.repo`).
+
+2. Mettez à jour votre Centreon 21.10 jusqu'à la dernière version mineure.
+
 ## Montée de version du serveur Centreon Central
 
 ### Mise à jour des dépôts
 
 Il est nécessaire de mettre à jour le dépôt Centreon.
+
+Supprimez le fichier **centreon.repo** :
+
+   ```shell
+   rm /etc/yum.repos.d/centreon.repo
+   ```
 
 Exécutez la commande suivante :
 

@@ -2,7 +2,11 @@ module.exports = {
   cloud: [
     {
       type: 'category',
-      label: 'Getting started',
+      label: 'Getting started with Centreon Cloud',
+      link: {
+        type: "doc",
+        id: "getting-started/welcome"
+      },
       items: [
         {
           type: 'doc',
@@ -23,6 +27,9 @@ module.exports = {
         {
           type: 'category',
           label: 'Tutorials',
+          link: {
+            type: "generated-index",
+          },
           items: [
             {
               type: 'doc',
@@ -86,6 +93,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'installation/poller-upgrade',
+        },
+        {
+          type: 'doc',
+          id: 'installation/poller-secure',
         },
       ],
     },
@@ -317,10 +328,10 @@ module.exports = {
                 "type": "doc",
                 "id": "service-mapping/widgets"
               }
-            ]
-          }
-        ]
-      },
+              ]
+      }
+    ]
+  },
       {
         "type": "category",
         "label": "Graphical views",
@@ -353,16 +364,25 @@ module.exports = {
                   "type": "doc",
                   "id": "graph-views/map-web-known-issues"
                   }            
+                 ]
+                 }
                 ]
-              }
-            ]
-                            },
+              },
+              {
+                "type": "category",
+                "label": "Administration",
+                "items": [
+                {
+                "type": "doc",
+                "id": "administration/media"
+                }
+                ]
+                },     
       {
         "type": "link",
         "href": "/pp/integrations/plugin-packs/getting-started/introduction",
         "label": "Monitoring Connectors"
-      },
-
+        },
       {
         "type": "category",
         "label": "Integrations",
@@ -432,9 +452,9 @@ module.exports = {
                 "id": "integrations/itsm/ot-servicenow"
               }
             ]
-          },
+          }
         ]
-      },
+  },
       {
         "type": "category",
         "label": "Security",
@@ -444,7 +464,7 @@ module.exports = {
             "id": "security/security"
           }
         ]
-      },
+       },
       {
         "type": "category",
         "label": "Release notes",
@@ -462,8 +482,8 @@ module.exports = {
           {
             "type": "doc",
             "id": "resources/glossary"
-          }
+          },
         ]
       }
-  ],
-};
+    ]
+  }

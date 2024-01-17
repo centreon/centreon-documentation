@@ -6,7 +6,69 @@ title: Release Notes
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## 2024
+
+### January
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Avocent ACS 8000**](../procedures/hardware-kvm-avocent-acs-8000-snmp.md) - Initial release of Avocent 8000.
+- [**Teldat Edge Routers SNMP**](../procedures/network-teldat-snmp.md) - Initial release of Teldat Edge Routers SNMP.
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Dell Xseries**](../procedures/network-switchs-dell-xseries-snmp.md) - Fixed the wrong options in the Net-Dell-Xseries-SNMP-Cpu command.
+- [**IBM Storwize**](../procedures/hardware-storage-ibm-storwize-ssh.md) - Fixed date issue and added replication service template.
+- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Fixed a regression on sql-string mode.
+- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - Fixed a regression on sql-string mode.
+- [**Oracle Database**](../procedures/applications-databases-oracle.md) - Fixed a regression on sql-string mode.
+- [**Warp10 Sensision**](../procedures/applications-databases-warp10-sensision.md) - Fixed an issue that blocked the uninstallation process and a broker command.
+
+</TabItem>
+</Tabs>
+
 ## 2023
+
+### December
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Linux SNMP v3**](../procedures/operatingsystems-linux-snmpv3.md) [EXPERIMENTAL] - Initial release of Linux SNMP v3. This experimental plugin contains a host template with native v3 custom macros. Once wee'll have gathered some feedback, we'll integrate this template into the [**Linux SNMP**](../procedures/operatingsystems-linux-snmp.md) connector.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Centreon Central**](../procedures/applications-monitoring-centreon-central.md) - Replace the old logo with the current one.
+- [**Centreon Database**](../procedures/applications-monitoring-centreon-database.md) - Replace the old logo with the current one.
+- [**Centreon MBI**](../procedures/applications-monitoring-centreon-mbi.md) - Replace the old logo with the current one.
+- [**Centreon Map**](../procedures/applications-monitoring-centreon-map-jmx.md) - Replace the old logo with the current one.
+- [**Centreon Map4**](../procedures/applications-monitoring-centreon-map4-jmx.md) - Replace the old logo with the current one.
+- [**Centreon Poller**](../procedures/applications-monitoring-centreon-poller.md) - Replace the old logo with the current one.
+- [**Centreon SQL Metrics**](../procedures/applications-monitoring-centreon-sql-metrics.md) - Replace the old logo with the current one.
+- [**Centreon-HA**](../procedures/applications-monitoring-centreon-ha.md) - Replace the old logo with the current one.
+- [**Gorgone Rest API**](../procedures/applications-gorgone-restapi.md) - Replace the old logo with the current one.
+- [**Linux SNMP**](../procedures/operatingsystems-linux-snmp.md) - Added the `--check-overload` option in the `EXTRAOPTIONS` macro.
+- [**Linux SNMP**](../procedures/operatingsystems-linux-snmp.md) - The Uptime service now supports floating numbers in thresholds.
+- [**Windows SNMP**](../procedures/operatingsystems-windows-snmp.md) - Added the `--check-overload` option in the `EXTRAOPTIONS` macro.
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Alcatel Omniswitch**](../procedures/network-switchs-alcatel-omniswitch-snmp.md) - The Traffic-Global service template is now replaced by Interfaces.
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Citrix Acceleration**](../procedures/network-citrix-appacceleration-snmp.md) - Fixed incorrect carriage return in Service Discovery commands.
+- [**Stormshield API**](../procedures/network-stormshield-api.md) - Fixed an incorrect option in the HA command.
+- [**Synology**](../procedures/hardware-storage-synology-snmp.md) - Fixed an issue with the status that was returned when disks were failing.
+- [**UPS Standard**](../procedures/hardware-ups-standard-rfc1628-snmp.md) - Fixed the plugin's input-lines mode when all lines were at 0.
+
+</TabItem>
+</Tabs>
 
 ### November
 

@@ -294,5 +294,9 @@
   "sidebar.docs.category.Disaster recovery": {
     "message": "Reprise après sinistre",
     "description": "The label for category Disaster recovery in sidebar docs"
+  },
+  "sidebar.docs.category.Getting started with Centreon OnPrem": {
+    "message": "Démarrer avec Centreon OnPrem",
+    "description": "The label for category Getting started with Centreon OnPrem in sidebar docs"
   }
 }

@@ -23,6 +23,83 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 23.10.6
+
+Release date: `January 15, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added dashboard shares to the dashboard list.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Authentication] Fixed hardcoded email value that blocked SSO authentication with OpenId Connect when parameter was not an email.
+- [Configuration] Fixed error message displayed in configuration generation after upgrading to 23.04 version.
+- [Event Logs] Fixed period in CSV export.
+- [Installation] Fixed installation issue occurring when database user already existed.
+- [Installation] Fixed issue adding twice poller ID in Centreon Gorgone configuration.
+- [My Account] Made the name, login and password fields read-only for non-local users so as to prevent issues where users who had edited these properties were locked out of the platform.
+- [Resource Status] Fixed bad host redirection in the services panel.
+- [Resource Status] Fixed default sorting order in Resources status: from worst to best.
+- [Web] Fixed an issue where inherited contacts/contact groups were not displayed in the notifications tab.
+
+</details>
+
+### 23.10.5
+
+Release date: `January 2, 2024`
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed an SQLi vulnerability.
+
+</details>
+
+### 23.10.4
+
+Release date: `December 21, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added new endpoint to create a playlist of dashboards.
+- [API] Added new endpoint to share playlist of dashboards to contacts/contact groups.
+- [API] Added new endpoint to delete playlist of dashboards.
+- [Graph] Optimized legend.
+- [Map widget] Added information message when editing.
+- [UX] Reorganized rich text options for widget description.
+- [Widget] Added new "Status Grid" widget.
+- [Widget edit] Renamed "Add resource" button to "Refine filter".
+- [Widget edit] Made the dataset selection header sticky.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed an issue with the "Service group update" service template.
+- [API] POST/administration/tokens endpoint documentation now includes 201 response details.
+- [API] Fixed a visibility issue with configuration/users endpoint.
+- [Metrics Graph widget] Fixed an issue where labels for the ordinate axis were cropped.
+- [Server] URL patterns have been modified.
+- [Single Metric widget] Simplified metric selection.
+- [UI] Fixed a cursor issue that occurred when editing a widget.
+- [Widget edition] Fixed an issue that occurred when removing a resource or a metric.
+
+</details>
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Security] Prevented a command injection.
+
+</details>
+
 ### 23.10.3
 
 Release date: `December 5, 2023`
@@ -173,6 +250,41 @@ Release date: `October 30, 2023`
 
 ## Centreon Collect
 
+### 23.10.2
+
+Release date: `January 11, 2024`
+
+#### Centreon Broker
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed a bug occurring when a Business Activity was updated after a status change for a KPI with a BA type.
+- [Install] Fixed rights on SSH directory for Debian.
+- [Packaging] Fixed an error that was returned during the installation of **centreon-broker-cbmod**.
+
+</details>
+
+### 23.10.1
+
+Release date: `December 15, 2023`
+
+#### Centreon Broker
+
+<details open>
+  <summary>Enhancements</summary>
+
+- KPIs are now designated by their type and name instead of KPIxx.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a bug that made Broker crash when rebuilding RRD files for unexisting metrics.
+
+</details>
+
 ### 23.10.0
 
 Release date: `October 30, 2023`
@@ -214,6 +326,17 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon Gorgone
+
+### 23.10.2
+
+Release date: `December 21, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Fixed a stability issue causing the kernel to kill the **gorgoned** process.
+
+</details>
 
 ### 23.10.1
 
