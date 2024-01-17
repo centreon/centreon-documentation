@@ -22,7 +22,9 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 Release date: `January 11, 2024`
 
-No changes for this module in this version.
+#### Security fixes
+
+- [Security] Fixed an SQLi vulnerability.
 
 ### 22.10.17
 

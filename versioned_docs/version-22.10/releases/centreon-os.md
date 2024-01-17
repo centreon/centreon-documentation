@@ -23,7 +23,9 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 Release date: `January 11, 2024`
 
-No changes for this module in this version.
+#### Security fixes
+
+- [Security] Fixed an SQLi vulnerability.
 
 ### 22.10.17
 
