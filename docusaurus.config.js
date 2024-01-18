@@ -177,6 +177,7 @@ const config = {
             breadcrumbs: false,
             editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
             editLocalizedFiles: true,
+            showLastUpdateTime: true,
           },
         ],
       ];
@@ -195,6 +196,7 @@ const config = {
             breadcrumbs: false,
             editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
             editLocalizedFiles: true,
+            showLastUpdateTime: true,
           },
         ],
       ];
