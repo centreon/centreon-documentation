@@ -186,7 +186,7 @@ centreon-map.keystore-pass=xxx
 systemctl stop centreon-map-engine
 ```
 
-2. Edit the file `/etc/centreon-map/centreon-map.conf`, adding ",tls after "prod" profile:
+2. Edit the file **/etc/centreon-map/centreon-map.conf**, adding `,tls` after `prod"` profile:
 
 ```text
 RUN_ARGS="--spring.profiles.active=prod,tls"
@@ -377,7 +377,7 @@ centreon-map.truststore-pass=XXXX
 > Replace the trustStorePassword value "xxx" with the password you used when
 > generate the trust store.
 
-2. Edit the file `/etc/centreon-studio/centreon-map.conf`, and replace `,tls` by `,tls_broker` after `prod` profile:
+2. Edit the file **/etc/centreon-studio/centreon-map.conf**, and replace `,tls` by `,tls_broker` after `prod` profile:
 
 ```text
 RUN_ARGS="--spring.profiles.active=prod,tls_broker"

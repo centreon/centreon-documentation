@@ -304,7 +304,7 @@ centreon-map.truststore-pass=XXXX
 
 > Remplacez la valeur "xxx" de trustStorePassword par le mot de passe que vous avez utilisé pour générer le trust store.
 
-2. Editez le fichier **/etc/centreon-map/centreon-map.conf**, et remplacez ",tls" par ",tls_broker" après le profil "prod" :
+2. Editez le fichier **/etc/centreon-map/centreon-map.conf**, et remplacez `,tls` par `,tls_broker` après le profil `prod` :
 
 ```text
 RUN_ARGS="--spring.profiles.active=prod,tls_broker"
@@ -344,7 +344,7 @@ centreon-map.truststore-pass=XXXX
 
 > Remplacez la valeur "xxx" de trustStorePassword par le mot de passe que vous avez utilisé pour générer le trust store.
 
-2. Editez le fichier **/etc/centreon-studio/centreon-map.conf**, et remplacez ",tls" par ",tls_broker" après le profil "prod" :
+2. Editez le fichier **/etc/centreon-studio/centreon-map.conf**, et remplacez `,tls` par `,tls_broker` après le profil `prod` :
 
 ```text
 RUN_ARGS="--spring.profiles.active=prod,tls_broker"
