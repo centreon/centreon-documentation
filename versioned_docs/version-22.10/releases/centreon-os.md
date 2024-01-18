@@ -395,7 +395,8 @@ Release date: `January 11, 2024`
 
 ##### Bug fixes
 
-- Fixed a bug that made Broker crash when rebuilding RRD files for unexisting metrics.
+- [Broker] Fixed a bug that made Broker crash when rebuilding RRD files for unexisting metrics.
+- [Broker] Fixed a bug occurring when a Business Activity was updated after a status change for a KPI with a BA type.
 
 ### 22.10.6
 
