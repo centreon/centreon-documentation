@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 Before applying this procedure, you should have a good knowledge of Linux OS, Centreon, and Pacemaker-Corosync clustering tools in order to have a proper understanding of what is being done and to be able to correct any mistakes that might occur.
 
-> **WARNING:** Anyone following this procedure is doing it at his own risk. Under no circumstances shall the Centreon company be liable for any breakdown or data loss.
+> **WARNING:** Anyone following this procedure is doing so at their own risk. Under no circumstances shall Centreon be liable for any breakdown or data loss.
 
 ### Network Flows
 
