@@ -37,7 +37,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 2. Supprimez le fichier **centreon.repo** :
 
    ```shell
-   rm /etc/yum.repos.d/centreon.repo
+   rm /etc/yum.repos.d/centreon-22.10.repo
    ```
 
 3. Installez le nouveau dépôt :
