@@ -4,7 +4,6 @@ Please include a short summary of the changes and what is the purpose of the PR.
 
 ## Target version (i.e. version that this PR changes)
 
-- [ ] 21.10.x
 - [ ] 22.04.x
 - [ ] 22.10.x
 - [ ] 23.04.x

@@ -20,6 +20,14 @@ You can add or remove columns and sort by the column of your choice.
 
 ![image](../assets/alerts/resources-status/resources-status-listing-order.gif)
 
+### View by host or by service
+
+Use the **Display view** buttons above the list of resources to define how the list will be displayed. 
+
+- **All**: This view gathers all types of resources in the same list (hosts, services, metaservices, Anomaly Detection services).
+- **View by host**: Displays all hosts. By default, for each host, a summary of the status of all services is displayed in the **Services** column. Click the arrow to the left of the summary to expand the zone and display all the services attached to this host. Meta services are not included in this view.
+- **View by service**: Lists all the services, and shows the host they are attached to in the **Host** column. The list includes metaservices and Anomaly Detection services.
+
 ### Compact or extended view
 
 You can display the view in the mode that suits you best by changing the visual presentation of lines in tables.
@@ -111,30 +119,31 @@ The following rules apply:
 
 You can filter the list of resources according to a number of predefined criteria.
 
-1. Click the **Search options** icon :![image](../assets/alerts/resources-status/search-options-icon.png)
+1. Click the **Filter options** icon :![image](../assets/alerts/resources-status/search-options-icon.png)
 
     A pop-in window appears, listing the following criteria:
 
-    - **Type**: display only hosts, services or metaservices.
-    - **State**: whether the problem is already acknowledged, in a planned downtime or simply unhandled
-    - [**Status**](concepts.md): **OK**, **Up**, **Warning**, **Down**, **Critical**, **Unreachable**, **Unknown**, **Pending**
-    - [**Status type**](concepts.md#status-types): SOFT or HARD
+    - **Host:** select a host in the dropdown list and check the status to display (**Up**, **Down**, **Unreachable**, **Pending**).
     - **Host group**
+    - **Service:** select a service in the dropdown list and check the status to display (**OK**, **Warning**, **Critical**, **Unknown**, **Pending**).
     - **Service group**
-    - **Monitoring server**: resources monitored by a specific server (or poller)
+    - **Pollers**
+    - **State**: whether the problem is simply unhandled, already acknowledged, or in a planned downtime.
+
+2. Click **Open more filters** to display more options:
+
     - [**Host category**](../monitoring/categories.md)
+    - [**Host severity**](../monitoring/categories.md)
     - [**Service category**](../monitoring/categories.md)
-    - [**Host severity**](../monitoring/categories.md): name of the host severity
-    - **Host severity level**
-    - [**Service severity**](../monitoring/categories.md): name of the service severity
-    - **Service severity level**
+    - [**Service severity**](../monitoring/categories.md)
+    - You can add a comment in the **Information** field.
+    - [**Status type**](concepts.md#status-types): **Hard** or **Soft**.
 
-    
-2. Click a search criterion: a list of all possible values is displayed.
-
-3. Select the values you want. The search bar displays the text for the filter you have applied, and a figure to the left of the criterion shows how many values are selected. You can click the 'x' to the right of a criterion to deselect all values.
-
-4. Click **Search**, or click outside the pop-up. The list of resources is filtered.
+3. You can directly click the **Search** button or save your filter:
+   - Click **Save as new** to name and save your filter. You will then be able to access it in the **My filters** list.
+   - Click **Save as** if you are already editing an existing filter.
+   
+   The list of resources is now filtered.
 
 ### Search bar
 
@@ -315,11 +324,3 @@ The graph opens on the **Monitoring > Performances > Graphs** page, allowing you
 ![image](../assets/alerts/resources-status/graph-open2.png)
 
 You can also export the data for the graph as a CSV file. This will include all metrics.
-
-### Notification tab
-
-The Notification tab shows whether notifications are enabled for the selected resource. You can see the recipients of these notifications in the **Contacts** and **Contact groups** sections.
-
-To configure the recipients, click the **gear icon** in the **Contacts** or **Contact groups** section.
-
-![image](../assets/alerts/resources-status/notification_tab.png)

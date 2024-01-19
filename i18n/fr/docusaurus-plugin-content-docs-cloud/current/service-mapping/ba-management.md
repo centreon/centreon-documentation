@@ -110,9 +110,8 @@ dépendra alors des paramètres présents dans la section Indicateur.
     notification si configuré.
 -   **Seuil non fonctionnel (critical)** : entre 100 et 0 (doit être
     inférieur au seuil dégradé). Seuil à partir duquel l'activité métier
-    sera en état non fonctionnel.Ce seuil permet à l'activité métier de
-    passer en "rouge" (non fonctionnel) et de déclencher l'envoi de
-    notification si configuré.
+    sera en état non fonctionnel. Ce seuil permet à l'activité métier de
+    passer en "rouge" (non fonctionnel).
 
 ![image](../assets/service-mapping/guide/business-activity-impact.png)
 
@@ -184,8 +183,6 @@ sections:
 
 -   Vue métier: Pour lier l'activité métier à une vue métier
 -   Affichage: Paramètrer les options d'affichage de l'activité métier
--   Notification: à quels moment et qui sera notifié en cas de
-    dégradation de service sur cette activité métier
 -   Rapport: paramètres gérant les SLA cibles et période de reporting à
     utiliser dans les widgets et rapports (lié à l'extension Centreon
     MBI)
@@ -210,8 +207,7 @@ Dans Centreon Cloud, lorsque vous crééz une activité métier, vous devez syst
 
 #### Notification
 
-Configurez quand et pour quels statuts des notifications doivent être envoyées lorsque le statut de l'activité métier change.
-Ajoutez le groupe de contacts **Notification** pour que les utilisateurs puissent être notifiés.
+Cet écran n'est pas actif actuellement. Dans Centreon Cloud, les BA utilisent [le même mécanisme de notification que les hôtes et les services](https://docs.centreon.com/cloud/alerts-notifications/notif-configuration/).
 
 #### Rapport
 

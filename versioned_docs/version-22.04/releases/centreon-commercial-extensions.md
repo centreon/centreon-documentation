@@ -16,6 +16,15 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 22.04.14
+
+Release date: `December 21, 2023`
+
+#### Enhancements
+
+- [Editor] Metaservices can now be displayed in the Output widget.
+- [Viewer] Fixed an issue with the "status as font color" option in the Output widget.
+
 ### 22.04.13
 
 Release date: `November 22, 2023`
@@ -362,6 +371,14 @@ Release date: `May 25, 2022`
 - Compatibility with other 22.04 components.
 
 ## Centreon MBI
+
+### 22.04.5
+
+Release date: `December 21, 2023`
+
+#### Security fix
+
+- Updated dependency.
 
 ### 22.04.4
 
