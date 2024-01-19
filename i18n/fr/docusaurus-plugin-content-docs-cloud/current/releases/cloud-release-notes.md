@@ -52,11 +52,11 @@ title: Centreon Cloud - notes de release
 
 ### Centreon Business Edition
 
-### Anomaly Detection
+#### Anomaly Detection
 
 - [API] Added an endpoint to UPDATE Cloud Token.
 
-### Centreon IT Edition Extensions
+#### Centreon IT Edition Extensions
 
 - [IT edition extensions] Added EPP license control mechanism.
 
