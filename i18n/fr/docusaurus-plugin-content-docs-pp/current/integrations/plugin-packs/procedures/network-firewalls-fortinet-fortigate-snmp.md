@@ -35,14 +35,14 @@ Le connecteur apporte les modèles de service suivants
 | Cluster-Status   | Net-Fortinet-Fortigate-Cluster-Status-SNMP-custom   | Contrôle le statut du cluster                                                        |            |
 | Disk             | Net-Fortinet-Fortigate-Disk-SNMP-custom             | Contrôle du taux d'utilisation du disque de la machine                               |            |
 | Hardware         | Net-Fortinet-Fortigate-Hardware-SNMP-custom         | Contrôle l'état des sondes matérielles                                               |            |
-| Ips-Stats-Global | Net-Fortinet-Fortigate-Ips-Stats-Global-SNMP-custom | Contrôle les statistiques IPS des domaines virtuel                                   |            |
+| Ips-Stats-Global | Net-Fortinet-Fortigate-Ips-Stats-Global-SNMP-custom | Contrôle les statistiques IPS des domaines virtuels                                   |            |
 | SDWan            | Net-Fortinet-Fortigate-SDWan-SNMP-custom            | Contrôle les liens SDWan                                                             |            |
 | Traffic-Global   | Net-Fortinet-Fortigate-Traffic-Global-SNMP-custom   | Contrôle le traffic réseau de plusieurs interfaces réseau                            | X          |
 | Traffic-Id       | Net-Fortinet-Fortigate-Traffic-Id-SNMP-custom       | Contrôle le traffic réseau d'une interface réseau                                    |            |
 | Traffic-Name     | Net-Fortinet-Fortigate-Traffic-Name-SNMP-custom     | Contrôle le traffic réseau d'une interface réseau                                    |            |
 | VPN-Global       | Net-Fortinet-Fortigate-VPN-Global-SNMP-custom       | Contrôle le statut des liens VPN                                                     |            |
-| Vdom-Usage       | Net-Fortinet-Fortigate-Vdom-Usage-SNMP-custom       | Contrôle les domaines virtuelles                                                     |            |
-| Virus            | Net-Fortinet-Fortigate-Virus-SNMP-custom            | Contrôle le nombre de virus bloqués et détecté pour l'ensemble des domaines virtuels |            |
+| Vdom-Usage       | Net-Fortinet-Fortigate-Vdom-Usage-SNMP-custom       | Contrôle les domaines virtuels                                                     |            |
+| Virus            | Net-Fortinet-Fortigate-Virus-SNMP-custom            | Contrôle le nombre de virus bloqués et détectés pour l'ensemble des domaines virtuels |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -437,9 +437,9 @@ yum install centreon-plugin-Network-Firewalls-Fortinet-Fortigate-Snmp
 
 | Macro              | Description                                                                                                                                                                     | Valeur par défaut  | Obligatoire |
 |:-------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|:-----------:|
-| FILTERVDOMAIN      | Filter sd-wan links by vdom name (can be a regexp)                                                                                                                              |                    |             |
-| FILTERLINKNAME     | Filter sd-wan links by name (can be a regexp)                                                                                                                                   |                    |             |
-| FILTERLINKID       | Filter sd-wan links by ID (can be a regexp)                                                                                                                                     |                    |             |
+| FILTERVDOMAIN      | Define which virtual domains should be monitored based on their names. This option will be treated as a regular expression.                                                                                                                              |                    |             |
+| FILTERLINKNAME     | Define which SD-WAN links should be monitored based on their names. This option will be treated as a regular expression.                                                                                                                                   |                    |             |
+| FILTERLINKID       | Define which SD-WAN links should be monitored based on their IDs. This option will be treated as a regular expression.                                                                                                                                     |                    |             |
 | WARNINGJITTER      | Thresholds                                                                                                                                                                      |                    |             |
 | CRITICALJITTER     | Thresholds                                                                                                                                                                      |                    |             |
 | WARNINGLATENCY     | Thresholds                                                                                                                                                                      |                    |             |
@@ -513,8 +513,8 @@ yum install centreon-plugin-Network-Firewalls-Fortinet-Fortigate-Snmp
 
 | Macro              | Description                                                                                 | Valeur par défaut | Obligatoire |
 |:-------------------|:--------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER             | Filter name with regexp. Can be ('vdomain', 'vpn')                                          | .*                |             |
-| VDOMAIN            | Filter name with regexp. Can be ('vdomain', 'vpn')                                          |                   |             |
+| FILTER             | Define which VPNs should be monitored based on their names. This option will be treated as a regular expression.                                          | .*                |             |
+| VDOMAIN            | Define which virtual domains should be monitored based on their names. This option will be treated as a regular expression.                                          |                   |             |
 | WARNINGSESSIONS    | Warning on counters. Can be ('users', 'sessions', 'tunnels', 'traffic-in', 'traffic-out')   |                   |             |
 | CRITICALSESSIONS   | Warning on counters. Can be ('users', 'sessions', 'tunnels', 'traffic-in', 'traffic-out')   |                   |             |
 | WARNINGTRAFFICIN   | Warning on counters. Can be ('users', 'sessions', 'tunnels', 'traffic-in', 'traffic-out')   |                   |             |
@@ -532,7 +532,7 @@ yum install centreon-plugin-Network-Firewalls-Fortinet-Fortigate-Snmp
 
 | Macro                    | Description                                                                                                                                | Valeur par défaut | Obligatoire |
 |:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERVDOMAIN            | Filter by virtual domain name (can be a regexp)                                                                                            |                   |             |
+| FILTERVDOMAIN            | Define which virtual domains should be monitored based on their names. This option will be treated as a regular expression.                                                                                            |                   |             |
 | WARNINGCPUUTILIZATION    | Thresholds                                                                                                                                 |                   |             |
 | CRITICALCPUUTILIZATION   | Thresholds                                                                                                                                 |                   |             |
 | WARNINGLICENSEFREE       | Thresholds                                                                                                                                 |                   |             |
@@ -560,7 +560,7 @@ yum install centreon-plugin-Network-Firewalls-Fortinet-Fortigate-Snmp
 
 | Macro                     | Description                                                                                 | Valeur par défaut | Obligatoire |
 |:--------------------------|:--------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNAME                | Filter virtual domain name (can be a regexp)                                                |                   |             |
+| FILTERNAME                | Define which virtual domains should be monitored based on their names. This option will be treated as a regular expression.                                                |                   |             |
 | WARNINGVIRUSBLOCKED       | Thresholds                                                                                  |                   |             |
 | CRITICALVIRUSBLOCKED      | Thresholds                                                                                  |                   |             |
 | WARNINGVIRUSBLOCKEDPSEC   | Thresholds                                                                                  |                   |             |
@@ -787,7 +787,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --statefile-key          | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
 | --statefile-cipher       | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
 | --warning-* --critical-* | Thresholds. Can be: 'intrusions-detected', 'intrusions-blocked', 'crit-sev-detections', 'high-sev-detections', 'med-sev-detections', 'low-sev-detections', 'info-sev-detections', 'signature-detections', 'anomaly-detections'.               |
-| --filter-name            | Filter virtual domain name (can be a regexp).                                                                                                                                                                                                 |
+| --filter-name            | Define which virtual domains should be monitored based on their names. This option will be treated as a regular expression.                                                                                                                                                                                                 |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -814,9 +814,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --statefile-format       | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
 | --statefile-key          | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
 | --statefile-cipher       | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
-| --filter-id              | Filter sd-wan links by ID (can be a regexp).                                                                                                                                                                                                  |
-| --filter-name            | Filter sd-wan links by name (can be a regexp).                                                                                                                                                                                                |
-| --filter-vdom            | Filter sd-wan links by vdom name (can be a regexp).                                                                                                                                                                                           |
+| --filter-id              | Define which SD-WAN links should be monitored based on their IDs. This option will be treated as a regular expression.                                                                                                                                                                                                  |
+| --filter-name            | Define which SD-WAN links should be monitored based on their names. This option will be treated as a regular expression.                                                                                                                                                                                                |
+| --filter-vdom            | Define which virtual domains should be monitored based on their names. This option will be treated as a regular expression.                                                                                                                                                                                           |
 | --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{state}, %{vdom}, %{id}, %{name}, %{ifName}                                                                                                |
 | --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{state}, %{vdom}, %{id}, %{name}, %{ifName}                                                                                                |
 | --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{state} eq "down"'). You can use the following variables: %{state}, %{vdom}, %{id}, %{name}, %{ifName}                                                               |
@@ -1007,7 +1007,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --statefile-format       | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
 | --statefile-key          | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
 | --statefile-cipher       | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
-| --filter-vdomain         | Filter by virtual domain name (can be a regexp).                                                                                                                                                                                              |
+| --filter-vdomain         | Define which virtual domains should be monitored based on their names. This option will be treated as a regular expression.                                                                                                                                                                                              |
 | --add-traffic            | Add traffic usage by virtual domain.                                                                                                                                                                                                          |
 | --add-policy             | Add number of policies by virtual domain.                                                                                                                                                                                                     |
 | --policy-cache-time      | Time in minutes before reloading cache file (default: 60).                                                                                                                                                                                    |
@@ -1033,7 +1033,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --statefile-key          | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
 | --statefile-cipher       | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
 | --warning-* --critical-* | Thresholds. Can be: 'virus-detected', ''virus-detected-psec', 'virus-blocked', 'virus-blocked-psec'.                                                                                                                                          |
-| --filter-name            | Filter virtual domain name (can be a regexp).                                                                                                                                                                                                 |
+| --filter-name            | Define which virtual domains should be monitored based on their names. This option will be treated as a regular expression.                                                                                                                                                                                                 |
 
 </TabItem>
 </Tabs>
