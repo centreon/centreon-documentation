@@ -13,14 +13,14 @@ title: Centreon Cloud - notes de release
 
 - [API] Added an endpoint to UPDATE Cloud Token.
 
+### Centreon IT Edition Extensions
+
+- [IT edition extensions] Added EPP license control mechanism.
+
 ### Centreon-Map
 
 - [Editor] Handled meta services in output widget.
 - [Viewer] You can now perform delete and duplicate actions from the viewer.
-
-### Centreon IT Edition Extensions
-
-- [IT edition extensions] Added EPP license control mechanism.
 
 ### Centreon-Web
 
