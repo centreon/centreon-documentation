@@ -5,24 +5,13 @@ title: Centreon Cloud - notes de release
 
 ## January 22, 2024
 
-### Anomaly Detection
+### Centreon IT Edition
 
-- [API] Added an endpoint to UPDATE Cloud Token.
-
-### Centreon Broker
+#### Centreon Broker
 
 - [Broker] Fixed a bug occurring when a Business Activity was updated after a status change for a KPI with a BA type.
 
-### Centreon IT Edition
-
-- [IT edition extensions] Added EPP license control mechanism.
-
-### Centreon MAP
-
-- [Editor] Handled meta services in output widget.
-- [Viewer] You can now perform delete and duplicate actions from the viewer.
-
-### Centreon WEB
+#### Centreon WEB
 
 - [API] Added an administration endpoint to upload medias.
 - [API] Added an endpoint to List all installed connectors.
@@ -60,6 +49,21 @@ title: Centreon Cloud - notes de release
 - [Widget] Added new widget "Status Grid".
 - [Widget MAP] Added information message when editing.
 - [Widget Single Metric ] Simplified metric selection.
+
+### Centreon Business Edition
+
+### Anomaly Detection
+
+- [API] Added an endpoint to UPDATE Cloud Token.
+
+### Centreon IT Edition Extensions
+
+- [IT edition extensions] Added EPP license control mechanism.
+
+#### Centreon MAP
+
+- [Editor] Handled meta services in output widget.
+- [Viewer] You can now perform delete and duplicate actions from the viewer.
 
 ## December 5, 2023
 
