@@ -372,6 +372,14 @@ Release date: `May 25, 2022`
 
 ## Centreon MBI
 
+### 22.04.6
+
+Release date: January 22, 2024
+
+#### Bug fix
+
+- [Reports] Fixed an issue that prevented reports to be sent by email with Office 365.
+
 ### 22.04.5
 
 Release date: `December 21, 2023`
