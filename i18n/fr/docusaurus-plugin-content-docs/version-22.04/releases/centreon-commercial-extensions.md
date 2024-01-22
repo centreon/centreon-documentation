@@ -375,7 +375,7 @@ Release date: `May 25, 2022`
 
 ### 22.04.6
 
-Release date: January 22, 2024
+Release date: `January 22, 2024`
 
 #### Bug fix
 
@@ -388,8 +388,6 @@ Release date: `December 21, 2023`
 #### Security fix
 
 - Updated dependency.
-
-## Centreon MBI
 
 ### 22.04.4
 
