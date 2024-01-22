@@ -7,6 +7,17 @@ title: Centreon Cloud - notes de release
 
 ### Centreon IT Edition
 
+#### Highlights
+
+- More configurations options for hosts and services:
+When configuring your hosts and services, you can now configure the interval between checks both when the resource is OK and when it is needed to validate a non-OK state. You can also configure the number of checks to validate a non-ok state before triggering and alert.
+Finally, you can also assign your resources with a dedicated icon to ease readability of the interface. 
+
+- Dashboards Beta:
+As we keep improving our new proposition for effortlessly create and share intuitive dashboards, you can now benefit of multiple improvement, new widgets and bug fixes for the Centreon Dashboards feature.
+
+! More details can be found in the section below.
+
 #### Centreon Broker
 
 - [Broker] Fixed a bug occurring when a Business Activity was updated after a status change for a KPI with a BA type.
@@ -49,7 +60,7 @@ title: Centreon Cloud - notes de release
 - [Widget] Added new widget "Status Grid".
 - [Widget MAP] Added information message when editing.
 - [Widget Single Metric ] Simplified metric selection.
-
+  
 ### Centreon Business Edition
 
 #### Anomaly Detection
