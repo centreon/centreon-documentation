@@ -12,7 +12,7 @@ When configuring your hosts and services, you can now configure the interval bet
 Finally, you can also assign your resources with a dedicated icon to ease readability of the interface. 
 
 - Dashboards Beta:
-As we keep improving our new proposition for effortlessly create and share intuitive dashboards, you can now benefit of multiple improvements (resources selection, graphs look and feel, ...), one new widget named "status grid" and bug fixes for the Centreon Dashboards feature.
+As we keep improving our new proposition for effortlessly create and share intuitive dashboards, you can now benefit of multiple improvements (resources selection, graphs look and feel, ...), one new widget named "status grid" and bug fixes.
 
   
 ## December 5, 2023
