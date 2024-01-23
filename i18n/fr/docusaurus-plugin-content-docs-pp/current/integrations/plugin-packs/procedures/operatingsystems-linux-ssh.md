@@ -5,6 +5,8 @@ title: Linux SSH
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+Ce connecteur de supervision est compatible avec n'importe quelle distribution Linux ayant un daemon SSH installé et démarré.
+
 ## Contenu du pack
 
 ### Modèles
@@ -25,7 +27,7 @@ Le connecteur apporte les modèles de service suivants
 | Cpu         | OS-Linux-Cpu-SSH-custom         | Contrôle du taux d'utilisation CPUs    |
 | Inodes      | OS-Linux-Inodes-SSH-custom      | Contrôle des inodes                    |
 | Load        | OS-Linux-Load-SSH-custom        | Contrôle du load average               |
-| Memory      | OS-Linux-Memory-SSH-custom      |                                        |
+| Memory      | OS-Linux-Memory-SSH-custom      | Contrôle la mémoire                    |
 | Open-Files  | OS-Linux-Open-Files-SSH-custom  | Contrôle du nombre de fichiers ouverts |
 | Paging      | OS-Linux-Paging-SSH-custom      | Contrôle du paging                     |
 | Process     | OS-Linux-Process-SSH-custom     | Contrôle du nombre de processus        |
@@ -65,9 +67,9 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte de service
 
-| Nom de la règle                     | Description |
-|:------------------------------------|:------------|
-| OS-Linux-SSH-Systemd-Sc-Status-Name |             |
+| Nom de la règle                     | Description                                        |
+|:------------------------------------|:---------------------------------------------------|
+| OS-Linux-SSH-Systemd-Sc-Status-Name | Découvre les services Linux et supervise le statut |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -557,10 +559,10 @@ yum install centreon-plugin-Operatingsystems-Linux-Ssh
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro             | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGUSAGEPRCT  |                                                                                                    |                   |             |
-| CRITICALUSAGEPRCT |                                                                                                    |                   |             |
+| Macro             | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGUSAGEPRCT  | Thresholds                                                                                                                                       |                   |             |
+| CRITICALUSAGEPRCT | Thresholds                                                                                                                                       |                   |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -614,14 +616,14 @@ yum install centreon-plugin-Operatingsystems-Linux-Ssh
 | FILTERSTATE        | Filter filesystem type (regexp can be used)                                                                                                              |                   |             |
 | FILTERINTERFACE    | Filter interface name (regexp can be used)                                                                                                               |                   |             |
 | UNKNOWNSTATUS      | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{display}                                  |                   |             |
-| WARNINGINDISCARD   |                                                                                                                                                          |                   |             |
-| CRITICALINDISCARD  |                                                                                                                                                          |                   |             |
-| WARNINGINERROR     |                                                                                                                                                          |                   |             |
-| CRITICALINERROR    |                                                                                                                                                          |                   |             |
-| WARNINGOUTDISCARD  |                                                                                                                                                          |                   |             |
-| CRITICALOUTDISCARD |                                                                                                                                                          |                   |             |
-| WARNINGOUTERROR    |                                                                                                                                                          |                   |             |
-| CRITICALOUTERROR   |                                                                                                                                                          |                   |             |
+| WARNINGINDISCARD   | Thresholds                                                                                                                                                         |                   |             |
+| CRITICALINDISCARD  | Thresholds                                                                                                                                                         |                   |             |
+| WARNINGINERROR     | Thresholds                                                                                                                                                         |                   |             |
+| CRITICALINERROR    | Thresholds                                                                                                                                                         |                   |             |
+| WARNINGOUTDISCARD  | Thresholds                                                                                                                                                         |                   |             |
+| CRITICALOUTDISCARD | Thresholds                                                                                                                                                         |                   |             |
+| WARNINGOUTERROR    | Thresholds                                                                                                                                                         |                   |             |
+| CRITICALOUTERROR   | Thresholds                                                                                                                                                         |                   |             |
 | CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL (default: '%{status} ne "RU"'). You can use the following variables: %%{status}, %{display} | %{status} ne "RU" |             |
 | WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{display}                                  |                   |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                       | --verbose         |             |
@@ -655,8 +657,8 @@ yum install centreon-plugin-Operatingsystems-Linux-Ssh
 | FILTERREPOSITORY | Filter repository name                                                                             |                   |             |
 | WARNINGTOTAL     | Warning threshold for total amount of pending updates                                              |                   |             |
 | CRITICALTOTAL    | Critical threshold for total amount of pending updates                                             |                   |             |
-| WARNINGUPDATE    |                                                                                                    |                   |             |
-| CRITICALUPDATE   |                                                                                                    |                   |             |
+| WARNINGUPDATE    | Thresholds                                                                                                   |                   |             |
+| CRITICALUPDATE   | Thresholds                                                                                                   |                   |             |
 | EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
