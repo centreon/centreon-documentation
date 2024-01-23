@@ -14,7 +14,6 @@ Finally, you can also assign your resources with a dedicated icon to ease readab
 - Dashboards Beta:
 As we keep improving our new proposition for effortlessly create and share intuitive dashboards, you can now benefit of multiple improvements (resources selection, graphs look and feel, ...), one new widget named "status grid" and bug fixes.
 
-  
 ## December 5, 2023
 
 ### Centreon IT Edition
