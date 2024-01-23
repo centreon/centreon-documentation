@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Aruba Networks is a provider of network access solutions for enterprises.
 
-The Centreon Monitoring Connector *Aruba Instant SNMP* relies on the SNMP protocol to query and collect status and metrics of the Aruba Wireless Access Point equipments.
+The Centreon Monitoring Connector *Aruba Instant SNMP* relies on the SNMP protocol to query and collect status and metrics for the Aruba Wireless Access Point devices.
 
 
 ## Pack assets

@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Aruba Networks est un fournisseur de solutions d'accès réseau.
 
-Le connecteur de supervision *Aruba Instant SNMP* utilise le protocole SNMP pour se connecter, récupérer des informations et les métriques relatives aux bornes d'accès sans fil de marque Aruba.
+Le connecteur de supervision *Aruba Instant SNMP* utilise le protocole SNMP pour se connecter et récupérer des informations et des métriques relatives aux bornes d'accès sans fil de marque Aruba.
 
 ## Contenu du pack
 
