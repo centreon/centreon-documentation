@@ -5,143 +5,374 @@ title: CyberPower Systems PDU SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-## Overview
-
 CyberPower Basic Power Distribution Units (PDUs) provide reliable unfiltered power distribution
- from a UPS system, generator, or utility source to multiple devices
+ from a UPS system, generator, or utility source to multiple devices.
 
-## Monitoring Connector assets
+## Pack assets
 
-### Monitored objects
+### Templates
 
-* PDUs Physical entities (outlets, bank, phases)
+The Monitoring Connector **CyberPower Systems PDU SNMP** brings a host template:
 
-## Collected metrics 
+* **HW-Pdu-Cyberpower-SNMP-custom**
+
+The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="Load" label="Load">
+<TabItem value="HW-Pdu-Cyberpower-SNMP-custom" label="HW-Pdu-Cyberpower-SNMP-custom">
 
-| Metric name              | Description                                       | Unit |
-|:------------------------ |:------------------------------------------------- |:---- |
-| bank status              | Bank status, possible to set string-based alerts  |      |
-| bank.current.ampere      | Current Bank Ampere level                         |  A   |
-| phase status             | Phase status, possible to set string-based alerts |      |
-| phase.current.ampere     | Current Ampere level on a given Phase             |  A   |
-| phase.power.watt         | Current Watt Power on a given Phase               |  W   |
+| Service Alias | Service Template                      | Service Description |
+|:--------------|:--------------------------------------|:--------------------|
+| Load          | HW-Pdu-Cyberpower-SNMP-Load-custom    | Check load          |
+| Outlets       | HW-Pdu-Cyberpower-SNMP-Outlets-custom | Check PDU outlets   |
 
-</TabItem>
-<TabItem value="Outlets" label="Outlets">
-
-| Metric name                | Description                                             | Unit |
-|:---------------------------|:--------------------------------------------------------|:-----|
-| outlet status              | Outlet status, possible to set string-based alerts      |      |
-| outlet.current.ampere      | Current Ampere on a given outlet                        |   A  |
+> The services listed above are created automatically when the **HW-Pdu-Cyberpower-SNMP-custom** host template is used.
 
 </TabItem>
 </Tabs>
 
-## Prerequisites 
+### Discovery rules
 
-Le Service SNMP doit être activé et configuré sur l'équipement CyberPower. 
+#### Host discovery
 
-Le Collecteur Centreon doit être en mesure d'atteindre le PDU CyberPower via le port
-UDP/161. 
+| Rule name       | Description                                                                                                                                                                                                                                           |
+|:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **HW-Pdu-Cyberpower-SNMP-custom** host template. |
 
-Afin d'obtenir plus d'information sur la configuration SNMP, il est recommandé de se référer à la
-documentation officielle: 
-https://dl4jz3rbrsfum.cloudfront.net/documents/CyberPower_UM_IntelligentPDUUserGuide.pdf.
+More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
-## Installation
+### Collected metrics & status
+
+Here is the list of services for this connector, detailing all metrics linked to each service.
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
+<TabItem value="Load" label="Load">
 
-1. Installer le Plugin sur tous les collecteurs Centreon devant superviser des ressources *CyberPower Systems PDU SNMP*:
-
-```bash
-yum install centreon-plugin-Hardware-Pdu-Cyberpower-Snmp
-```
-
-2. Sur l'interface Web de Centreon, installer le Monitoring Connector *CyberPower Systems PDU SNMP* depuis la page **Configuration > Monitoring Connectors Manager**
+| Metric name                             | Unit  |
+|:----------------------------------------|:------|
+| *devices*~*banks*#bank-status           | N/A   |
+| *devices*~*banks*#bank.current.ampere   | A     |
+| *devices*~*phases*#phase-status         | N/A   |
+| *devices*~*phases*#phase.current.ampere | A     |
+| *devices*~*phases*#phase.power.watt     | W     |
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
+<TabItem value="Outlets" label="Outlets">
 
-1. Install the Centreon package on every Centreon poller expected to monitor *CyberPower Systems PDU SNMP* applications:
+| Metric name                               | Unit  |
+|:------------------------------------------|:------|
+| *devices*~*outlets*#status                | N/A   |
+| *devices*~*outlets*#outlet.current.ampere | A     |
+
+</TabItem>
+</Tabs>
+
+## Prerequisites
+
+### SNMP Configuration
+
+The SNMP service must be configured and activated on the host. Please refer to the official documentation from the constructor/editor. It can be found [here](https://dl4jz3rbrsfum.cloudfront.net/documents/CyberPower_UM_IntelligentPDUUserGuide.pdf).
+
+### Network flow
+
+The target resource must be reachable from the Centreon poller on the UDP/161
+SNMP port.
+
+## Installing the monitoring connector
+
+### Pack
+
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Monitoring Connector Manager** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Hardware-Pdu-Cyberpower-Snmp
+dnf install centreon-pack-hardware-pdu-cyberpower-snmp
 ```
 
-2. Installer le RPM Centreon Monitoring Connector sur votre serveur Centreon Central:
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-pack-hardware-pdu-cyberpower-snmp
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-pack-hardware-pdu-cyberpower-snmp
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-hardware-pdu-cyberpower-snmp
 ```
 
-2. Sur l'interface Web de Centreon, installer le Monitoring Connector *CyberPower Systems PDU SNMP* depuis la page **Configuration > Monitoring Connectors Manager**
+</TabItem>
+</Tabs>
+
+2. Whatever the license type (*online* or *offline*), install the **CyberPower Systems PDU SNMP** connector through
+the **Configuration > Monitoring Connectors Manager** menu.
+
+### Plugin
+
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
+
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Hardware-Pdu-Cyberpower-Snmp
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Hardware-Pdu-Cyberpower-Snmp
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-plugin-hardware-pdu-cyberpower-snmp
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Hardware-Pdu-Cyberpower-Snmp
+```
 
 </TabItem>
 </Tabs>
 
-## Configuration
+## Using the monitoring connector
 
-* Log into Centreon and add a new Host through "Configuration > Hosts". 
-* Fill the "Name", "Alias", "IP Address / DNS", "Snmp Community" and "Snmp version" fields according to your device's configuration
-* Select the *HW-Pdu-Cyberpower-SNMP*.
+### Using a host template provided by the connector
 
-> When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters 
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
+3. Apply the **HW-Pdu-Cyberpower-SNMP-custom** template to the host. 
+
+> When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
-| Mandatory   | Name             | Description                                    |
-| :---------- | :--------------- | :--------------------------------------------- |
-|             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo    |
+| Macro            | Description                                                                                   | Default value     | Mandatory   |
+|:-----------------|:----------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
-## FAQ
+4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
-### How to check in the CLI that the configuration is OK and what are the main options for ?
+### Using a service template provided by the connector
 
-Once the plugin installed, log into your Centreon Poller CLI using the *centreon-engine* 
-user account and test the Plugin by running the following command (some of the parameters 
-such as ```--snmp-community``` have to be adjusted):
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+
+<Tabs groupId="sync">
+<TabItem value="Load" label="Load">
+
+| Macro                | Description                                                                                                                                                          | Default value                    | Mandatory   |
+|:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------|:-----------:|
+| WARNINGBANKCURRENT   | Thresholds                                                                                                                                                           |                                  |             |
+| CRITICALBANKCURRENT  | Thresholds                                                                                                                                                           |                                  |             |
+| WARNINGBANKSTATUS    | Define the conditions to match for the status to be WARNING (default: '%{state} =~ /low\|nearOverload/i'). You can use the following variables: %{state}, %{display} | %{state} =~ /low\|nearOverload/i |             |
+| CRITICALBANKSTATUS   | Define the conditions to match for the status to be CRITICAL (default: '%{state} =~ /^overload/'). You can use the following variables: %{state}, %{display}         | %{state} =~ /^overload/i         |             |
+| WARNINGPHASECURRENT  | Thresholds                                                                                                                                                           |                                  |             |
+| CRITICALPHASECURRENT | Thresholds                                                                                                                                                           |                                  |             |
+| WARNINGPHASEPOWER    | Thresholds                                                                                                                                                           |                                  |             |
+| CRITICALPHASEPOWER   | Thresholds                                                                                                                                                           |                                  |             |
+| WARNINGPHASESTATUS   | Define the conditions to match for the status to be WARNING (default: '%{state} =~ /low\|nearOverload/i'). You can use the following variables: %{state}, %{display} | %{state} =~ /low\|nearOverload/i |             |
+| CRITICALPHASESTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%{state} =~ /^overload/i'). You can use the following variables: %{state}, %{display}        | %{state} =~ /^overload/i         |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                          | --verbose                        |             |
+
+</TabItem>
+<TabItem value="Outlets" label="Outlets">
+
+| Macro           | Description                                                                                                                                                               | Default value      | Mandatory   |
+|:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|:-----------:|
+| WARNINGCURRENT  | Thresholds                                                                                                                                                                |                    |             |
+| CRITICALCURRENT | Thresholds                                                                                                                                                                |                    |             |
+| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%{state} =~ /off/'). You can use the following variables: %{state}, %{phase}, %{bank}, %{display} | %{state} =~ /off/i |             |
+| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %{state}, %{phase}, %{bank}, %{display}                                 |                    |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                               | --verbose          |             |
+
+</TabItem>
+</Tabs>
+
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+
+## How to check in the CLI that the configuration is OK and what are the main options for?
+
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
+is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
-/usr/lib/centreon/plugins/centreon_pdu_cyberpower_snmp.pl \
---plugin=hardware::pdu::cyberpower::snmp::plugin \
---mode=outlets \
---snmp-community=cps_pdu \
---hostname=10.31.2.1 \
---snmp-version=2c \
---verbose 
+/usr/lib/centreon/plugins/centreon_pdu_cyberpower_snmp.pl  \
+	--plugin=hardware::pdu::cyberpower::snmp::plugin \
+	--mode=outlets \
+	--hostname='10.0.0.1'  \
+	--snmp-version='2c' \
+	--snmp-community='my-snmp-community'  \
+	--warning-status='' \
+	--critical-status='%{state} =~ /off/i' \
+	--warning-current='' \
+	--critical-current='' \
+	--verbose
 ```
 
-Expected command output is shown below: 
+The expected command output is shown below:
 
 ```bash
-OK: Device 'PDU81005' outlets are ok | 'PDU81005~Outlet3 bank 1#outlet.current.ampere'=0.4A;;;0; 'PDU81005~Outlet7 bank 1#outlet.current.ampere'=0.4A;;;0; 'PDU81005~Outlet8 bank 1#outlet.current.ampere'=0.9A;;;0;checking device 'PDU81005'outlet 'Outlet1 bank 1' state: 'on' [phase: seqPhase1ToNeutral]outlet 'Outlet2 bank 1' state: 'on' [phase: seqPhase1ToNeutral]outlet 'Outlet3 bank 1' state: 'on' [phase: seqPhase1ToNeutral], current : 0.4 Aoutlet 'Outlet4 bank 1' state: 'on' [phase: seqPhase1ToNeutral]outlet 'Outlet5 bank 1' state: 'on' [phase: seqPhase1ToNeutral]outlet 'Outlet6 bank 1' state: 'on' [phase: seqPhase1ToNeutral]outlet 'Outlet7 bank 1' state: 'on' [phase: seqPhase1ToNeutral], current : 0.4 Aoutlet 'Outlet8 bank 1' state: 'on' [phase: seqPhase1ToNeutral], current : 0.9 A
+OK: outlets are ok | '*devices*~*outlets*#outlet.current.ampere'=A;;;0;
 ```
 
-In this example, the Plugin gets the status and utilization metrics of the Outlets: 
-(```--plugin=hardware::pdu::cyberpower::snmp::plugin --mode=outlets```)
+### Troubleshooting
 
-All the available thresholds parameters can be displayed by adding the  ```--help``` 
-parameter to the command:
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
+for Centreon Plugins typical issues.
+
+### Available modes
+
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the 
+connector in your terminal.
+
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_pdu_cyberpower_snmp.pl \
---plugin=hardware::pdu::cyberpower::snmp::plugin \
---mode=outlets \
---help
+/usr/lib/centreon/plugins/centreon_pdu_cyberpower_snmp.pl  \
+	--plugin=hardware::pdu::cyberpower::snmp::plugin \
+	--list-mode
 ```
 
-### UNKNOWN: SNMP GET Request : Timeout
+The plugin brings the following modes:
 
-If you get this message, you're probably facing one of theses issues: 
-* Your SNMP isn't started or misconfigured on the CyberPower PDU System
-* An external device is blocking your request (firewall, ...)
+| Mode                                                                                                                         | Linked service template               |
+|:-----------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|
+| load [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/pdu/cyberpower/snmp/mode/load.pm)]       | HW-Pdu-Cyberpower-SNMP-Load-custom    |
+| outlets [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/pdu/cyberpower/snmp/mode/outlets.pm)] | HW-Pdu-Cyberpower-SNMP-Outlets-custom |
 
-### UNKNOWN: SNMP GET Request : Cant get a single value.
+### Available options
 
-This message generally means that SNMP privileges are not wide enough for the mode/plugin to work properly 
-or that the polled device doesn't support required MIBs. 
+#### Generic options
+
+All generic options are listed here:
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     | Define the mode in which you want the plugin to be executed (see--list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
+| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-ignore-perfdata                   | Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-ignore-label                      | Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --output-file                              | Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --hostname                                 | Name or address of the host to monitor (mandatory).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --snmp-community                           | SNMP community (default value: public). It is recommended to use a read-only community.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --snmp-version                             | Version of the SNMP protocol. 1 for SNMP v1 (default), 2 for SNMP v2c, 3 for SNMP v3.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --snmp-port                                | UDP port to send the SNMP request to (default: 161).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --snmp-timeout                             | Time to wait before sending the request again if no reply has been received, in seconds (default: 1). See also --snmp-retries.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --snmp-retries                             | Maximum number of retries (default: 5).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --maxrepetitions                           | Max repetitions value (default: 50) (only for SNMP v2 and v3).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --subsetleef                               | How many OID values per SNMP request (default: 50) (for get\_leef method. Be cautious when you set it. Prefer to let the default value).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --snmp-autoreduce                          | Progressively reduce the number of requested OIDs in bulk mode. Use it in case of SNMP errors (by default, the number is divided by 2).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --snmp-force-getnext                       | Use SNMP getnext function in SNMP v2c and v3. This will request one OID at a time.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --snmp-cache-file                          | Use SNMP cache file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --snmp-username                            | SNMP v3 only: User name (securityName).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --authpassphrase                           | SNMP v3 only: Pass phrase hashed using the authentication protocol defined in the --authprotocol option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --authprotocol                             | SNMP v3 only: Authentication protocol: MD5\|SHA. Since net-snmp 5.9.1: SHA224\|SHA256\|SHA384\|SHA512.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --privpassphrase                           | SNMP v3 only: Privacy pass phrase (privPassword) to encrypt messages using the protocol defined in the --privprotocol option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --privprotocol                             | SNMP v3 only: Privacy protocol (privProtocol) used to encrypt messages. Supported protocols are: DES\|AES and since net-snmp 5.9.1: AES192\|AES192C\|AES256\|AES256C.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --contextname                              | SNMP v3 only: Context name (contextName), if relevant for the monitored host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --contextengineid                          | SNMP v3 only: Context engine ID (contextEngineID), if relevant for the monitored host, given as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --securityengineid                         | SNMP v3 only: Security engine ID, given as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --snmp-errors-exit                         | Expected status in case of SNMP error or timeout. Possible values are warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --snmp-tls-transport                       | Transport protocol for TLS communication (can be: 'dtlsudp', 'tlstcp').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --snmp-tls-our-identity                    | X.509 certificate to identify ourselves. Can be the path to the certificate file or its contents.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --snmp-tls-their-identity                  | X.509 certificate to identify the remote host. Can be the path to the certificate file or its contents. This option is unnecessary if the certificate is already trusted by your system.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --snmp-tls-their-hostname                  | Common Name (CN) expected in the certificate sent by the host if it differs from the value of the --hostname parameter.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --snmp-tls-trust-cert                      | A trusted CA certificate used to verify a remote host's certificate. If you use this option, you must also define --snmp-tls-their-hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+
+#### Modes options
+
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<TabItem value="Load" label="Load">
+
+| Option                   | Description                                                                                                                                                            |
+|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --unknown-bank-status    | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{state}, %{display}                                                 |
+| --warning-bank-status    | Define the conditions to match for the status to be WARNING (default: '%{state} =~ /low\|nearOverload/i'). You can use the following variables: %{state}, %{display}   |
+| --critical-bank-status   | Define the conditions to match for the status to be CRITICAL (default: '%{state} =~ /^overload/'). You can use the following variables: %{state}, %{display}           |
+| --unknown-phase-status   | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{state}, %{display}                                                 |
+| --warning-phase-status   | Define the conditions to match for the status to be WARNING (default: '%{state} =~ /low\|nearOverload/i'). You can use the following variables: %{state}, %{display}   |
+| --critical-phase-status  | Define the conditions to match for the status to be CRITICAL (default: '%{state} =~ /^overload/i'). You can use the following variables: %{state}, %{display}          |
+| --warning-* --critical-* | Thresholds. Can be: 'phase-current', 'phase-power', 'bank-current'.                                                                                                    |
+
+</TabItem>
+<TabItem value="Outlets" label="Outlets">
+
+| Option                   | Description                                                                                                                                                                 |
+|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %%{state}, %{phase}, %{bank}, %{display}                                  |
+| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{state}, %{phase}, %{bank}, %{display}                                   |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{state} =~ /off/'). You can use the following variables: %{state}, %{phase}, %{bank}, %{display}   |
+| --warning-* --critical-* | Thresholds. Can be: 'current'.                                                                                                                                              |
+
+</TabItem>
+</Tabs>
+
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_pdu_cyberpower_snmp.pl  \
+	--plugin=hardware::pdu::cyberpower::snmp::plugin \
+	--mode=outlets \
+	--help
+```

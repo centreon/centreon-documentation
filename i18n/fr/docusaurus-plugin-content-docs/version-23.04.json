@@ -1,6 +1,6 @@
 {
   "version.label": {
-    "message": "⭐ 23.04",
+    "message": "23.04",
     "description": "The label for version 23.04"
   },
   "sidebar.docs.category.Getting Started": {
@@ -290,5 +290,13 @@
   "sidebar.docs.category.Upgrading Centreon HA": {
     "message": "Monter de version Centreon HA",
     "description": "The label for category Upgrading Centreon HA in sidebar docs"
+  },
+  "sidebar.docs.category.Disaster recovery": {
+    "message": "Reprise après sinistre",
+    "description": "The label for category Disaster recovery in sidebar docs"
+  },
+  "sidebar.docs.category.Getting started with Centreon OnPrem": {
+    "message": "Démarrer avec Centreon OnPrem",
+    "description": "The label for category Getting started with Centreon OnPrem in sidebar docs"
   }
 }

@@ -107,7 +107,7 @@ yum install awscli
 yum install centreon-plugin-Cloud-Aws-Transitgateway-Api
 ```
 
-2. On the Centreon Web interface, install the *AWS Transit Gateway* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+2. On the Centreon Web interface, install the *AWS Transit Gateway* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -124,7 +124,7 @@ yum install centreon-plugin-Cloud-Aws-Transitgateway-Api
 yum install centreon-pack-cloud-aws-transitgateway.noarch
 ```
 
-3. On the Centreon Web interface, install the *AWS Transit Gateway* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+3. On the Centreon Web interface, install the *AWS Transit Gateway* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

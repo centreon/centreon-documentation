@@ -51,7 +51,7 @@ the mandatory Host Macros must be properly configured. More info in the
 yum install centreon-plugin-Applications-Protocol-Ssh
 ```
 
-2. On the Centreon Web interface, install the *Protocol SSH* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+2. On the Centreon Web interface, install the *Protocol SSH* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -68,7 +68,7 @@ yum install centreon-plugin-Applications-Protocol-Ssh
 yum install centreon-pack-applications-protocol-ssh
 ```
 
-3. On the Centreon Web interface, install the *Protocol SSH* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+3. On the Centreon Web interface, install the *Protocol SSH* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

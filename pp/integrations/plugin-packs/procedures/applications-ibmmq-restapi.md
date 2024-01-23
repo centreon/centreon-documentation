@@ -67,7 +67,7 @@ The Pack supports only the basic authentification.
 yum install centreon-plugin-Applications-Ibmmq-Restapi
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *IBM MQ Rest API* Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *IBM MQ Rest API* Pack
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -84,7 +84,7 @@ yum install centreon-plugin-Applications-Ibmmq-Restapi
 yum install centreon-pack-applications-ibmmq-restapi
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *IBM MQ Rest API* Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *IBM MQ Rest API* Pack
 
 </TabItem>
 </Tabs>

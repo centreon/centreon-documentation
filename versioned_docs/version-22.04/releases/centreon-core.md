@@ -17,6 +17,41 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 22.04.20
+
+Release date: `January 11, 2024`
+
+No changes for this module in this version.
+
+### 22.04.19
+
+Release date: `January 2, 2024`
+
+#### Security fix
+
+- [Security] Fixed an SQLi vulnerability.
+
+### 22.04.18
+
+Release date: `December 15, 2023`
+
+#### Security fix
+
+- [Security] Prevented a command injection.
+
+### 22.04.17
+
+Release date: `November 20, 2023`
+
+#### Bug fixes
+
+- [Ressources Status] Fixed an issue that occurred when using an h.alias filter on the list of resources.
+- [Install] Fixed SQL permissions to allow the "centreon" database user to use MBI.
+
+#### Security fix
+
+- [Security] Fixed SQLi in a method.
+
 ### 22.04.16
 
 Release date: `September 25, 2023`
@@ -486,6 +521,16 @@ By:
 - [Widget] A new widget is now available to display listings from **ntopng** and provide quick access to detail pages in the **ntopng** WUI
 
 ## Centreon Collect
+
+### 22.04.5
+
+Release date: `November 20, 2023`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- Fixed a stability issue that could make Broker crash when BAM was enabled and the database was too slow.
 
 ### 22.04.4
 

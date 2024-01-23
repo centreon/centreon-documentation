@@ -43,7 +43,7 @@ and make sure that the **Webserver / RESTApi** configuration is correct.
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
-2. On the Centreon Web interface, install the *Active Directory API* Centreon Pack on the **Configuration > Monitoring Connectors Manager** page
+2. On the Centreon Web interface, install the *Active Directory API* Centreon Pack on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -60,7 +60,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 yum install centreon-pack-infrastructure-active-directory-nsclient-05-restapi
 ```
 
-3. On the Centreon Web interface, install the *Active Directory API* Pack on the **Configuration > Monitoring Connectors Manager** page
+3. On the Centreon Web interface, install the *Active Directory API* Pack on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

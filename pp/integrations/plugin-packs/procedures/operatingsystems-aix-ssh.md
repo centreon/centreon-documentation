@@ -104,7 +104,7 @@ After setting the Name, Alias, IP, and Host Template parameters, you need to set
 yum install centreon-plugin-Operatingsystems-Aix-Local
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *AIX SSH* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *AIX SSH* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -121,7 +121,7 @@ yum install centreon-plugin-Operatingsystems-Aix-Local
 yum install centreon-pack-operatingsystems-aix-ssh
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *AIX SSH* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *AIX SSH* Monitoring Connector
 
 </TabItem>
 </Tabs>

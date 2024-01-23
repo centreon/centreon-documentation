@@ -213,7 +213,7 @@ in order to create new Centreon Broker output. It will be revoked later.
 
 #### Package installation
 
-If you installed your Centreon MAP server from a "fresh OS installation" you need to install the **centreon-release** package:
+If you installed your Centreon MAP server from a "fresh OS installation" you need to install the Centreon repository:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -233,17 +233,19 @@ Installed:
 Complete!
 ```
 
-Now you can install the **centreon-release** package:
+Now you can install the Centreon repository:
 
 ```shell
-dnf install -y https://packages.centreon.com/artifactory/rpm-standard/22.04/el8/stable/noarch/centreon-release-22.04-1.el8.noarch.rpm
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.04/el8/centreon-22.04.repo
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://packages.centreon.com/artifactory/rpm-standard/22.04/el7/stable/noarch/centreon-release-22.04-1.el7.centos.noarch.rpm
+yum install -y yum-utils
+yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.04/el7/centreon-22.04.repo
 ```
 
 </TabItem>
@@ -258,7 +260,8 @@ apt update && apt install lsb-release ca-certificates apt-transport-https softwa
 To install the Centreon repository, run the following command:
 
 ```shell
-echo "deb https://packages.centreon.com/apt-22.04-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-22.04-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
 Then import the repository key:
