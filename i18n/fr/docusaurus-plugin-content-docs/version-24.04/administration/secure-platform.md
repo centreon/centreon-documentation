@@ -1414,7 +1414,7 @@ Pour utiliser http2, vous devez suivre les étapes suivantes:
 dnf install nghttp2
 ```
 
-3. Activez le protocole **http2** dans **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** :
+3. Activez le protocole **http2** dans **/etc/httpd/conf.d/10-centreon.conf** :
 
 ```apacheconf
 ...
@@ -1456,7 +1456,7 @@ systemctl restart httpd
 dnf install nghttp2
 ```
 
-3. Activez le protocole **http2** dans **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** :
+3. Activez le protocole **http2** dans **/etc/httpd/conf.d/10-centreon.conf** :
 
 ```apacheconf
 ...
@@ -1597,7 +1597,7 @@ Les journaux des événements Centreon sont disponibles dans les répertoires su
 > De plus, toutes les actions de modification de la configuration de Centreon effectuées par les utilisateurs sont
 > disponibles via le menu [**Administration > Logs**](./logging-configuration-changes.md).
 
-# Sauvegardez votre plateforme
+## Sauvegardez votre plateforme
 
 Centreon propose de sauvegarder la configuration de la plateforme. Pour ce faire, accédez au menu 
 [**Administration > Parameters > Backup**](./backup.md).

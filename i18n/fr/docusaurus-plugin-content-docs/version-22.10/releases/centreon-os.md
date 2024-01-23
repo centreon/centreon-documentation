@@ -18,6 +18,35 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 22.10.18
+
+Release date: `January 11, 2024`
+
+#### Security fixes
+
+- [Security] Fixed an SQLi vulnerability.
+
+### 22.10.17
+
+Release date: `January 2, 2024`
+
+#### Security fixes
+
+- [Security] Fixed an SQLi vulnerability.
+
+### 22.10.16
+
+Release date: `December 15, 2023`
+
+#### Bug fixes
+
+- [Discovery] Fixed duplication of host groups in discovery job mappers.
+
+#### Security fixes
+
+- [Security] Updated symfony/http-kernel dependency.
+- [Security] Prevented a command injection.
+
 ### 22.10.15
 
 Release date: `November 17, 2023`
@@ -356,6 +385,17 @@ Release date: `October 26, 2022`
 > In the /monitoring/resources API, the ‘severity_level’ api return key has been replaced by a json object called ‘severity’, containing the id, level, name and icon of the severity.
 
 ## Centreon Collect
+
+### 22.10.7
+
+Release date: `January 11, 2024`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- [Broker] Fixed a bug that made Broker crash when rebuilding RRD files for unexisting metrics.
+- [Broker] Fixed a bug occurring when a Business Activity was updated after a status change for a KPI with a BA type.
 
 ### 22.10.6
 
