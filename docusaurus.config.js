@@ -87,7 +87,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          breadcrumbs: false,
+          breadcrumbs: true,
           admonitions: {},
           editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
           editLocalizedFiles: true,
@@ -174,7 +174,7 @@ const config = {
             path: 'cloud',
             routeBasePath: 'cloud',
             sidebarPath: require.resolve('./cloud/sidebarsCloud.js'),
-            breadcrumbs: false,
+            breadcrumbs: true,
             editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
             editLocalizedFiles: true,
             showLastUpdateTime: true,
@@ -193,7 +193,7 @@ const config = {
             path: 'pp',
             routeBasePath: 'pp',
             sidebarPath: require.resolve('./pp/sidebarsPp.js'),
-            breadcrumbs: false,
+            breadcrumbs: true,
             editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
             editLocalizedFiles: true,
             showLastUpdateTime: true,
