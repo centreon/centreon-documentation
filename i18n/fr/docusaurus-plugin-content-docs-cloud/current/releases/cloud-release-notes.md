@@ -7,75 +7,14 @@ title: Centreon Cloud - notes de release
 
 ### Centreon IT Edition
 
-#### Highlights
-
 - More configurations options for hosts and services:
 When configuring your hosts and services, you can now configure the interval between checks both when the resource is OK and when it is needed to validate a non-OK state. You can also configure the number of checks to validate a non-ok state before triggering and alert.
 Finally, you can also assign your resources with a dedicated icon to ease readability of the interface. 
 
 - Dashboards Beta:
-As we keep improving our new proposition for effortlessly create and share intuitive dashboards, you can now benefit of multiple improvement, new widgets and bug fixes for the Centreon Dashboards feature.
+As we keep improving our new proposition for effortlessly create and share intuitive dashboards, you can now benefit of multiple improvements (resources selection, graphs look and feel, ...), one new widget named "status grid" and bug fixes for the Centreon Dashboards feature.
 
-! More details can be found in the section below.
-
-#### Centreon Broker
-
-- [Broker] Fixed a bug occurring when a Business Activity was updated after a status change for a KPI with a BA type.
-
-#### Centreon WEB
-
-- [API] Added an administration endpoint to upload medias.
-- [API] Added an endpoint to List all installed connectors.
-- [API] Added an endpoint to list Graph Templates.
-- [API] Added an endpoint to GET Business Activities.
-- [API] Added an endpoint to update partially Host.
-- [API] Added an endpoint to PATCH a service.
-- [API] Added an endpoint to DELETE Business activities.
-- [API] Added an endpoint to LIST Medias.
-- [API] Added an endpoint to update a service severity..
-- [API] Added new endpoint to list all metrics of a given service.
-- [API] Added metrics by service listing endpoint to service resource type.
-- [API] Added Resource UUID in endpoints
-- [Centreon-cloud] Added possibility to configure monitoring scheduling options and to select icon for hosts.
-- [Centreon-cloud] Added possibility to configure monitoring scheduling options and to select icon for host templates.
-- [Centreon-cloud] Added possibility to configure monitoring scheduling options and to select icon for services.
-- [Centreon-cloud] Added possibility to configure monitoring scheduling options and to select icon for service templates.
-- [Centreon-cloud] In case of some notification configuration too long, the notification lua script did not get all its content. Then it was unable to send notifications.
-- [Centreon-web] Installed server registration script by centreon-poller package.
-- [Cloud migration] Added a script to migrate commands.
-- [Cloud migration] Added a script to migrate medias.
-- [Dataset] Fixed an issue that allowed to select a resource type more than once.
-- [Graph] Optimized legend.
-- [Graph] Thickened curves.
-- [Log] Add possibility to enable/disable application logs through UI.
-- [Server] URL patterns have been modified.
-- [Status Grid widget] Added "unhandled" state property.
-- [UX] Reorganized rich text options for widget description.
-- [UX] Displayed warning message when dashboard modifications have not been saved yet.
-- [UX] Made the widget edition more accessible.
-- [UI] Updated dashboard global refresh icon.
-- [Widget edit] Made the dataset selection header sticky.
-- [Widget edit] Renamed "add resource" button to "refine filter".
-- [Widget] Simplified resource selection.
-- [Widget] Added new widget "Status Grid".
-- [Widget MAP] Added information message when editing.
-- [Widget Single Metric ] Simplified metric selection.
   
-### Centreon Business Edition
-
-#### Anomaly Detection
-
-- [API] Added an endpoint to UPDATE Cloud Token.
-
-#### Centreon IT Edition Extensions
-
-- [IT edition extensions] Added EPP license control mechanism.
-
-#### Centreon MAP
-
-- [Editor] Handled meta services in output widget.
-- [Viewer] You can now perform delete and duplicate actions from the viewer.
-
 ## December 5, 2023
 
 ### Centreon IT Edition
