@@ -25,6 +25,12 @@ servers:
 
 > For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
 
+## Update to the last minor version
+
+1. On your 19.10 platform, replace `https://packages.centreon.com/rpm-standard` or `https://yum.centreon.com/standard` by `https://archives.centreon.com/standard/` in your current YUM configuration (by default, `/etc/yum.repos.d/centreon.repo`).
+
+2. Update your Centreon 19.10 to the latest minor version.
+
 ## Upgrade the Centreon Central server
 
 > Since 21.04, Centreon uses **MariaDB 10.5**.
@@ -34,6 +40,12 @@ servers:
 > MariaDB will be upgraded afterwards.
 
 ### Update the Centreon repository
+
+Remove the **centreon.repo** file:
+
+```shell
+rm /etc/yum.repos.d/centreon.repo
+```
 
 Run the following commands:
 
