@@ -7,12 +7,14 @@ title: Centreon Cloud release notes
 
 ### Centreon IT Edition
 
-- More configurations options for hosts and services:
-When configuring your hosts and services, you can now configure the interval between checks both when the resource is OK and when it is needed to validate a non-OK state. You can also configure the number of checks to validate a non-ok state before triggering and alert.
-Finally, you can also assign your resources with a dedicated icon to ease readability of the interface. 
+- **More configuration options for hosts and services**:
 
-- Dashboards Beta:
-As we keep improving our new proposition for effortlessly create and share intuitive dashboards, you can now benefit of multiple improvements (resources selection, graphs look and feel, ...), one new widget named "status grid" and bug fixes.
+When configuring your hosts and services, you can now configure the interval between checks, both when the resource is OK and when validating a non-OK state is necessary. You can also configure the number of checks needed to validate a non-OK state before triggering an alert.
+Finally, you can also assign your resources with specific icons to improve the readability of the interface. 
+
+- **Dashboards Beta**:
+
+We keep improving our new proposition for creating and sharing intuitive dashboards effortlessly! With this release you can benefit from multiple improvements (with the selection of resources, with the look and feel of graphs...), from a new widget named "Status grid", and from bug fixes.
 
 ## December 5, 2023
 
