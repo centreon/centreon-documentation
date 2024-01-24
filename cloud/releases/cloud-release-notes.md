@@ -9,7 +9,7 @@ title: Centreon Cloud release notes
 
 - **More configuration options for hosts and services**:
 
-When configuring your hosts and services, you can now configure the interval between checks, both when the resource is OK and when validating a non-OK state is necessary. You can also configure the number of checks needed to validate a non-OK state before triggering an alert.
+When configuring your hosts and services, you can now configure the interval between checks, both when the resource is OK and when validating a non-OK state. You can also configure the number of checks needed to validate a non-OK state before triggering an alert.
 Finally, you can also assign your resources with specific icons to improve the readability of the interface. 
 
 - **Dashboards Beta**:
