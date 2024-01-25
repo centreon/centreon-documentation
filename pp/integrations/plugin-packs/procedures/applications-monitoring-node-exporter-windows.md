@@ -100,7 +100,7 @@ This pack is based on community Prometheus exporter for Windows machines: https:
 yum install centreon-plugin-Applications-Monitoring-Nodeexporter-Windows
 ```
 
-2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Node Exporter Windows Metrics** Centreon Monitoring Connector.
+2. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Node Exporter Windows Metrics** Centreon Monitoring Connector.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -117,7 +117,7 @@ yum install centreon-plugin-Applications-Monitoring-Nodeexporter-Windows
 yum install centreon-pack-applications-monitoring-node-exporter-windows
 ```
 
-3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **Node Exporter Windows Metrics** Centreon Monitoring Connector.
+3. On the Centreon web interface, on page **Configuration > Monitoring Connector Manager**, install the **Node Exporter Windows Metrics** Centreon Monitoring Connector.
 
 </TabItem>
 </Tabs>

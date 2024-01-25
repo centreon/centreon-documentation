@@ -4,24 +4,63 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
-const versions = require('./versions.json');
-
+const availableVersions = require('./versions.json');
 const archivedVersions = require('./archivedVersions.json');
 
-const version = process.env.VERSION ? process.env.VERSION : null;
+const archivedVersion = process.env.ARCHIVED_VERSION ?? null;
+
+const versions = (() => {
+  if (archivedVersion) {
+    return [archivedVersion];
+  }
+  if (process.env.VERSIONS !== undefined) {
+    const splittedVersions = process.env.VERSIONS.split(',');
+    if (process.env.VERSIONS.trim() === '' || splittedVersions.length === 0) {
+      return availableVersions.slice(0,1);
+    }
+    return splittedVersions;
+  }
+  return availableVersions;
+})();
+
+const pp = (() => {
+  if (archivedVersion) {
+    return false;
+  }
+  if (process.env.PP !== undefined && process.env.PP === '0') {
+    return false;
+  }
+  return true;
+})();
+
+const cloud = (() => {
+  if (archivedVersion) {
+    return false;
+  }
+  if (process.env.CLOUD !== undefined && process.env.CLOUD === '0') {
+    return false;
+  }
+  return true;
+})();
+
+const baseUrl = process.env.BASE_URL ? process.env.BASE_URL : (archivedVersion ? `${archivedVersion}/` : '/');
+
+if (versions.length == 0 && !pp && !cloud) {
+  throw new Error('Nothing is selected for build');
+}
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 const config = {
   customFields: {
-    version: version ?? null,
+    version: archivedVersion ?? null,
   },
 
   title: 'Centreon Documentation',
   tagline: '',
   url: 'https://docs.centreon.com',
-  baseUrl: version ? `${version}/` : '/',
-  onBrokenLinks: version ? 'log' : 'throw',
-  onBrokenMarkdownLinks: version ? 'log' : 'throw',
+  baseUrl,
+  onBrokenLinks: archivedVersion || !cloud || !pp ? 'log' : 'throw',
+  onBrokenMarkdownLinks: archivedVersion || !cloud || !pp  ? 'log' : 'throw',
   favicon: 'img/favicon.ico',
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
@@ -54,30 +93,29 @@ const config = {
           editLocalizedFiles: true,
           showLastUpdateTime: true,
           includeCurrentVersion: false,
-          onlyIncludeVersions: (() => {
-            if (version) {
-              return [version];
+          onlyIncludeVersions: versions,
+          versions: (() => {
+            if (archivedVersion) {
+              return {
+                [archivedVersion]: {
+                  label: archivedVersion,
+                  banner:'unmaintained',
+                }
+              }
             }
-            return versions;
+
+            return versions.reduce(
+              (accumulator, currentValue) => {
+                accumulator[currentValue] = {
+                  label: Object.keys(accumulator).length === 0 ? `⭐ ${currentValue}` : currentValue,
+                  banner: 'none',
+                }
+
+                return accumulator;
+              },
+              {}
+            );
           })(),
-          versions: {
-            23.04: {
-              label: '⭐ 23.04',
-              banner:'none',
-            },
-            '22.10': {
-              label: '22.10',
-              banner:'none',
-            },
-            22.04: {
-              label: '22.04',
-              banner:'none',
-            },
-            '21.10': {
-              label: '21.10',
-              banner:'none',
-            },
-          },
         },
         blog: false,
         theme: {
@@ -113,8 +151,8 @@ const config = {
       'plugin-image-zoom',
     ];
 
-    if (version) {
-      return [
+    if (archivedVersion) {
+      plugins = [
         ...plugins,
         [
           require.resolve("@cmfcmf/docusaurus-search-local"),
@@ -126,39 +164,51 @@ const config = {
       ];
     }
 
-    return [
-      ...plugins,
-      [
-        '@docusaurus/plugin-content-docs',
-        {
-          id: 'cloud',
-          path: 'cloud',
-          routeBasePath: 'cloud',
-          sidebarPath: require.resolve('./cloud/sidebarsCloud.js'),
-          breadcrumbs: false,
-          editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
-          editLocalizedFiles: true,
-        },
-      ],
-      [
-        '@docusaurus/plugin-content-docs',
-        {
-          id: 'pp',
-          path: 'pp',
-          routeBasePath: 'pp',
-          sidebarPath: require.resolve('./pp/sidebarsPp.js'),
-          breadcrumbs: false,
-          editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
-          editLocalizedFiles: true,
-        },
-      ],
-    ];
+    if (cloud) {
+      plugins = [
+        ...plugins,
+        [
+          '@docusaurus/plugin-content-docs',
+          {
+            id: 'cloud',
+            path: 'cloud',
+            routeBasePath: 'cloud',
+            sidebarPath: require.resolve('./cloud/sidebarsCloud.js'),
+            breadcrumbs: false,
+            editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
+            editLocalizedFiles: true,
+            showLastUpdateTime: true,
+          },
+        ],
+      ];
+    }
+
+    if (pp) {
+      plugins = [
+        ...plugins,
+        [
+          '@docusaurus/plugin-content-docs',
+          {
+            id: 'pp',
+            path: 'pp',
+            routeBasePath: 'pp',
+            sidebarPath: require.resolve('./pp/sidebarsPp.js'),
+            breadcrumbs: false,
+            editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
+            editLocalizedFiles: true,
+            showLastUpdateTime: true,
+          },
+        ],
+      ];
+    }
+
+    return plugins;
   })(),
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      algolia: version
+      algolia: archivedVersion
         ? undefined
         : {
           appId: '3WEC6XPLDB',
@@ -208,12 +258,12 @@ const config = {
           href: '/',
         },
         items: (() => {
-          if (version) {
+          if (archivedVersion) {
             return [
               {
                 type: 'html',
                 position: 'left',
-                value: `<h2 style="margin:0">Centreon OnPrem ${version}</h2>`,
+                value: `<h2 style="margin:0">Centreon OnPrem ${archivedVersion}</h2>`,
               },
               {
                 type: 'localeDropdown',
@@ -221,25 +271,49 @@ const config = {
               },
             ];
           }
-          return [
+
+          let items = [];
+
+          const defaultPageId = versions.sort().reverse()[0].match(/(21\.10|22\.04)/)
+            ? 'getting-started/installation-first-steps'
+            : 'getting-started/welcome';
+
+          items = [
+            ...items,
             {
               type: 'doc',
-              docId: 'getting-started/welcome',
+              docId: defaultPageId,
               position: 'left',
               label: 'Centreon OnPrem',
             },
-            {
-              to: '/cloud/getting-started/architecture',
-              label: 'Centreon Cloud',
-              position: 'left',
-              activeBaseRegex: '/cloud/',
-            },
-            {
-              to: '/pp/integrations/plugin-packs/getting-started/introduction',
-              label: 'Monitoring Connectors',
-              position: 'left',
-              activeBaseRegex: '/pp/',
-            },
+          ];
+
+          if (cloud) {
+            items = [
+              ...items,
+              {
+                to: '/cloud/getting-started/welcome',
+                label: 'Centreon Cloud',
+                position: 'left',
+                activeBaseRegex: '/cloud/',
+              },
+            ];
+          }
+
+          if (pp) {
+            items = [
+              ...items,
+              {
+                to: '/pp/integrations/plugin-packs/getting-started/introduction',
+                label: 'Monitoring Connectors',
+                position: 'left',
+                activeBaseRegex: '/pp/',
+              },
+            ];
+          }
+
+          return [
+            ...items,
             {
               type: 'search',
               position: 'right',
@@ -329,7 +403,7 @@ const config = {
         }
       },
     }),
-  },
+  }
 };
 
 module.exports = config;

@@ -14,8 +14,8 @@ import TabItem from '@theme/TabItem';
 ## Types of licenses
 
 According to your [Centreon edition](https://www.centreon.com/en/editions/), your license can be:
-- offline: uses one or several license files
 - online: uses a token. Your Centreon platform must be connected to the internet.
+- offline: uses one or several license files
 
 ## Which modules require a license?
 

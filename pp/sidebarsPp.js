@@ -312,6 +312,14 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-exchange-2010-nrpe'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-exchange-2010-nsclient-05-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-exchange-nrpe'
         },
         {
@@ -456,6 +464,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-redis-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-redis-sentinel'
         },
         {
@@ -465,6 +477,14 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-rudder-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-sahipro-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-sailpoint-identitynow-restapi'
         },
         {
           type: 'doc',
@@ -537,6 +557,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-webservers-tomcat-webmanager'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-tosca-restapi'
         },
         {
           type: 'doc',
@@ -962,6 +986,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-docker-ssh'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-gcp-cloudsql-mysql'
         },
         {
@@ -1104,6 +1132,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-redis-cli'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-databases-redis'
         },
         {
@@ -1135,6 +1167,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-kvm-avocent-acs-6000-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-kvm-avocent-acs-8000-snmp'
         },
         {
           type: 'doc',
@@ -1262,6 +1298,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-devices-camera-optelecom-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-devices-pexip-infinity-managementapi'
         },
         {
@@ -1287,6 +1327,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-servers-sun-sfxxk-pssh'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-servers-supermicro-snmp'
         },
         {
           type: 'doc',
@@ -1420,6 +1464,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-chapsvision-crossing-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-firewalls-checkpoint-snmp'
         },
         {
@@ -1548,6 +1596,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-dell-n4000'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-dell-os10-snmp'
         },
         {
@@ -1565,6 +1617,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-digi-anywhereusb-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-digi-portserverts-snmp'
         },
         {
           type: 'doc',
@@ -1768,6 +1824,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-loadbalancers-netscaler-mpx8000-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-nokia-timos-snmp'
         },
         {
@@ -1900,6 +1960,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-teldat-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-teltonika-snmp'
         },
         {
@@ -1998,6 +2062,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/operatingsystems-linux-snmpv3'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/operatingsystems-linux-ssh'
         },
         {
@@ -2066,6 +2134,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-protocol-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-protocol-http'
         },
         {
@@ -2107,10 +2179,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-protocol-sftp'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-protocol-snmp'
         },
         {
           type: 'doc',
@@ -2189,6 +2257,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-sensors-netbotz-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-sensors-rittal-cmc3-snmp'
         },
         {
           type: 'doc',
@@ -2318,6 +2390,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-hp-3par-7000-ssh'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-hp-3par-ssh'
         },
         {
@@ -2339,6 +2415,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-hp-p2000-xmlapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-hp-storeonce-restapi'
         },
         {
           type: 'doc',
@@ -2418,7 +2498,15 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-netapp-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-netapp-santricity-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-netapp-snmp'
         },
         {
           type: 'doc',
@@ -2591,6 +2679,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-pdu-eaton-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-ups-ees-snmp'
         },
         {
           type: 'doc',

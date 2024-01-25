@@ -311,13 +311,6 @@ Sending data from 2020-04-05T00:00:00 to 2020-04-06T00:00:00
 
 ## FAQ
 
-### What services are offered and their associated SLA?
-
-The anomaly detection service is currently in closed beta test phase as described in the Centreon documentation. The
-purpose of this phase is to test our algorithms and their resulting predictions (floating thresholds).
-During this phase, Centreon will improve the anomaly detection feature based on users' feedback. No SLA will be available
-during this phase.
-
 ### How long is the data stored?
 
 The data is kept for the entire validity of the license. It will make it possible to recalculate models if necessary. An
@@ -329,6 +322,13 @@ The data hosted by the anomaly detection service only concerns data linked to th
 includes the date and time of the control, the identifier of the monitored resource, the identifier of the associated
 indicator, the name of the performance data on which the computations will be performed as well as the value of the
 performance data.
+
+### How is the sending and storage of my data protected?
+
+Sending data to our Cloud infrastructure is risk-free. Data is sent using end-to-end encryption.
+Collected data consists only in metrics and some Centreon identifiers (host name, service name). Our environment is protected by AWS Web
+Application Firewall and AWS Shields to prevent DDoS attacks. Our architecture has been reviewed by AWS architects
+(AWS Foundational Technical Review) and we are an AWS Qualified Partner.
 
 ### What is the data used for?
 

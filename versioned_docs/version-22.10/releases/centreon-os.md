@@ -12,12 +12,116 @@ You can find in this chapter all changelogs concerning **Centreon Open Source**.
 > versions on the features you use or the specific developments that you have built on your platform (modules,
 > widgets, plugins).
 
-If you have feature requests or want to report a bug, please go to our
+If you have feature requests or want to report a bug, please go to our 
 [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blog/centreon-fall22-whats-new-in-the-22-10-software-version/).
 
 ## Centreon Web
+
+### 22.10.18
+
+Release date: `January 11, 2024`
+
+#### Security fixes
+
+- [Security] Fixed an SQLi vulnerability.
+
+### 22.10.17
+
+Release date: `January 2, 2024`
+
+#### Security fixes
+
+- [Security] Fixed an SQLi vulnerability.
+
+### 22.10.16
+
+Release date: `December 15, 2023`
+
+#### Bug fixes
+
+- [Discovery] Fixed duplication of host groups in discovery job mappers.
+
+#### Security fixes
+
+- [Security] Updated symfony/http-kernel dependency.
+- [Security] Prevented a command injection.
+
+### 22.10.15
+
+Release date: `November 17, 2023`
+
+#### Enhancements
+
+- [API] Added the possibility to search for a service in hostGroups/serviceGroups endpoints.
+
+#### Bug fixes
+
+- [UX] Fixed an issue where an incorrect day was displayed in the calendar component.
+- [UI] Renamed "massive change" to "mass change" in the "More actions" selection box.
+- [Recurrent Downtimes] Fixed an issue that occurred when a downtime period contained a service group and this service group was linked to a service template.
+- [Ressources Status] Fixed an issue that occurred when using an h.alias filter on the list of resources.
+- [Packaging] Fixed an issue where centreontrapd was configured for a poller rather than for a central on Debian.
+
+#### Security fix
+
+- [Security] Fixed SQLi in a method.
+- Fixed potential vulnerability in the list of discovered hosts.
+  
+### 22.10.14
+
+Release date: `October 4, 2023`
+
+#### Bug fixes
+
+-	[Authentication] Fixed an LDAP connection issue due to DN case.
+-	[Configuration] Fixed the visibility of services when a user with ACLs duplicates a host.
+-	[Monitoring] Fixed CSV export when metric name is a SQL keyword.
+  
+### 22.10.13
+
+Release date: `September 22, 2023`
+
+#### Bug fixes
+
+-	[CLAPI] Fixed the addhosttemplate function that was removing other relationships.
+-	[CLAPI] Fixed a PHP warning that was displayed when using getparam on a service.
+-	[Configuration] Fixed custom macro inheritance for hosts.
+-	[Core] Updated svg-sanitize dependency.
+-	[Resources Status] Fixed filters on hostgroups and categories that weren't returning hosts.
+-	[Security] Fixed SLQi in centreonLogAction.class.php.
+
+### 22.10.12
+
+Release date: `August 29, 2023`
+
+#### Enhancements
+
+- [Core] Updated the database schema for resources table.
+- [Tools] Added a script to delete duplicate entries in the host_service_relations table.
+
+#### Bug fixes
+
+- [API] Removed the author_id parameter from downtime endpoint to use authenticated user as author.
+- [Graphs] Fixed the display of graphs layout when there is no data.
+- [Packaging] Added missing PHP files to Debian packaging.
+- [Packaging] Fixed an issue with incorrect rrdtool.log ownership that prevented graphs from being displayed on Debian.	
+
+### 22.10.11
+
+Release date: `July 28, 2023`
+
+#### Enhancements
+
+- [UX] Improved tooltip description in Centreon Engine configuration form for Service Check Timeout option.
+
+#### Bug fixes
+
+- [Administration] Fixed pagination in **Data** menu.
+- [Install] Updated size of metric_name column to 1021.
+- [Monitoring] Fixed data insertion where metric names were too long.
+- [ResourcesStatus] Fixed CSV export when metric name contained SQL keyword.
 
 ### 22.10.10
 
@@ -126,7 +230,7 @@ Release date: `February 22, 2023`
 - [Authentication] Fixed a PHP error in IDP response with a string instead of an array for roles list.
 - [AnomalyDetection] Fixed an envelope computation error. 
 - [CLAPI] Removed mandatory password for LDAP users creation.
-- [Configuration] Fixed an issue that occurred when a massive change was performed on services right after one of them was disabled, causing all services to get the same host and template.
+- [Configuration] Fixed an issue that occurred when a mass change was performed on services right after one of them was disabled, causing all services to get the same host and template.
 - [Configuration] Fixed an installation error when the chrony package is already installed.
 - [Configuration] Fixed export of configuration when Anomaly Detection feature is configured.
 - [Core] Removed deprecated DBMS option in default configuration provided by Centreon.
@@ -281,8 +385,50 @@ Release date: `October 26, 2022`
 
 > In the /monitoring/resources API, the ‘severity_level’ api return key has been replaced by a json object called ‘severity’, containing the id, level, name and icon of the severity.
 
-
 ## Centreon Collect
+
+### 22.10.7
+
+Release date: `January 11, 2024`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- [Broker] Fixed a bug that made Broker crash when rebuilding RRD files for unexisting metrics.
+- [Broker] Fixed a bug occurring when a Business Activity was updated after a status change for a KPI with a BA type.
+
+### 22.10.6
+
+Release date: `November 20, 2023`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- Fixed a stability issue that could make Broker crash when BAM was enabled and the database was too slow.
+- Events propagation in BAM has been improved and should be faster.
+
+### 22.10.5
+
+Release date: `September 26, 2023`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- Fixed a bug that caused RRD graphs to not display properly when the check interval was longer than 15 minutes.
+- Fixed an issue that could cause a crash when many pollers were sending check results to Broker.
+
+### 22.10.4
+
+Release date: `July 26, 2023`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- Boolean rules optimized to work faster.
 
 ### 22.10.3
 
@@ -381,6 +527,15 @@ Release date: `October 26, 2022`
 
 ## Centreon Gorgone
 
+### 22.10.2
+
+Release date: `July 28, 2023`
+
+#### Bug fixes
+
+- [Compatibility] Fixed -d option to manage database entries in centreonBIETL script.
+- [Core] Fixed recurring unexpected disconnections between pollers.
+
 ### 22.10.1
 
 Release date: `June 5, 2023`
@@ -430,6 +585,14 @@ Release date: `October 26, 2022`
 
 ## Centreon Open Tickets
 
+### 22.10.2
+
+Release date: `July 28, 2023`
+
+### Bug fixes
+
+- Fixed a Broker query.
+
 ### 22.10.1
 
 Release date: `June 5, 2023`
@@ -444,3 +607,13 @@ Release date: `June 5, 2023`
 Release date: `October 26, 2022`
 
 - Compatibility with other 22.10 components.
+
+## Centreon HA
+
+### 22.10.1
+
+Release date: `July 28, 2023`
+
+#### Bug fixes
+
+- [Packaging] Fixed packaging that had missing files from centreon-common installation.

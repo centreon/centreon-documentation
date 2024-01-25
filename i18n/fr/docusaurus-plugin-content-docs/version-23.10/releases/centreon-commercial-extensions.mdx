@@ -1,0 +1,383 @@
+---
+id: centreon-commercial-extensions
+title: Extensions Commerciales
+---
+
+import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
+
+## Introduction
+
+Vous trouverez dans ce chapitre tout ce qui concerne les **extensions commerciales** de Centreon.
+
+> Il est important de mettre à jour en utilisant la documentation adéquate de mise à jour et de lire attentivement les
+> notes de mise à jour afin d'être au courant des changements qui pourraient impacter votre usage ou votre plateforme
+> ou des développements spécifiques que vous auriez fait.
+
+Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions commerciales, veuillez contacter le support.
+
+> Retrouvez plus de détails sur la version 23.10 dans notre [post de blog](https://www.centreon.com/fr/centreon-23-10-decouvrez-les-dernieres-nouveautes/).
+
+<ExpandCollapseAll />
+
+## Centreon MAP
+
+### 23.10.5
+
+Release date: `January 18, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Viewer] You can now perform delete and duplicate actions from the viewer.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Map widget] Fixed an issue that was removing the Map widget when upgrading from a previous version.
+- [Viewer] Fixed an issue in the container status color.
+
+</details>
+
+### 23.10.4
+
+Release date: `December 21, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [maps list] Optimized loading of multiple maps.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Editor] Removed border and fill colors parameters for Centreon resources shapes.
+- [Viewer] Fixed an issue that occurred when dragging a map containing a lot of elements.
+
+</details>
+
+### 23.10.3
+
+Release date: `December 5, 2023`
+
+- No change on on-premises version. Changes are on cloud version.
+
+### 23.10.2
+
+Release date: `November 22, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Migration] Improved the image migration process.
+- [Viewer] Added the possibility to color the output widget (background or font) according to status.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Geoviews] Fixed the display of tooltip when infrastructure view is defined.
+- [Server] Fixed an issue that caused server to crash on duplicated Centreon modules.
+- [Viewer] Fixed the redirection to monitoring pages from tooltips.
+- [Viewer] Fixed issue with monitoring links containing a double slash.
+
+</details>
+
+### 23.10.1
+
+Release date: `November 10, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an issue that prevented the creation of a map on Debian.
+
+</details>
+
+### 23.10.0
+
+Release date: `October 30, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Editor] Improved the layout of the output widget edition window.
+- [Editor] You can now add Centreon resources to a map by searching their names.
+- [UI] You can now use the MAP module in French.
+- [UI] You can now use a button to save zoom and position in editor and viewer.
+- [UI] You can now hide the label of a resource.
+- [UI] Made the labels in the metric link window more explicit by replacing "metric 1" and "metric 2" by "metric in" and "metric out".
+- [UX] You can now duplicate maps.
+- [Server] Made link anchors consistent between viewer and editor.
+- [Server] You can now save maps that contain elements not associated with a Centreon resource.
+- [Viewer] Made resource status unique for hosts (include host status in inherited status computation).
+- [Viewer] You can now define a label for a URL shape.
+
+</details>
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 23.10 components.
+
+</details>
+
+## Centreon MAP Legacy
+
+### 23.10.2
+
+Release date: `November 22, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Viewer] Fixed the redirection to monitoring pages from tooltips.
+
+</details>
+
+## Centreon BAM
+
+### 23.10.4
+
+Release date: `December 21, 2023`
+
+- No changes for this module in this version.
+
+### 23.10.3
+
+Release date: `December 5, 2023`
+
+- No change on on-premises version. Changes are on cloud version.
+
+### 23.10.2
+
+Release date: `November 27, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Install] Fixed an issue in the PHP script file that prevented the upgrade to BAM 23.10.1.
+
+</details>
+
+### 23.10.1
+
+Release date: `November 22, 2023`
+
+- No change.
+
+### 23.10.0
+
+Release date: `October 30, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- The output message for business activities has been modified to give more understandable information about the reason for the BA's status. This will particularly affect the clarity of the notifications.
+
+</details>
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 23.10 components.
+
+</details>
+
+## Centreon MBI
+
+### 23.10.2
+
+Release date: `January 18, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [MBI] Fixed a calculation issue for VMWare-Cluster-Performances.
+- [Reports] Fixed an issue that prevented reports to be sent by email with Office 365.
+
+</details>
+
+### 23.10.1
+
+Release date: `December 21, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [MBI] Updated dependency.
+
+</details>
+
+### 23.10.0
+
+Release date: `October 30, 2023`
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 23.10 components.
+
+</details>
+
+## Centreon Auto Discovery
+
+### 23.10.1
+
+Release date: `November 22, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Discovery] Fixed list of templates in mappers with MySQL 8.
+
+</details>
+
+### 23.10.0
+
+Release date: `October 30, 2023`
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 23.10 components.
+
+</details>
+
+## Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager)
+
+### 23.10.0
+
+Release date: `October 30, 2023`
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 23.10 components.
+
+</details>
+
+## Centreon License Manager
+
+### 23.10.1
+
+Release date: `December 21, 2023`
+
+<details>
+  <summary>bug fixes</summary>
+
+- [Install] Fixed rights on /etc/centreon/license.d.
+
+</details>
+
+### 23.10.0
+
+Release date: `October 30, 2023`
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 23.10 components.
+
+</details>
+
+## Centreon Anomaly Detection
+
+### 23.10.0
+
+Release date: `October 30, 2023`
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 23.10 components.
+
+</details>
+
+## Centreon IT & Business Extensions
+
+### 23.10.2
+
+Release date: `December 5, 2023`
+
+- No change on on-premises version. Changes are on cloud version.
+
+Release date: `November 10, 2023`
+
+- No change on on-premises version. Changes are on cloud version.
+
+### 23.10.0
+
+## Centreon Cloud Extensions
+
+### 23.10.5
+
+Release date: `January 18, 2024`
+
+- No change on on-premises version. Changes are on cloud version.
+
+### 23.10.4 
+
+Release date: `December 22, 2023`
+
+- No change on on-premises version. Changes are on cloud version.
+
+### 23.10.3 
+
+Release date: `December 5, 2023`
+
+- No change on on-premises version. Changes are on cloud version.
+
+### 23.10.2 
+
+Release date: `November 24, 2023`
+
+- No change on on-premises version. Changes are on cloud version.
+
+### 23.10.1
+
+Release date: `November 22, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Configuration] Fixed the blank page issue after modifying the configuration of a service.
+- [UX] Fixed access to **Configuration > Services > Services by host** menus for administrator and editor roles.
+
+</details>
+
+### 23.10.0
+
+Release date: `October 30, 2023`
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 23.10 components.
+
+</details>
+
+## Centreon IT Edition Extensions
+
+### 23.10.1
+
+Release date: `January 18, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Licensing] Added EPP license control mechanism.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Install] Fixed compatibility with MySQL 8.
+- [Package] Fixed the naming from ``centreon-centreon-it-edition-extensions`` to ``centreon-it-edition-extensions`` for the Debian package.
+
+</details>

@@ -107,7 +107,7 @@ port.
 yum install centreon-plugin-Applications-Databases-Informix-Snmp
 ```
 
-2. On the Centreon Web interface, install the **Informix DB SNMP** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon Web interface, install the **Informix DB SNMP** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -124,7 +124,7 @@ yum install centreon-plugin-Applications-Databases-Informix-Snmp
 yum install centreon-pack-applications-databases-informix-snmp
 ```
 
-3. On the Centreon Web interface, install the **Informix DB SNMP** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the **Informix DB SNMP** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

@@ -82,7 +82,6 @@ centreon-map.keystore-pass=xxx
 >
 > Users will have to open the URL:
 >
-> - MAP:
 > ```shell
 >https://<MAP_IP>:9443/centreon-map/api/beta/actuator/health
 > ```
@@ -133,6 +132,7 @@ centreon-map.keystore-pass=xxx
 > Users will have to open the URL:
 >
 > - MAP (Legacy):
+> 
 > ```shell
 > https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health
 > ```

@@ -163,7 +163,7 @@ apt install centreon-pack*
 apt install centreon-plugin-\*
 ```
 
-On Debian, the Nagios plugins directory (plugins that run commands like **check_icmp**) is **/usr/lib/nagios/plugins/**. Go to **Configuration > Pollers > Resources** and check that the path to the **$USER1$** macro is **/usr/lib/nagios/plugins/**.
+On Debian, the Nagios plugins directory (plugins that run commands like **check_icmp**) is **/usr/lib/nagios/plugins/**. Go to **Configuration > Pollers > Resources** and check that the path to the **$USER1$** macro is **/usr/lib/nagios/plugins/**. The path should be the same in the **Plugins directory** field on the **Administration > Parameters > Monitoring** page.
 
 If you are using custom plugins, synchronize the directories that contain your custom plugins, including any necessary dependencies.
 
@@ -209,7 +209,7 @@ chapter for more information.
 
 8. If your old Centreon server was monitoring itself, and you have changed the username/password for the database during the migration, update the configuration of all related resources (host, services attached to that host).
 
-9. Go to **Configuration > Monitoring Connectors Manager**, then [update all the Monitoring Connectors](../monitoring/pluginpacks.md#updating-one-packall-packs).
+9. Go to **Configuration > Monitoring Connector Manager**, then [update all the Monitoring Connectors](../monitoring/pluginpacks.md#updating-one-packall-packs).
 
 ### Step 6 (older versions only): Migrate to Gorgone
 

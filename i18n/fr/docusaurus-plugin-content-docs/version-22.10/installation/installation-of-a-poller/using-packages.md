@@ -26,12 +26,13 @@ dnf update
 
 ### Configuration spécifique
 
-Pour utiliser Centreon en français, espagnol ou portugais, installez les paquets correspondants :
+Pour utiliser Centreon en français, espagnol, portugais ou allemand, installez les paquets correspondants :
 
 ```shell
 dnf install glibc-langpack-fr
 dnf install glibc-langpack-es
 dnf install glibc-langpack-pt
+dnf install glibc-langpack-de
 ```
 
 Utilisez la commande suivante pour vérifier quelles langues sont installées sur votre système :
@@ -233,14 +234,16 @@ suffisants :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el8/centreon-22.10.repo
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+yum install -y yum-utils
+yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el7/centreon-22.10.repo
 ```
 
 </TabItem>
@@ -249,7 +252,8 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
 Pour installer le dépôt Centreon, exécutez la commande suivante :
 
 ```shell
-echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-22.10-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
 Puis importez la clé du dépôt :
@@ -284,7 +288,7 @@ yum install -y centreon-poller
 
 ```shell
 apt update
-apt install -y centreon-poller
+apt install -y --no-install-recommends centreon-poller
 ```
 
 </TabItem>

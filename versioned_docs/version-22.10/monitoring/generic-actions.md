@@ -57,27 +57,27 @@ For example, to duplicate a host:
 </TabItem>
 </Tabs>
 
-## Massive Change
+## Mass change
 
-Massive change enable you to apply a change to multiple objects.
+Mass change enables you to apply a change to multiple objects.
 
-Example: All the web servers previously created change SNMP communities. A massive change enables us to change this
+Example: All the web servers previously created change SNMP communities. A mass change enables us to change this
 community without it being necessary to change each sheet of each host individually.
 
-To perform a massive change:
+To perform a mass change:
 
 <Tabs groupId="sync">
 <TabItem value="Method 1" label="Method 1">
 
 1. Select the objects that you want to change.
-2. Click the **Massive change** icon above the list of objects: ![image](../assets/configuration/common/mass_change.png)
+2. Click the **Mass change** icon above the list of objects: ![image](../assets/configuration/common/mass_change.png)
 3. Confirm the changes.
 
 </TabItem>
 <TabItem value="Method 2" label="Method 2">
 
 1. Select the objects you want to change.
-2. In the **More actions** menu, click on **Massive Change**.
+2. In the **More actions** menu, click on **Mass Change**.
 3. The form for the type of object opens, with 2 options next to each field:
 
   * **Incremental**: signifies that the change will be added to the existing options

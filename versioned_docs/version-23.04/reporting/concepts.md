@@ -407,7 +407,9 @@ procedure does not include the importing of logs or raw data. Make sure
 all data imported from Centreon is up to date on your reporting server
 by running the following command:
 
-    #/usr/share/centreon-bi/etl/centreonbiMonitoring.pl --db-content
+```shell
+/usr/share/centreon-bi/etl/centreonbiMonitoring.pl --db-content
+```
 
 And make sure "ETL OK - Database is up to date" appears OR that the
 following tables are not listed:
@@ -428,7 +430,9 @@ calculation time.
 
 #### Import the latest Centreon configuration
 
-    #/usr/share/centreon-bi/etl/importData.pl -r --centreon-only
+```shell
+/usr/share/centreon-bi/etl/importData.pl -r --centreon-only
+```
 
 #### Calculate reporting dimensions
 
@@ -436,15 +440,21 @@ This command will erase all previous changes tracked by the reporting
 mecanism and include only the latest. If you want to include former
 changes, replace the **-r** by **-d**::
 
-    #/usr/share/centreon-bi/etl/dimensionsBuilder.pl -r
+```shell
+/usr/share/centreon-bi/etl/dimensionsBuilder.pl -r
+```
 
 #### Aggregate events and availability
 
-    #nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r > /var/log/centreon-bi/rebuildAllEvents.log &
+```shell
+nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r > /var/log/centreon-bi/rebuildAllEvents.log &
+```
 
 #### Aggreggate performance data (storage, traffic, etc.)
 
-    #nohup /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r > /var/log/centreon-bi/rebuildAllPerf.log &
+```shell
+nohup /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r > /var/log/centreon-bi/rebuildAllPerf.log &
+```
 
 ### How to rebuild missing reporting data
 
@@ -457,12 +467,17 @@ interrupted).
 The plugin may return a message that your database is not up to date, as
 in the following example: :
 
-    # /usr/share/centreon-bi/etl/centreonbiMonitoring.pl --db-content
-    [Table mod_bam_reporting, last entry: 2020-07-01 00:00:00] [Table mod_bi_ba_incidents, last entry: 2020-07-01 00:00:00] [Table hoststateevents, last entry: 2020-07-01 00:00:00]
-    [Table servicestateevents, last entry: 2020-07-01 00:00:00] [Table mod_bi_hoststateevents, last entry: 2020-07-01 00:00:00]
-    [Table mod_bi_servicestateevents, last entry: 2020-07-01 00:00:00] [Table mod_bi_hostavailability, last entry: 2020-07-01 00:00:00]
-    [Table mod_bi_serviceavailability, last entry: 2020-07-01 00:00:00] [Table data_bin, last entry: 2020-08-01 00:00:00] [Table mod_bi_metricdailyvalue, last entry: 2020-08-01 00:00:00]
-    [Table mod_bi_metrichourlyvalue, last entry: 2020-08-01 23:00:00]
+```shell
+/usr/share/centreon-bi/etl/centreonbiMonitoring.pl --db-content
+```
+
+```shell
+[Table mod_bam_reporting, last entry: 2020-07-01 00:00:00] [Table mod_bi_ba_incidents, last entry: 2020-07-01 00:00:00] [Table hoststateevents, last entry: 2020-07-01 00:00:00]
+[Table servicestateevents, last entry: 2020-07-01 00:00:00] [Table mod_bi_hoststateevents, last entry: 2020-07-01 00:00:00]
+[Table mod_bi_servicestateevents, last entry: 2020-07-01 00:00:00] [Table mod_bi_hostavailability, last entry: 2020-07-01 00:00:00]
+[Table mod_bi_serviceavailability, last entry: 2020-07-01 00:00:00] [Table data_bin, last entry: 2020-08-01 00:00:00] [Table mod_bi_metricdailyvalue, last entry: 2020-08-01 00:00:00]
+[Table mod_bi_metrichourlyvalue, last entry: 2020-08-01 23:00:00]
+```
 
 -   When only the `mod_bi` tables appear, there is an incident
     with aggregated data and not the Centreon data.
@@ -512,7 +527,9 @@ Before running the commands in the procedure below, check that:
     you defined in `Centreon MBI > Generation Option > Data Retention
     Parameters` :
 
-        #nohup /usr/share/centreon-bi/etl/importData.pl -r -s $date_start$-e $date_end$ --ignore-databin > /var/log/centreon-bi/rebuild_importDataEvents.log &
+```shell
+nohup /usr/share/centreon-bi/etl/importData.pl -r -s $date_start$-e $date_end$ --ignore-databin > /var/log/centreon-bi/rebuild_importDataEvents.log &
+```
 
     *Execution time: fast (minutes)*
 
@@ -520,7 +537,9 @@ Before running the commands in the procedure below, check that:
     was present in the database. You will find that date next to the
     data_bin table, returned by the plugin: :
 
-        #nohup /usr/share/centreon-bi/etl/importData.pl -r --no-purge --databin-only -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_importDataBin.log &
+```shell
+nohup /usr/share/centreon-bi/etl/importData.pl -r --no-purge --databin-only -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_importDataBin.log &
+```
 
     *Execution time: fast (minutes), depending on the number of days imported.*
 
@@ -530,7 +549,9 @@ Before running the commands in the procedure below, check that:
     of changes made in the configuration. Avoid using the "-r" option
     or you will have to rebuild all statistics: :
 
-        #nohup /usr/share/centreon-bi/etl/dimensionsBuilder.pl -d > /var/log/centreon-bi/rebuild_dimensions.log &
+```shell
+nohup /usr/share/centreon-bi/etl/dimensionsBuilder.pl -d > /var/log/centreon-bi/rebuild_dimensions.log &
+```
 
     *Execution time: fast (seconds or minutes)*
 
@@ -540,7 +561,9 @@ Before running the commands in the procedure below, check that:
     period defined in Centreon MBI > Generation Option > Data
     Retention Parameters: :
 
-        #nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r --events-only > /var/log/centreon-bi/rebuild_events.log &
+```shell
+nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r --events-only > /var/log/centreon-bi/rebuild_events.log &
+```
 
     *Execution time: Depending on the monitoring perimeter and the
     number of events: several hours but normally not be longer than 24
@@ -552,7 +575,9 @@ Before running the commands in the procedure below, check that:
     mod_bi_serviceavailability date returned by the plugin for the
     lastest build data:
 
-        #nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r --no-purge --availability-only -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_availability.log &
+```shell
+nohup /usr/share/centreon-bi/etl/eventStatisticsBuilder.pl -r --no-purge --availability-only -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_availability.log &
+```
 
     *Execution time: From a few minutes to several hours, depending on
     the number of days of rebuild*.
@@ -563,7 +588,9 @@ Before running the commands in the procedure below, check that:
     next to the mod_bi_metrichourlyvalue and mod_bi_metricdailyvalue
     tables returned by the plugin for the last data calculated: :
 
-        #nohup /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r --no-purge -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_perfData.log &
+```shell
+nohup /usr/share/centreon-bi/etl/perfdataStatisticsBuilder.pl -r --no-purge -s $date_start$ -e $date_end$ > /var/log/centreon-bi/rebuild_perfData.log &
+```
 
     *Execution time: From a few minutes to several hours, depending on
     the number of days to calculate. If the number of days of rebuild is

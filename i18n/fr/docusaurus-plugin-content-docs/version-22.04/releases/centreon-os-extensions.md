@@ -16,6 +16,14 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon High-Availability
 
+### 22.04.1
+
+Release date: `July 28, 2023`
+
+#### Bug fixes
+
+- [Packaging] Fixed packaging that had missing files from centreon-common installation.
+
 ### 22.04.0
 
 - Compatibility with other 22.04 components.

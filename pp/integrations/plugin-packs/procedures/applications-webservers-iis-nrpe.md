@@ -1,10 +1,6 @@
 ---
 id: applications-webservers-iis-nrpe
-title: Microsoft IIS Server NRPE (Deprecated)
+title: Microsoft IIS Server NRPE (deprecated)
 ---
 
-## **WARNING** This Pack has been deprecated
-
-This Monitoring Connector has been deprecated and replaced by `Microsoft IIS Server Restapi`. 
-
-Refer to [this procedure](applications-webservers-iis-restapi.md)
+> This Monitoring Connector is no longer maintained and should not be used. It has been replaced by the [Microsoft IIS Server Restapi](applications-webservers-iis-restapi.md) connector.

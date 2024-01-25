@@ -62,7 +62,6 @@ Les services de Centreon Cloud sont intégralement hébergés et opérés depuis
 | Service | Hébergement | Infogérance |
 | --- | --- | --- |
 | Centreon Cloud | AWS EU Ireland Region (eu-west-1) | France |
-| Centreon Anomaly Detection | AWS EU Ireland Region (eu-west-1) | France |
 
 Plus d’informations sur les pratiques de sécurité et de conformité d’AWS sont disponibles [ici](https://d1.awsstatic.com/whitepapers/compliance/AWS_Compliance_Quick_Reference.pdf).
 
@@ -99,7 +98,7 @@ Centreon utilise des protocoles, certificats, algorithmes et logiciels à jour p
 | Protocole de communication | TLS 1.2/TLS 1.3 |
 | Certificats | RSA 2048 bits |
 | Algorithmes | PKCS #1 SHA-256 avec chiffrement RSA |
-| Logiciels | OpenSSL v1.1.x, OpenVPN 2.4.x |
+| Logiciels | OpenSSL v1.1.x |
 
 ## Sécurité du produit
 

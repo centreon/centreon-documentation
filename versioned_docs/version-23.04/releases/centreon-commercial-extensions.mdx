@@ -1,0 +1,734 @@
+---
+id: centreon-commercial-extensions
+title: Commercial Extensions
+---
+
+import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
+
+## Introduction
+
+You can find in this chapter all changelogs concerning **Centreon Commercial Extension**.
+
+> It is very important when you update your system to refer to this section in order to learn about behavior changes or
+> major changes that have been made on this version. This will let you know the impact of the installation of these
+> versions on the features you use or the specific developments that you have built on your platform (modules,
+> widgets, plugins).
+
+If you have feature requests or want to report a bug, please contact support.
+
+Read more about version 23.04 in our [blog post](https://www.centreon.com/centreon-23-04-discover-the-latest-release/).
+
+<ExpandCollapseAll />
+
+## Centreon MAP
+
+### 23.04.12
+
+Release date: `January 23, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Viewer] Fixed an issue in the container status color.
+
+</details>
+
+### 23.04.11
+
+Release date: `December 22, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [maps list] Optimized loading of multiple maps.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Editor] Removed border and fill colors parameters for Centreon resources shapes.
+- [Viewer] Fixed an issue that occurred when dragging a map containing a lot of elements.
+
+</details>
+
+### 23.04.10
+
+Release date: `November 22, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+-	[CEIP] Fixed telemetry error when Centreon MAP engine is configured.
+- [Editor] You can now add Centreon resources to a map by searching their names.
+- [Editor] Handled metaservices in output widget.
+- [Migration] Improved the image migration process.
+- [Viewer] Added the possibility to color the output widget (background or font) according to status.
+
+</details>
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Server] Updated dependencies.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Editor] Fixed an issue which caused links to disappear when editing anchor points.
+- [Geoviews] Fixed the display of tooltip when infrastructure view is defined.
+- [Server] Fixed an issue that caused server to crash on duplicated Centreon modules.
+- [Update] Fixed an issue where map-engine configuration files were overwritten after an update.
+- [UX] Fixed miscellaneous translation issues.
+- [Viewer] Fixed the redirection to monitoring pages from tooltips.
+- [Viewer] Fixed issue with monitoring links containing a double slash.
+
+</details>
+
+### 23.04.9
+
+Release date: `October 10, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+-	[Server] Updated dependencies.
+
+</details>
+
+### 23.04.8
+
+Release date: `September 28, 2023`
+
+- No change.
+
+### 23.04.7
+
+Release date: `September 27, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+-	[Server] Make link anchors consistent between viewer and editor.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Editor] Fixed an issue where copying and pasting an object deleted it.
+-	[Server] Updated dependencies.
+-	[Server] Fixed the diagnostic protocol test.
+
+</details>
+
+### 23.04.6
+
+Release date: `September 5, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Editor] Fixed an issue that made it impossible to use the extended output in the "output" widget.
+- [Server] Fixed MAP service ExecStart command to take JVM parameters into account.
+- [Server] Updated dependencies.
+- [Viewer] Fixed the alignment of output text in the "output" widget .
+
+</details>
+
+### 23.04.5
+
+Release date: `August 11, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Server] Fixed an issue that prevented the MAP Engine server from starting.
+
+</details>
+
+### 23.04.4
+
+Release date: `August 03, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Server] Fixed an issue that could prevent some maps from being edited.
+
+</details>
+
+### 23.04.3
+
+Release date: `August 03, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Editor] Fixed an issue that could lead to an empty page when trying to edit an existing map.
+
+</details>
+
+### 23.04.2
+
+Release date: `July 28, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Geoviews] Fixed an issue that prevented hosts from being displayed on geoviews.
+- [Packaging] Fixed packaging issue that caused the map-engine service to fail to start on Debian.
+- Allowed elements to be grouped.
+- Fixed an issue making Business Activities' size different between viewer and editor.
+- Fixed an issue that caused server to crash because of duplicated Centreon modules.
+
+</details>
+
+### 23.04.1
+
+Release date: `July 20, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Licensing] Improved automatic license renewal.
+- [UI] Made metric link modal labels more explicit by replacing "metric 1" and "metric 2" by "metric in" and "metric out".
+- [UI] You can now hide the label of a resource.
+- [UX] You can now duplicate maps.
+- [Viewer] You can now define a label for a URL shape.
+- [Widget] Fixed incorrect behavior when saving the MAP widget.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Editor] Fixed an issue that made duplicated containers point to the same view.
+- [Editor] Fixed a bug where empty metric min or max prevented users from saving a map.
+- [Editor] Fixed metric links when no metric name was filled in.
+- [Install] Fixed a documentation link for Mapbox account linking in configure.sh installation script.
+- [Server] Made it possible to parse metrics from Broker NEB packets.
+- [Server] Fixed a critical error when editing a Geo view.
+- [Server] Fixed an issue causing MAP server to crash at start up due to service group loading.
+- [Server] Fixed an issue preventing users from saving a map with a "not a diagram" error message.
+- [Server] Fixed an issue which made diagnostic.sh raise an error if a custom URI was used.
+- [UI] Fixed cosmetic issues on breadcrumb chips.
+- [UI] Fixed the selection of layers in Geo views.
+- [UI] Fixed view freezes beyond 500 elements.
+- [Viewer] Fixed a regression causing output not to be displayed in the output widget.
+- [Viewer] Fixed an issue that caused links not to be reactivated when the associated resource went back online.
+- [Viewer] Fixed an issue preventing hosts from being displayed on Geo views.
+- [Viewer] Fixed an issue preventing the font color from being applied at the first edition.
+- [Viewer] Fixed an issue that prevented graphs from being displayed for non admin users.
+- [Widget] Fixed incorrect behavior when saving the MAP widget.
+
+</details>
+
+### 23.04.0
+
+Release date: `April 26, 2023`
+
+<details>
+  <summary>Compatibility</summary>
+
+Compatibility with other 23.04 components.
+
+</details>
+
+## Centreon MAP Legacy
+
+### 23.04.20
+
+Release date: `November 22, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Server] Fixed an issue that caused server to crash on duplicated Centreon modules.
+- [Viewer] Fixed the redirection to monitoring pages from tooltips.
+
+</details>
+
+### 23.04.9
+
+Release date: `October 10, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+-	[Server] Updated dependencies.
+
+</details>
+
+### 23.04.8
+
+Release date: `September 28, 2023`
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Server] Updated dependencies.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Fixed a Debian packaging issue preventing MAP from starting.
+
+</details>
+
+### 23.04.7
+
+Release date: `September 27, 2023`
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Server] Fixed a vulnerable property.
+
+</details>
+
+## Centreon BAM
+
+### 23.04.5
+
+Release date: `November 22, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [UI] Fixed an issue that caused panel to remain open in top counters.
+
+</details>
+
+### 23.04.4
+
+Release date: `October 10, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CEIP] Added extra telemetry measures.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [UI] Renamed "massive change" to "mass change" in the "more actions" selection box.
+
+</details>
+
+### 23.04.3
+
+Release date: `September 28, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Upgrade] Fixed an error in the SQL update.
+
+</details>
+
+### 23.04.2
+
+Release date: `July 20, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Licensing] Improved automatic license renewal.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Rules] Fixed boolean rules when resource contains boolean operator in its name.
+- [UI] Fixed the column name display in the acknowledgment description pop-up.
+- Fixed how lists of BAs were retrieved for users with ACLs.
+
+</details>
+
+### 23.04.1
+
+Release date: `June 13, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an issue that caused KPIs to be unavailable for selection when configuring a Business Activity as a non-admin user.
+- Fixed an issue that caused resources to be displayed for a single ACL group when multiple ACL groups were selected during the BA creation by a non-admin user.
+
+</details>
+
+### 23.04.0
+
+Release date: `April 26, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Configuration] Removed deprecated "Import SSV" feature from Business Activities configuration.
+- [Configuration] Improved Business Activities configuration panel display:
+  - Display listing pagination icons while displaying the configuration panel
+  - Allow more space to display indicators' names.
+
+</details>
+
+<details>
+  <summary>Compatibility</summary>
+
+Compatibility with other 23.04 components.
+
+</details>
+
+## Centreon MBI
+
+### 23.04.5
+
+Release date: `January 23, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [MBI] Fixed a calculation issue for VMWare-Cluster-Performances.
+- [Reports] Fixed an issue that prevented reports to be sent by email with Office 365.
+
+</details>
+
+### 23.04.4
+
+Release date: `December 22, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [MBI] Updated dependency.
+
+</details>
+
+### 23.04.3
+
+Release date: `September 5, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Fixed ETL script references in Debian packaging.
+
+</details>
+
+### 23.04.2
+
+Release date: `July 28, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed centreonBIETL_legacy script by calling only legacy scripts.
+- Removed old images in forms.
+
+</details>
+
+### 23.04.1
+
+Release date: `July 20, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Licensing] Improved automatic license renewal.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Install] Added missing Gorgone dependencies required by the MBI ETL.
+- [Reporting] Fixed the display of the duration of ongoing alerts in the Hostgroups-Service-Current-Events report.
+- [UI] Added CSS in global style files to fix the MBI widget visibility.
+- [UI] Fixed empty "Current usage" column in mbi-storage-list-near-saturation widget.
+
+</details>
+
+### 23.04.0
+
+Release date: `April 26, 2023`
+
+<details>
+  <summary>Compatibility</summary>
+
+Compatibility with other 23.04 components.
+
+</details>
+
+## Centreon Auto Discovery
+
+### 23.04.4
+
+Release date: `November 22, 2023`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Core] Updated dependencies.
+
+</details>
+
+### 23.04.3
+
+Release date: `September 27, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an issue where new services were created when updating the discovery job on existing hosts.
+
+</details>
+
+### 23.04.2
+
+Release date: `September 5, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed task execution schedule.
+
+</details>
+
+### 23.04.1
+
+Release date: `July 20, April 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Licensing] Improved automatic license renewal.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Install] Fixed missing API routes after an update of Centreon.
+
+</details>
+
+### 23.04.0
+
+Release date: `April 26, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Plugins automatic installation: plugins are now installed automatically on the poller where a Host Discovery Job is scheduled. So, you won't need to install them prior to scheduling discovery jobs.
+- Job duplication: Host Discovery jobs can now be duplicated to avoid repetitive work.
+- Mapper duplication: Host Discovery Mappers can now be duplicated inside a job.
+
+</details>
+
+<details>
+  <summary>Compatibility</summary>
+
+Compatibility with other 23.04 components.
+
+</details>
+
+## Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager)
+
+### 23.04.1
+
+Release date: `July 20, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Licensing] Improved automatic license renewal.
+
+</details>
+
+### 23.04.0
+
+Release date: `April 26, 2023`
+
+<details>
+  <summary>Compatibility</summary>
+
+Compatibility with other 23.04 components.
+
+</details>
+
+## Centreon License Manager
+
+### 23.04.2
+
+Release date: `September 27, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [UX] Removed the "Exit wizard" popin after having added token or view license.
+
+</details>
+
+### 23.04.1
+
+Release date: `July 20, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Licensing] Improved automatic license renewal.
+- [UI] Improved license upload modal.
+
+</details>
+
+### 23.04.0
+
+Release date: `April 26, 2023`
+
+<details>
+  <summary>Compatibility</summary>
+
+Compatibility with other 23.04 components.
+
+</details>
+
+## Centreon Anomaly Detection
+
+### 23.04.5
+
+Release date: `November 22, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Added a feature flag to hide exclusion of periods.
+
+</details>
+
+### 23.04.5
+
+Release date: `October 10, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [UI] Renamed "massive change" to "mass change" in the "more actions" selection box.
+
+</details>
+
+### 23.04.4
+
+Release date: `September 27, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Removed the Beta breadcrumb message.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed the management of envelope size.
+
+</details>
+
+### 23.04.3
+
+Release date: `July 28, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed Stream connector to send Anomaly Detection data to Centreon.
+- Fixed Anomaly Detection script that was not sending data history.
+
+</details>
+
+### 23.04.2
+
+Release date: `July 20, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Logs] The log level is now a parameter and its default value has been lowered to 0 to make it less verbose.
+
+</details>
+
+### 23.04.1
+
+Release date: `June 13, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an issue that caused KPIs to be unavailable for selection when configuring a Business Activity as a non-admin user.
+- Fixed an issue that caused resources to be displayed for a single ACL group when multiple ACL groups were selected during the BA creation by a non-admin user.
+
+</details>
+
+### 23.04.0
+
+Release date: `April 26, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+  
+- [Core] It is now possible to exclude unrepresentative data from prediction computation.
+- [Core] Anomaly Detection services can now be used in Business Activities.
+
+</details>
+
+<details>
+  <summary>Compatibility</summary>
+
+Compatibility with other 23.04 components.
+
+</details>
+
+## Centreon IT & Business Extensions
+
+### 23.04.0
+
+Release date: `April 26, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Added the possibility to customize the login page and the banner. You can now:
+  - Change the background of the login page.
+  - Change the logo on the login page.
+  - Display custom text on the login page.
+  - Give a name to the platform, that will be visible on the login page and in the banner.
+
+</details>
+
+## Centreon IT Edition Extensions
+
+### 23.04.1
+
+Release date: `January 23, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [IT Edition Extensions] Added EPP license control mechanism.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Install] Fixed compatibility with MySQL 8.
+- [Package] Fixed the naming from ``centreon-centreon-it-edition-extensions`` to ``centreon-it-edition-extensions`` for the Debian package.
+
+</details>

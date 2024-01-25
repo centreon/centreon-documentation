@@ -79,7 +79,7 @@ https://www.cisco.com/c/en/us/td/docs/video/cuct/1_1/english/configuration/guide
 yum install centreon-plugin-Hardware-Devices-Cisco-Cts-Snmp
 ```
 
-2. On the Centreon Web interface, install the *Cisco CTS* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+2. On the Centreon Web interface, install the *Cisco CTS* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -96,7 +96,7 @@ yum install centreon-plugin-Hardware-Devices-Cisco-Cts-Snmp
 yum install centreon-pack-hardware-devices-cisco-cts-snmp
 ```
 
-3. On the Centreon Web interface, install the *Cisco CTS* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+3. On the Centreon Web interface, install the *Cisco CTS* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

@@ -100,7 +100,7 @@ More information about the setup steps and the service configuration can be foun
 yum install centreon-plugin-Hardware-Storage-Netapp-Santricity-Restapi
 ```
 
-2. On the centreon Web interface, install the  *Netapp Santricity Restapi* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+2. On the centreon Web interface, install the  *Netapp Santricity Restapi* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -117,7 +117,7 @@ yum install centreon-plugin-Hardware-Storage-Netapp-Santricity-Restapi
 yum install centreon-pack-hardware-storage-netapp-santricity-restapi.noarch
 ```
 
-3. On the centreon Web interface, install the  *Netapp Santricity Restapi* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+3. On the centreon Web interface, install the  *Netapp Santricity Restapi* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

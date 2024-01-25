@@ -1,0 +1,719 @@
+---
+id: centreon-os
+title: Centreon Open Source
+---
+
+import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
+
+## Introduction
+
+You can find in this chapter all changelogs concerning **Centreon Open Source**.
+
+> It is very important when you update your system to refer to this section in order to learn about behavior changes or
+> major changes that have been made on this version. This will let you know the impact of the installation of these
+> versions on the features you use or the specific developments that you have built on your platform (modules,
+> widgets, plugins).
+
+If you have feature requests or want to report a bug, please go to our
+[Github](https://github.com/centreon/centreon/issues/new/choose).
+
+Read more about version 23.04 in our [blog post](https://www.centreon.com/centreon-23-04-discover-the-latest-release/).
+
+<ExpandCollapseAll />
+
+## Centreon Web
+
+### 23.04.14
+
+Release date: `January 15, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed a visibility issue with the configuration/users endpoint.
+- [Authentication] Fixed hardcoded email value that blocked SSO authentication with OpenId Connect when parameter was not an email.
+- [Configuration] Fixed error message displayed in configuration generation after upgrading to 23.04 version.
+- [Event Logs] Fixed period in CSV export.
+- [Installation] Fixed issue of poller ID appearing twice in Centreon Gorgone configuration.
+- [Installation] Fixed installation issue occurring when database user already existed.
+- [My Account] Made the name, login and password fields read-only for non-local users so as to prevent issues where users who had edited these properties were locked out of the platform.
+- [Resource Status] Fixed bad host redirection in the services panel.
+- [Resource Status] Fixed default sorting order in Resources status: from worst to best.
+- [Web] Fixed an issue where inherited contacts/contact groups were not displayed in the notifications tab.
+
+</details>
+
+### 23.04.13
+
+Release date: `January 2, 2024`
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed an SQLi vulnerability.
+
+</details>
+
+### 23.04.12
+
+Release date: `December 21, 2023`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Prevented a command injection.
+
+</details>
+
+### 23.04.11
+
+Release date: `November 30, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Resources Status] Fixed the issue that automatically disabled the option to access the UI when user clicked on the compact/extended button.
+
+</details>
+
+### 23.04.10
+
+Release date: `November 17, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added the possibility to search for a service in hostGroups/serviceGroups endpoints.
+- [Configuration] Added the support of BBDO 3.0.1 for Centreon Broker configuration.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed an issue with Broker output types when creating an output using CLAPI.
+- [API] Fixed a security issue concerning some API responses.
+- [Authentication] Fixed authentication conditions that did not work with multiple values (SAML/OpenID Connect).
+- [Authentication] The "Reach Centreon Front-end" option is now automatically enabled for imported users authenticated through SSO.
+- [Authentication] Fixed an issue with the retrieval of attributes used to identify users.
+- [Authentication] Removed incorrect log message.
+- [Core] Fixed access to pages when Symfony debug mode was enabled.
+- [Event Logs] Fixed pagination.
+- [Install] Fixed SQL permissions to allow the "centreon" database user to use MBI.
+- [Install] Fixed an SQL issue occurring during the update process.
+- [Monitoring] Fixed a display issue on Firefox that occurred when the Information column in the Resources Status page contained a single quote.
+- [Packaging] Fixed an issue where centreontrapd was configured for a poller rather than for a central on Debian.
+- [Recurrent Downtimes] Fixed an issue that occurred when a downtime period contained a service group and this service group was linked to a service template.
+- [Ressources Status] Fixed an issue that occurred when using an h.alias filter on the list of resources.
+- [Resources Status] Fixed an issue where the "monitoring server" filter did not display all pollers authorized by the user's ACLs.
+- [UX] Fixed an issue where top menus in the banner were not closed after clicking on a link.
+
+</details>
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed SQLi in a method.
+- Fixed potential XSS vulnerability in the list of discovered hosts.
+
+</details>
+
+### 23.04.9
+
+Release date: `October 05, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Install] Improved the unattended.sh file to manage updates, Debian 11 OS and language packages.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Authentication] Fixed an LDAP connection issue due to DN case.
+- [Configuration] Fixed the visibility of services when a user with ACLs duplicates a host.
+- [Monitoring] Fixed CSV export when metric name is a SQL keyword.
+- [Resources Status] Fixed the list of pollers filter by removing deleted pollers.
+- [Resource Status] Fixed the inline check action that was sending a simple check instead of a forced check.
+- [UI] Renamed "massive change" to "mass change" in the "more actions" selection box.
+
+</details>
+
+### 23.04.8
+
+Release date: `September 22, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Anomaly Detection] Added a feature flag to hide the period exclusion interface.
+- [Authentication] Removed password fields from profile page for accounts using delegated authentication.
+- [Configuration] Added feature flag to vault configuration endpoints.
+- [Core] Added feature flag system.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Anomaly Detection] Business Activities are no longer listed as services in the configuration form.
+- [Authentication] Fixed access to the Centreon UI when a default page is configured for the user and authentication uses SSO (OIDC/SAML).	
+- [CLAPI] Fixed a PHP warning that was displayed when using getparam on a service.
+- [CLAPI] Fixed the export of severities to make it possible to reimport them.
+- [CLAPI] Removed the possibility to link a regular resource with a template.	
+- [Configuration] Fixed custom macro inheritance for hosts.
+- [Resources Status] Fixed filters on hostgroups and categories that weren't returning hosts.
+- [Security] Fixed SLQi in centreonLogAction.class.php.
+
+</details>
+
+### 23.04.7
+
+Release date: `August 31, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Authentication] Removed password fields if contact is not local type.
+- [Core] Updated the database schema for resources table.
+- [Tools] Added a script to delete duplicate entries in the host_service_relations table.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Administration] Fixed pagination in the **Data** menu.
+- [API] Removed the author_id parameter from downtime endpoint to use authenticated user as author.
+- [Authentication] Fixed groups mapping when groups roles were changed in the Identity Provider (OpenID Connect/SAML).
+- [Authentication] Fixed roles mapping when user roles were changed in the Identity Provider (OpenID Connect/SAML).
+- [Authentication] Fixed wrong error message displayed for SAML authentication.
+- [Core] Fixed an issue by removing the call to custom login page when the IT Edition module is not installed.
+- [Graphs] Fixed the display of graphs layout when there is no data.
+- [Packaging] Added missing PHP files to Debian packaging.
+- [Packaging] Fixed an issue with incorrect rrdtool.log ownership that prevented graphs from being displayed on Debian.
+- [Resources Status] Fixed the display of inverted curves in the graph panel.
+
+</details>
+
+### 23.04.6
+
+Release date: `July 28, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Core] Removed unnecessary data in custom_configuration column for SAML provider.
+- [Install] Increased size of metric_name column to 1021.
+- [Resources Status] Fixed CSV export when metric name contained SQL keyword.
+- Added the missing parameters to handle new Broker logging options (thanks to a [community member's contribution](https://github.com/centreon/centreon/pull/885)).
+
+</details>
+
+### 23.04.5
+
+Release date: `July 10, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Authentication] User attributes received from the Identity Provider are now added to the Centreon login file when debug is enabled.
+- [CEIP] Improved the retrieval of Operating System name and version.
+- [Configuration] Improved the icon size to adapt to resources.
+- [UX] Improved the Service Check Timeout tooltip in **Configuration > Pollers > Engine configuration > Log options**.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [ACL] Fixed an issue when a recurrent downtime is edited by a user under ACL.
+- [API] Fixed an API issue for the Centreon modules management.
+- [Authentication] Fixed an issue in the groups mapping management with OpenID Connect.
+- [Authentication] Fixed an issue in groups mapping relations with SAML.
+- [Authentication] Fixed an issue with JWT decoding when encoded in base64url.
+- [Authentication] Fixed a "URL not found" error message when logging out.
+- [Authentication] Fixed the user's logout when the refresh token has expired for OIDC sessions.
+- [Backup] Fixed partial backup that was not working in AlmaLinux 8 and Debian 11.
+- [Configuration] Fixed deletion/activation/deactivation/duplication of a contact when made with a French profile.
+- [Install] Fixed missing central ID in Centreon Gorgone configuration file.
+- [Install] Fixed permissions issue on Symfony cache.
+- [Install] Fixed rights on centreon_traps directory for Debian.
+- [Install] Fixed rights on logs directory for Debian.
+- [ResourcesStatus] Fixed CSV export when metric name contains SQL keyword.
+- [ResourcesStatus] Fixed the search in filter that was not working.
+- [ResourcesStatus] Fixed filters definition to display all services including Anomaly Detection and Meta Services from top counter links.
+- [ResourcesStatus] Fixed a bug in the disacknowledgment process that made the user interface display the wrong acknowledgement comment.
+- [ResourcesStatus] Fixed an issue on filter combination in Resources Status.
+- [UI] Fixed the column name display in the acknowledgment description pop-up.
+- [UX] Fixed a space issue between buttons.
+- [Web] Fixed the About page display.
+
+</details>
+
+### 23.04.4
+
+Release date: `June 20, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Update] Fixed a topology_url_substitute error caused by a missing request in update scripts that resulted in a blank screen after an update from 23.04.1.
+
+</details>
+
+### 23.04.3
+
+Release date: `June 19, 2023`
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed the base URI change detection mechanism.
+
+</details>
+
+### 23.04.2
+
+Release date: `June 7, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Administration] Added a button to unblock users through the user interface (for local authentication).
+- [Authentication] Fixed the custom endpoint definition for OpenID Connect.
+- [Install] Removed PHP warning during the installation wizard.
+- [Packaging] Improved the default configuration for Debian packages.
+- [UX] Removed UI slowdown when browser has no internet access with CEIP enabled.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed code errors and messages to improve the password renewal endpoint.
+- [Authentication] Fixed the custom endpoint call with OpenID Connect.
+- [Authentication] Fixed the HTTP method for custom endpoints for OpenID.
+- [Authentication] Removed the password expiration policy for LDAP authentication.
+- [Configuration] Fixed a bug in trap relations with services by host groups.
+- [Core] Fixed the display of error messages regarding the connection to DBMS.
+- [Install] Fixed the snmptrapd configuration for Debian.
+- [LDAP] Fixed the LDAP groups listing in the contactgroups form.
+- [ResourceStatus] Fixed a filtering issue for hosts in pending state.
+- [ResourceStatus] Fixed the h.name filter that was not returning hosts.
+- [UI] Fixed a bug that prevented non-admin users from selecting Host Groups in some areas of Centreon (e.g. Host Discovery mappers).
+- [UI] Fixed the refresh icon positioning in **Administration > ACL > Reload ACL** menu.
+- [UI] Uniformized the buttons size on legacy pages.
+
+</details>
+
+### 23.04.1
+
+Release date: `May 26, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Administration] Removed deprecated "Image Directory" option which deleted warning messages when generating configuration.
+- [Authentication] Fixed retrieval of information for applying conditions, roles and groups with OpenID Connect.
+
+</details>
+
+### 23.04.0
+
+Release date: `April 26, 2023`
+
+<details open>
+  <summary>New features</summary>
+
+- [API] We have started extending Centreon's Configuration REST API. The first endpoints available in this release allow you to manage:
+  - Time periods.
+  - Host groups.
+  - Host categories.
+  - Host severities.
+  - Service groups.
+  - Service categories.
+  - Service severities.
+- [Authentication] Added SAML authentication. With SAML, you can:
+  - Use conditions to access Centreon.
+  - Import users automatically.
+  - Manage groups manually or automatically.
+  - Manage roles manually or automatically.
+- [Installation] Removed Enterprise Linux version 7 and added version 9.
+- [Resources Status] Added extended mode for Resources Status listing display.
+- [Resources Status] You can now switch between extended and compact mode in the Resources Status page.
+- [Resources Status] Both simple and forced check options are provided in Resources Status.
+- [Resources Status] Various user interface improvements in Resources Status :
+  - Aligned column contents with labels.
+  - The icon that allows you to reorder columns is now displayed only on mouseover.
+  - The columns displayed by default have been changed.
+  - Listing pagination icons are now displayed at the same time as the resource details panel.
+- [Terminology] Renamed “problems” to “alerts” in Resources Status.
+- [Terminology] Renamed “Plugin Pack” to “Monitoring Connectors” in the user interface.
+- [UI] Improved Top Counter responsiveness.
+- [UI] Applied new Centreon branding.
+- [UX] Added German translation.
+- [Widgets] Added the possibility to select a Meta-Service in the graph monitoring widget.
+
+</details>
+
+## Centreon Collect
+
+### 23.04.7
+
+Release date: `January 11, 2024`
+
+#### Centreon Broker
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed a bug occurring when a Business Activity was updated after a status change for a KPI with a BA type.
+- [Install] Fixed rights on SSH directory for Debian.
+
+</details>
+
+### 23.04.6
+
+Release date: `December 15, 2023`
+
+#### Centreon Broker
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Broker now drops metrics whose names are longer than 1000 characters to avoid errors in the database. An error is logged when it occurs.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a bug that made Broker crash when rebuilding RRD files for unexisting metrics.
+
+</details>
+
+### 23.04.5
+
+Release date: `November 20, 2023`
+
+#### Centreon Broker
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a stability issue that could make Broker crash when BAM was enabled and the database was too slow.
+- Event propagation in BAM has been improved and should be faster.
+
+</details>
+
+### 23.04.4
+
+Release date: `September 26, 2023`
+
+#### Centreon Broker
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a bug that caused RRD graphs to not display properly when the check interval was longer than 15 minutes.
+- Fixed a bug that caused services and hosts to lose their status at cbd startup.
+
+</details>
+
+### 23.04.3
+
+Release date: `September 7, 2023`
+
+#### Centreon Broker
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Compatibility] Fixed an issue that prevented Broker from inserting relations in table during BAM reporting calculation.
+- Fixed an issue that could cause a crash when many pollers were sending check results to a Broker instance.
+
+</details>
+
+### 23.04.2
+
+Release date: `July 26, 2023`
+
+#### Centreon Broker
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Boolean rules optimized to work faster.
+
+</details>
+
+### 23.04.1
+
+Release date: `July 5, 2023`
+
+#### Centreon Broker
+
+<details open>
+  <summary>Enhancements</summary>
+
+- In MariaDB, data in the data_bin table are now inserted with a bulk prepared statement.
+- The check_command field had been removed from Broker (host|service)_status events, making it temporarily unavailable for LUA stream connectors. It is now available in [Broker's cache](../developer/developer-broker-stream-connector.md#the-broker_cache-object).
+- Improved the evaluation process of BAM KPIs based on boolean expressions: if an OK result is part of an OR operation, or a CRITICAL result is part of an AND operation, Broker will return the results without waiting for the other members of the operation.
+- New performance counters have been added to the gRPC API in order to track the longest queries and statements.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Changed the default value of `deletion_time` for acknowledgements to `null` to avoid displaying abnormal dates in the interface.
+- Fixed a bug that mainly occurred at backup time: a crash could occur when MariaDB was restarted.
+- Fixed an exception-catching issue that caused Broker to fail inserting resources when the check_attempt was too high for the database column type.
+- Fixed the date displayed for last_check and other columns in Resources Status for pending resources.
+- Fixed the rebuilding of RRD databases that could result in incomplete graphs when duplicate values were present in `data_bin`. The duplicates are now skipped to avoid this.
+
+</details>
+
+#### Centreon Engine
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Added the `/var/log/centreon-engine/archives` directory that was missing on Debian installations.
+- Fixed the handling of RTDOWNTIMES external commands. The duration is not required anymore for fixed downtimes.
+- Restored the $ADMINEMAIL$ and $ADMINPAGER$ global macros.
+
+</details>
+
+### 23.04.0
+
+Release date: `April 26, 2023`
+
+#### Centreon Engine
+
+<details>
+  <summary>Compatibility</summary>
+
+Compatibility with other 23.04 components.
+
+</details>
+
+#### Centreon Broker
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Converted all BBDO messages to Protobuf: the BBDO v2 protocol was entirely based on buffers with a static structure. We converted all the event message types into Protobuf classes, in order to easily add new fields or new message types in the future.
+
+</details>
+
+## Centreon Gorgone
+
+### 23.04.9
+
+Release date: `December 22, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Created package to install SELinux rules.
+- [Gorgone] Fixed a stability issue causing the kernel to kill the gorgoned process.
+
+</details>
+
+### 23.04.8
+
+Release date: `November 17, 2023`
+
+No changes for this module in this version.
+
+### 23.04.7
+
+Release date: `October 5, 2023`
+
+No changes for this module in this version.
+
+### 23.04.6
+
+Release date: `September 7, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Core] Fixed recurring unexpected disconnections between pollers using pull/pullws mode.
+
+</details>
+
+### 23.04.5
+
+Release date: `August 02, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Compatibility] Fixed an issue with cipher encoding that could break Gorgone internal communication messages on MBI server.
+
+</details>
+
+### 23.04.4
+
+Release date: `July 28, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Improved packaging by adding gorgone_key_thumbprint.pl script and perl-Mojolicious dependency.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Compatibility]Fixed -d option to manage database entries in centreonBIETL script.
+- [Core] Fixed recurring unexpected disconnection between pollers.
+
+</details>
+
+### 23.04.3
+
+Release date: `June 22, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Core] Fixed a recurring unexpected disconnection between pollers caused by an internal key rotation.
+
+</details>
+
+### 23.04.2
+
+Release date: `June 7, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Packaging] Improved the default configuration for Debian packages.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a recurring unexpected disconnection between pollers.
+
+</details>
+
+### 23.04.1
+
+Release date: `May 26, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Server] Fixed an SQL query that prevented the process from starting.
+
+</details>
+
+### 23.04.0
+
+Release date: `April 26, 2023`
+
+<details>
+  <summary>Compatibility</summary>
+
+Compatibility with other 23.04 components.
+
+</details>
+
+## Centreon High Availability
+
+### 23.04.0
+
+Release date: `April 26, 2023`
+
+<details>
+  <summary>Compatibility</summary>
+
+Compatibility with other 23.04 components.
+
+</details>
+
+## Centreon DSM
+
+### 23.04.2
+
+Release date: `July 10, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an unreplaced variable in cron definition.
+
+</details>
+
+### 23.04.1
+
+Release date: `June 7, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Packaging] Improved the default configuration for Debian packages.
+
+</details>
+
+### 23.04.0
+
+Release date: `April 26, 2023`
+
+<details>
+  <summary>Compatibility</summary>
+
+Compatibility with other 23.04 components.
+
+</details>
+
+## Centreon Open Tickets
+
+### 23.04.2
+
+Release date: `July 28, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a Broker query.
+
+</details>
+
+### 23.04.1
+
+Release date: `June 7, 2023`
+
+<details open>
+  <summary>New feature</summary>
+
+- [Widget] Added the possibility to filter by poller.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed an auto close issue in the API endpoint.
+
+</details>
+
+### 23.04.0
+
+Release date: `April 26, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Added Schedule Check option & auto close popup capability
+
+</details>

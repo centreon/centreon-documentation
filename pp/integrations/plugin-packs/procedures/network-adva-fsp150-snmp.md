@@ -84,7 +84,7 @@ Your Centreon poller must be able to reach the SNMP port (UDP/161) of the Adva d
 yum install centreon-plugin-Network-Adva-Fsp150-Snmp
 ```
 
-2. Install the monitoring templates from the Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+2. Install the monitoring templates from the Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -101,7 +101,7 @@ yum install centreon-plugin-Network-Adva-Fsp150-Snmp
 yum install centreon-pack-network-adva-fsp150-snmp
 ```
 
-3. Install the monitoring templates from the Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+3. Install the monitoring templates from the Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

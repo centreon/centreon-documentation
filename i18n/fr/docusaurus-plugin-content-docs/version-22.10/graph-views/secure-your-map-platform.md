@@ -77,8 +77,7 @@ centreon-map.keystore-pass=xxx
 > Ne l'activez que si votre Centreon utilise également ce protocole.
 >
 > Les utilisateurs devront ouvrir l'URL :
->
-> - MAP :
+> 
 > ```shell
 > https://<MAP_IP>:9443/centreon-map/api/beta/actuator/health
 > ```
@@ -122,6 +121,7 @@ centreon-map.keystore-pass=xxx
 > Les utilisateurs devront ouvrir l'URL :
 >
 > - MAP (Legacy) :
+>
 > ```shell
 > https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health
 > ```
