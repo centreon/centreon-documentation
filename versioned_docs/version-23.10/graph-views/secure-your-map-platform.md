@@ -186,7 +186,7 @@ centreon-map.keystore-pass=xxx
 systemctl stop centreon-map-engine
 ```
 
-2. Edit the file **/etc/centreon-map/centreon-map.conf**, adding `,tls` after `prod"` profile:
+2. Edit the file **/etc/centreon-map/centreon-map.conf**, adding `,tls` after `prod` profile:
 
 ```text
 RUN_ARGS="--spring.profiles.active=prod,tls"
@@ -407,4 +407,4 @@ keytool -import -alias centreon-broker -file central_public.crt -keystore /etc/c
 
 If the broker public certificate is signed with a recognized CA, the JVM
 default trust store "cacerts (/etc/pki/java/cacerts)" will be used. Nothing
-to configure for Centreon MAP service
+to configure for Centreon MAP service.
