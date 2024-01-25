@@ -186,7 +186,7 @@ centreon-map.keystore-pass=xxx
 systemctl stop centreon-map-engine
 ```
 
-2. Edit the file `/etc/centreon-map/centreon-map.conf`, adding ",tls after "prod" profile:
+2. Edit the file **/etc/centreon-map/centreon-map.conf**, adding `,tls` after `prod` profile:
 
 ```text
 RUN_ARGS="--spring.profiles.active=prod,tls"
@@ -284,12 +284,12 @@ certificate as described below:
 <Tabs groupId="sync">
 <TabItem value="MAP" label="MAP">
 
-Set the **centreon.url** inside `/etc/centreon-map/centreon-map.conf` to use HTTPS instead of HTTP:
+Set the **centreon.url** inside **/etc/centreon-map/centreon-map.conf** to use HTTPS instead of HTTP:
 
 </TabItem>
 <TabItem value="MAP (Legacy)" label="MAP (Legacy)">
 
-Set the **centreon.url** inside `/etc/centreon-studio/centreon-map.conf` to use HTTPS instead of HTTP:
+Set the **centreon.url** inside **/etc/centreon-studio/centreon-map.conf** to use HTTPS instead of HTTP:
 
 </TabItem>
 </Tabs>
@@ -377,7 +377,7 @@ centreon-map.truststore-pass=XXXX
 > Replace the trustStorePassword value "xxx" with the password you used when
 > generate the trust store.
 
-2. Edit the file `/etc/centreon-studio/centreon-map.conf`, and replace `,tls` by `,tls_broker` after `prod` profile:
+2. Edit the file **/etc/centreon-studio/centreon-map.conf**, and replace `,tls` by `,tls_broker` after `prod` profile:
 
 ```text
 RUN_ARGS="--spring.profiles.active=prod,tls_broker"
@@ -407,4 +407,4 @@ keytool -import -alias centreon-broker -file central_public.crt -keystore /etc/c
 
 If the broker public certificate is signed with a recognized CA, the JVM
 default trust store "cacerts (/etc/pki/java/cacerts)" will be used. Nothing
-to configure for Centreon MAP service
+to configure for Centreon MAP service.
