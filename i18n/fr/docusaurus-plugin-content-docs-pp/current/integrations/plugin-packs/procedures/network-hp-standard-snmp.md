@@ -36,7 +36,7 @@ Le connecteur apporte les modèles de service suivants
 | Cast-Generic-Name          | Net-HP-Standard-Cast-Generic-Name-SNMP-custom          | Contrôle le pourcentage de paquets pour chaque type de casting d'une interface réseau         |            |
 | Cast-Global                | Net-HP-Standard-Cast-Global-SNMP-custom                | Contrôle le pourcentage de paquets pour chaque type de casting de plusieurs interfaces réseau | X          |
 | Packet-Errors-Generic-Name | Net-HP-Standard-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau                    |            |
-| Packet-Errors-Global       | Net-HP-Standard-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écarté de plusieurs interfaces réseau            | X          |
+| Packet-Errors-Global       | Net-HP-Standard-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau            | X          |
 | Spanning-Tree              | Net-HP-Standard-SpanningTree-SNMP-custom               | Contrôle l'état du spanning tree sur les interfaces                                           | X          |
 | Traffic-Generic-Id         | Net-HP-Standard-Traffic-Generic-Id-SNMP-custom         | Contrôle le traffic réseau d'une interface réseau                                             |            |
 | Traffic-Generic-Name       | Net-HP-Standard-Traffic-Generic-Name-SNMP-custom       | Contrôle le traffic réseau d'une interface réseau                                             |            |
