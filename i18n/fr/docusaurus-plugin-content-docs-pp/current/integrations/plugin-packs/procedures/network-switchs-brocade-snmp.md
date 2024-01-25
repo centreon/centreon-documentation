@@ -32,7 +32,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                      | Modèle de service                                  | Description                                                                                                      | Découverte |
 |:---------------------------|:---------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------|:----------:|
-| Packet-Errors-Generic-Name | Net-Brocade-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écarté d'une interface réseau.                                       |            |
+| Packet-Errors-Generic-Name | Net-Brocade-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau.                                       |            |
 | Packet-Errors-Global       | Net-Brocade-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écarté de plusieurs interfaces réseau.                               | X          |
 | Traffic-Generic-ID         | Net-Brocade-Traffic-Generic-ID-SNMP-custom         | Contrôle de la bande passante de l'interface. Pour chaque contrôle apparaîtra le nom de l'interface.              |            |
 | Traffic-Generic-Name       | Net-brocade-Traffic-Generic-Name-SNMP-custom       | Contrôle de la bande passante de l'interface. Pour chaque contrôle apparaîtra le nom de l'interface.              |            |
