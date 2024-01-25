@@ -1,5 +1,5 @@
 ---
-id: commandes
+id: commands
 title: Les commandes
 ---
 import Tabs from '@theme/Tabs';
