@@ -368,16 +368,7 @@ module.exports = {
                  }
                 ]
               },
-              {
-                "type": "category",
-                "label": "Administration",
-                "items": [
-                {
-                "type": "doc",
-                "id": "administration/media"
-                }
-                ]
-                },     
+             
       {
         "type": "link",
         "href": "/pp/integrations/plugin-packs/getting-started/introduction",
