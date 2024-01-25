@@ -179,7 +179,7 @@ yum install centreon-pack-applications-rubrik-restapi
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Rubrik Rest API** connector through
-the **Configuration > Monitoring Connectors Manager** menu.
+the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
 
@@ -552,7 +552,7 @@ All available options for each service template are listed below:
 | --filter-object-type        | Filter jobs by object type.                                                                                                                                        |
 | --filter-location-name      | Filter jobs by location name.                                                                                                                                      |
 | --unit                      | Select the time unit for last execution time thresholds. May be's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.   |
-| --limit                     | Define the number of entries to retrieve for the pagination(default: 500).                                                                                         |
+| --limit                     | Define the number of entries to retrieve for the pagination (default: 500).                                                                                         |
 | --unknown-execution-status  | Set unknown threshold for last job execution status. You can use the following variables: %{status}, %{jobName}                                                    |
 | --warning-execution-status  | Set warning threshold for last job execution status. You can use the following variables: %{status}, %{jobName}                                                    |
 | --critical-execution-status | Set critical threshold for last job execution status (default: %{status} =~ /Failure/i). You can use the following variables: %{status}, %{jobName}                |
