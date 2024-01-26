@@ -519,7 +519,11 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Vm-Thinprovisioning-Global" label="Vm-Thinprovisioning-Global">
 
-Coming soon
+| Metric name                         | Unit                                   |
+|-------------------------------------|----------------------------------------|
+| VM Connection State                 | N/A      							|
+| Thin Provisioning Status of VMs     | N/A            						|
+| VM Power State                      | N/A            						|
 
 </TabItem>
 <TabItem value="Vm-Tools-Global" label="Vm-Tools-Global">
@@ -1049,36 +1053,36 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 | CRITICALADAPTERSTOTAL   | Thresholds                                                                                                                                                                                         |                                         |             |
 | WARNINGADAPTERSUNKNOWN  | Thresholds                                                                                                                                                                                         |                                         |             |
 | CRITICALADAPTERSUNKNOWN | Thresholds                                                                                                                                                                                         |                                         |             |
-| WARNINGLUNSDEGRADED     |                                                                                                                                                                                                    |                                         |             |
-| CRITICALLUNSDEGRADED    |                                                                                                                                                                                                    |                                         |             |
-| WARNINGLUNSERROR        |                                                                                                                                                                                                    |                                         |             |
-| CRITICALLUNSERROR       |                                                                                                                                                                                                    |                                         |             |
-| WARNINGLUNSOFF          |                                                                                                                                                                                                    |                                         |             |
-| CRITICALLUNSOFF         |                                                                                                                                                                                                    |                                         |             |
-| WARNINGLUNSOK           |                                                                                                                                                                                                    |                                         |             |
-| CRITICALLUNSOK          |                                                                                                                                                                                                    |                                         |             |
-| WARNINGLUNSQUIESCED     |                                                                                                                                                                                                    |                                         |             |
-| CRITICALLUNSQUIESCED    |                                                                                                                                                                                                    |                                         |             |
+| WARNINGLUNSDEGRADED     | Set warning threshold for the count of LUNs in a degraded state.                                                                                                                                                                                                   |                                         |             |
+| CRITICALLUNSDEGRADED    | Set critical threshold for the count of LUNs in a degraded state.                                                                                                                                                                                                   |                                         |             |
+| WARNINGLUNSERROR        | Set warning threshold for the count of LUNs in an error state.                                                                                                                                                                                                   |                                         |             |
+| CRITICALLUNSERROR       | Set critical threshold for the count of LUNs in an error state.                                                                                                                                                                                                   |                                         |             |
+| WARNINGLUNSOFF          | Set warning threshold for the count of LUNs that are offline.                                                                                                                                                                                                   |                                         |             |
+| CRITICALLUNSOFF         | Set critical threshold for the count of LUNs that are offline.                                                                                                                                                                                                   |                                         |             |
+| WARNINGLUNSOK           | Set warning threshold for the count of LUNs that are operational.                                                                                                                                                                                                   |                                         |             |
+| CRITICALLUNSOK          | Set critical threshold for the count of LUNs that are operational.                                                                                                                                                                                                   |                                         |             |
+| WARNINGLUNSQUIESCED     | Set warning threshold for the count of LUNs that are in a quiesced state.                                                                                                                                                                                                   |                                         |             |
+| CRITICALLUNSQUIESCED    | Set critical threshold for the count of LUNs that are in a quiesced state.                                                                                                                                                                                                   |                                         |             |
 | WARNINGLUNSTATUS        | Set warning threshold for lun status (Default: '%{status} =~ /degraded\|quiesced/'). You can use the following variables: %{name}, %{host}, %{status}                                              | %{status} =~ /degraded\|quiesced/       |             |
 | CRITICALLUNSTATUS       | Set critical threshold for lun status (Default: '%{status} =~ /lostcommunication\|error/'). You can use the following variables: %{name}, %{host}, %{status}                                       | %{status} =~ /lostcommunication\|error/ |             |
-| WARNINGLUNSTOTAL        |                                                                                                                                                                                                    |                                         |             |
-| CRITICALLUNSTOTAL       |                                                                                                                                                                                                    |                                         |             |
-| WARNINGLUNSUNKNOWN      |                                                                                                                                                                                                    |                                         |             |
-| CRITICALLUNSUNKNOWN     |                                                                                                                                                                                                    |                                         |             |
-| WARNINGPATHSACTIVE      |                                                                                                                                                                                                    |                                         |             |
-| CRITICALPATHSACTIVE     |                                                                                                                                                                                                    |                                         |             |
-| WARNINGPATHSDEAD        |                                                                                                                                                                                                    |                                         |             |
-| CRITICALPATHSDEAD       |                                                                                                                                                                                                    |                                         |             |
-| WARNINGPATHSDISABLED    |                                                                                                                                                                                                    |                                         |             |
-| CRITICALPATHSDISABLED   |                                                                                                                                                                                                    |                                         |             |
-| WARNINGPATHSSTANDBY     |                                                                                                                                                                                                    |                                         |             |
-| CRITICALPATHSSTANDBY    |                                                                                                                                                                                                    |                                         |             |
+| WARNINGLUNSTOTAL        |  Set warning threshold for the total count of LUNs.                                                                                                                                                                                                  |                                         |             |
+| CRITICALLUNSTOTAL       | Set critical threshold for the total count of LUNs.                                                                                                                                                                                                   |                                         |             |
+| WARNINGLUNSUNKNOWN      | Set warning threshold for the count of LUNs with an unknown status.                                                                                                                                                                                                   |                                         |             |
+| CRITICALLUNSUNKNOWN     | Set critical threshold for the count of LUNs with an unknown status.                                                                                                                                                                                                   |                                         |             |
+| WARNINGPATHSACTIVE      | Set warning threshold for the count of active storage paths.                                                                                                                                                                                                   |                                         |             |
+| CRITICALPATHSACTIVE     | Set critical threshold for the count of active storage paths.                                                                                                                                                                                                   |                                         |             |
+| WARNINGPATHSDEAD        | Set warning threshold for the count of dead storage paths.                                                                                                                                                                                                   |                                         |             |
+| CRITICALPATHSDEAD       | Set critical threshold for the count of dead storage paths.                                                                                                                                                                                                   |                                         |             |
+| WARNINGPATHSDISABLED    | Set warning threshold for the count of disabled storage paths.                                                                                                                                                                                                   |                                         |             |
+| CRITICALPATHSDISABLED   | Set critical threshold for the count of disabled storage paths.                                                                                                                                                                                                   |                                         |             |
+| WARNINGPATHSSTANDBY     | Set warning threshold for the count of storage paths in standby mode.                                                                                                                                                                                                   |                                         |             |
+| CRITICALPATHSSTANDBY    | Set critical threshold for the count of storage paths in standby mode.                                                                                                                                                                                                   |                                         |             |
 | CRITICALPATHSTATUS      | Set critical threshold for path status (Default: '%{status} =~ /dead/'). You can use the following variables: %{name}, %{host}, %{status}                                                          | %{status} =~ /dead/                     |             |
 | WARNINGPATHSTATUS       | Set warning threshold for path status. You can use the following variables: %{name}, %{host}, %{status}                                                                                            |                                         |             |
-| WARNINGPATHSTOTAL       |                                                                                                                                                                                                    |                                         |             |
-| CRITICALPATHSTOTAL      |                                                                                                                                                                                                    |                                         |             |
-| WARNINGPATHSUNKNOWN     |                                                                                                                                                                                                    |                                         |             |
-| CRITICALPATHSUNKNOWN    |                                                                                                                                                                                                    |                                         |             |
+| WARNINGPATHSTOTAL       | Set warning threshold for the total count of storage paths.                                                                                                                                                                                                   |                                         |             |
+| CRITICALPATHSTOTAL      | Set critical threshold for the total count of storage paths.                                                                                                                                                                                                   |                                         |             |
+| WARNINGPATHSUNKNOWN     | Set warning threshold for the count of storage paths with an unknown status.                                                                                                                                                                                                   |                                         |             |
+| CRITICALPATHSUNKNOWN    | Set critical threshold for the count of storage paths with an unknown status.                                                                                                                                                                                                   |                                         |             |
 | WARNINGSTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{maintenance}                                                                        |                                         |             |
 | CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{maintenance}                                                                       |                                         |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                | --verbose                               |             |
@@ -1421,6 +1425,42 @@ de commande depuis votre collecteur Centreon en vous connectant avec
 l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
 que le connecteur arrive bien à superviser une ressource en utilisant une commande
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
+
+```bash
+/usr/lib/centreon/plugins/centreon_vmware_connector_client.pl \
+	--plugin=apps::vmware::connector::plugin \
+	--mode=vsan-cluster-usage \
+	--custommode=connector \
+	--connector-hostname='localhost' \
+	--connector-port='5700' \
+	--container='default'  \
+	--cluster-name='.*' \
+	--filter \
+	--warning-backend-read-usage='' \
+	--critical-backend-read-usage='' \
+	--warning-backend-write-usage='' \
+	--critical-backend-write-usage='' \
+	--warning-backend-congestions='' \
+	--critical-backend-congestions='' \
+	--warning-backend-outstanding-io='' \
+	--critical-backend-outstanding-io='' \
+	--warning-backend-throughput-read='' \
+	--critical-backend-throughput-read='' \
+	--warning-backend-throughput-write='' \
+	--critical-backend-throughput-write='' \
+	--warning-backend-latency-read='' \
+	--critical-backend-latency-read='' \
+	--warning-backend-latency-write='' \
+	--critical-backend-latency-write=''
+```
+
+La commande devrait retourner un message de sortie similaire à :
+
+```bash
+OK: All clusters are ok | '*cluster*#cluster.vsan.backend.read.usage.iops'=iops;;;0;'*cluster*#cluster.vsan.backend.write.usage.iops'=iops;;;0;'*cluster*#cluster.vsan.backend.congestions.count'=;;;0;'*cluster*#cluster.vsan.backend.outstanding.io.count'=;;;0;'*cluster*#cluster.vsan.backend.throughput.read.bytespersecond'=B/s;;;0;'*cluster*#cluster.vsan.backend.throughput.write.bytespersecond'=B/s;;;0;'*cluster*#cluster.vsan.backend.latency.read.milliseconds'=ms;;;0;'*cluster*#cluster.vsan.backend.latency.write.milliseconds'=ms;;;0;
+```
+
+Voici un autre exemple :
 
 ```bash
 /usr/lib/centreon/plugins//centreon_vmware_connector_client.pl \
