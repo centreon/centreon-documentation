@@ -1483,7 +1483,7 @@ Here is another example:
     --verbose
 ```
 
-La commande devrait retourner un message de sortie similaire à :
+The expected output is shown below:
 
 ```bash
 CRITICAL: Snapshots for VM older than 432000 seconds: [TLS-LIN-001] | 'num_warning'=0;;;0; 'num_critical'=1;;;0;
@@ -1721,7 +1721,7 @@ All available options for each service template are listed below:
 
 | Option             | Description                                                                                                                                                  |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --datastore-name   | The connector will only take into account alerts coming from the datastores listed here                                                                                                                                       |
+| --datastore-name   | The connector will only take into account alerts coming from the datastores listed here.                                                                                                                                       |
 | --filter           | Datastore name is a regexp.                                                                                                                                  |
 | --scope-datacenter | Search in following datacenter(s) (can be a regexp).                                                                                                         |
 | --unknown-status   | Define the conditions to match for the status to be UNKNOWN (Default: '%{accessible} !~ /^true\|1$/i'). You can use the following variables: %{accessible}   |
@@ -1735,7 +1735,7 @@ All available options for each service template are listed below:
 
 | Option                   | Description                                                                                                                                                  |
 |:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --datastore-name         | The connector will only take into account alerts coming from the datastores listed here                                                                                                                                      |
+| --datastore-name         | The connector will only take into account alerts coming from the datastores listed here.                                                                                                                                      |
 | --filter                 | Datastore name is a regexp.                                                                                                                                  |
 | --scope-datacenter       | Search in following datacenter(s) (can be a regexp).                                                                                                         |
 | --detail-iops-min        | Only display VMs with iops higher value (default: 50).                                                                                                       |
@@ -1749,7 +1749,7 @@ All available options for each service template are listed below:
 
 | Option             | Description                                                                                                                                                  |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --datastore-name   | The connector will only take into account alerts coming from the datastores listed here                                                                                                                                     |
+| --datastore-name   | The connector will only take into account alerts coming from the datastores listed here.                                                                                                                                     |
 | --filter           | Datastore name is a regexp.                                                                                                                                  |
 | --scope-datacenter | Search in following datacenter(s) (can be a regexp).                                                                                                         |
 | --unknown-status   | Define the conditions to match for the status to be UNKNOWN (Default: '%{accessible} !~ /^true\|1$/i'). You can use the following variables: %{accessible}   |
@@ -1763,7 +1763,7 @@ All available options for each service template are listed below:
 
 | Option                   | Description                                                                                                                                                  |
 |:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --datastore-name         | The connector will only take into account alerts coming from the datastores listed here                                                                                                                                    |
+| --datastore-name         | The connector will only take into account alerts coming from the datastores listed here.                                                                                                                                   |
 | --filter                 | Datastore name is a regexp.                                                                                                                                  |
 | --scope-datacenter       | Search in following datacenter(s) (can be a regexp).                                                                                                         |
 | --filter-host            | Filter datastores attached to hosts (can be a regexp).                                                                                                       |
@@ -1778,7 +1778,7 @@ All available options for each service template are listed below:
 
 | Option             | Description                                                                                                                                                  |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --datastore-name   | The connector will only take into account alerts coming from the datastores listed here                                                                                                                                     |
+| --datastore-name   | The connector will only take into account alerts coming from the datastores listed here.                                                                                                                                     |
 | --filter           | Datastore name is a regexp.                                                                                                                                  |
 | --scope-datacenter | Search in following datacenter(s) (can be a regexp).                                                                                                         |
 | --unknown-status   | Define the conditions to match for the status to be UNKNOWN (Default: '%{accessible} !~ /^true\|1$/i'). You can use the following variables: %{accessible}   |
