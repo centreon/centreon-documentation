@@ -94,23 +94,23 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP
 
-SNMP must be configured on each poller being monitored. You can refer to this [documentation](operatingsystems-linux-snmp.md#prerequisites) describing how to set up a quick SNMP configuration.
+SNMP must be configured on each poller being monitored. You can refer to [this documentation](operatingsystems-linux-snmp.md#prerequisites) to find out how to set up a quick SNMP configuration.
 
 ### SSH key exchange
 
-One of the check coming along with the pack is performed through SSH, the Central server should be able to connect to each poller being monitored.
+One of the checks included in the pack is performed through SSH. The central server should be able to connect to each poller being monitored.
 
-The Central server performs its checks while being **centreon-engine** user, and will log to the pollers as **centreon** user.
+The central server performs its checks as the **centreon-engine** user, and will log in to the pollers as the **centreon** user.
 
-Follow below steps to exchange the SSH key:
+Follow these steps to exchange the SSH key:
 
-1. From the poller being monitored by the Central server, set a password for the **centreon** user: 
+1. On the poller being monitored by the central server, set a password for the **centreon** user: 
 
 ```
 passwd centreon
 ```
 
-2. From the Central server, create and copy the new **centreon-user's SSH key** on the poller: 
+2. On the central server, create and copy the new **centreon-user**'s SSH key on the poller: 
 
 ```
 su - centreon-engine
