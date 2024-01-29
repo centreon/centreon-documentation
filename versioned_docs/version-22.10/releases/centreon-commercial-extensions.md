@@ -113,6 +113,7 @@ Release date: `July 28, 2023`
 - Allowed elements to be grouped.
 - Fixed an issue making Business Activities' size different between viewer and editor.
 - Fixed an issue that caused server to crash because of duplicated Centreon modules.
+- [UI] You can now freely resize basic geometric shapes.
 
 ### 22.10.7
 
