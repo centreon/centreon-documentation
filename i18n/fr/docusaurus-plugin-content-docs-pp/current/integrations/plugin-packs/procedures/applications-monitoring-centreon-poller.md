@@ -95,23 +95,23 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### SNMP
 
-SNMP doit être configuré sur chaque collecteur supervisé. Vous pouvez vous aider de cette [documentation](operatingsystems-linux-snmp.md#prerequis) pour mettre en place rapidement une simple configuration SNMP. 
+SNMP doit être configuré sur chaque collecteur supervisé. Vous pouvez vous aider de [cette documentation](operatingsystems-linux-snmp.md#prerequis) pour mettre en place rapidement une configuration SNMP simple. 
 
-### Echange de clef SSH
+### Échange de clef SSH
 
-Un des services accompagnant le pack dispose d'une vérification réalisée à l'aide de SSH. Le serveur Central doit pouvoir se connecter à tous les collecteurs supervisés. 
+Un des services accompagnant le pack dispose d'une vérification réalisée à l'aide de SSH. Le serveur central doit pouvoir se connecter à tous les collecteurs supervisés. 
 
-Le serveur Central réalise ses vérifications en tant qu'utilisateur système **centreon-engine**, et se connectera en SSH au collecteur avec l'utilisateur **centreon**.
+Le serveur central réalise ses vérifications en tant qu'utilisateur système **centreon-engine**, et se connectera en SSH au collecteur avec l'utilisateur **centreon**.
 
-Les étapes ci-dessous décrivent l'échange de clef SSH entre le Central et le collecteur : 
+Les étapes ci-dessous décrivent l'échange de clef SSH entre le central et le collecteur : 
 
-1. Depuis le collecteur supervisé par le Central, paramétrer un mot de passe pour l'utilisateur **centreon** :
+1. Depuis le collecteur supervisé par le central, paramétrer un mot de passe pour l'utilisateur **centreon** :
 
 ```
 passwd centreon
 ```
 
-2. Depuis le Central, créer et copier la nouvelle clef SSH de l'utilisateur **centreon-engine** vers le collecteur : 
+2. Depuis le central, créer et copier la nouvelle clef SSH de l'utilisateur **centreon-engine** vers le collecteur : 
 
 ```
 su - centreon-engine
