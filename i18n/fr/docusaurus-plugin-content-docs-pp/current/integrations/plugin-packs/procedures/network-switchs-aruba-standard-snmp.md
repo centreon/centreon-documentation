@@ -49,9 +49,9 @@ Le connecteur apporte les modèles de service suivants
 | Hardware-Fan               | Net-Aruba-Standard-Hardware-Fan-SNMP-custom               | Contrôle les ventilateurs de l'équipement                                  |            |
 | Hardware-Module            | Net-Aruba-Standard-Hardware-Module-SNMP-custom            | Contrôle les modules de l'équipement                                       |            |
 | Hardware-Psu               | Net-Aruba-Standard-Hardware-Psu-SNMP-custom               | Contrôle les alimentations de l'équipement                                 |            |
-| Packet-Errors-Generic-Id   | Net-Aruba-Standard-Packet-Errors-Generic-Id-SNMP-custom   | Contrôle le pourcentage de paquets en erreur/écarté d'une interface réseau |            |
-| Packet-Errors-Generic-Name | Net-Aruba-Standard-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écarté d'une interface réseau |            |
-| Packet-Errors-Global       | Net-Aruba-Standard-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écarté d'une interface réseau | X          |
+| Packet-Errors-Generic-Id   | Net-Aruba-Standard-Packet-Errors-Generic-Id-SNMP-custom   | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau |            |
+| Packet-Errors-Generic-Name | Net-Aruba-Standard-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau |            |
+| Packet-Errors-Global       | Net-Aruba-Standard-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau | X          |
 | Traffic-Generic-Id         | Net-Aruba-Standard-Traffic-Generic-Id-SNMP-custom         | Contrôle le traffic réseau d'une interface réseau                          |            |
 | Traffic-Generic-Name       | Net-Aruba-Standard-Traffic-Generic-Name-SNMP-custom       | Contrôle le traffic réseau d'une interface réseau                          |            |
 | Traffic-Global             | Net-Aruba-Standard-Traffic-Global-SNMP-custom             | Contrôle le traffic réseau d'une interface réseau                          | X          |
@@ -69,7 +69,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle     | Description                                                |
 |:--------------------|:-----------------------------------------------------------|
-| Aruba Access Points | Discover Aruba Access Points throught the Aruba Controller |
+| Aruba Access Points | Discover Aruba Access Points through the Aruba Controller |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 

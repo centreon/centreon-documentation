@@ -68,7 +68,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name           | Description                                                |
 |:--------------------|:-----------------------------------------------------------|
-| Aruba Access Points | Discover Aruba Access Points throught the Aruba Controller |
+| Aruba Access Points | Discover Aruba Access Points through the Aruba Controller |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
