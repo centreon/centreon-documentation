@@ -850,7 +850,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --swap          | Check swap also.                                      |
 | --warning-swap  | Warning threshold in percent.                         |
 | --critical-swap | Critical threshold in percent.                        |
-| --no-swap       | Threshold if no active swap (default: 'critical').    |
+| --no-swap       | Status if no active swap (default: 'critical').    |
 
 </TabItem>
 <TabItem value="Memory-Detailed" label="Memory-Detailed">
