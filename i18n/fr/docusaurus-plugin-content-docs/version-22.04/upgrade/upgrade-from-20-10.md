@@ -35,6 +35,12 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 > Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation.md#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
 
+## Mise à jour de la version mineure
+
+1. Sur votre plateforme 20.10, remplacez `https://packages.centreon.com/rpm-standard` ou `https://yum.centreon.com/standard/` par `https://archives.centreon.com/standard/` dans votre configuration YUM (par défaut, `/etc/yum.repos.d/centreon.repo`).
+
+2. Mettez à jour votre Centreon 20.10 jusqu'à la dernière version mineure.
+
 ## Montée de version du serveur Centreon Central
 
 > Depuis la version 21.04, Centreon utilise **MariaDB 10.5**.
@@ -47,6 +53,12 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 ### Mise à jour des dépôts
 
 Il est nécessaire de mettre à jour le dépôt Centreon.
+
+Supprimez le fichier **centreon.repo** :
+
+   ```shell
+   rm /etc/yum.repos.d/centreon.repo
+   ```
 
 Exécutez la commande suivante :
 

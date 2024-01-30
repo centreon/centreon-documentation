@@ -111,6 +111,7 @@ Release date: `July 28, 2023`
 - Allowed elements to be grouped.
 - Fixed an issue making Business Activities' size different between viewer and editor.
 - Fixed an issue that caused server to crash because of duplicated Centreon modules.
+- [UI] You can now freely resize basic geometric shapes.
 
 ### 22.10.7
 
@@ -406,6 +407,14 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon MBI
+
+### 22.10.8
+
+Release date: `January 18, 2024`
+
+#### Bug fixes
+
+- [Reports] Fixed an issue that prevented reports to be sent by email with Office 365.
 
 ### 22.10.7
 

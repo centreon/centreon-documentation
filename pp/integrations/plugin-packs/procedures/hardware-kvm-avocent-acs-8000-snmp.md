@@ -1,398 +1,364 @@
 ---
-id: network-extreme-snmp
-title: Extreme Network
+id: hardware-kvm-avocent-acs-8000-snmp
+title: Avocent ACS 8000
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Contenu du pack
+## Pack assets
 
-### Modèles
+### Templates
 
-Le connecteur de supervision **Extreme Network** apporte un modèle d'hôte :
+The Monitoring Connector **Avocent ACS 8000** brings a host template:
 
-* **Net-Extreme-SNMP-custom**
+* **HW-Kvm-Avocent-Acs-8000-SNMP-custom**
 
-Le connecteur apporte les modèles de service suivants
-(classés selon le modèle d'hôte auquel ils sont rattachés) :
+The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="Net-Extreme-SNMP-custom" label="Net-Extreme-SNMP-custom">
+<TabItem value="HW-Kvm-Avocent-Acs-8000-SNMP-custom" label="HW-Kvm-Avocent-Acs-8000-SNMP-custom">
 
-| Alias           | Modèle de service                       | Description                                         |
-|:----------------|:----------------------------------------|:----------------------------------------------------|
-| Cpu             | Net-Extreme-Cpu-SNMP-custom             | Contrôle du taux d'utilisation du CPU de la machine. |
-| Hardware-Global | Net-Extreme-Hardware-Global-SNMP-custom | Contrôle le matériel.                                |
-| Memory          | Net-Extreme-Memory-SNMP-custom          | Contrôle du taux d'utilisation des mémoires.         |
+| Service Alias   | Service Template                                    | Service Description                                           |
+|:----------------|:----------------------------------------------------|:--------------------------------------------------------------|
+| Cpu-Detailed    | HW-Kvm-Avocent-Acs-8000-Cpu-Detailed-SNMP-custom    | Check the detailed rate of utilization of CPU for the machine |
+| Hardware-Global | HW-Kvm-Avocent-Acs-8000-Hardware-Global-SNMP-custom | Check  hardware                                               |
+| Load            | HW-Kvm-Avocent-Acs-8000-Load-SNMP-custom            | Check the server load average                                 |
+| Memory          | HW-Kvm-Avocent-Acs-8000-Memory-SNMP-custom          | Check the rate of the utilization of memory                   |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Extreme-SNMP-custom** est utilisé.
+> The services listed above are created automatically when the **HW-Kvm-Avocent-Acs-8000-SNMP-custom** host template is used.
 
 </TabItem>
-<TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
+<TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Alias                | Modèle de service                            | Description                                               | Découverte |
-|:---------------------|:---------------------------------------------|:----------------------------------------------------------|:----------:|
-| Stack                | Net-Extreme-Stack-SNMP-custom                | Contrôle du statut de la stack.                            |            |
-| Traffic-Generic-Id   | Net-Extreme-Traffic-Generic-Id-SNMP-custom   | Contrôle le traffic réseau d'une interface réseau.         |            |
-| Traffic-Generic-Name | Net-Extreme-Traffic-Generic-Name-SNMP-custom | Contrôle le traffic réseau d'une interface réseau.         |            |
-| Traffic-Global       | Net-Extreme-Traffic-Global-SNMP-custom       | Contrôle le traffic réseau de plusieurs interfaces réseau. | X          |
+| Service Alias | Service Template                                 | Service Description |
+|:--------------|:-------------------------------------------------|:--------------------|
+| Serial-Ports  | HW-Kvm-Avocent-Acs-8000-Serial-Ports-SNMP-custom | Monitors the statuses and the traffic of the serial ports. |
 
-> Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
-
-> Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
+> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
 </TabItem>
 </Tabs>
 
-### Règles de découverte
+### Discovery rules
 
-#### Découverte d'hôtes
+#### Host discovery
 
-| Nom de la règle | Description                                                                                                                                                                                                                                     |
-|:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Extreme-SNMP-custom** host template |
+| Rule name       | Description                                                                                                                                                                                                                                                 |
+|:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **HW-Kvm-Avocent-Acs-8000-SNMP-custom** host template |
 
-Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
+More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
-#### Découverte de service
+### Collected metrics & status
 
-| Nom de la règle               | Description                                                   |
-|:------------------------------|:--------------------------------------------------------------|
-| Net-Extreme-SNMP-Traffic-Name | Discover network interfaces and monitor bandwidth utilization |
-
-Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
-pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
-
-### Métriques & statuts collectés
-
-Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
+Here is the list of services for this connector, detailing all metrics linked to each service.
 
 <Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<TabItem value="Cpu-Detailed" label="Cpu-Detailed">
 
-| Métrique     | Unité |
-|:-------------|:------|
-| total        | %     |
-| *cpu*#5secs  | %     |
-| *cpu*#10secs | %     |
-| *cpu*#30secs | %     |
-| *cpu*#1min   | %     |
-| *cpu*#5min   | %     |
+| Metric name                          | Unit  |
+|:-------------------------------------|:------|
+| cpu.user.utilization.percentage      | %     |
+| cpu.nice.utilization.percentage      | %     |
+| cpu.system.utilization.percentage    | %     |
+| cpu.idle.utilization.percentage      | %     |
+| cpu.wait.utilization.percentage      | %     |
+| cpu.kernel.utilization.percentage    | %     |
+| cpu.interrupt.utilization.percentage | %     |
+| cpu.softirq.utilization.percentage   | %     |
+| cpu.steal.utilization.percentage     | %     |
+| cpu.guest.utilization.percentage     | %     |
+| cpu.guestnice.utilization.percentage | %     |
 
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Metric name         | Unit      |
-|:--------------------|:----------|
-| fan.status          | N/A       |
-| psu.status          | N/A       |
-| slot.status         | N/A       |
-| temperature.value   | Celsius   |
-| poe.status          | N/A       |
+| Metric name             | Unit |
+|:------------------------|:------|
+| hardware.psu.count      | count |
+
+</TabItem>
+<TabItem value="Load" label="Load">
+
+| Metric name            | Unit  |
+|:-----------------------|:------|
+| load.1m.average.count  | count |
+| load.5m.average.count  | count |
+| load.15m.average.count | count |
+| load.1m.count          | count |
+| load.5m.count          | count |
+| load.15m.count         | count |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Métrique      | Unité |
-|:--------------|:------|
-| *memory*#used | B     |
+| Metric name             | Unit  |
+|:------------------------|:------|
+| memory.usage.bytes      | B     |
+| memory.free.bytes       | B     |
+| memory.usage.percentage | %     |
+| memory.buffer.bytes     | B     |
+| memory.cached.bytes     | B     |
+| memory.shared.bytes     | B     |
+| swap.usage.bytes        | B     |
+| swap.free.bytes         | B     |
+| swap.usage.percentage   | %     |
 
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
-<TabItem value="Stack" label="Stack">
+<TabItem value="Serial-Ports" label="Serial-Ports">
 
-| Métrique                    | Unité |
-|:----------------------------|:------|
-| *member*~member-status      | N/A   |
-| *member*~*port*#port-status | N/A   |
-
-</TabItem>
-<TabItem value="Traffic-*" label="Traffic-*">
-
-| Métrique                                             | Unité |
-|:-----------------------------------------------------|:------|
-| *interface_name*#status                              | N/A   |
-| *interface_name*#interface.traffic.in.bitspersecond  | b/s   |
-| *interface_name*#interface.traffic.out.bitspersecond | b/s   |
-
-> Concerne les modèles de service suivants : Traffic-Generic-Id, Traffic-Generic-Name, Traffic-Global
+| Metric name                                    | Unit  |
+|:-----------------------------------------------|:------|
+| *serials*#status                               | N/A   |
+| *serials*#serialport.traffic.in.bitspersecond  | b/s   |
+| *serials*#serialport.traffic.out.bitspersecond | b/s   |
 
 </TabItem>
 </Tabs>
 
-## Prérequis
+## Prerequisites
 
-### Configuration SNMP
+### SNMP Configuration
 
-Le service SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+The SNMP service must be configured and activated on the host. Please refer to the official documentation from the constructor/editor.
 
-### Flux réseau
+### Network flow
 
-La communication doit être possible sur le port UDP 161 depuis le collecteur
-Centreon vers la ressource supervisée.
+The target resource must be reachable from the Centreon poller on the UDP/161
+SNMP port.
 
-## Installer le connecteur de supervision
+## Installing the monitoring connector
 
 ### Pack
 
-1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
-Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
-sur le **serveur central** via la commande correspondant au gestionnaire de paquets
-associé à sa distribution :
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Monitoring Connector Manager** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-network-extreme-snmp
+dnf install centreon-pack-hardware-kvm-avocent-acs-8000-snmp
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-network-extreme-snmp
+dnf install centreon-pack-hardware-kvm-avocent-acs-8000-snmp
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-pack-network-extreme-snmp
+apt install centreon-pack-hardware-kvm-avocent-acs-8000-snmp
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-network-extreme-snmp
+yum install centreon-pack-hardware-kvm-avocent-acs-8000-snmp
 ```
 
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Extreme Network**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+2. Whatever the license type (*online* or *offline*), install the **Avocent ACS 8000** connector through
+the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin
 
-À partir de Centreon 22.04, il est possible de demander le déploiement automatique
-du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
-que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
-étape n'est pas requise.
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
 
-> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
 
-Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Network-Extreme-Snmp
+dnf install centreon-plugin-Hardware-Kvm-Avocent-Acs-8000-Snmp
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-Network-Extreme-Snmp
+dnf install centreon-plugin-Hardware-Kvm-Avocent-Acs-8000-Snmp
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-plugin-network-extreme-snmp
+apt install centreon-plugin-hardware-kvm-avocent-acs-8000-snmp
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-plugin-Network-Extreme-Snmp
+yum install centreon-plugin-Hardware-Kvm-Avocent-Acs-8000-Snmp
 ```
 
 </TabItem>
 </Tabs>
 
-## Utiliser le connecteur de supervision
+## Using the monitoring connector
 
-### Utiliser un modèle d'hôte issu du connecteur
+### Using a host template provided by the connector
 
-1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
-2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
-3. Appliquez le modèle d'hôte **Net-Extreme-SNMP-custom**.
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
+3. Apply the **HW-Kvm-Avocent-Acs-8000-SNMP-custom** template to the host. 
 
-> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
+> When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
+> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
-| Macro            | Description                                                                                          | Valeur par défaut | Obligatoire |
+| Macro            | Description                                                                                          | Default value     | Mandatory   |
 |:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
-4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
+4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
-### Utiliser un modèle de service issu du connecteur
+### Using a service template provided by the connector
 
-1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
-2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<TabItem value="Cpu-Detailed" label="Cpu-Detailed">
 
-| Macro         | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:--------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CRITICALTOTAL | Critical threshold                                                                                 | 95                |             |
-| WARNINGTOTAL  | Warning threshold                                                                                  | 90                |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+| Macro        | Description                                                                                        | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGIDLE  | Warning threshold in percent                                                                       | 20:               |             |
+| CRITICALIDLE | Critical threshold in percent                                                                      | 10:               |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
+| Macro        | Description                                                                                        | Default value     | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'fan', 'psu', 'slot', 'temperature', 'poe'       | .*                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+| COMPONENT    | Define which component to check (default: '.*'). Can be: 'psu'                                            | .*                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+
+</TabItem>
+<TabItem value="Load" label="Load">
+
+| Macro        | Description                                                                                        | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold (1min,5min,15min)                                                                | 4,3,2             |             |
+| CRITICAL     | Critical threshold (1min,5min,15min)                                                               | 6,5,4             |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro         | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:--------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CRITICALUSAGE | Critical threshold (in percent)                                                                    | 90                |             |
-| WARNINGUSAGE  | Warning threshold (in percent)                                                                     | 80                |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
-
-</TabItem>
-<TabItem value="Stack" label="Stack">
-
-| Macro                | Description                                                                                                                                                                          | Valeur par défaut                               | Obligatoire |
-|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------|:-----------:|
-| UNKNOWNMEMBERSTATUS  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{role}, %{roleLast}                                                 |                                                 |             |
-| UNKNOWNPORTSTATUS    | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{link\_status}, %{display}                                          |                                                 |             |
-| WARNINGMEMBERSTATUS  | Define the conditions to match for the status to be WARNING (default: '%{status} eq "mismatch"'). You can use the following variables: %{role}, %{roleLast}                          | %{status} eq "mismatch"                         |             |
-| CRITICALMEMBERSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{role} ne %{roleLast} \|\| %{status} eq "down"'). You can use the following variables: %{role}, %{roleLast} | %{role} ne %{roleLast} \|\| %{status} eq "down" |             |
-| CRITICALPORTSTATUS   | Define the conditions to match for the status to be CRITICAL (default: '%{link\_status} ne "up"'). You can use the following variables: %{link\_status}, %{display}                  | %{link\_status} ne "up"                         |             |
-| WARNINGPORTSTATUS    | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{link\_status}, %{display}                                          |                                                 |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                   | --verbose                                       |             |
-
-</TabItem>
-<TabItem value="Traffic-Generic-Id" label="Traffic-Generic-Id">
-
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
+| Macro        | Description                                                                                        | Default value     | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACEID  | Define which interfaces to check (number expected). Example: 1,2... (empty means 'check all interfaces')          |                   |             |
-| CRITICALIN   | Thresholds                                                                                         | 90                |             |
-| WARNINGIN    | Thresholds                                                                                         | 80                |             |
-| CRITICALOUT  | Thresholds                                                                                         | 90                |             |
-| WARNINGOUT   | Thresholds                                                                                         | 80                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| WARNING      | Thresholds                                                                                         | 80                |             |
+| CRITICAL     | Thresholds                                                                                         | 90                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
-<TabItem value="Traffic-Generic-Name" label="Traffic-Generic-Name">
+<TabItem value="Serial-Ports" label="Serial-Ports">
 
-| Macro         | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:--------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACENAME | Define which interfaces to check (number expected). Example: 1,2... (empty means 'check all interfaces')          |                   |             |
-| CRITICALIN    | Thresholds                                                                                         | 90                |             |
-| WARNINGIN     | Thresholds                                                                                         | 80                |             |
-| CRITICALOUT   | Thresholds                                                                                         | 90                |             |
-| WARNINGOUT    | Thresholds                                                                                         | 80                |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
-
-</TabItem>
-<TabItem value="Traffic-Global" label="Traffic-Global">
-
-| Macro          | Description                                                                                                                                                                                                         | Valeur par défaut | Obligatoire |
-|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER         | Define which interfaces to check (number expected). Example: 1,2... (empty means 'check all interfaces')                                                                                                                            | .*                |             |
-| CRITICALIN     | Thresholds                                                                                                                                                                                                          | 90                |             |
-| WARNINGIN      | Thresholds                                                                                                                                                                                                          | 80                |             |
-| CRITICALOUT    | Thresholds                                                                                                                                                                                                          | 90                |             |
-| WARNINGOUT     | Thresholds                                                                                                                                                                                                          | 80                |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                  | --verbose         |             |
+| Macro              | Description                                                                                                              | Default value     | Mandatory   |
+|:-------------------|:-------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERNAME         | Filter by serial port name (can be a regexp).                                                                           | .*                |             |
+| UNKNOWNSTATUS      | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{display}  |                   |             |
+| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{display}  |                   |             |
+| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{display} |                   |             |
+| WARNINGTRAFFICIN   | Thresholds                                                                                                               |                   |             |
+| CRITICALTRAFFICOUT | Thresholds                                                                                                               |                   |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                       |                   |             |
 
 </TabItem>
 </Tabs>
 
-3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
-## Comment puis-je tester le plugin et que signifient les options des commandes ?
+## How to check in the CLI that the configuration is OK and what are the main options for?
 
-Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
-de commande depuis votre collecteur Centreon en vous connectant avec
-l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
-que le connecteur arrive bien à superviser une ressource en utilisant une commande
-telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
+is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
-/usr/lib/centreon/plugins/centreon_extreme.pl \
-	--plugin=network::extreme::snmp::plugin \
-	--mode=interfaces \
-	--hostname=10.0.0.1 \
+/usr/lib/centreon/plugins/centreon_kvm_avocent_8000.pl \
+	--plugin=hardware::kvm::avocent::acs::8000::snmp::plugin \
+	--mode=serial-ports \
+	--hostname='10.0.0.1' \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
-	--interface='.*' \
-	--name \
-	--add-status \
-	--add-traffic \
+	--filter-name='.*' \
+	--unknown-status='' \
+	--warning-status='' \
 	--critical-status='' \
-	--warning-in-traffic='80' \
-	--critical-in-traffic='90' \
-	--warning-out-traffic='80' \
-	--critical-out-traffic='90' \
-	--verbose
+	--warning-traffic-in='' \
+	--critical-traffic-in='' \
+	--warning-traffic-out='' \
+	--critical-traffic-out='' 
 ```
 
-La commande devrait retourner un message de sortie similaire à :
+The expected command output is shown below:
 
 ```bash
-OK: All interfaces are ok | '*interface_name*#status'=;;;;'*interface_name*#interface.traffic.in.bitspersecond'=b/s;;;;'*interface_name*#interface.traffic.out.bitspersecond'=b/s;;;;
+OK: All serial ports are ok | '*serials*#status'=;;;;'*serials*#serialport.traffic.in.bitspersecond'=b/s;;;0;'*serials*#serialport.traffic.out.bitspersecond'=b/s;;;0;
 ```
 
-### Diagnostic des erreurs communes
+### Troubleshooting
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
-pour le diagnostic des erreurs communes des plugins Centreon.
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
+for Centreon Plugins typical issues.
 
-### Modes disponibles
+### Available modes
 
-Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution
-du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
-implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
-modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the 
+connector in your terminal.
 
-Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
-`--list-mode` à la commande :
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_extreme.pl \
-	--plugin=network::extreme::snmp::plugin \
+/usr/lib/centreon/plugins/centreon_kvm_avocent_8000.pl \
+	--plugin=hardware::kvm::avocent::acs::8000::snmp::plugin \
 	--list-mode
 ```
 
-Le plugin apporte les modes suivants :
+The plugin brings the following modes:
 
-| Mode                                                                                                                         | Modèle de service associé                                                                                                                |
-|:-----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|
-| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/extreme/snmp/mode/cpu.pm)]                 | Net-Extreme-Cpu-SNMP-custom                                                                                                              |
-| hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/extreme/snmp/mode/hardware.pm)]       | Net-Extreme-Hardware-Global-SNMP-custom                                                                                                  |
-| interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/extreme/snmp/mode/interfaces.pm)]   | Net-Extreme-Traffic-Generic-Id-SNMP-custom<br />Net-Extreme-Traffic-Generic-Name-SNMP-custom<br />Net-Extreme-Traffic-Global-SNMP-custom |
-| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)] | Used for service discovery                                                                                                               |
-| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/extreme/snmp/mode/memory.pm)]           | Net-Extreme-Memory-SNMP-custom                                                                                                           |
-| stack [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/extreme/snmp/mode/stack.pm)]             | Net-Extreme-Stack-SNMP-custom                                                                                                            |
+| Mode                                                                                                                                        | Linked service template                             |
+|:--------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------|
+| cpu-detailed [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/cpudetailed.pm)]                      | HW-Kvm-Avocent-Acs-8000-Cpu-Detailed-SNMP-custom    |
+| hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/kvm/avocent/acs/8000/snmp/mode/hardware.pm)]        | HW-Kvm-Avocent-Acs-8000-Hardware-Global-SNMP-custom |
+| load [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/loadaverage.pm)]                              | HW-Kvm-Avocent-Acs-8000-Load-SNMP-custom            |
+| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/memory.pm)]                                 | HW-Kvm-Avocent-Acs-8000-Memory-SNMP-custom          |
+| serial-ports [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/kvm/avocent/acs/8000/snmp/mode/serialports.pm)] | HW-Kvm-Avocent-Acs-8000-Serial-Ports-SNMP-custom    |
 
-### Options disponibles
+### Available options
 
-#### Options génériques
+#### Generic options
 
-Les options génériques sont listées ci-dessous :
+All generic options are listed here:
 
 | Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -404,8 +370,8 @@ Les options génériques sont listées ci-dessous :
 | --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --filter-perfdata                          | Only keep perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --filter-perfdata-adv                      | Filter perfdata based on an "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-perfdata                          | Keep only perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
@@ -423,7 +389,7 @@ Les options génériques sont listées ci-dessous :
 | --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --source-encoding                          | Define the character encoding of the response sent by the monitored resource. Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --hostname                                 | Name or address of the host to monitor (mandatory).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --snmp-community                           | SNMP community (default value: public). It is recommended to use a read-only community.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --snmp-version                             | Version of the SNMP protocol. 1 for SNMP v1 (default), 2 for SNMP v2c, 3 for SNMP v3.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
@@ -450,42 +416,63 @@ Les options génériques sont listées ci-dessous :
 | --snmp-tls-their-hostname                  | Common Name (CN) expected in the certificate sent by the host if it differs from the value of the --hostname parameter.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --snmp-tls-trust-cert                      | A trusted CA certificate used to verify a remote host's certificate. If you use this option, you must also define --snmp-tls-their-hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 
-#### Options des modes
+#### Modes options
 
-Les options disponibles pour chaque modèle de services sont listées ci-dessous :
+All available options for each service template are listed below:
 
 <Tabs groupId="sync">
-<TabItem value="Cpu" label="Cpu">
+<TabItem value="Cpu-Detailed" label="Cpu-Detailed">
 
-| Option            | Description                                                                                    |
-|:------------------|:-----------------------------------------------------------------------------------------------|
-| --filter-counters | Only display some counters (regexp can be used). Example: --filter-counters='^(1min\|5min)$'   |
-| --warning-*       | Warning threshold. Can be: 'total', '5secs', '10secs', '30secs', '1min', '5min'.               |
-| --critical-*      | Critical threshold. Can be: 'total', '5secs', '10secs', '30secs', '1min', '5min'.              |
+| Option                 | Description                                                                                                                                                                                                                                   |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --memcached            | Memcached server to use (only one server).                                                                                                                                                                                                    |
+| --redis-server         | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
+| --redis-attribute      | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
+| --redis-db             | Set Redis database index.                                                                                                                                                                                                                     |
+| --failback-file        | Failback on a local file if Redis connection fails.                                                                                                                                                                                           |
+| --memexpiration        | Time to keep data in seconds (default: 86400).                                                                                                                                                                                                |
+| --statefile-dir        | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
+| --statefile-suffix     | Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                |
+| --statefile-concat-cwd | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
+| --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
+| --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
+| --statefile-cipher     | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
+| --warning-*            | Warning threshold in percent. Can be: 'user', 'nice', 'system', 'idle', 'wait', 'kernel', 'interrupt', 'softirq', 'steal', 'guest', 'guestnice'.                                                                                              |
+| --critical-*           | Critical threshold in percent. Can be: 'user', 'nice', 'system', 'idle', 'wait', 'kernel', 'interrupt', 'softirq', 'steal', 'guest', 'guestnice'.                                                                                             |
 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Option               | Description                                                                                                                                                                                                                     |
-|:---------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --component          | Which component to check (default: '.*'). Can be: 'fan', 'psu', 'slot', 'temperature', 'poe'.                                                                                                                                   |
-| --filter             | Exclude the items given as a comma-separated list (example: --filter=fan --filter=psu). You can also exclude items from specific instances: --filter=fan,101                                                                    |
-| --absent-problem     | Return an error if an entity is not 'present' (default is skipping) (comma separated list) Can be specific or global: --absent-problem=psu,1                                                                                    |
-| --no-component       | Define the expected status if no components are found (default: critical).                                                                                                                                                      |
-| --threshold-overload | Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='psu,CRITICAL,^(?!(presentOK)$)'   |
-| --warning            | Set warning threshold for 'temperature', 'fan', 'psu.fan', 'psu' (syntax: type,regexp,threshold) Example: --warning='psu.fan,1.1,5000'                                                                                          |
-| --critical           | Set critical threshold for 'temperature', 'fan', 'psu.fan', 'psu' (syntax: type,regexp,threshold) Example: --critical='psu,.*,200'                                                                                              |
+| Option               | Description                                                                                                                                                                                                                         |
+|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --component          | Define which component to check (default: '.*'). Can be: 'psu'.                                                                                                                                                                            |
+| --filter             | Exclude the items given as a comma-separated list (example: --filter=psu). You can also exclude items from specific instances: --filter=psu,1                                                                                       |
+| --absent-problem     | Return an error if an entity is not 'present' (default is skipping) (comma separated list). Can be specific or global: --absent-problem=psu                                                                                          |
+| --no-component       | Define the expected status if no components are found (default: critical).                                                                                                                                                          |
+| --threshold-overload | Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='psu,CRITICAL,^(?!(statePowerOn)$)'    |
+
+</TabItem>
+<TabItem value="Load" label="Load">
+
+| Option     | Description                             |
+|:-----------|:----------------------------------------|
+| --warning  | Warning threshold (1min,5min,15min).    |
+| --critical | Critical threshold (1min,5min,15min).   |
+| --average  | Load average for the number of CPUs.    |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Option           | Description                         |
-|:-----------------|:------------------------------------|
-| --warning-usage  | Warning threshold (in percent).     |
-| --critical-usage | Critical threshold (in percent).    |
+| Option                   | Description                                                                                                                                                                                                                                                                                          |
+|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --units                  | Units of thresholds (default: '%') ('%', 'absolute')(deprecated. Please use new counters directly)                                                                                                                                                                                                   |
+| --free                   | Apply thresholds on free space instead of on used space (deprecated, please use new counters directly).                                                                                                                                                                                                                     |
+| --swap                   | Check swap also.                                                                                                                                                                                                                                                                                     |
+| --warning-* --critical-* | Thresholds. Can be: 'usage' (B), 'usage-free' (B), 'usage-prct' (%), 'swap' (B), 'swap-free' (B), 'swap-prct' (%), 'buffer' (B), 'cached' (B), 'shared' (B).                                                                                                                                         |
+| --patch-redhat           | If using RedHat distribution with net-snmp \>= 5.7.2-43 and net-snmp \< 5.7.2-47. But you should update net-snmp!!!!  This version: used = memTotalReal - memAvailReal // free = memAvailReal  Others versions: used = memTotalReal - memAvailReal - memBuffer - memCached // free = total - used    |
 
 </TabItem>
-<TabItem value="Stack" label="Stack">
+<TabItem value="Serial-Ports" label="Serial-Ports">
 
 | Option                   | Description                                                                                                                                                                                                                                   |
 |:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -501,68 +488,21 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --statefile-format       | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
 | --statefile-key          | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
 | --statefile-cipher       | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
-| --unknown-member-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{role}, %{roleLast}                                                                                                          |
-| --warning-member-status  | Define the conditions to match for the status to be WARNING (default: '%{status} eq "mismatch"'). You can use the following variables: %{role}, %{roleLast}                                                                                   |
-| --critical-member-status | Define the conditions to match for the status to be CRITICAL (default: '%{role} ne %{roleLast} \|\| %{status} eq "down"'). You can use the following variables: %{role}, %{roleLast}                                                          |
-| --unknown-port-status    | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{link\_status}, %{display}                                                                                                   |
-| --warning-port-status    | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{link\_status}, %{display}                                                                                                   |
-| --critical-port-status   | Define the conditions to match for the status to be CRITICAL (default: '%{link\_status} ne "up"'). You can use the following variables: %{link\_status}, %{display}                                                                           |
-
-</TabItem>
-<TabItem value="Traffic-*" label="Traffic-*">
-
-| Option                                          | Description                                                                                                                                                                                                                                                                                                   |
-|:------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --memcached                                     | Memcached server to use (only one server).                                                                                                                                                                                                                                                                    |
-| --redis-server                                  | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                                               |
-| --redis-attribute                               | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                                       |
-| --redis-db                                      | Set Redis database index.                                                                                                                                                                                                                                                                                     |
-| --failback-file                                 | Failback on a local file if Redis connection fails.                                                                                                                                                                                                                                                           |
-| --memexpiration                                 | Time to keep data in seconds (default: 86400).                                                                                                                                                                                                                                                                |
-| --statefile-dir                                 | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                                        |
-| --statefile-suffix                              | Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                                                                                |
-| --statefile-concat-cwd                          | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.                                                                   |
-| --statefile-format                              | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                                         |
-| --statefile-key                                 | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                                                  |
-| --statefile-cipher                              | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                                                                                            |
-| --add-global                                    | Check global port statistics (by default if no --add-* option is set).                                                                                                                                                                                                                                        |
-| --add-status                                    | Check interface status.                                                                                                                                                                                                                                                                                       |
-| --add-duplex-status                             | Check duplex status (with --warning-status and --critical-status).                                                                                                                                                                                                                                            |
-| --add-traffic                                   | Check interface traffic.                                                                                                                                                                                                                                                                                      |
-| --add-errors                                    | Check interface errors.                                                                                                                                                                                                                                                                                       |
-| --add-cast                                      | Check interface cast.                                                                                                                                                                                                                                                                                         |
-| --add-speed                                     | Check interface speed.                                                                                                                                                                                                                                                                                        |
-| --add-volume                                    | Check interface data volume between two checks (not supposed to be graphed, useful for BI reporting).                                                                                                                                                                                                         |
-| --check-metrics                                 | If the expression is true, metrics are checked (default: '%{opstatus} eq "up"').                                                                                                                                                                                                                              |
-| --warning-status                                | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                                                                                                                      |
-| --critical-status                               | Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                                                                                           |
-| --warning-* --critical-*                        | Thresholds. Can be: 'total-port', 'total-admin-up', 'total-admin-down', 'total-oper-up', 'total-oper-down', 'in-traffic', 'out-traffic', 'in-error', 'in-discard', 'out-congdropped', 'out-error', 'out-discard', 'in-ucast', 'in-bcast', 'in-mcast', 'out-ucast', 'out-bcast', 'out-mcast', 'speed' (b/s).   |
-| --units-traffic                                 | Units of thresholds for the traffic (default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                                                                                                                         |
-| --units-errors                                  | Units of thresholds for errors/discards (default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                                             |
-| --units-cast                                    | Units of thresholds for communication types (default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                                         |
-| --nagvis-perfdata                               | Display traffic perfdata to be compatible with nagvis widget.                                                                                                                                                                                                                                                 |
-| --interface                                     | Define which interfaces to check (number expected). Example: 1,2... (empty means 'check all interfaces').                                                                                                                                                                                                                    |
-| --name                                          | Allows you to define the interface (in option --interface) by name instead of OID index. The name matching mode supports regular expressions.                                                                                                                                                                  |
-| --speed                                         | Set interface speed for incoming/outgoing traffic (in Mb).                                                                                                                                                                                                                                                    |
-| --speed-in                                      | Set interface speed for incoming traffic (in Mb).                                                                                                                                                                                                                                                             |
-| --speed-out                                     | Set interface speed for outgoing traffic (in Mb).                                                                                                                                                                                                                                                             |
-| --force-counters32                              | Force to use 32-bit counters (even in snmp v2c and v3). Should be used when 64-bit counters are buggy.                                                                                                                                                                                                      |
-| --reload-cache-time                             | Time in minutes before reloading cache file (default: 180).                                                                                                                                                                                                                                                   |
-| --oid-filter                                    | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                                                   |
-| --oid-display                                   | Define the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                                          |
-| --oid-extra-display                             | Add an OID to display.                                                                                                                                                                                                                                                                                        |
-| --display-transform-src --display-transform-dst | Modify the interface name displayed by using a regular expression.  Example: adding --display-transform-src='eth' --display-transform-dst='ens' will replace all occurrences of 'eth' with 'ens'                                                                                                              |
-| --show-cache                                    | Display cache interface data.                                                                                                                                                                                                                                                                                |
+| --filter-name            | Filter by serial port name (can be a regexp).                                                                                                                                                                                               |
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{display}                                                                                                                       |
+| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{display}                                                                                                                       |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{display}                                                                                                                      |
+| --warning-* --critical-* | Thresholds. Can be: 'traffic-in', 'traffic-out'.                                                                                                                                                                                              |
 
 </TabItem>
 </Tabs>
 
-Pour un mode, la liste de toutes les options disponibles et leur signification peut être
-affichée en ajoutant le paramètre `--help` à la commande :
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_extreme.pl \
-	--plugin=network::extreme::snmp::plugin \
-	--mode=interfaces \
+/usr/lib/centreon/plugins/centreon_kvm_avocent_8000.pl \
+	--plugin=hardware::kvm::avocent::acs::8000::snmp::plugin \
+	--mode=serial-ports \
 	--help
 ```
