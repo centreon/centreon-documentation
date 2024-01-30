@@ -30,7 +30,7 @@ Les commandes peuvent être configurées à la page **Configuration > Commands >
       * Vous pouvez utiliser des [macros](macros.md) (macros d'hôtes ou de services) afin de rendre votre commande plus générique, mais ce n'est pas obligatoire. Le nom de la macro apparaîtra dans le formulaire de configuration de l'hôte ou du service afin que vous puissiez lui attribuer une valeur spécifique pour chaque hôte ou service avec lequel vous l'utiliserez.
 
    * **Description des macros** : saisissez une description pour les macros personnalisées. Cette description sera visible lorsque vous utiliserez la commande dans le formulaire de configuration d'hôte ou de service.
-   * **Connecteurs**: utilisez le **[connecteur Perl](#perl-connector)** ou le **[connecteur SSH](#ssh-connector)** afin de réduire la comsommation de ressources du plugin. Le connecteur Perl peut être utilisé avec toutes les commandes, sauf **ping** et **check_nrpe**.
+   * **Connecteurs**: utilisez le **[connecteur Perl](#perl-connector)** ou le **[connecteur SSH](#ssh-connector)** afin de réduire la comsommation de ressources du plugin. Le connecteur Perl peut être utilisé avec toutes les commandes, sauf **check_icmp** et **check_nrpe**.
    * **Modèle de graphique** : liez la commande à un modèle de graphique.
 
 4. Cliquez sur **Sauvegarder**. La commande apparaît maintenant dans la liste **Commande de vérification** dans les formulaires de configuration de modèles d'hôtes ou de services.
