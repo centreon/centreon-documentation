@@ -187,8 +187,8 @@ https://docs.netgate.com/pfsense/en/latest/services/snmp.html
 
 ### Flux réseaux
 
-La communication doit être possible depuis le collecteur Centreon vers le port
-SNMP (UDP/161) du serveur Kaspersky Security Center.
+La communication doit être possible sur le port UDP 161 depuis le collecteur
+Centreon vers la ressource supervisée.
 
 ## Installer le connecteur de supervision
 
