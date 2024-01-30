@@ -65,7 +65,8 @@ Le serveur CentOS 7 doit être installé.
 Installez le démon Gorgone en utilisant les commandes suivantes :
 
 ```shell
-yum install http://yum.centreon.com/standard/20.04/el7/stable/noarch/RPMS/centreon-release-20.04-1.el7.centos.noarch.rpm
+yum install -y yum-utils
+yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el7/centreon-22.10.repo
 yum install centreon-gorgone
 ```
 

@@ -3,11 +3,6 @@ name: documentation
 on:
   workflow_dispatch:
   pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
-      - closed
   push:
     branches:
       - staging
@@ -31,10 +26,10 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: Get changes
-        uses: dorny/paths-filter@v2
+        uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50 # v2.11.1
         id: changes
         with:
           token: ${{ github.token }}
@@ -63,8 +58,8 @@ jobs:
               - 'versioned_sidebars/**'
 
       - name: Manage versions to build
-        uses: actions/github-script@v6
-        if: ${{ steps.changes.outputs.global == 'false' }}
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+        if: ${{ steps.changes.outputs.global == 'false' && steps.changes.outputs.versions_count < 100 }}
         with:
           script: |
             const available_versions = require('./versions.json');
@@ -127,8 +122,8 @@ jobs:
             core.exportVariable('build_cloud', build_cloud);
 
       - name: Manage versions to build
-        uses: actions/github-script@v6
-        if: ${{ steps.changes.outputs.global == 'true' || (github.ref_name == 'staging' && github.event_name != 'pull_request') }}
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+        if: ${{ steps.changes.outputs.global == 'true' || steps.changes.outputs.versions_count >= 100 || (github.ref_name == 'staging' && github.event_name != 'pull_request') }}
         with:
           script: |
             let build_versions = require('./versions.json');
@@ -145,7 +140,7 @@ jobs:
             core.exportVariable('build_cloud', '1');
 
       - name: Manage versions to build
-        uses: actions/github-script@v6
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
         id: filters
         with:
           script: |
@@ -174,32 +169,29 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: Set up Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@b39b52d1213e96004bfcb1c61a8a6fa8ab84f3e8 # v4.0.1
         with:
           node-version: 20
           cache: yarn
 
       - name: Install dependencies
-        if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
         uses: borales/actions-yarn@v4
         with:
           cmd: install --frozen-lockfile
 
       - name: Build documentation
-        if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
         run: yarn build
         env:
           PP: ${{ matrix.pp }}
           CLOUD: ${{ matrix.cloud }}
           VERSIONS: ${{ matrix.environment == 'staging' && matrix.versions || matrix.next_version }}
-          BASE_URL: ${{ github.event_name == 'pull_request' && format('/centreon-documentation/pr-preview/{0}/pr-{1}', matrix.environment, github.event.pull_request.number) || '' }}
+          BASE_URL: ${{ github.event_name == 'pull_request' && format('/previews/pr-{0}/{1}', github.event.pull_request.number, matrix.environment) || '' }}
 
       - name: Store build in cache
-        if: ${{ github.event_name != 'pull_request' || github.event.action != 'closed' }}
-        uses: actions/cache/save@v3
+        uses: actions/cache/save@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
         with:
           path: "./build"
           key: "${{ github.sha }}-${{ github.run_id }}-build-doc-${{ matrix.environment }}"
@@ -207,7 +199,7 @@ jobs:
   deploy-preview:
     if: ${{ github.event_name == 'pull_request' }}
     needs: [get-versions, build]
-    runs-on: ubuntu-22.04
+    runs-on: [self-hosted, infra]
 
     strategy:
       fail-fast: false
@@ -218,33 +210,39 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: Restore build from cache
-        if: ${{ github.event.action != 'closed' }}
-        uses: actions/cache/restore@v3
+        uses: actions/cache/restore@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
         with:
           path: "./build"
           key: "${{ github.sha }}-${{ github.run_id }}-build-doc-${{ matrix.environment }}"
           fail-on-cache-miss: true
 
-      - name: Reduce media size
-        if: ${{ github.event.action != 'closed' }}
+      - name: Setup awscli
         run: |
-          find ./build -iname \*.mp4 -exec sh -c '> {}' \;
-          find ./build -iname \*.pdf -exec sh -c '> {}' \;
-          find ./build -iname \*.xlsx -exec sh -c '> {}' \;
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          sudo unzip -q awscliv2.zip
+          sudo ./aws/install
+        shell: bash
 
-      - name: Deploy preview
-        uses: rossjrw/pr-preview-action@v1
-        with:
-          source-dir: ./build
-          preview-branch: gh-pages
-          umbrella-dir: pr-preview/${{ matrix.environment }}
-          action: auto
+      - name: Deploy to https://docs-preview-int.centreon.com
+        run: |
+          echo "datetime=$(date '+%Y-%m-%d %H:%M %Z')" >> $GITHUB_ENV
+
+          export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
+          $(aws sts assume-role \
+          --role-arn ${{ secrets.CLOUDFRONT_ROLE_DOC_PRODUCTION }} \
+          --role-session-name InvalidDocCache \
+          --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]" \
+          --output text))
+
+          aws s3 sync --delete build s3://centreon-documentation-preview-pr/previews/pr-${{ github.event.pull_request.number }}/${{ matrix.environment }}/
+
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID_DOC_PREVIEW }} --paths "/previews/pr-${{ github.event.pull_request.number }}/${{ matrix.environment }}/*"
+        shell: bash
 
   comment-preview:
-    if: ${{ github.event_name == 'pull_request' && github.event.action != 'closed' }}
     needs: [get-versions, deploy-preview]
     runs-on: ubuntu-22.04
 
@@ -252,18 +250,17 @@ jobs:
 
     steps:
       - name: Prepare environment variables for comment
-        uses: actions/github-script@v6
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
         with:
           script: |
             const preview_urls = ${{ needs.get-versions.outputs.build_environments }}.map((environment) => {
-              return `:rocket: Deployed preview to https://centreon.github.io/centreon-documentation/pr-preview/${environment}/pr-${{ github.event.pull_request.number }}`;
+              return `:rocket: Deployed preview to https://docs-preview-int.centreon.com/previews/pr-${{ github.event.pull_request.number }}/${environment}/`;
             })
 
             core.exportVariable('datetime', new Date().toUTCString());
             core.exportVariable('preview_urls',preview_urls.join('\n'));
 
       - name: Leave a comment after deployment
-        if: ${{ github.event.action != 'closed' }}
         uses: marocchino/sticky-pull-request-comment@v2
         with:
           header: pr-preview
@@ -274,10 +271,10 @@ jobs:
 
             ${{ env.preview_urls }}
 
-            on branch [`gh-pages`](${{ github.server_url }}/${{ github.repository }}/tree/gh-pages) at ${{ env.datetime }}
+            at ${{ env.datetime }}
 
 
-            > **_NOTE:_**  Deployment can take a few minutes before preview is accessible
+            > **_NOTE:_**  Previews are deleted after 30 days of inactivity
             "
 
   deploy-staging:
@@ -293,10 +290,10 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: Restore build from cache
-        uses: actions/cache/restore@v3
+        uses: actions/cache/restore@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
         with:
           path: "./build"
           key: "${{ github.sha }}-${{ github.run_id }}-build-doc-staging"
@@ -325,10 +322,10 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: Restore build from cache
-        uses: actions/cache/restore@v3
+        uses: actions/cache/restore@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
         with:
           path: "./build"
           key: "${{ github.sha }}-${{ github.run_id }}-build-doc-next"

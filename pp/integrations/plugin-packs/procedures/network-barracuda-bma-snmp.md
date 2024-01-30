@@ -77,7 +77,7 @@ port.
 yum install centreon-plugin-Network-Barracuda-Bma-Snmp
 ```
 
-2. On the Centreon Web interface, install the **Barracuda Message Archiver SNMP** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon Web interface, install the **Barracuda Message Archiver SNMP** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -94,7 +94,7 @@ yum install centreon-plugin-Network-Barracuda-Bma-Snmp
 yum install centreon-pack-network-barracuda-bma-snmp
 ```
 
-3. On the Centreon Web interface, install the **Barracuda Message Archiver SNMP** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the **Barracuda Message Archiver SNMP** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

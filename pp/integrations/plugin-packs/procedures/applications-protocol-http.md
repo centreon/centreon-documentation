@@ -5,62 +5,85 @@ title: HTTP Server
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-## Pack Assets
+## Pack assets
 
 ### Templates
 
-The Centreon Monitoring Connector **HTTP Server** brings a host template:
+The Monitoring Connector **HTTP Server** brings a host template:
 
-* App-Protocol-HTTP-custom
+* **App-Protocol-HTTP-custom**
 
-It brings the following service templates:
+The connector brings the following service templates (sorted by the host template they are attached to):
 
-| Service Alias         | Service Template                   | Service Description                         | Default |
-|:----------------------|:-----------------------------------|:--------------------------------------------|:--------|
-| HTTP-Expected-Content | App-Protocol-HTTP-Expected-Content | Check the presence of a string in a Webpage |         |
-| HTTP-Json-Content     | App-Protocol-HTTP-Json-Content     | Check json content                          |         |
-| HTTP-Response-Time    | App-Protocol-HTTP-Response-Time    | Check response time of a Wabpage            | X       |
-| HTTP-Soap-Content     | App-Protocol-HTTP-Soap-Content     | Check soap content                          |         |
+<Tabs groupId="sync">
+<TabItem value="App-Protocol-HTTP-custom" label="App-Protocol-HTTP-custom">
+
+| Service Alias      | Service Template                       | Service Description               |
+|:-------------------|:---------------------------------------|:----------------------------------|
+| HTTP-Response-Time | App-Protocol-HTTP-Response-Time-custom | Check response time of a web page |
+
+> The services listed above are created automatically when the **App-Protocol-HTTP-custom** host template is used.
+
+</TabItem>
+<TabItem value="Not attached to a host template" label="Not attached to a host template">
+
+| Service Alias         | Service Template                          | Service Description                          |
+|:----------------------|:------------------------------------------|:---------------------------------------------|
+| HTTP-Expected-Content | App-Protocol-HTTP-Expected-Content-custom | Check the presence of a string in a web page |
+| HTTP-Json-Content     | App-Protocol-HTTP-Json-Content-custom     | Check json content                           |
+| HTTP-Soap-Content     | App-Protocol-HTTP-Soap-Content-custom     | Check soap content                           |
+
+> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
+
+</TabItem>
+</Tabs>
 
 ### Collected metrics & status
+
+Here is the list of services for this connector, detailing all metrics linked to each service.
 
 <Tabs groupId="sync">
 <TabItem value="HTTP-Expected-Content" label="HTTP-Expected-Content">
 
-| Metric Name                | Unit  |
+| Metric name                | Unit  |
 |:---------------------------|:------|
-| content                    |       |
-| http.extracted.value.count | count |
+| content                    | N/A   |
 | http.content.size.bytes    | B     |
 | http.response.time.seconds | s     |
+| http.extracted.value.count | count |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="HTTP-Json-Content" label="HTTP-Json-Content">
 
-| Metric Name                | Unit  |
+| Metric name                | Unit  |
 |:---------------------------|:------|
+| json.match.total.count     | count |
 | http.response.time.seconds | s     |
 
 </TabItem>
 <TabItem value="HTTP-Response-Time" label="HTTP-Response-Time">
 
-| Metric Name                                | Unit  |
+| Metric name                                | Unit  |
 |:-------------------------------------------|:------|
-| http.response.connect.time.milliseconds    | ms    |
-| http.response.processing.time.milliseconds | ms    |
-| http.response.resolve.time.milliseconds    | ms    |
-| http.response.size.count                   | B     |
-| status                                     |       |
+| status                                     | N/A   |
 | http.response.time.seconds                 | s     |
+| http.response.size.count                   | B     |
+| http.response.resolve.time.milliseconds    | ms    |
+| http.response.connect.time.milliseconds    | ms    |
 | http.response.tls.time.milliseconds        | ms    |
+| http.response.processing.time.milliseconds | ms    |
 | http.response.transfer.time.milliseconds   | ms    |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="HTTP-Soap-Content" label="HTTP-Soap-Content">
 
-| Metric Name                | Unit  |
+| Metric name                | Unit  |
 |:---------------------------|:------|
+| xml.match.total.count      | count |
 | http.response.time.seconds | s     |
 
 </TabItem>
@@ -71,96 +94,448 @@ It brings the following service templates:
 The target website or webapp should be accessible over HTTP/HTTPS from the poller. Specific option can be used
 to specify a proxy when it is required.
 
-## Setup
+## Installing the monitoring connector
+
+### Pack
+
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Monitoring Connectors Manager** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Install the package on every Centreon poller expected to monitor **HTTP Server** resources:
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Applications-Protocol-Http
+dnf install centreon-pack-applications-protocol-http
 ```
-
-2. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **HTTP Server** Centreon Monitoring Connector.
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Install the package on every Centreon poller expected to monitor **HTTP Server** resources:
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Applications-Protocol-Http
+dnf install centreon-pack-applications-protocol-http
 ```
 
-2. Install the **HTTP Server** Centreon Monitoring Connector RPM on the Centreon central server:
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-pack-applications-protocol-http
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-applications-protocol-http
 ```
 
-3. On the Centreon web interface, on page **Configuration > Monitoring Connectors Manager**, install the **HTTP Server** Centreon Monitoring Connector.
+</TabItem>
+</Tabs>
+
+2. Whatever the license type (*online* or *offline*), install the **HTTP Server** connector through
+the **Configuration > Monitoring Connector Manager** menu.
+
+### Plugin
+
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
+
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Applications-Protocol-Http
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Applications-Protocol-Http
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-plugin-applications-protocol-http
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Applications-Protocol-Http
+```
 
 </TabItem>
 </Tabs>
 
-## Configuration
+## Using the monitoring connector
 
-### Host
+### Using a host template provided by the connector
 
-* Log into Centreon and add a new host through **Configuration > Hosts**.
-* Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your **HTTP Server** server settings.
-* Apply the **App-Protocol-HTTP-custom** template to the host.
-* Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
+3. Apply the **App-Protocol-HTTP-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
 
-| Mandatory   | Macro        | Description                                                                            |
-|:------------|:-------------|:---------------------------------------------------------------------------------------|
-|             | EXTRAOPTIONS | Any extra option you may want to add to every command line (eg. a --verbose flag)      |
-|             | PORT         | (Default: '80')                                                                        |
-|             | PROTOCOL     | (Default: 'http')                                                                      |
+| Macro        | Description                                                                                           | Default value     | Mandatory   |
+|:-------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROTOCOL     | Specify https if needed (Default: 'http')                                                             | http              |             |
+| PORT         | Port used by web server                                                                                | 80                | X           |
+| EXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
+### Using a service template provided by the connector
+
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+
+<Tabs groupId="sync">
+<TabItem value="HTTP-Expected-Content" label="HTTP-Expected-Content">
+
+| Macro           | Description                                                                                                                         | Default value     | Mandatory   |
+|:----------------|:------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| EXPECTEDCONTENT | --expected-string='toto' is a shortcut for --critical-content='%{content} !~ /toto/mi'. It is recommended to use directly --critical-content |                   |             |
+| URLPATH         | Set path to get web page (Default: '/')                                                                                              | /                 |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                 |                   |             |
+
+</TabItem>
+<TabItem value="HTTP-Json-Content" label="HTTP-Json-Content">
+
+| Macro           | Description                                                                                                                                                                                                                                                                                                                                | Default value                        | Mandatory   |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------|:-----------:|
+| URLPATH         | Set path to get web page (Default: '/')                                                                                                                                                                                                                                                                                                     | /                                    |             |
+| HEADER          | Set HTTP headers (Multiple option. Example: --header='Content-Type: xxxxx')                                                                                                                                                                                                                                                                | Content-Type: text/xml;charset=UTF-8 |             |
+| THRESHOLDVALUE  | Which value to use (Default: 'count') Can be: 'values' (only check numeric values)                                                                                                                                                                                                                                                         | count                                |             |
+| FORMATOK        | Customize the format of the output when the status is OK (Default: '%{count} element(s) found') You can use the following variables: '%{values}' = display all values (also text string) '%{values\_ok}' = values from attributes and text node only (seperated by option values-separator) '%{values\_warning}' and '%{values\_critical}' | %{count} element(s) found            |             |
+| DATAFILE        | Set file with JSON request                                                                                                                                                                                                                                                                                                                 |                                      |             |
+| LOOKUP          | What to look up in JSON response (JSON XPath string) (can be multiple) See: http://goessner.net/articles/JsonPath/                                                                                                                                                                                                                          |                                      |             |
+| FORMATWARNING   | Customize the format of the output when the status is WARNING (Default: '%{count} element(s) found') You can use the variables described in --format-ok                                                                                                                                                                                    | %{count} element(s) found            |             |
+| FORMATCRITICAL  | Customize the format of the output when the status is CRITICAL (Default: '%{count} element(s) found') You can use the variables described in --format-ok                                                                                                                                                                                   | %{count} element(s) found            |             |
+| WARNINGNUMERIC  | Warning threshold (Default: on total matching elements)                                                                                                                                                                                                                                                                                    |                                      |             |
+| CRITICALNUMERIC | Critical threshold (Default: on total matching elements)                                                                                                                                                                                                                                                                                   |                                      |             |
+| WARNINGSTRING   | Returns a WARNING status if the value matches the string.                                                                                                                                                                                                                                                                                                      |                                      |             |
+| CRITICALSTRING  | Returns a CRITICAL status if the value matches the string.                                                                                                                                                                                                                                                                                                     |                                      |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                                                                                                                                        |                                      |             |
+
+</TabItem>
+<TabItem value="HTTP-Response-Time" label="HTTP-Response-Time">
+
+| Macro        | Description                                                                                         | Default value     | Mandatory   |
+|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| URLPATH      | Set path to get web page (Default: '/')                                                              | /                 |             |
+| CRITICAL     |                                                                                                     |                   |             |
+| WARNING      |                                                                                                     |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+
+</TabItem>
+<TabItem value="HTTP-Soap-Content" label="HTTP-Soap-Content">
+
+| Macro           | Description                                                                                                                                                                                                                                                                                                                                | Default value                        | Mandatory   |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------|:-----------:|
+| URLPATH         | Set path to get web page (Default: '/')                                                                                                                                                                                                                                                                                                     | /                                    |             |
+| SERVICESOAP     | Service Soap Action (Required)                                                                                                                                                                                                                                                                                                             |                                      |             |
+| HEADER          | Set HTTP headers (Multiple option)                                                                                                                                                                                                                                                                                                         | Content-Type: text/xml;charset=UTF-8 |             |
+| DATAFILE        | Set file with SOAP request (Required)                                                                                                                                                                                                                                                                                                      |                                      |             |
+| LOOKUP          | What to look up in XML response (XPath string) (can be multiple)      FORMAT OPTIONS:                                                                                                                                                                                                                                                       |                                      |             |
+| THRESHOLDVALUE  | Which value to use (Default: 'count') Can be: 'values' (only check numeric values)                                                                                                                                                                                                                                                         | count                                |             |
+| FORMATOK        | Customize the format of the output when the status is OK (Default: '%{count} element(s) found') You can use the following variables: '%{values}' = display all values (also text string) '%{values\_ok}' = values from attributes and text node only (seperated by option values-separator) '%{values\_warning}' and '%{values\_critical}' | %{count} element(s) finded           |             |
+| FORMATWARNING   | Customize the format of the output when the status is WARNING (Default: '%{count} element(s) found') You can use the variables described in --format-ok                                                                                                                                                                                    | %{count} element(s) finded           |             |
+| FORMATCRITICAL  | Customize the format of the output when the status is CRITICAL (Default: '%{count} element(s) found') You can use the variables described in --format-ok                                                                                                                                                                                   | %{count} element(s) finded           |             |
+| WARNINGNUMERIC  | Warning threshold (Default: on total matching elements)                                                                                                                                                                                                                                                                                    |                                      |             |
+| CRITICALNUMERIC | Critical threshold (Default: on total matching elements)                                                                                                                                                                                                                                                                                   |                                      |             |
+| WARNINGSTRING   | Returns a WARNING status if the value matches the string.                                                                                                                                                                                                                                                                                                      |                                      |             |
+| CRITICALSTRING  | Returns a CRITICAL status if the value matches the string.                                                                                                                                                                                                                                                                                                     |                                      |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                                                                                                                                        |                                      |             |
+
+</TabItem>
+</Tabs>
+
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
 Once the plugin is installed, log into your Centreon poller's CLI using the
-**centreon-engine** user account (`su - centreon-engine`) and test the plugin by
-running the following command:
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
+is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
 /usr/lib/centreon/plugins/centreon_protocol_http.pl \
-    --plugin=apps::protocols::http::plugin \
-    --mode=response \
-    --hostname=google.com \
-    --http-backend=curl \
-    --extra-stats \
-    --use-new-perfdata
+	--plugin=apps::protocols::http::plugin \
+	--mode=response \
+	--hostname=google.com \
+	--proto='http' \
+	--port='80' \
+	--urlpath='/' \
+	--warning=''  \
+	--critical=''  
 ```
 
 The expected command output is shown below:
 
 ```bash
 OK: response time 0.078s | 'http.response.time.seconds'=0.078s;;;0; 'http.response.size.count'=49602B;;;0; 'http.response.resolve.time.milliseconds'=4.176ms;;;0; 'http.response.connect.time.milliseconds'=4.176ms;;;0; 'http.response.processing.time.milliseconds'=44.163ms;;;0; 'http.response.transfer.time.milliseconds'=4.176ms;;;0;
-```
 
-All available options for a given mode can be displayed by adding the
-`--help` parameter to the command:
-
-```bash
-/usr/lib/centreon/plugins//centreon_protocol_http.pl \
-    --plugin=apps::protocols::http::plugin \
-    --mode=soap-content \
-    --help
-```
-
-All available modes can be displayed by adding the `--list-mode` parameter to
-the command:
-
-```bash
-/usr/lib/centreon/plugins//centreon_protocol_http.pl \
-    --plugin=apps::protocols::http::plugin \
-    --list-mode
 ```
 
 ### Troubleshooting
 
 Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
 for Centreon Plugins typical issues.
+
+### Available modes
+
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the 
+connector in your terminal.
+
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_protocol_http.pl \
+	--plugin=apps::protocols::http::plugin \
+	--list-mode
+```
+
+The plugin brings the following modes:
+
+| Mode                                                                                                                                 | Linked service template                   |
+|:-------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------|
+| collection [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/protocols/http/mode/collection.pm)]            | Not used in this Monitoring Connector     |
+| expected-content [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/protocols/http/mode/expectedcontent.pm)] | App-Protocol-HTTP-Expected-Content-custom |
+| json-content [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/protocols/http/mode/jsoncontent.pm)]         | App-Protocol-HTTP-Json-Content-custom     |
+| response [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/protocols/http/mode/response.pm)]                | App-Protocol-HTTP-Response-Time-custom    |
+| soap-content [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/protocols/http/mode/soapcontent.pm)]         | App-Protocol-HTTP-Soap-Content-custom     |
+
+### Available options
+
+#### Generic options
+
+All generic options are listed here:
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     | Define the mode in which you want the plugin to be executed (see--list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata                          | Filter perfdata that match the regexp. Eg: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Eg: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Eg: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
+| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Eg: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --change-exit                              | Replace an exit code with one of your choice. Eg: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-ignore-perfdata                   | Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-ignore-label                      | Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Eg: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --output-file                              | Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --http-peer-addr                           | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --proxyurl                                 | Proxy URL. Eg: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --proxypac                                 | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --insecure                                 | Accept insecure SSL connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --http-backend                             | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --ssl-opt                                  | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --curl-opt                                 | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+
+#### Modes options
+
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<TabItem value="HTTP-Expected-Content" label="HTTP-Expected-Content">
+
+| Option               | Description                                                                                                                                                                                                                                                                                 |
+|:---------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --hostname           | IP address/FQDN of the web server's host                                                                                                                                                                                                                                                          |
+| --port               | Port used by the web server                                                                                                                                                                                                                                                                      |
+| --method             | Specify http method used (Default: 'GET')                                                                                                                                                                                                                                                   |
+| --proto              | Specify https if needed (Default: 'http')                                                                                                                                                                                                                                                   |
+| --urlpath            | Set path to get web page (Default: '/')                                                                                                                                                                                                                                                      |
+| --credentials        | Specify this option if you are accessing  a web page with authentication                                                                                                                                                                                                                               |
+| --username           | Specify username for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --password           | Specify password for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --basic              | Specify this option if you are accessing a web page using basic authentication and don't want a '401 UNAUTHORIZED' error to be logged on your web server.  Specify this option if you are accessing a web page using hidden basic authentication or you'll get a '404 NOT FOUND' error.  (Use with --credentials)   |
+| --ntlmv2             | Specify this option if you are accessing a web page using ntlmv2 authentication (Use with --credentials and --port options)                                                                                                                                                                            |
+| --timeout            | Threshold for HTTP timeout (Default: 5)                                                                                                                                                                                                                                                     |
+| --no-follow          | Do not follow http redirect                                                                                                                                                                                                                                                                 |
+| --cert-file          | Specify certificate to send to the web server                                                                                                                                                                                                                                                |
+| --key-file           | Specify key to send to the web server                                                                                                                                                                                                                                                        |
+| --cacert-file        | Specify root certificate to send to the web server                                                                                                                                                                                                                                           |
+| --cert-pwd           | Specify certificate's password                                                                                                                                                                                                                                                              |
+| --cert-pkcs12        | Specify type of certificate (PKCS12)                                                                                                                                                                                                                                                        |
+| --data               | Set POST data request (For a JSON data, add following option:--header='Content-Type: application/json')                                                                                                                                                                                     |
+| --header             | Set HTTP headers (Multiple option)                                                                                                                                                                                                                                                          |
+| --get-param          | Set GET params (Multiple option. Example: --get-param='key=value')                                                                                                                                                                                                                          |
+| --post-param         | Set POST params (Multiple option. Example: --post-param='key=value')                                                                                                                                                                                                                        |
+| --cookies-file       | Save cookies in a file (Example: '/tmp/lwp\_cookies.dat')                                                                                                                                                                                                                                   |
+| --extracted-pattern  | Set pattern to extract a number (use --warning-extracted and --critical-extracted options).                                                                                                                                                                                               |
+| --expected-string    | --expected-string='toto' is a shortcut for --critical-content='%{content} !~ /toto/mi'. It is recommended to use directly --critical-content.                                                                                                                                                        |
+| --unknown-status     | Warning threshold for http response code (Default: '%{http\_code} \< 200 or %{http\_code} \>= 300')                                                                                                                                                                                         |
+| --warning-status     | Warning threshold for http response code                                                                                                                                                                                                                                                    |
+| --critical-status    | Critical threshold for http response code                                                                                                                                                                                                                                                   |
+| --warning-time       | Warning threshold in seconds (web page response time)                                                                                                                                                                                                                                        |
+| --critical-time      | Critical threshold in seconds (web page response time)                                                                                                                                                                                                                                       |
+| --warning-size       | Warning threshold for content size                                                                                                                                                                                                                                                          |
+| --critical-size      | Critical threshold for content size                                                                                                                                                                                                                                                         |
+| --warning-extracted  | Warning threshold for extracted value                                                                                                                                                                                                                                                       |
+| --critical-extracted | Critical threshold for extracted value                                                                                                                                                                                                                                                      |
+| --unknown-content    | Set warning threshold for content page (Default: ''). You can use the following variables: %{content}, %{header}, %{first\_header}, %{code}                                                                                                                                                 |
+| --warning-content    | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{content}, %{header}, %{first\_header}, %{code}                                                                                                                            |
+| --critical-content   | Set critical threshold for content page (Default: ''). You can use the following variables: %{content}, %{header}, %{first\_header}, %{code}                                                                                                                                                |
+
+</TabItem>
+<TabItem value="HTTP-Json-Content" label="HTTP-Json-Content">
+
+| Option                    | Description                                                                                                                                                                                                                                                                                                                                  |
+|:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --data                    | Set file with JSON request                                                                                                                                                                                                                                                                                                                   |
+| --lookup                  | What to look up in JSON response (JSON XPath string) (can be multiple) See: http://goessner.net/articles/JsonPath/                                                                                                                                                                                                                            |
+| --lookup-perfdatas-nagios | Take perfdatas from the JSON response (JSON XPath string) Chain must be formated in Nagios format. Ex : "rta=10.752ms;50.000;100.000;0; pl=0%;20;40;; rtmax=10.802ms;;;;"      FORMAT OPTIONS:                                                                                                                                               |
+| --format-lookup           | Take the output message from the JSON response (JSON XPath string). Overrides all the format options but substitutions are still applied.                                                                                                                                                                                                         |
+| --format-ok               | Customize the format of the output when the status is OK (Default: '%{count} element(s) found') You can use the following variables: '%{values}' = display all values (also text string) '%{values\_ok}' = values from attributes and text node only (seperated by option values-separator) '%{values\_warning}' and '%{values\_critical}'   |
+| --format-warning          | Customize the format of the output when the status is WARNING (Default: '%{count} element(s) found') You can use the variables described in --format-ok                                                                                                                                                                                      |
+| --format-critical         | Customize the format of the output when the status is CRITICAL (Default: '%{count} element(s) found') You can use the variables described in --format-ok                                                                                                                                                                                     |
+| --format-unknown          | Customize the format of the output when the status is UNKNOWN (Default: '%{count} element(s) found') You can use the variables described in --format-ok                                                                                                                                                                                      |
+| --values-separator        | Separator used for values in format option (Default: ', ')      THRESHOLD OPTIONS:                                                                                                                                                                                                                                                           |
+| --warning-numeric         | Warning threshold (Default: on total matching elements)                                                                                                                                                                                                                                                                                      |
+| --critical-numeric        | Critical threshold (Default: on total matching elements)                                                                                                                                                                                                                                                                                     |
+| --threshold-value         | Which value to use (Default: 'count') Can be: 'values' (only check numeric values)                                                                                                                                                                                                                                                           |
+| --warning-string          | Returns a WARNING status if the value matches the string.                                                                                                                                                                                                                                                                                                        |
+| --critical-string         | Returns a CRITICAL status if the value matches the string.                                                                                                                                                                                                                                                                                                       |
+| --unknown-string          | Returns an UNKNOWN status if the value matches the string.                                                                                                                                                                                                                                                                                                        |
+| --warning-time            | Warning threshold in seconds of webservice response time                                                                                                                                                                                                                                                                                     |
+| --critical-time           | Critical threshold in seconds of webservice response time      HTTP OPTIONS:                                                                                                                                                                                                                                                                 |
+| --hostname                | IP address/FQDN of the web server's host                                                                                                                                                                                                                                                                                                           |
+| --port                    | Port used by web server                                                                                                                                                                                                                                                                                                                       |
+| --proto                   | Specify https if needed                                                                                                                                                                                                                                                                                                                      |
+| --urlpath                 | Set path to get web page (Default: '/')                                                                                                                                                                                                                                                                                                       |
+| --credentials             | Specify this option if you are accessing a web page with authentication                                                                                                                                                                                                                                                                                |
+| --username                | Specify username for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                                                                                |
+| --password                | Specify password for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                                                                                |
+| --basic                   | Specify this option if you are accessing a web page using basic authentication and don't want a '401 UNAUTHORIZED' error to be logged on your web server.  Specify this option if you are accessing a web page using hidden basic authentication or you'll get a '404 NOT FOUND' error.  (Use with --credentials)                                                    |
+| --ntlmv2                  | Specify this option if you are accessing a web page using ntlmv2 authentication (Use with --credentials and --port options)                                                                                                                                                                                                                             |
+| --timeout                 | Threshold for HTTP timeout (Default: 10)                                                                                                                                                                                                                                                                                                     |
+| --cert-file               | Specify certificate to send to the web server                                                                                                                                                                                                                                                                                                 |
+| --key-file                | Specify key to send to the web server                                                                                                                                                                                                                                                                                                         |
+| --cacert-file             | Specify root certificate to send to the web server                                                                                                                                                                                                                                                                                            |
+| --cert-pwd                | Specify certificate's password                                                                                                                                                                                                                                                                                                               |
+| --cert-pkcs12             | Specify type of certificate (PKCS12)                                                                                                                                                                                                                                                                                                         |
+| --get-param               | Set GET params (Multiple option. Example: --get-param='key=value')                                                                                                                                                                                                                                                                           |
+| --header                  | Set HTTP headers (Multiple option. Example: --header='Content-Type: xxxxx')                                                                                                                                                                                                                                                                  |
+| --unknown-status          | Warning threshold for http response code (Default: '%{http\_code} \< 200 or %{http\_code} \>= 300')                                                                                                                                                                                                                                          |
+| --warning-status          | Warning threshold for http response code                                                                                                                                                                                                                                                                                                     |
+| --critical-status         | Critical threshold for http response code                                                                                                                                                                                                                                                                                                    |
+
+</TabItem>
+<TabItem value="HTTP-Response-Time" label="HTTP-Response-Time">
+
+| Option                   | Description                                                                                                                                                                                                                                                                                 |
+|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --hostname               | IP address/FQDN of the web server's host                                                                                                                                                                                                                                                          |
+| --port                   | Port used by web server                                                                                                                                                                                                                                                                      |
+| --method                 | Specify http method used (Default: 'GET')                                                                                                                                                                                                                                                   |
+| --proto                  | Specify https if needed (Default: 'http')                                                                                                                                                                                                                                                   |
+| --urlpath                | Set path to get web page (Default: '/')                                                                                                                                                                                                                                                      |
+| --credentials            | Specify this option if you are accessing a web page with authentication                                                                                                                                                                                                                               |
+| --username               | Specify username for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --password               | Specify password for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --basic                  | Specify this option if you are accessing a web page using basic authentication and don't want a '401 UNAUTHORIZED' error to be logged on your web server.  Specify this option if you are accessing a web page using hidden basic authentication or you'll get a '404 NOT FOUND' error.  (Use with --credentials)   |
+| --ntlmv2                 | Specify this option if you are accessing a web page using ntlmv2 authentication (Use with --credentials and --port options)                                                                                                                                                                            |
+| --timeout                | Threshold for HTTP timeout (Default: 5)                                                                                                                                                                                                                                                     |
+| --no-follow              | Do not follow http redirect                                                                                                                                                                                                                                                                 |
+| --cert-file              | Specify certificate to send to the web server                                                                                                                                                                                                                                                |
+| --key-file               | Specify key to send to the web server                                                                                                                                                                                                                                                        |
+| --cacert-file            | Specify root certificate to send to the web server                                                                                                                                                                                                                                           |
+| --cert-pwd               | Specify certificate's password                                                                                                                                                                                                                                                              |
+| --cert-pkcs12            | Specify type of certificate (PKCS12)                                                                                                                                                                                                                                                        |
+| --header                 | Set HTTP headers (Multiple option)                                                                                                                                                                                                                                                          |
+| --get-param              | Set GET params (Multiple option. Example: --get-param='key=value')                                                                                                                                                                                                                          |
+| --post-param             | Set POST params (Multiple option. Example: --post-param='key=value')                                                                                                                                                                                                                        |
+| --cookies-file           | Save cookies in a file (Example: '/tmp/lwp\_cookies.dat')                                                                                                                                                                                                                                   |
+| --unknown-status         | Warning threshold for http response code                                                                                                                                                                                                                                                    |
+| --warning-status         | Warning threshold for http response code                                                                                                                                                                                                                                                    |
+| --critical-status        | Critical threshold for http response code (Default: '%{http\_code} \< 200 or %{http\_code} \>= 300')                                                                                                                                                                                        |
+| --extra-stats            | Add detailed time statistics (only with curl backend).                                                                                                                                                                                                                                      |
+| --warning-* --critical-* | Thresholds. Can be: 'time', 'size', 'resolve', 'connect', 'tls', 'processing', 'transfer'.                                                                                                                                                                                                  |
+
+</TabItem>
+<TabItem value="HTTP-Soap-Content" label="HTTP-Soap-Content">
+
+| Option             | Description                                                                                                                                                                                                                                                                                                                                  |
+|:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --service-soap     | Service Soap Action (Required)                                                                                                                                                                                                                                                                                                               |
+| --data             | Set file with SOAP request (Required)                                                                                                                                                                                                                                                                                                        |
+| --lookup           | What to look up in XML response (XPath string) (can be multiple)      FORMAT OPTIONS:                                                                                                                                                                                                                                                         |
+| --format-ok        | Customize the format of the output when the status is OK (Default: '%{count} element(s) found') You can use the following variables: '%{values}' = display all values (also text string) '%{values\_ok}' = values from attributes and text node only (seperated by option values-separator) '%{values\_warning}' and '%{values\_critical}'   |
+| --format-warning   | Customize the format of the output when the status is WARNING (Default: '%{count} element(s) found') You can use the variables described in --format-ok                                                                                                                                                                                      |
+| --format-critical  | Customize the format of the output when the status is CRITICAL (Default: '%{count} element(s) found') You can use the variables described in --format-ok                                                                                                                                                                                     |
+| --values-separator | Separator used for values in format option (Default: ', ')      THRESHOLD OPTIONS:                                                                                                                                                                                                                                                           |
+| --warning-numeric  | Warning threshold (Default: on total matching elements)                                                                                                                                                                                                                                                                                      |
+| --critical-numeric | Critical threshold (Default: on total matching elements)                                                                                                                                                                                                                                                                                     |
+| --threshold-value  | Which value to use (Default: 'count') Can be: 'values' (only check numeric values)                                                                                                                                                                                                                                                           |
+| --warning-string   | Returns a WARNING status if the value matches the string.                                                                                                                                                                                                                                                                                                        |
+| --critical-string  | Returns a CRITICAL status if the value matches the string.                                                                                                                                                                                                                                                                                                       |
+| --warning-time     | Warning threshold in seconds of webservice response time                                                                                                                                                                                                                                                                                     |
+| --critical-time    | Critical threshold in seconds of webservice response time      HTTP OPTIONS:                                                                                                                                                                                                                                                                 |
+| --hostname         | IP address/FQDN of the web server's host                                                                                                                                                                                                                                                                                                           |
+| --port             | Port used by web server                                                                                                                                                                                                                                                                                                                       |
+| --proto            | Specify https if needed                                                                                                                                                                                                                                                                                                                      |
+| --urlpath          | Set path to get web page (Default: '/')                                                                                                                                                                                                                                                                                                       |
+| --credentials      | Specify this option if you are accessing a web page with authentication                                                                                                                                                                                                                                                                                |
+| --username         | Specify username for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                                                                                |
+| --password         | Specify password for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                                                                                |
+| --basic            | Specify this option if you are accessing a web page using basic authentication and don't want a '401 UNAUTHORIZED' error to be logged on your web server.  Specify this option if you are accessing a web page using hidden basic authentication or you'll get a '404 NOT FOUND' error.  (Use with --credentials)                                                    |
+| --ntlmv2           | Specify this option if you are accessing a web page using ntlmv2 authentication (Use with --credentials and --port options)                                                                                                                                                                                                                             |
+| --timeout          | Threshold for HTTP timeout (Default: 10)                                                                                                                                                                                                                                                                                                     |
+| --cert-file        | Specify certificate to send to the web server                                                                                                                                                                                                                                                                                                 |
+| --key-file         | Specify key to send to the web server                                                                                                                                                                                                                                                                                                         |
+| --cacert-file      | Specify root certificate to send to the web server                                                                                                                                                                                                                                                                                            |
+| --cert-pwd         | Specify certificate's password                                                                                                                                                                                                                                                                                                               |
+| --cert-pkcs12      | Specify type of certificate (PKCS1                                                                                                                                                                                                                                                                                                           |
+| --header           | Set HTTP headers (Multiple option)                                                                                                                                                                                                                                                                                                           |
+| --unknown-status   | Threshold unknown for http response code (Default: '%{http\_code} \< 200 or %{http\_code} \>= 300')                                                                                                                                                                                                                                          |
+| --warning-status   | Warning threshold for http response code                                                                                                                                                                                                                                                                                                     |
+| --critical-status  | Critical threshold for http response code                                                                                                                                                                                                                                                                                                    |
+
+</TabItem>
+</Tabs>
+
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_protocol_http.pl \
+	--plugin=apps::protocols::http::plugin \
+	--mode=response \
+	--help
+```
