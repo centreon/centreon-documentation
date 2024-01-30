@@ -12,7 +12,7 @@ pfSense is an open source router and firewall software based on FreeBSD and
 is entirely configurable through a user-friendly web interface.
 
 The Centreon Monitoring Connector *pfSense* aims to collect the status of the interfaces
-and the several number of packets per second using with the SNMP protocol.
+and the number of packets per second using with the SNMP protocol.
 
 ## Pack assets
 
