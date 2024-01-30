@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 ## Overview
 
 pfSense is an open source router and firewall software based on FreeBSD and
-entirely configurable throught a user-friendly web interface.
+is entirely configurable through a user-friendly web interface.
 
 The Centreon Monitoring Connector *pfSense* aims to collect the status of the interfaces
 and the several number of packets per second using with the SNMP protocol.
@@ -32,8 +32,8 @@ The connector brings the following service templates (sorted by the host templat
 | Bad-Offset-Packets            | Net-FW-Pfsense-Bad-Offset-Packets-SNMP-custom            | Check number of packets with bad offset.                       |            |
 | Blocked-Packets-Per-Interface | Net-FW-Pfsense-Blocked-Packets-Per-Interface-SNMP-custom | Check count of packets blocked on multiple network interfaces. | X          |
 | Fragment-Packets              | Net-FW-Pfsense-Fragment-Packets-SNMP-custom              | Check number of fragmented packets.                            |            |
-| Match-Packets                 | Net-FW-Pfsense-Match-Packets-SNMP-custom                 | Check number of packets that matched a filter rule.            |            |
-| Memory-Dropped-Packets        | Net-FW-Pfsense-Memory-Dropped-Packets-SNMP-custom        | Check count of packets dropped due to memory limitations.      |            |
+| Match-Packets                 | Net-FW-Pfsense-Match-Packets-SNMP-custom                 | Check number of packets that match a filter rule.            |            |
+| Memory-Dropped-Packets        | Net-FW-Pfsense-Memory-Dropped-Packets-SNMP-custom        | Check number of packets dropped due to memory limitations.      |            |
 | Normalize-Packets             | Net-FW-Pfsense-Normalize-Packets-SNMP-custom             | Check number of normalized packets.                            |            |
 | Runtime                       | Net-FW-Pfsense-Runtime-SNMP-custom                       | Check how long router has been enabled.                        |            |
 | Short-Packets                 | Net-FW-Pfsense-Short-Packets-SNMP-custom                 | Check number of short packets.                                 |            |
