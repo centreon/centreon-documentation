@@ -30,7 +30,7 @@ Commands can be configured in the following menu: **Configuration > Commands > C
       * You can use [macros](macros.md) (host macros or service macros) to make your command more generic, but it is not compulsory. The macros's name will appear in the configuration form for the host or service so that you can give it a specific value for each host or service you use it with.
 
    * **Describe macros**: add a description to custom macros. This description will be visible when using the command in a host or service configuration form.
-   * **Connectors**: use the **[Perl Connector](#perl-connector)** or the **[SSH Connector](#ssh-connector)** to reduce the consumption of resources of the plugin. The Perl connector can be used with all commands except **ping** and **check_nrpe**.
+   * **Connectors**: use the **[Perl Connector](#perl-connector)** or the **[SSH Connector](#ssh-connector)** to reduce the consumption of resources of the plugin. The Perl connector can be used with all commands except **check_icmp** and **check_nrpe**.
    * **Graph template**: link the command to a graph template.
 
 4. Click **Save**. The command now appears in the **Check command** list in the host or service template configuration pages.
