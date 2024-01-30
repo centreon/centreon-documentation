@@ -23,11 +23,23 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 - Serveur Centreon Central,
 - Serveur de gestion de base de données.
 
+## Mise à jour de la version mineure
+
+1. Sur votre plateforme 21.10, remplacez `https://packages.centreon.com/rpm-standard` ou `https://yum.centreon.com/standard/` par `https://archives.centreon.com/standard/` dans votre configuration YUM (par défaut, `/etc/yum.repos.d/centreon.repo`).
+
+2. Mettez à jour votre Centreon 21.10 jusqu'à la dernière version mineure.
+
 ## Montée de version du serveur Centreon Central
 
 ### Mise à jour des dépôts
 
 Il est nécessaire de mettre à jour le dépôt Centreon.
+
+Supprimez le fichier **centreon.repo** :
+
+   ```shell
+   rm /etc/yum.repos.d/centreon.repo
+   ```
 
 Exécutez la commande suivante :
 
@@ -35,14 +47,16 @@ Exécutez la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el8/centreon-22.10.repo
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+yum install -y yum-utils
+yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el7/centreon-22.10.repo
 ```
 
 </TabItem>
@@ -385,14 +399,16 @@ Exécutez la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el8/centreon-22.10.repo
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+yum install -y yum-utils
+yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el7/centreon-22.10.repo
 ```
 
 </TabItem>

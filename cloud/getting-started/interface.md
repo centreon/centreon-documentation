@@ -5,9 +5,9 @@ title: Overview of the Centreon interface
 
 ## Accessing the central server's interface
 
-When you first connect to Centreon Cloud, use the URL and credentials that the Centreon support team has provided to you. The connection URL looks like this: `https://<organization>.<region>.centreon.cloud`.
+When you first connect to Centreon Cloud, use the URL and credentials that the Centreon support team has given you. The connection URL looks like this: `https://<organization>.<region>.centreon.cloud`.
 
-Fill in your user name and associated password (defined via [Centreon CIAM](../ciam/ciam.md)) and click on the **Connect** button:
+Fill in your user name and associated password (defined via [Centreon CIAM](../ciam/ciam.md)) and click the **Connect** button:
 
 ![image](../assets/getting-started/aconnection.png)
 
@@ -26,7 +26,7 @@ The Centreon web interface contains several menus, each with a specific function
   to your customization.
 * **Monitoring** provides a combined view of the statuses of all monitored items in real and delayed time using logs and
   performance graphics.
-* **Reporting** provides an intuitive view (using diagrams) of the evolution of monitoring over a given time period.
+* **Reporting** provides an intuitive view (using diagrams) of the evolution of monitoring over a given period.
 * **Configuration** allows you to configure all monitored items and the monitoring infrastructure.
 * **Administration** lets you access your user account.
 
@@ -54,9 +54,9 @@ To the right of the top banner, statistics show the number of resources that are
 
 These numbers include unconfirmed (SOFT) alerts, but do not include resources that are acknowledged or in downtime. Pending resources are shown by a blue dot on the **hosts** or **services** icons.
 
-Click on a circle representing a status:
+Click a circle representing a status:
 
-* Page **Monitoring > Resources status** opens.
+* The **Monitoring > Resources status** page opens.
 * The page is filtered according to the type of resource and the corresponding status.
 
 Click the **hosts** or **services** icon to expand the menu and display the details of the hosts and services.
@@ -65,8 +65,8 @@ Click the **hosts** or **services** icon to expand the menu and display the deta
 
 When you first connect to the interface, Centreon is displayed in light mode by default.
 
-On the banner, click on the profile icon and use the switch button to turn on the dark mode.
-Next time you connect to the interface, the mode you previously selected remains on.
+On the banner, click the profile icon and use the switch button to turn on dark mode.
+The next time you connect to the interface, the mode you previously selected remains on.
 
 - Light mode:
 
@@ -78,10 +78,10 @@ Next time you connect to the interface, the mode you previously selected remains
 
 ### Change the user interface language
 
-On the banner, click on the profile icon, then click on **Edit profile**:
+On the banner, click the profile icon, then click **Edit profile**:
 
 ![image](../assets/getting-started/menu_edit_profile.png)
 
 In the **Language** list, choose your language.
 
-Then click on **Save**. Your interface is now translated.
+Then click **Save**. Your interface is now translated.

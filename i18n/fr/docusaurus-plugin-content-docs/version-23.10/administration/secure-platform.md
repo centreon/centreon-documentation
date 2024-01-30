@@ -1414,7 +1414,7 @@ Pour utiliser http2, vous devez suivre les étapes suivantes:
 dnf install nghttp2
 ```
 
-3. Activez le protocole **http2** dans **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** :
+3. Activez le protocole **http2** dans **/etc/httpd/conf.d/10-centreon.conf** :
 
 ```apacheconf
 ...
@@ -1456,7 +1456,7 @@ systemctl restart httpd
 dnf install nghttp2
 ```
 
-3. Activez le protocole **http2** dans **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** :
+3. Activez le protocole **http2** dans **/etc/httpd/conf.d/10-centreon.conf** :
 
 ```apacheconf
 ...

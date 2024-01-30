@@ -118,7 +118,7 @@ To control your Redis database, the poller can execute _INFO_ command (Eg: https
 yum install centreon-plugin-Applications-Databases-Redis
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Redis Database* Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Redis Database* Pack
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -135,7 +135,7 @@ yum install centreon-plugin-Applications-Databases-Redis
 yum install centreon-pack-applications-databases-redis
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Redis Database* Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Redis Database* Pack
 
 </TabItem>
 </Tabs>

@@ -3,7 +3,7 @@ id: map-web-create-standard-map
 title: Create a standard map
 ---
 
-This topic describes how to create standard maps and how to customize them using the MAP edition mode.
+This topic describes how to create standard maps and how to customize them using the MAP editing mode.
 
 The display of the **Add a Map** button in the **Map** page means that you are allowed to create a map and that you belong to an access group that is granted the creator role.
 
@@ -22,13 +22,13 @@ Now you can customize your map using the MAP editor features.
 
 ## Use the MAP editor
 
-Follow this procedure to open your map in edition mode:
+Follow this procedure to open your map in editing mode:
 
 1. Go to **Monitoring > Map** to display the list of existing maps.
 2. Select the map you want to edit.
-3. Click the **EDIT** button to open it in edition mode.
+3. Click the **EDIT** button to open it in editing mode.
 
-> Once edited, switch to the view mode by saving your changes with the **SAVE** button. Then click **EXIT**.
+> After editing the map, switch to viewing mode by saving your changes with the **SAVE** button. Then click **EXIT**.
 
 ### MAP editor overview
 
@@ -41,8 +41,8 @@ This is the MAP editor view:
 **3. IP address:** this is the MAP server address specified in the Centreon Map settings.
 **4. Shapes panel:** this panel offers all elements you need to build a map, from the basics to the Centreon resources.
 **5. Format panel:** this panel allows you to apply a format to a selected element.
-**6. Drawing canvas:** this is the space in the middle of the editor, where to draw your diagram.
-**7. Tab:** you can navigate between multiple tabs when your map requires multiple pages. For instance when your map has several containers, you can navigate between tabs where each tab corresponds to a container.
+**6. Drawing canvas:** this is the space in the middle of the editor, where you draw your diagram.
+**7. Tab:** you can navigate between multiple tabs when your map requires multiple pages. For instance, when your map has several containers, you can navigate between tabs where each tab corresponds to a container.
 
 ### Use graphical elements to build your map
 
@@ -54,8 +54,8 @@ Use **Basic** shapes to organize your map elements with geometric shapes and tex
 
 #### Widget elements
 
-Use **Widget** elements to display graphical data about the ressources you monitor. Widgets provide information such as health status information or performance metrics. The available widgets are:
-- **Pie chart:** displays the status of a ressource to monitor in proportional data format. It displays:
+Use **Widget** elements to display graphical data about the resources you monitor. Widgets provide information such as health status information or performance metrics. The available widgets are:
+- **Pie chart:** displays the status of a resource to monitor in proportional data format. It displays:
   - For a host: the number of OK, Warning, Critical, and NA states.
   - For a host group: the number of hosts in OK, Warning, Critical, and NA states.
 - **Line chart:** displays performance data related to a service, over a period of time.
@@ -73,7 +73,7 @@ Use **Media** elements to add:
 - **Image:** allows you to customize your diagram by adding images.  
 
 1. Drag and drop the element into the drawing canvas.
-2. Right-click on it and select **Edit data**.
+2. Right-click it and select **Edit data**.
 3. Fill in the required setting and click **Submit**.
 
 #### Link elements
@@ -101,7 +101,7 @@ Use **Link** elements to make connections between items (with anchor points):
 Settings will be displayed depending on the type of element you have selected.
 
 1. Drag and drop the element into the drawing canvas.
-2. Right-click on it and select **Edit data**.
+2. Right-click it and select **Edit data**.
 3. Fill in the required settings and click **Submit**.
 
 #### Customize your elements
@@ -110,3 +110,22 @@ The **Format** panel allows you to apply formatting options depending on the typ
 - **Style tab:** to customize shapes, links and text.
 - **Text tab:** to format all text elements.
 - **Arrange tab:** to organize elements on the drawing canvas (size, position, alignment) and place them regarding different layers.
+
+### Add several resources using the bulk mode
+
+In edition mode, you can add several resources to your view in a single action.
+
+1. Click in the **Search a resource** bar above the view.
+2. In the dropdown list, select the resources you want in **Host groups, Hosts, Service groups, Services, Meta services and Business Activities**.
+3. Then click the **Add to map** button.
+
+The resources you have selected are now added to the view!
+
+## Save the perspective of your map
+
+For an optimal user experience, you can save the perspective (zoom and position) of your map. So each time you open your map, you will find it in the position that suits you best.
+
+- **In edition mode:** the perspective is saved as soon as you click on the **Save** button.
+- **In view mode:** click the **Save perspective** button and a message will confirm the perspective is saved.
+
+> You are able to add an element and save the map even if this element is not tied to any resource. It will then be displayed in yellow when you switch to view mode.

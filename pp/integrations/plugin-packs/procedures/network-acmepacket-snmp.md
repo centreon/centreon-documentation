@@ -173,7 +173,7 @@ To control your Acme Packet, the SNMP must be configured.
 yum install centreon-plugin-Network-Acmepacket-Snmp
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Acme Packet* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Acme Packet* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -190,7 +190,7 @@ yum install centreon-plugin-Network-Acmepacket-Snmp
 yum install centreon-pack-network-acmepacket-snmp
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Acme Packet* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Acme Packet* Monitoring Connector
 
 </TabItem>
 </Tabs>

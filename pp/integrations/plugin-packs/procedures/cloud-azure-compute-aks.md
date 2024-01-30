@@ -217,7 +217,7 @@ Credentials are now stored locally in the **accessTokens.json** file so the Plug
 yum install centreon-plugin-Cloud-Azure-Compute-Aks-Api
 ```
 
-2. On the Centreon Web interface, install the **Azure Kubernetes Service** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon Web interface, install the **Azure Kubernetes Service** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -234,7 +234,7 @@ yum install centreon-plugin-Cloud-Azure-Compute-Aks-Api
 yum install centreon-pack-cloud-azure-compute-aks
  ```
 
-3. On the Centreon Web interface, install the **Azure Kubernetes Service** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the **Azure Kubernetes Service** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

@@ -104,7 +104,7 @@ Il est présent sur les [collecteurs](#collecteur) et le [serveur central](#serv
 
 ## Notification
 
-Message avertissant l’utilisateur d’un incident. Il est possible de paramétrer des notifications sur différents [statuts](#statut).
+Message avertissant l’utilisateur d’un incident.
 
 ## Ordonnanceur
 

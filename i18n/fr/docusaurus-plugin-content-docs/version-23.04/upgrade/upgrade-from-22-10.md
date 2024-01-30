@@ -37,12 +37,13 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 2. Supprimez le fichier **centreon.repo** :
 
    ```shell
-   rm /etc/yum.repos.d/centreon.repo
+   rm /etc/yum.repos.d/centreon-22.10.repo
    ```
 
 3. Installez le nouveau dépôt :
 
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 ```
 
@@ -420,7 +421,7 @@ associée](../service-mapping/upgrade.md) pour le mettre à jour.
    toutes les extensions, en commençant par les suivantes :
 
    - License Manager,
-   - Monitoring Connectors Manager,
+   - Monitoring Connector Manager,
    - Auto Discovery.
 
     Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
@@ -450,6 +451,7 @@ Exécutez la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 ```
 

@@ -75,7 +75,7 @@ https://www.vaultproject.io/api-docs/auth .
 yum install centreon-plugin-Applications-HashiCorp-Vault-Restapi
 ```
 
-2. On the Centreon Web interface, install the *HashiCorp Vault Rest API* Centreon Pack on the **Configuration > Monitoring Connectors Manager** page
+2. On the Centreon Web interface, install the *HashiCorp Vault Rest API* Centreon Pack on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -92,7 +92,7 @@ yum install centreon-plugin-Applications-HashiCorp-Vault-Restapi
 yum install centreon-pack-applications-hashicorp-vault-restapi.noarch
 ```
 
-3. On the Centreon Web interface, install the *HashiCorp Vault Rest API* Centreon Pack on the **Configuration > Monitoring Connectors Manager** page
+3. On the Centreon Web interface, install the *HashiCorp Vault Rest API* Centreon Pack on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

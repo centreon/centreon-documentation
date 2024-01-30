@@ -5,13 +5,13 @@ title: Centreon Cloud security management
 
 ## Introduction
 
-This document defines and describes the main characteristics of the security management system that the Centreon teams implement around the Centreon Cloud product. Centreon's ISMS aims to follow security best practices and tends towards compliance with reference standards, such as ISO 27001.
+This document defines and describes the main characteristics of the security management system that the Centreon teams implement around the Centreon Cloud product. Centreon's ISMS aims to follow security best practices and tends toward compliance with reference standards, such as ISO 27001.
 
-We realize the importance for customers of the data entrusted to Centreon, and we apply strict security practices, always striving to improve, so as to guarantee the best protection level for the assets in our care.
+We realize the importance to customers of the data entrusted to Centreon, and we apply strict security practices, always striving to improve, so as to guarantee the best protection for the assets in our care.
 
 ## Security governance
 
-Centreon relies on a committee dedicated to cybersecurity issues, which is led by the Chief Information Security Officer. His team is organized around 4 main areas:
+Centreon relies on a committee dedicated to cybersecurity issues, which is led by the Chief Information Security Officer. This team is organized around four main areas:
 
 - Product security
 - Security of infrastructures and user environments
@@ -20,22 +20,22 @@ Centreon relies on a committee dedicated to cybersecurity issues, which is led b
 
 This committee puts cybersecurity at the heart of its action, and plans each of its actions according to the principles of continuous improvement.
 
-Centreon's executive team constantly keeps up with the latest developments in cybersecurity, as it makes security issues and data protection their number one priority. Risk analysis and a detailed review of these are carried out regularly in line with ISO 27001.
+Centreon's executive team constantly keeps up with the latest developments in cybersecurity, because security issues and data protection are their number one priority. Risk analysis and a detailed review of these are carried out regularly in line with ISO 27001.
 
 ### Raising awareness
 
-Centreon offers to all employees an onboarding process that includes security awareness training. Each department receives tailored support based on core knowledge and practices that apply to the whole company, including security and data protection best practices. We conduct regular training that reminds each department of the good practices, and issues and expectations concerning security.
+All Centreon employees are offered an onboarding process that includes security awareness training. Each department receives tailored support based on core knowledge and practices that apply to the whole company, including security and data protection best practices. We conduct regular training that reminds each department of the good practices and covers the issues and expectations concerning security.
 
 ## Software development process
 
 Development processes integrate security requirements and include security by design and continuous improvement practices.
 
-Each development sprint and each architecture decision integrate security in a strict and tracked way, including elements such as access control, integrity or encryption. Development relies on the most tried and tested principles, practices and third-party elements.
+Each development sprint and each architecture decision integrate security in a strict and tracked way, including elements such as access control, integrity, and encryption. Development relies on the most tried and tested principles, practices and third-party elements.
 
 ### Integration and release process
 
 An automated and controlled continuous integration and delivery process allows us to implement measures and security checkpoints at each key stage of the development.
-These checkpoints use SAST and DAST tools, but also systematic peer reviewing by 2 experienced developers.
+These checkpoints use SAST and DAST tools, but also systematic peer reviewing by two experienced developers.
 The tools used by the Centreon teams include development security standards such as OWASP Top 10.
 
 ### Quality control
@@ -45,15 +45,15 @@ External users (community or enterprise users) are also able to test and use any
 
 ## Infrastructure security
 
-The Centreon Cloud services are all hosted by Amazon Web Services (AWS). Centreon Cloud relies on the physical security as well as the quality of AWS infrastructures and networks to offer customers a level of security ranked among the strictest in the world.
+All Centreon Cloud services are hosted by Amazon Web Services (AWS). Centreon Cloud relies on the physical security as well as the quality of AWS infrastructures and networks to offer customers a level of security ranked among the strictest in the world.
 
 ### Hosting security
 
-AWS's hosting services meet the compliance requirements of the standards and programs most recognized in the world. (See the [AWS Compliance program](https://aws.amazon.com/compliance/programs/).)
+AWS's hosting services meet the compliance requirements of the world's most highly recognized standards and programs. (See the [AWS Compliance program](https://aws.amazon.com/compliance/programs/).)
 
-In addition, Centreon Cloud has passed the [Foundational Technical Review](https://aws.amazon.com/partners/foundational-technical-review/) (FTR) and [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) (WAR) reviews. These reviews have allowed Centreon to integrate the AWS Partner Network, and guarantee our customers will enjoy a service that is in compliance with the best practices as to architecture, account management, logging, disaster recovery and business continuity, and continuous improvement.
+In addition, Centreon Cloud has passed the [Foundational Technical Review](https://aws.amazon.com/partners/foundational-technical-review/) (FTR) and [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) (WAR) reviews. These reviews have allowed Centreon to join the AWS Partner Network, and guarantee that our customers will enjoy a service that is in compliance with the best practices with regard to architecture, account management, logging, disaster recovery and business continuity, and continuous improvement.
 
-The Centreon Cloud services are all hosted and run from the European Union:
+Centreon Cloud services are all hosted and run from the European Union:
 
 | Service   | Hosting   | IT outsourcing |
 |---------|-----------|----------------|
@@ -63,7 +63,7 @@ More information on AWS's security and compliance practices [here](https://d1.aw
 
 ### Network security
 
-The Centreon infrastructure includes dedicated network security equipment at each change of zone. Additional equipment such as software firewalls, intrusion detection or protection software, or flow analysis are implemented and monitored closely.
+The Centreon infrastructure includes dedicated network security resources at each change of zone. Additional resources such as software firewalls, intrusion detection and protection software, or flow analysis are implemented and monitored closely.
 Strict controls are applied to the flows to allow the safe transit of customer data.
 
 ### Administration
@@ -83,22 +83,22 @@ Centreon has access to and analyzes infrastructure logs provided by AWS. These l
 ## Data security
 
 Data entrusted to Centreon is protected by symmetric and asymmetric encryption systems, depending on usage. This meets the current best practices, whether the data is in transit or static.
-Data in transit is encrypted using an up-to-date and maintained open source technological solution. Static data is encrypted using AWS mechanisms, reinforced by a key generated by Centreon.
-The Centreon Cloud services use a Public Key Infrastructure to manage, store, distribute and destroy encryption keys and certificates.
-Centreon uses protocols, certificates, algorithms and software that are up-to-date to guarantee the security of data, whatever its state.
+Data in transit is encrypted using an up-to-date and maintained open-source technological solution. Static data is encrypted using AWS mechanisms, reinforced by a key generated by Centreon.
+Centreon Cloud services use a Public Key Infrastructure to manage, store, distribute and destroy encryption keys and certificates.
+Centreon uses up-to-date protocols, certificates, algorithms and software to guarantee the security of data, whatever its state.
 
 | Element | Description |
 |------------|---------------------|
 | Communication protocols | TLS 1.2/TLS 1.3 |
 | Certificates | RSA 2048 bits |
 | Algorithms | PKCS #1 SHA-256 with RSA encryption |
-| Software | OpenSSL v1.1.x, OpenVPN 2.4.x |
+| Software | OpenSSL v1.1.x |
 
 ## Product security
 
 ### Configuration
 
-Centreon guarantees to their clients that the application is configured in a secure manner. Actions on product configuration are only performed by certified employees.
+Centreon guarantees its customers that the application is configured in a secure manner. Actions on product configuration are only performed by certified employees.
 It relies on orchestration and automation that guarantee the resilience, robustness and standardization of the service that is offered.
 
 ### Authentication and access to the platform's administration
@@ -112,7 +112,7 @@ Customers can configure their user accesses and authorizations using Centreon's 
 
 ### Logs
 
-Centreon holds the application logs and checks them regularly. Logs are kept for 12 full months.
+Centreon keeps the application logs and checks them regularly. Logs are kept for 12 full months.
 
 ## Incident processing
 
@@ -132,16 +132,16 @@ If you believe you have found a security vulnerability, please report it to us a
 
 ### Vulnerability detection
 
-Centreon has processes and multilayer security tools that make it possible to proactively detect anomalies with code or infrastructure that could introduce vulnerabilities.
+Centreon has processes and multilayer security tools that make it possible to proactively detect anomalies in code or infrastructure that could introduce vulnerabilities.
 This multilayer security includes internal human control, automatic analysis and external security audits.
 
 ### Vulnerability categorization
 
-Centreon categorizes any reported or detected vulnerabilities and assesses their severity using the CVSS (version 3.1) methodology. An adequate action plan is then set up, resulting in the correction of the vulnerability.
+Centreon categorizes any reported or detected vulnerabilities and assesses their severity using the CVSS (version 3.1) methodology. An appropriate action plan is then set up, resulting in the correction of the vulnerability.
 
 ### Vulnerability fixes
 
-Centreon implements all necessary means to handle any discovered vulnerabilities. Centreon's commitment is to mitigate and fix any reported vulnerabilities in the following manner:
+Centreon implements all necessary means to handle any vulnerabilities that are discovered. Centreon's commitment is to mitigate and fix any reported vulnerabilities in the following manner:
 
 #### Product vulnerability
 
@@ -161,11 +161,11 @@ Centreon implements all necessary means to handle any discovered vulnerabilities
 | 4.0 - 6.9 | 96 working hours | 15 days |
 | 0.1 – 3.9 | 120 working hours | 30 days |
 
-Note: Fixing infrastructure vulnerabilities can be subject to extended time limits and can depend on providers publishing fixes (hosting provider, OS publisher). Centreon commits to react as soon as possible should such a scenario arise.
+Note: Fixing infrastructure vulnerabilities can be subject to extended time limits and can depend on providers publishing fixes (hosting provider, OS publisher). Centreon is committed to reacting as soon as possible should such a situation arise.
 
 ### Rewards program
 
-Centreon does not offer a structured rewards plan for reporting vulnerabilities. Specific talks can be started according to the severity of the reported vulnerability.
+Centreon does not offer a structured rewards plan for reporting vulnerabilities. This can be discussed in specific cases, according to the severity of the reported vulnerability.
 
 ## Outsourcing and uninterrupted service
 
@@ -175,14 +175,14 @@ This outsourcing allows Centreon to guarantee an uninterrupted service and watch
 
 ## Continuous improvement
 
-Centreon commits to security and quality processes based on continuous improvement. In the same way as for its products, Centreon audits, reviews and improves its security governance (including this document) regularly.
-This governance will be reviewed, possibly revised, and adequately validated at least once a year.
+Centreon is committed to security and quality processes based on continuous improvement. In the same way as for its products, Centreon audits, reviews and improves its security governance (including this document) regularly.
+This governance will be reviewed, possibly revised, and appropriately validated at least once a year.
 
 ## Communications about security
 
 Centreon communicates on an ad hoc basis via the usual channels (direct communication by email, via The Watch, or through the support team).
 
-Centreon communicates actively with the relevant authorities in case of a significant vulnerability or personal data breach.
+Centreon communicates actively with the relevant authorities in the event of a significant vulnerability or personal data breach.
 
 Centreon strives for transparency and communicates about vulnerabilities to the public reference frameworks (MITRE).
 

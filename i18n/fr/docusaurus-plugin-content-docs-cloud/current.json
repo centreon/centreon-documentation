@@ -90,5 +90,17 @@
   "sidebar.cloud.link.Monitoring Connectors": {
     "message": "Connecteurs de supervision",
     "description": "The label for link Monitoring Connectors in sidebar cloud, linking to /pp/integrations/plugin-packs/getting-started/introduction"
+  },
+  "sidebar.cloud.category.Detecting anomalies": {
+    "message": "Détecter des anomalies",
+    "description": "The label for category Detecting anomalies in sidebar cloud"
+  },
+  "sidebar.cloud.category.Getting started with Centreon Cloud": {
+    "message": "Démarrer avec Centreon Cloud",
+    "description": "The label for category Getting started with Centreon Cloud in sidebar cloud"
+  },
+  "sidebar.cloud.category.Administration": {
+    "message": "Administration",
+    "description": "The label for category Administration in sidebar cloud"
   }
 }
