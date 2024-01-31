@@ -3,7 +3,7 @@
     {
       "collapsed": true,
       "type": "category",
-      "label": "Getting Started",
+      "label": "Getting started with Centreon OnPrem",
       "link": {
         "type": "doc",
         "id": "getting-started/welcome"
@@ -1228,6 +1228,41 @@
     },
     {
       "type": "category",
+      "label": "API",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-23.10/api/introduction"
+        },
+        {
+          "type": "doc",
+          "id": "version-23.10/api/clapi"
+        },
+        {
+          "type": "doc",
+          "id": "version-23.10/api/rest-api-v1"
+        },
+        {
+          "type": "link",
+          "href": "https://docs-api.centreon.com/api/centreon-web/23.10/",
+          "label": "Centreon Web RestAPI v2"
+        },    
+        {
+          "type": "doc",
+          "id": "version-23.10/api/rest-api-v2"
+        },
+        {
+          "type": "doc",
+          "id": "version-23.10/api/map-api"
+        },
+        {
+          "type": "doc",
+          "id": "version-23.10/api/graph-views-api"
+        }
+      ]
+    },
+    {
+      "type": "category",
       "label": "Developer resources",
       "link": {
       "type": "generated-index"
@@ -1286,36 +1321,6 @@
             {
               "type": "doc",
               "id": "version-23.10/developer/developer-gorgone-rebound-mode"
-            }
-          ]
-        },
-        {
-          "type": "category",
-          "label": "API",
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-23.10/api/introduction"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.10/api/clapi"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.10/api/rest-api-v1"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.10/api/rest-api-v2"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.10/api/map-api"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.10/api/graph-views-api"
             }
           ]
         }

@@ -17,13 +17,27 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 22.04.20
+
+Release date: `January 11, 2024`
+
+No changes for this module in this version.
+
+### 22.04.19
+
+Release date: `January 2, 2024`
+
+#### Security fix
+
+- [Security] Fixed an SQLi vulnerability.
+
 ### 22.04.18
 
 Release date: `December 15, 2023`
 
 #### Security fix
 
-- [Security] Prevented the command injection in SENDTRAPCFG gorgoned event.
+- [Security] Prevented a command injection.
 
 ### 22.04.17
 

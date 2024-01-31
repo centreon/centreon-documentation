@@ -35,7 +35,7 @@ const cards = [
     href: "docs/getting-started/welcome/",
     links: [
       {
-        label: "Getting started",
+        label: "Démarrer avec Centreon OnPrem",
         href: "docs/getting-started/welcome"
       },{
         label: "Installation",
@@ -57,11 +57,11 @@ const cards = [
   },
   {
     title: "Centreon Cloud",
-    href: "cloud/getting-started/architecture/",
+    href: "cloud/getting-started/welcome",
     links: [
       {
-        label: "Getting started",
-        href: "docs/getting-started/welcome"
+        label: "Démarrer avec Centreon Cloud",
+        href: "cloud/getting-started/welcome"
       },{
         label: "Installer un collecteur",
         href: "cloud/installation/prerequisites/"

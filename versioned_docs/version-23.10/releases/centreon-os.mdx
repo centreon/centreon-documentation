@@ -23,6 +23,54 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 23.10.7
+
+Release date: `January 24, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Prevented API calls from being cancelled when switching to another page.
+
+</details>
+
+### 23.10.6
+
+Release date: `January 15, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added dashboard shares to the dashboard list.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Authentication] Fixed hardcoded email value that blocked SSO authentication with OpenId Connect when parameter was not an email.
+- [Configuration] Fixed error message displayed in configuration generation after upgrading to 23.04 version.
+- [Event Logs] Fixed period in CSV export.
+- [Installation] Fixed installation issue occurring when database user already existed.
+- [Installation] Fixed issue adding twice poller ID in Centreon Gorgone configuration.
+- [My Account] Made the name, login and password fields read-only for non-local users so as to prevent issues where users who had edited these properties were locked out of the platform.
+- [Resource Status] Fixed bad host redirection in the services panel.
+- [Resource Status] Fixed default sorting order in Resources status: from worst to best.
+- [Web] Fixed an issue where inherited contacts/contact groups were not displayed in the notifications tab.
+
+</details>
+
+### 23.10.5
+
+Release date: `January 2, 2024`
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed an SQLi vulnerability.
+
+</details>
+
 ### 23.10.4
 
 Release date: `December 21, 2023`
@@ -76,6 +124,7 @@ Release date: `November 29, 2023`
 <details>
   <summary>Bug fixes</summary>
 
+- [API] Fixed an issue where service queries didn't return all the results.
 - [Resources Status] Fixed the issue that automatically disabled the option to access the UI when user clicked on the compact/extended button.
 
 </details>
@@ -212,6 +261,21 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon Collect
+
+### 23.10.2
+
+Release date: `January 11, 2024`
+
+#### Centreon Broker
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed a bug occurring when a Business Activity was updated after a status change for a KPI with a BA type.
+- [Install] Fixed rights on SSH directory for Debian.
+- [Packaging] Fixed an error that was returned during the installation of **centreon-broker-cbmod**.
+
+</details>
 
 ### 23.10.1
 
