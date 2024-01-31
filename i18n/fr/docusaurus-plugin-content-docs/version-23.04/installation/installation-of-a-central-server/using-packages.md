@@ -641,7 +641,7 @@ Vous devez définir le fuseau horaire de PHP.
 > fuseaux horaires supportés [ici] (http://php.net/manual/en/timezones.php).
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Exécutez la commande suivante en tant que `root` :
 
