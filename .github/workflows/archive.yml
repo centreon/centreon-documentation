@@ -60,5 +60,5 @@ jobs:
           sudo ./aws/install
         shell: bash
 
-      - name: Copy to S3
-        run: aws s3 sync --delete "build/" s3://centreon-documentation-archive/${{ github.event.inputs.version }}/
+      # - name: Copy to S3
+      #   run: aws s3 sync --delete "build/" s3://centreon-documentation-archive/${{ github.event.inputs.version }}/
