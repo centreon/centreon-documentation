@@ -28,7 +28,6 @@ This Monitoring Connector relies on 3 components that are listed below:
 ### Collected metrics
 
 Only standard metrics are described in this section. Be aware that a lot of other checks and metrics are available from the `centreon_linux_local.pl` Plugin. Here is a non-exhaustive list:
-> The services listed with * need to be created in Configuration > Commands > Checks. And in Configuration > Services > Templates but is available in the plugin
 
 <Tabs groupId="sync">
 <TabItem value="OS-Linux-NRPE3-custom" label="OS-Linux-NRPE3-custom">
