@@ -51,7 +51,7 @@ Only standard metrics are described in this section. Be aware that a lot of othe
 | Packet-Errors       | OS-Linux-Packet-Errors-NRPE3-custom       | Check packet errors and discards on interfaces|
 | Pending-Updates        | OS-Linux-Pending-Updates-NRPE3-custom     | Check pending updates                         |
 | Process-Generic     | OS-Linux-Process-Generic-NRPE3-custom     | Check linux processes                         |
-| Systemd-Journal *   | OS-Linux-Systemd-Journal-NRPE3-custom     | Count journal entries                         |
+| Systemd-Journal   | OS-Linux-Systemd-Journal-NRPE3-custom     | Count journal entries                         |
 | Systemd-Sc-Status   | OS-Linux-Systemd-Sc-Status-NRPE3-custom   | Check services managed by systemd             |
 | Traffic             | OS-Linux-Traffic-NRPE3-custom             | Check Traffic                                 |
 
