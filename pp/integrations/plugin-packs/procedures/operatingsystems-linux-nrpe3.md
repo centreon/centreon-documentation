@@ -59,6 +59,7 @@ Only standard metrics are described in this section. Be aware that a lot of othe
 > The services listed above are created automatically when the **OS-Linux-NRPE3-custom** host template is used.
 
 </TabItem>
+</Tabs>
 
 Here are the metrics that are collected by default:
 
