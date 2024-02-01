@@ -11,7 +11,7 @@ VMware is an software compagny based in USA. VMware provides cloud computing and
 
 The Centreon Plugin and Monitoring Connectors rely on the Centreon VMWare Connector to request the vCenter SDK.
 
-> This Monitoring Connector can be used with either versions 6 or 7 of the VMware API.
+> This Monitoring Connector can be used with either version 6 or 7 of the VMware API.
 
 ## Monitoring Connector Assets
 
