@@ -5,7 +5,7 @@ title: Les macros
 
 Une macro est une variable qui déinit une valeur utilisée par une commande pour contr^^oler des hôtes ou des services. Les macros vous permettent de personnaliser les contrôles en définissant une valeur particulière pour chaque hôte ou service contrôlé par le me^me modèle: la valeur de la macro pour un hôte ou service sepécifique est défini par l'utilisateur dans la formulaire de configuration de l'hôte ou du service.
 
-Exemple: Dans la commande suivante (qui contrôle l'uptime d'un serveur Linux), **$HOSTADDRESS$** est une macro.
+Exemple: Dans la commande suivante (qui contrôle l'uptime d'un serveur Linux), **$HOSTADDRESS$**, **$_SERVICEWARNING$** et **$_HOSTSNMPEXTRAOPTIONS$** sont des macros.
 
 ```shell
 $CENTREONPLUGINS$/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=uptime --hostname=$HOSTADDRESS$ --snmp-version='$_HOSTSNMPVERSION$' --snmp-community='$_HOSTSNMPCOMMUNITY$' $_HOSTSNMPEXTRAOPTIONS$ --warning-uptime='$_SERVICEWARNING$' --critical-uptime='$_SERVICECRITICAL$' $_SERVICEEXTRAOPTIONS$
