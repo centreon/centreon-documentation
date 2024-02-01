@@ -11,6 +11,8 @@ The Centreon Plugins and Monitoring Connectors rely on the Centreon VMWare Conne
 
 With this connector, Centreon can monitor VMs, Datastores, ESXs, Clusters, etc.
 
+> This Monitoring Connector can be used with either versions 6 or 7 of the VMware API.
+
 ## Pack assets
 
 ### Templates
