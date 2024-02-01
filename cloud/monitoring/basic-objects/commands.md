@@ -62,11 +62,11 @@ For security reasons, Centreon Cloud has a built-in whitelist that defines which
 ### SSH connector
 
 The Centreon SSH Connector is free software from Centreon available under the Apache Software License version 2 (ASL 2.0).
-It speeds up execution checks over SSH when used with Centreon Engine.
+It speeds up the execution and saves resources consumption by checks over SSH when used with Centreon Engine by avoiding to perform all the authentication transactions at every check.
 
 #### Installation
 
-Centreon recommends using its official packages. Most of Centreon’s endorsed software is available as RPM packages.
+Centreon recommends using its official packages. Most of Centreon’s endorsed software is available as RPM and DEB packages.
 
 Run the following commands as a privileged user:
 
@@ -97,11 +97,11 @@ apt install centreon-connector-ssh
 ### Perl connector
 
 The Centreon Perl Connector is free software from Centreon available under the Apache Software License version 2 (ASL 2.0).
-It speeds up execution of Perl scripts when used with Centreon Engine.
+It speeds up execution of Perl scripts when used with Centreon Engine by avoiding compiling the Perl code at every check.
 
 #### Installation
 
-Centreon recommends using its official packages. Most of Centreon’ endorsed software are available as RPM packages.
+Centreon recommends using its official packages. Most of Centreon’ endorsed software are available as RPM and DEB packages.
 
 Run the following commands as a privileged user:
 
