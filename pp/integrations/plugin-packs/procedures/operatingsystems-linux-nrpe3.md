@@ -47,7 +47,7 @@ Only standard metrics are described in this section. Be aware that a lot of othe
 | Is-Not-File-Generic | OS-Linux-Is-Not-File-Generic-NRPE3-custom | Check the absence of a file                   |
 | Load                | OS-Linux-Load-NRPE3-custom                | Check system load-average                     |
 | Ntp                 | OS-Linux-Ntp-NRPE3-custom                 | Check ntp daemons                             |
-| OpenFile *          | OS-Linux-OpenFile-NRPE3-custom            | Check open files                              |
+| OpenFile            | OS-Linux-OpenFile-NRPE3-custom            | Check open files                              |
 | Packet-Errors       | OS-Linux-Packet-Errors-NRPE3-custom       | Check packet errors and discards on interfaces|
 |	Pending-Updates *   | OS-Linux-Pending-Updates-NRPE3-custom     | Check pending updates                         |
 | Process-Generic     | OS-Linux-Process-Generic-NRPE3-custom     | Check linux processes                         |
