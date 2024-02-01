@@ -34,7 +34,7 @@ Only standard metrics are described in this section. Be aware that a lot of othe
 
 | Service Alias       | Service Template                          | Service Description                           |
 |:--------------------|:------------------------------------------|:----------------------------------------------|
-| Check-Plugin *      | OS-Linux-Check-Plugin-NRPE3-custom        | SSH execution commands in a remote host       |
+| Check-Plugin        | OS-Linux-Check-Plugin-NRPE3-custom        | SSH execution commands in a remote host       |
 | Cmd-Generic         | OS-Linux-Cmd-Generic-NRPE3-custom         | Check command returns                         |
 | Connections-Generic | OS-Linux-Connections-Generic-NRPE3-custom | Check tcp/udp connections                     |
 | Cpu-Detailed        | OS-Linux-Cpu-Detailed-NRPE3-custom        | Check average usage for each CPUs             |
