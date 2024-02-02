@@ -59,7 +59,7 @@ jobs:
 
       - name: Manage versions to build
         uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
-        # if: ${{ steps.changes.outputs.global == 'false' && steps.changes.outputs.versions_count < 100 }}
+        if: ${{ steps.changes.outputs.global == 'false' && steps.changes.outputs.versions_count < 100 }}
         with:
           script: |
             const available_versions = require('./versions.json');
@@ -123,7 +123,7 @@ jobs:
 
       - name: Manage versions to build
         uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
-        # if: ${{ steps.changes.outputs.global == 'true' || steps.changes.outputs.versions_count >= 100 || (github.ref_name == 'staging' && github.event_name != 'pull_request') }}
+        if: ${{ steps.changes.outputs.global == 'true' || steps.changes.outputs.versions_count >= 100 || (github.ref_name == 'staging' && github.event_name != 'pull_request') }}
         with:
           script: |
             let build_versions = require('./versions.json');
@@ -151,7 +151,7 @@ jobs:
             core.setOutput('build_cloud', '${{ env.build_cloud }}');
 
   build:
-    # if: ${{ needs.get-versions.outputs.build_environments != '[]' }}
+    if: ${{ needs.get-versions.outputs.build_environments != '[]' }}
     runs-on: ubuntu-22.04
     needs: [get-versions]
 
@@ -197,7 +197,7 @@ jobs:
           key: "${{ github.sha }}-${{ github.run_id }}-build-doc-${{ matrix.environment }}"
 
   deploy-preview:
-    # if: ${{ github.event_name == 'pull_request' }}
+    if: ${{ github.event_name == 'pull_request' }}
     needs: [get-versions, build]
     runs-on: [self-hosted, infra]
 
@@ -226,21 +226,21 @@ jobs:
           sudo ./aws/install
         shell: bash
 
-      # - name: Deploy to https://docs-preview-int.centreon.com
-      #   run: |
-      #     echo "datetime=$(date '+%Y-%m-%d %H:%M %Z')" >> $GITHUB_ENV
+      - name: Deploy to https://docs-preview-int.centreon.com
+        run: |
+          echo "datetime=$(date '+%Y-%m-%d %H:%M %Z')" >> $GITHUB_ENV
 
-      #     export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
-      #     $(aws sts assume-role \
-      #     --role-arn ${{ secrets.CLOUDFRONT_ROLE_DOC_PRODUCTION }} \
-      #     --role-session-name InvalidDocCache \
-      #     --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]" \
-      #     --output text))
+          export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
+          $(aws sts assume-role \
+          --role-arn ${{ secrets.CLOUDFRONT_ROLE_DOC_PRODUCTION }} \
+          --role-session-name InvalidDocCache \
+          --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]" \
+          --output text))
 
-      #     aws s3 sync --delete build s3://centreon-documentation-preview-pr/previews/pr-${{ github.event.pull_request.number }}/${{ matrix.environment }}/
+          aws s3 sync --delete build s3://centreon-documentation-preview-pr/previews/pr-${{ github.event.pull_request.number }}/${{ matrix.environment }}/
 
-      #     aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID_DOC_PREVIEW }} --paths "/previews/pr-${{ github.event.pull_request.number }}/${{ matrix.environment }}/*"
-      #   shell: bash
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID_DOC_PREVIEW }} --paths "/previews/pr-${{ github.event.pull_request.number }}/${{ matrix.environment }}/*"
+        shell: bash
 
   comment-preview:
     needs: [get-versions, deploy-preview]
@@ -278,7 +278,7 @@ jobs:
             "
 
   deploy-staging:
-    # if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' && contains(fromJson(needs.get-versions.outputs.build_environments), 'staging') }}
+    if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' && contains(fromJson(needs.get-versions.outputs.build_environments), 'staging') }}
     needs: [get-versions, build]
     runs-on: [self-hosted, infra]
 
@@ -310,7 +310,7 @@ jobs:
         shell: bash
 
   deploy-next:
-    # if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' && contains(fromJson(needs.get-versions.outputs.build_environments), 'next') }}
+    if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' && contains(fromJson(needs.get-versions.outputs.build_environments), 'next') }}
     needs: [get-versions, build]
     runs-on: [self-hosted, infra]
 
@@ -338,16 +338,16 @@ jobs:
           sudo ./aws/install
         shell: bash
 
-      # - name: Deploy to https://docs-next-int.centreon.com
-      #   run: |
-      #     export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
-      #     $(aws sts assume-role \
-      #     --role-arn ${{ secrets.CLOUDFRONT_ROLE_DOC_PRODUCTION }} \
-      #     --role-session-name InvalidDocCache \
-      #     --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]" \
-      #     --output text))
+      - name: Deploy to https://docs-next-int.centreon.com
+        run: |
+          export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
+          $(aws sts assume-role \
+          --role-arn ${{ secrets.CLOUDFRONT_ROLE_DOC_PRODUCTION }} \
+          --role-session-name InvalidDocCache \
+          --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]" \
+          --output text))
 
-      #     aws s3 sync --delete build s3://centreon-documentation-next/
+          aws s3 sync --delete build s3://centreon-documentation-next/
 
-      #     aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID_DOC_NEXT }} --paths "/*"
-      #   shell: bash
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID_DOC_NEXT }} --paths "/*"
+        shell: bash
