@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                | Service Description       |
 |:--------------|:--------------------------------|:--------------------------|
-| Connections   | OS-Linux-Connections-SSH-custom | Check tcp/udp connections |
+| Connections   | OS-Linux-Connections-SSH-custom | Check TCP/UDP connections |
 | Cpu           | OS-Linux-Cpu-SSH-custom         | Check system CPUs         |
 | Inodes        | OS-Linux-Inodes-SSH-custom      | Check inodes              |
 | Load          | OS-Linux-Load-SSH-custom        | Check load average        |
@@ -375,7 +375,7 @@ yum install centreon-pack-operatingsystems-linux-ssh
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Linux SSH** connector through
-the **Configuration > Monitoring Connectors Manager** menu.
+the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
 

@@ -23,7 +23,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias       | Modèle de service               | Description                            |
 |:------------|:--------------------------------|:---------------------------------------|
-| Connections | OS-Linux-Connections-SSH-custom | Contrôle les connexions tcp/udp        |
+| Connections | OS-Linux-Connections-SSH-custom | Contrôle les connexions TCP/UDP        |
 | Cpu         | OS-Linux-Cpu-SSH-custom         | Contrôle du taux d'utilisation CPUs    |
 | Inodes      | OS-Linux-Inodes-SSH-custom      | Contrôle des inodes                    |
 | Load        | OS-Linux-Load-SSH-custom        | Contrôle du load average               |
@@ -43,12 +43,12 @@ Le connecteur apporte les modèles de service suivants
 |:------------------|:--------------------------------------|:--------------------------------------------------------------|:----------:|
 | Cmd-Return        | OS-Linux-Cmd-Return-SSH-custom        | Contrôle le retour d'une commande                             |            |
 | Cpu-Detailed      | OS-Linux-Cpu-Detailed-SSH-custom      | Contrôle du taux d'utilisation détaillé du CPU de la machine  |            |
-| Disk-Io           | OS-Linux-Disk-Io-SSH-custom           | Contrôle I/O disques                                          |            |
+| Disk-Io           | OS-Linux-Disk-Io-SSH-custom           | Contrôle les I/O disque                                          |            |
 | Files-Date        | OS-Linux-Files-Date-SSH-custom        | Contrôle le temps                                             |            |
 | Files-Size        | OS-Linux-Files-Size-SSH-custom        | Contrôle la taille des fichiers/répertoires                   |            |
 | Mountpoint        | OS-Linux-Mountpoint-SSH-custom        | Contrôle les options des points de montage                    |            |
-| Ntp               | OS-Linux-Ntp-SSH-custom               | Contrôle le daemon ntp                                        |            |
-| Packet-Errors     | OS-Linux-Packet-Errors-SSH-custom     | Contrôle des paquets en erreurs et rejetés sur les interfaces |            |
+| Ntp               | OS-Linux-Ntp-SSH-custom               | Contrôle le daemon NTP                                        |            |
+| Packet-Errors     | OS-Linux-Packet-Errors-SSH-custom     | Contrôle des paquets en erreur et rejetés sur les interfaces |            |
 | Pending-Updates   | OS-Linux-Pending-Updates-SSH-custom   | Contrôle des mises à jour en attente                          |            |
 | Quota             | OS-Linux-Quota-SSH-custom             | Contrôle le quota des partitions                              |            |
 | Storages          | OS-Linux-Storages-SSH-custom          | Contrôle du taux d'utilisation des disques                    |            |
@@ -717,7 +717,7 @@ yum install centreon-plugin-Operatingsystems-Linux-Ssh
 
 | Macro           | Description                                                                                                                                                     | Valeur par défaut | Obligatoire |
 |:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SINCE           | Defines the amount of time to look back at messages. Can beminutes (ie 5 "minutes ago") or 'cache' to use the timestamp from last execution. (default: 'cache') | cache             |             |
+| SINCE           | Defines the amount of time to look back at messages. Can be minutes (i.e. 5 "minutes ago") or 'cache' to use the timestamp from the last execution. (default: 'cache') | cache             |             |
 | TIMEZONE        | Defines the timezone to convert date/time to the host timezone when using timestamp from cache. (default: 'local')                                              | local             |             |
 | UNIT            | Only look for messages of the specified unit, ie the name of thesystemd service who created the message                                                         |                   |             |
 | FILTERMESSAGE   | Filter on message content (can be a regexp)                                                                                                                     |                   |             |
