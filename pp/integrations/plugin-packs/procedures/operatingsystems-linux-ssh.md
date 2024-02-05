@@ -24,7 +24,7 @@ The connector brings the following service templates (sorted by the host templat
 | Cpu           | OS-Linux-Cpu-SSH-custom         | Check system CPUs         |
 | Inodes        | OS-Linux-Inodes-SSH-custom      | Check inodes              |
 | Load          | OS-Linux-Load-SSH-custom        | Check load average        |
-| Memory        | OS-Linux-Memory-SSH-custom      |                           |
+| Memory        | OS-Linux-Memory-SSH-custom      | Monitor the memory (RAM) usage. |
 | Open-Files    | OS-Linux-Open-Files-SSH-custom  | Check open files          |
 | Paging        | OS-Linux-Paging-SSH-custom      | Check paging informations |
 | Process       | OS-Linux-Process-SSH-custom     | Check processes           |
@@ -41,7 +41,7 @@ The connector brings the following service templates (sorted by the host templat
 | Cmd-Return        | OS-Linux-Cmd-Return-SSH-custom        | Check command returns                                         |            |
 | Cpu-Detailed      | OS-Linux-Cpu-Detailed-SSH-custom      | Check the detailed rate of utilization of CPU for the machine |            |
 | Disk-Io           | OS-Linux-Disk-Io-SSH-custom           | Check disk I/O                                                |            |
-| Files-Date        | OS-Linux-Files-Date-SSH-custom        | Check time                                                    |            |
+| Files-Date        | OS-Linux-Files-Date-SSH-custom        | Monitor the time elapsed since the  creation or last modification of files/directories.  |            |
 | Files-Size        | OS-Linux-Files-Size-SSH-custom        | Check size of files/directories                               |            |
 | Mountpoint        | OS-Linux-Mountpoint-SSH-custom        | Check mount points options                                    |            |
 | Ntp               | OS-Linux-Ntp-SSH-custom               | Check ntp daemons                                             |            |
@@ -556,8 +556,8 @@ yum install centreon-plugin-Operatingsystems-Linux-Ssh
 
 | Macro             | Description                                                                                        | Default value     | Mandatory   |
 |:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGUSAGEPRCT  |                                                                                                    |                   |             |
-| CRITICALUSAGEPRCT |                                                                                                    |                   |             |
+| WARNINGUSAGEPRCT  | Thresholds.                                                                            |                   |             |
+| CRITICALUSAGEPRCT | Thresholds.                                                                                |                   |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
@@ -611,14 +611,14 @@ yum install centreon-plugin-Operatingsystems-Linux-Ssh
 | FILTERSTATE        | Filter filesystem type (regexp can be used)                                                                                                              |                   |             |
 | FILTERINTERFACE    | Filter interface name (regexp can be used)                                                                                                               |                   |             |
 | UNKNOWNSTATUS      | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{display}                                  |                   |             |
-| WARNINGINDISCARD   |                                                                                                                                                          |                   |             |
-| CRITICALINDISCARD  |                                                                                                                                                          |                   |             |
-| WARNINGINERROR     |                                                                                                                                                          |                   |             |
-| CRITICALINERROR    |                                                                                                                                                          |                   |             |
-| WARNINGOUTDISCARD  |                                                                                                                                                          |                   |             |
-| CRITICALOUTDISCARD |                                                                                                                                                          |                   |             |
-| WARNINGOUTERROR    |                                                                                                                                                          |                   |             |
-| CRITICALOUTERROR   |                                                                                                                                                          |                   |             |
+| WARNINGINDISCARD   | Thresholds.                                                                                                                                              |                   |             |
+| CRITICALINDISCARD  | Thresholds.                                                                                                                                              |                   |             |
+| WARNINGINERROR     | Thresholds.                                                                                                                                              |                   |             |
+| CRITICALINERROR    | Thresholds.                                                                                                                                              |                   |             |
+| WARNINGOUTDISCARD  | Thresholds.                                                                                                                                              |                   |             |
+| CRITICALOUTDISCARD | Thresholds.                                                                                                                                              |                   |             |
+| WARNINGOUTERROR    | Thresholds.                                                                                                                                              |                   |             |
+| CRITICALOUTERROR   | Thresholds.                                                                                                                                              |                   |             |
 | CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL (default: '%{status} ne "RU"'). You can use the following variables: %%{status}, %{display} | %{status} ne "RU" |             |
 | WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{display}                                  |                   |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                       | --verbose         |             |
@@ -652,8 +652,8 @@ yum install centreon-plugin-Operatingsystems-Linux-Ssh
 | FILTERREPOSITORY | Filter repository name                                                                             |                   |             |
 | WARNINGTOTAL     | Warning threshold for total amount of pending updates                                              |                   |             |
 | CRITICALTOTAL    | Critical threshold for total amount of pending updates                                             |                   |             |
-| WARNINGUPDATE    |                                                                                                    |                   |             |
-| CRITICALUPDATE   |                                                                                                    |                   |             |
+| WARNINGUPDATE    | Thresholds.                                                                                         |                   |             |
+| CRITICALUPDATE   | Thresholds.                                                                                |                   |             |
 | EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>

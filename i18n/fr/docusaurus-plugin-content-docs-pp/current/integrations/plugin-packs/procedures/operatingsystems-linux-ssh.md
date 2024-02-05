@@ -44,7 +44,7 @@ Le connecteur apporte les modèles de service suivants
 | Cmd-Return        | OS-Linux-Cmd-Return-SSH-custom        | Contrôle le retour d'une commande                             |            |
 | Cpu-Detailed      | OS-Linux-Cpu-Detailed-SSH-custom      | Contrôle du taux d'utilisation détaillé du CPU de la machine  |            |
 | Disk-Io           | OS-Linux-Disk-Io-SSH-custom           | Contrôle les I/O disque                                          |            |
-| Files-Date        | OS-Linux-Files-Date-SSH-custom        | Contrôle le temps                                             |            |
+| Files-Date        | OS-Linux-Files-Date-SSH-custom        | Contrôle le temps écoulé depuis la création ou la dernière modification des fichiers/répertoires.  |            |
 | Files-Size        | OS-Linux-Files-Size-SSH-custom        | Contrôle la taille des fichiers/répertoires                   |            |
 | Mountpoint        | OS-Linux-Mountpoint-SSH-custom        | Contrôle les options des points de montage                    |            |
 | Ntp               | OS-Linux-Ntp-SSH-custom               | Contrôle le daemon NTP                                        |            |
@@ -276,6 +276,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 | Métrique                              | Unité |
 |:--------------------------------------|:------|
 | *disk_name*#storage.space.usage.bytes | B     |
+| *partition_name*#storage.space.free.bytes  | B     |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
