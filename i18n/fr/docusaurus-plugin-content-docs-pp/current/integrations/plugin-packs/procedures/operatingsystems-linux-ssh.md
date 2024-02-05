@@ -46,6 +46,7 @@ Le connecteur apporte les modèles de service suivants
 | Disk-Io           | OS-Linux-Disk-Io-SSH-custom           | Contrôle les I/O disque                                          |            |
 | Files-Date        | OS-Linux-Files-Date-SSH-custom        | Contrôle le temps écoulé depuis la création ou la dernière modification des fichiers/répertoires.  |            |
 | Files-Size        | OS-Linux-Files-Size-SSH-custom        | Contrôle la taille des fichiers/répertoires                   |            |
+| Lvm               | OS-Linux-Lvm-SSH-custom               | Contrôle de l'utilisation des LV et l'espace libre des VG     |
 | Mountpoint        | OS-Linux-Mountpoint-SSH-custom        | Contrôle les options des points de montage                    |            |
 | Ntp               | OS-Linux-Ntp-SSH-custom               | Contrôle le daemon NTP                                        |            |
 | Packet-Errors     | OS-Linux-Packet-Errors-SSH-custom     | Contrôle des paquets en erreur et rejetés sur les interfaces |            |
@@ -168,6 +169,18 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 | load1       | N/A   |
 | load5       | N/A   |
 | load15      | N/A   |
+
+</TabItem>
+<TabItem value="Lvm" label="Lvm">
+
+| Métrique                                    | Unité |
+|:--------------------------------------------|:------|
+| lv.detected.count                           |       |
+| vg.detected.count                           |       |
+| *vg_name~lv_name*#lv.data.usage.percentage  | %     |
+| *vg_name*#vg.space.usage.bytes              | B     |
+| *vg_name*#vg.space.free.bytes               | B     |
+| *vg_name*#vg.space.usage.percentage         | %     |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -558,6 +571,29 @@ yum install centreon-plugin-Operatingsystems-Linux-Ssh
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |  --average        |             |
 
 </TabItem>
+<TabItem value="Lvm" label="Lvm">
+
+| Macro                    | Description                                                                                                                                       | Valeur par défaut | Obligatoire |
+|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERLV                 | Filter logical volume (regexp can be used)                                                                                                        |                   |             |
+| FILTERVG                 | Filter virtual group (regexp can be used)                                                                                                         |                   |             |
+| WARNINGLVDATAUSAGE       | Thresholds                                                                                                                                        |                   |             |
+| CRITICALLVDATAUSAGE      | Thresholds                                                                                                                                        |                   |             |
+| WARNINGLVDETECTED        | Thresholds                                                                                                                                        |                   |             |
+| CRITICALLVDETECTED       | Thresholds                                                                                                                                        |                   |             |
+| WARNINGLVMETAUSAGE       | Thresholds                                                                                                                                        |                   |             |
+| CRITICALLVMETAUSAGE      | Thresholds                                                                                                                                        |                   |             |
+| WARNINGVGDETECTED        | Thresholds                                                                                                                                        |                   |             |
+| CRITICALVGDETECTED       | Thresholds                                                                                                                                        |                   |             |
+| WARNINGVGSPACEUSAGE      | Thresholds                                                                                                                                        |                   |             |
+| CRITICALVGSPACEUSAGE     | Thresholds                                                                                                                                        |                   |             |
+| WARNINGVGSPACEUSAGEFREE  | Thresholds                                                                                                                                        |                   |             |
+| CRITICALVGSPACEUSAGEFREE | Thresholds                                                                                                                                        |                   |             |
+| WARNINGVGSPACEUSAGEPRCT  | Thresholds                                                                                                                                        |                   |             |
+| CRITICALVGSPACEUSAGEPRCT | Thresholds                                                                                                                                        |                   |             |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)          | --verbose         |             |
+
+</TabItem>
 <TabItem value="Memory" label="Memory">
 
 | Macro             | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
@@ -848,7 +884,7 @@ Le plugin apporte les modes suivants :
 | list-storages [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/liststorages.pm)]               | Not used in this Monitoring Connector |
 | list-systemdservices [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/listsystemdservices.pm)] | Used for service discovery            |
 | load [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/loadaverage.pm)]                         | OS-Linux-Load-SSH-custom              |
-| lvm [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/lvm.pm)]                                  | Not used in this Monitoring Connector |
+| lvm [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/lvm.pm)]                                  | OS-Linux-Lvm-SSH-custom               |
 | memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/memory.pm)]                            | OS-Linux-Memory-SSH-custom            |
 | mountpoint [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/mountpoint.pm)]                    | OS-Linux-Mountpoint-SSH-custom        |
 | ntp [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/ntp.pm)]                                  | OS-Linux-Ntp-SSH-custom               |
@@ -1066,6 +1102,16 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --warning  | Warning threshold (1min,5min,15min).    |
 | --critical | Critical threshold (1min,5min,15min).   |
 | --average  | Load average for the number of CPUs.    |
+
+</TabItem>
+<TabItem value="Lvm" label="Lvm">
+
+| Option       | Description                                                                                                                                                 |
+|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --warning-*  | Warning threshold. Can be: 'lv-detected', 'vg-detected', 'vg-space-usage', 'vg-space-usage-free', 'vg-space-usage-prct', 'lv-data-usage', 'lv-meta-usage'.  |
+| --critical-* | Critical threshold. Can be: 'lv-detected', 'vg-detected', 'vg-space-usage', 'vg-space-usage-free', 'vg-space-usage-prct', 'lv-data-usage', 'lv-meta-usage'. |
+| --filter-vg  | Filter volume group (regexp can be used).                                                                                                                   |
+| --filter-lv  | Filter logical volume (regexp can be used).                                                                                                                 |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
