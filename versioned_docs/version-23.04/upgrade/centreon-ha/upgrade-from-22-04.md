@@ -43,6 +43,9 @@ Now, to perform the upgrade:
 
 > For the **passive central node** and **passive database node if needed**, please [follow the official documentation](../../upgrade/upgrade-from-22-04.md) **until the "Update your customized Apache configuration" step included only. Do not perform the "Finalizing the upgrade" step.**.
 
+<Tabs groupId="sync">
+<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
+
 Then on the two central nodes, restore the file `/etc/centreon-ha/centreon_central_sync.pm`:
 
 ```shell
@@ -56,6 +59,18 @@ mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`da
 sudo -u apache /usr/share/centreon/bin/console cache:clear
 ```
 
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+On the passive central node, move the "install" directory to avoid getting the "upgrade" screen in the interface in the event of a further exchange of roles.
+
+```bash
+mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`date +%Y-%m-%d`
+sudo -u www-data /usr/share/centreon/bin/console cache:clear
+```
+
+</TabItem></Tabs>
+
 ### Removing cron jobs
 
 The RPM upgrade puts cron jobs back in place on the central and databases servers. Remove them to avoid concurrent executions on central and database nodes: 
@@ -66,7 +81,7 @@ rm -rf /etc/cron.d/centstorage
 rm -f /etc/cron.d/centreon-ha-mysql
 ```
 
-As you have deleted the **centreon-ha-mysql** cron, check that the following line appears in the **server** section of the **/etc/my.cnf.d/server.cnf** file:
+As you have deleted the **centreon-ha-mysql** cron, check that the following line appears in the **server** section of the **/etc/my.cnf.d/server.cnf** file (or in the **/etc/mysql/mariadb.conf.d/50-server.cnf** on Debian):
 
 ```shell
 expire_logs_days=7
@@ -75,7 +90,7 @@ expire_logs_days=7
 If the line is not there, add it, then restart the **ms_mysql** resource:
 
 ```shell
-pcs resource restart ms_mysql
+pcs resource restart ms_mysql-clone
 ```
 
 ### Reset the permissions for centreon_central_sync resource
@@ -262,7 +277,7 @@ pcs resource create "ms_mysql" \
 ```bash
 pcs resource create "ms_mysql" \
     ocf:heartbeat:mariadb-centreon \
-    config="/etc/my.cnf.d/server.cnf" \
+    config="/etc/mysql/mariadb.conf.d/50-server.cnf" \
     pid="/var/lib/mysql/mysql.pid" \
     datadir="/var/lib/mysql" \
     socket="/var/lib/mysql/mysql.sock" \
