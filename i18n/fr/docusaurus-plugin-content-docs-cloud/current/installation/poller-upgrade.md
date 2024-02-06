@@ -10,96 +10,17 @@ Cette procédure décrit la montée de version d'un collecteur, d'une version ma
 
 ## Montée de version d'un collecteur
 
-### Mise à jour des dépôts
+1. [Sur votre serveur central](../getting-started/interface.md#accéder-à-linterface-du-serveur-central), cliquez sur la flèche à côté de **Collecteurs** dans le bandeau en haut à gauche.
 
-Exécutez la commande suivante :
+2. Dans la pop-up qui apparaît, cliquez sur **Copy install command**. La commande est copiée dans votre presse-papiers.
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+3. Sur le collecteur, dans le terminal, copiez la commande d'installation et exécutez-la.
 
-```shell
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
-```
+4. [Déployez la configuration du collecteur](../monitoring/monitoring-servers/deploying-a-configuration.md), 
+en choisissant la méthode **Redémarrer** pour le processus Engine.
 
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+5. Redémarrez enfin le service Gorgone s'il est utilisé sur le collecteur :
 
-```shell
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el9/centreon-23.10.repo
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-echo "deb https://packages.centreon.com/apt-standard-23.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
-apt update
-```
-
-</TabItem>
-</Tabs>
-
-### Montée de version de la solution Centreon
-
-Videz le cache :
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf clean all --enablerepo=*
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf clean all --enablerepo=*
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-apt clean all
-apt update
-```
-
-</TabItem>
-</Tabs>
-
-Mettez à jour l'ensemble des composants :
-
-<Tabs groupId="sync">
-
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf update centreon\*
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf update centreon\*
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-apt upgrade centreon-poller
-```
-
-</TabItem>
-
-</Tabs>
-
-> Acceptez les nouvelles clés GPG des dépôts si nécessaire.
-
-Redémarrez **centreon** :
-
-```shell
-systemctl restart centreon
-```
+  ```shell
+  systemctl restart centengine gorgoned
+  ```
