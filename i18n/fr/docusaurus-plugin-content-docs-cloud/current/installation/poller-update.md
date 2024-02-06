@@ -10,59 +10,13 @@ Cette procédure décrit la mise à jour d'un collecteur d'une version mineure �
 
 ## Mettre à jour un collecteur
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+3. [Sur votre serveur central](../getting-started/interface.md#accéder-à-linterface-du-serveur-central), cliquez sur la flèche à côté de **Collecteurs** dans le bandeau en haut à gauche.
 
-1. Videz le cache :
+4. Dans la pop-up qui apparaît, cliquez sur **Copy install command**. La commande est copiée dans votre presse-papiers.
 
-  ```shell
-  dnf clean all --enablerepo=*
-  ```
+5. Sur le collecteur, dans le terminal, copiez la commande d'installation et exécutez-la.
 
-2. Mettez à jour l'ensemble des composants :
-
-  ```shell
-  dnf update centreon\* --exclude=centreon-plugin*
-  ```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-1. Videz le cache :
-
-  ```shell
-  dnf clean all --enablerepo=*
-  ```
-
-2. Mettez à jour l'ensemble des composants :
-
-  ```shell
-  dnf update centreon\* --exclude=centreon-plugin*
-  ```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-1. Videz le cache :
-
-  ```shell
-  apt clean all
-  apt update
-  ```
-
-2. Mettez à jour l'ensemble des composants :
-
-  ```shell
-  apt upgrade centreon\* --exclude=centreon-plugin*
-  ```
-
-</TabItem>
-</Tabs>
-
-  > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
-
-3. Déployez la configuration du collecteur depuis l'interface web en suivant [cette
-procédure](../monitoring/monitoring-servers/deploying-a-configuration.md), et
+3. [Déployez la configuration du collecteur](../monitoring/monitoring-servers/deploying-a-configuration.md), 
 en choisissant la méthode **Redémarrer** pour le processus Engine.
 
 4. Redémarrez enfin le service Gorgone s'il est utilisé sur le collecteur :
