@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                      | Service Description                                                                                           |
 |:--------------|:--------------------------------------|:--------------------------------------------------------------------------------------------------------------|
-| Cpu           | Net-FW-Cisco-Asa-Cpu-SNMP-custom      | Check the rate of utilization of CPU for the machine. This check can give the average utilization rate of CPU. |
+| Cpu           | Net-FW-Cisco-Asa-Cpu-SNMP-custom      | Check the rate of utilization of the CPU for the machine. This check can give the average utilization rate of the CPU. |
 | Memory        | Net-FW-Cisco-Asa-Memory-SNMP-custom   | Check machine memory usage.                                                                                    |
 | Sensors       | Net-FW-Cisco-Asa-Sensors-SNMP-custom  | Check sensors.                                                                                                 |
 | Sessions      | Net-FW-Cisco-Asa-Sessions-SNMP-custom | Check current/average connections.                                                                             |
