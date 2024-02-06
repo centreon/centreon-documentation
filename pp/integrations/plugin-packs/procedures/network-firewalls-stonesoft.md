@@ -155,9 +155,13 @@ Coming soon
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+### SNMP Configuration
+
+The SNMP service must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
+
+### Network flow
+
+The target resource must be reachable from the Centreon poller on the UDP/161 SNMP port.
 
 ## Installing the monitoring connector
 
