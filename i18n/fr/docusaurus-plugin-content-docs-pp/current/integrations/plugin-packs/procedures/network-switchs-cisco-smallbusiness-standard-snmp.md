@@ -31,9 +31,9 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                      | Modèle de service                                            | Description                                                                        | Découverte |
 |:---------------------------|:-------------------------------------------------------------|:-----------------------------------------------------------------------------------|:----------:|
-| Packet-Errors-Generic-Id   | Net-Cisco-Sb-Standard-Packet-Errors-Generic-Id-SNMP-custom   | Contrôle le pourcentage de paquets en erreur/écarté d'une interface réseau         |            |
-| Packet-Errors-Generic-Name | Net-Cisco-Sb-Standard-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écarté d'une interface réseau         |            |
-| Packet-Errors-Global       | Net-Cisco-Sb-Standard-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écarté de plusieurs interfaces réseau | X          |
+| Packet-Errors-Generic-Id   | Net-Cisco-Sb-Standard-Packet-Errors-Generic-Id-SNMP-custom   | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau         |            |
+| Packet-Errors-Generic-Name | Net-Cisco-Sb-Standard-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau         |            |
+| Packet-Errors-Global       | Net-Cisco-Sb-Standard-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau | X          |
 | Spanning-Tree              | Net-Cisco-Sb-Standard-SpanningTree-SNMP-custom               | Contrôle l'état du spanning tree sur les interfaces                                |            |
 | Traffic-Generic-Id         | Net-Cisco-Sb-Standard-Traffic-Generic-Id-SNMP-custom         | Contrôle le traffic réseau d'une interface réseau                                  |            |
 | Traffic-Generic-Name       | Net-Cisco-Sb-Standard-Traffic-Generic-Name-SNMP-custom       | Contrôle le traffic réseau d'une interface réseau                                  |            |
