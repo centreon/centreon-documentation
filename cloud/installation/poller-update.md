@@ -10,63 +10,14 @@ This procedure describes how to update a poller from one minor version to anothe
 
 ## Updating a poller
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-1. Clean the cache:
-
-  ```shell
-  dnf clean all --enablerepo=*
-  ```
-
-2. Then upgrade all the components with the following command:
-
-  ```shell
-  dnf update centreon\* --exclude=centreon-plugin*
-  ```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-1. Clean the cache:
-
-  ```shell
-  dnf clean all --enablerepo=*
-  ```
-
-2. Then upgrade all the components with the following command:
-
-  ```shell
-  dnf update centreon\* --exclude=centreon-plugin*
-  ```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-1. Clean the cache:
-
-  ```shell
-  apt clean all
-  apt update
-  ```
-
-2. Then upgrade all the components with the following command:
-
-  ```shell
-  apt upgrade centreon\* --exclude=centreon-plugin*
-  ```
-
-</TabItem>
-</Tabs>
-
-  > Accept the new GPG keys from the repositories as needed.
-
-3. Deploy the Poller's configuration from the Centreon web UI by following [this
-procedure](../monitoring/monitoring-servers/deploying-a-configuration.md),
+1. On your central server, click the arrow next to **Pollers** at the left of the header bar.
+2. In the pop-up that appears, click **Copy install command**. The command is copied to your clipboard.
+3. On your poller, in your terminal, paste the install command and execute it.
+4. [Deploy the poller's configuration](../monitoring/monitoring-servers/deploying-a-configuration.md),
 and choose the **Restart** method for the Engine process.
-
-4. Finally, restart the Gorgone service if it is used on the Poller:
+5. Finally, restart the Gorgone service if it is used on the poller:
 
   ```shell
   systemctl restart centengine gorgoned
   ```
+  
