@@ -36,8 +36,8 @@ Le connecteur apporte les modèles de service suivants
 |:---------------------|:-----------------------------------------------|:-----------------------------------------------|:----------:|
 | Cluster-Load         | Net-Stonesoft-Cluster-Load-SNMP-custom         | Contrôle de la charge consommée par le cluster |            |
 | Cluster-State        | Net-Stonesoft-Cluster-State-SNMP-custom        | Contrôle l'état du cluster                     |            |
-| Disk-Global          | Net-Stonesoft-Disk-Global-SNMP-custom          | Contrôle du taux d'utilization des disques     |            |
-| Disk-Name            | Net-Stonesoft-Disk-Name-SNMP-custom            | Contrôle du taux d'utilization des disques     |            |
+| Disk-Global          | Net-Stonesoft-Disk-Global-SNMP-custom          | Contrôle du taux d'utilisation des disques     |            |
+| Disk-Name            | Net-Stonesoft-Disk-Name-SNMP-custom            | Contrôle du taux d'utilisation des disques     |            |
 | Traffic-Generic-ID   | Net-Stonesoft-Traffic-Generic-ID-SNMP-custom   | Contrôle de la bande passante de l'interface   |            |
 | Traffic-Generic-Name | Net-Stonesoft-Traffic-Generic-Name-SNMP-custom | Contrôle de la bande passante de l'interface   |            |
 | Traffic-Global       | Net-Stonesoft-Traffic-Global-SNMP-custom       | Contrôle de la bande passante de l'interface   | X          |
