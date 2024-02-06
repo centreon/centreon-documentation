@@ -213,7 +213,7 @@ Il faudra ensuite spécifier dans la configuration du service **Broker-Stats** q
 
 | Macro name          | Value                                           |
 |:--------------------|:------------------------------------------------|
-| EXTRAOPTIONS        | --verbose --remote --ssh-option='-l=centreon'   |
+| EXTRAOPTIONS        | --verbose                                       |
 
 ## Installer le connecteur de supervision
 

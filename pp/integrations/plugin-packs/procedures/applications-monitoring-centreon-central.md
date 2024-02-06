@@ -212,7 +212,7 @@ You will then have to set the check to be performed remotely. To do so, after ap
 
 | Macro name          | Value                                           |
 |:--------------------|:------------------------------------------------|
-| EXTRAOPTIONS        | --verbose --remote --ssh-option='-l=centreon'   |
+| EXTRAOPTIONS        | --verbose                                       |
 
 ## Installing the monitoring connector
 
