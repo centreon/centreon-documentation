@@ -29,7 +29,7 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: Get changes
-        uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50 # v2.11.1
+        uses: dorny/paths-filter@0bc4621a3135347011ad047f9ecf449bf72ce2bd # v3.0.0
         id: changes
         with:
           token: ${{ github.token }}
@@ -191,7 +191,7 @@ jobs:
           BASE_URL: ${{ github.event_name == 'pull_request' && format('/previews/pr-{0}/{1}', github.event.pull_request.number, matrix.environment) || '' }}
 
       - name: Store build in cache
-        uses: actions/cache/save@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
+        uses: actions/cache/save@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
         with:
           path: "./build"
           key: "${{ github.sha }}-${{ github.run_id }}-build-doc-${{ matrix.environment }}"
@@ -213,7 +213,7 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: Restore build from cache
-        uses: actions/cache/restore@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
+        uses: actions/cache/restore@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
         with:
           path: "./build"
           key: "${{ github.sha }}-${{ github.run_id }}-build-doc-${{ matrix.environment }}"
@@ -293,7 +293,7 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: Restore build from cache
-        uses: actions/cache/restore@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
+        uses: actions/cache/restore@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
         with:
           path: "./build"
           key: "${{ github.sha }}-${{ github.run_id }}-build-doc-staging"
@@ -325,7 +325,7 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: Restore build from cache
-        uses: actions/cache/restore@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
+        uses: actions/cache/restore@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
         with:
           path: "./build"
           key: "${{ github.sha }}-${{ github.run_id }}-build-doc-next"

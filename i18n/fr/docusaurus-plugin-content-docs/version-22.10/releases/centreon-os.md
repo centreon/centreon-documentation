@@ -588,7 +588,7 @@ Release date: `October 26, 2022`
 
 Release date: `July 28, 2023`
 
-### Bug fixes
+#### Bug fixes
 
 - Fixed a Broker query.
 
