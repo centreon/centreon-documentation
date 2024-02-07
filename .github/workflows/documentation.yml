@@ -182,10 +182,17 @@ jobs:
         with:
           cmd: install --frozen-lockfile
 
-      - uses: oven-sh/setup-bun@v1
+      - name: Cache Docusaurus Build
+        uses: actions/cache@v4
+        with:
+          path: node_modules/.cache/webpack
+          key: docusaurus-${{ github.ref_name }}-${{ github.run_id }}
+          restore-keys: |
+            docusaurus-${{ github.ref_name }}
+            docusaurus-main
 
       - name: Build documentation
-        run: bun run build
+        run: yarn build
         env:
           PP: ${{ matrix.pp }}
           CLOUD: ${{ matrix.cloud }}
