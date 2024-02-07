@@ -373,6 +373,16 @@ module.exports = {
         "type": "link",
         "href": "/pp/integrations/plugin-packs/getting-started/introduction",
         "label": "Monitoring Connectors"
+      },
+      {
+        "type": "category",
+        "label": "Administration",
+        "items": [
+          {
+            "type": "doc",
+            "id": "administration/api-tokens"
+          },
+        ]
         },
       {
         "type": "category",
