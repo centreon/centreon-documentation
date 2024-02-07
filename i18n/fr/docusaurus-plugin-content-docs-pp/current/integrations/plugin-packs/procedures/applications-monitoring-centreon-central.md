@@ -209,12 +209,6 @@ ssh-keygen -t ed25519 -a 100
 ssh-copy-id -i ~/.ssh/id_ed25519.pub centreon@<IP_CENTRAL>
 ```
 
-Il faudra ensuite spécifier dans la configuration du service **Broker-Stats** que la vérification se fera à distance. Pour ce faire, après avoir appliqué le modèle d'hôte, vous devrez paramétrer la macro EXTRAOPTIONS sur le service **Broker-Stats** :
-
-| Macro name          | Value                                           |
-|:--------------------|:------------------------------------------------|
-| EXTRAOPTIONS        | --verbose                                       |
-
 ## Installer le connecteur de supervision
 
 ### Pack
