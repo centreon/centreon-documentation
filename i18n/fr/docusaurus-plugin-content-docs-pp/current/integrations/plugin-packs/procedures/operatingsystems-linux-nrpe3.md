@@ -156,7 +156,7 @@ yum install centreon-nrpe3-daemon.x86_64 centreon-plugin-Operatingsystems-Linux-
 > **NB :** Pour éviter l'ajout du dépôt Centreon sur tous vos serveurs, il est possible d'installer directement les paquets `https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-plugin-Operatingsystems-Linux-Local-20230117-074217.el7.centos.noarch.rpm` et `https://yum.centreon.com/standard/22.10/el7/stable/x86_64/RPMS/centreon-nrpe3-daemon-4.0.3-0.el7.centos.x86_64.rpm` (versions courantes au moment de la rédaction de cette documentation) **mais dans ce cas il ne sera pas possible de les mettre à jour par un `yum update`**.
 
 </TabItem>
-<TabItem value="Debian" label="Debian">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 # Ajout de l'utilisateur centreon-engine user
@@ -164,8 +164,8 @@ useradd --create-home centreon-engine
 # Installation de gpg
 apt install gpg
 # Ajout du dépôt Centreon
-wget -qO- https://apt-key.centreon.com | gpg --dearmor > /etc/apt/trusted.gpg.d/centreon.gpg
-echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/centreon.list
+wget -qO- https://packages.centreon.com/api/security/keypair/Debian/public | gpg --dearmor > /etc/apt/trusted.gpg.d/centreon.gpg
+echo "deb https://packages.centreon.com/artifactory/apt-plugins-stable/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/centreon-plugins.list
 apt update
 # Installation de centreon-nrpe3-daemon
 apt install centreon-nrpe3-daemon centreon-plugin-operatingsystems-linux-local
@@ -174,7 +174,7 @@ mkdir -p /var/lib/centreon/centplugins/
 chown centreon-engine: /var/lib/centreon/centplugins/
 ```
 
-> **NB :** Pour éviter l'ajout du dépôt Centreon sur tous vos serveurs, il est possible d'installer directement les paquets `https://apt.centreon.com/repository/22.10/pool%2Fc%2Fcentreon-plugin-operatingsystems-linux-local%2Fcentreon-plugin-operatingsystems-linux-local_20221215-102705-bullseye_amd64.deb` et `https://apt.centreon.com/repository/22.10/pool%2Fc%2Fcentreon-nrpe3-daemon%2Fcentreon-nrpe3-daemon_4.0.3-1_amd64.deb` (versions courantes au moment de la rédaction de cette documentation) **mais dans ce cas il ne sera pas possible de les mettre à jour par un `apt update`**.
+> **NB :** Pour éviter l'ajout du dépôt Centreon sur tous vos serveurs, il est possible d'installer directement les paquets `https://packages.centreon.com/artifactory/apt-plugins-stable/pool/nrpe/centreon-nrpe3-plugin_4.1.0-150207_amd64.deb` et `https://packages.centreon.com/artifactory/apt-plugins-stable/pool/nrpe/centreon-nrpe3-daemon_4.1.0-150207_amd64.deb` (versions courantes au moment de la rédaction de cette documentation) **mais dans ce cas il ne sera pas possible de les mettre à jour par un `apt update`**.
 
 </TabItem>
 </Tabs>
