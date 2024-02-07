@@ -189,7 +189,7 @@ jobs:
           key: docusaurus-${{ github.ref_name }}-${{ github.run_id }}
           restore-keys: |
             docusaurus-${{ github.ref_name }}
-            docusaurus-main
+            docusaurus-staging
 
       - name: Build documentation
         run: yarn build
