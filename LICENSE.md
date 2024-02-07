@@ -36,6 +36,7 @@ a. **License grant .**
   1. Subject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to:
 
       A. reproduce and Share the Licensed Material, in whole or in part; and
+     
       B. produce and reproduce, but not Share, Adapted Material.
    
    3. **Exceptions and Limitations .** For the avoidance of doubt, where Exceptions and Limitations apply to Your use, this Public License does not apply, and You do not need to comply with its terms and conditions.
@@ -71,9 +72,13 @@ a. **Attribution .**
       A. retain the following if it is supplied by the Licensor with the Licensed Material:
 
          i. identification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated);
+      
          ii. a copyright notice;
+      
          iii. a notice that refers to this Public License;
+      
          iv. a notice that refers to the disclaimer of warranties;
+      
          v. a URI or hyperlink to the Licensed Material to the extent reasonably practicable;
 
       B. indicate if You modified the Licensed Material and retain an indication of any previous modifications; and
@@ -113,6 +118,7 @@ a. This Public License applies for the term of the Copyright and Similar Rights 
 b. Where Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:
 
    1. automatically as of the date the violation is cured, provided it is cured within 30 days of Your discovery of the violation; or
+      
    2. upon express reinstatement by the Licensor.
 
    For the avoidance of doubt, this Section 6(b) does not affect any right the Licensor may have to seek remedies for Your violations of this Public License.
