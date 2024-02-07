@@ -314,7 +314,7 @@ dnf install centreon-pack-operatingsystems-linux-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-operatingsystems-linux-snmp
@@ -361,7 +361,7 @@ dnf install centreon-plugin-Operatingsystems-Linux-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-operatingsystems-linux-snmp

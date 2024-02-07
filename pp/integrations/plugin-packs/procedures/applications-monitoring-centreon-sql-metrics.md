@@ -158,7 +158,7 @@ dnf install centreon-pack-applications-monitoring-centreon-sql-metrics
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-monitoring-centreon-sql-metrics
@@ -205,7 +205,7 @@ dnf install centreon-plugin-Applications-Monitoring-Centreon-SQL-Metrics
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-monitoring-centreon-sql-metrics
