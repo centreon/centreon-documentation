@@ -182,8 +182,10 @@ jobs:
         with:
           cmd: install --frozen-lockfile
 
+      - uses: oven-sh/setup-bun@v1
+
       - name: Build documentation
-        run: yarn build
+        run: bun run build
         env:
           PP: ${{ matrix.pp }}
           CLOUD: ${{ matrix.cloud }}
