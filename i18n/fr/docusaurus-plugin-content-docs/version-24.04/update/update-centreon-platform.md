@@ -53,7 +53,7 @@ Mettez à jour l'ensemble des composants :
   ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Videz le cache :
 
@@ -221,7 +221,7 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
   ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 1. Videz le cache :
 
