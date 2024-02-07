@@ -3,7 +3,7 @@ id: api-tokens
 title: API tokens
 ---
 
-Using the Centreon API, a third-party application can perform actions in Centreon. To be able do that, the third-party application must authenticate itself to Centreon, using a user account and an API token.
+Using the API, a third-party application can perform actions in Centreon. To be able do that, the third-party application must authenticate itself to Centreon, using a user account and an API token.
 
 A token is linked to one [Centreon user](../users/users.md). API calls will be executed according to the [rights assigned to this user](../users/users.md#user-roles). A specific user can have several tokens.
 
