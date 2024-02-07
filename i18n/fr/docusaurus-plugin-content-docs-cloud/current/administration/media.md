@@ -12,7 +12,7 @@ cartographie, etc.
 
 ## Ajouter des images
 
-Pour ajouter une image dans Centreon, allez dans le menu **Administration > Paramètres > Images** et cliquez sur **Ajouter**.
+Pour ajouter une image dans Centreon, allez à la page **Administration > Paramètres > Images** et cliquez sur **Ajouter**.
 
 La page **Images** s'affiche.
 
