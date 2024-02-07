@@ -115,7 +115,7 @@ considerations.
 | apache (existing)    | centreonBI                 |
   
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 - Centreon Web 23.10
 - Check that `date.timezone` is correctly configured in the `/etc/php/8.1/mods-available/centreon.ini` file
@@ -316,7 +316,7 @@ dnf install centreon-bi-server
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt update && apt install centreon-bi-server
@@ -484,7 +484,7 @@ dnf update
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 To install the Centreon repository, execute the following command:
 
@@ -538,7 +538,7 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.5"
@@ -724,7 +724,7 @@ wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Install the Centreon repository:
 ￼
@@ -849,7 +849,7 @@ socket=$PATH_TO_SOCKET$
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Make sure that the optimized configuration [file](../assets/reporting/installation/centreon.cnf)
 provided in the requirements is present in `/etc/mysql/mariadb.conf.d/`.
@@ -1060,7 +1060,7 @@ systemctl restart crond
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Restart the cron service:
 
@@ -1118,7 +1118,7 @@ systemctl restart crond
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Restart the cron service on the reporting server:
 

@@ -267,7 +267,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/e
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Install the following dependencies:
 
@@ -331,7 +331,7 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.5"
@@ -357,7 +357,7 @@ dnf install MariaDB-server
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt update && apt install mariadb-server
@@ -413,7 +413,7 @@ dnf install centreon-map-engine
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt update && apt install centreon-map-engine
@@ -448,7 +448,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
    ```
    
    </TabItem>
-   <TabItem value="Debian 11" label="Debian 11">
+   <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
    
    ```shell
    cp /etc/mysql/map.cnf /etc/mysql/map.cnf.bk
@@ -474,7 +474,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
    ```
    
    </TabItem>
-   <TabItem value="Debian 11" label="Debian 11">
+   <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
    
    ```shell
    apt update && apt-get -o Dpkg::Options::="--force-overwrite" install centreon-map-engine
@@ -500,7 +500,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
    ```
    
    </TabItem>
-   <TabItem value="Debian 11" label="Debian 11">
+   <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
    
    ```shell
    cp /etc/mysql/map.cnf.bk /etc/mysql/map.cnf

@@ -68,7 +68,7 @@ locale -a
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt update && apt upgrade
@@ -141,7 +141,7 @@ Disabled
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 SELinux is not installed on Debian 11, continue.
 
@@ -262,7 +262,7 @@ dnf install -y epel-release
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Install the following dependencies:
 
@@ -300,7 +300,7 @@ dnf update
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 To install the Centreon repository, execute the following command line:
 
@@ -338,7 +338,7 @@ dnf install -y centreon-poller
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt update
