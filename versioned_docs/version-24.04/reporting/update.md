@@ -34,7 +34,7 @@ dnf update centreon-bi-server
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
-apt clean all
+apt clean
 apt --only-upgrade install centreon-bi\*
 ```
 
@@ -75,7 +75,7 @@ dnf update centreon-bi\*
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
-apt clean all
+apt clean
 apt --only-upgrade install centreon-bi\*
 ```
 
