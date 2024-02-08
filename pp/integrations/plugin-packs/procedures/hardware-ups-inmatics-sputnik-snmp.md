@@ -20,8 +20,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias  | Service Template                                   | Service Description                                 |
 |:---------------|:---------------------------------------------------|:----------------------------------------------------|
-| Alarms         | HW-UPS-Inmatics-Sputnik-Alarms-SNMP-custom         | Check if alarms present                             |
-| Battery-Status | HW-UPS-Inmatics-Sputnik-Battery-Status-SNMP-custom | Check battery status and battery charge remaining   |
+| Alarms         | HW-UPS-Inmatics-Sputnik-Alarms-SNMP-custom         | Check if alarms are present                             |
+| Battery-Status | HW-UPS-Inmatics-Sputnik-Battery-Status-SNMP-custom | Check battery status and remaining battery charge |
 | Environment    | HW-UPS-Inmatics-Sputnik-Environment-SNMP-custom    | Monitor the temperature and the humidity percentage |
 | Input-Lines    | HW-UPS-Inmatics-Sputnik-Input-Lines-SNMP-custom    | Check input lines metrics                           |
 | Output-Lines   | HW-UPS-Inmatics-Sputnik-Output-Lines-SNMP-custom   | Check output lines metrics                          |
