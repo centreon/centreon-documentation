@@ -12,12 +12,14 @@ This procedure only applies if the following conditions are met:
 - You wish to migrate from a 64-bit EL-type OS to Debian 11. For instance, if you want to migrate from CentOS 7 to Debian 11.
 - Your version of Centreon is 18.10 or newer and you wish to upgrade to the latest version of Centreon. If you wish to migrate from an older version, [contact the Centreon support team](https://centreon/force.com).
 
+All servers (central, remote and pollers) in your architecture must have the same major version of Centreon. It is also recommended that they have the same minor version.
+
 > If your Centreon platform includes a Centreon redundancy system, please
 > contact [Centreon support](https://support.centreon.com).
 
-## Migrating a central server
+## Migrating a platform
 
-### Step 1: Install the new server
+### Step 1: Install the new central server
 
 1. Install your new OS: check the [supported operating systems](../installation/compatibility.md#operating-systems).
 
@@ -223,18 +225,21 @@ If you have a MAP server or an MBI server, follow the corresponding migration pr
 - Migration procedure for [MAP](../graph-views/migrate.md),
 - Migration procedure for [MBI](../reporting/migrate.md).
 
-## Migrating a remote server
+### Step 8: Migrating your other servers (distributed architecture)
+
+#### Migrating a remote server
 
 To migrate a remote server:
 
 1. Follow the same procedure as for a central server.
 2. [Attach the new remote server](../monitoring/monitoring-servers/add-a-remote-server-to-configuration.md) to your central server.
 
-## Migrating a poller
+#### Migrating a poller
 
 To migrate a poller:
 
-1. Follow steps 1 and 4 of the procedure to migrate a central server (i.e. [install the new server](#step-1-install-the-new-server) and [synchronize the plugins](#step-4-synchronize-the-plugins)).
-2. On the central server, go to **Configuration > Pollers**. Select the poller that was migrated and update its IP address (if it has changed).
-3. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
-4. If your poller does not work after migrating it (e.g. you cannot deploy the configuration or execute monitoring actions), update the poller's fingerprint, as described in this [knowledge base article](https://thewatch.centreon.com/troubleshooting-41/poller-does-not-work-after-migration-or-reinstallation-fingerprint-changed-for-target-1177).
+1. [Install a new poller](../installation/installation-of-a-poller/using-packages.md).
+2. Synchronize the plugins, as described in [step 4 of the migration procedure for a central server](#step-4-synchronize-the-plugins).
+3. On the central server, go to **Configuration > Pollers**. Select the poller that was migrated and update its IP address (if it has changed).
+4. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+5. If your poller does not work after migrating it (e.g. you cannot deploy the configuration or execute monitoring actions), update the poller's fingerprint, as described in this [knowledge base article](https://thewatch.centreon.com/troubleshooting-41/poller-does-not-work-after-migration-or-reinstallation-fingerprint-changed-for-target-1177).

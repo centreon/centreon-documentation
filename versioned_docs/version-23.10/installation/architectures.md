@@ -26,6 +26,8 @@ and/or
 
 * One or more pollers to collect data.
 
+All servers (central, remote and pollers) in your architecture must have the same major version of Centreon. It is also recommended that they have the same minor version.
+
 Example of distributed architecture with 3 remote servers and 6 pollers. Note that you can also attach a poller directly to the central server.
 
 ![image](../assets/getting-started/archi.png)
