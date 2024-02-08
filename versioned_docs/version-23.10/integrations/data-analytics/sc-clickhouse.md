@@ -64,11 +64,60 @@ PRIMARY KEY (timestamp, host, service, metric_name, metric_id)
 
 Perform the installation on the server that will send data to Clickhouse (central server, remote server, poller).
 
-1. Install the **Epel** repository.
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+1. Login as `root` using your favorite SSH client.
+
+2. Install the **Epel** repository.
 
 ```shell
 dnf install epel-release
 ```
+
+3. Install the Centreon lua modules.
+
+```shell
+dnf install centreon-stream-connectors-lib
+```
+
+4. Download the Clickhouse metrics stream connector:
+
+```shell
+wget -O /usr/share/centreon-broker/lua/clickhouse-metrics-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/develop/centreon-certified/clickhouse/clickhouse-metrics-apiv2.lua
+chmod 644 /usr/share/centreon-broker/lua/clickhouse-metrics-apiv2.lua
+```
+
+</TabItem>
+
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+1. Login as `root` using your favorite SSH client.
+
+2. Install the **Epel** repository.
+
+```shell
+dnf install epel-release
+```
+
+3. Install the Centreon lua modules.
+
+```shell
+dnf install centreon-stream-connectors-lib
+```
+
+4. Download the Clickhouse metrics stream connector:
+
+```shell
+wget -O /usr/share/centreon-broker/lua/clickhouse-metrics-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/develop/centreon-certified/clickhouse/clickhouse-metrics-apiv2.lua
+chmod 644 /usr/share/centreon-broker/lua/clickhouse-metrics-apiv2.lua
+```
+
+</TabItem>
+
+<TabItem value="Debian 11" label="Debian_11">
+
+1. Login as `root` using your favorite SSH client.
 
 2. Install the Centreon lua modules.
 
@@ -82,6 +131,9 @@ dnf install centreon-stream-connectors-lib
 wget -O /usr/share/centreon-broker/lua/clickhouse-metrics-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/develop/centreon-certified/clickhouse/clickhouse-metrics-apiv2.lua
 chmod 644 /usr/share/centreon-broker/lua/clickhouse-metrics-apiv2.lua
 ```
+
+</TabItem>
+</Tabs>
 
 ## Configuring your Clickhouse equipment
 
