@@ -69,7 +69,7 @@ module.exports = {
             type: 'category',
             label:'Tutorials',
             link: {
-              type: 'doc'
+              type: 'doc',
               id: "getting-started/tutorials",
               },
 
