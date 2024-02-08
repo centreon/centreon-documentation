@@ -112,7 +112,7 @@ module.exports = {
               },
               {
                 type: 'doc',
-                id: 'getting-started/first-dashboard',
+                id: 'getting-started/create-custom-view',
               },
                         ], 
              },

@@ -16,7 +16,7 @@ To monitor a resource in Centreon Cloud:
 
 ## See also
 
-[Tutorials](category/monitoring-examples) are provided to help you set up your monitoring.
+[Tutorials](tutorials.md) are provided to help you set up your monitoring.
 
 You may also find the following articles interesting (on our community platform The Watch):
 
