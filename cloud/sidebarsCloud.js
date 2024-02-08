@@ -12,7 +12,7 @@ module.exports = {
         {
           "collapsed": true,
           "type": "category",
-          "label": "Step 1: Discover Centreon Cloud",
+          "label": "Discover Centreon Cloud",
           "link": {
             "type": "generated-index",
                   },
@@ -34,7 +34,7 @@ module.exports = {
       {
         "collapsed": true,
         "type": "category",
-        "label": "Step 2: Set up your platform",
+        "label": "Set up your platform",
         "link": {
           "type": "generated-index",
                 },
@@ -56,7 +56,7 @@ module.exports = {
       {
         "collapsed": true,
         "type": "category",
-        "label": "Step 3: Prepare the monitoring",
+        "label": "Prepare the monitoring",
         "link": {
           "type": "generated-index",
                 },
@@ -101,7 +101,7 @@ module.exports = {
             {
               "collapsed": true,
               "type": "category",
-              "label": "Step 4: Monitor and visualize",
+              "label": "Monitor and visualize",
               "link": {
                 "type": "generated-index",
                        },
