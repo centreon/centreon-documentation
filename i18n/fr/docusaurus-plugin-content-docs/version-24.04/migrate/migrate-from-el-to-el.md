@@ -265,7 +265,7 @@ Pour migrer un serveur distant :
 Pour migrer un collecteur :
 
 1. [Installez un nouveau collecteur](../installation/installation-of-a-poller/using-packages.md).
-2. Synchronisez les plugins, comme décrit à [l'étape 4 de la procédure de migration pour un serveur central](#step-4-synchronize-the-plugins).
+2. Synchronisez les plugins, comme décrit à [l'étape 4 de la procédure de migration pour un serveur central](#étape-4--synchroniser-les-plugins).
 3. Sur le serveur central, allez à la page **Configuration > Collecteurs**. Sélectionnez le collecteur migré et mettez à jour son adresse IP (si celle-ci a changé).
 4. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 5. Si votre collecteur rencontre des problèmes suite à la migration (impossible de déployer la configuration, d'effectuer des actions de supervision...), mettez à jour l'empreinte du collecteur comme décrit dans [cet article de base de connaissances](https://thewatch.centreon.com/troubleshooting-41/poller-does-not-work-after-migration-or-reinstallation-fingerprint-changed-for-target-1177).
