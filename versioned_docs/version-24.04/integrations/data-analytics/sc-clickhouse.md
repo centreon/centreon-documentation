@@ -207,6 +207,7 @@ Each optional parameter has a default value, that is indicated in the correspond
 | number | hard_only                   | 0                                      |                                                                                                                                                                                                                                    |
 | number | enable_host_status_dedup    | 0                                      |                                                                                                                                                                                                                                    |
 | number | enable_service_status_dedup | 0                                      |                                                                                                                                                                                                                                    |
+
 ## Event bulking
 
 This stream connector is compatible with event bulking: it is able to send more that one event in each call to the Clickhouse REST API.
