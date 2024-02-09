@@ -183,8 +183,6 @@ Make sure Clickhouse is able to receive data sent by Centreon: flows must not be
 
 ### Filtering or adapting the data you want to send to Clickhouse
 
-### Standard parameters
-
 All stream connectors have a set of [optional parameters](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters), that allow you to filter the data you will send to your Clickhouse equipment, to reformat the data, to define a proxy...
 
 Each optional parameter has a default value, that is indicated in the corresponding documentation.
