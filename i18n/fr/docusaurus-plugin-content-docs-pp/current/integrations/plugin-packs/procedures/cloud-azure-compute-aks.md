@@ -5,6 +5,10 @@ title: Azure Kubernetes Service
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+Azure Kubernetes Service (AKS) simplifie le déploiement d’un cluster Kubernetes managé en déléguant la charge opérationnelle à Azure. En tant que service Kubernetes hébergé, Azure gère des tâches critiques telles que l’analyse de l’intégrité et la maintenance.
+
+Le connecteur de supervision Centreon *Azure Kubernetes Service* peut s'appuyer sur l'API d'Azure ou bien Azure CLI pour collecter les métriques relatives à AKS.
+
 ## Contenu du pack
 
 ### Modèles
