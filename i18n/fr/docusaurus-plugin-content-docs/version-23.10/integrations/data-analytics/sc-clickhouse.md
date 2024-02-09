@@ -228,6 +228,7 @@ Chaque paramètre optionnel a une valeur par défaut, qui est indiquée dans la 
 | number | hard_only                   | 0                                      |                                                                                                                                                                                                                                    |
 | number | enable_host_status_dedup    | 0                                      |                                                                                                                                                                                                                                    |
 | number | enable_service_status_dedup | 0                                      |                                                                                                                                                                                                                                    |
+
 ## Event bulking
 
 Ce stream connector est compatible avec l'event bulking. Cela signifie qu'il est capable d'envoyer plus d'un évènement lors de chaque appel à l'API REST Spunk.
