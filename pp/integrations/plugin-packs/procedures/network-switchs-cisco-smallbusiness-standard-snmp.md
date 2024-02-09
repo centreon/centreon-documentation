@@ -159,7 +159,7 @@ dnf install centreon-pack-network-switchs-cisco-smallbusiness-standard-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-network-switchs-cisco-smallbusiness-standard-snmp
@@ -206,7 +206,7 @@ dnf install centreon-plugin-Network-Switchs-Cisco-Smallbusiness-Standard-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-network-switchs-cisco-smallbusiness-standard-snmp

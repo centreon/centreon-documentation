@@ -142,7 +142,7 @@ yum install centreon-pack-network-opengear-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-network-opengear-snmp
@@ -182,7 +182,7 @@ yum install centreon-plugin-Network-Opengear-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-network-opengear-snmp

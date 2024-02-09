@@ -119,7 +119,7 @@ yum install centreon-pack-hardware-ups-himoinsa-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-hardware-ups-himoinsa-snmp
@@ -160,7 +160,7 @@ yum install centreon-plugin-Hardware-Ups-Himoinsa-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-hardware-ups-himoinsa-snmp

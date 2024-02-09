@@ -152,7 +152,7 @@ dnf install centreon-pack-hardware-storage-hitachi-hnas-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-hardware-storage-hitachi-hnas-snmp
@@ -199,7 +199,7 @@ dnf install centreon-plugin-Hardware-Storage-Hitachi-Hnas-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-hardware-storage-hitachi-hnas-snmp

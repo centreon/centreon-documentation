@@ -165,7 +165,7 @@ dnf install centreon-pack-network-stormshield-api
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-network-stormshield-api
@@ -212,7 +212,7 @@ dnf install centreon-plugin-Network-Stormshield-Api
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-network-stormshield-api

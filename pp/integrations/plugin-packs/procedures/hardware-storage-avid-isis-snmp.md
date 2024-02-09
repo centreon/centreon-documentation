@@ -123,7 +123,7 @@ dnf install centreon-pack-hardware-storage-avid-isis-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-hardware-storage-avid-isis-snmp
@@ -170,7 +170,7 @@ dnf install centreon-plugin-Hardware-Storage-Avid-Isis-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-hardware-storage-avid-isis-snmp

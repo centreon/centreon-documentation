@@ -79,7 +79,7 @@ dnf install centreon-pack-applications-protocol-udp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-applications-protocol-udp
@@ -133,7 +133,7 @@ yum install centreon-plugin-Applications-Protocol-Udp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-applications-protocol-udp

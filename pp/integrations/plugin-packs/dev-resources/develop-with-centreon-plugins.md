@@ -16,7 +16,7 @@ To use the centreon-plugins framework, you'll need the following:
 ### Enable our standard repositories
 
 <Tabs groupId="sync">
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```shell
 echo "deb https://packages.centreon.com/apt-22.04-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
@@ -37,7 +37,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.04/e
 Install the following dependencies:
 
 <Tabs groupId="sync">
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```shell
 apt-get install 'libpod-parser-perl' 'libnet-curl-perl' 'liburi-encode-perl' 'libwww-perl' \

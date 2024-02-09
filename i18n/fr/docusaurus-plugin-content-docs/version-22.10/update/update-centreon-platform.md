@@ -58,7 +58,7 @@ Mettez à jour l'ensemble des composants :
 Videz le cache :
 
   ```shell
-  apt clean
+  apt clean all
   apt update
   ```
 
@@ -225,7 +225,7 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
 1. Videz le cache :
 
   ```shell
-  apt clean
+  apt clean all
   apt update
   ```
 

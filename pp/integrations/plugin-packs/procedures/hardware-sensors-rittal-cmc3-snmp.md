@@ -124,7 +124,7 @@ dnf install centreon-pack-hardware-sensors-rittal-cmc3-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-hardware-sensors-rittal-cmc3-snmp
@@ -171,7 +171,7 @@ dnf install centreon-plugin-Hardware-Sensors-Rittal-Cmc-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-hardware-sensors-rittal-cmc-snmp

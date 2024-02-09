@@ -102,7 +102,7 @@ dnf install centreon-pack-applications-monitoring-iplabel-newtest-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-applications-monitoring-iplabel-newtest-restapi
@@ -149,7 +149,7 @@ dnf install centreon-plugin-Applications-Monitoring-Iplabel-Newtest-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-applications-monitoring-iplabel-newtest-restapi

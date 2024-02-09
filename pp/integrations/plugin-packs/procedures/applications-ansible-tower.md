@@ -125,7 +125,7 @@ dnf install centreon-pack-applications-ansible-tower
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-applications-ansible-tower
@@ -172,7 +172,7 @@ dnf install centreon-plugin-Applications-Ansible-Tower
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-applications-ansible-tower

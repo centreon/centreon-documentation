@@ -46,7 +46,7 @@ This procedure describes how to update a poller from one minor version to anothe
 1. Clean the cache:
 
   ```shell
-  apt clean
+  apt clean all
   apt update
   ```
 

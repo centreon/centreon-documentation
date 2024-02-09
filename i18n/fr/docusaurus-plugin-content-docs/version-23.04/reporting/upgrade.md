@@ -60,7 +60,7 @@ dnf update centreon-bi-server
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt clean
+apt clean all
 apt update && apt upgrade centreon-bi-server
 ```
 
@@ -130,7 +130,7 @@ dnf update centreon-bi\*
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt clean
+apt clean all
 apt update && apt upgrade centreon-bi-reporting-server
 ```
 

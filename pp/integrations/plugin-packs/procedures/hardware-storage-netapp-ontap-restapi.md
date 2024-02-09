@@ -190,7 +190,7 @@ dnf install centreon-pack-hardware-storage-netapp-ontap-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-hardware-storage-netapp-ontap-restapi
@@ -237,7 +237,7 @@ dnf install centreon-plugin-Hardware-Storage-Netapp-Ontap-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-hardware-storage-netapp-ontap-restapi

@@ -71,7 +71,7 @@ yum install centreon-pack-applications-oracle-ucp-jmx
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-applications-oracle-ucp-jmx
@@ -111,7 +111,7 @@ yum install centreon-plugin-Applications-Oracle-Ucp-Jmx
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-applications-oracle-ucp-jmx

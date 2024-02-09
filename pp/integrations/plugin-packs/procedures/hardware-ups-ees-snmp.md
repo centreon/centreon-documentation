@@ -134,7 +134,7 @@ dnf install centreon-pack-hardware-ups-ees-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-hardware-ups-ees-snmp
@@ -181,7 +181,7 @@ dnf install centreon-plugin-Hardware-Ups-Ees-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-hardware-ups-ees-snmp

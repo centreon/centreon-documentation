@@ -76,7 +76,7 @@ yum install centreon-pack-hardware-sensors-apc-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-hardware-sensors-apc-snmp
@@ -116,7 +116,7 @@ yum install centreon-plugin-Hardware-Sensors-Apc-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-hardware-sensors-apc-snmp

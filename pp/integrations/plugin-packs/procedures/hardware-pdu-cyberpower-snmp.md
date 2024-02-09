@@ -103,7 +103,7 @@ dnf install centreon-pack-hardware-pdu-cyberpower-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-hardware-pdu-cyberpower-snmp
@@ -150,7 +150,7 @@ dnf install centreon-plugin-Hardware-Pdu-Cyberpower-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-hardware-pdu-cyberpower-snmp

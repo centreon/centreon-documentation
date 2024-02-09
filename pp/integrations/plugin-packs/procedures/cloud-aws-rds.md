@@ -309,7 +309,7 @@ dnf install centreon-pack-cloud-aws-rds
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-cloud-aws-rds
@@ -356,7 +356,7 @@ dnf install centreon-plugin-Cloud-Aws-Rds-Api
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-cloud-aws-rds-api

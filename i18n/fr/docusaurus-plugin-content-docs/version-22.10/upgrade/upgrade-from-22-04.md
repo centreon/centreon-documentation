@@ -178,7 +178,7 @@ yum clean all --enablerepo=*
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt clean
+apt clean all
 apt update
 ```
 
@@ -626,7 +626,7 @@ yum clean all --enablerepo=*
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt clean
+apt clean all
 apt update
 ```
 

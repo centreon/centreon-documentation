@@ -82,7 +82,7 @@ dnf install centreon-pack-applications-sahipro-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-applications-sahipro-restapi
@@ -129,7 +129,7 @@ dnf install centreon-plugin-Applications-Sahipro-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-applications-sahipro-restapi

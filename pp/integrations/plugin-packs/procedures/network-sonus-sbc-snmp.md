@@ -214,7 +214,7 @@ yum install centreon-pack-network-sonus-sbc-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-network-sonus-sbc-snmp
@@ -261,7 +261,7 @@ yum install centreon-plugin-Network-Sonus-SBC-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-network-sonus-sbc-snmp

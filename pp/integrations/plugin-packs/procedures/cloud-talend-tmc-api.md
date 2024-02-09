@@ -105,7 +105,7 @@ yum install centreon-pack-cloud-talend-tmc-api
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-cloud-talend-tmc-api
@@ -145,7 +145,7 @@ yum install centreon-plugin-Cloud-Talend-Tmc-Api
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-cloud-talend-tmc-api

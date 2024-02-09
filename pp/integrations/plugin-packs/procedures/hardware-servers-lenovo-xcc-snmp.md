@@ -83,7 +83,7 @@ yum install centreon-pack-hardware-servers-lenovo-xcc-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-hardware-servers-lenovo-xcc-snmp
@@ -123,7 +123,7 @@ yum install centreon-plugin-Hardware-Servers-Lenovo-Xcc-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-hardware-servers-lenovo-xcc-snmp

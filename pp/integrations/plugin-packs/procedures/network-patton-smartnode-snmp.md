@@ -90,7 +90,7 @@ yum install centreon-pack-network-patton-smartnode-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-network-patton-smartnode-snmp
@@ -130,7 +130,7 @@ yum install centreon-plugin-Network-Patton-SmartNode-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-network-patton-smartnode-snmp

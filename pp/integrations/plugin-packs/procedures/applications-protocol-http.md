@@ -119,7 +119,7 @@ dnf install centreon-pack-applications-protocol-http
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-applications-protocol-http
@@ -166,7 +166,7 @@ dnf install centreon-plugin-Applications-Protocol-Http
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-applications-protocol-http

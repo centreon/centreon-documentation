@@ -237,7 +237,7 @@ dnf install centreon-pack-cloud-aws-ec2
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-cloud-aws-ec2
@@ -284,7 +284,7 @@ dnf install centreon-plugin-Cloud-Aws-Ec2-Api
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-cloud-aws-ec2-api

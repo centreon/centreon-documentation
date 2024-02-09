@@ -100,7 +100,7 @@ dnf install centreon-pack-applications-sailpoint-identitynow-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-applications-sailpoint-identitynow-restapi
@@ -147,7 +147,7 @@ dnf install centreon-plugin-Applications-Sailpoint-Identitynow-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-applications-sailpoint-identitynow-restapi

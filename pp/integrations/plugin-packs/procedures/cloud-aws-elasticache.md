@@ -187,7 +187,7 @@ yum install centreon-pack-cloud-aws-elasticache
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-cloud-aws-elasticache
@@ -227,7 +227,7 @@ yum install centreon-plugin-Cloud-Aws-Elasticache-Api
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-cloud-aws-elasticache-api

@@ -271,7 +271,7 @@ dnf install centreon-pack-network-firewalls-fortinet-fortigate-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-network-firewalls-fortinet-fortigate-snmp
@@ -318,7 +318,7 @@ dnf install centreon-plugin-Network-Firewalls-Fortinet-Fortigate-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-network-firewalls-fortinet-fortigate-snmp

@@ -142,7 +142,7 @@ dnf install centreon-pack-cloud-azure-management-costs
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-cloud-azure-management-costs
@@ -189,7 +189,7 @@ dnf install centreon-plugin-Cloud-Azure-Management-Costs-Api
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-cloud-azure-management-costs-api
