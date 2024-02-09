@@ -23,13 +23,13 @@ Le connecteur apporte les modèles de service suivants
 |:----------------------|:---------------------------------------------------------|:--------------------------------------------------------------------------------|
 | Allocatable-resources | Cloud-Azure-Compute-Aks-Allocatable-Resources-Api-custom | Contrôle de la mémoire et des coeurs CPU allouables restants sur le Cluster AKS |
 | Cpu-Usage             | Cloud-Azure-Compute-Aks-Cpu-Usage-Api-custom             | Contrôle le CPU du cluster AKS                                                  |
-| Health                | Cloud-Azure-Compute-Aks-Health-Api-custom                | Contrôle le statut du Cluster AKS                                               |
+| Health                | Cloud-Azure-Compute-Aks-Health-Api-custom                | Contrôle le statut du cluster AKS                                               |
 | Memory                | Cloud-Azure-Compute-Aks-Memory-Api-custom                | Contrôle le taux d'utilisation mémoire du Cluster AKS                           |
 | Node-State            | Cloud-Azure-Compute-Aks-Node-State-Api-custom            | Contrôle l'état des noeuds du cluster AKS                                       |
 | Pod-State             | Cloud-Azure-Compute-Aks-Pod-State-Api-custom             | Contrôle l'état des Pods du cluster AKS                                         |
-| Storage               | Cloud-Azure-Compute-Aks-Storage-Api-custom               | Contrôle les statistiques de stockage du Cluster AKS                            |
-| Traffic               | Cloud-Azure-Compute-Aks-Traffic-Api-custom               | Contrôle l'utilisation du réseau du Cluster AKS                                 |
-| Unneeded-nodes        | Cloud-Azure-Compute-Aks-Unneeded-Nodes-Api-custom        | Contrôle du nombre de noeuds inutiles sur le Cluster AKS                        |
+| Storage               | Cloud-Azure-Compute-Aks-Storage-Api-custom               | Contrôle les statistiques de stockage du cluster AKS                            |
+| Traffic               | Cloud-Azure-Compute-Aks-Traffic-Api-custom               | Contrôle l'utilisation du réseau du cluster AKS                                 |
+| Unneeded-nodes        | Cloud-Azure-Compute-Aks-Unneeded-Nodes-Api-custom        | Contrôle du nombre de noeuds inutiles sur le cluster AKS                        |
 | Unschedulable-Pods    | Cloud-Azure-Compute-Aks-Unschedulable-Pods-Api-custom    | Contrôle la présence de Pods non déployables du cluster AKS                     |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Azure-Compute-Aks-custom** est utilisé.

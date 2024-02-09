@@ -20,15 +20,15 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias         | Service Template                                         | Service Description                                            |
 |:----------------------|:---------------------------------------------------------|:---------------------------------------------------------------|
-| Allocatable-resources | Cloud-Azure-Compute-Aks-Allocatable-Resources-Api-custom | Check memory and CPU cores allocatable for AKS Cluster         |
+| Allocatable-resources | Cloud-Azure-Compute-Aks-Allocatable-Resources-Api-custom | Check memory and CPU cores allocatable for AKS cluster         |
 | Cpu-Usage             | Cloud-Azure-Compute-Aks-Cpu-Usage-Api-custom             | Monitor the CPU usage of the AKS cluster                       |
-| Health                | Cloud-Azure-Compute-Aks-Health-Api-custom                | Check AKS Cluster state                                        |
-| Memory                | Cloud-Azure-Compute-Aks-Memory-Api-custom                | Monitors the memory usage of the AKS Cluster                   |
+| Health                | Cloud-Azure-Compute-Aks-Health-Api-custom                | Check AKS cluster state                                        |
+| Memory                | Cloud-Azure-Compute-Aks-Memory-Api-custom                | Monitors the memory usage of the AKS cluster                   |
 | Node-State            | Cloud-Azure-Compute-Aks-Node-State-Api-custom            | Monitors the state of the AKS cluster nodes                    |
 | Pod-State             | Cloud-Azure-Compute-Aks-Pod-State-Api-custom             | Monitors the state of the AKS cluster Pods                     |
 | Storage               | Cloud-Azure-Compute-Aks-Storage-Api-custom               | Check AKS Cluster storage                                      |
-| Traffic               | Cloud-Azure-Compute-Aks-Traffic-Api-custom               | Check AKS Cluster network usage                                |
-| Unneeded-nodes        | Cloud-Azure-Compute-Aks-Unneeded-Nodes-Api-custom        | Check amount of unneeded nodes on AKS Cluster                  |
+| Traffic               | Cloud-Azure-Compute-Aks-Traffic-Api-custom               | Check AKS cluster network usage                                |
+| Unneeded-nodes        | Cloud-Azure-Compute-Aks-Unneeded-Nodes-Api-custom        | Check amount of unneeded nodes on AKS cluster                  |
 | Unschedulable-Pods    | Cloud-Azure-Compute-Aks-Unschedulable-Pods-Api-custom    | Monitors the presence of unschedulable Pods on the AKS cluster |
 
 > The services listed above are created automatically when the **Cloud-Azure-Compute-Aks-custom** host template is used.
