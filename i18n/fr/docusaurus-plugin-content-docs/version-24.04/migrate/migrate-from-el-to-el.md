@@ -12,13 +12,15 @@ Cette procédure ne s'applique que dans les conditions suivantes :
 - Vous souhaitez migrer d'un OS de type EL 64-bits vers un autre OS de type EL 64-bits supporté. Par exemple, vous souhaitez migrer d'un CentOS 7 à un Alma 8 ou 9.
 - Votre version de Centreon est 18.10 ou plus récente.
 
+Tous les serveurs de votre architecture (serveur central, serveurs distants et collecteurs) doivent avoir la même version majeure de Centreon. Il est également recommandé d'avoir la même version mineure.
+
 > En cas de migration d'une plateforme disposant du système de redondance
 > Centreon, il est nécessaire de contacter le
 > [support Centreon](https://support.centreon.com).
 
-## Migrer un serveur central
+## Migrer une plateforme
 
-### Étape 1 : Installer le nouveau serveur
+### Étape 1 : Installer le nouveau serveur central
 
 1. Installez votre nouvel OS: voir la liste des [OS supportés](../installation/compatibility.md#système-dexploitation).
 
@@ -249,18 +251,21 @@ Si vous avez un serveur MAP ou MBI, suivez les procédures de migration correspo
 - Procédure de migration pour [MAP](../graph-views/migrate.md),
 - Procédure de migration pour [MBI](../reporting/migrate.md).
 
-## Migrer un serveur distant
+### Étape 8: Migrer vos autres serveurs (architecture distribuée)
+
+#### Migrer un serveur distant
 
 Pour migrer un serveur distant :
 
 1. Suivez la même procédure que pour un serveur central.
 2. [Rattachez le nouveau serveur distant](../monitoring/monitoring-servers/add-a-remote-server-to-configuration.md) à votre serveur central.
 
-## Migrer un collecteur
+#### Migrer un collecteur
 
 Pour migrer un collecteur :
 
-1. Effectuez les étapes 1 et 4 de la procédure de migration d'un serveur central (c'est-à-dire [installer le nouveau serveur](#étape-1--installer-le-nouveau-serveur) et [synchronisez les plugins](#étape-4--synchroniser-les-plugins)).
-2. Sur le serveur central, allez à la page **Configuration > Collecteurs**. Sélectionnez le collecteur migré et mettez à jour son adresse IP (si celle-ci a changé).
-3. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
-4. Si votre collecteur rencontre des problèmes suite à la migration (impossible de déployer la configuration, d'effectuer des actions de supervision...), mettez à jour l'empreinte du collecteur comme décrit dans [cet article de base de connaissances](https://thewatch.centreon.com/troubleshooting-41/poller-does-not-work-after-migration-or-reinstallation-fingerprint-changed-for-target-1177).
+1. [Installez un nouveau collecteur](../installation/installation-of-a-poller/using-packages.md).
+2. Synchronisez les plugins, comme décrit à [l'étape 4 de la procédure de migration pour un serveur central](#étape-4--synchroniser-les-plugins).
+3. Sur le serveur central, allez à la page **Configuration > Collecteurs**. Sélectionnez le collecteur migré et mettez à jour son adresse IP (si celle-ci a changé).
+4. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+5. Si votre collecteur rencontre des problèmes suite à la migration (impossible de déployer la configuration, d'effectuer des actions de supervision...), mettez à jour l'empreinte du collecteur comme décrit dans [cet article de base de connaissances](https://thewatch.centreon.com/troubleshooting-41/poller-does-not-work-after-migration-or-reinstallation-fingerprint-changed-for-target-1177).
