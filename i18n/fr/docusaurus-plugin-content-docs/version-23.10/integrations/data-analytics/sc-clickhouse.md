@@ -241,7 +241,7 @@ Ce stream connector envoie des évènements au format suivant :
 
 ### Évènement service_status
 
-```txt
+```sql
 INSERT INTO centreon_stream.metrics (host, timestamp, metric_name, metric_value, service, hostgroups, metric_id, metric_unit, metric_min, metric_max) VALUES ('central_1',1702910747,'rtmin',0.005,'Ping',['hg'],'10-8-rtmin','ms',,),('central_1',1702910747,'rta',0.061,'Ping',['hg'],'10-8-rta','ms',0.0,),('central_1',1702910747,'pl',0.0,'Ping',['hg'],'10-8-pl','%',0.0,100.0)
 ```
 
