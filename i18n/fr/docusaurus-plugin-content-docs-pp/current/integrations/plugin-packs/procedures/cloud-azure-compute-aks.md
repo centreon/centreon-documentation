@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 | Allocatable-resources | Cloud-Azure-Compute-Aks-Allocatable-Resources-Api-custom | Contrôle de la mémoire et des coeurs CPU allouables restants sur le Cluster AKS |
 | Cpu-Usage             | Cloud-Azure-Compute-Aks-Cpu-Usage-Api-custom             | Contrôle le CPU du cluster AKS                                                  |
 | Health                | Cloud-Azure-Compute-Aks-Health-Api-custom                | Contrôle le statut du cluster AKS                                               |
-| Memory                | Cloud-Azure-Compute-Aks-Memory-Api-custom                | Contrôle le taux d'utilisation mémoire du Cluster AKS                           |
+| Memory                | Cloud-Azure-Compute-Aks-Memory-Api-custom                | Contrôle le taux d'utilisation mémoire du cluster AKS                           |
 | Node-State            | Cloud-Azure-Compute-Aks-Node-State-Api-custom            | Contrôle l'état des noeuds du cluster AKS                                       |
 | Pod-State             | Cloud-Azure-Compute-Aks-Pod-State-Api-custom             | Contrôle l'état des Pods du cluster AKS                                         |
 | Storage               | Cloud-Azure-Compute-Aks-Storage-Api-custom               | Contrôle les statistiques de stockage du cluster AKS                            |
