@@ -247,7 +247,7 @@ INSERT INTO centreon_stream.metrics (host, timestamp, metric_name, metric_value,
 
 ### Évènement host_status
 
-```txt
+```sql
 INSERT INTO centreon_stream.metrics (host, timestamp, metric_name, metric_value, service, hostgroups, metric_id, metric_unit, metric_min, metric_max) VALUES ('central_3',1702910932,'rtmin',0.0,'Ping',['hg'],'12-10-rtmin','ms',,),('central_3',1702910932,'rta',0.0,'Ping',['hg'],'12-10-rta','ms',0.0,),('central_3',1702910932,'pl',100.0,'Ping',['hg'],'12-10-pl','%',0.0,100.0)
 ```
 
