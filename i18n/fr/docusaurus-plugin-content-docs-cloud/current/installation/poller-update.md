@@ -46,7 +46,7 @@ Cette procédure décrit la mise à jour d'un collecteur d'une version mineure �
 1. Videz le cache :
 
   ```shell
-  apt clean
+  apt clean all
   apt update
   ```
 
