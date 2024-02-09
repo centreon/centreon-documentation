@@ -159,7 +159,7 @@ Make sure Clickhouse is able to receive data sent by Centreon: flows must not be
 | ------ | --------------- | ----------------------------------------------------------- | ------------------------------- |
 | string | user            | Clickhouse user that will be used                       | centreon                        |
 | string | password        | Password for this user                                    | centreon                        |
-| string | http_server_url | Address of the Clickhouse server (include the protocol and the port) | https://myclickhouse.local:8123 |
+| string | http_server_url | Address of the Clickhouse server (include the protocol and the port) | `https://myclickhouse.local:8123` |
 
 6. Fill in any optional parameters you want (using the **+Add a new entry** link):
 

@@ -157,17 +157,17 @@ Make sure Clickhouse is able to receive data sent by Centreon: flows must not be
 
 | Type   | Name            | Value explanation                                           | Value exemple                   |
 | ------ | --------------- | ----------------------------------------------------------- | ------------------------------- |
-| string | user            | the Clickhouse user that will be used                       | centreon                        |
-| string | password        | The password of the user                                    | centreon                        |
-| string | http_server_url | The address of Clickhouse (do not forget protocol and port) | https://myclickhouse.local:8123 |
+| string | user            | Clickhouse user that will be used                       | centreon                        |
+| string | password        | Password for this user                                    | centreon                        |
+| string | http_server_url | Address of the Clickhouse server (include the protocol and the port) | `https://myclickhouse.local:8123` |
 
 6. Fill in any optional parameters you want (using the **+Add a new entry** link):
 
 | Type   | Name                         | Value explanation                                             | default value   |
 | ------ | ---------------------------- | ------------------------------------------------------------- | --------------- |
-| string | clickhouse_database          | the name of the database in which the desired table is stored | centreon_stream |
-| string | clickhouse_table             | the table in which metrics are written                        | metrics         |
-| number | use_deprecated_metric_system | allows you to use the alternative table schema when set to 1  | 0               |
+| string | clickhouse_database          | Name of the database in which the desired table is stored | centreon_stream |
+| string | clickhouse_table             | Table in which metrics are written                        | metrics         |
+| number | use_deprecated_metric_system | Allows you to use the alternative table schema when set to 1  | 0               |
 
 7. Use the stream connector's optional parameters to [filter or adapt the data you want Centreon to send to Clickhouse](#filtering-or-adapting-the-data-you-want-to-send-to-clickhouse).
 
@@ -211,7 +211,7 @@ Each optional parameter has a default value, that is indicated in the correspond
 
 This stream connector is compatible with event bulking: it is able to send more that one event in each call to the Clickhouse REST API.
 
-To use this feature you must add the following parameter in your stream connector configuration.
+To use this feature you must add the **max_buffer_size** parameter in your stream connector configuration.
 
 ## Event format
 
@@ -229,7 +229,7 @@ INSERT INTO centreon_stream.metrics (host, timestamp, metric_name, metric_value,
 INSERT INTO centreon_stream.metrics (host, timestamp, metric_name, metric_value, service, hostgroups, metric_id, metric_unit, metric_min, metric_max) VALUES ('central_3',1702910932,'rtmin',0.0,'Ping',['hg'],'12-10-rtmin','ms',,),('central_3',1702910932,'rta',0.0,'Ping',['hg'],'12-10-rta','ms',0.0,),('central_3',1702910932,'pl',100.0,'Ping',['hg'],'12-10-pl','%',0.0,100.0)
 ```
 
-### Result inside Clickhouse
+### Results inside Clickhouse
 
 ```txt
 ┌─host────┬─service─┬─metric_name─┬─metric_unit─┬─metric_value─┬─metric_min─┬─metric_max─┬───────────timestamp─┬─hostgroups─────────────┐
