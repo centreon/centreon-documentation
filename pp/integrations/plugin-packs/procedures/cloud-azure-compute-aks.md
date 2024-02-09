@@ -5,6 +5,10 @@ title: Azure Kubernetes Service
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+Azure Kubernetes Service (AKS) simplifies deploying a managed Kubernetes cluster in Azure by offloading the operational overhead to Azure. As a hosted Kubernetes service, Azure handles critical tasks, like health monitoring and maintenance.
+
+The Centreon Plugin *Azure Kubernetes Service* can rely on Azure API or Azure CLI to collect the metrics related to the *AKS* service.
+
 ## Pack assets
 
 ### Templates
