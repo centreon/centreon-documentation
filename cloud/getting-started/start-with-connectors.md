@@ -12,7 +12,7 @@ Monitoring Connectors are the easiest way to monitor resources. They provide rea
 Install the Monitoring Connectors you need on each poller that will monitor resources using it.
 
 1. To access the Monitoring Connectors catalog, go to **Configuration > Monitoring Connector Manager**.
-2. To install a pack, hover over the icon with the mouse and click the **+** button.
+2. To install a pack, click the **+** button in the corresponding tile.
 
 ## Troubleshooting
 

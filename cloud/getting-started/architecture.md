@@ -27,4 +27,4 @@ Your Centreon Cloud platform consists mainly of a central server provided by Cen
 ## Centreon CIAM
 
 * The [CIAM](../ciam/ciam.md) has a user interface that is separate from the central server's.
-* Before you can use Centreon Cloud, you need to configure your platform in the CIAM, and invite your users to your platform.
+* Before you can use Centreon Cloud, you need to configure your organization in the CIAM, and invite your users to your platform.

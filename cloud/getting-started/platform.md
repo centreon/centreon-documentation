@@ -9,4 +9,4 @@ title: Getting your platform ready
 2. Wait while your [central server](architecture.md) is being built.
 3. Invite users into your organization. They will be able to log in to your Cloud platform.
 4. [Install your pollers](../installation/deploy-poller.md) (following the [prerequisites](../installation/prerequisites.md)). They will monitor your resources.
-5. Install the [Monitoring Connectors](../monitoring/pluginpacks.md) you will need to monitor your resources.
+5. On your pollers, install the [Monitoring Connectors](../monitoring/pluginpacks.md) you will need to monitor your resources.
