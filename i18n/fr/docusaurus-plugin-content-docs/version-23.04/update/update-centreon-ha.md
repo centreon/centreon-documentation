@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 La procédure suivante est à utiliser lors de l'application d'une mise à jour mineure sur un cluster Centreon-HA installé suivant [cette documentation](../installation/installation-of-centreon-ha/installation-2-nodes.md), dans le cas où il n'y a pas de rupture de compatibilité Engine/broker entre l'ancienne et la nouvelle version. Celle-ci peut se faire sans interrompre la supervision, mais en rendant l'interface indisponible pendant un court instant.
 
-### Suspendre la gestion des ressources du cluster
+## Suspendre la gestion des ressources du cluster
 
 Afin d'éviter un basculement du cluster pendant la mise à jour, il est nécessaire de suspendre toutes les ressources Centreon, ainsi que MariaDB.
 
@@ -29,46 +29,46 @@ Lancer la mise à jour sur les deux serveurs centraux :
 
 Videz le cache :
 
-  ```shell
-  dnf clean all --enablerepo=*
-  ```
+```shell
+dnf clean all --enablerepo=*
+```
 
 Mettez à jour l'ensemble des composants :
 
-  ```shell
-  dnf update centreon\*
-  ```
+```shell
+dnf update centreon\*
+```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Videz le cache :
 
-  ```shell
-  dnf clean all --enablerepo=*
-  ```
+```shell
+dnf clean all --enablerepo=*
+```
 
 Mettez à jour l'ensemble des composants :
 
-  ```shell
-  dnf update centreon\*
-  ```
+```shell
+dnf update centreon\*
+```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 Videz le cache :
 
-  ```shell
-  apt clean all
-  apt update
-  ```
+```shell
+apt clean all
+apt update
+```
 
 Mettez à jour l'ensemble des composants :
 
-  ```shell
-  apt install --only-upgrade centreon\*
-  ```
+```shell
+apt install --only-upgrade centreon\*
+```
 
 </TabItem>
 </Tabs>
