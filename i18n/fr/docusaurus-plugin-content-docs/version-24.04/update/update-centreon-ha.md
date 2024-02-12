@@ -29,46 +29,46 @@ Lancer la mise à jour sur les deux serveurs centraux :
 
 Videz le cache :
 
-  ```shell
-  dnf clean all --enablerepo=*
-  ```
+```shell
+dnf clean all --enablerepo=*
+```
 
 Mettez à jour l'ensemble des composants :
 
-  ```shell
-  dnf update centreon\*
-  ```
+```shell
+ dnf update centreon\*
+```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Videz le cache :
 
-  ```shell
-  dnf clean all --enablerepo=*
-  ```
+```shell
+dnf clean all --enablerepo=*
+```
 
 Mettez à jour l'ensemble des composants :
 
-  ```shell
-  dnf update centreon\*
-  ```
+```shell
+dnf update centreon\*
+```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 Videz le cache :
 
-  ```shell
-  apt clean all
-  apt update
-  ```
+```shell
+apt clean all
+apt update
+```
 
 Mettez à jour l'ensemble des composants :
 
-  ```shell
-  apt install --only-upgrade centreon\*
-  ```
+```shell
+apt install --only-upgrade centreon\*
+```
 
 </TabItem>
 </Tabs>
