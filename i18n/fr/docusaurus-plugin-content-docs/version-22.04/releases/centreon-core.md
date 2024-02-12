@@ -16,6 +16,15 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 22.04.21
+
+Release date: `February 12, 2024`
+
+#### Security fix
+
+- [API] Fixed a visibility issue on configuration/users endpoint.
+- [Security] Fixed XSS vulnerability
+
 ### 22.04.20
 
 Release date: `January 11, 2024`
@@ -684,6 +693,20 @@ Release date: `August 30, 2022`
 As stated above, all broker instances (central, RRD, modules) must use the same BBDO protocol version to be able to communicate. This means that pollers using 21.10 or older releases won't be able to send data to a 22.04 central server using BBDO 3.0.0. Please read carefully our upgrade procedure.
 
 ## Centreon Gorgone
+
+### 22.04.5
+
+Release date: `February 28, 2024`
+
+#### Security fix
+
+- [Security] Activation by default of the commands whitelist in Centreon Gorgone to manage Centreon Engine and Broker processes.
+
+### 22.04.4
+
+Release date: `November 20, 2023`
+
+No Changes for this module in this version.
 
 ### 22.04.3
 
