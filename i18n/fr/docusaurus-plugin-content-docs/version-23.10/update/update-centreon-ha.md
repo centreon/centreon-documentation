@@ -25,7 +25,7 @@ pcs property set maintenance-mode=true
 Lancer la mise à jour sur les deux serveurs centraux :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 Videz le cache :
 
@@ -40,7 +40,7 @@ Mettez à jour l'ensemble des composants :
   ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Videz le cache :
 
@@ -67,60 +67,8 @@ Videz le cache :
 Mettez à jour l'ensemble des composants :
 
   ```shell
-  apt upgrade centreon
+  apt install --only-upgrade centreon\*
   ```
-
-</TabItem>
-</Tabs>
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Videz le cache :
-
-  ```shell
-  dnf clean all --enablerepo=*
-  ```
-
-Mettez à jour l'ensemble des composants :
-
-  ```shell
-  dnf update centreon\*
-  ```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-Videz le cache :
-
-  ```shell
-  dnf clean all --enablerepo=*
-  ```
-
-Mettez à jour l'ensemble des composants :
-
-  ```shell
-  dnf update centreon\*
-  ```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-Videz le cache :
-
-  ```shell
-  apt clean all
-  apt update
-  ```
-
-Mettez à jour l'ensemble des composants :
-
-  ```shell
-  apt upgrade centreon
-  ```
-
-</TabItem>
-</Tabs>
 
 </TabItem>
 </Tabs>
@@ -130,20 +78,63 @@ Comme indiqur [ici](https://docs.centreon.com/docs/update/update-centreon-platfo
 
 En parallèle, sur le central "secondaire", il faut déplacer le répertoire "install" pour éviter d'afficher à nouveau l'interface de mise à jour suite à une bascule et regénérer le cache Symfony :
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
 ```bash
 mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`date +%Y%m%d`
 sudo -u apache /usr/share/centreon/bin/console cache:clear
 ```
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`date +%Y%m%d`
+sudo -u apache /usr/share/centreon/bin/console cache:clear
+```
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`date +%Y%m%d`
+sudo -u www-data /usr/share/centreon/bin/console cache:clear
+```
+</TabItem>
+</Tabs>
 
 ### Suppression des crons
 
 Les crons sont remis en place lors de la mise à jour des RPMs. Supprimer les sur les deux noeuds centraux afin d'éviter les executions concurrentes.
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
 ```bash
 rm -f /etc/cron.d/centreon
 rm -f /etc/cron.d/centstorage
 rm -f /etc/cron.d/centreon-auto-disco
+systemctl restart crond
 ```
+
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+rm -f /etc/cron.d/centreon
+rm -f /etc/cron.d/centstorage
+rm -f /etc/cron.d/centreon-auto-disco
+systemctl restart crond
+```
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+rm -f /etc/cron.d/centreon
+rm -f /etc/cron.d/centstorage
+rm -f /etc/cron.d/centreon-auto-disco
+systemctl restart cron
+```
+</TabItem>
+</Tabs>
 
 ### Mise à jour des extensions
 
@@ -151,7 +142,7 @@ Les extensions (ou modules) Centreon nécessitent également d'être mis à jour
 
 ### Mise à jour des connecteurs de supervision
 
-Afin de maintenir la compatibilité entre les [connecteurs de supervision](../monitoring/pluginpacks.md) et les plugins installés (qui  ont été mis à jour sur les serveurs centraux par la commande `yum update`) il faut appliquer les mises à jour des connecteurs de supervision depuis le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+Afin de maintenir la compatibilité entre les [connecteurs de supervision](../monitoring/pluginpacks.md) et les plugins installés (qui  ont été mis à jour sur les serveurs centraux) il faut appliquer les mises à jour des connecteurs de supervision depuis le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Export de la configuration Broker/Engine
 
