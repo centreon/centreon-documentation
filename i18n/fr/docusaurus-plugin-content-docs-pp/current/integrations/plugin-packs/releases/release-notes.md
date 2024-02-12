@@ -8,7 +8,28 @@ import TabItem from '@theme/TabItem';
 
 ## 2024
 
-### January
+### Février
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Centreon Map Engine**](../procedures/applications-monitoring-centreon-map-engine-actuator.md) - First release of Centreon Map Engine monitoring connector.
+- [**Inmatics PSU Sputnik**](../procedures/hardware-ups-inmatics-sputnik-snmp.md) - First release of Inmatics PSU Sputnik monitoring connector.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Azure Kubernetes Service**](../procedures/cloud-azure-compute-aks.md) - Added Memory, Node-State, Pod-State and Unschedulable-Pods service templates to Azure AKS.
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Aruba Instant SNMP**](../procedures/network-aruba-instant-snmp.md) - Fixed an "uninitialized value in concatenation" issue on AP-Usage
+
+</TabItem>
+</Tabs>
+
+### Janvier
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
