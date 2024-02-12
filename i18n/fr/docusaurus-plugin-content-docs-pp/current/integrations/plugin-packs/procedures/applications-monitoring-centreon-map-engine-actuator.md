@@ -438,25 +438,6 @@ Les options génériques sont listées ci-dessous :
 | --ssl-opt                                  | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --curl-opt                                 | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
-#### Options des custom modes
-
-Les options spécifiques aux **custom modes** sont listées ci-dessous :
-
-<Tabs groupId="sync">
-<TabItem value="centreonmap" label="centreonmap">
-
-| Option | Description |
-|:-------|:------------|
-
-</TabItem>
-<TabItem value="standard" label="standard">
-
-| Option | Description |
-|:-------|:------------|
-
-</TabItem>
-</Tabs>
-
 #### Options des modes
 
 Les options disponibles pour chaque modèle de services sont listées ci-dessous :

@@ -438,25 +438,6 @@ All generic options are listed here:
 | --ssl-opt                                  | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --curl-opt                                 | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
-#### Custom modes options
-
-All **custom modes** specific options are listed here:
-
-<Tabs groupId="sync">
-<TabItem value="centreonmap" label="centreonmap">
-
-| Option | Description |
-|:-------|:------------|
-
-</TabItem>
-<TabItem value="standard" label="standard">
-
-| Option | Description |
-|:-------|:------------|
-
-</TabItem>
-</Tabs>
-
 #### Modes options
 
 All available options for each service template are listed below:
