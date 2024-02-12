@@ -24,7 +24,7 @@ Release date: `February 12, 2024`
 #### Security fix
 
 - [API] Fixed a visibility issue on configuration/users endpoint.
-- [Security] Fixed XSS vulnerability.
+- [Security] Fixed an XSS vulnerability.
 
 ### 22.04.20
 
