@@ -112,11 +112,11 @@
     "description": "The label for category Set up your platform in sidebar cloud"
   },
   "sidebar.cloud.category.Prepare the monitoring": {
-    "message": "Mettre en supervision",
+    "message": "Mettez en supervision",
     "description": "The label for category Prepare the monitoring in sidebar cloud"
   },
   "sidebar.cloud.category.Monitor and visualize": {
-    "message": "Superviser et visualiser",
+    "message": "Supervisez et visualisez",
     "description": "The label for category Monitor and visualize in sidebar cloud"
   }
 }
