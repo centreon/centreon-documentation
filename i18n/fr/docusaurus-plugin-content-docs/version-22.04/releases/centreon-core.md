@@ -696,7 +696,7 @@ As stated above, all broker instances (central, RRD, modules) must use the same 
 
 ### 22.04.5
 
-Release date: `February 28, 2024`
+Release date: `February 12, 2024`
 
 #### Security fix
 
