@@ -10,7 +10,7 @@ With Centreon Cloud, your central server is already ready to use. All you have t
 
 Before deploying a poller, make sure the [prerequisites](prerequisites.md) for your host machine are met.
 
-## Step 1: Running the script
+## Step 1: Running the poller installation script
 
 1. Use SSH to connect to the server that will become a poller.
 2. Disable SELinux (this is recommended to obtain a seamless installation. Advanced users can enable it depending on their SELinux expertise or security constraints, but should be attentive to the side-effects of this setup.)
