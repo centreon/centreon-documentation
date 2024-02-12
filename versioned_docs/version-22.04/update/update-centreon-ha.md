@@ -25,121 +25,116 @@ pcs property set maintenance-mode=true
 Update your cluster by running the following command on each node:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Videz le cache :
-
-  ```shell
-  dnf clean all --enablerepo=*
-  ```
-
-Update all components:
-
-  ```shell
-  dnf update centreon\*
-  ```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Clear cache:
+Clean the cache :
 
-  ```shell
-  dnf clean all --enablerepo=*
-  ```
+```shell
+dnf clean all --enablerepo=*
+```
 
 Update all components:
 
-  ```shell
-  dnf update centreon\*
-  ```
+```shell
+dnf update centreon\*
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Clean the cache :
+
+```shell
+dnf clean all --enablerepo=*
+```
+
+Update all components:
+
+```shell
+dnf update centreon\*
+```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Clear cache:
+Clean the cache :
 
-  ```shell
-  apt clean all
-  apt update
-  ```
+```shell
+apt clean all
+apt update
+```
 
 Update all components:
 
-  ```shell
-  apt upgrade centreon
-  ```
+```shell
+apt install --only-upgrade centreon\*
+```
 
 </TabItem>
 </Tabs>
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Clear cache:
-
-  ```shell
-  dnf clean all --enablerepo=*
-  ```
-
-Update all components:
-
-  ```shell
-  dnf update centreon\*
-  ```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-Clear cache:
-
-  ```shell
-  dnf clean all --enablerepo=*
-  ```
-
-Update all components:
-
-  ```shell
-  dnf update centreon\*
-  ```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-Clear cache:
-
-  ```shell
-  apt clean all
-  apt update
-  ```
-
-Update all components:
-
-  ```shell
-  apt upgrade centreon
-  ```
-
-</TabItem>
-</Tabs>
 
 And then you should be able to finalize the update *via* the web UI. You might have to log off your session or refresh the login page to access the update process.
 
 On the slave central node, just move the "install" dir to avoid getting the "update" screen in the WUI in the event of a further exchange of roles.
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
 ```bash
 mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`date +%Y%m%d`
 sudo -u apache /usr/share/centreon/bin/console cache:clear
 ```
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`date +%Y%m%d`
+sudo -u apache /usr/share/centreon/bin/console cache:clear
+```
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`date +%Y%m%d`
+sudo -u www-data /usr/share/centreon/bin/console cache:clear
+```
+</TabItem>
+</Tabs>
 
 ### Removing cron jobs
 
 The RPM upgrade puts the cron job back in place. Remove them to avoid concurrent executions: 
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
 ```bash
 rm -f /etc/cron.d/centreon
 rm -f /etc/cron.d/centstorage
 rm -f /etc/cron.d/centreon-auto-disco
+systemctl restart crond
 ```
+
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+rm -f /etc/cron.d/centreon
+rm -f /etc/cron.d/centstorage
+rm -f /etc/cron.d/centreon-auto-disco
+systemctl restart crond
+```
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+rm -f /etc/cron.d/centreon
+rm -f /etc/cron.d/centstorage
+rm -f /etc/cron.d/centreon-auto-disco
+systemctl restart cron
+```
+</TabItem>
+</Tabs>
 
 ### Updating Centreon extensions
 
@@ -147,7 +142,7 @@ The Centreon extensions are also updated *via* the WUI, from the "Administration
 
 ### Updating the Monitoring Connectors
 
-In order to maintain compatibility between the [Monitoring Connectors](../monitoring/pluginpacks.md) and the installed plugins (that have just been updated by the `yum update` command on the central server), the Monitoring Connectors must also be updated in the WUI from the **Configuration > Monitoring Connector Manager** menu.
+In order to maintain compatibility between the [Monitoring Connectors](../monitoring/pluginpacks.md) and the installed plugins (that have just been updated on the central server), the Monitoring Connectors must also be updated in the WUI from the **Configuration > Monitoring Connector Manager** menu.
 
 ### Exporting Engine/Broker configuration
 
