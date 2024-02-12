@@ -701,7 +701,7 @@ Release date: `February 12, 2024`
 
 #### Security fix
 
-- [Security] Activation by default of the commands whitelist in Centreon Gorgone to manage Centreon Engine and Broker processes.
+- [Security] Enabled whitelist of Centreon Gorgone commands by default to manage Centreon Engine and Broker processes and to limit escalations of potential future vulnerabilities.
 
 ### 22.04.4
 
