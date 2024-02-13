@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 ## Prérequis
 
-- L'interface HTTP Clickhouse doit être activée. [(Clickhouse Documentation)](https://clickhouse.com/docs/en/interfaces/http).
+- L'interface HTTP Clickhouse doit être activée. [(Documentation Clickhouse)](https://clickhouse.com/docs/en/interfaces/http).
 - Vous devez disposer d'un utilisateur valide (et de son mot de passe), qui puisse effectuer des **INSERT** dans la table désirée.
 - Vous devez créer une table dans Clickhouse qui recevra les données en provenance de Centreon. Voici le schéma de la table (vous pouvez changer les noms de la base de données et de la table : elles sont toutes les deux configurables dans le stream connector).
 
@@ -44,7 +44,7 @@ PRIMARY KEY (timestamp, host, service, metric_name, metric_id)
 
 > Attention : n'utilisez ce schéma que si vous voulez absolument récupérer le metric_id interne de Centreon. Cela entraîne la perte de nombreuses possibilités, telles que l'accès aux unités des métriques, à leur min, max...
 
-> Pour utiliser ce schéma, reportez-vous à la documentation du paramètre **use_deprecated_metric_system** ci-dessous ([étape 6 de la procédure Configurer le stream connector dans Centreon](#configurer-le-stream-connector-dans-centreon).
+> Pour utiliser ce schéma, reportez-vous à la documentation du paramètre **use_deprecated_metric_system** ci-dessous ([étape 6 de la procédure Configurer le stream connector dans Centreon](#configurer-le-stream-connector-dans-centreon)).
 
 ```sql
 CREATE TABLE centreon_stream.metrics
@@ -135,28 +135,6 @@ chmod 644 /usr/share/centreon-broker/lua/clickhouse-metrics-apiv2.lua
 
 </TabItem>
 </Tabs>
-
-
-1. Connectez-vous en tant que `root` sur le serveur Centreon central en utilisant votre client SSH préféré.
-
-2. Installez le dépôt **Epel**.
-
-```shell
-dnf install epel-release
-```
-
-2. Installez les modules lua Centreon.
-
-```shell
-dnf install centreon-stream-connectors-lib
-```
-
-3. Téléchargez le stream connector Clickhouse :
-
-```shell
-wget -O /usr/share/centreon-broker/lua/clickhouse-metrics-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/develop/centreon-certified/clickhouse/clickhouse-metrics-apiv2.lua
-chmod 644 /usr/share/centreon-broker/lua/clickhouse-metrics-apiv2.lua
-```
 
 ## Configurer votre équipement Clickhouse
 
@@ -284,7 +262,7 @@ Il n'est pas possible de changer le format des évènements pour les stream conn
 
 Si vous voulez tester que les évènements sont envoyés correctement à Clickhouse :
 
-1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à Clickhouse (le serveur central, un serveur distant ou un collecteur)
+1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à Clickhouse (le serveur central, un serveur distant ou un collecteur).
 2. Exécutez la commande suivante :
 
 ```shell

@@ -1079,6 +1079,10 @@
             {
               "type": "doc",
               "id": "version-24.04/integrations/data-analytics/sc-kafka-events"
+            },
+            {
+              "type": "doc",
+              "id": "version-24.04/integrations/data-analytics/sc-clickhouse"
             }
           ]
         },
