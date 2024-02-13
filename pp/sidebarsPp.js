@@ -656,6 +656,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-centreon-map-engine-actuator'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-monitoring-centreon-map4-jmx'
         },
         {
@@ -2699,6 +2703,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-ups-hp-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-ups-inmatics-sputnik-snmp'
         },
         {
           type: 'doc',
