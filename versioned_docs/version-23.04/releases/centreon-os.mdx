@@ -361,6 +361,30 @@ Release date: `April 26, 2023`
 
 ## Centreon Collect
 
+### 23.04.8
+
+Release date: `February 14, 2024`
+
+#### Centreon Broker
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Broker] Broker now drops metrics whose names are longer than 1000 characters to avoid errors in the database. An error is logged when it occurs.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed a bug causing hostgroups failing to appear if they had been used before and empties of their hosts and then populated again.
+- [Broker] Fixed the permissions of the RRD files produced by the rebuild mechanism when RRDcached is used.
+- [Broker] Fixed some incorrect statuses in Broker's statistics retrieved by the `broker-stats.json` file.
+- [Broker] Semicolons are no longer considered as the beginning of a comment in Engine's configuration files. This is because comments were not useful in these files, and they prevented the use of semicolons in macros (e.g., passwords).
+- [Install] Fixed an issue in the installation process that emptied the `retention.dat` file, causing the temporary loss of all resources' statuses and the permanent loss of current acknowledgements and downtimes.
+
+</details>
+
 ### 23.04.7
 
 Release date: `January 11, 2024`
