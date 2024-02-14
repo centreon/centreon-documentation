@@ -19,6 +19,18 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon Web
 
+### 22.10.19
+
+Release date: `February 14, 2024`
+
+#### Bug fixes
+
+- [CLAPI] Removed password expiration policy for LDAP authentication.
+
+#### Security fixes
+
+- [API] Fixed a visibility issue on configuration/users endpoint.
+
 ### 22.10.18
 
 Release date: `January 11, 2024`
@@ -538,6 +550,24 @@ Release date: `October 26, 2022`
 
 ## Centreon Gorgone
 
+### 22.10.4
+
+Release date: `February 14, 2024`
+
+#### Bug fixes
+
+[Core] Fixed recurring unexpected disconnections between pollers using pull/pullws mode.
+
+#### Security fixes
+
+[Security] Enabled whitelist of Centreon Gorgone commands by default to manage Centreon Engine and Broker processes and to limit escalations of potential future vulnerabilities.
+
+### 22.10.3
+
+Release date: `November 17, 2023`
+
+No Changes for this module in this version.
+
 ### 22.10.2
 
 Release date: `July 28, 2023`
@@ -595,6 +625,14 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon Open Tickets
+
+### 22.10.3
+
+Release date: `February 14, 2024`
+
+#### Enhancements
+
+- [Open Tickets] Add EasyVista connector.
 
 ### 22.10.2
 
