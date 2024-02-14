@@ -69,7 +69,8 @@ mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`da
 sudo -u www-data /usr/share/centreon/bin/console cache:clear
 ```
 
-</TabItem></Tabs>
+</TabItem>
+</Tabs>
 
 ### Suppression des crons
 
@@ -81,7 +82,7 @@ rm -rf /etc/cron.d/centstorage
 rm -f /etc/cron.d/centreon-ha-mysql
 ```
 
-pui redémarrer le service cron:
+puis redémarrer le service cron:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">

@@ -106,7 +106,7 @@ As you have deleted the **centreon-ha-mysql** cron, check that the following lin
 expire_logs_days=7
 ```
 
-Now, you can perform a global update on the server but **not restart now** on all nodes including Quorum:
+Now, you can perform a global update on the server but **do not restart now** on all nodes including Quorum:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
@@ -150,7 +150,7 @@ However, some changes must always be done.
 <Tabs groupId="sync">
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
 
-### Backup the confguration
+### Backup the configuration
 
 Perform a backup of the cluster on central master node using:
 
