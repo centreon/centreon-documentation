@@ -376,7 +376,7 @@ Release date: `February 14, 2024`
 <details>
   <summary>Bug fixes</summary>
 
-- [Broker] Fixed a bug causing hostgroups failing to appear if they had been used before and empties of their hosts and then populated again.
+- [Broker] Fixed an issue causing hostgroups failing to appear if they had been used before and emptied of their hosts and then populated again.
 - [Broker] Fixed the permissions of the RRD files produced by the rebuild mechanism when RRDcached is used.
 - [Broker] Fixed some incorrect statuses in Broker's statistics retrieved by the `broker-stats.json` file.
 - [Broker] Semicolons are no longer considered as the beginning of a comment in Engine's configuration files. This is because comments were not useful in these files, and they prevented the use of semicolons in macros (e.g., passwords).
