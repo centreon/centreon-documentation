@@ -20,7 +20,7 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ### 22.10.19
 
-Release date: `February 13, 2024`
+Release date: `February 14, 2024`
 
 #### Bug fixes
 
@@ -540,7 +540,7 @@ Release date: `October 26, 2022`
 
 ### 22.10.4
 
-Release date: `February 13, 2024`
+Release date: `February 14, 2024`
 
 #### Bug fixes
 
@@ -616,11 +616,11 @@ Release date: `October 26, 2022`
 
 ### 22.10.3
 
-Release date: `February 13, 2024`
+Release date: `February 14, 2024`
 
 #### Enhancements
 
-- [Open Tickets] Add Easy Vista Connector.
+- [Open Tickets] Add EasyVista connector.
 
 ### 22.10.2
 

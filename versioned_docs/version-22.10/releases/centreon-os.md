@@ -21,7 +21,7 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ### 22.10.19
 
-Release date: `February 13, 2024`
+Release date: `February 14, 2024`
 
 #### Bug fixes
 
@@ -541,13 +541,13 @@ Release date: `October 26, 2022`
 
 ### 22.10.4
 
-Release date: `February 13, 2024`
+Release date: `February 14, 2024`
 
 #### Bug fixes
 
 [Core] Fixed recurring unexpected disconnections between pollers using pull/pullws mode.
 
-#### Security fix
+#### Security fixes
 
 [Security] Enabled whitelist of Centreon Gorgone commands by default to manage Centreon Engine and Broker processes and to limit escalations of potential future vulnerabilities.
 
@@ -617,11 +617,11 @@ Release date: `October 26, 2022`
 
 ### 22.10.3
 
-Release date: `February 13, 2024`
+Release date: `February 14, 2024`
 
 #### Enhancements
 
-- [Open Tickets] Add Easy Vista Connector.
+- [Open Tickets] Add EasyVista connector.
 
 ### 22.10.2
 
