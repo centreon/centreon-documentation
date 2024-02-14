@@ -386,6 +386,17 @@ Release date: `October 26, 2022`
 
 ## Centreon Collect
 
+### 22.10.8
+
+Release date: `February 14, 2024`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- [Broker] Fixed an issue with the propagation of the statuses for BAM boolean rules.
+- [Broker] Fixed the permissions of the RRD files produced by the rebuild mechanism when RRDcached is used.
+
 ### 22.10.7
 
 Release date: `January 11, 2024`
