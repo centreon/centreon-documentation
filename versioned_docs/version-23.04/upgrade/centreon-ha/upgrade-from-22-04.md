@@ -106,6 +106,27 @@ As you have deleted the **centreon-ha-mysql** cron, check that the following lin
 expire_logs_days=7
 ```
 
+Now, you can perform a global update on the server but **not restart now** on all nodes including Quorum:
+
+<Tabs groupId="sync">
+<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
+
+```bash
+dnf update
+systemctl daemon-reload
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt upgrade
+systemctl daemon-reload
+```
+
+</TabItem>
+</Tabs>
+
 ### Reset the permissions for centreon_central_sync resource
 
 The RPM upgrade puts the permissions back in place on the two **central servers**. Change them using these commands:
@@ -131,7 +152,7 @@ However, some changes must always be done.
 
 ### Backup the confguration
 
-Perform a backup of the cluster using:
+Perform a backup of the cluster on central master node using:
 
 ```bash
 pcs config backup centreon_cluster
@@ -164,7 +185,7 @@ pcs resource group add centreon cbd_central_broker --before gorgone
 
 ### Backup the confguration
 
-Perform a backup of the cluster using:
+Perform a backup of the cluster on central master node using:
 
 ```bash
 pcs config backup centreon_cluster
@@ -261,7 +282,9 @@ colocation-centreon-ms_mysql-clone-INFINITY
 and delete **all** constraints, **adapt IDs with your own**
 
 ```bash
-pcs constraint delete order-centreon-ms_mysql-clone-mandatory colocation-ms_mysql-clone-centreon-INFINITY colocation-centreon-ms_mysql-clone-INFINITY
+pcs constraint delete order-centreon-ms_mysql-clone-mandatory
+pcs constraint delete colocation-ms_mysql-clone-centreon-INFINITY
+pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
 ```
 
 then recreate only needed constraints
@@ -291,7 +314,9 @@ colocation-centreon-ms_mysql-clone-INFINITY
 and delete **all** constraints, **adapt ids with your own**
 
 ```bash
-pcs constraint delete order-centreon-ms_mysql-clone-mandatory colocation-ms_mysql-clone-centreon-INFINITY colocation-centreon-ms_mysql-clone-INFINITY
+pcs constraint delete order-centreon-ms_mysql-clone-mandatory
+pcs constraint delete colocation-ms_mysql-clone-centreon-INFINITY
+pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
 ```
 
 then recreate only needed constraints
@@ -314,18 +339,44 @@ First extract all contraint IDs:
 pcs constraint config --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.$//'
 ```
 
-You should have a similar result:
+You should have a similar result depending of your host names:
 
 ```text
+location-cbd_rrd-clone-cc-ha-bdd1-2210-alma8--INFINITY
+location-cbd_rrd-clone-cc-ha-bdd2-2210-alma8--INFINITY
+location-centreon-cc-ha-bdd1-2210-alma8--INFINITY
+location-centreon-cc-ha-bdd2-2210-alma8--INFINITY
+location-ms_mysql-clone-cc-ha-web1-2210-alma8--INFINITY
+location-ms_mysql-clone-cc-ha-web2-2210-alma8--INFINITY
+location-php-clone-cc-ha-bdd1-2210-alma8--INFINITY
+location-php-clone-cc-ha-bdd2-2210-alma8--INFINITY
 order-centreon-ms_mysql-clone-mandatory
-colocation-ms_mysql-clone-centreon-INFINITY
-colocation-centreon-ms_mysql-clone-INFINITY
+colocation-ms_mysql-clone-vip_mysql-INFINITY
+colocation-centreon-vip-INFINITY
 ```
 
 and delete **all** constraints, **adapt IDs with your own**
 
 ```bash
-pcs constraint delete order-centreon-ms_mysql-clone-mandatory colocation-ms_mysql-clone-centreon-INFINITY colocation-centreon-ms_mysql-clone-INFINITY
+pcs constraint delete location-cbd_rrd-clone-cc-ha-bdd1-2210-alma8--INFINITY
+pcs constraint delete location-cbd_rrd-clone-cc-ha-bdd2-2210-alma8--INFINITY
+pcs constraint delete location-centreon-cc-ha-bdd1-2210-alma8--INFINITY
+...
+```
+
+Verify if all constraint are well deleted:
+
+```bash
+pcs contraint
+```
+
+You should have a result like this:
+
+```text
+Location Constraints:
+Ordering Constraints:
+Colocation Constraints:
+Ticket Constraints:
 ```
 
 then recreate only needed constraints.
@@ -346,18 +397,28 @@ First extract all contraint id:
 pcs constraint show --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.$//'
 ```
 
-You should have a similar result:
+You should have a similar result depending of your host names:
 
 ```text
-order-centreon-ms_mysql-clone-mandatory
-colocation-ms_mysql-clone-centreon-INFINITY
-colocation-centreon-ms_mysql-clone-INFINITY
+location-cbd_rrd-clone-deb11-bdd1--INFINITY
+location-cbd_rrd-clone-deb11-bdd2--INFINITY
+location-centreon-deb11-bdd1--INFINITY
+location-centreon-deb11-bdd2--INFINITY
+location-ms_mysql-clone-deb11-central1--INFINITY
+location-ms_mysql-clone-deb11-central2--INFINITY
+location-php-clone-deb11-bdd1--INFINITY
+location-php-clone-deb11-bdd2--INFINITY
+colocation-vip_mysql-ms_mysql-clone-INFINITY-1
+colocation-ms_mysql-clone-vip_mysql-INFINITY
 ```
 
 and delete **all** constraints, **adapt ids with your own**
 
 ```bash
-pcs constraint delete order-centreon-ms_mysql-clone-mandatory colocation-ms_mysql-clone-centreon-INFINITY colocation-centreon-ms_mysql-clone-INFINITY
+pcs constraint delete location-cbd_rrd-clone-deb11-bdd1--INFINITY
+pcs constraint delete location-cbd_rrd-clone-deb11-bdd2--INFINITY
+pcs constraint delete location-centreon-deb11-bdd1--INFINITY
+...
 ```
 
 then recreate only needed constraints

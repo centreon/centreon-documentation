@@ -43,18 +43,33 @@ Maintenant, pour effectuer la montée de version:
 
 > Pour le **nœud central passif** et **le nœud base de données passif s'il existe**, merci de [suivre la documentation officielle](../../upgrade/upgrade-from-22-04.md) **jusqu'à l'étape "Mettre à jour une configuration Apache personnalisée" incluse uniquement. Ne pas procéder à l'étape "Finalisation de la mise à jour**.
 
+<Tabs groupId="sync">
+<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
+
 Uniquement sur les serveurs deux nœuds centraux, restaurer le fichier `/etc/centreon-ha/centreon_central_sync.pm`.
 
 ```bash
 mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
 ```
 
-Sur le nœud central passif, déplacez le répertoire **install** pour éviter d'obtenir l'écran "upgrade" dans l'interface en cas de nouvel échange de rôles et rechargez le cache Apache.
+Sur le **nœud central passif**, déplacez le répertoire **install** pour éviter d'obtenir l'écran "upgrade" dans l'interface en cas de nouvel échange de rôles et rechargez le cache Apache.
 
 ```bash
 mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`date +%Y-%m-%d`
 sudo -u apache /usr/share/centreon/bin/console cache:clear
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Sur le **nœud central passif**, déplacez le répertoire **install** pour éviter d'obtenir l'écran "upgrade" dans l'interface en cas de nouvel échange de rôles et rechargez le cache Apache.
+
+```bash
+mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`date +%Y-%m-%d`
+sudo -u www-data /usr/share/centreon/bin/console cache:clear
+```
+
+</TabItem></Tabs>
 
 ### Suppression des crons
 
@@ -66,16 +81,29 @@ rm -rf /etc/cron.d/centstorage
 rm -f /etc/cron.d/centreon-ha-mysql
 ```
 
-Le cron **centreon-ha-mysql** étant supprimé, vérifiez que vous avez bien la ligne suivante dans la section **server** du fichier **/etc/my.cnf.d/server.cnf** :
+pui redémarrer le service cron:
+
+<Tabs groupId="sync">
+<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
+
+```bash
+systemctl restart crond
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+systemctl restart cron
+```
+
+</TabItem>
+</Tabs>
+
+Le cron **centreon-ha-mysql** étant supprimé, vérifiez que vous avez bien la ligne suivante dans la section **server** du fichier **/etc/my.cnf.d/server.cnf**  (ou dans le **/etc/mysql/mariadb.conf.d/50-server.cnf** sur Debian), il est normalement déjà en place depuis 22.04 et la réplication GTID :
 
 ```shell
 expire_logs_days=7
-```
-
-Si ce n'est pas le cas, ajoutez-la et redémarrez la ressource **ms_mysql** :
-
-```shell
-pcs resource restart ms_mysql
 ```
 
 ### Réinitialiser les autorisations de la ressource centreon_central_sync
