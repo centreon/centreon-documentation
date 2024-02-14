@@ -215,7 +215,7 @@ pcs resource group add centreon cbd_central_broker --before gorgone
 
 ### Modify php-clone resource to use php 8.1
 
-Modify php8.0-fpm to php8.1-fpm with the command below (made automatically a backup on export_cluster.xml.bak)
+Modify php8.0-fpm to php8.1-fpm with the command below (an automatic backup of file is made in export_cluster.xml.bak)
 
 ```bash
 sed -i.bak s/php8.0-fpm/php8.1-fpm/ export_cluster.xml
@@ -287,7 +287,22 @@ pcs constraint delete colocation-ms_mysql-clone-centreon-INFINITY
 pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
 ```
 
-then recreate only needed constraints
+Verify if all constraint are well deleted:
+
+```bash
+pcs contraint
+```
+
+You should have a result like this:
+
+```text
+Location Constraints:
+Ordering Constraints:
+Colocation Constraints:
+Ticket Constraints:
+```
+
+If it's OK, then recreate only needed constraints
 
 ```bash
 pcs constraint colocation add master "ms_mysql-clone" with "centreon"
@@ -303,7 +318,7 @@ First extract all contraint IDs:
 pcs constraint show --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.$//'
 ```
 
-You should have a similar result:
+You should have a result like this:
 
 ```text
 order-centreon-ms_mysql-clone-mandatory
@@ -319,7 +334,22 @@ pcs constraint delete colocation-ms_mysql-clone-centreon-INFINITY
 pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
 ```
 
-then recreate only needed constraints
+Verify if all constraint are well deleted:
+
+```bash
+pcs contraint
+```
+
+You should have a result like this:
+
+```text
+Location Constraints:
+Ordering Constraints:
+Colocation Constraints:
+Ticket Constraints:
+```
+
+If it's OK, then recreate only needed constraints
 
 ```bash
 pcs constraint colocation add master "ms_mysql-clone" with "centreon"
@@ -379,7 +409,7 @@ Colocation Constraints:
 Ticket Constraints:
 ```
 
-then recreate only needed constraints.
+If it's OK, then recreate only needed constraints.
 
 In order to glue the Primary Database role with the Virtual IP, define a mutual Constraint:
 
@@ -421,7 +451,22 @@ pcs constraint delete location-centreon-deb11-bdd1--INFINITY
 ...
 ```
 
-then recreate only needed constraints
+Verify if all constraint are well deleted:
+
+```bash
+pcs contraint
+```
+
+You should have a result like this:
+
+```text
+Location Constraints:
+Ordering Constraints:
+Colocation Constraints:
+Ticket Constraints:
+```
+
+If it's OK, then recreate only needed constraints
 
 ```bash
 pcs constraint colocation add "vip_mysql" with master "ms_mysql-clone"
@@ -543,30 +588,30 @@ vip_mysql       (ocf::heartbeat:IPaddr2):       Started @DATABASE_MASTER_NAME@
 </TabItem>
 </Tabs>
 
-### Disabled resources
+### Reboot nodes to apply system updates
 
-When you do a `crm_mon -fr` and you have a resource that is disable :
-
-```text
-...
- Master/Slave Set: ms_mysql-master [ms_mysql]
-     Masters: [ @DATABASE_MASTER_NAME@ ]
-     Slaves: [ @DATABASE_SLAVE_NAME@ ]
-     Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
-vip_mysql       (ocf::heartbeat:IPaddr2):       Stopped (disabled)
-...
-```
-
-You must enable the resource with the following command :
+When your cluster is OK, you can now reboot the actual slave node.
 
 ```bash
-pcs resource enable @RESSOURCE_NAME@
+reboot
 ```
 
-In our case :
+Wait for the node to come back online, and switch nodes by moving centreon resource for example. 
 
 ```bash
-pcs resource enable vip_mysql
+pcs resource move centreon
+```
+
+Cleaning of constraints
+
+```bash
+pcs resource clear centreon
+```
+
+and when cluster is OK, reboot the other server. You can also reboot the quorum.
+
+```bash
+reboot
 ```
 
 ## Verifying the platform stability
