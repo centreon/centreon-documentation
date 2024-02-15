@@ -144,7 +144,7 @@ find /usr/share/centreon/www/img/media -type f \( ! -iname ".keep" ! -iname ".ht
 
 ## Cluster ugprade
 
-Since Centreon 22.04, The mariaDB Replication is now based on [GTID](https://mariadb.com/kb/en/gtid/).
+Since Centreon 22.04, the mariaDB Replication is now based on [GTID](https://mariadb.com/kb/en/gtid/).
 
 However, some changes must always be done.
 
