@@ -1,11 +1,11 @@
 ---
-id: upgrade-centreon-ha-from-22-10
-title: Montée de version de Centreon HA depuis Centreon 22.10
+id: upgrade-centreon-ha-from-23-04
+title: Montée de version de Centreon HA depuis Centreon 23.04
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 22.10 vers la version 24.04.
+Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 23.04 vers la version 24.04.
 
 ## Prérequis
 
@@ -39,9 +39,9 @@ systemctl stop cbd-sql
 
 Maintenant, pour effectuer la montée de version:
 
-> Pour le **nœud central actif** et **le nœud base de données actif s'il existe** merci de [suivre la documentation officielle](../../upgrade/upgrade-from-22-10.md) **jusqu'à l'étape "Actions post montée de version" incluse**.
+> Pour le **nœud central actif** et **le nœud base de données actif s'il existe** merci de [suivre la documentation officielle](../../upgrade/upgrade-from-23-04.md) **jusqu'à l'étape "Actions post montée de version" incluse**.
 
-> Pour le **nœud central passif** et **le nœud base de données passif s'il existe**, merci de [suivre la documentation officielle](../../upgrade/upgrade-from-22-10.md) **jusqu'à l'étape "Mettre à jour une configuration Apache personnalisée" incluse uniquement. Ne pas procéder à l'étape "Finalisation de la mise à jour**.
+> Pour le **nœud central passif** et **le nœud base de données passif s'il existe**, merci de [suivre la documentation officielle](../../upgrade/upgrade-from-23-04.md) **jusqu'à l'étape "Mettre à jour une configuration Apache personnalisée" incluse uniquement. Ne pas procéder à l'étape "Finalisation de la mise à jour**.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
