@@ -76,8 +76,8 @@ sudo -u www-data /usr/share/centreon/bin/console cache:clear
 The RPM upgrade puts cron jobs back in place on the central and databases servers. Remove them to avoid concurrent executions on central and database nodes: 
 
 ```bash
-rm -rf /etc/cron.d/centreon
-rm -rf /etc/cron.d/centstorage
+rm -f /etc/cron.d/centreon
+rm -f /etc/cron.d/centstorage
 rm -f /etc/cron.d/centreon-ha-mysql
 ```
 
