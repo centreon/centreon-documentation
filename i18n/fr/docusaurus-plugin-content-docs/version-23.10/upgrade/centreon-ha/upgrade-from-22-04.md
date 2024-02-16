@@ -252,9 +252,9 @@ cibadmin --replace --xml-file export_cluster.xml
 Avant de reprendre la gestion des ressources du cluster, pour éviter les problèmes de broker, il faut nettoyer tous les fichiers *.memory.*, *.unprocessed.* ou *.queue.*:
 
 ```bash
-rm -rf /var/lib/centreon-broker/central-broker-master.memory*
-rm -rf /var/lib/centreon-broker/central-broker-master.queue*
-rm -rf /var/lib/centreon-broker/central-broker-master.unprocessed*
+rm -f /var/lib/centreon-broker/central-broker-master.memory*
+rm -f /var/lib/centreon-broker/central-broker-master.queue*
+rm -f /var/lib/centreon-broker/central-broker-master.unprocessed*
 ```
 
 #### Recréer les contraintes

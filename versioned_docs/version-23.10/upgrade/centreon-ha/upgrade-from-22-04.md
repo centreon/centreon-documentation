@@ -251,9 +251,9 @@ cibadmin --replace --xml-file export_cluster.xml
 Before resuming the cluster resources management, to avoid broker issues, cleanup all the *.memory.*, *.unprocessed.* or *.queue.* files:
 
 ```bash
-rm -rf /var/lib/centreon-broker/central-broker-master.memory*
-rm -rf /var/lib/centreon-broker/central-broker-master.queue*
-rm -rf /var/lib/centreon-broker/central-broker-master.unprocessed*
+rm -f /var/lib/centreon-broker/central-broker-master.memory*
+rm -f /var/lib/centreon-broker/central-broker-master.queue*
+rm -f /var/lib/centreon-broker/central-broker-master.unprocessed*
 ```
 
 #### Recreating the constraint
