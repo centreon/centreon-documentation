@@ -107,27 +107,6 @@ Le cron **centreon-ha-mysql** étant supprimé, vérifiez que vous avez bien la 
 expire_logs_days=7
 ```
 
-Vous pouvez maintenant effectuer une mise à jour globale sur tous les nœuds, y compris le Quorum, mais **ne redémarrez pas maintenant** :
-
-<Tabs groupId="sync">
-<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
-
-```bash
-dnf update
-systemctl daemon-reload
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```bash
-apt upgrade
-systemctl daemon-reload
-```
-
-</TabItem>
-</Tabs>
-
 ### Réinitialiser les autorisations de la ressource centreon_central_sync
 
 L'upgrade RPM remet les permissions en place sur les serveurs centraux. Modifiez-les en utilisant ces commandes :
@@ -521,32 +500,6 @@ vip_mysql       (ocf::heartbeat:IPaddr2):       Started @DATABASE_MASTER_NAME@
 
 </TabItem>
 </Tabs>
-
-### Redémarrer les nœuds pour appliquer les mises à jour du système
-
-Lorsque votre cluster est OK, vous pouvez maintenant redémarrer le nœud esclave.
-
-```bash
-reboot
-```
-
-Attendez que le nœud revienne en ligne et changez de nœud en déplaçant la ressource centreon, par exemple.
-
-```bash
-pcs resource move centreon
-```
-
-Nettoyage des contraintes
-
-```bash
-pcs resource clear centreon
-```
-
-et lorsque le cluster est OK, redémarrez l'autre serveur. Vous pouvez également redémarrer le quorum.
-
-```bash
-reboot
-```
 
 ## Vérification de la stabilité de la plate-forme
 
