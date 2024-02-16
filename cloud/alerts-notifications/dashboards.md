@@ -46,6 +46,10 @@ Click the **three vertical dots** menu at the top right of the widget to edit it
 
 > In edition mode, you can easily organize your widgets by moving or resizing them. Make sure to save your changes.
 
+### Link to Resources Status page
+
+From the dashboard, you can click a screen pictogram at the top right of a widget: this button allows you to **See more on the Resources Status page**. It opens a new tab on the Resources Status page, with detailed information regarding the specific widget.
+
 ## Managing dashboards
 
 > You must be in the **Dashboard library** page to get an overview of your dashboards.
