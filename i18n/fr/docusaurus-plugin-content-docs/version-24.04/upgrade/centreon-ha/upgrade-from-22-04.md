@@ -77,8 +77,8 @@ sudo -u www-data /usr/share/centreon/bin/console cache:clear
 La mise à jour RPM remet en place les crons sur les serveurs Central et Bases de données. Supprimez-les pour éviter les exécutions simultanées : 
 
 ```bash
-rm -rf /etc/cron.d/centreon
-rm -rf /etc/cron.d/centstorage
+rm -f /etc/cron.d/centreon
+rm -f /etc/cron.d/centstorage
 rm -f /etc/cron.d/centreon-ha-mysql
 ```
 
@@ -252,9 +252,9 @@ cibadmin --replace --xml-file export_cluster.xml
 Avant de reprendre la gestion des ressources du cluster, pour éviter les problèmes de broker, il faut nettoyer tous les fichiers *.memory.*, *.unprocessed.* ou *.queue.*:
 
 ```bash
-rm -rf /var/lib/centreon-broker/central-broker-master.memory*
-rm -rf /var/lib/centreon-broker/central-broker-master.queue*
-rm -rf /var/lib/centreon-broker/central-broker-master.unprocessed*
+rm -f /var/lib/centreon-broker/central-broker-master.memory*
+rm -f /var/lib/centreon-broker/central-broker-master.queue*
+rm -f /var/lib/centreon-broker/central-broker-master.unprocessed*
 ```
 
 #### Recréer les contraintes
