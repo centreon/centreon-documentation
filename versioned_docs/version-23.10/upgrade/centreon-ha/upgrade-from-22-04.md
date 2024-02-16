@@ -106,27 +106,6 @@ As you have deleted the **centreon-ha-mysql** cron, check that the following lin
 expire_logs_days=7
 ```
 
-Now, you can perform a global update on the server but **do not restart now** on all nodes including Quorum:
-
-<Tabs groupId="sync">
-<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
-
-```bash
-dnf update
-systemctl daemon-reload
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```bash
-apt upgrade
-systemctl daemon-reload
-```
-
-</TabItem>
-</Tabs>
-
 ### Reset the permissions for centreon_central_sync resource
 
 The RPM upgrade puts the permissions back in place on the two **central servers**. Change them using these commands:
@@ -587,32 +566,6 @@ vip_mysql       (ocf::heartbeat:IPaddr2):       Started @DATABASE_MASTER_NAME@
 
 </TabItem>
 </Tabs>
-
-### Reboot nodes to apply system updates
-
-When your cluster is OK, you can now reboot the actual slave node.
-
-```bash
-reboot
-```
-
-Wait for the node to come back online, and switch nodes by moving centreon resource for example. 
-
-```bash
-pcs resource move centreon
-```
-
-Cleaning of constraints
-
-```bash
-pcs resource clear centreon
-```
-
-and when cluster is OK, reboot the other server. You can also reboot the quorum.
-
-```bash
-reboot
-```
 
 ## Verifying the platform stability
 
