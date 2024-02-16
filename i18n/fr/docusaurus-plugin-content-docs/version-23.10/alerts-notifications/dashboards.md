@@ -76,6 +76,10 @@ Cliquez sur le menu avec les **trois points verticaux** en haut à droite du wid
 
 > En mode édition, vous pouvez facilement organiser vos widgets en les déplaçant ou en les redimensionnant. N'oubliez pas de sauvegarder vos modifications.
 
+### Lien vers la page Statut des ressources
+
+Depuis le tableau de bord, vous pouvez cliquer sur un pictogramme représentant un écran en haut à droite d'un widget : ce bouton vous permet de **Voir plus à la page Statut des ressources**. Il ouvre un nouvel onglet sur la page Statut des ressources, avec des informations détaillées concernant le widget en question.
+
 ## Gérer les tableaux de bord
 
 > Vous devez être dans la page **Bibliothèque de tableaux de bord** pour avoir une vue d'ensemble de vos tableaux de bord.
