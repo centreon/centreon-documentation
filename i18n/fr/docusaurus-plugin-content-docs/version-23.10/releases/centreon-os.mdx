@@ -29,32 +29,43 @@ Release date: `February 14, 2024`
 <details open>
   <summary>Enhancements</summary>
 
+#### Dashboards Beta
+
 - [API] Added "name" and "parent_name" parameters to metrics/performances and metrics/top endpoints.
 - [API] Added an endpoint to manage dashboard shares in batch.
-- [Dataset] Fixed an issue that allowed to select a resource type more than once.
-- [Dashboards] Correctly retrieved contact and contactgroup shares for non admin users.
-- [Dashboards] Handled the new shares system on Dashboards.
-- [Dashboards - API] Retrieved only users with dashboard ACLs in contact listing.
-- [Dashboards - UX/UI] BREAKING CHANGE - Simplified metric selection by displaying corresponding service names.
-- [Metrics Graph Widget] Added a warning message indicating that thresholds have been hidden when selecting two different metric units.
-- [Single Metric widget] Simplified dataset selection by forcing a host + service pair.
-- [Status Grid widget] Added "unhandled" state property.
+- [API] Retrieved only users with dashboard ACLs in contact listing.
+- [Breaking change] Simplified metric selection by displaying corresponding service names.
 - [UI] Added pictograms to represent each widget type.
 - [UI] Moved the parameter used for hiding widget's description.
 - [UX] Added links to Resources Status page on widgets.
+- [UX] Added a new way to display dashboards, as a list.
+- [UX] Added a search functionality.
+- [UX] Added pagination.
+- [UX] Handled the new shares system on Dashboards.
+- [UX] Retrieved correctly contact and contactgroup shares for non admin users.
+- [Widget] Added the new "Resource Table" widget.
 - [Widget] Added default message when no resource has been selected yet.
+- [Widget] Metrics Graph: added a warning message indicating that thresholds have been hidden when selecting two different metric units.
+- [Widget] Single Metric: simplified dataset selection by forcing a host + service pair.
+- [Widget] Status Grid: added "unhandled" state property.
 
 </details>
 
 <details>
   <summary>Bug fixes</summary>
 
+#### Dashboards Beta
+
+- [ACLs] Fixed an issue that was retrieving all contactgroups despite Dashboard ACLs.
 - [API] Fixed a security issue on category and severity displaying.
-- [Dashboards] Fixed an issue that was retrieving all contactgroups despite Dashboard ACLs.
+- [Dataset] Fixed an issue that allowed to select a resource type more than once.
 - [MySQL] Fixed an issue preventing to search a host in a widget.
-- [Status Grid widget] Fixed tiles ordering by status.
-- [Status Grid widget] Fixed an issue preventing the user from deleting the value for the number of tiles to display.
-- [Status Grid widget] Fixed the "Metric not found" message that was not supposed to appear.
+- [Widget] Status Grid: fixed tiles ordering by status.
+- [Widget] Status Grid: fixed an issue preventing the user from deleting the value for the number of tiles to display.
+- [Widget] Status Grid: fixed the "Metric not found" message that was not supposed to appear.
+
+#### Web
+
 - [UI] Fixed the display of inappropriate 404 error page when loading MAP homepage.
 
 </details>
