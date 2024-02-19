@@ -560,7 +560,7 @@ Release date: `February 14, 2024`
 
 #### Security fixes
 
-[Security] Enabled whitelist of Centreon Gorgone commands by default to manage Centreon Engine and Broker processes and to limit escalations of potential future vulnerabilities.
+[Security] Enabled whitelist of Centreon Gorgone commands by default to manage Centreon Engine and Broker processes in order to limit escalations of potential future vulnerabilities.
 
 ### 22.10.3
 
