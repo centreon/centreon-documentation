@@ -17,6 +17,18 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon MAP
 
+### 22.10.15
+
+Release date: `February 19, 2023`
+
+#### Bug fixes
+
+- [Editor] Fixed the label font size in Editor.
+- [Viewer] Fixed container status color issue.
+- [Viewer] Made resource labels contained in shapes (no overflow).
+- [Viewer] Fixed an issue that converted breadcrumb elements to lowercase.
+- [Widget] Fixed an issue preventing non admin users from saving the position and the zooming of a Map.
+
 ### 22.10.14
 
 Release date: `December 21, 2023`
