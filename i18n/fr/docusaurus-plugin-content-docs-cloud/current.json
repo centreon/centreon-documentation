@@ -118,5 +118,9 @@
   "sidebar.cloud.category.Monitor and visualize": {
     "message": "Supervisez et visualisez",
     "description": "The label for category Monitor and visualize in sidebar cloud"
+  },
+  "sidebar.cloud.category.Managing pollers": {
+    "message": "Gérer les collecteurs",
+    "description": "The label for category Managing pollers in sidebar cloud"
   }
 }
