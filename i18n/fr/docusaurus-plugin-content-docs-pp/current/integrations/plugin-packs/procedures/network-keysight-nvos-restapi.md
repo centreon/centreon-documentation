@@ -47,10 +47,10 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte de service
 
-| Nom de la règle                               | Description |
-|:----------------------------------------------|:------------|
-| Net-Keysight-Nvos-Restapi-Dynamic-Filter-Name |             |
-| Net-Keysight-Nvos-Restapi-Port-Name           |             |
+| Nom de la règle                               | Description                                                |
+|:----------------------------------------------|:-----------------------------------------------------------|
+| Net-Keysight-Nvos-Restapi-Dynamic-Filter-Name | Découvre les filtres dynamiques et supervise l'utilisation |
+| Net-Keysight-Nvos-Restapi-Port-Name           | Découvre les ports et supervise le statut et l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -236,19 +236,19 @@ yum install centreon-plugin-Network-Keysight-Nvos-Restapi
 <Tabs groupId="sync">
 <TabItem value="Dynamic-Filters" label="Dynamic-Filters">
 
-| Macro                 | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:----------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNAME            | Filter dynamic filters by name (can be a regexp)                                                   |                   |             |
-| WARNINGPACKETSDENIED  |                                                                                                    |                   |             |
-| CRITICALPACKETSDENIED |                                                                                                    |                   |             |
-| WARNINGPACKETSINSP    | Thresholds                                                                                         |                   |             |
-| CRITICALPACKETSINSP   | Thresholds                                                                                         |                   |             |
-| WARNINGPACKETSPASS    | Thresholds                                                                                         |                   |             |
-| CRITICALPACKETSPASS   | Thresholds                                                                                         |                   |             |
-| WARNINGTRAFFICINSP    |                                                                                                    |                   |             |
-| CRITICALTRAFFICINSP   |                                                                                                    |                   |             |
-| WARNINGTRAFFICPASS    |                                                                                                    |                   |             |
-| CRITICALTRAFFICPASS   |                                                                                                    |                   |             |
+| Macro                 | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERNAME            | Filter dynamic filters by name (can be a regexp)                                                                                                 |                   |             |
+| WARNINGPACKETSDENIED  | Thresholds                                                                                                                                       |                   |             |
+| CRITICALPACKETSDENIED | Thresholds                                                                                                                                       |                   |             |
+| WARNINGPACKETSINSP    | Thresholds                                                                                                                                       |                   |             |
+| CRITICALPACKETSINSP   | Thresholds                                                                                                                                       |                   |             |
+| WARNINGPACKETSPASS    | Thresholds                                                                                                                                       |                   |             |
+| CRITICALPACKETSPASS   | Thresholds                                                                                                                                       |                   |             |
+| WARNINGTRAFFICINSP    | Thresholds                                                                                                                                       |                   |             |
+| CRITICALTRAFFICINSP   | Thresholds                                                                                                                                       |                   |             |
+| WARNINGTRAFFICPASS    | Thresholds                                                                                                                                       |                   |             |
+| CRITICALTRAFFICPASS   | Thresholds                                                                                                                                       |                   |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
@@ -259,13 +259,13 @@ yum install centreon-plugin-Network-Keysight-Nvos-Restapi
 | UNKNOWNTEMPERATURESTATUS  | Define the conditions to match for the status to be UNKNOWN (default : '%{status} eq "unknown"'). You can use the following variables: %{status}, %{class} | %{status} eq "unknown" |             |
 | WARNINGFANSFAILED         | Thresholds                                                                                                                                                 |                        |             |
 | CRITICALFANSFAILED        | Thresholds                                                                                                                                                 |                        |             |
-| CRITICALPSUSTATUS         |                                                                                                                                                            | %{status} eq "bad"     |             |
+| CRITICALPSUSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{name}                                      | %{status} eq "bad"     |             |
 | WARNINGPSUSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}                                       |                        |             |
 | WARNINGTEMPERATURE        | Thresholds                                                                                                                                                 |                        |             |
 | CRITICALTEMPERATURE       | Thresholds                                                                                                                                                 |                        |             |
 | WARNINGTEMPERATURESTATUS  | Define the conditions to match for the status to be WARNING (default : '%{status} eq "warn"'). You can use the following variables: %{status}, %{class}    | %{status} eq "warn"    |             |
 | CRITICALTEMPERATURESTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{status} eq "hot"'); You can use the following variables: %{status}, %{class}     | %{status} eq "hot"     |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                         | --verbose              |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).           | --verbose              |             |
 
 </TabItem>
 <TabItem value="Licence" label="Licence">
