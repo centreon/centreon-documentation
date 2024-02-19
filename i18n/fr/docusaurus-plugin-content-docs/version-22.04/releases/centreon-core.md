@@ -23,7 +23,7 @@ Release date: `February 14, 2024`
 #### Security fixes
 
 - [API] Fixed a visibility issue on configuration/users endpoint.
-- [Security] Fixed an XSS vulnerability.
+- [Security] Fixed an XSS vulnerability (CVE-2023-51633).
 
 ### 22.04.20
 
@@ -37,7 +37,7 @@ Release date: `January 2, 2024`
 
 #### Security fix
 
-- [Security] Fixed an SQLi vulnerability.
+- [Security] Fixed an SQLi vulnerability (CVE-2024-0637, CVE-2024-23115, CVE-2024-23116, CVE-2024-23117, CVE-2024-23118, CVE-2024-23119).
 
 ### 22.04.18
 
