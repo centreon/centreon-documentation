@@ -40,11 +40,11 @@ Le connecteur apporte le modèle de service suivant
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
-#### Découverte de service
+#### Découverte de services
 
 | Nom de la règle                                    | Description |
 |:---------------------------------------------------|:------------|
-| Net-Cisco-Meraki-Cloudcontroller-SNMP-Device-Usage |             |
+| Net-Cisco-Meraki-Cloudcontroller-SNMP-Device-Usage | Découvre les composants pour en contrôler le statut et l'utilisation.    |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).

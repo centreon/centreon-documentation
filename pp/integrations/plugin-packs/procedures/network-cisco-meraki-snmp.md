@@ -43,7 +43,7 @@ More information about discovering hosts automatically is available on the [dedi
 
 | Rule name                                          | Description |
 |:---------------------------------------------------|:------------|
-| Net-Cisco-Meraki-Cloudcontroller-SNMP-Device-Usage |             |
+| Net-Cisco-Meraki-Cloudcontroller-SNMP-Device-Usage | Discover the devices to monitor their state and usage. |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
