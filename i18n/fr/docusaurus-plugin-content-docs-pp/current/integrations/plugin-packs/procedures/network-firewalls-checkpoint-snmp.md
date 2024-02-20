@@ -24,7 +24,7 @@ Le connecteur apporte les modèles de service suivants
 | Connections | Net-FW-Checkpoint-Connections-SNMP-custom | Contrôle le nombre de connexions          |
 | Cpu         | Net-FW-Checkpoint-Cpu-SNMP-custom         | Contrôle l'utilisation du CPU             |
 | Disk        | Net-FW-Checkpoint-Disk-SNMP-custom        | Contrôle l'utilisation des disques        |
-| HA-State    | Net-FW-Checkpoint-HA-State-SNMP-custom    | Contrôle l'état de la haute-disponibilité |
+| HA-State    | Net-FW-Checkpoint-HA-State-SNMP-custom    | Contrôle l'état de la haute disponibilité |
 | Hardware    | Net-FW-Checkpoint-Hardware-SNMP-custom    | Contrôle l'état des composants hardware   |
 | Memory      | Net-FW-Checkpoint-Memory-SNMP-custom      | Contrôle l'utilisation mémoire            |
 
@@ -37,7 +37,7 @@ Le connecteur apporte les modèles de service suivants
 |:---------------------|:---------------------------------------------------|:----------------------------------------------------------|:----------:|
 | Traffic-Generic-Name | Net-FW-Checkpoint-Traffic-Generic-Name-SNMP-custom | Contrôle le traffic réseau d'une interface réseau         |            |
 | Traffic-Global       | Net-FW-Checkpoint-Traffic-Global-SNMP-custom       | Contrôle le traffic réseau de plusieurs interfaces réseau | X          |
-| Vpn-Status           | Net-FW-Checkpoint-Vpn-Status-SNMP-custom           | Contrôle le statut des vpn                                |            |
+| Vpn-Status           | Net-FW-Checkpoint-Vpn-Status-SNMP-custom           | Contrôle le statut des VPNs                                |            |
 | Vrrp-Status          | Net-FW-Checkpoint-Vrrp-Status-SNMP-custom          | Contrôle le statut des VRRP                               |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
@@ -57,7 +57,7 @@ Le connecteur apporte les modèles de service suivants
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
-#### Découverte de service
+#### Découverte de services
 
 | Nom de la règle                     | Description                                                   |
 |:------------------------------------|:--------------------------------------------------------------|
@@ -282,8 +282,8 @@ yum install centreon-plugin-Network-Firewalls-Checkpoint-Snmp
 
 | Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Number of connections trigerring a warning state                                                   |                   |             |
-| CRITICAL     | Number of connections trigerring a criticalstate                                                   |                   |             |
+| WARNING      | Number of connections triggering a warning state                                                   |                   |             |
+| CRITICAL     | Number of connections triggering a critical state                                                   |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>

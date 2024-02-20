@@ -20,11 +20,11 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                          | Service Description              |
 |:--------------|:------------------------------------------|:---------------------------------|
-| Connections   | Net-FW-Checkpoint-Connections-SNMP-custom | Check connections number         |
+| Connections   | Net-FW-Checkpoint-Connections-SNMP-custom | Check the number of connections |
 | Cpu           | Net-FW-Checkpoint-Cpu-SNMP-custom         | Check CPU usage                  |
 | Disk          | Net-FW-Checkpoint-Disk-SNMP-custom        | Check disk usage                 |
-| HA-State      | Net-FW-Checkpoint-HA-State-SNMP-custom    | Check HA State                   |
-| Hardware      | Net-FW-Checkpoint-Hardware-SNMP-custom    | Check hardware components health |
+| HA-State      | Net-FW-Checkpoint-HA-State-SNMP-custom    | Check HA state                   |
+| Hardware      | Net-FW-Checkpoint-Hardware-SNMP-custom    | Check the health of hardware components |
 | Memory        | Net-FW-Checkpoint-Memory-SNMP-custom      | Check memory usage               |
 
 > The services listed above are created automatically when the **Net-FW-Checkpoint-SNMP-custom** host template is used.
@@ -34,10 +34,10 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                                   | Service Description                          | Discovery  |
 |:---------------------|:---------------------------------------------------|:---------------------------------------------|:----------:|
-| Traffic-Generic-Name | Net-FW-Checkpoint-Traffic-Generic-Name-SNMP-custom | Check traffic of an network interface        |            |
+| Traffic-Generic-Name | Net-FW-Checkpoint-Traffic-Generic-Name-SNMP-custom | Check traffic of a network interface        |            |
 | Traffic-Global       | Net-FW-Checkpoint-Traffic-Global-SNMP-custom       | Check traffic of multiple network interfaces | X          |
-| Vpn-Status           | Net-FW-Checkpoint-Vpn-Status-SNMP-custom           | Check vpn status                             |            |
-| Vrrp-Status          | Net-FW-Checkpoint-Vrrp-Status-SNMP-custom          | Check vrrp status                            |            |
+| Vpn-Status           | Net-FW-Checkpoint-Vpn-Status-SNMP-custom           | Check VPN status                             |            |
+| Vrrp-Status          | Net-FW-Checkpoint-Vrrp-Status-SNMP-custom          | Check VRRP status                            |            |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
