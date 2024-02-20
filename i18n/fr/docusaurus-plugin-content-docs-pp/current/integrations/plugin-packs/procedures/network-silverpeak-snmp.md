@@ -22,8 +22,8 @@ Le connecteur apporte les modèles de service suivants
 | Alias      | Modèle de service                     | Description                                                           |
 |:-----------|:--------------------------------------|:----------------------------------------------------------------------|
 | Alarms     | Net-Silverpeak-Alarms-SNMP-custom     | Contrôle permettant de vérifier les alarmes des appliances Silverpeak |
-| OperStatus | Net-Silverpeak-OperStatus-SNMP-custom | Contrôle le statut operationnel d'une appliance Silverpeak            |
-| Uptime     | Net-Silverpeak-Uptime-SNMP-custom     | Durée depuis laquelle l'appliance est initialisée sans inrterruption  |
+| OperStatus | Net-Silverpeak-OperStatus-SNMP-custom | Contrôle le statut opérationnel d'une appliance Silverpeak            |
+| Uptime     | Net-Silverpeak-Uptime-SNMP-custom     | Durée depuis laquelle l'appliance est initialisée sans interruption  |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Silverpeak-SNMP-custom** est utilisé.
 
@@ -32,9 +32,9 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                | Modèle de service                               | Description                                       |
 |:---------------------|:------------------------------------------------|:--------------------------------------------------|
-| Traffic-Generic-Id   | Net-Silverpeak-Traffic-Generic-Id-SNMP-custom   | Contrôle le traffic réseau d'une interface réseau |
-| Traffic-Generic-Name | Net-Silverpeak-Traffic-Generic-Name-SNMP-custom | Contrôle le traffic réseau d'une interface réseau |
-| Traffic-Global       | Net-Silverpeak-Traffic-Global-SNMP-custom       | Contrôle le traffic réseau d'une interface réseau |
+| Traffic-Generic-Id   | Net-Silverpeak-Traffic-Generic-Id-SNMP-custom   | Contrôle le trafic réseau d'une interface réseau |
+| Traffic-Generic-Name | Net-Silverpeak-Traffic-Generic-Name-SNMP-custom | Contrôle le trafic réseau d'une interface réseau |
+| Traffic-Global       | Net-Silverpeak-Traffic-Global-SNMP-custom       | Contrôle le trafic réseau d'une interface réseau |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
