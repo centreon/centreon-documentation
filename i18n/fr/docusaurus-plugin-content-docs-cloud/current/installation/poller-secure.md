@@ -260,6 +260,24 @@ public (active)
   rich rules:
 ```
 
+### Communication Centreon Gorgone
+
+Vérifiez que le fichier **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** pour chaque collecteur contient bien les lignes suivantes :
+
+```shell
+name: action
+package: "gorgone::modules::core::action::hooks"
+enable: true
+command_timeout: 30
+whitelist_cmds: true
+allowed_cmds:
+  - ^sudo\s+(/bin/)?systemctl\s+(reload|restart)\s+(centengine|centreontrapd|cbd)\s*$
+  - ^sudo\s+(/usr/bin/)?service\s+(centengine|centreontrapd|cbd)\s+(reload|restart)\s*$
+  - ^/usr/sbin/centenginestats\s+-c\s+/etc/centreon-engine/centengine.cfg\s*$
+  - ^cat\s+/var/lib/centreon-engine/[a-zA-Z0-9\-]+-stats.json\s*$  
+```
+
+
 ## Security Information and Event Management - SIEM
 
 Les journaux des événements Centreon sont disponibles dans les répertoires suivants :

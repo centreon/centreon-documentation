@@ -196,6 +196,13 @@ yum --enablerepo=remi install redis
 ```
 
 </TabItem>
+<TabItem value="Red Hat 9" label="Red Hat 9">
+
+```bash
+dnf install redis
+```
+
+</TabItem>
 </Tabs>
 
 ## Comment puis-je tester le Plugin et que signifient les options des commandes ?
@@ -234,6 +241,6 @@ en ajoutant le paramètre ```--help``` à la commande:
     --help
 ```
 
-## Diagnostique
+## Diagnostic
 
-[Diagnostique des plugins](../getting-started/how-to-guides/troubleshooting-plugins.md)
+[Diagnostic des plugins](../getting-started/how-to-guides/troubleshooting-plugins.md)
