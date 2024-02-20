@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 import { useActiveDocContext } from '@docusaurus/plugin-content-docs/client';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import {translate} from '@docusaurus/Translate';
 import IconHome from '@theme/Icon/Home';
 import styles from './styles.module.css';
