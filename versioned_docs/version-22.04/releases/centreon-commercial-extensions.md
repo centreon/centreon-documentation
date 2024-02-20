@@ -16,6 +16,14 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 22.04.15
+
+Release date: `February 20, 2024`
+
+#### Bug fixes
+
+- [Viewer] Fixed container status color issue.
+
 ### 22.04.14
 
 Release date: `December 21, 2023`
