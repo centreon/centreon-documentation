@@ -1,14 +1,20 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import {useLocation} from '@docusaurus/router';
+import { useActiveDocContext } from '@docusaurus/plugin-content-docs/client';
 import {translate} from '@docusaurus/Translate';
 import IconHome from '@theme/Icon/Home';
 import styles from './styles.module.css';
-export default function HomeBreadcrumbItem() {
-  const location = useLocation();
+
+export default function HomeBreadcrumbItem(props) {
+  const { activeDoc } = useActiveDocContext(props.docsPluginId);
+
   // Hack: Swizzle component to use baseUrl until https://github.com/facebook/docusaurus/issues/6953
-  const homeHref = useBaseUrl((location.pathname.split("/")[1] === "docs" ? "/docs/getting-started/welcome" : "/pp/integrations/plugin-packs/getting-started/introduction"));
+  const homeHref = useBaseUrl(
+    activeDoc
+      ? "/docs/getting-started/welcome"
+      : "/pp/integrations/plugin-packs/getting-started/introduction"
+  );
+
   return (
     <li className="breadcrumbs__item">
       <Link
