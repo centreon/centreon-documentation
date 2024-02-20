@@ -18,7 +18,18 @@ The display of the **Add a Map** button in the **Map** page means that you are a
 3. Click **Add** to confirm the map's creation.
 
 The new map opens directly in the editor interface.
-Now you can customize your map using the MAP editor features.
+
+## Create a map from an existing container
+
+You can create a view that is directly linked to a container. This is useful when you want to share the sublevel of a view to a different profile without duplicating its contents or assigning full access to the main view.
+
+1. Right-click the container and click **Create map from container**.
+2. Name the container.
+3. Click Add.
+
+Your map has been created. You can find it in the MAP homepage.
+
+> Now you can customize your map using the MAP editor features.
 
 ## Use the MAP editor
 
