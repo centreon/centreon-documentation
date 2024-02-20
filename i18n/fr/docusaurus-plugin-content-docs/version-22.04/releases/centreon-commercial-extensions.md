@@ -21,7 +21,7 @@ Release date: `February 20, 2024`
 
 #### Bug fixes
 
-- [Viewer] Fixed container status color issue.
+- [Viewer] Fixed an issue in the container status color.
 
 ### 22.04.14
 
