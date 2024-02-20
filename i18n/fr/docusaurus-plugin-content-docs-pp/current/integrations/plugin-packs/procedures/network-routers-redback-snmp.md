@@ -33,12 +33,12 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                      | Modèle de service                                  | Description                                                                        | Découverte |
 |:---------------------------|:---------------------------------------------------|:-----------------------------------------------------------------------------------|:----------:|
-| Packet-Errors-Generic-Id   | Net-Redback-Packet-Errors-Generic-Id-SNMP-custom   | Contrôle le pourcentage de paquets en erreur/écarté d'une interface réseau.         |            |
-| Packet-Errors-Generic-Name | Net-Redback-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écarté d'une interface réseau.         |            |
-| Packet-Errors-Global       | Net-Redback-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écarté de plusieurs interfaces réseau. | X          |
-| Traffic-Generic-Id         | Net-Redback-Traffic-Generic-Id-SNMP-custom         | Contrôle le traffic réseau d'une interface réseau.                                  |            |
-| Traffic-Generic-Name       | Net-Redback-Traffic-Generic-Name-SNMP-custom       | Contrôle le traffic réseau d'une interface réseau.                                  |            |
-| Traffic-Global             | Net-Redback-Traffic-Global-SNMP-custom             | Contrôle le traffic réseau de plusieurs interfaces réseau.                          | X          |
+| Packet-Errors-Generic-Id   | Net-Redback-Packet-Errors-Generic-Id-SNMP-custom   | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau.         |            |
+| Packet-Errors-Generic-Name | Net-Redback-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau.         |            |
+| Packet-Errors-Global       | Net-Redback-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau. | X          |
+| Traffic-Generic-Id         | Net-Redback-Traffic-Generic-Id-SNMP-custom         | Contrôle le trafic réseau d'une interface réseau.                                  |            |
+| Traffic-Generic-Name       | Net-Redback-Traffic-Generic-Name-SNMP-custom       | Contrôle le trafic réseau d'une interface réseau.                                  |            |
+| Traffic-Global             | Net-Redback-Traffic-Global-SNMP-custom             | Contrôle le trafic réseau de plusieurs interfaces réseau.                          | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 

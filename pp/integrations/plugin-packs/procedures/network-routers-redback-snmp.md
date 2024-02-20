@@ -21,9 +21,9 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias     | Service Template                          | Service Description                                  |
 |:------------------|:------------------------------------------|:-----------------------------------------------------|
 | Cpu               | Net-Redback-Cpu-SNMP-custom               | Check the rate of utilization of CPU for the machine. |
-| Disk-Usage-Global | Net-Redback-Disk-Usage-Global-SNMP-custom | Check disk usages.                                    |
+| Disk-Usage-Global | Net-Redback-Disk-Usage-Global-SNMP-custom | Check disk usage.                                    |
 | Hardware-Global   | Net-Redback-Hardware-Global-SNMP-custom   | Check hardware.                                       |
-| Memory            | Net-Redback-Memory-SNMP-custom            | Check the rate of the utilization of memories.        |
+| Memory            | Net-Redback-Memory-SNMP-custom            | Check the rate of utilization of memories.        |
 
 > The services listed above are created automatically when the **Net-Redback-SNMP-custom** host template is used.
 
