@@ -2,15 +2,12 @@ module.exports = {
   pp: [
     {
       type: 'category',
-      label: 'Getting started',
+      label: 'Getting started with Monitoring Connectors',
       "link": {
-        "type": "generated-index",
+        type: "doc",
+        id: 'integrations/plugin-packs/getting-started/introduction'
                },
       items: [
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/getting-started/introduction'
-        },
         {
           type: 'category',
           label: 'How-to guides',
