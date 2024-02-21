@@ -8,3 +8,15 @@ updates:
     labels:
       - 'dependencies'
       - 'gha'
+
+  - package-ecosystem: npm
+    directory: '/'
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 10
+    labels:
+      - 'dependencies'
+      - 'javascript'
+    allow:
+      - dependency-type: "direct"
+      - dependency-type: "production"
