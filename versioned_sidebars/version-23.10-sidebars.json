@@ -8,84 +8,84 @@
         "type": "doc",
         "id": "getting-started/welcome"
       },
-        "items": [
-          {
-            "type": "category",
-            "label": "Before you start",
-            "link": {
-              "type": "generated-index",
-              "description": "This is what you need to know before you install your Centreon platform."
-            },
-            "collapsed": true,
-            "items": [
-              "getting-started/which-install",
-              "getting-started/platform",
-              "getting-started/IT100"
-            ]
+      "items": [
+        {
+          "type": "category",
+          "label": "Before you start",
+          "link": {
+            "type": "generated-index",
+            "description": "This is what you need to know before you install your Centreon platform."
           },
-          {
-            "type": "category",
-            "label": "First steps with Centreon",
-            "link": {
-              "type": "generated-index",
-              "description": "Your Centreon platform is installed. What next?"
-            },
-            "collapsed": true,
-            "items": [
-              "getting-started/interface",
-              "getting-started/concepts"
-            ]
+          "collapsed": true,
+          "items": [
+            "getting-started/which-install",
+            "getting-started/platform",
+            "getting-started/IT100"
+          ]
+        },
+        {
+          "type": "category",
+          "label": "First steps with Centreon",
+          "link": {
+            "type": "generated-index",
+            "description": "Your Centreon platform is installed. What next?"
           },
-          {
-            "type": "category",
-            "label": "Setting up the monitoring",
-            "link": {
-              "type": "generated-index"
-            },
-            "collapsed": true,
-            "items": [
-              "getting-started/first-supervision",
-              "getting-started/monitor-linux-server-with-snmp",
-              "getting-started/monitor-windows-server-with-snmp",
-              "getting-started/monitor-cisco-router-with-snmp",
-              "getting-started/monitor-mysql-server",
-              "getting-started/autodisco-aws",
-              "getting-started/monitor-printer-snmp",
-              "getting-started/monitor-ups-snmp"
-            ]
+          "collapsed": true,
+          "items": [
+            "getting-started/interface",
+            "getting-started/concepts"
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Setting up the monitoring",
+          "link": {
+            "type": "generated-index"
           },
-          {
-            "type": "category",
-            "label": "Monitoring resources in real time",
-            "link": {
-              "type": "generated-index",
-              "description": "How do you monitor the resources you have created?"
-            },
-            "collapsed": true,
-            "items": [
-              "getting-started/actions",
-              "getting-started/create-custom-view"
-            ]
+          "collapsed": true,
+          "items": [
+            "getting-started/first-supervision",
+            "getting-started/monitor-linux-server-with-snmp",
+            "getting-started/monitor-windows-server-with-snmp",
+            "getting-started/monitor-cisco-router-with-snmp",
+            "getting-started/monitor-mysql-server",
+            "getting-started/autodisco-aws",
+            "getting-started/monitor-printer-snmp",
+            "getting-started/monitor-ups-snmp"
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Monitoring resources in real time",
+          "link": {
+            "type": "generated-index",
+            "description": "How do you monitor the resources you have created?"
           },
-          {
-            "type": "category",
-            "label": "Tutorials for Business modules",
-            "link": {
-              "type": "generated-index"
-            },
-            "collapsed": true,
-            "items": [
-              "getting-started/create-graphical-view",
-              "getting-started/model-it-services",
-              "getting-started/analyze-resources-availability"
-            ]
-          }
-        ]
-      },
+          "collapsed": true,
+          "items": [
+            "getting-started/actions",
+            "getting-started/create-custom-view"
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Tutorials for Business modules",
+          "link": {
+            "type": "generated-index"
+          },
+          "collapsed": true,
+          "items": [
+            "getting-started/create-graphical-view",
+            "getting-started/model-it-services",
+            "getting-started/analyze-resources-availability"
+          ]
+        }
+      ]
+    },
     {
       "type": "category",
       "label": "Installation",
-      "link":{
+      "link": {
         "type": "generated-index"
       },
       "items": [
@@ -116,7 +116,7 @@
         {
           "type": "category",
           "label": "Installation of a Central server",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -145,7 +145,7 @@
         {
           "type": "category",
           "label": "Installation of a Poller",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -162,7 +162,7 @@
         {
           "type": "category",
           "label": "Installation of a Remote server",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -179,7 +179,7 @@
         {
           "type": "category",
           "label": "Configuring monitoring servers",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -214,7 +214,7 @@
     {
       "type": "category",
       "label": "Secure your platform",
-      "link":{
+      "link": {
         "type": "generated-index"
       },
       "items": [
@@ -231,14 +231,14 @@
     {
       "type": "category",
       "label": "Monitoring resources",
-      "link":{
+      "link": {
         "type": "generated-index"
       },
       "items": [
         {
           "type": "category",
           "label": "Monitoring basics",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -259,7 +259,7 @@
         {
           "type": "category",
           "label": "Monitoring hosts",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -288,7 +288,7 @@
         {
           "type": "category",
           "label": "Monitoring services",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -317,7 +317,7 @@
         {
           "type": "category",
           "label": "Discovering hosts and services automatically",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -350,7 +350,7 @@
         {
           "type": "category",
           "label": "Organizing hosts and services",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -367,7 +367,7 @@
         {
           "type": "category",
           "label": "Basic objects and actions",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -392,7 +392,7 @@
         {
           "type": "category",
           "label": "Detecting anomalies",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -405,7 +405,7 @@
         {
           "type": "category",
           "label": "Passive Monitoring",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -444,14 +444,14 @@
     {
       "type": "category",
       "label": "Managing events and alerts",
-      "link":{
+      "link": {
         "type": "generated-index"
       },
       "items": [
         {
           "type": "category",
           "label": "Viewing events",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -484,7 +484,7 @@
         {
           "type": "category",
           "label": "Managing alerts",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -509,7 +509,7 @@
         {
           "type": "category",
           "label": "Managing notifications",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -542,7 +542,7 @@
         {
           "type": "category",
           "label": "Managing tickets",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -561,7 +561,7 @@
     {
       "type": "category",
       "label": "Managing Centreon users",
-      "link":{
+      "link": {
         "type": "generated-index"
       },
       "items": [
@@ -594,7 +594,7 @@
     {
       "type": "category",
       "label": "Performance graphs",
-      "link":{
+      "link": {
         "type": "generated-index"
       },
       "items": [
@@ -623,7 +623,7 @@
     {
       "type": "category",
       "label": "Service Mapping",
-      "link":{
+      "link": {
         "type": "generated-index"
       },
       "items": [
@@ -634,7 +634,7 @@
         {
           "type": "category",
           "label": "Guide",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -663,7 +663,7 @@
         {
           "type": "category",
           "label": "Administrate",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -699,77 +699,75 @@
         "description": "The graphical view capabilities in Centreon relies on the Centreon MAP module."
       },
       "collapsed": true,
-         "items": [
-                {
-          "type": "category",
-        "label": "Centreon MAP",
-        "link":{
-          "type": "generated-index"
-        },
-        "items": [
-          {
-            "type": "doc",
-            "id": "version-23.10/graph-views/introduction-map"
-          }, 
-          {
-      "type": "doc",
-      "id": "version-23.10/graph-views/map-web-install"
-      },
-      {
-        "type": "doc",
-        "id": "version-23.10/graph-views/map-web-install-remote"
-        },
-        {
-          "type": "doc",
-          "id": "version-23.10/graph-views/map-web-update"
-          },
-      {
-          "type": "doc",
-          "id": "version-23.10/graph-views/import-into-map-web"
-          },
-          {
-            "type": "doc",
-            "id": "version-23.10/graph-views/map-web-access"
-            },
-                            {
-                  "type": "doc",
-                  "id": "version-23.10/graph-views/map-web-manage"
-                },
-                {
-                "type": "doc",
-                "id": "version-23.10/graph-views/map-web-create-standard-map"
-              },
-              {
-                "type": "doc",
-                "id": "version-23.10/graph-views/map-web-create-geoview"
-              },
-              {
-                "type": "doc",
-                "id": "version-23.10/graph-views/map-web-known-issues"
-                },
-                {
-                  "type": "doc",
-                  "id": "version-23.10/graph-views/map-web-troubleshooting"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "version-23.10/api/map-api"
-                  }
-              ]
-            }
-          ,
-            {
-        "type": "category",
-      "label": "Centreon MAP (Legacy)",
-      "link":{
-        "type": "generated-index"
-      },
       "items": [
         {
-          "type": "doc",
-          "id": "version-23.10/graph-views/introduction"
+          "type": "category",
+          "label": "Centreon MAP",
+          "link": {
+            "type": "generated-index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-23.10/graph-views/introduction-map"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/graph-views/map-web-install"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/graph-views/map-web-install-remote"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/graph-views/map-web-update"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/graph-views/import-into-map-web"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/graph-views/map-web-access"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/graph-views/map-web-manage"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/graph-views/map-web-create-standard-map"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/graph-views/map-web-create-geoview"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/graph-views/map-web-known-issues"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/graph-views/map-web-troubleshooting"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/api/map-api"
+            }
+          ]
         },
-        
+        {
+          "type": "category",
+          "label": "Centreon MAP (Legacy)",
+          "link": {
+            "type": "generated-index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-23.10/graph-views/introduction"
+            },
             {
               "type": "doc",
               "id": "version-23.10/graph-views/install"
@@ -794,26 +792,26 @@
               "type": "doc",
               "id": "version-23.10/graph-views/configuration"
             },
-                        {
+            {
               "type": "doc",
               "id": "version-23.10/graph-views/advanced-configuration"
             },
             {
               "type": "doc",
-    "id": "version-23.10/graph-views/create-standard-view"
-  },
-  {
-    "type": "doc",
-    "id": "version-23.10/graph-views/create-geo-view"
-  },
-  {
-    "type": "doc",
-    "id": "version-23.10/graph-views/display-view"
-  },
-  {
-    "type": "doc",
-    "id": "version-23.10/graph-views/share-view"
-  },
+              "id": "version-23.10/graph-views/create-standard-view"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/graph-views/create-geo-view"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/graph-views/display-view"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/graph-views/share-view"
+            },
             {
               "type": "doc",
               "id": "version-23.10/graph-views/known-issues"
@@ -833,7 +831,7 @@
     {
       "type": "category",
       "label": "Reporting",
-      "link":{
+      "link": {
         "type": "generated-index"
       },
       "items": [
@@ -844,7 +842,7 @@
         {
           "type": "category",
           "label": "Guide",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -877,7 +875,7 @@
         {
           "type": "category",
           "label": "Administrate",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -908,14 +906,14 @@
     {
       "type": "category",
       "label": "Administration",
-      "link":{
+      "link": {
         "type": "generated-index"
       },
       "items": [
         {
           "type": "category",
           "label": "Parameters",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -956,7 +954,7 @@
         {
           "type": "category",
           "label": "Configuring the connection to Centreon",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -1007,14 +1005,14 @@
           },
           "items": [
             {
-             "type": "doc",
-             "id": "version-23.10/administration/backup"
+              "type": "doc",
+              "id": "version-23.10/administration/backup"
             },
             {
               "type": "doc",
               "id": "version-23.10/administration/backup-poller"
-             }
-            ]
+            }
+          ]
         },
         {
           "type": "doc",
@@ -1041,14 +1039,14 @@
     {
       "type": "category",
       "label": "Update, Upgrade & Migrate",
-      "link":{
+      "link": {
         "type": "generated-index"
       },
       "items": [
         {
           "type": "category",
           "label": "Update",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -1061,7 +1059,7 @@
         {
           "type": "category",
           "label": "Upgrade",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -1102,7 +1100,7 @@
         {
           "type": "category",
           "label": "Migrate",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -1322,7 +1320,7 @@
         {
           "type": "category",
           "label": "NPM",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -1331,13 +1329,13 @@
               "id": "version-23.10/integrations/npm/ntopng"
             }
           ]
-        } 
+        }
       ]
     },
     {
       "type": "category",
       "label": "Centreon mobile",
-      "link":{
+      "link": {
         "type": "generated-index"
       },
       "items": [
@@ -1350,7 +1348,7 @@
     {
       "type": "category",
       "label": "API",
-      "link":{
+      "link": {
         "type": "generated-index"
       },
       "items": [
@@ -1370,7 +1368,7 @@
           "type": "link",
           "href": "https://docs-api.centreon.com/api/centreon-web/23.10/",
           "label": "Centreon Web RestAPI v2"
-        },    
+        },
         {
           "type": "doc",
           "id": "version-23.10/api/rest-api-v2"
@@ -1389,7 +1387,7 @@
       "type": "category",
       "label": "Developer resources",
       "link": {
-      "type": "generated-index"
+        "type": "generated-index"
       },
       "items": [
         {
@@ -1415,7 +1413,7 @@
         {
           "type": "category",
           "label": "Centreon Broker",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -1436,7 +1434,7 @@
         {
           "type": "category",
           "label": "Centreon Gorgone",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -1467,7 +1465,7 @@
         {
           "type": "category",
           "label": "Installing Centreon HA",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -1488,7 +1486,7 @@
         {
           "type": "category",
           "label": "Installing a manual Centreon HA",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -1509,7 +1507,7 @@
         {
           "type": "category",
           "label": "Operating Centreon HA",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -1534,47 +1532,47 @@
         {
           "type": "category",
           "label": "Updating Centreon HA",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
-              {
-                "type": "doc",
-                "id": "version-23.10/update/update-centreon-ha"
-              }
-            ]
-          },
+            {
+              "type": "doc",
+              "id": "version-23.10/update/update-centreon-ha"
+            }
+          ]
+        },
         {
           "type": "category",
           "label": "Upgrading Centreon HA",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
-        {
-          "type": "doc",
-          "id": "version-23.10/upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
-        },
-        {
-          "type": "doc",
-          "id": "version-23.10/upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
-        },
-        {
-          "type": "doc",
-          "id": "version-23.10/upgrade/centreon-ha/upgrade-centreon-ha-from-22-04"
-        },
-        {
-          "type": "doc",
-          "id": "version-23.10/upgrade/centreon-ha/upgrade-centreon-ha-from-22-10"
+            {
+              "type": "doc",
+              "id": "version-23.10/upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/upgrade/centreon-ha/upgrade-centreon-ha-from-22-04"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/upgrade/centreon-ha/upgrade-centreon-ha-from-22-10"
+            }
+          ]
         }
-      ]
-    }       
       ]
     },
     {
       "type": "category",
       "label": "Monitoring your platform",
-      "link":{
+      "link": {
         "type": "generated-index"
       },
       "items": [
@@ -1587,7 +1585,7 @@
     {
       "type": "category",
       "label": "Releases",
-      "link":{
+      "link": {
         "type": "generated-index"
       },
       "items": [
@@ -1602,7 +1600,7 @@
         {
           "type": "category",
           "label": "Release notes by component",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -1621,7 +1619,7 @@
     {
       "type": "category",
       "label": "Security",
-      "link":{
+      "link": {
         "type": "generated-index"
       },
       "items": [
@@ -1636,7 +1634,7 @@
         {
           "type": "category",
           "label": "User data storage",
-          "link":{
+          "link": {
             "type": "generated-index"
           },
           "items": [
@@ -1655,7 +1653,7 @@
     {
       "type": "category",
       "label": "Resources",
-      "link":{
+      "link": {
         "type": "generated-index"
       },
       "items": [
