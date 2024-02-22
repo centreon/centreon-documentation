@@ -4,6 +4,9 @@
       "collapsed": true,
       "type": "category",
       "label": "Getting started with Centreon OnPrem",
+      "link": {
+        "type": "generated-index"
+      },
       "items": [
         {
           "type": "doc",
