@@ -7,7 +7,7 @@ Vous pouvez contribuer à la documentation Centreon en soumettant des pull reque
 
 Cette page détaille uniquement la procédure pour demander des modifications dans la documentation :
 
-* Si vous avez une question générale concernant la configuration ou l'utilisation de Centreon, ou la documentation, posez-la plutôt sur [Slack](https://centreon.github.io/register-slack/), ou sur notre plateforme communautaire [The Watch](https://thewatch.centreon.com/).
+* Si vous avez une question générale concernant la configuration ou l'utilisation de Centreon, ou la documentation, posez-la plutôt sur notre plateforme communautaire [The Watch](https://thewatch.centreon.com/).
 
 * Si vous avez une idée de nouvelle fonctionnalité merci de la soumettre dans la section [Ideas](https://thewatch.centreon.com/ideas) de The Watch.
 

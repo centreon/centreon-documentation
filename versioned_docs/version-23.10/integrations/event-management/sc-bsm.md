@@ -24,7 +24,7 @@ BSM Stream Connector sends events related data from **Centreon** to **Micro Focu
 If you need help with this integration, depending on how you are using Centreon, you can:
 
 * **Commercial Edition customers**: please contact the [Centreon Support team](mailto:support@centreon.com).
-* **Open Source Edition users** or **Centreon IT-100 users** (free versions): please reach our [Community Slack](https://centreon.github.io) where our users and staff will try to help you.
+* **Open Source Edition users** or **Centreon IT-100 users** (free versions): please visit [our community platform The Watch](https://thewatch.centreon.com/) where our users and staff will try to help you.
 
 ## Integration Walkthrough
 
