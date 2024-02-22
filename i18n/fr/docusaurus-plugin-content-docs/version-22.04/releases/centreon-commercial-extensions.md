@@ -17,10 +17,11 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ### 22.04.15
 
-Release date: `February 20, 2024`
+Release date: `February 22, 2024`
 
 #### Bug fixes
 
+- [Migration] Fixed an issue with images when migrating from MAP Legacy to MAP.
 - [Viewer] Fixed an issue in the container status color.
 
 ### 22.04.14
