@@ -56,6 +56,7 @@ ALTER TABLE virtual_metrics MODIFY index_id bigint unsigned;
 
 Autologin is currently not supported on the following pages :
 
+* **Monitoring > Map (legacy excluded)**
 * **Monitoring > Resources Status**
 * **Configuration > Hosts > Discovery**
 * **Configuration > Business Activity > Business Views**
@@ -80,6 +81,28 @@ When you create a metaservice with an Anomaly Detection service linked to it, yo
 There is currently no workaround.
 
 ## Centreon MBI
+
+### Reports which contain graphs are empty
+
+> This issue only affects **MBI 22.10** on **EL7**.
+
+Your central server is in HTTPS and the following graphs cannot be displayed when generating reports:
+
+- Host-Graph-v2
+- Hostgroup-Graph-v2
+
+This issue is due to the missing link to the CA certificates file.
+
+#### Workaround
+
+- Run the following commands as a root user:
+
+> Note that the path to the Java **cacerts** file depends on the version installed.
+
+```shell
+rm /usr/java/jdk-17/lib/security/cacerts
+ln -s /etc/pki/ca-trust/extracted/java/cacerts /usr/java/jdk-17/lib/security/cacerts
+```
 
 ### Error during the ETL script execution
 

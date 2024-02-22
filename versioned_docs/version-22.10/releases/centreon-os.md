@@ -19,6 +19,68 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon Web
 
+### 22.10.19
+
+Release date: `February 14, 2024`
+
+#### Bug fixes
+
+- [CLAPI] Removed password expiration policy for LDAP authentication.
+
+#### Security fixes
+
+- [API] Fixed a visibility issue on configuration/users endpoint.
+
+### 22.10.18
+
+Release date: `January 11, 2024`
+
+#### Security fixes
+
+- [Security] Fixed an SQLi vulnerability.
+
+### 22.10.17
+
+Release date: `January 2, 2024`
+
+#### Security fixes
+
+- [Security] Fixed an SQLi vulnerability (CVE-2024-0637, CVE-2024-23115, CVE-2024-23116, CVE-2024-23117, CVE-2024-23118, CVE-2024-23119).
+
+### 22.10.16
+
+Release date: `December 15, 2023`
+
+#### Bug fixes
+
+- [Discovery] Fixed duplication of host groups in discovery job mappers.
+
+#### Security fixes
+
+- [Security] Updated symfony/http-kernel dependency.
+- [Security] Prevented a command injection.
+
+### 22.10.15
+
+Release date: `November 17, 2023`
+
+#### Enhancements
+
+- [API] Added the possibility to search for a service in hostGroups/serviceGroups endpoints.
+
+#### Bug fixes
+
+- [UX] Fixed an issue where an incorrect day was displayed in the calendar component.
+- [UI] Renamed "massive change" to "mass change" in the "More actions" selection box.
+- [Recurrent Downtimes] Fixed an issue that occurred when a downtime period contained a service group and this service group was linked to a service template.
+- [Ressources Status] Fixed an issue that occurred when using an h.alias filter on the list of resources.
+- [Packaging] Fixed an issue where centreontrapd was configured for a poller rather than for a central on Debian.
+
+#### Security fix
+
+- [Security] Fixed SQLi in a method.
+- Fixed potential vulnerability in the list of discovered hosts (CVE-2023-51633).
+  
 ### 22.10.14
 
 Release date: `October 4, 2023`
@@ -180,7 +242,7 @@ Release date: `February 22, 2023`
 - [Authentication] Fixed a PHP error in IDP response with a string instead of an array for roles list.
 - [AnomalyDetection] Fixed an envelope computation error. 
 - [CLAPI] Removed mandatory password for LDAP users creation.
-- [Configuration] Fixed an issue that occurred when a massive change was performed on services right after one of them was disabled, causing all services to get the same host and template.
+- [Configuration] Fixed an issue that occurred when a mass change was performed on services right after one of them was disabled, causing all services to get the same host and template.
 - [Configuration] Fixed an installation error when the chrony package is already installed.
 - [Configuration] Fixed export of configuration when Anomaly Detection feature is configured.
 - [Core] Removed deprecated DBMS option in default configuration provided by Centreon.
@@ -337,6 +399,39 @@ Release date: `October 26, 2022`
 
 ## Centreon Collect
 
+### 22.10.8
+
+Release date: `February 14, 2024`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- [Broker] Fixed an issue with the propagation of the statuses for BAM boolean rules.
+- [Broker] Fixed the permissions of the RRD files produced by the rebuild mechanism when RRDcached is used.
+
+### 22.10.7
+
+Release date: `January 11, 2024`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- [Broker] Fixed a bug that made Broker crash when rebuilding RRD files for unexisting metrics.
+- [Broker] Fixed a bug occurring when a Business Activity was updated after a status change for a KPI with a BA type.
+
+### 22.10.6
+
+Release date: `November 20, 2023`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- Fixed a stability issue that could make Broker crash when BAM was enabled and the database was too slow.
+- Events propagation in BAM has been improved and should be faster.
+
 ### 22.10.5
 
 Release date: `September 26, 2023`
@@ -455,6 +550,24 @@ Release date: `October 26, 2022`
 
 ## Centreon Gorgone
 
+### 22.10.4
+
+Release date: `February 14, 2024`
+
+#### Bug fixes
+
+[Core] Fixed recurring unexpected disconnections between pollers using pull/pullws mode.
+
+#### Security fixes
+
+[Security] Enabled whitelist of Centreon Gorgone commands by default to manage Centreon Engine and Broker processes in order to limit escalations of potential future vulnerabilities.
+
+### 22.10.3
+
+Release date: `November 17, 2023`
+
+No Changes for this module in this version.
+
 ### 22.10.2
 
 Release date: `July 28, 2023`
@@ -513,11 +626,19 @@ Release date: `October 26, 2022`
 
 ## Centreon Open Tickets
 
+### 22.10.3
+
+Release date: `February 14, 2024`
+
+#### Enhancements
+
+- [Open Tickets] Add EasyVista connector.
+
 ### 22.10.2
 
 Release date: `July 28, 2023`
 
-### Bug fixes
+#### Bug fixes
 
 - Fixed a Broker query.
 

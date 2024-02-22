@@ -155,13 +155,13 @@ Here are the main errors that you can encounter:
 2. Check the status of MAP by opening the following URL in the browser (use the same values for **MAP_IP_ADDRESS** and **MAP_PORT** as the ones defined in **Administration > Extensions > MAP > Options**).
 
   ```shell
-  http://[MAP_IP_ADDRESS]:[MAP_PORT]/centreon-map/api/actuator/health
+  http://[MAP_IP_ADDRESS]:[MAP_PORT]/centreon-map/api/beta/actuator/health
   ```
   
   Example:
   
   ```shell
-  http://10.0.0.2:8081/centreon-map/api/actuator/health
+  http://10.0.0.2:8081/centreon-map/api/beta/actuator/health
   ```
   
   The result should be as follows:

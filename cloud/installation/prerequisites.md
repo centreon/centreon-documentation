@@ -5,7 +5,7 @@ title: Prerequisites
 
 ## OS
 
-The poller should be installed on a dedicated fresh Alma Linux 8 server. 
+The poller must be installed on a dedicated fresh Alma Linux/RHEL/Oracle Linux 8 or 9, or Debian 11 server.
 
 ## Hardware
 
@@ -43,13 +43,23 @@ Perform the partitioning following these recommendations:
 
 ## Network
 
-| Description | Direction | Protocol   | IP           | Port   |
-| ----------- | --------- | ---------- | ------------ | ------ |
-| VPN         | Outbound  | UDP        | VPN IP (TBA) | 1194   |
-| INTERNET    | Outbound  | HTTP/HTTPS | *            | 80/443 |
-| NTP         | Outbound  | UDP        | TBA          | 123    |
+| Description    | Direction | Protocol   | IP           | Port   |
+| -------------- | --------- | ---------- | ------------ | ------ |
+| INTERNET       | Outbound  | HTTPS      | *            | 443    |
+| NTP (optional) | Outbound  | UDP        | TBA          | 123    |
 
 | Source            | Destination         | Port/Protocol      | Monitoring protocol   |
 | ----------------- | ------------------- | ------------------ | --------------------- |
 | Centreon servers  | Devices to monitor  | 80/443 TCP         | API                   |
 | Centreon servers  | Database to monitor | 3306/1521/1433 TCP | MySQL/Oracle/MSSQL    |
+
+## Allowing traffic to/from AWS IP ranges
+
+If you are filtering flows based on IP addresses, authorize the AWS IP ranges your poller needs to interact with.
+
+AWS provides a [list of their IP ranges](https://ip-ranges.amazonaws.com/ip-ranges.json). You can retrieve the list of IP addresses you want using a curl command. Example for AWS Ireland with the EC2 service for IPV6 and IPV4:
+
+```shell
+curl -s https://ip-ranges.amazonaws.com/ip-ranges.json | jq -r '.ipv6_prefixes[] | select(.region == "eu-west-1") | select(.service == "EC2") | .ipv6_prefix' 
+curl -s https://ip-ranges.amazonaws.com/ip-ranges.json | jq -r '.prefixes[] | select(.region == "eu-west-1") | select(.service == "EC2") | .ip_prefix' 
+```

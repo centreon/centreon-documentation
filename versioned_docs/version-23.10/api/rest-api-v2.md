@@ -1,14 +1,9 @@
 ---
 id: rest-api-v2
-title: Rest API (v2)
+title: Using the v2 API with Postman
 ---
 
-## Overview
-
-The Centreon Web Rest API v2 aims to replace the first version.
-
-To start using it, please refer to the [dedicated
-page](https://docs-api.centreon.com/api/centreon-web/23.10/).
+This page describes how to use [the v2 API](https://docs-api.centreon.com/api/centreon-web/23.10/) for Centreon Web with Postman.
 
 ## Create a Postman collection from the OpenAPI definition
 
@@ -25,7 +20,7 @@ From your workspace, click the **Import** button.
 Go to the **Link** tab and enter the URL to the OpenAPI definition from GitHub:
 
 ```text
-https://raw.githubusercontent.com/centreon/centreon/develop/doc/API/centreon-api-v23.10.yaml
+https://raw.githubusercontent.com/centreon/centreon/23.10.x/centreon/doc/API/centreon-api-v23.10.yaml
 ```
 
 ![image](../assets/api/postman-import-link.png)

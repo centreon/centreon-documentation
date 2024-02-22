@@ -3,7 +3,9 @@ id: architecture
 title: Architecture de Centreon Cloud
 ---
 
-Votre plateforme Centreon Cloud est constituée d'un serveur central fourni par Centreon, et de collecteurs que vous installez dans votre infrastructure.
+Votre plateforme Centreon Cloud est constituée principalement d'un serveur central fourni par Centreon, et de collecteurs que vous installez dans votre infrastructure. De plus, le module Centreon [CIAM](../ciam/ciam.md) vous permet de gérer vos organisations et vos utilisateurs, et de vous connecter à Centreon Cloud.
+
+![image](../assets/getting-started/infra3.png)
 
 * **Serveur central** :
   * Le serveur central vous est fourni par Centreon, prêt à l'emploi.
@@ -18,6 +20,9 @@ Votre plateforme Centreon Cloud est constituée d'un serveur central fourni par 
   * Les collecteurs n'ont pas d'interface utilisateur (l'activité des pollers est visible sur l'interface du serveur central).
   * Les collecteurs sont situés dans votre infrastructure, ce qui veut dire une meilleure sécurité, latence et bande passante.
   * Vous [installez vos collecteurs](../installation/deploy-poller.md) à l'aide d'un simple script.
-  * Un VPN connecte vos collecteurs et le serveur central.
+  * La communication entre le central et les collecteurs se fait en HTTPS.
 
-![image](../assets/getting-started/infra3.png)
+## Centreon CIAM
+
+* Le [CIAM](../ciam/ciam.md) a une interface utilisateur distincte de celle du serveur central.
+* Avant de pouvoir utiliser Centreon Cloud, vous devez configurer votre organisation dans le CIAM, et inviter vos utilisateurs sur la plateforme.

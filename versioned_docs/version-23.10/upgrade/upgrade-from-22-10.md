@@ -34,10 +34,10 @@ servers:
 
 1. Update your Centreon 22.10 to the latest minor version.
 
-2. Remove the **centreon.repo** file:
+2. Remove the **centreon-22.10.repo** file:
 
    ```shell
-   rm /etc/yum.repos.d/centreon.repo
+   rm /etc/yum.repos.d/centreon-22.10.repo
    ```
 
 3. Install the new repository:

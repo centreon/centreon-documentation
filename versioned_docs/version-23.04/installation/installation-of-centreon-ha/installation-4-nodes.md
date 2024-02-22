@@ -9,8 +9,9 @@ import TabItem from '@theme/TabItem';
 
 ### Understanding
 
-Before applying this procedure, you should have a good knowledge of Linux OS, of Centreon, 
-and of Pacemaker clustering tools in order to have a proper understanding of what is being done.
+Before applying this procedure, you should have a good knowledge of Linux OS, of Centreon, and of the Pacemaker-Corosync clustering tools in order to have a proper understanding of what is being done and to be able to correct any mistakes that might occur.
+
+> **WARNING**: Anyone following this procedure does so at their own risk. Under no circumstances shall Centreon be liable for any breakdown or data loss.
 
 ### Network Flows
 
@@ -48,8 +49,7 @@ The output of the `vgs` command must look like (what must be payed attention on 
 
 In order to keep the cluster safe from split-brain issues, a third server is mandatory to resolve the master's election in the event of a connection loss. The role of Quorum Device, can be held by a poller of the monitoring platform.
 
-In order to adhere to best practices and be as resilient as possible, the Quorum server placement
-Quorum server should be at a different site than the two primary nodes, with independent network attachments.
+In order to adhere to best practices and be as resilient as possible, the Quorum server should be at a different site than the two primary nodes, with independent network attachments.
 
 > **WARNING:** Be sure SELinux and Firewalld are disabled.
 

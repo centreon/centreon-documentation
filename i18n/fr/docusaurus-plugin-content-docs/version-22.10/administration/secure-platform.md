@@ -1333,7 +1333,7 @@ Pour utiliser http2, vous devez suivre les étapes suivantes:
 dnf install nghttp2
 ```
 
-3. Activez le protocole **http2** dans **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** :
+3. Activez le protocole **http2** dans **/etc/httpd/conf.d/10-centreon.conf** :
 
 ```apacheconf
 ...
@@ -1371,7 +1371,7 @@ systemctl restart httpd
 yum install httpd24-nghttp2
 ```
 
-3. Activez le protocole **http2** dans **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** :
+3. Activez le protocole **http2** dans **/etc/httpd/conf.d/10-centreon.conf** :
 
 ```apacheconf
 ...
@@ -1492,6 +1492,21 @@ Cependant, l'API gorgone HTTP n'est pas sécurisée par défaut. Seul localhost 
 Vous pouvez [configurer SSL](https://github.com/centreon/centreon/blob/develop/centreon-gorgone/docs/modules/core/httpserver.md) via le fichier **/etc/centreon-gorgone/config.d/40-gorgoned.yaml**.
 
 Puis configurez gorgone à la page **Administration > Paramètres > Gorgone**.
+
+Vérifiez également que le fichier **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** (sur votre serveur central, vos serveurs distants et vos collecteurs) contient bien les lignes suivantes :
+
+```shell
+name: action
+package: "gorgone::modules::core::action::hooks"
+enable: true
+command_timeout: 30
+whitelist_cmds: true
+allowed_cmds:
+  - ^sudo\s+(/bin/)?systemctl\s+(reload|restart)\s+(centengine|centreontrapd|cbd)\s*$
+  - ^sudo\s+(/usr/bin/)?service\s+(centengine|centreontrapd|cbd)\s+(reload|restart)\s*$
+  - ^/usr/sbin/centenginestats\s+-c\s+/etc/centreon-engine/centengine.cfg\s*$
+  - ^cat\s+/var/lib/centreon-engine/[a-zA-Z0-9\-]+-stats.json\s*$  
+```
 
 ## Gestion de l'information et des événements de sécurité (SIEM)
 
