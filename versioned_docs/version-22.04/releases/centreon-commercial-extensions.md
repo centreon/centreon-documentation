@@ -18,7 +18,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 22.04.15
 
-Release date: `February 20, 2024`
+Release date: `February 22, 2024`
 
 #### Bug fixes
 
