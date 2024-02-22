@@ -6,7 +6,7 @@ title: Contributing to the Centreon documentation
 You can contribute to the Centreon documentation by submitting pull requests on [our GitHub repository](https://github.com/centreon/centreon-documentation). As an external contributor, you cannot commit directly to the repository. A fork will be created automatically when you commit changes.
 
 This page only describes the procedure to request changes in the documentation.
-* If your problem is a general question about Centreon or the documentation, ask on our community platform [The Watch](https://thewatch.centreon.com/) instead.
+* If your problem is a general question about Centreon or the documentation, ask in the [Slack](https://centreon.github.io/register-slack/) channel instead, or on our community platform [The Watch](https://thewatch.centreon.com/).
 
 * If you have an idea for a new feature, please submit it in the [Ideas](https://thewatch.centreon.com/ideas) section of The Watch.
 

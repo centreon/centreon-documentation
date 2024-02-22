@@ -24,7 +24,7 @@ Le Stream Connector BSM envoie les données de **Centreon** vers le gestionnaire
 Si vous avez besoin d'aide, vous pourrez en trouver via deux canaux, suivant votre statut :
 
 * **Clients de Centreon titulaires d'un contrat de support** : vous pouvez vous adresser directement à [l'équipe du Support de Centreon](mailto:support@centreon.com).
-* **Utilisateurs de l'édition Open Source** ou de **Centreon IT-100** (versions gratuites) : nous vous invitons à rejoindre notre [plateforme communautaire The Watch](https://thewatch.centreon.com/) où nos utilisateurs et nos équipes feront de leur mieux pour vous aider.
+* **Utilisateurs de l'édition Open Source** ou de **Centreon IT-100** (versions gratuites) : nous vous invitons à rejoindre notre [communauté sur Slack](https://centreon.github.io) où nos utilisateurs et nos équipes feront de leur mieux pour vous aider.
 
 ## Procédure d'intégration
 

@@ -6,9 +6,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-> Hello community! We're looking for a contributor to help us translate this 
-page into French and provide a sample execution command. If it's you, let us 
-know and ping us on [our community platform The Watch](https://thewatch.centreon.com/).
+> Hello community! We're looking for a contributor to help us to translate the 
+content in french and provide a sample execution command. If it's you, let us 
+know by making a PR or pinging us on [slack](https://centreon.slack.com)
 
 ## Overview
 

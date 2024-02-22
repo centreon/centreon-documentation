@@ -788,4 +788,4 @@ Centreon provides a Github repository to host Lua scripts developed by Centreon
 and the community. Please go to the [Dedicated Github](http://github.com/centreon/centreon-stream-connector-scripts).
 
 Need help to develop your Stream connector? You want to share your experience with
-the community? Join [our community platform The Watch](https://thewatch.centreon.com/).
+the community? Join the [Centreon community Slack channel](https://centreon.github.io/).
