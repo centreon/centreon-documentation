@@ -15,8 +15,8 @@ Centreon MAP Engine gives you the possibility to customize how this inherited st
 | resource.status.ignore-above-severity    | integer        | max value           | Do not propagate status for resources having severity superior to this value and use the default status                 |
 
 If the parameter (downtime, acknowledgement, severity) is with the:
-- TRUE value, the HARD state value (use-hard parameter) is not used but the SOFT one is.
-- FALSE value, the HARD state value is used.
+- **true** value, the HARD state value (use-hard parameter) is not used but the SOFT one is.
+- **false** value, the HARD state value is used.
 
 
 The following parameters can be configured in
