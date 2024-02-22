@@ -22,7 +22,6 @@ Release date: `February 22, 2024`
 #### Bug fixes
 
 - [Migration] Fixed an issue with images when migrating from MAP Legacy to MAP.
-- [Viewer] Fixed an issue in the container status color.
 
 ### 22.04.14
 
