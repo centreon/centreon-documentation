@@ -9,7 +9,11 @@ import TabItem from '@theme/TabItem';
 
 ### Compréhension
 
-Avant de suivre cette procédure, il est recommandé d'avoir un niveau de connaissance satisfaisant du système d'exploitation Linux et de Centreon afin de comprendre ce qui va être fait et de pouvoir se sortir d'une éventuelle erreur.
+Avant de suivre cette procédure, il est recommandé d'avoir un niveau de connaissance satisfaisant du système d'exploitation Linux, de Centreon et des outils de clustering Pacemaker-Corosync pour bien comprendre ce qui va être fait et savoir résoudre un éventuel incident.
+
+> **AVERTISSEMENT :** Toute personne mettant en application cette procédure doit être consciente qu'elle prend ses responsabilités en cas de dysfonctionnement. En aucun cas la société Centreon ne saurait être tenue pour responsable d'une quelconque détérioration ou perte de données.
+
+
 
 ### Installation de Centreon
 

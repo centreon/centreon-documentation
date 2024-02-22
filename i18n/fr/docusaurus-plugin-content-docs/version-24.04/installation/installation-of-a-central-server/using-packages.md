@@ -353,7 +353,7 @@ Installez le dépôt Centreon à l'aide de la commande suivante :
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -363,7 +363,7 @@ dnf update
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el9/centreon.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el9/centreon-24.04.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -643,7 +643,7 @@ Vous devez définir le fuseau horaire de PHP.
 > fuseaux horaires supportés [ici] (http://php.net/manual/en/timezones.php).
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Exécutez la commande suivante en tant que `root` :
 

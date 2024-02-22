@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 ## Definition
 
 A command is the definition of a command line that uses a script or an application to perform an action. It is
-possible execute this command by specifying arguments.
+possible to execute this command by specifying arguments.
 
 There are four types of command:
 
