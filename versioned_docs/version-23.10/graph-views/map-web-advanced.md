@@ -10,9 +10,14 @@ Centreon MAP Engine gives you the possibility to customize how this inherited st
 | Parameter                           | Possible value | Default value | Description                                                                                  |
 | ----------------------------------- | -------------- | ------------- | -------------------------------------------------------------------------------------------- |
 | resource.status.use-hard              | true or false  | false         | Only use hard state value for inherited status propagation                                   |
-| resource.status.ignore-on-downtime  | true or false  | false         | Do not propagate status for resources in downtime                                            |
-| resource.status.ignore-on-acknowledgement | true or false  | false         | Do not propagate status for acknowledged resources                                           |
-| resource.status.ignore-above-severity    | integer        | max value           | Do not propagate status for resources having severity superior to this value                 |
+| resource.status.ignore-on-downtime  | true or false  | false         | Do not propagate status for resources in downtime and use the default status                                            |
+| resource.status.ignore-on-acknowledgement | true or false  | false         | Do not propagate status for acknowledged resources and use the default status                                           |
+| resource.status.ignore-above-severity    | integer        | max value           | Do not propagate status for resources having severity superior to this value and use the default status                 |
+
+If the parameter (downtime, acknowledgement, severity) is with the:
+- TRUE value, the HARD state value (use-hard parameter) is not used but the SOFT one is.
+- FALSE value, the HARD state value is used.
+
 
 The following parameters can be configured in
 **/etc/centreon-map/map-config.properties**.
