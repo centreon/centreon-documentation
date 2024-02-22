@@ -29,5 +29,5 @@ import DocCardList from '@theme/DocCardList';
 <DocCardList />
 
 Can't find the integration you're expecting? Just let us know by reaching 
-us on [Slack](https://centreon.slack.com) or contacting us through our contact
+us on [our community platform The Watch](https://thewatch.centreon.com/) or contacting us through our contact
 form on our [website](https://www.centreon.com/en/contact/).

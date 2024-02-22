@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 > Hello community! We're looking for a contributor to help us to translate the 
 content in french and provide a sample execution command. If it's you, let us 
-know and ping us on [slack](https://centreon.slack.com)
+know and ping us on [our community platform The Watch](https://thewatch.centreon.com/).
 
 ## Overview
 
