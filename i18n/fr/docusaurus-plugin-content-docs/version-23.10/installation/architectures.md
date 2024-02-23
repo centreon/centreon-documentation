@@ -24,7 +24,9 @@ Une architecture distribuée consiste en :
 
 et/ou
 
-* Un ou plusieurs collecteurs, qui collectent les données
+* Un ou plusieurs collecteurs, qui collectent les données.
+
+Tous les serveurs de votre architecture (serveur central, serveurs distants et collecteurs) doivent avoir la même version majeure de Centreon. Il est également recommandé d'avoir la même version mineure.
 
 Exemple d'architecture distribuée avec 3 serveurs distants et 6 collecteurs. Notez qu'un collecteur peut aussi être rattaché directement à un serveur central.
 

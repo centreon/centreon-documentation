@@ -22,6 +22,17 @@ Retrouvez plus de détails sur la version 23.04 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 23.04.15
+
+Release date: `February 14, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [UI] Fixed the display of inappropriate 404 error page when loading MAP homepage.
+
+</details>
+
 ### 23.04.14
 
 Release date: `January 15, 2024`
@@ -49,7 +60,7 @@ Release date: `January 2, 2024`
 <details open>
   <summary>Security fixes</summary>
 
-- [Security] Fixed an SQLi vulnerability.
+- [Security] Fixed an SQLi vulnerability (CVE-2024-0637, CVE-2024-23115, CVE-2024-23116, CVE-2024-23117, CVE-2024-23118, CVE-2024-23119).
 
 </details>
 
@@ -113,7 +124,7 @@ Release date: `November 17, 2023`
   <summary>Security fixes</summary>
 
 - [Security] Fixed SQLi in a method.
-- Fixed potential XSS vulnerability in the list of discovered hosts.
+- Fixed potential XSS vulnerability in the list of discovered hosts (CVE-2023-51633).
 
 </details>
 
@@ -360,6 +371,30 @@ Release date: `April 26, 2023`
 
 ## Centreon Collect
 
+### 23.04.8
+
+Release date: `February 14, 2024`
+
+#### Centreon Broker
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Broker] Broker now drops metrics whose names are longer than 1000 characters to avoid errors in the database. An error is logged when it occurs.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed an issue causing hostgroups failing to appear if they had been used before and emptied of their hosts and then populated again.
+- [Broker] Fixed the permissions of the RRD files produced by the rebuild mechanism when RRDcached is used.
+- [Broker] Fixed some incorrect statuses in Broker's statistics retrieved by the `broker-stats.json` file.
+- [Broker] Semicolons are no longer considered as the beginning of a comment in Engine's configuration files. This is because comments were not useful in these files, and they prevented the use of semicolons in macros (e.g., passwords).
+- [Install] Fixed an issue in the installation process that emptied the `retention.dat` file, causing the temporary loss of all resources' statuses and the permanent loss of current acknowledgements and downtimes.
+
+</details>
+
 ### 23.04.7
 
 Release date: `January 11, 2024`
@@ -510,6 +545,17 @@ Compatibility with other 23.04 components.
 </details>
 
 ## Centreon Gorgone
+
+### 23.04.10
+
+Release date: `February 14, 2024`
+
+<details>
+  <summary>Security fixes</summary>
+
+[Security] Enabled whitelist of Centreon Gorgone commands by default to manage Centreon Engine and Broker processes in order to limit escalations of potential future vulnerabilities.
+
+</details>
 
 ### 23.04.9
 
@@ -676,6 +722,17 @@ Compatibility with other 23.04 components.
 </details>
 
 ## Centreon Open Tickets
+
+### 23.04.3
+
+Release date: `February 14, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Open Tickets] Add EasyVista connector.
+
+</details>
 
 ### 23.04.2
 
