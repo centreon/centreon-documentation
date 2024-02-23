@@ -55,17 +55,10 @@ apt install centreon-stream-connector-canopsis
 
 ## Configurer le stream connector dans Centreon
 
-1. Télécharger le stream connector d'événements Canopsis
-
-```shell
-wget -O /usr/share/centreon-broker/lua/canopsis-events-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connectorscripts/master/centreon-certified/canopsis/canopsis-events-apiv2.lua
-chmod 644 /usr/share/centreon-broker/lua/canopsis-events-apiv2.lua
-```
-
-2. Sur votre serveur central, allez à la page Configuration > Collecteurs > Configuration de Centreon Broker. 
-3. Cliquez sur central-broker-master (ou sur la configuration du Broker correspondant si les évènements seront envoyés par un serveur distant ou un collecteur). 
-4. Dans l'onglet Output, sélectionnez Generic - Stream connector dans la liste, puis cliquez sur Ajouter. Un nouvel output apparaît dans la liste. 
-5. Remplissez les champs de la manière suivante :
+1. Sur votre serveur central, allez à la page Configuration > Collecteurs > Configuration de Centreon Broker. 
+2. Cliquez sur central-broker-master (ou sur la configuration du Broker correspondant si les évènements seront envoyés par un serveur distant ou un collecteur). 
+3. Dans l'onglet Output, sélectionnez Generic - Stream connector dans la liste, puis cliquez sur Ajouter. Un nouvel output apparaît dans la liste. 
+4. Remplissez les champs de la manière suivante :
 
 | Champ           | Valeur                                                   |
 |-----------------|----------------------------------------------------------|
@@ -73,23 +66,23 @@ chmod 644 /usr/share/centreon-broker/lua/canopsis-events-apiv2.lua
 | Path            | /usr/share/centreon-broker/lua/canopsis-events-apiv2.lua |
 | Filter category | Neb                                                      |
 
-6. Pour permettre à Centreon de se connecter à votre équipement Canopsis, remplissez les paramètres obligatoires suivants. La première entrée existe déjà. Cliquez sur le lien +Add a new entry en-dessous du tableau Filter category pour en ajouter un autre.
+5. Pour permettre à Centreon de se connecter à votre équipement Canopsis, remplissez les paramètres obligatoires suivants. La première entrée existe déjà. Cliquez sur le lien +Add a new entry en-dessous du tableau Filter category pour en ajouter un autre.
 
 | Type   | Nom              | Explication de "Value"                      | Exemple de valeur |
 | ------ |------------------|---------------------------------------------|-------------------|
 | string | canopsis_authkey | La clé d'authentification de l'API Canopsis | `an_authkey`      |
 | string | canopsis_host    | L'adresse de l'hôte Canopsis                | `a host`          |
 
-7. Renseignez les paramètres optionnels désirés (en utilisant le lien +Add a new entry) :
+6. Renseignez les paramètres optionnels désirés (en utilisant le lien +Add a new entry) :
 
 | Type   | Nom       | Explication de "Value"                                  | Valeur par défaut                                  |
 | ------ |-----------|---------------------------------------------------------|----------------------------------------------------|
 | string | logfile   | Fichier dans lequel les logs sont écrits                | /var/log/centreon-broker/canopsis-events-apiv2.log |
 | number | log_level | Niveau de verbosité des logs de 1 (erreurs) à 3 (debug) | 1                                                  |
 
-8. Utilisez les paramètres optionnels du stream connector pour filtrer ou adapter les données que vous voulez que Centreon envoie à Canopsis.
-9. [Déployez la configuration](https://docs.centreon.com/fr/docs/monitoring/monitoring-servers/deploying-a-configuration/).
-10. Redémarrez centengine sur tous les collecteurs :
+7. Utilisez les paramètres optionnels du stream connector pour filtrer ou adapter les données que vous voulez que Centreon envoie à Canopsis.
+8. [Déployez la configuration](https://docs.centreon.com/fr/docs/monitoring/monitoring-servers/deploying-a-configuration/). 
+9. Redémarrez centengine sur tous les collecteurs :
 
    ```shell
    systemctl restart centengine
@@ -137,32 +130,41 @@ Dans cet exemple de valeur, le stream connecteur Canopsis conservera 3 événeme
 
 Ce stream connector envoie des évènements au format suivant :
 
-### service_status event
+### Exemple de sortie pour un événement service_status
 
 ```json
-{
-    "event_type": "host",
-    "status": "CRITICAL",
-    "state": "2",
-    "state_type": 1,
-    "host": "my_host",
-    "service": "a_service",
-    "output": "CRITICAL: Burnin and Lootin",
-    "timestamp": 1637229207
-}
+[
+   {
+      "notes_url":"",
+      "host_id":"15",
+      "event_type":"check",
+      "service_id":"47",
+      "timestamp":1708693347,
+      "hostgroups":[
+         "Group 1",
+         "Group 2"
+      ],
+      "servicegroups":[
+         
+      ],
+      "state":1,
+      "connector":"centreon-stream",
+      "action_url":"",
+      "long_output":"(No output returned from plugin)",
+      "resource":"Service-name",
+      "output":"(No output returned from plugin)",
+      "source_type":"resource",
+      "component":"Host-name",
+      "connector_name":"Central"
+   }
+]
 ```
 
-### host_status event
+### Exemple de sortie pour un événement host_status
 
 ```json
 {
-    "event_type": "host",
-    "status": "DOWN",
-    "state": "1",
-    "state_type": 1,
-    "host": "my_host",
-    "output": "CRITICAL: No woman no cry",
-    "timestamp": 1637229207
+
 }
 ```
 
