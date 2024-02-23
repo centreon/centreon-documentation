@@ -234,6 +234,8 @@ l'escalade qui sont utilisés
 -   Plages de reporting additionnelles: permet de calculer les
     statistiques de l'activité métier sur d'autres plages horaire
 
+> Dans les champs **Période de rapport par défaut** et **Plages de reporting additionnelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab) : les exceptions ne seront pas prises en compte.
+
 #### Gestionnaire d'évènements
 
 Pour activer et associer des mécanisme d'auto-remédiation en fonction
