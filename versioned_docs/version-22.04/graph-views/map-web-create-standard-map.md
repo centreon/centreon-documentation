@@ -21,7 +21,11 @@ The new map opens directly in the editor interface.
 
 ## Create a map from an existing container
 
-You can create a view that is directly linked to a container. This is useful when you want to share the sublevel of a view to a different profile without duplicating its contents or assigning full access to the main view.
+Use containers when you want to create multiple levels of your map. Each level represents a container.
+- In the view mode, each container becomes a map with its own status.
+- In the editor mode, each level becomes a tab. Then you can navigate between containers using the different tabs.
+
+You can create a view directly from a container. This is useful when you want to share the sublevel of a view to a different profile without duplicating its contents or assigning full access to the main view.
 
 1. Right-click the container and click **Create map from container**.
 2. Name the container.
