@@ -70,7 +70,10 @@ export default function DocBreadcrumbs() {
   let homePath = '/docs/getting-started/welcome';
   let homeLabel = 'Centreon OnPrem';
   if (docSection === 'docs' && splittedPathname[1].match(/\d+\.\d+/)) {
-    homePath = `/docs/${splittedPathname[1]}/getting-started/welcome`;
+    const defaultPageId = splittedPathname[1].match(/(21\.10|22\.04)/)
+      ? 'getting-started/installation-first-steps'
+      : 'getting-started/welcome';
+    homePath = `/docs/${splittedPathname[1]}/${defaultPageId}`;
   } else if (docSection === 'pp') {
     homePath = '/pp/integrations/plugin-packs/getting-started/introduction';
     homeLabel = 'Monitoring Connectors';
