@@ -186,6 +186,8 @@ To learn more about custom event format and templating file, head over the follo
 
 Voici la liste des commandes curl qui sont utilisées par le stream connecteur Canopsis :
 
+<div id='event-format'/>
+
 ### Envoyer des évènements
 
 Si vous voulez tester que les évènements sont envoyés correctement à Canopsis :
