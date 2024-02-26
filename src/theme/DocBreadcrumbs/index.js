@@ -75,10 +75,8 @@ export default function DocBreadcrumbs() {
     homeLabel = 'Centreon Cloud';
   }
 
-  const homeHref = useBaseUrl(homePath);
-
   breadcrumbs.unshift({
-    href: homeHref,
+    href: useBaseUrl(homePath),
     label: translate({ message: homeLabel })
   })
 
