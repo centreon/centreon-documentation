@@ -25,6 +25,6 @@ and choose the **Restart** method for the Engine process.
 5. Finally, restart the Gorgone service if it is used on the poller:
 
   ```shell
-  systemctl restart centengine gorgoned
+  systemctl restart gorgoned
   ```
   
