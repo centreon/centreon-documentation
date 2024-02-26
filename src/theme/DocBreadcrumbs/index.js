@@ -6,9 +6,13 @@ import {
   useHomePageRoute,
 } from '@docusaurus/theme-common/internal';
 import Link from '@docusaurus/Link';
-import {translate} from '@docusaurus/Translate';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { translate } from '@docusaurus/Translate';
+import { useLocation } from '@docusaurus/router';
 import HomeBreadcrumbItem from '@theme/DocBreadcrumbs/Items/Home';
 import styles from './styles.module.css';
+
 // TODO move to design system folder
 function BreadcrumbsItemLink({children, href, isLast}) {
   const className = 'breadcrumbs__link';
@@ -55,6 +59,29 @@ export default function DocBreadcrumbs() {
   if (!breadcrumbs) {
     return null;
   }
+
+  const {siteConfig: { baseUrl }} = useDocusaurusContext();
+  const location = useLocation();
+  const docSection = location.pathname.replace(baseUrl, '').split("/")[0];
+
+  // Hack: Swizzle component to use baseUrl until https://github.com/facebook/docusaurus/issues/6953
+  let homePath = '/docs/getting-started/welcome';
+  let homeLabel = 'Centreon OnPrem';
+  if (docSection === 'pp') {
+    homePath = '/pp/integrations/plugin-packs/getting-started/introduction';
+    homeLabel = 'Monitoring Connectors';
+  } else if (docSection === 'cloud') {
+    homePath = '/cloud/getting-started/welcome';
+    homeLabel = 'Centreon Cloud';
+  }
+
+  const homeHref = useBaseUrl(homePath);
+
+  breadcrumbs.unshift({
+    href: homeHref,
+    label: translate({ message: homeLabel })
+  })
+
   return (
     <nav
       className={clsx(

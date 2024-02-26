@@ -20,7 +20,8 @@ export default function HomeBreadcrumbItem() {
     homePath = '/cloud/getting-started/welcome';
   }
 
-  const homeHref = useBaseUrl(homePath);
+  // const homeHref = useBaseUrl(homePath);
+  const homeHref = useBaseUrl('/');
 
   return (
     <li className="breadcrumbs__item">
