@@ -25,5 +25,5 @@ en choisissant la méthode **Redémarrer** pour le processus Engine.
 5. Redémarrez enfin le service Gorgone s'il est utilisé sur le collecteur :
 
   ```shell
-  systemctl restart centengine gorgoned
+  systemctl restart gorgoned
   ```
