@@ -182,9 +182,22 @@ Pour la supervision VMWare, centreon utlise un daemon pour se connecter et requ�
 
 Installer le daemon sur tous les pollers :
 
+<Tabs groupId="sync">
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-plugin-virtualization-vmware-daemon
 ```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
 yum install centreon-plugin-Virtualization-VMWare-daemon
 ```
+
+</TabItem>
+</Tabs>
 
 Pour configurer les accès à votre infrastructure, éditer le fichier
 "/etc/centreon/centreon\_vmware.pm" :
@@ -853,12 +866,12 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --scope-cluster             | Search in the following cluster(s) (can be a regexp).             |
 | --scope-host                | Search in the following host(s) (can be a regexp).                |
 | --disconnect-status         | Status if VM disconnected (default: 'unknown').               |
-| --nopoweredon-skip          | Skip check if VM is not poweredOn.                            |
+| --nopoweredon-skip          | Skip check if VM is not powered on.                            |
 | --empty-continue            | Ask to the connector that an empty response is ok.            |
 | --display-description       | Display the description of the virtual machine.                          |
 | --tools-notinstalled-status | Status if vmtools is not installed (default: critical).       |
 | --tools-notrunning-status   | Status if vmtools is not running (default: critical).         |
-| --tools-notup2date-status   | Status if vmtools is not upd2date (default: warning).         |
+| --tools-notup2date-status   | Status if vmtools is not up to date (default: warning).         |
 
 </TabItem>
 </Tabs>

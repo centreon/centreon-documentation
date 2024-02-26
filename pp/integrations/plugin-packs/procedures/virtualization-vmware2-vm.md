@@ -181,9 +181,23 @@ For the VMWare monitoring, Centreon use daemon to connect and request the vCente
 
 Install this daemon on each needed poller:
 
+<Tabs groupId="sync">
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-plugin-virtualization-vmware-daemon
 ```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
 yum install centreon-plugin-Virtualization-VMWare-daemon
 ```
+
+</TabItem>
+</Tabs>
+
 
 To configure the access to your infrastructure, edit the
 "/etc/centreon/centreon\_vmware.pm" configuration file:
@@ -503,7 +517,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 |:-------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | NOTINSTALLEDSTATUS | Status if vmtools is not installed (default: critical)                                              | critical          | X           |
 | NOTRUNNINGSTATUS   | Status if vmtools is not running (default: critical)                                                | critical          | X           |
-| NOTUP2DATESTATUS   | Status if vmtools is not upd2date (default: warning)                                                | warning           |             |
+| NOTUP2DATESTATUS   | Status if vmtools is not up to date (default: warning)                                                | warning           |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 </TabItem>
@@ -780,7 +794,7 @@ All available options for each service template are listed below:
 | --display-description | Display the description of the virtual machine.                                                                                                                          |
 | --check-consolidation | Check if VM needs consolidation (since vsphere 5.0).                                                                                                          |
 | --disconnect-status   | Status if VM disconnected (default: 'unknown').                                                                                                               |
-| --nopoweredon-skip    | Skip check if VM is not poweredOn.                                                                                                                            |
+| --nopoweredon-skip    | Skip check if VM is not powered on.                                                                                                                            |
 | --empty-continue      | Ask to the connector that an empty response is ok.                                                                                                            |
 | --unit                | Select the unit for performance data and thresholds. May be 's'for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds   |
 | --warning             | Warning threshold for snapshot's age.                                                                                                                         |
