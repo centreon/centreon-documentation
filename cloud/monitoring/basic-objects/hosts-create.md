@@ -5,7 +5,7 @@ title: Monitoring a host
 
 A host is any entity that has an IP address corresponding to a resource of the information system. Example: A server, network printer, NAS server, temperature sensor, IP camera, etc.
 
-The list of hosts is shown on the **Configuration > Hosts > Hosts (simplified)** page.
+The list of hosts is shown on the **Configuration > Hosts > Hosts** page.
 
 You can:
 - [create hosts manually](hosts.md), using [host templates](hosts-templates.md)
