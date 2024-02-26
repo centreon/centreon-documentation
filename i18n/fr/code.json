@@ -416,5 +416,9 @@
   "Collapse all": {
     "message": "Tout réduire",
     "description": "The label for the collpase all button"
+  },
+  "Monitoring Connectors": {
+    "message": "Connecteurs de supervision",
+    "description": "The label for the monitoring connectors"
   }
 }
