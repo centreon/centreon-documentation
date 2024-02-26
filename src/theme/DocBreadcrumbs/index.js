@@ -56,18 +56,22 @@ function BreadcrumbsItem({children, active, index, addMicrodata}) {
 export default function DocBreadcrumbs() {
   const breadcrumbs = useSidebarBreadcrumbs();
   const homePageRoute = useHomePageRoute();
+
   if (!breadcrumbs) {
     return null;
   }
 
-  const {siteConfig: { baseUrl }} = useDocusaurusContext();
+  const { siteConfig: { baseUrl } } = useDocusaurusContext();
   const location = useLocation();
-  const docSection = location.pathname.replace(baseUrl, '').split("/")[0];
+  const splittedPathname = location.pathname.replace(baseUrl, '').split("/");
+  const docSection = splittedPathname[0];
 
   // Hack: Swizzle component to use baseUrl until https://github.com/facebook/docusaurus/issues/6953
   let homePath = '/docs/getting-started/welcome';
   let homeLabel = 'Centreon OnPrem';
-  if (docSection === 'pp') {
+  if (docSection === 'docs' && splittedPathname[1].match(/\d+\.\d+/)) {
+    homePath = `/docs/${splittedPathname[1]}/getting-started/welcome`;
+  } else if (docSection === 'pp') {
     homePath = '/pp/integrations/plugin-packs/getting-started/introduction';
     homeLabel = 'Monitoring Connectors';
   } else if (docSection === 'cloud') {
