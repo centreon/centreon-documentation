@@ -3,6 +3,19 @@ id: cloud-release-notes
 title: Centreon Cloud release notes
 ---
 
+## February 26, 2024
+
+### Centreon IT Edition
+
+- **More configuration options for hosts and services**:
+
+   When configuring your hosts and services, you can now configure the interval between checks, both when the resource is OK and when validating a non-OK state. You can also configure the number of checks needed to validate a non-OK state before triggering an alert.
+Finally, you can also assign your resources with specific icons to improve the readability of the interface. 
+
+- **Dashboards Beta**:
+
+   We keep improving our new proposition for creating and sharing intuitive dashboards effortlessly! With this release you can benefit from multiple improvements (with the selection of resources, with the look and feel of graphs...), from a new widget named "Status grid", and from bug fixes.
+
 ## December 5, 2023
 
 ### Centreon IT Edition
