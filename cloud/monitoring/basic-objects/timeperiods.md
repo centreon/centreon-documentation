@@ -5,10 +5,7 @@ title: Time periods
 
 ## Definition
 
-Time periods define a time interval for each day of the week. They enable the functionality of the scheduler over a given period of time. They apply to two types of actions:
-
-* The execution of check commands
-* The sending of notifications.
+Time periods define a time interval for each day of the week. They enable the execution of check commands over a given period of time.
 
 ## Configuration
 
@@ -16,16 +13,14 @@ To configure a time period, go to **Configuration \> Users \> Time periods**.
 
 1. In the **Time Period Name** and **Alias** fields, enter a name and a description.
 
-2. In the **Basic settings** section, for each day of the week, define the time periods during which the checks and notifications will be enabled. (Use the [syntax described below](#syntax-of-a-time-period).) 
+2. In the **Basic settings** section, for each day of the week, define the time periods during which the checks will be enabled. (Use the [syntax described below](#syntax-of-a-time-period).) 
 
     - These definitions are applied every week, indefinitely.
     - If you leave the field blank for a specific day, there will be no supervision on that day for actions to which this time period is applied.
 
 3. Use the [**Time Range Exceptions** tab](#time-range-exceptions-tab) to include days that would not normally belong to the time period.
 
-4. Once you have created your time period, you can use it:
-    - In the **Check Period** field for hosts, host templates, services and service templates.
-    - In the **Notification Period** field for notifications defined for hosts, host templates, services, service templates, contacts, or in the **Escalation Period** field for an escalation of notifications. 
+4. Once you have created your time period, you can use it in the **Check Period** field for hosts, host templates, services and service templates.
 
 ### Syntax of a time period
 
@@ -39,8 +34,6 @@ Here are a few examples:
 
 * 24 hours a day and 7 days a week: 00:00-24:00 (to be applied to every day of the week).
 * From 8 AM to noon and from 2 PM to 6:45 PM on weekdays: 08:00-12:00,14:00-18:45 (to be applied to weekdays only).
-
-![image](../../assets/configuration/05timeperiod.png)
 
 ### Time Range Exceptions tab
 

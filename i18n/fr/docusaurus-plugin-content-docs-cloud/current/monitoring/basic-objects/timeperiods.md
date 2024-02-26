@@ -5,27 +5,21 @@ title: Les périodes temporelles
 
 ## Définition
 
-Une période temporelle définit un intervalle de temps pour chacun des jours de la semaine. Ces périodes temporelles servent à activer les fonctionnalités de l’ordonnanceur sur une période donnée. Elles permettent de définir :
-
-* Quand les commandes de vérification seront exécutées
-* Quand des notifications seront envoyées.
+Une période temporelle définit un intervalle de temps pour chacun des jours de la semaine. Ces périodes temporelles servent à déterminer quand les commandes de vérification seront exécutées sur une période donnée.
 
 ## Configuration
 
 Pour configurer des périodes temporelles, allez à la page : **Configuration > Utilisateurs > Périodes temporelles**.
 
 1. Dans les champs **Nom de la période temporelle** et **Alias**, entrez un nom et une description.
-2. Dans la section **Options basiques**, pour chaque jour de la semaine, définissez les plages horaires pendant lesquelles les vérifications et les notifications seront activées, en utilisant la [syntaxe décrite ci-dessous](#syntaxe-dune-période-de-temps). 
+2. Dans la section **Options basiques**, pour chaque jour de la semaine, définissez les plages horaires pendant lesquelles les vérifications seront activées, en utilisant la [syntaxe décrite ci-dessous](#syntaxe-dune-période-de-temps). 
 
     - Ces définitions seront appliquées chaque semaine, indéfiniment.
     - Si vous laissez un jour vide, il n'y aura pas de supervision ce jour-là pour les actions rattachées à cette période de temps.
 
 3. Utilisez [l'onglet **Période d'exception**](#onglet-période-dexception) pour inclure dans une période de temps des jours qui n'en feraient normalement pas partie.
 
-4. Une fois la période de temps définie, vous pouvez l'utiliser :
-
-    - Dans le champ **Période de contrôle** d'un hôte, d'un modèle d'hôtes, d'un service ou d'un groupe de services.
-    - Dans le champ **Période de notification** d'un hôte, d'un modèle d'hôte, d'un service, d'un groupe de services ou d'un contact, ou bien dans le champ **Période d'escalade** d'une escalade de notifications.
+4. Une fois la période de temps définie, vous pouvez l'utiliser dans le champ **Période de contrôle** d'un hôte, d'un modèle d'hôtes, d'un service ou d'un groupe de services.
 
 ### Syntaxe d’une période de temps
 
@@ -39,8 +33,6 @@ Quelques exemples :
 
 * 24 heures sur 24 et 7 jours sur 7 : pour chaque jour de la semaine, entrez 00:00-24:00.
 * De 08h00 à 12h00 et de 14h00 à 18h45 les jours de semaine : 08:00-12:00,14:00-18:45 (à entrer au niveau des jours de semaine uniquement).
-
-![image](../../assets/configuration/05timeperiod.png)
 
 ### Onglet Période d'exception
 
