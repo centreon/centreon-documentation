@@ -29,25 +29,37 @@ This Monitoring Connector relies on 3 components that are listed below:
 
 Only standard metrics are described in this section. Be aware that a lot of other checks and metrics are available from the `centreon_linux_local.pl` Plugin. Here is a non-exhaustive list:
 
-* Cmd-Generic : Check command returns
-* Connections-Generic : Check tcp/udp connections
-* Cpu-Detailed : Check average usage for each CPUs (User, Nice, System, Idle, Wait, Interrupt, SoftIRQ, Steal, Guest, GuestNice)
-* Disk-Generic-Name : Check storage usage (single partition)
-* Disk-Global : Check storage usage (all partitions or filtered with regexp)
-* Disk-IO-Generic-Name : Check some disk io counters (single partition)
-* Disk-IO-Global : Check some disk io counters (all partitions or filtered with regexp)
-* File-Date-Generic : Check time (modified, creation,...) of files/directories
-* File-Size-Generic : Check size of files/directories
-* Inodes-Generic-Name : Check Inodes space usage (single partition)
-* Inodes-Global : Check Inodes space usage (all partitions or filtered with regexp)
-* Is-File-Generic : Check the presence of a file
-* Is-Not-File-Generic : Check the absence of a file
-* Packet-Errors-Generic-Name : Check packet errors and discards on an interface
-* Packet-Errors-Global : Check packet errors and discards on interfaces (all interfaces or filtered with regexp)
-* Process-Generic : Check linux processes
-* Systemd-Sc-Status : Check services managed by *systemd*
-* Traffic-Generic-Name : Check Traffic (single interface)
-* Traffic-Global : Check Traffic (all interfaces or filtered with regexp)
+<Tabs groupId="sync">
+<TabItem value="OS-Linux-NRPE3-custom" label="OS-Linux-NRPE3-custom">
+
+| Service Alias       | Service Template                          | Service Description                           |
+|:--------------------|:------------------------------------------|:----------------------------------------------|
+| Check-Plugin        | OS-Linux-Check-Plugin-NRPE3-custom        | SSH execution commands in a remote host       |
+| Cmd-Generic         | OS-Linux-Cmd-Generic-NRPE3-custom         | Check command returns                         |
+| Connections-Generic | OS-Linux-Connections-Generic-NRPE3-custom | Check tcp/udp connections                     |
+| Cpu-Detailed        | OS-Linux-Cpu-Detailed-NRPE3-custom        | Check average usage for each CPUs             |
+| Disk                | OS-Linux-Disks-NRPE3-custom               | Check storage usage                           |
+| Disk-IO             | OS-Linux-Disk-IO-NRPE3-custom             | Check some disk io counters                   |
+| File-Date-Generic   | OS-Linux-File-Date-Generic-NRPE3-custom   | Check time of files/directories               |
+| File-Size-Generic   | OS-Linux-File-Size-Generic-NRPE3-custom   | Check size of files/directories               |
+| Inodes              | OS-Linux-Inodes-NRPE3-custom              | Check Inodes space usage                      |
+| Is-File-Generic     | OS-Linux-Is-File-Generic-NRPE3-custom     | Check the presence of a file                  |
+| Is-Not-File-Generic | OS-Linux-Is-Not-File-Generic-NRPE3-custom | Check the absence of a file                   |
+| Load                | OS-Linux-Load-NRPE3-custom                | Check system load-average                     |
+| Ntp                 | OS-Linux-Ntp-NRPE3-custom                 | Check ntp daemons                             |
+| OpenFile            | OS-Linux-OpenFile-NRPE3-custom            | Check open files                              |
+| Packet-Errors       | OS-Linux-Packet-Errors-NRPE3-custom       | Check packet errors and discards on interfaces|
+| Pending-Updates        | OS-Linux-Pending-Updates-NRPE3-custom     | Check pending updates                         |
+| Process-Generic     | OS-Linux-Process-Generic-NRPE3-custom     | Check linux processes                         |
+| Systemd-Journal   | OS-Linux-Systemd-Journal-NRPE3-custom     | Count journal entries                         |
+| Systemd-Sc-Status   | OS-Linux-Systemd-Sc-Status-NRPE3-custom   | Check services managed by systemd             |
+| Traffic             | OS-Linux-Traffic-NRPE3-custom             | Check Traffic                                 |
+
+
+> The services listed above are created automatically when the **OS-Linux-NRPE3-custom** host template is used.
+
+</TabItem>
+</Tabs>
 
 Here are the metrics that are collected by default:
 

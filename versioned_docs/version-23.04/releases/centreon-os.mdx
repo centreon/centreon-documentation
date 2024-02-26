@@ -23,6 +23,112 @@ Read more about version 23.04 in our [blog post](https://www.centreon.com/centre
 
 ## Centreon Web
 
+### 23.04.15
+
+Release date: `February 14, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [UI] Fixed the display of inappropriate 404 error page when loading MAP homepage.
+
+</details>
+
+### 23.04.14
+
+Release date: `January 15, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed a visibility issue with the configuration/users endpoint.
+- [Authentication] Fixed hardcoded email value that blocked SSO authentication with OpenId Connect when parameter was not an email.
+- [Configuration] Fixed error message displayed in configuration generation after upgrading to 23.04 version.
+- [Event Logs] Fixed period in CSV export.
+- [Installation] Fixed issue of poller ID appearing twice in Centreon Gorgone configuration.
+- [Installation] Fixed installation issue occurring when database user already existed.
+- [My Account] Made the name, login and password fields read-only for non-local users so as to prevent issues where users who had edited these properties were locked out of the platform.
+- [Resource Status] Fixed bad host redirection in the services panel.
+- [Resource Status] Fixed default sorting order in Resources status: from worst to best.
+- [Web] Fixed an issue where inherited contacts/contact groups were not displayed in the notifications tab.
+
+</details>
+
+### 23.04.13
+
+Release date: `January 2, 2024`
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed an SQLi vulnerability (CVE-2024-0637, CVE-2024-23115, CVE-2024-23116, CVE-2024-23117, CVE-2024-23118, CVE-2024-23119).
+
+</details>
+
+### 23.04.12
+
+Release date: `December 21, 2023`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Prevented a command injection.
+
+</details>
+
+### 23.04.11
+
+Release date: `November 30, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Resources Status] Fixed the issue that automatically disabled the option to access the UI when user clicked on the compact/extended button.
+
+</details>
+
+### 23.04.10
+
+Release date: `November 17, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added the possibility to search for a service in hostGroups/serviceGroups endpoints.
+- [Configuration] Added the support of BBDO 3.0.1 for Centreon Broker configuration.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed an issue with Broker output types when creating an output using CLAPI.
+- [API] Fixed a security issue concerning some API responses.
+- [Authentication] Fixed authentication conditions that did not work with multiple values (SAML/OpenID Connect).
+- [Authentication] The "Reach Centreon Front-end" option is now automatically enabled for imported users authenticated through SSO.
+- [Authentication] Fixed an issue with the retrieval of attributes used to identify users.
+- [Authentication] Removed incorrect log message.
+- [Core] Fixed access to pages when Symfony debug mode was enabled.
+- [Event Logs] Fixed pagination.
+- [Install] Fixed SQL permissions to allow the "centreon" database user to use MBI.
+- [Install] Fixed an SQL issue occurring during the update process.
+- [Monitoring] Fixed a display issue on Firefox that occurred when the Information column in the Resources Status page contained a single quote.
+- [Packaging] Fixed an issue where centreontrapd was configured for a poller rather than for a central on Debian.
+- [Recurrent Downtimes] Fixed an issue that occurred when a downtime period contained a service group and this service group was linked to a service template.
+- [Ressources Status] Fixed an issue that occurred when using an h.alias filter on the list of resources.
+- [Resources Status] Fixed an issue where the "monitoring server" filter did not display all pollers authorized by the user's ACLs.
+- [UX] Fixed an issue where top menus in the banner were not closed after clicking on a link.
+
+</details>
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed SQLi in a method.
+- Fixed potential XSS vulnerability in the list of discovered hosts (CVE-2023-51633).
+
+</details>
+
 ### 23.04.9
 
 Release date: `October 05, 2023`
@@ -266,6 +372,78 @@ Release date: `April 26, 2023`
 
 ## Centreon Collect
 
+### 23.04.8
+
+Release date: `February 14, 2024`
+
+#### Centreon Broker
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Broker] Broker now drops metrics whose names are longer than 1000 characters to avoid errors in the database. An error is logged when it occurs.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed an issue causing hostgroups failing to appear if they had been used before and emptied of their hosts and then populated again.
+- [Broker] Fixed the permissions of the RRD files produced by the rebuild mechanism when RRDcached is used.
+- [Broker] Fixed some incorrect statuses in Broker's statistics retrieved by the `broker-stats.json` file.
+- [Broker] Semicolons are no longer considered as the beginning of a comment in Engine's configuration files. This is because comments were not useful in these files, and they prevented the use of semicolons in macros (e.g., passwords).
+- [Install] Fixed an issue in the installation process that emptied the `retention.dat` file, causing the temporary loss of all resources' statuses and the permanent loss of current acknowledgements and downtimes.
+
+</details>
+
+### 23.04.7
+
+Release date: `January 11, 2024`
+
+#### Centreon Broker
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed a bug occurring when a Business Activity was updated after a status change for a KPI with a BA type.
+- [Install] Fixed rights on SSH directory for Debian.
+
+</details>
+
+### 23.04.6
+
+Release date: `December 15, 2023`
+
+#### Centreon Broker
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Broker now drops metrics whose names are longer than 1000 characters to avoid errors in the database. An error is logged when it occurs.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a bug that made Broker crash when rebuilding RRD files for unexisting metrics.
+
+</details>
+
+### 23.04.5
+
+Release date: `November 20, 2023`
+
+#### Centreon Broker
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a stability issue that could make Broker crash when BAM was enabled and the database was too slow.
+- Event propagation in BAM has been improved and should be faster.
+
+</details>
+
 ### 23.04.4
 
 Release date: `September 26, 2023`
@@ -368,6 +546,41 @@ Compatibility with other 23.04 components.
 </details>
 
 ## Centreon Gorgone
+
+### 23.04.10
+
+Release date: `February 14, 2024`
+
+<details>
+
+  <summary>Security fixes</summary>
+[Security] Enabled whitelist of Centreon Gorgone commands by default to manage Centreon Engine and Broker processes in order to limit escalations of potential future vulnerabilities.
+
+</details>
+
+### 23.04.9
+
+Release date: `December 22, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Created package to install SELinux rules.
+- [Gorgone] Fixed a stability issue causing the kernel to kill the gorgoned process.
+
+</details>
+
+### 23.04.8
+
+Release date: `November 17, 2023`
+
+No changes for this module in this version.
+
+### 23.04.7
+
+Release date: `October 5, 2023`
+
+No changes for this module in this version.
 
 ### 23.04.6
 
@@ -510,6 +723,17 @@ Compatibility with other 23.04 components.
 </details>
 
 ## Centreon Open Tickets
+
+### 23.04.3
+
+Release date: `February 14, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Open Tickets] Add EasyVista connector.
+
+</details>
 
 ### 23.04.2
 

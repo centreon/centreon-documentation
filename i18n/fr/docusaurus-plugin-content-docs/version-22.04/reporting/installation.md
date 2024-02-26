@@ -317,11 +317,11 @@ fichier **my.cnf** du serveur esclave ou mariadb.cnf sur Debian 11.
 replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
 ```
 
-Ensuite, créez les vues manuellement sur le serveur esclave en lançant la
-ligne de commande suivante :
-```bash
-wget https://docs.centreon.com/fr/assets/files/view_creation-948c02cd93f8867179ec47fd611426bd.sql -O /tmp/view_creation.sql
-```
+Ensuite, créez les vues manuellement sur le serveur esclave :
+
+1. Téléchargez [le fichier suivant](../assets/reporting/installation/view_creation.sql) dans un répertoire temporaire (ici, **/tmp**), par exemple en utilisant **wget**.
+
+2. Exécutez la commande suivante (changez le nom de votre répertoire temporaire si besoin):
 
 ```bash
 mysql centreon < /tmp/view_creation.sql

@@ -10,7 +10,7 @@ Avec Centreon Cloud, votre serveur central est déjà prêt à l'emploi. Il ne v
 
 Avant de déployer un collecteur, assurez-vous que votre machine hôte répond aux [prérequis](prerequisites.md).
 
-## Étape 1 : Exécuter le script
+## Étape 1 : Exécuter le script d'installation du collecteur
 
 1. Connectez-vous en SSH au serveur qui deviendra un collecteur Centreon.
 2. Désactivez SELinux (ceci est recommandé afin d'obtenir une installation fluide. Des utilisateurs avancés peuvent activer SELinux en fonction de leur expertise de SELinux ou de leurs contraintes de sécurité, mais attention aux effects secondaires de ce paramétrage.)
@@ -19,40 +19,15 @@ Avant de déployer un collecteur, assurez-vous que votre machine hôte répond a
    2. Donnez au paramètre SELINUX la valeur "disabled" (**SELINUX=disabled**).
    3. Sauvegardez le fichier et redémarrez le système pour appliquer les changements.
 
-4. Exécutez la commande qui déploiera le collecteur automatiquement. Cette commande vous a été fournie par notre équipe support. Le format est le suivant (selon votre région) :
+3. [Sur votre serveur central](../getting-started/interface.md#accéder-à-linterface-du-serveur-central), cliquez sur la flèche à côté de **Collecteurs** dans le bandeau en haut à gauche.
 
-<Tabs groupId="sync">
-<TabItem value="US East Region" label="US East Region">
+4. Dans la pop-up qui apparaît, cliquez sur **Copy install command**. La commande est copiée dans votre presse-papiers.
 
-> Cette région concerne les clients situés aux USA, au Canada et en Amérique du Sud.
+5. Sur le serveur qui deviendra un collecteur, dans le terminal, copiez la commande d'installation et exécutez-la (cela devrait prendre environ 10 minutes).
 
-```shell
-bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: organization_token"  https://api.useast1.prod1.centreon.cloud/v1/organization/organization_name/site/your_site/poller -s)"
-```
-
-> Remplacez **organization_token**, **organization_name** et **your_site** par les valeurs appropriées. Vous pouvez trouver celles-ci dans le [CIAM](../ciam/ciam.md).
-
-</TabItem>
-<TabItem value="Europe West Region" label="Europe West Region">
-
-> Cette région concerne les clients situés en Europe, Afrique, Asie et Océanie.
-
-```shell
-bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: organization_token"  https://api.euwest1.prod1.centreon.cloud/v1/organization/organisation_name/site/your_site/poller -s)"
-```
-
-> Remplacez **organization_token**, **organization_name** et **your_site** par les valeurs appropriées. Vous pouvez trouver celles-ci dans le [CIAM](../ciam/ciam.md).
-
-</TabItem>
-</Tabs>
-
-3. Le script s'exécute (cela devrait prendre environ 10 minutes) :
-
-  ![image](../assets/installation/script2.png)
-
-4. Une fois le script exécuté, [connectez-vous à votre serveur central](../getting-started/interface.md#accéder-à-linterface-du-serveur-central) et allez à la page **Configuration > Collecteurs > Collecteurs**. Le nouveau collecteur apparaît dans la liste des collecteurs.
+6. Une fois le script exécuté, sur le serveur central, allez à la page **Configuration > Collecteurs > Collecteurs**. Le nouveau collecteur apparaît dans la liste des collecteurs.
    * Par défaut, le nom du collecteur est son hostname (celui-ci peut avoir été abrégé). Cliquez sur le nom du collecteur pour le renommer.
-   * Dans la colonne **Adresse IP**, l'adresse indiquée est celle du collecteur vu par le serveur central. En effet, pendant le processus d'installation, un VPN est installé : l'adresse IP est celle du collecteur à l'intérieur du VPN.
+   * Dans la colonne **Adresse IP**, l'adresse indiquée est celle du collecteur vu par le serveur central.
    * Le collecteur n'est pas encore démarré (**Non** dans la colonne **En cours d'exécution?**).
 
 ## Étape 2 : Exporter la configuration et redémarrer le collecteur

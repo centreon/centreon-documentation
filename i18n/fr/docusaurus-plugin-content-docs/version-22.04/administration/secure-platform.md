@@ -1333,7 +1333,7 @@ Pour utiliser http2, vous devez suivre les étapes suivantes:
 dnf install nghttp2
 ```
 
-3. Activez le protocole **http2** dans **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** :
+3. Activez le protocole **http2** dans **/etc/httpd/conf.d/10-centreon.conf** :
 
 ```apacheconf
 ...
@@ -1371,7 +1371,7 @@ systemctl restart httpd
 yum install httpd24-nghttp2
 ```
 
-3. Activez le protocole **http2** dans **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** :
+3. Activez le protocole **http2** dans **/etc/httpd/conf.d/10-centreon.conf** :
 
 ```apacheconf
 ...
@@ -1486,6 +1486,21 @@ et sorties **IPv4**:
 ### Communication Centreon Gorgone
 
 La [documentation officielle de Centreon gorgone](https://github.com/centreon/centreon-gorgone/blob/master/docs/configuration.md#gorgonecore) vous permettra de sécuriser la communication entre les processus Gorgone.
+
+Vérifiez également que le fichier **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** (sur votre serveur central, vos serveurs distants et vos collecteurs) contient bien les lignes suivantes :
+
+```shell
+name: action
+package: "gorgone::modules::core::action::hooks"
+enable: true
+command_timeout: 30
+whitelist_cmds: true
+allowed_cmds:
+  - ^sudo\s+(/bin/)?systemctl\s+(reload|restart)\s+(centengine|centreontrapd|cbd)\s*$
+  - ^sudo\s+(/usr/bin/)?service\s+(centengine|centreontrapd|cbd)\s+(reload|restart)\s*$
+  - ^/usr/sbin/centenginestats\s+-c\s+/etc/centreon-engine/centengine.cfg\s*$
+  - ^cat\s+/var/lib/centreon-engine/[a-zA-Z0-9\-]+-stats.json\s*$  
+```
 
 ## Gestion de l'information et des événements de sécurité (SIEM)
 

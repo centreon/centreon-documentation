@@ -50,26 +50,22 @@ servers:
 
 ### Install the new repositories
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+1. On your 20.10 platform, replace `https://packages.centreon.com/rpm-standard` or `https://yum.centreon.com/standard` by `https://archives.centreon.com/standard/` in your current YUM configuration (by default, `/etc/yum.repos.d/centreon.repo`).
 
-1. Update your Centreon 20.10 to the latest minor version.
+2. Update your Centreon 20.10 to the latest minor version.
 
-2. Remove the **centreon.repo** file:
+3. Remove the **centreon.repo** file:
 
    ```shell
    rm /etc/yum.repos.d/centreon.repo
    ```
 
-3. Install the new repository:
+4. Install the new repository:
 
 ```shell
 dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
 ```
-
-</TabItem>
-</Tabs>
 
 > If you have an [offline license](../administration/licenses.md#types-of-licenses), also remove the old Monitoring Connectors repository, then install the new one.
 >

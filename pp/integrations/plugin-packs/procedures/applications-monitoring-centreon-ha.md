@@ -108,13 +108,13 @@ Run this command on the poller to display the user's public key:
 cat ~/.ssh/id_ed25519.pub
 ```
 
-Once done, copy the content of the public key file displayed by `cat` and paste it to `~/.ssh/authorized_keys` (must be created) on both of the cluster's nodes and apply the correct file permissions (sill as `centreon-engine` user):
+Once done, copy the content of the public key file displayed by `cat` and paste it to `~/.ssh/authorized_keys` (must be created) on both of the cluster's nodes and apply the correct file permissions (still as the `centreon-engine` user):
 
 ```
 chmod 600 ~/.ssh/authorized_keys
 ```
 
-The keys exchange must be validated by an initial connection from each node to the other in order to accept and register the peer node's SSH fingerprint (sill as `centreon-engine` user):
+The keys exchange must be validated by an initial connection from each node to the other in order to accept and register the peer node's SSH fingerprint (still as `centreon-engine` user):
 
 ```
 ssh <cluster-node-ip-address>

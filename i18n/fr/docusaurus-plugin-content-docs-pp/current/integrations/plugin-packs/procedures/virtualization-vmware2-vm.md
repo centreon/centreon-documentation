@@ -11,6 +11,9 @@ VMWare est une solution de Virtualisation et d'infrastructure de Cloud Computing
 
 Le connecteur de supervision Centreon s'appuie sur le SDK VMWare pour requêter l'API du vCenter au travers d'un connecteur dédié. 
 
+> Ce connecteur de supervision fonctionne avec les versions 6 et 7 de l'API VMware.
+
+
 ## Contenu du connecteur de supervision
 
 ### Objets supervisés

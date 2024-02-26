@@ -3,9 +3,9 @@ id: troubleshooting-plugins
 title: Troubleshooting Plugin errors
 ---
 
-> Hello community! We're looking for a contributor to help us to translate the 
-content in french and provide a sample execution command. If it's you, let us 
-know by offering a PR or pinging us on [slack](https://centreon.slack.com)
+> Hello community! We're looking for a contributor to help us to translate this 
+page into French and provide a sample execution command. If it's you, let us 
+know by offering a PR or pinging us on [our community platform The Watch](https://thewatch.centreon.com/)
 When using Plugins and deploying a new monitoring probe, some errors might show up. 
 
 Most of the time, the cause of these failures is a misconfiguration or a third-party 
@@ -89,7 +89,7 @@ A message similar to the one below confirms that this is a bug:
 Use of uninitialized value $options{"value"} in pattern match (m//) and critical return
 ```
 
-In this situation, reach us on [slack](https://centreon.github.io) or, even better, 
+In this situation, reach us on [our community platform The Watch](https://thewatch.centreon.com/) or, even better, 
 track an issue within the [centreon-plugins](https://github.com/centreon/centreon-plugins/issues) 
 Github repository so we can patch it. 
 

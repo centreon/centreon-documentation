@@ -15,6 +15,40 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+### 22.04.15
+
+Release date: `February 22, 2024`
+
+#### Bug fixes
+
+- [Migration] Fixed an issue with images when migrating from MAP Legacy to MAP.
+
+### 22.04.14
+
+Release date: `December 21, 2023`
+
+#### Enhancements
+
+- [Editor] Metaservices can now be displayed in the Output widget.
+- [Viewer] Fixed an issue with the "status as font color" option in the Output widget.
+
+### 22.04.13
+
+Release date: `November 22, 2023`
+
+#### Enhancements
+
+- [Migration] Improved the image migration process.
+
+#### Security fixes
+
+- [Server] Updated dependencies.
+
+#### Bug fixes
+
+- [Editor] Fixed an issue which caused links to disapear when editing anchor points.
+- [Server] Fixed an issue that caused server to crash on duplicated Centreon modules.
+
 ### 22.04.12
 
 Release date: `October 02, 2023`
@@ -189,6 +223,14 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ## Centreon MAP Legacy
 
+### 22.04.13
+
+Release date: `November 22, 2023`
+
+#### Bug fixes
+
+- [Server] Fixed an issue that caused server to crash on duplicated Centreon modules.
+
 ### 22.04.12
 
 Release date: `October 02, 2023`
@@ -339,6 +381,22 @@ Release date: `May 25, 2022`
 
 ## Centreon MBI
 
+### 22.04.6
+
+Release date: `January 22, 2024`
+
+#### Bug fix
+
+- [Reports] Fixed an issue that prevented reports to be sent by email with Office 365.
+
+### 22.04.5
+
+Release date: `December 21, 2023`
+
+#### Security fix
+
+- Updated dependency.
+
 ### 22.04.4
 
 Release date: `June 19, 2023`
@@ -376,6 +434,14 @@ Release date: `July 5, 2022`
 - Compatibility with other 22.04 components.
 
 ## Centreon Auto Discovery
+
+### 22.04.2
+
+Release date: `November 22, 2023`
+
+#### Bug fixes
+
+- [Core] Updated dependencies.
 
 ### 22.04.1
 

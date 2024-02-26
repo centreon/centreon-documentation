@@ -3,7 +3,7 @@
     {
       "collapsed": true,
       "type": "category",
-      "label": "Getting Started",
+      "label": "Getting started with Centreon OnPrem",
       "link": {
         "type": "doc",
         "id": "getting-started/welcome"
@@ -928,6 +928,10 @@
         {
           "type": "doc",
           "id": "version-23.04/administration/postfix"
+        },
+        {
+          "type": "doc",
+          "id": "version-23.04/administration/sql-proxy"
         }
       ]
     },
@@ -1212,6 +1216,41 @@
     },
     {
       "type": "category",
+      "label": "API",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-23.04/api/introduction"
+        },
+        {
+          "type": "doc",
+          "id": "version-23.04/api/clapi"
+        },
+        {
+          "type": "doc",
+          "id": "version-23.04/api/rest-api-v1"
+        },
+        {
+          "type": "link",
+          "href": "https://docs-api.centreon.com/api/centreon-web/23.04/",
+          "label": "Centreon Web RestAPI v2"
+        }, 
+        {
+          "type": "doc",
+          "id": "version-23.04/api/rest-api-v2"
+        },
+        {
+          "type": "doc",
+          "id": "version-23.04/api/map-api"
+        },
+        {
+          "type": "doc",
+          "id": "version-23.04/api/graph-views-api"
+        }
+      ]
+    },
+    {
+      "type": "category",
       "label": "Developer resources",
       "link": {
       "type": "generated-index"
@@ -1270,36 +1309,6 @@
             {
               "type": "doc",
               "id": "version-23.04/developer/developer-gorgone-rebound-mode"
-            }
-          ]
-        },
-        {
-          "type": "category",
-          "label": "API",
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-23.04/api/introduction"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/api/clapi"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/api/rest-api-v1"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/api/rest-api-v2"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/api/map-api"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/api/graph-views-api"
             }
           ]
         }

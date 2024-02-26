@@ -27,7 +27,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 <TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
 
 ```shell
-apt update && apt upgrade
+dnf update
 ```
 
 </TabItem>
@@ -50,7 +50,7 @@ dnf update
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt update
+apt update && apt upgrade
 ```
 
 </TabItem>
@@ -59,7 +59,7 @@ apt update
 2. Download the script using the following command:
 
 ```shell
-curl -L https://raw.githubusercontent.com/centreon/centreon/22.10.x/centreon/unattended.sh --output /tmp/unattended
+curl -L https://raw.githubusercontent.com/centreon/centreon/22.10.x/centreon/unattended.sh --output /tmp/unattended.sh
 ```
 
 3. Run the following command as **root**:
