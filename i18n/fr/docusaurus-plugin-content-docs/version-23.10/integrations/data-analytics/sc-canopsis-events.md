@@ -126,6 +126,8 @@ Pour utiliser cette fonctionnalité, vous devez ajouter le paramètre suivant à
 
 Dans cet exemple de valeur, le stream connecteur Canopsis conservera 3 événements et ne déclenchera l'envoie qu'au 4ème. 
 
+<div id='event-format'/>
+
 ## Format des évènements
 
 Ce stream connector envoie des évènements au format suivant :
@@ -185,8 +187,6 @@ To learn more about custom event format and templating file, head over the follo
 ## Commandes Curl : tester le stream connector
 
 Voici la liste des commandes curl qui sont utilisées par le stream connecteur Canopsis :
-
-<div id='event-format'/>
 
 ### Envoyer des évènements
 
