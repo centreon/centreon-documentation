@@ -171,7 +171,7 @@ From **Administration > Extensions > Manager**, update all extensions, starting
 with the following:
 
 - License Manager,
-- Monitoring Connectors Manager,
+- Monitoring Connector Manager,
 - Auto Discovery.
 
 Then you can update all other commercial extensions.
@@ -197,7 +197,7 @@ This procedure is the same as to update a Centreon central server.
 2. Then upgrade all the components with the following command:
 
   ```shell
-  dnf update centreon-poller
+  dnf update centreon\*  --exclude=centreon-plugin*
   ```
 
 </TabItem>
@@ -212,7 +212,7 @@ This procedure is the same as to update a Centreon central server.
 2. Then upgrade all the components with the following command:
 
   ```shell
-  dnf update centreon-poller
+  dnf update centreon\*  --exclude=centreon-plugin*
   ```
 
 </TabItem>
@@ -228,7 +228,7 @@ This procedure is the same as to update a Centreon central server.
 2. Then upgrade all the components with the following command:
 
   ```shell
-  apt upgrade centreon-poller
+  apt upgrade centreon\*  --exclude=centreon-plugin*
   ```
 
 </TabItem>

@@ -103,7 +103,7 @@ The Centreon Pack supports the Rest APIv1 and APIv2. Services **Fans** and **Psu
 yum install centreon-plugin-Hardware-Storage-Emc-Vplex-Restapi
 ```
 
-2. On the Centreon web interface, install the **EMC Vplex** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon web interface, install the **EMC Vplex** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -120,7 +120,7 @@ yum install centreon-plugin-Hardware-Storage-Emc-Vplex-Restapi
 yum install centreon-pack-hardware-storage-emc-vplex-restapi
 ```
 
-3. On the Centreon web interface, install the **EMC Vplex** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon web interface, install the **EMC Vplex** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

@@ -71,4 +71,4 @@ Le tableau ci-dessous présente quelques exemples possibles :
 | saturday -1       | 08:00-12:00,14:00-18:45 | Tous les derniers samedi du mois les heures ouvrées          |
 | monday -2         | 00:00-24:00             | Tous les avant derniers lundi du mois toute la journée       |
 | june 6 - june 21  | 00:00-00:00             | Ne pas superviser entre le 6 et le 21 juin toute la journée  |
-| june 12           | 00:00-08:00,18h00-24:00 | Superviser chaque 12 juin, sauf entre 8h et 18h              |
+| june 12           | 00:00-08:00,18:00-24:00 | Superviser chaque 12 juin, sauf entre 8h et 18h              |

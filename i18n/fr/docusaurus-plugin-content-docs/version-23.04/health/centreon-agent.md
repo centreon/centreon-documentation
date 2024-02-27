@@ -60,6 +60,7 @@ Les données sont envoyées vers la Plateforme Centreon Cloud. Aucune donnée pe
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 dnf clean all --enablerepo=*
 dnf update
@@ -70,6 +71,7 @@ dnf update
 
 
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
 dnf clean all --enablerepo=*
 dnf update
@@ -86,18 +88,13 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
 
 ### Sur un serveur central Centreon
 
-1. Installez **centreon-helios**:
-    ```
-    dnf install centreon-helios
-    ```
-
-2. Installez l'Agent :
+1. Installez l'Agent :
 
     ```
     dnf install centreon-agent
     ```
 
-3. Si vous installez l'Agent pour la première fois sur ce serveur, générez le fichier yaml de configuration à l'aide de la commande Shell suivante :
+2. Si vous installez l'Agent pour la première fois sur ce serveur, générez le fichier yaml de configuration à l'aide de la commande Shell suivante :
 
     >Ne réalisez cette étape que si l'Agent n'a jamais été configuré. Dans le cas contraire, vous écraseriez votre configuration précédente.
 
@@ -143,7 +140,7 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
         
         >La fonction Topologie se base sur le fichier `centreon-agent.yml` pour collecter les informations dont il a besoin : ce comportement est codé en dur. Si vous changez le nom de ce fichier YAML, la collecte échouera.
 
-4. Ajoutez un [tag](#tags) **environment** :
+3. Ajoutez un [tag](#tags) **environment** :
 
     Ouvrez le fichier `/etc/centreon-agent/centreon-agent.yml` généré à l'installation et ajoutez les informations suivantes dans la section **collect**.
 
@@ -162,29 +159,19 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
 
     Si vous avez plusieurs environnements du même type, vous pouvez ajouter un _suffixe à votre type d'environnement (par exemple : "production_client1").
 
-5. Activez le service **centreon-agent** :
+4. Activez le service **centreon-agent** :
 
     ```
     systemctl enable centreon-agent.service
     ```
 
-6. Démarrez le service **centreon-agent** :
+5. Démarrez le service **centreon-agent** :
 
     ```
     systemctl start centreon-agent.service
     ```
 
-7. Activez la planification de la topologie: éditez le fichier cron **/etc/cron.d/centreon-helios** et décommentez la ligne suivante (c'est-à-dire supprimez le caractère **#**):
-
-    ```
-    0 0 * * * centreon /usr/sbin/centreon-helios.phar
-    ```
-
-    > Si vous avez une précédente version de l'agent déjà installée, la ligne concernée peut être différente : dans ce cas, remplacez-la par la ligne ci-dessus.
-
-    > La fonction Topologie utilise le fichier **centreon-agent.yml** pour collecter les informations nécessaires: ce comportement est codé en dur. Si vous changez le nom de ce fichier YAML, la fonction échouera.
-
-8. Vous pouvez maintenant [configurer votre Agent](#configurer-lagent) (passerelle, proxy etc.), puis [tester](#tester-lagent) votre configuration générale.
+6. Vous pouvez maintenant [configurer votre Agent](#configurer-lagent) (passerelle, proxy etc.), puis [tester](#tester-lagent) votre configuration générale.
 
 ### Sur d'autres machines hôtes (serveur distant, collecteur, MAP, etc.)
 

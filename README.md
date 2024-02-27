@@ -1,9 +1,9 @@
 # Docs @ Centreon
 
-Welcome to the repo for our documentation. This is the source for	
-[https://docs.centreon.com/](https://docs.centreon.com/).	
+Welcome to the repo for our documentation. This is the source for
+[https://docs.centreon.com/](https://docs.centreon.com/).
 
-Feel free to send us pull requests and file issues. Our docs are completely	
+Feel free to send us pull requests and file issues. Our docs are completely
 open source and we deeply appreciate contributions from our community!
 
 ## Table of Contents
@@ -17,14 +17,14 @@ open source and we deeply appreciate contributions from our community!
 We really want your feedback, and we've made it easy. You can edit a page or
 request changes using the "Edit this page" button at the bottom of each page.
 
-**Only file issues about the documentation in this repository.** 
+**Only file issues about the documentation in this repository.**
 
 One way to think about this is that you should file a bug here if your issue is that you
 don't see something that should be in the docs, or you see something incorrect
 or confusing in the docs.
 
 - If your problem is a general question about how to configure or use Centreon,
-  ask in the [Slack channel](https://centreon.github.io/register-slack/) instead.
+  ask on [our community platform The Watch](https://thewatch.centreon.com/) instead.
 
 - If you have an idea for a new feature or behavior change in a specific aspect
   of Centreon, or have found a bug in part of Centreon, file that issue in
@@ -52,7 +52,7 @@ Help us review your PRs more quickly by following these guidelines.
 
 ### Style guide
 
-Try not to have lines over 80 characters. Use your best judgment, and try to follow the example 
+Try not to have lines over 80 characters. Use your best judgment, and try to follow the example
 set by the existing documentation.
 
 ## How to build the documentation locally
@@ -88,7 +88,7 @@ Use branch **staging**. We will merge the PR into production once it has gone th
 4. Install dependencies:
 
    ```
-   yarn
+   yarn install --frozen-lockfile
    ```
 
 ### Building the documentation website
@@ -105,7 +105,7 @@ Use branch **staging**. We will merge the PR into production once it has gone th
    ```
    yarn build
    ```
-   
+
    Then use the `npm run serve` command to open the website in your browser.
 
 ## Adding files to the table of contents

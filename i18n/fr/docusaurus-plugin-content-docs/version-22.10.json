@@ -208,7 +208,7 @@
     "description": "The label for category Releases in sidebar docs"
   },
   "sidebar.docs.category.Release notes by component": {
-    "message": "Release note",
+    "message": "Release notes",
     "description": "The label for category Release notes by component in sidebar docs"
   },
   "sidebar.docs.category.Security": {
@@ -270,5 +270,9 @@
   "sidebar.docs.category.Centreon MAP (Legacy)": {
     "message": "Centreon MAP (Legacy)",
     "description": "The label for category Centreon MAP (Legacy) in sidebar docs"
+  },
+  "sidebar.docs.category.Getting started with Centreon OnPrem": {
+    "message": "Démarrer avec Centreon OnPrem",
+    "description": "The label for category Getting started with Centreon OnPrem in sidebar docs"
   }
 }

@@ -100,7 +100,7 @@ The remote user must have enough privileges to execute system commands.
 yum install centreon-plugin-Applications-Netbackup-Ssh
 ```
 
-2. On the Centreon Web interface, install the **Netbackup SSH** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+2. On the Centreon Web interface, install the **Netbackup SSH** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -117,7 +117,7 @@ yum install centreon-plugin-Applications-Netbackup-Ssh
 yum install centreon-pack-applications-netbackup-ssh
 ```
 
-3. On the Centreon Web interface, install the **Netbackup SSH** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the **Netbackup SSH** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

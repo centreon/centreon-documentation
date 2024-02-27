@@ -368,7 +368,7 @@ aux bases de données du serveur de supervision. Utilisez l'option suivante :
 S'il n'y a pas de mot de passe pour l'utilisateur "root", ne spécifiez pas l'option **root-password**.
 
 </TabItem>
-<TabItem value="Base de surpervision déportée par rapport au central" label="Base de surpervision déportée par rapport au central">
+<TabItem value="Base de supervision déportée par rapport au central" label="Base de supervision déportée par rapport au central">
 
 La base de données de supervision MariaDB est hébergée sur un serveur dédié.
 
@@ -394,12 +394,11 @@ fichier **my.cnf** du serveur esclave ou mariadb.cnf sur Debian 11.
 replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
 ```
 
-Ensuite, créez les vues manuellement sur le serveur esclave en lançant la
-ligne de commande suivante :
+Ensuite, créez les vues manuellement sur le serveur esclave :
 
-```bash
-wget https://docs.centreon.com/fr/assets/files/view_creation-948c02cd93f8867179ec47fd611426bd.sql -O /tmp/view_creation.sql
-```
+1. Téléchargez [le fichier suivant](../assets/reporting/installation/view_creation.sql) dans un répertoire temporaire (ici, **/tmp**), par exemple en utilisant **wget**.
+
+2. Exécutez la commande suivante (changez le nom de votre répertoire temporaire si besoin):
 
 ```bash
 mysql centreon < /tmp/view_creation.sql
@@ -575,7 +574,8 @@ wget hhttps://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 Installez le dépôt Centreon :
 
 ```shell
-echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-22.10-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
 Installez les paquets prérequis :
@@ -610,7 +610,8 @@ apt install centreon-bi-reporting-server mariadb-server mariadb-client
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+yum install -y yum-utils
+yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el7/centreon-22.10.repo
 ```
 
 ```shell

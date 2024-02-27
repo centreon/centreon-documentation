@@ -28,7 +28,7 @@ In addition, it is important to verify that the Apache account does not have con
 Execute the following command:
 
 ```shell
-cat /etc/passwd | grep apache
+grep apache /etc/passwd
 ```
 
 You must have **/sbin/nologin** like:
@@ -37,7 +37,7 @@ You must have **/sbin/nologin** like:
 apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 ```
 
-> As a reminder, the list of users and groups can be found [here](../installation/prerequisites.md#users-and-groups)
+> As a reminder, the list of users and groups can be found [here](../installation/technical.md#users-and-groups)
 
 ## Enable SELinux
 
@@ -256,7 +256,7 @@ centreon-web	0.0.8
 Before enabling SELinux in **enforcing** mode, you need to be sure that no errors appear using the following command:
 
 ```shell
-cat /var/log/audit/audit.log | grep -i denied
+grep -i denied /var/log/audit/audit.log
 ```
 
 If errors appear, you have to analyse them and to decide if these errors are regular and must be added in addition to
@@ -1586,6 +1586,21 @@ However, the gorgone HTTP API is unsecured by default. Only localhost can talk w
 You can [configure SSL](https://github.com/centreon/centreon/blob/develop/centreon-gorgone/docs/modules/core/httpserver.md) in the **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** file.
 
 Then you must configure gorgone using the **Administration > Parameters > Gorgone** page.
+
+You also need to make sure that the **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** file (on your central server, your remote servers and your pollers) contains the following lines:
+
+```shell
+name: action
+package: "gorgone::modules::core::action::hooks"
+enable: true
+command_timeout: 30
+whitelist_cmds: true
+allowed_cmds:
+  - ^sudo\s+(/bin/)?systemctl\s+(reload|restart)\s+(centengine|centreontrapd|cbd)\s*$
+  - ^sudo\s+(/usr/bin/)?service\s+(centengine|centreontrapd|cbd)\s+(reload|restart)\s*$
+  - ^/usr/sbin/centenginestats\s+-c\s+/etc/centreon-engine/centengine.cfg\s*$
+  - ^cat\s+/var/lib/centreon-engine/[a-zA-Z0-9\-]+-stats.json\s*$  
+```
 
 ## Security Information and Event Management - SIEM
 

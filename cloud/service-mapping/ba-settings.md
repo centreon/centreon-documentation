@@ -6,22 +6,22 @@ title: Settings
 ## Default Settings
 
 The default settings are conveniently prefilled to assist you in
-creating new BAs and indicators (KPIs). It can be found in
+creating new BAs and indicators (KPIs). They can be found in
 `Monitoring > Business Activity > Default Settings`
 
 ### Impact settings
 
-The following parameters correpond to the default values behind the *Weak*,
+The following parameters correspond to the default values behind the *Weak*,
 *Minor*, *Major*, *Critical* and *Blocking* impact types when configuring
 indicators in *Regular* mode.
 
 ![image](../assets/service-mapping/guide/list_impacts_basic.png)
 
-Impact types have to be defined in percentage.
+Impact types must be defined as a percentage.
 
 ![image](../assets/service-mapping/guide/impacts_configuration.png)
 
-### Business Activity and Boolean rule impacts settings
+### Business Activity and Boolean rule impact settings
 
 These default parameters are used for prefilling the fields for **Business
 Activity** or **Boolean rule**-type indicators in *Advanced* mode.
@@ -36,30 +36,24 @@ The default parameters below define values for BAs.
 
 | Column                   | Description                                                                                           |
 | ------------------------ | ----------------------------------------------------------------------------------------------------- |
-| Warning Threshold        | *Warning* threshold: Corresponds to a warning condition of the BA. A notification can then be sent.   |
-| Critical Threshold       | *Critical* threshold: Corresponds to a critical condition of the BA. A notification can then be sent. |
+| Warning Threshold        | *Warning* threshold: Corresponds to a warning condition of the BA.  |
+| Critical Threshold       | *Critical* threshold: Corresponds to a critical condition of the BA. |
 | Reporting Period         | Time Default BA reporting time period                                                                 |
-| Notification Time Period | Default BA notification time period                                                                   |
-| Contact Groups           | Default BA notified contact groups                                                                    |
-| Notification Interval    | Default BA notification interval                                                                      |
+| Notification Time Period | This option is currently inactive. In Centreon Cloud, BAs use [the same notification mechanism as hosts and services](https://docs.centreon.com/cloud/alerts-notifications/notif-configuration/).                                                                  |
+| Contact Groups           | This option is currently inactive. In Centreon Cloud, BAs use [the same notification mechanism as hosts and services](https://docs.centreon.com/cloud/alerts-notifications/notif-configuration/).                                                                  |
+| Notification Interval    | This option is currently inactive. In Centreon Cloud, BAs use [the same notification mechanism as hosts and services](https://docs.centreon.com/cloud/alerts-notifications/notif-configuration/).                                                                   |
 | Height Impact Tree       | Default height for window showing impact tree                                                         |
-
-To be able to notify user/external solutions (Slack, OpenDuty etc..) belonging
-to the contact group you defined, you have to configure the dedicated Business
-Activity notification section in user's form:
-
-![image](../assets/service-mapping/guide/bam_user_notification.png)
 
 ## User settings
 
-The **User Settings** are personalised options that belong to each user profile,
+The **User Settings** are personalized options that belong to each user profile,
 you can configure it in **Monitoring > Business Activity > User Settings**.
 
 ### Custom Overview
 
 By default, the Centreon BAM module displays the monitoring console with
-all authorized BAs. However, the user has the possibility to compose his
-own overview by adding the BAs of his choice, among those which are
+all authorized BAs. However, the user has the possibility to compose their
+own overview by adding the BAs of their choice, chosen from those that are
 authorized.
 
 ![image](../assets/service-mapping/guide/user_custom.png)

@@ -11,6 +11,8 @@ VMware is an software compagny based in USA. VMware provides cloud computing and
 
 The Centreon Plugin and Monitoring Connectors rely on the Centreon VMWare Connector to request the vCenter SDK.
 
+> This Monitoring Connector can be used with either version 6 or 7 of the VMware API.
+
 ## Monitoring Connector Assets
 
 ### Monitored Objects
@@ -175,7 +177,7 @@ The Pollers that request the Centreon VMWare Connector host need to access in TC
 yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 ```
 
-2. Install the 'Vmware VM' Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+2. Install the 'Vmware VM' Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -192,7 +194,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 yum install centreon-pack-virtualization-vmware2-vm
 ```
 
-3. Install the 'Vmware VM' Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+3. Install the 'Vmware VM' Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

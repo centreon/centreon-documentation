@@ -97,11 +97,11 @@ Le sourcetype correspondant au stream connector est "_json". D'autres informatio
 
 ### Filtrer ou adapter les données que vous voulez envoyer à Splunk
 
-Tous les stream connectors ont un jeu de [paramètres optionnels](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters) qui vous permettent de filtrer les données que vous enverrez à votre équipement Splunk, de reformatter les données, de définir un proxy...
+Tous les stream connectors ont un jeu de [paramètres optionnels](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters) qui vous permettent de filtrer les données que vous enverrez à votre équipement Splunk, de reformater les données, de définir un proxy...
 
 Chaque paramètre optionnel a une valeur par défaut, qui est indiquée dans la documentation correspondante.
 
-* Pour surcharger la valeur par défaut d'un paramètre, cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category**, afin d'ajouter un paramètre personnalisé. Par exemple, si vous ne voulez envoyer à Splunk que les évènmenes traités par un collecteur nommé "poller-1", entrez :
+* Pour surcharger la valeur par défaut d'un paramètre, cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category**, afin d'ajouter un paramètre personnalisé. Par exemple, si vous ne voulez envoyer à Splunk que les évènements traités par un collecteur nommé "poller-1", entrez :
 
    ```text
    type = string

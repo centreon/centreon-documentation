@@ -1,0 +1,505 @@
+---
+id: centreon-os
+title: Centreon Open Source
+---
+
+import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
+
+## Introduction
+
+Vous trouverez dans ce chapitre tout ce qui concerne **Centreon Open Source**.
+
+> Il est important de mettre à jour en utilisant la documentation adéquate de mise à jour et de lire attentivement les
+> notes de mise à jour afin d'être au courant des changements qui pourraient impacter votre usage ou votre plateforme
+> ou des développements spécifiques que vous auriez fait.
+
+Pour faire des demandes d'évolutions ou signaler des bugs sur les extensions commerciales, vous pouvez vous rendre sur
+notre [Github](https://github.com/centreon/centreon/issues/new/choose).
+
+> Retrouvez plus de détails sur la version 23.10 dans notre [post de blog](https://www.centreon.com/fr/centreon-23-10-decouvrez-les-dernieres-nouveautes/).
+
+<ExpandCollapseAll />
+
+## Centreon Web
+
+### 23.10.9
+
+Release date: `February 22, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Install] Fixed an issue that prevented the Dashboard module from being updated from 23.10.2 to 23.10.3.
+
+</details>
+
+### 23.10.8
+
+Release date: `February 14, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+#### Dashboards Beta
+
+- [API] Added "name" and "parent_name" parameters to metrics/performances and metrics/top endpoints.
+- [API] Added an endpoint to manage dashboard shares in batch.
+- [API] Retrieved only users with dashboard ACLs in contact listing.
+- [Breaking change] Simplified metric selection by displaying corresponding service names.
+- [UI] Added pictograms to represent each widget type.
+- [UI] Moved the parameter used for hiding widget's description.
+- [UX] Added links to Resources Status page on widgets.
+- [UX] Added a new way to display dashboards, as a list.
+- [UX] Added a search functionality.
+- [UX] Added pagination.
+- [UX] Handled the new shares system on Dashboards.
+- [UX] Retrieved correctly contact and contactgroup shares for non admin users.
+- [Widget] Added the new "Resource Table" widget.
+- [Widget] Added default message when no resource has been selected yet.
+- [Widget] Metrics Graph: added a warning message indicating that thresholds have been hidden when selecting two different metric units.
+- [Widget] Single Metric: simplified dataset selection by forcing a host + service pair.
+- [Widget] Status Grid: added "unhandled" state property.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+#### Dashboards Beta
+
+- [ACLs] Fixed an issue that was retrieving all contactgroups despite Dashboard ACLs.
+- [API] Fixed a security issue on category and severity displaying.
+- [Dataset] Fixed an issue that allowed to select a resource type more than once.
+- [MySQL] Fixed an issue preventing to search a host in a widget.
+- [Widget] Status Grid: fixed tiles ordering by status.
+- [Widget] Status Grid: fixed an issue preventing the user from deleting the value for the number of tiles to display.
+- [Widget] Status Grid: fixed the "Metric not found" message that was not supposed to appear.
+
+#### Web
+
+- [UI] Fixed the display of inappropriate 404 error page when loading MAP homepage.
+
+</details>
+
+### 23.10.7
+
+Release date: `January 24, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Prevented API calls from being cancelled when switching to another page.
+
+</details>
+
+### 23.10.6
+
+Release date: `January 15, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added dashboard shares to the dashboard list.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Authentication] Fixed hardcoded email value that blocked SSO authentication with OpenId Connect when parameter was not an email.
+- [Configuration] Fixed error message displayed in configuration generation after upgrading to 23.04 version.
+- [Event Logs] Fixed period in CSV export.
+- [Installation] Fixed installation issue occurring when database user already existed.
+- [Installation] Fixed issue adding twice poller ID in Centreon Gorgone configuration.
+- [My Account] Made the name, login and password fields read-only for non-local users so as to prevent issues where users who had edited these properties were locked out of the platform.
+- [Resource Status] Fixed bad host redirection in the services panel.
+- [Resource Status] Fixed default sorting order in Resources status: from worst to best.
+- [Web] Fixed an issue where inherited contacts/contact groups were not displayed in the notifications tab.
+
+</details>
+
+### 23.10.5
+
+Release date: `January 2, 2024`
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed an SQLi vulnerability (CVE-2024-0637, CVE-2024-23115, CVE-2024-23116, CVE-2024-23117, CVE-2024-23118, CVE-2024-23119).
+
+</details>
+
+### 23.10.4
+
+Release date: `December 21, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added new endpoint to create a playlist of dashboards.
+- [API] Added new endpoint to share playlist of dashboards to contacts/contact groups.
+- [API] Added new endpoint to delete playlist of dashboards.
+- [Graph] Optimized legend.
+- [Map widget] Added information message when editing.
+- [UX] Reorganized rich text options for widget description.
+- [Widget] Added new "Status Grid" widget.
+- [Widget edit] Renamed "Add resource" button to "Refine filter".
+- [Widget edit] Made the dataset selection header sticky.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed an issue with the "Service group update" service template.
+- [API] POST/administration/tokens endpoint documentation now includes 201 response details.
+- [API] Fixed a visibility issue with configuration/users endpoint.
+- [Metrics Graph widget] Fixed an issue where labels for the ordinate axis were cropped.
+- [Server] URL patterns have been modified.
+- [Single Metric widget] Simplified metric selection.
+- [UI] Fixed a cursor issue that occurred when editing a widget.
+- [Widget edition] Fixed an issue that occurred when removing a resource or a metric.
+
+</details>
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Security] Prevented a command injection.
+
+</details>
+
+### 23.10.3
+
+Release date: `December 5, 2023`
+
+- No change on on-premises version. Changes are on cloud version.
+
+### 23.10.2
+
+Release date: `November 29, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed an issue where service queries didn't return all the results.
+- [Resources Status] Fixed the issue that automatically disabled the option to access the UI when user clicked on the compact/extended button.
+
+</details>
+
+### 23.10.1
+
+Release date: `November 17, 2023`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added new endpoint to list all metrics for a given service.
+- [Graph] Thickened curves.
+- [Widgets] Simplified the selection of resources.
+- [UI] Updated dashboard global refresh icon.
+- [UX] Made the widget edition command more accessible.
+- [UX] A warning message is now displayed when dashboard modifications have not been saved yet.
+- Added metrics by service listing endpoint to service resource type.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed issue occurring when using special characters in metric names.
+- [API] Fixed a security issue concerning some API responses.
+- [Authentication] Fixed an issue with the retrieval of attributes used to identify users.
+- [Authentication] The "Reach Centreon Front-end" option is now automatically enabled for imported users authenticated through SSO.
+- [Core] Fixed access to pages when Symfony debug mode was enabled.
+- [Event Logs] Fixed pagination.
+- [Packaging] Fixed an issue where centreontrapd was configured for a poller rather than for a central on Debian.
+- [Widget] Fixed an issue that prevented a widget from loading correctly.
+- Fixed crash caused by partitioning script when database server did not support partitioning.
+- Fixed an issue where widgets were cloned in a new dashboard that was created while another dashboard was being edited at the same time.
+
+</details>
+
+<details open>
+  <summary>Security fixes</summary>
+
+- Fixed potential XSS vulnerability in the list of discovered hosts (CVE-2023-51633).
+
+</details>
+
+### 23.10.0
+
+Release date: `October 30, 2023`
+
+<details open>
+<summary>New features</summary>
+
+- **Dashboards Beta**: with Dashboards, you can effortlessly create and share intuitive dashboards for real-time monitoring of metrics, host/service statuses, and much more. Join our [Dashboards Beta group](https://thewatch.centreon.com/groups/centreon-dashboards-beta-59) on our community platform The Watch!
+- **Resources Status**:
+   - In addition to the current view (**All** view), you can now access to two new views to see only the services (**By Services** view), as well as a view to see the hosts and all their attached services (**By Hosts** view).
+  These two new views have been designed based on what was done in deprecated pages.
+   - We have also completely redesigned filters, making it easier to select resources.
+
+   > Deprecated pages will be removed in the next major version.
+
+</details>
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [ACL] You can now manage API tokens with an action & menu access.
+- [API] API restrictions (ro/rw) are now applied while deleting a host or a service using the API.
+- [API] CLAPI now ignores empty lines and lines starting with the `#` character.
+- [API] The field "notify" has been added to the monitoring/services GET route.
+- [API] The field "is_activated" has been removed from host template and service template routes.
+- [API] Added service search in hostGroups/serviceGroups endpoints.
+- [API] Added telemetry and statistics to the token management API.
+- [API] Added a route to create a service template.
+- [API] Added a route to delete a service template.
+- [API] Added a route to list service templates.
+- [API] Added a route to create a host template.
+- [API] Added a route to delete a host template.
+- [API] Added a route to list commands.
+- [API] Added a route to handle templates of a host template (PATCH).
+- [API] Added a route to update a host category of a host template (PATCH).
+- [API] Added a route to link a service template to host templates (PATCH).
+- [API] Added a route to update a host category of a host template (POST).
+- [API] Added a route to update macros of a host template (PATCH).
+- [API] Added a route to handle templates of a host template (POST).
+- [API] Added a route to list host templates.
+- [API] Added a route to update/find host severity.
+- [API] Added a route to get a host category.
+- [API] Added a route to update a host category.
+- [API] Added a route to update one host group (PUT).
+- [API] Added a route to retrieve one host group (PUT).
+- [API] Added routes to create and delete hosts.
+- [API] Added routes to create, delete and list services.
+- [API] Added routes to create, delete and list tokens.
+- [API] Updated the service template creation route to handle relations with service groups.
+- [API] Updated the service template partial update route to handle relations with service groups.
+- [API] Updated the service template create route to handle macros.
+- [API] Updated the service template partial update route to handle macros.
+- [API] Updated the service template partial update route to handle all properties.
+- [API] Updated the service template create route to handle all properties.
+- [API] Updated the service template partial update route to link a service template to service categories.
+- [API] Updated the host template create route to handle all properties.
+- [API] Updated the service template partial update route to link a service template to host templates.
+- [API] Updated the AddHostTemplate route to handle macros (POST).
+- [API] Updated the host create API route to handle host groups.
+- [Authentication] Added user attributes received from IdP in Centreon login file if debug is enabled.
+- [Authentication] Removed password fields if contact is not local type.
+- [CEIP] Added a debug option to display CEIP telemetry data sent to Centreon.
+- [Configuration] Added the support of BBDO 3.0.1 for Centreon Broker configuration.
+- [Core] Implemented a simple feature flag system.
+- [Monitoring] The breadcrumb for monitoring legacy pages now states that we will remove these pages in the next major version.
+- [Resources Status] Added a tooltip to understand how to use filters.
+
+</details>
+
+<details>
+<summary>Bug fixes</summary>
+
+- [API] Fixed an issue where values for contact additive inheritance were not updated with new endpoints.
+- [API] Fixed issues on duplicate display, encoding and add_inherited_contact in host and host template endpoints.
+- [API] Fixed access to list of groups of resources regarding ACL definition.
+- [CLAPI] Fixed a bug that duplicated the host template / service template relations.
+- [CLAPI] Removed the possibility to link a regular resource with a template.
+- [CLAPI] Added the missing parameters to handle new Broker logging options (thanks to a [community member's contribution](https://github.com/centreon/centreon/pull/885)). 
+- [CLAPI] Fixed the export of severities to be able to reimport them.
+- [CLAPI] Fixed a PHP warning that was displayed when using getparam on a service.
+
+</details>
+
+<details open>
+  <summary>Breaking changes</summary>
+
+- All acknowledgements are not persistent. We removed the **Persistent** option from the acknowledgement window so that it cannot be unchecked. This is because an acknowledgement must persist even when Centreon engine is restarted.
+- [CLAPI] Macros are now displayed identically for hosts, host templates and service templates.
+
+</details>
+
+## Centreon Collect
+
+### 23.10.3
+
+Release date: `February 14, 2024`
+
+#### Centreon Broker
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed an issue in the installation process that emptied the `retention.dat` file, causing the temporary loss of all resources' statuses and the permanent loss of current acknowledgements and downtimes.
+
+</details>
+
+### 23.10.2
+
+Release date: `January 11, 2024`
+
+#### Centreon Broker
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed an issue occurring when a Business Activity was updated after a status change for a KPI with a BA type.
+- [Install] Fixed rights on SSH directory for Debian.
+- [Packaging] Fixed an error that was returned during the installation of **centreon-broker-cbmod**.
+
+</details>
+
+### 23.10.1
+
+Release date: `December 15, 2023`
+
+#### Centreon Broker
+
+<details open>
+  <summary>Enhancements</summary>
+
+- KPIs are now designated by their type and name instead of KPIxx.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a bug that made Broker crash when rebuilding RRD files for unexisting metrics.
+
+</details>
+
+### 23.10.0
+
+Release date: `October 30, 2023`
+
+#### Centreon Engine
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 23.10 components.
+
+</details>
+
+#### Centreon Broker
+
+<details open>
+  <summary>New features</summary>
+
+- An **experimental** output type has been added to send internal performance data to OpenTelemetry receivers. This cannot be used from the WUI at the moment.
+- An **experimental** output type has been added to send the monitored metrics to VictoriaMetrics time-series databases. This cannot be used from the WUI at the moment.
+
+</details>
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Broker management of SQL database connections has been improved. It now uses auto-commited bulk inserts in tables where insert is safe while using transactions for all other write operations, keeping the latter bound to the same connection. This secures the utilization of up to 3 connections to the database, improving the performance in updating the real time data.
+- The RRD files used to store status history are now rebuilt at the same time as metric files.
+- Broker now ignores incorrect filter settings if these prevent some features from functioning.
+- New performance counters have been added to the gRPC API in order to track the longest queries and statements.
+
+</details>
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 23.10 components.
+
+</details>
+
+## Centreon Gorgone
+
+### 23.10.3
+
+Release date: `February 14, 2024`
+
+<details>
+  <summary>Security fixes</summary>
+[Security] Enabled whitelist of Centreon Gorgone commands by default to manage Centreon Engine and Broker processes in order to limit escalations of potential future vulnerabilities.
+
+</details>
+
+### 23.10.2
+
+Release date: `December 21, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Fixed a stability issue causing the kernel to kill the **gorgoned** process.
+
+</details>
+
+### 23.10.1
+
+Release date: `November 17, 2023`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Configuration] Fixed warning chmod during generation of configuration.
+
+</details>
+
+### 23.10.0
+
+Release date: `October 30, 2023`
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 23.10 components.
+
+</details>
+
+## Centreon High Availability
+
+### 23.10.0
+
+Release date: `October 30, 2023`
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 23.10 components.
+
+</details>
+
+## Centreon DSM
+
+### 23.10.0
+
+Release date: `October 30, 2023`
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 23.10 components.
+
+</details>
+
+## Centreon Open Tickets
+
+### 23.10.0
+
+Release date: `October 30, 2023`
+
+<details>
+  <summary>Compatibility</summary>
+- Compatibility with other 23.10 components.
+
+</details>
+
+## Centreon AWIE
+
+### 23.10.0
+
+Release date: `October 30, 2023`
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 23.10 components.
+
+</details>

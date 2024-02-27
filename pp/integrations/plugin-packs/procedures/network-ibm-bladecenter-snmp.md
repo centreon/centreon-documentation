@@ -102,7 +102,7 @@ Poller on the UDP/161 SNMP port.
 yum install centreon-plugin-Network-Ibm-Bladecenter-Snmp
 ```
 
-2. On the centreon Web interface, install the *IBM BladeCenter Switch* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+2. On the centreon Web interface, install the *IBM BladeCenter Switch* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -119,7 +119,7 @@ yum install centreon-plugin-Network-Ibm-Bladecenter-Snmp
 yum install centreon-pack-network-ibm-bladecenter-snmp
 ```
 
-3. On the centreon Web interface, install the *IBM BladeCenter Switch* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+3. On the centreon Web interface, install the *IBM BladeCenter Switch* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

@@ -3,10 +3,6 @@
     "message": "22.04",
     "description": "The label for version 22.04"
   },
-  "sidebar.docs.category.Getting Started": {
-    "message": "Getting Started",
-    "description": "The label for category Getting Started in sidebar docs"
-  },
   "sidebar.docs.category.Installation": {
     "message": "Installation",
     "description": "The label for category Installation in sidebar docs"
@@ -208,7 +204,7 @@
     "description": "The label for category Releases in sidebar docs"
   },
   "sidebar.docs.category.Release notes by component": {
-    "message": "Release note",
+    "message": "Release notes",
     "description": "The label for category Release notes by component in sidebar docs"
   },
   "sidebar.docs.category.Security": {
@@ -226,5 +222,9 @@
   "sidebar.docs.link.Plugin Packs": {
     "message": "Plugin Packs",
     "description": "The label for link Plugin Packs in sidebar docs, linking to /pp/integrations/plugin-packs/getting-started/introduction"
+  },
+  "sidebar.docs.category.Getting started with Centreon OnPrem": {
+    "message": "Démarrer avec Centreon OnPrem",
+    "description": "The label for category Getting started with Centreon OnPrem in sidebar docs"
   }
 }

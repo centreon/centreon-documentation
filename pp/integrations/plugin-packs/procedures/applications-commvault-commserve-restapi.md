@@ -72,7 +72,7 @@ E.g: https://api.commvault.com/
 yum install centreon-plugin-Applications-Commvault-Commserve-Restapi
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Commvault Commserve Rest API* Monitoring Connector
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Commvault Commserve Rest API* Monitoring Connector
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -89,7 +89,7 @@ yum install centreon-plugin-Applications-Commvault-Commserve-Restapi
 yum install centreon-pack-applications-commvault-commserve-restapi
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *Commvault Commserve Rest API* Monitoring Connector
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *Commvault Commserve Rest API* Monitoring Connector
 
 </TabItem>
 </Tabs>
