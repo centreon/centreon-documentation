@@ -2,15 +2,18 @@ module.exports = {
   pp: [
     {
       type: 'category',
-      label: 'Getting started',
+      label: 'Getting started with Monitoring Connectors',
+      "link": {
+        type: "doc",
+        id: 'integrations/plugin-packs/getting-started/introduction'
+               },
       items: [
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/getting-started/introduction'
-        },
         {
           type: 'category',
           label: 'How-to guides',
+          "link": {
+            "type": "generated-index",
+                   },
           items: [
             {
               type: 'doc',
@@ -41,6 +44,9 @@ module.exports = {
         {
           type: 'category',
           label: 'Developers Center',
+          "link": {
+            "type": "generated-index",
+                   },
           items: [
             {
               type: 'doc',
@@ -61,6 +67,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Applications',
+      "link": {
+        "type": "generated-index",
+               },
       items: [
         {
           type: 'doc',
@@ -623,6 +632,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Blockchain',
+      "link": {
+        "type": "generated-index",
+               },
       items: [
         {
           type: 'doc',
@@ -641,6 +653,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Centreon',
+      "link": {
+        "type": "generated-index",
+               },
       items: [
         {
           type: 'doc',
@@ -683,6 +698,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Cloud',
+      "link": {
+        "type": "generated-index",
+               },
       items: [
         {
           type: 'doc',
@@ -1081,6 +1099,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Database',
+      "link": {
+        "type": "generated-index",
+               },
       items: [
         {
           type: 'doc',
@@ -1159,6 +1180,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Hardware-server',
+      "link": {
+        "type": "generated-index",
+               },
       items: [
         {
           type: 'doc',
@@ -1357,6 +1381,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Network',
+      "link": {
+        "type": "generated-index",
+               },
       items: [
         {
           type: 'doc',
@@ -2022,7 +2049,10 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Operating-system',
+      label: 'Operating system',
+      "link": {
+        "type": "generated-index",
+               },
       items: [
         {
           type: 'doc',
@@ -2109,6 +2139,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Printer',
+      "link": {
+        "type": "generated-index",
+               },
       items: [
         {
           type: 'doc',
@@ -2119,6 +2152,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Protocol',
+      "link": {
+        "type": "generated-index",
+               },
       items: [
         {
           type: 'doc',
@@ -2225,6 +2261,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Sensor',
+      "link": {
+        "type": "generated-index",
+               },
       items: [
         {
           type: 'doc',
@@ -2283,6 +2322,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Storage',
+      "link": {
+        "type": "generated-index",
+               },
       items: [
         {
           type: 'doc',
@@ -2592,7 +2634,10 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Toip-voip',
+      label: 'TOIP-VOIP',
+      "link": {
+        "type": "generated-index",
+               },
       items: [
         {
           type: 'doc',
@@ -2646,7 +2691,10 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Ups-pdu',
+      label: 'UPS-PDU',
+      "link": {
+        "type": "generated-index",
+               },
       items: [
         {
           type: 'doc',
@@ -2749,6 +2797,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Virtualization',
+      "link": {
+        "type": "generated-index",
+               },
       items: [
         {
           type: 'doc',

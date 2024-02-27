@@ -1,7 +1,9 @@
 ---
 id: introduction-integrations
-title: Introduction to third-party integrations
+title: Integrations
 ---
+
+## Introduction to third-party integrations
 
 Centreon provides numerous ways to cooperate with third-party tools to guarantee
 a perfect integration within your IT ecosystem.
@@ -19,10 +21,9 @@ This documentation is organized to guide you to the right integration depending 
 feature or value-proposition you want to obtain by connecting Centreon with a third-party
 solution. Here is a list of integrations domains:
 
-- [Data Analytics](../integrations/data-analytics/data-analytics-overview.md)
-- [Event Management](../integrations/event-management/event-management-overview.md)
-- [ITSM](../integrations/itsm/itsm-overview.md)
-- [Notifications](../integrations/notifications/notifications-overview.md)
+import DocCardList from '@theme/DocCardList';
+
+<DocCardList />
 
 Can't find the integration you're expecting? Just let us know by reaching
 us on [our community platform The Watch](https://thewatch.centreon.com/) or contacting us through our contact

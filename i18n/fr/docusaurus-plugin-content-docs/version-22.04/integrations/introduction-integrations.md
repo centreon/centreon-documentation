@@ -1,7 +1,9 @@
 ---
 id: introduction-integrations
-title: Connecter Centreon à vos autres outils
+title: Intégrations
 ---
+
+## Connecter Centreon à vos autres outils
 
 Centreon offre de nombreuses manières de s'interfacer avec des outils tiers afin
 de permettre une parfaite intégration avec d'autres solutions.
@@ -21,10 +23,9 @@ Cette documentation est organisée en fonction des fonctionnalités des logiciel
 lesquels Centreon peut s'interfacer. Les grandes familles d'intégrations sont les 
 suivantes: 
 
-- [Data Analytics](../integrations/data-analytics/data-analytics-overview.md)
-- [Event Management](../integrations/event-management/event-management-overview.md)
-- [ITSM](../integrations/itsm/itsm-overview.md)
-- [Notifications](../integrations/notifications/notifications-overview.md)
+import DocCardList from '@theme/DocCardList';
+
+<DocCardList />
 
 Vous ne trouvez pas votre outil ou l'intégration que vous voulez? Faites le nous 
 savoir en posant la question sur notre [plateforme communautaire The Watch](https://thewatch.centreon.com/) ou en 
