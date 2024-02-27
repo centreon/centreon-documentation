@@ -12,7 +12,7 @@ Vous pouvez utiliser les paramètres suivants pour adapter le comportement du ca
 
 Un statut hérité est un statut personnalisé de Centreon MAP associé à certains objets, et qui est basé sur le pire statut de ses enfants. Voici les règles :
 
-- Un hôte a deux statuts : son propre statut (disponible/indisponible/en attente) et un statut hérité qui est basé sur le pire statut de ses services.
+- Un hôte a deux statuts : son propre statut (disponible/indisponible/en attente) et un statut hérité qui est basé sur le pire statut de ses services. Pour simplifier la lecture, le statut affiché est le résultat du calcul du pire statut des deux.
 - Un groupe d'hôtes n'a qu'un statut hérité correspondant au pire statut de ses enfants (hôtes, services).
 - Un groupe de services n'a qu'un statut hérité : le pire statut de ses enfants (services).
 - Un conteneur n'a qu'un statut hérité : le pire statut de ses enfants (hôtes, services, méta-services, groupes d'hôtes, groupes de services, BA, widgets).
@@ -21,18 +21,10 @@ Un statut hérité est un statut personnalisé de Centreon MAP associé à certa
 
 | Paramètre                           | Valeur possible | Valeur par défaut | Description                                                                                                 |
 | ----------------------------------- | --------------- | ----------------- | ----------------------------------------------------------------------------------------------------------- |
-| resource.status.use-hard              | true or false   | false             | Utiliser uniquement la valeur du statut HARD pour la propagation du statut hérité                       |
-|resource.status.ignore-on-downtime   | true or false   | false             | Ne pas propager l'état des ressources en maintenance et utiliser le statut par défaut                                                  |
-| resource.status.ignore-on-acknowledgement | true or false   | false             | Ne pas propager l'état des ressources acquittées et utiliser le statut par défaut                            |
-| resource.status.ignore-above-severity    | integer         | max value                 | Ne pas propager l'état des ressources dont la sévérité est supérieure à cette valeur et utiliser le statut par défaut        |
-
-Si le paramètre (en maintenance, acquitté, sévérité) a la valeur suivante :
-- **true** : la valeur du statut HARD (paramètre use-hard) n'est pas utilisée mais la valeur par défaut l'est.
-- **false** : si le statut HARD est à true, le statut HARD est utilisé. Si le statut HARD est à false, c'est le statut SOFT qui est utilisé.
-
-Le diagramme ci-dessous résume la manière dont le statut est calculé :
-
-![image](../assets/graph-views/ng/status-computation.png)
+| resource.status.use-hard              | true or false   | false             | Utiliser uniquement la valeur du statut HARD pour la propagation du statut hérité. Si le paramètre est à TRUE, les changements de statut SOFT ne sont pas pris en compte dans le calcul. Voir plus d'infos sur les [types de statut](../alerts-notifications/concepts.md#types-de-statuts).               |
+|resource.status.ignore-on-downtime   | true or false   | false             | Ne pas propager l'état des ressources en maintenance. Si le paramètre est à TRUE, le statut n'est pas pris en compte dans le calcul du statut hérité.                                                 |
+| resource.status.ignore-on-acknowledgement | true or false   | false             | Ne pas propager l'état des ressources acquittées. Si le paramètre est à TRUE, le statut n'est pas pris en compte dans le calcul du statut hérité.                            |
+| resource.status.ignore-above-severity    | integer         | max value                 | Ne pas propager l'état des ressources dont la sévérité est supérieure à cette valeur. Plus le numéro de la sévérité est bas, plus la ressource est critique.        |
 
 ### Modifier les paramètres
 
