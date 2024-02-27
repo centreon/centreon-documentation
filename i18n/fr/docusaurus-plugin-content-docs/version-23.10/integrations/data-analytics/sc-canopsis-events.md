@@ -205,12 +205,11 @@ Ce stream connector envoie des évènements au format suivant :
 ### Exemple de sortie pour un événement host_status
 
 ```json
-{
 [
    {
       "event_type":"check",
       "state":0,
-      "component":"Test-Lua",
+      "component":"Host-1",
       "timestamp":1708953238,
       "host_id":"15",
       "connector":"centreon-stream",
@@ -226,7 +225,26 @@ Ce stream connector envoie des évènements au format suivant :
       "output":"OK: Host is OK"
    }
 ]
-}
+```
+
+### Exemple de sortie pour un événement acknowledgement
+
+```json
+[
+   {
+      "event_type":"ackremove",
+      "component":"Host-1",
+      "connector":"centreon-stream",
+      "author":"admin",
+      "state":3,
+      "output":"Acknowledged by admin",
+      "source_type":"resource",
+      "long_output":"Acknowledged by admin",
+      "connector_name":"Central",
+      "timestamp":1709052753,
+      "resource":"passif"
+   }
+]
 ```
 
 ### Custom event format
