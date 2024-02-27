@@ -131,7 +131,7 @@ yum install centreon-pack-hardware-ups-socomec-netvision-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Socomec Net Vision UPS SNMP** connector through
-the **Configuration > Monitoring Connectors Manager** menu.
+the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
 
@@ -182,7 +182,7 @@ yum install centreon-plugin-Hardware-Ups-Socomec-Netvision-Snmp
 ### Using a host template provided by the connector
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
-2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource's settings.
 3. Apply the **HW-UPS-Socomec-Netvision-SNMP-custom** template to the host. 
 
 > When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
