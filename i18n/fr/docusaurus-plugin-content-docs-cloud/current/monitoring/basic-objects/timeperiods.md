@@ -6,6 +6,7 @@ title: Les périodes temporelles
 ## Définition
 
 Une période temporelle définit un intervalle de temps pour chacun des jours de la semaine. Ces périodes temporelles servent à déterminer quand les commandes de vérification seront exécutées sur une période donnée.
+Les périodes temporelles sont appliquées en fonction du fuseau horaire configuré sur le collecteur exécutant le contrôle.
 
 ## Configuration
 

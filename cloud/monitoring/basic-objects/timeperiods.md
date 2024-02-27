@@ -6,6 +6,7 @@ title: Time periods
 ## Definition
 
 Time periods define a time interval for each day of the week. They enable the execution of check commands over a given period of time.
+Time periods are applied according to the time zone configured on the poller which will execute the check.
 
 ## Configuration
 
