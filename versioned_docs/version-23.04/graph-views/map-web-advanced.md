@@ -20,10 +20,12 @@ An inherited status is a Centreon MAP custom status associated with some objects
 
 | Parameter                           | Possible value | Default value | Description                                                                                  |
 | ----------------------------------- | -------------- | ------------- | -------------------------------------------------------------------------------------------- |
-| resource.status.use-hard              | true or false  | false         | Only use hard status value for inherited status propagation. If the parameter is set to TRUE, SOFT status changes are not taken into account in the calculation. See more about [status types](../alerts-notifications/concepts.md#status-types).                                   |
+| resource.status.use-hard              | true or false  | false         | Only use hard status value for inherited status propagation. If the parameter is set to TRUE, SOFT status changes are not taken into account in the calculation. If the parameter is set to FALSE (default value), SOFT and HARD statuses are taken into account. See more about [status types](../alerts-notifications/concepts.md#status-types).                                   |
 | resource.status.ignore-on-downtime  | true or false  | false         | Do not propagate state for resources in downtime. If the parameter is set to TRUE, the status is not taken into account when calculating the inherited status.                                            |
 | resource.status.ignore-on-acknowledgement | true or false  | false         | Do not propagate state for acknowledged resources. If the parameter is set to TRUE, the status is not taken into account when calculating the inherited status.                                           |
-| resource.status.ignore-above-severity    | integer        | max value           | Do not propagate state for resources having severity superior to this value. The lower the severity number, the more critical the resource.                 |
+| resource.status.ignore-above-severity    | integer        | max value           | Do not propagate state for resources having severity strictly superior to this value. The lower the severity number, the more critical the resource. For instance, if this parameter is set to 1, only resources with a severity equal to 0 or 1 will be taken into account. Severities in Centreon are set between 0 and 127*.                 |
+
+*Resources with no configured severity are considered to have the highest severity. This means that if this parameter is set, whatever its value, resources that have no severity in Centreon will never be taken into account in inherited status calculation.
 
 ### Edit parameters
 

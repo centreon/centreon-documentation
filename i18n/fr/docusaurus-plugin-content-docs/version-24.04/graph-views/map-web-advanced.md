@@ -21,10 +21,12 @@ Un statut hérité est un statut personnalisé de Centreon MAP associé à certa
 
 | Paramètre                           | Valeur possible | Valeur par défaut | Description                                                                                                 |
 | ----------------------------------- | --------------- | ----------------- | ----------------------------------------------------------------------------------------------------------- |
-| resource.status.use-hard              | true or false   | false             | Utiliser uniquement la valeur du statut HARD pour la propagation du statut hérité. Si le paramètre est à TRUE, les changements de statut SOFT ne sont pas pris en compte dans le calcul. Voir plus d'infos sur les [types de statut](../alerts-notifications/concepts.md#types-de-statuts).               |
+| resource.status.use-hard              | true or false   | false             | Utiliser uniquement la valeur du statut HARD pour la propagation du statut hérité. Si le paramètre est à TRUE, les changements de statut SOFT ne sont pas pris en compte dans le calcul. Si le paramètre est à FALSE (valeur par défaut), les statuts SOFT et HARD sont pris en compte. Voir plus d'infos sur les [types de statut](../alerts-notifications/concepts.md#types-de-statuts).               |
 |resource.status.ignore-on-downtime   | true or false   | false             | Ne pas propager l'état des ressources en maintenance. Si le paramètre est à TRUE, le statut n'est pas pris en compte dans le calcul du statut hérité.                                                 |
 | resource.status.ignore-on-acknowledgement | true or false   | false             | Ne pas propager l'état des ressources acquittées. Si le paramètre est à TRUE, le statut n'est pas pris en compte dans le calcul du statut hérité.                            |
-| resource.status.ignore-above-severity    | integer         | max value                 | Ne pas propager l'état des ressources dont la sévérité est supérieure à cette valeur. Plus le numéro de la sévérité est bas, plus la ressource est critique.        |
+| resource.status.ignore-above-severity    | integer         | max value                 | Ne pas propager l'état des ressources dont la sévérité est strictement supérieure à cette valeur. Plus le numéro de la sévérité est bas, plus la ressource est critique. Par exemple, si ce paramètre est positionné à 1, seules les ressources avec une sévérité égale à 0 ou 1 seront prises en compte. Les sévérités dans Centreon prennent leur valeur entre 0 et 127*.        |
+
+*Les ressources qui n'ont pas de sévérité configurée, sont considérées comme ayant une sévérité maximale. Ceci implique que si ce paramètre est positionné, quelle que soit sa valeur, les ressources n'ayant pas de sévérité dans Centreon ne seront jamais prises en compte dans les calculs des statuts hérités.
 
 ### Modifier les paramètres
 
