@@ -32,9 +32,9 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                | Modèle de service                          | Description                                               | Découverte |
 |:---------------------|:-------------------------------------------|:----------------------------------------------------------|:----------:|
-| Traffic-Generic-Name | Net-Zyxel-Traffic-Generic-Name-SNMP-custom | Contrôle le traffic réseau d'une interface réseau         |            |
-| Traffic-Global       | Net-Zyxel-Traffic-Global-SNMP-custom       | Contrôle le traffic réseau de plusieurs interfaces réseau | X          |
-| Vpn-Status           | Net-Zyxel-Vpn-Status-SNMP-custom           | Contrôle le statut des vpns                               |            |
+| Traffic-Generic-Name | Net-Zyxel-Traffic-Generic-Name-SNMP-custom | Contrôle le trafic réseau d'une interface réseau         |            |
+| Traffic-Global       | Net-Zyxel-Traffic-Global-SNMP-custom       | Contrôle le trafic réseau de plusieurs interfaces réseau | X          |
+| Vpn-Status           | Net-Zyxel-Vpn-Status-SNMP-custom           | Contrôle le statut des VPNs                               |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
