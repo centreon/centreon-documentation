@@ -46,7 +46,7 @@ defined in the host templates below.
 
   To change the order of the macros, click ![image](../../assets/configuration/common/move.png#thumbnail1)
 
-* The **Check Period** field defines the time period during which the scheduler checks the status of the object.
+* The **Check Period** field defines the [time period](../basic-objects/timeperiods.md) during which the scheduler checks the status of the object.
 * The **Timezone** field indicates the location of the monitored hosts. The check period for this host will be based on this timezone.
 
 ### Scheduling options
