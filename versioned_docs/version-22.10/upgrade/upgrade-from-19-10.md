@@ -69,7 +69,7 @@ yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/e
 
 <Tabs groupId="sync">
 
-<TabItem value="Alma / RHEL / Oracle Linux 7" label="Alma / RHEL / Oracle Linux 7"><TabItem value="RHEL / Oracle Linux 7" label="RHEL / Oracle Linux 7">
+<TabItem value="RHEL / Oracle Linux 7" label="RHEL / Oracle Linux 7">
 ```shell
 curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=7 --mariadb-server-version="mariadb-10.5"
 ```
