@@ -30,7 +30,7 @@ A service or a service template can only inherit from a single service template
 
 To add a Service Template:
 
-Go into the **Configuration > Services > Templates (simplified)** menu and click **Add**.
+Go into the **Configuration > Services > Templates** menu and click **Add**.
 
 > Refer to the chapter covering configuration of
 > *[services](services.md)* to configure a template, because the

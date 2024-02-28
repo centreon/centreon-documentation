@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-> Hello community! We're looking for a contributor to help us to translate the content in french. If it's you, let us know and ping us on [slack](https://centreon.slack.com).
+> Hello community! We're looking for a contributor to help us translate this page into French. If it's you, let us know and ping us on [our community platform The Watch](https://thewatch.centreon.com/).
 
 ## PagerDuty + Centreon Integration Benefits
 
