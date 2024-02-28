@@ -32,9 +32,9 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                | Modèle de service                                 | Description                                               | Découverte |
 |:---------------------|:--------------------------------------------------|:----------------------------------------------------------|:----------:|
-| Traffic-Generic-Id   | Net-Dell-Sseries-Traffic-Generic-Id-SNMP-custom   | Contrôle le traffic réseau d'une interface réseau         |            |
-| Traffic-Generic-Name | Net-Dell-Sseries-Traffic-Generic-Name-SNMP-custom | Contrôle le traffic réseau d'une interface réseau         |            |
-| Traffic-Global       | Net-Dell-Sseries-Traffic-Global-SNMP-custom       | Contrôle le traffic réseau de plusieurs interfaces réseau | X          |
+| Traffic-Generic-Id   | Net-Dell-Sseries-Traffic-Generic-Id-SNMP-custom   | Contrôle le trafic réseau d'une interface réseau         |            |
+| Traffic-Generic-Name | Net-Dell-Sseries-Traffic-Generic-Name-SNMP-custom | Contrôle le trafic réseau d'une interface réseau         |            |
+| Traffic-Global       | Net-Dell-Sseries-Traffic-Global-SNMP-custom       | Contrôle le trafic réseau de plusieurs interfaces réseau | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
