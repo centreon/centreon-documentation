@@ -26,12 +26,13 @@ dédiés vous permettent de ne pas envoyer certains évènements.
 ## Compatibilité
 
 Conçu pour être compatible avec Canopsis (API v.4) et plus précisément les versions : 22.10, 
-23.04, 23.10 et 24.04 
+23.04, 23.10 et 24.04
 
 ## Installation
 
 Faites l'installation sur le serveur qui enverra les données à Canopsis (serveur central, 
 serveur distant, collecteur).
+
 1. Connectez vous en tant que `root` sur le serveur Centreon central en utilisant votre 
 client SSH préféré. 
 2. Exécuter la commande adaptée à votre système :
@@ -65,9 +66,9 @@ apt install centreon-stream-connector-canopsis
 ## Configuration de Canopsis 
 
 Vous devrez paramétrer votre équipement Canopsis pour qu'il puisse recevoir des données 
-de la part de Centreon. Reportez-vous à la [documentation Canopsis](https://doc.canopsis.net/guide-utilisation/menu-administration/droits/), notamment vérifiez que 
-les droits de création, lecture et suppressions sont activés. Pour l'utilisateur associé 
-à la "authKey" il faut modifier la matrice de droits "Mandatory" :
+de la part de Centreon. Reportez-vous à la [documentation Canopsis](https://doc.canopsis.net/guide-utilisation/menu-administration/droits/)
+, notamment vérifiez que les droits de création, lecture et suppressions sont activés. 
+Pour l'utilisateur associé à la "authKey" il faut modifier la matrice de droits "Mandatory" :
 
 > Aller dans droits API > PBehavior > PBehaviors : 
 >
@@ -78,12 +79,12 @@ ne doivent pas être bloqués par la configuration de Canopsis ou par un équipe
 
 ## Configurer le stream connector dans Centreon
 
-1. Sur votre serveur central, allez à la page Configuration > Collecteurs > Configuration de 
-Centreon Broker. 
-2. Cliquez sur central-broker-master (ou sur la configuration du Broker correspondant si les 
+1. Sur votre serveur central, allez à la page **Configuration > Collecteurs > Configuration de 
+Centreon Broker**. 
+2. Cliquez sur **central-broker-master** (ou sur la configuration du Broker correspondant si les 
 évènements seront envoyés par un serveur distant ou un collecteur). 
-3. Dans l'onglet Output, sélectionnez Generic - Stream connector dans la liste, puis cliquez 
-sur Ajouter. Un nouvel output apparaît dans la liste. 
+3. Dans l'onglet **Output**, sélectionnez **Generic - Stream connector** dans la liste, puis cliquez 
+sur **Add**. Un nouvel output apparaît dans la liste. 
 4. Remplissez les champs de la manière suivante :
 
 | Champ           | Valeur                                                   |
@@ -93,15 +94,15 @@ sur Ajouter. Un nouvel output apparaît dans la liste.
 | Filter category | Neb                                                      |
 
 5. Pour permettre à Centreon de se connecter à votre équipement Canopsis, remplissez les 
-paramètres obligatoires suivants. La première entrée existe déjà. Cliquez sur le lien +Add 
-a new entry en-dessous du tableau Filter category pour en ajouter un autre.
+paramètres obligatoires suivants. La première entrée existe déjà. Cliquez sur le lien **+Add 
+a new entry** en-dessous du tableau **Filter category** pour en ajouter un autre.
 
 | Type   | Nom              | Explication de "Value"                      | Exemple de valeur |
 | ------ |------------------|---------------------------------------------|-------------------|
 | string | canopsis_authkey | La clé d'authentification de l'API Canopsis | `an_authkey`      |
 | string | canopsis_host    | L'adresse de l'hôte Canopsis                | `a host`          |
 
-6. Renseignez les paramètres optionnels désirés (en utilisant le lien +Add a new entry) :
+6. Renseignez les paramètres optionnels désirés (en utilisant le lien **+Add a new entry**) :
 
 | Type   | Nom       | Explication de "Value"                                  | Valeur par défaut                                  |
 | ------ |-----------|---------------------------------------------------------|----------------------------------------------------|
@@ -111,7 +112,7 @@ a new entry en-dessous du tableau Filter category pour en ajouter un autre.
 7. Utilisez les paramètres optionnels du stream connector pour filtrer ou adapter les 
 données que vous voulez que Centreon envoie à Canopsis.
 8. [Déployez la configuration](https://docs.centreon.com/fr/docs/monitoring/monitoring-servers/deploying-a-configuration/). 
-9. Redémarrez centengine sur tous les collecteurs :
+9. Redémarrez **centengine** sur tous les collecteurs :
 
    ```shell
    systemctl restart centengine
@@ -250,15 +251,15 @@ Ce stream connector envoie des évènements au format suivant :
 ### Custom event format
 
 Ce stream connector vous permet de changer le format des événéments pour correspondre 
-à vos besoins. Seule la partie **event** du json est formatable. Cela vous permet de
-gérer des types d'événements qui ne le sont pas par défaut comme les **ba_status events**.
+à vos besoins. Cela vous permet de gérer des types d'événements qui ne le sont pas 
+par défaut comme les **ba_status events**.
 
 Pour utiliser cette fonctionnalité vous devez configurer un fichier json de formatage 
 et ajouter un nouveau paramètre à la configuration du stream connector.
 
-| Type   | Nom         | Valeur                                          |
-| ------ |-------------|-------------------------------------------------|
-| string | format_file | /etc/centreon-broker/elastic-events-format.json |
+| Type   | Nom         | Valeur                                           |
+| ------ |-------------|--------------------------------------------------|
+| string | format_file | /etc/centreon-broker/canopsis-events-format.json |
 
 > Le fichier de configuration de formats des événements doit être lisible par l'utilisateur
 centreon-broker.
