@@ -178,7 +178,7 @@ jobs:
           cache: yarn
 
       - name: Install dependencies
-        uses: borales/actions-yarn@v4
+        uses: borales/actions-yarn@v5
         with:
           cmd: install --frozen-lockfile
 
