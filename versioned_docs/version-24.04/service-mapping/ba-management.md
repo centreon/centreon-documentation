@@ -241,6 +241,8 @@ to the BA.
 -   Extra reporting time periods: Additional time period you may want
     to use in widget and reports
 
+> In the **Default reporting time period** and **Extra reporting time periods** fields, do not use time periods that include [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab), as the exceptions will not not be taken into account.
+
 #### Event handler
 
 Activate or not the auto-remediation command that you may execute when the BA
