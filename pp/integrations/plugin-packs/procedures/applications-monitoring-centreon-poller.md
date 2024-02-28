@@ -5,6 +5,8 @@ title: Centreon Poller
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+Centreon collectors must be supervised by the central server.
+
 ## Pack assets
 
 ### Templates
@@ -24,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 | proc-centengine | App-Monitoring-Centreon-Process-centengine-custom  | Check centreon-engine process              |
 | proc-gorgoned   | App-Monitoring-Centreon-Process-gorgoned-custom    | Check centcore process                     |
 | proc-ntpd       | App-Monitoring-Centreon-Process-ntpd-custom        | Check NTP process                          |
-| proc-sshd       | App-Monitoring-Centreon-Process-sshd-custom        | Check sshd process                         |
+| proc-sshd       | App-Monitoring-Centreon-Process-sshd-custom        | Check SSHD process                         |
 
 > The services listed above are created automatically when the **App-Monitoring-Centreon-Poller-custom** host template is used.
 
