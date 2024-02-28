@@ -125,8 +125,11 @@ module.exports = {
     },
 
     {
-      type: 'category',
-      label: 'Managing Centreon Cloud users',
+      "type": 'category',
+      "label": 'Managing Centreon Cloud users',
+      "link": {
+        "type": "generated-index",
+               },
       items: [
         {
           type: 'doc',
@@ -141,6 +144,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Managing pollers',
+      "link": {
+        "type": "generated-index",
+               },
       items: [
         {
           type: 'doc',
@@ -167,10 +173,16 @@ module.exports = {
     {
         "type": "category",
         "label": "Monitoring resources",
+        "link": {
+          "type": "generated-index",
+                 },
         "items": [
           {
             "type": "category",
             "label": "Monitoring basics",
+            "link": {
+              "type": "generated-index",
+                     },
             "items": [
               {
                 "type": "doc",
@@ -185,6 +197,9 @@ module.exports = {
           {
             "type": "category",
             "label": "Monitoring hosts",
+            "link": {
+              "type": "generated-index",
+                     },
             "items": [
               {
                 "type": "doc",
@@ -207,6 +222,9 @@ module.exports = {
           {
             "type": "category",
             "label": "Monitoring services",
+            "link": {
+              "type": "generated-index",
+                     },
             "items": [
               {
                 "type": "doc",
@@ -229,6 +247,9 @@ module.exports = {
           {
             "type": "category",
             "label": "Discovering hosts and services automatically",
+            "link": {
+              "type": "generated-index",
+                     },
             "items": [
               {
                 "type": "doc",
@@ -247,6 +268,9 @@ module.exports = {
           {
             "type": "category",
             "label": "Organizing hosts and services",
+            "link": {
+              "type": "generated-index",
+                     },
             "items": [
               {
                 "type": "doc",
@@ -261,7 +285,14 @@ module.exports = {
           {
             "type": "category",
             "label": "Basic objects and actions",
+            "link": {
+              "type": "generated-index",
+                     },
             "items": [
+              {
+                "type": "doc",
+                "id": "monitoring/basic-objects/timeperiods"
+              },
               {
                 "type": "doc",
                 "id": "monitoring/basic-objects/macros"
@@ -275,6 +306,9 @@ module.exports = {
           {
             "type": "category",
             "label": "Detecting anomalies",
+            "link": {
+              "type": "generated-index",
+                     },
             "items": [
               {
                 "type": "doc",
@@ -287,10 +321,16 @@ module.exports = {
       {
         "type": "category",
         "label": "Managing events and alerts",
+        "link": {
+          "type": "generated-index",
+                 },
         "items": [
           {
             "type": "category",
             "label": "Viewing events",
+            "link": {
+              "type": "generated-index",
+                     },
             "items": [
               {
                 "type": "doc",
@@ -317,6 +357,9 @@ module.exports = {
           {
             "type": "category",
             "label": "Managing alerts",
+            "link": {
+              "type": "generated-index",
+                     },
             "items": [
               {
                 "type": "doc",
@@ -341,6 +384,9 @@ module.exports = {
       {
         "type": "category",
         "label": "Performance graphs",
+        "link": {
+          "type": "generated-index",
+                 },
         "items": [
           {
             "type": "doc",
@@ -363,6 +409,9 @@ module.exports = {
       {
         "type": "category",
         "label": "Service Mapping",
+        "link": {
+          "type": "generated-index",
+                 },
         "items": [
           {
             "type": "doc",
@@ -371,6 +420,9 @@ module.exports = {
           {
             "type": "category",
             "label": "Guide",
+            "link": {
+              "type": "generated-index",
+                     },
             "items": [
               {
                 "type": "doc",
@@ -399,14 +451,20 @@ module.exports = {
       {
         "type": "category",
         "label": "Graphical views",
+        "link": {
+          "type": "generated-index",
+                 },
         "items": [
         {
           "type": "doc",
           "id": "graph-views/introduction-map"
         }, 
         {                    
-            "type": "category",
+          "type": "category",
           "label": "Guide",
+          "link": {
+            "type": "generated-index",
+                   },
           "items": [
               {
               "type": "doc",
@@ -432,8 +490,17 @@ module.exports = {
                  }
                 ]
               },
-             
-      {
+              {
+                "type": "category",
+                "label": "Administration",
+                "items": [
+                {
+                "type": "doc",
+                "id": "administration/media"
+                }
+                ]
+                },  
+               {
         "type": "link",
         "href": "/pp/integrations/plugin-packs/getting-started/introduction",
         "label": "Monitoring Connectors"
@@ -441,19 +508,19 @@ module.exports = {
       {
         "type": "category",
         "label": "Integrations",
+        link: {
+          type: "doc",
+          id: "integrations/introduction-integrations"
+        },
         "items": [
-          {
-            "type": "doc",
-            "id": "integrations/introduction-integrations"
-          },
           {
             "type": "category",
             "label": "ITSM",
+            link: {
+              type: "doc",
+              id: "integrations/itsm/itsm-overview"
+            },
             "items": [
-              {
-                "type": "doc",
-                "id": "integrations/itsm/itsm-overview"
-              },
               {
                 "type": "doc",
                 "id": "integrations/itsm/ot-bmc-footprints"
@@ -513,6 +580,9 @@ module.exports = {
       {
         "type": "category",
         "label": "Security",
+        "link": {
+          "type": "generated-index",
+                 },
         "items": [
           {
             "type": "doc",
@@ -523,6 +593,9 @@ module.exports = {
       {
         "type": "category",
         "label": "Release notes",
+        "link": {
+          "type": "generated-index",
+                 },
         "items": [
           {
             "type": "doc",
@@ -533,6 +606,9 @@ module.exports = {
       {
         "type": "category",
         "label": "Resources",
+        "link": {
+          "type": "generated-index",
+                 },
         "items": [
           {
             "type": "doc",
