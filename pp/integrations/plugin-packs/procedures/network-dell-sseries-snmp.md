@@ -31,9 +31,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                                  | Service Description                          | Discovery  |
 |:---------------------|:--------------------------------------------------|:---------------------------------------------|:----------:|
-| Traffic-Generic-Id   | Net-Dell-Sseries-Traffic-Generic-Id-SNMP-custom   | Check traffic of an network interface        |            |
-| Traffic-Generic-Name | Net-Dell-Sseries-Traffic-Generic-Name-SNMP-custom | Check traffic of an network interface        |            |
-| Traffic-Global       | Net-Dell-Sseries-Traffic-Global-SNMP-custom       | Check traffic of multiple network interfaces | X          |
+| Traffic-Generic-Id   | Net-Dell-Sseries-Traffic-Generic-Id-SNMP-custom   | Check trafic of a network interface        |            |
+| Traffic-Generic-Name | Net-Dell-Sseries-Traffic-Generic-Name-SNMP-custom | Check trafic of a network interface        |            |
+| Traffic-Global       | Net-Dell-Sseries-Traffic-Global-SNMP-custom       | Check trafic of multiple network interfaces | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -112,7 +112,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-The SNMP service must be configured and activated on the host. Please refer to the official documentation from the constructor/editor.
+The SNMP service must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
 
 ### Network flow
 
