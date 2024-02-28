@@ -621,62 +621,65 @@
         "description": "The graphical view capabilities in Centreon relies on the Centreon MAP module."
       },
       "collapsed": true,
-         "items": [
-                {
-          "type": "category",
-        "label": "Centreon MAP",
-        "items": [
-          {
-            "type": "doc",
-            "id": "version-22.04/graph-views/introduction-map"
-          }, 
-          {
-      "type": "doc",
-      "id": "version-22.04/graph-views/map-web-install"
-      },
-      {
-        "type": "doc",
-        "id": "version-22.04/graph-views/map-web-install-remote"
-        },
+      "items": [
         {
-          "type": "doc",
-          "id": "version-22.04/graph-views/map-web-update"
+          "type": "category",
+          "label": "Centreon MAP",
+          "link": {
+            "type": "generated-index"
           },
-      {
-          "type": "doc",
-          "id": "version-22.04/graph-views/import-into-map-web"
-          },
-          {
-            "type": "doc",
-            "id": "version-22.04/graph-views/map-web-access"
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/introduction-map"
             },
-                            {
-                  "type": "doc",
-                  "id": "version-22.04/graph-views/map-web-manage"
-                },
-                {
-                "type": "doc",
-                "id": "version-22.04/graph-views/map-web-create-standard-map"
-              },
-              {
-                "type": "doc",
-                "id": "version-22.04/graph-views/map-web-create-geoview"
-              },
-              {
-                "type": "doc",
-                "id": "version-22.04/graph-views/map-web-advanced"
-              },
-              {
-                "type": "doc",
-                "id": "version-22.04/graph-views/map-web-known-issues"
-                },
-                {
-                  "type": "doc",
-                  "id": "version-22.04/graph-views/map-web-troubleshooting"
-                  },
-                  {
-                    "type": "doc",
-                    "id": "version-22.04/api/map-api"
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/map-web-install"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/map-web-install-remote"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/map-web-update"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/import-into-map-web"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/map-web-access"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/map-web-manage"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/map-web-create-standard-map"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/map-web-create-geoview"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/map-web-advanced"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/map-web-known-issues"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/map-web-troubleshooting"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/api/map-api"
                   }
               ]
             }
