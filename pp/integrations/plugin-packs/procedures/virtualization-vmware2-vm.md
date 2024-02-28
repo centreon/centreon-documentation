@@ -794,7 +794,7 @@ All available options for each service template are listed below:
 | --display-description | Display the description of the virtual machine.                                                                                                                          |
 | --check-consolidation | Check if VM needs consolidation (since vsphere 5.0).                                                                                                          |
 | --disconnect-status   | Status if VM disconnected (default: 'unknown').                                                                                                               |
-| --nopoweredon-skip    | Skip check if VM is not powered on.                                                                                                                            |
+| --nopoweredon-skip    | Skip check if VM is not poweredOn.                                                                                                                            |
 | --empty-continue      | Ask to the connector that an empty response is ok.                                                                                                            |
 | --unit                | Select the unit for performance data and thresholds. May be 's'for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds   |
 | --warning             | Warning threshold for snapshot's age.                                                                                                                         |
@@ -873,7 +873,7 @@ All available options for each service template are listed below:
 | --display-description       | Display the description of the virtual machine.                          |
 | --tools-notinstalled-status | Status if vmtools is not installed (default: critical).       |
 | --tools-notrunning-status   | Status if vmtools is not running (default: critical).         |
-| --tools-notup2date-status   | Status if vmtools is not upd2date (default: warning).         |
+| --tools-notup2date-status   | Status if vmtools is not up to date (default: warning).         |
 
 </TabItem>
 </Tabs>
