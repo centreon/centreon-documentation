@@ -5,6 +5,8 @@ title: Centreon Poller
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+Les collecteurs Centreon doivent être supervisés par le serveur central.
+
 ## Contenu du pack
 
 ### Modèles
@@ -25,7 +27,7 @@ Le connecteur apporte les modèles de service suivants
 | proc-centengine | App-Monitoring-Centreon-Process-centengine-custom  | Contrôle permettant de vérifier le fonctionnement du processus centreon-engine |
 | proc-gorgoned   | App-Monitoring-Centreon-Process-gorgoned-custom    | Contrôle permettant de vérifier le fonctionnement du processus centcore        |
 | proc-ntpd       | App-Monitoring-Centreon-Process-ntpd-custom        | Contrôle permettant de vérifier le fonctionnement du processus NTP             |
-| proc-sshd       | App-Monitoring-Centreon-Process-sshd-custom        | Contrôle permettant de vérifier le fonctionnement du processus sshd            |
+| proc-sshd       | App-Monitoring-Centreon-Process-sshd-custom        | Contrôle permettant de vérifier le fonctionnement du processus SSHD            |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Monitoring-Centreon-Poller-custom** est utilisé.
 
@@ -118,8 +120,6 @@ su - centreon-engine
 ssh-keygen -t ed25519 -a 100
 ssh-copy-id -i ~/.ssh/id_ed25519.pub centreon@<IP_POLLER>
 ```
-
-## 
 
 ## Installer le connecteur de supervision
 
