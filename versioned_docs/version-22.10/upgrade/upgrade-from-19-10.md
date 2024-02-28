@@ -67,13 +67,15 @@ yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/e
 
 ### Install the MariaDB repository
 
+<Tabs groupId="sync">
+
+<TabItem value="Alma / RHEL / Oracle Linux 7" label="Alma / RHEL / Oracle Linux 7"><TabItem value="RHEL / Oracle Linux 7" label="RHEL / Oracle Linux 7">
 ```shell
-cd /tmp
-curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
-bash ./mariadb_repo_setup
-sed -ri 's/1[0-1]\.[0-9]+/10.5/' /etc/yum.repos.d/mariadb.repo
-rm -f ./mariadb_repo_setup
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=7 --mariadb-server-version="mariadb-10.5"
 ```
+
+</TabItem>
+</Tabs>
 
 ### Upgrade PHP
 
