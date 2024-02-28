@@ -249,21 +249,22 @@ Ce stream connector envoie des évènements au format suivant :
 
 ### Custom event format
 
-This stream connector allows you to change the format of the event to suit your needs. 
-Only the **event** part of the json is customisable. It also allows you to handle events 
-type that are not handled by default such as **ba_status events**.
+Ce stream connector vous permet de changer le format des événéments pour correspondre 
+à vos besoins. Seule la partie **event** du json est formatable. Cela vous permet de
+gérer des types d'événements qui ne le sont pas par défaut comme les **ba_status events**.
 
-In order to use this feature you need to configure a json event format file and add a 
-new stream connector parameter.
+Pour utiliser cette fonctionnalité vous devez configurer un fichier json de formatage 
+et ajouter un nouveau paramètre à la configuration du stream connector.
 
-| Type   | Name        | Value                                           |
-| ------ | ----------- | ----------------------------------------------- |
+| Type   | Nom         | Valeur                                          |
+| ------ |-------------|-------------------------------------------------|
 | string | format_file | /etc/centreon-broker/elastic-events-format.json |
 
-> The event format configuration file must be readable by the centreon-broker user
+> Le fichier de configuration de formats des événements doit être lisible par l'utilisateur
+centreon-broker.
 
-To learn more about custom event format and templating file, head over the following 
-**[documentation](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
+Pour en savoir plus sur les fichiers modèle et comment formatter les événéments vous pouvez 
+consulter la **[documentation](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)** dédiée.
 
 ## Commandes Curl : tester le stream connector
 
@@ -278,9 +279,7 @@ Canopsis (le serveur central, un serveur distant ou un collecteur)
 2. Exécutez la commande suivante :
 
 ```shell
-curl -u elastic:centreon-es-passwd --header 'content-type: application/json'  -X POST "<elastic_url>/_bulk" --data-binary '{"index":{"_index":"<elastic_index_status>"}}
-{"host":"jamaica","status":"OK","state_type":1,"state":0,"timestamp":<a_recent_timestamp>,"event_type":"service","service":"kingston","output":"OK: Everything is gonna be alright"}
-'
+curl
 ```
 
 > Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par la valeur correcte. 
