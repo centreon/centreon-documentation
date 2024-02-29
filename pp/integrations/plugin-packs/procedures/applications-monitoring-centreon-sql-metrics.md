@@ -57,7 +57,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 |:-------------------------------------------|:------|
 | centreon.dsm.queue.cache.count             | count |
 | centreon.dsm.queue.lock.count              | count |
-| *host*#centreon.dsm.host.queue.cache.count | count |
+| *hostname~pool_prefix*#centreon.dsm.host.queue.cache.count | count |
 
 </TabItem>
 <TabItem value="Execution-Time" label="Execution-Time">
@@ -73,7 +73,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 | Metric name              | Unit  |
 |:-------------------------|:------|
 | notifications.sent.count | count |
-| notifications.sent.count | count |
+| *poller_name*#notifications.sent.count | count |
 
 </TabItem>
 <TabItem value="Poller-Delay" label="Poller-Delay">
@@ -228,8 +228,8 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-SQL-Metrics
 
 | Macro                    | Description                                                                                          | Default value     | Mandatory   |
 |:-------------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CENTREONDATABASEUSER     | User name used to connect to the database                                                            | centreon          |             |
-| CENTREONDATABASEPASSWORD | Password for the defined user name                                                                   | PASSWORD          |             |
+| CENTREONDATABASEUSER     | User name used to connect to the database                                                            | centreon          |      X       |
+| CENTREONDATABASEPASSWORD | Password for the defined user name                                                                   | PASSWORD          |      X       |
 | CENTREONDATABASE         |                                                                                                      | centreon          |             |
 | CENTREONSTORAGEDATABASE  | Centreon storage database name (default: 'centreon\_storage')                                        | centreon\_storage |             |
 | EXTRAOPTIONS             | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
