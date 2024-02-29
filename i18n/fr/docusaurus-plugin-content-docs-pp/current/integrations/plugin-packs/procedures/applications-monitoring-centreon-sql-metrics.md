@@ -24,7 +24,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias                | Modèle de service                                       | Description                                                                              |
 |:---------------------|:--------------------------------------------------------|:-----------------------------------------------------------------------------------------|
 | Notifications-Count  | App-Monitoring-Centreon-SQL-Notifications-Count-custom  | Contrôle le nombre de nouvelles notifications                                            |
-| Poller-Delay         | App-Monitoring-Centreon-SQL-Poller-Delay-custom         | Contrôle le temps de la dernière communication entre le collecteur et le serveur central |
+| Poller-Delay         | App-Monitoring-Centreon-SQL-Poller-Delay-custom         | Contrôle le temps écoulé depuis la dernière communication entre le collecteur et le serveur central |
 | Problems-Count       | App-Monitoring-Centreon-SQL-Problems-Count-custom       | Contrôle le nombre de nouveaux problèmes                                                 |
 | Resources-Count      | App-Monitoring-Centreon-SQL-Resources-Count-custom      | Contrôle le nombre de services                                                           |
 | Storage-Partitioning | App-Monitoring-Centreon-SQL-Storage-Partitioning-custom | Contrôle l'état des partitions MySQL/MariaDB                                             |
@@ -56,7 +56,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 |:-------------------------------------------|:------|
 | centreon.dsm.queue.cache.count             | count |
 | centreon.dsm.queue.lock.count              | count |
-| *host*#centreon.dsm.host.queue.cache.count | count |
+| *hostname~pool_prefix*#centreon.dsm.host.queue.cache.count | count |
 
 </TabItem>
 <TabItem value="Execution-Time" label="Execution-Time">
@@ -72,7 +72,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 | Métrique                 | Unité |
 |:-------------------------|:------|
 | notifications.sent.count | count |
-| notifications.sent.count | count |
+| *poller_name*#notifications.sent.count | count |
 
 </TabItem>
 <TabItem value="Poller-Delay" label="Poller-Delay">
@@ -225,8 +225,8 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-SQL-Metrics
 
 | Macro                    | Description                                                                                          | Valeur par défaut | Obligatoire |
 |:-------------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CENTREONDATABASEUSER     | User name used to connect to the database                                                            | centreon          |             |
-| CENTREONDATABASEPASSWORD | Password for the defined user name                                                                   | PASSWORD          |             |
+| CENTREONDATABASEUSER     | User name used to connect to the database                                                            | centreon          |       X      |
+| CENTREONDATABASEPASSWORD | Password for the defined user name                                                                   | PASSWORD          |       X      |
 | CENTREONDATABASE         |                                                                                                      | centreon          |             |
 | CENTREONSTORAGEDATABASE  | Centreon storage database name (default: 'centreon\_storage')                                        | centreon\_storage |             |
 | EXTRAOPTIONS             | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
