@@ -171,8 +171,6 @@ rm -f /var/lib/centreon-broker/central-broker-master.unprocessed*
 
 #### Recreating the constraint
 
-In the past, an error may have been made when declaring constraints with demote ms_mysql when move centreon resource. To remedy this, you need to delete the constraints and recreate them with the following:
-
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 <Tabs groupId="sync">

@@ -1417,6 +1417,14 @@
         {
           "type": "doc",
           "id": "version-24.04/upgrade/centreon-ha/upgrade-centreon-ha-from-22-10"
+        },
+        {
+          "type": "doc",
+          "id": "version-24.04/upgrade/centreon-ha/upgrade-centreon-ha-from-23-04"
+        },
+        {
+          "type": "doc",
+          "id": "version-24.04/upgrade/centreon-ha/upgrade-centreon-ha-from-23-10"
         }
       ]
     }       

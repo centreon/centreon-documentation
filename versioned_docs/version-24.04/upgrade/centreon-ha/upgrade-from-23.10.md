@@ -60,6 +60,22 @@ sudo -u apache /usr/share/centreon/bin/console cache:clear
 ```
 
 </TabItem>
+<TabItem value="RHEL9 / Alma Linux 9 / Oracle Linux 9" label="RHEL9 / Alma Linux 9 / Oracle Linux 9">
+
+Then on the **two central nodes**, restore the file `/etc/centreon-ha/centreon_central_sync.pm`:
+
+```shell
+mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
+```
+
+On the **passive central node**, move the "install" directory to avoid getting the "upgrade" screen in the interface in the event of a further exchange of roles.
+
+```bash
+mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`date +%Y-%m-%d`
+sudo -u apache /usr/share/centreon/bin/console cache:clear
+```
+
+</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 On the **passive central node**, move the "install" directory to avoid getting the "upgrade" screen in the interface in the event of a further exchange of roles.
@@ -86,6 +102,13 @@ and restart the cron daemon:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
+
+```bash
+systemctl restart crond
+```
+
+</TabItem>
+<TabItem value="RHEL9 / Alma Linux 9 / Oracle Linux 9" label="RHEL9 / Alma Linux 9 / Oracle Linux 9">
 
 ```bash
 systemctl restart crond
@@ -171,12 +194,57 @@ rm -f /var/lib/centreon-broker/central-broker-master.unprocessed*
 
 #### Recreating the constraint
 
-In the past, an error may have been made when declaring constraints with demote ms_mysql when move centreon resource. To remedy this, you need to delete the constraints and recreate them with the following:
-
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 <Tabs groupId="sync">
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
+
+First extract all contraint IDs:
+
+```bash
+pcs constraint config --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.$//'
+```
+
+You should have a similar result:
+
+```text
+order-centreon-ms_mysql-clone-mandatory
+colocation-ms_mysql-clone-centreon-INFINITY
+colocation-centreon-ms_mysql-clone-INFINITY
+```
+
+and delete **all** constraints, **adapt IDs with your own**
+
+```bash
+pcs constraint delete order-centreon-ms_mysql-clone-mandatory
+pcs constraint delete colocation-ms_mysql-clone-centreon-INFINITY
+pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
+```
+
+Verify if all constraint are well deleted:
+
+```bash
+pcs contraint
+```
+
+You should have a result like this:
+
+```text
+Location Constraints:
+Ordering Constraints:
+Colocation Constraints:
+Ticket Constraints:
+```
+
+If it's OK, then recreate only needed constraints
+
+```bash
+pcs constraint colocation add master "ms_mysql-clone" with "centreon"
+pcs constraint colocation add master "centreon" with "ms_mysql-clone"
+```
+
+</TabItem>
+<TabItem value="RHEL9 / Alma Linux 9 / Oracle Linux 9" label="RHEL9 / Alma Linux 9 / Oracle Linux 9">
 
 First extract all contraint IDs:
 
@@ -332,6 +400,64 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 ```
 
 </TabItem>
+<TabItem value="RHEL9 / Alma Linux 9 / Oracle Linux 9" label="RHEL9 / Alma Linux 9 / Oracle Linux 9">
+
+First extract all contraint IDs:
+
+```bash
+pcs constraint config --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.$//'
+```
+
+You should have a similar result depending of your host names:
+
+```text
+location-cbd_rrd-clone-cc-ha-bdd1-2210-alma8--INFINITY
+location-cbd_rrd-clone-cc-ha-bdd2-2210-alma8--INFINITY
+location-centreon-cc-ha-bdd1-2210-alma8--INFINITY
+location-centreon-cc-ha-bdd2-2210-alma8--INFINITY
+location-ms_mysql-clone-cc-ha-web1-2210-alma8--INFINITY
+location-ms_mysql-clone-cc-ha-web2-2210-alma8--INFINITY
+location-php-clone-cc-ha-bdd1-2210-alma8--INFINITY
+location-php-clone-cc-ha-bdd2-2210-alma8--INFINITY
+order-centreon-ms_mysql-clone-mandatory
+colocation-ms_mysql-clone-vip_mysql-INFINITY
+colocation-centreon-vip-INFINITY
+```
+
+and delete **all** constraints, **adapt IDs with your own**
+
+```bash
+pcs constraint delete location-cbd_rrd-clone-cc-ha-bdd1-2210-alma8--INFINITY
+pcs constraint delete location-cbd_rrd-clone-cc-ha-bdd2-2210-alma8--INFINITY
+pcs constraint delete location-centreon-cc-ha-bdd1-2210-alma8--INFINITY
+...
+```
+
+Verify if all constraint are well deleted:
+
+```bash
+pcs contraint
+```
+
+You should have a result like this:
+
+```text
+Location Constraints:
+Ordering Constraints:
+Colocation Constraints:
+Ticket Constraints:
+```
+
+If it's OK, then recreate only needed constraints.
+
+In order to glue the Primary Database role with the Virtual IP, define a mutual Constraint:
+
+```bash
+pcs constraint colocation add "vip_mysql" with master "ms_mysql-clone"
+pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
+```
+
+</TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 First extract all contraint id:
@@ -393,6 +519,16 @@ Then recreate the Constraint that prevent Centreon Processes to run on Database 
 
 <Tabs groupId="sync">
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
+
+```bash
+pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location ms_mysql-clone avoids @CENTRAL_MASTER_NAME@=INFINITY @CENTRAL_SLAVE_NAME@=INFINITY
+pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+```
+
+</TabItem>
+<TabItem value="RHEL9 / Alma Linux 9 / Oracle Linux 9" label="RHEL9 / Alma Linux 9 / Oracle Linux 9">
 
 ```bash
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY

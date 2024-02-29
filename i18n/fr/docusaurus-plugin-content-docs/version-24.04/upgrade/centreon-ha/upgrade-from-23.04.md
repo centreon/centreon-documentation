@@ -171,8 +171,6 @@ rm -f /var/lib/centreon-broker/central-broker-master.unprocessed*
 
 #### Recréer les contraintes
 
-Par le passé, une erreur a pu être commise lors de la déclaration de contraintes avec un démontage de la ressource ms_mysql lors du déplacement de la ressource centreon. Pour y remédier, vous devez supprimer les contraintes et les recréer comme suit:
-
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 <Tabs groupId="sync">
