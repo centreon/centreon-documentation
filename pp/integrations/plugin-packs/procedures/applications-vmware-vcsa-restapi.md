@@ -194,7 +194,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All services are ok | '*service*#status'=;;;;
+OK: All services are ok |
 ```
 
 ### Troubleshooting
