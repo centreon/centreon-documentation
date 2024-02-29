@@ -268,7 +268,7 @@ pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
 Vérifier que toutes les contraintes ont bien été supprimées:
 
 ```bash
-pcs contraint
+pcs constraint
 ```
 
 Vous devriez obtenir un résultat comme celui-ci:
@@ -315,7 +315,7 @@ pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
 Vérifier que toutes les contraintes sont bien supprimées:
 
 ```bash
-pcs contraint
+pcs constraint
 ```
 
 Vous devriez obtenir un résultat comme celui-ci:
@@ -375,7 +375,7 @@ pcs constraint delete location-centreon-cc-ha-bdd1-2210-alma8--INFINITY
 Vérifier que toutes les contraintes sont bien supprimées:
 
 ```bash
-pcs contraint
+pcs constraint
 ```
 
 Vous devriez obtenir un résultat comme celui-ci:
@@ -432,7 +432,7 @@ pcs constraint delete location-centreon-deb11-bdd1--INFINITY
 Vérifier que toutes les contraintes sont bien supprimées:
 
 ```bash
-pcs contraint
+pcs constraint
 ```
 
 Vous devriez obtenir un résultat comme celui-ci:
