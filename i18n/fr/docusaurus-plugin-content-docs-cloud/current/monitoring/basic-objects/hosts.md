@@ -44,7 +44,7 @@ identiques définies dans modèles d’hôtes en dessous.
 
    Pour changer l’ordre des macros, cliquez sur ![image](../../assets/configuration/common/move.png#thumbnail2)
 
-* Le champ **Période de contrôle** définit la période temporelle durant laquelle l’ordonnanceur vérifie le statut de l’objet.
+* Le champ **Période de contrôle** définit la [période temporelle](../basic-objects/timeperiods.md) durant laquelle l’ordonnanceur vérifie le statut de l’objet.
 * Le champ **Fuseau horaire** indique l'emplacement du fuseau horaire des hôtes surveillés.
 
 ### Options d'ordonnancement

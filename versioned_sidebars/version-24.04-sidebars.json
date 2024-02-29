@@ -745,6 +745,11 @@
             },
             {
               "type": "doc",
+              "id": "version-24.04/graph-views/map-web-advanced"
+            },
+            {
+              "type": "doc",
+              
               "id": "version-24.04/graph-views/map-web-known-issues"
             },
             {
@@ -754,18 +759,16 @@
             {
               "type": "doc",
               "id": "version-24.04/api/map-api"
+                  }
+              ]
             }
-          ]
-        },
-        {
-          "type": "category",
-          "label": "Centreon MAP (Legacy)",
-          "link": {
-            "type": "generated-index"
-          },
-          "items": [
+          ,
             {
-              "type": "doc",
+        "type": "category",
+      "label": "Centreon MAP (Legacy)",
+      "items": [
+        {
+          "type": "doc",
               "id": "version-24.04/graph-views/introduction"
             },
             {
