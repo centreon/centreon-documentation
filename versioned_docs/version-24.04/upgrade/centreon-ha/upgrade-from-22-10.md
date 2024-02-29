@@ -201,7 +201,7 @@ pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
 Verify if all constraint are well deleted:
 
 ```bash
-pcs contraint
+pcs constraint
 ```
 
 You should have a result like this:
@@ -248,7 +248,7 @@ pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
 Verify if all constraint are well deleted:
 
 ```bash
-pcs contraint
+pcs constraint
 ```
 
 You should have a result like this:
@@ -308,7 +308,7 @@ pcs constraint delete location-centreon-cc-ha-bdd1-2210-alma8--INFINITY
 Verify if all constraint are well deleted:
 
 ```bash
-pcs contraint
+pcs constraint
 ```
 
 You should have a result like this:
@@ -365,7 +365,7 @@ pcs constraint delete location-centreon-deb11-bdd1--INFINITY
 Verify if all constraint are well deleted:
 
 ```bash
-pcs contraint
+pcs constraint
 ```
 
 You should have a result like this:

@@ -208,7 +208,6 @@ pcs constraint config --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.
 Vous devriez obtenir un résultat similaire:
 
 ```text
-order-centreon-ms_mysql-clone-mandatory
 colocation-ms_mysql-clone-centreon-INFINITY
 colocation-centreon-ms_mysql-clone-INFINITY
 ```
@@ -216,7 +215,6 @@ colocation-centreon-ms_mysql-clone-INFINITY
 et supprimer **toutes** les contraintes, **adapter les ID avec les vôtres**
 
 ```bash
-pcs constraint delete order-centreon-ms_mysql-clone-mandatory
 pcs constraint delete colocation-ms_mysql-clone-centreon-INFINITY
 pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
 ```
@@ -224,7 +222,7 @@ pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
 Vérifier que toutes les contraintes ont bien été supprimées:
 
 ```bash
-pcs contraint
+pcs constraint
 ```
 
 Vous devriez obtenir un résultat comme celui-ci:
@@ -249,21 +247,22 @@ pcs constraint colocation add master "centreon" with "ms_mysql-clone"
 Commencez par extraire tous les identifiants des contraintes:
 
 ```bash
-pcs constraint config --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.$//'
+pcs constraint config --full
 ```
 
 Vous devriez obtenir un résultat similaire:
 
 ```text
-order-centreon-ms_mysql-clone-mandatory
-colocation-ms_mysql-clone-centreon-INFINITY
-colocation-centreon-ms_mysql-clone-INFINITY
+Colocation Constraints:
+  Promoted resource 'centreon' with Started resource 'ms_mysql-clone' (id: colocation-centreon-ms_mysql-clone-INFINITY)
+    score=INFINITY
+  Promoted resource 'ms_mysql-clone' with Started resource 'centreon' (id: colocation-ms_mysql-clone-centreon-INFINITY)
+    score=INFINITY
 ```
 
 et supprimer **toutes** les contraintes, **adapter les ID avec les vôtres**
 
 ```bash
-pcs constraint delete order-centreon-ms_mysql-clone-mandatory
 pcs constraint delete colocation-ms_mysql-clone-centreon-INFINITY
 pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
 ```
@@ -271,7 +270,7 @@ pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
 Vérifier que toutes les contraintes ont bien été supprimées:
 
 ```bash
-pcs contraint
+pcs constraint
 ```
 
 Vous devriez obtenir un résultat comme celui-ci:
@@ -318,7 +317,7 @@ pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
 Vérifier que toutes les contraintes sont bien supprimées:
 
 ```bash
-pcs contraint
+pcs constraint
 ```
 
 Vous devriez obtenir un résultat comme celui-ci:
@@ -378,7 +377,7 @@ pcs constraint delete location-centreon-cc-ha-bdd1-2210-alma8--INFINITY
 Vérifier que toutes les contraintes sont bien supprimées:
 
 ```bash
-pcs contraint
+pcs constraint
 ```
 
 Vous devriez obtenir un résultat comme celui-ci:
@@ -436,7 +435,7 @@ pcs constraint delete location-centreon-cc-ha-bdd1-2210-alma8--INFINITY
 Vérifier que toutes les contraintes sont bien supprimées:
 
 ```bash
-pcs contraint
+pcs constraint
 ```
 
 Vous devriez obtenir un résultat comme celui-ci:
@@ -493,7 +492,7 @@ pcs constraint delete location-centreon-deb11-bdd1--INFINITY
 Vérifier que toutes les contraintes sont bien supprimées:
 
 ```bash
-pcs contraint
+pcs constraint
 ```
 
 Vous devriez obtenir un résultat comme celui-ci:

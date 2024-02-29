@@ -201,7 +201,7 @@ pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
 Verify if all constraint are well deleted:
 
 ```bash
-pcs contraint
+pcs constraint
 ```
 
 You should have a result like this:
@@ -226,13 +226,12 @@ pcs constraint colocation add master "centreon" with "ms_mysql-clone"
 First extract all contraint IDs:
 
 ```bash
-pcs constraint show --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.$//'
+pcs constraint show --full
 ```
 
 You should have a result like this:
 
 ```text
-order-centreon-ms_mysql-clone-mandatory
 colocation-ms_mysql-clone-centreon-INFINITY
 colocation-centreon-ms_mysql-clone-INFINITY
 ```
@@ -240,7 +239,6 @@ colocation-centreon-ms_mysql-clone-INFINITY
 and delete **all** constraints, **adapt ids with your own**
 
 ```bash
-pcs constraint delete order-centreon-ms_mysql-clone-mandatory
 pcs constraint delete colocation-ms_mysql-clone-centreon-INFINITY
 pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
 ```
@@ -248,7 +246,7 @@ pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
 Verify if all constraint are well deleted:
 
 ```bash
-pcs contraint
+pcs constraint
 ```
 
 You should have a result like this:
@@ -308,7 +306,7 @@ pcs constraint delete location-centreon-cc-ha-bdd1-2210-alma8--INFINITY
 Verify if all constraint are well deleted:
 
 ```bash
-pcs contraint
+pcs constraint
 ```
 
 You should have a result like this:
@@ -365,7 +363,7 @@ pcs constraint delete location-centreon-deb11-bdd1--INFINITY
 Verify if all constraint are well deleted:
 
 ```bash
-pcs contraint
+pcs constraint
 ```
 
 You should have a result like this:

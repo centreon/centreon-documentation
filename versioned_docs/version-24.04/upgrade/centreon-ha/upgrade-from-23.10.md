@@ -224,7 +224,7 @@ pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
 Verify if all constraint are well deleted:
 
 ```bash
-pcs contraint
+pcs constraint
 ```
 
 You should have a result like this:
@@ -249,29 +249,30 @@ pcs constraint colocation add master "centreon" with "ms_mysql-clone"
 First extract all contraint IDs:
 
 ```bash
-pcs constraint config --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.$//'
+pcs constraint config --full
 ```
 
 You should have a similar result:
 
 ```text
-order-centreon-ms_mysql-clone-mandatory
-colocation-ms_mysql-clone-centreon-INFINITY
-colocation-centreon-ms_mysql-clone-INFINITY
+Colocation Constraints:
+  Promoted resource 'centreon' with Started resource 'ms_mysql-clone' (id: colocation-centreon-ms_mysql-clone-INFINITY)
+    score=INFINITY
+  Promoted resource 'ms_mysql-clone' with Started resource 'centreon' (id: colocation-ms_mysql-clone-centreon-INFINITY)
+    score=INFINITY
 ```
 
 and delete **all** constraints, **adapt IDs with your own**
 
 ```bash
-pcs constraint delete order-centreon-ms_mysql-clone-mandatory
-pcs constraint delete colocation-ms_mysql-clone-centreon-INFINITY
 pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
+pcs constraint delete colocation-ms_mysql-clone-centreon-INFINITY
 ```
 
 Verify if all constraint are well deleted:
 
 ```bash
-pcs contraint
+pcs constraint
 ```
 
 You should have a result like this:
@@ -318,7 +319,7 @@ pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
 Verify if all constraint are well deleted:
 
 ```bash
-pcs contraint
+pcs constraint
 ```
 
 You should have a result like this:
@@ -378,7 +379,7 @@ pcs constraint delete location-centreon-cc-ha-bdd1-2210-alma8--INFINITY
 Verify if all constraint are well deleted:
 
 ```bash
-pcs contraint
+pcs constraint
 ```
 
 You should have a result like this:
@@ -436,7 +437,7 @@ pcs constraint delete location-centreon-cc-ha-bdd1-2210-alma8--INFINITY
 Verify if all constraint are well deleted:
 
 ```bash
-pcs contraint
+pcs constraint
 ```
 
 You should have a result like this:
@@ -493,7 +494,7 @@ pcs constraint delete location-centreon-deb11-bdd1--INFINITY
 Verify if all constraint are well deleted:
 
 ```bash
-pcs contraint
+pcs constraint
 ```
 
 You should have a result like this:
