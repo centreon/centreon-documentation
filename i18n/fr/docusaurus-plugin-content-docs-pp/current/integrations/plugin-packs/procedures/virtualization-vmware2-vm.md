@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-VMWare est une solution de Virtualisation et d'infrastructure de Cloud Computing.
+VMware est une solution de virtualisation et d'infrastructure de Cloud Computing.
 
 Le connecteur de supervision Centreon s'appuie sur le SDK VMWare pour requêter l'API du vCenter au travers d'un connecteur dédié.
 
