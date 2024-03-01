@@ -7,9 +7,9 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-VMware is an software compagny based in USA. VMware provides cloud computing and virtualization software and services.
+VMware provides cloud computing and virtualization software.
 
-The Centreon Plugin and Monitoring Connectors rely on the Centreon VMWare Connector to request the vCenter SDK.
+The Centreon **VMware VM** Monitoring Connector relies on a dedicated connector (centreon-vmware-daemon) that uses the VMware SDK to send requests to the vCenter's API. It allows you to monitor VMware virtual machines.
 
 ## Pack assets
 
@@ -175,9 +175,9 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-### Centreon VMWare Connector
+### Centreon VMware daemon
 
-For the VMWare monitoring, Centreon use daemon to connect and request the vCenter.
+To monitor VMWare resources, Centreon uses a daemon to connect to and send requests to the vCenter (or the ESX, but it is recommended to use the vCenter).
 
 Install this daemon on each needed poller:
 
@@ -216,11 +216,11 @@ To configure the access to your infrastructure, edit the
 1;
 ```
 
-Make sure to replace variables with needed information:
+Make sure to replace the variables with the necessary information:
 
 - _ip\_hostname_: IP address or hostname of the vCenter or ESX (if standalone),
-- _username_: username with at least "read only" access to the vCenter or ESX (you can use domain user),
-- _password_: password of the username.
+- _username_: username with at least "read only" access to the vCenter or ESX (you can use a domain user),
+- _password_: password for this user.
 
 You can configure multiple vCenter or ESXi connections using this
 structure:
@@ -245,9 +245,9 @@ structure:
 1;
 ```
 
-Each entry is called a **container**.
+Each entry is called a **container** (it corresponds to the `$_HOSTCENTREONVMWARECONTAINER$` host macro).
 
-> You can also define the "port" attribute to change listening port.
+> You can also define the "port" attribute to change the listening port.
 
 Then start the daemon and make sure it is configured to start at server boot:
 
@@ -259,18 +259,18 @@ systemctl enable centreon_vmware
 Make sure that the daemon configuration works fine by looking for errors in
 "/var/log/centreon/centreon\_vmware.log".
 
-### Tags and Custom Attributes
+### Tags and custom attributes
 
-To discover Tags and Custom Attributes, you must :
+To discover tags and custom attributes, you must :
 
 * use version **3.2.5** of **centreon-vmware-daemon**
 * add **--tags** in the additional discovery options: go to the **Configuration > Hosts > Discovery** page, and to the 3rd step (**Set discovery parameters**), in the section **Additional parameters**, in the **Additional options** field, type **--tags**.
 
 ### Network flows
 
-The Poller with the Centreon VMware Connector installed need to access in TCP/443 HTTPS to the Vcenter.
+The Centreon poller (with the VMWare daemon installed on it) needs to access the vCenter using HTTPS (TCP/443).
 
-Pollers requesting data from the Centreon VMware Connector must establish TCP connections on port 5700 to communicate with the Connector's host.
+If several pollers use the same daemon, then they must access the poller that has the VMware daemon installed on it using TCP/5700.
 
 ## Installing the monitoring connector
 
@@ -371,10 +371,10 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro                      | Description                                                                                           | Default value     | Mandatory   |
 |:---------------------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CENTREONVMWAREPORT         | Connector port (default: 5700)                                                                        | 5700              |             |
-| CENTREONVMWARECONTAINER    | Container to use (it depends on the connector's configuration)                                          | default           |              |
-| CENTREONVMWAREHOST         | Connector hostname (required)                                                                         | localhost         | X            |
-| VMNAME                     | Hostname of the VM to check. If not set, we check all VMs                                                    |                   |             |
+| CENTREONVMWAREPORT         | Port of the daemon (default: 5700)                                                                        | 5700              |             |
+| CENTREONVMWARECONTAINER    | Container to use (it depends on the daemon's configuration)                                          | default           |              |
+| CENTREONVMWAREHOST         | Hostname of the server on which the daemon is installed (required)                                                                        | localhost         | X            |
+| VMNAME                     | Name of the VM to check. If not defined, all VMs will be checked.                                                    |                   |             |
 | VMUUID                     | Specify the VM's UUID                                                                                                      |                   |             |
 | CENTREONVMWAREEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
