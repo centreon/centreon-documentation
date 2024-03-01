@@ -20,6 +20,8 @@ et disposant des prérequis suivants :
 
 ## Migration
 
+Tous les serveurs de votre architecture (serveur central, serveurs distants et collecteurs) doivent avoir la même version majeure de Centreon. Il est également recommandé d'avoir la même version mineure.
+
 > En cas de migration d'une plate-forme disposant du système de redondance
 > Centreon, il est nécessaire de contacter votre
 > [support Centreon](https://support.centreon.com).
@@ -28,7 +30,7 @@ et disposant des prérequis suivants :
 > Display 1.6.x**, référez-vous à la
 > [procédure de migration](poller-display-to-remote-server.md).
 
-### Installation du nouveau serveur
+### Installation du nouveau serveur central
 
 Réalisez les actions suivantes :
 
@@ -231,3 +233,7 @@ la configuration de l'ensemble de la plateforme et exportez là.
 
 Référez-vous à la documentation des modules installés afin de connaître leur
 compatibilité avec Centreon 23.10, et pour mettre à jour ces derniers.
+
+### Migrer vos autres serveurs
+
+Assurez-vous que tous les serveurs de votre architecture (serveur central, serveurs distants et collecteurs) ont la même version majeure de Centreon.

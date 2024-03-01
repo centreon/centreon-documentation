@@ -29,42 +29,28 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 ### Installer les nouveaux dépôts
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+1. Sur votre plateforme 21.10, remplacez `https://packages.centreon.com/rpm-standard` ou `https://yum.centreon.com/standard/` par `https://archives.centreon.com/standard/` dans votre configuration YUM (par défaut, `/etc/yum.repos.d/centreon.repo`).
 
-1. Mettez à jour votre Centreon 21.10 jusqu'à la dernière version mineure.
+2. Mettez à jour votre Centreon 21.10 jusqu'à la dernière version mineure.
 
-2. Supprimez le fichier **centreon.repo** :
+3. Supprimez le fichier **centreon.repo** :
 
    ```shell
    rm /etc/yum.repos.d/centreon.repo
    ```
 
-3. Installez le nouveau dépôt :
+4. Installez le nouveau dépôt :
 
 ```shell
 dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
 ```
 
-</TabItem>
-</Tabs>
-
 > Si vous avez une [licence offline](../administration/licenses.md#types-de-licences), supprimez également l'ancien dépôt des connecteurs de supervision, puis installez le nouveau dépôt.
 >
 > Si vous avez une édition Business, faites de même avec le dépôt Business.
 >
 > Vous pouvez trouver l'adresse des dépôts sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
-
-### Installer le dépôt MariaDB
-
-```shell
-cd /tmp
-curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
-bash ./mariadb_repo_setup
-sed -ri 's/1[0-1]\.[0-9]+/10.5/' /etc/yum.repos.d/mariadb.repo
-rm -f ./mariadb_repo_setup
-```
 
 ### Montée de version de PHP
 

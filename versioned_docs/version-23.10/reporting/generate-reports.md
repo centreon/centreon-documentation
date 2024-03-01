@@ -186,6 +186,8 @@ There are three types of field in this form:
     - Business activities (Centreon BAM module is required)
     - Images that will be inserted in the reports (logo for example).
 
+> In the **Time period** field for reports concerning [BAM](../service-mapping/introduction.md), do not use time periods that include [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab), as the exceptions will not not be taken into account.
+
 **Note**: A value must be specified for each field in this menu except for the multi-selection 
 parameter when metrics are excluded.
 

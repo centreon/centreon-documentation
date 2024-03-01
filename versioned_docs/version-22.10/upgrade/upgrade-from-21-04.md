@@ -28,9 +28,21 @@ servers:
 
 > For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
 
+## Update to the last minor version
+
+1. On your 21.04 platform, replace `https://packages.centreon.com/rpm-standard` or `https://yum.centreon.com/standard` by `https://archives.centreon.com/standard/` in your current YUM configuration (by default, `/etc/yum.repos.d/centreon.repo`).
+
+2. Update your Centreon 21.04 to the latest minor version.
+
 ## Upgrade the Centreon Central server
 
 ### Update the Centreon repository
+
+Remove the **centreon.repo** file:
+
+```shell
+rm /etc/yum.repos.d/centreon.repo
+```
 
 Run the following commands:
 
@@ -56,16 +68,6 @@ yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/e
 > If you have an offline license, install the corresponding repository for the plugin packs.
 > If you are using a Business edition, install the correct Business repository too.
 > You can find the repositories on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
-
-### Install the MariaDB repository
-
-```shell
-cd /tmp
-curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
-bash ./mariadb_repo_setup
-sed -ri 's/1[0-1]\.[0-9]+/10.5/' /etc/yum.repos.d/mariadb.repo
-rm -f ./mariadb_repo_setup
-```
 
 ### Upgrade PHP
 

@@ -6,6 +6,50 @@ title: Release Notes
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## 2024
+
+### February
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Centreon Map Engine**](../procedures/applications-monitoring-centreon-map-engine-actuator.md) - First release of Centreon Map Engine monitoring connector.
+- [**Inmatics PSU Sputnik**](../procedures/hardware-ups-inmatics-sputnik-snmp.md) - First release of Inmatics PSU Sputnik monitoring connector.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Azure Kubernetes Service**](../procedures/cloud-azure-compute-aks.md) - Added Memory, Node-State, Pod-State and Unschedulable-Pods service templates to Azure AKS.
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Aruba Instant SNMP**](../procedures/network-aruba-instant-snmp.md) - Fixed an "uninitialized value in concatenation" issue on AP-Usage.
+
+</TabItem>
+</Tabs>
+
+### January
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Avocent ACS 8000**](../procedures/hardware-kvm-avocent-acs-8000-snmp.md) - Initial release of Avocent 8000.
+- [**Teldat Edge Routers SNMP**](../procedures/network-teldat-snmp.md) - Initial release of Teldat Edge Routers SNMP.
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Dell Xseries**](../procedures/network-switchs-dell-xseries-snmp.md) - Fixed the wrong options in the Net-Dell-Xseries-SNMP-Cpu command.
+- [**IBM Storwize**](../procedures/hardware-storage-ibm-storwize-ssh.md) - Fixed date issue and added replication service template.
+- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Fixed a regression on sql-string mode.
+- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - Fixed a regression on sql-string mode.
+- [**Oracle Database**](../procedures/applications-databases-oracle.md) - Fixed a regression on sql-string mode.
+- [**Warp10 Sensision**](../procedures/applications-databases-warp10-sensision.md) - Fixed an issue that blocked the uninstallation process and a broker command.
+
+</TabItem>
+</Tabs>
+
 ## 2023
 
 ### December

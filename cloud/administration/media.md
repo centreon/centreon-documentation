@@ -11,16 +11,11 @@ for cartography modules, etc.
 
 ## Adding images
 
-This procedure explains how to add images manually.
-
 To add an image in Centreon, go to **Administration > Parameters > Images** and
 click **Add**.
 
 The **Images** page is displayed.
 
-- The **Existing or new directory** field can be used to add a new folder in the
-image folder or to choose an existing folder into which the image can be
-copied.
-- The **Image or archive** field can be used to select the image or the set of
-images contained in an archive that will be imported.
-- The **Comments** field can be used to describe the image.
+- **Existing or new directory:** add a new folder in the image folder or choose an existing folder into which the image can be copied.
+- **Image or archive:** select the image or the set of images contained in an archive that will be imported.
+- **Comments:** add a description of the image.
