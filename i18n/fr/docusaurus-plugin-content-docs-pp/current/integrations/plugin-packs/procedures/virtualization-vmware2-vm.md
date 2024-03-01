@@ -176,9 +176,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-### Configuration du connecteur Centreon VMWare
+### Configuration du daemon Centreon VMware
 
-Pour la supervision VMWare, centreon utlise un daemon pour se connecter et requêter le vCenter.
+Pour la supervision VMware, Centreon utilise un daemon pour se connecter et requêter le vCenter (ou les ESX, mais il est recommandé de passer par le vCenter).
 
 Installer le daemon sur tous les pollers :
 
@@ -199,7 +199,7 @@ yum install centreon-plugin-Virtualization-VMWare-daemon
 </TabItem>
 </Tabs>
 
-Pour configurer les accès à votre infrastructure, éditer le fichier
+Pour configurer les accès à votre infrastructure, éditez le fichier
 "/etc/centreon/centreon\_vmware.pm" :
 
 ``` perl
@@ -216,10 +216,10 @@ Pour configurer les accès à votre infrastructure, éditer le fichier
 1;
 ```
 
-Assurez vous d'avoir remplacé toutes les variables avec les informations nécessaires :
+Assurez-vous d'avoir remplacé toutes les variables avec les informations nécessaires :
 
-- _ip\_hostname_: Adresse IP ou nom d'hôte du vCenter ou de l'ESX (Si il est en mode standalone),
-- _username_: utilisateur avec un accès "lecture seul" au vCenter ou à l'ESX (Vous pouvez utilisez un utilisateur du domaine),
+- _ip\_hostname_: Adresse IP ou nom d'hôte du vCenter ou de l'ESX (s'il est en mode standalone),
+- _username_: utilisateur avec un accès "lecture seule" au vCenter ou à l'ESX (vous pouvez utiliser un utilisateur du domaine),
 - _password_: le mot de passe de l'utilisateur.
 
 Vous pouvez configurer plusieurs connexions à différents vCenter ou ESX
@@ -245,7 +245,7 @@ en utilisant cette structure:
 1;
 ```
 
-Chaque entrée est un **container**.
+Chaque entrée est appelée un **container** (il correspond à la macro d'hôte `$_HOSTCENTREONVMWARECONTAINER$`).
 
 Pour démarrer le daemon et l'activer au démarrage :
 
@@ -257,7 +257,7 @@ systemctl enable centreon_vmware
 Vous pouvez vérifiez que votre configuration est fonctionelle en consultant les journaux dans :
 "/var/log/centreon/centreon\_vmware.log".
 
-### Balises et Attributs personnalisés
+### Balises et attributs personnalisés
 
 Pour découvrir les balises et les attributs personnalisés, vous devez :
 
@@ -266,9 +266,9 @@ Pour découvrir les balises et les attributs personnalisés, vous devez :
 
 ### Flux réseau
 
-Le Collecteur Centreon avec le connecteur VMWare d'installé doit accéder en HTTPS (TCP/443) au vCenter.
+Le collecteur Centreon (avec le daemon VMWare installé dessus) doit accéder en HTTPS (TCP/443) au vCenter.
 
-Les collecteurs requêtant le collecteur avec le connecteur VMWare doivent accéder en TCP/5700 au collecteur avec le connecteur VMWare.
+Si plusieurs collecteurs de supervision utilisent un même daemon, alors ceux-ci doivent accéder en TCP/5700 au collecteur équipé du daemon VMware.
 
 ## Installer le connecteur de supervision
 
@@ -367,10 +367,10 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro                      | Description                                                                                           | Valeur par défaut | Obligatoire |
 |:---------------------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CENTREONVMWAREPORT         | Connector port (default: 5700).                                                                        | 5700              |             |
-| CENTREONVMWARECONTAINER    | Container to use (it depends on the connector's configuration).                                          | default           |             |
-| CENTREONVMWAREHOST         | Connector hostname (required).                                                                         | localhost         |X             |
-| VMNAME                     | Hostname of the VM to monitor. If not set, we check all VMs.                                                    |                   |             |
+| CENTREONVMWAREPORT         | Port of the daemon (default: 5700).                                                                        | 5700              |             |
+| CENTREONVMWARECONTAINER    | Container to use (it depends on the daemon's configuration).                                          | default           |             |
+| CENTREONVMWAREHOST         | Hostname of the server on which the daemon is installed (required).                                                                         | localhost         |X             |
+| VMNAME                     | Name of the VM to monitor. If not set, we check all VMs.                                                    |                   |             |
 | VMUUID                     | Specify the VM's UUID.                                                                                                      |                   |             |
 | CENTREONVMWAREEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
@@ -662,8 +662,8 @@ Les options génériques sont listées ci-dessous :
 | --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --connector-hostname                       | Connector hostname (required).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --connector-port                           | Connector port (default: 5700).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --connector-hostname                       | Hostname of the server on which the daemon is installed (required).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --connector-port                           | Port on which the daemon is listening (default: 5700).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --container                                | Container to use (it depends on the connector's configuration).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --vsphere-address                          | Address of the vpshere/ESX instance to connect to.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --vsphere-username                         | Username to use to connect to the vpshere/ESX instance (with --vsphere-address).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
