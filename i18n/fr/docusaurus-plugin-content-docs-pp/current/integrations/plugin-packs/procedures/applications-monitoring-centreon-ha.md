@@ -180,7 +180,6 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
     --plugin=apps::pacemaker::local::plugin \
 	--mode=crm \
 	--hostname=10.0.0.1 \
-	--remote \
 	--command='pcs' \
 	--command-options='status --full' \
 	--verbose

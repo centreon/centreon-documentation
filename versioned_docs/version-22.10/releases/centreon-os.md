@@ -45,7 +45,7 @@ Release date: `January 2, 2024`
 
 #### Security fixes
 
-- [Security] Fixed an SQLi vulnerability.
+- [Security] Fixed an SQLi vulnerability (CVE-2024-0637, CVE-2024-23115, CVE-2024-23116, CVE-2024-23117, CVE-2024-23118, CVE-2024-23119).
 
 ### 22.10.16
 
@@ -79,7 +79,7 @@ Release date: `November 17, 2023`
 #### Security fix
 
 - [Security] Fixed SQLi in a method.
-- Fixed potential vulnerability in the list of discovered hosts.
+- Fixed potential vulnerability in the list of discovered hosts (CVE-2023-51633).
   
 ### 22.10.14
 
@@ -560,7 +560,7 @@ Release date: `February 14, 2024`
 
 #### Security fixes
 
-[Security] Enabled whitelist of Centreon Gorgone commands by default to manage Centreon Engine and Broker processes and to limit escalations of potential future vulnerabilities.
+[Security] Enabled whitelist of Centreon Gorgone commands by default to manage Centreon Engine and Broker processes in order to limit escalations of potential future vulnerabilities.
 
 ### 22.10.3
 
