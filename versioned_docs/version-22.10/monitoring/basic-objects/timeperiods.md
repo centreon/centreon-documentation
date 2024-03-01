@@ -56,7 +56,7 @@ To be able to define the national holiday days and the exceptional closure days,
 
 To add an exception, in the **Exceptions** field, click on **Add new entry**. For each exceptional day, you will need to define a time period. 
 
->Use the following syntax to exclude whole days from the supervision: 00:00-00:00.
+> Use the following syntax to exclude whole days from the supervision: 00:00-00:00.
 
 The table below shows some possible examples :
 
@@ -71,3 +71,5 @@ The table below shows some possible examples :
 | monday -2         | 00:00-24:00             | All day every second to last Monday of the month          |
 | june 6 - june 21  | 00:00-00:00             | Do not supervise all day, every day from June 6th to the 21st        |
 | june 12           | 00:00-08:00,18:00-24:00 | Supervise every June 12th, except between 08h00 and 18h00 |
+
+> Exceptions are not taken into account in [BAM](../../service-mapping/introduction.md), and in reports concerning BAM in [MBI](../../reporting/introduction.md).

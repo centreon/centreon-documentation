@@ -57,7 +57,7 @@ Afin de pouvoir définir les jours fériés ainsi que les jours de fermeture exc
 Pour ajouter une exception, dans le champ **Exceptions**, cliquez sur **Ajouter une nouvelle entrée**. Définissez une plage horaire pour chaque
 journée exceptionnelle. 
 
->Utilisez la syntaxe suivante pour exclure des jours entiers de la supervision : 00:00-00:00.
+> Utilisez la syntaxe suivante pour exclure des jours entiers de la supervision : 00:00-00:00.
 
 Le tableau ci-dessous présente quelques exemples possibles :
 
@@ -72,3 +72,5 @@ Le tableau ci-dessous présente quelques exemples possibles :
 | monday -2         | 00:00-24:00             | Tous les avant derniers lundi du mois toute la journée       |
 | june 6 - june 21  | 00:00-00:00             | Ne pas superviser entre le 6 et le 21 juin toute la journée  |
 | june 12           | 00:00-08:00,18:00-24:00 | Superviser chaque 12 juin, sauf entre 8h et 18h              |
+
+> Les périodes d'exception ne sont pas prises en compte dans [BAM](../../service-mapping/introduction.md), et dans les rapports concernant BAM dans [MBI](../../reporting/introduction.md).

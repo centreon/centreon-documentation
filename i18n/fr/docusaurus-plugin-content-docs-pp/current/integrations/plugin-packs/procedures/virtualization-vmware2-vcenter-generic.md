@@ -11,6 +11,8 @@ Le connecteur de supervision Centreon s'appuie sur le SDK VMWare pour requêter 
 
 Avec le connecteur, Centreon peut superviser les VMs, Datastores, ESXs, Clusters, etc.
 
+> Ce connecteur de supervision fonctionne avec les versions 6 et 7 de l'API VMware.
+
 ## Contenu du pack
 
 ### Modèles

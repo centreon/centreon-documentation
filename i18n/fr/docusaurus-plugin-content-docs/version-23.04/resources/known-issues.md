@@ -72,6 +72,7 @@ ALTER TABLE virtual_metrics MODIFY index_id bigint unsigned;
 
 L'autologin n'est actuellement pas géré pour les pages suivantes :
 
+* **Supervision > Map (legacy exclus)**
 * **Monitoring > Resources Status**
 * **Configuration > Hosts > Discovery**
 * **Configuration > Business Activity > Business Views**
