@@ -116,6 +116,7 @@ rm -f /etc/cron.d/centreon-auto-disco
 systemctl restart crond
 ```
 
+</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
