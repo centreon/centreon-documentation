@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 VMware est une solution de virtualisation et d'infrastructure de Cloud Computing.
 
-Le connecteur de supervision Centreon s'appuie sur le SDK VMWare pour requêter l'API du vCenter au travers d'un connecteur dédié.
+Le connecteur de supervision Centreon s'appuie sur un connecteur dédié (centreon-vmware-daemon) utilisant le SDK VMware pour requêter l'API du vCenter. Il permet de superviser des machines virtuelles VMware.
 
 ## Contenu du pack
 
