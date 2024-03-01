@@ -1570,6 +1570,7 @@
         {
           "type": "doc",
           "id": "version-23.10/upgrade/centreon-ha/upgrade-centreon-ha-from-23-04"
+        }
           ]
         }
       ]
