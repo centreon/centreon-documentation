@@ -396,7 +396,7 @@ max_allowed_packet=64M
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Pour commencer, il faut améliorer la configuration de MariaDB, qui sera concentrée dans le seul fichier `/etc/my.cnf.d/mariadb-server.cnf`.  Par défaut, la section `[server]` de ce fichier est vide, c'est là que doivent être collées les lignes suivantes :
+Pour commencer, il faut améliorer la configuration de MariaDB, qui sera concentrée dans le seul fichier `/etc/my.cnf.d/server.cnf`.  Par défaut, la section `[server]` de ce fichier est vide, c'est là que doivent être collées les lignes suivantes :
 
 ```ini
 [server]
@@ -641,7 +641,7 @@ systemctl restart mariadb
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Maintenant que tout est bien configuré, activez le mode `read_only` sur les deux serveurs en décommentant (c'est-à-dire en retirant le `#` en début de ligne) cette instruction dans le fichier `/etc/my.cnf.d/mariadb-server.cnf` :
+Maintenant que tout est bien configuré, activez le mode `read_only` sur les deux serveurs en décommentant (c'est-à-dire en retirant le `#` en début de ligne) cette instruction dans le fichier `/etc/my.cnf.d/server.cnf` :
 
 * Nœud principal
 
@@ -1199,7 +1199,7 @@ pcs resource create "ms_mysql" \
 ```bash
 pcs resource create "ms_mysql" \
     ocf:heartbeat:mariadb-centreon \
-    config="/etc/my.cnf.d/mariadb-server.cnf" \
+    config="/etc/my.cnf.d/server.cnf" \
     pid="/var/lib/mysql/mysql.pid" \
     datadir="/var/lib/mysql" \
     socket="/var/lib/mysql/mysql.sock" \
