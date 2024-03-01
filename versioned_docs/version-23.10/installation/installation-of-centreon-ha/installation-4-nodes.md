@@ -522,6 +522,14 @@ log-error=/var/log/mariadb/mariadb.log
 pid-file=/var/lib/mysql/mysql.pid
 ```
 
+then create the directory and corresponding log file:
+
+```shell
+mkdir /var/log/mariadb
+touch /var/log/mariadb/mariadb.log
+chown -R mysql. /var/log/mariadb
+```
+
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
