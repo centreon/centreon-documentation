@@ -88,19 +88,13 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
 
 ### Sur un serveur central Centreon
 
-1. Installez **centreon-helios**:
-
-    ```
-    dnf install centreon-helios
-    ```
-
-2. Installez l'Agent :
+1. Installez l'Agent :
 
     ```
     dnf install centreon-agent
     ```
 
-3. Si vous installez l'Agent pour la première fois sur ce serveur, générez le fichier yaml de configuration à l'aide de la commande Shell suivante :
+2. Si vous installez l'Agent pour la première fois sur ce serveur, générez le fichier yaml de configuration à l'aide de la commande Shell suivante :
 
     >Ne réalisez cette étape que si l'Agent n'a jamais été configuré. Dans le cas contraire, vous écraseriez votre configuration précédente.
 
@@ -177,17 +171,7 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
     systemctl start centreon-agent.service
     ```
 
-7. Activez la planification de la topologie: éditez le fichier cron **/etc/cron.d/centreon-helios** et décommentez la ligne suivante (c'est-à-dire supprimez le caractère **#**):
-
-    ```
-    0 0 * * * centreon /usr/sbin/centreon-helios.phar
-    ```
-
-    > Si vous avez une précédente version de l'agent déjà installée, la ligne concernée peut être différente : dans ce cas, remplacez-la par la ligne ci-dessus.
-
-    > La fonction Topologie utilise le fichier **centreon-agent.yml** pour collecter les informations nécessaires: ce comportement est codé en dur. Si vous changez le nom de ce fichier YAML, la fonction échouera.
-
-8. Vous pouvez maintenant [configurer votre Agent](#configurer-lagent) (passerelle, proxy etc.), puis [tester](#tester-lagent) votre configuration générale.
+7. Vous pouvez maintenant [configurer votre Agent](#configurer-lagent) (passerelle, proxy etc.), puis [tester](#tester-lagent) votre configuration générale.
 
 ### Sur d'autres machines hôtes (serveur distant, collecteur, MAP, etc.)
 
@@ -249,7 +233,7 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
     systemctl start centreon-agent.service
     ```
 
-7. Vous pouvez maintenant [configurer votre Agent](#configurer-lagent) (passerelle, proxy etc.), puis [tester](#tester-lagent) votre configuration générale.
+6. Vous pouvez maintenant [configurer votre Agent](#configurer-lagent) (passerelle, proxy etc.), puis [tester](#tester-lagent) votre configuration générale.
 
 ## Configurer l'Agent
 
