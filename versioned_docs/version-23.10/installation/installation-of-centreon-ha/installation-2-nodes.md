@@ -1508,6 +1508,21 @@ pcs constraint colocation add master "ms_mysql-clone" with "centreon"
 
 After this step, all resources should be running on the same node; the platform should be redundant and working properly.
 
+### Activating the resources
+
+```bash
+pcs resource enable php-clone
+pcs resource enable cbd_rrd-clone
+pcs resource meta vip target-role="started"
+pcs resource meta centreontrapd target-role="started"
+pcs resource meta snmptrapd target-role="started"
+pcs resource meta centengine target-role="started"
+pcs resource meta cbd_central_broker target-role="started"
+pcs resource meta gorgone target-role="started"
+pcs resource meta centreon_central_sync target-role="started"
+pcs resource meta http target-role="started"
+```
+
 ### Checking the state of the cluster
 
 #### Checking the states of the resources
