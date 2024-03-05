@@ -1236,7 +1236,6 @@ Après cette étape, toutes les ressources doivent être actives au même endroi
 pcs resource enable php-clone
 pcs resource enable cbd_rrd-clone
 pcs resource meta vip target-role="started"
-pcs resource meta vip_mysql target-role="started"
 pcs resource meta centreontrapd target-role="started"
 pcs resource meta snmptrapd target-role="started"
 pcs resource meta centengine target-role="started"
