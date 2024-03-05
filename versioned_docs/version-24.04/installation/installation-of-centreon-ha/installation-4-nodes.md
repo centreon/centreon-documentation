@@ -1673,9 +1673,7 @@ pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABA
 </TabItem>
 </Tabs>
 
-### Activate the cluster and check the operating state of the resources
-
-#### Enable resources 
+### Activating the resources 
 
 ```bash
 pcs resource enable php-clone
