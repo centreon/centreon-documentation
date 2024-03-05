@@ -5,7 +5,7 @@ title: Monitoring a service
 
 A service is a check point, or indicator, to be monitored on a host, e.g.: percentage of partition used on a server, ink level in a printer.
 
-To see the list of monitored services, go to **Configuration > Services > Services (simplified)**.
+To see the list of monitored services, go to **Configuration > Services > Services by host**.
 
 You can:
 

@@ -6,7 +6,7 @@ title: Mettre un service en supervision
 Un service est un point de contrôle, ou indicateur, à superviser sur un hôte. Par exemple : pourcentage d’utilisation partition sur un
 serveur, niveau d’encre sur une imprimante...
 
-Pour consulter la liste des services supervisés, allez à la page **Configuration > Services > Services (simplifiés)**.
+Pour consulter la liste des services supervisés, allez à la page **Configuration > Services > Services par hôte**.
 
 Vous pouvez :
 

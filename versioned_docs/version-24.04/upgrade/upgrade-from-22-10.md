@@ -34,10 +34,10 @@ servers:
 
 1. Update your Centreon 22.10 to the latest minor version.
 
-2. Remove the **centreon.repo** file:
+2. Remove the **centreon-22.10.repo** file:
 
    ```shell
-   rm /etc/yum.repos.d/centreon.repo
+   rm /etc/yum.repos.d/centreon-22.10.repo
    ```
 
 3. Install the new repository:
@@ -218,13 +218,7 @@ The expected result is the following:
 Syntax OK
 ```
 
-Restart the Apache and PHP processes to take the new configuration into account:
-
-```shell
-systemctl restart php8.0-fpm apache2
-```
-
-Then check its status:
+Check the status of Apache:
 
 ```shell
 systemctl status apache2
@@ -289,9 +283,6 @@ systemctl reload php-fpm httpd
 ```shell
 apt autoremove
 systemctl daemon-reload
-systemctl stop php8.0-fpm.service
-systemctl enable php8.1-fpm
-systemctl start php8.1-fpm
 systemctl restart apache2
 ```
 

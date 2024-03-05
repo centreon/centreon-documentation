@@ -11,6 +11,8 @@ The Centreon Plugins and Monitoring Connectors rely on the Centreon VMWare Conne
 
 With this connector, Centreon can monitor VMs, Datastores, ESXs, Clusters, etc.
 
+> This Monitoring Connector can be used with either version 6 or 7 of the VMware API.
+
 ## Pack assets
 
 ### Templates
@@ -518,7 +520,12 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Vm-Thinprovisioning-Global" label="Vm-Thinprovisioning-Global">
 
-Coming soon
+| Metric name                         | Unit                                   |
+|-------------------------------------|----------------------------------------|
+| VM Connection State                 | N/A      							|
+| Thin Provisioning Status of VMs     | N/A            						|
+| VM Power State                      | N/A            						|
+
 
 </TabItem>
 <TabItem value="Vm-Tools-Global" label="Vm-Tools-Global">
@@ -827,7 +834,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro              | Description                                                                                                                                                | Default value     | Mandatory   |
 |:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER             | The connector will only take into account alerts coming from the datastores listed here                                                                                                                                    | .*                |             |
+| FILTER             | The connector will only take into account alerts coming from the datastores listed here                                                                                                                                      | .*                |             |
 | UNKNOWNSTATUS      | Define the conditions to match for the status to be UNKNOWN (Default: '%{accessible} !~ /^true\|1$/i'). You can use the following variables: %{accessible} |                   |             |
 | WARNINGREAD        | Warning threshold                                                                                                                                          |                   |             |
 | CRITICALREAD       | Critical threshold                                                                                                                                         |                   |             |
@@ -846,7 +853,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro              | Description                                                                                                                                                | Default value     | Mandatory   |
 |:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER             | The connector will only take into account alerts coming from the datastores listed here                                                                                                                                    | .*                |             |
+| FILTER             | The connector will only take into account alerts coming from the datastores listed here                                                                                                                                     | .*                |             |
 | UNKNOWNSTATUS      | Define the conditions to match for the status to be UNKNOWN (Default: '%{accessible} !~ /^true\|1$/i'). You can use the following variables: %{accessible} |                   |             |
 | WARNINGREAD        | Thresholds                                                                                                                                                 |                   |             |
 | CRITICALREAD       | Thresholds                                                                                                                                                 |                   |             |
@@ -869,7 +876,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 
 | Macro            | Description                                                                                                                                                | Default value     | Mandatory   |
 |:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER           | The connector will only take into account alerts coming from the datastores listed here                                                                                                                                     | .*                |             |
+| FILTER           | The connector will only take into account alerts coming from the datastores listed here                                                                                                                                   | .*                |             |
 | UNKNOWNSTATUS    | Define the conditions to match for the status to be UNKNOWN (Default: '%{accessible} !~ /^true\|1$/i'). You can use the following variables: %{accessible} |                   |             |
 | WARNINGSNAPSHOT  | Warning threshold                                                                                                                                          |                   |             |
 | CRITICALSNAPSHOT | Critical threshold                                                                                                                                         |                   |             |
@@ -924,7 +931,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 | Macro                      | Description                                                                                                                                                                 | Default value               | Mandatory   |
 |:---------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
 | FILTER                     | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                                                                         | .*                          |             |
-| FILTERTIME                 | The connector will ignore any alert older than the time period specified here (in seconds).                                                                                                                                  | 3600                        |             |
+| FILTERTIME                 | The connector will ignore any alert older than the time period specified here (in seconds).                                                                                                                                 | 3600                        |             |
 | WARNINGSTATUS              | Define the conditions to match for the status to be WARNING (Default: '%{status} =~ /yellow/i). You can use the following variables: %{status}, %{name}, %{entity}, %{type} | %{status} =~ /yellow/i      |             |
 | CRITICALSTATUS             | Define the conditions to match for the status to be CRITICAL (Default: '%{status} =~ /red/i'). You can use the following variables: %{status}, %{name}, %{entity}, %{type}  | %{status} =~ /red/i         |             |
 | WARNINGTOTALALARMWARNING   | Warning threshold                                                                                                                                                           |                             |             |
@@ -994,7 +1001,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 | UNKNOWNSTATUS          | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status} |                   |             |
 | WARNING                | Warning threshold (can use unit option)                                                                                                              |                   |             |
 | CRITICAL               | Critical threshold (can use unit option)                                                                                                             |                   |             |
-| WARNINGOVERHEADMEMORY  | Threshold overhead                                                                                                                                   |                   |             |
+| WARNINGOVERHEADMEMORY  | Overhead threshold                                                                                                                                  |                   |             |
 | CRITICALOVERHEADMEMORY | Critical threshold                                                                                                                                   |                   |             |
 | WARNINGSTATEMEMORY     | Warning threshold. For state != 'high': --warning-state=0                                                                                            |                   |             |
 | CRITICALSTATEMEMORY    | Critical threshold. For state != 'high': --warning-state=0                                                                                           |                   |             |
@@ -1052,36 +1059,36 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 | CRITICALADAPTERSTOTAL   | Thresholds                                                                                                                                                                                         |                                         |             |
 | WARNINGADAPTERSUNKNOWN  | Thresholds                                                                                                                                                                                         |                                         |             |
 | CRITICALADAPTERSUNKNOWN | Thresholds                                                                                                                                                                                         |                                         |             |
-| WARNINGLUNSDEGRADED     |                                                                                                                                                                                                    |                                         |             |
-| CRITICALLUNSDEGRADED    |                                                                                                                                                                                                    |                                         |             |
-| WARNINGLUNSERROR        |                                                                                                                                                                                                    |                                         |             |
-| CRITICALLUNSERROR       |                                                                                                                                                                                                    |                                         |             |
-| WARNINGLUNSOFF          |                                                                                                                                                                                                    |                                         |             |
-| CRITICALLUNSOFF         |                                                                                                                                                                                                    |                                         |             |
-| WARNINGLUNSOK           |                                                                                                                                                                                                    |                                         |             |
-| CRITICALLUNSOK          |                                                                                                                                                                                                    |                                         |             |
-| WARNINGLUNSQUIESCED     |                                                                                                                                                                                                    |                                         |             |
-| CRITICALLUNSQUIESCED    |                                                                                                                                                                                                    |                                         |             |
+| WARNINGLUNSDEGRADED     | Set warning threshold for the count of LUNs in a degraded state.                                                                                                                                                                                                   |                                         |             |
+| CRITICALLUNSDEGRADED    | Set critical threshold for the count of LUNs in a degraded state.                                                                                                                                                                                                   |                                         |             |
+| WARNINGLUNSERROR        | Set warning threshold for the count of LUNs in an error state.                                                                                                                                                                                                   |                                         |             |
+| CRITICALLUNSERROR       | Set critical threshold for the count of LUNs in an error state.                                                                                                                                                                                                   |                                         |             |
+| WARNINGLUNSOFF          | Set warning threshold for the count of LUNs that are offline.                                                                                                                                                                                                   |                                         |             |
+| CRITICALLUNSOFF         | Set critical threshold for the count of LUNs that are offline.                                                                                                                                                                                                   |                                         |             |
+| WARNINGLUNSOK           | Set warning threshold for the count of LUNs that are operational.                                                                                                                                                                                                   |                                         |             |
+| CRITICALLUNSOK          | Set critical threshold for the count of LUNs that are operational.                                                                                                                                                                                                   |                                         |             |
+| WARNINGLUNSQUIESCED     | Set warning threshold for the count of LUNs that are in a quiesced state.                                                                                                                                                                                                   |                                         |             |
+| CRITICALLUNSQUIESCED    | Set critical threshold for the count of LUNs that are in a quiesced state.                                                                                                                                                                                                   |                                         |             |
 | WARNINGLUNSTATUS        | Set warning threshold for lun status (Default: '%{status} =~ /degraded\|quiesced/'). You can use the following variables: %{name}, %{host}, %{status}                                              | %{status} =~ /degraded\|quiesced/       |             |
 | CRITICALLUNSTATUS       | Set critical threshold for lun status (Default: '%{status} =~ /lostcommunication\|error/'). You can use the following variables: %{name}, %{host}, %{status}                                       | %{status} =~ /lostcommunication\|error/ |             |
-| WARNINGLUNSTOTAL        |                                                                                                                                                                                                    |                                         |             |
-| CRITICALLUNSTOTAL       |                                                                                                                                                                                                    |                                         |             |
-| WARNINGLUNSUNKNOWN      |                                                                                                                                                                                                    |                                         |             |
-| CRITICALLUNSUNKNOWN     |                                                                                                                                                                                                    |                                         |             |
-| WARNINGPATHSACTIVE      |                                                                                                                                                                                                    |                                         |             |
-| CRITICALPATHSACTIVE     |                                                                                                                                                                                                    |                                         |             |
-| WARNINGPATHSDEAD        |                                                                                                                                                                                                    |                                         |             |
-| CRITICALPATHSDEAD       |                                                                                                                                                                                                    |                                         |             |
-| WARNINGPATHSDISABLED    |                                                                                                                                                                                                    |                                         |             |
-| CRITICALPATHSDISABLED   |                                                                                                                                                                                                    |                                         |             |
-| WARNINGPATHSSTANDBY     |                                                                                                                                                                                                    |                                         |             |
-| CRITICALPATHSSTANDBY    |                                                                                                                                                                                                    |                                         |             |
+| WARNINGLUNSTOTAL        |  Set warning threshold for the total count of LUNs.                                                                                                                                                                                                  |                                         |             |
+| CRITICALLUNSTOTAL       | Set critical threshold for the total count of LUNs.                                                                                                                                                                                                   |                                         |             |
+| WARNINGLUNSUNKNOWN      | Set warning threshold for the count of LUNs with an unknown status.                                                                                                                                                                                                   |                                         |             |
+| CRITICALLUNSUNKNOWN     | Set critical threshold for the count of LUNs with an unknown status.                                                                                                                                                                                                   |                                         |             |
+| WARNINGPATHSACTIVE      | Set warning threshold for the count of active storage paths.                                                                                                                                                                                                   |                                         |             |
+| CRITICALPATHSACTIVE     | Set critical threshold for the count of active storage paths.                                                                                                                                                                                                   |                                         |             |
+| WARNINGPATHSDEAD        | Set warning threshold for the count of dead storage paths.                                                                                                                                                                                                   |                                         |             |
+| CRITICALPATHSDEAD       | Set critical threshold for the count of dead storage paths.                                                                                                                                                                                                   |                                         |             |
+| WARNINGPATHSDISABLED    | Set warning threshold for the count of disabled storage paths.                                                                                                                                                                                                   |                                         |             |
+| CRITICALPATHSDISABLED   | Set critical threshold for the count of disabled storage paths.                                                                                                                                                                                                   |                                         |             |
+| WARNINGPATHSSTANDBY     | Set warning threshold for the count of storage paths in standby mode.                                                                                                                                                                                                   |                                         |             |
+| CRITICALPATHSSTANDBY    | Set critical threshold for the count of storage paths in standby mode.                                                                                                                                                                                                   |                                         |             |
 | CRITICALPATHSTATUS      | Set critical threshold for path status (Default: '%{status} =~ /dead/'). You can use the following variables: %{name}, %{host}, %{status}                                                          | %{status} =~ /dead/                     |             |
 | WARNINGPATHSTATUS       | Set warning threshold for path status. You can use the following variables: %{name}, %{host}, %{status}                                                                                            |                                         |             |
-| WARNINGPATHSTOTAL       |                                                                                                                                                                                                    |                                         |             |
-| CRITICALPATHSTOTAL      |                                                                                                                                                                                                    |                                         |             |
-| WARNINGPATHSUNKNOWN     |                                                                                                                                                                                                    |                                         |             |
-| CRITICALPATHSUNKNOWN    |                                                                                                                                                                                                    |                                         |             |
+| WARNINGPATHSTOTAL       | Set warning threshold for the total count of storage paths.                                                                                                                                                                                                   |                                         |             |
+| CRITICALPATHSTOTAL      | Set critical threshold for the total count of storage paths.                                                                                                                                                                                                   |                                         |             |
+| WARNINGPATHSUNKNOWN     | Set warning threshold for the count of storage paths with an unknown status.                                                                                                                                                                                                   |                                         |             |
+| CRITICALPATHSUNKNOWN    | Set critical threshold for the count of storage paths with an unknown status.                                                                                                                                                                                                   |                                         |             |
 | WARNINGSTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{maintenance}                                                                        |                                         |             |
 | CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{maintenance}                                                                       |                                         |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                | --verbose                               |             |
@@ -1361,7 +1368,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 | FILTER             | Hostnames of the VMs to monitor. If not set, we check all VMs                                                  | .*                                                    |             |
 | NOTINSTALLEDSTATUS | Status if vmtools is not installed (default: critical)                                              | critical                                              | X           |
 | NOTRUNNINGSTATUS   | Status if vmtools is not running (default: critical)                                                | critical                                              | X           |
-| NOTUP2DATESTATUS   | Status if vmtools is not upd2date (default: warning)                                                | warning                                               |             |
+| NOTUP2DATESTATUS   | Status if vmtools is not up to date (default: warning)                                                | warning                                               |             |
 | VMUUID             |                                                                                                     |                                                       |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options) | --disconnect-status='ok' --nopoweredon-skip --verbose |             |
 
@@ -1420,8 +1427,44 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
 Once the plugin is installed, log into your Centreon poller's CLI using the
-**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector
 is able to monitor a resource using a command like this one (replace the sample values by yours):
+
+```bash
+/usr/lib/centreon/plugins/centreon_vmware_connector_client.pl \
+	--plugin=apps::vmware::connector::plugin \
+	--mode=vsan-cluster-usage \
+	--custommode=connector \
+	--connector-hostname='localhost' \
+	--connector-port='5700' \
+	--container='default'  \
+	--cluster-name='.*' \
+	--filter \
+	--warning-backend-read-usage='' \
+	--critical-backend-read-usage='' \
+	--warning-backend-write-usage='' \
+	--critical-backend-write-usage='' \
+	--warning-backend-congestions='' \
+	--critical-backend-congestions='' \
+	--warning-backend-outstanding-io='' \
+	--critical-backend-outstanding-io='' \
+	--warning-backend-throughput-read='' \
+	--critical-backend-throughput-read='' \
+	--warning-backend-throughput-write='' \
+	--critical-backend-throughput-write='' \
+	--warning-backend-latency-read='' \
+	--critical-backend-latency-read='' \
+	--warning-backend-latency-write='' \
+	--critical-backend-latency-write=''
+```
+
+The expected command output is shown below:
+
+```bash
+OK: All clusters are ok | '*cluster*#cluster.vsan.backend.read.usage.iops'=iops;;;0;'*cluster*#cluster.vsan.backend.write.usage.iops'=iops;;;0;'*cluster*#cluster.vsan.backend.congestions.count'=;;;0;'*cluster*#cluster.vsan.backend.outstanding.io.count'=;;;0;'*cluster*#cluster.vsan.backend.throughput.read.bytespersecond'=B/s;;;0;'*cluster*#cluster.vsan.backend.throughput.write.bytespersecond'=B/s;;;0;'*cluster*#cluster.vsan.backend.latency.read.milliseconds'=ms;;;0;'*cluster*#cluster.vsan.backend.latency.write.milliseconds'=ms;;;0;
+```
+
+Here is another example:
 
 ```bash
 /usr/lib/centreon/plugins//centreon_vmware_connector_client.pl \
@@ -1449,13 +1492,6 @@ CRITICAL: Snapshots for VM older than 432000 seconds: [TLS-LIN-001] | 'num_warni
 'TLS-LIN-001' snapshot create time: 2020-07-20T12:19:16.246902Z [only base os image]
 ```
 
-The command above checks the virtual machine snapshots (```--plugin=apps::vmware::connector::plugin --mode=snapshot-vm```).
-It connects to the VMWare daemon on **localhost** (```--connector-hostname='localhost'```) on the port **5700** (```--connector-port='5700'```).
-Then the command requests the container **vcenter01** (```--container='vcenter01'```).
-
-It will trigger a WARNING alert if the age of the snapshot is older than 3 days / 259200s (```--warning='259200'```),
-and a CRITICAL alert if the snapshot is older than 5 days / 432000s (```--critical='432000'```).
-
 ### Troubleshooting
 
 Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
@@ -1465,7 +1501,7 @@ for Centreon Plugins typical issues.
 
 In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
 In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
-However, you will need to specify the correct mode for the template if you want to test the execution command for the 
+However, you will need to specify the correct mode for the template if you want to test the execution command for the
 connector in your terminal.
 
 All available modes can be displayed by adding the `--list-mode` parameter to
@@ -1687,7 +1723,7 @@ All available options for each service template are listed below:
 
 | Option             | Description                                                                                                                                                  |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --datastore-name   | datastore name to list.                                                                                                                                      |
+| --datastore-name   | The connector will only take into account alerts coming from the datastores listed here.                                                                                                                                       |
 | --filter           | Datastore name is a regexp.                                                                                                                                  |
 | --scope-datacenter | Search in following datacenter(s) (can be a regexp).                                                                                                         |
 | --unknown-status   | Define the conditions to match for the status to be UNKNOWN (Default: '%{accessible} !~ /^true\|1$/i'). You can use the following variables: %{accessible}   |
@@ -1701,7 +1737,7 @@ All available options for each service template are listed below:
 
 | Option                   | Description                                                                                                                                                  |
 |:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --datastore-name         | datastore name to list.                                                                                                                                      |
+| --datastore-name         | The connector will only take into account alerts coming from the datastores listed here.                                                                                                                                      |
 | --filter                 | Datastore name is a regexp.                                                                                                                                  |
 | --scope-datacenter       | Search in following datacenter(s) (can be a regexp).                                                                                                         |
 | --detail-iops-min        | Only display VMs with iops higher value (default: 50).                                                                                                       |
@@ -1715,7 +1751,7 @@ All available options for each service template are listed below:
 
 | Option             | Description                                                                                                                                                  |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --datastore-name   | datastore name to list.                                                                                                                                      |
+| --datastore-name   | The connector will only take into account alerts coming from the datastores listed here.                                                                                                                                     |
 | --filter           | Datastore name is a regexp.                                                                                                                                  |
 | --scope-datacenter | Search in following datacenter(s) (can be a regexp).                                                                                                         |
 | --unknown-status   | Define the conditions to match for the status to be UNKNOWN (Default: '%{accessible} !~ /^true\|1$/i'). You can use the following variables: %{accessible}   |
@@ -1729,7 +1765,7 @@ All available options for each service template are listed below:
 
 | Option                   | Description                                                                                                                                                  |
 |:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --datastore-name         | datastore name to list.                                                                                                                                      |
+| --datastore-name         | The connector will only take into account alerts coming from the datastores listed here.                                                                                                                                   |
 | --filter                 | Datastore name is a regexp.                                                                                                                                  |
 | --scope-datacenter       | Search in following datacenter(s) (can be a regexp).                                                                                                         |
 | --filter-host            | Filter datastores attached to hosts (can be a regexp).                                                                                                       |
@@ -1774,7 +1810,7 @@ All available options for each service template are listed below:
 | --filter               | Datacenter is a regexp.                                                                                                                                                                                                                       |
 | --scope-datacenter     | Search in following datacenter(s) (can be a regexp).                                                                                                                                                                                          |
 | --scope-cluster        | Search in following cluster(s) (can be a regexp).                                                                                                                                                                                             |
-| --filter-time          | The connector will ignore any alert older than the time period specified here (in seconds).                                                                                                                                                                                                   |
+| --filter-time          | The connector will ignore any alert older than the time period specified here (in seconds).                                                                                                                                                                                                  |
 | --memory               | Check new alarms only.                                                                                                                                                                                                                        |
 | --warning-status       | Define the conditions to match for the status to be WARNING (Default: '%{status} =~ /yellow/i). You can use the following variables: %{status}, %{name}, %{entity}, %{type}.                                                                  |
 | --critical-status      | Define the conditions to match for the status to be CRITICAL (Default: '%{status} =~ /red/i'). You can use the following variables: %{status}, %{name}, %{entity}, %{type}.                                                                   |

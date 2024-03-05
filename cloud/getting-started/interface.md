@@ -5,13 +5,9 @@ title: Overview of the Centreon interface
 
 ## Accessing the central server's interface
 
-When you first connect to Centreon Cloud, use the URL and credentials that the Centreon support team has given you. The connection URL looks like this: `https://<organization>.<region>.centreon.cloud`.
+To connect to Centreon Cloud for the first time, connect to the [CIAM](../ciam/ciam.md) and click on your platform in the **Applications** list on your organization's home page. You can then mark the URL as a favorite to access the platform faster.
 
-Fill in your user name and associated password (defined via [Centreon CIAM](../ciam/ciam.md)) and click the **Connect** button:
-
-![image](../assets/getting-started/aconnection.png)
-
-You are now connected to the Centreon web interface.
+A Centreon Cloud URL looks like this: `https://<organization>.<region>.centreon.cloud`.
 
 ## Menus
 

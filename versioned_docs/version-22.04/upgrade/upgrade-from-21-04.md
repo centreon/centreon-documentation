@@ -28,11 +28,19 @@ servers:
 
 > For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
 
-## Upgrade the Centreon Central server
+## Update to the last minor version
 
-### Update the Centreon repository
+1. On your 21.04 platform, replace `https://packages.centreon.com/rpm-standard` or `https://yum.centreon.com/standard` by `https://archives.centreon.com/standard/` in your current YUM configuration (by default, `/etc/yum.repos.d/centreon.repo`).
 
-Run the following commands:
+2. Update your Centreon 21.04 to the latest minor version.
+
+3. Remove the **centreon.repo** file:
+
+   ```shell
+   rm /etc/yum.repos.d/centreon.repo
+   ```
+
+4. Install the new repository:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -43,47 +51,23 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.04/e
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 7" label="Alma / RHEL / Oracle Linux 7">
 
 ```shell
 yum install -y yum-utils
-yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.04/el7/centreon-22.04.repo
+yum config-manager --add-repo https://packages.centreon.com/rpm-standard/22.04/el7/centreon-22.04.repo
 ```
 
 </TabItem>
 </Tabs>
 
-> If you have an offline license, install the corresponding repository for the plugin packs.
-> If you are using a Business edition, install the correct Business repository too.
-> You can find the repositories on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+> If you have an [offline license](../administration/licenses.md#types-of-licenses), also remove the old Monitoring Connectors repository, then install the new one.
+>
+> If you have a Business edition, do the same with the Business repository.
+>
+> You can find the address of these repositories on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
-### Install the MariaDB repository
-
-<Tabs groupId="sync">
-
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-cd /tmp
-curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
-bash ./mariadb_repo_setup
-sed -ri 's/1[0-1]\.[0-9]+/10.5/' /etc/yum.repos.d/mariadb.repo
-rm -f ./mariadb_repo_setup
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-cd /tmp
-curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
-bash ./mariadb_repo_setup
-sed -ri 's/1[0-1]\.[0-9]+/10.5/' /etc/yum.repos.d/mariadb.repo
-rm -f ./mariadb_repo_setup
-```
-
-</TabItem>
-</Tabs>
+## Upgrade the Centreon Central server
 
 ### Upgrade PHP
 

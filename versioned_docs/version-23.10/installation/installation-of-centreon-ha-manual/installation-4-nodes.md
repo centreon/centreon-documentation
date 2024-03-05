@@ -9,7 +9,9 @@ import TabItem from '@theme/TabItem';
 
 ### Understanding
 
-Before you follow this procedure, we recommend that you have a good knowledge of the Linux operating system and Centreon so you can understand what you are doing and correct any mistakes that might occur.
+Before applying this procedure, you should have a good knowledge of Linux OS, of Centreon, and of the Pacemaker-Corosync clustering tools in order to have a proper understanding of what is being done and to be able to correct any mistakes that might occur.
+
+> **WARNING**: Anyone following this procedure does so at their own risk. Under no circumstances shall Centreon be liable for any breakdown or data loss.
 
 ### Installation of Centreon
 
@@ -81,8 +83,6 @@ Rather than setting up a real-time replication of RRD data files, the technical 
 | Name | centreon-broker-master-rrd |
 | Connection port | 5670 |
 | Host to connect to | `@CENTRAL_MASTER_IPADDR@` |
-| Buffering timeout | 0 |
-| Retry interval | 60 |
 
 * Add a new IPv4 output, similar to the first one and named for example "centreon-broker-slave-rrd", this time pointing to `@CENTRAL_SLAVE_IPADDR@`.
 
@@ -91,8 +91,6 @@ Rather than setting up a real-time replication of RRD data files, the technical 
 | Name | centreon-broker-slave-rrd |
 | Connection port | 5670 |
 | Host to connect to | `@CENTRAL_SLAVE_IPADDR@` |
-| Buffering timeout | 0 |
-| Retry interval | 60 |
 
 #### Export the configuration
 

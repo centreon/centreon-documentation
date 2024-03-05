@@ -10,7 +10,7 @@ With Centreon Cloud, your central server is already ready to use. All you have t
 
 Before deploying a poller, make sure the [prerequisites](prerequisites.md) for your host machine are met.
 
-## Step 1: Running the script
+## Step 1: Running the poller installation script
 
 1. Use SSH to connect to the server that will become a poller.
 2. Disable SELinux (this is recommended to obtain a seamless installation. Advanced users can enable it depending on their SELinux expertise or security constraints, but should be attentive to the side-effects of this setup.)
@@ -19,38 +19,13 @@ Before deploying a poller, make sure the [prerequisites](prerequisites.md) for y
    2. Set the value of SELINUX to disabled (**SELINUX=disabled**).
    3. Save the file and reboot the system to apply the change.
 
-3. Run the command that will deploy the poller automatically. This command has been provided to you by our support team. It looks like this (according to your region):
+3. [On your central server](../getting-started/interface.md#accessing-the-central-servers-interface), click the arrow next to **Pollers** at the left of the header bar.
 
-<Tabs groupId="sync">
-<TabItem value="US East Region" label="US East Region">
+4. In the pop-up that appears, click **Copy install command**. The command is copied to your clipboard.
 
-> This applies to customers located in the USA, Canada and South America.
+5. On the server that will become your poller, in your terminal, paste the install command and execute it (this should take about 10 minutes).
 
-```shell
-bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: organization_token"  https://api.useast1.prod1.centreon.cloud/v1/organization/organization_name/site/your_site/poller -s)"
-```
-
-> Make sure you replace **organization_token**, **organization_name** and **your_site** with the correct values. You can find them in the [CIAM](../ciam/ciam.md).
-
-</TabItem>
-<TabItem value="Europe West Region" label="Europe West Region">
-
-> This applies to customers located in Europe, Africa, Asia and Oceania.
-
-```shell
-bash -c "$(curl -H "content-type: application/json"  -H "x-api-key: organization_token"  https://api.euwest1.prod1.centreon.cloud/v1/organization/organization_name/site/your_site/poller -s)"
-```
-
-> Make sure you replace ***organization_token**, **organization_name** and **your_site** with the correct values. You can find them in the [CIAM](../ciam/ciam.md).
-
-</TabItem>
-</Tabs>
-  
-3. The script is executed (this should take about 10 minutes):
-
-   ![image](../assets/installation/script2.png)
-
-4. When this is finished, [log in to your central server](../getting-started/interface.md#accessing-the-central-servers-interface) and go to **Configuration > Pollers > Pollers**. The new poller appears in the list of pollers.
+6. When this is finished, on your central server, go to **Configuration > Pollers > Pollers**. The new poller appears in the list of pollers.
    * By default, the name of the poller is its hostname (this may be shortened). Click the name to rename it.
    * The address in the **IP Address** column is that of the poller as seen by the central server.
    * The poller is not running yet (**No** in the **Is running?** column).

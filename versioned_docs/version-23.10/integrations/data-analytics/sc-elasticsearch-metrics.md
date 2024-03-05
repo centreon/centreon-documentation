@@ -149,8 +149,7 @@ You may need to configure your Elasticsearch server so that it can receive data 
 | string | index_pattern | By default this takes the name of the index and adds `*`. This is the name of the indexes
 for which the index template will apply when the latter is created by the stream connector | centreon-metrics* |
 | number | index_priority | Priority of the index when the index template is created by the stream connector | 200 |
-| number | create_datastream_index_template | The stream connector will automatically create the index template if it does not find
-it (1 = automatic creation, 0 = index template is not created) | 1 |
+| number | create_datastream_index_template | The stream connector will automatically create the index template if it does not find it (1 = automatic creation, 0 = index template is not created) | 1 |
 | number | update_datastream_index_template | The stream connector will update the index template if the latter does not correspond
 to the data that will be sent. (1 = autoupdate, 0 = does not auto-update). Even if automatic updating is activated, it will only
 work if the index template was created by Centreon. (The index template contains metadata that indicates this.) | 0 |
