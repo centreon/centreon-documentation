@@ -108,8 +108,6 @@ In the event of a cluster switch, you will expect the newly elected master centr
 | Name               | centreon-broker-master-rrd |
 | Connection port    | 5670                       |
 | Host to connect to | `@CENTRAL_MASTER_IPADDR@`  |
-| Buffering timeout  | 0                          |
-| Retry interval     | 60                         |
 
 * Add another "IPv4" output, similar to the first one, named "centreon-broker-slave-rrd" for example, directed towards `@CENTRAL_SLAVE_IPADDR@`.
 
@@ -118,8 +116,6 @@ In the event of a cluster switch, you will expect the newly elected master centr
 | Name               | centreon-broker-slave-rrd |
 | Connection port    | 5670                      |
 | Host to connect to | `@CENTRAL_SLAVE_IPADDR@`  |
-| Buffering timeout  | 0                         |
-| Retry interval     | 60                        |
 
 #### Export the configuration
 

@@ -86,8 +86,6 @@ Plutôt que de mettre en place une réplication en temps réel des fichiers de d
 | Nom | centreon-broker-master-rrd |
 | Port de connexion | 5670 |
 | Hôte auquel se connecter | `@CENTRAL_MASTER_IPADDR@' |
-| Délai de mise en mémoire tampon | 0 |
-| Intervalle de réessai | 60 |
 
 * Ajouter une nouvelle sortie IPv4, similaire à la première et nommée par exemple "centreon-broker-slave-rrd" pointant cette fois sur `@CENTRAL_SLAVE_IPADDR@`.
 
@@ -96,8 +94,6 @@ Plutôt que de mettre en place une réplication en temps réel des fichiers de d
 | Nom | centreon-broker-slave-rrd |
 | Port de connexion | 5670 |
 | Hôte auquel se connecter | `@CENTRAL_SLAVE_IPADDR@` |
-| Délai de mise en mémoire tampon | 0 |
-| Intervalle de réessai | 60 |
 
 #### Exporter la configuration
 
