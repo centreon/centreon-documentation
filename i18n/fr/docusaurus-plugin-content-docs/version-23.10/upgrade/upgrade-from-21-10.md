@@ -52,16 +52,6 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/e
 >
 > Vous pouvez trouver l'adresse des dépôts sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
-### Installer le dépôt MariaDB
-
-```shell
-cd /tmp
-curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
-bash ./mariadb_repo_setup
-sed -ri 's/1[0-1]\.[0-9]+/10.5/' /etc/yum.repos.d/mariadb.repo
-rm -f ./mariadb_repo_setup
-```
-
 ### Montée de version de PHP
 
 Centreon 23.10 utilise PHP en version 8.1.

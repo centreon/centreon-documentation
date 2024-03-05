@@ -64,16 +64,6 @@ yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.04/e
 > If you are using a Business edition, install the correct Business repository too.
 > You can find the repositories on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
-### Install the MariaDB repository
-
-```shell
-cd /tmp
-curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
-bash ./mariadb_repo_setup
-sed -ri 's/1[0-1]\.[0-9]+/10.5/' /etc/yum.repos.d/mariadb.repo
-rm -f ./mariadb_repo_setup
-```
-
 ### Upgrade the Centreon solution
 
 > Make sure all users are logged out from the Centreon web interface
