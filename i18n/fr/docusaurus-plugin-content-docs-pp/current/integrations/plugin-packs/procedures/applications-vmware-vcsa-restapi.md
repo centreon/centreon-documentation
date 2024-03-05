@@ -5,6 +5,8 @@ title: VMware VCSA RestAPI
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+vCenter Server Appliance (VCSA) est une machine virtuelle Linux préconfigurée et optimisée pour l'exécution de VMware vCenter Server et des services associés sur Linux.
+
 ## Contenu du pack
 
 ### Modèles
