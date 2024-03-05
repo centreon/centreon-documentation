@@ -5,8 +5,6 @@ title: VMware VM
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Overview
-
 VMware provides cloud computing and virtualization software.
 
 The Centreon **VMware VM** Monitoring Connector relies on a dedicated connector (centreon-vmware-daemon) that uses the VMware SDK to send requests to the vCenter's API. It allows you to monitor VMware virtual machines.
