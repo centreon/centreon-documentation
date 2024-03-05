@@ -1144,7 +1144,7 @@ Some resources must be running on one only node at a time (`centengine`, `gorgon
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-  
+
 ```bash
 pcs resource create "php" \
     systemd:php-fpm \
