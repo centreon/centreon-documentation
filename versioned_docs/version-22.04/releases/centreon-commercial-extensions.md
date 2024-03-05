@@ -16,6 +16,14 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 22.04.15
+
+Release date: `February 22, 2024`
+
+#### Bug fixes
+
+- [Migration] Fixed an issue with images when migrating from MAP Legacy to MAP.
+
 ### 22.04.14
 
 Release date: `December 21, 2023`
@@ -371,6 +379,14 @@ Release date: `May 25, 2022`
 - Compatibility with other 22.04 components.
 
 ## Centreon MBI
+
+### 22.04.6
+
+Release date: `January 22, 2024`
+
+#### Bug fix
+
+- [Reports] Fixed an issue that prevented reports to be sent by email with Office 365.
 
 ### 22.04.5
 

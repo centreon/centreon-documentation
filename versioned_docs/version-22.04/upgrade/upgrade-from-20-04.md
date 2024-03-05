@@ -28,6 +28,12 @@ servers:
 
 > For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
 
+## Update to the last minor version
+
+1. On your 20.04 platform, replace `https://packages.centreon.com/rpm-standard` or `https://yum.centreon.com/standard` by `https://archives.centreon.com/standard/` in your current YUM configuration (by default, `/etc/yum.repos.d/centreon.repo`).
+
+2. Update your Centreon 20.04 to the latest minor version.
+
 ## Upgrade the Centreon Central server
 
 > Since 21.04, Centreon uses **MariaDB 10.5**.
@@ -37,6 +43,12 @@ servers:
 > MariaDB will be upgraded afterwards.
 
 ### Update the Centreon repository
+
+Remove the **centreon.repo** file:
+
+```shell
+rm /etc/yum.repos.d/centreon.repo
+```
 
 Run the following commands:
 
@@ -51,14 +63,15 @@ yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.04/e
 
 ### Install the MariaDB repository
 
+<Tabs groupId="sync">
+<TabItem value="RHEL / Oracle Linux 7" label="RHEL / Oracle Linux 7">
+
 ```shell
-cd /tmp
-curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
-bash ./mariadb_repo_setup
-sed -ri 's/1[0-1]\.[0-9]+/10.5/' /etc/yum.repos.d/mariadb.repo
-rm -f ./mariadb_repo_setup
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=7 --mariadb-server-version="mariadb-10.5"
 ```
 
+</TabItem>
+</Tabs>
 ### Upgrade PHP
 
 Centreon 22.04 uses PHP in version 8.0.

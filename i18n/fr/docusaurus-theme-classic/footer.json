@@ -12,7 +12,7 @@
     "description": "The label of footer link with label=Download linking to https://download.centreon.com/"
   },
   "copyright": {
-    "message": "Copyright © 2005 - 2023 Centreon",
+    "message": "Copyright © 2005 - 2024 Centreon",
     "description": "The footer copyright"
   }
 }

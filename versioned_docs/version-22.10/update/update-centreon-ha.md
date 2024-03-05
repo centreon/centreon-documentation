@@ -2,78 +2,147 @@
 id: update-centreon-ha
 title: Updating Centreon-HA platform
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-This procedure is intended to be used to perform minor updates of Centreon, when the Engine/Broker compatibility is assured between the old and the new version. No service downtime is necessary in this case, only a short outage of the Web UI login screen.
+This procedure is intended to be used to perform minor updates of Centreon when  Engine/Broker compatibility between the old version and the new version is assured. No service downtime is necessary in this case; only a short outage of the Web UI login screen.
 
-## Suspend cluster resources management
+## Suspend cluster resource management
 
 In order to avoid a failover of the cluster during the update, it is necessary to unmanage all Centreon resources, as well as MariaDB.
 
 ```bash
-pcs resource unmanage centreon
-pcs resource unmanage ms_mysql
+pcs property set maintenance-mode=true
 ```
 
 ## Update process from the WUI
 
-> Please, make sure all users logged out from the Centreon web interface
+> Make sure all users are logged out of the Centreon web interface
 > before starting the upgrade procedure.
 
 ### Centreon-Web update
 
 Update your cluster by running the following command on each node:
 
-```bash
-yum update
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Clean the cache :
+
+```shell
+dnf clean all --enablerepo=*
 ```
 
-And then you should be able to finalize the update *via* the web UI. You might have to log off your session or to refresh the login page to access the update process.
+Update all components:
+
+```shell
+dnf update centreon\*
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Clean the cache :
+
+```shell
+dnf clean all --enablerepo=*
+```
+
+Update all components:
+
+```shell
+dnf update centreon\*
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Clean the cache :
+
+```shell
+apt clean all
+apt update
+```
+
+Update all components:
+
+```shell
+apt install --only-upgrade centreon\*
+```
+
+</TabItem>
+</Tabs>
+
+And then you should be able to finalize the update *via* the web UI. You might have to log off your session or refresh the login page to access the update process.
 
 On the slave central node, just move the "install" dir to avoid getting the "update" screen in the WUI in the event of a further exchange of roles.
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
 ```bash
-mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-YYYY-MM-DD
+mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`date +%Y%m%d`
 sudo -u apache /usr/share/centreon/bin/console cache:clear
 ```
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`date +%Y%m%d`
+sudo -u apache /usr/share/centreon/bin/console cache:clear
+```
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`date +%Y%m%d`
+sudo -u www-data /usr/share/centreon/bin/console cache:clear
+```
+</TabItem>
+</Tabs>`
 
 ### Removing cron jobs
 
-The RPM upgrade puts cron job back in place. Remove them to avoid concurrent executions: 
+The RPM upgrade puts the cron job back in place. Remove them to avoid concurrent executions: 
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-rm /etc/cron.d/centreon
-rm /etc/cron.d/centstorage
-rm /etc/cron.d/centreon-auto-disco
-rm -f /etc/cron.d/centreon-ha-mysql
+rm -f /etc/cron.d/centreon
+rm -f /etc/cron.d/centstorage
+rm -f /etc/cron.d/centreon-auto-disco
+systemctl restart crond
 ```
 
-As you have deleted the **centreon-ha-mysql** cron, check that the following line appears in the **server** section of the **/etc/my.cnf.d/server.cnf** file:
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-```shell
-expire_logs_days=7
+```bash
+rm -f /etc/cron.d/centreon
+rm -f /etc/cron.d/centstorage
+rm -f /etc/cron.d/centreon-auto-disco
+systemctl restart crond
 ```
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
 
-If the line is not there, add it, then restart the **ms_mysql** resource:
-
-```shell
-pcs resource restart ms_mysql
+```bash
+rm -f /etc/cron.d/centreon
+rm -f /etc/cron.d/centstorage
+rm -f /etc/cron.d/centreon-auto-disco
+systemctl restart cron
 ```
+</TabItem>
+</Tabs>
 
 ### Updating Centreon extensions
 
-The Centreon extensions are also to be updated *via* the WUI, from the "Administration > Extensions > Manager" menu by clicking the "Update all" button.
+The Centreon extensions are also updated *via* the WUI, from the "Administration > Extensions > Manager" menu, by clicking the "Update all" button.
 
-### Updating the Plugin Packs
+### Updating the Monitoring Connectors
 
-In order to maintain compatibility between the [Plugin Packs](../monitoring/pluginpacks.md) and the installed plugins (that have just been updated by the `yum update` command on the central server), the plugin packs must be updated in the WUI too from the "Configuration > Plugin Packs" menu.
-
-### Updating the pollers
-
-It is recommended to update the pollers as well, **especially if `centreon-engine` and/or `centreon-broker` packages have been updated**:
-
-```bash
-yum update
-```
+In order to maintain compatibility between the [Monitoring Connectors](../monitoring/pluginpacks.md) and the installed plugins (that have just been updated on the central server), the Monitoring Connectors must also be updated in the WUI from the **Configuration > Monitoring Connector Manager** menu.
 
 ### Exporting Engine/Broker configuration
 
@@ -91,7 +160,7 @@ In addition, the `cbd-sql` service must be restarted **on the central master ser
 service cbd-sql restart
 ```
 
-The `cbd` service must also be restarted on [Centreon Remote Servers](../installation/architectures.md#description) as well:
+The `cbd` service must also be restarted on [Centreon Remote Servers](../installation/architectures.md#description):
 
 ```bash
 service cbd restart
@@ -99,21 +168,24 @@ service cbd restart
 
 At this point everything should be working properly.
 
-## Resuming the cluster resources management
+## Resuming cluster resource management
 
 Now that the update is finished, the resources can be managed again:
 
 ```bash
-pcs resource manage centreon
-pcs resource manage ms_mysql
+pcs property set maintenance-mode=false
+pcs resource cleanup ms_mysql
 ```
 
-## Verifying the platform stability
+## Verifying platform stability
 
-You should now check that eveything works fine:
+You should now check that everything works fine:
 
 * Access to the web UI menus.
 * Poller configuration generation + reload and restart method.
-* Schedule immediate check (Central + Pollers) and acknowledge, downtime etc.
-* Move resources or reboot master server and check again that everything is fine.
+* Schedule an immediate check (Central + Pollers) and acknowledge, downtime etc.
+* Move resources or reboot the master server and check again that everything is fine.
 
+## Updating the pollers
+
+Pollers can then be updated by following the [procedure indicated here](https://docs.centreon.com/docs/update/update-centreon-platform/#update-the-pollers).

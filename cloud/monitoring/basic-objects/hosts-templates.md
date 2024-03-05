@@ -46,7 +46,7 @@ The diagram below shows a host inheriting from multiple host templates.
 
 To add a host template:
 
-Go into the **Configuration > Hosts > Templates (simplified)** menu and click **Add**.
+Go into the **Configuration > Hosts > Templates** menu and click **Add**.
 
 > Refer to the chapter covering configuration of
 > [hosts](hosts-create.md) to configure a template because the form

@@ -28,7 +28,7 @@ import TabItem from '@theme/TabItem';
 Si vous avez besoin d'aide avec cette intégration, selon votre utilisation de Centreon, vous pouvez :
 
 * **Client Business Edition**: Contactez le [support Centreon](mailto:support@centreon.com).
-* **Utilisateurs open source** ou **Utilisateurs Centreon IT-100** (version gratuite): Rejoignez notre [communauté slack](https://centreon.github.io) où les utiisateurs et les équipes Centreon pourront vous répondre.
+* **Utilisateurs open source** ou **Utilisateurs Centreon IT-100** (version gratuite): Rejoignez notre [plateforme communautaire The Watch](https://thewatch.centreon.com/) où les utiisateurs et les équipes Centreon pourront vous répondre.
 
 ## Guide d'intégration
 

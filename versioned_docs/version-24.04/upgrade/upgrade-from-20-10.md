@@ -6,9 +6,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 This chapter describes how to upgrade your Centreon platform from version 20.10
-to version 23.10.
+to version 24.04.
 
-You cannot simply upgrade Centreon from a version earlier than 20.10 to version 23.10, as CentOS 7 is no longer supported. You need to [migrate your platform to a supported OS](../migrate/introduction.md).
+You cannot simply upgrade Centreon from a version earlier than 20.10 to version 24.04, as CentOS 7 is no longer supported. You need to [migrate your platform to a supported OS](../migrate/introduction.md).
 
 > When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers. All servers in your architecture must have the same version of Centreon. In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
@@ -18,7 +18,7 @@ You cannot simply upgrade Centreon from a version earlier than 20.10 to version 
 > To perform this procedure, your MariaDB version must be >= 10.3.22.
 > If not, please follow [this](./upgrade-mariadb.md)
 > procedure in order to update MariaDB before you can continue with the upgrade
-> from version 20.10 to version 21.04 as described by this document.
+> from version 20.10 to version 24.04 as described by this document.
 
 > Warning: following the correction of a problem relating to the database schema, it will be necessary to stop the 
 > insertion of data collected in the database during the update. These will be stored in temporary files and then
@@ -50,26 +50,22 @@ servers:
 
 ### Install the new repositories
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+1. On your 20.10 platform, replace `https://packages.centreon.com/rpm-standard` or `https://yum.centreon.com/standard` by `https://archives.centreon.com/standard/` in your current YUM configuration (by default, `/etc/yum.repos.d/centreon.repo`).
 
-1. Update your Centreon 20.10 to the latest minor version.
+2. Update your Centreon 20.10 to the latest minor version.
 
-2. Remove the **centreon.repo** file:
+3. Remove the **centreon.repo** file:
 
    ```shell
    rm /etc/yum.repos.d/centreon.repo
    ```
 
-3. Install the new repository:
+4. Install the new repository:
 
 ```shell
 dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
 ```
-
-</TabItem>
-</Tabs>
 
 > If you have an [offline license](../administration/licenses.md#types-of-licenses), also remove the old Monitoring Connectors repository, then install the new one.
 >
@@ -79,13 +75,15 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/e
 
 ### Install the MariaDB repository
 
+<Tabs groupId="sync">
+<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+
 ```shell
-cd /tmp
-curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
-bash ./mariadb_repo_setup
-sed -ri 's/10\.[0-9]+/10.5/' /etc/yum.repos.d/mariadb.repo
-rm -f ./mariadb_repo_setup
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
 ```
+
+</TabItem>
+</Tabs>
 
 ### Upgrade PHP
 

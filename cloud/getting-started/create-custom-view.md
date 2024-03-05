@@ -1,9 +1,7 @@
 ---
 id: create-custom-view
-title: How do I create a custom view?
+title: Creating your first custom view
 ---
-
-## Create your first custom view
 
 Go to the **Home > Custom Views** menu and click the pencil icon located on the far right of the interface to enable
 editing mode.

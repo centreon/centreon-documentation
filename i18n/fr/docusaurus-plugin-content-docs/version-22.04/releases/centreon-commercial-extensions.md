@@ -15,6 +15,14 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+### 22.04.15
+
+Release date: `February 22, 2024`
+
+#### Bug fixes
+
+- [Migration] Fixed an issue with images when migrating from MAP Legacy to MAP.
+
 ### 22.04.14
 
 Release date: `December 21, 2023`
@@ -373,6 +381,14 @@ Release date: `May 25, 2022`
 
 ## Centreon MBI
 
+### 22.04.6
+
+Release date: `January 22, 2024`
+
+#### Bug fix
+
+- [Reports] Fixed an issue that prevented reports to be sent by email with Office 365.
+
 ### 22.04.5
 
 Release date: `December 21, 2023`
@@ -380,8 +396,6 @@ Release date: `December 21, 2023`
 #### Security fix
 
 - Updated dependency.
-
-## Centreon MBI
 
 ### 22.04.4
 
