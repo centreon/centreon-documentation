@@ -5,7 +5,7 @@ title: Centreon Poller
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Centreon collectors must be supervised by the central server.
+Centreon collectors must be monitored by the central server.
 
 ## Pack assets
 
