@@ -1228,7 +1228,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "centreon"
 
 After this step, all resources should be running on the same node, the platform should be redundant and working properly.
 
-### Activate the resources
+### Activating the resources
 
 ```bash
 pcs resource enable php-clone
