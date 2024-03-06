@@ -22,21 +22,21 @@ pcs property set maintenance-mode=true
 
 ### Centreon-Web update
 
-Update your cluster by running the following command on each node:
+Update your cluster by running the following command on each central node:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+<TabItem value="Alma / RHEL / Oracle Linux / CentOS 7" label="Alma / RHEL / Oracle Linux / CentOS 7">
 
 Clean the cache :
 
 ```shell
-dnf clean all --enablerepo=*
+yum clean all --enablerepo=*
 ```
 
 Update all components:
 
 ```shell
-dnf update centreon\*
+yum update centreon\*
 ```
 
 </TabItem>
@@ -73,12 +73,12 @@ apt install --only-upgrade centreon\*
 </TabItem>
 </Tabs>
 
-And then you should be able to finalize the update *via* the web UI. You might have to log off your session or refresh the login page to access the update process.
+Once the package updates have been completed on both centrals, all that remains is to apply the update via the web interface **only on the master exchange** by closing the current session or refreshing the login page or by API [as shown here](https://docs.centreon.com/docs/update/update-centreon-platform/#update-the-centreon-central-server).
 
-On the slave central node, just move the "install" dir to avoid getting the "update" screen in the WUI in the event of a further exchange of roles.
+On the **"slave" central node**, you must move the **"install" directory** and regenerate the Symfony cache to avoid displaying the update interface again following a switchover.
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+<TabItem value="Alma / RHEL / Oracle Linux / CentOS 7" label="Alma / RHEL / Oracle Linux / CentOS 7">
 
 ```bash
 mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`date +%Y%m%d`
@@ -99,14 +99,14 @@ mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`da
 sudo -u www-data /usr/share/centreon/bin/console cache:clear
 ```
 </TabItem>
-</Tabs>`
+</Tabs>
 
 ### Removing cron jobs
 
-The RPM upgrade puts the cron job back in place. Remove them to avoid concurrent executions: 
+The RPM upgrade puts the cron job back in place. Remove them on the two central nodes to avoid concurrent executions: 
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+<TabItem value="Alma / RHEL / Oracle Linux / CentOS 7" label="Alma / RHEL / Oracle Linux / CentOS 7">
 
 ```bash
 rm -f /etc/cron.d/centreon
@@ -152,7 +152,7 @@ Generate and export new Engine/Broker configuration files for all pollers (centr
 * Run monitoring engine debug (-v)
 * Move Export Files
 
-Then restart them **one at a time** from the same menu and make sure to select the **"restart" method, not "reload"**, if the `centreon-engine` and/or `centreon-broker` packages have been updated.
+Then restart them **one at a time** from the same menu and make sure to select the **"Restart" method, not "Reload"**, if the `centreon-engine` and/or `centreon-broker` packages have been updated.
 
 In addition, the `cbd-sql` service must be restarted **on the central master server**:
 
@@ -165,8 +165,6 @@ The `cbd` service must also be restarted on [Centreon Remote Servers](../install
 ```bash
 service cbd restart
 ```
-
-At this point everything should be working properly.
 
 ## Resuming cluster resource management
 
