@@ -411,7 +411,7 @@ Release date: `March 6, 2024`
 
 ##### Bug fixes
 
-- [Broker] Fixed a bug causing hostgroups failing to appear if they had been used before and empties of their hosts and then populated again.
+- [Broker] Fixed conflicts that occurred when adding and/or removing hosts from hostgroups.
 - [Broker] Fixed some incorrect statuses in Broker's statistics retrieved by the `broker-stats.json` file.
 - [Engine] Semicolons are no longer considered as the beginning of a comment in Engine's configuration files. This is because comments were not useful in these files, and they prevented the use of semicolons in macros (e.g., passwords).
 - [Engine] Removed the unnecessary check of Anomaly Detection configuration files during the configuration test before deployment.
