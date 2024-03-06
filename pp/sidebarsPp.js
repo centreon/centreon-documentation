@@ -2302,6 +2302,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-datacore-api'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-dell-compellent-snmp'
         },
         {
