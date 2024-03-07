@@ -642,28 +642,28 @@ Use the commands below according to your operating system's package manager:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-nrpe3-plugin
+dnf install nagios-plugins-nrpe
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-nrpe3-plugin
+dnf install nagios-plugins-nrpe
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-nrpe3-plugin
+apt install nagios-nrpe-plugin
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-nrpe3-plugin
+yum install nagios-plugins-nrpe
 ```
 
 </TabItem>
@@ -868,14 +868,14 @@ yum install centreon-nrpe3-plugin
 |:-------------------|:---------------------------------------------------------------------------------------------------|:------------------------|:-----------:|
 | FILTERINTERFACE    | Filter interface name (regexp can be used)                                                         |                         |             |
 | FILTERSTATE        | Filter filesystem type (regexp can be used)                                                        |                         |             |
-| WARNINGINDISCARD   |                                                                                                    |                         |             |
-| CRITICALINDISCARD  |                                                                                                    |                         |             |
-| WARNINGINERROR     |                                                                                                    |                         |             |
-| CRITICALINERROR    |                                                                                                    |                         |             |
-| WARNINGOUTDISCARD  |                                                                                                    |                         |             |
-| CRITICALOUTDISCARD |                                                                                                    |                         |             |
-| WARNINGOUTERROR    |                                                                                                    |                         |             |
-| CRITICALOUTERROR   |                                                                                                    |                         |             |
+| WARNINGINDISCARD   | Thresholds.                                                                                        |                         |             |
+| CRITICALINDISCARD  | Thresholds.                                                                                        |                         |             |
+| WARNINGINERROR     | Thresholds.                                                                                        |                         |             |
+| CRITICALINERROR    | Thresholds.                                                                                        |                         |             |
+| WARNINGOUTDISCARD  | Thresholds.                                                                                        |                         |             |
+| CRITICALOUTDISCARD | Thresholds.                                                                                        |                         |             |
+| WARNINGOUTERROR    | Thresholds.                                                                                        |                         |             |
+| CRITICALOUTERROR   | Thresholds.                                                                                        |                         |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose --no-loopback |             |
 
 </TabItem>
