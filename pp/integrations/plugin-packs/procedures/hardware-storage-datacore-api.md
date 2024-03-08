@@ -45,7 +45,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name                         | Description                                                |
 |:----------------------------------|:-----------------------------------------------------------|
-| Datacore-Sansymphony-Restapi-Pool | discover pools id from your Datacore Sansymphony rest api. |
+| Datacore-Sansymphony-Restapi-Pool | Discover the IDs of the pools from your Datacore Sansymphony Rest API. |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -205,7 +205,7 @@ yum install centreon-plugin-Hardware-Storage-DataCore-Sansymphony-Restapi
 | Macro           | Description                                                                                                                                                    | Default value     | Mandatory   |
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | MAXALERTAGE     | filter alerts to check those newer than this parameter (s)                                                                                                     | 86400             |             |
-| FILTERSERVER    | Define which devices sh ould be monitored based on the MachineName. This option willbe treated as a regular expression. By default all machine will be checked |                   |             |
+| FILTERSERVER    | Define which devices should be monitored based on the MachineName. This option will be treated as a regular expression. By default all machines will be checked. |                   |             |
 | WARNINGWARNING  | thresholds                                                                                                                                                      |                   |             |
 | CRITICALWARNING | thresholds                                                                                                                                                               |                   |             |
 | WARNINGERROR    | thresholds                                                                                                                                                               |                   |             |

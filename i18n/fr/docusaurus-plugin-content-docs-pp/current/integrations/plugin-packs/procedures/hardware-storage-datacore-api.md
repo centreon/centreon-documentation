@@ -22,7 +22,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias           | Modèle de service                                             | Description                                          |
 |:----------------|:--------------------------------------------------------------|:-----------------------------------------------------|
 | Alerts          | HW-Storage-Datacore-Sansymphony-Alerts-RESTAPI-custom         | Contrôle les alertes                                 |
-| Monitors Status | HW-Storage-Datacore-Sansymphony-Status-Monitor-RESTAPI-custom | Contrôle le status des éléments filtré en paramètres |
+| Monitors Status | HW-Storage-Datacore-Sansymphony-Status-Monitor-RESTAPI-custom | Contrôle le statut des éléments filtrés en paramètres |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-Datacore-Sansymphony-RESTAPI-custom** est utilisé.
 
@@ -46,7 +46,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle                   | Description                                                                                     |
 |:----------------------------------|:------------------------------------------------------------------------------------------------|
-| Datacore-Sansymphony-Restapi-Pool | découvre les identifiant de pools disponible sur le serveur Datacore Sansymphony via l'api Rest |
+| Datacore-Sansymphony-Restapi-Pool | Découvre les identifiants de pools disponibles sur le serveur Datacore Sansymphony via l'API Rest |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -203,8 +203,8 @@ yum install centreon-plugin-Hardware-Storage-DataCore-Sansymphony-Restapi
 
 | Macro           | Description                                                                                                                                                    | Valeur par défaut | Obligatoire |
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| MAXALERTAGE     | filter alerts to check those newer than this parameter (s)                                                                                                     | 86400             |             |
-| FILTERSERVER    | Define which devices should be monitored based on the MachineName. This option will be treated as a regular expression. By default all machine will be checked |                   |             |
+| MAXALERTAGE     | Filter alerts to check those newer than this parameter (s)                                                                                                     | 86400             |             |
+| FILTERSERVER    | Define which devices should be monitored based on the MachineName. This option will be treated as a regular expression. By default all machines will be checked |                   |             |
 | WARNINGWARNING  | Seuil                                                                                                                                                              |                   |             |
 | CRITICALWARNING | Seuil                                                                                                                                                               |                   |             |
 | WARNINGERROR    | Seuil                                                                                                                                                               |                   |             |
