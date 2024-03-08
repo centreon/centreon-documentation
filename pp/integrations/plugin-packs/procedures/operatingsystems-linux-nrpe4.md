@@ -49,7 +49,7 @@ The connector brings the following service templates (sorted by the host templat
 | Packet-Errors       | OS-Linux-Packet-Errors-NRPE4-custom       | Check packets in error/discarded from multiple network interfaces                                                                                             |            |
 | Pending-Updates     | OS-Linux-Pending-Updates-NRPE4-custom     | Check systemd services status                                                                                                                               |            |
 | Process-Generic     | OS-Linux-Process-Generic-NRPE4-custom     | Check Linux processes                                                                                                                                       |            |
-| Systemd-Journal     | OS-Linux-Systemd-Journal-NRPE4-custom     | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU          |            |
+| Systemd-Journal     | OS-Linux-Systemd-Journal-NRPE4-custom     | Count journal entries using the `journalctl` command.          |            |
 | Systemd-Sc-Status   | OS-Linux-Systemd-Sc-Status-NRPE4-custom   | Check systemd services status                                                                                                                               |            |
 | Traffic             | OS-Linux-Traffic-NRPE4-custom             | Check the bandwidth of interfaces.                                                                   | X          |
 
