@@ -10,17 +10,14 @@ You can customize some elements of your Centreon platform:
 - **Login page:** you can change the background and the logo, and add a text.
 - **Name of the platform:** you can define a name for your platform (e.g. Test, Production) that will be displayed in the banner once you are logged in.
 
-To be able to customize your Centreon platform, you need to install the **Centreon IT Edition Extensions** extension.
+To be able to customize your Centreon platform, you need to install the **Centreon IT Edition Extensions** extension. This extension should be installed
+automatically with Centreon Open source. You will need an IT edition token to be able to use it
 
 > **Centreon IT Edition Extensions** is a Centreon extension that requires a valid [license](../administration/licenses.md).
 > To purchase one and retrieve the necessary repositories, contact [Centreon](mailto:sales@centreon.com).
 
 ## Install the extension
-
-1. Install the Centreon Business repository. You can find its address on the
-[support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
-
-2. Install the package using the following command:
+1. Install the package using the following command:
   
   <Tabs groupId="sync">
   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -46,7 +43,7 @@ To be able to customize your Centreon platform, you need to install the **Centre
   </TabItem>
   </Tabs>
   
-3. Go to **Administration > Extensions > Manager** and click the install button for the following modules:
+2. Go to **Administration > Extensions > Manager** and click the install button for the following modules:
 
    - **License Manager** (if not yet installed)
    - **IT Edition Extensions**
