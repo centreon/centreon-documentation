@@ -71,9 +71,9 @@ Hardware requirements for your dedicated Centreon MAP server are as follows:
 
 | *Monitored services*     | < 10 000                | < 20 000             |  < 40 000            |  > 40 000            |
 | ------------------------ | ----------------------- | -------------------- | -------------------- | -------------------- |
-| *CPU*                    | 2 vCPU ( 3Ghz ) minimum | 4 CPU (3GHz) Minimum | 4 CPU (3GHz) Minimum | Ask Centreon Support |
-| *Dedicated Memory*       | 2GB                     | 4GB                  | 8GB                  | Ask Centreon Support |
-| *MariaDB data partition* | 2GB                     | 5GB                  | 10GB                 | Ask Centreon Support |
+| *CPU*                    | 2 vCPU ( 3Ghz ) minimum | 4 CPU (3GHz) Minimum | 4 CPU (3GHz) Minimum | Ask Centreon Sales team |
+| *Dedicated Memory*       | 2GB                     | 4GB                  | 8GB                  | Ask Centreon Sales team |
+| *MariaDB data partition* | 2GB                     | 5GB                  | 10GB                 | Ask Centreon Sales team |
 
 To correctly implement the dedicated memory, you have to edit the
 *JAVA\_OPTS* parameter in the Centreon Map configurations file
