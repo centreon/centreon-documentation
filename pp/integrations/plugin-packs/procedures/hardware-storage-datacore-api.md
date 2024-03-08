@@ -18,10 +18,10 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="HW-Storage-Datacore-Sansymphony-RESTAPI-custom" label="HW-Storage-Datacore-Sansymphony-RESTAPI-custom">
 
-| Service Alias   | Service Template                                              | Service Description                   |
-|:----------------|:--------------------------------------------------------------|:--------------------------------------|
-| Alerts          | HW-Storage-Datacore-Sansymphony-Alerts-RESTAPI-custom         | Check alerts                          |
-| Monitors Status | HW-Storage-Datacore-Sansymphony-Status-Monitor-RESTAPI-custom | Check elements filtered by parameters |
+| Service Alias   | Service Template                                              | Service Description                                     |
+|:----------------|:--------------------------------------------------------------|:--------------------------------------------------------|
+| Alerts          | HW-Storage-Datacore-Sansymphony-Alerts-RESTAPI-custom         | Check alerts                                            |
+| Monitors Status | HW-Storage-Datacore-Sansymphony-Status-Monitor-RESTAPI-custom | Check Datacore "monitors" object filtered by parameters |
 
 > The services listed above are created automatically when the **HW-Storage-Datacore-Sansymphony-RESTAPI-custom** host template is used.
 
@@ -83,9 +83,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+Configure Datacore Rest Api : https://docs.datacore.com/RESTSupport-WebHelp/RESTSupport-WebHelp/Installation_Instructions.htm
 
 ## Installing the monitoring connector
 
