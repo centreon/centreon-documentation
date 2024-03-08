@@ -24,7 +24,7 @@ The connector brings the following service templates (sorted by the host templat
 | Load          | OS-Linux-Load-NRPE4-custom   | Check the server load average                                                                                                                      |
 | Memory        | OS-Linux-Memory-NRPE4-custom | Check the rate of the utilization of memory                                                                                                        |
 | Ntp           | OS-Linux-Ntp-NRPE4-custom    | Check system time synchronization with NTP server                                                                                                  |
-| Protocol-NRPE4 | OS-Linux-Protocol-NRPE4-custom | Contrôle de la bonne configuration du protocole NRPE v4.    |
+| Protocol-NRPE4 | OS-Linux-Protocol-NRPE4-custom | Control test to make sure the NRPE v4 protocol is configured correctly.    |
 | Swap          | OS-Linux-Swap-NRPE4-custom   | Check virtual memory usage                                                                                                                         |
 | Uptime        | OS-Linux-Uptime-NRPE4-custom | Time since the server has been working and available                                                                                               |
 
