@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template             | Service Description                                                                                                                                |
 |:--------------|:-----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu           | OS-Linux-Cpu-NRPE4-custom    | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |
+| Cpu           | OS-Linux-Cpu-NRPE4-custom    | Check the rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |
 | Load          | OS-Linux-Load-NRPE4-custom   | Check the server load average                                                                                                                      |
 | Memory        | OS-Linux-Memory-NRPE4-custom | Check the rate of the utilization of memory                                                                                                        |
 | Ntp           | OS-Linux-Ntp-NRPE4-custom    | Check system time synchronization with NTP server                                                                                                  |
@@ -35,23 +35,23 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias       | Service Template                          | Service Description                                                                                                                                         | Discovery  |
 |:--------------------|:------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
-| Cmd-Generic         | OS-Linux-Cmd-Generic-NRPE4-custom         | Check exit code of linux commands                                                                                                                           |            |
-| Connections-Generic | OS-Linux-Connections-Generic-NRPE4-custom | Check tcp/udp connections                                                                                                                                   |            |
-| Cpu-Detailed        | OS-Linux-Cpu-Detailed-NRPE4-custom        | Check the detailed rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |            |
+| Cmd-Generic         | OS-Linux-Cmd-Generic-NRPE4-custom         | Check exit code for Linux commands                                                                                                                           |            |
+| Connections-Generic | OS-Linux-Connections-Generic-NRPE4-custom | Check TCP/UDP connections                                                                                                                                   |            |
+| Cpu-Detailed        | OS-Linux-Cpu-Detailed-NRPE4-custom        | Check the detailed rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |            |
 | Disk-IO             | OS-Linux-Disk-IO-NRPE4-custom             | Check I/O counters of disks                                                                                                                                 |            |
-| Disks               | OS-Linux-Disks-NRPE4-custom               | Check the rate of free space on disks. For each checks the mount point of disks will appear                                                                 | X          |
+| Disks               | OS-Linux-Disks-NRPE4-custom               | Check the rate of free space on disks. For each check the mount point of disks will appear                                                                 | X          |
 | File-Date-Generic   | OS-Linux-File-Date-Generic-NRPE4-custom   | Check file or/and directory modification/creation/access times                                                                                              |            |
 | File-Size-Generic   | OS-Linux-File-Size-Generic-NRPE4-custom   | Check file or/and directory sizes                                                                                                                           |            |
 | Inodes              | OS-Linux-Inodes-NRPE4-custom              | Check the rate of free inodes on disks                                                                                                                      |            |
 | Is-File-Generic     | OS-Linux-Is-File-Generic-NRPE4-custom     | Check if file 'xxx' is present                                                                                                                              |            |
 | Is-Not-File-Generic | OS-Linux-Is-Not-File-Generic-NRPE4-custom | Check if file 'xxx' is not present                                                                                                                          |            |
 | Open-Files          | OS-Linux-Open-Files-NRPE4-custom          | Check file or/and directory modification/creation/access times                                                                                              |            |
-| Packet-Errors       | OS-Linux-Packet-Errors-NRPE4-custom       | Check packets on errors/discards of multiple network interfaces                                                                                             |            |
+| Packet-Errors       | OS-Linux-Packet-Errors-NRPE4-custom       | Check packets in error/discarded from multiple network interfaces                                                                                             |            |
 | Pending-Updates     | OS-Linux-Pending-Updates-NRPE4-custom     | Check systemd services status                                                                                                                               |            |
 | Process-Generic     | OS-Linux-Process-Generic-NRPE4-custom     | Check Linux processes                                                                                                                                       |            |
 | Systemd-Journal     | OS-Linux-Systemd-Journal-NRPE4-custom     | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU          |            |
 | Systemd-Sc-Status   | OS-Linux-Systemd-Sc-Status-NRPE4-custom   | Check systemd services status                                                                                                                               |            |
-| Traffic             | OS-Linux-Traffic-NRPE4-custom             | Check the bandwidth of interfaces. For each checks the name of the interface will appear                                                                    | X          |
+| Traffic             | OS-Linux-Traffic-NRPE4-custom             | Check the bandwidth of interfaces.                                                                   | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -338,14 +338,14 @@ mkdir -p /var/lib/centreon/centplugins/
 chown nrpe: /var/lib/centreon/centplugins/
 ```
 
-- Change the IP address of `allowed_hosts` dans **/etc/nagios/nrpe.cfg** (replace `POLLER_IP_ADDRESS` with the IP address of the poller that will monitor the host).
+2. Change the IP address for the`allowed_hosts parameter in` **/etc/nagios/nrpe.cfg** (replace `POLLER_IP_ADDRESS` with the IP address of the poller that will monitor the host).
 
 ```bash
 sed -i 's/dont_blame_nrpe=0/dont_blame_nrpe=1/'  /etc/nagios/nrpe.cfg
 sed -i 's/allowed_hosts=127.0.0.1,::1/allowed_hosts=POLLER_IP_ADDRESS/' /etc/nagios/nrpe.cfg
 ```
 
-- Add the definition of the `check_centreon_plugins` command:
+3. Add the definition of the `check_centreon_plugins` command:
 
 ```bash
 cat >/etc/nrpe.d/centreon-commands.cfg <<'EOF'
@@ -353,21 +353,21 @@ command[check_centreon_plugins]=/usr/lib/centreon/plugins/centreon_linux_local.p
 EOF
 ```
 
-- Restart the service to apply the new configuration:
+4. Restart the service to apply the new configuration:
 
 ```bash
 systemctl restart nrpe
 systemctl enable nrpe
 ```
 
-- To monitor **systemd-journal**, you must run:
+5. To monitor **systemd-journal**, run the following commands:
 
 ```bash
 usermod -a -G systemd-journal nrpe
 systemctl restart nrpe
 ```
 
-- To monitor **systemctl-sc** and **traffic**, you must run:
+6. To monitor **systemctl-sc** and **traffic**, run the following commands:
 
 ```bash
 setenforce Permissive
@@ -375,7 +375,7 @@ sed -i 's/SELINUX=enforcing/SELINUX=disabled/' /etc/selinux/config
 reboot
 ```
 
-- Add the Centreon plugins' repository:
+7. Add the Centreon plugins' repository:
 
 ```bash
 cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
@@ -429,7 +429,7 @@ module_hotfixes=1
 EOF 
 ```
 
-- Install the plugin :
+8. Install the plugin :
 
 ```bash
 dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch https://packages.centreon.com/artifactory/rpm-standard/23.04/el8/stable/noarch/RPMS/perl-cpan-libraries/perl-JSON-Path-0.5-2.el8.noarch.rpm
@@ -438,7 +438,7 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch https://packa
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-- Install the agent.
+1. Install the agent.
 
 ```bash
 dnf -y install nrpe
@@ -447,14 +447,14 @@ mkdir -p /var/lib/centreon/centplugins/
 chown nrpe: /var/lib/centreon/centplugins/
 ```
 
-- Change the IP address of `allowed_hosts` dans **/etc/nagios/nrpe.cfg** (replace `POLLER_IP_ADDRESS` with the IP address of the poller that will monitor the host).
+2. Change the IP address for the`allowed_hosts parameter in` **/etc/nagios/nrpe.cfg** (replace `POLLER_IP_ADDRESS` with the IP address of the poller that will monitor the host).
 
 ```bash 
 sed -i 's/dont_blame_nrpe=0/dont_blame_nrpe=1/' /etc/nagios/nrpe.cfg 
 sed -i 's/allowed_hosts=127.0.0.1,::1/allowed_hosts=POLLER_IP_ADDRESS/' /etc/nagios/nrpe.cfg 
 ``` 
 
-- Add the definition of the `check_centreon_plugins` command:
+3. Add the definition of the `check_centreon_plugins` command:
  
 ```bash
 cat >/etc/nrpe.d/centreon-commands.cfg <<'EOF'
@@ -462,21 +462,21 @@ command[check_centreon_plugins]=/usr/lib/centreon/plugins/centreon_linux_local.p
 EOF
 ```
 
-- Restart the service to apply the new configuration:
+4. Restart the service to apply the new configuration:
 
 ```bash
 systemctl restart nrpe
 systemctl enable nrpe
 ```
 
-- To monitor **systemd-journal**, you must run:
+5. To monitor **systemd-journal**, run the following commands:
 
 ```bash
 usermod -a -G systemd-journal nrpe
 systemctl restart nrpe
 ```
 
-- Add the Centreon plugins' repository:
+6. Add the Centreon plugins' repository:
 
 ```bash
 cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
@@ -530,7 +530,7 @@ module_hotfixes=1
 EOF
 ```
 
-- Install the plugin :
+7. Install the plugin :
 
 ```bash
 dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch https://packages.centreon.com/artifactory/rpm-standard/23.04/el9/stable/noarch/RPMS/perl-cpan-libraries/perl-JSON-Path-0.5-1.el9.noarch.rpm
@@ -539,7 +539,7 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch https://packa
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-- Add the Centreon plugins' repository:
+1. Add the Centreon plugins' repository:
 
 ```bash
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
@@ -547,7 +547,7 @@ echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) m
 apt update
 ```
 
-- At this point, if you get this error:
+At this point, if you get this error:
 
 ```text
 W: GPG error: https://packages.sury.org/php bullseye InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY B188E2B695BD4743
@@ -561,26 +561,26 @@ apt-key adv --fetch-keys 'https://packages.sury.org/php/apt.gpg' > /dev/null 2>&
 apt update
 ```
 
-- Install the agent and the plugin :
+2. Install the agent and the plugin:
 
 ```bash
 apt -y install centreon-nrpe4-daemon centreon-plugin-operatingsystems-linux-local
 ```
 
-- Change the IP address of `allowed_hosts` dans **/etc/nagios/nrpe.cfg** (replace `POLLER_IP_ADDRESS` with the IP address of the poller that will monitor the host).
+3. Change the IP address for the `allowed_hosts` parameter in **/etc/nagios/nrpe.cfg** (replace `POLLER_IP_ADDRESS` with the IP address of the poller that will monitor the host).
 
 ```bash
 sed -i 's/allowed_hosts=127.0.0.1,::1/allowed_hosts=POLLER_IP_ADDRESS/' /etc/nrpe/centreon-nrpe4.cfg
 ```
 
-- Restart the service to apply the new configuration:
+4. Restart the service to apply the new configuration:
 
 ```bash
 systemctl restart centreon-nrpe4.service
 systemctl enable centreon-nrpe4.service
 ```
 
-- To monitor **systemd-journal**, you must run:
+5. To monitor **systemd-journal**, run the following commands:
 
 ```bash
 usermod -a -G systemd-journal centreon-engine
