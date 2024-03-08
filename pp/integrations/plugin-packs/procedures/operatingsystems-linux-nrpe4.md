@@ -313,7 +313,7 @@ Pas de métrique pour ce service.
 
 ## Prerequisites
 
-Les prérequis ci-dessous sont indispendables pour que le connecteur de supervision puisse fonctionner correctement.
+The prerequisites below have to be applied to the Linux servers to be monitored.
 
 ### Network flow
 
