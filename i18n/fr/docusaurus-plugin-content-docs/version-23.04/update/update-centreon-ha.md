@@ -73,10 +73,9 @@ apt install --only-upgrade centreon\*
 </TabItem>
 </Tabs>
 
-Une fois les mises à jour terminées sur les deux serveurs, il reste à appliquer la mise à jour via l'interface web en fermant la session en cours ou en rafraichissant la page de login ou en API.
-Comme indiqur [ici](https://docs.centreon.com/docs/update/update-centreon-platform/#update-the-centreon-central-server) .
+Une fois les mises à jour des paquets terminées sur les deux centraux, il reste à appliquer la mise à jour via l'interface web **uniquement sur le central master** en fermant la session en cours ou en rafraîchissant la page de login ou en API [comme indiquer ici](https://docs.centreon.com/docs/update/update-centreon-platform/#update-the-centreon-central-server) .
 
-En parallèle, sur le central "secondaire", il faut déplacer le répertoire "install" pour éviter d'afficher à nouveau l'interface de mise à jour suite à une bascule et regénérer le cache Symfony :
+En parallèle, sur le **central "secondaire"**, il faut déplacer le répertoire **"install"** et regénérer le cache Symfony pour éviter d'afficher à nouveau l'interface de mise à jour suite à une bascule :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
@@ -104,7 +103,7 @@ sudo -u www-data /usr/share/centreon/bin/console cache:clear
 
 ### Suppression des crons
 
-Les crons sont remis en place lors de la mise à jour des RPMs. Supprimer les sur les deux noeuds centraux afin d'éviter les executions concurrentes.
+Les crons sont remis en place lors de la mise à jour des RPMs. Supprimer les sur les deux noeuds centraux afin d'éviter les exécutions concurrentes.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
@@ -139,19 +138,19 @@ systemctl restart cron
 
 ### Mise à jour des extensions
 
-Les extensions (ou modules) Centreon nécessitent également d'être mis à jour *via* l'interface, depuis le menu "Administration > Extensions > Gestionnaire" en utilisant le bouton "Update all".
+Les extensions (ou modules) Centreon nécessitent également d'être mises à jour *via* l'interface, depuis le menu "Administration > Extensions > Gestionnaire" en utilisant le bouton "Update all".
 
 ### Mise à jour des connecteurs de supervision
 
-Afin de maintenir la compatibilité entre les [connecteurs de supervision](../monitoring/pluginpacks.md) et les plugins installés (qui  ont été mis à jour sur les serveurs centraux) il faut appliquer les mises à jour des connecteurs de supervision depuis le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+Afin de maintenir la compatibilité entre les [connecteurs de supervision](../monitoring/pluginpacks.md) et les plugins installés (qui ont été mis à jour sur les serveurs centraux) il faut appliquer les mises à jour des connecteurs de supervision depuis le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Export de la configuration Broker/Engine
 
-Générer une nouvelle configuration pour tous les pollers (central compris) via le menu "Configuration -> Pollers" en cochant les options :
+Générer une nouvelle configuration pour tous les Pollers (central compris) via le menu "Configuration -> Pollers" en cochant les options :
 
 * Générer les fichiers de configuration
 * Lancer le débogage du moteur de supervision (-v)
-* Deplacer les fichiers générés
+* Déplacer les fichiers générés
 
 Puis les redémarrer **un à un** à partir du même menu, en sélectionnant l'option "Redémarrer" plutôt que "Recharger" dans le cas où les paquets `centreon-engine` et/ou `centreon-broker` ont été mis à jour.
 
@@ -170,7 +169,7 @@ service cbd restart
 
 ## Reprise de la gestion des ressources du cluster
 
-Maintenant que la mise à jour est terminée, les ressources peuvent être gérées à nouveau :
+Maintenant, que la mise à jour est terminée, les ressources peuvent être gérées à nouveau :
 
 ```bash
 pcs property set maintenance-mode=false
@@ -183,9 +182,9 @@ Il est toujours recommandé, après une mise à jour, de contrôler que tout fon
 
 * Accès aux menus dans l'interface.
 * Génération de configuration + reload ou restart de Centreon Engine
-* Plannifier un contrôle immédiat dans le menu "Monitoring" et contrôler que c'est bien pris en compte (dans un délai raisonnable). Faire de même avec un acquittement, un arrêt prévu...
-* Migrer une ressource ou un groupe de ressources d'un nœud à l'autre, rebooter un serveur maître et contrôler que tout continue de fonctionner (refaire le tests ci-dessus).
+* Planifier un contrôle immédiat dans le menu "Monitoring" et contrôler que c'est bien pris en compte (dans un délai raisonnable). Faire de même avec un acquittement, un arrêt prévu...
+* Migrer une ressource ou un groupe de ressources d'un nœud à l'autre, rebooter un serveur maître et contrôler que tout continue de fonctionner (refaire le test ci-dessus).
 
-## Mise à jour des pollers
+## Mise à jour des Pollers
 
-Les Pollers peuvent être mis à jour par la suite en suivant la [procédure indiqué ici](https://docs.centreon.com/docs/update/update-centreon-platform/#update-the-pollers).
+Les Pollers peuvent être mis à jour par la suite en suivant la [procédure indiquée ici](https://docs.centreon.com/docs/update/update-centreon-platform/#update-the-pollers).
