@@ -328,7 +328,7 @@ The NRPE protocol uses the TCP port 5666.
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-- Installing the agent.
+1. Install the agent.
 
 ```bash
 dnf -y install epel-release
