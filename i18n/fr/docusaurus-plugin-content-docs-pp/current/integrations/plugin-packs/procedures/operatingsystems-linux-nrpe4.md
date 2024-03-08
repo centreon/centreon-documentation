@@ -316,7 +316,7 @@ Pas de métrique pour ce service.
 
 ## Prérequis
 
-Les prérequis ci-dessous sont indispendables pour que le connecteur de supervision puisse fonctionner correctement.
+Les prérequis ci-dessous doivent être appliqués sur les serveurs Linux à superviser pour que le connecteur de supervision puisse fonctionner.
 
 ### Flux réseau
 
