@@ -13,7 +13,7 @@ You can customize some elements of your Centreon platform:
 To be able to customize your Centreon platform, you need to use the **Centreon IT Edition Extensions** extension. This extension is automatically installed on your platform.
 
 > **Centreon IT Edition Extensions** is a Centreon extension that requires a valid [license](../administration/licenses.md).
-> To purchase one and retrieve the necessary repositories, contact [Centreon](mailto:sales@centreon.com).
+> To purchase one, contact [Centreon](mailto:sales@centreon.com).
 
 ## Configure the extension
 
