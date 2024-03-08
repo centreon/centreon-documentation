@@ -8,6 +8,33 @@ import TabItem from '@theme/TabItem';
 
 ## 2024
 
+### March
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Linux NRPE4**](../procedures/operatingsystems-linux-nrpe4.md) - First release of Linux NRPE4.
+- [**Datacore Sansymphony RESTAPI**](../procedures/hardware-storage-datacore-sansymphony-restapi.md) - First release of Datacore.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Centreon Central**](../procedures/applications-monitoring-centreon-central.md) - Update host template logo.
+- [**Centreon Database**](../procedures/applications-monitoring-centreon-database.md) - Update host template logos.
+- [**Centreon MBI**](../procedures/applications-monitoring-centreon-mbi.md) - Update host template logos.
+- [**Centreon Poller**](../procedures/applications-monitoring-centreon-poller.md) - Update host template logos.
+- [**Centreon SQL Metrics**](../procedures/applications-monitoring-centreon-sql-metrics.md) - Update host template logos.
+- [**Centreon-HA**](../procedures/applications-monitoring-centreon-ha.md) - Update host template logos.
+- [**Linux NRPE3**](../procedures/operatingsystems-linux-nrpe3.md) - Added Open-Files, Pending-Updates and Systemd-Journal service templates.
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**APC Sensor SNMP**](../procedures/hardware-sensors-apc-snmp.md) - Fixed an issue causing Perl warnings for 'use of uninitialized value'.
+- [**Bluemind SSH**](../procedures/applications-bluemind-ssh.md) - On Webserver service template, use storable as cache method to fix an issue.
+- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - Fixed the App-Protocol-SNMP-Host command and a random behaviour on SNMP-Collection.
+- [**Socomec Net Vision UPS SNMP**](../procedures/hardware-ups-socomec-netvision-snmp.md) - Fixed the Netvision version detection in the plugin.
+
 ### Février
 
 <Tabs groupId="sync">
