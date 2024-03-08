@@ -52,7 +52,7 @@ Le connecteur apporte les modèles de service suivants
 | Packet-Errors       | OS-Linux-Packet-Errors-NRPE4-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau                                                                                                    |            |
 | Pending-Updates     | OS-Linux-Pending-Updates-NRPE4-custom     | Contrôle le statut des services systemd                                                                                                                                               |            |
 | Process-Generic     | OS-Linux-Process-Generic-NRPE4-custom     | Contrôle permettant de vérifier des processus Linux                                                                                                                                   |            |
-| Systemd-Journal     | OS-Linux-Systemd-Journal-NRPE4-custom     | Contrôle du taux d'utilisation CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur             |            |
+| Systemd-Journal     | OS-Linux-Systemd-Journal-NRPE4-custom     | Compte les entrées de journal             |            |
 | Systemd-Sc-Status   | OS-Linux-Systemd-Sc-Status-NRPE4-custom   | Contrôle le statut des services systemd                                                                                                                                               |            |
 | Traffic             | OS-Linux-Traffic-NRPE4-custom             | Contrôle de la bande passante des interfaces. Pour chaque contrôle apparaîtra le nom de l'interface                                                                                   | X          |
 
