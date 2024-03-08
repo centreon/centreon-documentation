@@ -5,7 +5,7 @@ title: Linux NRPE3
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> **IMPORTANT**: this monitoring connector is deprecated. For a more standard deployment, monitor your Linux servers using **[Linux NRPE4](operatingsystems-linux-nrpe4.html)**.
+> **IMPORTANT**: This monitoring connector is deprecated. For a more standard deployment, monitor your Linux servers using **[Linux NRPE4](operatingsystems-linux-nrpe4.html)**.
 
 ## Overview
 
