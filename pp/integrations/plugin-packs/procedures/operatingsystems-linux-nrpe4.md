@@ -827,8 +827,8 @@ yum install nagios-plugins-nrpe
 
 | Macro        | Description                                                                                        | Default value     | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      |                                                                                                    |                   |             |
-| CRITICAL     |                                                                                                    |                   |             |
+| WARNING      | Thresholds.                                                                                                   |                   |             |
+| CRITICAL     | Thresholds.                                                                                                   |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
