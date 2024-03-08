@@ -26,7 +26,7 @@ Le connecteur apporte les modèles de service suivants
 | Cpu    | OS-Linux-Cpu-NRPE4-custom    | Contrôle du taux d'utilisation CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |
 | Load   | OS-Linux-Load-NRPE4-custom   | Contrôle de la charge serveur                                                                                                                                             |
 | Memory | OS-Linux-Memory-NRPE4-custom | Contrôle du taux d'utilisation de la mémoire vive                                                                                                                         |
-| Ntp    | OS-Linux-Ntp-NRPE4-custom    | Contrôle la synchronisation du système avec un serveur de temps                                                                                                           |
+| Ntp    | OS-Linux-Ntp-NRPE4-custom    | Contrôle la synchronisation du système avec un serveur NTP                                                                                                           |
 | Protocol-NRPE4 | OS-Linux-Protocol-NRPE4-custom | Contrôle de la bonne configuration du protocole NRPE v4.    |
 | Swap   | OS-Linux-Swap-NRPE4-custom   | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                    |
 | Uptime | OS-Linux-Uptime-NRPE4-custom | Durée depuis laquelle le serveur tourne sans interruption                                                                                                                 |
@@ -39,17 +39,17 @@ Le connecteur apporte les modèles de service suivants
 | Alias               | Modèle de service                         | Description                                                                                                                                                                           | Découverte |
 |:--------------------|:------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
 | Cmd-Generic         | OS-Linux-Cmd-Generic-NRPE4-custom         | Permet de vérifier le code retour de commandes Linux                                                                                                                                  |            |
-| Connections-Generic | OS-Linux-Connections-Generic-NRPE4-custom | Contrôle les connexions tcp/udp                                                                                                                                                       |            |
+| Connections-Generic | OS-Linux-Connections-Generic-NRPE4-custom | Contrôle les connexions TCP/UDP                                                                                                                                                       |            |
 | Cpu-Detailed        | OS-Linux-Cpu-Detailed-NRPE4-custom        | Contrôle du taux d'utilisation détaillé du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |            |
 | Disk-IO             | OS-Linux-Disk-IO-NRPE4-custom             | Contrôle les compteurs I/O des disques                                                                                                                                                |            |
 | Disks               | OS-Linux-Disks-NRPE4-custom               | Contrôle du taux d'espace libre disponible des disques. Pour chaque contrôle apparaîtra le point de montage des disques                                                               | X          |
-| File-Date-Generic   | OS-Linux-File-Date-Generic-NRPE4-custom   | Permet de vérifier le temps de modification/création/accès/... de fichiers et/ou répertoires                                                                                          |            |
+| File-Date-Generic   | OS-Linux-File-Date-Generic-NRPE4-custom   | Permet de vérifier la date de modification/création/accès/... de fichiers et/ou répertoires                                                                                          |            |
 | File-Size-Generic   | OS-Linux-File-Size-Generic-NRPE4-custom   | Permet de vérifier la taille de fichiers et/ou répertoires                                                                                                                            |            |
 | Inodes              | OS-Linux-Inodes-NRPE4-custom              | Contrôle du taux d'inodes disponible des disques                                                                                                                                      |            |
 | Is-File-Generic     | OS-Linux-Is-File-Generic-NRPE4-custom     | Permet de vérifier si le fichier 'xxx' est présent                                                                                                                                    |            |
 | Is-Not-File-Generic | OS-Linux-Is-Not-File-Generic-NRPE4-custom | Permet de vérifier si le fichier 'xxx' n'est pas présent                                                                                                                              |            |
 | Open-Files          | OS-Linux-Open-Files-NRPE4-custom          | Permet de vérifier le temps de modification/création/accès/... de fichiers et/ou répertoires                                                                                          |            |
-| Packet-Errors       | OS-Linux-Packet-Errors-NRPE4-custom       | Contrôle le pourcentage de paquets en erreur/écarté de plusieurs interfaces réseau                                                                                                    |            |
+| Packet-Errors       | OS-Linux-Packet-Errors-NRPE4-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau                                                                                                    |            |
 | Pending-Updates     | OS-Linux-Pending-Updates-NRPE4-custom     | Contrôle le statut des services systemd                                                                                                                                               |            |
 | Process-Generic     | OS-Linux-Process-Generic-NRPE4-custom     | Contrôle permettant de vérifier des processus Linux                                                                                                                                   |            |
 | Systemd-Journal     | OS-Linux-Systemd-Journal-NRPE4-custom     | Contrôle du taux d'utilisation CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur             |            |
@@ -69,8 +69,8 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle             | Description                                                             |
 |:----------------------------|:------------------------------------------------------------------------|
-| OS-Linux-NRPE4-Disk-Name    | Discover the disk partitions and monitor space occupation               |
-| OS-Linux-NRPE4-Traffic-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
+| OS-Linux-NRPE4-Disk-Name    | Découvre les partitions disque et supervise l'occupation de l'espace               |
+| OS-Linux-NRPE4-Traffic-Name | Découvre les interfaces réseau et supervise le statut et l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -324,7 +324,7 @@ Le port TCP par défaut pour le protocole NRPE est le port 5666.
 
 | Source | Destination    | Protocole | Port |
 | ------ | -------------- | --------- | ---- |
-| Poller | Hôte supervisé | TCP       | 5666 |
+| Collecteur | Hôte supervisé | TCP       | 5666 |
 
 ### Prérequis système
 
@@ -341,14 +341,14 @@ mkdir -p /var/lib/centreon/centplugins/
 chown nrpe: /var/lib/centreon/centplugins/
 ```
 
-- Modifier l'adresse IP au paramètre `allowed_hosts` dans **/etc/nagios/nrpe.cfg** (remplacer `POLLER_IP_ADDRESS` par l'adresse IP du collecteur qui en fera la supervision).
+2. Modifiez l'adresse IP pour le paramètre `allowed_hosts` dans **/etc/nagios/nrpe.cfg** (remplacez `POLLER_IP_ADDRESS` par l'adresse IP du collecteur qui en fera la supervision).
 
 ```bash
 sed -i 's/dont_blame_nrpe=0/dont_blame_nrpe=1/'  /etc/nagios/nrpe.cfg
 sed -i 's/allowed_hosts=127.0.0.1,::1/allowed_hosts=POLLER_IP_ADDRESS/' /etc/nagios/nrpe.cfg
 ```
 
-- Ajouter la définition de la commande `check_centreon_plugins`.
+3. Ajoutez la définition de la commande `check_centreon_plugins`.
 
 ```bash
 cat >/etc/nrpe.d/centreon-commands.cfg <<'EOF'
@@ -356,21 +356,21 @@ command[check_centreon_plugins]=/usr/lib/centreon/plugins/centreon_linux_local.p
 EOF
 ```
 
-- Redémarrer le service pour prise en compte :
+4. Redémarrez le service pour que le changement soit pris en compte :
 
 ```bash
 systemctl restart nrpe
 systemctl enable nrpe
 ```
 
-- Pour la supervision de **systemd-journal**, il est nécessaire de lancer :
+5. Pour permettre la supervision de **systemd-journal**, lancez les commandes suivantes :
 
 ```bash
 usermod -a -G systemd-journal nrpe
 systemctl restart nrpe
 ```
 
-- Pour la supervision de **systemctl-sc** et **traffic**, il est nécessaire de lancer :
+6. Pour permettre la supervision de **systemctl-sc** et **traffic**, lancez les commandes suivantes :
 
 ```bash
 setenforce Permissive
@@ -378,7 +378,7 @@ sed -i 's/SELINUX=enforcing/SELINUX=disabled/' /etc/selinux/config
 reboot
 ```
 
-- Ajouter le dépôt des plugins Centreon :
+7. Ajoutez le dépôt des plugins Centreon :
 
 ```bash
 cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
@@ -432,7 +432,7 @@ module_hotfixes=1
 EOF 
 ```
 
-- Installer du plugin :
+8. Installez le plugin :
 
 ```bash
 dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch https://packages.centreon.com/artifactory/rpm-standard/23.04/el8/stable/noarch/RPMS/perl-cpan-libraries/perl-JSON-Path-0.5-2.el8.noarch.rpm
@@ -441,7 +441,7 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch https://packa
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-- Installer l'agent.
+1. Installez l'agent.
 
 ```bash
 dnf -y install nrpe
@@ -450,7 +450,7 @@ mkdir -p /var/lib/centreon/centplugins/
 chown nrpe: /var/lib/centreon/centplugins/
 ```
 
-- Modifier l'ip dans allowed_hosts dans `/etc/nagios/nrpe.cfg` (remplacer `POLLER_IP_ADDRESS` 
+2. Modifiez l'adresse IP pour le paramètre allowed_hosts dans `/etc/nagios/nrpe.cfg` (remplacez `POLLER_IP_ADDRESS` 
 par l'adresse IP du collecteur qui en fera la supervision).
 
 ```bash 
@@ -458,7 +458,7 @@ sed -i 's/dont_blame_nrpe=0/dont_blame_nrpe=1/' /etc/nagios/nrpe.cfg
 sed -i 's/allowed_hosts=127.0.0.1,::1/allowed_hosts=POLLER_IP_ADDRESS/' /etc/nagios/nrpe.cfg 
 ``` 
 
-- Ajouter la définition de la commande `check_centreon_plugins`.
+3. Ajoutez la définition de la commande `check_centreon_plugins`.
  
 ```bash
 cat >/etc/nrpe.d/centreon-commands.cfg <<'EOF'
@@ -466,21 +466,21 @@ command[check_centreon_plugins]=/usr/lib/centreon/plugins/centreon_linux_local.p
 EOF
 ```
 
-- Redémarrer le service pour prise en compte.
+4. Redémarrez le service pour que le changement soit pris en compte.
 
 ```bash
 systemctl restart nrpe
 systemctl enable nrpe
 ```
 
-- Pour la supervision de **systemd-journal**, il est nécessaire de lancer :
+5. Pour permettre la supervision de **systemd-journal**, lancez les commandes suivantes :
 
 ```bash
 usermod -a -G systemd-journal nrpe
 systemctl restart nrpe
 ```
 
-- Ajouter le dépôt des plugins Centreon :
+6. Ajoutez le dépôt des plugins Centreon :
 
 ```bash
 cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
@@ -534,7 +534,7 @@ module_hotfixes=1
 EOF
 ```
 
-- Installer le plugin :
+7. Installez le plugin :
 
 ```bash
 dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch https://packages.centreon.com/artifactory/rpm-standard/23.04/el9/stable/noarch/RPMS/perl-cpan-libraries/perl-JSON-Path-0.5-1.el9.noarch.rpm
@@ -543,7 +543,7 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch https://packa
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-- Ajouter le dépôt des plugins Centreon.
+1. Ajoutez le dépôt des plugins Centreon.
 
 ```bash
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
@@ -551,7 +551,7 @@ echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) m
 apt update
 ```
 
-- A ce stade, si vous obtenez cette erreur :
+À ce stade, si vous obtenez cette erreur :
 
 ```text
 W: GPG error: https://packages.sury.org/php bullseye InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY B188E2B695BD4743
@@ -565,27 +565,27 @@ apt-key adv --fetch-keys 'https://packages.sury.org/php/apt.gpg' > /dev/null 2>&
 apt update
 ```
 
-- Installer l'agent et le plugin :
+2. Installez l'agent et le plugin :
 
 ```bash
 apt -y install centreon-nrpe4-daemon centreon-plugin-operatingsystems-linux-local
 ```
 
-- Modifier l'ip dans allowed_hosts dans `/etc/nagios/nrpe.cfg` (remplacer `POLLER_IP_ADDRESS` 
+3. Modifiez l'adresse IP pour le paramètre allowed_hosts dans `/etc/nagios/nrpe.cfg` (remplacez `POLLER_IP_ADDRESS` 
 par l'adresse IP du collecteur qui en fera la supervision).
 
 ```bash
 sed -i 's/allowed_hosts=127.0.0.1,::1/allowed_hosts=POLLER_IP_ADDRESS/' /etc/nrpe/centreon-nrpe4.cfg
 ```
 
-- Redémarrer le service pour prise en compte.
+4. Redémarrez le service pour que le changement soit pris en compte.
 
 ```bash
 systemctl restart centreon-nrpe4.service
 systemctl enable centreon-nrpe4.service
 ```
 
-- Pour la supervision de **systemd-journal**, il est nécessaire de lancer :
+5. Pour permettre la supervision de **systemd-journal**, lancez les commandes suivantes :
 
 ```bash
 usermod -a -G systemd-journal centreon-engine
