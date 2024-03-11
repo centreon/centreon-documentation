@@ -307,7 +307,6 @@ dnf install centreon-ha-common pcs pacemaker corosync corosync-qdevice
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 <TabItem value="Alma 9" label="Alma 9">
 
 ```bash
