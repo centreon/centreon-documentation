@@ -5,6 +5,10 @@ title: Cisco Wap SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+Cisco  is a provider of network solutions.
+
+The Centreon Monitoring Connector *Cisco Wap SNMP* relies on the SNMP protocol to query and collect the status and metrics of the Cisco Wireless Access Point equipment.
+
 ## Pack assets
 
 ### Templates
