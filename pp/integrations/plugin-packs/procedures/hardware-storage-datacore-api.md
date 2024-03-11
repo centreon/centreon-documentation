@@ -21,7 +21,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias   | Service Template                                              | Service Description                                     |
 |:----------------|:--------------------------------------------------------------|:--------------------------------------------------------|
 | Alerts          | HW-Storage-Datacore-Sansymphony-Alerts-RESTAPI-custom         | Check alerts                                            |
-| Monitors Status | HW-Storage-Datacore-Sansymphony-Status-Monitor-RESTAPI-custom | Check Datacore "monitors" object filtered by parameters |
+| Monitors-Status | HW-Storage-Datacore-Sansymphony-Status-Monitor-RESTAPI-custom | Monitor Datacore "monitors" objects. |
 
 > The services listed above are created automatically when the **HW-Storage-Datacore-Sansymphony-RESTAPI-custom** host template is used.
 
