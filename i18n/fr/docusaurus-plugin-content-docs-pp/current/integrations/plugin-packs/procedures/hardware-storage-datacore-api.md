@@ -22,7 +22,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias           | Modèle de service                                             | Description                                          |
 |:----------------|:--------------------------------------------------------------|:-----------------------------------------------------|
 | Alerts          | HW-Storage-Datacore-Sansymphony-Alerts-RESTAPI-custom         | Contrôle les alertes                                 |
-| Monitors Status | HW-Storage-Datacore-Sansymphony-Status-Monitor-RESTAPI-custom | Contrôle le statut des éléments filtrés en paramètres |
+| Monitors Status | HW-Storage-Datacore-Sansymphony-Status-Monitor-RESTAPI-custom | Contrôle le statut des "monitors" Datacore |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-Datacore-Sansymphony-RESTAPI-custom** est utilisé.
 
