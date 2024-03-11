@@ -704,7 +704,7 @@
         "type": "generated-index",
         "description": "The graphical view capabilities in Centreon relies on the Centreon MAP module."
       },
-      "collapsed": true,
+     "collapsed": true,
       "items": [
         {
           "type": "category",
@@ -751,6 +751,10 @@
             },
             {
               "type": "doc",
+              "id": "version-22.04/graph-views/map-web-advanced"
+            },
+            {
+              "type": "doc",
               "id": "version-22.04/graph-views/map-web-known-issues"
             },
             {
@@ -760,10 +764,11 @@
             {
               "type": "doc",
               "id": "version-22.04/api/map-api"
+                  }
+              ]
             }
-          ]
-        },
-        {
+          ,
+                {
           "type": "category",
           "label": "Centreon MAP (Legacy)",
           "link":{
