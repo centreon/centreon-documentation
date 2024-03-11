@@ -84,7 +84,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-Configurer l'Api Datacore Rest : https://docs.datacore.com/RESTSupport-WebHelp/RESTSupport-WebHelp/Installation_Instructions.htm
+Pour pouvoir superviser Datacore SANsymphony, il vous faut [configurer l'API REST Datacore](https://docs.datacore.com/RESTSupport-WebHelp/RESTSupport-WebHelp/Installation_Instructions.htm).
 
 ## Installer le connecteur de supervision
 

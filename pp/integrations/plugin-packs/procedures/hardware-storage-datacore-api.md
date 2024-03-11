@@ -83,7 +83,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-Configure Datacore Rest Api : https://docs.datacore.com/RESTSupport-WebHelp/RESTSupport-WebHelp/Installation_Instructions.htm
+To be able to monitor Datacore SANsymphony, you must configure an [access to the REST API](https://docs.datacore.com/RESTSupport-WebHelp/RESTSupport-WebHelp/Installation_Instructions.htm).
 
 ## Installing the monitoring connector
 
