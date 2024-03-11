@@ -25,7 +25,7 @@ import TabItem from '@theme/TabItem';
 - [**Centreon Poller**](../procedures/applications-monitoring-centreon-poller.md) - Update host template logos.
 - [**Centreon SQL Metrics**](../procedures/applications-monitoring-centreon-sql-metrics.md) - Update host template logos.
 - [**Centreon-HA**](../procedures/applications-monitoring-centreon-ha.md) - Update host template logos.
-- [**Linux NRPE3**](../procedures/operatingsystems-linux-nrpe3.md) - Added Open-Files, Pending-Updates and Systemd-Journal service templates.
+- [**Linux NRPE3**](../procedures/operatingsystems-linux-nrpe3.md) - Added Open-Files, Pending-Updates and Systemd-Journal service templates. This monitoring connector is now deprecated. For a more standard deployment, monitor your Linux servers using **[Linux NRPE4](../procedures/operatingsystems-linux-nrpe4.md)**.
 
 </TabItem>
 <TabItem value="Fix" label="Fix">
