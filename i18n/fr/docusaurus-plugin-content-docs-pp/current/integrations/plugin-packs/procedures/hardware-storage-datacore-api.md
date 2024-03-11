@@ -249,7 +249,7 @@ que le connecteur arrive bien à superviser une ressource en utilisant une comma
 telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_datacore_restapi.pl  \
+/usr/lib/centreon/plugins/centreon_datacore_api.pl  \
 	--plugin=storage::datacore::restapi::plugin \
 	--mode=pool-usage \
 	--hostname='10.0.0.1' \
@@ -286,7 +286,7 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_datacore_restapi.pl  \
+/usr/lib/centreon/plugins/centreon_datacore_api.pl  \
 	--plugin=storage::datacore::restapi::plugin \
 	--list-mode
 ```
@@ -396,7 +396,7 @@ Pour un mode, la liste de toutes les options disponibles et leur signification p
 affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_datacore_restapi.pl  \
+/usr/lib/centreon/plugins/centreon_datacore_api.pl  \
 	--plugin=storage::datacore::restapi::plugin \
 	--mode=pool-usage \
 	--help
