@@ -203,14 +203,14 @@ yum install centreon-plugin-Hardware-Storage-DataCore-Sansymphony-Restapi
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | MAXALERTAGE     | Filter alerts to check those newer than this parameter (s)                                                                                                     | 86400             |             |
 | FILTERSERVER    | Define which devices should be monitored based on the MachineName. This option will be treated as a regular expression. By default all machines will be checked |                   |             |
-| WARNINGWARNING  | Seuil                                                                                                                                                              |                   |             |
-| CRITICALWARNING | Seuil                                                                                                                                                               |                   |             |
-| WARNINGERROR    | Seuil                                                                                                                                                               |                   |             |
-| CRITICALERROR   | Seuil                                                                                                                                                               |                   |             |
-| WARNINGINFO     | Seuil                                                                                                                                                               |                   |             |
-| CRITICALINFO    | Seuil                                                                                                                                                               |                   |             |
-| WARNINGTRACE    | Seuil                                                                                                                                                               |                   |             |
-| CRITICALTRACE   | Seuil                                                                                                                                                               |                   |             |
+| WARNINGWARNING  | Thresholds.                                                                                                                                                              |                   |             |
+| CRITICALWARNING | Thresholds.                                                                                                                                                               |                   |             |
+| WARNINGERROR    | Thresholds.                                                                                                                                                               |                   |             |
+| CRITICALERROR   | Thresholds.                                                                                                                                                               |                   |             |
+| WARNINGINFO     | Thresholds.                                                                                                                                                               |                   |             |
+| CRITICALINFO    | Thresholds.                                                                                                                                                               |                   |             |
+| WARNINGTRACE    | Thresholds.                                                                                                                                                               |                   |             |
+| CRITICALTRACE   | Thresholds.                                                                                                                                                               |                   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).               |                   |             |
 
 </TabItem>
