@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
-- [**Centreon Central**](../procedures/applications-monitoring-centreon-central.md) - Update host template logo.
+- [**Centreon Central**](../procedures/applications-monitoring-centreon-central.md) - Update host template logos.
 - [**Centreon Database**](../procedures/applications-monitoring-centreon-database.md) - Update host template logos.
 - [**Centreon MBI**](../procedures/applications-monitoring-centreon-mbi.md) - Update host template logos.
 - [**Centreon Poller**](../procedures/applications-monitoring-centreon-poller.md) - Update host template logos.
