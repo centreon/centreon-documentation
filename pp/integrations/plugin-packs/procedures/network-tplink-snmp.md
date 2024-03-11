@@ -5,6 +5,10 @@ title: TP-Link SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+TP-Link is a provider of network access solutions.
+
+The Centreon Monitoring Connector *TP-Link SNMP* relies on the SNMP protocol to query and collect the status and metrics of the TP-Link equipment.
+
 ## Pack assets
 
 ### Templates

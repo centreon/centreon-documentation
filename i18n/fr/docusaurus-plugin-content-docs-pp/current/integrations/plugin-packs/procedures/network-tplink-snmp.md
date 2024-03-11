@@ -5,6 +5,10 @@ title: TP-Link SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+TP-link est un fournisseur de solutions réseau.
+
+Le connecteur de supervision *TP-Link* utilise le protocole SNMP pour se connecter, récupérer des informations et les métriques relatives aux équipements de marque TP-Link.
+
 ## Contenu du pack
 
 ### Modèles
