@@ -65,7 +65,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 | datacore.alerts.trace.count   | count |
 
 </TabItem>
-<TabItem value="Monitors Status" label="Monitors Status">
+<TabItem value="Monitors-Status" label="Monitors-Status">
 
 | Metric name    | Unit  |
 |:---------------|:------|
