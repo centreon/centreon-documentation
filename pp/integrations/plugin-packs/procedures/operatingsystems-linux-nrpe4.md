@@ -1,6 +1,6 @@
 ---
 id: operatingsystems-linux-nrpe4
-title: Linux NRPE3
+title: Linux NRPE4
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

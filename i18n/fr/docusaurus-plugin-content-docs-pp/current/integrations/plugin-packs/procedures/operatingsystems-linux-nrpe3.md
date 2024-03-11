@@ -5,7 +5,7 @@ title: Linux NRPE3
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> **IMPORTANT** : Ce connecteur de supervision est déprécié. Pour un déploiement plus standard de votre supervision de serveurs Linux avec le protocole NRPE, nous vous recommandons d'utiliser **[Linux NRPE4](operatingsystems-linux-nrpe4.html)**.
+> **IMPORTANT** : Ce connecteur de supervision est déprécié. Pour un déploiement plus standard de votre supervision de serveurs Linux avec le protocole NRPE, nous vous recommandons d'utiliser **[Linux NRPE4](operatingsystems-linux-nrpe4.md)**.
 
 ## Vue d'ensemble
 

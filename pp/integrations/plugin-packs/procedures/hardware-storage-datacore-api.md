@@ -248,7 +248,7 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
-/usr/lib/centreon/plugins/centreon_datacore_restapi.pl  \
+/usr/lib/centreon/plugins/centreon_datacore_api.pl  \
 	--plugin=storage::datacore::restapi::plugin \
 	--mode=pool-usage \
 	--hostname='10.0.0.1' \
@@ -285,7 +285,7 @@ All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_datacore_restapi.pl  \
+/usr/lib/centreon/plugins/centreon_datacore_api.pl  \
 	--plugin=storage::datacore::restapi::plugin \
 	--list-mode
 ```
@@ -395,7 +395,7 @@ All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_datacore_restapi.pl  \
+/usr/lib/centreon/plugins/centreon_datacore_api.pl  \
 	--plugin=storage::datacore::restapi::plugin \
 	--mode=pool-usage \
 	--help
