@@ -5,13 +5,13 @@ title: BlueMind SSH
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-BlueMind is a complete unified enterprise messaging and communications solution.
+BlueMind is a complete unified enterprise messaging and communication solution.
 
 ## Pack assets
 
 ### Templates
 
-The Monitoring Connector **Bluemind SSH** brings a host template:
+The Monitoring Connector **BlueMind SSH** brings a host template:
 
 * **App-Bluemind-SSH-custom**
 
@@ -22,7 +22,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                  | Service Description             |
 |:--------------|:----------------------------------|:--------------------------------|
-| Core          | App-Bluemind-Core-SSH-custom      | Check main bluemind engine      |
+| Core          | App-Bluemind-Core-SSH-custom      | Check main BlueMind engine      |
 | Eas           | App-Bluemind-Eas-SSH-custom       | Check mobile connection service |
 | Hps           | App-Bluemind-Hps-SSH-custom       | Check authentication service    |
 | Ips           | App-Bluemind-Ips-SSH-custom       | Check IMAP operations tracking  |
@@ -143,9 +143,9 @@ setting your unique user and password directly in the host macros.
 
 ### BlueMind Configuration
 
-A monitoring account allowed to access unix sockets within `/var/run/bm-metrics/` directory must be created on the BlueMind system  and be part of the `telegraph` group.
+A monitoring account allowed to access Unix sockets within the `/var/run/bm-metrics/` directory must be created on the BlueMind system and be part of the `telegraph` group.
 
-You can check that the proper monitoring account permissions are set by logging on the BlueMind system using this newly created user and  executing this test command:
+You can check that the proper monitoring account permissions are set by logging on to the BlueMind system using this newly created user and executing this test command:
 
 ```bash
 curl --unix-socket /var/run/bm-metrics/metrics-bm-core.sock http://127.0.0.1/metrics

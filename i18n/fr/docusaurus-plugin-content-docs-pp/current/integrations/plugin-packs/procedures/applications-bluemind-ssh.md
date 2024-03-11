@@ -11,7 +11,7 @@ BlueMind est une suite logicielle libre de messagerie d’entreprise, d’agenda
 
 ### Modèles
 
-Le connecteur de supervision **Bluemind SSH** apporte un modèle d'hôte :
+Le connecteur de supervision **BlueMind SSH** apporte un modèle d'hôte :
 
 * **App-Bluemind-SSH-custom**
 
@@ -23,7 +23,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias     | Modèle de service                 | Description                                  |
 |:----------|:----------------------------------|:---------------------------------------------|
-| Core      | App-Bluemind-Core-SSH-custom      | Contrôle le coeur du moteur bluemind         |
+| Core      | App-Bluemind-Core-SSH-custom      | Contrôle le coeur du moteur BlueMind         |
 | Eas       | App-Bluemind-Eas-SSH-custom       | Contrôle le service de connexion des mobiles |
 | Hps       | App-Bluemind-Hps-SSH-custom       | Contrôle le service d'authentification       |
 | Ips       | App-Bluemind-Ips-SSH-custom       | Contrôle les opérations IMAP                 |
@@ -148,7 +148,7 @@ Deux méthodes de connexion SSH sont possibles :
 
 ### Configuration BlueMind
 
-Sur le serveur BlueMind, créer un utilisateur ayant accès à la socket Unix dans le repértoire `/var/run/bm-metrics/` (group `telegraph`).
+Sur le serveur BlueMind, créer un utilisateur ayant accès aux sockets Unix dans le répertoire `/var/run/bm-metrics/` (groupe `telegraph`).
 
 Afin de valider la création de l'utilisateur, exécutez cette commande cet utilisateur :
 
