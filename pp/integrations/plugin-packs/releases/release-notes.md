@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="New connectors" label="New connectors">
 
 - [**Linux NRPE4**](../procedures/operatingsystems-linux-nrpe4.md) - First release of Linux NRPE4.
-- [**Datacore Sansymphony RESTAPI**](../procedures/hardware-storage-datacore-sansymphony-restapi.md) - First release of Datacore.
+- [**Datacore Sansymphony RESTAPI**](../procedures/hardware-storage-datacore-api.md) - First release of Datacore.
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
