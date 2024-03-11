@@ -19,12 +19,12 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
-- [**Centreon Central**](../procedures/applications-monitoring-centreon-central.md) - Update host template logos.
-- [**Centreon Database**](../procedures/applications-monitoring-centreon-database.md) - Update host template logos.
-- [**Centreon MBI**](../procedures/applications-monitoring-centreon-mbi.md) - Update host template logos.
-- [**Centreon Poller**](../procedures/applications-monitoring-centreon-poller.md) - Update host template logos.
-- [**Centreon SQL Metrics**](../procedures/applications-monitoring-centreon-sql-metrics.md) - Update host template logos.
-- [**Centreon-HA**](../procedures/applications-monitoring-centreon-ha.md) - Update host template logos.
+- [**Centreon Central**](../procedures/applications-monitoring-centreon-central.md) - Updated host template logo.
+- [**Centreon Database**](../procedures/applications-monitoring-centreon-database.md) - Updated host template logo.
+- [**Centreon MBI**](../procedures/applications-monitoring-centreon-mbi.md) - Updated host template logo.
+- [**Centreon Poller**](../procedures/applications-monitoring-centreon-poller.md) - Updated host template logo.
+- [**Centreon SQL Metrics**](../procedures/applications-monitoring-centreon-sql-metrics.md) - Updated host template logo.
+- [**Centreon-HA**](../procedures/applications-monitoring-centreon-ha.md) - Updated host template logo.
 - [**Linux NRPE3**](../procedures/operatingsystems-linux-nrpe3.md) - Added Open-Files, Pending-Updates and Systemd-Journal service templates. This monitoring connector is now deprecated. For a more standard deployment, monitor your Linux servers using **[Linux NRPE4](../procedures/operatingsystems-linux-nrpe4.md)**.
 
 </TabItem>
