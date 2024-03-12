@@ -31,8 +31,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                          | Service Description                          | Discovery  |
 |:---------------------|:------------------------------------------|:---------------------------------------------|:----------:|
-| Traffic-Generic-Id   | Net-3com-Traffic-Generic-Id-SNMP-custom   | Check traffic of an network interface        |            |
-| Traffic-Generic-Name | Net-3com-Traffic-Generic-Name-SNMP-custom | Check traffic of an network interface        |            |
+| Traffic-Generic-Id   | Net-3com-Traffic-Generic-Id-SNMP-custom   | Check traffic of a network interface        |            |
+| Traffic-Generic-Name | Net-3com-Traffic-Generic-Name-SNMP-custom | Check traffic of a network interface        |            |
 | Traffic-Global       | Net-3com-Traffic-Global-SNMP-custom       | Check traffic of multiple network interfaces | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
