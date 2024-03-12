@@ -33,8 +33,8 @@ The connector brings the following service templates (sorted by the host templat
 |:---------------------|:----------------------------------------------------|:---------------------------------------------|:----------:|
 | Mail-Usage           | Net-Cisco-Ironport-Mail-Usage-SNMP-custom           | Check email security usage                   |            |
 | Proxy-Usage          | Net-Cisco-Ironport-Proxy-Usage-SNMP-custom          | Check proxy usage                            |            |
-| Traffic-Generic-Id   | Net-Cisco-Ironport-Traffic-Generic-Id-SNMP-custom   | Check traffic of an network interface        |            |
-| Traffic-Generic-Name | Net-Cisco-Ironport-Traffic-Generic-Name-SNMP-custom | Check traffic of an network interface        |            |
+| Traffic-Generic-Id   | Net-Cisco-Ironport-Traffic-Generic-Id-SNMP-custom   | Check traffic of a network interface        |            |
+| Traffic-Generic-Name | Net-Cisco-Ironport-Traffic-Generic-Name-SNMP-custom | Check traffic of a network interface        |            |
 | Traffic-Global       | Net-Cisco-Ironport-Traffic-Global-SNMP-custom       | Check traffic of multiple network interfaces | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
