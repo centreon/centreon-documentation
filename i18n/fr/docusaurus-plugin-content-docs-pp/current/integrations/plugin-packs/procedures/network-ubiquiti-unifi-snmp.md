@@ -21,12 +21,12 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                 | Modèle de service                                   | Description                                                                                                                                                                          |
 |:----------------------|:----------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu                   | Net-Ubiquiti-Unifi-Cpu-SNMP-custom                  | Contrôle du taux d'utilisation détaillé CPU de l'equipement. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |
+| Cpu                   | Net-Ubiquiti-Unifi-Cpu-SNMP-custom                  | Contrôle du taux d'utilisation détaillé CPU de l'équipement. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |
 | Load                  | Net-Ubiquiti-Unifi-Load-SNMP-custom                 | Contrôle de la charge serveur                                                                                                                                                        |
 | Memory                | Net-Ubiquiti-Unifi-Memory-SNMP-custom               | Contrôle du taux d'utilisation de la mémoire vive                                                                                                                                    |
 | Swap                  | Net-Ubiquiti-Unifi-Swap-SNMP-custom                 | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                               |
 | Uptime                | Net-Ubiquiti-Unifi-Uptime-SNMP-custom               | Durée depuis laquelle le serveur tourne sans interruption                                                                                                                            |
-| Virtual-Access-Points | Net-Ubiquiti-Unifi-Virtual-Access-Point-SNMP-custom | Contrôle les points d'accès virtuel                                                                                                                                                  |
+| Virtual-Access-Points | Net-Ubiquiti-Unifi-Virtual-Access-Point-SNMP-custom | Contrôle les points d'accès virtuels                                                                                                                                                  |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Ubiquiti-Unifi-SNMP-custom** est utilisé.
 
@@ -59,7 +59,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                        | Description                                                             |
 |:---------------------------------------|:------------------------------------------------------------------------|
-| Net-Ubiquiti-Unifi-SNMP-Interface-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
+| Net-Ubiquiti-Unifi-SNMP-Interface-Name | Découvre les interfaces réseau et supervise le statut et l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).

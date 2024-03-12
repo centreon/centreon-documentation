@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias         | Service Template                                    | Service Description                                                                                                                                           |
 |:----------------------|:----------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu                   | Net-Ubiquiti-Unifi-Cpu-SNMP-custom                  | Check the detailed rate of utilization of CPU for the equipment. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |
+| Cpu                   | Net-Ubiquiti-Unifi-Cpu-SNMP-custom                  | Check the detailed rate of utilization of CPUs for the equipment. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |
 | Load                  | Net-Ubiquiti-Unifi-Load-SNMP-custom                 | Check the server load average                                                                                                                                 |
 | Memory                | Net-Ubiquiti-Unifi-Memory-SNMP-custom               | Check the rate of the utilization of memory                                                                                                                   |
 | Swap                  | Net-Ubiquiti-Unifi-Swap-SNMP-custom                 | Check virtual memory usage                                                                                                                                    |
@@ -34,7 +34,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                          | Service Description | Discovery  |
 |:--------------|:------------------------------------------|:--------------------|:----------:|
-| Disks         | Net-Ubiquiti-Unifi-Disks-SNMP-custom      | Check disk usages   |            |
+| Disks         | Net-Ubiquiti-Unifi-Disks-SNMP-custom      | Check disk usage   |            |
 | Interfaces    | Net-Ubiquiti-Unifi-Interfaces-SNMP-custom | Check interfaces    | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
