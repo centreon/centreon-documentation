@@ -20,9 +20,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias  | Service Template                     | Service Description                  |
 |:---------------|:-------------------------------------|:-------------------------------------|
-| Cpu-Routing    | Net-Juniper-Ex-Cpu-Routing-custom    | Check CPU Usage of routing engine    |
+| Cpu-Routing    | Net-Juniper-Ex-Cpu-Routing-custom    | Check CPU usage of routing engine    |
 | Hardware       | Net-Juniper-Ex-Hardware-custom       | Check hardware                       |
-| Memory-Routing | Net-Juniper-Ex-Memory-Routing-custom | Check Memory Usage of routing engine |
+| Memory-Routing | Net-Juniper-Ex-Memory-Routing-custom | Check memory usage of routing engine |
 
 > The services listed above are created automatically when the **Net-Juniper-EX-custom** host template is used.
 
@@ -34,9 +34,9 @@ The connector brings the following service templates (sorted by the host templat
 | Disk-Generic-Id      | Net-Juniper-Ex-Disk-Generic-Id-custom      | Check the rate of free space on the disk                                                     |            |
 | Disk-Generic-Name    | Net-Juniper-Ex-Disk-Generic-Name-custom    | Check the rate of free space on the disk                                                     |            |
 | Disk-Global          | Net-Juniper-Ex-Disk-Global-custom          | Check the rate of free space on the disk                                                     | X          |
-| Traffic-Generic-Id   | Net-Juniper-Ex-Traffic-Generic-Id-custom   | Check the bandwidth of the interface. For each checks the name of the interface will appear  |            |
-| Traffic-Generic-Name | Net-Juniper-Ex-Traffic-Generic-Name-custom | Check the bandwidth of the interface. For each checks the name of the interface will appear  |            |
-| Traffic-Global       | Net-Juniper-Ex-Traffic-Global-custom       | Check the bandwidth of  interfaces. For each checks the name of the interface will appear    | X          |
+| Traffic-Generic-Id   | Net-Juniper-Ex-Traffic-Generic-Id-custom   | Check the bandwidth of the interface. For each check the name of the interface will appear  |            |
+| Traffic-Generic-Name | Net-Juniper-Ex-Traffic-Generic-Name-custom | Check the bandwidth of the interface. For each check the name of the interface will appear  |            |
+| Traffic-Global       | Net-Juniper-Ex-Traffic-Global-custom       | Check the bandwidth of  interfaces. For each check the name of the interface will appear    | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
