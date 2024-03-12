@@ -249,7 +249,7 @@ yum install centreon-plugin-Network-Switchs-Juniper-Ex-Snmp
 
 | Macro           | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER          | Filter operating (default: 'routing\|fpc')                                                         | routing           |             |
+| FILTER          | Define which elements should be monitored based on their name. This option will be treated as a regular expression. 'routing\|fpc' is applied if left empty.   | routing           |             |
 | WARNING         | Thresholds                                                                                         | 80                |             |
 | CRITICAL        | Thresholds                                                                                         | 90                |             |
 | WARNINGLOAD15M  | Thresholds                                                                                         |                   |             |
