@@ -327,6 +327,13 @@ Release date: `March 12, 2024`
 
 #### Centreon Broker
 
+<details open>
+  <summary>Enhancements</summary>
+
+- [Broker] When Broker is restarted or reloaded, BAM creates a cache with the BA states to be able to restore them when reloaded.
+
+</details>
+
 <details>
   <summary>Bug fixes</summary>
 
@@ -334,7 +341,6 @@ Release date: `March 12, 2024`
 - [Broker] Fixed a memory leak that occurred when using stream connectors with Broker's v2 API.
 - [Broker] Fixed some incorrect statuses in Broker's statistics retrieved by the `broker-stats.json` file.
 - [Broker] Semicolons are no longer considered as the beginning of a comment in Engine's configuration files. This is because comments were not useful in these files, and they prevented the use of semicolons in macros (e.g., passwords).
-- [Broker] When broker is restarted or reloaded, BAM creates a cache with the ba states to be able to restore them when reloaded.
 
 </details>
 
