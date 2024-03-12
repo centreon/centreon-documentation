@@ -31,7 +31,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                                    | Service Description                          | Discovery  |
 |:---------------------|:----------------------------------------------------|:---------------------------------------------|:----------:|
-| Mail-Usage           | Net-Cisco-Ironport-Mail-Usage-SNMP-custom           | Check email security usage                   |            |
+| Mail-Usage           | Net-Cisco-Ironport-Mail-Usage-SNMP-custom           | Check email usage                   |            |
 | Proxy-Usage          | Net-Cisco-Ironport-Proxy-Usage-SNMP-custom          | Check proxy usage                            |            |
 | Traffic-Generic-Id   | Net-Cisco-Ironport-Traffic-Generic-Id-SNMP-custom   | Check traffic of a network interface        |            |
 | Traffic-Generic-Name | Net-Cisco-Ironport-Traffic-Generic-Name-SNMP-custom | Check traffic of a network interface        |            |
