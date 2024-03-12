@@ -1,0 +1,105 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+> If installing the database on a dedicated server, this server should also have
+> the prerequisite repositories.
+
+Run the following command on the Central server:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install -y centreon-central
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install -y centreon-central
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update
+apt install -y --no-install-recommends centreon-central
+```
+
+</TabItem>
+</Tabs>
+
+Then run the following commands on the dedicated server for your database:
+
+<Tabs groupId="database-sync">
+<TabItem value="MariaDB" label="MariaDB">
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install -y centreon-mariadb
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install -y centreon-mariadb
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update
+apt install -y --no-install-recommends centreon-mariadb
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL">
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install -y centreon-mysql
+systemctl daemon-reload
+systemctl restart mysql
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install -y centreon-mysql
+systemctl daemon-reload
+systemctl restart mysql
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update
+apt install -y --no-install-recommends centreon-mysql
+systemctl daemon-reload
+systemctl restart mysql
+```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+</Tabs>

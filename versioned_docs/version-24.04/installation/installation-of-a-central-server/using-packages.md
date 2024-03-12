@@ -4,7 +4,9 @@ title: Using packages
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import DatabaseConfiguration from './_database-configuration.mdx';
+import DatabaseRepository from '../_database-repository.mdx';
+import DatabaseLocalInstall from '../_database-local-install.mdx';
+import DatabaseRemoteInstall from '../_database-remote-install.mdx';
 
 Centreon provides RPM and DEB packages for its products through the Centreon Open
 Source version available free of charge in our repository.
@@ -323,60 +325,7 @@ apt update
 
 #### Database repository
 
-<Tabs groupId="database-sync">
-
-<TabItem value="MariaDB" label="MariaDB">
-
-<Tabs groupId="sync">
-
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf module enable -y mariadb:10.5
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-*Nothing to do, MariaDB 10.5 is already available in official repositories.*
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-*Nothing to do, MariaDB 10.5 is already available in official repositories.*
-
-</TabItem>
-</Tabs>
-
-</TabItem>
-<TabItem value="MySQL" label="MySQL">
-
-<Tabs groupId="sync">
-
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-*Nothing to do, MySQL 8.0 is already available in official repositories.*
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-*Nothing to do, MySQL 8.0 is already available in official repositories.*
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-wget -P /tmp/ https://dev.mysql.com/get/mysql-apt-config_0.8.29-1_all.deb
-apt install /tmp/mysql-apt-config_0.8.29-1_all.deb
-# Select 4 to validate installation of "MySQL Tools & Connectors"
-apt update
-```
-
-</TabItem>
-</Tabs>
-
-</TabItem>
-</Tabs>
+<DatabaseRepository />
 
 #### Centreon repository
 
@@ -432,183 +381,12 @@ You can install this server with a local database on the server or
 a remote database on a dedicated server.
 
 <Tabs groupId="sync">
-<TabItem value="With a local database" label="With a local database">
-
-<Tabs groupId="database-sync">
-<TabItem value="MariaDB" label="MariaDB">
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y centreon-mariadb centreon
-systemctl daemon-reload
-systemctl restart mariadb
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf install -y centreon-mariadb centreon
-systemctl daemon-reload
-systemctl restart mariadb
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-apt update
-apt install -y --no-install-recommends centreon-mariadb centreon
-systemctl daemon-reload
-systemctl restart mariadb
-```
-
-</TabItem>
-</Tabs>
-
-</TabItem>
-<TabItem value="MySQL" label="MySQL">
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y centreon-mysql centreon
-systemctl daemon-reload
-systemctl restart mysql
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf install -y centreon-mysql centreon
-systemctl daemon-reload
-systemctl restart mysql
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-apt update
-apt install -y --no-install-recommends centreon-mysql centreon
-systemctl daemon-reload
-systemctl restart mysql
-```
-
-</TabItem>
-</Tabs>
-
-</TabItem>
-</Tabs>
-</TabItem>
-
-<TabItem value="With a remote database" label="With a remote database">
-
-> If installing the database on a dedicated server, this server should also have
-> the prerequisite repositories.
-
-Run the following command on the Central server:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y centreon-central
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf install -y centreon-central
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-apt update
-apt install -y --no-install-recommends centreon-central
-```
-
-</TabItem>
-</Tabs>
-
-Then run the following commands on the dedicated server for your database:
-
-<Tabs groupId="database-sync">
-<TabItem value="MariaDB" label="MariaDB">
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y centreon-mariadb
-systemctl daemon-reload
-systemctl restart mariadb
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf install -y centreon-mariadb
-systemctl daemon-reload
-systemctl restart mariadb
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-apt update
-apt install -y --no-install-recommends centreon-mariadb
-systemctl daemon-reload
-systemctl restart mariadb
-```
-
-</TabItem>
-</Tabs>
-
-</TabItem>
-<TabItem value="MySQL" label="MySQL">
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y centreon-mysql
-systemctl daemon-reload
-systemctl restart mysql
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf install -y centreon-mysql
-systemctl daemon-reload
-systemctl restart mysql
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-apt update
-apt install -y --no-install-recommends centreon-mysql
-systemctl daemon-reload
-systemctl restart mysql
-```
-
-</TabItem>
-</Tabs>
-
-</TabItem>
+  <TabItem value="With a local database" label="With a local database">
+    <DatabaseLocalInstall />
+  </TabItem>
+  <TabItem value="With a remote database" label="With a remote database">
+    <DatabaseRemoteInstall />
+  </TabItem>
 </Tabs>
 
 > It is mandatory to set a password for the root user of the database.
@@ -802,9 +580,6 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 > ```
 >
 > Remember to restart database after changing the configuration.
-
-</TabItem>
-</Tabs>
 
 ## Step 3: Configuration
 

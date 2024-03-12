@@ -4,6 +4,9 @@ title: Using packages
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DatabaseRepository from '../_database-repository.mdx';
+import DatabaseLocalInstall from '../_database-local-install.mdx';
+import DatabaseRemoteInstall from '../_database-remote-install.mdx';
 
 Centreon provides RPM and DEB packages for its products through the Centreon Open
 Source version available free of charge in our repository.
@@ -318,32 +321,9 @@ apt update
 </TabItem>
 </Tabs>
 
-#### MariaDB repository
+#### Database repository
 
-<Tabs groupId="sync">
-
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=9 --mariadb-server-version="mariadb-10.5"
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.5"
-```
-
-</TabItem>
-</Tabs>
+<DatabaseRepository />
 
 #### Centreon repository
 
@@ -398,113 +378,25 @@ This section describes how to install a Centreon Remote Server.
 You can install this server with a local database on the server or
 a remote database on a dedicated server.
 
-### With a local database
-
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y centreon
-systemctl daemon-reload
-systemctl restart mariadb
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf install -y centreon
-systemctl daemon-reload
-systemctl restart mariadb
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-apt update
-apt install -y --no-install-recommends centreon
-systemctl daemon-reload
-systemctl restart mariadb
-```
-
-</TabItem>
-</Tabs>
+  <TabItem value="With a local database" label="With a local database">
+    <DatabaseLocalInstall />
 
 You can now move on to the [next step](#step-3-configuration).
 
-### With a remote database
-
-> If you are installing a database on a dedicated server, this server should also have
-> the required repositories.
-
-Run the following command on the central server:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y centreon-central
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf install -y centreon-central
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-apt update
-apt install -y --no-install-recommends centreon-central
-```
-
-</TabItem>
+  </TabItem>
+  <TabItem value="With a remote database" label="With a remote database">
+    <DatabaseRemoteInstall />
+  </TabItem>
 </Tabs>
 
-Then run the following commands on the dedicated server:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y centreon-database
-systemctl daemon-reload
-systemctl restart mariadb
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf install -y centreon-database
-systemctl daemon-reload
-systemctl restart mariadb
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-apt update
-apt install -y --no-install-recommends centreon-database
-systemctl daemon-reload
-systemctl restart mariadb
-```
-
-</TabItem>
-</Tabs>
+> It is mandatory to set a password for the root user of the database.
 
 Secure your MariaDB installation by executing the following command:
 
 ```shell
 mysql_secure_installation
 ```
-
-> It is mandatory to set a password for the root user of the database.
 
 Then, in the remote dabatase, create a user with **root** privileges. You will have to enter this user during the 
 web installation process (at [step 6](../web-and-post-installation.md#step-6-database-infomation),
