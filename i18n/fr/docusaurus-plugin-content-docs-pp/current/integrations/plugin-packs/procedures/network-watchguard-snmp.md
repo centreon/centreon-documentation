@@ -23,7 +23,7 @@ Le connecteur apporte les modèles de service suivants
 |:---------|:------------------------------------|:----------------------------------------------------|
 | Cpu      | Net-Watchguard-Cpu-SNMP-custom      | Contrôle du taux d'utilisation du CPU de la machine |
 | Hardware | Net-Watchguard-Hardware-SNMP-custom | Contrôle l'état du matériel                         |
-| System   | Net-Watchguard-System-SNMP-custom   | Contrôle les statistiques systèmes                  |
+| System   | Net-Watchguard-System-SNMP-custom   | Contrôle les statistiques système                  |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Watchguard-SNMP-custom** est utilisé.
 
@@ -34,9 +34,9 @@ Le connecteur apporte les modèles de service suivants
 |:---------------|:------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------|:----------:|
 | Cluster        | Net-Watchguard-Cluster-SNMP-custom        | Contrôle l'état du cluster                                                                                               |            |
 | Disk-Global    | Net-Watchguard-Disk-Global-SNMP-custom    | Contrôle du taux d'espace libre disponible des disques. Pour chaque contrôle apparaîtra le point de montage des disques  | X          |
-| Ipsec-Tunnel   | Net-Watchguard-Ipsec-Tunnel-SNMP-custom   | Contrôle les tunnels ipsec                                                                                               |            |
+| Ipsec-Tunnel   | Net-Watchguard-Ipsec-Tunnel-SNMP-custom   | Contrôle les tunnels IPsec                                                                                               |            |
 | Policy-Usage   | Net-Watchguard-Policy-Usage-SNMP-custom   | Contrôle les 'policy'                                                                                                    |            |
-| Traffic-Global | Net-Watchguard-Traffic-Global-SNMP-custom | Contrôle le traffic réseau de plusieurs interfaces réseau                                                                | X          |
+| Traffic-Global | Net-Watchguard-Traffic-Global-SNMP-custom | Contrôle le trafic réseau de plusieurs interfaces réseau                                                                | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -60,7 +60,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 | Nom de la règle                   | Description                                                             |
 |:----------------------------------|:------------------------------------------------------------------------|
 | Net-Watchguard-SNMP-Storages-Name | Discover the disk partitions and monitor space occupation               |
-| Net-Watchguard-SNMP-Traffic-Name  | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
+| Net-Watchguard-SNMP-Traffic-Name  | Découvre les interfaces réseau et supervise le statut et l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).

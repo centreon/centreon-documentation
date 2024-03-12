@@ -21,7 +21,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias | Service Template                    | Service Description                                  |
 |:--------------|:------------------------------------|:-----------------------------------------------------|
 | Cpu           | Net-Watchguard-Cpu-SNMP-custom      | Check the rate of utilization of CPU for the machine |
-| Hardware      | Net-Watchguard-Hardware-SNMP-custom | Check hardware environment                           |
+| Hardware      | Net-Watchguard-Hardware-SNMP-custom | Check the state of the hardware                           |
 | System        | Net-Watchguard-System-SNMP-custom   | Check system statistics                              |
 
 > The services listed above are created automatically when the **Net-Watchguard-SNMP-custom** host template is used.
@@ -32,8 +32,8 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias  | Service Template                          | Service Description                                                                          | Discovery  |
 |:---------------|:------------------------------------------|:---------------------------------------------------------------------------------------------|:----------:|
 | Cluster        | Net-Watchguard-Cluster-SNMP-custom        | Check cluster                                                                                |            |
-| Disk-Global    | Net-Watchguard-Disk-Global-SNMP-custom    | Check the rate of free space on disks. For each checks the mount point of disks will appear  | X          |
-| Ipsec-Tunnel   | Net-Watchguard-Ipsec-Tunnel-SNMP-custom   | Check ipsec tunnels                                                                          |            |
+| Disk-Global    | Net-Watchguard-Disk-Global-SNMP-custom    | Check the rate of free space on disks. For each check the mount point of disks will appear  | X          |
+| Ipsec-Tunnel   | Net-Watchguard-Ipsec-Tunnel-SNMP-custom   | Check IPsec tunnels                                                                          |            |
 | Policy-Usage   | Net-Watchguard-Policy-Usage-SNMP-custom   | Check policy usage                                                                           |            |
 | Traffic-Global | Net-Watchguard-Traffic-Global-SNMP-custom | Check traffic of multiple network interfaces                                                 | X          |
 
