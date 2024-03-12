@@ -30,10 +30,10 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                | Modèle de service                                        | Description                                              | Découverte |
 |:---------------------|:---------------------------------------------------------|:---------------------------------------------------------|:----------:|
-| Traffic-Generic-Id   | Net-Cisco-Voice-Gateway-Traffic-Generic-Id-SNMP-custom   | Contrôle le traffic réseau d'une interface réseau        |            |
-| Traffic-Generic-Name | Net-Cisco-Voice-Gateway-Traffic-Generic-Name-SNMP-custom | Contrôle le traffic réseau d'une interface réseau        |            |
+| Traffic-Generic-Id   | Net-Cisco-Voice-Gateway-Traffic-Generic-Id-SNMP-custom   | Contrôle le trafic réseau d'une interface réseau        |            |
+| Traffic-Generic-Name | Net-Cisco-Voice-Gateway-Traffic-Generic-Name-SNMP-custom | Contrôle le trafic réseau d'une interface réseau        |            |
 | Traffic-Global       | Net-Cisco-Voice-Gateway-Traffic-Global-SNMP-custom       | Contrôle le trafic réseau de plusieurs interfaces réseau | X          |
-| Voice-Call           | Net-Cisco-Voice-Gateway-Voice-Call-SNMP-custom           | Contrôle les statistiques d'appels                       |            |
+| Voice-Call           | Net-Cisco-Voice-Gateway-Voice-Call-SNMP-custom           | Contrôle les statistiques d'appel                       |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
