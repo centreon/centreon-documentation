@@ -778,6 +778,7 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 </Tabs>
 
 </TabItem>
+</Tabs>
 
 > In addition to the directives above, it is strongly recommended to tune the
 > database configuration with the following parameters:
@@ -801,8 +802,6 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 > ```
 >
 > Remember to restart database after changing the configuration.
-
-</Tabs>
 
 </TabItem>
 </Tabs>
