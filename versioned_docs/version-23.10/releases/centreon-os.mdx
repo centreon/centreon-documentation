@@ -23,6 +23,36 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 23.10.10
+
+Release date: `March 13, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Resource Status] Improved update of filters by removing useless dialog
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Authentication] Fixed issue in SSO authentication.
+- [API] Fixed a visibility issue on UserFilter endpoint.
+- [API] Fixes an issue where 500 error was returned when a host didn't have alias.
+- [CLAPI] Fixed a decoding issue on HTML entities export.
+- [CLAPI] While exporting services and hosts, duplicates were generated.
+- [Dashboards - Map widget] Fixed Map, Geoview and perspective save.
+
+</details>
+
+<details open>
+  <summary>Security fixes</summary>
+
+-	[Security] Improved Centreon Gorgone allowed commands
+
+</details>
+
 ### 23.10.9
 
 Release date: `February 22, 2024`
@@ -410,6 +440,19 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon Gorgone
+
+### 23.10.4
+
+Release date: `March 12, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Added the Auto-Discovery patterns to the default commands whitelist.
+- Improved list of allowed commands for Auto-Discovery.
+- [Packaging] Fixed missing perl dependency for centreon-web installation on debian 11.
+
+</details>
 
 ### 23.10.3
 
