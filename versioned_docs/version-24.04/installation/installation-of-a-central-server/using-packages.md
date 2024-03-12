@@ -441,7 +441,7 @@ a remote database on a dedicated server.
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y mariadb-server centreon
+dnf install -y centreon-mariadb centreon
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -450,7 +450,7 @@ systemctl restart mariadb
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf install -y mariadb-server centreon
+dnf install -y centreon-mariadb centreon
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -460,7 +460,7 @@ systemctl restart mariadb
 
 ```shell
 apt update
-apt install -y --no-install-recommends mariadb-server centreon
+apt install -y --no-install-recommends centreon-mariadb centreon
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -475,7 +475,7 @@ systemctl restart mariadb
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y mysql-server centreon
+dnf install -y centreon-mysql centreon
 systemctl daemon-reload
 systemctl restart mysql
 ```
@@ -484,7 +484,7 @@ systemctl restart mysql
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf install -y mysql-server centreon
+dnf install -y centreon-mysql centreon
 systemctl daemon-reload
 systemctl restart mysql
 ```
@@ -494,7 +494,7 @@ systemctl restart mysql
 
 ```shell
 apt update
-apt install -y --no-install-recommends mysql-server centreon
+apt install -y --no-install-recommends centreon-mysql centreon
 systemctl daemon-reload
 systemctl restart mysql
 ```
@@ -547,7 +547,7 @@ Then run the following commands on the dedicated server for your database:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y mariadb-server centreon-database
+dnf install -y centreon-mariadb
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -556,7 +556,7 @@ systemctl restart mariadb
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf install -y mariadb-server centreon-database
+dnf install -y centreon-mariadb
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -566,7 +566,7 @@ systemctl restart mariadb
 
 ```shell
 apt update
-apt install -y --no-install-recommends mariadb-server centreon-database
+apt install -y --no-install-recommends centreon-mariadb
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -581,7 +581,7 @@ systemctl restart mariadb
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y mysql-server centreon-database
+dnf install -y centreon-mysql
 systemctl daemon-reload
 systemctl restart mysql
 ```
@@ -590,7 +590,7 @@ systemctl restart mysql
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf install -y mysql-server centreon-database
+dnf install -y centreon-mysql
 systemctl daemon-reload
 systemctl restart mysql
 ```
@@ -600,7 +600,7 @@ systemctl restart mysql
 
 ```shell
 apt update
-apt install -y --no-install-recommends mysql-server centreon-database
+apt install -y --no-install-recommends centreon-mysql
 systemctl daemon-reload
 systemctl restart mysql
 ```
