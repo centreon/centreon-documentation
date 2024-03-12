@@ -320,6 +320,23 @@ Release date: `October 30, 2023`
 
 ## Centreon Collect
 
+### 23.10.4
+
+Release date: `March 12, 2024`
+
+#### Centreon Broker
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed the permissions of the RRD files produced by the rebuild mechanism when RRDcached is used.
+- [Broker] Fixed a memory leak that occurred when using stream connectors with Broker's v2 API.
+- [Broker] Fixed some incorrect statuses in Broker's statistics retrieved by the `broker-stats.json` file.
+- [Broker] Semicolons are no longer considered as the beginning of a comment in Engine's configuration files. This is because comments were not useful in these files, and they prevented the use of semicolons in macros (e.g., passwords).
+- [Broker] When broker is restarted or reloaded, BAM creates a cache with the ba states to be able to restore them when reloaded.
+
+</details>
+
 ### 23.10.3
 
 Release date: `February 14, 2024`
