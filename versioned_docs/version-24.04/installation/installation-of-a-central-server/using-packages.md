@@ -4,6 +4,7 @@ title: Using packages
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DatabaseConfiguration from './_database-configuration.mdx';
 
 Centreon provides RPM and DEB packages for its products through the Centreon Open
 Source version available free of charge in our repository.
@@ -320,29 +321,59 @@ apt update
 </TabItem>
 </Tabs>
 
-#### MariaDB repository
+#### Database repository
+
+<Tabs groupId="database-sync">
+
+<TabItem value="MariaDB" label="MariaDB">
 
 <Tabs groupId="sync">
 
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
+dnf module enable -y mariadb:10.5
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=9 --mariadb-server-version="mariadb-10.5"
-```
+*Nothing to do, MariaDB 10.5 is already available in official repositories.*
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+*Nothing to do, MariaDB 10.5 is already available in official repositories.*
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL">
+
+<Tabs groupId="sync">
+
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+*Nothing to do, MySQL 8.0 is already available in official repositories.*
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+*Nothing to do, MySQL 8.0 is already available in official repositories.*
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.5"
+wget -P /tmp/ https://dev.mysql.com/get/mysql-apt-config_0.8.29-1_all.deb
+apt install /tmp/mysql-apt-config_0.8.29-1_all.deb
+# Select 4 to validate installation of "MySQL Tools & Connectors"
+apt update
 ```
+
+</TabItem>
+</Tabs>
 
 </TabItem>
 </Tabs>
@@ -403,11 +434,14 @@ a remote database on a dedicated server.
 <Tabs groupId="sync">
 <TabItem value="With a local database" label="With a local database">
 
+<Tabs groupId="database-sync">
+<TabItem value="MariaDB" label="MariaDB">
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y centreon
+dnf install -y mariadb-server centreon
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -416,7 +450,7 @@ systemctl restart mariadb
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf install -y centreon
+dnf install -y mariadb-server centreon
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -426,7 +460,7 @@ systemctl restart mariadb
 
 ```shell
 apt update
-apt install -y --no-install-recommends centreon
+apt install -y --no-install-recommends mariadb-server centreon
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -435,6 +469,43 @@ systemctl restart mariadb
 </Tabs>
 
 </TabItem>
+<TabItem value="MySQL" label="MySQL">
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install -y mysql-server centreon
+systemctl daemon-reload
+systemctl restart mysql
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install -y mysql-server centreon
+systemctl daemon-reload
+systemctl restart mysql
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update
+apt install -y --no-install-recommends mysql-server centreon
+systemctl daemon-reload
+systemctl restart mysql
+```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+</Tabs>
+</TabItem>
+
 <TabItem value="With a remote database" label="With a remote database">
 
 > If installing the database on a dedicated server, this server should also have
@@ -469,11 +540,14 @@ apt install -y --no-install-recommends centreon-central
 
 Then run the following commands on the dedicated server for your database:
 
+<Tabs groupId="database-sync">
+<TabItem value="MariaDB" label="MariaDB">
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y centreon-database
+dnf install -y mariadb-server centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -482,7 +556,7 @@ systemctl restart mariadb
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf install -y centreon-database
+dnf install -y mariadb-server centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -492,7 +566,7 @@ systemctl restart mariadb
 
 ```shell
 apt update
-apt install -y --no-install-recommends centreon-database
+apt install -y --no-install-recommends mariadb-server centreon-database
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -500,9 +574,46 @@ systemctl restart mariadb
 </TabItem>
 </Tabs>
 
+</TabItem>
+<TabItem value="MySQL" label="MySQL">
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install -y mysql-server centreon-database
+systemctl daemon-reload
+systemctl restart mysql
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install -y mysql-server centreon-database
+systemctl daemon-reload
+systemctl restart mysql
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt update
+apt install -y --no-install-recommends mysql-server centreon-database
+systemctl daemon-reload
+systemctl restart mysql
+```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+</Tabs>
+
 > It is mandatory to set a password for the root user of the database.
 
-Secure your MariaDB root access by executing the following command:
+Secure your database root access by executing the following command:
 
 ```shell
 mysql_secure_installation
@@ -542,7 +653,10 @@ Example:
 DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 ```
 
-* The package **centreon-database** installs an optimized MariaDB configuration
+<Tabs groupId="database-sync">
+<TabItem value="MariaDB" label="MariaDB">
+
+* The package **centreon-mariadb** installs an optimized MariaDB configuration
  to be used with Centreon.
 
 > If this package is not installed, system limitation **LimitNOFILE** should be
@@ -585,21 +699,85 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 > innodb_file_per_table=1
 > open_files_limit=32000
 > ```
-> 
+>
 > MariaDB must listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
-> 
+>
 > ```shell
 > /etc/mysql/mariadb.conf.d/50-server.cnf
 > ```
-> 
+>
 > Set the **bind-address** parameter to **0.0.0.0** and restart mariadb.
-> 
+>
 > ```shell
 > systemctl restart mariadb
 > ```
 
 </TabItem>
 </Tabs>
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL">
+
+* The package **centreon-mysql** installs an optimized MySQL configuration
+ to be used with Centreon.
+
+> If this package is not installed, system limitation **LimitNOFILE** should be
+> at least set to **32000** using a dedicated configuration file; for example:
+>
+> ```shell
+> $ cat /etc/systemd/system/mysql.service.d/centreon.conf
+> [Service]
+> LimitNOFILE=32000
+> ```
+
+* Same for the MySQL **open_files_limit** directive:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+> ```shell
+> $ cat /etc/my.cnf.d/centreon.cnf
+> [server]
+> innodb_file_per_table=1
+> open_files_limit=32000
+> ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+> ```shell
+> $ cat /etc/my.cnf.d/centreon.cnf
+> [server]
+> innodb_file_per_table=1
+> open_files_limit=32000
+> ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+> ```shell
+> $ cat /etc/mysql/mysql.conf.d/80-centreon.cnf
+> [server]
+> innodb_file_per_table=1
+> open_files_limit=32000
+> ```
+>
+> MySQL must listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
+>
+> ```shell
+> /etc/mysql/mysql.conf.d/50-server.cnf
+> ```
+>
+> Set the **bind-address** parameter to **0.0.0.0** and restart mysql.
+>
+> ```shell
+> systemctl restart mysql
+> ```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
 
 > In addition to the directives above, it is strongly recommended to tune the
 > database configuration with the following parameters:
@@ -622,7 +800,9 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 > innodb_buffer_pool_size=1G
 > ```
 >
-> Remember to restart MariaDB after changing the configuration.
+> Remember to restart database after changing the configuration.
+
+</Tabs>
 
 </TabItem>
 </Tabs>

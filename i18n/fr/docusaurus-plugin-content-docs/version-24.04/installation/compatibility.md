@@ -39,8 +39,9 @@ Attention, les modules de l'IT Edition et de la Business Edition ne fonctionnent
 
 ### SGBD
 
-| Logiciel | Version |
-|----------|---------|
-| MariaDB  | 10.5.x  |
+| Logiciel | Version               |
+|----------|-----------------------|
+| MariaDB  | >= 10.5 and < 11      |
+| MySQL    | 8                     |
 
 > Vous pouvez utiliser un autre SGBD basé sur MySQL, mais celui-ci sera uniquement supporté par la communauté.
