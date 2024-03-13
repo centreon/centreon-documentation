@@ -1224,15 +1224,12 @@ pcs constraint colocation add master "ms_mysql-clone" with "centreon"
 
 Après cette étape, toutes les ressources doivent être actives au même endroit, et la plateforme fonctionnelle et redondée. Dans le cas contraire, se référer au guide de troubleshooting du paragraphe suivant.
 
-### Lancement du Cluster et contrôle de l'état des ressources
-
-#### Activer les ressources
+### Activation des ressources
 
 ```bash
 pcs resource enable php-clone
 pcs resource enable cbd_rrd-clone
 pcs resource meta vip target-role="started"
-pcs resource meta vip_mysql target-role="started"
 pcs resource meta centreontrapd target-role="started"
 pcs resource meta snmptrapd target-role="started"
 pcs resource meta centengine target-role="started"
