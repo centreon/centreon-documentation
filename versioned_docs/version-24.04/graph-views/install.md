@@ -356,10 +356,18 @@ When installing Centreon MAP server, it will automatically install java
 > You need to have a MariaDB database to store Centreon MAP data, whether
 > it is on localhost or somewhere else.
 
-To install MariaDB, execute the following command:
+Execute the following command to install MariaDB:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+You need first to add the MariaDB repository: 
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
+```
+
+Then install MariaDB:
 
 ```shell
 dnf install mariadb-client mariadb-server
