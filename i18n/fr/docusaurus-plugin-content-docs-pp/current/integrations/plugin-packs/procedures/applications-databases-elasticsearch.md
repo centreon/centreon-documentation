@@ -14,7 +14,7 @@ Elasticsearch est un moteur de recherche et d'analyse distribué et en open sour
 
 ### Objets supervisés
 
-* Bases de donnéess
+* Bases de données
 * Noeuds
 * Partitions 
 * Clusters
@@ -111,7 +111,7 @@ Pour pouvoir communiquer avec le collecteurs Centreon poller, l'API du noeud Ela
 1. Installer le Plugin sur tous les collecteurs Centreon contrôlants les ressources Elasticsearch:
 
 ```bash
-yum install centreon-plugin-Applications-donnéebases-Elasticsearch
+yum install centreon-plugin-Applications-Databases-Elasticsearch
 ```
 
 2. Installer le connecteur de supervision *Elasticsearch* dans la page *Configuration  \>  Packs de plugins*  de l'interface Web Centreon
@@ -122,13 +122,13 @@ yum install centreon-plugin-Applications-donnéebases-Elasticsearch
 1. Installer le Plugin sur tous les collecteurs Centreon contrôlants les ressources Elasticsearch:
 
 ```bash
-yum install centreon-plugin-Applications-donnéebases-Elasticsearch
+yum install centreon-plugin-Applications-Databases-Elasticsearch
 ```
 
 2. Installer le connecteur de supervision RPM sur le serveur Centreon  **Central**:
 
 ```bash
-yum install centreon-pack-applications-donnéebases-elasticsearch
+yum install centreon-pack-applications-databases-elasticsearch
 ```
 
 3. Dans la page *Configuration  \> Packs de plugins* de l'interface Web Centreon, installer le connecteur de supervision *Elasticsearch*
