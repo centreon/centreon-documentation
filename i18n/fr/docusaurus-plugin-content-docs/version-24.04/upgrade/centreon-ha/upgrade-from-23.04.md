@@ -1,17 +1,17 @@
 ---
-id: upgrade-centreon-ha-from-22-04
-title: Montée de version de Centreon HA depuis Centreon 22.04
+id: upgrade-centreon-ha-from-23-04
+title: Montée de version de Centreon HA depuis Centreon 23.04
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 22.04 vers la version 24.04.
+Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 23.04 vers la version 24.04.
 
 ## Prérequis
 
 ### Suspendre la gestion des ressources du cluster
 
-Afin d'éviter un basculement du cluster pendant la mise à jour, il est nécessaire de surpendre toutes les ressources Centreon, ainsi que MariaDB.
+Afin d'éviter un basculement du cluster pendant la mise à jour, il est nécessaire de suspendre toutes les ressources Centreon, ainsi que MariaDB.
 
 ```bash
 pcs property set maintenance-mode=true
@@ -39,9 +39,9 @@ systemctl stop cbd-sql
 
 Maintenant, pour effectuer la montée de version:
 
-> Pour le **nœud central actif** et **le nœud base de données actif s'il existe** merci de [suivre la documentation officielle](../../upgrade/upgrade-from-22-04.md) **jusqu'à l'étape "Actions post montée de version" incluse**.
+> Pour le **nœud central actif** et **le nœud base de données actif s'il existe** merci de [suivre la documentation officielle](../../upgrade/upgrade-from-23-04.md) **jusqu'à l'étape "Actions post montée de version" incluse**.
 
-> Pour le **nœud central passif** et **le nœud base de données passif s'il existe**, merci de [suivre la documentation officielle](../../upgrade/upgrade-from-22-04.md) **jusqu'à l'étape "Mettre à jour une configuration Apache personnalisée" incluse uniquement. Ne pas procéder à l'étape "Finalisation de la mise à jour**.
+> Pour le **nœud central passif** et **le nœud base de données passif s'il existe**, merci de [suivre la documentation officielle](../../upgrade/upgrade-from-23-04.md) **jusqu'à l'étape "Mettre à jour une configuration Apache personnalisée" incluse uniquement. Ne pas procéder à l'étape "Finalisation de la mise à jour**.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
@@ -127,9 +127,6 @@ Depuis Centreon 22.04, la réplication de MariaDB est maintenant basée sur [GTI
 
 Cependant, certains changements doivent toujours être apportés.
 
-<Tabs groupId="sync">
-<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
-
 ### Sauvegarder la configuration
 
 Effectuez une sauvegarde du cluster sur le nœud central maître en utilisant:
@@ -159,76 +156,12 @@ Pour optimiser la gestion des ressources et éviter de redémarrer cbd-sql quand
 pcs resource group remove centreon cbd_central_broker
 pcs resource group add centreon cbd_central_broker --before gorgone
 ```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-### Sauvegarder la configuration
-
-Effectuez une sauvegarde du cluster sur le nœud central maître en utilisant:
-
-```bash
-pcs config backup centreon_cluster
-cibadmin -Q > export_cluster.xml
-```
-
-Vérifiez que le fichier `centreon_cluster.tar.bz2` existe avant de continuer cette procédure.
-
-```bash
-ls -l centreon_cluster.tar.bz2
-```
-
-Vous devriez obtenir un résultat comme celui-ci:
-
-```text
--rw------- 1 root root 2777 May  3 17:49 centreon_cluster.tar.bz2
-```
-
-### Modification de l'ordre des ressources sur le groupe centreon
-
-Pour optimiser la gestion des ressources et éviter de redémarrer cbd-sql quand on veut juste redémarrer gorgone, il faut changer leur ordre dans le groupe.
-
-```bash
-pcs resource group remove centreon cbd_central_broker
-pcs resource group add centreon cbd_central_broker --before gorgone
-```
-
-### Modifier la ressource php-clone pour utiliser php 8.1
-
-Modifier php8.0-fpm en php8.1-fpm avec la commande ci-dessous (une sauvegarde automatique du fichier est faite dans export_cluster.xml.bak)
-
-```bash
-sed -i.bak s/php8.0-fpm/php8.1-fpm/ export_cluster.xml
-```
-
-Vérifier si la modification a été faite en recherchant **php8.1-fpm** dans le fichier xml
-
-```bash
-grep php8.1-fpm export_cluster.xml
-```
-
-Vous devriez avoir 3 lignes dans le résultat comme ceci:
-
-```text
-        <primitive id="php" class="systemd" type="php8.1-fpm">
-          <lrm_resource id="php" type="php8.1-fpm" class="systemd">
-          <lrm_resource id="php" type="php8.1-fpm" class="systemd">
-```
-
-Si c'est OK, appliquez les changements à la configuration du cluster
-
-```bash
-cibadmin --replace --xml-file export_cluster.xml
-```
-
-</TabItem>
-</Tabs>
 
 ### Nettoyer les fichiers de mémoire de broker
 
-> **WARNING:** exécuter cette commande uniquement sur le nœud central passif.
+> **WARNING:** exécuter cette commande uniquement sur le noeud central passif.
 
-Avant de reprendre la gestion des ressources du cluster, pour éviter les problèmes de broker, il faut nettoyer tous les fichiers *.memory.*, *.unprocessed.* ou *.queue.*:
+Avant de reprendre la gestion des ressources du cluster, pour éviter les problèmes de broker, il faut nettoyer tous les fichiers *.memory.*, *.unprocessed.* ou *.queue.* :
 
 ```bash
 rm -f /var/lib/centreon-broker/central-broker-master.memory*
