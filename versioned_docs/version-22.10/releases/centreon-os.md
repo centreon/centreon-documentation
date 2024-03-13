@@ -589,6 +589,9 @@ Release date: `March 13, 2024`
 #### Bug fixes
 
 - Added the Auto Discovery patterns to the default commands whitelist.
+
+#### Security fixes
+
 - Improved list of allowed commands for Auto Discovery.
 
 ### 22.10.4
