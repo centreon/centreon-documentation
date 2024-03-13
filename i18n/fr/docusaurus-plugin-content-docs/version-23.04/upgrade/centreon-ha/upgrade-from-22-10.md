@@ -387,7 +387,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 </TabItem>
 </Tabs>
 
-Recréez ensuite la contrainte qui empêche les processus Centreon de s'exécuter sur les nœuds de la base de données et vice-et-versa.:
+Recréez ensuite la contrainte qui empêche les processus Centreon de s'exécuter sur les nœuds de la base de données et vice-versa :
 
 <Tabs groupId="sync">
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
