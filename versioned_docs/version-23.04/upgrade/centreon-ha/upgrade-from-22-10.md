@@ -387,7 +387,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 </TabItem>
 </Tabs>
 
-Then recreate the Constraint that prevent Centreon Processes to run on Database nodes and vice-et-versa:
+Then recreate the Constraint that prevent Centreon Processes to run on Database nodes and vice versa:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
