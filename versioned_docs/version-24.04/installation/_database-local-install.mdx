@@ -44,7 +44,7 @@ systemctl restart mariadb
 ```shell
 dnf install -y centreon-mysql centreon
 systemctl daemon-reload
-systemctl restart mysql
+systemctl restart mysqld
 ```
 
 </TabItem>
@@ -53,7 +53,7 @@ systemctl restart mysql
 ```shell
 dnf install -y centreon-mysql centreon
 systemctl daemon-reload
-systemctl restart mysql
+systemctl restart mysqld
 ```
 
 </TabItem>
@@ -61,7 +61,9 @@ systemctl restart mysql
 
 ```shell
 apt update
-apt install -y --no-install-recommends centreon-mysql centreon
+apt install -y centreon-mysql
+apt install -y --no-install-recommends centreon
+# Select "Use Legacy Authentication Method"
 systemctl daemon-reload
 systemctl restart mysql
 ```

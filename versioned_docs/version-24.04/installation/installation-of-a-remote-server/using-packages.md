@@ -7,6 +7,7 @@ import TabItem from '@theme/TabItem';
 import DatabaseRepository from '../_database-repository.mdx';
 import DatabaseLocalInstall from '../_database-local-install.mdx';
 import DatabaseRemoteInstall from '../_database-remote-install.mdx';
+import DatabaseEnableRestart from '../_database-enable-restart.mdx';
 
 Centreon provides RPM and DEB packages for its products through the Centreon Open
 Source version available free of charge in our repository.
@@ -390,76 +391,6 @@ You can now move on to the [next step](#step-3-configuration).
   </TabItem>
 </Tabs>
 
-> It is mandatory to set a password for the root user of the database.
-
-Secure your MariaDB installation by executing the following command:
-
-```shell
-mysql_secure_installation
-```
-
-Then, in the remote dabatase, create a user with **root** privileges. You will have to enter this user during the 
-web installation process (at [step 6](../web-and-post-installation.md#step-6-database-infomation),
-in the **Root user** and **Root password** fields).
-
-```SQL
-CREATE USER '<USER>'@'<IP>' IDENTIFIED BY '<PASSWORD>';
-GRANT ALL PRIVILEGES ON *.* TO '<USER>'@'<IP>' WITH GRANT OPTION;
-FLUSH PRIVILEGES;
-```
-
-> Replace **<IP\>** with the Centreon Central IP address that will connect to the database server.
->
-> Replace **<USER\>** and **<PASSWORD\>** with the user's credentials.
-
-This user will only be used for the installation process. Once the [web installation](../web-and-post-installation.md) is complete, you can delete this user using:
-
-```SQL
-DROP USER '<USER>'@'<IP>';
-```
-
-> The package **centreon-database** installs an optimized MariaDB configuration
-> to be used with Centreon.
->
-> If this package is not installed, system limitation **LimitNOFILE** should be
-> at least set to **32000** using a dedicated configuration file; for example:
->
-> ```shell
-> $ cat /etc/systemd/system/mariadb.service.d/centreon.conf
-> [Service]
-> LimitNOFILE=32000
-> ```
->
-> Same for the MariaDB **open_files_limit** directive, example for Centos 7, Alma/RHEL/OL 8:
->
-> ```shell
-> $ cat /etc/my.cnf.d/centreon.cnf
-> [server]
-> innodb_file_per_table=1
-> open_files_limit=32000
-> ```
->
-> For Debian 11:
->
-> ```shell
-> $ cat /etc/mysql/mariadb.conf.d/80-centreon.cnf
-> [server]
-> innodb_file_per_table=1
-> open_files_limit=32000
-> ```
->
-> Remember to restart MariaDB after changing the configuration.
-
-#### Additional configuration for Debian 11
-
-MariaDB must listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
-
-```shell
-/etc/mysql/mariadb.conf.d/50-server.cnf
-```
-
-Set the **bind-address** parameter to **0.0.0.0**.
-
 ## Step 3: Configuration
 
 ### Server name
@@ -572,10 +503,7 @@ systemctl enable php8.1-fpm apache2 centreon cbd centengine gorgoned centreontra
 
 Then execute the following command (on the remote server if you are using a local database, or on your dedicated database server):
 
-```shell
-systemctl enable mariadb
-systemctl restart mariadb
-```
+<DatabaseEnableRestart />
 
 ### Secure the database
 

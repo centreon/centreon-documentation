@@ -1,5 +1,6 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DatabaseConfiguration from './_database-configuration.mdx';
 
 > If installing the database on a dedicated server, this server should also have
 > the prerequisite repositories.
@@ -76,7 +77,7 @@ systemctl restart mariadb
 ```shell
 dnf install -y centreon-mysql
 systemctl daemon-reload
-systemctl restart mysql
+systemctl restart mysqld
 ```
 
 </TabItem>
@@ -85,7 +86,7 @@ systemctl restart mysql
 ```shell
 dnf install -y centreon-mysql
 systemctl daemon-reload
-systemctl restart mysql
+systemctl restart mysqld
 ```
 
 </TabItem>
@@ -94,6 +95,7 @@ systemctl restart mysql
 ```shell
 apt update
 apt install -y --no-install-recommends centreon-mysql
+# Select "Use Legacy Authentication Method"
 systemctl daemon-reload
 systemctl restart mysql
 ```
@@ -103,3 +105,5 @@ systemctl restart mysql
 
 </TabItem>
 </Tabs>
+
+<DatabaseConfiguration />
