@@ -22,7 +22,7 @@ The connector brings the following service templates (sorted by the host templat
 |:--------------|:---------------------------------|:-----------------------------------------------------|
 | Cpu           | Net-Ruckus-Ap-Cpu-SNMP-custom    | Check the rate of utilization of CPU for the machine |
 | Memory        | Net-Ruckus-Ap-Memory-SNMP-custom | Check memory usage                                   |
-| Users         | Net-Ruckus-Ap-Users-SNMP-custom  | Check users connected                                |
+| Users         | Net-Ruckus-Ap-Users-SNMP-custom  | Check the number of connected users                               |
 
 > The services listed above are created automatically when the **Net-Ruckus-Ap-SNMP-custom** host template is used.
 
