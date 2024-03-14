@@ -1,0 +1,43 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="database-sync">
+<TabItem value="MariaDB" label="MariaDB">
+
+```shell
+systemctl enable mariadb
+systemctl restart mariadb
+```
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL">
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+systemctl enable mysqld
+systemctl restart mysqld
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+systemctl enable mysqld
+systemctl restart mysqld
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+systemctl enable mysql
+systemctl restart mysql
+```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+</Tabs>

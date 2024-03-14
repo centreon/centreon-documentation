@@ -507,7 +507,7 @@ Then execute the following command (on the remote server if you are using a loca
 
 ### Secure the database
 
-If you have installed the Centreon server with a local database, since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon. Run the following command:
+If you have installed the Centreon server with a local database, it is mandatory to secure the database's root access before installing Centreon. Run the following command:
 
 ```shell
 mysql_secure_installation

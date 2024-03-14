@@ -500,7 +500,7 @@ Then execute the following command (on the central server if you are using a loc
 
 ### Secure the database
 
-Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon.
+It is mandatory to secure the database's root access before installing Centreon.
 If you are using a local database, run the following command on the central server:
 
 ```shell

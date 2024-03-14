@@ -1,0 +1,192 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+> Il est obligatoire de définir un mot de passe pour l'utilisateur root de la base de données.
+
+Sécurisez l'accès root à MariaDB en exécutant la commande suivante :
+
+```shell
+mysql_secure_installation
+```
+
+Ensuite, dans la base de données distante, créez un utilisateur avec des privilèges **root**. Vous devrez entrer cet utilisateur pendant 
+le processus d'installation web (à [étape 6](./web-and-post-installation.md#étape-6-database-information),
+dans les champs **Root user** et **Root password**).
+
+```SQL
+CREATE USER '<UTILISATEUR>'@'<IP_SERVEUR_CENTRAL>' IDENTIFIED BY '<MOT_DE_PASSE>';
+GRANT ALL PRIVILEGES ON *.* TO '<UTILISATEUR>'@'<IP_SERVEUR_CENTRAL>' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+```
+
+Exemple :
+
+```shell
+CREATE USER 'dbadmin'@'<IP_SERVEUR_CENTRAL>' IDENTIFIED BY '<MOT_DE_PASSE_DBADMIN>';
+GRANT ALL PRIVILEGES ON *.* TO 'dbadmin'@'<IP_SERVEUR_CENTRAL>' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+```
+
+> Remplacez **<IP_SERVEUR_CENTRAL\>** par l'adresse IP du serveur central qui se connectera au serveur de bases de données.
+>
+> Remplacez **<UTILISATEUR\>** et **<MOT_DE_PASSE\>** par les identifiants de l'utilisateur.
+
+Cet utilisateur ne sera utilisé que pour le processus d'installation. Une fois [l'installation web](./web-and-post-installation.md) terminée, vous pouvez supprimer cet utilisateur via la commande suivante :
+
+```SQL
+DROP USER '<UTILISATEUR>'@'<IP_SERVEUR_CENTRAL>';
+```
+
+Exemple :
+
+```SQL
+DROP USER 'dbadmin'@'<IP_SERVEUR_CENTRAL>';
+```
+
+<Tabs groupId="database-sync">
+<TabItem value="MariaDB" label="MariaDB">
+
+* Le paquet **centreon-mariadb** installe une configuration de MariaDB optimisée pour être utilisée avec Centreon.
+
+> Si ce paquet n'est pas installé, la limitation du système **LimitNOFILE** devrait être
+> au moins fixée à **32000** à l'aide d'un fichier de configuration dédié, par exemple :
+>
+> ```shell
+> $ cat /etc/systemd/system/mariadb.service.d/centreon.conf
+> [Service]
+> LimitNOFILE=32000
+> ```
+
+* Idem pour la directive MariaDB **open_files_limit** :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+> ```shell
+> $ cat /etc/my.cnf.d/centreon.cnf
+> [server]
+> innodb_file_per_table=1
+> open_files_limit=32000
+> ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+> ```shell
+> $ cat /etc/my.cnf.d/centreon.cnf
+> [server]
+> innodb_file_per_table=1
+> open_files_limit=32000
+> ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+> ```shell
+> $ cat /etc/mysql/mariadb.conf.d/80-centreon.cnf
+> [server]
+> innodb_file_per_table=1
+> open_files_limit=32000
+> ```
+>
+> MariaDB doit écouter sur toutes les interfaces au lieu d'écouter sur localhost/127.0.0.1, qui est la valeur par défaut. Éditez le fichier suivant :
+>
+> ```shell
+> /etc/mysql/mariadb.conf.d/50-server.cnf
+> ```
+>
+> Attribuez au paramètre **bind-address** la valeur **0.0.0.0** et redémarrez mariadb.
+>
+> ```shell
+> systemctl restart mariadb
+> ```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL">
+
+* Le paquet **centreon-mysql** installe une configuration de MySQL optimisée pour être utilisée avec Centreon.
+
+> Si ce paquet n'est pas installé, la limitation du système **LimitNOFILE** devrait être
+> au moins fixée à **32000** à l'aide d'un fichier de configuration dédié, par exemple :
+>
+> ```shell
+> $ cat /etc/systemd/system/mysqld.service.d/centreon.conf
+> [Service]
+> LimitNOFILE=32000
+> ```
+
+* Idem pour la directive MySQL **open_files_limit** :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+> ```shell
+> $ cat /etc/my.cnf.d/centreon.cnf
+> [server]
+> innodb_file_per_table=1
+> open_files_limit=32000
+> ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+> ```shell
+> $ cat /etc/my.cnf.d/centreon.cnf
+> [server]
+> innodb_file_per_table=1
+> open_files_limit=32000
+> ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+> ```shell
+> $ cat /etc/mysql/mysql.conf.d/80-centreon.cnf
+> [server]
+> innodb_file_per_table=1
+> open_files_limit=32000
+> ```
+>
+> MySQL doit écouter sur toutes les interfaces au lieu d'écouter sur localhost/127.0.0.1, qui est la valeur par défaut. Éditez le fichier suivant :
+>
+> ```shell
+> /etc/mysql/mysql.conf.d/50-server.cnf
+> ```
+>
+> Attribuez au paramètre **bind-address** la valeur **0.0.0.0** et redémarrez mysql.
+>
+> ```shell
+> systemctl restart mysqld
+> ```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+</Tabs>
+
+> En plus des directives ci-dessus, il est fortement recommandé d'adapter la configuration de la base de données avec les paramètres suivants :
+>
+> ```shell
+> [server]
+> key_buffer_size = 256M
+> sort_buffer_size = 32M
+> join_buffer_size = 4M
+> thread_cache_size = 64
+> read_buffer_size = 512K
+> read_rnd_buffer_size = 256K
+> max_allowed_packet = 128M
+> ```
+>
+> En option, régler l'utilisation de la mémoire et des tampons du moteur InnoDB alimentant les
+> tables. L'exemple ci-dessous s'applique à un serveur de base de données avec 8 Go de RAM.
+>
+> ```shell
+> innodb_buffer_pool_size=1G
+> ```
+>
+
+> N'oubliez pas de redémarrer la base de données après modification de la configuration.
