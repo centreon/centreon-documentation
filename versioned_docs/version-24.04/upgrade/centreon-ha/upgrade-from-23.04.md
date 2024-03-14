@@ -1,11 +1,11 @@
 ---
-id: upgrade-centreon-ha-from-22-04
-title: Upgrade Centreon HA from Centreon 22.04
+id: upgrade-centreon-ha-from-23-04
+title: Upgrade Centreon HA from Centreon 23.04
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This chapter describes how to upgrade your Centreon HA platform from version 22.04 to version 23.10.
+This chapter describes how to upgrade your Centreon HA platform from version 23.04 to version 24.04.
 
 ## Prerequisites
 
@@ -39,9 +39,9 @@ systemctl stop cbd-sql
 
 Now, to perform the upgrade:
 
-> For the **active central node** and **active database node if needed** please [follow the official documentation](../../upgrade/upgrade-from-22-04.md) **until the "Post-upgrade actions" step included**.
+> For the **active central node** and **active database node if needed** please [follow the official documentation](../../upgrade/upgrade-from-23-04.md) **until the "Post-upgrade actions" step included**.
 
-> For the **passive central node** and **passive database node if needed**, please [follow the official documentation](../../upgrade/upgrade-from-22-04.md) **until the "Update your customized Apache configuration" step included only. Do not perform the "Finalizing the upgrade" step.**.
+> For the **passive central node** and **passive database node if needed**, please [follow the official documentation](../../upgrade/upgrade-from-23-04.md) **until the "Update your customized Apache configuration" step included only. Do not perform the "Finalizing the upgrade" step.**.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
@@ -69,7 +69,8 @@ mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`da
 sudo -u www-data /usr/share/centreon/bin/console cache:clear
 ```
 
-</TabItem></Tabs>
+</TabItem>
+</Tabs>
 
 ### Removing cron jobs
 
@@ -122,12 +123,9 @@ find /usr/share/centreon/www/img/media -type f \( ! -iname ".keep" ! -iname ".ht
 
 ## Cluster ugprade
 
-Since Centreon 22.04, the mariaDB Replication is now based on [GTID](https://mariadb.com/kb/en/gtid/).
+Since Centreon 22.04, The mariaDB Replication is now based on [GTID](https://mariadb.com/kb/en/gtid/).
 
 However, some changes must always be done.
-
-<Tabs groupId="sync">
-<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
 
 ### Backup the configuration
 
@@ -158,70 +156,6 @@ To optimize managment of resources and to avoid restart cbd-sql when we just wan
 pcs resource group remove centreon cbd_central_broker
 pcs resource group add centreon cbd_central_broker --before gorgone
 ```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-### Backup the confguration
-
-Perform a backup of the cluster on central master node using:
-
-```bash
-pcs config backup centreon_cluster
-cibadmin -Q > export_cluster.xml
-```
-
-Check the file `centreon_cluster.tar.bz2` exist before continuing this procedure.
-
-```bash
-ls -l centreon_cluster.tar.bz2
-```
-
-You should have a result like this:
-
-```text
--rw------- 1 root root 2777 May  3 17:49 centreon_cluster.tar.bz2
-```
-
-### Modifying order of resources on centreon group
-
-To optimize managment of resources and to avoid restart cbd-sql when we just want to restart gorgone, we must change there order in the group.
-
-```bash
-pcs resource group remove centreon cbd_central_broker
-pcs resource group add centreon cbd_central_broker --before gorgone
-```
-
-### Modify php-clone resource to use php 8.1
-
-Modify php8.0-fpm to php8.1-fpm with the command below (an automatic backup of file is made in export_cluster.xml.bak)
-
-```bash
-sed -i.bak s/php8.0-fpm/php8.1-fpm/ export_cluster.xml
-```
-
-Verify if modification is made by searching **php8.1-fpm** in xml file
-
-```bash
-grep php8.1-fpm export_cluster.xml
-```
-
-You should have 3 lines in the result like this:
-
-```text
-        <primitive id="php" class="systemd" type="php8.1-fpm">
-          <lrm_resource id="php" type="php8.1-fpm" class="systemd">
-          <lrm_resource id="php" type="php8.1-fpm" class="systemd">
-```
-
-If it's OK, apply changes to the cluster configuration
-
-```bash
-cibadmin --replace --xml-file export_cluster.xml
-```
-
-</TabItem>
-</Tabs>
 
 ### Clean broker memory files
 
@@ -292,13 +226,12 @@ pcs constraint colocation add master "centreon" with "ms_mysql-clone"
 First extract all contraint IDs:
 
 ```bash
-pcs constraint show --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.$//'
+pcs constraint show --full
 ```
 
 You should have a result like this:
 
 ```text
-order-centreon-ms_mysql-clone-mandatory
 colocation-ms_mysql-clone-centreon-INFINITY
 colocation-centreon-ms_mysql-clone-INFINITY
 ```
@@ -306,7 +239,6 @@ colocation-centreon-ms_mysql-clone-INFINITY
 and delete **all** constraints, **adapt ids with your own**
 
 ```bash
-pcs constraint delete order-centreon-ms_mysql-clone-mandatory
 pcs constraint delete colocation-ms_mysql-clone-centreon-INFINITY
 pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
 ```
