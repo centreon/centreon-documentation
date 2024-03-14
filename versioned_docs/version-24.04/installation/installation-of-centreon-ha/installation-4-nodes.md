@@ -5,7 +5,7 @@ title: Installing a Centreon HA 4-nodes cluster
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> Debian 12 is not supported yet for HA installations using Centreon version 24.04. If you wish to install an HA platform with this configuration, please contact your sales representative.
+> Debian 12 is not supported yet for HA installations using Centreon version 24.04. If you wish to install an HA platform with this configuration, please contact your Centreon sales representative.
 
 ## Prerequisites
 
