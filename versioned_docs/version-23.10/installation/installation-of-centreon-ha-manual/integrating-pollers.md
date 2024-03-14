@@ -3,6 +3,8 @@ id: integrating-pollers
 title: Integrating new pollers in a manual Centreon-HA cluster
 ---
 
+> Manual HA is now deprecated. Please do not perform new installations using this procedure.
+
 ## Obtaining central nodes' thumbprints
 
 The Gorgone services of both central nodes will need to be authorized by the pollers' Gorgone services. 
