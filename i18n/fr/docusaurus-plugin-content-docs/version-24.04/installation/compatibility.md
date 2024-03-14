@@ -24,12 +24,13 @@ Votre résolution doit être au minimum à 1280 x 768.
 
 Les OS supportés par Centreon sont AlmaLinux/RedHat/OracleLinux 8 et 9 et Debian 11.
 
-| Version                  | Mode d'installation                                   |
-|--------------------------|-------------------------------------------------------|
-| Alma Linux 8             | paquets RPM, sources, machine virtuelle               |
-| RHEL/Oracle Linux 8      | paquets RPM, sources                                  |
-| RHEL/Oracle Linux/Alma Linux 9              | paquets RPM, sources               |
-| Debian 11                | paquets DEB                                           |
+| Version                        | Mode d'installation                                   |
+|--------------------------------|-------------------------------------------------------|
+| Alma Linux 8                   | paquets RPM, sources, machine virtuelle               |
+| RHEL/Oracle Linux 8            | paquets RPM, sources                                  |
+| RHEL/Oracle Linux/Alma Linux 9 | paquets RPM, sources                                  |
+| Debian 11 (bullseye)           | paquets DEB                                           |
+| Debian 12 (bookworm)           | paquets DEB                                           |
 
 Les utilisateurs Open Source, sans contrat de support, peuvent utiliser une autre distribution GNU/Linux.
 L'installation de la plate-forme sera plus complexe, à partir des fichiers sources de chaque composant.
