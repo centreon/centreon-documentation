@@ -109,6 +109,10 @@ $ getenforce
 Disabled
 ```
 
+> **Notez que cette désactivation doit être temporaire.** Pour réactiver SELinux, éditez le fichier **/etc/selinux/config** et changez la valeur avec les options suivantes :
+> - ``SELINUX=enforcing`` pour que la politique de sécurité SELinux soit appliquée en mode strict.
+> - ``SELINUX=permissive`` pour que les erreurs d’accès soient enregistrées dans les logs, mais l’accès ne sera pas bloqué.
+
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
@@ -133,6 +137,10 @@ SELinux :
 $ getenforce
 Disabled
 ```
+
+> **Notez que cette désactivation doit être temporaire.** Pour réactiver SELinux, éditez le fichier **/etc/selinux/config** et changez la valeur avec les options suivantes :
+> - ``SELINUX=enforcing`` pour que la politique de sécurité SELinux soit appliquée en mode strict.
+> - ``SELINUX=permissive`` pour que les erreurs d’accès soient enregistrées dans les logs, mais l’accès ne sera pas bloqué.
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
