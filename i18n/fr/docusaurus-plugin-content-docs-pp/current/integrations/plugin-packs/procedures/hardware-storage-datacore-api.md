@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Datacore Sansymphony RESTAPI** apporte un modèle d'hôte :
+Le connecteur de supervision **Datacore SANsymphony RESTAPI** apporte un modèle d'hôte :
 
 * **HW-Storage-Datacore-Sansymphony-RESTAPI-custom**
 
@@ -19,10 +19,10 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="HW-Storage-Datacore-Sansymphony-RESTAPI-custom" label="HW-Storage-Datacore-Sansymphony-RESTAPI-custom">
 
-| Alias           | Modèle de service                                             | Description                                          |
-|:----------------|:--------------------------------------------------------------|:-----------------------------------------------------|
-| Alerts          | HW-Storage-Datacore-Sansymphony-Alerts-RESTAPI-custom         | Contrôle les alertes                                 |
-| Monitors Status | HW-Storage-Datacore-Sansymphony-Status-Monitor-RESTAPI-custom | Contrôle le statut des "monitors" Datacore |
+| Alias           | Modèle de service                                             | Description                                 |
+|:----------------|:--------------------------------------------------------------|:--------------------------------------------|
+| Alerts          | HW-Storage-Datacore-Sansymphony-Alerts-RESTAPI-custom         | Contrôle les alertes                        |
+| Monitors Status | HW-Storage-Datacore-Sansymphony-Status-Monitor-RESTAPI-custom | Contrôle le statut des "monitors" Datacore  |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-Datacore-Sansymphony-RESTAPI-custom** est utilisé.
 
@@ -66,7 +66,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 | datacore.alerts.trace.count   | count |
 
 </TabItem>
-<TabItem value="Monitors Status" label="Monitors Status">
+<TabItem value="Monitors-Status" label="Monitors-Status">
 
 | Métrique       | Unité |
 |:---------------|:------|
@@ -75,9 +75,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Pool" label="Pool">
 
-| Métrique                           | Unité |
-|:-----------------------------------|:------|
-| datacore.pool.oversubscribed.bytes | bytes |
+| Métrique                                | Unité |
+|:----------------------------------------|:------|
+| datacore.pool.bytesallocated.percentage | %     |
+| datacore.pool.oversubscribed.bytes      | bytes |
 
 </TabItem>
 </Tabs>
@@ -127,7 +128,7 @@ yum install centreon-pack-hardware-storage-datacore-api
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Datacore Sansymphony RESTAPI**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Datacore SANsymphony RESTAPI**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
@@ -214,7 +215,7 @@ yum install centreon-plugin-Hardware-Storage-DataCore-Sansymphony-Restapi
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).               |                   |             |
 
 </TabItem>
-<TabItem value="Monitors Status" label="Monitors Status">
+<TabItem value="Monitors-Status" label="Monitors-Status">
 
 | Macro         | Description                                                                                                                                                                                                                                           | Valeur par défaut | Obligatoire |
 |:--------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -267,7 +268,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Over subscribed bytes : 77 | 'datacore.pool.oversubscribed.bytes'=77bytes;;;0;
+OK: Bytes Allocated : 51 % Over subscribed bytes : 73 | 'datacore.pool.bytesallocated.percentage'=51%;;;0;100'datacore.pool.oversubscribed.bytes'=73bytes;;;0;
 ```
 
 ### Diagnostic des erreurs communes
@@ -295,10 +296,10 @@ Le plugin apporte les modes suivants :
 
 | Mode                                                                                                                                  | Modèle de service associé                                     |
 |:--------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------|
-| alerts-count [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/datacore/restapi/mode/alertscount.pm)]     | HW-Storage-Datacore-Sansymphony-Alerts-RESTAPI-custom         |
+| alerts [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/datacore/restapi/mode/alerts.pm)]                | HW-Storage-Datacore-Sansymphony-Alerts-RESTAPI-custom         |
 | list-pool [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/datacore/restapi/mode/listpool.pm)]           | Used for service discovery                                    |
 | pool-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/datacore/restapi/mode/poolspaceusage.pm)]    | HW-Storage-Datacore-Sansymphony-Pools-RESTAPI-custom          |
-| status-monitor [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/datacore/restapi/mode/statusmonitor.pm)] | HW-Storage-Datacore-Sansymphony-Status-Monitor-RESTAPI-custom |
+| status-monitor [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/datacore/restapi/mode/monitorstatus.pm)] | HW-Storage-Datacore-Sansymphony-Status-Monitor-RESTAPI-custom |
 
 ### Options disponibles
 
@@ -338,7 +339,13 @@ Les options génériques sont listées ci-dessous :
 | --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.      Datacore Sansymphony Rest API                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --hostname                                 | Address of the Datacore server that hosts the API endpoint.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --port                                     | Port of the resource to connect to (default: 443).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --proto                                    | HTTP protocol, either http or https (default: 'https')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --username                                 | Username to access the endpoint.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --password                                 | Password to access the endpoint.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --timeout                                  | Set timeout in seconds (default: 10).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --http-peer-addr                           | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --proxyurl                                 | Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | --proxypac                                 | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
@@ -354,14 +361,14 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 <Tabs groupId="sync">
 <TabItem value="Alerts" label="Alerts">
 
-| Option          | Description                                                                                                                                                       |
-|:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --max-alert-age | filter alerts to check those newer than this parameter (s)                                                                                                        |
-| --filter-server | Define which devices should be monitored based on the MachineName. This option will be treated as a regular expression. By default all machine will be checked.   |
-| --warning       | /critical-*Warning and critical threshold on the number of alerts of a type before changing state. Replace * with trace, alert, warning, or error.                |
+| Option               | Description                                                                                                                                                       |
+|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --max-alert-age      | filter alerts to check those newer than this parameter (s)                                                                                                        |
+| --filter-server      | Define which devices should be monitored based on the MachineName. This option will be treated as a regular expression. By default all machine will be checked.   |
+| --warning/critical-* | Warning and critical threshold on the number of alerts of a type before changing state. Replace * with trace, alert, warning, or error.                           |
 
 </TabItem>
-<TabItem value="Monitors Status" label="Monitors Status">
+<TabItem value="Monitors-Status" label="Monitors-Status">
 
 | Option                           | Description                                                                                                                                                                                                                                               |
 |:---------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
