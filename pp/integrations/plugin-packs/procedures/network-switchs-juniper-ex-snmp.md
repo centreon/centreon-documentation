@@ -20,9 +20,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias  | Service Template                     | Service Description                  |
 |:---------------|:-------------------------------------|:-------------------------------------|
-| Cpu-Routing    | Net-Juniper-Ex-Cpu-Routing-custom    | Check CPU usage of routing engine    |
+| Cpu-Routing    | Net-Juniper-Ex-Cpu-Routing-custom    | Check CPU usage of Routing Engine    |
 | Hardware       | Net-Juniper-Ex-Hardware-custom       | Check hardware                       |
-| Memory-Routing | Net-Juniper-Ex-Memory-Routing-custom | Check memory usage of routing engine |
+| Memory-Routing | Net-Juniper-Ex-Memory-Routing-custom | Check memory usage of Routing Engine |
 
 > The services listed above are created automatically when the **Net-Juniper-EX-custom** host template is used.
 
