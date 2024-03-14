@@ -11,7 +11,7 @@ import DatabaseEnableRestart from '../_database-enable-restart.mdx';
 
 Centreon fournit des paquets RPM et DEB pour ses produits via la version Centreon Open Source disponible gratuitement dans notre dépôt.
 
-Ces paquets peuvent être installés sur Alma/RHEL/Oracle Linux 8 et 9 et sur Debian 11.
+Ces paquets peuvent être installés sur Alma/RHEL/Oracle Linux 8 et 9 et sur Debian 11 et 12.
 
 > Vous devez exécuter la procédure d'installation en tant qu'utilisateur privilégié.
 
@@ -148,7 +148,7 @@ Disabled
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
-SELinux n'est pas installé sur Debian 11, continuez.
+SELinux n'est pas installé sur Debian 11 et 12, continuez.
 
 </TabItem>
 </Tabs>

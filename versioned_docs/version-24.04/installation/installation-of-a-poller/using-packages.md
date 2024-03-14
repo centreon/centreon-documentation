@@ -143,7 +143,7 @@ Disabled
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
-SELinux is not installed on Debian 11, continue.
+SELinux is not installed on Debian 11 and 12, continue.
 
 </TabItem>
 </Tabs>
