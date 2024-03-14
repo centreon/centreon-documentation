@@ -42,7 +42,7 @@ dnf install centreon-bam-server
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt update && apt install centreon-bam-server

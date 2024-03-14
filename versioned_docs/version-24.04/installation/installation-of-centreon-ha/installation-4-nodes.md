@@ -174,7 +174,7 @@ systemctl restart NetworkManager
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 cat >> /etc/sysctl.conf <<EOF
@@ -267,7 +267,7 @@ dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt update && apt install centreon-ha-web pcs pacemaker corosync corosync-qdevice 
@@ -331,7 +331,7 @@ dnf install centreon-ha-common pcs pacemaker corosync corosync-qdevice
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt update && apt install centreon-ha-common pcs pacemaker corosync corosync-qdevice 
@@ -519,7 +519,7 @@ pid-file=/var/lib/mysql/mysql.pid
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 For both optimization and cluster reliability purposes, you need to add these tuning options to the MariaDB configuration in the `/etc/mysql/mariadb.conf.d/50-server.cnf` file. By default, the `[server]` section of this file is empty. Paste the following lines (some need to be modified) into this section:
 
@@ -751,7 +751,7 @@ systemctl restart mysql
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Now that everything is well configured, enable the `read_only` on both database servers by uncommenting (*i.e.* removing the `#` at the beginning of the line) this instruction in the `/etc/mysql/mariadb.conf.d/50-server.cnf` file:
 
@@ -926,7 +926,7 @@ chmod 775 /tmp/centreon-autodisco/
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 mkdir /tmp/centreon-autodisco/
@@ -1098,7 +1098,7 @@ pcs qdevice status net --full
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install pcs corosync-qnetd
@@ -1130,7 +1130,7 @@ COROSYNC_QNETD_OPTIONS="-4"
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Modify the parameter `COROSYNC_QNETD_OPTIONS` in the file `/etc/default/corosync-qnetd` to make sure the service will be listening to the connections on Ipv4 only
 
@@ -1180,7 +1180,7 @@ pcs host auth \
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 On Debian, the cluster is autoconfigured with default values. In order to install our cluster, we need to destroy this setup using the following command:
 
@@ -1235,7 +1235,7 @@ pcs cluster setup \
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 pcs cluster setup \
@@ -1322,7 +1322,7 @@ pcs resource create "ms_mysql" \
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 pcs resource create "ms_mysql" \
@@ -1370,7 +1370,7 @@ pcs resource promotable ms_mysql \
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 pcs resource promotable ms_mysql \
@@ -1435,7 +1435,7 @@ pcs resource create "php" \
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 pcs resource create "php" \
@@ -1512,7 +1512,7 @@ pcs resource create http \
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 pcs resource create http \
@@ -1624,7 +1624,7 @@ pcs constraint colocation add Promoted "ms_mysql-clone" with "vip_mysql"
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 pcs constraint colocation add "vip_mysql" with master "ms_mysql-clone"
@@ -1657,7 +1657,7 @@ pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABA
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
@@ -1762,7 +1762,7 @@ Active Resources:
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 Cluster Summary:
@@ -1863,7 +1863,7 @@ pcs resource restart ms_mysql-clone
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash 
 pcs resource restart ms_mysql-clone
@@ -1925,7 +1925,7 @@ Ticket Constraints:
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 Location Constraints:

@@ -49,7 +49,7 @@ dnf update centreon-pp-manager
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt upgrade centreon-pp-manager
@@ -118,7 +118,7 @@ dnf update centreon-pack-*
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt install centreon-pack-*
@@ -207,7 +207,7 @@ dnf install centreon-plugin-$PLUGIN-PACK$
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt install centreon-plugin-$PLUGIN-PACK$
@@ -233,7 +233,7 @@ dnf install centreon-plugin-Cloud-Aws-Ec2-Api
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt install centreon-plugin-cloud-aws-ec2-api
@@ -310,7 +310,7 @@ dnf update centreon-plugin\*
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt-get --only-upgrade install centreon-plugin\*
