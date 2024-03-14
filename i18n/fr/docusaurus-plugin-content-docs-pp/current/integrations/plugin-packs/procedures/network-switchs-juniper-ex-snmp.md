@@ -21,7 +21,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias          | Modèle de service                    | Description                                        |
 |:---------------|:-------------------------------------|:---------------------------------------------------|
-| Cpu-Routing    | Net-Juniper-Ex-Cpu-Routing-custom    | Contrôle l'utilisation CPU du 'routing engine'     |
+| Cpu-Routing    | Net-Juniper-Ex-Cpu-Routing-custom    | Contrôle l'utilisation CPU du 'Routing Engine'     |
 | Hardware       | Net-Juniper-Ex-Hardware-custom       | Contrôle l'état du matériel                        |
 | Memory-Routing | Net-Juniper-Ex-Memory-Routing-custom | Contrôle l'utilisation mémoire du 'Routing Engine' |
 
