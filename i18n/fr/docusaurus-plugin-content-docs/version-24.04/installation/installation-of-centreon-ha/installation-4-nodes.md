@@ -5,7 +5,7 @@ title: Installation d'un cluster à 4 nœuds
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> Debian 12 n'est pas encore supporté pour les installations HA avec Centreon 24.04. Si vous souhaitez installer une pfateforme dans cette configuration, contactez votre commercial Centreon.
+> Debian 12 n'est pas encore supporté pour les installations HA avec Centreon 24.04. Si vous souhaitez installer une plateforme dans cette configuration, contactez votre commercial Centreon.
 
 ## Prérequis
 
