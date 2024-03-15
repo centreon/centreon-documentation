@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 TP-Link is a provider of network access solutions.
 
-The Centreon Monitoring Connector *TP-Link SNMP* relies on the SNMP protocol to query and collect the status and metrics of the TP-Link equipment.
+The Centreon Monitoring Connector *TP-Link SNMP* relies on the SNMP protocol to query and collect the status and metrics of TP-Link equipments.
 
 ## Pack assets
 
@@ -25,7 +25,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias | Service Template              | Service Description                                     |
 |:--------------|:------------------------------|:--------------------------------------------------------|
 | Cpu           | Net-Tplink-Cpu-SNMP-custom    | Check CPU usage                                         |
-| Memory        | Net-Tplink-Memory-SNMP-custom | Check the rate of the utilization of memory             |
+| Memory        | Net-Tplink-Memory-SNMP-custom | Check the rate of utilization of memory             |
 | Uptime        | Net-Tplink-Uptime-SNMP-custom | Time since the equipment has been working and available |
 
 > The services listed above are created automatically when the **Net-Tplink-SNMP-custom** host template is used.
@@ -114,7 +114,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 ## Prerequisites
 
 The SNMP agent must be configured and running. Please refer to the manufacturer documentation to achieve this.
-The Centreon Poller must be able to reach the UDP/161 SNMP port of the TP-Link equipment.
+The Centreon poller must be able to reach the UDP/161 SNMP port of the TP-Link equipment.
 
 ## Installing the monitoring connector
 
