@@ -55,7 +55,7 @@ cliquez sur **Download**.
 
 2. Remplissez le formulaire afin d'obtenir votre jeton IT-100 gratuit, puis suivez les instructions reçues par email.
 
-3. Plus bas dans l apage, dans la section **Téléchargez Centreon**, téléchargez l'image correcte pour le type de VM désiré (attention à ne pas confondre les images pour VMWare et pour VirtualBox).
+3. Plus bas dans la page, dans la section **Téléchargez Centreon**, téléchargez l'image correcte pour le type de VM désiré (attention à ne pas confondre les images pour VMWare et pour VirtualBox).
 
 4. Le fichier téléchargé est une archive compressée : extrayez son contenu dans le répertoire désiré.
 
