@@ -150,7 +150,7 @@ configuration.
 
     2. Après date.timezone, entrez le fuseau horaire désiré.
 
-    3. Redémarrez le serveur php :
+    3. Redémarrez le serveur PHP :
 
         ```shell
         systemctl restart php-fpm
