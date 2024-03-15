@@ -129,7 +129,7 @@ The host machine must have the following characteristics:
         timedatectl list-timezones
         ```
 
-    - The time zone for the php server. To avoid errors, this should be the same as the time zone of the server. By default, it is set to Europe/London.
+    - The time zone for the PHP server. To avoid errors, this should be the same as the time zone of the server. By default, it is set to Europe/London.
 
         1. Open the following file:
 
@@ -139,7 +139,7 @@ The host machine must have the following characteristics:
 
         2. In `date.timezone`, define the time zone you want.
 
-        3. Restart the php server:
+        3. Restart the PHP server:
 
             ```shell
             systemctl restart php-fpm
@@ -213,7 +213,7 @@ The host machine must have the following characteristics:
 - The server administration account (using SSH) is: `root`/`centreon`.
 - The root password of the DBMS is not initialized.
 
-> For security reasons, we highly recommend you change those passwords after you complete the installation.
+> For security reasons, change these passwords after you complete the installation.
 
 ## Troubleshooting
 

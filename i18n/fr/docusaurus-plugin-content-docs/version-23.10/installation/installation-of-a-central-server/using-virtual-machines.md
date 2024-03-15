@@ -150,7 +150,7 @@ configuration.
 
     2. Après date.timezone, entrez le fuseau horaire désiré.
 
-    3. Redémarrez le serveur php :
+    3. Redémarrez le serveur PHP :
 
         ```shell
         systemctl restart php-fpm
@@ -230,7 +230,7 @@ fonctionnera pas si vous ne l’exécutez pas.
 - Le compte d'administration du serveur (via SSH) est: `root`/`centreon`.
 - Le mot de passe root du SGBD n'est pas initialisé.
 
-> Pour des raisons de sécurité, nous vous recommandons fortement de modifier ces mots de passe après l'installation.
+> Pour des raisons de sécurité, changez ces mots de passe après l'installation.
 
 ## Dépannage
 
