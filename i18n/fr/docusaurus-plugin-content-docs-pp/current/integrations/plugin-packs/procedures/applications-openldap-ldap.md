@@ -53,7 +53,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 ## Prérequis
 
 The remote server must have an LDAP service running and available. A user and
-password dedicated to monitoring is needed for security reasons.
+password dedicated to monitoring are needed for security reasons.
 
 ## Installer le connecteur de supervision
 

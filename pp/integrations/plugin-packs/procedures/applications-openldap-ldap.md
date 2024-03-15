@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                      | Service Description                       |
 |:--------------|:--------------------------------------|:------------------------------------------|
-| System-Usage  | App-Openldap-System-Usage-LDAP-custom | Check System Usage of OpenLDAP using LDAP |
+| System-Usage  | App-Openldap-System-Usage-LDAP-custom | Check system usage of OpenLDAP using LDAP |
 
 > The services listed above are created automatically when the **App-Openldap-LDAP-custom** host template is used.
 
@@ -52,7 +52,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 ## Prerequisites
 
 The remote server must have an LDAP service running and available. A user and
-password dedicated to monitoring is needed for security reasons.
+password dedicated to monitoring are needed for security reasons.
 
 ## Installing the monitoring connector
 
