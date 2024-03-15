@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 On its [download page](https://download.centreon.com), Centreon provides a ready-to-use virtual machine. This virtual machine is available in OVA format for VMware environments and OVF format for Oracle VirtualBox. It is based on the **Alma Linux 8** operating system and includes a Centreon installation that allows you to easily start your first monitoring.
 
+> The virtual machine is only suitable to use Centreon IT-100 or to test the solution.
+
 The VM uses the **Thin Provision** option to save as much free space as possible on the disk (this is best practice).
 
 ## Prerequisites
@@ -24,7 +26,7 @@ The host machine must have the following characteristics:
 2. Depending on the type of license you want to use, go to either of the following pages:
 
 <Tabs groupId="sync">
-<TabItem value="Download page" label="Download page">
+<TabItem value="Download page (all types of license)" label="Download page (all types of license)">
 
 1. Go to the [Centreon download page](https://download.centreon.com). In section 1, **Appliances** is already selected.
 
@@ -199,9 +201,11 @@ The host machine must have the following characteristics:
 
 9. [Update](../../update/update-centreon-platform.md) your Centreon platform.
 
-10. [Secure your Centreon platform](../../administration/secure-platform.md). We recommend that you change the passwords for the root and admin accounts. You must define a password for the MariaDB database.
+10. Change the passwords for the root and admin accounts. This is mandatory as the default passwords are available publicly in this documentation. You must also define a password for the MariaDB database.
 
-11. You can now [monitor your first host](../../getting-started/first-supervision.md).
+11. [Secure your Centreon platform](../../administration/secure-platform.md).
+
+12. You can now [monitor your first host](../../getting-started/first-supervision.md).
 
 ## Default credentials
 
