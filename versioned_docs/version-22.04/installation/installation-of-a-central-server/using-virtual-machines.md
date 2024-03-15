@@ -219,7 +219,7 @@ The host machine must have the following characteristics:
 - The server administration account (using SSH) is: `root`/`centreon`.
 - The root password of the DBMS is not initialized.
 
-> For security reasons, we highly recommend you change those passwords after you complete the installation.
+> For security reasons, change these passwords after you complete the installation.
 
 ## Troubleshooting
 
