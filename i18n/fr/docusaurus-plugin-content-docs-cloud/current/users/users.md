@@ -7,6 +7,10 @@ Dans Centreon Cloud, les utilisateurs/contacts peuvent :
 
 * Se connecter à l'interface web de Centreon.
 * Recevoir des notifications.
+* En accédant aux paramètres du profil (icône de profil en haut à droite de l'interface) :
+  * Passer en mode sombre.
+  * Changer la langue de l'interface utilisateur.
+  * Afficher la page en mode plein écran (F).
 
 Tous les utilisateurs peuvent accéder à leur compte afin de changer leur mot de passe (en cliquant sur l'icône de profil en haut à droite de la fenêtre). Tous les utilisateurs peuvent voir toutes les ressources supervisées par la plateforme. Tous les utilisateurs reçoivent des [notifications](../alerts-notifications/notif-configuration.md).
 
