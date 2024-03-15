@@ -5,6 +5,8 @@ title: Installing a Centreon HA 2-nodes cluster
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Debian 12 is not supported yet for HA installations using Centreon version 24.04. If you wish to install an HA platform with this configuration, please contact your Centreon sales representative.
+
 ## Prerequisites
 
 ### Understanding
@@ -1503,6 +1505,21 @@ pcs constraint colocation add master "ms_mysql-clone" with "centreon"
 </Tabs>
 
 After this step, all resources should be running on the same node; the platform should be redundant and working properly.
+
+### Activating the resources
+
+```bash
+pcs resource enable php-clone
+pcs resource enable cbd_rrd-clone
+pcs resource meta vip target-role="started"
+pcs resource meta centreontrapd target-role="started"
+pcs resource meta snmptrapd target-role="started"
+pcs resource meta centengine target-role="started"
+pcs resource meta cbd_central_broker target-role="started"
+pcs resource meta gorgone target-role="started"
+pcs resource meta centreon_central_sync target-role="started"
+pcs resource meta http target-role="started"
+```
 
 ### Checking the state of the cluster
 

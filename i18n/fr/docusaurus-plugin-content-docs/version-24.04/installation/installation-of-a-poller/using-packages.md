@@ -68,7 +68,7 @@ locale -a
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt update && apt upgrade
@@ -135,7 +135,7 @@ Disabled
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 SELinux n'est pas installé sur Debian 11, continuez.
 
@@ -250,7 +250,7 @@ dnf config-manager --set-enabled ol9_codeready_builder
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Installez les dépendances suivantes :
 
@@ -290,7 +290,7 @@ dnf update
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Pour installer le dépôt Centreon, exécutez la commande suivante :
 
@@ -328,10 +328,9 @@ dnf install -y centreon-poller
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
-apt update
 apt install -y --no-install-recommends centreon-poller
 ```
 

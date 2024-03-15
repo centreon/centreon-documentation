@@ -5,6 +5,8 @@ title: Installation d'un cluster à 2 nœuds
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Debian 12 n'est pas encore supporté pour les installations HA avec Centreon 24.04. Si vous souhaitez installer une plateforme dans cette configuration, contactez votre commercial Centreon.
+
 ## Prérequis
 
 ### Compréhension
@@ -164,7 +166,7 @@ systemctl restart NetworkManager
 
 </TabItem>
 
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 cat >> /etc/sysctl.conf <<EOF
@@ -252,7 +254,7 @@ dnf install centreon-ha-web pcs pacemaker corosync corosync-qdevice
 
 </TabItem>
 
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt update && apt install centreon-ha-web pcs pacemaker corosync corosync-qdevice 
@@ -440,7 +442,7 @@ pid-file=/var/lib/mysql/mysql.pid
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Pour commencer, il faut améliorer la configuration de MariaDB, qui sera concentrée dans le seul fichier `/etc/mysql/mariadb.conf.d/50-server.cnf`. Par défaut, la section `[server]` de ce fichier est vide, c'est là que doit être collées les lignes suivantes :
 
@@ -663,7 +665,7 @@ systemctl restart mariadb
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Maintenant, que tout est bien configuré, il faut activer le mode `read_only` sur les deux serveurs en décommentant (*ie.* retirer le `#` en début de ligne) cette instruction dans le fichier `/etc/mysql/mariadb.conf.d/50-server.cnf` :
 
@@ -838,7 +840,7 @@ chmod 775 /tmp/centreon-autodisco/
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 mkdir /tmp/centreon-autodisco/
@@ -897,7 +899,7 @@ chkconfig mysql off
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Le service MariaDB étant sur un mode mixte entre SysV init et systemd, pour bien s'assurer qu'il ne soit plus lancé au démarrage, il faut également lancer la commande :
 
@@ -997,7 +999,7 @@ pcs qdevice status net --full
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install pcs corosync-qnetd
@@ -1028,7 +1030,7 @@ COROSYNC_QNETD_OPTIONS="-4"
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Modifier le paramètre `COROSYNC_QNETD_OPTIONS` du fichier de configuration `/etc/default/corosync-qnetd` du Quorum afin de restreindre les connexions entrant à IPv4.
 
@@ -1074,7 +1076,7 @@ pcs host auth \
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Sur Debian, le cluster est autoconfiguré avec des valeurs par défaut. Afin d'installer notre cluster, nous devons détruire se préparamétrage avec cette commande :
 
@@ -1123,7 +1125,7 @@ pcs cluster setup \
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 pcs cluster setup \
@@ -1208,7 +1210,7 @@ pcs resource create "ms_mysql" \
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 pcs resource create "ms_mysql" \
@@ -1256,7 +1258,7 @@ pcs resource promotable ms_mysql \
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 pcs resource promotable ms_mysql \
@@ -1305,7 +1307,7 @@ pcs resource create "php" \
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 pcs resource create "php" \
@@ -1382,7 +1384,7 @@ pcs resource create http \
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 pcs resource create http \
@@ -1492,7 +1494,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "centreon"
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 pcs constraint colocation add master "centreon" with "ms_mysql-clone"
@@ -1504,6 +1506,20 @@ pcs constraint colocation add master "ms_mysql-clone" with "centreon"
 
 Après cette étape, toutes les ressources doivent être actives au même endroit, et la plateforme fonctionnelle et redondée. Dans le cas contraire, se référer au guide de troubleshooting du paragraphe suivant.
 
+### Activation des ressources
+
+```bash
+pcs resource enable php-clone	
+pcs resource enable cbd_rrd-clone
+pcs resource meta vip target-role="started"
+pcs resource meta centreontrapd target-role="started"
+pcs resource meta snmptrapd target-role="started"
+pcs resource meta centengine target-role="started"
+pcs resource meta cbd_central_broker target-role="started"
+pcs resource meta gorgone target-role="started"
+pcs resource meta centreon_central_sync target-role="started"
+pcs resource meta http target-role="started"
+```
 
 ### Contrôle de l'état du cluster
 
@@ -1576,7 +1592,7 @@ Full List of Resources:
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 Cluster Summary:
@@ -1674,7 +1690,7 @@ pcs resource restart ms_mysql-clone
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 pcs resource restart ms_mysql-clone
@@ -1712,7 +1728,7 @@ Ticket Constraints:
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 Location Constraints:

@@ -13,6 +13,8 @@ Before applying this procedure, you should have a good knowledge of Linux OS, of
 
 > **WARNING**: Anyone following this procedure does so at their own risk. Under no circumstances shall Centreon be liable for any breakdown or data loss.
 
+> EL9 is not supported for HA installations using Centreon 23.04.
+
 ### Network Flows
 
 In addition of necessary flows describe on the [official documentation](../architectures.md#Tables_of_network_flows),
@@ -1223,6 +1225,21 @@ pcs constraint colocation add master "ms_mysql-clone" with "centreon"
 </Tabs>
 
 After this step, all resources should be running on the same node, the platform should be redundant and working properly.
+
+### Activating the resources
+
+```bash
+pcs resource enable php-clone
+pcs resource enable cbd_rrd-clone
+pcs resource meta vip target-role="started"
+pcs resource meta centreontrapd target-role="started"
+pcs resource meta snmptrapd target-role="started"
+pcs resource meta centengine target-role="started"
+pcs resource meta cbd_central_broker target-role="started"
+pcs resource meta gorgone target-role="started"
+pcs resource meta centreon_central_sync target-role="started"
+pcs resource meta http target-role="started"
+```
 
 ### Checking the cluster's state
 

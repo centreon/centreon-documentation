@@ -279,7 +279,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/e
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Installez les dépendances suivantes :
 
@@ -324,7 +324,7 @@ dnf install centreon-map-server
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt update
@@ -343,6 +343,14 @@ Pour installer MariaDB, exécutez la commande suivante :
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
+Vous devez d'abord ajouter le dépôt MariaDB :
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
+```
+
+Puis installez MariaDB :
+
 ```shell
 dnf install MariaDB-client MariaDB-server
 ```
@@ -355,7 +363,7 @@ dnf install MariaDB-client MariaDB-server
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt install MariaDB-client MariaDB-server
@@ -488,7 +496,7 @@ dnf install centreon-map-web-client
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt update

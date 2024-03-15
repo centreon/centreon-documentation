@@ -173,6 +173,87 @@ Le serveur nécessite que la licence soit disponible et valide sur le serveur ce
 
 Notez que l'interface web de MAP a les mêmes prérequis que l'interface web Centreon. Voir les prérequis pour la compatibilité des navigateurs web [ici](../installation/prerequisites.md).
 
+## Pré-installation
+
+### Désactiver SELinux
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
+**/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
+exécutez la commande suivante :
+
+```shell
+sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
+```
+
+Redémarrez votre système d'exploitation pour prendre en compte le changement.
+
+```shell
+reboot
+```
+
+Après le redémarrage, une vérification rapide permet de confirmer le statut de
+SELinux :
+
+```shell
+$ getenforce
+```
+
+Vous devriez obtenir ce résultat :
+
+```shell
+Disabled
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
+**/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
+exécutez la commande suivante :
+
+```shell
+sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
+```
+
+Redémarrez votre système d'exploitation pour prendre en compte le changement.
+
+```shell
+reboot
+```
+
+Après le démarrage du système, effectuez une vérification rapide de l'état de SELinux :
+
+```shell
+getenforce
+```
+
+Vous devriez obtenir ce résultat :
+
+```shell
+Disabled
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+SELinux n'est pas installé sur Debian 11, continuez.
+
+</TabItem>
+</Tabs>
+
+### Configurer ou désactiver le pare-feu
+
+Si votre pare-feu système est actif, [paramétrez-le](../administration/secure-platform.md#activer-firewalld).
+Vous pouvez également le désactiver le temps de l'installation :
+
+```shell
+systemctl stop firewalld
+systemctl disable firewalld
+```
+
 ## Installation du serveur MAP Engine
 
 ### Étape 1 : définir les paramètres d'authentification
@@ -258,7 +339,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/e
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Installez les dépendances suivantes :
 
@@ -321,7 +402,7 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.5"
@@ -347,7 +428,7 @@ dnf install mariadb-server
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt update && apt install mariadb-server
@@ -399,7 +480,7 @@ dnf install centreon-map-engine
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt update && apt install centreon-map-engine
@@ -435,7 +516,7 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
    ```
    
    </TabItem>
-   <TabItem value="Debian 11" label="Debian 11">
+   <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
    
    ```shell
    cp /etc/mysql/map.cnf /etc/mysql/map.cnf.bk
@@ -461,7 +542,7 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
    ```
    
    </TabItem>
-   <TabItem value="Debian 11" label="Debian 11">
+   <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
    
    ```shell
    apt update && apt-get -o Dpkg::Options::="--force-overwrite" install centreon-map-engine
@@ -487,7 +568,7 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
    ```
    
    </TabItem>
-   <TabItem value="Debian 11" label="Debian 11">
+   <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
    
    ```shell
    cp /etc/mysql/map.cnf.bk /etc/mysql/map.cnf

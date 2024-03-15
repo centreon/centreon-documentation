@@ -343,6 +343,14 @@ Pour installer MariaDB, exécutez la commande suivante :
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
+Vous devez d'abord ajouter le dépôt MariaDB :
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
+```
+
+Puis installez MariaDB :
+
 ```shell
 dnf install MariaDB-client MariaDB-server
 ```
