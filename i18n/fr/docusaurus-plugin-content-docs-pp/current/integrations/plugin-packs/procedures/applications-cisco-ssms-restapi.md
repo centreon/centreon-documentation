@@ -63,7 +63,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-Un compte de service est requis pour interroger l'API Cisco SSMS. Celui-ci doit avoir suffisamment de privilèges en lecture du compte ciblées.
+Un compte de service est requis pour interroger l'API Cisco SSMS. Celui-ci doit disposer de privilèges de lecture suffisants pour le compte ciblé.
 Plus d'informations sont disponibles dans la documentation officielle de Cisco SSMS : https://www.cisco.com/c/dam/en_us/buy/smart-accounts/smart-software-manager-satellite-enhanced-edition-6-2-0-user-guide.pdf
 
 ## Installer le connecteur de supervision
