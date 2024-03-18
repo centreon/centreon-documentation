@@ -345,6 +345,13 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | bash -s -- --os-t
 ```
 
 </TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | bash -s -- --os-type=debian --os-version=12 --mariadb-server-version="mariadb-10.11"
+```
+
+</TabItem>
 </Tabs>
 
 #### Centreon repository
@@ -425,7 +432,6 @@ systemctl restart mariadb
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
-apt update
 apt install -y --no-install-recommends centreon
 systemctl daemon-reload
 systemctl restart mariadb

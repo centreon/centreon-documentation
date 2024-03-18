@@ -311,13 +311,7 @@ Le résultat attendu est le suivant :
 Syntax OK
 ```
 
-Redémarrez Apache pour appliquer les modifications :
-
-```shell
-systemctl restart php8.1-fpm apache2
-```
-
-Puis vérifiez le statut :
+Vérifiez le statut d'Apache :
 
 ```shell
 systemctl status apache2

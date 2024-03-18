@@ -208,12 +208,6 @@ ssh-keygen -t ed25519 -a 100
 ssh-copy-id -i ~/.ssh/id_ed25519.pub centreon@<IP_CENTRAL>
 ```
 
-You will then have to set the check to be performed remotely. To do so, after applying the Host template, you will have to set the EXTRAOPTIONS macro in the **Broker-Stats** service.
-
-| Macro name          | Value                                           |
-|:--------------------|:------------------------------------------------|
-| EXTRAOPTIONS        | --verbose                                       |
-
 ## Installing the monitoring connector
 
 ### Pack

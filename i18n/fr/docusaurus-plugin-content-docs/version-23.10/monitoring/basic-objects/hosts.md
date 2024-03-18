@@ -50,7 +50,7 @@ identiques définies dans modèles d’hôtes en dessous.
 
    Pour changer l’ordre des macros, cliquez sur ![image](../../assets/configuration/common/move.png#thumbnail2)
 
-### Options d’ordonancement
+### Options d’ordonnancement
 
 * Le champ **Période de contrôle** définit la période temporelle durant laquelle l’ordonnanceur vérifie le statut de l’objet.
 * Le champ **Nombre de contrôles avant validation de l'état** définit le nombre de contrôles à effectuer avant de valider le statut de l’hôte :

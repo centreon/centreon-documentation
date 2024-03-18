@@ -68,6 +68,7 @@ Pour pouvoir utiliser le monitoring AWS/EC2, configurez un compte (combinaison d
 | AWS Privilege                  | Description                                                     |
 | :----------------------------- | :-------------------------------------------------------------- |
 | cloudwatch:getMetricStatistics | Get metrics from the AWS/EC2 namespace on Cloudwatch.           |
+| cloudfront:ListDistributions   | Grants permission to list the distributions associated with your AWS account. |
 
 ### Dépendances du Plugin
 

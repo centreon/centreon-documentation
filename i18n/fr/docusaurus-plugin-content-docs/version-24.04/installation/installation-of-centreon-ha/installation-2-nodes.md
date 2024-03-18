@@ -5,6 +5,8 @@ title: Installation d'un cluster à 2 nœuds
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Debian 12 n'est pas encore supporté pour les installations HA avec Centreon 24.04. Si vous souhaitez installer une plateforme dans cette configuration, contactez votre commercial Centreon.
+
 ## Prérequis
 
 ### Compréhension
@@ -97,9 +99,6 @@ Plutôt que de mettre en place une réplication en temps réel des fichiers de d
 | Nom                                                           | centreon-broker-master-rrd |
 | Port de connexion                                             | 5670                       |
 | Hôte distant                                                  | `@CENTRAL_MASTER_IPADDR@`  |
-| Temps avant activation du processus de basculement (failover) | 0                          |
-| Intervalle entre 2 tentatives                                 | 60                         |
-
 * Ajouter une nouvelle sortie IPv4, similaire à la première et nommée par exemple "centreon-broker-slave-rrd" pointant cette fois vers `@CENTRAL_SLAVE_IPADDR@`.
 
 | Output IPv4                                                   |                           |
@@ -107,8 +106,6 @@ Plutôt que de mettre en place une réplication en temps réel des fichiers de d
 | Nom                                                           | centreon-broker-slave-rrd |
 | Port de connexion                                             | 5670                      |
 | Hôte distant                                                  | `@CENTRAL_SLAVE_IPADDR@`  |
-| Temps avant activation du processus de basculement (failover) | 0                         |
-| Intervalle entre 2 tentatives                                 | 60                        |
 
 #### Exporter la configuration
 
@@ -1509,6 +1506,20 @@ pcs constraint colocation add master "ms_mysql-clone" with "centreon"
 
 Après cette étape, toutes les ressources doivent être actives au même endroit, et la plateforme fonctionnelle et redondée. Dans le cas contraire, se référer au guide de troubleshooting du paragraphe suivant.
 
+### Activation des ressources
+
+```bash
+pcs resource enable php-clone	
+pcs resource enable cbd_rrd-clone
+pcs resource meta vip target-role="started"
+pcs resource meta centreontrapd target-role="started"
+pcs resource meta snmptrapd target-role="started"
+pcs resource meta centengine target-role="started"
+pcs resource meta cbd_central_broker target-role="started"
+pcs resource meta gorgone target-role="started"
+pcs resource meta centreon_central_sync target-role="started"
+pcs resource meta http target-role="started"
+```
 
 ### Contrôle de l'état du cluster
 

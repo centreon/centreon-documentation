@@ -331,7 +331,6 @@ dnf install -y centreon-poller
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
-apt update
 apt install -y --no-install-recommends centreon-poller
 ```
 

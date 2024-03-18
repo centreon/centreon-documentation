@@ -409,8 +409,12 @@
     "message": "Expand all",
     "description": "The label for the expand all button"
   },
-  "Collpase all": {
-    "message": "Collpase all",
+  "Collapse all": {
+    "message": "Collapse all",
     "description": "The label for the collpase all button"
+  },
+  "Monitoring Connectors": {
+    "message": "Monitoring Connectors",
+    "description": "The label for the monitoring connectors"
   }
 }

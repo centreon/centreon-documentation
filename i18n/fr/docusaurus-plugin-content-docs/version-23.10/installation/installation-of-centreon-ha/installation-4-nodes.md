@@ -109,8 +109,6 @@ Plutôt que de mettre en place une réplication en temps réel des fichiers de d
 | Nom                                                           | centreon-broker-master-rrd |
 | Port de connexion                                             | 5670                       |
 | Hôte distant                                                  | `@CENTRAL_MASTER_IPADDR@`  |
-| Temps avant activation du processus de basculement (failover) | 0                          |
-| Intervalle entre 2 tentatives                                 | 60                         |
 
 * Ajoutez une nouvelle sortie IPv4, similaire à la première et nommée par exemple "centreon-broker-slave-rrd" pointant cette fois vers `@CENTRAL_SLAVE_IPADDR@`.
 
@@ -119,8 +117,6 @@ Plutôt que de mettre en place une réplication en temps réel des fichiers de d
 | Nom                                                           | centreon-broker-slave-rrd |
 | Port de connexion                                             | 5670                      |
 | Hôte distant                                                  | `@CENTRAL_SLAVE_IPADDR@`  |
-| Temps avant activation du processus de basculement (failover) | 0                         |
-| Intervalle entre 2 tentatives                                 | 60                        |
 
 #### Exporter la configuration
 
@@ -1683,9 +1679,7 @@ pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABA
 </TabItem>
 </Tabs>
 
-### Lancement du Cluster et contrôle de l'état des ressources
-
-#### Activer les ressources
+### Activation des ressources
 
 ```bash
 pcs resource enable php-clone

@@ -6,7 +6,7 @@ title: Mettre un hôte en supervision
 Un hôte est toute entité possédant une adresse IP correspondant à une ressource du système d’informations. Exemples : Un
 serveur, une imprimante réseau, un serveur NAS, une base de données, une sonde de température, une caméra IP...
 
-La liste des hôtes apparaît à la page **Configuration > Hôtes > Hôtes (simplifiés)**.
+La liste des hôtes apparaît à la page **Configuration > Hôtes > Hôtes**.
 
 Vous pouvez :
 - [créer des hôtes manuellement](hosts.md), en utilisant des [modèles d'hôtes](hosts-templates.md)

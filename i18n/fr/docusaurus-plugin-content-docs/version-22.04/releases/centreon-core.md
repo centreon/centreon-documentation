@@ -16,6 +16,27 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 22.04.22
+
+Release date: `March 13, 2024`
+
+#### Bug fixes
+
+- [Install] A unified unattended.sh script is now available for version 22.04.
+
+#### Security fixes
+
+- [Security] Improved allowed commands for Centreon Gorgone.
+
+### 22.04.21
+
+Release date: `February 14, 2024`
+
+#### Security fixes
+
+- [API] Fixed a visibility issue on configuration/users endpoint.
+- [Security] Fixed an XSS vulnerability (CVE-2023-51633).
+
 ### 22.04.20
 
 Release date: `January 11, 2024`
@@ -28,7 +49,7 @@ Release date: `January 2, 2024`
 
 #### Security fix
 
-- [Security] Fixed an SQLi vulnerability.
+- [Security] Fixed an SQLi vulnerability (CVE-2024-0637, CVE-2024-23115, CVE-2024-23116, CVE-2024-23117, CVE-2024-23118, CVE-2024-23119).
 
 ### 22.04.18
 
@@ -684,6 +705,32 @@ Release date: `August 30, 2022`
 As stated above, all broker instances (central, RRD, modules) must use the same BBDO protocol version to be able to communicate. This means that pollers using 21.10 or older releases won't be able to send data to a 22.04 central server using BBDO 3.0.0. Please read carefully our upgrade procedure.
 
 ## Centreon Gorgone
+
+### 22.04.6
+
+Release date: `March 13, 2024`
+
+#### Bug fixes
+
+- Added the Auto Discovery patterns to the default commands whitelist.
+
+#### Security fixes
+
+- Improved list of allowed commands for Auto Discovery.
+
+### 22.04.5
+
+Release date: `February 14, 2024`
+
+#### Security fix
+
+- [Security] Enabled whitelist of Centreon Gorgone commands by default to manage Centreon Engine and Broker processes in order to limit escalations of potential future vulnerabilities.
+
+### 22.04.4
+
+Release date: `November 20, 2023`
+
+No Changes for this module in this version.
 
 ### 22.04.3
 

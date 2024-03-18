@@ -145,13 +145,10 @@ Vous devrez paramétrer votre équipement Elasticsearch pour qu'il puisse recevo
 | string | elastic_password | MOt de passe du compte API | |
 | string | index_name | Nom de l'index Elasticsearch à utiliser | centreon-metrics |
 | string | index_template_api_endpoint | Chemin de l'endpoint des templates d'index Elasticsearch | /_index_template |
-| string | index_pattern | Par défaut, prend le nom de l'index et ajoute `*`. C'est le nom des index pour
-lesquels s'appliqueront le template d'index lorsque ce dernier sera créé par le stream connector | centreon-metrics* |
+| string | index_pattern | Par défaut, prend le nom de l'index et ajoute `*`. C'est le nom des index pour lesquels s'appliquera le template d'index lorsque ce dernier sera créé par le stream connector | centreon-metrics* |
 | number | index_priority | La priorité de l'index lorsque le template d'index est créé par le stream connector | 200 |
-| number | create_datastream_index_template | Le stream connector va automatiquement créer l'index template s'il ne trouve pas ce
-dernier (1 = création automatique, 0 = pas de template d'index créé) | 1 |
-| number | update_datastream_index_template | le stream connector mettra à jour l'index template si ce dernier ne correspond pas
-aux données qui vont être envoyées. (1 = mise à jour automatique, 0 = pas de mise à jour automatique). Même si la mise à jour automatique est activée, elle ne fonctionnera que si l'index template a été créé par Centreon. (L'index template contient une metadonnée qui indique cela.) | 0 |
+| number | create_datastream_index_template | Le stream connector va automatiquement créer l'index template s'il ne trouve pas ce dernier (1 = création automatique, 0 = pas de template d'index créé) | 1 |
+| number | update_datastream_index_template | le stream connector mettra à jour l'index template si ce dernier ne correspond pas aux données qui vont être envoyées. (1 = mise à jour automatique, 0 = pas de mise à jour automatique). Même si la mise à jour automatique est activée, elle ne fonctionnera que si l'index template a été créé par Centreon. (L'index template contient une metadonnée qui indique cela.) | 0 |
 | number | add_hostgroups_dimension | Ajoute les groupes d'hôtes aux données envoyées. (1 = ajout des groupes d'hôtes, 0 = pas de groupes d'hôtes envoyés)  | 1 |
 | number | add_poller_dimension | Ajoute le collecteur aux données envoyées. (1 = ajout du collecteur, 0 = pas de collecteur envoyé) | 0 |
 | number | add_servicegroups_dimension | Ajoute les groupes de services aux données envoyées. (1 = ajout des groupes de services, 0 = pas
