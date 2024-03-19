@@ -66,7 +66,7 @@ yum install centreon-pack-applications-jenkins
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-jenkins
@@ -106,7 +106,7 @@ yum install centreon-plugin-Applications-Jenkins
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-jenkins

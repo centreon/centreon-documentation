@@ -98,7 +98,7 @@ yum install centreon-pack-hardware-pdu-raritan-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-pdu-raritan-snmp
@@ -138,7 +138,7 @@ yum install centreon-plugin-Hardware-Pdu-Raritan-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-pdu-raritan-snmp

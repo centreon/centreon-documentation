@@ -161,7 +161,7 @@ dnf install centreon-pack-cloud-azure-database-sqldatabase
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-cloud-azure-database-sqldatabase
@@ -208,7 +208,7 @@ dnf install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-cloud-azure-database-sqldatabase-api

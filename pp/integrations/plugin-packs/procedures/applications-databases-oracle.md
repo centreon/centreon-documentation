@@ -301,7 +301,7 @@ yum install gcc wget
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install wget gcc make unzip libaio1 libdbi-perl
@@ -329,7 +329,7 @@ rpm -ivh oracle-*.rpm
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Go to [Instant Client Downloads](https://www.oracle.com/database/technologies/instant-client/downloads.html),
 choose the right OS your Poller is running on (Linux x86-64) and download the following packages (ZIP):
@@ -382,7 +382,7 @@ If you get an error during the **Makefile.PL** step, explicitely force the Oracl
 named version (it will not impact the plugin operations): `perl Makefile.PL -V 12.1.0 -m /usr/share/oracle/21/client64/demo/demo.mk`
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 As **root**, run:
 
@@ -439,7 +439,7 @@ EOF
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Create the file **/etc/ld.so.conf.d/oracle-instantclient.conf** and add one line representing the 
 path to the library: 
@@ -531,7 +531,7 @@ dnf install centreon-pack-applications-databases-oracle
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-databases-oracle
@@ -578,7 +578,7 @@ dnf install centreon-plugin-Applications-Databases-Oracle
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-databases-oracle

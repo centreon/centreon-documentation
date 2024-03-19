@@ -271,7 +271,7 @@ dnf install centreon-pack-applications-monitoring-kadiska-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-monitoring-kadiska-restapi
@@ -318,7 +318,7 @@ dnf install centreon-plugin-Applications-Monitoring-Kadiska-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-monitoring-kadiska-restapi

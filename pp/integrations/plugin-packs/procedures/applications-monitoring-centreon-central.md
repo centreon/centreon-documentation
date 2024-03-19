@@ -233,7 +233,7 @@ dnf install centreon-pack-applications-monitoring-centreon-central
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-monitoring-centreon-central
@@ -280,7 +280,7 @@ dnf install centreon-plugin-Applications-Monitoring-Centreon-Central
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-monitoring-centreon-central

@@ -155,7 +155,7 @@ dnf install centreon-pack-network-teldat-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-network-teldat-snmp
@@ -202,7 +202,7 @@ dnf install centreon-plugin-Network-Teldat-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-network-teldat-snmp

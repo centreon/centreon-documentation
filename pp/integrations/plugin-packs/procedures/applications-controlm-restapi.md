@@ -74,7 +74,7 @@ yum install centreon-pack-applications-controlm-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-controlm-restapi
@@ -114,7 +114,7 @@ yum install centreon-plugin-Applications-Controlm-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-controlm-restapi

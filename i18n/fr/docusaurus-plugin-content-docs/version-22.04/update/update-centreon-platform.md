@@ -100,7 +100,7 @@ Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer la 
 1. Videz le cache :
 
   ```shell
-  apt clean all
+  apt clean
   apt update
   ```
 
@@ -279,7 +279,7 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
 1. Videz le cache :
 
   ```shell
-  apt clean all
+  apt clean
   apt update
   ```
 

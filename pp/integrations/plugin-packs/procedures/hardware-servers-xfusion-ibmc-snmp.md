@@ -81,7 +81,7 @@ yum install centreon-pack-hardware-servers-xfusion-ibmc-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-servers-xfusion-ibmc-snmp
@@ -121,7 +121,7 @@ yum install centreon-plugin-Hardware-Servers-Xfusion-Ibmc-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-servers-xfusion-ibmc-snmp
