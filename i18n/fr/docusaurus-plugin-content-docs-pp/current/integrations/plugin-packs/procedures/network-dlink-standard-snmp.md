@@ -21,7 +21,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias           | Modèle de service                              | Description                                                                                                               |
 |:----------------|:-----------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------|
-| Cpu             | Net-Dlink-Standard-Cpu-SNMP-custom             | Contrôle du taux d'utilisation du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU |
+| Cpu             | Net-Dlink-Standard-Cpu-SNMP-custom             | Contrôle du taux d'utilisation du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPUs |
 | Hardware-Global | Net-Dlink-Standard-Hardware-Global-SNMP-custom | Contrôle le matériel                                                                                                      |
 | Memory          | Net-Dlink-Standard-Memory-SNMP-custom          | Contrôle le taux d'utilisation mémoire                                                                                    |
 
@@ -56,7 +56,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                        | Description                                                             |
 |:---------------------------------------|:------------------------------------------------------------------------|
-| Net-Dlink-Standard-SNMP-Interface-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
+| Net-Dlink-Standard-SNMP-Interface-Name | Découvre les interfaces réseau et supervise le statut et l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
