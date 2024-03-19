@@ -6,6 +6,8 @@ title: Securing your poller
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> **IMPORTANT**: It is the customer's resonsibility to secure the OS of the poller's host machine, and to [update their OS](https://thewatch.centreon.com/product-how-to-21/os-updates-security-3136).
+
 ## Strengthen user account security
 
 After installing Centreon, you must change the default passwords of the following users:

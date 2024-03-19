@@ -3,6 +3,8 @@ id: prerequisites
 title: Prerequisites
 ---
 
+> **IMPORTANT**: Poller management is solely the responsibility of the customer.
+
 ## OS
 
 The poller must be installed on a dedicated fresh Alma Linux/RHEL/Oracle Linux 8 or 9, or Debian 11 server.
