@@ -60,7 +60,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle              | Description                                                             |
 |:-----------------------------|:------------------------------------------------------------------------|
-| Net-Juniper-Ex-Storages-Name | Discover the disk partitions and monitor space occupation               |
+| Net-Juniper-Ex-Storages-Name | Découvre les disques pour en faciliter la mise en supervision.               |
 | Net-Juniper-Ex-Traffic-Name  | Découvre les interfaces réseau et supervise le statut et l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
