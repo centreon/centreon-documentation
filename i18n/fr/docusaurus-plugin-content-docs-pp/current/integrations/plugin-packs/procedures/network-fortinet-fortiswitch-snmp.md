@@ -33,7 +33,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias      | Modèle de service                               | Description             | Découverte |
 |:-----------|:------------------------------------------------|:------------------------|:----------:|
-| Arp        | Net-Fortinet-Fortiswitch-Arp-SNMP-custom        | Contrôle la table arp   |            |
+| Arp        | Net-Fortinet-Fortiswitch-Arp-SNMP-custom        | Contrôle la table ARP   |            |
 | Interfaces | Net-Fortinet-Fortiswitch-Interfaces-SNMP-custom | Contrôle les interfaces | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
@@ -57,7 +57,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                              | Description                                                             |
 |:---------------------------------------------|:------------------------------------------------------------------------|
-| Net-Fortinet-Fortiswitch-SNMP-Interface-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
+| Net-Fortinet-Fortiswitch-SNMP-Interface-Name | Découvre les interfaces réseau et supervise le statut et l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
