@@ -6,6 +6,8 @@ title: Sécuriser votre collecteur
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> **IMPORTANT** : Sécuriser la machine hôte du collecteur relève de la responsabilité du client, ainsi que [mettre à jour son OS](https://thewatch.centreon.com/product-how-to-21/os-updates-security-3136).
+
 ## Renforcez la sécurité des comptes utilisateurs
 
 Après l'installation de Centreon, il est nécessaire de changer les mots de passe par défaut des utilisateurs suivants:
