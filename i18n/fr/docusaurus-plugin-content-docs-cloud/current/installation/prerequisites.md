@@ -3,6 +3,8 @@ id: prerequisites
 title: Prérequis
 ---
 
+> **IMPORTANT** : La gestion des collecteurs relève uniquement de la responsabilité du client.
+
 ## OS
 
 Le collecteur doit être installé sur un serveur dédié et fraîchement installé, sous Alma Linux/RHEL/Oracle Linux 8 ou 9, ou Debian 11.
