@@ -65,7 +65,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                  | Description                                                             |
 |:---------------------------------|:------------------------------------------------------------------------|
-| Net-Juniper-Mseries-Storage-Name | Discover the disk partitions and monitor space occupation               |
+| Net-Juniper-Mseries-Storage-Name | Découvre les partitions des disques et supervise leur taux d'occupation        |
 | Net-Juniper-Mseries-Traffic-Name | Découvre les interfaces réseau et supervise le statut et l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
