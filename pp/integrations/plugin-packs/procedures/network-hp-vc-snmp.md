@@ -30,7 +30,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias        | Service Template                           | Service Description                          | Discovery  |
 |:---------------------|:-------------------------------------------|:---------------------------------------------|:----------:|
 | Traffic-Generic-Id   | Net-Hp-Vc-Traffic-Id-Generic-SNMP-custom   | Check traffic of a network interface        |            |
-| Traffic-Generic-Name | Net-Hp-Vc-Traffic-Name-Generic-SNMP-custom | Check traffic of an network interface        |            |
+| Traffic-Generic-Name | Net-Hp-Vc-Traffic-Name-Generic-SNMP-custom | Check traffic of a network interface        |            |
 | Traffic-Global       | Net-Hp-Vc-Traffic-Global-SNMP-custom       | Check traffic of multiple network interfaces | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
