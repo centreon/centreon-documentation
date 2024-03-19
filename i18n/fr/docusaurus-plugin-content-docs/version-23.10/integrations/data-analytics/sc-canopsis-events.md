@@ -302,10 +302,13 @@ Canopsis (le serveur central, un serveur distant ou un collecteur)
 2. Exécutez la commande suivante :
 
 ```shell
-curl
+curl -X POST -H 'content-length: 400' -H 'content-type: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port><canopsis_event_route>' -d '[{"hostgroups":["Group 1","Group 2"],"component":"Test-Canopsis","host_id":"8","event_type":"check","resource":"passif","output":"Passif_output","servicegroups":[],"connector":"centreon-stream","source_type":"resource","action_url":"","long_output":"Passif long output","notes_url":"","connector_name":"Central","timestamp":1710843117,"service_id":"10","state":1}]'
 ```
 
 > Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par la valeur correcte. 
-Par exemple, *<splunk_sourcetype>* pourra être remplacé par *_json*.
+Par exemple, *<canopsis_port>* pourra être remplacé par *443* et *<canopsis_event_route>* 
+pourra être remplacé par la route par défaut "/api/v4/event". Ce qui donne pour l'hôte de
+démo canopsis : 
+> https://demo.canopsis.net:443/api/v4/event
 
 3. Vérifiez que l'évènement a bien été reçu par Canopsis.
