@@ -13,6 +13,8 @@ Before applying this procedure, you should have a good knowledge of Linux OS, of
 
 > **WARNING**: Anyone following this procedure does so at their own risk. Under no circumstances shall Centreon be liable for any breakdown or data loss.
 
+> EL9 is not supported for HA installations using Centreon 23.04.
+
 ### Network Flows
 
 In addition of necessary flows describe on the [official documentation](../architectures.md#tables-of-network-flows),
@@ -1354,9 +1356,7 @@ pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABA
 </TabItem>
 </Tabs>
 
-### Activate the Cluster and check Resources operating state
-
-#### Enable resources 
+### Enable resources 
 
 ```bash
 pcs resource enable php-clone

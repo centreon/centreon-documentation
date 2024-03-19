@@ -177,6 +177,92 @@ team](https://support.centreon.com/) to get and install your license key.
 
 Note that the MAP web interface has the same requirements as the Centreon web interface. See the prerequisites for the web browsers compatibility [here](../installation/prerequisites.md).
 
+## Pre-installation
+
+### Disable SELinux
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
+**enforcing** by **disabled**. You can also run the following command:
+
+```shell
+sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
+```
+
+Reboot your operating system to apply the change.
+
+```shell
+reboot
+```
+
+After system startup, perform a quick check of the SELinux status:
+
+```shell
+getenforce
+```
+
+You should have this result:
+
+```shell
+Disabled
+```
+
+> **Note that this deactivation should be temporary.** To enable SELinux again, edit the **/etc/selinux/config** file and change the value with the following options:
+> - ``SELINUX=enforcing`` to make SELinux security policy enforced.
+> - ``SELINUX=permissive`` to make SELinux print warnings instead of enforce security policy.
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
+**enforcing** by **disabled**. You can also run the following command:
+
+```shell
+sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
+```
+
+Reboot your operating system to apply the change.
+
+```shell
+reboot
+```
+
+After system startup, perform a quick check of the SELinux status:
+
+```shell
+getenforce
+```
+
+You should have this result:
+
+```shell
+Disabled
+```
+
+> **Note that this deactivation should be temporary.** To enable SELinux again, edit the **/etc/selinux/config** file and change the value with the following options:
+> - ``SELINUX=enforcing`` to make SELinux security policy enforced.
+> - ``SELINUX=permissive`` to make SELinux print warnings instead of enforce security policy.
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+SELinux is not installed on Debian 11, continue.
+
+</TabItem>
+</Tabs>
+
+### Configure or disable the firewall
+
+If your firewall is active, add [firewall rules](../administration/secure-platform.md#enable-firewalld).
+You can also disable the firewall during installation by running the following commands:
+
+```shell
+systemctl stop firewalld
+systemctl disable firewalld
+```
+
 ## MAP Engine server installation
 
 ### Step 1: Set authentication parameters

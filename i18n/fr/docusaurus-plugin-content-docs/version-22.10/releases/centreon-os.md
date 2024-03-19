@@ -18,6 +18,22 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon Web
 
+## Centreon Web
+
+### 22.10.20
+
+Release date: `March 13, 2024`
+
+#### Bug fixes
+
+- [Authentication] Fixed issue with SSO authentication.
+- [CLAPI] Fixed a decoding issue affecting the export of HTML entities.
+- [Install] A unified unattended.sh script is now available for version 22.10.
+
+#### Security fixes
+
+- [Security] Improved allowed commands for Centreon Gorgone.
+
 ### 22.10.19
 
 Release date: `February 14, 2024`
@@ -566,6 +582,18 @@ Release date: `October 26, 2022`
 - [Code] Calls to the `atoi()` C function have been replaced by more secure functions
 
 ## Centreon Gorgone
+
+### 22.10.5
+
+Release date: `March 13, 2024`
+
+#### Bug fixes
+
+- Added the Auto Discovery patterns to the default commands whitelist.
+
+#### Security fixes
+
+- Improved list of allowed commands for Auto Discovery.
 
 ### 22.10.4
 

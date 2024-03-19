@@ -1138,6 +1138,10 @@ SELINUX=disabled
 
 Après avoir sauvegardé le fichier, veuillez redémarrer votre système d'exploitation pour prendre en compte les changements.
 
+> **Notez que cette désactivation doit être temporaire.** Pour réactiver SELinux, éditez le fichier **/etc/selinux/config** et changez la valeur avec les options suivantes :
+> - ``SELINUX=enforcing`` pour que la politique de sécurité SELinux soit appliquée en mode strict.
+> - ``SELINUX=permissive`` pour que les erreurs d’accès soient enregistrées dans les logs, mais l’accès ne sera pas bloqué.
+
 La timezone par défaut ainsi que des paramètres requis de PHP doivent être configurés. Pour cela, allez dans le
 répertoire `/etc/php/7.2/cli/conf.d` ou `/etc/php/7.2/apache2/conf.d` et créez un fichier nommé `centreon.ini` contenant
 les lignes suivantes :

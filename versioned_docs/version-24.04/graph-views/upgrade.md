@@ -100,7 +100,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/e
     ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 echo "deb https://packages.centreon.com/apt-standard-23.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
@@ -154,7 +154,7 @@ dnf update centreon-map-web-client
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt update && apt upgrade centreon-map-web-client

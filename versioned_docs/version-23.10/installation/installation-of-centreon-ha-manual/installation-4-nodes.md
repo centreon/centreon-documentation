@@ -5,6 +5,8 @@ title: 4-node manual failover installation
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Manual HA is now deprecated. Please do not perform new installations using this procedure.
+
 ## Prerequisites
 
 ### Understanding

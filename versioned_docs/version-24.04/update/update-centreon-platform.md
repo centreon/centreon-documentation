@@ -52,12 +52,12 @@ Then upgrade all the components with the following command:
   ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Clean the cache:
 
   ```shell
-  apt clean all
+  apt clean
   apt update
   ```
 
@@ -216,12 +216,12 @@ This procedure is the same as to update a Centreon central server.
   ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 1. Clean the cache:
 
   ```shell
-  apt clean all
+  apt clean
   apt update
   ```
 

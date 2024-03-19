@@ -1488,27 +1488,6 @@
         },
         {
           "type": "category",
-          "label": "Installing a manual Centreon HA",
-          "link": {
-            "type": "generated-index"
-          },
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-24.04/installation/installation-of-centreon-ha-manual/centreon-ha-2-nodes-installation-manual-failover"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/installation/installation-of-centreon-ha-manual/centreon-ha-4-nodes-installation-manual-failover"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/installation/installation-of-centreon-ha-manual/integrating-pollers"
-            }
-          ]
-        },
-        {
-          "type": "category",
           "label": "Operating Centreon HA",
           "link": {
             "type": "generated-index"
@@ -1552,21 +1531,29 @@
             "type": "generated-index"
           },
           "items": [
-            {
-              "type": "doc",
-              "id": "version-24.04/upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/upgrade/centreon-ha/upgrade-centreon-ha-from-22-04"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/upgrade/centreon-ha/upgrade-centreon-ha-from-22-10"
+        {
+          "type": "doc",
+          "id": "version-24.04/upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
+        },
+        {
+          "type": "doc",
+          "id": "version-24.04/upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
+        },
+        {
+          "type": "doc",
+          "id": "version-24.04/upgrade/centreon-ha/upgrade-centreon-ha-from-22-04"
+        },
+        {
+          "type": "doc",
+          "id": "version-24.04/upgrade/centreon-ha/upgrade-centreon-ha-from-22-10"
+        },
+        {
+          "type": "doc",
+          "id": "version-24.04/upgrade/centreon-ha/upgrade-centreon-ha-from-23-04"
+        },
+        {
+          "type": "doc",
+          "id": "version-24.04/upgrade/centreon-ha/upgrade-centreon-ha-from-23-10"
             }
           ]
         }
