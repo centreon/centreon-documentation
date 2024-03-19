@@ -64,9 +64,9 @@ La configuration matérielle requise pour votre serveur dédié Centreon MAP est
 
 | *Services supervisés*          | < 10 000                | < 20 000             |  < 40 000            |  > 40 000                    |
 | ------------------------------ | ----------------------- | -------------------- | -------------------- | ---------------------------- |
-| *CPU*                          | 2 vCPU ( 3Ghz ) minimum | 4 CPU (3GHz) Minimum | 4 CPU (3GHz) Minimum | Demandez au support Centreon |
-| *Mémoire dédiée*               | 2GB                     | 4GB                  | 8GB                  | Demandez au support Centreon |
-| *Partition de données MariaDB* | 2GB                     | 5GB                  | 10GB                 | Demandez au support Centreon |
+| *CPU*                          | 2 vCPU ( 3Ghz ) minimum | 4 CPU (3GHz) Minimum | 4 CPU (3GHz) Minimum | Demandez à l'équipe commerciale Centreon |
+| *Mémoire dédiée*               | 2GB                     | 4GB                  | 8GB                  | Demandez à l'équipe commerciale Centreon |
+| *Partition de données MariaDB* | 2GB                     | 5GB                  | 10GB                 | Demandez à l'équipe commerciale Centreon |
 
 Pour implémenter correctement la mémoire dédiée, vous devez modifier le paramètre *JAVA\_OPTS* dans le fichier de configuration Centreon MAP `/etc/centreon-studio/centreon-map.conf` et redémarrer le service :
 
@@ -307,6 +307,14 @@ Pour installer MariaDB, exécutez la commande suivante :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Vous devez d'abord ajouter le dépôt MariaDB :
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
+```
+
+Puis installez MariaDB :
 
 ```shell
 dnf install MariaDB-client MariaDB-server

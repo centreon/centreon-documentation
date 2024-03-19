@@ -66,17 +66,6 @@ yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.04/e
 > Si vous avez une édition Business, installez également le dépôt Business.
 > Vous pouvez en trouver l'adresse sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
-
-### Installer le dépôt MariaDB
-
-```shell
-cd /tmp
-curl -JO https://downloads.mariadb.com/MariaDB/mariadb_repo_setup
-bash ./mariadb_repo_setup
-sed -ri 's/1[0-1]\.[0-9]+/10.5/' /etc/yum.repos.d/mariadb.repo
-rm -f ./mariadb_repo_setup
-```
-
 ### Montée de version de la solution Centreon
 
 > Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer

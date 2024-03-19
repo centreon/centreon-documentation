@@ -68,6 +68,7 @@ Configure a service account (access/secret key combo) for which the following pr
 | AWS Privilege                  | Description                                                     |
 | :----------------------------- | :-------------------------------------------------------------- |
 | cloudwatch:getMetricStatistics | Get metrics from the AWS/EC2 namespace on Cloudwatch.           |
+| cloudfront:ListDistributions | Grants permission to list the distributions associated with your AWS account. |
 
 ### Plugin dependencies
 

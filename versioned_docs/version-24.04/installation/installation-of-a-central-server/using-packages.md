@@ -68,7 +68,7 @@ locale -a
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt update && apt upgrade
@@ -111,6 +111,10 @@ You should have this result:
 Disabled
 ```
 
+> **Note that this deactivation should be temporary.** To enable SELinux again, edit the **/etc/selinux/config** file and change the value with the following options:
+> - ``SELINUX=enforcing`` to make SELinux security policy enforced.
+> - ``SELINUX=permissive`` to make SELinux print warnings instead of enforce security policy.
+
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
@@ -139,8 +143,12 @@ You should have this result:
 Disabled
 ```
 
+> **Note that this deactivation should be temporary.** To enable SELinux again, edit the **/etc/selinux/config** file and change the value with the following options:
+> - ``SELINUX=enforcing`` to make SELinux security policy enforced.
+> - ``SELINUX=permissive`` to make SELinux print warnings instead of enforce security policy.
+
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 SELinux is not installed on Debian 11, continue.
 
@@ -292,7 +300,7 @@ dnf module install php:8.1
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 #### Install dependencies
 
@@ -345,6 +353,13 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | bash -s -- --os-t
 ```
 
 </TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | bash -s -- --os-type=debian --os-version=12 --mariadb-server-version="mariadb-10.11"
+```
+
+</TabItem>
 </Tabs>
 
 #### Centreon repository
@@ -374,7 +389,7 @@ dnf update
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 To install the Centreon repository, execute the following command:
 
@@ -422,10 +437,9 @@ systemctl restart mariadb
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
-apt update
 apt install -y --no-install-recommends centreon
 systemctl daemon-reload
 systemctl restart mariadb
@@ -457,7 +471,7 @@ dnf install -y centreon-central
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt update
@@ -488,7 +502,7 @@ systemctl restart mariadb
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt update
@@ -577,7 +591,7 @@ DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
 > ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 > ```shell
 > $ cat /etc/mysql/mariadb.conf.d/80-centreon.cnf
@@ -681,7 +695,7 @@ systemctl restart php-fpm
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php/8.1/mods-available/centreon.ini
@@ -722,7 +736,7 @@ systemctl start crond
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 systemctl enable php8.1-fpm apache2 centreon cbd centengine gorgoned centreontrapd snmpd snmptrapd
@@ -772,7 +786,7 @@ systemctl start httpd
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 systemctl start apache2

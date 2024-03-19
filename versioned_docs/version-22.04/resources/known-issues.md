@@ -36,6 +36,7 @@ ALTER TABLE virtual_metrics MODIFY index_id bigint unsigned;
 
 Autologin is currently not supported on the following pages :
 
+* **Monitoring > Map (legacy excluded)**
 * **Monitoring > Resources Status**
 * **Configuration > Hosts > Discovery**
 * **Configuration > Business Activity > Business Views**

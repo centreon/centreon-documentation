@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 If you are monitoring a small number of hosts and services, a central server is enough. However, to monitor a large number of hosts and services, you will need to distribute the load over multiple servers.
 
+All servers (central, remote and pollers) in your architecture must have the same major version of Centreon. It is also recommended that they have the same minor version.
+
 > If you do not know what remote servers and pollers are, see [Elements of a Centreon platform](../getting-started/platform.md).
 
 ## Available architectures
