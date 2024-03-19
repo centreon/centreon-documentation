@@ -20,9 +20,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias  | Service Template                          | Service Description                  |
 |:---------------|:------------------------------------------|:-------------------------------------|
-| Cpu-Routing    | Net-Juniper-Mseries-Cpu-Routing-custom    | Check CPU Usage of routing engine    |
+| Cpu-Routing    | Net-Juniper-Mseries-Cpu-Routing-custom    | Check CPU usage of Routing Engine    |
 | Hardware       | Net-Juniper-Mseries-Hardware-custom       | Check hardware                       |
-| Memory-Routing | Net-Juniper-Mseries-Memory-Routing-custom | Check Memory Usage of routing engine |
+| Memory-Routing | Net-Juniper-Mseries-Memory-Routing-custom | Check memory usage of routing engine |
 
 > The services listed above are created automatically when the **Net-Juniper-Mseries-SNMP-custom** host template is used.
 
@@ -41,7 +41,7 @@ The connector brings the following service templates (sorted by the host templat
 | Rsvp-Session-Status        | Net-Juniper-Mseries-SNMP-Rsvp-Session-Status-custom        | Check RSVP sessions status                                                                   |            |
 | Traffic-Generic-Id         | Net-Juniper-Mseries-Traffic-Generic-Id-custom              | Check the bandwidth of the interface. For each checks the name of the interface will appear  |            |
 | Traffic-Generic-Name       | Net-Juniper-Mseries-Traffic-Generic-Name-custom            | Check the bandwidth of the interface. For each checks the name of the interface will appear  |            |
-| Traffic-Global             | Net-Juniper-Mseries-Traffic-Global-custom                  | Check the bandwidth of  interfaces. For each checks the name of the interface will appear    | X          |
+| Traffic-Global             | Net-Juniper-Mseries-Traffic-Global-custom                  | Check the bandwidth of the interfaces. For each check the name of the interface will appear    | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -326,7 +326,7 @@ yum install centreon-plugin-Network-Routers-Juniper-Mseries-Snmp
 | Macro          | Description                                                                                                                                                                                                                                                                                                              | Default value                                                   | Mandatory   |
 |:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------|:-----------:|
 | FILTER         | Filter by peer identifier (can be regexp)                                                                                                                                                                                                                                                                                |                                                                 |             |
-| FILTERREMOTEIP | Filter by remote ip address (can be regexp)                                                                                                                                                                                                                                                                              |                                                                 |             |
+| FILTERREMOTEIP | Filter by remote IP address (can be regexp)                                                                                                                                                                                                                                                                              |                                                                 |             |
 | FILTERLOCALAS  | Filter by local AS (can be regexp)                                                                                                                                                                                                                                                                                       |                                                                 |             |
 | CRITICALSTATUS | Specify critical threshold (default: '%{peer\_status} =~ /running/ && %{peer\_state} !~ /established/'). Can use special variables like %{peer\_identifier}, %{peer\_state}, %{peer\_status}, %{local\_type}, %{local\_ip}, %{local\_port}, %{local\_as}, %{remote\_type}, %{remote\_ip}, %{remote\_port}, %{remote\_as} | %{peer\_status} =~ /running/ && %{peer\_state} !~ /established/ |             |
 | WARNINGSTATUS  | Specify warning threshold. Can use special variables like %{peer\_identifier}, %{peer\_state}, %{peer\_status}, %{local\_type}, %{local\_ip}, %{local\_port}, %{local\_as}, %{remote\_type}, %{remote\_ip}, %{remote\_port}, %{remote\_as}                                                                               |                                                                 |             |
