@@ -118,7 +118,14 @@ Coming soon
 
 ## Prérequis
 
-Afin de contrôler vos équipements D-Link, le SNMP v2 doit être configuré.
+### Configuration SNMP
+
+Le service SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+
+### Flux réseau
+
+La communication doit être possible sur le port UDP 161 depuis le collecteur
+Centreon vers la ressource supervisée.
 
 ## Installer le connecteur de supervision
 
