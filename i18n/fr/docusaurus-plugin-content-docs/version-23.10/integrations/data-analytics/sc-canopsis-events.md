@@ -70,9 +70,13 @@ de la part de Centreon. Reportez-vous à la [documentation Canopsis](https://doc
 , notamment vérifiez que les droits de création, lecture et suppressions sont activés. 
 Pour l'utilisateur associé à la "authKey" il faut modifier la matrice de droits "Mandatory" :
 
-> Aller dans droits API > PBehavior > PBehaviors : 
+> Pour les trois sections :
+> droits API > PBehavior > PBehaviors
+> droits API > PBehavior > PBehaviors Reason
+> droits API > PBehavior > PBehaviors Types
 >
 > “create”, “read”, “delete” doivent être cochés
+>
 
 Assurez-vous que Canopsis puisse recevoir les données envoyées par Centreon : les flux 
 ne doivent pas être bloqués par la configuration de Canopsis ou par un équipement de sécurité.
@@ -109,8 +113,8 @@ a new entry** en-dessous du tableau **Filter category** pour en ajouter un autre
 | string | logfile   | Fichier dans lequel les logs sont écrits                | /var/log/centreon-broker/canopsis-events-apiv2.log |
 | number | log_level | Niveau de verbosité des logs de 1 (erreurs) à 3 (debug) | 1                                                  |
 
-7. Utilisez les paramètres optionnels du stream connector pour filtrer ou adapter les 
-données que vous voulez que Centreon envoie à Canopsis.
+7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les 
+données que vous voulez que Centreon envoie à Canopsis](#filtering-or-adapting-the-data-you-want-to-send-to-canopsis).
 8. [Déployez la configuration](https://docs.centreon.com/fr/docs/monitoring/monitoring-servers/deploying-a-configuration/). 
 9. Redémarrez **centengine** sur tous les collecteurs :
 
@@ -120,6 +124,7 @@ données que vous voulez que Centreon envoie à Canopsis.
 
    Canopsis reçoit maintenant les données de Centreon.
 
+<div id='filtering-or-adapting-the-data-you-want-to-send-to-canopsis'/>
 
 ### Filtrer ou adapter les données que vous voulez envoyer à Canopsis
 
@@ -147,10 +152,27 @@ dans l'interface sauf si vous voulez en changer les valeurs (par exemple ajouter
 downtimes à la variable accepted_elements).
 
 
-| Type   | Nom                 | Valeur par défaut pour le stream connector Canopsis |
-| ------ |---------------------|-----------------------------------------------------|
-| string | accepted_categories | neb                                                 |
-| string | accepted_elements   | host_status,service_status,acknowledgement          |
+| Type   | Nom                              | Valeur par défaut pour le stream connector Canopsis |
+|--------|----------------------------------|-----------------------------------------------------|
+| string | accepted_categories              | neb                                                 |
+| string | accepted_elements                | host_status,service_status,acknowledgement          |
+| string | canopsis_downtime_comment_route  | /api/v4/pbehavior-comments                          |
+| string | canopsis_downtime_reason_name    | Centreon_downtime                                   |
+| string | canopsis_downtime_reason_route   | /api/v4/pbehavior-reasons                           |
+| string | canopsis_downtime_route          | /api/v4/pbehaviors                                  |
+| number | canopsis_downtime_send_pbh       | 1                                                   |
+| string | canopsis_downtime_type_name      | Default maintenance                                 |
+| string | canopsis_downtime_type_route     | /api/v4/pbehavior-types                             |
+| string | canopsis_event_route             | /api/v4/event                                       |
+| string | canopsis_port                    | 443                                                 |
+| number | canopsis_sort_list_hostgroups    | 0                                                   |
+| string | canopsis_sort_list_servicegroups | 0                                                   |
+| string | connector                        | centreon-stream                                     |
+| string | connector_name                   | centreon-stream-central                             |
+| string | connector_name_type              | poller                                              |
+| string | sending_method                   | api                                                 |
+| string | sending_protocol                 | https                                               |
+| string | use_severity_as_state            | 0                                                   |
 
 ## Event bulking
 
@@ -193,9 +215,9 @@ Ce stream connector envoie des évènements au format suivant :
       "state":1,
       "connector":"centreon-stream",
       "action_url":"",
-      "long_output":"(No output returned from plugin)",
+      "long_output":"Plugin's long output",
       "resource":"Service-name",
-      "output":"(No output returned from plugin)",
+      "output":"Plugin's output",
       "source_type":"resource",
       "component":"Host-name",
       "connector_name":"Central"
