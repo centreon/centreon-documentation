@@ -98,6 +98,7 @@ The users you have just added now have access to your dashboard sharing, accordi
 | Widget                   | Description                                                                                                                                                                                                                                                                                                    |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Generic text           | Allows you to add free text to your dashboards (section titles, information, etc.).   |
+| Group monitoring | Displays the distribution of current statuses on selected groups of resources, as a table. |
 | MAP - Display a view            |  Allows you to select and visualize a map created from the MAP module.  |
 | Metrics graph         | Displays metrics for a given time period.                                                                                |
 | Resource table                 | Displays data on resource status and events, centralized in a table.
