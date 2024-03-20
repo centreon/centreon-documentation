@@ -21,7 +21,7 @@ sur un collecteur ou un serveur distant dans l'infratructure de votre client).
 et **[acknowledgement](https://docs.centreon.com/fr/docs/developer/developer-broker-mapping/#acknowledgement)**.
 Ces formats d'événement sont décrits **[ici](#event-format)**.
 - Ces évènements sont envoyés à chaque contrôle sur l'hôte ou le service. Des paramètres 
-dédiés vous permettent de ne pas envoyer certains évènements.
+dédiés vous permettent de [ne pas envoyer certains évènements](#filtering-or-adapting-the-data-you-want-to-send-to-canopsis).
 
 ## Compatibilité
 
@@ -71,8 +71,11 @@ de la part de Centreon. Reportez-vous à la [documentation Canopsis](https://doc
 Pour l'utilisateur associé à la "authKey" il faut modifier la matrice de droits "Mandatory" :
 
 > Pour les trois sections :
+> 
 > droits API > PBehavior > PBehaviors
+> 
 > droits API > PBehavior > PBehaviors Reason
+> 
 > droits API > PBehavior > PBehaviors Types
 >
 > “create”, “read”, “delete” doivent être cochés
