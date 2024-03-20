@@ -3,8 +3,7 @@ id: prerequisites
 title: Prerequisites
 ---
 
-> **IMPORTANT**: Poller management is solely the responsibility of the customer.
-
+> **IMPORTANT**: The poller is a component that is deployed in the customers' infrastructure. Its administration (material and virtual infrastructure, OS, security, monitoring and Centreon applicative layers, etc) is solely the responsibility of the customers, as per the Terms and Conditions.
 ## OS
 
 The poller must be installed on a dedicated fresh Alma Linux/RHEL/Oracle Linux 8 or 9, or Debian 11 server.
