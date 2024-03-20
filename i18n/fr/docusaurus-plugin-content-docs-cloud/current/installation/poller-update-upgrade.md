@@ -6,6 +6,8 @@ title: Mettre à jour/monter de version un collecteur
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> **IMPORTANT** : [Mettre à jour l'OS de la machine hôte du collecteur](https://thewatch.centreon.com/product-how-to-21/os-updates-security-3136) relève de la responsabilité du client. D'autre part, Centreon fournit des mises à jour applicatives pour les collecteurs, mais il revient au client d'appliquer ces mises à jour sur leurs collecteurs.
+
 Votre collecteur doit toujours avoir la dernière version disponible (c'est-à-dire la dernière version mineure de la dernière version majeure).
 
 * Si votre collecteur a déjà la dernière version majeure mais pas la dernière version mineure, effectuer cette procédure le mettra à jour vers la dernière version mineure. Exemple : si la dernière version est 23.10.y et que votre collecteur est en 23.10.x, alors il sera mis à jour vers la version 23.10.y.

@@ -6,6 +6,8 @@ title: Updating/upgrading a poller
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> **IMPORTANT**: It is the customer's resonsibility to [update the OS of the poller's host machine](https://thewatch.centreon.com/product-how-to-21/os-updates-security-3136). Also, Centreon provides application updates for pollers, but it is the customer’s responsibility to apply these updates to their pollers.
+
 Your poller should always be in the latest available version (i.e. in the latest minor version of the latest major version).
 
 * If your poller is already in the latest major version but not in its latest minor version, performing this procedure will update it to the latest minor version. Example: if the latest version is 23.10.y and your poller is in version 23.10.x, then it will be updated to 23.10.y.
