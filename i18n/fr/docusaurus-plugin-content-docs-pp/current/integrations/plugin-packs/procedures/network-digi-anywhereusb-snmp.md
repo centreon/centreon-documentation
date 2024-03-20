@@ -23,7 +23,7 @@ Le connecteur apporte les modèles de service suivants
 |:---------------|:------------------------------------------------|:----------------------------------------------------------|:----------:|
 | Cpu            | Net-Digi-AnywhereUSB-Cpu-SNMP-custom            | Contrôle du taux d'utilisation du CPU de la machine       |            |
 | Memory         | Net-Digi-AnywhereUSB-Memory-SNMP-custom         | Contrôle du taux d'utilisation de la mémoire vive         |            |
-| Traffic-Global | Net-Digi-AnywhereUSB-Traffic-Global-SNMP-custom | Contrôle le traffic réseau de plusieurs interfaces réseau | X          |
+| Traffic-Global | Net-Digi-AnywhereUSB-Traffic-Global-SNMP-custom | Contrôle le trafic réseau de plusieurs interfaces réseau | X          |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Digi-AnywhereUSB-SNMP-custom** est utilisé.
 
