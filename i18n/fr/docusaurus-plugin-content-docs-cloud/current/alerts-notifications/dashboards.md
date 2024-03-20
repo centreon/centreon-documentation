@@ -96,7 +96,6 @@ Les utilisateurs que vous venez d'ajouter ont maintenant accès au partage de vo
 | Widget                   | Description                                                                                                                                                                                                                                                                                                    |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Texte générique           | Permet d'ajouter du texte libre à vos tableaux de bord (titres de sections, informations, etc.).   |
-| Group monitoring           | Affiche la répartition des statuts actuels des groupes de ressources sélectionnés, sous forme de tableau. |
 | MAP - Afficher une vue           |  Permet de sélectionner et de visualiser une carte créée à partir du module MAP.  |
 | Graphe de métriques         | Affiche les métriques pour une période donnée.                                  |
 | Tableau des ressources                 | Affiche des données sur le statut des ressources et les événements, centralisées dans un tableau.|
