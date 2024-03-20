@@ -15,12 +15,12 @@ to send it from a remote server or a poller (e.g. if you want to avoid the centr
 server being a SPOF, or if you are an MSP and you install the stream connector on a 
 poller or a remote server within your customer's infrastructure).
 - By default, the Canopsis Events stream connector sends events from 
-[**host_status**](../../developer/developer-broker-mapping.md#host-status), 
-[**service_status**](../../developer/developer-broker-mapping.md#service-status) and 
-[**acknowledgement**](../../developer/developer-broker-mapping.md#acknowledgement) Broker 
-events. The event format is shown **[here](#event-format)**.
+**[host_status](https://docs.centreon.com/fr/docs/developer/developer-broker-mapping/#host-status)**, 
+**[service_status](https://docs.centreon.com/fr/docs/developer/developer-broker-mapping/#service-status)** 
+and **[acknowledgement](https://docs.centreon.com/fr/docs/developer/developer-broker-mapping/#acknowledgement)** 
+Broker events. The event format is shown **[here](#event-format)**.
 - These events are sent each time a host or a service is checked. Various parameters let 
-you filter out events.
+you [filter out events](#filtering-or-adapting-the-data-you-want-to-send-to-canopsis).
 
 ## Compatibility
 
@@ -65,12 +65,18 @@ apt install centreon-stream-connector-canopsis
 ## Configuring Canopsis
 
 You will need to configure your Canopsis to receive data from Centreon. Refer to the 
-[Canopsis documentation](https://doc.canopsis.net/guide-usage/menu-administration/droits/)
+[Canopsis documentation](https://doc.canopsis.net/guide-utilisation/menu-administration/droits/)
 , in particular check if creation, reading and deletion rights are activated. 
 For the associated user at the "authKey" you must modify the "Mandatory" rights matrix:
 
-> Go in API rights API > PBehavior > PBehaviors : 
->
+> For the 3 sections :
+> 
+> droits API > PBehavior > PBehaviors
+> 
+> droits API > PBehavior > PBehaviors Reason
+> 
+> droits API > PBehavior > PBehaviors Types
+> 
 > “create”, “read”, “delete” must be checked
 
 Make sure Canospsi is able to receive data sent by Centreon: flows must not be blocked 
@@ -85,11 +91,11 @@ a poller or a remote server that will send events).
 click **Add**. A new output appears in the list.
 4. Fill in the fields as follows:
 
-| Field           | Value                                                   |
-| --------------- | ------------------------------------------------------- |
-| Name            | Canopsis events                                         |
-| Path            | /usr/share/centreon-broker/lua/canopsis-events-apiv2.lua|
-| Filter category | Neb                                                     |
+| Field           | Value                                                      |
+| --------------- |------------------------------------------------------------|
+| Name            | Canopsis events                                            |
+| Path            | /usr/share/centreon-broker/lua/canopsis2x-events-apiv2.lua |
+| Filter category | Neb                                                        |
 
 5. To enable Centreon to connect to your Canopsis equipment, fill in the following 
 mandatory parameters. The fields for the first entry are already present. Click on 
@@ -108,8 +114,8 @@ another one.
 | string | logfile           | The file in which logs are written         | /var/log/centreon-broker/canopsis-events-apiv2.log |
 | number | log_level         | Logging level from 1 (errors) to 3 (debug) | 1                                                  |
 
-7. Use the stream connector's optional parameters to filter or adapt the data you want 
-Centreon to send to Canopsis
+7. Use the stream connector's optional parameters to [filter or adapt the data you want 
+Centreon to send to Canopsis](#filtering-or-adapting-the-data-you-want-to-send-to-canopsis).
 8. [Deploy the configuration](../../monitoring/monitoring-servers/deploying-a-configuration.md).
 9. Restart **centengine** on all pollers:
 
@@ -118,6 +124,8 @@ Centreon to send to Canopsis
    ```
 
    Canopsis should now receive data from Centreon.
+
+<div id='filtering-or-adapting-the-data-you-want-to-send-to-canopsis'/>
 
 ### Filtering or adapting the data you want to send to Canopsis
 
@@ -142,10 +150,27 @@ you want to only send to Canopsis the events link to a hostgroup called "Europe"
 default values, you do not need to define them in the interface except if you want to 
 change their values (for example add the downtimes in the accepted_elements varialbe).
 
-| Type   | Name                | Default value for the stream connector     |
-| ------ | ------------------- |--------------------------------------------|
-| string | accepted_categories | neb                                        |
-| string | accepted_elements   | host_status,service_status,acknowledgement |
+| Type   | Name                             | Default value for the stream connector      |
+| ------ |----------------------------------|---------------------------------------------|
+| string | accepted_categories              | neb                                         |
+| string | accepted_elements                | host_status,service_status,acknowledgement  |
+| string | canopsis_downtime_comment_route  | /api/v4/pbehavior-comments                  |
+| string | canopsis_downtime_reason_name    | Centreon_downtime                           |
+| string | canopsis_downtime_reason_route   | /api/v4/pbehavior-reasons                   |
+| string | canopsis_downtime_route          | /api/v4/pbehaviors                          |
+| number | canopsis_downtime_send_pbh       | 1                                           |
+| string | canopsis_downtime_type_name      | Default maintenance                         |
+| string | canopsis_downtime_type_route     | /api/v4/pbehavior-types                     |
+| string | canopsis_event_route             | /api/v4/event                               |
+| string | canopsis_port                    | 443                                         |
+| number | canopsis_sort_list_hostgroups    | 0                                           |
+| string | canopsis_sort_list_servicegroups | 0                                           |
+| string | connector                        | centreon-stream                             |
+| string | connector_name                   | centreon-stream-central                     |
+| string | connector_name_type              | poller                                      |
+| string | sending_method                   | api                                         |
+| string | sending_protocol                 | https                                       |
+| string | use_severity_as_state            | 0                                           |
 
 ## Event bulking
 
@@ -186,9 +211,9 @@ This stream connector will send events with the following format.
       "state":1,
       "connector":"centreon-stream",
       "action_url":"",
-      "long_output":"(No output returned from plugin)",
+      "long_output":"Plugin's long output",
       "resource":"Service-name",
-      "output":"(No output returned from plugin)",
+      "output":"Plugin's output",
       "source_type":"resource",
       "component":"Host-name",
       "connector_name":"Central"
@@ -272,10 +297,12 @@ server, a remote server or a poller).
 2. Run the following command:
 
 ```shell
-curl
+curl -X POST -H 'content-length: 400' -H 'content-type: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port><canopsis_event_route>' -d '[{"hostgroups":["Group 1","Group 2"],"component":"Test-Canopsis","host_id":"8","event_type":"check","resource":"passif","output":"Passif_output","servicegroups":[],"connector":"centreon-stream","source_type":"resource","action_url":"","long_output":"Passif long output","notes_url":"","connector_name":"Central","timestamp":1710843117,"service_id":"10","state":1}]'
 ```
 
 > Replace all the *`<xxxx>`* inside the above command with the correct value. 
->For instance, *<splunk_sourcetype>* may become *_json*.
+> For instance, *<canopsis_port>* may become *443* and *<canopsis_event_route>*  can be replace
+with the default route "/api/v4/event". For demo canopsis host here is the url result :
+> https://demo.canopsis.net:443/api/v4/event
 
 3. Check that the event has been received by Canopsis .

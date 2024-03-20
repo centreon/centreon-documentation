@@ -94,11 +94,11 @@ Centreon Broker**.
 sur **Add**. Un nouvel output apparaît dans la liste. 
 4. Remplissez les champs de la manière suivante :
 
-| Champ           | Valeur                                                   |
-|-----------------|----------------------------------------------------------|
-| Name            | Canopsis events                                          |
-| Path            | /usr/share/centreon-broker/lua/canopsis-events-apiv2.lua |
-| Filter category | Neb                                                      |
+| Champ           | Valeur                                                     |
+|-----------------|------------------------------------------------------------|
+| Name            | Canopsis events                                            |
+| Path            | /usr/share/centreon-broker/lua/canopsis2x-events-apiv2.lua |
+| Filter category | Neb                                                        |
 
 5. Pour permettre à Centreon de se connecter à votre équipement Canopsis, remplissez les 
 paramètres obligatoires suivants. La première entrée existe déjà. Cliquez sur le lien **+Add 
@@ -309,7 +309,7 @@ curl -X POST -H 'content-length: 400' -H 'content-type: application/json' -H 'x-
 ```
 
 > Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par la valeur correcte. 
-Par exemple, *<canopsis_port>* pourra être remplacé par *443* et *<canopsis_event_route>* 
+> Par exemple, *<canopsis_port>* pourra être remplacé par *443* et *<canopsis_event_route>* 
 pourra être remplacé par la route par défaut "/api/v4/event". Ce qui donne pour l'hôte de
 démo canopsis : 
 > https://demo.canopsis.net:443/api/v4/event
