@@ -3,7 +3,7 @@ id: prerequisites
 title: Prérequis
 ---
 
-> **IMPORTANT** : La gestion des collecteurs relève uniquement de la responsabilité du client.
+> **IMPORTANT** : Le collecteur est un composant déployé dans l'infrastructure des clients. Son administration (infrastructure matérielle, virtuelle, OS, sécurité, supervision et couches applicatives Centreon etc) est ainsi à l'entière responsabilité des clients, selon les termes des Conditions Générales d'Utilisation.
 
 ## OS
 
