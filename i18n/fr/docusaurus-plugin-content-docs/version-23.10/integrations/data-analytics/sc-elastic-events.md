@@ -5,24 +5,15 @@ title: Elastic Events
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> Hello community! We're looking for a contributor to help us translate this page into French. 
-If it's you, let us know and ping us on [our community platform The Watch](https://thewatch.centreon.com/).
+Le stream connector Elastic Events vous permet d'envoyer des données depuis Centreon vers Elasticsearch. Il envoie des données grâce aux APIs Elasticsearch.
 
-## Before starting
+Utilisez le stream connector Elastic Events si vous souhaitez transmettre toutes les données pour les évènements concernés (y compris les changements d'état). Si vous ne souhaitez transmettre que des métriques, utilisez le stream connector [Elastic Metrics](./sc-elasticsearch-metrics.md).
 
-- You can send events from a central server, a remote server or a poller.
-- By default, this stream connector sends **host_status**, **service_status** events. The event format is shown **[there](#event-format)**.
-- Aformentioned events are fired each time a host or a service is checked. Various parameters let you filter out events.
-
-## Compatibility
-
-Tested with Elastic >= 7.10
+Un index template adapté est créé automatiquement par le stream connector afin que vos données soient indexées correctemnt dans Elasticsearch. (L'index template est la description du format des données qui seront envoyées.)
 
 ## Installation
 
-Connectez vous en tant que `root` sur le serveur Centreon central en utilisant votre client SSH préféré.
-
-Lancer la commande adaptée à votre système :
+Faites l'installation en tant que `root` sur le serveur qui enverra les données vers Elasticsearch (serveur central, serveur distant, collecteur).
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -50,93 +41,102 @@ apt install centreon-stream-connector-elasticsearch
 </TabItem>
 </Tabs>
 
-## Elastic prerequisites and configuration 
+## Configurer votre serveur Elasticsearch
 
-Here are the steps to prepare your 
+Vous devrez paramétrer votre équipement Elasticsearch pour qu'il puisse recevoir des données de la part de Centreon. Reportez-vous à la documentation Elasticsearch. Assurez-vous qu'Elasticsearch puisse recevoir les données envoyées par Centreon : les flux ne doivent pas être bloqués par la configuration d'Elasticsearch ou par un équipement de sécurité.
 
-- An index to store events sent by Centreon. You can create a *centreon_status* 
-index with the following command:
+Sur votre serveur Elasticsearch, vous aurez besoin de :
 
-```shell
-curl --user elastic:centreon-es-passwd -X PUT "<elastic_proto>://<elastic_ip>:<elastic_port>/centreon_status" -H 'Content-Type: application/json' \
- -d '{"mappings":{"properties":{"host":{"type":"keyword"},"service":{"type":"keyword"}, "output":{"type":"text"},"status":{"type":"keyword"},"state":{"type":"keyword"}, "type":{"type":"keyword"},"timestamp":{"type":"date","format":"epoch_second"}}}}'
-```
+- Un index pour stocker les évènements envoyés par Centreon. Vous pouvez créer un index *centreon_status* grâce à la commande suivante :
 
-:warning: If you use a custom **[event format](#event-format)**, you will have to 
-modify the index creation accordingly.
+    ```shell
+    curl --user elastic:centreon-es-passwd -X PUT "<elastic_proto>://<elastic_ip>:<elastic_port>/centreon_status" -H 'Content-Type: application/json' \
+    -d '{"mappings":{"properties":{"host":{"type":"keyword"},"service":{"type":"keyword"}, "output":{"type":"text"},"status":{"type":"keyword"},"state":{"type":"keyword"}, "type":{"type":"keyword"},"timestamp":{"type":"date","format":"epoch_second"}}}}'
+    ```
 
-- A user / password with required privileges to POST data to the index.
+   > Si vous utilisez un **[format d'évènement personnalisé](#event-format)**, vous devrez modifier cette commande en conséquence.
 
-## Centreon Configuration
+- Un utilisateur/mot de passe ayant les privilèges nécessaires pour effectuer des requêtes POST afin d'insérer des données dans l'index.
 
-### Download Elastic events stream connector
+## Configurer le stream connector dans Centreon
 
-```shell
-wget -O /usr/share/centreon-broker/lua/elastic-events-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/elastic/elastic-events-apiv2.lua
-chmod 644 /usr/share/centreon-broker/lua/elastic-events-apiv2.lua
-```
+1. Sur votre serveur central, allez à la page **Configuration > Collecteurs > Configuration de Centreon Broker**.
+2. Cliquez sur **central-broker-master** (ou sur la configuration du Broker correspondant si les évènements seront envoyés par un serveur distant ou un collecteur).
+3. Dans l'onglet **Output**, sélectionnez **Generic - Stream connector** dans la liste, puis cliquez sur **Ajouter**. Un nouvel output apparaît dans la liste.
+4. Remplissez les champs de la manière suivante :
 
-## Configuration
-
-To configure your stream connector, you must **head over** the **Configuration --> Poller --> Broker configuration** menu. **Select** the **central-broker-master** configuration (or the appropriate broker configuration if it is a poller or a remote server that will send events) and **click** the **Output tab** when the broker form is displayed.
-
-**Add** a new **generic - stream connector** output and **set** the following fields as follow:
-
-| Field           | Value                                                   |
+| Champ           | Valeur                                                  |
 | --------------- | ------------------------------------------------------- |
 | Name            | Elastic events                                          |
 | Path            | /usr/share/centreon-broker/lua/elastic-events-apiv2.lua |
 | Filter category | Neb                                                     |
 
-### Add Elastic mandatory parameters
+5. Pour permettre à Centreon de se connecter à votre équipement Elasticsearch, remplissez les paramètres obligatoires suivants. La première entrée existe déjà. Cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category** pour en ajouter un autre.
 
-Each stream connector has a set of mandatory parameters. To add them you must **click** on the **+Add a new entry** button located **below** the **filter category** input.
-
-| Type   | Name                    | Value explanation                       | Value exemple                                           |
+| Type   | Nom            | Description                       | Exemple                                           |
 | ------ | ----------------------- | --------------------------------------- | ------------------------------------------------------- |
-| string | elastic_url             | the url of the Elastic stack            | `https://elastic-fqdn:9200/`                            |
-| string | elastic_index_status    | Elastic target index name               | `centreon_status`                                       |
-| string | elastic_username        | Elastic username                        | `a_username`                                            |
-| string | elastic_password        | Elastic password                        | `a password`                                            |
+| string | elastic_url             | URL de votre stack Elastic            | `https://elastic-fqdn:9200/`                            |
+| string | elastic_index_status    | Nom de l'index Elastic cible            | `centreon_status`                                       |
+| string | elastic_username        | Identifiant pour se connecter à Elastic | `a_username`                                            |
+| string | elastic_password        | Mot de passe correspondant à l'identifiant | `a password`                                            |
 
+6. Renseignez les paramètres optionnels désirés (en utilisant le lien **+Add a new entry**) :
 
-### Add Elastic optional parameters
-
-Some stream connectors have a set of optional parameters dedicated to the Software that they are associated with. To add them you must **click** on the **+Add a new entry** button located **below** the **filter category** input.
-
-| Type   | Name              | Value explanation                                               | default value                                     |
+| Type   | Nom               | Description                                               | Valeur par défaut   |
 | ------ | ----------------- | --------------------------------------------------------------- | ------------------------------------------------- |
-| string | logfile           | the file in which logs are written                              | /var/log/centreon-broker/elastic-events-apiv2.log |
-| number | log_level         | logging level from 1 (errors) to 3 (debug)                      | 1                                                 |
+| string | logfile           | Fichier dans lequel les logs sont écrits                      | /var/log/centreon-broker/elastic-events-apiv2.log |
+| number | log_level         | Niveau de log : de 1 (erreurs) à 3 (débug)                      | 1                                                 |
 
-### Standard parameters
+7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les données que vous voulez que Centreon envoie à Elasticsearch](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-elasticsearch).
 
-All stream connectors can use a set of optional parameters that are made available through Centreon stream connectors lua modules.
+8. [Déployez la configuration](https://docs.centreon.com/fr/docs/monitoring/monitoring-servers/deploying-a-configuration/).
 
-All those parameters are documented **[here](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters)**.
+9. Redémarrez **centengine** sur tous les collecteurs :
 
-Some of them are overridden by this stream connector.
+   ```shell
+   systemctl restart centengine
+   ```
 
-| Type   | Name                | Default value for the stream connector |
+   Elasticsearch reçoit maintenant des données de Centreon. Pour tester le bon fonctionnement de l'intégration, voir [Commandes curl : tester le stream connector](#commandes-curl--tester-le-stream-connector).
+
+### Filtering or adapting the data you want to send to Elasticsearch
+
+### Filtrer ou adapter les données que vous voulez envoyer à Elasticsearch
+
+Tous les stream connectors ont un jeu de [paramètres optionnels](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters) qui vous permettent de filtrer les données que vous enverrez à votre équipement Elasticmetrics, de reformater les données, de définir un proxy...
+
+Chaque paramètre optionnel a une valeur par défaut, qui est indiquée dans la documentation correspondante.
+
+* Pour surcharger la valeur par défaut d'un paramètre, cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category**, afin d'ajouter un paramètre personnalisé. Par exemple, si vous ne voulez envoyer à Elasticmetrics que les évènmenes traités par un collecteur nommé "poller-1", entrez :
+
+   ```text
+   type = string
+   name = accepted_pollers
+   value = poller-1
+   ```
+
+* Pour le stream connector Elasticsearch Events, les valeurs suivantes surchargent toujours les valeurs par défaut (il n'est pas nécessaire de les redéfinir dans l'interface).
+
+| Type   | Nom                 | Valeur par défaut pour le stream connector |
 | ------ | ------------------- | -------------------------------------- |
 | string | accepted_categories | neb                                    |
 | string | accepted_elements   | host_status,service_status             |
 
 ## Event bulking
 
-This stream connector is compatible with event bulking. Meaning that it is able to send more that one event in each call to the Elastic REST API.
+Ce stream connector est compatible avec l'event bulking. Cela signifie qu'il est capable d'envoyer plus d'un évènement dans chaque appel à l'API REST Elastic.
 
-To use this feature you must add the following parameter in your stream connector configuration.
+Pour utiliser cette fonctionnalité, ajoutez le paramètre suivant à la configuration de votre stream connector.
 
 | Type   | Name            | Value           |
 | ------ | --------------- | --------------- |
 | number | max_buffer_size | `more than one` |
 
-## Event format
+## Format des évènements
 
-This stream connector will send event with the following format.
+Ce stream connector enverra des évènements au format suivant.
 
-### service_status event
+### Évènement service_status
 
 ```json
 {
@@ -146,12 +146,11 @@ This stream connector will send event with the following format.
     "state_type": 1,
     "host": "my_host",
     "service": "a_service",
-    "output": "CRITICAL: Burnin and Lootin",
-    "timestamp": 1637229207
+    "output": "CRITICAL: Burnin and Lootin"
 }
 ```
 
-### host_status event
+### Évènement host_status
 
 ```json
 {
@@ -165,25 +164,28 @@ This stream connector will send event with the following format.
 }
 ```
 
-### Custom event format
+### Format d'évènement personnalisé
 
-This stream connector allows you to change the format of the event to suit your needs. Only the **event** part of the json is customisable. It also allows you to handle events type that are not handled by default such as **ba_status events**.
+Ce stream connector vous permet de changer le format des évènements pour les adapter à vos besoins. Seule la partie **event** du json est personnalisable. Cela vous permet également d'utiliser des types d'évènements non pris en charge par défaut, tels que des évènements **ba_status**.
 
-In order to use this feature you need to configure a json event format file and add a new stream connector parameter.
+Pour utiliser cette fonctionnalité, vous devez configurer un ficher json de format d'évènement et ajouter un nouveau paramètre au stream connector.
 
-| Type   | Name        | Value                                           |
-| ------ | ----------- | ----------------------------------------------- |
+| Type   | Nom         | Valeur                                         |
+| ------ | ----------- | ---------------------------------------------- |
 | string | format_file | /etc/centreon-broker/elastic-events-format.json |
 
-> The event format configuration file must be readable by the centreon-broker user
+> Le fichier de configuration de format doit être lisible par l'utilisateur **centreon-broker**.
 
-To learn more about custom event format and templating file, head over the following **[documentation](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
+Pour en savoir plus sur les formats d'évènements personnalisés t les fichiers de templating, voir la **[documentation suivante](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
 
-## Curl commands
+## Commandes Curl : tester le stream connector
 
-Here is the list of all the curl commands that are used by the stream connector.
+### Envoyer des évènements
 
-### Send events
+Si vous voulez tester que les évènements sont envoyés correctement à Elasticsearch :
+
+1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à Elasticsearch (le serveur central, un serveur distant ou un collecteur)
+2. Exécutez la commande suivante :
 
 ```shell
 curl -u elastic:centreon-es-passwd --header 'content-type: application/json'  -X POST "<elastic_url>/_bulk" --data-binary '{"index":{"_index":"<elastic_index_status>"}}
@@ -191,4 +193,6 @@ curl -u elastic:centreon-es-passwd --header 'content-type: application/json'  -X
 '
 ```
 
-You must replace all the *`<xxxx>`* inside the above command with their appropriate value.
+> Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par la valeur correcte.
+
+3. Vérifiez que les données ont été reçues par Elasticsearch.
