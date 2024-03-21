@@ -71,14 +71,14 @@ Le sourcetype correspondant au stream connector est "_json". D'autres informatio
 
 5. Pour permettre à Centreon de se connecter à votre équipement Splunk, remplissez les paramètres obligatoires suivants. La première entrée existe déjà. Cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category** pour en ajouter un autre.
 
-| Type   | Name            | Explication de "Value"                  | Exemple de valeur                                           |
+| Type   | Name            | Explication                  | Exemple de valeur                                           |
 | ------ | --------------- | --------------------------------------- | ------------------------------------------------------- |
 | string | http_server_url | L'URL du collecteur de services de Splunk | `https://mysplunk.centreon.com:8088/services/collector` |
 | string | splunk_token    | Jeton pour l'API du collecteur d'évènements    |                                                         |
 
 6. Renseignez les paramètres optionnels désirés (en utilisant le lien **+Add a new entry**) :
 
-| Type   | Name              | Explication de "Value"                                              | Valeur par défaut                              |
+| Type   | Name              | Explication                                              | Valeur par défaut                              |
 | ------ | ----------------- | --------------------------------------------------------------- | ------------------------------------------- |
 | string | logfile           | Fichier dans lequel les ogs sont écrits                              | /var/log/centreon-broker/splunk-metrics.log |
 | number | log_level         | Niveau de log, de 1 (erreurs) à 3 (débug)                      | 1                                           |
@@ -122,7 +122,7 @@ Ce stream connector est compatible avec l'event bulking. Cela signifie qu'il est
 
 Pour utiliser cette fonctionnalité, vous devez ajouter le paramètre suivant à la configuration de votre stream connector.
 
-| Type   | Name            | Value           |
+| Type   | Nom             | Valeur           |
 | ------ | --------------- | --------------- |
 | number | max_buffer_size | `more than one` |
 
