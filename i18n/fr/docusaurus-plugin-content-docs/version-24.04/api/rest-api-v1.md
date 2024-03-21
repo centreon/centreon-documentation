@@ -1838,7 +1838,7 @@ To delete more than one hostgroup, use the character '|'. Ex:
     - setmember
     - delmember
 
-### Instances ( Pollers)
+### Instances (Pollers)
 
   - **Object**
     
@@ -1851,6 +1851,146 @@ To delete more than one hostgroup, use the character '|'. Ex:
     - del
     - setparam
     - gethosts
+
+### Resource CFG (pollers related macros)
+
+#### List macros
+
+**POST**
+
+    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+
+**Header**
+
+| Key                 | Value                                                         |
+| ------------------- | ------------------------------------------------------------- |
+| Content-Type        | application/json                                              |
+| centreon-auth-token | The value of authToken you got on the authentication response |
+
+**Body**
+
+``` json
+{
+    "action": "show",
+    "object": "resourcecfg"
+}
+```
+
+**Response**
+
+``` json
+{
+  "result": [
+    {
+      "id": "1",
+      "name": "$USER1$",
+      "value": "/usr/lib64/nagios/plugins",
+      "comment": "Nagios Plugins Path",
+      "activate": "1",
+      "instance": [
+        "Central"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "$CENTREONPLUGINS$",
+      "value": "/usr/lib/centreon/plugins",
+      "comment": "Centreon Plugins Path",
+      "activate": "1",
+      "instance": [
+        "Central"
+      ]
+    }
+  ]
+}
+```
+
+#### Add a macro
+
+**POST**
+
+    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+
+**Header**
+
+| Key                 | Value                                                         |
+| ------------------- | ------------------------------------------------------------- |
+| Content-Type        | application/json                                              |
+| centreon-auth-token | The value of authToken you got on the authentication response |
+
+**Body**
+
+``` json
+{
+    "action": "add",
+    "object": "resourcecfg"
+    "values": "{macro name};{macro value};{poller related list};{comment}"
+}
+```
+
+**Response**
+
+``` json
+{"result":[]}
+```
+
+#### Delete a macro
+
+**POST**
+
+    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+
+**Header**
+
+| Key                 | Value                                                         |
+| ------------------- | ------------------------------------------------------------- |
+| Content-Type        | application/json                                              |
+| centreon-auth-token | The value of authToken you got on the authentication response |
+
+**Body**
+
+``` json
+{
+    "action": "del",
+    "object": "resourcecfg"
+    "values": "{macro ID}"
+}
+```
+
+**Response**
+
+``` json
+{"result":[]}
+```
+
+#### Change a macro
+
+**POST**
+
+    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+
+**Header**
+
+| Key                 | Value                                                         |
+| ------------------- | ------------------------------------------------------------- |
+| Content-Type        | application/json                                              |
+| centreon-auth-token | The value of authToken you got on the authentication response |
+
+**Body**
+
+``` json
+{
+    "action": "setparam",
+    "object": "resourcecfg"
+    "values": "{macro ID};{parameter to change: instance,comment,value or activate};{value}"
+}
+```
+
+**Response**
+
+``` json
+{"result":[]}
+```
 
 ### Service templates
 
