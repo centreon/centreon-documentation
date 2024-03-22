@@ -176,7 +176,7 @@ Pour utiliser cette fonctionnalité, vous devez configurer un ficher json de for
 
 > Le fichier de configuration de format doit être lisible par l'utilisateur **centreon-broker**.
 
-Pour en savoir plus sur les formats d'évènements personnalisés t les fichiers de templating, voir la **[documentation suivante](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
+Pour en savoir plus sur les formats d'évènements personnalisés et les fichiers de templating, voir la **[documentation suivante](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
 
 ## Commandes Curl : tester le stream connector
 
