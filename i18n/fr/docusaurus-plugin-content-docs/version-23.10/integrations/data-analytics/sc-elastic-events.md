@@ -107,7 +107,7 @@ Tous les stream connectors ont un jeu de [paramètres optionnels](https://github
 
 Chaque paramètre optionnel a une valeur par défaut, qui est indiquée dans la documentation correspondante.
 
-* Pour surcharger la valeur par défaut d'un paramètre, cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category**, afin d'ajouter un paramètre personnalisé. Par exemple, si vous ne voulez envoyer à Elasticmetrics que les évènmenes traités par un collecteur nommé "poller-1", entrez :
+* Pour surcharger la valeur par défaut d'un paramètre, cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category**, afin d'ajouter un paramètre personnalisé. Par exemple, si vous ne voulez envoyer à Elasticmetrics que les évènements traités par un collecteur nommé "poller-1", entrez :
 
    ```text
    type = string
