@@ -71,7 +71,7 @@ Sur votre serveur Elasticsearch, vous aurez besoin de :
 | Path            | /usr/share/centreon-broker/lua/elastic-events-apiv2.lua |
 | Filter category | Neb                                                     |
 
-5. Pour permettre à Centreon de se connecter à votre équipement Elasticsearch, remplissez les paramètres obligatoires suivants. La première entrée existe déjà. Cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category** pour en ajouter un autre.
+5. Pour permettre à Centreon de se connecter à votre équipement Elasticsearch, remplissez les paramètres obligatoires suivants. La première entrée existe déjà. Cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category** pour en ajouter une autre.
 
 | Type   | Nom            | Description                       | Exemple                                           |
 | ------ | ----------------------- | --------------------------------------- | ------------------------------------------------------- |
