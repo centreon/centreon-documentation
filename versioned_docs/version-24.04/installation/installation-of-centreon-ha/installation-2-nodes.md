@@ -448,7 +448,7 @@ then create the directory and corresponding log file:
 ```shell
 mkdir /var/log/mariadb
 touch /var/log/mariadb/mariadb.log
-chown -R mysql. /var/log/mariadb
+chown -R mysql: /var/log/mariadb
 ```
 
 </TabItem>
