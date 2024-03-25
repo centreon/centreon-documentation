@@ -1851,9 +1851,10 @@ To delete more than one hostgroup, use the character '|'. Ex:
 
 ### Resource CFG (pollers related macros)
 
-`RESOURCECFG` objects allow to define macro values that apply to a set of pollers.\
-A `RESOURCECFG` object defines a macro for one or multiple pollers.\
-The same macro can be defined in multiple `RESOURCECFG` objects with complementary lists of pollers.
+`RESOURCECFG` objects allow to define macro values that apply to a set of pollers.  
+A `RESOURCECFG` object defines a macro for one or multiple pollers.  
+The same macro can be defined in multiple `RESOURCECFG` objects with complementary lists of pollers.  
+More information here: [Resource macros](../monitoring/basic-objects/macros.md#resource-macros)
 
 #### List RESOURCECFG objects
 
