@@ -1,6 +1,6 @@
 ---
 id: dashboards
-title: Tableaux de bord Beta
+title: Tableaux de bord
 ---
 
 > Centreon Tableaux de bord est maintenant disponible en version bêta.
@@ -11,7 +11,7 @@ Commencez par créer des tableaux de bord et ajoutez des widgets spécialement c
 
 ## Créer votre premier tableau de bord
 
-1. Allez dans **Accueil > Tableaux de bord Beta**.
+1. Allez dans **Accueil > Tableaux de bord**.
 2. Dans la page **Bibliothèque de tableaux de bord**, cliquez sur le bouton **Créer un tableau de bord**. Cela ouvre la modale **Créer un tableau de bord**.
 3. Nommez le tableau de bord et renseignez une description si nécessaire.
 4. Cliquez sur **Créer** pour confirmer la création.
