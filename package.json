@@ -16,7 +16,7 @@
   "dependencies": {
     "@cmfcmf/docusaurus-search-local": "^1.1.0",
     "@docusaurus/core": "^2.4.3",
-    "@docusaurus/plugin-content-docs": "^2.4.3",
+    "@docusaurus/plugin-content-docs": "^3.1.1",
     "@docusaurus/plugin-ideal-image": "^2.4.3",
     "@docusaurus/preset-classic": "^2.4.3",
     "@svgr/webpack": "^8.1.0",
