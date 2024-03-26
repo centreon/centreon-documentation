@@ -61,7 +61,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-A service account is required to query the Cisco SSMS API. It must have sufficient read privileges in the account targeted.
+A service account with read-only privileges is required to query the Cisco SSMS API.
 More information is available in the official Cisco SSMS API : https://www.cisco.com/c/dam/en_us/buy/smart-accounts/smart-software-manager-satellite-enhanced-edition-6-2-0-user-guide.pdf
 
 ## Installing the monitoring connector
