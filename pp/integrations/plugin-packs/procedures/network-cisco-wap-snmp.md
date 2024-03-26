@@ -126,7 +126,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-The SNMP agent must be configured and running. Please refer to the manufacturer documentation to achieve this.
+The SNMP service must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
+
 The Centreon Poller must be able to reach the UDP/161 SNMP port of the Cisco Wap device.
 
 ## Installing the monitoring connector
