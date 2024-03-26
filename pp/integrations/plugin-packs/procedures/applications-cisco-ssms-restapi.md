@@ -245,7 +245,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: licenses are ok | '*accounts*~*licenses*#licenses.usage.count'=;;;0;total'*accounts*~*licenses*#licenses.free.count'=;;;0;total'*accounts*~*licenses*#licenses.usage.percentage'=%;;;0;total
+OK: licenses are ok | '*accounts*~*licenses*#licenses.usage.count'=0;;;0; '*accounts*~*licenses*#licenses.free.count'=0;;;0; '*accounts*~*licenses*#licenses.usage.percentage'=0%;;;0;
 ```
 
 ### Troubleshooting
