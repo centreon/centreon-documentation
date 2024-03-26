@@ -21,7 +21,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Alias        | Modèle de service                     | Description                                                   |
 |:-------------|:--------------------------------------|:--------------------------------------------------------------|
-| System-Usage | App-Openldap-System-Usage-LDAP-custom | Contrôler l'utilisation du Système OpenLDAP via LDAP Protocol |
+| System-Usage | App-Openldap-System-Usage-LDAP-custom | Contrôler l'utilisation du système OpenLDAP via le protocole LDAP |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Openldap-LDAP-custom** est utilisé.
 
