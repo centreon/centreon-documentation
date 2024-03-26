@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 Cisco est un fournisseur de solutions réseau.
 
-Le connecteur de supervision *Cisco Wap SNMP* utilise le protocole SNMP pour se connecter, récupérer des informations et les métriques relatives aux point d'accès de marque Cisco.
+Le connecteur de supervision *Cisco WAP SNMP* utilise le protocole SNMP pour se connecter, récupérer des informations et les métriques relatives aux point d'accès de marque Cisco.
 
 ## Contenu du pack
 
