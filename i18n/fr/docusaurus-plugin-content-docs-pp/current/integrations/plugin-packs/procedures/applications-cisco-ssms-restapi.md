@@ -247,7 +247,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: licenses are ok | '*accounts*~*licenses*#licenses.usage.count'=;;;0;total'*accounts*~*licenses*#licenses.free.count'=;;;0;total'*accounts*~*licenses*#licenses.usage.percentage'=%;;;0;total
+OK: licenses are ok | '*accounts*~*licenses*#licenses.usage.count'=0;;;0; '*accounts*~*licenses*#licenses.free.count'=0;;;0; '*accounts*~*licenses*#licenses.usage.percentage'=0%;;;0;
 ```
 
 ### Diagnostic des erreurs communes
