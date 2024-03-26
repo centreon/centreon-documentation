@@ -6,7 +6,7 @@ module.exports = {
       "link": {
         type: "doc",
         id: 'integrations/plugin-packs/getting-started/introduction'
-               },
+      },
       items: [
         {
           type: 'category',
@@ -861,6 +861,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-azure-database-mysql'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-azure-database-postgresql'
         },
         {
           type: 'doc',
