@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                      | Service Description                       |
 |:--------------|:--------------------------------------|:------------------------------------------|
-| System-Usage  | App-Openldap-System-Usage-LDAP-custom | Check system usage of OpenLDAP using LDAP |
+| System-Usage  | App-Openldap-System-Usage-LDAP-custom | Check system usage of OpenLDAP using the LDAP protocol |
 
 > The services listed above are created automatically when the **App-Openldap-LDAP-custom** host template is used.
 
