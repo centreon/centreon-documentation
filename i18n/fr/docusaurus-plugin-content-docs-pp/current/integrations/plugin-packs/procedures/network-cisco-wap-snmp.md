@@ -29,7 +29,7 @@ Le connecteur apporte les modèles de service suivants
 | Cpu                   | Net-Cisco-Wap-Cpu-SNMP-custom                  | Contrôle le taux d'utilisation du CPU                       |
 | Memory                | Net-Cisco-Wap-Memory-SNMP-custom               | Contrôle du taux d'utilisation de la mémoire vive           |
 | Uptime                | Net-Cisco-Wap-Uptime-SNMP-custom               | Durée depuis laquelle l'équipement tourne sans interruption |
-| Virtual Access Points | Net-Cisco-Wap-Virtual-Access-Point-SNMP-custom | Contrôle les points d'accès virtuel                         |
+| Virtual Access Points | Net-Cisco-Wap-Virtual-Access-Point-SNMP-custom | Contrôle les points d'accès virtuels                         |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Cisco-Wap-SNMP-custom** est utilisé.
 
