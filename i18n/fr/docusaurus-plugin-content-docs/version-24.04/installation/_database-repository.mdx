@@ -1,0 +1,57 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="database-sync">
+
+<TabItem value="MariaDB" label="MariaDB">
+
+<Tabs groupId="sync">
+
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf module enable -y mariadb:10.5
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+*Rien à faire, MariaDB 10.5 est déjà disponible dans les dépôts officiels.*
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+*Rien à faire, MariaDB 10.5 est déjà disponible dans les dépôts officiels.*
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL">
+
+<Tabs groupId="sync">
+
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+*Rien à faire, MySQL 8.0 est déjà disponible dans les dépôts officiels.*
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+*Rien à faire, MySQL 8.0 est déjà disponible dans les dépôts officiels.*
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```shell
+wget -P /tmp/ https://dev.mysql.com/get/mysql-apt-config_0.8.29-1_all.deb
+apt install /tmp/mysql-apt-config_0.8.29-1_all.deb
+# Selectionner Ok pour valider l'installation de "MySQL Tools & Connectors"
+apt update
+```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+</Tabs>
