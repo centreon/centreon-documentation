@@ -154,7 +154,7 @@ Vous devrez paramétrer votre équipement Elasticsearch pour qu'il puisse recevo
 | number | add_servicegroups_dimension | Ajoute les groupes de services aux données envoyées. (1 = ajout des groupes de services, 0 = pas
 de groupes de services envoyés) | 0 |
 
-7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les données que vous voulez que Centreon envoie à Elasticsearch](#filtering-or-adapting-the-data-you-want-to-send-to-elasticsearch).
+7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les données que vous voulez que Centreon envoie à Elasticsearch](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-elasticsearch).
 
 8. [Déployez la configuration](https://docs.centreon.com/fr/docs/monitoring/monitoring-servers/deploying-a-configuration/).
 
@@ -164,7 +164,7 @@ de groupes de services envoyés) | 0 |
    systemctl restart centengine
    ```
 
-   Elasticsearch reçoit maintenant des données de Centreon. Pour tester le bon fonctionnement de l'intégration, voir [Commandes curl : tester le stream connector](#commandes-curl--tester-le-stream-connector)
+   Elasticsearch reçoit maintenant des données de Centreon. Pour tester le bon fonctionnement de l'intégration, voir [Commandes curl : tester le stream connector](#commandes-curl--tester-le-stream-connector).
 
 ### Filtrer ou adapter les données que vous voulez envoyer à Elasticsearch
 
@@ -173,7 +173,6 @@ Tous les stream connectors ont un jeu de [paramètres optionnels](https://github
 Chaque paramètre optionnel a une valeur par défaut, qui est indiquée dans la documentation correspondante.
 
 * Pour surcharger la valeur par défaut d'un paramètre, cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category**, afin d'ajouter un paramètre personnalisé. Par exemple, si vous ne voulez envoyer à Elasticmetrics que les évènmenes traités par un collecteur nommé "poller-1", entrez :
-
 
    ```text
    type = string
