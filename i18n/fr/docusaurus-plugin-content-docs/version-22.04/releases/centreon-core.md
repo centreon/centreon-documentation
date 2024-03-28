@@ -706,6 +706,14 @@ As stated above, all broker instances (central, RRD, modules) must use the same 
 
 ## Centreon Gorgone
 
+### 22.04.7
+
+Release date: `March 28, 2024`
+
+#### Enhancements
+
+- Moved Gorgone whitelists to a dedicated file.
+
 ### 22.04.6
 
 Release date: `March 13, 2024`
