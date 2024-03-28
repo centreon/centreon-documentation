@@ -46,7 +46,7 @@ systemctl start centreon-map
 
 ``` shell
 systemctl stop centreon-map
-apt update && apt upgrade centreon-map-server
+apt update && apt install --only-upgrade centreon-map-server
 systemctl start centreon-map
 ```
 
@@ -86,7 +86,7 @@ dnf update centreon-map-web-client
 <TabItem value="Debian 11" label="Debian 11">
 
 ``` shell
-apt update && apt upgrade centreon-map-web-client
+apt update && apt install --only-upgrade centreon-map-web-client
 ```
 
 </TabItem>
