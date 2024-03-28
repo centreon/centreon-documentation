@@ -159,7 +159,7 @@ yum install centreon-plugin-Applications-Protocol-Modbus
 | CONFIG       | Define the configuration of the check (can be a file or a json string directly).                                       |                   | X           |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
-> **CONFIG :** Davantage d'informations sont disponibles [ici](https://github.com/centreon/centreon-plugins/blob/master/doc/en/user/guide.rst#modbus-protocol).
+> **CONFIG :** More information is available [here](https://github.com/centreon/centreon-plugins/blob/master/doc/en/user/guide.rst#modbus-protocol).
 
 </TabItem>
 </Tabs>
