@@ -582,6 +582,18 @@ Release date: `October 26, 2022`
 
 ## Centreon Gorgone
 
+### 22.10.6
+
+Release date: `March 28, 2024`
+
+#### Enhancements
+
+- Moved Gorgone whitelists to a dedicated file.
+
+#### Bug fixes
+
+- Fixed a regression causing one of Gorgone's modules to use 100% of one CPU core.
+
 ### 22.10.5
 
 Release date: `March 13, 2024`
