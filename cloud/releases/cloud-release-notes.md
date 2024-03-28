@@ -14,6 +14,7 @@ To maintain system integrity, this feature is secured by a whitelist mechanism (
 - Navigation in dashboards has been enhanced with a new search feature, a listing presentation and a better responsiveness.
 - Existing widgets have been improved, based on beta tester feedbacks. It is now more intuitive to select metrics or to select the widget you need.
 - A new widget named “Resource Table” is available allowing to visualize status of a set of selected resources.
+
 Important note: this is the last time Centreon Dashboards is delivered as a beta version. On next version, Centreon Dashboards will be generally available.
 
 ### Miscenaleous improvements
