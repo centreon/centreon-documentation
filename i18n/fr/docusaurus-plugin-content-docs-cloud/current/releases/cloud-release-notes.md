@@ -3,6 +3,23 @@ id: cloud-release-notes
 title: Centreon Cloud - notes de release
 ---
 
+## March 29, 2024
+
+### Custom Check Command definition
+   You now have the ability to define your own check commands, allowing for personalized monitoring configurations.
+To maintain system integrity, this feature is secured by a whitelist mechanism (requires a poller update), ensuring only authorized commands are executed.
+
+### Dashboards Beta:
+   As usual, lots of improvements of the Dashboard feature with this release:
+- Navigation in dashboards has been enhanced with a new search feature, a listing presentation and a better responsiveness.
+- Existing widgets have been improved, based on beta tester feedbacks. It is now more intuitive to select metrics or to select the widget you need.
+- A new widget named “Resource Table” is available allowing to visualize status of a set of selected resources.
+Important note: this is the last time Centreon Dashboards is delivered as a beta version. On next version, Centreon Dashboards will be generally available.
+
+### Miscenaleous improvements
+- You can now display any page of Centreon, and in particular dashboards, in Full Screen Mode.
+- It is now possible to use semicolons in command macros (and in particular in passwords).
+
 ## February 26, 2024
 
 ### Centreon IT Edition
