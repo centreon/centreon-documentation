@@ -1,9 +1,7 @@
 ---
 id: dashboards
-title: Tableaux de bord Beta
+title: Tableaux de bord
 ---
-
-> Centreon Tableaux de bord est disponible en version bêta à partir de **Centreon version 23.10**.
 
 Commencez par créer des tableaux de bord et ajoutez des widgets spécialement conçus pour optimiser votre expérience utilisateur. Bénéficiez ensuite d'options de visualisation de données pour afficher et suivre vos ressources en temps réel.
 
@@ -38,7 +36,7 @@ L'accès à la fonctionnalité Tableaux de bord n'est pas géré au niveau de l'
 > Vous devez disposer d'un compte d'utilisateur avec des droits d'accès à la fonctionnalité Tableaux de bord.
 
 1. Connectez-vous à Centreon.
-2. Vous devriez voir dans le menu **Accueil**, l'entrée **Tableaux de bord Beta**.
+2. Vous devriez voir dans le menu **Accueil**, l'entrée **Tableaux de bord**.
 
 ## Créer votre premier tableau de bord
 
