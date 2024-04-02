@@ -77,14 +77,14 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 ## Prérequis
 
 Un certain nombre de distributions fournissent VerneMQ, y compris des paquets binaires pré-construits.
-Le support de ces compilations, s'il y en a, est fourni par le fournisseur de la distribution associée.
-Leur cycle de publication peut être en retard par rapport aux versions sources de VerneMQ.
+Le support de ces compilations, s'il y en a, est fait par le fournisseur de la distribution associée.
+Leur cycle de publication peut être en retard par rapport aux versions source de VerneMQ.
 
-De plus amples informations sont disponibles sur la documentation officielle du VerneMQ : https://docs.vernemq.com/getting-started
+De plus amples informations sont disponibles sur la documentation officielle de VerneMQ : https://docs.vernemq.com/getting-started
 
 L'API HTTP de VerneMQ est activée par défaut et installe un gestionnaire HTTP sur `http://myvernemq.com:8888/api/v1`.
-L'utilisateur de centreon-engine effectue une connexion à ce système.
-Sur le serveur VerneMQ, vous devez avoir généré un Token avec la commande suivante :
+L'utilisateur **centreon-engine** effectue une connexion à ce système.
+Sur le serveur VerneMQ, vous devez avoir généré un jeton avec la commande suivante :
 
 ```bash
 $ vmq-admin api-key create
