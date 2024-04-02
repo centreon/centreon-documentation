@@ -268,7 +268,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All outlets are ok | '*outlet*#outlet.current.ampere'=A;;;0;'*outlet*#outlet.voltage.volt'=V;;;;'*outlet*#outlet.power.watt'=W;;;;
+OK: All outlets are ok | '*outlet*#outlet.current.ampere'=1A;;;0;'*outlet*#outlet.voltage.volt'=230V;;;;'*outlet*#outlet.power.watt'=200W;;;;
 ```
 
 ### Troubleshooting
