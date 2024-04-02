@@ -79,17 +79,17 @@ A number of distributions provide VerneMQ, including pre-built binary packages.
 Support for these builds, if any, is being provided by the associated distribution vendor.
 Their release cycle may lag behind VerneMQ source releases.
 
-More information is available on the official documentation of VerneMQ : https://docs.vernemq.com/getting-started
+More information is available in the official documentation for VerneMQ : https://docs.vernemq.com/getting-started
 
 The VerneMQ HTTP API is enabled by default and installs an HTTP handler on `http://myvernemq.com:8888/api/v1`.
-The centreon-engine user performs a RestAPI request to this system. 
-You must have generated one Token on VerneMQ server with the following command :
+The **centreon-engine** user performs a RestAPI request to this system. 
+You must have generated one token on the VerneMQ server with the following command :
 
 ```bash
 $ vmq-admin api-key create
 ```
 
-More information on VerneMQ HTTP API on : https://docs.vernemq.com/administration/http-administration#managing-api-keys
+More information on the VerneMQ HTTP API on : https://docs.vernemq.com/administration/http-administration#managing-api-keys
 
 ## Installing the monitoring connector
 
