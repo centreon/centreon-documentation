@@ -269,7 +269,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All outlets are ok | '*outlet*#outlet.current.ampere'=A;;;0;'*outlet*#outlet.voltage.volt'=V;;;;'*outlet*#outlet.power.watt'=W;;;;
+OK: All outlets are ok | '*outlet*#outlet.current.ampere'=1A;;;0;'*outlet*#outlet.voltage.volt'=230V;;;;'*outlet*#outlet.power.watt'=200W;;;;
 ```
 
 ### Diagnostic des erreurs communes
