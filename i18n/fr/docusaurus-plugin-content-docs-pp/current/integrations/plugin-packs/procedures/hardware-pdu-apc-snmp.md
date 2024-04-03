@@ -47,7 +47,11 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Hardware" label="Hardware">
 
-Coming soon
+| Métrique        | Unité |
+|:----------------|:------|
+| PSU | N/A     |
+| Humidity | %     |
+| Temperature   | C     |
 
 </TabItem>
 <TabItem value="Load" label="Load">
