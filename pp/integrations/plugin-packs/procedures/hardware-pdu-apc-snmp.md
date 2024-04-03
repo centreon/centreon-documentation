@@ -244,7 +244,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All outlets are ok | '*outlet*#status'=;;;;'*outlet*#outlet.current.ampere'=A;;;0;
+OK: All outlets are ok | '*outlet*#status'=;;;;'*outlet*#outlet.current.ampere'=1A;;;0;
 ```
 
 ### Troubleshooting
