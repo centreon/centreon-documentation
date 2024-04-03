@@ -5,8 +5,8 @@ title: VerneMQ Restapi
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-VerneMQ is a scalable and open source MQTT broker that connects IoT, M2M, Mobile, and web applications
-The VerneMQ Monitoring Connector monitors Clusters, Listeners, Plugins, and sessions using the RestAPI.
+VerneMQ is a scalable and open source MQTT broker that connects IoT, M2M, mobile and web applications.
+The VerneMQ Monitoring Connector monitors Clusters, Listeners, Plugins and sessions using the RestAPI.
 
 ## Pack assets
 
