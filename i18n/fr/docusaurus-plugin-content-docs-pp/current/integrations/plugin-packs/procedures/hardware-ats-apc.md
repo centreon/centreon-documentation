@@ -251,7 +251,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All input lines are ok | '*input*#voltage'=V;;;;'*input*#current'=A;;;;'*input*#power'=W;;;;
+OK: All input lines are ok | '*input*#voltage'=200V;;;;'*input*#current'=1A;;;;'*input*#power'=200W;;;;
 ```
 
 ### Diagnostic des erreurs communes
