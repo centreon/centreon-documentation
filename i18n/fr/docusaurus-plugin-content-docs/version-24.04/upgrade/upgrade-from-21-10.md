@@ -43,7 +43,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 ```
 
 > Si vous avez une [licence offline](../administration/licenses.md#types-de-licences), supprimez également l'ancien dépôt des connecteurs de supervision, puis installez le nouveau dépôt.
@@ -54,7 +54,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/e
 
 ### Montée de version de PHP
 
-Centreon 23.10 utilise PHP en version 8.1.
+Centreon 24.04 utilise PHP en version 8.1.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
@@ -92,7 +92,7 @@ dnf module install php:remi-8.1
 > Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer
 > la procédure de mise à jour.
 
-Si vous avez des extensions Business installées, mettez à jour le dépôt business en 23.10.
+Si vous avez des extensions Business installées, mettez à jour le dépôt business en 24.04.
 Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
 
 Arrêter le processus Centreon Broker :
@@ -291,7 +291,7 @@ Exécutez la commande suivante :
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 ```
 
 </TabItem>

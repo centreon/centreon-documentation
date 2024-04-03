@@ -1,12 +1,12 @@
 ---
 id: update-centreon-platform
-title: Mise à jour d'une plateforme Centreon 23.10
+title: Mise à jour d'une plateforme Centreon 24.04
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit la procédure de mise à jour de votre plate-forme Centreon
-23.10 (c'est-à-dire le passage de 23.10.x à 23.10.y).
+24.04 (c'est-à-dire le passage de 24.04.x à 24.04.y).
 
 ## Sauvegarde
 
@@ -116,14 +116,14 @@ mise à jour.
 
    - adresse : 10.25.XX.XX
    - port : 80
-   - version : 23.10
+   - version : 24.04
    - identifiant : Admin
    - mot de passe : xxxxx
 
 2. Entrez la requête suivante :
 
   ```shell
-  curl --location --request POST '10.25.XX.XX:80/centreon/api/v23.10/login' \
+  curl --location --request POST '10.25.XX.XX:80/centreon/api/v24.04/login' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --data '{
@@ -258,7 +258,7 @@ Vous pouvez réaliser une mise à jour silencieuse de votre plateforme en utilis
 1. Téléchargez le script avec la commande suivante :
 
 ```shell
-curl -L https://raw.githubusercontent.com/centreon/centreon/23.10.x/centreon/unattended.sh -O /tmp/unattended
+curl -L https://raw.githubusercontent.com/centreon/centreon/24.04.x/centreon/unattended.sh -O /tmp/unattended
 ```
 
 2. Lancez le script :
@@ -266,17 +266,17 @@ curl -L https://raw.githubusercontent.com/centreon/centreon/23.10.x/centreon/una
 * Pour un serveur central :
 
 ```shell
-bash unattended.sh update -t central -v 23.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+bash unattended.sh update -t central -v 24.04 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```
 
 * Pour un serveur distant :
 
 ```shell
-bash unattended.sh update -t central -v 23.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+bash unattended.sh update -t central -v 24.04 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```
 
 * Pour un collecteur :
 
 ```shell
-bash unattended.sh update -t poller -v 23.10 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+bash unattended.sh update -t poller -v 24.04 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```

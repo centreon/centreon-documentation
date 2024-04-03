@@ -64,7 +64,7 @@ servers:
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 ```
 
 > If you have an [offline license](../administration/licenses.md#types-of-licenses), also remove the old Monitoring Connectors repository, then install the new one.
@@ -87,7 +87,7 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 
 ### Upgrade PHP
 
-Centreon 23.10 uses PHP in version 8.1.
+Centreon 24.04 uses PHP in version 8.1.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
@@ -142,7 +142,7 @@ dnf module install php:remi-8.1
 > Make sure all users are logged out from the Centreon web interface
 > before starting the upgrade procedure.
 
-If you have installed Business extensions, update the Business repository to version 23.10.
+If you have installed Business extensions, update the Business repository to version 24.04.
 Visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
 
 Stop the Centreon Broker process:
@@ -298,7 +298,7 @@ Run the following command on the dedicated DBMS server:
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 ```
 
 </TabItem>
@@ -455,7 +455,7 @@ Run the following command:
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 ```
 
 </TabItem>

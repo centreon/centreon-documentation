@@ -25,7 +25,7 @@ To access the API documentation, there are two possible cases:
      `http(s)://{map_server_url}/centreon-studio/api/beta/`
 
 -   If you don't have Centreon MAP, you can preview the API capabilities
-    here: [Online documentation](https://docs-api.centreon.com/api/centreon-map/23.10/)
+    here: [Online documentation](https://docs-api.centreon.com/api/centreon-map/24.04/)
 
 Because the Centreon Map API is not trivial to use, here is a scenario
 that authenticates the user then creates a map and adds a host to it.

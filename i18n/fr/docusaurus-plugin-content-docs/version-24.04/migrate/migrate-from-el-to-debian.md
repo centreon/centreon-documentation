@@ -171,12 +171,12 @@ Si vous utilisez vos propres plugins personnalisés, synchronisez les répertoir
 ### Étape 5 : Montée de version de la solution Centreon
 
 1. Sur le nouveau serveur, forcez la montée de version en déplacant le contenu du répertoire
-   **/var/lib/centreon/installs/install-23.10.x-YYYYMMDD_HHMMSS** dans le
+   **/var/lib/centreon/installs/install-24.04.x-YYYYMMDD_HHMMSS** dans le
    répertoire **/usr/share/centreon/www/install** (**x** est le numéro de version cible pour votre machine migrée):
 
    ```shell
    cd /var/lib/centreon/installs/
-   mv install-23.10.x-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
+   mv install-24.04.x-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
    ```
 
 2. Si vous utilisez la meme adresse IP ou le même nom DNS entre l'ancien serveur

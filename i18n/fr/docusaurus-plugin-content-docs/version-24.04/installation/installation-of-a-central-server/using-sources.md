@@ -25,7 +25,7 @@ dnf config-manager --set-enabled ol8_codeready_builder
 Installez le dépôt Centreon pour les dépendances perl additionnelles :
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 ```
 
 Activez PHP 7.3 avec la commande suivante :
@@ -155,7 +155,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 Installez le dépôt Centreon pour les dépendances perl additionnelles :
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 ```
 
 Activez PHP 7.3 avec la commande suivante :

@@ -21,6 +21,7 @@ Lorsque vous passez d'une version majeure de Centreon à une autre, vous devez :
 
 | Centreon | MariaDB |
 |----------|---------|
+| 24.04    | 10.11   |
 | 23.10    | 10.5    |
 | 23.04    | 10.5    |
 | 22.10    | 10.5    |
