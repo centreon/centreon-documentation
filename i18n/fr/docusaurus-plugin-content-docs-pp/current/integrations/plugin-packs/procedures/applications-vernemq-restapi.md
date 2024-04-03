@@ -26,7 +26,7 @@ Le connecteur apporte les modèles de service suivants
 |:----------|:-------------------------------------|:-----------------------|
 | Clusters  | App-Vernemq-Clusters-Restapi-custom  | Contrôle les clusters  |
 | Listeners | App-Vernemq-Listeners-Restapi-custom | Contrôle les listeners |
-| Plugins   | App-Vernemq-Plugins-Restapi-custom   | Contrôle les sondes    |
+| Plugins   | App-Vernemq-Plugins-Restapi-custom   | Contrôle les plugins    |
 | Sessions  | App-Vernemq-Sessions-Restapi-custom  | Contrôle les sessions  |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Vernemq-Restapi-custom** est utilisé.
