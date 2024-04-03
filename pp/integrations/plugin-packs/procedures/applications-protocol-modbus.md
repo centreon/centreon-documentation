@@ -183,7 +183,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All metrics are OK | 'metric1'=0;;;; 'metric2'=0;;;; 'metric3'=0;;;; 
+OK: All metrics are OK | 'metric1'=10;;;; 'metric2'=40;;;; 'metric3'=72;;;; 
 ```
 
 ### Troubleshooting
