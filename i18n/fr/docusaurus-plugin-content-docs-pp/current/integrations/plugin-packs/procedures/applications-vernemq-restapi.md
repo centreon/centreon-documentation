@@ -83,7 +83,7 @@ Leur cycle de publication peut être en retard par rapport aux versions source d
 De plus amples informations sont disponibles sur la documentation officielle de VerneMQ : https://docs.vernemq.com/getting-started
 
 L'API HTTP de VerneMQ est activée par défaut et installe un gestionnaire HTTP sur `http://myvernemq.com:8888/api/v1`.
-L'utilisateur **centreon-engine** effectue une connexion à ce système.
+L'utilisateur **centreon-engine** effectue une requête RestAPI à ce système.
 Sur le serveur VerneMQ, vous devez avoir généré un jeton avec la commande suivante :
 
 ```bash
