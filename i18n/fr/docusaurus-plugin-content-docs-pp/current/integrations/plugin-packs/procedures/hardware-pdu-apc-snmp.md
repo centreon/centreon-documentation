@@ -245,7 +245,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All outlets are ok | '*outlet*#status'=;;;;'*outlet*#outlet.current.ampere'=A;;;0;
+OK: All outlets are ok | '*outlet*#status'=;;;;'*outlet*#outlet.current.ampere'=1A;;;0;
 ```
 
 ### Diagnostic des erreurs communes
