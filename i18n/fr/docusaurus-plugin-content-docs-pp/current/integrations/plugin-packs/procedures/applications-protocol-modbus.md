@@ -47,7 +47,7 @@ Ce mode étant générique, les métriques retournées dépendent de sa configur
 
 ## Prérequis
 
-The remote server must have a Modbus service running and available.
+Le serveur distant doit avoir un service Modbus en fonctionnement et disponible
 
 ## Installer le connecteur de supervision
 
