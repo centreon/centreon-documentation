@@ -184,7 +184,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All metrics are OK | 'metric1'=0;;;; 'metric2'=0;;;; 'metric3'=0;;;; 
+OK: All metrics are OK | 'metric1'=10;;;; 'metric2'=40;;;; 'metric3'=72;;;; 
 ```
 
 ### Diagnostic des erreurs communes
