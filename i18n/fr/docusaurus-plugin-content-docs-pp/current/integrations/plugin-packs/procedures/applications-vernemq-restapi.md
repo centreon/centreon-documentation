@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 VerneMQ est un gestionnaire MQTT évolutif et open source qui connecte l'IdO (IoT), le M2M, le mobile et les applications web.
-Le connecteur de supervision, supervise les Clusters, Listeners, Plugins et sessions en utilisant l'API Rest de VerneMQ.
+Le connecteur de supervision supervise les Clusters, Listeners, Plugins et sessions en utilisant l'API REST de VerneMQ.
 
 ## Contenu du pack
 
