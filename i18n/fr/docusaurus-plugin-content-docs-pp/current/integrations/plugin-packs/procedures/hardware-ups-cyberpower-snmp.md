@@ -22,7 +22,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias          | Modèle de service                            | Description                                        |
 |:---------------|:---------------------------------------------|:---------------------------------------------------|
 | Battery-Status | HW-UPS-Cyberpower-Battery-Status-SNMP-custom | Contrôle l'état de la batterie                     |
-| Input-Lines    | HW-UPS-Cyberpower-Input-Lines-SNMP-custom    | Contrôle les métriques de la source d'alimentation |
+| Input-Lines    | HW-UPS-Cyberpower-Input-Lines-SNMP-custom    | Contrôle les métriques de la source d'alimentation, en entrée |
 | Output-Lines   | HW-UPS-Cyberpower-Output-Lines-SNMP-custom   | Contrôle les métriques de la source d'alimentation |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-UPS-Cyberpower-SNMP-custom** est utilisé.
