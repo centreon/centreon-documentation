@@ -46,7 +46,11 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Hardware" label="Hardware">
 
-Coming soon
+| Metric name        | Unit |
+|:----------------|:------|
+| PSU | N/A     |
+| Humidity | %     |
+| Temperature   | C     |
 
 </TabItem>
 <TabItem value="Load" label="Load">
