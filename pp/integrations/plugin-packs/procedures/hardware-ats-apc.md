@@ -252,7 +252,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All input lines are ok | '*input*#voltage'=V;;;;'*input*#current'=A;;;;'*input*#power'=W;;;;
+OK: All input lines are ok | '*input*#voltage'=200V;;;;'*input*#current'=1A;;;;'*input*#power'=200W;;;;
 ```
 
 ### Troubleshooting
