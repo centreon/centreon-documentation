@@ -95,7 +95,7 @@ The users you have just added now have access to your dashboard sharing, accordi
 
 ## Managing playlists
 
-Playlists are lists of selected dashboards to be broadcast in the order of your choice. This feature is useful when you want to display your dashboards on a full-screen TV in public spaces.
+Playlists are lists of selected dashboards to be broadcast in the order of your choice. This feature is useful for instance when you want to display your dashboards on a full-screen TV in public spaces.
 
 ### Create a playlist
 
@@ -114,7 +114,7 @@ Your playlist is now added to the list of playlist.
 
 ### Display the playlist
 
-- From the **Playlists** interface, click the line of your playlist.
+- From the **Playlists** interface, click the row for your playlist.
 Your playlist is now displayed and a control banner appears when you hover over the bottom of the interface.
 
 > Get a better visualization by displaying the page in full screen mode (F).
@@ -126,7 +126,7 @@ The control banner allows you to:
 
 ### Share the playlist
 
-> You can only share your playlist with contacts who have access to your Centreon platform.
+> You can only share your playlist with contacts who have access to your Centreon platform and are authorized Dashboards viewers.
 
 - Click the **Share with contacts** button from the line of your playlist.
 The **Playlist access rights** modal is displayed.
@@ -136,7 +136,7 @@ The **Playlist access rights** modal is displayed.
 
 ### Edit/Delete a playlist
 
-The three dots menu in the line of the playlist allows you to edit properties or delete the playlist.
+The three dots action menu at the end of a playlist row allows you to edit properties or delete the playlist.
 
 ## List of widgets
 
