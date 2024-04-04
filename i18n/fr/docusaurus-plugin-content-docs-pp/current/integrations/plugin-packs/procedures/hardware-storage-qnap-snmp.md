@@ -95,7 +95,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Metric name                  			   | Unit   |
+| Métrique                 	           | Unité   |
 |:-----------------------------------------|:-------|
 | hardware.temperature.celsius             | C      |
 | hardware.disk.temperature.celsius        | C      |
