@@ -725,6 +725,10 @@
             },
             {
               "type": "doc",
+              "id": "version-23.10/graph-views/map-web-upgrade"
+            },
+            {
+              "type": "doc",
               "id": "version-23.10/graph-views/import-into-map-web"
             },
             {
