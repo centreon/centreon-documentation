@@ -5,6 +5,10 @@ title: Office 365 Management
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+Office 365 is a line of online subscription services offered by Microsoft in their Microsoft Office product suite. 
+Office 365 covers document creation and management, emailing, video conferencing and many more collaboration offerings.
+The Centreon Plugin relies on the Office 365 Graph API to collect and monitor the Office 365 information and metrics.
+
 ## Pack assets
 
 ### Templates

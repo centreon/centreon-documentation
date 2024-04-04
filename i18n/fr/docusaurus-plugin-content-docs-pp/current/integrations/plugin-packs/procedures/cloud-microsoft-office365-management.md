@@ -5,6 +5,9 @@ title: Office 365 Management
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+Office 365 est une suite de services en ligne proposés par Microsoft dans le cadre de sa ligne de produit Microsoft Office.
+Les informations de monitoring de la suite Office sont mises à disposition par Microsoft à travers une API de gestion Office 365.
+
 ## Contenu du pack
 
 ### Modèles
