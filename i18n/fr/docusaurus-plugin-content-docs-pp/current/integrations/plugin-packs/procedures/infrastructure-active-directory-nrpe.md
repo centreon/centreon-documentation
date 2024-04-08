@@ -64,7 +64,7 @@ Coming soon
 
 ### Centreon NSClient++
 
-Pour surveiller les ressources *Windows* via NRPE, installez la version Centreon
+Pour superviser les ressources Windows via NRPE, installez la version Centreon
 de l'agent NSClient++. Veuillez suivre notre [documentation officielle](../getting-started/how-to-guides/centreon-nsclient-tutorial.md) et assurez-vous que la configuration du **serveur NRPE** est correcte.
 
 ## Installer le connecteur de supervision

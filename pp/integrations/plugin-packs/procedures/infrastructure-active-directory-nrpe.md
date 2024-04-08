@@ -5,7 +5,7 @@ title: Microsoft Active Directory NRPE
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This Monitoring Connector monitors Active Directory Domain Controllers using local commands and the Centreon NSClient++ and the version 2 of the NRPE protocol agent to trigger their executions remotely.
+This Monitoring Connector monitors Active Directory Domain Controllers using local commands and the Centreon NSClient++ and version 2 of the NRPE protocol agent to trigger their executions remotely.
 
 ## Pack assets
 
@@ -22,7 +22,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                                    | Service Description                                                                   |
 |:---------------------|:----------------------------------------------------|:--------------------------------------------------------------------------------------|
-| Ad-Domain-Controller | Infra-ActiveDirectory-Domain-Controller-NRPE-custom | This check makes to diagnose the domain controller. It executes the command "dcdiag"  |
+| Ad-Domain-Controller | Infra-ActiveDirectory-Domain-Controller-NRPE-custom | This check diagnoses the domain controller. It executes the "dcdiag" command |
 
 > The services listed above are created automatically when the **Infra-ActiveDirectory-NRPE-custom** host template is used.
 
@@ -31,7 +31,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                               | Service Description |
 |:--------------|:-----------------------------------------------|:--------------------|
-| Dfsr-Backlog  | Infra-ActiveDirectory-Dfsr-Backlog-NRPE-custom | Check dfsr backlog  |
+| Dfsr-Backlog  | Infra-ActiveDirectory-Dfsr-Backlog-NRPE-custom | Check the Distributed File Systems Replication backlog  |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
