@@ -323,14 +323,14 @@ yum install centreon-plugin-Cloud-Azure-Database-Postgres-Api
 | AGGREGATION            | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | Maximum             |             |
 | FILTERMETRIC           | Filter metrics (available metrics: 'Backup Storage used', 'Server Log storage used', 'Storage Percent', 'Storage Used'). |                   |             |
 | FILTERDIMENSION        | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'". |
-| WARNINGSERVERLOGUSAGE  | Thresholds where '*'                                                                               |                   |             |
-| CRITICALSERVERLOGUSAGE | Thresholds where '*'                                                                               |                   |             |
-| WARNINGSTORAGEBACKUP   | Thresholds where '*'                                                                               |                   |             |
-| CRITICALSTORAGEBACKUP  | Thresholds where '*'                                                                               |                   |             |
-| WARNINGSTORAGEPERCENT  | Thresholds where '*'                                                                               |                   |             |
-| CRITICALSTORAGEPERCENT | Thresholds where '*'                                                                               |                   |             |
-| WARNINGSTORAGEUSED     | Thresholds where '*'                                                                               |                   |             |
-| CRITICALSTORAGEUSED    | Thresholds where '*'                                                                               |                   |             |
+| WARNINGSERVERLOGUSAGE  | Thresholds                                                                               |                   |             |
+| CRITICALSERVERLOGUSAGE | Thresholds                                                                               |                   |             |
+| WARNINGSTORAGEBACKUP   | Thresholds                                                                              |                   |             |
+| CRITICALSTORAGEBACKUP  | Thresholds                                                                               |                   |             |
+| WARNINGSTORAGEPERCENT  | Thresholds                                                                               |                   |             |
+| CRITICALSTORAGEPERCENT | Thresholds                                                                               |                   |             |
+| WARNINGSTORAGEUSED     | Thresholds                                                                                |                   |             |
+| CRITICALSTORAGEUSED    | Thresholds                                                                                |                   |             |
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -343,10 +343,10 @@ yum install centreon-plugin-Cloud-Azure-Database-Postgres-Api
 | AGGREGATION        | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | Average             |             |
 | FILTERMETRIC       | Filter metrics (available metrics: 'Network Out', 'Network In'). |                   |             |
 | FILTERDIMENSION    | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'". |
-| WARNINGTRAFFICIN   | Thresholds where '*'                                                                               |                   |             |
-| CRITICALTRAFFICIN  | Thresholds where '*'                                                                               |                   |             |
-| WARNINGTRAFFICOUT  | Thresholds where '*'                                                                               |                   |             |
-| CRITICALTRAFFICOUT | Thresholds where '*'                                                                               |                   |             |
+| WARNINGTRAFFICIN   | Thresholds                                                                                 |                   |             |
+| CRITICALTRAFFICIN  | Thresholds                                                                                 |                   |             |
+| WARNINGTRAFFICOUT  | Thresholds                                                                                |                   |             |
+| CRITICALTRAFFICOUT | Thresholds                                                                                |                   |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
