@@ -36,8 +36,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name                                   | Description |
 |:--------------------------------------------|:------------|
-| App-Infor-Ion-Grid-Restapi-Application-Name |             |
-| App-Infor-Ion-Grid-Restapi-Node-Name        |             |
+| App-Infor-Ion-Grid-Restapi-Application-Name | Discover anypoint of application Infor ION Grid and monitor their status |
+| App-Infor-Ion-Grid-Restapi-Node-Name        | Discovers any Infor ION Grid node and monitors their status and statistics |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -174,10 +174,10 @@ yum install centreon-plugin-Applications-Infor-Ion-Grid-Restapi
 
 | Macro        | Description                                                                                          | Default value     | Mandatory   |
 |:-------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| APIUSERNAME  | API username                                                                                         |                   |             |
+| APIUSERNAME  | API username                                                                                         |                   | X            |
 | APIPASSWORD  | API password                                                                                         |                   | X           |
-| APIPROTO     | Specify https if needed (default: 'https')                                                           |                   |             |
-| APIPORT      | Set port (default: '443')                                                                            |                   |             |
+| APIPROTO     | Specify https if needed                                                                              | https             |             |
+| APIPORT      | Set port                                                                                             | 443               |             |
 | ADDRESS      | Set hostname                                                                                         |                   | X           |
 | EXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
@@ -196,8 +196,8 @@ yum install centreon-plugin-Applications-Infor-Ion-Grid-Restapi
 | FILTERNAME     | Filter by application name (regexp can be used). Example: --filter-name='^application1$'                                                                                                                                                                                                                              |                                             |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{online} =~ /true/ && %{state} !~ /^(OK)/i'). Threshold can be matched on special variables like %{state}, %{online}, %{started}, %{name} or %{description} and Regexp can be used. Typical syntax: --critical-status='%{started} ne "true"' | %{online} =~ /true/ && %{state} !~ /^(OK)/i |             |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: ''). Threshold can be matched on special variables like %{state}, %{online}, %{started}, %{name} or %{description} and Regexp can be used. Typical syntax: --warning-status='%{state} ne "OK"'                                                  |                                             |             |
-| WARNINGTOTAL   |                                                                                                                                                                                                                                                                                                                       |                                             |             |
-| CRITICALTOTAL  |                                                                                                                                                                                                                                                                                                                       |                                             |             |
+| WARNINGTOTAL   | Define the conditions to match for the total to be WARNING (default: '').                                                                                                                                                                                                                                               |                                             |             |
+| CRITICALTOTAL  | Define the conditions to match for the total to be CRITICAL (default: '').                                                                                                                                                                                                                                              |                                             |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                                                                                                                    |                                             |             |
 
 </TabItem>
@@ -209,18 +209,18 @@ yum install centreon-plugin-Applications-Infor-Ion-Grid-Restapi
 | FILTERTYPE            | Filter by node type                                                                                                                                                 |                        |             |
 | FILTERAPPLICATIONNAME | Filter by application name                                                                                                                                          |                        |             |
 | FILTERHOSTNAME        | Filter by host name                                                                                                                                                 |                        |             |
-| WARNINGCPUUSAGE       | Thresholds                                                                                                                                                          |                        |             |
-| CRITICALCPUUSAGE      | Thresholds                                                                                                                                                          |                        |             |
-| WARNINGHEAPUSAGE      | Thresholds                                                                                                                                                          |                        |             |
-| CRITICALHEAPUSAGE     | Thresholds                                                                                                                                                          |                        |             |
-| WARNINGLOGWARNING     | Thresholds                                                                                                                                                          |                        |             |
-| CRITICALLOGWARNING    | Thresholds                                                                                                                                                          |                        |             |
-| WARNINGLOGERROR       | Thresholds                                                                                                                                                          |                        |             |
-| CRITICALLOGERROR      | Thresholds                                                                                                                                                          |                        |             |
+| WARNINGCPUUSAGE       | Set warning thresholds on cpu usage                                                                                                                                 |                        |             |
+| CRITICALCPUUSAGE      | Set critical thresholds on cpu usage                                                                                                                                |                        |             |
+| WARNINGHEAPUSAGE      | Set warning thresholds on heap usage                                                                                                                                |                        |             |
+| CRITICALHEAPUSAGE     | Set critical thresholds on heap usage                                                                                                                               |                        |             |
+| WARNINGLOGWARNING     | Set warning thresholds on log-warning                                                                                                                               |                        |             |
+| CRITICALLOGWARNING    | Set critical thresholds on log-warning                                                                                                                              |                        |             |
+| WARNINGLOGERROR       | Set warning thresholds on log-error                                                                                                                                 |                        |             |
+| CRITICALLOGERROR      | Set critical thresholds on log-error                                                                                                                                |                        |             |
 | CRITICALSTATUS        | Set critical threshold for status. Can use special variables like: %{state}, %{name}, %{host\_name}, %{application\_name}, %{type}                                  | '%{state} !~ /online/' |             |
 | WARNINGSTATUS         | Set warning threshold for status (Default: "%{state} !~ /online/"). Can use special variables like: %{state}, %{name}, %{host\_name}, %{application\_name}, %{type} |                        |             |
-| WARNINGUPTIME         | Thresholds                                                                                                                                                          |                        |             |
-| CRITICALUPTIME        | Thresholds                                                                                                                                                          |                        |             |
+| WARNINGUPTIME         | Set warning thresholds on uptime                                                                                                                                    |                        |             |
+| CRITICALUPTIME        |Set critical thresholds on uptime                                                                                                                                    |                        |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                  |                        |             |
 
 </TabItem>
@@ -362,6 +362,8 @@ All available options for each service template are listed below:
 | --filter-name     | Filter by application name (regexp can be used). Example: --filter-name='^application1$'                                                                                                                                                                                                                                 |
 | --warning-status  | Define the conditions to match for the status to be WARNING (default: ''). Threshold can be matched on special variables like %{state}, %{online}, %{started}, %{name} or %{description} and Regexp can be used. Typical syntax: --warning-status='%{state} ne "OK"'                                                     |
 | --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{online} =~ /true/ && %{state} !~ /^(OK)/i'). Threshold can be matched on special variables like %{state}, %{online}, %{started}, %{name} or %{description} and Regexp can be used. Typical syntax: --critical-status='%{started} ne "true"'    |
+| --warning-total  | Define the conditions to match for the total to be WARNING (default: '').  |
+| --critical-total | Define the conditions to match for the total to be CRITICAL (default: ''). |
 
 </TabItem>
 <TabItem value="Node" label="Node">
