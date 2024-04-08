@@ -368,10 +368,10 @@ is able to monitor an Azure Instance using a command like this one (replace the 
 	--custommode='api' \
 	--resource='' \
 	--resource-group='' \
-	--subscription='' \
-	--tenant='' \
-	--client-id='' \
-	--client-secret='' \
+	--subscription='xxxxxxxxxxxxxx' \
+	--tenant='xxxxxxxxxxxxxx' \
+	--client-id='xxxxxxxxxxxxxx' \
+	--client-secret='xxxxxxxxxxxxxx' \
 	--proxyurl=''  \
 	--filter-metric='' \
 	--filter-dimension='' \
