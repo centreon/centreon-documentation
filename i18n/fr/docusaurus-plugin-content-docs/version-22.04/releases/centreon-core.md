@@ -542,6 +542,16 @@ By:
 
 ## Centreon Collect
 
+### 22.04.6
+
+Release date: `April 08, 2024`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- [Broker] Fixed a bug causing hostgroups failing to appear if they had been used before and emptied of their hosts and then populated again.
+
 ### 22.04.5
 
 Release date: `November 20, 2023`
