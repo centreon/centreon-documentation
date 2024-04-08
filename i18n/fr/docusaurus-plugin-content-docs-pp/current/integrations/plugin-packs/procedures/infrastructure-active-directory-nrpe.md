@@ -32,7 +32,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias        | Modèle de service                              | Description                         |
 |:-------------|:-----------------------------------------------|:------------------------------------|
-| Dfsr-Backlog | Infra-ActiveDirectory-Dfsr-Backlog-NRPE-custom | Contrôle permettant le backlog dfsr |
+| Dfsr-Backlog | Infra-ActiveDirectory-Dfsr-Backlog-NRPE-custom | Contrôle du backlog de réplication des Distributed File Systems. |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -46,7 +46,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Ad-Domain-Controller" label="Ad-Domain-Controller">
 
-Coming soon
+| Métrique              | Unité |
+|:-------------------------|:------|
+| domain controller status | N/A   |
 
 </TabItem>
 <TabItem value="Dfsr-Backlog" label="Dfsr-Backlog">
@@ -184,8 +186,8 @@ yum install nagios-plugins-nrpe
 | Macro            | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SENDINGMEMBER    | Name of the member that is sending the replication data. (mandatory)                               |                   | X           |
-| REPLICATIONGROUP | Name for the replication group. (mandatory)                                                        |                   | X           |
-| REPLICATEDFOLDER | Name name for the replicated folder. (mandatory)                                                   |                   | X           |
+| REPLICATIONGROUP | Name of the replication group. (mandatory)                                                        |                   | X           |
+| REPLICATEDFOLDER | Name of the replicated folder. (mandatory)                                                   |                   | X           |
 | WARNINGBACKLOG   | Warning threshold                                                                                  |                   |             |
 | CRITICALBACKLOG  | Critical threshold                                                                                 |                   |             |
 | EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
@@ -234,9 +236,10 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 `--list-mode` à la commande :
 
 ```bash
-/usr/lib64/nagios/plugins/check_nrpe -H 10.0.0.1 -p 5666 -u -2 -P 8192 -t 30  -c check_centreon_plugins -a 'apps::microsoft::activedirectory::local::plugin' 'dfsr-backlog'  ' \
-	--sending-member="" \
-	--list-mode
+/usr/lib64/nagios/plugins/check_nrpe -H 10.0.0.1 -p 5666 -u -2 -P 8192 -t 30  -c check_centreon_plugins -a 'apps::microsoft::activedirectory::local::plugin' 'dfsr-backlog'  '\
+       --sending-member="" \
+	--list-mode \
+	'
 ```
 
 Le plugin apporte les modes suivants :

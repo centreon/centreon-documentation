@@ -45,7 +45,9 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Ad-Domain-Controller" label="Ad-Domain-Controller">
 
-Coming soon
+| Metric Name              | Unit  |
+|:-------------------------|:------|
+| domain controller status | N/A   |
 
 </TabItem>
 <TabItem value="Dfsr-Backlog" label="Dfsr-Backlog">
@@ -184,8 +186,8 @@ yum install nagios-plugins-nrpe
 | Macro            | Description                                                                                        | Default value     | Mandatory   |
 |:-----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SENDINGMEMBER    | Name of the member that is sending the replication data. (mandatory)                               |                   | X           |
-| REPLICATIONGROUP | Name for the replication group. (mandatory)                                                        |                   | X           |
-| REPLICATEDFOLDER | Name name for the replicated folder. (mandatory)                                                   |                   | X           |
+| REPLICATIONGROUP | Name of the replication group. (mandatory)                                                        |                   | X           |
+| REPLICATEDFOLDER | Name of the replicated folder. (mandatory)                                                   |                   | X           |
 | WARNINGBACKLOG   | Warning threshold                                                                                  |                   |             |
 | CRITICALBACKLOG  | Critical threshold                                                                                 |                   |             |
 | EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
@@ -234,7 +236,8 @@ the command:
 ```bash
 /usr/lib64/nagios/plugins/check_nrpe -H 10.0.0.1 -p 5666 -u -2 -P 8192 -t 30  -c check_centreon_plugins -a 'apps::microsoft::activedirectory::local::plugin' 'dfsr-backlog'  ' \
 	--sending-member="" \
-	--list-mode
+	--list-mode \
+	'
 ```
 
 The plugin brings the following modes:
