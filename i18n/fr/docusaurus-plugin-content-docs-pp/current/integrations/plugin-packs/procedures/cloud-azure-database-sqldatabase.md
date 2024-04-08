@@ -32,7 +32,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias         | Modèle de service                                     | Description                                     |
 |:--------------|:------------------------------------------------------|:------------------------------------------------|
-| App-Resources | Cloud-Azure-Database-SqlDatabase-App-Resources-custom | Contrôle les métriques CPU et Mémoire de l'App  |
+| App-Resources | Cloud-Azure-Database-SqlDatabase-App-Resources-custom | Contrôle les métriques CPU et mémoire de l'app  |
 | Connections   | Cloud-Azure-Database-SqlDatabase-Connections-custom   | Contrôle le nombre de connexions par statut      |
 | Deadlocks     | Cloud-Azure-Database-SqlDatabase-Deadlocks-custom     | Contrôle la présence de deadlocks               |
 | Sessions      | Cloud-Azure-Database-SqlDatabase-Sessions-custom      | Contrôle le nombre de sessions utilisées        |
