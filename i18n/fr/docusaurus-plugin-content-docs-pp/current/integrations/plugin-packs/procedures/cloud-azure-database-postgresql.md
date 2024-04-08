@@ -369,10 +369,10 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--custommode='api' \
 	--resource='' \
 	--resource-group='' \
-	--subscription='' \
-	--tenant='' \
-	--client-id='' \
-	--client-secret='' \
+	--subscription='xxxxxxxxxxxxxx' \
+	--tenant='xxxxxxxxxxxxxx' \
+	--client-id='xxxxxxxxxxxxxx' \
+	--client-secret='xxxxxxxxxxxxxx' \
 	--proxyurl=''  \
 	--filter-metric='' \
 	--filter-dimension='' \
