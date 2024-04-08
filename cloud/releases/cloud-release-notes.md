@@ -16,6 +16,7 @@ As usual, lots of improvements to the dashboard feature with this release:
 - Navigation in dashboards has been enhanced with a new search feature, a listing presentation and a better responsiveness.
 - Existing widgets have been improved, based on feedback from beta testers. It is now more intuitive to select metrics or to select the widget you need.
 - A new widget named “Resource Table” is available, allowing you to visualize the status of a set of selected resources.
+- It is now possible to create dashboards playlists. Selected dashboards will be displayed sequentially without any interaction allowing to broadcast them on TV set on public spaces.
 
 **Important note**: this is the last time Centreon Dashboards is delivered as a beta version. In the next version, Centreon Dashboards will be generally available.
 
