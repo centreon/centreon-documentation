@@ -213,11 +213,11 @@ yum install centreon-plugin-Applications-Backup-Veeam-Wsman
 | FILTERNAME      | Filter job name (can be a regexp)                                                                                                                                                                 |                                                     |             |
 | FILTERSTARTTIME | Filter job with start time greater than current time less value in seconds                                                                                                                        |                                                     |             |
 | FILTERCOUNTERS  |                                                                                                                                                                                                   |                                                     |             |
-| OKSTATUS        | Set ok threshold for status. Can used special variables like: %{display}, %{status}, %{type}, %{is\_running}, %{scheduled}                                                                        |                                                     |             |
-| WARNINGLONG     | Set warning threshold for long jobs. Can used special variables like: %{display}, %{status}, %{type}, %{elapsed}                                                                                  |                                                     |             |
-| CRITICALLONG    | Set critical threshold for long jobs. Can used special variables like: %{display}, %{status}, %{type}, %{elapsed}                                                                                 |                                                     |             |
-| CRITICALSTATUS  | Set critical threshold for status (Default: '%{is\_running} == 0 and not %{status} =~ /Success/i'). Can used special variables like: %{display}, %{status}, %{type}, %{is\_running}, %{scheduled} | %{is\_running} == 0 and not %{status} =~ /Success/i |             |
-| WARNINGSTATUS   | Set warning threshold for status. Can used special variables like: %{display}, %{status}, %{type}, %{is\_running}, %{scheduled}                                                                   |                                                     |             |
+| OKSTATUS        | Set ok threshold for status. Can use special variables like: %{display}, %{status}, %{type}, %{is\_running}, %{scheduled}                                                                        |                                                     |             |
+| WARNINGLONG     | Set warning threshold for long jobs. Can use special variables like: %{display}, %{status}, %{type}, %{elapsed}                                                                                  |                                                     |             |
+| CRITICALLONG    | Set critical threshold for long jobs. Can use special variables like: %{display}, %{status}, %{type}, %{elapsed}                                                                                 |                                                     |             |
+| CRITICALSTATUS  | Set critical threshold for status (Default: '%{is\_running} == 0 and not %{status} =~ /Success/i'). Can use special variables like: %{display}, %{status}, %{type}, %{is\_running}, %{scheduled} | %{is\_running} == 0 and not %{status} =~ /Success/i |             |
+| WARNINGSTATUS   | Set warning threshold for status. Can use special variables like: %{display}, %{status}, %{type}, %{is\_running}, %{scheduled}                                                                   |                                                     |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                | --verbose                                           |             |
 
 </TabItem>
@@ -237,8 +237,8 @@ yum install centreon-plugin-Applications-Backup-Veeam-Wsman
 | CRITICALLICENSEINSTANCESUSAGE     | Thresholds                                                                                                                                    |                                  |             |
 | WARNINGLICENSEINSTANCESUSAGEPRCT  | Thresholds                                                                                                                                    |                                  |             |
 | CRITICALLICENSEINSTANCESUSAGEPRCT | Thresholds                                                                                                                                    |                                  |             |
-| CRITICALSTATUS                    | Set critical threshold for status (Default: '%{status} =~ /expired\|invalid/i'). Can used special variables like: %{to}, %{status}, %{type}   | %{status} =~ /expired\|invalid/i |             |
-| WARNINGSTATUS                     | Set warning threshold for status. Can used special variables like: %{to}, %{status}, %{type}                                                  |                                  |             |
+| CRITICALSTATUS                    | Set critical threshold for status (Default: '%{status} =~ /expired\|invalid/i'). Can use special variables like: %{to}, %{status}, %{type}   | %{status} =~ /expired\|invalid/i |             |
+| WARNINGSTATUS                     | Set warning threshold for status. Can use special variables like: %{to}, %{status}, %{type}                                                  |                                  |             |
 | WARNINGTOTAL                      | Thresholds                                                                                                                                    |                                  |             |
 | CRITICALTOTAL                     | Thresholds                                                                                                                                    |                                  |             |
 | EXTRAOPTIONS                      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                            | --verbose                        |             |
@@ -256,8 +256,8 @@ yum install centreon-plugin-Applications-Backup-Veeam-Wsman
 | CRITICALSPACEUSAGEFREE | Thresholds                                                                                                                                            |                                          |             |
 | WARNINGSPACEUSAGEPRCT  | Thresholds                                                                                                                                            |                                          |             |
 | CRITICALSPACEUSAGEPRCT | Thresholds                                                                                                                                            |                                          |             |
-| CRITICALSTATUS         | Set critical threshold for status (Default: 'not %{status} =~ /ordinal\|maintenance/i'). Can used special variables like: %{status}, %{name}, %{type} | not %{status} =~ /ordinal\|maintenance/i |             |
-| WARNINGSTATUS          | Set warning threshold for status. Can used special variables like: %{status}, %{name}, %{type}                                                        |                                          |             |
+| CRITICALSTATUS         | Set critical threshold for status (Default: 'not %{status} =~ /ordinal\|maintenance/i'). Can use special variables like: %{status}, %{name}, %{type} | not %{status} =~ /ordinal\|maintenance/i |             |
+| WARNINGSTATUS          | Set warning threshold for status. Can use special variables like: %{status}, %{name}, %{type}                                                        |                                          |             |
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                    | --verbose                                |             |
 
 </TabItem>
@@ -266,8 +266,8 @@ yum install centreon-plugin-Applications-Backup-Veeam-Wsman
 | Macro          | Description                                                                                                                                                                                                   | Valeur par défaut                                           | Obligatoire |
 |:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------|:-----------:|
 | FILTERNAME     | Filter job name (can be a regexp)                                                                                                                                                                             |                                                             |             |
-| CRITICALSTATUS | Set critical threshold for status (Default: '%{enabled} == 1 and not %{last\_result} =~ /Success\|None/i'). Can used special variables like: %{display}, %{enabled}, %{type}, %{last\_result}, %{last\_state} | %{enabled} == 1 and not %{last\_result} =~ /Success\|None/i |             |
-| WARNINGSTATUS  | Set warning threshold for status (Default: '') Can used special variables like: %{display}, %{enabled}, %{type}, %{last\_result}, %{last\_state}                                                              |                                                             |             |
+| CRITICALSTATUS | Set critical threshold for status (Default: '%{enabled} == 1 and not %{last\_result} =~ /Success\|None/i'). Can use special variables like: %{display}, %{enabled}, %{type}, %{last\_result}, %{last\_state} | %{enabled} == 1 and not %{last\_result} =~ /Success\|None/i |             |
+| WARNINGSTATUS  | Set warning threshold for status (Default: '') Can use special variables like: %{display}, %{enabled}, %{type}, %{last\_result}, %{last\_state}                                                              |                                                             |             |
 | WARNINGTOTAL   | Set warning threshold for total jobs                                                                                                                                                                          |                                                             |             |
 | CRITICALTOTAL  | Set critical threshold for total jobs                                                                                                                                                                         |                                                             |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                            | --verbose                                                   |             |
@@ -287,8 +287,8 @@ yum install centreon-plugin-Applications-Backup-Veeam-Wsman
 | CRITICALJOBSFAILED   | Thresholds                                                                                                                                            |                             |             |
 | WARNINGJOBSSUCCESS   | Thresholds                                                                                                                                            |                             |             |
 | CRITICALJOBSSUCCESS  | Thresholds                                                                                                                                            |                             |             |
-| CRITICALSTATUS       | Set critical threshold for status (Default: 'not %{status} =~ /success/i'). Can used special variables like: %{name}, %{type}, %{status}, %{duration} | not %{status} =~ /success/i |             |
-| WARNINGSTATUS        | Set warning threshold for status. Can used special variables like: %{name}, %{type}, %{status}, %{duration}                                           |                             |             |
+| CRITICALSTATUS       | Set critical threshold for status (Default: 'not %{status} =~ /success/i'). Can use special variables like: %{name}, %{type}, %{status}, %{duration} | not %{status} =~ /success/i |             |
+| WARNINGSTATUS        | Set warning threshold for status. Can use special variables like: %{name}, %{type}, %{status}, %{duration}                                           |                             |             |
 | EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                    | --verbose                   |             |
 
 </TabItem>
@@ -428,11 +428,11 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-type       | Filter job type (can be a regexp).                                                                                                                                                                   |
 | --filter-start-time | Filter job with start time greater than current time less value in seconds.                                                                                                                          |
 | --filter-end-time   | Filter job with end time greater than current time less value in seconds (Default: 86400).                                                                                                           |
-| --ok-status         | Set ok threshold for status. Can used special variables like: %{display}, %{status}, %{type}, %{is\_running}, %{scheduled}.                                                                          |
-| --warning-status    | Set warning threshold for status. Can used special variables like: %{display}, %{status}, %{type}, %{is\_running}, %{scheduled}.                                                                     |
-| --critical-status   | Set critical threshold for status (Default: '%{is\_running} == 0 and not %{status} =~ /Success/i'). Can used special variables like: %{display}, %{status}, %{type}, %{is\_running}, %{scheduled}.   |
-| --warning-long      | Set warning threshold for long jobs. Can used special variables like: %{display}, %{status}, %{type}, %{elapsed}.                                                                                    |
-| --critical-long     | Set critical threshold for long jobs. Can used special variables like: %{display}, %{status}, %{type}, %{elapsed}.                                                                                   |
+| --ok-status         | Set ok threshold for status. Can use special variables like: %{display}, %{status}, %{type}, %{is\_running}, %{scheduled}.                                                                          |
+| --warning-status    | Set warning threshold for status. Can use special variables like: %{display}, %{status}, %{type}, %{is\_running}, %{scheduled}.                                                                     |
+| --critical-status   | Set critical threshold for status (Default: '%{is\_running} == 0 and not %{status} =~ /Success/i'). Can use special variables like: %{display}, %{status}, %{type}, %{is\_running}, %{scheduled}.   |
+| --warning-long      | Set warning threshold for long jobs. Can use special variables like: %{display}, %{status}, %{type}, %{elapsed}.                                                                                    |
+| --critical-long     | Set critical threshold for long jobs. Can use special variables like: %{display}, %{status}, %{type}, %{elapsed}.                                                                                   |
 | --warning-total     | Set warning threshold for total jobs.                                                                                                                                                                |
 | --critical-total    | Set critical threshold for total jobs.                                                                                                                                                               |
 
@@ -446,8 +446,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-to              | Filter licenses by person/organization (can be a regexp).                                                                                        |
 | --filter-type            | Filter licenses by type (can be a regexp).                                                                                                       |
 | --filter-status          | Filter licenses by status (can be a regexp).                                                                                                     |
-| --warning-status         | Set warning threshold for status. Can used special variables like: %{to}, %{status}, %{type}.                                                    |
-| --critical-status        | Set critical threshold for status (Default: '%{status} =~ /expired\|invalid/i'). Can used special variables like: %{to}, %{status}, %{type}.     |
+| --warning-status         | Set warning threshold for status. Can use special variables like: %{to}, %{status}, %{type}.                                                    |
+| --critical-status        | Set critical threshold for status (Default: '%{status} =~ /expired\|invalid/i'). Can use special variables like: %{to}, %{status}, %{type}.     |
 | --unit                   | Select the unit for expires threshold. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.   |
 | --warning-* --critical-* | Thresholds. Can be: 'total', 'expires', 'license-instances-usage', 'license-instances-free', 'license-instances-usage-prct'.                     |
 
@@ -461,8 +461,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-name            | Filter repositories by name (can be a regexp).                                                                                                           |
 | --exclude-name           | Exclude repositories by name (regexp can be used).                                                                                                       |
 | --filter-type            | Filter repositories by type (can be a regexp).                                                                                                           |
-| --warning-status         | Set warning threshold for status. Can used special variables like: %{status}, %{name}, %{type}.                                                          |
-| --critical-status        | Set critical threshold for status (Default: 'not %{status} =~ /ordinal\|maintenance/i'). Can used special variables like: %{status}, %{name}, %{type}.   |
+| --warning-status         | Set warning threshold for status. Can use special variables like: %{status}, %{name}, %{type}.                                                          |
+| --critical-status        | Set critical threshold for status (Default: 'not %{status} =~ /ordinal\|maintenance/i'). Can use special variables like: %{status}, %{name}, %{type}.   |
 | --warning-* --critical-* | Thresholds. Can be: 'space-usage', 'space-usage-free', 'space-usage-prct'.                                                                               |
 
 </TabItem>
@@ -475,9 +475,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-name     | Filter job name (can be a regexp).                                                                                                                                                                               |
 | --exclude-name    | Exclude job name (regexp can be used).                                                                                                                                                                           |
 | --filter-type     | Filter job type (can be a regexp).                                                                                                                                                                               |
-| --unknown-status  | Set unknown threshold for status (Default: '') Can used special variables like: %{display}, %{enabled}, %{type}, %{last\_result}, %{last\_state}.                                                                |
-| --warning-status  | Set warning threshold for status (Default: '') Can used special variables like: %{display}, %{enabled}, %{type}, %{last\_result}, %{last\_state}.                                                                |
-| --critical-status | Set critical threshold for status (Default: '%{enabled} == 1 and not %{last\_result} =~ /Success\|None/i'). Can used special variables like: %{display}, %{enabled}, %{type}, %{last\_result}, %{last\_state}.   |
+| --unknown-status  | Set unknown threshold for status (Default: '') Can use special variables like: %{display}, %{enabled}, %{type}, %{last\_result}, %{last\_state}.                                                                |
+| --warning-status  | Set warning threshold for status (Default: '') Can use special variables like: %{display}, %{enabled}, %{type}, %{last\_result}, %{last\_state}.                                                                |
+| --critical-status | Set critical threshold for status (Default: '%{enabled} == 1 and not %{last\_result} =~ /Success\|None/i'). Can use special variables like: %{display}, %{enabled}, %{type}, %{last\_result}, %{last\_state}.   |
 | --warning-total   | Set warning threshold for total jobs.                                                                                                                                                                            |
 | --critical-total  | Set critical threshold for total jobs.                                                                                                                                                                           |
 
@@ -491,9 +491,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-name            | Filter job name (can be a regexp).                                                                                                                       |
 | --exclude-name           | Exclude job name (regexp can be used).                                                                                                                   |
 | --filter-type            | Filter job type (can be a regexp).                                                                                                                       |
-| --unknown-status         | Set unknown threshold for status. Can used special variables like: %{name}, %{type}, %{status}, %{duration}.                                             |
-| --warning-status         | Set warning threshold for status. Can used special variables like: %{name}, %{type}, %{status}, %{duration}.                                             |
-| --critical-status        | Set critical threshold for status (Default: 'not %{status} =~ /success/i'). Can used special variables like: %{name}, %{type}, %{status}, %{duration}.   |
+| --unknown-status         | Set unknown threshold for status. Can use special variables like: %{name}, %{type}, %{status}, %{duration}.                                             |
+| --warning-status         | Set warning threshold for status. Can use special variables like: %{name}, %{type}, %{status}, %{duration}.                                             |
+| --critical-status        | Set critical threshold for status (Default: 'not %{status} =~ /success/i'). Can use special variables like: %{name}, %{type}, %{status}, %{duration}.   |
 | --warning-* --critical-* | Thresholds. Can be: 'jobs-detected', 'jobs-success', 'jobs-warning', 'jobs-failed'.                                                                      |
 
 </TabItem>
