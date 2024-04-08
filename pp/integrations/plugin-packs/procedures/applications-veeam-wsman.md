@@ -23,7 +23,7 @@ The connector brings the following service templates (sorted by the host templat
 | Job-Status    | App-Veeam-Job-Status-WSMAN-custom   | Monitor the statuses of the backup jobs |
 | Licenses      | App-Veeam-Licenses-WSMAN-custom     | Monitor licenses                        |
 | Repositories  | App-Veeam-Repositories-WSMAN-custom | Monitor backup repositories             |
-| Tape-Jobs     | App-Veeam-Tape-Jobs-WSMAN-custom    | Monitor job tape status                 |
+| Tape-Jobs     | App-Veeam-Tape-Jobs-WSMAN-custom    | Monitor the status of tape jobs             |
 | Vsb-Jobs      | App-Veeam-Vsb-Jobs-WSMAN-custom     | Monitor SureBackup jobs                 |
 
 > The services listed above are created automatically when the **App-Veeam-WSMAN-custom** host template is used.
@@ -229,7 +229,7 @@ yum install centreon-plugin-Applications-Backup-Veeam-Wsman
 | FILTERTO                          | Filter licenses by person/organization (can be a regexp)                                                                                      |                                  |             |
 | FILTERTYPE                        | Filter licenses by type (can be a regexp)                                                                                                     |                                  |             |
 | FILTERSTATUS                      | Filter licenses by status (can be a regexp)                                                                                                   |                                  |             |
-| UNIT                              | Select the unit for expires threshold. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds |                                  |             |
+| UNIT                              | Select the unit for expiration thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds |                                  |             |
 | WARNINGEXPIRES                    | Thresholds                                                                                                                                    |                                  |             |
 | CRITICALEXPIRES                   | Thresholds                                                                                                                                    |                                  |             |
 | WARNINGLICENSEINSTANCESFREE       | Thresholds                                                                                                                                    |                                  |             |
