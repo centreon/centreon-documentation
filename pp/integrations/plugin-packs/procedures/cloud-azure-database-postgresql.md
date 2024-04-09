@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias  | Service Template                                          | Service Description                                          |
 |:---------------|:----------------------------------------------------------|:-------------------------------------------------------------|
-| Connections    | Cloud-Azure-Database-PostgreSQL-Connections-Api-custom    | Monitor Azure Database for PostgreSQL connections statistics |
+| Connections    | Cloud-Azure-Database-PostgreSQL-Connections-Api-custom    | Monitor the number of connections to the Azure PostgreSQL Database |
 | Cpu            | Cloud-Azure-Database-PostgreSQL-Cpu-Api-custom            | Monitor Azure Database for PostgreSQL CPU usage              |
 | IO-Consumption | Cloud-Azure-Database-PostgreSQL-IO-Consumption-Api-custom | Monitor Azure Database for PostgreSQL IO usage               |
 | Memory         | Cloud-Azure-Database-PostgreSQL-Memory-Api-custom         | Monitor Azure Database for PostgreSQL memory usage           |
