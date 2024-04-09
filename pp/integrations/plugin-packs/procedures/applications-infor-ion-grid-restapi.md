@@ -36,7 +36,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name                                   | Description |
 |:--------------------------------------------|:------------|
-| App-Infor-Ion-Grid-Restapi-Application-Name | Discover anypoint of application Infor ION Grid and monitor their status |
+| App-Infor-Ion-Grid-Restapi-Application-Name | Discover all application points for Infor ION Grid and monitor their status |
 | App-Infor-Ion-Grid-Restapi-Node-Name        | Discovers any Infor ION Grid node and monitors their status and statistics |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
