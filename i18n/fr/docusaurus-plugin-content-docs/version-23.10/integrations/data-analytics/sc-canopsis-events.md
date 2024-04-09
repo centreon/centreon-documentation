@@ -15,7 +15,7 @@ Il est également possible de les envoyer depuis un serveur distant ou un collec
 (par exemple si vous voulez éviter que le serveur central ne représente un point de 
 défaillance unique, ou bien si vous êtes un MSP et vous installez le stream connector 
 sur un collecteur ou un serveur distant dans l'infratructure de votre client).
-- Par défaut, le stream connector Canopsis Events envoie des événéments Broker 
+- Par défaut, le stream connector Canopsis Events envoie des événements Broker 
 **[host_status](https://docs.centreon.com/fr/docs/developer/developer-broker-mapping/#host-status)**,
 **[service_status](https://docs.centreon.com/fr/docs/developer/developer-broker-mapping/#service-status)**
 et **[acknowledgement](https://docs.centreon.com/fr/docs/developer/developer-broker-mapping/#acknowledgement)**.
@@ -189,7 +189,7 @@ de votre stream connector.
 | ------ |-----------------|-------------------|
 | number | max_buffer_size | `3`               |
 
-Dans cet exemple de valeur, le stream connecteur Canopsis conservera 3 événements et ne 
+Dans cet exemple de valeur, le stream connector Canopsis conservera 3 événements et ne 
 déclenchera l'envoie qu'au 4ème. 
 
 <div id='event-format'/>
@@ -275,7 +275,7 @@ Ce stream connector envoie des évènements au format suivant :
 
 ### Custom event format
 
-Ce stream connector vous permet de changer le format des événéments pour correspondre 
+Ce stream connector vous permet de changer le format des événements pour correspondre 
 à vos besoins. Cela vous permet de gérer des types d'événements qui ne le sont pas 
 par défaut comme les **ba_status events**.
 
@@ -289,12 +289,12 @@ et ajouter un nouveau paramètre à la configuration du stream connector.
 > Le fichier de configuration de formats des événements doit être lisible par l'utilisateur
 centreon-broker.
 
-Pour en savoir plus sur les fichiers modèle et comment formatter les événéments vous pouvez 
+Pour en savoir plus sur les fichiers modèle et comment formatter les événements vous pouvez 
 consulter la **[documentation](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)** dédiée.
 
 ## Commandes Curl : tester le stream connector
 
-Voici la liste des commandes curl qui sont utilisées par le stream connecteur Canopsis :
+Voici la liste des commandes curl qui sont utilisées par le stream connector Canopsis :
 
 ### Envoyer des évènements
 
