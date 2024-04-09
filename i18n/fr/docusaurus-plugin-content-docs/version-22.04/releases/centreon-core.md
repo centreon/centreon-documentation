@@ -550,7 +550,7 @@ Release date: `April 08, 2024`
 
 ##### Bug fixes
 
-- [Broker] Fixed a bug causing hostgroups failing to appear if they had been used before and emptied of their hosts and then populated again.
+- [Broker] Fixed an issue causing hostgroups to fail to appear if they had been used before and emptied of their hosts and then populated again.
 
 ### 22.04.5
 
