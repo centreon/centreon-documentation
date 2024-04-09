@@ -38,7 +38,7 @@ Le connecteur apporte les modèles de service suivants
 | Nom de la règle                             | Description                                                                      |
 |:--------------------------------------------|:---------------------------------------------------------------------------------|
 | App-Infor-Ion-Grid-Restapi-Application-Name | Découvre les points d'application Infor ION Grid et supervise leur statut        |
-| App-Infor-Ion-Grid-Restapi-Node-Name        | Découvre les noeuds Infor ION Grid et supervise leur statut et leur statistiques |
+| App-Infor-Ion-Grid-Restapi-Node-Name        | Découvre les noeuds Infor ION Grid et supervise leur statut et leurs statistiques |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
