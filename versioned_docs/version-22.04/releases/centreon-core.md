@@ -543,6 +543,18 @@ By:
 
 ## Centreon Collect
 
+## Centreon Collect
+
+### 22.04.6
+
+Release date: `April 08, 2024`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- [Broker] Fixed a issue causing hostgroups to fail to appear if they had been used before and emptied of their hosts and then populated again.
+
 ### 22.04.5
 
 Release date: `November 20, 2023`
@@ -706,6 +718,14 @@ Release date: `August 30, 2022`
 As stated above, all broker instances (central, RRD, modules) must use the same BBDO protocol version to be able to communicate. This means that pollers using 21.10 or older releases won't be able to send data to a 22.04 central server using BBDO 3.0.0. Please read carefully our upgrade procedure.
 
 ## Centreon Gorgone
+
+### 22.04.7
+
+Release date: `March 28, 2024`
+
+#### Enhancements
+
+- Moved Gorgone whitelists to a dedicated file.
 
 ### 22.04.6
 
