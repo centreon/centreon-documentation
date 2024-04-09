@@ -71,9 +71,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+To monitor Infor ION Grid, please follow the [official documentation](https://docs.infor.com/inforos/2022.x/en-us/useradminlist/inforos_2022.12_inforosrn_en-us_72746.pdf) and make sure that all rights are properly configured.
 
 ## Installing the monitoring connector
 
@@ -238,16 +236,16 @@ is able to monitor a resource using a command like this one (replace the sample 
 /usr/lib/centreon/plugins/centreon_infor_ion_grid_restapi.pl \
 	--plugin=apps::infor::ion::grid::plugin \
 	--mode=node \
-	--hostname='' \
+	--hostname='HOSTNAME' \
 	--port='' \
 	--proto='' \
-	--api-username='' \
-	--api-password=''  \
-	--filter-name='' \
+	--api-username='APIUSERNAME' \
+	--api-password='APIUSERPASSWORD'  \
+	--filter-name='^Registry$' \
 	--filter-type='' \
-	--filter-application-name='' \
-	--filter-host-name='' \
-	--warning-status='' \
+	--filter-application-name='^SYSTEM$' \
+	--filter-host-name='^THEHOST$' \
+	--warning-status='%{state} !~ /online/' \
 	--critical-status=''%{state} !~ /online/'' \
 	--warning-log-error='' \
 	--critical-log-error='' \
@@ -258,13 +256,14 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--warning-cpu-usage='' \
 	--critical-cpu-usage='' \
 	--warning-heap-usage='' \
-	--critical-heap-usage='' 
+	--critical-heap-usage=''
+	--change-perfdata='.*#(.*),$1'
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: All nodes are ok | '*nodes*#node.log.error.count'=;;;0;'*nodes*#node.log.warning.count'=;;;0;'*nodes*#node.uptime.seconds'=s;;;;'*nodes*#node.cpu.usage.percentage'=%;;;0;100'*nodes*#node.heap.usage.percentage'=%;;;0;100
+OK: Node 'Registry' with PID '173' from application 'SYSTEM' on host 'THEHOST' state is 'online', Log error: 0, Log warning: 0, Uptime: 4M 2w 2d 2h 40m, CPU usage: 0.00%, Heap usage: 46.10MB/254.00MB (18.15%) | 'node.log.error.count'=0;;;0; 'node.log.warning.count'=0;;;0; 'node.cpu.usage.percentage'=0.00%;;;0;100 'node.heap.usage.percentage'=18.15%;0:90;;0;100
 ```
 
 ### Troubleshooting
