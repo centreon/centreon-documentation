@@ -22,7 +22,7 @@ allow you easily to roll back to the previous state if necessary.
 Be sure to read the release notes for an explanation of features, fixes
 and custom procedures.
 
-**When you are upgrading to a new major or minor version (i.e: A.B.x with
+**When you are upgrading to a new major version (i.e: A.B.x with
 A or B that changes), you need to contact our Support service to retrieve
 the new repository**.
 
