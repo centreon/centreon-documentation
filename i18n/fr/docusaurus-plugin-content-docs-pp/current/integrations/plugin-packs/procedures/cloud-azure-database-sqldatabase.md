@@ -397,12 +397,12 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=cloud::azure::database::sqldatabase::plugin \
 	--mode=workers \
 	--custommode='api' \
-	--resource='' \
+	--resource='XXXXXXXXXXXXXXXX' \
 	--resource-group='' \
-	--subscription='' \
-	--tenant='' \
-	--client-id='' \
-	--client-secret='' \
+	--subscription='XXXXXXXXXXXXXXXX' \
+	--tenant='XXXXXXXXXXXXXXXX' \
+	--client-id='XXXXXXXXXXXXXXXX' \
+	--client-secret='XXXXXXXXXXXXXXXX' \
 	--proxyurl=''  \
 	--warning-workers='' \
 	--critical-workers='' 

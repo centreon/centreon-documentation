@@ -249,7 +249,7 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 | PROXYURL           | Proxy URL if any                                                                                                           |                   |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                       |                   |             |
 
-> Set the following options in the EXTRAOPTIONS macro if you are monitoring resource from Microsoft Azure operated by 21Vianet (Azure China):
+> Set the following options in the EXTRAOPTIONS macro if you are monitoring resources from Microsoft Azure operated by 21Vianet (Azure China):
 --management-endpoint='https://management.chinacloudapi.cn' --login-endpoint='https://login.partner.microsoftonline.cn'.
 
 </TabItem>
@@ -395,12 +395,12 @@ is able to monitor an Azure Instance using a command like this one (replace the 
 	--plugin=cloud::azure::database::sqldatabase::plugin \
 	--mode=workers \
 	--custommode='api' \
-	--resource='' \
+	--resource='XXXXXXXXXXXXXXXX' \
 	--resource-group='' \
-	--subscription='' \
-	--tenant='' \
-	--client-id='' \
-	--client-secret='' \
+	--subscription='XXXXXXXXXXXXXXXX' \
+	--tenant='XXXXXXXXXXXXXXXX' \
+	--client-id='XXXXXXXXXXXXXXXX' \
+	--client-secret='XXXXXXXXXXXXXXXX' \
 	--proxyurl=''  \
 	--warning-workers='' \
 	--critical-workers='' 
