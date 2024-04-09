@@ -21,7 +21,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias          | Modèle de service                                         | Description                                                                         |
 |:---------------|:----------------------------------------------------------|:------------------------------------------------------------------------------------|
-| Connections    | Cloud-Azure-Database-PostgreSQL-Connections-Api-custom    | Contrôle les statistiques de connexions de l'instance Azure Database for PostgreSQL |
+| Connections    | Cloud-Azure-Database-PostgreSQL-Connections-Api-custom    | Contrôle le nombre de connexions à l'instance Azure Database for PostgreSQL |
 | Cpu            | Cloud-Azure-Database-PostgreSQL-Cpu-Api-custom            | Contrôle le CPU de l'instance Azure Database for PostgreSQL                         |
 | IO-Consumption | Cloud-Azure-Database-PostgreSQL-IO-Consumption-Api-custom | Contrôle les écritures/lectures de l'instance Azure Database for PostgreSQL         |
 | Memory         | Cloud-Azure-Database-PostgreSQL-Memory-Api-custom         | Contrôle l'utilisation de la mémoire de l'instance Azure Database for PostgreSQL    |
