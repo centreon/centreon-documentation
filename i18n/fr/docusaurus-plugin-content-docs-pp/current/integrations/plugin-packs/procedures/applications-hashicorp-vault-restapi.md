@@ -69,7 +69,7 @@ Il est possible de s'authentifier à l'API en utilisant les méthodes suivantes:
 * okta
 * radius
 
-Suivant la méthode choisie, les options requises devront être renseignées dans la Macro *EXTRAOPTIONS* de l'hôte. Se réferer à l'aide du Plugin
+Suivant la méthode choisie, les options requises devront être renseignées dans la Macro *EXTRAOPTIONS* de l'hôte. Se référer à l'aide du Plugin
 disponible en ligne de commandes (paramètre ```--help```) pour plus d'informations.
 Les options nécessaires à chaque méthode d'authentification sont détaillées dans la documentation officielle de l'éditeur:
 https://www.vaultproject.io/api-docs/auth .
