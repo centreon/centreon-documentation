@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias  | Service Template                            | Service Description                               |
 |:---------------|:--------------------------------------------|:--------------------------------------------------|
-| Battery-Status | HW-UPS-Powerware-Battery-Status-SNMP-custom | Check battery status and battery charge remaining |
+| Battery-Status | HW-UPS-Powerware-Battery-Status-SNMP-custom | Check battery status and remaining battery charge |
 | Environment    | HW-UPS-Powerware-Environment-SNMP-custom    | Check humidity and temperature                    |
 | Input-Lines    | HW-UPS-Powerware-Input-Lines-SNMP-custom    | Check input lines metrics                         |
 | Output-Lines   | HW-UPS-Powerware-Output-Lines-SNMP-custom   | Check output lines metrics                        |
