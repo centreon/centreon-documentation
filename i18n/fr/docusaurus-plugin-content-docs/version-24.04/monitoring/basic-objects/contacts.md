@@ -12,6 +12,7 @@ Dans Centreon, les utilisateurs/contacts peuvent :
   - Changer la langue de l'interface utilisateur.
   - Réinitialiser le mot de passe.
   - Définir une page par défaut après connexion.
+  - Afficher la page en mode plein écran (F).
 
 Ces procédures permettent de gérer les utilisateurs :
 
