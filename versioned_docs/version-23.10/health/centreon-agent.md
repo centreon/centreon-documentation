@@ -178,7 +178,7 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
    systemctl restart gorgoned
    ```
 
-8. You can now [configure your Agent](#configuring-the-agent) (gateway, proxy etc.) and then [test](#testing-the-agent) your overall configuration.
+7. You can now [configure your Agent](#configuring-the-agent) (gateway, proxy etc.) and then [test](#testing-the-agent) your overall configuration.
 
 ### On other host machines (Remote Server, Poller, MAP, etc.)
 
