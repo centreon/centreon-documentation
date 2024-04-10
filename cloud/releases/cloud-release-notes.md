@@ -8,7 +8,8 @@ title: Centreon Cloud release notes
 ### Custom check command definition
 
 You now have the ability to define your own check commands, allowing for customized monitoring configurations.
-To maintain system integrity, this feature is secured by a whitelist mechanism (this requires a poller update), ensuring only authorized commands are executed.
+To maintain system integrity, this feature is secured by a whitelist mechanism, ensuring only authorized commands are executed.
+As an important note, whether or not you plan to use this feature, it may introduce a security vulnerability if you do not update your poller by following [this procedure](../installation/poller-update-upgrade.md).
 
 ### Dashboards Beta
 
