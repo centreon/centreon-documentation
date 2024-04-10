@@ -23,7 +23,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias      | Service Template                               | Service Description                                        | Discovery  |
 |:-------------------|:-----------------------------------------------|:-----------------------------------------------------------|:----------:|
-| Cluster-Statistics | App-DB-Elasticsearch-Cluster-Statistics-custom | Check the state of a Elasticsearch cluster                 |            |
+| Cluster-Statistics | App-DB-Elasticsearch-Cluster-Statistics-custom | Check the state of an Elasticsearch cluster                 |            |
 | Indice-Statistics  | App-DB-Elasticsearch-Indice-Statistics-custom  | Check the statistics of indices of a Elasticsearch cluster | X          |
 | License            | App-DB-Elasticsearch-License-custom            | Check license status                                       |            |
 | Node-Statistics    | App-DB-Elasticsearch-Node-Statistics-custom    | Check nodes statistics in a Elasticsearch cluster          | X          |
