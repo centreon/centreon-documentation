@@ -1,6 +1,6 @@
 ---
 id: dashboards
-title: Dashboards
+title: Dashboards Beta
 ---
 
 Get started with creating dashboards and adding widgets specially designed to optimize your user experience. Then benefit from data visualization options to display and monitor your resources in real time.
@@ -11,7 +11,7 @@ Get started with creating dashboards and adding widgets specially designed to op
 
 > You must be logged into Centreon with administrator or creator rights.
 
-1. Go to **Home > Dashboards**.
+1. Go to **Home > Dashboards Beta**.
 2. In the **Dashboard library** page, click the **Create a dashboard** button. This opens the **Create dashboard** modal.
 3. Name the dashboard and enter a description if needed.
 4. Click **Create** to confirm the creation.
