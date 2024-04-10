@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 | Cluster-Statistics | App-DB-Elasticsearch-Cluster-Statistics-custom | Check the state of an Elasticsearch cluster                 |            |
 | Indice-Statistics  | App-DB-Elasticsearch-Indice-Statistics-custom  | Check the statistics of indices of a Elasticsearch cluster | X          |
 | License            | App-DB-Elasticsearch-License-custom            | Check license status                                       |            |
-| Node-Statistics    | App-DB-Elasticsearch-Node-Statistics-custom    | Check nodes statistics in a Elasticsearch cluster          | X          |
+| Node-Statistics    | App-DB-Elasticsearch-Node-Statistics-custom    | Check nodes statistics in an Elasticsearch cluster          | X          |
 
 > The services listed above are created automatically when the **App-DB-Elasticsearch-custom** host template is used.
 
