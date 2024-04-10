@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-Elasticsearch est un moteur de recherche et d'analyse distribué et en open source pour tout type de données, y compris les données textuelles, numériques, géospatiales, structurées et non structurées. Elasticsearch a été conçu à partir d'Apache Lucene et a été lancé en 2010 par Elasticsearch N. V. (maintenant appelé Elastic).
+Elasticsearch est un moteur de recherche et d'analyse distribué et open source pour tout type de données, y compris les données textuelles, numériques, géospatiales, structurées et non structurées.
 
 ## Contenu du pack
 
