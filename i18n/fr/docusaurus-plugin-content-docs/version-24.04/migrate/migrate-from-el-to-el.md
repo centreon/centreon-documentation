@@ -46,13 +46,6 @@ dnf update
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
-
-```shell
-apt update
-```
-
-</TabItem>
 </Tabs>
 
 ### Étape 2 : Synchroniser les données
