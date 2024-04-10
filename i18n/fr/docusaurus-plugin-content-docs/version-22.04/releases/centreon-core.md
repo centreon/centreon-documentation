@@ -16,6 +16,14 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 22.04.23
+
+Release date: `April 10, 2024`
+
+#### Security fixes
+
+- [Security] Upgraded axios dependency.
+
 ### 22.04.22
 
 Release date: `March 13, 2024`
