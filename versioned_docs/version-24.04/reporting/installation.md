@@ -36,7 +36,7 @@ The diagram below highlights the main components of Centreon MBI:
 
 - **ETL**: Process that extracts, transforms and loads data into the reporting database.
 - **CBIS**: The scheduler that manages the execution and publication of reports.
-- **Reporting Database**: The MariaDB database that contains the reporting data and some raw data extracted from the monitoring database.
+- **Reporting Database**: The MariaDB/MySQL database that contains the reporting data and some raw data extracted from the monitoring database.
 
 ### Network Flow Tables
 
@@ -61,7 +61,7 @@ The Centreon MBI installation is based on two RPM packages:
 - **Centreon-bi-reporting-server**: Contains all the components needed to run the reporting server
   (report scheduler, ETL, standard reports). It must be installed on a server dedicated to reporting processes.
 
-The installation of the database must be done at the same time. We strongly recommend installing the MariaDB database on the
+The installation of the database must be done at the same time. We strongly recommend installing the MariaDB/MySQL database on the
 reporting server, for performance and isolation reasons.
 
 ## Prerequisites
@@ -73,7 +73,7 @@ reporting server, for performance and isolation reasons.
 
 See the [software requirements](../installation/prerequisites.md#software).
 
-You should install the MariaDB database at the same time. We highly recommend
+You should install the MariaDB/MySQL database at the same time. We highly recommend
 installing the database on the same server, due to performance and isolation
 considerations.
 
@@ -261,8 +261,8 @@ vgdisplay vg_data | grep -i free*
 
 #### Firmware and software layer
 
-- OS: RHEL / Oracle Linux / Alma 8 or 9, Debian 11
-- SGBD: MariaDB 10.5
+- OS: see [compatibility info here](../installation/compatibility.md#operating-systems)
+- SGBD: see [compatibility info here](../installation/compatibility.md#dbms)
 - Firewalld: Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#configure-or-disable-the-firewall))
 - SELinux: Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#disable-selinux))
 
@@ -274,7 +274,7 @@ vgdisplay vg_data | grep -i free*
 >timedatectl set-timezone Europe/Paris
 >```
 
-Be sure to optimize MariaDB on your reporting server.
+Be sure to optimize MariaDB/MySQL on your reporting server.
 You will need at least 12 GB of RAM in order to use the [next file](../assets/reporting/installation/centreon.cnf).
 
 Make sure you have a **tmp** folder in **/var/lib/mysql**.

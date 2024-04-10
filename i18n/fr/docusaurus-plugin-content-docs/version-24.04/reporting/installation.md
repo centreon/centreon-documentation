@@ -36,7 +36,7 @@ Le schéma ci-dessous met en avant les principaux composants de Centreon MBI :
 - **ETL** : Processus qui extrait, transforme et charge les données dans la
   base de données de reporting.
 - **CBIS** : Ordonnanceur qui gère l'exécution et la publication des rapports.
-- **Base de données de reporting** : Base de données MariaDB qui contient les données de reporting
+- **Base de données de reporting** : Base de données MariaDB/MySQL qui contient les données de reporting
   et certaines données brutes extraites de la base de données de supervision.
 
 ### Tableaux des flux réseau
@@ -64,7 +64,7 @@ L'installation de Centreon MBI est basée sur deux paquets RPM :
   installé sur un serveur dédié aux processus de reporting.
 
 L'installation de la base de données doit être faite en même temps. Nous recommandons
-fortement d'installer la base MariaDB sur le serveur de reporting pour des raisons de
+fortement d'installer la base MariaDB/MySQL sur le serveur de reporting pour des raisons de
 performances & d'isolation.
 
 ## Pré-requis
@@ -256,10 +256,10 @@ Pour contrôler l'espace libre, utilisez la commande suivante en remplaçant
 vgdisplay vg_data | grep -i free*
 ```
 
-#### Couche Interlogiciel et logiciel
+#### Couche interlogiciel et logiciel
 
-- OS : voir la compatibilité [ici](../installation/prerequisites.md#système-dexploitation)
-- SGBD : voir la compatibilité [ici](../installation/prerequisites.md#sgbd)
+- OS : voir la compatibilité [ici](../installation/compatibility.md#système-dexploitation)
+- SGBD : voir la compatibilité [ici](../installation/compatibility.md#sgbd)
 - Firewalld : Désactivé ([voir ici](../installation/installation-of-a-central-server/using-packages.md#Configurer-ou-désactiver-le-pare-feu))
 - SELinux : Désactivé ([voir ici](../installation/installation-of-a-central-server/using-packages.md#Désactiver-SELinux))
 
@@ -271,13 +271,13 @@ vgdisplay vg_data | grep -i free*
 >timedatectl set-timezone Europe/Paris
 >```
 
-Veillez à optimiser MariaDB sur votre serveur de reporting. Vous aurez besoin
+Veillez à optimiser MariaDB/MySQL sur votre serveur de reporting. Vous aurez besoin
 d'au moins 12GB de mémoire vive afin d'utiliser le
 [fichier suivant](../assets/reporting/installation/centreon.cnf).
 
 Assurez-vous d'avoir un dossier **tmp** dans **/var/lib/mysql**.
 
-> Ne définissez pas ces optimisations MariaDB sur votre serveur de supervision.
+> Ne définissez pas ces optimisations MariaDB/MySQL sur votre serveur de supervision.
 
 Utilisateurs et groupes :
 
@@ -373,7 +373,7 @@ Téléchargez la licence envoyée par l'équipe Centreon pour pouvoir commencer 
 <TabItem value="Base de supervision locale au central" label="Base de supervision locale au central">
 
 
-La base de données de supervision MariaDB est hébergée sur le serveur de supervision central.
+La base de données de supervision MariaDB/MySQL est hébergée sur le serveur de supervision central.
 
 Lancez la commande ci-dessous pour autoriser le serveur de reporting à se connecter
 aux bases de données du serveur de supervision. Utilisez l'option suivante :
@@ -382,13 +382,13 @@ aux bases de données du serveur de supervision. Utilisez l'option suivante :
 /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
 ```
 
-**@ROOTPWD@** : Mot de passe root de la base MariaDB de supervision.
+**@ROOTPWD@** : Mot de passe root de la base MariaDB/MySQL de supervision.
 S'il n'y a pas de mot de passe pour l'utilisateur "root", ne spécifiez pas l'option **root-password**.
 
 </TabItem>
 <TabItem value="Base de supervision déportée par rapport au central" label="Base de supervision déportée par rapport au central">
 
-La base de données de supervision MariaDB est hébergée sur un serveur dédié.
+La base de données de supervision MariaDB/MySQL est hébergée sur un serveur dédié.
 
 Connectez-vous par SSH au serveur de la base de données, et exécutez les commandes suivantes :
 
