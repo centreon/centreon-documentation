@@ -25,7 +25,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias              | Modèle de service                              | Description                                                        | Découverte |
 |:-------------------|:-----------------------------------------------|:-------------------------------------------------------------------|:----------:|
 | Cluster-Statistics | App-DB-Elasticsearch-Cluster-Statistics-custom | Contrôle de l'état d'un cluster Elasticsearch                      |            |
-| Indice-Statistics  | App-DB-Elasticsearch-Indice-Statistics-custom  | Contrôle les statistics des indices d'un cluster Elasticsearch     | X          |
+| Indice-Statistics  | App-DB-Elasticsearch-Indice-Statistics-custom  | Contrôle les statistiques des index d'un cluster Elasticsearch     | X          |
 | License            | App-DB-Elasticsearch-License-custom            | Contrôle le statut de la licence                                   |            |
 | Node-Statistics    | App-DB-Elasticsearch-Node-Statistics-custom    | Contrôle les statistiques des noeuds dans un cluster Elasticsearch | X          |
 
