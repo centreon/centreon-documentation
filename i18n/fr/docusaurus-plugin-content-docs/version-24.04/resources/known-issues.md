@@ -47,7 +47,7 @@ Il n'y a pas de solution de contournement et ce message n'empêche pas de finali
 
 #### Contournement
 
-Exécutez les requêtes suivantes dans MariaDB :
+Exécutez les requêtes suivantes dans MariaDB/MySQL :
 
 Dans votre base de données temps réel :
 ```sql

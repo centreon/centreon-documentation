@@ -52,7 +52,7 @@ Broker Binary Data Object : c’est le protocole de communication utilisé pour 
 ## Broker
 
 Centreon Broker est le composant logiciel qui reçoit les données de supervision collectées par les [moteurs de supervision](#moteur-de-supervision).
-Une fois ces données reçues, par défaut, Centreon Broker les redistribue vers les bases de données MariaDB et RRD.
+Une fois ces données reçues, par défaut, Centreon Broker les redistribue vers les bases de données MariaDB/MySQL et RRD.
 
 **Voir aussi** : [Mapping d’événements Centreon Broker](../developer/developer-broker-mapping.md).
 
@@ -198,7 +198,7 @@ Voir [**Moteur de supervision**](#moteur-de-supervision).
 
 ## Période de rétention
 
-Durée pendant laquelle vous souhaitez conserver vos données de base de données RRD et MariaDB. Elle est exprimée en jours. 
+Durée pendant laquelle vous souhaitez conserver vos données de base de données RRD et MariaDB/MySQL. Elle est exprimée en jours. 
 
 ## Période temporelle
 

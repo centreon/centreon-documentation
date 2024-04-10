@@ -21,7 +21,7 @@ leurs descriptions, c’est ce qu’on appelle les fichiers MIB. Il existe deux 
 * Les MIB constructeurs qui sont propres à chacun et souvent à chaque modèle d’équipement.
 
 Les MIB constructeurs sont à récupérer auprès des constructeurs de matériels. Centreon permet de stocker la définition
-des traps SNMP dans sa base de données MariaDB. Les traps peuvent ensuite être reliés à des services passifs via l’onglet
+des traps SNMP dans sa base de données MariaDB/MySQL. Les traps peuvent ensuite être reliés à des services passifs via l’onglet
 **Relations** de la définition d’un service.
 
 ## Architecture
@@ -45,7 +45,7 @@ Voici le processus de traitement d’un trap SNMP :
 ### Processus de traitement d’un trap par un collecteur
 
 Afin de garder une copie de la configuration des traps SNMP sur chaque serveur satellite, une base de données SQLite
-est chargée de garder en cache les informations de traps contenues dans la base de données MariaDB. Cette base de
+est chargée de garder en cache les informations de traps contenues dans la base de données MariaDB/MySQL. Cette base de
 données SQLite est automatiquement générée par le serveur Central.
 
 Voici le processus de traitement d’un trap SNMP :
@@ -118,7 +118,7 @@ tmpfs /var/spool/centreontrapd      tmpfs defaults,size=512m 0 0
 
 Deux fichiers de configuration existent pour Centreontrapd :
 
-* **/etc/centreon/conf.pm** contient les informations de connexion à la base de données MariaDB
+* **/etc/centreon/conf.pm** contient les informations de connexion à la base de données MariaDB/MySQL
 * **/etc/centreon/centreontrapd.pm** contient la configuration du service centreontrapd
 
 #### Configuration du service
