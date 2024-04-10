@@ -1,0 +1,109 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import DatabaseConfiguration from './_database-configuration.mdx';
+
+> Si vous installez la base de données sur un serveur dédié, ce serveur doit également avoir
+> les dépôts requis.
+
+Exécutez la commande suivante sur le serveur central :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install -y centreon-central
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install -y centreon-central
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```shell
+apt update
+apt install -y --no-install-recommends centreon-central
+```
+
+</TabItem>
+</Tabs>
+
+Exécutez ensuite les commandes suivantes sur le serveur dédié à votre base de données :
+
+<Tabs groupId="database-sync">
+<TabItem value="MariaDB" label="MariaDB">
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install -y centreon-mariadb
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install -y centreon-mariadb
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```shell
+apt update
+apt install -y --no-install-recommends centreon-mariadb
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL">
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install -y centreon-mysql
+systemctl daemon-reload
+systemctl restart mysqld
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install -y centreon-mysql
+systemctl daemon-reload
+systemctl restart mysqld
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```shell
+apt update
+apt install -y --no-install-recommends centreon-mysql
+# Selectionner "Use Legacy Authentication Method"
+systemctl daemon-reload
+systemctl restart mysql
+```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+</Tabs>
+
+<DatabaseConfiguration />
