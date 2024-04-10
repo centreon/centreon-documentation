@@ -171,7 +171,14 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
     systemctl start centreon-agent.service
     ```
 
-6. Vous pouvez maintenant [configurer votre Agent](#configurer-lagent) (passerelle, proxy etc.), puis [tester](#tester-lagent) votre configuration générale.
+6. Exécutez les commandes suivantes :
+
+   ```shell
+   mv /etc/centreon-gorgone/config.d/cron.d/43-centreon-helios.yaml.disabled /etc/centreon-gorgone/config.d/cron.d/43-centreon-helios.yaml
+   systemctl restart gorgoned
+   ```
+
+7. Vous pouvez maintenant [configurer votre Agent](#configurer-lagent) (passerelle, proxy etc.), puis [tester](#tester-lagent) votre configuration générale.
 
 ### Sur d'autres machines hôtes (serveur distant, collecteur, MAP, etc.)
 
