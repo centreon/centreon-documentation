@@ -3,7 +3,7 @@ id: cloud-release-notes
 title: Centreon Cloud release notes
 ---
 
-## March 29, 2024
+## April 11, 2024
 
 ### Custom check command definition
 
