@@ -5,7 +5,6 @@ title: À partir des sources
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Prérequis
 
 > La plupart des utilisateurs de CentOS préfèreront installer Centreon Web en utilisant
@@ -333,7 +332,7 @@ Installez Centreon Gorgone en utilisant [cette procédure](https://github.com/ce
 
 ### Sécuriser la base de données
 
-Depuis MariaDB 10.5, il est obligatoire de sécuriser l'accès en root à la base avant d'installer Centreon. Exécutez la commande suivante :
+Il est obligatoire de sécuriser l'accès en root à la base avant d'installer Centreon. Exécutez la commande suivante :
 
 ```shell
 mysql_secure_installation

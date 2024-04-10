@@ -334,7 +334,7 @@ Please install Centreon Gorgone using [this procedure](https://github.com/centre
 
 ### Secure the database
 
-Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon. Run the following command:
+It is mandatory to secure the database's root access before installing Centreon. Run the following command:
 
 ```shell
 mysql_secure_installation

@@ -268,6 +268,10 @@ with the following:
     systemctl restart cbd centengine centreontrapd gorgoned
     ```
 
+## Upgrade MariaDB
+
+Follow [this procedure](upgrade-mariadb.md) to upgrade MariaDB to version 10.11.
+
 ## Upgrade the Remote Servers
 
 This procedure is the same as for upgrading a Centreon Central server.

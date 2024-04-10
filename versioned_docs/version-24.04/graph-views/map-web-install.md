@@ -24,7 +24,7 @@ The diagram below summarizes the MAP architecture.
 
 ![image](../assets/graph-views/ng/map-web-schema.png)
 
-**Table of network flow**
+**Table of network flows**
 
 | Application    | Source     | Destination               | Port      | Protocol   | Purpose                                             |
 |----------------|------------|---------------------------|-----------|------------|-----------------------------------------------------|
@@ -406,14 +406,14 @@ First you need to add the MariaDB repository:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.11"
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=9 --mariadb-server-version="mariadb-10.5"
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=9 --mariadb-server-version="mariadb-10.11"
 ```
 
 </TabItem>
@@ -478,7 +478,7 @@ systemctl enable mariadb
 systemctl restart mariadb
 ```
 
-Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon. If you are using a local database, run the following command on the Map server:
+It is mandatory to secure the database's root access before installing Centreon. If you are using a local database, run the following command on the Map server:
 
 ```shell
 mysql_secure_installation
@@ -648,7 +648,7 @@ Then, restart MariaDB:
 systemctl restart mariadb
 ```
 
-Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon. If you are using a local database, run the following command on the central server:
+It is mandatory to secure the database's root access before installing Centreon. If you are using a local database, run the following command on the central server:
 
 ```shell
 mysql_secure_installation

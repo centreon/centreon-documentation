@@ -95,7 +95,7 @@ Suivez cette procédure pour définir une page par défaut :
 
 > Vous devez d'abord obtenir le numéro de la "page topologique" associée à la page par défaut de l'interface. Dans cet exemple, nous devons obtenir le numéro associé à la page Statut des ressources.
 
-1. Depuis votre terminal, connectez-vous à **MariaDB** et exécutez la commande suivante :
+1. Depuis votre terminal, connectez-vous à **MariaDB/MySQL** et exécutez la commande suivante :
   
   ```shell
   use centreon ;

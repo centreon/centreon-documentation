@@ -9,8 +9,7 @@ This chapter describes how to upgrade your Centreon platform from version 23.10 
 
 > When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers. All servers in your architecture must have the same version of Centreon. In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
-> If you want to migrate your Centreon platform to another server/OS, please read our chapter on migration.
-> you need to follow the [migration procedure](../migrate/introduction.md).
+> If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../migrate/introduction.md).
 
 ## Prerequisites
 
@@ -535,6 +534,10 @@ with the following:
     ``` shell
     systemctl restart cbd centengine centreontrapd gorgoned
     ```
+
+## Upgrade MariaDB
+
+Follow [this procedure](upgrade-mariadb.md) to upgrade MariaDB to version 10.11.
 
 ## Upgrade the Remote Servers
 

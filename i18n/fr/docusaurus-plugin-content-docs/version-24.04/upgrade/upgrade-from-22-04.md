@@ -478,6 +478,10 @@ associée](../service-mapping/upgrade.md) pour le mettre à jour.
     systemctl restart cbd centengine centreontrapd gorgoned
     ```
 
+## Mettre à jour MariaDB
+
+Suivez [cette procédure](upgrade-mariadb.md) pour monter de version MariaDB en 10.11.
+
 ## Montée de version des Remote Servers
 
 Cette procédure est identique à la montée de version d'un serveur Centreon

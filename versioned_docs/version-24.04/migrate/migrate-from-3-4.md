@@ -66,7 +66,7 @@ apt update
 
 ### Synchronize the data
 
-Connect to your old Centreon server and synchronize following directories:
+Connect to your old Centreon server and synchronize the following directories:
 
 ```shell
 rsync -avz /etc/centreon root@<IP_NEW_CENTREON>:/etc
@@ -116,7 +116,7 @@ create them again:
   CREATE DATABASE centreon_storage;
   ```
 
-5. Import the previously transfered dumps:
+5. Import the previously transferred dumps:
 
     ```shell
     mysql -u root centreon -p </tmp/centreon.sql
