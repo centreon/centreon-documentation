@@ -123,6 +123,53 @@ Les utilisateurs que vous venez d'ajouter ont maintenant accès au partage de vo
 
 > Utilisez la fonction **Copier le lien** pour partager l'URL du tableau de bord directement avec les utilisateurs qui ont accès à votre plateforme.
 
+## Gérer les listes de diffusion
+
+Les listes de diffusion sont des listes de tableaux de bord sélectionnés à diffuser dans l'ordre de votre choix. Cette fonctionnalité est utile par exemple lorsque vous souhaitez afficher vos tableaux de bord en plein écran dans des espaces publics.
+
+> Cette fonctionnalité nécessite une [licence](../administration/licenses.md) valide. Pour en acheter une et récupérer les référentiels nécessaires, contactez [Centreon](mailto:sales@centreon.com).
+
+### Créer une liste de diffusion
+
+> Avant de créer une liste de diffusion, assurez-vous que les tableaux de bord que vous souhaitez inclure ont été créés.
+
+1. Cliquez sur le lien **Listes de diffusion** pour accéder à l'interface des listes de diffusion.
+2. Cliquez sur le bouton **Créer une liste de diffusion** (ou sur le bouton **Ajouter** s'il ne s'agit pas de votre première liste de diffusion).
+3. Renseignez les propriétés :
+   - **Nom**
+   - **Description** 
+   - Ajoutez vos tableaux de bord dans la liste déroulante **Sélectionner des tableaux de bord**.
+   - Dans la section **Définir l'ordre des tableaux de bord**, glissez/déposez les tableaux de bord comme vous le souhaitez.
+   - Définissez le temps de rotation en secondes.
+4. Cliquez sur **Enregistrer**.
+Votre liste de diffusion est maintenant ajoutée à la liste des listes de diffusion.
+
+### Afficher la liste de diffusion
+
+- Dans l'interface **Listes de diffusion**, cliquez sur la ligne de votre liste de diffusion.
+Votre liste de diffusion est alors affichée et un bandeau de contrôle apparaît lorsque vous survolez le bas de l'interface.
+
+> Profitez d'une meilleure visualisation en affichant la page en mode plein écran (F). 
+
+Le bandeau de contrôle vous permet de :
+- Mettre en lecture/pause la diffusion.
+- Aller au tableau de bord précédent ou suivant.
+- Accéder directement à un tableau de bord spécifique en cliquant sur son nom.
+
+### Partager la liste de diffusion
+
+> Vous ne pouvez partager votre liste de diffusion qu'avec des contacts ayant accès à votre plateforme Centreon, et les droits de viewer sur les tableaux de bord.
+
+- Cliquez sur le bouton **Partager avec des contacts** à partir de la ligne de votre liste de diffusion.
+La modale **Droits d'accès de la liste de diffusion** s'affiche.
+- Vous pouvez maintenant ajouter des contacts ou des groupes de contacts et définir leurs droits en tant que viewer ou editor dans la section **Partager avec**.
+- Utilisez le bouton **Corbeille** dans la section **Droits utilisateur** pour supprimer un contact ou un groupe de contacts.
+- Utilisez le bouton **Copier le lien** pour partager l'URL de la liste de diffusion directement avec les utilisateurs qui ont accès à votre plateforme.
+
+### Editer/Supprimer une liste de diffusion
+
+Le menu d'action à trois points situé à la fin de la ligne de la liste de diffusion vous permet d'éditer les propriétés ou de supprimer la liste de diffusion.
+
 ## Liste des widgets
 
 | Widget                   | Description                                                                                                                                                                                                                                                                                                    |
