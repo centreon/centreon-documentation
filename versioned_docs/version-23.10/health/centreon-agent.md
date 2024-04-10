@@ -171,7 +171,14 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
     systemctl start centreon-agent.service
     ```
 
-6. You can now [configure your Agent](#configuring-the-agent) (gateway, proxy etc.) and then [test](#testing-the-agent) your overall configuration.
+6. Execute the following commands:
+
+   ```shell
+   mv /etc/centreon-gorgone/config.d/cron.d/43-centreon-helios.yaml.disabled /etc/centreon-gorgone/config.d/cron.d/43-centreon-helios.yaml
+   systemctl restart gorgoned
+   ```
+
+8. You can now [configure your Agent](#configuring-the-agent) (gateway, proxy etc.) and then [test](#testing-the-agent) your overall configuration.
 
 ### On other host machines (Remote Server, Poller, MAP, etc.)
 
