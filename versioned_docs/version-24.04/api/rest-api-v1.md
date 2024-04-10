@@ -1835,7 +1835,7 @@ To delete more than one hostgroup, use the character '|'. Example:
     - setmember
     - delmember
 
-### Instances ( Pollers)
+### Instances (Pollers)
 
   - **Object**
     
@@ -1848,6 +1848,151 @@ To delete more than one hostgroup, use the character '|'. Example:
     - del
     - setparam
     - gethosts
+
+### Resource CFG (pollers related macros)
+
+`RESOURCECFG` objects allow to define macro values that apply to a set of pollers.  
+A `RESOURCECFG` object defines a macro for one or multiple pollers.  
+The same macro can be defined in multiple `RESOURCECFG` objects with complementary lists of pollers.  
+More information here: [Resource macros](../monitoring/basic-objects/macros.md#resource-macros)
+
+#### List RESOURCECFG objects
+
+**POST**
+
+    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+
+**Header**
+
+| Key                 | Value                                                         |
+| ------------------- | ------------------------------------------------------------- |
+| Content-Type        | application/json                                              |
+| centreon-auth-token | The value of authToken you got on the authentication response |
+
+**Body**
+
+``` json
+{
+    "action": "show",
+    "object": "resourcecfg"
+}
+```
+
+**Response**
+
+``` json
+{
+  "result": [
+    {
+      "id": "1",
+      "name": "$USER1$",
+      "value": "/usr/lib64/nagios/plugins",
+      "comment": "Nagios Plugins Path",
+      "activate": "1",
+      "instance": [
+        "Central"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "$CENTREONPLUGINS$",
+      "value": "/usr/lib/centreon/plugins",
+      "comment": "Centreon Plugins Path",
+      "activate": "1",
+      "instance": [
+        "Central"
+      ]
+    }
+  ]
+}
+```
+
+#### Add a RESOURCECFG object
+
+**POST**
+
+    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+
+**Header**
+
+| Key                 | Value                                                         |
+| ------------------- | ------------------------------------------------------------- |
+| Content-Type        | application/json                                              |
+| centreon-auth-token | The value of authToken you got on the authentication response |
+
+**Body**
+
+``` json
+{
+    "action": "add",
+    "object": "resourcecfg",
+    "values": "{macro name};{macro value};{poller related list};{comment}"
+}
+```
+
+**Response**
+
+``` json
+{"result":[]}
+```
+
+#### Delete a RESOURCECFG object
+
+**POST**
+
+    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+
+**Header**
+
+| Key                 | Value                                                         |
+| ------------------- | ------------------------------------------------------------- |
+| Content-Type        | application/json                                              |
+| centreon-auth-token | The value of authToken you got on the authentication response |
+
+**Body**
+
+``` json
+{
+    "action": "del",
+    "object": "resourcecfg",
+    "values": "{macro ID}"
+}
+```
+
+**Response**
+
+``` json
+{"result":[]}
+```
+
+#### Change a RESOURCECFG object
+
+**POST**
+
+    api.domain.tld/centreon/api/index.php?action=action&object=centreon_clapi
+
+**Header**
+
+| Key                 | Value                                                         |
+| ------------------- | ------------------------------------------------------------- |
+| Content-Type        | application/json                                              |
+| centreon-auth-token | The value of authToken you got on the authentication response |
+
+**Body**
+
+``` json
+{
+    "action": "setparam",
+    "object": "resourcecfg",
+    "values": "{macro ID};{parameter to change: instance,comment,value or activate};{value}"
+}
+```
+
+**Response**
+
+``` json
+{"result":[]}
+```
 
 ### Service templates
 
