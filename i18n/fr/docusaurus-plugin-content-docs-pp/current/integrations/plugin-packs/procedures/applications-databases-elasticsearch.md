@@ -111,7 +111,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 Afin de superviser un cluster Elasticsearch, celui-ci doit être configuré comme indiqué dans la [documentation officielle Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/monitor-elasticsearch-cluster.html).
 
-Pour pouvoir communiquer avec le collecteurs Centreon poller, l'API du noeud Elasticsearch doit utiliser le protocole http et le port 9200.
+Pour pouvoir communiquer avec le collecteur Centreon, l'API du noeud Elasticsearch doit utiliser le protocole HTTP et le port 9200.
 
 ## Installer le connecteur de supervision
 
