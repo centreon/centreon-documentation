@@ -35,7 +35,7 @@ Exemple :
 
 ### Définition
 
-Les macros personnalisées sont des macros définies par l’utilisateur et utilisées dans une [commande de contrôle](commandes.md).
+Les macros personnalisées sont des macros définies par l’utilisateur et utilisées dans une [commande de contrôle](commands.md).
 
 Les macros personnalisées commencent par $_HOST pour les macros personnalisées d’hôte et par $_SERVICE pour les macros personnalisées de service.
 
