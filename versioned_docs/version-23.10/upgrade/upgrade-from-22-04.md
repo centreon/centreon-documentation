@@ -34,7 +34,7 @@ servers:
 
 1. Update your Centreon 22.04 to the latest minor version.
 
-2. Remove the **centreon.repo** file:
+2. Remove the **centreon-22.04.repo** file:
 
    ```shell
    rm /etc/yum.repos.d/centreon-22.04.repo

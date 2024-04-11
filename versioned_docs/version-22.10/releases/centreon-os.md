@@ -19,6 +19,44 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon Web
 
+### 22.10.21
+
+Release date: `Avril 10, 2024`
+
+#### Bug fixes
+
+- [API V1] Fixed an issue that occurred when filtering Resources Status by criticality.
+
+#### Security fixes
+
+- [Security] Upgraded axios dependency.
+
+### 22.10.20
+
+Release date: `March 13, 2024`
+
+#### Bug fixes
+
+- [Authentication] Fixed issue with SSO authentication.
+- [CLAPI] Fixed a decoding issue affecting the export of HTML entities.
+- [Install] A unified unattended.sh script is now available for version 22.10.
+
+#### Security fixes
+
+- [Security] Improved allowed commands for Centreon Gorgone.
+
+### 22.10.19
+
+Release date: `February 14, 2024`
+
+#### Bug fixes
+
+- [CLAPI] Removed password expiration policy for LDAP authentication.
+
+#### Security fixes
+
+- [API] Fixed a visibility issue on configuration/users endpoint.
+
 ### 22.10.18
 
 Release date: `January 11, 2024`
@@ -33,7 +71,7 @@ Release date: `January 2, 2024`
 
 #### Security fixes
 
-- [Security] Fixed an SQLi vulnerability.
+- [Security] Fixed an SQLi vulnerability (CVE-2024-0637, CVE-2024-23115, CVE-2024-23116, CVE-2024-23117, CVE-2024-23118, CVE-2024-23119).
 
 ### 22.10.16
 
@@ -67,7 +105,7 @@ Release date: `November 17, 2023`
 #### Security fix
 
 - [Security] Fixed SQLi in a method.
-- Fixed potential vulnerability in the list of discovered hosts.
+- Fixed potential vulnerability in the list of discovered hosts (CVE-2023-51633).
   
 ### 22.10.14
 
@@ -387,6 +425,35 @@ Release date: `October 26, 2022`
 
 ## Centreon Collect
 
+### 22.10.9
+
+Release date: `March 6, 2024`
+
+#### Centreon Broker
+
+##### Enhancements
+
+- [Broker] Broker now drops metrics whose names are longer than 1000 characters to avoid errors in the database. An error is logged when it occurs.	
+
+##### Bug fixes
+
+- [Broker] Fixed conflicts that occurred when adding and/or removing hosts from hostgroups.
+- [Broker] Fixed some incorrect statuses in Broker's statistics retrieved by the `broker-stats.json` file.
+- [Engine] Semicolons are no longer considered as the beginning of a comment in Engine's configuration files. This is because comments were not useful in these files, and they prevented the use of semicolons in macros (e.g., passwords).
+- [Engine] Removed the unnecessary check of Anomaly Detection configuration files during the configuration test before deployment.
+- [Install] Fixed an issue in the installation process that emptied the `retention.dat` file, causing the temporary loss of all resources' statuses and the permanent loss of current acknowledgements and downtimes.
+
+### 22.10.8
+
+Release date: `February 14, 2024`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- [Broker] Fixed an issue with the propagation of the statuses for BAM boolean rules.
+- [Broker] Fixed the permissions of the RRD files produced by the rebuild mechanism when RRDcached is used.
+
 ### 22.10.7
 
 Release date: `January 11, 2024`
@@ -527,6 +594,48 @@ Release date: `October 26, 2022`
 
 ## Centreon Gorgone
 
+### 22.10.6
+
+Release date: `March 28, 2024`
+
+#### Enhancements
+
+- Moved Gorgone whitelists to a dedicated file.
+
+#### Bug fixes
+
+- Fixed a regression causing one of Gorgone's modules to use 100% of one CPU core.
+
+### 22.10.5
+
+Release date: `March 13, 2024`
+
+#### Bug fixes
+
+- Added the Auto Discovery patterns to the default commands whitelist.
+
+#### Security fixes
+
+- Improved list of allowed commands for Auto Discovery.
+
+### 22.10.4
+
+Release date: `February 14, 2024`
+
+#### Bug fixes
+
+[Core] Fixed recurring unexpected disconnections between pollers using pull/pullws mode.
+
+#### Security fixes
+
+[Security] Enabled whitelist of Centreon Gorgone commands by default to manage Centreon Engine and Broker processes in order to limit escalations of potential future vulnerabilities.
+
+### 22.10.3
+
+Release date: `November 17, 2023`
+
+No Changes for this module in this version.
+
 ### 22.10.2
 
 Release date: `July 28, 2023`
@@ -585,11 +694,19 @@ Release date: `October 26, 2022`
 
 ## Centreon Open Tickets
 
+### 22.10.3
+
+Release date: `February 14, 2024`
+
+#### Enhancements
+
+- [Open Tickets] Add EasyVista connector.
+
 ### 22.10.2
 
 Release date: `July 28, 2023`
 
-### Bug fixes
+#### Bug fixes
 
 - Fixed a Broker query.
 

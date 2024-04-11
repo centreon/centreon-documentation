@@ -24,12 +24,13 @@ Your screen resolution must be at least 1280 x 768.
 
 Centreon supports the following operating systems: AlmaLinux/RedHat/OracleLinux 8 or 9, and Debian 11.
 
-| Version                  | Installation mode                                      |
-|--------------------------|--------------------------------------------------------|
-| RHEL/Oracle Linux 8      | RPM packages, sources                                  |
-| Alma Linux 8             | RPM packages, virtual machine, sources                 |
-| RHEL/Oracle Linux/ALma Linux 9                 | RPM packages, sources                 |
-| Debian 11                | DEB packages                                           |
+| Version                        | Installation mode                                      |
+|--------------------------------|--------------------------------------------------------|
+| RHEL/Oracle Linux 8            | RPM packages, sources                                  |
+| Alma Linux 8                   | RPM packages, virtual machine, sources                 |
+| RHEL/Oracle Linux/ALma Linux 9 | RPM packages, sources                                  |
+| Debian 11 (bullseye)           | DEB packages                                           |
+| Debian 12 (bookworm)           | DEB packages                                           |
 
 Open Source users, without a support contract, can use another GNU/Linux operating system.
 This will require installing the platform from source files and will therefore be more complex.
@@ -39,8 +40,9 @@ Bear in mind that IT Edition and Business Edition modules do not work yet on uns
 
 ### DBMS
 
-| Software | Version |
-|----------|---------|
-| MariaDB  | 10.5.x  |
+| Software | Version          |
+|----------|------------------|
+| MariaDB  | >= 10.5 and < 11 |
+| MySQL    | 8                |
 
 > You can use another DBMS based on MySQL, but it will only be supported by the community.

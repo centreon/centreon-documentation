@@ -188,7 +188,7 @@ Depending on the type of server, install the packages with the following command
 </Tabs>
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 <Tabs groupId="sync">
 <TabItem value="Central / Remote Server" label="Central / Remote Server">
@@ -319,7 +319,7 @@ dnf install firewalld
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Install firewalld:
 
@@ -429,7 +429,7 @@ dnf install python3-inotify
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt install python3-inotify
@@ -469,7 +469,7 @@ yum update -y selinux-policy*
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt install fail2ban
@@ -581,7 +581,7 @@ Let's assume that you have a Centreon server with a **centreon7.localdomain** FQ
   Open the file **/etc/pki/tls/openssl.cnf**. The goal here is to edit this file in order to inform the various IPs and FQDNs for the server.
 
   </TabItem>
-  <TabItem value="Debian 11" label="Debian 11">
+  <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
   
   Open the file **/etc/ssl/openssl.cnf**. The goal here is to edit this file in order to inform the various IPs and FQDNs for the server.
   
@@ -668,7 +668,7 @@ Let's assume that you have a Centreon server with a **centreon7.localdomain** FQ
   ```
   
   </TabItem>
-  <TabItem value="Debian 11" label="Debian 11">
+  <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
   
   ```text
   openssl x509 -req -in centreon7.csr -out centreon7.crt -CA ca_demo.crt -CAkey ca_demo.key -CAcreateserial -CAserial ca_demo.srl  -extfile /etc/ssl/openssl.cnf -extensions v3_ca
@@ -725,7 +725,7 @@ cp centreon7.crt /etc/pki/tls/certs/
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 curl -sSL https://packages.sury.org/apache2/README.txt | sudo bash -x
@@ -765,7 +765,7 @@ cp /etc/httpd/conf.d/10-centreon.conf{,.origin}
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 cp /etc/apache2/sites-available/centreon.conf{,.origin}
@@ -790,7 +790,7 @@ Edit the **/etc/httpd/conf.d/10-centreon.conf** file by adding the **<VirtualHos
 Edit the **/etc/httpd/conf.d/10-centreon.conf** file by adding the **<VirtualHost *:443>** section.
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Edit the **/etc/apache2/sites-available/centreon.conf** file by adding the **<VirtualHost *:443>** section.
 </TabItem>
@@ -948,7 +948,7 @@ ServerTokens Prod
 > certificate and key. In our case: **SSLCertificateFile /etc/pki/tls/certs/centreon7.crt** and **SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key**.
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```apacheconf
 Define base_uri "/centreon"
@@ -1057,7 +1057,7 @@ expose_php = Off
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Edit the **/etc/apache2/sites-available/centreon.conf** file and add the following lines before the `<VirtualHost>` tag:
 
@@ -1098,7 +1098,7 @@ Edit the **/etc/httpd/conf.d/autoindex.conf** file and comment the following lin
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Edit the **/etc/apache2/mods-available/autoindex.conf** file and comment the following line:
 
@@ -1136,7 +1136,7 @@ Syntax OK
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```apacheconf
 apache2ctl configtest
@@ -1226,7 +1226,7 @@ If everything is ok, you should have:
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 systemctl restart php8.1-fpm apache2
@@ -1362,7 +1362,7 @@ vi /etc/httpd/conf.d/10-centreon.conf
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 vi /etc/apache2/sites-available/centreon.conf
@@ -1394,7 +1394,7 @@ systemctl restart httpd
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 systemctl restart apache2
@@ -1494,7 +1494,7 @@ systemctl restart httpd
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 1. [Configure HTTPS on your Centreon server](#secure-the-web-server-with-https).
 
@@ -1586,6 +1586,8 @@ However, the gorgone HTTP API is unsecured by default. Only localhost can talk w
 You can [configure SSL](https://github.com/centreon/centreon/blob/develop/centreon-gorgone/docs/modules/core/httpserver.md) in the **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** file.
 
 Then you must configure gorgone using the **Administration > Parameters > Gorgone** page.
+
+The **/etc/centreon-gorgone/config.d/whitelist.conf.d/centreon.yaml** file (on your central server, your remote servers and your pollers) contains the whitelists for Gorgone. If you want to customize the allowed commands, do not edit this file. Create a new one in the same folder, e.g. **/etc/centreon-gorgone/config.d/whitelist.conf.d/custom.yaml**.
 
 ## Security Information and Event Management - SIEM
 

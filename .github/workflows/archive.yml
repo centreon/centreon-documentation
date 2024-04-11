@@ -18,12 +18,12 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: Set up Node
-        uses: actions/setup-node@b39b52d1213e96004bfcb1c61a8a6fa8ab84f3e8 # v4.0.1
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
         with:
           node-version: 20
 
       - name: Install dependencies
-        uses: borales/actions-yarn@v4
+        uses: borales/actions-yarn@3766bb1335b98fb13c60eaf358fe20811b730a88 # v5.0.0
         with:
           cmd: install --frozen-lockfile
 
@@ -37,7 +37,7 @@ jobs:
         run: ARCHIVED_VERSION="${{ github.event.inputs.version }}" yarn build
 
       - name: Store build archived doc in cache
-        uses: actions/cache/save@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
+        uses: actions/cache/save@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
         with:
           path: "./build"
           key: "${{ github.sha }}-${{ github.run_id }}-build-archived-doc"
@@ -47,7 +47,7 @@ jobs:
     runs-on: [self-hosted, infra]
     steps:
       - name: Restore built archived doc from cache
-        uses: actions/cache/restore@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
+        uses: actions/cache/restore@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
         with:
           path: "./build"
           key: "${{ github.sha }}-${{ github.run_id }}-build-archived-doc"

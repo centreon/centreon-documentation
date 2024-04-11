@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 Centreon fournit des paquets RPM et DEB pour ses produits au travers de la solution
 Centreon Open Sources disponible gratuitement sur notre dépôt.
 
-Les paquets peuvent être installés sur Alma/RHEL/Oracle Linux 8 et 9 ou Debian 11.
+Les paquets peuvent être installés sur Alma/RHEL/Oracle Linux 8 et 9 ou Debian 11 et 12.
 
 L'ensemble de la procédure d'installation doit être faite en tant qu'utilisateur privilégié.
 
@@ -68,7 +68,7 @@ locale -a
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt update && apt upgrade
@@ -109,6 +109,10 @@ $ getenforce
 Disabled
 ```
 
+> **Notez que cette désactivation doit être temporaire.** Pour réactiver SELinux, éditez le fichier **/etc/selinux/config** et changez la valeur avec les options suivantes :
+> - ``SELINUX=enforcing`` pour que la politique de sécurité SELinux soit appliquée en mode strict.
+> - ``SELINUX=permissive`` pour que les erreurs d’accès soient enregistrées dans les logs, mais l’accès ne sera pas bloqué.
+
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
@@ -134,10 +138,14 @@ $ getenforce
 Disabled
 ```
 
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+> **Notez que cette désactivation doit être temporaire.** Pour réactiver SELinux, éditez le fichier **/etc/selinux/config** et changez la valeur avec les options suivantes :
+> - ``SELINUX=enforcing`` pour que la politique de sécurité SELinux soit appliquée en mode strict.
+> - ``SELINUX=permissive`` pour que les erreurs d’accès soient enregistrées dans les logs, mais l’accès ne sera pas bloqué.
 
-SELinux n'est pas installé sur Debian 11, continuez.
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+SELinux n'est pas installé sur Debian 11 et 12, continuez.
 
 </TabItem>
 </Tabs>
@@ -250,7 +258,7 @@ dnf config-manager --set-enabled ol9_codeready_builder
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Installez les dépendances suivantes :
 
@@ -290,7 +298,7 @@ dnf update
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Pour installer le dépôt Centreon, exécutez la commande suivante :
 
@@ -328,10 +336,9 @@ dnf install -y centreon-poller
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
-apt update
 apt install -y --no-install-recommends centreon-poller
 ```
 

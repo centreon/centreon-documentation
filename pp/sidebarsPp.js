@@ -2,15 +2,18 @@ module.exports = {
   pp: [
     {
       type: 'category',
-      label: 'Getting started',
+      label: 'Getting started with Monitoring Connectors',
+      link: {
+        type: 'doc',
+        id: 'integrations/plugin-packs/getting-started/introduction'
+      },
       items: [
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/getting-started/introduction'
-        },
         {
           type: 'category',
           label: 'How-to guides',
+          link: {
+            type: 'generated-index'
+          },
           items: [
             {
               type: 'doc',
@@ -41,6 +44,9 @@ module.exports = {
         {
           type: 'category',
           label: 'Developers Center',
+          link: {
+            type: 'generated-index'
+          },
           items: [
             {
               type: 'doc',
@@ -221,6 +227,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-ibm-tsamp-ssh'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-infor-ion-grid-restapi'
         },
         {
           type: 'doc',
@@ -584,6 +594,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-veeam-wsman'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-backupexec-nscp-restapi'
         },
         {
@@ -653,6 +667,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-monitoring-centreon-map-jmx'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-centreon-map-engine-actuator'
         },
         {
           type: 'doc',
@@ -839,6 +857,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-azure-database-mysql'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-azure-database-postgresql'
         },
         {
           type: 'doc',
@@ -2058,6 +2080,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/operatingsystems-linux-nrpe4'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/operatingsystems-linux-snmp'
         },
         {
@@ -2295,6 +2321,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-buffalo-terastation-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-datacore-api'
         },
         {
           type: 'doc',
@@ -2699,6 +2729,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-ups-hp-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-ups-inmatics-sputnik-snmp'
         },
         {
           type: 'doc',

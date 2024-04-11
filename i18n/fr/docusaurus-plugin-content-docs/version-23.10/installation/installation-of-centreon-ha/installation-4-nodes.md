@@ -109,8 +109,6 @@ Plutôt que de mettre en place une réplication en temps réel des fichiers de d
 | Nom                                                           | centreon-broker-master-rrd |
 | Port de connexion                                             | 5670                       |
 | Hôte distant                                                  | `@CENTRAL_MASTER_IPADDR@`  |
-| Temps avant activation du processus de basculement (failover) | 0                          |
-| Intervalle entre 2 tentatives                                 | 60                         |
 
 * Ajoutez une nouvelle sortie IPv4, similaire à la première et nommée par exemple "centreon-broker-slave-rrd" pointant cette fois vers `@CENTRAL_SLAVE_IPADDR@`.
 
@@ -119,8 +117,6 @@ Plutôt que de mettre en place une réplication en temps réel des fichiers de d
 | Nom                                                           | centreon-broker-slave-rrd |
 | Port de connexion                                             | 5670                      |
 | Hôte distant                                                  | `@CENTRAL_SLAVE_IPADDR@`  |
-| Temps avant activation du processus de basculement (failover) | 0                         |
-| Intervalle entre 2 tentatives                                 | 60                        |
 
 #### Exporter la configuration
 
@@ -476,7 +472,7 @@ max_allowed_packet=64M
 
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Pour commencer, il faut optimiser la configuration de MariaDB, qui sera concentrée dans le seul fichier `/etc/my.cnf.d/mariadb-server.cnf`.  Par défaut, la section `[server]` de ce fichier est vide, c'est là que doivent être collées les lignes suivantes :
+Pour commencer, il faut optimiser la configuration de MariaDB, qui sera concentrée dans le seul fichier `/etc/my.cnf.d/server.cnf`.  Par défaut, la section `[server]` de ce fichier est vide, c'est là que doivent être collées les lignes suivantes :
 
 ```ini
 [server]
@@ -522,6 +518,14 @@ datadir=/var/lib/mysql
 socket=/var/lib/mysql/mysql.sock
 log-error=/var/log/mariadb/mariadb.log
 pid-file=/var/lib/mysql/mysql.pid
+```
+
+puis créer le répertoire et le fichier de log correspondant:
+
+```shell
+mkdir /var/log/mariadb
+touch /var/log/mariadb/mariadb.log
+chown -R mysql: /var/log/mariadb
 ```
 
 </TabItem>
@@ -738,7 +742,7 @@ systemctl restart mariadb
 
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Maintenant que tout est bien configuré, activez le mode `read_only` sur les deux serveurs en décommentant (c'est-à-dire en retirant le `#` en début de ligne) cette instruction dans le fichier `/etc/my.cnf.d/mariadb-server.cnf` :
+Maintenant que tout est bien configuré, activez le mode `read_only` sur les deux serveurs en décommentant (c'est-à-dire en retirant le `#` en début de ligne) cette instruction dans le fichier `/etc/my.cnf.d/server.cnf` :
 
 * Nœud principal
 
@@ -1322,7 +1326,7 @@ pcs resource create "ms_mysql" \
 ```bash
 pcs resource create "ms_mysql" \
     ocf:heartbeat:mariadb-centreon \
-    config="/etc/my.cnf.d/mariadb-server.cnf" \
+    config="/etc/my.cnf.d/server.cnf" \
     pid="/var/lib/mysql/mysql.pid" \
     datadir="/var/lib/mysql" \
     socket="/var/lib/mysql/mysql.sock" \
@@ -1683,9 +1687,7 @@ pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABA
 </TabItem>
 </Tabs>
 
-### Lancement du Cluster et contrôle de l'état des ressources
-
-#### Activer les ressources
+### Activation des ressources
 
 ```bash
 pcs resource enable php-clone

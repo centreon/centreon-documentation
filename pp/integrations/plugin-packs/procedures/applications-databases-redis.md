@@ -194,6 +194,14 @@ yum --enablerepo=remi install redis
 ```
 
 </TabItem>
+
+<TabItem value="Red Hat 9" label="Red Hat 9">
+
+```bash
+dnf install redis
+```
+
+</TabItem>
 </Tabs>
 
 ## How to test the Plugin and what are the main options for?

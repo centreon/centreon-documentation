@@ -12,15 +12,10 @@ cartographie, etc.
 
 ## Ajouter des images
 
-Cette procédure décrit comment ajouter des images manuellement.
-
-Pour ajouter une image dans Centreon, allez dans le menu **Administration > Paramètres > Images** et cliquez sur **Ajouter**
+Pour ajouter une image dans Centreon, allez à la page **Administration > Paramètres > Images** et cliquez sur **Ajouter**.
 
 La page **Images** s'affiche.
 
-- Le champ **Nouveau dossier ou dossier existant** permet d'ajouter un nouveau
-dossier au sein du dossier d'images ou de choisir un dossier déjà existant
-dans lequel l'image pourra être copiée.
-- Le champ **Image ou archive** permet de sélectionner l'image ou l'ensemble
-d'images contenu dans une archive qui sera importée.
-- Le champ **Commentaires** permet de décrire l'image.
+- **Nouveau dossier ou dossier existant :** permet d'ajouter un nouveau dossier au sein du dossier d'images ou de choisir un dossier déjà existant dans lequel l'image pourra être copiée.
+- **Image ou archive :** permet de sélectionner l'image ou l'ensemble d'images contenu dans une archive qui sera importée.
+- **Commentaires :** permet d'ajouter une description de l'image.

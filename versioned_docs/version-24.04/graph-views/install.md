@@ -68,9 +68,9 @@ Hardware requirements for your dedicated Centreon MAP server are as follows:
 
 | *Monitored services*     | < 10 000                | < 20 000             |  < 40 000            |  > 40 000            |
 | ------------------------ | ----------------------- | -------------------- | -------------------- | -------------------- |
-| *CPU*                    | 2 vCPU ( 3Ghz ) minimum | 4 CPU (3GHz) Minimum | 4 CPU (3GHz) Minimum | Ask Centreon Support |
-| *Dedicated Memory*       | 2GB                     | 4GB                  | 8GB                  | Ask Centreon Support |
-| *MariaDB data partition* | 2GB                     | 5GB                  | 10GB                 | Ask Centreon Support |
+| *CPU*                    | 2 vCPU ( 3Ghz ) minimum | 4 CPU (3GHz) Minimum | 4 CPU (3GHz) Minimum | Ask Centreon Sales team |
+| *Dedicated Memory*       | 2GB                     | 4GB                  | 8GB                  | Ask Centreon Sales team |
+| *MariaDB data partition* | 2GB                     | 5GB                  | 10GB                 | Ask Centreon Sales team |
 
 To correctly implement the dedicated memory, you must edit the
 *JAVA\_OPTS* parameter in the Centreon Map configurations file
@@ -295,7 +295,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/e
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Install the following dependencies:
 
@@ -340,7 +340,7 @@ dnf install centreon-map-server
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt update
@@ -356,10 +356,18 @@ When installing Centreon MAP server, it will automatically install java
 > You need to have a MariaDB database to store Centreon MAP data, whether
 > it is on localhost or somewhere else.
 
-To install MariaDB, execute the following command:
+Execute the following command to install MariaDB:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+You need first to add the MariaDB repository: 
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
+```
+
+Then install MariaDB:
 
 ```shell
 dnf install mariadb-client mariadb-server
@@ -373,7 +381,7 @@ dnf install mariadb-client mariadb-server
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt install mariadb-client mariadb-server
@@ -515,7 +523,7 @@ dnf install centreon-map-web-client
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt update

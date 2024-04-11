@@ -145,19 +145,16 @@ Vous devrez paramétrer votre équipement Elasticsearch pour qu'il puisse recevo
 | string | elastic_password | MOt de passe du compte API | |
 | string | index_name | Nom de l'index Elasticsearch à utiliser | centreon-metrics |
 | string | index_template_api_endpoint | Chemin de l'endpoint des templates d'index Elasticsearch | /_index_template |
-| string | index_pattern | Par défaut, prend le nom de l'index et ajoute `*`. C'est le nom des index pour
-lesquels s'appliqueront le template d'index lorsque ce dernier sera créé par le stream connector | centreon-metrics* |
+| string | index_pattern | Par défaut, prend le nom de l'index et ajoute `*`. C'est le nom des index pour lesquels s'appliquera le template d'index lorsque ce dernier sera créé par le stream connector | centreon-metrics* |
 | number | index_priority | La priorité de l'index lorsque le template d'index est créé par le stream connector | 200 |
-| number | create_datastream_index_template | Le stream connector va automatiquement créer l'index template s'il ne trouve pas ce
-dernier (1 = création automatique, 0 = pas de template d'index créé) | 1 |
-| number | update_datastream_index_template | le stream connector mettra à jour l'index template si ce dernier ne correspond pas
-aux données qui vont être envoyées. (1 = mise à jour automatique, 0 = pas de mise à jour automatique). Même si la mise à jour automatique est activée, elle ne fonctionnera que si l'index template a été créé par Centreon. (L'index template contient une metadonnée qui indique cela.) | 0 |
+| number | create_datastream_index_template | Le stream connector va automatiquement créer l'index template s'il ne trouve pas ce dernier (1 = création automatique, 0 = pas de template d'index créé) | 1 |
+| number | update_datastream_index_template | le stream connector mettra à jour l'index template si ce dernier ne correspond pas aux données qui vont être envoyées. (1 = mise à jour automatique, 0 = pas de mise à jour automatique). Même si la mise à jour automatique est activée, elle ne fonctionnera que si l'index template a été créé par Centreon. (L'index template contient une metadonnée qui indique cela.) | 0 |
 | number | add_hostgroups_dimension | Ajoute les groupes d'hôtes aux données envoyées. (1 = ajout des groupes d'hôtes, 0 = pas de groupes d'hôtes envoyés)  | 1 |
 | number | add_poller_dimension | Ajoute le collecteur aux données envoyées. (1 = ajout du collecteur, 0 = pas de collecteur envoyé) | 0 |
 | number | add_servicegroups_dimension | Ajoute les groupes de services aux données envoyées. (1 = ajout des groupes de services, 0 = pas
 de groupes de services envoyés) | 0 |
 
-7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les données que vous voulez que Centreon envoie à Elasticsearch](#filtering-or-adapting-the-data-you-want-to-send-to-elasticsearch).
+7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les données que vous voulez que Centreon envoie à Elasticsearch](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-elasticsearch).
 
 8. [Déployez la configuration](https://docs.centreon.com/fr/docs/monitoring/monitoring-servers/deploying-a-configuration/).
 
@@ -167,7 +164,7 @@ de groupes de services envoyés) | 0 |
    systemctl restart centengine
    ```
 
-   Elasticsearch reçoit maintenant des données de Centreon. Pour tester le bon fonctionnement de l'intégration, voir [Commandes curl : tester le stream connector](#commandes-curl--tester-le-stream-connector)
+   Elasticsearch reçoit maintenant des données de Centreon. Pour tester le bon fonctionnement de l'intégration, voir [Commandes curl : tester le stream connector](#commandes-curl--tester-le-stream-connector).
 
 ### Filtrer ou adapter les données que vous voulez envoyer à Elasticsearch
 
@@ -176,7 +173,6 @@ Tous les stream connectors ont un jeu de [paramètres optionnels](https://github
 Chaque paramètre optionnel a une valeur par défaut, qui est indiquée dans la documentation correspondante.
 
 * Pour surcharger la valeur par défaut d'un paramètre, cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category**, afin d'ajouter un paramètre personnalisé. Par exemple, si vous ne voulez envoyer à Elasticmetrics que les évènmenes traités par un collecteur nommé "poller-1", entrez :
-
 
    ```text
    type = string

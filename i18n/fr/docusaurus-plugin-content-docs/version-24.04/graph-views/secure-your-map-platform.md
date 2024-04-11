@@ -176,7 +176,7 @@ centreon-map.keystore-pass=xxx
     systemctl stop centreon-map-engine
     ```
 
-2. Modifiez le fichier `/etc/centreon-map/centreon-map.conf`, en ajoutant ",tls" après le profil "prod" :
+2. Modifiez le fichier `/etc/centreon-map/centreon-map.conf`, en ajoutant `,tls` après le profil `prod` :
 
     ```text
     RUN_ARGS="--spring.profiles.active=prod,tls"
@@ -197,7 +197,7 @@ centreon-map.keystore-pass=xxx
     systemctl stop centreon-map
     ```
 
-2. Modifiez le fichier `/etc/centreon-studio/centreon-map.conf`, en ajoutant ",tls" après le profil "prod" :
+2. Modifiez le fichier `/etc/centreon-studio/centreon-map.conf`, en ajoutant `,tls` après le profil `prod` :
 
     ```text
     RUN_ARGS="--spring.profiles.active=prod,tls"
