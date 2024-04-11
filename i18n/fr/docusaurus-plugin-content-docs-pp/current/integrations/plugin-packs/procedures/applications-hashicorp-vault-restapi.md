@@ -238,7 +238,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--proto='http' \
 	--api-version='v1' \
 	--auth-method='token' \
-	--vault-token=''  \
+	--vault-token='xxxxx'  \
 	--warning-commit-time='' \
 	--critical-commit-time='' \
 	--warning-spill-time='' \

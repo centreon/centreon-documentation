@@ -205,14 +205,14 @@ yum install centreon-plugin-Applications-HashiCorp-Vault-Restapi
 
 | Macro                 | Description                                                                                        | Default value     | Mandatory   |
 |:----------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGCOMMITTIME     | Warning threshold where '*'                                                                        |                   |             |
-| CRITICALCOMMITTIME    | Critical threshold where '*'                                                                       |                   |             |
-| WARNINGREBALANCETIME  | Warning threshold where '*'                                                                        |                   |             |
-| CRITICALREBALANCETIME | Critical threshold where '*'                                                                       |                   |             |
-| WARNINGSPILLTIME      | Warning threshold where '*'                                                                        |                   |             |
-| CRITICALSPILLTIME     | Critical threshold where '*'                                                                       |                   |             |
-| WARNINGWRITETIME      | Warning threshold where '*'                                                                        |                   |             |
-| CRITICALWRITETIME     | Critical threshold where '*'                                                                       |                   |             |
+| WARNINGCOMMITTIME     | Warning threshold                                                                 |                   |             |
+| CRITICALCOMMITTIME    | Critical threshold                                                                       |                   |             |
+| WARNINGREBALANCETIME  | Warning threshold                                                                   |                   |             |
+| CRITICALREBALANCETIME | Critical threshold                                                                   |                   |             |
+| WARNINGSPILLTIME      | Warning threshold                                                                       |                   |             |
+| CRITICALSPILLTIME     | Critical threshold                                                                     |                   |             |
+| WARNINGWRITETIME      | Warning threshold                                                                    |                   |             |
+| CRITICALWRITETIME     | Critical threshold                                                                  |                   |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
@@ -235,7 +235,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--proto='http' \
 	--api-version='v1' \
 	--auth-method='token' \
-	--vault-token=''  \
+	--vault-token='xxxxx'  \
 	--warning-commit-time='' \
 	--critical-commit-time='' \
 	--warning-spill-time='' \
