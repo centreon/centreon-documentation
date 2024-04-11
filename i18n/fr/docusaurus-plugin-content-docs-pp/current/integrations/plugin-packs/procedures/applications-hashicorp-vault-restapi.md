@@ -5,6 +5,11 @@ title: HashiCorp Vault Rest API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+HashiCorp Vault est une solution de stockage sécurisé de données sensibles, tels que des identifiants d'accès aux applications du SI.
+
+Le connecteur de supervision Centreon HashiCorp Vault s'appuie sur les APIs Rest fournies par la solution pour collecter les statuts et statistiques
+relatifs au fonctionnement de Vault.
+
 ## Contenu du pack
 
 ### Modèles
