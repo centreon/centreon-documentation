@@ -287,6 +287,10 @@ module.exports = {
             "items": [
               {
                 "type": "doc",
+                "id": "monitoring/basic-objects/commands"
+              },
+                            {
+                "type": "doc",
                 "id": "monitoring/basic-objects/timeperiods"
               },
               {
