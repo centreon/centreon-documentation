@@ -14,13 +14,13 @@ import TabItem from '@theme/TabItem';
 <TabItem value="New connectors" label="New connectors">
 
 - [**Azure Database for PostgreSQL**](../procedures/cloud-azure-database-postgresql.md) - First release of Azure PostgreSQL.
-- [**Infor ION Grid**](../procedures/applications-infor-ion-grid-restapi.md) - First release of Infor Ion grid RESTAPI 
+- [**Infor ION Grid**](../procedures/applications-infor-ion-grid-restapi.md) - First release of Infor Ion Grid RESTAPI 
 - [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - First release of Veeam WSMAN.
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
-- [**Dell S-series**](../procedures/network-dell-sseries-snmp.md) - New filtering option supported for interfaces SNMP IDs.
+- [**Dell S-series**](../procedures/network-dell-sseries-snmp.md) - New filtering option supported for the SNMP IDs of the interfaces.
 - [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - Enhanced the functionality provided by the '--convert-custom-values' option of the 'string-value' mode.
 - [**Windows SNMP**](../procedures/operatingsystems-windows-snmp.md) - The 'services' mode can now filter using non-ASCII characters.
 
