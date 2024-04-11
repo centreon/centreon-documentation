@@ -1,475 +1,452 @@
 ---
-id: cloud-azure-database-sqldatabase
-title: Azure SQL Database
+id: cloud-azure-database-postgresql
+title: Azure Database for PostgreSQL
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Pack assets
+## Contenu du pack
 
-### Templates
+### Modèles
 
-The Monitoring Connector **Azure SQL Database** brings a host template:
+Le connecteur de supervision **Azure Database for PostgreSQL** apporte un modèle d'hôte :
 
-* **Cloud-Azure-Database-SqlDatabase-custom**
+* **Cloud-Azure-Database-PostgreSQL-custom**
 
-The connector brings the following service templates (sorted by the host template they are attached to):
+Le connecteur apporte les modèles de service suivants
+(classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="Cloud-Azure-Database-SqlDatabase-custom" label="Cloud-Azure-Database-SqlDatabase-custom">
+<TabItem value="Cloud-Azure-Database-PostgreSQL-custom" label="Cloud-Azure-Database-PostgreSQL-custom">
 
-| Service Alias | Service Template                               | Service Description                               |
-|:--------------|:-----------------------------------------------|:--------------------------------------------------|
-| Cpu           | Cloud-Azure-Database-SqlDatabase-Cpu-custom    | Check Azure Database for Sqldatabase CPU usage    |
-| Health        | Cloud-Azure-Database-SqlDatabase-Health-custom | Check database state                              |
-| Memory        | Cloud-Azure-Database-SqlDatabase-Memory-custom | Check Azure Database for SqlDatabase memory usage |
+| Alias          | Modèle de service                                         | Description                                                                         |
+|:---------------|:----------------------------------------------------------|:------------------------------------------------------------------------------------|
+| Connections    | Cloud-Azure-Database-PostgreSQL-Connections-Api-custom    | Contrôle le nombre de connexions à l'instance Azure Database for PostgreSQL |
+| Cpu            | Cloud-Azure-Database-PostgreSQL-Cpu-Api-custom            | Contrôle le CPU de l'instance Azure Database for PostgreSQL                         |
+| IO-Consumption | Cloud-Azure-Database-PostgreSQL-IO-Consumption-Api-custom | Contrôle les écritures/lectures de l'instance Azure Database for PostgreSQL         |
+| Memory         | Cloud-Azure-Database-PostgreSQL-Memory-Api-custom         | Contrôle l'utilisation de la mémoire de l'instance Azure Database for PostgreSQL    |
+| Replication    | Cloud-Azure-Database-PostgreSQL-Replication-Api-custom    | Contrôle la réplication de l'instance Azure Database for PostgreSQL                 |
+| Storage        | Cloud-Azure-Database-PostgreSQL-Storage-Api-custom        | Contrôle les statistiques de stockage de l'instance Azure Database for PostgreSQL   |
+| Traffic        | Cloud-Azure-Database-PostgreSQL-Traffic-Api-custom        | Contrôle l'utilisation du réseau de l'instance Azure Database for PostgreSQL        |
 
-> The services listed above are created automatically when the **Cloud-Azure-Database-SqlDatabase-custom** host template is used.
-
-</TabItem>
-<TabItem value="Not attached to a host template" label="Not attached to a host template">
-
-| Service Alias | Service Template                                      | Service Description               |
-|:--------------|:------------------------------------------------------|:----------------------------------|
-| App-Resources | Cloud-Azure-Database-SqlDatabase-App-Resources-custom | Check App CPU and memory metrics  |
-| Connections   | Cloud-Azure-Database-SqlDatabase-Connections-custom   | Check the number of connections   |
-| Deadlocks     | Cloud-Azure-Database-SqlDatabase-Deadlocks-custom     | Check database for deadlocks      |
-| Sessions      | Cloud-Azure-Database-SqlDatabase-Sessions-custom      | Check sessions usage              |
-| Storage       | Cloud-Azure-Database-SqlDatabase-Storage-custom       | Check database size               |
-| Workers       | Cloud-Azure-Database-SqlDatabase-Workers-custom       | Check the number of workers       |
-
-> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Azure-Database-PostgreSQL-custom** est utilisé.
 
 </TabItem>
 </Tabs>
 
-### Discovery rules
+### Métriques & statuts collectés
 
-#### Host discovery
-
-The Centreon Monitoring Connector **Azure SQL Database** includes a Host Discovery provider to
-automatically discover the Azure instances of a given subscription and add them
-to the list of monitored hosts. This provider is named **Microsoft Azure SQL Database**.
-
-> This discovery feature is only compatible with the [**api** custom mode. **azcli** is not supported](../getting-started/how-to-guides/azure-credential-configuration.md).
-
-Go to the corresponding chapter to learn more about [discovering hosts automatically](/docs/monitoring/discovery/hosts-discovery).
-
-### Collected metrics & status
-
-Here is the list of services for this connector, detailing all metrics linked to each service.
+Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
 
 <Tabs groupId="sync">
-<TabItem value="App-Resources" label="App-Resources">
-
-| Metric name                                  | Unit  |
-|:---------------------------------------------|:------|
-| sqldatabase.serverless.app.cpu.percentage    | %     |
-| sqldatabase.serverless.app.memory.percentage | %     |
-
-</TabItem>
 <TabItem value="Connections" label="Connections">
 
-| Metric name                             | Unit  |
-|:----------------------------------------|:------|
-| sqldatabase.connection.blocked.count    | count |
-| sqldatabase.connection.failed.count     | count |
-| sqldatabase.connection.successful.count | count |
+| Métrique                             | Unité |
+|:-------------------------------------|:------|
+| azpostgres.connections.active.count  | count |
+| azpostgres.connections.failed.count  | count |
+| azpostgres.connections.aborted.count | count |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Metric name                      | Unit  |
-|:---------------------------------|:------|
-| sqldatabase.cpu.usage.percentage | %     |
+| Métrique                                | Unité |
+|:----------------------------------------|:------|
+| azpostgresql.cpu.utilization.percentage | %     |
 
 </TabItem>
-<TabItem value="Deadlocks" label="Deadlocks">
+<TabItem value="IO-Consumption" label="IO-Consumption">
 
-| Metric name                 | Unit  |
-|:----------------------------|:------|
-| sqldatabase.deadlocks.count | count |
-
-</TabItem>
-<TabItem value="Health" label="Health">
-
-| Metric name | Unit  |
-|:------------|:------|
-| status      | N/A   |
-
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+| Métrique                                  | Unité |
+|:------------------------------------------|:------|
+| azpostgres.ioconsumption.usage.percentage | %     |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Metric name                         | Unit  |
-|:------------------------------------|:------|
-| sqldatabase.memory.usage.percentage | %     |
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| azpostgres.memory.usage.percentage | %     |
 
 </TabItem>
-<TabItem value="Sessions" label="Sessions">
+<TabItem value="Replication" label="Replication">
 
-| Metric name                | Unit  |
-|:---------------------------|:------|
-| sqldatabase.sessions.count | count |
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| azpostgres.replication.lag.seconds | s     |
 
 </TabItem>
 <TabItem value="Storage" label="Storage">
 
-| Metric name                                | Unit  |
-|:-------------------------------------------|:------|
-| sqldatabase.storage.space.usage.bytes      | B     |
-| sqldatabase.storage.space.usage.percentage | %     |
+| Métrique                                 | Unité |
+|:-----------------------------------------|:------|
+| azpostgres.storage.backup.usage.bytes    | B     |
+| azpostgres.storage.serverlog.usage.bytes | B     |
+| azpostgres.storage.usage.percentage      | %     |
+| azpostgres.storage.usage.bytes           | B     |
 
 </TabItem>
-<TabItem value="Workers" label="Workers">
+<TabItem value="Traffic" label="Traffic">
 
-| Metric name               | Unit  |
-|:--------------------------|:------|
-| sqldatabase.workers.count | count |
+| Métrique                     | Unité |
+|:-----------------------------|:------|
+| azpostgres.traffic.out.bytes | B     |
+| azpostgres.traffic.in.bytes  | B     |
 
 </TabItem>
 </Tabs>
 
-## Prerequisites
+## Prérequis
 
-Please find all the prerequisites needed for Centreon to get information from Azure
-on the [dedicated page](../getting-started/how-to-guides/azure-credential-configuration.md).
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/azure-credential-configuration.md) afin d'obtenir
+les prérequis nécessaires pour interroger les API d'Azure.
 
-## Installing the monitoring connector
+## Installer le connecteur de supervision
 
 ### Pack
 
-1. If the platform uses an *online* license, you can skip the package installation
-instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
-If the platform uses an *offline* license, install the package on the **central server**
-with the command corresponding to the operating system's package manager:
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-cloud-azure-database-sqldatabase
+dnf install centreon-pack-cloud-azure-database-postgresql
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-cloud-azure-database-sqldatabase
+dnf install centreon-pack-cloud-azure-database-postgresql
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-pack-cloud-azure-database-sqldatabase
+apt install centreon-pack-cloud-azure-database-postgresql
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-cloud-azure-database-sqldatabase
+yum install centreon-pack-cloud-azure-database-postgresql
 ```
 
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Azure SQL Database** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Azure Database for PostgreSQL**
+depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
 
-Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
-When this feature is enabled, you can skip the installation part below.
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
 
-You still have to manually install the plugin on the poller(s) when:
-- Automatic plugin installation is turned off
-- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
 
-> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
-
-Use the commands below according to your operating system's package manager:
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
+dnf install centreon-plugin-Cloud-Azure-Database-Postgres-Api
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
+dnf install centreon-plugin-Cloud-Azure-Database-Postgres-Api
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-plugin-cloud-azure-database-sqldatabase-api
+apt install centreon-plugin-cloud-azure-database-postgres-api
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
+yum install centreon-plugin-Cloud-Azure-Database-Postgres-Api
 ```
 
 </TabItem>
 </Tabs>
 
-## Using the monitoring connector
+## Utiliser le connecteur de supervision
 
-### Using a host template provided by the connector
+### Utiliser un modèle d'hôte issu du connecteur
 
-1. Log into Centreon and add a new host through **Configuration > Hosts**.
-2. In the **IP Address/DNS** field, set the following IP address: **127.0.0.1**.
-3. Apply the **Cloud-Azure-Database-SqlDatabase-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
-4. Fill in the macros you want. Some macros are mandatory. For example, for this connector, you must define the **AZURECUSTOMMODE** macros (possible values are **api** or **azcli**). Indeed, 2 modes of communication can be used with this resource: either using the command tool azcli, or by querying the API directly.
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Remplissez le champ **Adresse IP/DNS** avec l'adresse **127.0.0.1**.
+3. Appliquez le modèle d'hôte **Cloud-Azure-Database-PostgreSQL-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires. Par exemple, pour ce connecteur, **AZURECUSTOMMODE** (valeurs possibles : **api** ou **azcli**). En effet, il existe plusieurs modes de communication avec l'équipement supervisé : soit l'outil en ligne de commande azcli, soit une interrogation directe de l'api.
 
 <Tabs groupId="sync">
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
 
-| Macro              | Description                                                                                                                | Default value     | Mandatory   |
+| Macro              | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:-------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | AZURECLIENTID      | Set Azure client ID                                                                                                        |                   | X           |
 | AZURECLIENTSECRET  | Set Azure client secret                                                                                                    |                   | X           |
 | AZURECUSTOMMODE    | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               |             |
-| AZURERESOURCE      | Set resource name or ID (required). It is the database name                                                                |                   |             |
-| AZURERESOURCEGROUP | Set resource group (required if resource's name is used)                                                                   |                   |             |
-| AZURESQLSERVERNAME | Set resource name or ID. It is the database name.                                                                      |                   | X           |
+| AZURERESOURCE      | Set resource name or ID (required)                                                                                         |                   |             |
+| AZURERESOURCEGROUP | Set resource group (required if resource's name is used)                                                                   |                   | X           |
 | AZURESUBSCRIPTION  | Set Azure subscription (required if logged to several subscriptions)                                                       |                   | X           |
 | AZURETENANT        | Set Azure tenant ID                                                                                                        |                   | X           |
 | PROXYURL           | Proxy URL if any                                                                                                           |                   |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                       |                   |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
 
-> Set the following options in the EXTRAOPTIONS macro if you are monitoring resources from Microsoft Azure operated by 21Vianet (Azure China):
+> Paramétrez les options suivantes dans la macro EXTRAOPTIONS si vous souhaitez superviser des ressources Microsoft Azure gérées par 21Vianet (Azure China):
 --management-endpoint='https://management.chinacloudapi.cn' --login-endpoint='https://login.partner.microsoftonline.cn'.
 
 </TabItem>
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
 
-| Macro              | Description                                                                                                                | Default value     | Mandatory   |
+| Macro              | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:-------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | AZURECUSTOMMODE    | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               |             |
-| AZURERESOURCE      | Set resource name or id. It is the database name.                                                                |                   |             |
-| AZURERESOURCEGROUP | Set resource group (required if resource's name is used)                                                                   |                   |             |
-| AZURESQLSERVERNAME | Set server name (required if resource's name is used)                                                                      |                   | X           |
+| AZURERESOURCE      | Set resource name or ID (required)                                                                                         |                   |             |
+| AZURERESOURCEGROUP | Set resource group (required if resource's name is used)                                                                   |                   | X           |
 | AZURESUBSCRIPTION  | Set Azure subscription (required if logged to several subscriptions)                                                       |                   | X           |
 | PROXYURL           | Proxy URL if any                                                                                                           |                   |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                       |                   |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
 
 </TabItem>
 </Tabs>
 
-> Two methods can be used to define the authentication:
+> Deux méthodes peuvent être utilisées pour définir l'authentification :
 >
-> * Full ID of the Resource (`/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXX/XXXXX/<resource_name>`) in the **AZURERESOURCE** macro.
-> * Resource name in the **AZURERESOURCE** macro, and resource group name in the **AZURERESOURCEGROUP** macro.
+> * Utilisation de l'ID complet de la ressource (de type `/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXXX/XXXXXXX/<resource_name>`) dans la macro **AZURERESOURCE**.
+> * Utilisation du nom de la ressource dans la macro **AZURERESOURCE** et du nom du groupe de ressources dans la macro **AZURERESOURCEGROUP**.
 
-5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
-### Using a service template provided by the connector
+### Utiliser un modèle de service issu du connecteur
 
-1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
-2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
-<TabItem value="App-Resources" label="App-Resources">
-
-| Macro             | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGAPPCPU     | Warning threshold for app-cpu                                                                       |                   |             |
-| CRITICALAPPCPU    | Critical threshold for app-cpu                                                                      |                   |             |
-| WARNINGAPPMEMORY  | Warning threshold for app-memory                                                                    |                   |             |
-| CRITICALAPPMEMORY | Critical threshold for app-memory                                                                   |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
-
-</TabItem>
 <TabItem value="Connections" label="Connections">
 
-| Macro                        | Description                                                                                        | Default value     | Mandatory   |
-|:-----------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGCONNECTIONBLOCKED     | Thresholds                                                                                                    |                   |             |
-| CRITICALCONNECTIONBLOCKED    | Thresholds                                                                                                    |                   |             |
-| WARNINGCONNECTIONFAILED      | Warning threshold for connection-failed                                                             |                   |             |
-| CRITICALCONNECTIONFAILED     | Critical threshold for connection-failed                                                            |                   |             |
-| WARNINGCONNECTIONSUCCESSFUL  | Warning threshold for connection-successful                                                         |                   |             |
-| CRITICALCONNECTIONSUCCESSFUL | Critical threshold for connection-successful                                                        |                   |             |
-| EXTRAOPTIONS                 | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro                     | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME                 | Set timeframe in seconds (i.e. 3600 to check last hour)                                                                                            | 900               |             |
+| INTERVAL                  | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)                                                     | PT5M              |             |
+| AGGREGATION               | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | Total             |             |
+| FILTERMETRIC              | Filter metrics (available metrics: 'Active Connections', 'Failed Connections', 'Aborted Connections').                                             |                   |             |
+| FILTERDIMENSION           | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'"               |                   |             |
+| WARNINGCONNECTIONSACTIVE  | Thresholds where '*'                                                                                                                               |                   |             |
+| CRITICALCONNECTIONSACTIVE | Thresholds where '*'                                                                                                                               |                   |             |
+| WARNINGCONNECTIONSFAILED  | Thresholds where '*'                                                                                                                               |                   |             |
+| CRITICALCONNECTIONSFAILED | Thresholds where '*'                                                                                                                               |                   |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                 |                   |             |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Macro                | Description                                                                                        | Default value     | Mandatory   |
-|:---------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| TIMEFRAME            | Set timeframe in seconds (i.e. 3600 to check last hour)  | 900               |             |
-| INTERVAL             |Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)  | PT5M              |             |
-| AGGREGATION          | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times. | Total             |             |
-| FILTERMETRIC         | Filter metrics (available metrics: 'CPU used percent')  |                   |             |
-| WARNINGUSAGEPERCENT  | Thresholds for usage-percent                                                                        |                   |             |
-| CRITICALUSAGEPERCENT | Thresholds for usage-percent                                                                        |                   |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro            | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:-----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME        | Set timeframe in seconds (e.g. '3600' to check last 60 minutes).                                   | 900               |             |
+| INTERVAL         | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)                                                     | PT5M              |             |
+| AGGREGATION      | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | Total             |             |
+| FILTERMETRIC     | Filter metrics (available metrics: 'CPU percent').                                             |                   |             |
+| FILTERDIMENSION  | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'". |
+| WARNINGCPUUSAGE  | Set warning threshold for CPU utilization percentage                                               |                   |             |
+| CRITICALCPUUSAGE | Set critical threshold for CPU utilization percentage                                              |                   |             |
+| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
-<TabItem value="Deadlocks" label="Deadlocks">
+<TabItem value="IO-Consumption" label="IO-Consumption">
 
-| Macro             | Description                                                                                        | Default value     | Mandatory   |
-|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGDEADLOCKS  | Warning threshold                                                                                  |                   |             |
-| CRITICALDEADLOCKS | Critical threshold                                                                                 |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
-
-</TabItem>
-<TabItem value="Health" label="Health">
-
-| Macro          | Description                                                                                                                                                         | Default value                | Mandatory   |
-|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
-| STATUSOK       | Define the conditions to match for the status to be OK (default: '%{status} =~ /^Available$/').  You can use the following variables: %{status}, %{summary}         | %{status} =~ /^Available$/   |             |
-| STATUSUNKNOWN  | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /^Unknown$/').  You can use the following variables: %{status}, %{summary}      |                              |             |
-| STATUSCRITICAL | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /^Unavailable$/').  You can use the following variables: %{status}, %{summary} | %{status} =~ /^Unavailable$/ |             |
-| STATUSWARNING  | Define the conditions to match for the status to be WARNING (default: '').  You can use the following variables: %{status}, %{summary}                              |                              |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                  |                              |             |
+| Macro                      | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:---------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME                  | Set timeframe in seconds (e.g. '3600' to check last 60 minutes).                                   | 900               |             |
+| INTERVAL                   | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)                                                     | PT5M              |             |
+| AGGREGATION                | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | Maximum             |             |
+| FILTERMETRIC               | Filter metrics (available metrics: 'IO Percent').                                             |                   |             |
+| FILTERDIMENSION  | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'". |
+| WARNINGIOCONSUMPTIONUSAGE  | Set warning threshold for IO comsuption usage                                                      |                   |             |
+| CRITICALIOCONSUMPTIONUSAGE | Set critical threshold for IO comsuption usage                                                     |                   |             |
+| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro                | Description                                                                                        | Default value     | Mandatory   |
-|:---------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| TIMEFRAME            | Set timeframe in seconds (i.e. 3600 to check last hour)  | 900               |             |
-| INTERVAL             |Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)  | PT5M              |             |
-| AGGREGATION          | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times. | Total             |             |
-| FILTERMETRIC         | Filter metrics (available metrics: 'Memory used percent')  |                   |             |
-| WARNINGUSAGEPERCENT  | Thresholds.                                                                               |                   |             |
-| CRITICALUSAGEPERCENT | Thresholds.                                                                                |                   |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro               | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:--------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME           | Set timeframe in seconds (e.g. '3600' to check last 60 minutes).                                   | 900               |             |
+| INTERVAL            | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)                                                     | PT5M              |             |
+| AGGREGATION         | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | Average             |             |
+| FILTERMETRIC        | Filter metrics (available metrics: 'Memory percent').                                             |                   |             |
+| FILTERDIMENSION     | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'". |
+| WARNINGMEMORYUSAGE  | Set warning threshold for memory utilization percentage                                            |                   |             |
+| CRITICALMEMORYUSAGE | Set critical threshold for memory utilization percentage                                           |                   |             |
+| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
-<TabItem value="Sessions" label="Sessions">
+<TabItem value="Replication" label="Replication">
 
-| Macro            | Description                                                                                        | Default value     | Mandatory   |
-|:-----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGSESSIONS  | Warning threshold                                                                                  |                   |             |
-| CRITICALSESSIONS | Critical threshold                                                                                 |                   |             |
-| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro                  | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:-----------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME              | Set timeframe in seconds (e.g. '3600' to check last 60 minutes).                                   | 900               |             |
+| INTERVAL               | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)                                                     | PT5M              |             |
+| AGGREGATION            | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | Maximum             |             |
+| FILTERMETRIC           | Filter metrics (available metrics: 'Replication Lag In Seconds').                                             |                   |             |
+| FILTERDIMENSION        | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'". |
+| WARNINGREPLICATIONLAG  | Thresholds where '*'                                                                               |                   |             |
+| CRITICALREPLICATIONLAG | Thresholds where '*'                                                                               |                   |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --zeroed          |             |
 
 </TabItem>
 <TabItem value="Storage" label="Storage">
 
-| Macro                | Description                                                                                        | Default value     | Mandatory   |
-|:---------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGUSAGEBYTES    | Warning threshold for usage-bytes                                                                   |                   |             |
-| CRITICALUSAGEBYTES   | Critical threshold for usage-bytes                                                                  |                   |             |
-| WARNINGUSAGEPERCENT  | Warning threshold for usage-percent                                                                 |                   |             |
-| CRITICALUSAGEPERCENT | Critical threshold for usage-percent                                                                |                   |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro                  | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:-----------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME              | Set timeframe in seconds (e.g. '3600' to check last 60 minutes).                                   | 900               |             |
+| INTERVAL               | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)                                                     | PT5M              |             |
+| AGGREGATION            | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | Maximum             |             |
+| FILTERMETRIC           | Filter metrics (available metrics: 'Backup Storage used', 'Server Log storage used', 'Storage Percent', 'Storage Used'). |                   |             |
+| FILTERDIMENSION        | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'". |
+| WARNINGSERVERLOGUSAGE  | Thresholds                                                                               |                   |             |
+| CRITICALSERVERLOGUSAGE | Thresholds                                                                               |                   |             |
+| WARNINGSTORAGEBACKUP   | Thresholds                                                                              |                   |             |
+| CRITICALSTORAGEBACKUP  | Thresholds                                                                               |                   |             |
+| WARNINGSTORAGEPERCENT  | Thresholds                                                                               |                   |             |
+| CRITICALSTORAGEPERCENT | Thresholds                                                                               |                   |             |
+| WARNINGSTORAGEUSED     | Thresholds                                                                                |                   |             |
+| CRITICALSTORAGEUSED    | Thresholds                                                                                |                   |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
-<TabItem value="Workers" label="Workers">
+<TabItem value="Traffic" label="Traffic">
 
-| Macro           | Description                                                                                        | Default value     | Mandatory   |
-|:----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGWORKERS  | Warning threshold                                                                                  |                   |             |
-| CRITICALWORKERS | Critical threshold                                                                                 |                   |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro              | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:-------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME          | Set timeframe in seconds (e.g. '3600' to check last 60 minutes).                                   | 900               |             |
+| INTERVAL           | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)                                                     | PT5M              |             |
+| AGGREGATION        | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | Average             |             |
+| FILTERMETRIC       | Filter metrics (available metrics: 'Network Out', 'Network In'). |                   |             |
+| FILTERDIMENSION    | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'". |
+| WARNINGTRAFFICIN   | Thresholds                                                                                 |                   |             |
+| CRITICALTRAFFICIN  | Thresholds                                                                                 |                   |             |
+| WARNINGTRAFFICOUT  | Thresholds                                                                                |                   |             |
+| CRITICALTRAFFICOUT | Thresholds                                                                                |                   |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 </Tabs>
 
-3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
 
-## How to check in the CLI that the configuration is OK and what are the main options for?
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
 
-Once the plugin is installed, log into your Centreon poller's CLI using the
-**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
-is able to monitor an Azure Instance using a command like this one (replace the sample values by yours):
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
+que le connecteur arrive bien à superviser une instance Azure en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_azure_database_sqldatabase_api.pl \
-	--plugin=cloud::azure::database::sqldatabase::plugin \
-	--mode=workers \
+/usr/lib/centreon/plugins/centreon_azure_database_postgres_api.pl \
+	--plugin=cloud::azure::database::postgres::plugin \
+	--mode=traffic \
 	--custommode='api' \
-	--resource='XXXXXXXXXXXXXXXX' \
+	--resource='' \
 	--resource-group='' \
-	--subscription='XXXXXXXXXXXXXXXX' \
-	--tenant='XXXXXXXXXXXXXXXX' \
-	--client-id='XXXXXXXXXXXXXXXX' \
-	--client-secret='XXXXXXXXXXXXXXXX' \
+	--subscription='xxxxxxxxxxxxxx' \
+	--tenant='xxxxxxxxxxxxxx' \
+	--client-id='xxxxxxxxxxxxxx' \
+	--client-secret='xxxxxxxxxxxxxx' \
 	--proxyurl=''  \
-	--warning-workers='' \
-	--critical-workers='' 
+	--filter-metric='' \
+	--filter-dimension='' \
+	--timeframe='900' \
+	--interval='PT5M' \
+	--aggregation='Average' \
+	--warning-traffic-out='' \
+	--critical-traffic-out='' \
+	--warning-traffic-in='' \
+	--critical-traffic-in='' 
 ```
 
-The expected command output is shown below:
+La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Workers: 72 | 'sqldatabase.workers.count'=72;;;0;
+OK: Network Out: 62 B Network In: 48 B | 'azpostgres.traffic.out.bytes'=62B;;;0;'azpostgres.traffic.in.bytes'=48B;;;0;
 ```
 
-### Troubleshooting
+### Diagnostic des erreurs communes
 
-Please find the troubleshooting documentation for the API-based plugins in
-this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+des plugins basés sur HTTP/API.
 
-### Available modes
+### Modes disponibles
 
-In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
-In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
-However, you will need to specify the correct mode for the template if you want to test the execution command for the 
-connector in your terminal.
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution 
+du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
+implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
+modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
 
-All available modes can be displayed by adding the `--list-mode` parameter to
-the command:
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_azure_database_sqldatabase_api.pl \
-	--plugin=cloud::azure::database::sqldatabase::plugin \
+/usr/lib/centreon/plugins/centreon_azure_database_postgres_api.pl \
+	--plugin=cloud::azure::database::postgres::plugin \
 	--list-mode
 ```
 
-The plugin brings the following modes:
+Le plugin apporte les modes suivants :
 
-| Mode                                                                                                                                        | Linked service template                               |
-|:--------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|
-| app-resources [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/sqldatabase/mode/appresources.pm)] | Cloud-Azure-Database-SqlDatabase-App-Resources-custom |
-| connections [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/sqldatabase/mode/connections.pm)]    | Cloud-Azure-Database-SqlDatabase-Connections-custom   |
-| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/sqldatabase/mode/cpu.pm)]                    | Cloud-Azure-Database-SqlDatabase-Cpu-custom           |
-| deadlocks [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/sqldatabase/mode/deadlocks.pm)]        | Cloud-Azure-Database-SqlDatabase-Deadlocks-custom     |
-| discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/sqldatabase/mode/discovery.pm)]        | Used for host discovery                               |
-| health [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/sqldatabase/mode/health.pm)]              | Cloud-Azure-Database-SqlDatabase-Health-custom        |
-| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/sqldatabase/mode/memory.pm)]              | Cloud-Azure-Database-SqlDatabase-Memory-custom        |
-| sessions [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/sqldatabase/mode/sessions.pm)]          | Cloud-Azure-Database-SqlDatabase-Sessions-custom      |
-| storage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/sqldatabase/mode/storage.pm)]            | Cloud-Azure-Database-SqlDatabase-Storage-custom       |
-| workers [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/sqldatabase/mode/workers.pm)]            | Cloud-Azure-Database-SqlDatabase-Workers-custom       |
+| Mode                                                                                                                                       | Modèle de service associé                                 |
+|:-------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------|
+| connections [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/postgres/mode/connections.pm)]      | Cloud-Azure-Database-PostgreSQL-Connections-Api-custom    |
+| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/postgres/mode/cpu.pm)]                      | Cloud-Azure-Database-PostgreSQL-Cpu-Api-custom            |
+| discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/postgres/mode/discovery.pm)]          | Not used in this Monitoring Connector                     |
+| io-consumption [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/postgres/mode/ioconsumption.pm)] | Cloud-Azure-Database-PostgreSQL-IO-Consumption-Api-custom |
+| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/postgres/mode/memory.pm)]                | Cloud-Azure-Database-PostgreSQL-Memory-Api-custom         |
+| replication [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/postgres/mode/replication.pm)]      | Cloud-Azure-Database-PostgreSQL-Replication-Api-custom    |
+| storage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/postgres/mode/storage.pm)]              | Cloud-Azure-Database-PostgreSQL-Storage-Api-custom        |
+| traffic [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/postgres/mode/traffic.pm)]              | Cloud-Azure-Database-PostgreSQL-Traffic-Api-custom        |
 
-### Available custom modes
+### Custom modes disponibles
 
-This connector offers several ways to connect to the resource (CLI, library, etc.), called **custom modes**.
-All available custom modes can be displayed by adding the `--list-custommode` parameter to
-the command:
+Ce connecteur offre plusieurs méthodes pour se connecter à la ressource (CLI, bibliothèque, etc.), appelées **custom modes**.
+Tous les custom modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-custommode` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_azure_database_sqldatabase_api.pl \
-	--plugin=cloud::azure::database::sqldatabase::plugin \
+/usr/lib/centreon/plugins/centreon_azure_database_postgres_api.pl \
+	--plugin=cloud::azure::database::postgres::plugin \
 	--list-custommode
 ```
 
-The plugin brings the following custom modes:
+Le plugin apporte les custom modes suivants :
 
 * api
 * azcli
 
-### Available options
+### Options disponibles
 
-#### Generic options
+#### Options génériques
 
-All generic options are listed here:
+Les options génériques sont listées ci-dessous :
 
 | Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -505,9 +482,9 @@ All generic options are listed here:
 | --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
-#### Custom modes options
+#### Options des custom modes
 
-All **custom modes** specific options are listed here:
+Les options spécifiques aux **custom modes** sont listées ci-dessous :
 
 <Tabs groupId="sync">
 <TabItem value="api" label="api">
@@ -569,118 +546,93 @@ All **custom modes** specific options are listed here:
 </TabItem>
 </Tabs>
 
-#### Modes options
+#### Options des modes
 
-All available options for each service template are listed below:
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
 
 <Tabs groupId="sync">
-<TabItem value="App-Resources" label="App-Resources">
-
-| Option           | Description                                                      |
-|:-----------------|:-----------------------------------------------------------------|
-| --resource       | Set resource name or ID (required). It is the database name.     |
-| --resource-group | Set resource group (required if resource's name is used).        |
-| --server         | Set server name (required if resource's name is used).           |
-| --warning-*      | Warning threshold where '*' can be: 'app-cpu', 'app-memory'.     |
-| --critical-*     | Critical threshold where '*' can be: 'app-cpu', 'app-memory'.    |
-
-</TabItem>
 <TabItem value="Connections" label="Connections">
 
-| Option           | Description                                                                           |
-|:-----------------|:--------------------------------------------------------------------------------------|
-| --resource       | Set resource name or ID (required). It is the database name.                          |
-| --resource-group | Set resource group (required if resource's name is used).                             |
-| --server         | Set server name (required if resource's name is used).                                |
-| --warning-*      | Warning threshold where '*' can be: 'connection-failed', 'connection-successful'.     |
-| --critical-*     | Critical threshold where '*' can be: 'connection-failed', 'connection-successful'.    |
+| Option                   | Description                                                                                                             |
+|:-------------------------|:------------------------------------------------------------------------------------------------------------------------|
+| --resource               | Set resource name or ID (required).                                                                                     |
+| --resource-group         | Set resource group (required if resource's name is used).                                                               |
+| --resource-type          | Set resource type (default: 'servers'). Can be 'servers', 'flexibleServers'.                                            |
+| --warning-* --critical-* | Thresholds where '*' can be: 'connections-active', 'connections-failed', 'connections-aborted', 'connections-total'.    |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Option                   | Description                                                    |
-|:-------------------------|:---------------------------------------------------------------|
-| --resource               | Set resource name or ID (required). It is the database name.   |
-| --resource-group         | Set resource group (required if resource's name is used).      |
-| --server                 | Set server name (required if resource's name is used).         |
-| --warning-* --critical-* | Thresholds where '*' can be: 'usage-percent'.                  |
+| Option               | Description                                                                    |
+|:---------------------|:-------------------------------------------------------------------------------|
+| --resource           | Set resource name or ID (required).                                            |
+| --resource-group     | Set resource group (required if resource's name is used).                      |
+| --resource-type      | Set resource type (default: 'servers'). Can be 'servers', 'flexibleServers'.   |
+| --warning-cpu-usage  | Set warning threshold for CPU utilization percentage.                          |
+| --critical-cpu-usage | Set critical threshold for CPU utilization percentage.                         |
 
 </TabItem>
-<TabItem value="Deadlocks" label="Deadlocks">
+<TabItem value="IO-Consumption" label="IO-Consumption">
 
-| Option               | Description                                                    |
-|:---------------------|:---------------------------------------------------------------|
-| --resource           | Set resource name or ID (required). It is the database name.   |
-| --resource-group     | Set resource group (required if resource's name is used).      |
-| --server             | Set server name (required if resource's name is used).         |
-| --warning-deadlocks  | Warning threshold.                                             |
-| --critical-deadlocks | Critical threshold.                                            |
-
-</TabItem>
-<TabItem value="Health" label="Health">
-
-| Option            | Description                                                                                                                                                           |
-|:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --resource        | Set resource name or ID (required).                                                                                                                                   |
-| --resource-group  | Set resource group (required if resource's name is used).                                                                                                             |
-| --warning-status  | Define the conditions to match for the status to be WARNING (default: '').  You can use the following variables: %{status}, %{summary}                                |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /^Unavailable$/').  You can use the following variables: %{status}, %{summary}   |
-| --unknown-status  | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /^Unknown$/').  You can use the following variables: %{status}, %{summary}        |
-| --ok-status       | Define the conditions to match for the status to be OK (default: '%{status} =~ /^Available$/').  You can use the following variables: %{status}, %{summary}           |
+| Option                         | Description                                                                    |
+|:-------------------------------|:-------------------------------------------------------------------------------|
+| --resource                     | Set resource name or ID (required).                                            |
+| --resource-group               | Set resource group (required if resource's name is used).                      |
+| --resource-type                | Set resource type (default: 'servers'). Can be 'servers', 'flexibleServers'.   |
+| --warning-ioconsumption-usage  | Set warning threshold for IO comsuption usage.                                 |
+| --critical-ioconsumption-usage | Set critical threshold for IO comsuption usage.                                |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Option                   | Description                                                    |
-|:-------------------------|:---------------------------------------------------------------|
-| --resource               | Set resource name or ID (required). It is the database name.   |
-| --resource-group         | Set resource group (required if resource's name is used).      |
-| --server                 | Set server name (required if resource's name is used).         |
-| --warning-* --critical-* | Thresholds where '*' can be: 'usage-percent'.                  |
+| Option                  | Description                                                                    |
+|:------------------------|:-------------------------------------------------------------------------------|
+| --resource              | Set resource name or ID (required).                                            |
+| --resource-group        | Set resource group (required if resource's name is used).                      |
+| --resource-type         | Set resource type (default: 'servers'). Can be 'servers', 'flexibleServers'.   |
+| --warning-memory-usage  | Set warning threshold for memory utilization percentage.                       |
+| --critical-memory-usage | Set critical threshold for memory utilization percentage.                      |
 
 </TabItem>
-<TabItem value="Sessions" label="Sessions">
+<TabItem value="Replication" label="Replication">
 
-| Option              | Description                                                    |
-|:--------------------|:---------------------------------------------------------------|
-| --resource          | Set resource name or ID (required). It is the database name.   |
-| --resource-group    | Set resource group (required if resource's name is used).      |
-| --server            | Set server name (required if resource's name is used).         |
-| --warning-sessions  | Warning threshold.                                             |
-| --critical-sessions | Critical threshold.                                            |
+| Option                   | Description                                                                    |
+|:-------------------------|:-------------------------------------------------------------------------------|
+| --resource               | Set resource name or ID (required).                                            |
+| --resource-group         | Set resource group (required if resource's name is used).                      |
+| --resource-type          | Set resource type (default: 'servers'). Can be 'servers', 'flexibleServers'.   |
+| --warning-* --critical-* | Thresholds where '*' can be: 'replication-lag'.                                |
 
 </TabItem>
 <TabItem value="Storage" label="Storage">
 
-| Option           | Description                                                            |
-|:-----------------|:-----------------------------------------------------------------------|
-| --resource       | Set resource name or ID (required). It is the database name.           |
-| --resource-group | Set resource group (required if resource's name is used).              |
-| --server         | Set server name (required if resource's name is used).                 |
-| --warning-*      | Warning threshold where '*' can be: 'usage-bytes','usage-percent'.     |
-| --critical-*     | Critical threshold where '*' can be: 'usage-bytes','usage-percent'.    |
+| Option                   | Description                                                                                             |
+|:-------------------------|:--------------------------------------------------------------------------------------------------------|
+| --resource               | Set resource name or ID (required).                                                                     |
+| --resource-group         | Set resource group (required if resource's name is used).                                               |
+| --resource-type          | Set resource type (default: 'servers'). Can be 'servers', 'flexibleServers'.                            |
+| --warning-* --critical-* | Thresholds where '*' can be: 'storage-backup', 'serverlog-usage', 'storage-percent', 'storage-used'.    |
 
 </TabItem>
-<TabItem value="Workers" label="Workers">
+<TabItem value="Traffic" label="Traffic">
 
-| Option             | Description                                                    |
-|:-------------------|:---------------------------------------------------------------|
-| --resource         | Set resource name or ID (required). It is the database name.   |
-| --resource-group   | Set resource group (required if resource's name is used).      |
-| --server           | Set server name (required if resource's name is used).         |
-| --warning-workers  | Warning threshold.                                             |
-| --critical-workers | Critical threshold.                                            |
+| Option                   | Description                                                                    |
+|:-------------------------|:-------------------------------------------------------------------------------|
+| --resource               | Set resource name or ID (required).                                            |
+| --resource-group         | Set resource group (required if resource's name is used).                      |
+| --resource-type          | Set resource type (default: 'servers'). Can be 'servers', 'flexibleServers'.   |
+| --warning-* --critical-* | Thresholds where '*' can be: 'traffic-out', 'traffic-in'.                      |
 
 </TabItem>
 </Tabs>
 
-All available options for a given mode can be displayed by adding the
-`--help` parameter to the command:
+Pour un mode, la liste de toutes les options disponibles et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_azure_database_sqldatabase_api.pl \
-	--plugin=cloud::azure::database::sqldatabase::plugin \
-	--mode=workers \
+/usr/lib/centreon/plugins/centreon_azure_database_postgres_api.pl \
+	--plugin=cloud::azure::database::postgres::plugin \
+	--mode=traffic \
 	--custommode='azcli' \
 	--help
 ```

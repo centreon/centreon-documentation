@@ -1,291 +1,307 @@
 ---
-id: applications-hashicorp-vault-restapi
-title: HashiCorp Vault Rest API
+id: applications-infor-ion-grid-restapi
+title: Infor ION Grid Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Hashicorp Vault is a tool for securely accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords
-or certificates. Vault provides a unified interface to any secret, while providing tight access control and recording a detailed audit log.
+## Contenu du pack
 
-## Pack assets
+### Modèles
 
-### Templates
+Le connecteur de supervision **Infor ION Grid** apporte un modèle d'hôte :
 
-The Monitoring Connector **HashiCorp Vault Rest API** brings a host template:
+* **App-Infor-Ion-Grid-Restapi-custom**
 
-* **App-HashiCorp-Vault-Restapi-custom**
-
-The connector brings the following service templates (sorted by the host template they are attached to):
+Le connecteur apporte les modèles de service suivants
+(classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="App-HashiCorp-Vault-Restapi-custom" label="App-HashiCorp-Vault-Restapi-custom">
+<TabItem value="App-Infor-Ion-Grid-Restapi-custom" label="App-Infor-Ion-Grid-Restapi-custom">
 
-| Service Alias | Service Template                                | Service Description                           |
-|:--------------|:------------------------------------------------|:----------------------------------------------|
-| Health        | App-HashiCorp-Vault-Health-Restapi-custom       | Check HashiCorp Vault health                  |
-| Raft-Storage  | App-HashiCorp-Vault-Raft-Storage-Restapi-custom | Check HashiCorp Vault Raft Storage statistics |
+| Alias              | Modèle de service                             | Description                                                      | Découverte |
+|:-------------------|:----------------------------------------------|:-----------------------------------------------------------------|:----------:|
+| Application-Status | App-Infor-Ion-Grid-Restapi-Application-custom | Contrôle du statut des applications Infor ION Grid               | X          |
+| Node               | App-Infor-Ion-Grid-Restapi-Node-custom        | Contrôle du statut et des statistiques des noeuds Infor ION Grid | X          |
 
-> The services listed above are created automatically when the **App-HashiCorp-Vault-Restapi-custom** host template is used.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Infor-Ion-Grid-Restapi-custom** est utilisé.
+
+> Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
 
 </TabItem>
 </Tabs>
 
-### Collected metrics & status
+### Règles de découverte
 
-Here is the list of services for this connector, detailing all metrics linked to each service.
+#### Découverte de services
+
+| Nom de la règle                             | Description                                                                      |
+|:--------------------------------------------|:---------------------------------------------------------------------------------|
+| App-Infor-Ion-Grid-Restapi-Application-Name | Découvre les points d'application Infor ION Grid et supervise leur statut        |
+| App-Infor-Ion-Grid-Restapi-Node-Name        | Découvre les noeuds Infor ION Grid et supervise leur statut et leurs statistiques |
+
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
+pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
+
+### Métriques & statuts collectés
+
+Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
 
 <Tabs groupId="sync">
-<TabItem value="Health" label="Health">
+<TabItem value="Application-Status" label="Application-Status">
 
-| Metric name                 | Unit  |
-|:----------------------------|:------|
-| *vault_cluster*#seal-status | N/A   |
-| *vault_cluster*#init-status | N/A   |
+| Métrique                          | Unité |
+|:----------------------------------|:------|
+| ion.grid.applications.total.count | count |
+| *applications*#status             | N/A   |
 
 </TabItem>
-<TabItem value="Raft-Storage" label="Raft-Storage">
+<TabItem value="Node" label="Node">
 
-| Metric name                                       | Unit  |
-|:--------------------------------------------------|:------|
-| commit-time                                       | ms    |
-| *boltdb*#vault.raftstorage.spilltime.seconds      | ms    |
-| *boltdb*#vault.raftstorage.rebalance_time.seconds | ms    |
-| *boltdb*#vault.raftstorage.write_time.seconds     | ms    |
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| *nodes*#status                     | N/A   |
+| *nodes*#node.log.error.count       | count |
+| *nodes*#node.log.warning.count     | count |
+| *nodes*#node.uptime.seconds        | s     |
+| *nodes*#node.cpu.usage.percentage  | %     |
+| *nodes*#node.heap.usage.percentage | %     |
 
 </TabItem>
 </Tabs>
 
-## Prerequisites
+## Prérequis
 
-The Centreon Poller must be allowed to connect and to authenticate against the HashiCorp Vault resource.
-The credentials used to authenticate must be part of a Vault policy allowing to read the `/sys/` path.
+Pour superviser Infor ION Grid, merci de suivre la [documentation officielle](https://docs.infor.com/inforos/2022.x/en-us/useradminlist/inforos_2022.12_inforosrn_en-us_72746.pdf) et de vous assurer que vos droits sont correctement configurés.
 
-The following authentication methods are supported:
-* token (default method)
-* userpass
-* azure
-* cert
-* github
-* ldap
-* okta
-* radius
-
-Depending of the chosen method, you will have to set the related parts of information in the *EXTRAOPTIONS* Host Macro. Please refer to the Plugin
-help for more details (by adding the ```--help``` parameter when executing the command).
-All the options needed for each authentication method can be found on the official Vault documentation
-https://www.vaultproject.io/api-docs/auth .
-
-## Installing the monitoring connector
+## Installer le connecteur de supervision
 
 ### Pack
 
-1. If the platform uses an *online* license, you can skip the package installation
-instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
-If the platform uses an *offline* license, install the package on the **central server**
-with the command corresponding to the operating system's package manager:
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-applications-hashicorp-vault-restapi
+dnf install centreon-pack-applications-infor-ion-grid-restapi
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-applications-hashicorp-vault-restapi
+dnf install centreon-pack-applications-infor-ion-grid-restapi
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-pack-applications-hashicorp-vault-restapi
+apt install centreon-pack-applications-infor-ion-grid-restapi
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-applications-hashicorp-vault-restapi
+yum install centreon-pack-applications-infor-ion-grid-restapi
 ```
 
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **HashiCorp Vault Rest API** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Infor ION Grid**
+depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
 
-Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
-When this feature is enabled, you can skip the installation part below.
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
 
-You still have to manually install the plugin on the poller(s) when:
-- Automatic plugin installation is turned off
-- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
 
-> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
-
-Use the commands below according to your operating system's package manager:
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Applications-HashiCorp-Vault-Restapi
+dnf install centreon-plugin-Applications-Infor-Ion-Grid-Restapi
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-Applications-HashiCorp-Vault-Restapi
+dnf install centreon-plugin-Applications-Infor-Ion-Grid-Restapi
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-plugin-applications-hashicorp-vault-restapi
+apt install centreon-plugin-applications-infor-ion-grid-restapi
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-plugin-Applications-HashiCorp-Vault-Restapi
+yum install centreon-plugin-Applications-Infor-Ion-Grid-Restapi
 ```
 
 </TabItem>
 </Tabs>
 
-## Using the monitoring connector
+## Utiliser le connecteur de supervision
 
-### Using a host template provided by the connector
+### Utiliser un modèle d'hôte issu du connecteur
 
-1. Log into Centreon and add a new host through **Configuration > Hosts**.
-2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
-3. Apply the **App-HashiCorp-Vault-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
-4. Fill in the macros you want. Some macros are mandatory.
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **App-Infor-Ion-Grid-Restapi-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro              | Description                                                                                                                                                                                                      | Default value     | Mandatory   |
-|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| VAULTTOKEN         | Specify the Vault access token (only for the 'token' authentication method)                                                                                                                                      |                   | X           |
-| VAULTAPIPROTOCOL   | Specify https if needed (default: 'http')                                                                                                                                                                        | http              |             |
-| VAULTAPIPORT       | Port used (default: 8200)                                                                                                                                                                                        | 8200              |             |
-| VAULTAPIAUTHMETHOD | Specify the Vault authentication method (default: 'token'). Can be: 'azure', 'cert', 'github', 'ldap', 'okta', 'radius', 'userpass', 'token' If different from 'token' the "--auth-settings" options must be set | token             |             |
-| VAULTAPIVERSION    | Specify the Vault API version (default: 'v1')                                                                                                                                                                    | v1                |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                             |                   |             |
+| Macro        | Description                                                                                          | Valeur par défaut | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| APIUSERNAME  | API username                                                                                         |                   | X           |
+| APIPASSWORD  | API password                                                                                         |                   | X           |
+| APIPROTO     | Specify https if needed                                                                              | https             |             |
+| APIPORT      | Set port                                                                                             | 443               |             |
+| ADDRESS      | Set hostname                                                                                         |                   | X           |
+| EXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
-5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
-### Using a service template provided by the connector
+### Utiliser un modèle de service issu du connecteur
 
-1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
-2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
-<TabItem value="Health" label="Health">
+<TabItem value="Application-Status" label="Application-Status">
 
-| Macro              | Description                                                                                        | Default value            | Mandatory   |
-|:-------------------|:---------------------------------------------------------------------------------------------------|:-------------------------|:-----------:|
-| CRITICALINITSTATUS | Set critical threshold for initialization status (default: '%{init} ne "initialized"')             | %{init} ne "initialized" |             |
-| WARNINGINITSTATUS  | Set warning threshold for initialization status (default: none)                                    |                          |             |
-| CRITICALSEALSTATUS | Set critical threshold for seal status (default: '%{sealed} ne "unsealed"')                        | %{sealed} ne "unsealed"  |             |
-| WARNINGSEALSTATUS  | Set warning threshold for seal status (default: none)                                              |                          |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                |             |
+| Macro          | Description                                                                                                                                                                                                                                                                                                           | Valeur par défaut                           | Obligatoire |
+|:---------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------|:-----------:|
+| FILTERNAME     | Filter by application name (regexp can be used). Example: --filter-name='^application1$'                                                                                                                                                                                                                              |                                             |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{online} =~ /true/ && %{state} !~ /^(OK)/i'). Threshold can be matched on special variables like %{state}, %{online}, %{started}, %{name} or %{description} and Regexp can be used. Typical syntax: --critical-status='%{started} ne "true"' | %{online} =~ /true/ && %{state} !~ /^(OK)/i |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: ''). Threshold can be matched on special variables like %{state}, %{online}, %{started}, %{name} or %{description} and Regexp can be used. Typical syntax: --warning-status='%{state} ne "OK"'                                                  |                                             |             |
+| WARNINGTOTAL   | Define the conditions to match for the total to be WARNING (default: '').                                                                                                                                                                                                                                               |                                             |             |
+| CRITICALTOTAL  | Define the conditions to match for the total to be CRITICAL (default: '').                                                                                                                                                                                                                                              |                                             |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                                                                                                    |                                             |             |
 
 </TabItem>
-<TabItem value="Raft-Storage" label="Raft-Storage">
+<TabItem value="Node" label="Node">
 
-| Macro                 | Description                                                                                        | Default value     | Mandatory   |
-|:----------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGCOMMITTIME     | Warning threshold                                                                 |                   |             |
-| CRITICALCOMMITTIME    | Critical threshold                                                                       |                   |             |
-| WARNINGREBALANCETIME  | Warning threshold                                                                   |                   |             |
-| CRITICALREBALANCETIME | Critical threshold                                                                   |                   |             |
-| WARNINGSPILLTIME      | Warning threshold                                                                       |                   |             |
-| CRITICALSPILLTIME     | Critical threshold                                                                     |                   |             |
-| WARNINGWRITETIME      | Warning threshold                                                                    |                   |             |
-| CRITICALWRITETIME     | Critical threshold                                                                  |                   |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro                 | Description                                                                                                                                                         | Valeur par défaut      | Obligatoire |
+|:----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
+| FILTERNAME            | Filter by node name                                                                                                                                                 |                        |             |
+| FILTERTYPE            | Filter by node type                                                                                                                                                 |                        |             |
+| FILTERAPPLICATIONNAME | Filter by application name                                                                                                                                          |                        |             |
+| FILTERHOSTNAME        | Filter by host name                                                                                                                                                 |                        |             |
+| WARNINGCPUUSAGE       | Set warning thresholds on cpu usage                                                                                                                                 |                        |             |
+| CRITICALCPUUSAGE      | Set critical thresholds on cpu usage                                                                                                                                |                        |             |
+| WARNINGHEAPUSAGE      | Set warning thresholds on heap usage                                                                                                                                |                        |             |
+| CRITICALHEAPUSAGE     | Set critical thresholds on heap usage                                                                                                                               |                        |             |
+| WARNINGLOGWARNING     | Set warning thresholds on log-warning                                                                                                                               |                        |             |
+| CRITICALLOGWARNING    | Set critical thresholds on log-warning                                                                                                                              |                        |             |
+| WARNINGLOGERROR       | Set warning thresholds on log-error                                                                                                                                 |                        |             |
+| CRITICALLOGERROR      | Set critical thresholds on log-error                                                                                                                                |                        |             |
+| CRITICALSTATUS        | Set critical threshold for status. Can use special variables like: %{state}, %{name}, %{host\_name}, %{application\_name}, %{type}                                  | '%{state} !~ /online/' |             |
+| WARNINGSTATUS         | Set warning threshold for status (Default: "%{state} !~ /online/"). Can use special variables like: %{state}, %{name}, %{host\_name}, %{application\_name}, %{type} |                        |             |
+| WARNINGUPTIME         | Set warning thresholds on uptime                                                                                                                                    |                        |             |
+| CRITICALUPTIME        |Set critical thresholds on uptime                                                                                                                                    |                        |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                  |                        |             |
 
 </TabItem>
 </Tabs>
 
-3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
 
-## How to check in the CLI that the configuration is OK and what are the main options for?
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
 
-Once the plugin is installed, log into your Centreon poller's CLI using the
-**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
-is able to monitor a resource using a command like this one (replace the sample values by yours):
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
+que le connecteur arrive bien à superviser une ressource en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_hashicorp_vault_restapi.pl \
-	--plugin=apps::hashicorp::vault::restapi::plugin \
-	--mode=raft-storage \
-	--hostname='10.0.0.1' \
-	--port='8200' \
-	--proto='http' \
-	--api-version='v1' \
-	--auth-method='token' \
-	--vault-token='xxxxx'  \
-	--warning-commit-time='' \
-	--critical-commit-time='' \
-	--warning-spill-time='' \
-	--critical-spill-time='' \
-	--warning-rebalance-time='' \
-	--critical-rebalance-time='' \
-	--warning-write-time='' \
-	--critical-write-time='' \
-	--verbose
+/usr/lib/centreon/plugins/centreon_infor_ion_grid_restapi.pl \
+	--plugin=apps::infor::ion::grid::plugin \
+	--mode=node \
+	--hostname='HOSTNAME' \
+	--port='' \
+	--proto='' \
+	--api-username='APIUSERNAME' \
+	--api-password='APIUSERPASSWORD'  \
+	--filter-name='^Registry$' \
+	--filter-type='' \
+	--filter-application-name='^SYSTEM$' \
+	--filter-host-name='^THEHOST$' \
+	--warning-status='%{state} !~ /online/' \
+	--critical-status=''%{state} !~ /online/'' \
+	--warning-log-error='' \
+	--critical-log-error='' \
+	--warning-log-warning='' \
+	--critical-log-warning='' \
+	--warning-uptime='' \
+	--critical-uptime='' \
+	--warning-cpu-usage='' \
+	--critical-cpu-usage='' \
+	--warning-heap-usage='' \
+	--critical-heap-usage=''
+	--change-perfdata='.*#(.*),$1'
 ```
 
-The expected command output is shown below:
+La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: commit time : 35 All Bolt Databases are ok | 'commit-time'=35ms;;;0;'*boltdb*#vault.raftstorage.spilltime.seconds'=ms;;;0;'*boltdb*#vault.raftstorage.rebalance_time.seconds'=ms;;;0;'*boltdb*#vault.raftstorage.write_time.seconds'=ms;;;0;
+OK: Node 'Registry' with PID '173' from application 'SYSTEM' on host 'THEHOST' state is 'online', Log error: 0, Log warning: 0, Uptime: 4M 2w 2d 2h 40m, CPU usage: 0.00%, Heap usage: 46.10MB/254.00MB (18.15%) | 'node.log.error.count'=0;;;0; 'node.log.warning.count'=0;;;0; 'node.cpu.usage.percentage'=0.00%;;;0;100 'node.heap.usage.percentage'=18.15%;0:90;;0;100
 ```
 
-### Troubleshooting
+### Diagnostic des erreurs communes
 
-Please find the troubleshooting documentation for the API-based plugins in
-this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+des plugins basés sur HTTP/API.
 
-### Available modes
+### Modes disponibles
 
-In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
-In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
-However, you will need to specify the correct mode for the template if you want to test the execution command for the 
-connector in your terminal.
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution 
+du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
+implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
+modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
 
-All available modes can be displayed by adding the `--list-mode` parameter to
-the command:
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_hashicorp_vault_restapi.pl \
-	--plugin=apps::hashicorp::vault::restapi::plugin \
+/usr/lib/centreon/plugins/centreon_infor_ion_grid_restapi.pl \
+	--plugin=apps::infor::ion::grid::plugin \
 	--list-mode
 ```
 
-The plugin brings the following modes:
+Le plugin apporte les modes suivants :
 
-| Mode                                                                                                                                  | Linked service template                         |
-|:--------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------|
-| health [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/hashicorp/vault/restapi/mode/health.pm)]            | App-HashiCorp-Vault-Health-Restapi-custom       |
-| raft-storage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/hashicorp/vault/restapi/mode/raftstorage.pm)] | App-HashiCorp-Vault-Raft-Storage-Restapi-custom |
+| Mode                                                                                                                                   | Modèle de service associé                     |
+|:---------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+| application [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/infor/ion/grid/mode/application.pm)]            | App-Infor-Ion-Grid-Restapi-Application-custom |
+| list-applications [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/infor/ion/grid/mode/listapplications.pm)] | Used for service discovery                    |
+| list-nodes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/infor/ion/grid/mode/listnodes.pm)]               | Used for service discovery                    |
+| node [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/infor/ion/grid/mode/node.pm)]                          | App-Infor-Ion-Grid-Restapi-Node-custom        |
 
-### Available options
+### Options disponibles
 
-#### Generic options
+#### Options génériques
 
-All generic options are listed here:
+Les options génériques sont listées ci-dessous :
 
 | Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -319,16 +335,13 @@ All generic options are listed here:
 | --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.      HashiCorp Vault Rest API                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --hostname                                 | HashiCorp Vault hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --port                                     | Port used (default: 8200)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --proto                                    | Specify https if needed (default: 'http')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --api-version                              | Specify the Vault API version (default: 'v1')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --vault-token                              | Specify the Vault access token (only for the 'token' authentication method)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| --auth-method                              | Specify the Vault authentication method (default: 'token'). Can be: 'azure', 'cert', 'github', 'ldap', 'okta', 'radius', 'userpass', 'token' If different from 'token' the "--auth-settings" options must be set.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| --auth-settings                            | Specify the Vault authentication specific settings. Syntax: --auth-settings='\<setting\>=\<value\>'.Example for the 'userpass' method: --auth-method='userpass' --auth-settings='username=my\_account' --auth-settings='password=my\_password'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --auth-path                                | Authentication path for 'userpass'. Is an optional setting.  More information here: https://developer.hashicorp.com/vault/docs/auth/userpass#configu ration                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| --timeout                                  | Set timeout in seconds (default: 10).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --hostname                                 | Set hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --port                                     | Set port (default: '443').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --proto                                    | Specify https if needed (default: 'https').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --api-username                             | API username.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --api-password                             | API password.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --timeout                                  | Threshold for HTTP timeout (default: '20').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | --http-peer-addr                           | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --proxyurl                                 | Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | --proxypac                                 | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
@@ -336,50 +349,44 @@ All generic options are listed here:
 | --http-backend                             | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --ssl-opt                                  | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --curl-opt                                 | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --memcached                                | Memcached server to use (only one server).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| --redis-server                             | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| --redis-attribute                          | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --redis-db                                 | Set Redis database index.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --failback-file                            | Failback on a local file if Redis connection fails.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| --memexpiration                            | Time to keep data in seconds (default: 86400).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --statefile-dir                            | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| --statefile-suffix                         | Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --statefile-concat-cwd                     | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| --statefile-format                         | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --statefile-key                            | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --statefile-cipher                         | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
-#### Modes options
+#### Options des modes
 
-All available options for each service template are listed below:
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
 
 <Tabs groupId="sync">
-<TabItem value="Health" label="Health">
+<TabItem value="Application-Status" label="Application-Status">
 
-| Option                 | Description                                                                                |
-|:-----------------------|:-------------------------------------------------------------------------------------------|
-| --warning-seal-status  | Set warning threshold for seal status (default: none).                                     |
-| --critical-seal-status | Set critical threshold for seal status (default: '%{sealed} ne "unsealed"').               |
-| --warning-init-status  | Set warning threshold for initialization status (default: none).                           |
-| --critical-init-status | Set critical threshold for initialization status (default: '%{init} ne "initialized"').    |
+| Option            | Description                                                                                                                                                                                                                                                                                                              |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-name     | Filter by application name (regexp can be used). Example: --filter-name='^application1$'                                                                                                                                                                                                                                 |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: ''). Threshold can be matched on special variables like %{state}, %{online}, %{started}, %{name} or %{description} and Regexp can be used. Typical syntax: --warning-status='%{state} ne "OK"'                                                     |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{online} =~ /true/ && %{state} !~ /^(OK)/i'). Threshold can be matched on special variables like %{state}, %{online}, %{started}, %{name} or %{description} and Regexp can be used. Typical syntax: --critical-status='%{started} ne "true"'    |
+| --warning-total  | Define the conditions to match for the total to be WARNING (default: '').  |
+| --critical-total | Define the conditions to match for the total to be CRITICAL (default: ''). |
 
 </TabItem>
-<TabItem value="Raft-Storage" label="Raft-Storage">
+<TabItem value="Node" label="Node">
 
-| Option       | Description                                                                                         |
-|:-------------|:----------------------------------------------------------------------------------------------------|
-| --warning-*  | Warning threshold where '*' can be: 'commit-time', 'spill-time', 'rebalance-time', 'write-time'     |
-| --critical-* | Critical threshold where '*' can be: 'commit-time', 'spill-time', 'rebalance-time', 'write-time'    |
+| Option                    | Description                                                                                                                                                            |
+|:--------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-type             | Filter by node type.                                                                                                                                                   |
+| --filter-name             | Filter by node name.                                                                                                                                                   |
+| --filter-application-name | Filter by application name.                                                                                                                                            |
+| --filter-host-name        | Filter by host name.                                                                                                                                                   |
+| --warning-status          | Set warning threshold for status (Default: "%{state} !~ /online/"). Can use special variables like: %{state}, %{name}, %{host\_name}, %{application\_name}, %{type}.   |
+| --critical-status         | Set critical threshold for status. Can use special variables like: %{state}, %{name}, %{host\_name}, %{application\_name}, %{type}.                                    |
+| --warning-* --critical-*  | Thresholds. Can be: 'log-error', 'log-warning', 'uptime' (s), 'cpu-usage', 'heap-usage' (%).                                                                           |
 
 </TabItem>
 </Tabs>
 
-All available options for a given mode can be displayed by adding the
-`--help` parameter to the command:
+Pour un mode, la liste de toutes les options disponibles et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_hashicorp_vault_restapi.pl \
-	--plugin=apps::hashicorp::vault::restapi::plugin \
-	--mode=raft-storage \
+/usr/lib/centreon/plugins/centreon_infor_ion_grid_restapi.pl \
+	--plugin=apps::infor::ion::grid::plugin \
+	--mode=node \
 	--help
 ```
