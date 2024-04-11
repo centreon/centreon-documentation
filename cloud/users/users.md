@@ -7,7 +7,7 @@ In Centreon Cloud, users/contacts can:
 
 * Log in to the Centreon web interface.
 * Receive notifications.
-* Accessing the profile settings (profile icon at the top right of the interface):
+* Access their profile's settings (profile icon at the top right of the interface):
   * Switch to dark mode.
   * Change the user interface language.
   * Display the page in full screen mode (F).
