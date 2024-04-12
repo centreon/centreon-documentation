@@ -10,7 +10,7 @@ fonctionnement de son architecture, il y a plusieurs choses à vérifier.
 
 ### Configuration de l’émetteur
 
-e premier point à contrôler est la configuration de l’équipement ou application qui a émis l’interruption que vous
+Le premier point à contrôler est la configuration de l’équipement ou application qui a émis l’interruption que vous
 auriez dû recevoir. Vérifiez l’adresse IP ou nom DNS de destination, la communauté SNMP ainsi que la version du
 protocole.
 
