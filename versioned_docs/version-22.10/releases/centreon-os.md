@@ -19,6 +19,18 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon Web
 
+### 22.10.21
+
+Release date: `Avril 10, 2024`
+
+#### Bug fixes
+
+- [API V1] Fixed an issue that occurred when filtering Resources Status by criticality.
+
+#### Security fixes
+
+- [Security] Upgraded axios dependency.
+
 ### 22.10.20
 
 Release date: `March 13, 2024`

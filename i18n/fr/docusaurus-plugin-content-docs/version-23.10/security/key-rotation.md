@@ -1,14 +1,16 @@
 ---
 id: key-rotation
-title: Rotation de clés RPM
+title: Rotation de clés
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon doivent être changées occasionnellement.
+Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon ou le dépôt Debian doivent être changées occasionnellement.
 
 ## Nouvelle installation
+
+<Tabs groupId="sync">
+<TabItem value="Alma/RHEL/Oracle Linux" label="Alma/RHEL/Oracle Linux">
 
 Si vous avez installé une nouvelle plateforme Centreon après la publication de la nouvelle clé, aucune action n'est à effectuer hormis
 accepter la nouvelle clé lorsque nécessaire.
@@ -22,9 +24,20 @@ Provient de    : https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 Est-ce correct [o/N] : y
 ```
 
+</TabItem>
+<TabItem value="Debian" label="Debian">
+
+Si vous avez installé une nouvelle plateforme Centreon après la publication de la nouvelle clé, aucune action n'est à effectuer.
+
+</TabItem>
+</Tabs>
+
 Vous pouvez cependant [vérifier que vous avez la bonne clé](#vérifications).
 
 ## Installation existante
+
+<Tabs groupId="sync">
+<TabItem value="Alma/RHEL/Oracle Linux" label="Alma/RHEL/Oracle Linux">
 
 Si vous avez installé une plateforme Centreon avant la publication de la nouvelle clé, la clé existante doit être remplacée par la nouvelle.
 
@@ -53,7 +66,29 @@ Ce script :
 * vous fait mettre à jour le paquet RPM **release** (cela supprimera la clé révoquée du répertoire **/etc/pki/rpm-gpg**)
 * vous fait vérifier la signature des paquets RPM.
 
+</TabItem>
+<TabItem value="Debian" label="Debian">
+
+1. Supprimez l'ancienne clé :
+
+   ```shell
+   apt-key del 1441882BED29D70CF2E874D65E9C374559B6C02E
+   ```
+
+2. Importez la nouvelle clé :
+
+   ```shell
+   wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+   apt update
+   ```
+
+</TabItem>
+</Tabs>
+
 ## Vérifications
+
+<Tabs groupId="sync">
+<TabItem value="Alma/RHEL/Oracle Linux" label="Alma/RHEL/Oracle Linux">
 
 Vérifiez que la nouvelle clé a été correctement importée. Pour la [nouvelle clé publiée le 14 octobre 2021](#list-of-keys) :
 
@@ -147,7 +182,6 @@ gpg-pubkey-3fc49c1b-6166eb52	gpg(Centreon Enterprise Server Official Signing Key
 </TabItem>
 <TabItem value="Installation existante" label="Installation existante">
 
-
 * Vérifiez si la nouvelle clé a été correctement importée dans la base de données RPM :
 
 ```shell
@@ -235,9 +269,33 @@ gpg-pubkey-3fc49c1b-6166eb52	gpg(Centreon Enterprise Server Official Signing Key
 </TabItem>
 </Tabs>
 
+</TabItem>
+<TabItem value="Debian" label="Debian">
+
+Pour afficher des informations détaillées sur la nouvelle clé et vérifier que celle-ci est correctement installée, exécutez la commande suivante :
+
+```shell
+apt-key list "C903 FA90 C5EC 3C69 C922 9203 0395 7625 73E5 0BC4"
+```
+
+Le résultat devrait être le suivant :
+
+```shell
+pub   ed25519 2024-04-11 [SC]
+      C903 FA90 C5EC 3C69 C922 9203 0395 7625 73E5 0BC4
+uid          [inconnue] Centreon APT <admin@centreon.com>
+sub   cv25519 2024-04-11 [E]
+```
+
+</TabItem>
+</Tabs>
+
+
 ## Liste des clés
 
-| Empreinte                                         | Validité                                     |
-|---------------------------------------------------|----------------------------------------------|
-| 0E52 401B 40F6 044F 928C 0B7B F6FC 4AE3 8A76 52BC | révoquée le 14 octobre 2021                  |
-| [1035 E42C B766 7952 EE42 DEE9 A97D AA5A 3FC4 9C1B](https://yum-gpg.centreon.com/RPM-GPG-KEY-CES) | valide à partir du 14 octobre 2021 |
+| OS | Empreinte                                         | Validité                                     |
+| -- |---------------------------------------------------|----------------------------------------------|
+| Alma/RHEL/Oracle Linux | 0E52 401B 40F6 044F 928C 0B7B F6FC 4AE3 8A76 52BC | révoquée le 14 octobre 2021                  |
+| Alma/RHEL/Oracle Linux | [1035 E42C B766 7952 EE42 DEE9 A97D AA5A 3FC4 9C1B](https://yum-gpg.centreon.com/RPM-GPG-KEY-CES) | valide à partir du 14 octobre 2021 |
+| Debian | 1441 882B ED29 D70C F2E8 74D6 5E9C 3745 59B6 C02E | révoquée le 11 avril 2024 |
+| Debian | [C903 FA90 C5EC 3C69 C922 9203 0395 7625 73E5 0BC4](https://apt-key.centreon.com) | valide à partir du 12 avril 2024 |

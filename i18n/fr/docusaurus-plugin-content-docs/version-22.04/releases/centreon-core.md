@@ -16,6 +16,14 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 22.04.23
+
+Release date: `April 10, 2024`
+
+#### Security fixes
+
+- [Security] Upgraded axios dependency.
+
 ### 22.04.22
 
 Release date: `March 13, 2024`
@@ -541,6 +549,16 @@ By:
 - [Widget] A new widget is now available to display listings from **ntopng** and provide quick access to detail pages in the **ntopng** WUI
 
 ## Centreon Collect
+
+### 22.04.6
+
+Release date: `April 08, 2024`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- [Broker] Fixed an issue causing hostgroups to fail to appear if they had been used before and emptied of their hosts and then populated again.
 
 ### 22.04.5
 
