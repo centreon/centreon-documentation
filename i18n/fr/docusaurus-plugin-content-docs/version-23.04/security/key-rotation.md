@@ -1,11 +1,11 @@
 ---
 id: key-rotation
-title: Rotation de clés RPM
+title: Rotation de clés
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon doivent être changées occasionnellement.
+Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon ou le dépôt Debian doivent être changées occasionnellement.
 
 ## Nouvelle installation
 
