@@ -17,7 +17,7 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
 
 ## Update the package
 
-In order to update the Centreon MAP module using an RPM package, execute the
+1. In order to update the Centreon MAP module using an RPM package, execute the
 following command:
 
 <Tabs groupId="sync">
@@ -71,6 +71,9 @@ sudo dnf update centreon-map-engine centreon-map-web-client
 
 </TabItem>
 </Tabs>
+
+2. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).
+ > If you upgrade to version 24.04 and above, you have to upgrade MariaDB to version 10.11.
 
 ## Update through the interface
 
