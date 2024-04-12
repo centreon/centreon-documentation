@@ -269,6 +269,7 @@ gpg-pubkey-3fc49c1b-6166eb52	gpg(Centreon Enterprise Server Official Signing Key
 </TabItem>
 </Tabs>
 
+</TabItem>
 <TabItem value="Debian" label="Debian">
 
 Pour afficher des informations détaillées sur la nouvelle clé et vérifier que celle-ci est correctement installée, exécutez la commande suivante :
