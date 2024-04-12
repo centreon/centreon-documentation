@@ -27,7 +27,7 @@ Le connecteur apporte les modèles de service suivants (classés selon le modèl
 |:---------------|:------------------------------------|:-----------------------------|
 | Ping     | Base-Ping-LAN     | Check host response time                           |
 
-
+</TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
 | Alias         | Modèle de service                           | Description                          |
