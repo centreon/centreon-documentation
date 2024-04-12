@@ -6,8 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-> Centreon MAP requires a valid license key. To purchase one and retrieve the
-> necessary repositories, contact [Centreon](mailto:sales@centreon.com).
+> Centreon MAP requires a valid license key. To purchase one and retrieve the necessary repositories, contact [Centreon](mailto:sales@centreon.com).
 
 This chapter describes how to install Centreon MAP. The server must be
 installed on a dedicated machine to allow Centreon MAP to operate with
