@@ -71,7 +71,7 @@ sudo dnf update centreon-map-engine centreon-map-web-client
 
 </TabItem>
 </Tabs>
- 
+
 2. Follow this [procedure](../upgrade/upgrade-mariadb.md) to upgrade MariaDB to version 10.11.
 
 ## Update through the interface

@@ -17,7 +17,7 @@ Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centre
 
 ## Mise à jour du paquet
 
-Pour mettre à jour le module Centreon MAP à l'aide des paquets RPM, exécutez la commande suivante :
+1. Pour mettre à jour le module Centreon MAP à l'aide des paquets RPM, exécutez la commande suivante :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -70,6 +70,9 @@ sudo yum update centreon-map-engine centreon-map-web-client
 
 </TabItem>
 </Tabs>
+
+2. Voir [Mettre à jour MariaDB](../upgrade/upgrade-mariadb.md).
+ > Si vous faites une mise à jour vers la version 24.04 et plus, vous devez mettre à jour MariaDB en version 10.11.
 
 ## Mise à jour de l'interface
 
