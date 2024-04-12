@@ -1,16 +1,18 @@
 ---
 id: key-rotation
-title: Rotating RPM keys
+title: Rotating keys
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
-For security reasons, the keys used to sign Centreon RPMs must be rotated occasionally.
+For security reasons, the keys used to sign Centreon RPMs or the Debian repository must be rotated occasionally.
 
 ## Fresh installation
 
-If you performed a fresh installation after the new RPM key was published, 
+<Tabs groupId="sync">
+<TabItem value="Alma/RHEL/Oracle Linux" label="Alma/RHEL/Oracle Linux">
+
+If you performed a fresh installation after the new RPM key was published,
 no additional actions are necessary, apart from accepting the new rpm key.
 
 ```shell
@@ -22,9 +24,21 @@ From       : https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 Is this ok [y/N]: 
 ```
 
+</TabItem>
+<TabItem value="Debian" label="Debian">
+
+If you performed a fresh installation after the new key was published,
+no additional actions are necessary.
+
+</TabItem>
+</Tabs>
+
 However, you can [check that you have the correct key](#checks).
 
 ## Existing installation
+
+<Tabs groupId="sync">
+<TabItem value="Alma/RHEL/Oracle Linux" label="Alma/RHEL/Oracle Linux">
 
 If you performed a fresh installation of a Centreon platform 
 before the new RPM key was published, the existing key must be replaced with the new one.
@@ -54,7 +68,29 @@ before the new RPM key was published, the existing key must be replaced with the
     * ask you to update the **release** RPM package (this will remove the revoked key from **/etc/pki/rpm-gpg**)
     * ask you to check the signature of the RPM packages.
 
+</TabItem>
+<TabItem value="Debian" label="Debian">
+
+1. Remove the old key:
+
+   ```shell
+   apt-key del 1441882BED29D70CF2E874D65E9C374559B6C02E
+   ```
+
+2. Import the new key:
+
+   ```shell
+   wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+   apt update
+   ```
+
+</TabItem>
+</Tabs>
+
 ## Checks
+
+<Tabs groupId="sync">
+<TabItem value="Alma/RHEL/Oracle Linux" label="Alma/RHEL/Oracle Linux">
 
 You can then check that the new key has been correctly imported. For the [new key published on October 14, 2021](#list-of-keys):
 
@@ -236,9 +272,32 @@ only be **gpg-pubkey-3fc49c1b-6166eb52**):
 </TabItem>
 </Tabs>
 
+</TabItem>
+<TabItem value="Debian" label="Debian">
+
+To get detailed info about the new key and check that it is correctly installed, run the following command:
+
+```shell
+gpg --list-keys C903FA90C5EC3C69C92292030395762573E50BC4
+```
+
+The results should look like this:
+
+```shell
+pub   ed25519 2024-04-11 [SC]
+      C903FA90C5EC3C69C92292030395762573E50BC4
+uid          [unknown] Centreon APT <admin@centreon.com>
+sub   cv25519 2024-04-11 [E]
+```
+
+</TabItem>
+</Tabs>
+
 ## List of keys
 
-| Fingerprint                                       | Validity                                        |
-|---------------------------------------------------|-------------------------------------------------|
-| 0E52 401B 40F6 044F 928C 0B7B F6FC 4AE3 8A76 52BC | revoked October 14, 2021                        |
-| [1035 E42C B766 7952 EE42 DEE9 A97D AA5A 3FC4 9C1B](https://yum-gpg.centreon.com/RPM-GPG-KEY-CES) | valid from October 14, 2021 |
+| OS | Fingerprint                                       | Validity                                        |
+| -- |---------------------------------------------------|-------------------------------------------------|
+| Alma/RHEL/Oracle Linux | 0E52 401B 40F6 044F 928C 0B7B F6FC 4AE3 8A76 52BC | revoked October 14, 2021                        |
+| Alma/RHEL/Oracle Linux | [1035 E42C B766 7952 EE42 DEE9 A97D AA5A 3FC4 9C1B](https://yum-gpg.centreon.com/RPM-GPG-KEY-CES) | valid from October 14, 2021 |
+| Debian | 1441 882B ED29 D70C F2E8 74D6 5E9C 3745 59B6 C02E | revoked April 11, 2024 |
+| Debian | [C903 FA90 C5EC 3C69 C922 9203 0395 7625 73E5 0BC4](https://apt-key.centreon.com) | valid from April 12, 2024 |
