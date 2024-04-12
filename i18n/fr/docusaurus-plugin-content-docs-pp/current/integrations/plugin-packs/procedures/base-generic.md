@@ -52,7 +52,6 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 | rtmax        | ms     |
 | rtmin        | ms     |
 
-
 </TabItem>
 </Tabs>
 
@@ -104,7 +103,6 @@ Ce connecteur de surveillance ne nécessite aucun prérequis spécifique, fourni
 | CRITICAL     | Critical Threshold | 400,50%       |
 
 </TabItem>
-
 <TabItem value="generic-passive-service" label="generic-passive-service">
 
 | Macro        | Description        | Valeur par défaut |
