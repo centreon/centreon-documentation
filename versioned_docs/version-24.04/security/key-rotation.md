@@ -278,7 +278,7 @@ only be **gpg-pubkey-3fc49c1b-6166eb52**):
 To get detailed info about the new key and check that it is correctly installed, run the following command:
 
 ```shell
-apt-key list |grep "C903 FA90 C5EC 3C69 C922 9203 0395 7625 73E5 0BC4"
+apt-key list "C903 FA90 C5EC 3C69 C922 9203 0395 7625 73E5 0BC4"
 ```
 
 The results should look like this:
