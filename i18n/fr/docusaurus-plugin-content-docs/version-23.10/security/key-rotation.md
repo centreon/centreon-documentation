@@ -274,14 +274,14 @@ gpg-pubkey-3fc49c1b-6166eb52	gpg(Centreon Enterprise Server Official Signing Key
 Pour afficher des informations détaillées sur la nouvelle clé et vérifier que celle-ci est correctement installée, exécutez la commande suivante :
 
 ```shell
-gpg --list-keys C903FA90C5EC3C69C92292030395762573E50BC4
+apt-key list |grep "C903 FA90 C5EC 3C69 C922 9203 0395 7625 73E5 0BC4"
 ```
 
 Le résultat devrait être le suivant :
 
 ```shell
 pub   ed25519 2024-04-11 [SC]
-      C903FA90C5EC3C69C92292030395762573E50BC4
+      C903 FA90 C5EC 3C69 C922 9203 0395 7625 73E5 0BC4
 uid          [inconnue] Centreon APT <admin@centreon.com>
 sub   cv25519 2024-04-11 [E]
 ```
