@@ -568,6 +568,14 @@ Release date: `October 26, 2022`
 
 ## Centreon Plugin Packs Manager
 
+### 22.10.1
+
+Release date: `April 16, 2024`
+
+#### Bug fixes
+
+- Fixed the absence of error displayed when the deletion of a Monitoring Connector is not possible.
+
 ### 22.10.0
 
 Release date: `October 26, 2022`
