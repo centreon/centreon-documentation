@@ -364,7 +364,7 @@ Execute the following command to install MariaDB:
 You need first to add the MariaDB repository: 
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.11"
 ```
 
 Then install MariaDB:
@@ -408,7 +408,7 @@ systemctl restart mariadb
 
 #### Secure the database
 
-Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon. If you are using a local database, run the following command on the central server:
+It is mandatory to secure the database's root access before installing Centreon. If you are using a local database, run the following command on the central server:
 
 ```shell
 mysql_secure_installation

@@ -41,7 +41,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 ## Montée de version du serveur Centreon Central
 
-> Depuis la version 21.04, Centreon utilise **MariaDB 10.5**.
+> Depuis la version 24.04, Centreon utilise **MariaDB 10.11**.
 >
 > Le processus suivant met seulement à jour les composants Centreon pour le
 > moment.
@@ -79,7 +79,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/e
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.11"
 ```
 
 </TabItem>
@@ -301,7 +301,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/e
 
 #### Mettre à jour MariaDB
 
-Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de version majeure (c'est-à-dire pour passer d'une version 10.3 à une version 10.5).
+Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de version majeure (c'est-à-dire pour passer d'une version 10.3 à une version 10.11).
 
 1. Arrêtez le service mariadb :
 
@@ -331,10 +331,10 @@ Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de ve
 
   > Assurez-vous d'avoir [installé le dépôt officiel de MariaDB](./upgrade-from-20-10.md#installer-le-dépôt-mariadb) avant de poursuivre la procédure.
 
-3. Installez la version 10.5 :
+3. Installez la version 10.11 :
 
     ```shell
-    dnf install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-common-10.5\*
+    dnf install MariaDB-server-10.11\* MariaDB-client-10.11\* MariaDB-shared-10.11\* MariaDB-common-10.11\*
     ```
 
 4. Démarrer le service mariadb :
