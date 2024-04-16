@@ -380,7 +380,7 @@ Release date: `October 26, 2022`
 
 Release date: `April 16, 2024`
 
-#### Bug fixes
+#### Security fixes
 
 - Upgraded svg-sanitize dependency.
   
