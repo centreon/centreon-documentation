@@ -18,7 +18,7 @@ If you have feature requests or want to report a bug, please contact support.
 
 ### 22.04.16
 
-Release date: `Avril 16, 2024`
+Release date: `April 16, 2024`
 
 #### Enhancements
 
@@ -407,7 +407,7 @@ Release date: `April 16, 2024`
 #### Bug fix
 
 - [Packaging] Correct rights are now set for Centreon MBI configuration files.
-- 
+
 ### 22.04.6
 
 Release date: `January 22, 2024`

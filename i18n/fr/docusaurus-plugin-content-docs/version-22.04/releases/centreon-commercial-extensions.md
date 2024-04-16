@@ -17,7 +17,7 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ### 22.04.16
 
-Release date: `Avril 16, 2024`
+Release date: `April 16, 2024`
 
 #### Enhancements
 
