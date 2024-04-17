@@ -20,7 +20,7 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ### 22.10.16
 
-Release date: `April 16, 2024`
+Release date: `April 17, 2024`
 
 #### Enhancements
 
@@ -380,7 +380,7 @@ Release date: `October 26, 2022`
 
 ### 22.10.6
 
-Release date: `April 16, 2024`
+Release date: `April 17, 2024`
 
 #### Security fixes
 
@@ -444,7 +444,7 @@ Release date: `October 26, 2022`
 
 ### 22.10.9
 
-Release date: `April 16, 2024`
+Release date: `April 17, 2024`
 
 #### Enhancements
 
@@ -572,7 +572,7 @@ Release date: `October 26, 2022`
 
 ### 22.10.1
 
-Release date: `April 16, 2024`
+Release date: `April 17, 2024`
 
 #### Bug fixes
 
