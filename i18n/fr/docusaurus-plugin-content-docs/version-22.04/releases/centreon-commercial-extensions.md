@@ -17,7 +17,7 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ### 22.04.16
 
-Release date: `April 16, 2024`
+Release date: `April 17, 2024`
 
 #### Enhancements
 
@@ -358,7 +358,7 @@ Release date: `July 13, 2022`
 
 ### 22.04.4
 
-Release date: `April 16, 2024`
+Release date: `April 17, 2024`
 
 #### Security fixes
 
@@ -403,7 +403,7 @@ Release date: `May 25, 2022`
 
 ### 22.04.7
 
-Release date: `April 16, 2024`
+Release date: `April 17, 2024`
 
 #### Bug fix
 
