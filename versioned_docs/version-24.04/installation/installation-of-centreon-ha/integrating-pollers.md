@@ -3,14 +3,17 @@ id: integrating-pollers
 title: Integrating new pollers in a Centreon-HA cluster
 ---
 
-## Obtaining central nodes' thumbprints
+## Obtaining the central nodes' thumbprints
 
-The Gorgone services of both central nodes will need to be authorized by the pollers' Gorgone services. 
+The Gorgone services of both central nodes will need to be authorized by the pollers' Gorgone services.
 
 * First, obtain each central node's key:
 
 ```bash
 wget -O /root/gorgone_key_thumbprint.pl  https://raw.githubusercontent.com/centreon/centreon-gorgone/master/contrib/gorgone_key_thumbprint.pl
+```
+
+```
 perl /root/gorgone_key_thumbprint.pl --key-path /var/lib/centreon-gorgone/.keys/rsakey.priv.pem
 ```
 
@@ -20,11 +23,11 @@ The command output should look like this:
 2020-09-25 10:47:35 - INFO - File '/var/lib/centreon-gorgone/.keys/rsakey.priv.pem' JWK thumbprint: RsfNibuDdOvzwP75G72rpIKIG2nRhkyGQrQXE4pXa_s
 ```
 
-* You must have two keys; one for each central node. Copy the last part of the printed lines (what is displayed after `JWK thumbprint:`) and keep it for later.
+* You must have two keys; one for each central node. Copy the last part of the printed lines (what is displayed after `JWK thumbprint:`) and keep it for [later](#configuring-gorgone-on-the-poller).
 
 ## Adding the Poller to the configuration
 
-* Add your poller to the configuration "the standard way" [following these steps with ZeroMQ protocol](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md) 
+* Add your poller to the configuration "the standard way" [following these steps with the ZeroMQ protocol](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md). Make sure you declare the VIP as the address of the central server the poller will be attached to.
 
 * You should now have overwritten the `/etc/centreon-gorgone/config.d/40-gorgoned.yaml` file, and it should contain lines like these:
 
@@ -49,4 +52,4 @@ The command output should look like this:
 systemctl restart gorgoned
 ```
 
-At this point, any of your central nodes should be allowed to connect to your poller's Gorgone service and send configurations, retrieve statistics, restart services, etc.
+At this point, both your central nodes should be allowed to connect to your poller's Gorgone service and send configurations, retrieve statistics, restart services, etc.

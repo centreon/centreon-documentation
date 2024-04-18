@@ -3,27 +3,77 @@ id: operating-guide
 title: Operating guide
 ---
 
+Once you have completed the installation procedure, make sure the cluster is running smoothly.
+
 > Unless otherwise stated, all commands in this document must be passed as `root`.
 
-> In this document, we will refer to characteristics that are bound to change from one platform to another (such as IP addresses and host names) by the [macros defined here](../../installation/installation-of-centreon-ha/installation-2-nodes.md#defining-hosts-names-and-addresses).
+> In this page, we will refer to characteristics that are bound to change from one platform to another (such as IP addresses and host names) by the [macros defined here](../../installation/installation-of-centreon-ha/installation.md#convention-for-names-and-ip-addresses).
+
+### In Resource Status, how do I know the state of the cluster?
+
+On both central nodes, the **PCS-Status** service gives you the detailed state of the cluster. The output of the service in the details panel is the output of the `pcs status` command.
+
+### In Resource status, how do I know which central is the active node?
+
+You can know which central is the active node by looking at which node is carrying the cluster resources in the output of the **PCS-Status** service on each central.
+
+### What happens when the cluster fails over?
+
+When the cluster fails over (e.g. when the active node is affected by a network outage, if its Broker partitions are full...):
+
+* The host for the VIP should be OK (it may temporarily go down in a SOFT state if the corresponding monitoring check is performed at the exact same time the cluster fails over.)
+* The host for the central node that failed will show up as DOWN and/or with CRITICAL services.
+* You may receive notifications if you have configured them.
+* You may have to log on to the interface again.
 
 ## Cluster Management
 
-The following set of commands can be run from any member of the cluster.
+The following set of commands can be run from any member of the cluster (central nodes, quorum device).
 
-### Display cluster status
+### Display the status of the cluster
 
-To view the general state of the cluster, run this command:
+To view the general state of the cluster, you can run the following commands:
 
-```bash
-crm_mon
+* `pcs status`, which has a static output: it displays the state of the cluster as it is at the time you run the command.
+
+* `crm_mon`, which has a dynamic output: the state of the cluster is displayed in real time. You can watch the resources being stopped and transferred to the other node. Use `crm_mon -fr` to keep displaying stopped resources.
+
+Example of output when the cluster is working properly:
+
+```
+Cluster Summary:
+  * Stack: corosync (Pacemaker is running)
+  * Current DC: @CENTRAL_PASSIVE_NAME@ (version 2.1.6-9.1.el8_9-6fdc9deea29) - partition with quorum
+  * Last updated: Wed Apr 17 10:24:25 2024 on @CENTRAL_ACTIVE_NAME@
+  * Last change:  Tue Apr 16 05:47:37 2024 by hacluster via crmd on @CENTRAL_PASSIVE_NAME@
+  * 2 nodes configured
+  * 12 resource instances configured
+
+Node List:
+  * Online: [ @CENTRAL_PASSIVE_NAME@ @CENTRAL_ACTIVE_NAME@ ]
+
+Active Resources:
+  * Clone Set: php-clone [php]:
+    * Started: [ @CENTRAL_PASSIVE_NAME@ @CENTRAL_ACTIVE_NAME@ ]
+  * Clone Set: cbd_rrd-clone [cbd_rrd]:
+    * Started: [ @CENTRAL_PASSIVE_NAME@ @CENTRAL_ACTIVE_NAME@ ]
+  * Resource Group: centreon:
+    * vip       (ocf::heartbeat:IPaddr2):        Started @CENTRAL_ACTIVE_NAME@
+    * http      (systemd:httpd):         Started @CENTRAL_ACTIVE_NAME@
+    * gorgone   (systemd:gorgoned):      Started @CENTRAL_ACTIVE_NAME@
+    * centreon_central_sync     (systemd:centreon-central-sync):         Started @CENTRAL_ACTIVE_NAME@
+    * cbd_central_broker        (systemd:cbd-sql):       Started @CENTRAL_ACTIVE_NAME@
+    * centengine        (systemd:centengine):    Started @CENTRAL_ACTIVE_NAME@
+    * centreontrapd     (systemd:centreontrapd):         Started @CENTRAL_ACTIVE_NAME@
+    * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_ACTIVE_NAME@
+
 ```
 
-> Check the "Failed actions" on the resources and troubleshoot them using the [troubleshooting guide](troubleshooting-guide.md).
+These commands should return no errors. If there are "Failed actions" on any resource, troubleshoot them using the [troubleshooting guide](troubleshooting-guide.md).
 
 ### View the status of a resource
 
-To find out the status of a specific resource, run this command:
+If you suspect that a specific process is causing problems, find out the status of the corresponding resource by running this command:
 
 ```bash
 pcs resource show <resource_name>
@@ -35,9 +85,29 @@ For example, to find out the status of the **centengine** resource, run this com
 pcs resource show centengine
 ```
 
-### View cluster configuration
+OUTPUT:
 
-To view the cluster configuration, run this command:
+```
+Warning: This command is deprecated and will be removed. Please use 'pcs resource config' instead.
+Resource: centengine (class=systemd type=centengine)
+  Meta Attributes: centengine-meta_attributes
+    multiple-active=stop_start
+    target-role=started
+  Operations:
+    monitor: centengine-monitor-interval-5s
+      interval=5s
+      timeout=30s
+    start: centengine-start-interval-0s
+      interval=0s
+      timeout=90s
+    stop: centengine-stop-interval-0s
+      interval=0s
+      timeout=90s
+```
+
+### View the cluster's configuration
+
+To display a very detailed description the cluster's configuration (including xxxxxxx), run this command:
 
 ```bash
 pcs config show
@@ -45,13 +115,68 @@ pcs config show
 
 ### Test the configuration
 
-To test the cluster configuration, run this command:
+To test the cluster's configuration, run this command:
 
 ```bash
 crm_verify -L -V
 ```
 
-### Save & import configuration
+NO OUTPUT (-> because no problem?)
+
+## Switching resources/resource groups from one node to another
+
+To toggle the `centreon` resource group:
+
+1. Move the resource group to the other node:
+
+   ```bash
+   pcs resource move centreon
+   ```
+
+   This command sets an "-Inf" constraint on the node hosting the resource. As a result, the resource group switches to another node. 
+
+2. Clear the constraint:
+
+   ```bash
+   pcs resource clear centreon
+   ```
+
+If you move a single resource from the centreon resource group from one node to the other, all the other resources in the group will switch too.
+
+## Remove an error displayed in the cluster status
+
+Once the cause of the error has been identified and fixed ([troubleshooting guide](troubleshooting-guide.md)), you must manually delete the error message:
+
+```bash
+pcs resource cleanup
+```
+
+Or, if you want to remove only the errors linked to one resource:
+
+```bash
+pcs resource cleanup <resource_name>
+```
+
+## View cluster logs
+
+The cluster logs are located in `/var/log/cluster/corosync.log`:
+
+```bash
+tail -f /var/log/cluster/corosync.log
+```
+
+Useful logs can also be found in `/var/log/messages`.
+
+### Change the cluster log verbosity level
+
+To change the verbosity level of the cluster logs, edit the following files:
+
+* `/etc/sysconfig/pacemaker`
+* `/etc/rsyslog.d/centreon-cluster.conf`
+
+## Advanced commands
+
+### Save & import the configuration of the cluster
 
 #### Export/import in XML format
 
@@ -89,165 +214,6 @@ This backup can then be re-imported:
 pcs config restore export.tar.bz2
 ```
 
-### Check the "switchability" of a resource
-
-To simulate the ability to toggle a resource from one node to another, run this command:
-
-```bash
-crm_simulate -L -s
-```
-
-Then check the scores displayed.
-
-## Resource management
-
-### Switch a resource from one node to another
-
-To move a resource from the node where it is currently running to the other, run this command:
-
-```bash
-pcs resource move <resource_name>
-```
-
-> Warning: the `pcs resource move` adds a constraint that will prevent the resource from moving back to the node where it used to be running.
-
-Once the resource is done moving, run this command:
-
-```bash
-pcs resource clear <resource_name>
-```
-
-### Remove an error displayed in the cluster status
-
-Once the cause of the error has been identified and fixed ([troubleshooting guide](troubleshooting-guide.md)), you must manually delete the error message:
-
-```bash
-pcs resource cleanup
-```
-
-Or, if you want to remove only the errors linked to one resource:
-
-```bash
-pcs resource cleanup <resource_name>
-```
-
-### View cluster logs
-
-The cluster logs are located in `/var/log/cluster/corosync.log`:
-
-```bash
-tailf /var/log/cluster/corosync.log
-```
-
-Useful logs can also be found in `/var/log/messages`.
-
-### Change the cluster log verbosity level
-
-To change the verbosity level of the cluster logs, edit the following files:
-
-* `/etc/sysconfig/pacemaker`
-* `/etc/rsyslog.d/centreon-cluster.conf`
-
-## Management of the MariaDB resource
-
-This chapter discusses the operating procedures for the `ms_mysql` resource. The procedures are to be performed on the `@CENTRAL_MASTER_NAME@` and `@CENTRAL_SLAVE_NAME@` servers.
-
-### Check the status of MariaDB replication
-
-Run the following command on one of the database servers:
-
-```bash
-/usr/share/centreon-ha/bin/mysql-check-status.sh
-```
-
-```text
-Connection Status '@CENTRAL_MASTER_NAME@' [OK]
-Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
-Slave Thread Status [OK]
-Position Status [OK]
-```
-
-If errors are displayed on the third or fourth line, it means that the database replication has been broken for some reason. The procedure below explains how to manually re-enable MariaDB replication.
-
-### Restore MariaDB master-slave replication
-
-> This procedure should be applied in the event of a breakdown in the MariaDB databases' replication thread or a server crash if it cannot be recovered by running `pcs resource cleanup ms_mysql` or `pcs resource restart ms_mysql`.
-
-Prevent the cluster from managing the MariaDB resource during the operation (to be run from any node):
-
-```bash
-pcs resource unmanage ms_mysql
-```
-
-Connect to the MariaDB slave server and shut down the MariaDB service:
-
-```bash
-mysqladmin -p shutdown
-```
-
-Connect to the MariaDB master server and run the following command to overwrite the slave's data with the master's:
-
-```bash
-/usr/share/centreon-ha/bin/mysql-sync-bigdb.sh
-```
-
-Re-enable the cluster to manage the MariaDB resource:
-
-```bash
-pcs resource manage ms_mysql
-```
-
-Run the following command on one of the database servers to make sure that the replication has been successfully restored:
-
-```bash
-/usr/share/centreon-ha/bin/mysql-check-status.sh
-```
-
-```text
-Connection Status '@CENTRAL_MASTER_NAME@' [OK]
-Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
-Slave Thread Status [OK]
-Position Status [OK]
-```
-
-### Reverse the direction of the MariaDB master-slave replication
-
-> Before performing this operation, it is mandatory to make sure that the MariaDB replication thread [is running well](operating-guide.md#check-the-status-of-mariadb-replication).
-
-> **Warning:** Following this procedure on a two-node cluster installed using [this procedure](../../installation/installation-of-centreon-ha/installation-2-nodes.md) will move the `centreon` resource group as well, because it **must** run on the node that has the `ms_mysql-master` meta attribute.
-
-To make the resource move from one node to the other, run this command:
-
-```bash
-pcs resource move ms_mysql-master
-```
-
-This command sets an "-Inf" constraint on the node hosting the resource. As a result, the resource switches to another node. 
-
-Wait until all the resources have switched to the other node and then clear the constraint:
-
-```bash
-pcs resource clear ms_mysql-master
-```
-
-## Managing the Centreon resource group
-
-### Toggle the `centreon` resource group
-
-> **Warning:** As in [this chapter](operating-guide.md#reverse-the-direction-of-the-mariadb-master-slave-replication), following this procedure on a two-node cluster installed using [this procedure](../../installation/installation-of-centreon-ha/installation-2-nodes.md) will switch the MariaDB master as well, because it **must** run on the node that has the `ms_mysql-master` meta attribute.
-
-Move the resource group to the other node:
-
-```bash
-pcs resource move centreon
-```
-
-This command sets an "-Inf" constraint on the node hosting the resource. As a result, the resource group switches to another node. Following this manipulation, it is necessary to clear the constraint:
-
-```bash
-pcs resource clear centreon
-```
-
 ### Delete a Pacemaker resource group
 
 > **Warning:** These commands will prevent your Centreon cluster from working. Only do this if you know what you are doing.
@@ -273,42 +239,3 @@ pcs resource cleanup centreon
 ```
 
 To create the resources again, follow the installation procedure [from this point](../../installation/installation-of-centreon-ha/installation-2-nodes.md#creating-the-centreon-resource-group)
-
-## Monitoring a Centreon-HA cluster
-
-A high-availability platform is basically a LAMP platform (Linux Apache MariaDB PHP) managed by the [ClusterLabs](https://clusterlabs.org/) tools. The platform's monitoring must therefore include the same indicators as with any Centreon platform, and some cluster-specific ones. **The monitoring of the cluster must be performed from an external poller.**
-
-### System indicators and processes
-
-The easiest part consists in monitoring the basic system indicators, mostly using SNMP Protocol, which is made quite simple thanks to the [Linux Monitoring Connector](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp).
-
-* System metrics
-    * LOAD Average
-    * CPU usage
-    * Memory usage
-    * SWAP usage
-    * File systems usage
-    * Networking traffic
-    * NTP synchronization with the reference time server
-* Processes
-    * System processes `crond`, `ntpd`, `rsyslogd`
-    * Centreon processes `gorgoned`, `centengine`, `centreontrapd`, `httpd24-httpd`, `snmptrapd`, `mysqld`, `php-fpm`
-
-### Application monitoring
-
-* Control access to the URL `http://@VIP_IPADDR@/centreon` using the [HTTP Protocol Monitoring Connector](/pp/integrations/plugin-packs/procedures/applications-protocol-http)
-* MariaDB, using the [MySQL/MariaDB Database Monitoring Connector](/pp/integrations/plugin-packs/procedures/applications-databases-mysql)
-    * MariaDB Server Connection Control
-    * MariaDB / InnoDB buffers and caches
-    * Index usage
-    * MariaDB replication
-
-### Cluster monitoring
-
-The cluster-specific health checks can be monitored using the [Pacemaker Monitoring Connector](/pp/integrations/plugin-packs/procedures/applications-pacemaker-ssh):
-
-* Resource constraints: only for `ms_mysql` and  `centreon` resources
-* Failed actions
-
-> Note: a Monitoring Connector dedicated to Centreon-HA might be released in the future to make this easier.
-

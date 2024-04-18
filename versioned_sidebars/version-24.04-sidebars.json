@@ -1461,10 +1461,17 @@
       "type": "category",
       "label": "Centreon HA",
       "link": {
-        "type": "doc",
-        "id": "version-24.04/installation/installation-of-centreon-ha/overview"
+        "type": "generated-index"
       },
       "items": [
+        {
+          "type": "doc",
+          "id": "version-24.04/installation/installation-of-centreon-ha/ha-faq"
+        },
+        {
+          "type": "doc",
+          "id": "version-24.04/installation/installation-of-centreon-ha/overview"
+        },
         {
           "type": "category",
           "label": "Installing Centreon HA",
@@ -1474,15 +1481,15 @@
           "items": [
             {
               "type": "doc",
-              "id": "version-24.04/installation/installation-of-centreon-ha/installation-2-nodes"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/installation/installation-of-centreon-ha/installation-4-nodes"
+              "id": "version-24.04/installation/installation-of-centreon-ha/installation"
             },
             {
               "type": "doc",
               "id": "version-24.04/installation/installation-of-centreon-ha/integrating-pollers"
+            },
+            {
+              "type": "doc",
+              "id": "version-24.04/administration/centreon-ha/monitoring-guide"
             }
           ]
         },
@@ -1496,10 +1503,6 @@
             {
               "type": "doc",
               "id": "version-24.04/administration/centreon-ha/acceptance-guide"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.04/administration/centreon-ha/monitoring-guide"
             },
             {
               "type": "doc",

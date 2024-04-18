@@ -1,62 +1,24 @@
 ---
 id: monitoring-guide
-title: Monitoring Centreon-HA
+title: Monitoring Centreon HA
 ---
 
-## Monitoring the cluster processes and resources
+Monitoring your HA setup using Centreon itself helps you keep track of the health of your cluster. It is strongly recommended to implement it.
 
-First, please refer to the [Linux SNMP Plugin-Pack documentation page](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp) to install all the required components and monitor the basic system health indicators of both of the central nodes.
+## What to monitor
 
-Then refer to the [Centreon-HA Plugin-Pack documentation page](/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-ha) to monitor the clustering services and cluster resources on both of the central nodes.
+All elements of the cluster must be monitored by a poller, not by a central (to avoid having resources in a **Pending** status when the cluster fails over). For the same reason, each poller should be monitored by another poller.
 
-## Monitoring the MariaDB Replication
+* Create 1 host for the VIP, and monitor it with:
+   * the [Centron Central monitoring connector](/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-central).
+   * the [HTTP Server monitoring connector](/pp/integrations/plugin-packs/procedures/applications-protocol-http) to check the interface's response time.
+* Create 1 host for each central node, and monitor it with:
+    * the [Linux SNMP monitoring connector](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp), to monitor the system of the host machine.
+    * the [Centreon HA monitoring connector](/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-ha) to monitor the clustering services.
+* Create 1 host per poller and monitor them with the [Centreon Poller monitoring connector](/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-poller).
+* Create 1 host per database and monitor them with the [Centreon Database monitoring connector](/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-database).
+* Monitor the quorum device:
+   * if your quorum device is one of your pollers, create a service called something like **proc-corosync-qnetd** and apply the **App-Monitoring-Centreon-HA-Process-corosync-qnetd-custom** service template to it.
+   * if your quorum device is hosted on another server, monitor its system with the [Linux SNMP monitoring connector](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp), then add the **proc-corosync-qnetd** service mentioned above.
 
-Refer to the [MySQL/MariaDB Plugin-Pack documentation page](/pp/integrations/plugin-packs/procedures/applications-databases-mysql) to install all the required components and monitor the standard MariaDB health indicators of both of the central nodes.
-
-The poller's IP address must be a recognized login source for the databases. These *GRANT* requests must therefore be run on the primary database and they will be immediately replicated to the secondary node (replace the fields between brackets):
-
-```sql
-CREATE USER '<login>'@'<poller ip address>' IDENTIFIED BY '<password>';
-GRANT SELECT on centreon.* TO '<login>'@'<poller ip address>' ;
-GRANT SELECT on centreon_storage.* TO '<login>'@'<poller ip address>' ;
-GRANT REPLICATION CLIENT on *.* TO '<login>'@'<poller ip address>' ;
-```
-
-After applying the *App-DB-MySQL-custom* host template and setting the correct values for *PORT*, *USERNAME* and *PASSWORD* macros, make sure that all the default services are checked successfully (no *UNKNOWN* states).
-
-Then add a new service by browsing to **Configuration > Services > Services by host** and clicking **Add**, and then complete the form according to this table:
-
-| Field               | Value                                                           |
-|:--------------------|:----------------------------------------------------------------|
-| *Description*       | MariaDB-Replication                                             |
-| *Linked with Hosts* | Central node                                                    |
-| *Template*          | App-DB-MySQL-MariaDB-Replication-custom                         |
-| `PEERHOST`          | IP address of the other central node                            |
-| `PEERPORT`          | Port of the other central node's MariaDB server (default: 3306) |
-| `PEERUSERNAME`      | Login of the other central node's MariaDB server                |
-| `PEERPASSWORD`      | Password of the other central node's MariaDB server             |
-
-Then click `Save` and export and apply your poller's configuration.
-
-The output of this service should look like this:
-
-```text
-OK: No problems. Replication is ok.
-Connection Status 'mysql:host=<host ip address>;port=3306' [OK]
-Connection Status 'mysql:host=<peer node ip address>;port=3306' [OK]
-Slave Thread Status [OK]
-Position Status [OK]
-```
-
-## Monitoring the Quorum Device
-
-First refer to the [Linux SNMP Plugin-Pack documentation page](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp) to install all the required components and monitor the basic system health indicators of the server supporting the Quorum Device.
-
-Then add a new service by browsing to **Configuration > Services > Services by host** and clicking **Add**, and then complete the form according to this table:
-
-| Field               | Value                                                    |
-|:--------------------|:---------------------------------------------------------|
-| *Description*       | proc-corosync-qnetd                                      |
-| *Linked with Hosts* | Server supporting the Quorum Device                      |
-| *Template*          | App-Monitoring-Centreon-HA-Process-corosync-qnetd-custom |
-
+Make sure all the prerequisites are satisfied for all instances of these monitoring connectors (e.g. that the correct key exchanges have been made and the correct users have been authorized on each monitored server).
