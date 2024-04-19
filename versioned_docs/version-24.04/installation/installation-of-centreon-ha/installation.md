@@ -66,7 +66,7 @@ Make sure to give your servers clear, relevant hostnames so that you know which 
 
 #### Install the central servers
 
-[Install the two central nodes using packages](https://docs.centreon.com/docs/installation/installation-of-a-central-server/using-packages) with the exact same version of Centreon on them ([update](https://docs.centreon.com/docs/update/update-centreon-platform) your version if needed). Use the procedure for an installation with remote databases, but skip all steps concerning the databases themselves as you already installed them. At [step 6 of the web installation procedure](../web-and-post-installation.md#step-6-database-information), make sure you enter the address of the VIP dedicated to your databases in the **Database Host Address** field.
+[Install the two central nodes using packages](https://docs.centreon.com/docs/installation/installation-of-a-central-server/using-packages) with the exact same version of Centreon on them ([update](https://docs.centreon.com/docs/update/update-centreon-platform) your version if needed). Use the procedure for an installation with remote databases, but skip all steps concerning the databases themselves as you already installed them. At [step 6 of the web installation procedure](https://docs.centreon.com/docs/installation/web-and-post-installation/#step-6-database-information), make sure you enter the address of the VIP dedicated to your databases in the **Database Host Address** field.
 
 * Node 1 can be an existing Centreon that already monitors resources; however, node 2 should be a freshly installed Centreon.
 * Both central servers should have an **admin** account with the same password.
