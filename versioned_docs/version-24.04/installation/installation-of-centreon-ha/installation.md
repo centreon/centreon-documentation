@@ -9,6 +9,8 @@ import TabItem from '@theme/TabItem';
 
 ## Before you start
 
+This procedure only applies if you are able to set up a database cluster with a dedicated VIP. The Centreon cluster and the database cluster will be independent.
+
 ### Disclaimer
 
 It is strongly recommended that your HA is installed by Centreon Professional Services. You may implement HA yourself **only** if:
@@ -318,7 +320,7 @@ Exit the SSH session (`Ctrl D`), then exit the `centreon` session by typing `exi
 
 ### Open network flows
 
-In addition to the necessary flows described in the [official documentation](../architectures.md#Tables_of_network_flows),
+In addition to the necessary flows described in the [official documentation](../technical/#tables-of-network-flows),
 you will need to open the following flows:
 
 | From                      | Destination               | Protocol | Port     | Application                                                                                |
