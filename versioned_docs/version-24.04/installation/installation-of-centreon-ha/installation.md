@@ -74,7 +74,7 @@ Make sure to give your servers clear, relevant hostnames so that you know which 
 
 #### Install the pollers
 
-Install the host machines and [install the pollers from packages](../installation-of-a-poller/using-packages.md) or [using the unattended script](../installation-of-a-poller/unattended.md). Do not register the poller to a central server yet.
+Install the host machines and [install the pollers from packages](https://docs.centreon.com/docs/installation/installation-of-a-poller/using-packages) or [using the unattended script](https://docs.centreon.com/docs/installation/installation-of-a-poller/unattended-install-poller/). Do not register the poller to a central server yet.
 
 #### Choose a quorum device
 
