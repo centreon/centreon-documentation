@@ -320,7 +320,7 @@ Exit the SSH session (`Ctrl D`), then exit the `centreon` session by typing `exi
 
 ### Open network flows
 
-In addition to the necessary flows described in the [official documentation](../technical/#tables-of-network-flows),
+In addition to the necessary flows described in the [official documentation](../technical.md#tables-of-network-flows),
 you will need to open the following flows:
 
 | From                      | Destination               | Protocol | Port     | Application                                                                                |
