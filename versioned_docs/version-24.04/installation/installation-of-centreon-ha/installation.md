@@ -60,13 +60,13 @@ Make sure to give your servers clear, relevant hostnames so that you know which 
 #### Install and set up replication for the databases
 
 1. If you have a Centreon with already existing data, make a dump of the database first.
-2. Install 2 blank Centreon databases [using our installation procedure for remote databases](../installation-of-a-central-server/using-packages.md#step-2-installation).
+2. Install 2 blank Centreon databases [using our installation procedure for remote databases](https://docs.centreon.com/docs/installation/installation-of-a-central-server/using-packages/#step-2-installation).
 3. Set up replication for the databases using the official replication tools for MariaDB or MySQL.
 4. Configure the databases so that they can communicate with their dedicated VIP.
 
 #### Install the central servers
 
-[Install the two central nodes using packages](../installation-of-a-central-server/using-packages.md) with the exact same version of Centreon on them ([update](../../update/update-centreon-platform.md) your version if needed). Use the procedure for an installation with remote databases, but skip all steps concerning the databases themselves as you already installed them. At [step 6 of the web installation procedure](../web-and-post-installation.md#step-6-database-information), make sure you enter the address of the VIP dedicated to your databases in the **Database Host Address** field.
+[Install the two central nodes using packages](https://docs.centreon.com/docs/installation/installation-of-a-central-server/using-packages) with the exact same version of Centreon on them ([update](../../update/update-centreon-platform.md) your version if needed). Use the procedure for an installation with remote databases, but skip all steps concerning the databases themselves as you already installed them. At [step 6 of the web installation procedure](../web-and-post-installation.md#step-6-database-information), make sure you enter the address of the VIP dedicated to your databases in the **Database Host Address** field.
 
 * Node 1 can be an existing Centreon that already monitors resources; however, node 2 should be a freshly installed Centreon.
 * Both central servers should have an **admin** account with the same password.
