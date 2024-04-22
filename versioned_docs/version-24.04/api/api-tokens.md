@@ -9,8 +9,8 @@ A token is linked to one [Centreon user](../monitoring/basic-objects/contacts.md
 
 ## Who can create API tokens?
 
-* [Users with an **Editor** or **Administrator** role](../administration/access-control-lists.md#granting-rights-to-a-user) can access the **Administration > API Tokens** page and can create tokens for themselves.
-* Users with an **Administrator** role can also see tokens created by other users, can create tokens for other users, and can disable or delete them.
+* [Users or administrators](../administration/access-control-lists.md#granting-rights-to-a-user) accessing the **Administration > API Tokens** page can create tokens for themselves.
+* Administrators can also see tokens created by other users, can create tokens for other users, and can disable or delete them.
 
 ## Creating an API token
 
