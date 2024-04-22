@@ -320,7 +320,7 @@ Exit the SSH session (`Ctrl D`), then exit the `centreon` session by typing `exi
 
 ### Open network flows
 
-In addition to the necessary flows described in the [official documentation](../technical.md#tables-of-network-flows),
+In addition to the necessary flows described in the [official documentation](https://docs.centreon.com/docs/installation/technical/#tables-of-network-flows),
 you will need to open the following flows:
 
 | From                      | Destination               | Protocol | Port     | Application                                                                                |
@@ -1085,11 +1085,11 @@ pcs resource enable ms_mysql
 ## Step 3: Integrate your pollers
 
 1. If you haven't already done so, apply the necessary [kernel network tuning](#kernel-network-tuning) to the host machines for your pollers.
-2. [Install your pollers](../installation-of-a-poller/using-packages.md) and register them using the VIP as the address of the central server. The password is that of the admin account for node 1? - Then run the wizard to [attach the poller](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md) to the VIP.
-3. [Add your pollers](./integrating-pollers.md) to the platform's HA architecture.
+2. [Install your pollers](https://docs.centreon.com/docs/installation/installation-of-a-poller/using-packages) and register them using the VIP as the address of the central server. The password is that of the admin account for node 1? - Then run the wizard to [attach the poller](https://docs.centreon.com/docs/monitoring/monitoring-servers/add-a-poller-to-configuration) to the VIP.
+3. [Add your pollers](https://docs.centreon.com/docs/installation/installation-of-centreon-ha/integrating-pollers) to the platform's HA architecture.
 
 You can now start your monitoring.
 
 ## Step 4: Monitor your cluster
 
-See [Monitoring Centreon HA](../../administration/centreon-ha/monitoring-guide.md).
+See [Monitoring Centreon HA](https://docs.centreon.com/docs/administration/centreon-ha/monitoring-guide).
