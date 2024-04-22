@@ -855,7 +855,7 @@ pcs resource create "cbd_rrd" \
 
 ### Create the centreon resource group
 
-The **centreon** [resource group](overview.md#what-processes-are-synchronized-by-centreon-ha) is the list of processes that Pacemaker will have to manage. These processes will not be managed by the central nodes themselves (most of them have been [disabled](#stop-and-disable-services) on the central servers).
+The **centreon** [resource group](https://docs.centreon.com/docs/installation/installation-of-centreon-ha/overview/#what-processes-are-synchronized-by-centreon-ha) is the list of processes that Pacemaker will have to manage. These processes will not be managed by the central nodes themselves (most of them have been [disabled](#stop-and-disable-services) on the central servers).
 
 #### Define the VIP address
 
