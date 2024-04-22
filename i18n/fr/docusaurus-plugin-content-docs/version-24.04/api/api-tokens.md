@@ -3,7 +3,7 @@ id: api-tokens
 title: Jetons d'API
 ---
 
-En utilisant l'API, une application tierce peut réaliser des actions dans Centreon. Pour ce faire, l'application tierce doit s'authentifier auprès de Centreon, à l'aide d'un compte utilisateur et d'un jeton d'API.
+En utilisant l'API, une application tierce peut réaliser des actions (webhook) à l'aide d'un jeton d'API.
 
 Un jeton est lié à un [utilisateur Centreon](../monitoring/basic-objects/contacts.md) et a une durée de validité. Les appels API seront exécutées en fonction des [droits assignés à cet utilisateur](../administration/access-control-lists.md#donner-des-droits-à-un-utilisateur). Un même utilisateur peut avoir plusieurs jetons.
 
