@@ -692,6 +692,7 @@ utiliser la commande **LOAD DATA INFILE** :
 ```sql
 mysql -u root -p
 GRANT FILE on *.* to 'centreon'@'localhost';
+SET GLOBAL local_infile=1;
 exit
 ```
 
