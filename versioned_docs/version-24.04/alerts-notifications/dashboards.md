@@ -1,9 +1,7 @@
 ---
 id: dashboards
-title: Dashboards Beta
+title: Dashboards
 ---
-
-> Centreon Dashboards is available as a beta feature from **Centreon version 23.10**.
 
 Get started with creating dashboards and adding widgets specially designed to optimize your user experience. Then benefit from data visualization options to display and monitor your resources in real time.
 
@@ -37,7 +35,7 @@ Access to the Dashboards feature is not managed at the user level, but through a
 > You must have a user account with ACL rights to the Dashboards feature.
 
 1. Log into Centreon.
-2. You should see in the **Home** menu, the **Dashboards Beta** entry.
+2. You should see in the **Home** menu, the **Dashboards** entry.
 
 ## Creating your first dashboard
 
