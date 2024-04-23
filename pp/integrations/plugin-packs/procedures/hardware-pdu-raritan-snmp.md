@@ -21,7 +21,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias    | Service Template                            | Service Description      |
 |:-----------------|:--------------------------------------------|:-------------------------|
 | External-Sensors | HW-Pdu-Raritan-External-Sensors-SNMP-custom | Check external sensors  |
-| Inlet-Sensors    | HW-Pdu-Raritan-InletSensors-SNMP-custom     | Check PDU inlets sensors |
+| Inlet-Sensors    | HW-Pdu-Raritan-InletSensors-SNMP-custom     | Check PDU inlet sensors |
 | Ocprt-Sensors    | HW-Pdu-Raritan-Ocprt-Sensors-SNMP-custom    | Check PDU OCPRT sensors  |
 | Outlet-Sensors   | HW-Pdu-Raritan-OutletSensors-SNMP-custom    | Check PDU outlets        |
 
