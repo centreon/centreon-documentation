@@ -16,6 +16,18 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 22.04.16
+
+Release date: `April 17, 2024`
+
+#### Enhancements
+
+- [Packaging] Correct rights are now set for Centreon MAP configuration files.
+
+#### Security fixes
+
+- [Server] Updated dependencies.
+
 ### 22.04.15
 
 Release date: `February 22, 2024`
@@ -342,6 +354,14 @@ Release date: `July 13, 2022`
 
 ## Centreon BAM
 
+### 22.04.4
+
+Release date: `April 17, 2024`
+
+#### Security fixes
+
+- Upgraded svg-sanitize dependency.
+  
 ### 22.04.3
 
 Release date: `April 3, 2023`
@@ -379,6 +399,14 @@ Release date: `May 25, 2022`
 - Compatibility with other 22.04 components.
 
 ## Centreon MBI
+
+### 22.04.7
+
+Release date: `April 17, 2024`
+
+#### Bug fix
+
+- [Packaging] Correct rights are now set for Centreon MBI configuration files.
 
 ### 22.04.6
 
