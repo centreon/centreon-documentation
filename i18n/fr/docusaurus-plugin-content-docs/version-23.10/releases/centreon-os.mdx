@@ -22,6 +22,35 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 23.10.11
+
+Release date: `April 9, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Dashboard lists can now be ordered by creator, creation date and update date.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed an issue where categories did not appear in service and service template creation responses.
+- [API V1] Fixed an issue that occurred when filtering Resources Status by criticality.
+- [Resource Status] Fixed a bug occurring when users cleared the search bar.
+- [Dashboards] Fixed an error that occurred while granting viewer rights as an administrator from the admin dashboard.
+- [Update] Fixed chmod warning on configuration export after a system update.
+
+</details>
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Security] Upgraded axios dependency.
+
+</details>
+
 ### 23.10.10
 
 Release date: `March 13, 2024`
@@ -350,6 +379,21 @@ Release date: `October 30, 2023`
 
 ## Centreon Collect
 
+### 23.10.6
+
+Release date: `April 08, 2024`
+
+<details open>
+  <summary>Bug Fixes</summary>
+
+- [Broker] BA initialization could result in KPIs having incoherent statuses. This was breaking the statuses of the BAs.
+- [Broker] Fixed an issue that caused Broker to crash if an event was dispatched at the same time the process was reloaded.
+- [Collect] Removed the unnecessary check of Anomaly Detection configuration files during the configuration test before deployment.
+- [Collect] To limit dependencies, perl-interpretor is now used instead of perl in the centreon-connector-perl package (rpm).
+- [Collect] To limit dependencies, perl-base is now used instead of perl in the centreon-connector-perl package (deb).
+
+</details>
+
 ### 23.10.5
 
 Release date: `March 19, 2024`
@@ -359,7 +403,7 @@ Release date: `March 19, 2024`
 <details open>
   <summary>Bug Fixes</summary>
 
-- [Broker] BA initialization could result in KPIs having incoherent statuses. This was breaking the statuses of the BAs.
+- [Broker] Fixed an issue causing hostgroups to fail to appear if they had been used before and emptied of their hosts and then populated again.
 
 </details>
 
@@ -475,6 +519,17 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon Gorgone
+
+### 23.10.6
+
+Release date: `April 9, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a bug affecting service auto discovery, where only half of the host was correctly discovered.
+
+</details>
 
 ### 23.10.5
 
