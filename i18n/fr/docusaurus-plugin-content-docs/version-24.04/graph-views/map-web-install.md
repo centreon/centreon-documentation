@@ -638,7 +638,7 @@ mysql_secure_installation
 * Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely?
 * Il est obligatoire de définir un mot de passe pour l'utilisateur **root** de la base de données. Vous aurez besoin de ce mot de passe pendant l'[installation web](../installation/web-and-post-installation.md).
 
-> Pour plus d'informations, veuillez consulter la [documentation officielle de MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
+> Pour plus d'informations, veuillez consulter la [documentation officielle de MariaDB](https://mariadb.com/kb/en/mariadb-secure-installation/).
 
 ### Étape 5 : exécuter le script configure.sh
 
