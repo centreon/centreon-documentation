@@ -224,9 +224,23 @@ Si vous utilisez vos propres plugins personnalisés, synchronisez les répertoir
    pour plus d'information.
    - L'empreinte de votre plateforme a également changé : [contactez Centreon](mailto:support@centreon.com) pour obtenir une nouvelle licence.
 
-6. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) de tous vos serveurs de supervision (y compris celle du central).
+6. Les informations de connexion de l'utilisateur **centreon-gorgone** nouvellement créé doivent être les mêmes que celles de l'utilisateur **centreon-gorgone** sur l'ancien serveur. Éditez le fichier `etc/centreon-gorgone/config.d/31-centreon-api.yaml` et entrez les information de connexion de l'ancien utilisateur. Exemple :
 
-7. Redémarrez les processus suivants :
+   ```shell
+   gorgone:
+     tpapi:
+       - name: centreonv2
+         base_url: "http://127.0.0.1/centreon/api/latest/"
+         username: "@GORGONE_USER@"
+         password: "@GORGONE_PASSWORD@"
+       - name: clapi
+         username: "@GORGONE_USER@"
+         password: "@GORGONE_PASSWORD@"
+   ```
+
+7. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) de tous vos serveurs de supervision (y compris celle du central).
+
+8. Redémarrez les processus suivants :
 
    ```shell
    systemctl restart cbd centengine
@@ -235,9 +249,9 @@ Si vous utilisez vos propres plugins personnalisés, synchronisez les répertoir
    systemctl start snmpd
    ```
 
-8. Si vous supervisiez votre ancienne machine Centreon, et que vous avez changé le nom d'utilisateur/mot de passe de la base pendant la migration, mettez à jour la configuration des ressources concernées (hôte, services dépendant de cet hôte).
+9. Si vous supervisiez votre ancienne machine Centreon, et que vous avez changé le nom d'utilisateur/mot de passe de la base pendant la migration, mettez à jour la configuration des ressources concernées (hôte, services dépendant de cet hôte).
 
-9. Allez à la page **Configuration > Gestionnaire de connecteurs de supervision**, puis [mettez à jour tous les connecteurs de supervision](../monitoring/pluginpacks.md#mettre-à-jour-un-ou-plusieurs-packs).
+10. Allez à la page **Configuration > Gestionnaire de connecteurs de supervision**, puis [mettez à jour tous les connecteurs de supervision](../monitoring/pluginpacks.md#mettre-à-jour-un-ou-plusieurs-packs).
 
 ### Étape 6 (anciennes versions uniquement): Migrer vers Gorgone
 

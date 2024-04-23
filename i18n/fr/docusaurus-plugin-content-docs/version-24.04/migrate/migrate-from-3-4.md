@@ -200,7 +200,7 @@ mv install-23.10.0-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
 ```
 
 > Si vous utilisez la même adresse IP ou le même nom DNS entre l'ancien serveur
-> web Centreon et le nouveau, videz completement le cache de votre navigateur pour
+> web Centreon et le nouveau, videz complètement le cache de votre navigateur pour
 > éviter des problemes de scripts JS.
 
 Se connecter à l'URL `http://<IP_NEW_CENTREON>/centreon` et suivre les étapes
@@ -224,6 +224,20 @@ connexion au serveur Centreon central (output IPv4). Consultez le chapitre
 [Configuration
 avancée](../monitoring/monitoring-servers/advanced-configuration.md#tcp-outputs)
 pour plus d'information.
+
+Les informations de connexion de l'utilisateur **centreon-gorgone** nouvellement créé doivent être les mêmes que celles de l'utilisateur **centreon-gorgone** sur l'ancien serveur. Éditez le fichier `etc/centreon-gorgone/config.d/31-centreon-api.yaml` et entrez les information de connexion de l'ancien utilisateur. Exemple :
+
+   ```shell
+   gorgone:
+     tpapi:
+       - name: centreonv2
+         base_url: "http://127.0.0.1/centreon/api/latest/"
+         username: "@GORGONE_USER@"
+         password: "@GORGONE_PASSWORD@"
+       - name: clapi
+         username: "@GORGONE_USER@"
+         password: "@GORGONE_PASSWORD@"
+   ```
 
 Puis [générez](../monitoring/monitoring-servers/deploying-a-configuration.md)
 la configuration de l'ensemble de la plateforme et exportez là.

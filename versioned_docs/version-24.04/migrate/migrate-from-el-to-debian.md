@@ -198,9 +198,23 @@ configuration](../monitoring/monitoring-servers/advanced-configuration.md#tcp-ou
 chapter for more information.
    - The fingerprint of your platform has changed too: [contact Centreon](mailto:support@centreon.com) to obtain a new license.
 
-6. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for all your monitoring servers (including the central).
+6. The credentials of the newly created **centreon-gorgone** user need to be updated to match those of the **centreon-gorgone** user on the old server. Edit `etc/centreon-gorgone/config.d/31-centreon-api.yaml` and enter the credentials of the old user. Example:
 
-7. Restart the following processes:
+   ```shell
+   gorgone:
+     tpapi:
+       - name: centreonv2
+         base_url: "http://127.0.0.1/centreon/api/latest/"
+         username: "@GORGONE_USER@"
+         password: "@GORGONE_PASSWORD@"
+       - name: clapi
+         username: "@GORGONE_USER@"
+         password: "@GORGONE_PASSWORD@"
+   ```
+
+7. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for all your monitoring servers (including the central).
+
+8. Restart the following processes:
 
    ```shell
    systemctl restart cbd centengine
@@ -209,9 +223,9 @@ chapter for more information.
    systemctl start snmpd
    ```
 
-8. If your old Centreon server was monitoring itself, and you have changed the username/password for the database during the migration, update the configuration of all related resources (host, services attached to that host).
+9. If your old Centreon server was monitoring itself, and you have changed the username/password for the database during the migration, update the configuration of all related resources (host, services attached to that host).
 
-9. Go to **Configuration > Monitoring Connector Manager**, then [update all the Monitoring Connectors](../monitoring/pluginpacks.md#updating-one-packall-packs).
+10. Go to **Configuration > Monitoring Connector Manager**, then [update all the Monitoring Connectors](../monitoring/pluginpacks.md#updating-one-packall-packs).
 
 ### Step 6 (older versions only): Migrate to Gorgone
 
