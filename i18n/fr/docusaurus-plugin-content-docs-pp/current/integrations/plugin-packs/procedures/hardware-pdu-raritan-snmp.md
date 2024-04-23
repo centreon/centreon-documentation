@@ -22,7 +22,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias            | Modèle de service                           | Description                      |
 |:-----------------|:--------------------------------------------|:---------------------------------|
 | External-Sensors | HW-Pdu-Raritan-External-Sensors-SNMP-custom | Contrôle les sondes externes     |
-| Inlet-Sensors    | HW-Pdu-Raritan-InletSensors-SNMP-custom     | Contrôle les sondes en entrées sur le PDU.                           |
+| Inlet-Sensors    | HW-Pdu-Raritan-InletSensors-SNMP-custom     | Contrôle les sondes en entrée sur le PDU.                           |
 | Ocprt-Sensors    | HW-Pdu-Raritan-Ocprt-Sensors-SNMP-custom    | Contrôle les sondes OCPRT du PDU |
 | Outlet-Sensors   | HW-Pdu-Raritan-OutletSensors-SNMP-custom    | Contrôle les sorties PDU         |
 
