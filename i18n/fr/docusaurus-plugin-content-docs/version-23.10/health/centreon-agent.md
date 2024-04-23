@@ -140,7 +140,7 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
         
         >La fonction Topologie se base sur le fichier `centreon-agent.yml` pour collecter les informations dont il a besoin : ce comportement est codé en dur. Si vous changez le nom de ce fichier YAML, la collecte échouera.
 
-4. Ajoutez un [tag](#tags) **environment** :
+3. Ajoutez un [tag](#tags) **environment** :
 
     Ouvrez le fichier `/etc/centreon-agent/centreon-agent.yml` généré à l'installation et ajoutez les informations suivantes dans la section **collect**.
 
@@ -159,17 +159,24 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
 
     Si vous avez plusieurs environnements du même type, vous pouvez ajouter un _suffixe à votre type d'environnement (par exemple : "production_client1").
 
-5. Activez le service **centreon-agent** :
+4. Activez le service **centreon-agent** :
 
     ```
     systemctl enable centreon-agent.service
     ```
 
-6. Démarrez le service **centreon-agent** :
+5. Démarrez le service **centreon-agent** :
 
     ```
     systemctl start centreon-agent.service
     ```
+
+6. Exécutez les commandes suivantes :
+
+   ```shell
+   mv /etc/centreon-gorgone/config.d/cron.d/43-centreon-helios.yaml.disabled /etc/centreon-gorgone/config.d/cron.d/43-centreon-helios.yaml
+   systemctl restart gorgoned
+   ```
 
 7. Vous pouvez maintenant [configurer votre Agent](#configurer-lagent) (passerelle, proxy etc.), puis [tester](#tester-lagent) votre configuration générale.
 
