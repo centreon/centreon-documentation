@@ -121,6 +121,53 @@ The users you have just added now have access to your dashboard sharing, accordi
 
 > Use the **Copy link** feature to share the dashboard URL directly with users who have access to your platform.
 
+## Managing playlists
+
+Playlists are lists of selected dashboards to be broadcast in the order of your choice. This feature is useful for instance when you want to display your dashboards on a full-screen TV in public spaces.
+
+> This feature requires a valid [license](../administration/licenses.md) key. To purchase one and retrieve the necessary repositories, contact [Centreon](mailto:sales@centreon.com).
+
+### Create a playlist
+
+> Before creating a playlist, make sure the dashboards you want to include have been created.
+
+1. Click the **Playlists** link to access the playlists interface.
+2. Click the **Create a playlist** button (or the **Add** button if it is not your first playlist).
+3. Fill in the properties:
+   - **Name**
+   - **Description** 
+   - Add your dashboards from the **Select dashboards** drop-down list.
+   - In the **Define the order of dashboards** section, drag and drop the dashboards as you want.
+   - Define the rotation time in seconds.
+4. Click **Save**.
+Your playlist is now added to the list of playlist.
+
+### Display the playlist
+
+- From the **Playlists** interface, click the row for your playlist.
+Your playlist is now displayed and a control banner appears when you hover over the bottom of the interface.
+
+> Get a better visualization by displaying the page in full screen mode (F).
+
+The control banner allows you to:
+- Play/Pause the broadcast.
+- Go to the previous or next dashboard.
+- Go directly to a specific dashboard by clicking its name.
+
+### Share the playlist
+
+> You can only share your playlist with contacts who have access to your Centreon platform and are authorized Dashboards viewers.
+
+- Click the **Share with contacts** button from the line of your playlist.
+The **Playlist access rights** modal is displayed.
+- You can now add contacts or contact groups and define their rights as viewer or editor in the **Share with** section.
+- Use the **trash** button in the **User rights** section to remove a contact or contact group.
+- Use the **Copy link** button to share the playlist URL directly with users who have access to your platform.
+
+### Edit/Delete a playlist
+
+The three dots action menu at the end of a playlist row allows you to edit properties or delete the playlist.
+
 ## List of widgets
 
 | Widget                   | Description                                                                                                                                                                                                                                                                                                    |
