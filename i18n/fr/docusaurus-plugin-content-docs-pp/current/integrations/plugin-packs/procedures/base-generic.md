@@ -57,7 +57,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-Ce connecteur de surveillance ne nécessite aucun prérequis spécifique, fournissant tous les modèles de base nécessaires à la surveillance. Il est cependant nécessaire d'avoir le check ICMP de Nagios.
+Ce connecteur de supervision n'a aucun prérequis spécifique hormis le check ICMP de Nagios, qui est déjà installé par défaut sur les serveurs Centreon.
 
 ## Utiliser le connecteur de supervision
 
