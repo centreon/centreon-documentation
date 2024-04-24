@@ -1,6 +1,6 @@
 ---
-id: cloud-azure-database-sqldatabase
-title: Azure SQL Database
+id: cloud-azure-database-postgresql
+title: Azure Database for PostgreSQL
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,124 +9,88 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Azure SQL Database** brings a host template:
+The Monitoring Connector **Azure Database for PostgreSQL** brings a host template:
 
-* **Cloud-Azure-Database-SqlDatabase-custom**
+* **Cloud-Azure-Database-PostgreSQL-custom**
 
 The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="Cloud-Azure-Database-SqlDatabase-custom" label="Cloud-Azure-Database-SqlDatabase-custom">
+<TabItem value="Cloud-Azure-Database-PostgreSQL-custom" label="Cloud-Azure-Database-PostgreSQL-custom">
 
-| Service Alias | Service Template                               | Service Description                               |
-|:--------------|:-----------------------------------------------|:--------------------------------------------------|
-| Cpu           | Cloud-Azure-Database-SqlDatabase-Cpu-custom    | Check Azure Database for Sqldatabase CPU usage    |
-| Health        | Cloud-Azure-Database-SqlDatabase-Health-custom | Check database state                              |
-| Memory        | Cloud-Azure-Database-SqlDatabase-Memory-custom | Check Azure Database for SqlDatabase memory usage |
+| Service Alias  | Service Template                                          | Service Description                                          |
+|:---------------|:----------------------------------------------------------|:-------------------------------------------------------------|
+| Connections    | Cloud-Azure-Database-PostgreSQL-Connections-Api-custom    | Monitor the number of connections to the Azure PostgreSQL Database |
+| Cpu            | Cloud-Azure-Database-PostgreSQL-Cpu-Api-custom            | Monitor Azure Database for PostgreSQL CPU usage              |
+| IO-Consumption | Cloud-Azure-Database-PostgreSQL-IO-Consumption-Api-custom | Monitor Azure Database for PostgreSQL IO usage               |
+| Memory         | Cloud-Azure-Database-PostgreSQL-Memory-Api-custom         | Monitor Azure Database for PostgreSQL memory usage           |
+| Replication    | Cloud-Azure-Database-PostgreSQL-Replication-Api-custom    | Monitor Azure Database for PostgreSQL replication status     |
+| Storage        | Cloud-Azure-Database-PostgreSQL-Storage-Api-custom        | Monitor Azure Database for PostgreSQL storage statistics     |
+| Traffic        | Cloud-Azure-Database-PostgreSQL-Traffic-Api-custom        | Monitor Azure Database for PostgreSQL network usage          |
 
-> The services listed above are created automatically when the **Cloud-Azure-Database-SqlDatabase-custom** host template is used.
-
-</TabItem>
-<TabItem value="Not attached to a host template" label="Not attached to a host template">
-
-| Service Alias | Service Template                                      | Service Description               |
-|:--------------|:------------------------------------------------------|:----------------------------------|
-| App-Resources | Cloud-Azure-Database-SqlDatabase-App-Resources-custom | Check App CPU and memory metrics  |
-| Connections   | Cloud-Azure-Database-SqlDatabase-Connections-custom   | Check the number of connections   |
-| Deadlocks     | Cloud-Azure-Database-SqlDatabase-Deadlocks-custom     | Check database for deadlocks      |
-| Sessions      | Cloud-Azure-Database-SqlDatabase-Sessions-custom      | Check sessions usage              |
-| Storage       | Cloud-Azure-Database-SqlDatabase-Storage-custom       | Check database size               |
-| Workers       | Cloud-Azure-Database-SqlDatabase-Workers-custom       | Check the number of workers       |
-
-> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
+> The services listed above are created automatically when the **Cloud-Azure-Database-PostgreSQL-custom** host template is used.
 
 </TabItem>
 </Tabs>
-
-### Discovery rules
-
-#### Host discovery
-
-The Centreon Monitoring Connector **Azure SQL Database** includes a Host Discovery provider to
-automatically discover the Azure instances of a given subscription and add them
-to the list of monitored hosts. This provider is named **Microsoft Azure SQL Database**.
-
-> This discovery feature is only compatible with the [**api** custom mode. **azcli** is not supported](../getting-started/how-to-guides/azure-credential-configuration.md).
-
-Go to the corresponding chapter to learn more about [discovering hosts automatically](/docs/monitoring/discovery/hosts-discovery).
 
 ### Collected metrics & status
 
 Here is the list of services for this connector, detailing all metrics linked to each service.
 
 <Tabs groupId="sync">
-<TabItem value="App-Resources" label="App-Resources">
-
-| Metric name                                  | Unit  |
-|:---------------------------------------------|:------|
-| sqldatabase.serverless.app.cpu.percentage    | %     |
-| sqldatabase.serverless.app.memory.percentage | %     |
-
-</TabItem>
 <TabItem value="Connections" label="Connections">
 
-| Metric name                             | Unit  |
-|:----------------------------------------|:------|
-| sqldatabase.connection.blocked.count    | count |
-| sqldatabase.connection.failed.count     | count |
-| sqldatabase.connection.successful.count | count |
+| Metric name                          | Unit  |
+|:-------------------------------------|:------|
+| azpostgres.connections.active.count  | count |
+| azpostgres.connections.failed.count  | count |
+| azpostgres.connections.aborted.count | count |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Metric name                      | Unit  |
-|:---------------------------------|:------|
-| sqldatabase.cpu.usage.percentage | %     |
+| Metric name                             | Unit  |
+|:----------------------------------------|:------|
+| azpostgresql.cpu.utilization.percentage | %     |
 
 </TabItem>
-<TabItem value="Deadlocks" label="Deadlocks">
+<TabItem value="IO-Consumption" label="IO-Consumption">
 
-| Metric name                 | Unit  |
-|:----------------------------|:------|
-| sqldatabase.deadlocks.count | count |
-
-</TabItem>
-<TabItem value="Health" label="Health">
-
-| Metric name | Unit  |
-|:------------|:------|
-| status      | N/A   |
-
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+| Metric name                               | Unit  |
+|:------------------------------------------|:------|
+| azpostgres.ioconsumption.usage.percentage | %     |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Metric name                         | Unit  |
-|:------------------------------------|:------|
-| sqldatabase.memory.usage.percentage | %     |
+| Metric name                        | Unit  |
+|:-----------------------------------|:------|
+| azpostgres.memory.usage.percentage | %     |
 
 </TabItem>
-<TabItem value="Sessions" label="Sessions">
+<TabItem value="Replication" label="Replication">
 
-| Metric name                | Unit  |
-|:---------------------------|:------|
-| sqldatabase.sessions.count | count |
+| Metric name                        | Unit  |
+|:-----------------------------------|:------|
+| azpostgres.replication.lag.seconds | s     |
 
 </TabItem>
 <TabItem value="Storage" label="Storage">
 
-| Metric name                                | Unit  |
-|:-------------------------------------------|:------|
-| sqldatabase.storage.space.usage.bytes      | B     |
-| sqldatabase.storage.space.usage.percentage | %     |
+| Metric name                              | Unit  |
+|:-----------------------------------------|:------|
+| azpostgres.storage.backup.usage.bytes    | B     |
+| azpostgres.storage.serverlog.usage.bytes | B     |
+| azpostgres.storage.usage.percentage      | %     |
+| azpostgres.storage.usage.bytes           | B     |
 
 </TabItem>
-<TabItem value="Workers" label="Workers">
+<TabItem value="Traffic" label="Traffic">
 
-| Metric name               | Unit  |
-|:--------------------------|:------|
-| sqldatabase.workers.count | count |
+| Metric name                  | Unit  |
+|:-----------------------------|:------|
+| azpostgres.traffic.out.bytes | B     |
+| azpostgres.traffic.in.bytes  | B     |
 
 </TabItem>
 </Tabs>
@@ -150,34 +114,34 @@ with the command corresponding to the operating system's package manager:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-cloud-azure-database-sqldatabase
+dnf install centreon-pack-cloud-azure-database-postgresql
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-cloud-azure-database-sqldatabase
+dnf install centreon-pack-cloud-azure-database-postgresql
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-pack-cloud-azure-database-sqldatabase
+apt install centreon-pack-cloud-azure-database-postgresql
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-cloud-azure-database-sqldatabase
+yum install centreon-pack-cloud-azure-database-postgresql
 ```
 
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Azure SQL Database** connector through
+2. Whatever the license type (*online* or *offline*), install the **Azure Database for PostgreSQL** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
@@ -197,28 +161,28 @@ Use the commands below according to your operating system's package manager:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
+dnf install centreon-plugin-Cloud-Azure-Database-Postgres-Api
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
+dnf install centreon-plugin-Cloud-Azure-Database-Postgres-Api
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-plugin-cloud-azure-database-sqldatabase-api
+apt install centreon-plugin-cloud-azure-database-postgres-api
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
+yum install centreon-plugin-Cloud-Azure-Database-Postgres-Api
 ```
 
 </TabItem>
@@ -230,7 +194,7 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
 2. In the **IP Address/DNS** field, set the following IP address: **127.0.0.1**.
-3. Apply the **Cloud-Azure-Database-SqlDatabase-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+3. Apply the **Cloud-Azure-Database-PostgreSQL-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory. For example, for this connector, you must define the **AZURECUSTOMMODE** macros (possible values are **api** or **azcli**). Indeed, 2 modes of communication can be used with this resource: either using the command tool azcli, or by querying the API directly.
 
 <Tabs groupId="sync">
@@ -241,9 +205,8 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 | AZURECLIENTID      | Set Azure client ID                                                                                                        |                   | X           |
 | AZURECLIENTSECRET  | Set Azure client secret                                                                                                    |                   | X           |
 | AZURECUSTOMMODE    | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               |             |
-| AZURERESOURCE      | Set resource name or ID (required). It is the database name                                                                |                   |             |
-| AZURERESOURCEGROUP | Set resource group (required if resource's name is used)                                                                   |                   |             |
-| AZURESQLSERVERNAME | Set resource name or ID. It is the database name.                                                                      |                   | X           |
+| AZURERESOURCE      | Set resource name or ID (required)                                                                                         |                   |             |
+| AZURERESOURCEGROUP | Set resource group (required if resource's name is used)                                                                   |                   | X           |
 | AZURESUBSCRIPTION  | Set Azure subscription (required if logged to several subscriptions)                                                       |                   | X           |
 | AZURETENANT        | Set Azure tenant ID                                                                                                        |                   | X           |
 | PROXYURL           | Proxy URL if any                                                                                                           |                   |             |
@@ -258,9 +221,8 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 | Macro              | Description                                                                                                                | Default value     | Mandatory   |
 |:-------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | AZURECUSTOMMODE    | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               |             |
-| AZURERESOURCE      | Set resource name or id. It is the database name.                                                                |                   |             |
-| AZURERESOURCEGROUP | Set resource group (required if resource's name is used)                                                                   |                   |             |
-| AZURESQLSERVERNAME | Set server name (required if resource's name is used)                                                                      |                   | X           |
+| AZURERESOURCE      | Set resource name or ID (required)                                                                                         |                   |             |
+| AZURERESOURCEGROUP | Set resource group (required if resource's name is used)                                                                   |                   | X           |
 | AZURESUBSCRIPTION  | Set Azure subscription (required if logged to several subscriptions)                                                       |                   | X           |
 | PROXYURL           | Proxy URL if any                                                                                                           |                   |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                       |                   |             |
@@ -281,103 +243,112 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
-<TabItem value="App-Resources" label="App-Resources">
-
-| Macro             | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGAPPCPU     | Warning threshold for app-cpu                                                                       |                   |             |
-| CRITICALAPPCPU    | Critical threshold for app-cpu                                                                      |                   |             |
-| WARNINGAPPMEMORY  | Warning threshold for app-memory                                                                    |                   |             |
-| CRITICALAPPMEMORY | Critical threshold for app-memory                                                                   |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
-
-</TabItem>
 <TabItem value="Connections" label="Connections">
 
-| Macro                        | Description                                                                                        | Default value     | Mandatory   |
-|:-----------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGCONNECTIONBLOCKED     | Thresholds                                                                                                    |                   |             |
-| CRITICALCONNECTIONBLOCKED    | Thresholds                                                                                                    |                   |             |
-| WARNINGCONNECTIONFAILED      | Warning threshold for connection-failed                                                             |                   |             |
-| CRITICALCONNECTIONFAILED     | Critical threshold for connection-failed                                                            |                   |             |
-| WARNINGCONNECTIONSUCCESSFUL  | Warning threshold for connection-successful                                                         |                   |             |
-| CRITICALCONNECTIONSUCCESSFUL | Critical threshold for connection-successful                                                        |                   |             |
-| EXTRAOPTIONS                 | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro                     | Description                                                                                                                                        | Default value     | Mandatory   |
+|:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME                 | Set timeframe in seconds (i.e. 3600 to check last hour)                                                                                            | 900               |             |
+| INTERVAL                  | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)                                                     | PT5M              |             |
+| AGGREGATION               | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | Total             |             |
+| FILTERMETRIC              | Filter metrics (available metrics: 'Active Connections', 'Failed Connections', 'Aborted Connections').                                             |                   |             |
+| FILTERDIMENSION           | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'"               |                   |             |
+| WARNINGCONNECTIONSACTIVE  | Thresholds where '*'                                                                                                                               |                   |             |
+| CRITICALCONNECTIONSACTIVE | Thresholds where '*'                                                                                                                               |                   |             |
+| WARNINGCONNECTIONSFAILED  | Thresholds where '*'                                                                                                                               |                   |             |
+| CRITICALCONNECTIONSFAILED | Thresholds where '*'                                                                                                                               |                   |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                 |                   |             |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Macro                | Description                                                                                        | Default value     | Mandatory   |
-|:---------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| TIMEFRAME            | Set timeframe in seconds (i.e. 3600 to check last hour)  | 900               |             |
-| INTERVAL             |Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)  | PT5M              |             |
-| AGGREGATION          | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times. | Total             |             |
-| FILTERMETRIC         | Filter metrics (available metrics: 'CPU used percent')  |                   |             |
-| WARNINGUSAGEPERCENT  | Thresholds for usage-percent                                                                        |                   |             |
-| CRITICALUSAGEPERCENT | Thresholds for usage-percent                                                                        |                   |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro            | Description                                                                                        | Default value     | Mandatory   |
+|:-----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME        | Set timeframe in seconds (e.g. '3600' to check last 60 minutes).                                   | 900               |             |
+| INTERVAL         | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)                                                     | PT5M              |             |
+| AGGREGATION      | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | Total             |             |
+| FILTERMETRIC     | Filter metrics (available metrics: 'CPU percent').                                             |                   |             |
+| FILTERDIMENSION  | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'". |
+| WARNINGCPUUSAGE  | Set warning threshold for CPU utilization percentage                                               |                   |             |
+| CRITICALCPUUSAGE | Set critical threshold for CPU utilization percentage                                              |                   |             |
+| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
-<TabItem value="Deadlocks" label="Deadlocks">
+<TabItem value="IO-Consumption" label="IO-Consumption">
 
-| Macro             | Description                                                                                        | Default value     | Mandatory   |
-|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGDEADLOCKS  | Warning threshold                                                                                  |                   |             |
-| CRITICALDEADLOCKS | Critical threshold                                                                                 |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
-
-</TabItem>
-<TabItem value="Health" label="Health">
-
-| Macro          | Description                                                                                                                                                         | Default value                | Mandatory   |
-|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
-| STATUSOK       | Define the conditions to match for the status to be OK (default: '%{status} =~ /^Available$/').  You can use the following variables: %{status}, %{summary}         | %{status} =~ /^Available$/   |             |
-| STATUSUNKNOWN  | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /^Unknown$/').  You can use the following variables: %{status}, %{summary}      |                              |             |
-| STATUSCRITICAL | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /^Unavailable$/').  You can use the following variables: %{status}, %{summary} | %{status} =~ /^Unavailable$/ |             |
-| STATUSWARNING  | Define the conditions to match for the status to be WARNING (default: '').  You can use the following variables: %{status}, %{summary}                              |                              |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                  |                              |             |
+| Macro                      | Description                                                                                        | Default value     | Mandatory   |
+|:---------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME                  | Set timeframe in seconds (e.g. '3600' to check last 60 minutes).                                   | 900               |             |
+| INTERVAL                   | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)                                                     | PT5M              |             |
+| AGGREGATION                | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | Maximum             |             |
+| FILTERMETRIC               | Filter metrics (available metrics: 'IO Percent').                                             |                   |             |
+| FILTERDIMENSION  | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'". |
+| WARNINGIOCONSUMPTIONUSAGE  | Set warning threshold for IO comsuption usage                                                      |                   |             |
+| CRITICALIOCONSUMPTIONUSAGE | Set critical threshold for IO comsuption usage                                                     |                   |             |
+| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro                | Description                                                                                        | Default value     | Mandatory   |
-|:---------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| TIMEFRAME            | Set timeframe in seconds (i.e. 3600 to check last hour)  | 900               |             |
-| INTERVAL             |Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)  | PT5M              |             |
-| AGGREGATION          | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times. | Total             |             |
-| FILTERMETRIC         | Filter metrics (available metrics: 'Memory used percent')  |                   |             |
-| WARNINGUSAGEPERCENT  | Thresholds.                                                                               |                   |             |
-| CRITICALUSAGEPERCENT | Thresholds.                                                                                |                   |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro               | Description                                                                                        | Default value     | Mandatory   |
+|:--------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME           | Set timeframe in seconds (e.g. '3600' to check last 60 minutes).                                   | 900               |             |
+| INTERVAL            | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)                                                     | PT5M              |             |
+| AGGREGATION         | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | Average             |             |
+| FILTERMETRIC        | Filter metrics (available metrics: 'Memory percent').                                             |                   |             |
+| FILTERDIMENSION     | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'". |
+| WARNINGMEMORYUSAGE  | Set warning threshold for memory utilization percentage                                            |                   |             |
+| CRITICALMEMORYUSAGE | Set critical threshold for memory utilization percentage                                           |                   |             |
+| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
-<TabItem value="Sessions" label="Sessions">
+<TabItem value="Replication" label="Replication">
 
-| Macro            | Description                                                                                        | Default value     | Mandatory   |
-|:-----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGSESSIONS  | Warning threshold                                                                                  |                   |             |
-| CRITICALSESSIONS | Critical threshold                                                                                 |                   |             |
-| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro                  | Description                                                                                        | Default value     | Mandatory   |
+|:-----------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME              | Set timeframe in seconds (e.g. '3600' to check last 60 minutes).                                   | 900               |             |
+| INTERVAL               | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)                                                     | PT5M              |             |
+| AGGREGATION            | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | Maximum             |             |
+| FILTERMETRIC           | Filter metrics (available metrics: 'Replication Lag In Seconds').                                             |                   |             |
+| FILTERDIMENSION        | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'". |
+| WARNINGREPLICATIONLAG  | Thresholds where '*'                                                                               |                   |             |
+| CRITICALREPLICATIONLAG | Thresholds where '*'                                                                               |                   |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --zeroed          |             |
 
 </TabItem>
 <TabItem value="Storage" label="Storage">
 
-| Macro                | Description                                                                                        | Default value     | Mandatory   |
-|:---------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGUSAGEBYTES    | Warning threshold for usage-bytes                                                                   |                   |             |
-| CRITICALUSAGEBYTES   | Critical threshold for usage-bytes                                                                  |                   |             |
-| WARNINGUSAGEPERCENT  | Warning threshold for usage-percent                                                                 |                   |             |
-| CRITICALUSAGEPERCENT | Critical threshold for usage-percent                                                                |                   |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro                  | Description                                                                                        | Default value     | Mandatory   |
+|:-----------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME              | Set timeframe in seconds (e.g. '3600' to check last 60 minutes).                                   | 900               |             |
+| INTERVAL               | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)                                                     | PT5M              |             |
+| AGGREGATION            | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | Maximum             |             |
+| FILTERMETRIC           | Filter metrics (available metrics: 'Backup Storage used', 'Server Log storage used', 'Storage Percent', 'Storage Used'). |                   |             |
+| FILTERDIMENSION        | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'". |
+| WARNINGSERVERLOGUSAGE  | Thresholds                                                                                  |                   |             |
+| CRITICALSERVERLOGUSAGE | Thresholds                                                                                 |                   |             |
+| WARNINGSTORAGEBACKUP   | Thresholds                                                                                 |                   |             |
+| CRITICALSTORAGEBACKUP  | Thresholds                                                                                 |                   |             |
+| WARNINGSTORAGEPERCENT  | Thresholds                                                                                |                   |             |
+| CRITICALSTORAGEPERCENT | Thresholds                                                                                 |                   |             |
+| WARNINGSTORAGEUSED     | Thresholds                                                                                   |                   |             |
+| CRITICALSTORAGEUSED    | Thresholds                                                                                 |                   |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
-<TabItem value="Workers" label="Workers">
+<TabItem value="Traffic" label="Traffic">
 
-| Macro           | Description                                                                                        | Default value     | Mandatory   |
-|:----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGWORKERS  | Warning threshold                                                                                  |                   |             |
-| CRITICALWORKERS | Critical threshold                                                                                 |                   |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro              | Description                                                                                        | Default value     | Mandatory   |
+|:-------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME          | Set timeframe in seconds (e.g. '3600' to check last 60 minutes).                                   | 900               |             |
+| INTERVAL           | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)                                                     | PT5M              |             |
+| AGGREGATION        | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | Average             |             |
+| FILTERMETRIC       | Filter metrics (available metrics: 'Network Out', 'Network In'). |                   |             |
+| FILTERDIMENSION    | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'". |
+| WARNINGTRAFFICIN   | Thresholds                                                                                |                   |             |
+| CRITICALTRAFFICIN  | Thresholds                                                                                 |                   |             |
+| WARNINGTRAFFICOUT  | Thresholds                                                                                |                   |             |
+| CRITICALTRAFFICOUT | Thresholds                                                                                |                   |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 </Tabs>
@@ -391,25 +362,32 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 is able to monitor an Azure Instance using a command like this one (replace the sample values by yours):
 
 ```bash
-/usr/lib/centreon/plugins/centreon_azure_database_sqldatabase_api.pl \
-	--plugin=cloud::azure::database::sqldatabase::plugin \
-	--mode=workers \
+/usr/lib/centreon/plugins/centreon_azure_database_postgres_api.pl \
+	--plugin=cloud::azure::database::postgres::plugin \
+	--mode=traffic \
 	--custommode='api' \
-	--resource='XXXXXXXXXXXXXXXX' \
+	--resource='' \
 	--resource-group='' \
-	--subscription='XXXXXXXXXXXXXXXX' \
-	--tenant='XXXXXXXXXXXXXXXX' \
-	--client-id='XXXXXXXXXXXXXXXX' \
-	--client-secret='XXXXXXXXXXXXXXXX' \
+	--subscription='xxxxxxxxxxxxxx' \
+	--tenant='xxxxxxxxxxxxxx' \
+	--client-id='xxxxxxxxxxxxxx' \
+	--client-secret='xxxxxxxxxxxxxx' \
 	--proxyurl=''  \
-	--warning-workers='' \
-	--critical-workers='' 
+	--filter-metric='' \
+	--filter-dimension='' \
+	--timeframe='900' \
+	--interval='PT5M' \
+	--aggregation='Average' \
+	--warning-traffic-out='' \
+	--critical-traffic-out='' \
+	--warning-traffic-in='' \
+	--critical-traffic-in='' 
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: Workers: 72 | 'sqldatabase.workers.count'=72;;;0;
+OK: Network Out: 62 B Network In: 48 B | 'azpostgres.traffic.out.bytes'=62B;;;0;'azpostgres.traffic.in.bytes'=48B;;;0;
 ```
 
 ### Troubleshooting
@@ -428,25 +406,23 @@ All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_azure_database_sqldatabase_api.pl \
-	--plugin=cloud::azure::database::sqldatabase::plugin \
+/usr/lib/centreon/plugins/centreon_azure_database_postgres_api.pl \
+	--plugin=cloud::azure::database::postgres::plugin \
 	--list-mode
 ```
 
 The plugin brings the following modes:
 
-| Mode                                                                                                                                        | Linked service template                               |
-|:--------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|
-| app-resources [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/sqldatabase/mode/appresources.pm)] | Cloud-Azure-Database-SqlDatabase-App-Resources-custom |
-| connections [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/sqldatabase/mode/connections.pm)]    | Cloud-Azure-Database-SqlDatabase-Connections-custom   |
-| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/sqldatabase/mode/cpu.pm)]                    | Cloud-Azure-Database-SqlDatabase-Cpu-custom           |
-| deadlocks [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/sqldatabase/mode/deadlocks.pm)]        | Cloud-Azure-Database-SqlDatabase-Deadlocks-custom     |
-| discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/sqldatabase/mode/discovery.pm)]        | Used for host discovery                               |
-| health [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/sqldatabase/mode/health.pm)]              | Cloud-Azure-Database-SqlDatabase-Health-custom        |
-| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/sqldatabase/mode/memory.pm)]              | Cloud-Azure-Database-SqlDatabase-Memory-custom        |
-| sessions [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/sqldatabase/mode/sessions.pm)]          | Cloud-Azure-Database-SqlDatabase-Sessions-custom      |
-| storage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/sqldatabase/mode/storage.pm)]            | Cloud-Azure-Database-SqlDatabase-Storage-custom       |
-| workers [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/sqldatabase/mode/workers.pm)]            | Cloud-Azure-Database-SqlDatabase-Workers-custom       |
+| Mode                                                                                                                                       | Linked service template                                   |
+|:-------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------|
+| connections [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/postgres/mode/connections.pm)]      | Cloud-Azure-Database-PostgreSQL-Connections-Api-custom    |
+| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/postgres/mode/cpu.pm)]                      | Cloud-Azure-Database-PostgreSQL-Cpu-Api-custom            |
+| discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/postgres/mode/discovery.pm)]          | Not used in this Monitoring Connector                     |
+| io-consumption [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/postgres/mode/ioconsumption.pm)] | Cloud-Azure-Database-PostgreSQL-IO-Consumption-Api-custom |
+| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/postgres/mode/memory.pm)]                | Cloud-Azure-Database-PostgreSQL-Memory-Api-custom         |
+| replication [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/postgres/mode/replication.pm)]      | Cloud-Azure-Database-PostgreSQL-Replication-Api-custom    |
+| storage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/postgres/mode/storage.pm)]              | Cloud-Azure-Database-PostgreSQL-Storage-Api-custom        |
+| traffic [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/azure/database/postgres/mode/traffic.pm)]              | Cloud-Azure-Database-PostgreSQL-Traffic-Api-custom        |
 
 ### Available custom modes
 
@@ -455,8 +431,8 @@ All available custom modes can be displayed by adding the `--list-custommode` pa
 the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_azure_database_sqldatabase_api.pl \
-	--plugin=cloud::azure::database::sqldatabase::plugin \
+/usr/lib/centreon/plugins/centreon_azure_database_postgres_api.pl \
+	--plugin=cloud::azure::database::postgres::plugin \
 	--list-custommode
 ```
 
@@ -574,102 +550,77 @@ All **custom modes** specific options are listed here:
 All available options for each service template are listed below:
 
 <Tabs groupId="sync">
-<TabItem value="App-Resources" label="App-Resources">
-
-| Option           | Description                                                      |
-|:-----------------|:-----------------------------------------------------------------|
-| --resource       | Set resource name or ID (required). It is the database name.     |
-| --resource-group | Set resource group (required if resource's name is used).        |
-| --server         | Set server name (required if resource's name is used).           |
-| --warning-*      | Warning threshold where '*' can be: 'app-cpu', 'app-memory'.     |
-| --critical-*     | Critical threshold where '*' can be: 'app-cpu', 'app-memory'.    |
-
-</TabItem>
 <TabItem value="Connections" label="Connections">
 
-| Option           | Description                                                                           |
-|:-----------------|:--------------------------------------------------------------------------------------|
-| --resource       | Set resource name or ID (required). It is the database name.                          |
-| --resource-group | Set resource group (required if resource's name is used).                             |
-| --server         | Set server name (required if resource's name is used).                                |
-| --warning-*      | Warning threshold where '*' can be: 'connection-failed', 'connection-successful'.     |
-| --critical-*     | Critical threshold where '*' can be: 'connection-failed', 'connection-successful'.    |
+| Option                   | Description                                                                                                             |
+|:-------------------------|:------------------------------------------------------------------------------------------------------------------------|
+| --resource               | Set resource name or ID (required).                                                                                     |
+| --resource-group         | Set resource group (required if resource's name is used).                                                               |
+| --resource-type          | Set resource type (default: 'servers'). Can be 'servers', 'flexibleServers'.                                            |
+| --warning-* --critical-* | Thresholds where '*' can be: 'connections-active', 'connections-failed', 'connections-aborted', 'connections-total'.    |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Option                   | Description                                                    |
-|:-------------------------|:---------------------------------------------------------------|
-| --resource               | Set resource name or ID (required). It is the database name.   |
-| --resource-group         | Set resource group (required if resource's name is used).      |
-| --server                 | Set server name (required if resource's name is used).         |
-| --warning-* --critical-* | Thresholds where '*' can be: 'usage-percent'.                  |
+| Option               | Description                                                                    |
+|:---------------------|:-------------------------------------------------------------------------------|
+| --resource           | Set resource name or ID (required).                                            |
+| --resource-group     | Set resource group (required if resource's name is used).                      |
+| --resource-type      | Set resource type (default: 'servers'). Can be 'servers', 'flexibleServers'.   |
+| --warning-cpu-usage  | Set warning threshold for CPU utilization percentage.                          |
+| --critical-cpu-usage | Set critical threshold for CPU utilization percentage.                         |
 
 </TabItem>
-<TabItem value="Deadlocks" label="Deadlocks">
+<TabItem value="IO-Consumption" label="IO-Consumption">
 
-| Option               | Description                                                    |
-|:---------------------|:---------------------------------------------------------------|
-| --resource           | Set resource name or ID (required). It is the database name.   |
-| --resource-group     | Set resource group (required if resource's name is used).      |
-| --server             | Set server name (required if resource's name is used).         |
-| --warning-deadlocks  | Warning threshold.                                             |
-| --critical-deadlocks | Critical threshold.                                            |
-
-</TabItem>
-<TabItem value="Health" label="Health">
-
-| Option            | Description                                                                                                                                                           |
-|:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --resource        | Set resource name or ID (required).                                                                                                                                   |
-| --resource-group  | Set resource group (required if resource's name is used).                                                                                                             |
-| --warning-status  | Define the conditions to match for the status to be WARNING (default: '').  You can use the following variables: %{status}, %{summary}                                |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /^Unavailable$/').  You can use the following variables: %{status}, %{summary}   |
-| --unknown-status  | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /^Unknown$/').  You can use the following variables: %{status}, %{summary}        |
-| --ok-status       | Define the conditions to match for the status to be OK (default: '%{status} =~ /^Available$/').  You can use the following variables: %{status}, %{summary}           |
+| Option                         | Description                                                                    |
+|:-------------------------------|:-------------------------------------------------------------------------------|
+| --resource                     | Set resource name or ID (required).                                            |
+| --resource-group               | Set resource group (required if resource's name is used).                      |
+| --resource-type                | Set resource type (default: 'servers'). Can be 'servers', 'flexibleServers'.   |
+| --warning-ioconsumption-usage  | Set warning threshold for IO comsuption usage.                                 |
+| --critical-ioconsumption-usage | Set critical threshold for IO comsuption usage.                                |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Option                   | Description                                                    |
-|:-------------------------|:---------------------------------------------------------------|
-| --resource               | Set resource name or ID (required). It is the database name.   |
-| --resource-group         | Set resource group (required if resource's name is used).      |
-| --server                 | Set server name (required if resource's name is used).         |
-| --warning-* --critical-* | Thresholds where '*' can be: 'usage-percent'.                  |
+| Option                  | Description                                                                    |
+|:------------------------|:-------------------------------------------------------------------------------|
+| --resource              | Set resource name or ID (required).                                            |
+| --resource-group        | Set resource group (required if resource's name is used).                      |
+| --resource-type         | Set resource type (default: 'servers'). Can be 'servers', 'flexibleServers'.   |
+| --warning-memory-usage  | Set warning threshold for memory utilization percentage.                       |
+| --critical-memory-usage | Set critical threshold for memory utilization percentage.                      |
 
 </TabItem>
-<TabItem value="Sessions" label="Sessions">
+<TabItem value="Replication" label="Replication">
 
-| Option              | Description                                                    |
-|:--------------------|:---------------------------------------------------------------|
-| --resource          | Set resource name or ID (required). It is the database name.   |
-| --resource-group    | Set resource group (required if resource's name is used).      |
-| --server            | Set server name (required if resource's name is used).         |
-| --warning-sessions  | Warning threshold.                                             |
-| --critical-sessions | Critical threshold.                                            |
+| Option                   | Description                                                                    |
+|:-------------------------|:-------------------------------------------------------------------------------|
+| --resource               | Set resource name or ID (required).                                            |
+| --resource-group         | Set resource group (required if resource's name is used).                      |
+| --resource-type          | Set resource type (default: 'servers'). Can be 'servers', 'flexibleServers'.   |
+| --warning-* --critical-* | Thresholds where '*' can be: 'replication-lag'.                                |
 
 </TabItem>
 <TabItem value="Storage" label="Storage">
 
-| Option           | Description                                                            |
-|:-----------------|:-----------------------------------------------------------------------|
-| --resource       | Set resource name or ID (required). It is the database name.           |
-| --resource-group | Set resource group (required if resource's name is used).              |
-| --server         | Set server name (required if resource's name is used).                 |
-| --warning-*      | Warning threshold where '*' can be: 'usage-bytes','usage-percent'.     |
-| --critical-*     | Critical threshold where '*' can be: 'usage-bytes','usage-percent'.    |
+| Option                   | Description                                                                                             |
+|:-------------------------|:--------------------------------------------------------------------------------------------------------|
+| --resource               | Set resource name or ID (required).                                                                     |
+| --resource-group         | Set resource group (required if resource's name is used).                                               |
+| --resource-type          | Set resource type (default: 'servers'). Can be 'servers', 'flexibleServers'.                            |
+| --warning-* --critical-* | Thresholds where '*' can be: 'storage-backup', 'serverlog-usage', 'storage-percent', 'storage-used'.    |
 
 </TabItem>
-<TabItem value="Workers" label="Workers">
+<TabItem value="Traffic" label="Traffic">
 
-| Option             | Description                                                    |
-|:-------------------|:---------------------------------------------------------------|
-| --resource         | Set resource name or ID (required). It is the database name.   |
-| --resource-group   | Set resource group (required if resource's name is used).      |
-| --server           | Set server name (required if resource's name is used).         |
-| --warning-workers  | Warning threshold.                                             |
-| --critical-workers | Critical threshold.                                            |
+| Option                   | Description                                                                    |
+|:-------------------------|:-------------------------------------------------------------------------------|
+| --resource               | Set resource name or ID (required).                                            |
+| --resource-group         | Set resource group (required if resource's name is used).                      |
+| --resource-type          | Set resource type (default: 'servers'). Can be 'servers', 'flexibleServers'.   |
+| --warning-* --critical-* | Thresholds where '*' can be: 'traffic-out', 'traffic-in'.                      |
 
 </TabItem>
 </Tabs>
@@ -678,9 +629,9 @@ All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_azure_database_sqldatabase_api.pl \
-	--plugin=cloud::azure::database::sqldatabase::plugin \
-	--mode=workers \
+/usr/lib/centreon/plugins/centreon_azure_database_postgres_api.pl \
+	--plugin=cloud::azure::database::postgres::plugin \
+	--mode=traffic \
 	--custommode='azcli' \
 	--help
 ```

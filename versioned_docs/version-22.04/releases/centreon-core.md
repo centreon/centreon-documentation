@@ -17,6 +17,14 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 22.04.23
+
+Release date: `April 10, 2024`
+
+#### Security fixes
+
+- [Security] Upgraded axios dependency.
+
 ### 22.04.22
 
 Release date: `March 13, 2024`

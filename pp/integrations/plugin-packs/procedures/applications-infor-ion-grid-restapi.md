@@ -1,384 +1,306 @@
 ---
-id: applications-databases-elasticsearch
-title: Elasticsearch
+id: applications-infor-ion-grid-restapi
+title: Infor ION Grid Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Pack assets
 
-Elasticsearch est un moteur de recherche et d'analyse distribué et open source pour tout type de données, y compris les données textuelles, numériques, géospatiales, structurées et non structurées.
+### Templates
 
-## Contenu du pack
+The Monitoring Connector **Infor ION Grid** brings a host template:
 
-### Modèles
+* **App-Infor-Ion-Grid-Restapi-custom**
 
-Le connecteur de supervision **Elasticsearch** apporte un modèle d'hôte :
-
-* **App-DB-Elasticsearch-custom**
-
-Le connecteur apporte les modèles de service suivants
-(classés selon le modèle d'hôte auquel ils sont rattachés) :
+The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="App-DB-Elasticsearch-custom" label="App-DB-Elasticsearch-custom">
+<TabItem value="App-Infor-Ion-Grid-Restapi-custom" label="App-Infor-Ion-Grid-Restapi-custom">
 
-| Alias              | Modèle de service                              | Description                                                        | Découverte |
-|:-------------------|:-----------------------------------------------|:-------------------------------------------------------------------|:----------:|
-| Cluster-Statistics | App-DB-Elasticsearch-Cluster-Statistics-custom | Contrôle de l'état d'un cluster Elasticsearch                      |            |
-| Indice-Statistics  | App-DB-Elasticsearch-Indice-Statistics-custom  | Contrôle les statistiques des index d'un cluster Elasticsearch     | X          |
-| License            | App-DB-Elasticsearch-License-custom            | Contrôle le statut de la licence                                   |            |
-| Node-Statistics    | App-DB-Elasticsearch-Node-Statistics-custom    | Contrôle les statistiques des noeuds dans un cluster Elasticsearch | X          |
+| Service Alias      | Service Template                              | Service Description                             | Discovery  |
+|:-------------------|:----------------------------------------------|:------------------------------------------------|:----------:|
+| Application-Status | App-Infor-Ion-Grid-Restapi-Application-custom | Check Infor ION Grid applications status        | X          |
+| Node               | App-Infor-Ion-Grid-Restapi-Node-custom        | Check Infor ION Grid node status and statistics | X          |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-DB-Elasticsearch-custom** est utilisé.
+> The services listed above are created automatically when the **App-Infor-Ion-Grid-Restapi-custom** host template is used.
 
-> Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
+> If **Discovery** is checked, it means a service discovery rule exists for this service template.
 
 </TabItem>
 </Tabs>
 
-### Règles de découverte
+### Discovery rules
 
-#### Découverte de services
+#### Service discovery
 
-| Nom de la règle                        | Description |
-|:---------------------------------------|:------------|
-| App-DB-Elasticsearch-Indice-Statistics | Contrôle les statistiques des indices d'un cluster Elasticsearch.            |
-| App-DB-Elasticsearch-Node-Statistics   | Contrôle les statistiques des noeuds dans un cluster Elasticsearch.            |
+| Rule name                                   | Description |
+|:--------------------------------------------|:------------|
+| App-Infor-Ion-Grid-Restapi-Application-Name | Discover all application points for Infor ION Grid and monitor their status |
+| App-Infor-Ion-Grid-Restapi-Node-Name        | Discovers any Infor ION Grid node and monitors their status and statistics |
 
-Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
-pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
+More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
+and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
 
-### Métriques & statuts collectés
+### Collected metrics & status
 
-Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
+Here is the list of services for this connector, detailing all metrics linked to each service.
 
 <Tabs groupId="sync">
-<TabItem value="Cluster-Statistics" label="Cluster-Statistics">
+<TabItem value="Application-Status" label="Application-Status">
 
-| Métrique                  | Unité |
-|:--------------------------|:------|
-| status                    | N/A   |
-| nodes.total.count         | count |
-| nodes.data.count          | count |
-| nodes.coordinating.count  | count |
-| nodes.master.count        | count |
-| nodes.ingest.count        | count |
-| indices.total.count       | count |
-| shards.total.count        | count |
-| shards.active.count       | count |
-| shards.active.percentage  | %     |
-| shards.unassigned.count   | count |
-| shards.relocating.count   | count |
-| shards.initializing.count | count |
-| tasks.pending.count       | count |
-| documents.total.count     | count |
-| data.size.bytes           | B     |
+| Metric name                       | Unit  |
+|:----------------------------------|:------|
+| ion.grid.applications.total.count | count |
+| *applications*#status             | N/A   |
 
 </TabItem>
-<TabItem value="Indice-Statistics" label="Indice-Statistics">
+<TabItem value="Node" label="Node">
 
-| Métrique                                   | Unité |
-|:-------------------------------------------|:------|
-| *indices*#status                           | N/A   |
-| *indices*#indice.documents.total.count     | count |
-| *indices*#indice.data.primaries.size.bytes | B     |
-| *indices*#indice.data.total.size.bytes     | B     |
-| *indices*#shards.active.count              | count |
-| *indices*#shards.unassigned.count          | count |
-
-</TabItem>
-<TabItem value="License" label="License">
-
-| Métrique    | Unité |
-|:------------|:------|
-| status      | N/A   |
-
-</TabItem>
-<TabItem value="Node-Statistics" label="Node-Statistics">
-
-| Métrique                               | Unité |
-|:---------------------------------------|:------|
-| *nodes*#node.jvm.heap.usage.percentage | %     |
-| *nodes*#node.jvm.heap.usage.bytes      | B     |
-| *nodes*#node.disk.free.bytes           | B     |
-| *nodes*#node.documents.total.count     | count |
-| *nodes*#node.data.size.bytes           | B     |
+| Metric name                        | Unit  |
+|:-----------------------------------|:------|
+| *nodes*#status                     | N/A   |
+| *nodes*#node.log.error.count       | count |
+| *nodes*#node.log.warning.count     | count |
+| *nodes*#node.uptime.seconds        | s     |
+| *nodes*#node.cpu.usage.percentage  | %     |
+| *nodes*#node.heap.usage.percentage | %     |
 
 </TabItem>
 </Tabs>
 
-## Prérequis
+## Prerequisites
 
-Afin de superviser un cluster Elasticsearch, celui-ci doit être configuré comme indiqué dans la [documentation officielle Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/monitor-elasticsearch-cluster.html).
+To monitor Infor ION Grid, please follow the [official documentation](https://docs.infor.com/inforos/2022.x/en-us/useradminlist/inforos_2022.12_inforosrn_en-us_72746.pdf) and make sure that all rights are properly configured.
 
-Pour pouvoir communiquer avec le collecteur Centreon, l'API du noeud Elasticsearch doit utiliser le protocole HTTP et le port 9200.
-
-## Installer le connecteur de supervision
+## Installing the monitoring connector
 
 ### Pack
 
-1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
-Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
-sur le **serveur central** via la commande correspondant au gestionnaire de paquets
-associé à sa distribution :
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Monitoring Connector Manager** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-applications-databases-elasticsearch
+dnf install centreon-pack-applications-infor-ion-grid-restapi
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-applications-databases-elasticsearch
+dnf install centreon-pack-applications-infor-ion-grid-restapi
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-pack-applications-databases-elasticsearch
+apt install centreon-pack-applications-infor-ion-grid-restapi
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-applications-databases-elasticsearch
+yum install centreon-pack-applications-infor-ion-grid-restapi
 ```
 
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Elasticsearch**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+2. Whatever the license type (*online* or *offline*), install the **Infor ION Grid** connector through
+the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
 
-À partir de Centreon 22.04, il est possible de demander le déploiement automatique
-du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
-que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
-étape n'est pas requise.
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
 
-> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
 
-Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Applications-Databases-Elasticsearch
+dnf install centreon-plugin-Applications-Infor-Ion-Grid-Restapi
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-Applications-Databases-Elasticsearch
+dnf install centreon-plugin-Applications-Infor-Ion-Grid-Restapi
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-plugin-applications-databases-elasticsearch
+apt install centreon-plugin-applications-infor-ion-grid-restapi
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-plugin-Applications-Databases-Elasticsearch
+yum install centreon-plugin-Applications-Infor-Ion-Grid-Restapi
 ```
 
 </TabItem>
 </Tabs>
 
-## Utiliser le connecteur de supervision
+## Using the monitoring connector
 
-### Utiliser un modèle d'hôte issu du connecteur
+### Using a host template provided by the connector
 
-1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
-2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
-3. Appliquez le modèle d'hôte **App-DB-Elasticsearch-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
-4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **App-Infor-Ion-Grid-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                     | Description                                                                                          | Valeur par défaut | Obligatoire |
-|:--------------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| ELASTICSEARCHUSERNAME     | Elasticsearch username                                                                               |                   |             |
-| ELASTICSEARCHPASSWORD     | Elasticsearch password                                                                               |                   |             |
-| ELASTICSEARCHPROTO        | Specify https if needed (default: 'http')                                                            | http              |             |
-| ELASTICSEARCHPORT         | Port used (default: 9200)                                                                            | 9200              |             |
-| ELASTICSEARCHEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| Macro        | Description                                                                                          | Default value     | Mandatory   |
+|:-------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| APIUSERNAME  | API username                                                                                         |                   | X            |
+| APIPASSWORD  | API password                                                                                         |                   | X           |
+| APIPROTO     | Specify https if needed                                                                              | https             |             |
+| APIPORT      | Set port                                                                                             | 443               |             |
+| ADDRESS      | Set hostname                                                                                         |                   | X           |
+| EXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
-5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
-### Utiliser un modèle de service issu du connecteur
+### Using a service template provided by the connector
 
-1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
-2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
-<TabItem value="Cluster-Statistics" label="Cluster-Statistics">
+<TabItem value="Application-Status" label="Application-Status">
 
-| Macro                      | Description                                                                                                                                    | Valeur par défaut      | Obligatoire |
-|:---------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
-| WARNINGDATASIZE            | Warning threshold                                                                                                                              |                        |             |
-| CRITICALDATASIZE           | Critical threshold                                                                                                                             |                        |             |
-| WARNINGDOCUMENTSTOTAL      | Warning threshold                                                                                                                              |                        |             |
-| CRITICALDOCUMENTSTOTAL     | Critical threshold                                                                                                                             |                        |             |
-| WARNINGINDICESTOTAL        | Warning threshold                                                                                                                              |                        |             |
-| CRITICALINDICESTOTAL       | Critical threshold                                                                                                                             |                        |             |
-| WARNINGNODESCOORDINATING   | Warning threshold                                                                                                                              |                        |             |
-| CRITICALNODESCOORDINATING  | Critical threshold                                                                                                                             |                        |             |
-| WARNINGNODESDATA           | Warning threshold                                                                                                                              |                        |             |
-| CRITICALNODESDATA          | Critical threshold                                                                                                                             |                        |             |
-| WARNINGNODESINGEST         | Warning threshold                                                                                                                              |                        |             |
-| CRITICALNODESINGEST        | Critical threshold                                                                                                                             |                        |             |
-| WARNINGNODESMASTER         | Warning threshold                                                                                                                              |                        |             |
-| CRITICALNODESMASTER        | Critical threshold                                                                                                                             |                        |             |
-| WARNINGNODESTOTAL          | Warning threshold                                                                                                                              |                        |             |
-| CRITICALNODESTOTAL         | Critical threshold                                                                                                                             |                        |             |
-| WARNINGSHARDSACTIVE        | Warning threshold                                                                                                                              |                        |             |
-| CRITICALSHARDSACTIVE       | Critical threshold                                                                                                                             |                        |             |
-| WARNINGSHARDSINITIALIZING  | Warning threshold                                                                                                                              |                        |             |
-| CRITICALSHARDSINITIALIZING | Critical threshold                                                                                                                             |                        |             |
-| WARNINGSHARDSRELOCATING    | Warning threshold                                                                                                                              |                        |             |
-| CRITICALSHARDSRELOCATING   | Critical threshold                                                                                                                             |                        |             |
-| WARNINGSHARDSTOTAL         | Warning threshold                                                                                                                              |                        |             |
-| CRITICALSHARDSTOTAL        | Critical threshold                                                                                                                             |                        |             |
-| WARNINGSHARDSUNASSIGNED    | Warning threshold                                                                                                                              |                        |             |
-| CRITICALSHARDSUNASSIGNED   | Critical threshold                                                                                                                             |                        |             |
-| WARNINGSTATUS              | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /yellow/i') You can use the following variables: %{status} | %{status} =~ /yellow/i |             |
-| CRITICALSTATUS             | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /red/i'). You can use the following variables: %{status}  | %{status} =~ /red/i    |             |
-| WARNINGTASKSPENDING        | Warning threshold                                                                                                                              |                        |             |
-| CRITICALTASKSPENDING       | Critical threshold                                                                                                                             |                        |             |
-| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                             |                        |             |
+| Macro          | Description                                                                                                                                                                                                                                                                                                           | Default value                               | Mandatory   |
+|:---------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------|:-----------:|
+| FILTERNAME     | Filter by application name (regexp can be used). Example: --filter-name='^application1$'                                                                                                                                                                                                                              |                                             |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{online} =~ /true/ && %{state} !~ /^(OK)/i'). Threshold can be matched on special variables like %{state}, %{online}, %{started}, %{name} or %{description} and Regexp can be used. Typical syntax: --critical-status='%{started} ne "true"' | %{online} =~ /true/ && %{state} !~ /^(OK)/i |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: ''). Threshold can be matched on special variables like %{state}, %{online}, %{started}, %{name} or %{description} and Regexp can be used. Typical syntax: --warning-status='%{state} ne "OK"'                                                  |                                             |             |
+| WARNINGTOTAL   | Define the conditions to match for the total to be WARNING (default: '').                                                                                                                                                                                                                                               |                                             |             |
+| CRITICALTOTAL  | Define the conditions to match for the total to be CRITICAL (default: '').                                                                                                                                                                                                                                              |                                             |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                                                                                                                    |                                             |             |
 
 </TabItem>
-<TabItem value="Indice-Statistics" label="Indice-Statistics">
+<TabItem value="Node" label="Node">
 
-| Macro                     | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:--------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNAME                | Filter name (can be a regexp)                                                                      |                   |             |
-| WARNINGDATAPRIMARIESFREE  | Warning threshold                                                                                  |                   |             |
-| CRITICALDATAPRIMARIESFREE | Critical threshold                                                                                 |                   |             |
-| WARNINGDATASIZETOTAL      | Warning threshold                                                                                  |                   |             |
-| CRITICALDATASIZETOTAL     | Critical threshold                                                                                 |                   |             |
-| WARNINGDOCUMENTSTOTAL     | Warning threshold                                                                                  |                   |             |
-| CRITICALDOCUMENTSTOTAL    | Critical threshold                                                                                 |                   |             |
-| WARNINGSHARDSACTIVE       | Warning threshold                                                                                  |                   |             |
-| CRITICALSHARDSACTIVE      | Critical threshold                                                                                 |                   |             |
-| WARNINGSHARDSUNASSIGNED   | Warning threshold                                                                                  |                   |             |
-| CRITICALSHARDSUNASSIGNED  | Critical threshold                                                                                 |                   |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
-
-</TabItem>
-<TabItem value="License" label="License">
-
-| Macro          | Description                                                                                                                                                                                            | Valeur par défaut      | Obligatoire |
-|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /active/i'). You can use the following variables: %{status}, %{type}, %{issued\_to}, %{expiry\_date\_in\_seconds} | %{status} !~ /active/i |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{type}, %{issued\_to}, %{expiry\_date\_in\_seconds}                                      |                        |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                     |                        |             |
-
-</TabItem>
-<TabItem value="Node-Statistics" label="Node-Statistics">
-
-| Macro                  | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-----------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNAME             | Filter name (can be a regexp)                                                                      |                   |             |
-| WARNINGDATASIZE        | Warning threshold                                                                                  |                   |             |
-| CRITICALDATASIZE       | Critical threshold                                                                                 |                   |             |
-| WARNINGDISKFREE        | Warning threshold                                                                                  |                   |             |
-| CRITICALDISKFREE       | Critical threshold                                                                                 |                   |             |
-| WARNINGDOCUMENTSTOTAL  | Warning threshold                                                                                  |                   |             |
-| CRITICALDOCUMENTSTOTAL | Critical threshold                                                                                 |                   |             |
-| WARNINGJVMHEAPUSAGE    | Warning threshold                                                                                  |                   |             |
-| CRITICALJVMHEAPUSAGE   | Critical threshold                                                                                 |                   |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| Macro                 | Description                                                                                                                                                         | Default value          | Mandatory   |
+|:----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
+| FILTERNAME            | Filter by node name                                                                                                                                                 |                        |             |
+| FILTERTYPE            | Filter by node type                                                                                                                                                 |                        |             |
+| FILTERAPPLICATIONNAME | Filter by application name                                                                                                                                          |                        |             |
+| FILTERHOSTNAME        | Filter by host name                                                                                                                                                 |                        |             |
+| WARNINGCPUUSAGE       | Set warning thresholds on cpu usage                                                                                                                                 |                        |             |
+| CRITICALCPUUSAGE      | Set critical thresholds on cpu usage                                                                                                                                |                        |             |
+| WARNINGHEAPUSAGE      | Set warning thresholds on heap usage                                                                                                                                |                        |             |
+| CRITICALHEAPUSAGE     | Set critical thresholds on heap usage                                                                                                                               |                        |             |
+| WARNINGLOGWARNING     | Set warning thresholds on log-warning                                                                                                                               |                        |             |
+| CRITICALLOGWARNING    | Set critical thresholds on log-warning                                                                                                                              |                        |             |
+| WARNINGLOGERROR       | Set warning thresholds on log-error                                                                                                                                 |                        |             |
+| CRITICALLOGERROR      | Set critical thresholds on log-error                                                                                                                                |                        |             |
+| CRITICALSTATUS        | Set critical threshold for status. Can use special variables like: %{state}, %{name}, %{host\_name}, %{application\_name}, %{type}                                  | '%{state} !~ /online/' |             |
+| WARNINGSTATUS         | Set warning threshold for status (Default: "%{state} !~ /online/"). Can use special variables like: %{state}, %{name}, %{host\_name}, %{application\_name}, %{type} |                        |             |
+| WARNINGUPTIME         | Set warning thresholds on uptime                                                                                                                                    |                        |             |
+| CRITICALUPTIME        |Set critical thresholds on uptime                                                                                                                                    |                        |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                  |                        |             |
 
 </TabItem>
 </Tabs>
 
-3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
-## Comment puis-je tester le plugin et que signifient les options des commandes ?
+## How to check in the CLI that the configuration is OK and what are the main options for?
 
-Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
-de commande depuis votre collecteur Centreon en vous connectant avec
-l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
-que le connecteur arrive bien à superviser une ressource en utilisant une commande
-telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
+is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
-/usr/lib/centreon/plugins/centreon_elasticsearch.pl \
-	--plugin=database::elasticsearch::restapi::plugin \
-	--mode=node-statistics \
-	--hostname=10.0.0.1 \
-	--port='9200' \
-	--proto='http' \
-	--username='' \
-	--password=''  \
-	--filter-name='' \
-	--warning-jvm-heap-usage='' \
-	--critical-jvm-heap-usage='' \
-	--warning-disk-free='' \
-	--critical-disk-free='' \
-	--warning-documents-total='' \
-	--critical-documents-total='' \
-	--warning-data-size='' \
-	--critical-data-size=''
+/usr/lib/centreon/plugins/centreon_infor_ion_grid_restapi.pl \
+	--plugin=apps::infor::ion::grid::plugin \
+	--mode=node \
+	--hostname='HOSTNAME' \
+	--port='' \
+	--proto='' \
+	--api-username='APIUSERNAME' \
+	--api-password='APIUSERPASSWORD'  \
+	--filter-name='^Registry$' \
+	--filter-type='' \
+	--filter-application-name='^SYSTEM$' \
+	--filter-host-name='^THEHOST$' \
+	--warning-status='%{state} !~ /online/' \
+	--critical-status=''%{state} !~ /online/'' \
+	--warning-log-error='' \
+	--critical-log-error='' \
+	--warning-log-warning='' \
+	--critical-log-warning='' \
+	--warning-uptime='' \
+	--critical-uptime='' \
+	--warning-cpu-usage='' \
+	--critical-cpu-usage='' \
+	--warning-heap-usage='' \
+	--critical-heap-usage=''
+	--change-perfdata='.*#(.*),$1'
 ```
 
-La commande devrait retourner un message de sortie similaire à :
+The expected command output is shown below:
 
 ```bash
-OK: All nodes are ok | '*nodes*#node.jvm.heap.usage.percentage'=20%;;;0;100'*nodes*#node.jvm.heap.usage.bytes'=36380302240B;;;0;137151119360;heap_max_in_bytes'*nodes*#node.disk.free.bytes'=1710072680448B;;;0;total_in_bytes'*nodes*#node.documents.total.count'=4362761044;;;0;'*nodes*#node.data.size.bytes'=1386278479651B;;;0;
+OK: Node 'Registry' with PID '173' from application 'SYSTEM' on host 'THEHOST' state is 'online', Log error: 0, Log warning: 0, Uptime: 4M 2w 2d 2h 40m, CPU usage: 0.00%, Heap usage: 46.10MB/254.00MB (18.15%) | 'node.log.error.count'=0;;;0; 'node.log.warning.count'=0;;;0; 'node.cpu.usage.percentage'=0.00%;;;0;100 'node.heap.usage.percentage'=18.15%;0:90;;0;100
 ```
 
-### Diagnostic des erreurs communes
+### Troubleshooting
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
-pour le diagnostic des erreurs communes des plugins Centreon.
+Please find the troubleshooting documentation for the API-based plugins in
+this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
 
-### Modes disponibles
+### Available modes
 
-Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution
-du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
-implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
-modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the 
+connector in your terminal.
 
-Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
-`--list-mode` à la commande :
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_elasticsearch.pl \
-	--plugin=database::elasticsearch::restapi::plugin \
+/usr/lib/centreon/plugins/centreon_infor_ion_grid_restapi.pl \
+	--plugin=apps::infor::ion::grid::plugin \
 	--list-mode
 ```
 
-Le plugin apporte les modes suivants :
+The plugin brings the following modes:
 
-| Mode                                                                                                                                                | Modèle de service associé                      |
-|:----------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------|
-| cluster-statistics [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/elasticsearch/restapi/mode/clusterstatistics.pm)] | App-DB-Elasticsearch-Cluster-Statistics-custom |
-| indice-statistics [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/elasticsearch/restapi/mode/indicestatistics.pm)]   | App-DB-Elasticsearch-Indice-Statistics-custom  |
-| license [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/elasticsearch/restapi/mode/license.pm)]                      | App-DB-Elasticsearch-License-custom            |
-| list-indices [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/elasticsearch/restapi/mode/listindices.pm)]             | Used for service discovery                     |
-| list-nodes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/elasticsearch/restapi/mode/listnodes.pm)]                 | Used for service discovery                     |
-| node-statistics [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/elasticsearch/restapi/mode/nodestatistics.pm)]       | App-DB-Elasticsearch-Node-Statistics-custom    |
+| Mode                                                                                                                                   | Linked service template                       |
+|:---------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+| application [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/infor/ion/grid/mode/application.pm)]            | App-Infor-Ion-Grid-Restapi-Application-custom |
+| list-applications [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/infor/ion/grid/mode/listapplications.pm)] | Used for service discovery                    |
+| list-nodes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/infor/ion/grid/mode/listnodes.pm)]               | Used for service discovery                    |
+| node [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/infor/ion/grid/mode/node.pm)]                          | App-Infor-Ion-Grid-Restapi-Node-custom        |
 
-### Options disponibles
+### Available options
 
-#### Options génériques
+#### Generic options
 
-Les options génériques sont listées ci-dessous :
+All generic options are listed here:
 
 | Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -413,12 +335,12 @@ Les options génériques sont listées ci-dessous :
 | --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --hostname                                 | Elasticsearch hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --port                                     | Port used (default: 9200)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --proto                                    | Specify https if needed (default: 'http')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --username                                 | Elasticsearch username.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --password                                 | Elasticsearch password.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --timeout                                  | Set HTTP timeout                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --hostname                                 | Set hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --port                                     | Set port (default: '443').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --proto                                    | Specify https if needed (default: 'https').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --api-username                             | API username.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --api-password                             | API password.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --timeout                                  | Threshold for HTTP timeout (default: '20').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | --http-peer-addr                           | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --proxyurl                                 | Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | --proxypac                                 | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
@@ -427,60 +349,43 @@ Les options génériques sont listées ci-dessous :
 | --ssl-opt                                  | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --curl-opt                                 | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
-#### Options des modes
+#### Modes options
 
-Les options disponibles pour chaque modèle de services sont listées ci-dessous :
+All available options for each service template are listed below:
 
 <Tabs groupId="sync">
-<TabItem value="Cluster-Statistics" label="Cluster-Statistics">
+<TabItem value="Application-Status" label="Application-Status">
 
-| Option            | Description                                                                                                                                                                                                                                                                                                            |
-|:------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters | Only display some counters (regexp can be used). Example: --filter-counters='^status$'                                                                                                                                                                                                                                 |
-| --warning-*       | Warning threshold. Can be: 'nodes-total', 'nodes-data', 'nodes-coordinating', 'nodes-master', 'nodes-ingest', 'indices-total', 'shards-total', 'shards-active-count', 'shards-active-percentage', 'shards-unassigned', 'shards-relocating', 'shards-initializing', 'tasks-pending', 'documents-total', 'data-size'.    |
-| --critical-*      | Critical threshold. Can be: 'nodes-total', 'nodes-data', 'nodes-coordinating', 'nodes-master', 'nodes-ingest', 'indices-total', 'shards-total', 'shards-active-count', 'shards-active-percentage', 'shards-unassigned', 'shards-relocating', 'shards-initializing', 'tasks-pending', 'documents-total', 'data-size'.   |
-| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /yellow/i') You can use the following variables: %{status}.                                                                                                                                                                        |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /red/i'). You can use the following variables: %{status}.                                                                                                                                                                         |
-
-</TabItem>
-<TabItem value="Indice-Statistics" label="Indice-Statistics">
-
-| Option            | Description                                                                                                                                                   |
-|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-name     | Filter name (can be a regexp).                                                                                                                                |
-| --filter-counters | Only display some counters (regexp can be used). Example: --filter-counters='^status$'                                                                        |
-| --warning-*       | Warning threshold. Can be: 'documents-total', 'data-size-primaries', 'data-size-total', 'shards-active', 'shards-unassigned'.                                 |
-| --critical-*      | Critical threshold. Can be: 'documents-total', 'data-size-primaries', 'data-size-total', 'shards-active', 'shards-unassigned'.                                |
-| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /yellow/i') You can use the following variables: %{display}, %{status}.   |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /red/i'). You can use the following variables: %{display}, %{status}.    |
+| Option            | Description                                                                                                                                                                                                                                                                                                              |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-name     | Filter by application name (regexp can be used). Example: --filter-name='^application1$'                                                                                                                                                                                                                                 |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: ''). Threshold can be matched on special variables like %{state}, %{online}, %{started}, %{name} or %{description} and Regexp can be used. Typical syntax: --warning-status='%{state} ne "OK"'                                                     |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{online} =~ /true/ && %{state} !~ /^(OK)/i'). Threshold can be matched on special variables like %{state}, %{online}, %{started}, %{name} or %{description} and Regexp can be used. Typical syntax: --critical-status='%{started} ne "true"'    |
+| --warning-total  | Define the conditions to match for the total to be WARNING (default: '').  |
+| --critical-total | Define the conditions to match for the total to be CRITICAL (default: ''). |
 
 </TabItem>
-<TabItem value="License" label="License">
+<TabItem value="Node" label="Node">
 
-| Option            | Description                                                                                                                                                                                                |
-|:------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --warning-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{type}, %{issued\_to}, %{expiry\_date\_in\_seconds}.                                         |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /active/i'). You can use the following variables: %{status}, %{type}, %{issued\_to}, %{expiry\_date\_in\_seconds}.    |
-
-</TabItem>
-<TabItem value="Node-Statistics" label="Node-Statistics">
-
-| Option            | Description                                                                                                                  |
-|:------------------|:-----------------------------------------------------------------------------------------------------------------------------|
-| --filter-name     | Filter name (can be a regexp).                                                                                               |
-| --filter-counters | Only display some counters (regexp can be used). Example: --filter-counters='heap'                                           |
-| --warning-*       | Warning threshold. Can be: 'data-size', 'disk-free', 'documents-total', 'jvm-heap-usage' (in %), 'jvm-heap-usage-bytes'.     |
-| --critical-*      | Critical threshold. Can be: 'data-size', 'disk-free', 'documents-total', 'jvm-heap-usage' (in %), 'jvm-heap-usage-bytes'.    |
+| Option                    | Description                                                                                                                                                            |
+|:--------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-type             | Filter by node type.                                                                                                                                                   |
+| --filter-name             | Filter by node name.                                                                                                                                                   |
+| --filter-application-name | Filter by application name.                                                                                                                                            |
+| --filter-host-name        | Filter by host name.                                                                                                                                                   |
+| --warning-status          | Set warning threshold for status (Default: "%{state} !~ /online/"). Can use special variables like: %{state}, %{name}, %{host\_name}, %{application\_name}, %{type}.   |
+| --critical-status         | Set critical threshold for status. Can use special variables like: %{state}, %{name}, %{host\_name}, %{application\_name}, %{type}.                                    |
+| --warning-* --critical-*  | Thresholds. Can be: 'log-error', 'log-warning', 'uptime' (s), 'cpu-usage', 'heap-usage' (%).                                                                           |
 
 </TabItem>
 </Tabs>
 
-Pour un mode, la liste de toutes les options disponibles et leur signification peut être
-affichée en ajoutant le paramètre `--help` à la commande :
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_elasticsearch.pl \
-	--plugin=database::elasticsearch::restapi::plugin \
-	--mode=node-statistics \
+/usr/lib/centreon/plugins/centreon_infor_ion_grid_restapi.pl \
+	--plugin=apps::infor::ion::grid::plugin \
+	--mode=node \
 	--help
 ```
