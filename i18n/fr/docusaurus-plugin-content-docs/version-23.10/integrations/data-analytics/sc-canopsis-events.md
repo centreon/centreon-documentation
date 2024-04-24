@@ -66,8 +66,11 @@ apt install centreon-stream-connector-canopsis
 ## Configuration de Canopsis 
 
 Vous devrez paramétrer votre équipement Canopsis pour qu'il puisse recevoir des données 
-de la part de Centreon. Reportez-vous à la [documentation Canopsis](https://doc.canopsis.net/guide-utilisation/menu-administration/droits/)
-, notamment vérifiez que les droits de création, lecture et suppressions sont activés. 
+de la part de Centreon. Reportez-vous au [guide d'utilisation Canopsis](https://doc.canopsis.net/guide-utilisation/)
+, notamment vérifiez que les droits de création, lecture et suppressions sont activés (voir la documentation d'
+[administration des droits](https://doc.canopsis.net/guide-utilisation/menu-administration/droits/) et celle de l'
+[administration de la planification](https://doc.canopsis.net/guide-utilisation/menu-administration/planification/) 
+dans le cas des downtimes). 
 Pour l'utilisateur associé à la "authKey" il faut modifier la matrice de droits "Mandatory" :
 
 > Pour les trois sections :
