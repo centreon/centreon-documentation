@@ -53,7 +53,14 @@ For security reasons, Centreon Cloud has a built-in whitelist that defines which
 
 1. Log in as **root** to the poller that will run the commmand.
 2. Edit the following file: **/etc/centreon-engine-whitelist/my-whitelist.yml**.
-3. Add a line for your command, using a regex. Example: to authorize all commands from Centreon plugins, the correct syntax is **\/usr\/lib\/centreon\/plugins\/centreon_.*\.pl .***
+3. Use a regex to define which commands to authorize. Example: to authorize all commands from Centreon plugins, the correct syntax is:
+
+   ```shell
+   whitelist:
+     regex:
+       - 'centreon_[a-z]*.pl .*'
+       - '.*centreon.* .*'
+    ```
 
 > If you have not authorized your custom command in a whitelist, it will say so in the **Information** column of the **Resources Status** page.
 
