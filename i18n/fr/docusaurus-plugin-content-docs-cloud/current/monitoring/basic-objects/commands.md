@@ -53,7 +53,14 @@ Pour des raisons de sécurité, Centreon Cloud inclut une liste blanche préremp
 
 1. Connectez-vous en **root** au collecteur qui exécutera la commande.
 2. Éditez le fichier suivant : **/etc/centreon-engine-whitelist/my-whitelist.yml**.
-3. Ajoutez une ligne pour votre commande, en utilisant une regex. Exemple : pour autoriser toutes les commandes des plugins Centreon, la syntaxe correcte est **\/usr\/lib\/centreon\/plugins\/centreon_.*\.pl .***
+3. Utilisez une regex pour définir quelles commandes autoriser. Exemple: pour autoriser toutes les commandes des plugins Centreon, la syntaxe correcte est :
+
+   ```shell
+   whitelist:
+     regex:
+       - 'centreon_[a-z]*.pl .*'
+       - '.*centreon.* .*'
+    ```
 
 > Si vous n'avez pas autorisé votre commande dans la liste blanche du collecteur, cela vous sera signalé dans la colonne **Informations** de la page **Statut des ressources**.
 
