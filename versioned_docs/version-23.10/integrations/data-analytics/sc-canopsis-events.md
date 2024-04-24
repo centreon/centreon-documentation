@@ -65,8 +65,11 @@ apt install centreon-stream-connector-canopsis
 ## Configuring Canopsis
 
 You will need to configure your Canopsis to receive data from Centreon. Refer to the 
-[Canopsis documentation](https://doc.canopsis.net/guide-utilisation/menu-administration/droits/)
-, in particular check if creation, reading and deletion rights are activated. 
+[Canopsis user guide](https://doc.canopsis.net/guide-utilisation/menu-administration/droits/)
+, in particular check if creation, reading and deletion rights are activated (see documentation dedicated 
+[rights administration](https://doc.canopsis.net/guide-utilisation/menu-administration/droits/) and this one 
+[planification administration](https://doc.canopsis.net/guide-utilisation/menu-administration/planification/) 
+in case of downtimes). 
 For the associated user at the "authKey" you must modify the "Mandatory" rights matrix:
 
 > For the 3 sections :
@@ -364,7 +367,7 @@ curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth
       }
    ]
 ```
-> With default values of the Canopsis connector, it creates downtimes in Default maintenance type.
+> With default values of the Canopsis connector, it classifies the downtimes in Default maintenance type.
 
 #### Request app-info route
 1. Log in to the server that you configured to send events to Canopsis (your central 
