@@ -400,7 +400,7 @@ curl -X POST -H 'content-length: 400' -H 'content-type: application/json' -H 'x-
 
 3. Check that the event has been received by Canopsis. Status arrived in page Canopsis Alarms > In progress
 
-![image](../../assets/integrations/data-analytics/status.png)
+![image](../assets/integrations/data-analytics/status.png)
 
 ### Sending downtimes
 
