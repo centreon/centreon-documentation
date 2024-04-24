@@ -28,9 +28,21 @@ The connector brings the following service templates (sorted by the host templat
 | Ping     | Base-Ping-LAN     | Check host response time                           |
 
 </TabItem>
+<TabItem value="generic-passive-host-custom" label="generic-passive-host-custom">
+  
+This host template is not linked to any service template.
+</TabItem>
+<TabItem value="generic-dummy-host-custom" label="generic-dummy-host-custom">
+
+This host template is not linked to any service template.
+</TabItem>
+<TabItem value="Generic-Active-Cloud-Host-custom" label="Generic-Active-Cloud-Host-custom">
+
+This host template is not linked to any service template.
+</TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias         | Service Template                          | Service Description                          |
+| Service Alias         | Service Template                           | Service Description                          |
 |:----------------------|:------------------------------------------|:---------------------------------------------|
 | generic-active-service | generic-active-service | Check service availability and status proactively |
 | generic-passive-service     | generic-active-service     | Check service status reactively based on received data|
