@@ -196,6 +196,8 @@ Excluez l'utilisateur de la politique d'expiration du mot de passe sur la page *
 
 Créez un utilisateur dans l'instance mysql hébergeant les bases de données 'centreon' et 'centreon_storage' :
 
+> Nous vous recommandons vivement de définir un mot de passe plus sécurisé.
+
 ```sql
 CREATE USER 'centreon_map'@'<IP_SERVER_MAP>' IDENTIFIED BY 'centreon_map';
 GRANT SELECT ON centreon_storage.* TO 'centreon_map'@'<IP_SERVER_MAP>';

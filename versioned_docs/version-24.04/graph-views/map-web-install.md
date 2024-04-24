@@ -286,6 +286,8 @@ Exclude the user from the password expiration policy on the **Administration > A
 From the central server terminal, create a user in the MySQL instance hosting 'centreon' and 'centreon_storage'
 databases:
 
+> We strongly recommend that you set a more secure password.
+
 ```sql
 CREATE USER 'centreon_map'@'<IP_SERVER_MAP>' IDENTIFIED BY 'centreon_map';
 GRANT SELECT ON centreon_storage.* TO 'centreon_map'@'<IP_SERVER_MAP>';
