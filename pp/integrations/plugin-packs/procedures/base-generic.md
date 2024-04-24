@@ -57,7 +57,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-This Monitoring Connector has no specific prerequisites, providing all basic templates required for monitoring. However, it is necessary to have Nagios'ICMP check.
+This Monitoring Connector has no specific prerequisites except the Nagios ICMP plugin, which is installed by default on Centreon servers.
 
 ## Using the monitoring connector
 
