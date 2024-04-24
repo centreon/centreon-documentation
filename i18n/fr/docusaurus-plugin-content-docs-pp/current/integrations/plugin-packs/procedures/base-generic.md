@@ -28,6 +28,21 @@ Le connecteur apporte les modèles de service suivants (classés selon le modèl
 | Ping     | Base-Ping-LAN     | Check host response time                           |
 
 </TabItem>
+<TabItem value="generic-passive-host-custom" label="generic-passive-host-custom">
+  
+Ce modèle d'hôte n'est associé à aucun modèle de service.
+
+</TabItem>
+<TabItem value="generic-dummy-host-custom" label="generic-dummy-host-custom">
+
+Ce modèle d'hôte n'est associé à aucun modèle de service.
+
+</TabItem>
+<TabItem value="Generic-Active-Cloud-Host-custom" label="Generic-Active-Cloud-Host-custom">
+
+Ce modèle d'hôte n'est associé à aucun modèle de service.
+
+</TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
 | Alias         | Modèle de service                           | Description                          |
