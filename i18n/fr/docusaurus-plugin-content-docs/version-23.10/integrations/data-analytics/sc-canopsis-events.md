@@ -377,7 +377,7 @@ curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth
       }
    ]
 ```
-> En laissant les valeurs par défaut du connector Canopsis, il créé le type Default maintenance .
+> En laissant les valeurs par défaut du connector Canopsis, il classe dans le type Default maintenance .
 
 #### Requête de la route app-info
 1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à 
@@ -405,8 +405,26 @@ Canopsis (le serveur central, un serveur distant ou un collecteur)
 curl -X POST -H 'content-length: 400' -H 'content-type: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port><canopsis_event_route>' -d '[{"hostgroups":[],"component":"Test-Canopsis","host_id":"8","event_type":"check","resource":"passif","output":"Test_passif_output","servicegroups":[],"connector":"centreon-stream","source_type":"resource","action_url":"","long_output":"Test-curl-command Passif long output","notes_url":"","connector_name":"Central","timestamp":1710843117,"service_id":"10","state":1}]'
 ```
 
-> Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par la valeur correcte. 
+> Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par les valeurs correctes de clé d'authentification et d'hôte Canopsis.
 > Pour les autres, leurs valeurs par défaut définies dans le connector sont canopsis_port:443 et canopsis_event_route:/api/v4/event
-3. Vérifiez que l'évènement a bien été reçu par Canopsis.
+3. Vérifiez que l'évènement a bien été reçu par Canopsis. Les status arrivent sur la page Canopsis Alarmes > En Cours
 
 ![image](../assets/integrations/data-analytics/status.png)
+
+### Envoyer des downtimes
+
+Si vous voulez tester que les downtimes sont envoyés correctement à Canopsis :
+
+1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à 
+Canopsis (le serveur central, un serveur distant ou un collecteur)
+2. Exécutez la commande suivante :
+
+```shell
+curl -X POST -H 'content-length: 400' -H 'content-type: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port><canopsis_pbehaviors>' -d '{"tstart":1713959323,"enabled":true,"type":"5ea9d2d8-0f16-4e19-bcca-64b1e96e00fa","tstop":1713960043,"author":"admin","entity_pattern":[[{"field":"name","cond":{"value":"Test-Service-Demo-Canopsis/Test-Demo-Canopsis","type":"eq"}}]],"rrule":"","reason":"3010f2a3-f43c-421a-8c7c-e70522f0c862","name":"centreon-downtime-1-1713959345","_id":"centreon-downtime-1-1713959345"}'
+```
+
+> Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par les valeurs correctes de clé d'authentification et d'hôte Canopsis.
+> Pour les autres, leurs valeurs par défaut définies dans le connector sont canopsis_port:443 et canopsis_pbehaviors:/api/v4/pbehaviors
+3. Vérifiez que l'évènement a bien été reçu par Canopsis. Les status arrivent sur la page Canopsis Alarmes > En Cours
+
+ici je n'ai pas pu faire de capture d'écran... ?
