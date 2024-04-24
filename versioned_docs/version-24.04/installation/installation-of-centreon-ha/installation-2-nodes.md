@@ -523,9 +523,22 @@ systemctl status mariadb
 
 To avoid unnecessary exposure of your database, you should restrict access to it as much as possible. The `mysql_secure_installation` command will help you apply some basic security principles. You just need to run this command and let yourself be guided, choosing the recommended option at every step. We suggest you choose a strong password.
 
-```bash
+<Tabs groupId="sync">
+<TabItem value="MariaDB" label="MariaDB"> 
+
+```shell
+mariadb-secure-installation
+```
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL"> 
+
+```shell
 mysql_secure_installation
 ```
+
+</TabItem>
+</Tabs>
 
 ### Creating the `centreon` MariaDB account
 

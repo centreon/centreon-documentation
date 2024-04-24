@@ -389,11 +389,24 @@ systemctl restart mariadb
 
 #### Sécuriser la base de données
 
-Depuis MariaDB 10.5, il est obligatoire de sécuriser l'accès root de la base de données avant d'installer Centreon. Si vous utilisez une base de données locale, exécutez la commande suivante sur le serveur central :
+Il est obligatoire de sécuriser l'accès root de la base de données avant d'installer Centreon. Si vous utilisez une base de données locale, exécutez la commande suivante sur le serveur central :
+
+<Tabs groupId="sync">
+<TabItem value="MariaDB" label="MariaDB"> 
+
+```shell
+mariadb-secure-installation
+```
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL"> 
 
 ```shell
 mysql_secure_installation
 ```
+
+</TabItem>
+</Tabs>
 
 * Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely ?
 * Il est obligatoire de définir un mot de passe pour l'utilisateur **root** de la base de données. Vous aurez besoin de ce mot de passe pendant l'[installation web](../installation/web-and-post-installation.md).

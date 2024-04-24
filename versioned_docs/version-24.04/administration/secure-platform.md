@@ -294,9 +294,22 @@ chmod 660 /etc/centreon/centreon.conf.php
 [MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/) proposes a default procedure to secure the DBMS
 installation. It is mandatory to set a password for the **root** user of the database. If you haven't already done so, please execute the following command and follow the instructions:
 
+<Tabs groupId="sync">
+<TabItem value="MariaDB" label="MariaDB"> 
+
+```shell
+mariadb-secure-installation
+```
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL"> 
+
 ```shell
 mysql_secure_installation
 ```
+
+</TabItem>
+</Tabs>
 
 ## Enable firewalld
 

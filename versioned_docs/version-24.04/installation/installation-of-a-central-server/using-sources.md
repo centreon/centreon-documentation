@@ -336,9 +336,22 @@ Please install Centreon Gorgone using [this procedure](https://github.com/centre
 
 It is mandatory to secure the database's root access before installing Centreon. Run the following command:
 
+<Tabs groupId="sync">
+<TabItem value="MariaDB" label="MariaDB"> 
+
+```shell
+mariadb-secure-installation
+```
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL"> 
+
 ```shell
 mysql_secure_installation
 ```
+
+</TabItem>
+</Tabs>
 
 * Answer **yes** to all questions except "Disallow root login remotely?".
 * It is mandatory to set a password for the **root** user of the database. You will need this password during the [web installation](../web-and-post-installation.md).

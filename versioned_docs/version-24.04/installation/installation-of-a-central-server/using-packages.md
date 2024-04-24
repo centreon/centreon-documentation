@@ -511,9 +511,22 @@ Then execute the following command (on the central server if you are using a loc
 It is mandatory to secure the database's root access before installing Centreon.
 If you are using a local database, run the following command on the central server:
 
+<Tabs groupId="sync">
+<TabItem value="MariaDB" label="MariaDB"> 
+
+```shell
+mariadb-secure-installation
+```
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL"> 
+
 ```shell
 mysql_secure_installation
 ```
+
+</TabItem>
+</Tabs>
 
 * Answer **yes** to all the questions except "Disallow root login remotely?".
 * It is mandatory to set a password for the **root** user of the database. You will need this password during the [web installation](../web-and-post-installation.md).

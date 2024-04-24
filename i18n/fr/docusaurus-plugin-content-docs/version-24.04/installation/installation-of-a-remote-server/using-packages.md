@@ -512,9 +512,22 @@ Puis exécutez la commande suivante (sur le serveur distant si vous utilisez une
 
 Il est obligatoire de sécuriser l'accès en root à la base avant d'installer Centreon. Si vous utilisez une base de données locale, exécutez la commande suivante sur le serveur central :
 
+<Tabs groupId="sync">
+<TabItem value="MariaDB" label="MariaDB"> 
+
+```shell
+mariadb-secure-installation
+```
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL"> 
+
 ```shell
 mysql_secure_installation
 ```
+
+</TabItem>
+</Tabs>
 
 * Répondez oui à toute question sauf à "Disallow root login remotely?".
 * Définissez obligatoirement un mot de passe pour l'utilisateur **root** de la base de données.
