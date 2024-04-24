@@ -251,11 +251,11 @@ This stream connector will send events with the following format.
 ```json
 [
    {
-      "event_type":"ackremove",
+      "event_type":"ack",
       "component":"Host-1",
       "connector":"centreon-stream",
       "author":"admin",
-      "state":3,
+      "state":1,
       "output":"Acknowledged by admin",
       "source_type":"resource",
       "long_output":"Acknowledged by admin",

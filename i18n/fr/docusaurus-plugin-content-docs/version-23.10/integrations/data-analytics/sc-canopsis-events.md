@@ -258,11 +258,11 @@ Ce stream connector envoie des évènements au format suivant :
 ```json
 [
    {
-      "event_type":"ackremove",
+      "event_type":"ack",
       "component":"Host-1",
       "connector":"centreon-stream",
       "author":"admin",
-      "state":3,
+      "state":1,
       "output":"Acknowledged by admin",
       "source_type":"resource",
       "long_output":"Acknowledged by admin",
@@ -296,6 +296,103 @@ consulter la **[documentation](https://github.com/centreon/centreon-stream-conne
 
 Voici la liste des commandes curl qui sont utilisées par le stream connector Canopsis :
 
+### Configuration du stream connector
+
+Si vous voulez tester que les commandes de configuration sont envoyés correctement à Canopsis :
+
+#### Requête de la route pbehavior-reasons
+1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à 
+Canopsis (le serveur central, un serveur distant ou un collecteur)
+2. Exécutez la commande suivante :
+
+```shell
+curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port><canopsis_pbehavior-reasons>'
+```
+
+> Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par les valeurs correctes de clé d'authentification et d'hôte Canopsis.
+> Pour les autres, leurs valeurs par défaut définies dans le connector sont canopsis_port:443 et canopsis_pbehavior-reasons:/api/v4/pbehavior-reasons
+
+3. Vérifiez que la commande renvoie bien une structure data de cette forme:
+```json
+   "data":[
+      {
+         "_id":"XXXX",
+         "name":"NAME",
+         "description":"DESCRIPTION"
+      }
+   ]
+```
+
+#### Requête de la route pbehavior-types
+1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à 
+Canopsis (le serveur central, un serveur distant ou un collecteur)
+2. Exécutez la commande suivante :
+
+```shell
+curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port><canopsis_pbehavior-types>'
+```
+
+> Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par les valeurs correctes de clé d'authentification et d'hôte Canopsis.
+> Pour les autres, leurs valeurs par défaut définies dans le connector sont canopsis_port:443 et canopsis_pbehavior-types:/api/v4/pbehavior-types
+
+
+3. Vérifiez que la commande renvoie bien une structure data de cette forme:
+```json
+   "data":[
+      {
+         "_id":"ec35c069-1651-4ee1-8944-3e5574e7b516",
+         "name":"Default active",
+         "description":"Default active",
+         "type":"active",
+         "priority":2,
+         "icon_name":"",
+         "color":"#2FAB63"
+      },
+      {
+         "_id":"470c469c-77bc-402c-910f-30a8b2584343",
+         "name":"Default inactive",
+         "description":"Default inactive",
+         "type":"inactive",
+         "priority":1,
+         "icon_name":"brightness_3",
+         "color":"#979797"
+      },
+      {
+         "_id":"5ea9d2d8-0f16-4e19-bcca-64b1e96e00fa",
+         "name":"Default maintenance",
+         "description":"Default maintenance",
+         "type":"maintenance",
+         "priority":3,
+         "icon_name":"build",
+         "color":"#BF360C"
+      },
+      {
+         "_id":"1fb65097-ddaa-4e99-9239-8263095c156c",
+         "name":"Default pause",
+         "description":"Default pause",
+         "type":"pause",
+         "priority":4,
+         "icon_name":"pause",
+         "color":"#5A6D80"
+      }
+   ]
+```
+> En laissant les valeurs par défaut du connector Canopsis, il créé le type Default maintenance .
+
+#### Requête de la route app-info
+1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à 
+Canopsis (le serveur central, un serveur distant ou un collecteur)
+2. Exécutez la commande suivante :
+
+```shell
+curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port>/api/v4/app-info'
+```
+
+> Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par les valeurs correctes de clé d'authentification et d'hôte Canopsis.
+> Pour le port la valeur par défaut définie dans le connector est canopsis_port:443
+
+3. Cette commande permet seulement d'accéder à la version Canopsis donc pas besoin d'inspecter tout le contenu de retour de celle-ci
+
 ### Envoyer des évènements
 
 Si vous voulez tester que les évènements sont envoyés correctement à Canopsis :
@@ -305,13 +402,11 @@ Canopsis (le serveur central, un serveur distant ou un collecteur)
 2. Exécutez la commande suivante :
 
 ```shell
-curl -X POST -H 'content-length: 400' -H 'content-type: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port><canopsis_event_route>' -d '[{"hostgroups":["Group 1","Group 2"],"component":"Test-Canopsis","host_id":"8","event_type":"check","resource":"passif","output":"Passif_output","servicegroups":[],"connector":"centreon-stream","source_type":"resource","action_url":"","long_output":"Passif long output","notes_url":"","connector_name":"Central","timestamp":1710843117,"service_id":"10","state":1}]'
+curl -X POST -H 'content-length: 400' -H 'content-type: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port><canopsis_event_route>' -d '[{"hostgroups":[],"component":"Test-Canopsis","host_id":"8","event_type":"check","resource":"passif","output":"Test_passif_output","servicegroups":[],"connector":"centreon-stream","source_type":"resource","action_url":"","long_output":"Test-curl-command Passif long output","notes_url":"","connector_name":"Central","timestamp":1710843117,"service_id":"10","state":1}]'
 ```
 
 > Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par la valeur correcte. 
-> Par exemple, *<canopsis_port>* pourra être remplacé par *443* et *<canopsis_event_route>* 
-pourra être remplacé par la route par défaut "/api/v4/event". Ce qui donne pour l'hôte de
-démo canopsis : 
-> https://demo.canopsis.net:443/api/v4/event
-
+> Pour les autres, leurs valeurs par défaut définies dans le connector sont canopsis_port:443 et canopsis_event_route:/api/v4/event
 3. Vérifiez que l'évènement a bien été reçu par Canopsis.
+
+![image](../assets/integrations/data-analytics/status.png)
