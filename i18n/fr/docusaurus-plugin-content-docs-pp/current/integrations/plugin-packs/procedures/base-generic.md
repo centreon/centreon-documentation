@@ -21,7 +21,7 @@ Le connecteur de supervision **base-generic** apporte 4 modèles d'hôte :
 Le connecteur apporte les modèles de service suivants (classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="generic-active-host" label="generic-active-host">
+<TabItem value="generic-active-host-custom" label="generic-active-host-custom">
 
 | Alias  | Modèle de service                     | Description          |
 |:---------------|:------------------------------------|:-----------------------------|
