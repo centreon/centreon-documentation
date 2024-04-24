@@ -288,6 +288,98 @@ To learn more about custom event format and templating file, head over the follo
 
 This are the curl commands list used in the stream connector Canopsis:
 
+#### Request pbehavior-reasons route
+1. Log in to the server that you configured to send events to Canopsis (your central 
+server, a remote server or a poller).
+2. Run the following command:
+
+```shell
+curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port><canopsis_pbehavior-reasons>'
+```
+
+> Replace all the *`<xxxx>`* inside the above command with the correct value for authentification and Canopsis host. 
+> For others, their default values defined in the connector are canopsis_port:443 and canopsis_pbehavior-reasons:/api/v4/pbehavior-reasons
+
+3. Check if command returns a data structure of this form:
+```json
+   "data":[
+      {
+         "_id":"XXXX",
+         "name":"NAME",
+         "description":"DESCRIPTION"
+      }
+   ]
+```
+
+#### Request pbehavior-types route
+1. Log in to the server that you configured to send events to Canopsis (your central 
+server, a remote server or a poller).
+2. Run the following command:
+
+```shell
+curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port><canopsis_pbehavior-types>'
+```
+
+> Replace all the *`<xxxx>`* inside the above command with the correct value for authentification and Canopsis host. 
+> For others, their default values defined in the connector are canopsis_port:443 and canopsis_pbehavior-types:/api/v4/pbehavior-types
+
+3. Check if command returns a data structure of this form:
+```json
+"data":[
+      {
+         "_id":"ec35c069-1651-4ee1-8944-3e5574e7b516",
+         "name":"Default active",
+         "description":"Default active",
+         "type":"active",
+         "priority":2,
+         "icon_name":"",
+         "color":"#2FAB63"
+      },
+      {
+         "_id":"470c469c-77bc-402c-910f-30a8b2584343",
+         "name":"Default inactive",
+         "description":"Default inactive",
+         "type":"inactive",
+         "priority":1,
+         "icon_name":"brightness_3",
+         "color":"#979797"
+      },
+      {
+         "_id":"5ea9d2d8-0f16-4e19-bcca-64b1e96e00fa",
+         "name":"Default maintenance",
+         "description":"Default maintenance",
+         "type":"maintenance",
+         "priority":3,
+         "icon_name":"build",
+         "color":"#BF360C"
+      },
+      {
+         "_id":"1fb65097-ddaa-4e99-9239-8263095c156c",
+         "name":"Default pause",
+         "description":"Default pause",
+         "type":"pause",
+         "priority":4,
+         "icon_name":"pause",
+         "color":"#5A6D80"
+      }
+   ]
+```
+> With default values of the Canopsis connector, it creates downtimes in Default maintenance type.
+
+#### Request app-info route
+1. Log in to the server that you configured to send events to Canopsis (your central 
+server, a remote server or a poller).
+2. Run the following command:
+
+```shell
+curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port>/api/v4/app-info'
+```
+
+> Replace all the *`<xxxx>`* inside the above command with the correct value for authentification and Canopsis host. 
+> For canopsis port the default value defined in the connector is canopsis_port:443
+
+3. This command only allows access to the Canopsis version so no need to inspect all the returned content of it.
+
 ### Sending events
 
 If you want to test that events are sent to Canopsis correctly:
@@ -297,12 +389,31 @@ server, a remote server or a poller).
 2. Run the following command:
 
 ```shell
-curl -X POST -H 'content-length: 400' -H 'content-type: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port><canopsis_event_route>' -d '[{"hostgroups":["Group 1","Group 2"],"component":"Test-Canopsis","host_id":"8","event_type":"check","resource":"passif","output":"Passif_output","servicegroups":[],"connector":"centreon-stream","source_type":"resource","action_url":"","long_output":"Passif long output","notes_url":"","connector_name":"Central","timestamp":1710843117,"service_id":"10","state":1}]'
+curl -X POST -H 'content-length: 400' -H 'content-type: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port><canopsis_event_route>' -d '[{"hostgroups":[],"component":"Test-Canopsis","host_id":"8","event_type":"check","resource":"passif","output":"Test_passif_output","servicegroups":[],"connector":"centreon-stream","source_type":"resource","action_url":"","long_output":"Test-curl-command Passif long output","notes_url":"","connector_name":"Central","timestamp":1710843117,"service_id":"10","state":1}]'
 ```
 
-> Replace all the *`<xxxx>`* inside the above command with the correct value. 
-> For instance, *<canopsis_port>* may become *443* and *<canopsis_event_route>*  can be replace
-with the default route "/api/v4/event". For demo canopsis host here is the url result :
-> https://demo.canopsis.net:443/api/v4/event
+> Replace all the *`<xxxx>`* inside the above command with the correct value for authentification and Canopsis host. 
+> For others, their default values defined in the connector are canopsis_port:443 and canopsis_event_route:/api/v4/event
 
-3. Check that the event has been received by Canopsis .
+3. Check that the event has been received by Canopsis. Status arrived in page Canopsis Alarms > In progress
+
+![image](../../assets/integrations/data-analytics/status.png)
+
+### Sending downtimes
+
+If you want to test that downtimes are sent to Canopsis correctly:
+
+1. Log in to the server that you configured to send events to Canopsis (your central 
+server, a remote server or a poller).
+2. Run the following command:
+
+```shell
+curl -X POST -H 'content-length: 400' -H 'content-type: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port><canopsis_pbehaviors>' -d '{"tstart":1713959323,"enabled":true,"type":"5ea9d2d8-0f16-4e19-bcca-64b1e96e00fa","tstop":1713960043,"author":"admin","entity_pattern":[[{"field":"name","cond":{"value":"Test-Service-Demo-Canopsis/Test-Demo-Canopsis","type":"eq"}}]],"rrule":"","reason":"3010f2a3-f43c-421a-8c7c-e70522f0c862","name":"centreon-downtime-1-1713959345","_id":"centreon-downtime-1-1713959345"}'
+```
+
+> Replace all the *`<xxxx>`* inside the above command with the correct value for authentification and Canopsis host. 
+> For others, their default values defined in the connector are canopsis_port:443 and canopsis_pbehaviors:/api/v4/pbehaviors
+
+3. Check that the event has been received by Canopsis. Downtimes arrived in page Administration > Tags gestion
+
+ici je n'ai pas pu faire de capture d'écran... ?

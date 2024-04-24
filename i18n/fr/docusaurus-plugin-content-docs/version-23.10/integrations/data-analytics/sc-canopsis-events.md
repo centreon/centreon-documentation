@@ -339,7 +339,7 @@ curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth
 > Pour les autres, leurs valeurs par défaut définies dans le connector sont canopsis_port:443 et canopsis_pbehavior-types:/api/v4/pbehavior-types
 
 
-3. Vérifiez que la commande renvoie bien une structure data de cette forme:
+3. Vérifiez que la commande renvoie bien une structure data de cette forme :
 ```json
    "data":[
       {
@@ -380,7 +380,7 @@ curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth
       }
    ]
 ```
-> En laissant les valeurs par défaut du connector Canopsis, il classe dans le type Default maintenance .
+> En laissant les valeurs par défaut du connector Canopsis, il classe les downtimes dans le type Default maintenance.
 
 #### Requête de la route app-info
 1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à 
@@ -428,6 +428,7 @@ curl -X POST -H 'content-length: 400' -H 'content-type: application/json' -H 'x-
 
 > Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par les valeurs correctes de clé d'authentification et d'hôte Canopsis.
 > Pour les autres, leurs valeurs par défaut définies dans le connector sont canopsis_port:443 et canopsis_pbehaviors:/api/v4/pbehaviors
-3. Vérifiez que l'évènement a bien été reçu par Canopsis. Les status arrivent sur la page Canopsis Alarmes > En Cours
+> 
+3. Vérifiez que l'évènement a bien été reçu par Canopsis. Les status arrivent sur la page Administration > Gestion des Tags
 
 ici je n'ai pas pu faire de capture d'écran... ?
