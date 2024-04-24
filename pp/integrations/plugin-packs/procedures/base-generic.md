@@ -21,7 +21,7 @@ The Monitoring Connector **base-generic** brings 4 host templates:
 The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="generic-active-host" label="generic-active-host">
+<TabItem value="generic-active-host-custom" label="generic-active-host-custom">
 
 | Service Alias  | Service Template                    | Service Description          |
 |:---------------|:------------------------------------|:-----------------------------|
