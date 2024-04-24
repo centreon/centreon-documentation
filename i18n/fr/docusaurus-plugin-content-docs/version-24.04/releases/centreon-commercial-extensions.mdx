@@ -21,6 +21,43 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+### 24.04.0
+
+Release date: `April 30, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Editor] Removed non available features for "Links".
+- [Editor] Removed the possibility to edit link color for status link and metric link.
+- [Editor] Handled meta services in output widget.
+- [Homepage] The loading page has been improved.
+- [Viewer] You can now perform delete and duplicate actions from the viewer.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Editor] Removed useless fill parameters.
+- [Editor] Fixed issue where deleted resources were displayed.
+- [Engine] Updated dependency.
+- [Install] Fixed an issue where MAP failed to start when Anomaly Detection and BAM were also installed.
+- [Install] Fixed MYSQL 8 failure at centreon-map-engine startup.
+- [Viewer] Added "acknowledged" and "in downtime" icons on the list of host services.
+- [Viewer] Inverted IN and OUT metric values, for more clarity.
+- [Viewer] Fixed widgets values and resources statuses updates when compression is activated.
+- [Viewer] Fixed widget values and resource status updates when compression is activated.
+
+</details>
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Security] Updated dependencies.
+
+</details>
+
 ### 23.10.0
 
 Release date: `October 30, 2023`
@@ -51,6 +88,24 @@ Release date: `October 30, 2023`
 
 ## Centreon BAM
 
+### 24.04.0
+
+Release date: `April 30, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added an endpoint to GET Business Activities.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an issue where it was possible to create an infinite loop when defining BA KPIs.
+
+</details>
+
 ### 23.10.0
 
 Release date: `October 30, 2023`
@@ -70,6 +125,17 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon MBI
+
+### 24.04.0
+
+Release date: `April 30, 2024`
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Security] Dependency upgrade.
+
+</details>
 
 ### 23.10.0
 
@@ -123,6 +189,18 @@ Release date: `October 30, 2023`
 
 ## Centreon Anomaly Detection
 
+### 24.04.0
+
+Release date: `April 30, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added an endpoint to UPDATE Cloud Token.
+- [API] Added an endpoint to GET Business Activities.
+
+</details>
+
 ### 23.10.0
 
 Release date: `October 30, 2023`
@@ -131,6 +209,33 @@ Release date: `October 30, 2023`
   <summary>Compatibility</summary>
 
 - Compatibility with other 23.10 components.
+
+</details>
+
+## Centeon IT Edition Extensions
+
+### 24.04.0
+
+Release date: `April 30, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added new endpoint to list shares of playlists of dashboards.
+- [API] Added new endpoint to share playlists of dashboards.
+- [API] Added new endpoint to create a Playlist of dashboards.
+- [API] Added new endpoint to list Playlists of dashboards.
+- [CEIP] Added usage statistics for Playlists.
+- [Dashboards] Added a modal when deleting widgets, dashboards or playlists.
+- [IT edition extensions] Added EPP license control mechanism.
+- [Playlist]: Add an endpoint to revoke share of a contactgroup on a playlist.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Dashboards] Allowed null values on dashboards and playlists.
 
 </details>
 
