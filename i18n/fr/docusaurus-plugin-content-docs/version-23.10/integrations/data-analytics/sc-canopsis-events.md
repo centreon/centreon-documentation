@@ -412,7 +412,7 @@ curl -X POST -H 'content-length: 400' -H 'content-type: application/json' -H 'x-
 > Pour les autres, leurs valeurs par défaut définies dans le connector sont canopsis_port:443 et canopsis_event_route:/api/v4/event
 3. Vérifiez que l'évènement a bien été reçu par Canopsis. Les status arrivent sur la page Canopsis Alarmes > En Cours
 
-![image](../assets/integrations/data-analytics/status.png)
+![image](../../../assets/integrations/data-analytics/status.png)
 
 ### Envoyer des downtimes
 
