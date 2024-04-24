@@ -5,7 +5,7 @@ title: Base Pack
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Le pack Base-Generic sert de fondement à tous les autres plugins, mettant en œuvre des fonctionnalités essentielles telles que le ping, à la fois de manière active et passive, et largement utilisées dans l'ensemble des autres packs.
+Le pack Base-Generic est utilisé par tous les autres. Il fournit des modèles d'hôtes et de services actifs et passifs ainsi que le service Ping.
 
 ## Contenu du pack
 
