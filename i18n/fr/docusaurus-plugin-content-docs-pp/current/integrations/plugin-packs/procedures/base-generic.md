@@ -48,7 +48,7 @@ Ce modèle d'hôte n'est associé à aucun modèle de service.
 | Alias         | Modèle de service                           | Description                          |
 |:----------------------|:------------------------------------------|:---------------------------------------------|
 | generic-active-service | generic-active-service | Check service availability and status proactively |
-| generic-passive-service     | generic-active-service     | Check service status reactively based on received data|
+| generic-passive-service     | generic-passive-service     | Check service status reactively based on received data|
 
 </TabItem>
 </Tabs>
