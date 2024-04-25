@@ -70,17 +70,9 @@ You will need to configure your Canopsis host to receive data from Centreon. Ref
 * [rights administration](https://doc.canopsis.net/guide-utilisation/menu-administration/droits/) 
 * [planification administration] (https://doc.canopsis.net/guide-utilisation/menu-administration/planification/) (in case of downtimes). 
 in case of downtimes). 
-For the associated user at the "authKey" you must modify the "Mandatory" rights matrix:
-
-> For the 3 sections :
-> 
-> droits API > PBehavior > PBehaviors
-> 
-> droits API > PBehavior > PBehaviors Reason
-> 
-> droits API > PBehavior > PBehaviors Types
-> 
-> “create”, “read”, “delete” must be checked
+For the user associated to the **Authentication key** you must modify the rights matrix on the Canopsis **Administration > Rights** page, **API** tab, **PBehavior** section.
+Select **create**, **read** and **delete** in the following subsections:
+**PBehaviors**, **Behaviors Reason** and **PBehaviors Types**.
 
 Make sure Canopsis is able to receive data sent by Centreon: flows must not be blocked 
 by Canopsis's configuration or by a security equipment.
@@ -128,7 +120,6 @@ Centreon to send to Canopsis](#filtering-or-adapting-the-data-you-want-to-send-t
 
    Canopsis should now receive data from Centreon.
 
-<div id='filtering-or-adapting-the-data-you-want-to-send-to-canopsis'/>
 
 ### Filtering or adapting the data you want to send to Canopsis
 
@@ -187,8 +178,7 @@ configuration.
 | ------ | --------------- |---------------|
 | number | max_buffer_size | `3`           |
 
-In this value example, the stream connector Canopsis keeps 3 events and start sending
-at the fourth.
+In the example above, the Canopsis stream connector waits until there are 4 events to send them all.
 
 ## Event format
 
@@ -293,8 +283,7 @@ Here is the list of curl commands used by the Canopsis stream connector:
 
 #### Request pbehavior-reasons route
 
-This command verifies that the behavior-reasons route is accessible and the centreon downtime 
-reason name exists (default value of this name is "Centreon_downtime").
+This command checks that the **pbehavior-reasons** route is accessible and returns the values for the **Reason** field for the downtimes. This allows you to check that the name of the **Reason** field for Centreon downtimes exists (the default value is **Centreon_downtime**).
 
 1. Log in to the server that you configured to send events to Canopsis (your central 
 server, a remote server or a poller).
@@ -319,8 +308,7 @@ curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <xxxx>' 'https
 
 #### Request pbehavior-types route
 
-This command checks if the pbehavior-types route is accessible and returns the id for the Canopsis 
-connector downtime type name (default value of this name is "Default maintenance").
+This command checks that the **pbehavior-types** route is accessible and returns the possible IDs for the **Types** of downtimes. This allows you to check that the name of the **Type** field for Centreon downtimes exists (the default value is **Default maintenance**).
 
 1. Log in to the server that you configured to send events to Canopsis (your central 
 server, a remote server or a poller).
@@ -377,7 +365,7 @@ curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <xxxx>' 'https
 
 #### Request app-info route
 
-This command verifies that the app-info route is accessible and returns the Canopsis host information.
+This command verifies that the **app-info** route is accessible and returns the Canopsis host information.
 
 1. Log in to the server that you configured to send events to Canopsis (your central 
 server, a remote server or a poller).

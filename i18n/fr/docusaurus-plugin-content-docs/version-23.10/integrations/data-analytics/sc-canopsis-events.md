@@ -71,19 +71,10 @@ de la part de Centreon. Reportez-vous au [guide d'utilisation Canopsis](https://
 [administration des droits](https://doc.canopsis.net/guide-utilisation/menu-administration/droits/) et celle d'
 [administration de la planification](https://doc.canopsis.net/guide-utilisation/menu-administration/planification/) 
 dans le cas des downtimes). 
-Pour l'utilisateur associé à la "authKey" il faut modifier la matrice de droits "Mandatory" :
+Pour l'utilisateur associé à la clé d'authentification, il faut modifier la matrice de droits à la page **Administration > Droits**, onglet **API**, section **Comportements périodiques** de Canopsis.
 
-> Pour les trois sections :
-> 
-> droits API > PBehavior > PBehaviors
-> 
-> droits API > PBehavior > PBehaviors Reason
-> 
-> droits API > PBehavior > PBehaviors Types
->
-> “create”, “read”, “delete” doivent être cochés
->
-
+Cochez les cases **create**, **read** et **delete** pour les sous-sections suivantes :
+**Comportements périodiques**, **Comportements périodiques : Raisons** et **Comportements périodiques : Types**.
 Assurez-vous que Canopsis puisse recevoir les données envoyées par Centreon : les flux 
 ne doivent pas être bloqués par la configuration de Canopsis ou par un équipement de sécurité.
 
@@ -192,10 +183,8 @@ de votre stream connector.
 | ------ |-----------------|-------------------|
 | number | max_buffer_size | `3`               |
 
-Dans cet exemple de valeur, le stream connector Canopsis conservera 3 événements et ne 
-déclenchera l'envoie qu'au 4ème. 
+Dans l'exemple ci-dessus, le stream connector Canopsis attendra d'avoir 4 évènements pour les envoyer. 
 
-<div id='event-format'/>
 
 ## Format des évènements
 
@@ -304,8 +293,7 @@ Si vous voulez tester que les commandes de configuration sont envoyées correcte
 
 #### Requête de la route pbehavior-reasons
 
-Cette commande vérifie que la route behavior-reasons est accessible et que le nom "reason" 
-des plages de maintenance Centreon existe (par défaut ce nom est "Centreon_downtime").
+Cette commande vérifie que la route **pbehavior-reasons** est accessible et renvoie notamment les valeurs du champ **Raison** des plages de maintenance. Cela permet par la suite de vérifier que le nom du champ **Raison** pour les plages de maintenance Centreon existe (par défaut ce nom est **Centreon_downtime**).
 
 1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à 
 Canopsis (le serveur central, un serveur distant ou un collecteur)
@@ -331,8 +319,8 @@ curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <xxxx>' 'https
 
 #### Requête de la route pbehavior-types
 
-Cette commande vérifie que la route pbehavior-types est accessible et renvoie l'id pour le nom 
-du type de plages de maintenance Centreon (désigné par défaut ce nom est "Default maintenance").
+Cette commande vérifie que la route **pbehavior-types** est accessible et renvoie notamment l'ID des Types des plages de maintenance possibles. Cela permet par la suite de vérifier que le nom 
+du **Type** des plages de maintenance Centreon existe (par défaut ce nom est **Default maintenance**).
 
 1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à 
 Canopsis (le serveur central, un serveur distant ou un collecteur)
@@ -404,7 +392,7 @@ curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth
 > Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par les valeurs correctes d'authentification à l'hôte Canopsis.
 > Pour le port, la valeur par défaut définie dans le stream connector est canopsis_port:443.
 
-3. Cette commande permet seulement d'accéder à la version Canopsis donc pas besoin d'inspecter tout le contenu de retour de celle-ci
+Cette commande permet entre autres d'accéder à la version de Canopsis.
 
 ### Envoyer des évènements
 
