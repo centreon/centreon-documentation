@@ -293,16 +293,18 @@ Here is the list of curl commands used by the Canopsis stream connector:
 
 #### Request pbehavior-reasons route
 
+This command verifies that the behavior-reasons route is accessible and the centreon downtime 
+reason name exists.
+
 1. Log in to the server that you configured to send events to Canopsis (your central 
 server, a remote server or a poller).
-2. Run the following command:
+2. Run the following command (replace with you own values):
 
 ```shell
-curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port><canopsis_pbehavior-reasons>'
+curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <xxxx>' 'https://demo.canopsis.net:443/api/v4/pbehavior-reasons'
 ```
 
-> Replace all the *`<xxxx>`* inside the above command with the correct values for authentication to the Canopsis host. 
-> For others, their default values defined in the connector are canopsis_port:443 and canopsis_pbehavior-reasons:/api/v4/pbehavior-reasons
+> Replace the *`<xxxx>`* inside the above command with the correct values for authentication to the Canopsis host.
 
 3. Check if the command returns a data structure of this form:
 ```json
@@ -317,16 +319,17 @@ curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth
 
 #### Request pbehavior-types route
 
+This command checks if the pbehavior-types route is accessible and returns the id for the Canopsis connector downtime type name
+
 1. Log in to the server that you configured to send events to Canopsis (your central 
 server, a remote server or a poller).
 2. Run the following command:
 
 ```shell
-curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port><canopsis_pbehavior-types>'
+curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <xxxx>' 'https://demo.canopsis.net:443/api/v4/pbehavior-types'
 ```
 
-> Replace all the *`<xxxx>`* inside the above command with the correct values for authentication to the Canopsis host. 
-> For others, their default values defined in the connector are canopsis_port:443 and canopsis_pbehavior-types:/api/v4/pbehavior-types
+> Replace the *`<xxxx>`* inside the above command with the correct values for authentication to the Canopsis host.
 
 3. Check if the command returns a data structure of this form:
 ```json
@@ -372,6 +375,9 @@ curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth
 > With the default values of the Canopsis connector, downtimes have the "Default maintenance" type.
 
 #### Request app-info route
+
+This command verifies that the app-info route is accessible and returns the Canopsis host information.
+
 1. Log in to the server that you configured to send events to Canopsis (your central 
 server, a remote server or a poller).
 2. Run the following command:
@@ -384,6 +390,7 @@ curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth
 > For canopsis_port, the default value defined in the connector is canopsis_port:443.
 
 3. This command only allows access to the Canopsis version so no need to inspect all the returned content of it.
+4. This command is only use to returns the version of Canopsis even if contains a lot of things.
 
 ### Sending events
 
@@ -420,5 +427,3 @@ curl -X POST -H 'content-length: 400' -H 'content-type: application/json' -H 'x-
 > Default values defined in the connector are canopsis_port:443 and canopsis_pbehaviors:/api/v4/pbehaviors.
 
 3. Check that the event has been received by Canopsis: the downtimes should appear in the **Administration > Tags gestion** page of Canopsis.
-
-ici je n'ai pas pu faire de capture d'écran... ?
