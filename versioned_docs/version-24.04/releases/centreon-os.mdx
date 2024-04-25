@@ -7,17 +7,16 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 
 ## Introduction
 
-In this chapter, you can find all the changelogs concerning **Centreon Open Source**.
+Vous trouverez dans ce chapitre tout ce qui concerne **Centreon Open Source**.
 
-> It is very important when you update your system to refer to this section in order to learn about behavior changes or
-> major changes that have been made on this version. This will inform you about the impact of installing these
-> versions on the features you use or the specific developments that you have built on your platform (modules,
-> widgets, plugins).
+> Il est important de mettre à jour en utilisant la documentation adéquate de mise à jour et de lire attentivement les
+> notes de mise à jour afin d'être au courant des changements qui pourraient impacter votre usage ou votre plateforme
+> ou des développements spécifiques que vous auriez fait.
 
-If you have feature requests or want to report a bug, please go to our
-[Github](https://github.com/centreon/centreon/issues/new/choose).
+Pour faire des demandes d'évolutions ou signaler des bugs sur les extensions commerciales, vous pouvez vous rendre sur
+notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
-> Read more about version 23.10 in our [blog post](https://www.centreon.com/centreon-23-10-discover-the-latest-release/).
+> Retrouvez plus de détails sur la version 23.10 dans notre [post de blog](https://www.centreon.com/fr/centreon-23-10-decouvrez-les-dernieres-nouveautes/).
 
 <ExpandCollapseAll />
 
@@ -115,6 +114,19 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon Collect
+
+### 24.04.0
+
+Release date: `April 30, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed some incorrect statuses in Broker's statistics retrieved by the `broker-stats.json` file.
+- [Packaging] Added symbolic link from /usr/lib64/nagios/plugins to /usr/lib/nagios/plugins.
+- Semicolons are no longer considered as the beginning of a comment in Engine's configuration files. This is because comments were not useful in these files, and they prevented the use of semicolons in macros (e.g., passwords).
+
+</details>
 
 ### 23.10.0
 
