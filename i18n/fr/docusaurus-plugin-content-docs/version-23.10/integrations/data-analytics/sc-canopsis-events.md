@@ -33,9 +33,9 @@ Ce stream connector est conçu pour être compatible avec l'API v.4 de Canopsis,
 Faites l'installation sur le serveur qui enverra les données à Canopsis (serveur central, 
 serveur distant, collecteur).
 
-1. Connectez vous en tant que `root` sur le serveur Centreon central en utilisant votre 
+1. Connectez-vous en tant que `root` sur le serveur Centreon central en utilisant votre 
 client SSH préféré. 
-2. Exécuter la commande adaptée à votre système :
+2. Exécutez la commande adaptée à votre système :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -70,9 +70,8 @@ de la part de Centreon. Reportez-vous au [guide d'utilisation Canopsis](https://
 , notamment vérifiez que les droits de création, lecture et suppression sont activés (voir la documentation d'
 [administration des droits](https://doc.canopsis.net/guide-utilisation/menu-administration/droits/) et celle d'
 [administration de la planification](https://doc.canopsis.net/guide-utilisation/menu-administration/planification/) 
-dans le cas des downtimes). 
+dans le cas des plages de maintenance). 
 Pour l'utilisateur associé à la clé d'authentification, il faut modifier la matrice de droits à la page **Administration > Droits**, onglet **API**, section **Comportements périodiques** de Canopsis.
-
 Cochez les cases **create**, **read** et **delete** pour les sous-sections suivantes :
 **Comportements périodiques**, **Comportements périodiques : Raisons** et **Comportements périodiques : Types**.
 Assurez-vous que Canopsis puisse recevoir les données envoyées par Centreon : les flux 
@@ -146,7 +145,7 @@ nommé "Europe", entrez :
 * Pour le stream connector Canopsis Events, les données suivantes remplacent toujours les 
 valeurs par défaut. Il n'est donc pas nécessaire de les redéfinir 
 dans l'interface sauf si vous voulez en changer les valeurs (par exemple ajouter les 
-plages de maintenance à la variable accepted_elements).
+plages de maintenance à la variable **accepted_elements**).
 
 
 | Type   | Nom                              | Valeur par défaut pour le stream connector Canopsis |
@@ -285,11 +284,11 @@ consulter la **[documentation dédiée](https://github.com/centreon/centreon-str
 
 ## Commandes Curl : tester le stream connector
 
-Voici la liste des commandes curl qui sont utilisées par le stream connector Canopsis :
+Voici la liste des commandes curl qui sont utilisées par le stream connector Canopsis.
 
 ### Configuration du stream connector
 
-Si vous voulez tester que les commandes de configuration sont envoyées correctement à Canopsis :
+Si vous voulez tester que les commandes de configuration sont envoyées correctement à Canopsis, utilisez les commandes curl suivantes.
 
 #### Requête de la route pbehavior-reasons
 
@@ -297,13 +296,13 @@ Cette commande vérifie que la route **pbehavior-reasons** est accessible et ren
 
 1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à 
 Canopsis (le serveur central, un serveur distant ou un collecteur)
-2. Exécutez la commande suivante (remplacez avec vos propres valeurs) :
+2. Exécutez la commande suivante :
 
 ```shell
 curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <xxxx>' 'https://demo.canopsis.net:443/api/v4/pbehavior-reasons'
 ```
 
-> Remplacez les *`<xxxx>`* dans la commande ci-dessus par la valeurs correctes d'authentification à l'hôte Canopsis.
+> Remplacez les *`<xxxx>`* dans la commande ci-dessus par les valeurs correctes d'authentification à l'hôte Canopsis.
 
 3. Vérifiez que la commande renvoie bien une structure de données de la forme suivante :
 
@@ -330,7 +329,7 @@ Canopsis (le serveur central, un serveur distant ou un collecteur)
 curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <xxxx>' 'https://demo.canopsis.net:443/api/v4/pbehavior-types'
 ```
 
-> Remplacez les *`<xxxx>`* dans la commande ci-dessus par la valeurs correctes d'authentification à l'hôte Canopsis.
+> Remplacez les *`<xxxx>`* dans la commande ci-dessus par les valeurs correctes d'authentification à l'hôte Canopsis.
 
 3. Vérifiez que la commande renvoie bien une structure de données de la forme suivante :
 
@@ -374,12 +373,12 @@ curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <xxxx>' 'https
       }
    ]
 ```
-> En laissant les valeurs par défaut du stream connector Canopsis, les plages de maintenance sont classées dans le type "Default maintenance".
+> En laissant les valeurs par défaut du stream connector Canopsis, les plages de maintenance sont classées dans le type **Default maintenance**.
 
 #### Requête de la route app-info
 
-Cette commande vérifie que la route app-info est accessible et retourne les informations
-de l'hôte Canopsis.
+Cette commande vérifie que la route app-info est accessible et retourne des informations
+concernant l'hôte Canopsis.
 
 1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à 
 Canopsis (le serveur central, un serveur distant ou un collecteur)
@@ -426,5 +425,4 @@ curl -X POST -H 'content-length: 400' -H 'content-type: application/json' -H 'x-
 
 > Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par les valeurs correctes d'authentification à l'hôte Canopsis.
 > Les valeurs par défaut définies dans le stream connector sont les suivantes : canopsis_port:443 et canopsis_pbehaviors:/api/v4/pbehaviors.
-> 
 3. Vérifiez que l'évènement a bien été reçu par Canopsis : les statuts doivent arriver à la page **Administration > Gestion des Tags** de Canopsis.

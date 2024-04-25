@@ -98,14 +98,14 @@ another one.
 
 | Type   | Name             | Value explanation                     | Value exemple |
 | ------ |------------------|---------------------------------------|--------------|
-| string | canopsis_authkey | The Canopsis API authentication key | `an_authkey` |
+| string | canopsis_authkey | Canopsis API authentication key | `an_authkey` |
 | string | canopsis_host    | Canopsis host address                 | `a host`     |
 
 6. Fill in any optional parameters you want (using the **+Add a new entry** link):
 
 | Type   | Name              | Value explanation                          | default value                                      |
 | ------ | ----------------- |--------------------------------------------|----------------------------------------------------|
-| string | logfile           | The file in which logs are written         | /var/log/centreon-broker/canopsis-events-apiv2.log |
+| string | logfile           | File in which logs are written         | /var/log/centreon-broker/canopsis-events-apiv2.log |
 | number | log_level         | Logging level from 1 (errors) to 3 (debug) | 1                                                  |
 
 7. Use the stream connector's optional parameters to [filter or adapt the data you want 
@@ -278,7 +278,9 @@ To learn more about custom event formats and templating files, read
 
 ## Curl commands: testing the stream connector
 
-Here is the list of curl commands used by the Canopsis stream connector:
+### Configuration of the stream connector
+
+If you want to test that the configuration commands are sent to Canopsis correctly, use the following curl commands.
 
 #### Request pbehavior-reasons route
 
@@ -364,7 +366,7 @@ curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <xxxx>' 'https
 
 #### Request app-info route
 
-This command verifies that the **app-info** route is accessible and returns the Canopsis host information.
+This command checks that the **app-info** route is accessible and returns information about the Canopsis host.
 
 1. Log in to the server that you configured to send events to Canopsis (your central 
 server, a remote server or a poller).
