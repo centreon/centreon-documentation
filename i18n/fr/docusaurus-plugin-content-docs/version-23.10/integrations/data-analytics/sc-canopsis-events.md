@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Le stream connector Canopsis Events vous permet d'envoyer des données d'évènements 
-depuis Centreon vers Canopsis via un protocole HTTP REST API.
+depuis Centreon vers Canopsis via leur API REST HTTP.
 
 ## Avant de commencer
 
