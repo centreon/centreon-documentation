@@ -7,21 +7,116 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 
 ## Introduction
 
-In this chapter, you can find all the changelogs concerning **Centreon Open Source**.
+Vous trouverez dans ce chapitre tout ce qui concerne **Centreon Open Source**.
 
-> It is very important when you update your system to refer to this section in order to learn about behavior changes or
-> major changes that have been made on this version. This will inform you about the impact of installing these
-> versions on the features you use or the specific developments that you have built on your platform (modules,
-> widgets, plugins).
+> Il est important de mettre à jour en utilisant la documentation adéquate de mise à jour et de lire attentivement les
+> notes de mise à jour afin d'être au courant des changements qui pourraient impacter votre usage ou votre plateforme
+> ou des développements spécifiques que vous auriez fait.
 
-If you have feature requests or want to report a bug, please go to our
-[Github](https://github.com/centreon/centreon/issues/new/choose).
+Pour faire des demandes d'évolutions ou signaler des bugs sur les extensions commerciales, vous pouvez vous rendre sur
+notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
-> Read more about version 23.10 in our [blog post](https://www.centreon.com/centreon-23-10-discover-the-latest-release/).
+> Retrouvez plus de détails sur la version 23.10 dans notre [post de blog](https://www.centreon.com/fr/centreon-23-10-decouvrez-les-dernieres-nouveautes/).
 
 <ExpandCollapseAll />
 
 ## Centreon Web
+
+### 24.04.0
+
+Release date: `April 30, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Added full screen mode.
+- Added possibility to configure monitoring scheduling options and to select icon for hosts.
+- Added possibility to configure monitoring scheduling options and to select icon for host templates.
+- Added possibility to configure monitoring scheduling options and to select icon for services.
+- Added possibility to configure monitoring scheduling options and to select icon for service templates.
+- [API] Added an administration endpoint to upload medias.
+- [API] Added an endpoint to update a service severity.
+- [API] Added an endpoint to create Broker outputs.
+- [API] Added an endpoint to List all installed connectors.
+- [API] Added an endpoint to list Graph Templates.
+- [API] Added an endpoint to DELETE Business activities.
+- [API] Added an endpoint to PATCH a service.
+- [API] Added an endpoint to update partially Host.
+- [API] Added an endpoint to LIST Medias.
+- [API] Added an endpoint to GET Business Activities.
+- [API] Added an endpoint to PATCH (partial update) openid provider.
+- [API] Added an endpoint to handle fileformat associated to Stream Connector.
+- [API] Added new endpoint to list all metrics of a given service.
+- [API] Added new endpoint to create a Playlist of dashboards.
+- [API] Added new endpoint to share playlist of dashboards to contact/contactgroup.
+- [API] Added new endpoint to delete playlist of dashboards.
+- [API] Added new endpoint to list playlist shares.
+- [API] Added new endpoint to duplicate dashboard.
+- [API] Added metrics by service listing endpoint to service resource type.
+- [API] Added Resource UUID in endpoints.
+- [API] Update endpoint to handle Status Grid "condensed" view.
+- [Cloud migration] Added a script to migrate commands.
+- [Cloud migration] Added a script to migrate medias.
+- [Cloud migration] Added BA in MAP script.
+- [Configuration] Allow administrator and editor roles to configure custom check commands.
+- [Configuration] Updated host configuration form to link host to at least one hostgroup.
+- [Dataset] Fixed an issue that allowed to select a resource type more than once.
+- [Dashboards] Added a modal when deleting widgets, dashboards or playlists.
+- [Dashboards] Added duplicate feature.
+- [Dashboards] Added new "Status Chart" widget.
+- [Dashboards] Added new "Group Monitoring" widget.
+- [Dashboards] Added new way to display dashboards, as a list.
+- [Dashboards] Added pagination.
+- [Dashboards] Added search functionality.
+- [Dashboards] Optimized widget rendering.
+- [Dashboards] Retrieve only contactgroups with Dashboard ACLs.
+- [Dashboards - API] Retrieved only users with dashboard ACLs in contact listing.
+- [Dashboards - UX/UI]  BREAKING CHANGE - Simplified metric selection by displaying corresponding service names.
+- [Edition] Added a warning modal preventing user from quitting his dashboard without saving it first.
+- [Graph] Optimized legend.
+- [Graph] Thickened curves.
+- [Log] Add possibility to enable/disable application logs through UI.
+- [Map widget] Added information message when editing.
+- [Metrics Graph Widget] Added a warning message indicating that thresholds have been hidden when selecting two different metric units
+- [Metrics Graph widget] Added information tooltip when hovering an element on the graph.
+- [Server] URL patterns have been modified.
+- [Single Metric widget] Simplified metric selection.
+- [Single Metric widget] Simplified dataset selection by forcing a host + service pair.
+- [Status Grid widget] Added "unhandled" state property.
+- [Status Grid widget] Added new "condensed" view.
+- [UI] Added pictograms to represent each widget type.
+- [UI] Moved the parameter used for hiding widget's description.
+- [UI] Updated dashboard global refresh icon.
+- [UX] Added links to Resources Status page on widgets.
+- [UX] Displayed warning message when dashboard modifications have not been saved yet.
+- [UX] Made the widget edition more accessible.
+- [UX] Made the dashboards library view as list the default one.
+- [UX] Reorganized rich text options for widget description.
+- [UX] Removed "Beta" mention in menus.
+- [Widgets] Added new widget "Status Grid".
+- [Widgets] Added new widget "Resource Table".
+- [Widgets] Added warning message when no resource is matching the filters selected.
+- [Widgets] Simplified resource selection.
+- [Widget edit] Renamed "add resource" button to "refine filter".
+- [Widget edit] Made the dataset selection header sticky.
+- [Widget edit] Optimized responsiveness.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API]: Don't get metrics of deleted resources.
+- [API] Correctly check write permissions on dashboards write operations endpoints (PUT PATCH DELETE POST).
+- [Dashboards] Allow null values on dashboards and playlists.
+- Fixed an issue in Status Grid where filtering on a specific host did not work.
+- Fixed chmod warning on configuration export.
+- [Install] Create www/install/tmp directory on install.
+- In case of some notification configuration that took too long, the notification lua script did not get all its content. Then it was unable to send notifications.
+- [Metrics Graph widget] Fixed a display issue when selecting more than two metrics.
+- Prevent cancelled API calls.
+
+</details>
 
 ### 23.10.0
 
@@ -157,6 +252,25 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon Gorgone
+
+### 24.04.0
+
+Release date: `April 30, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Moved gorgone whitelists to a dedicated file.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a bug on service auto discovery where only half of the host will be correctly discovered.
+- Prioritized gorgone action config module configuration to handle properly whitelist.
+
+</details>
 
 ### 23.10.0
 
