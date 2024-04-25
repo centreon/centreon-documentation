@@ -45,7 +45,7 @@ This host template is not linked to any service template.
 | Service Alias         | Service Template                           | Service Description                          |
 |:----------------------|:------------------------------------------|:---------------------------------------------|
 | generic-active-service | generic-active-service | Check service availability and status proactively |
-| generic-passive-service     | generic-active-service     | Check service status reactively based on received data|
+| generic-passive-service     | generic-passive-service     | Check service status reactively based on received data|
 
 </TabItem>
 </Tabs>
@@ -79,7 +79,7 @@ This Monitoring Connector has no specific prerequisites except the Nagios ICMP p
 <TabItem value="generic-dummy-host" label="generic-dummy-host">
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
-2. Apply the **generic-passive-host** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+2. Apply the **generic-dummy-host** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 
 | Macro               | Description                      |
 |:------------------|:---------------------------------|
