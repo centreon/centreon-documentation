@@ -64,7 +64,7 @@ apt install centreon-stream-connector-canopsis
 
 ## Configuring Canopsis
 
-You will need to configure your Canopsis server to receive data from Centreon. Refer to the 
+You will need to configure your Canopsis host to receive data from Centreon. Refer to the 
 [Canopsis user guide](https://doc.canopsis.net/guide-utilisation/menu-administration/droits/)
 , in particular check if creation, reading and deletion rights are activated. See the following documentations: 
 * [rights administration](https://doc.canopsis.net/guide-utilisation/menu-administration/droits/) 
@@ -294,7 +294,7 @@ Here is the list of curl commands used by the Canopsis stream connector:
 #### Request pbehavior-reasons route
 
 This command verifies that the behavior-reasons route is accessible and the centreon downtime 
-reason name exists.
+reason name exists (default value of this name is "Centreon_downtime").
 
 1. Log in to the server that you configured to send events to Canopsis (your central 
 server, a remote server or a poller).
@@ -319,7 +319,8 @@ curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <xxxx>' 'https
 
 #### Request pbehavior-types route
 
-This command checks if the pbehavior-types route is accessible and returns the id for the Canopsis connector downtime type name
+This command checks if the pbehavior-types route is accessible and returns the id for the Canopsis 
+connector downtime type name (default value of this name is "Default maintenance").
 
 1. Log in to the server that you configured to send events to Canopsis (your central 
 server, a remote server or a poller).
@@ -390,7 +391,6 @@ curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth
 > For canopsis_port, the default value defined in the connector is canopsis_port:443.
 
 3. This command only allows access to the Canopsis version so no need to inspect all the returned content of it.
-4. This command is only use to returns the version of Canopsis even if contains a lot of things.
 
 ### Sending events
 

@@ -304,16 +304,18 @@ Si vous voulez tester que les commandes de configuration sont envoyées correcte
 
 #### Requête de la route pbehavior-reasons
 
+Cette commande vérifie que la route behavior-reasons est accessible et que le nom "reason" 
+des plages de maintenance Centreon existe (par défaut ce nom est "Centreon_downtime").
+
 1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à 
 Canopsis (le serveur central, un serveur distant ou un collecteur)
-2. Exécutez la commande suivante :
+2. Exécutez la commande suivante (remplacez avec vos propres valeurs) :
 
 ```shell
-curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port><canopsis_pbehavior-reasons>'
+curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <xxxx>' 'https://demo.canopsis.net:443/api/v4/pbehavior-reasons'
 ```
 
-> Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par les valeurs correctes d'authentification à l'hôte Canopsis.
-> Certaines valeurs sont définies par défaut dans le stream connector : canopsis_port:443 et canopsis_pbehavior-reasons:/api/v4/pbehavior-reasons.
+> Remplacez les *`<xxxx>`* dans la commande ci-dessus par la valeurs correctes d'authentification à l'hôte Canopsis.
 
 3. Vérifiez que la commande renvoie bien une structure de données de la forme suivante :
 
@@ -329,17 +331,18 @@ curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth
 
 #### Requête de la route pbehavior-types
 
+Cette commande vérifie que la route pbehavior-types est accessible et renvoie l'id pour le nom 
+du type de plages de maintenance Centreon (désigné par défaut ce nom est "Default maintenance").
+
 1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à 
 Canopsis (le serveur central, un serveur distant ou un collecteur)
 2. Exécutez la commande suivante :
 
 ```shell
-curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port><canopsis_pbehavior-types>'
+curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <xxxx>' 'https://demo.canopsis.net:443/api/v4/pbehavior-types'
 ```
 
-> Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par les valeurs correctes d'authentification à l'hôte Canopsis.
-> Certaines valeurs sont définies par défaut dans le stream connector : canopsis_port:443 et canopsis_pbehavior-types:/api/v4/pbehavior-types.
-
+> Remplacez les *`<xxxx>`* dans la commande ci-dessus par la valeurs correctes d'authentification à l'hôte Canopsis.
 
 3. Vérifiez que la commande renvoie bien une structure de données de la forme suivante :
 
@@ -386,6 +389,9 @@ curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth
 > En laissant les valeurs par défaut du stream connector Canopsis, les plages de maintenance sont classées dans le type "Default maintenance".
 
 #### Requête de la route app-info
+
+Cette commande vérifie que la route app-info est accessible et retourne les informations
+de l'hôte Canopsis.
 
 1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à 
 Canopsis (le serveur central, un serveur distant ou un collecteur)
