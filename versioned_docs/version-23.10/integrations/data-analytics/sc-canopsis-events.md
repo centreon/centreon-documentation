@@ -291,10 +291,12 @@ server, a remote server or a poller).
 2. Run the following command (replace with you own values):
 
 ```shell
-curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <xxxx>' 'https://demo.canopsis.net:443/api/v4/pbehavior-reasons'
+curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port><canopsis_pbehavior_reasons>'
 ```
 
 > Replace the *`<xxxx>`* inside the above command with the correct values for authentication to the Canopsis host.
+> Default values defined in the connector are canopsis_port:443 and canopsis_pbehavior_reasons:/api/v4/pbehavior-reasons.
+
 
 3. Check if the command returns a data structure of this form:
 ```json
@@ -316,10 +318,11 @@ server, a remote server or a poller).
 2. Run the following command:
 
 ```shell
-curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <xxxx>' 'https://demo.canopsis.net:443/api/v4/pbehavior-types'
+curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port><canopsis_pbehavior_types>'
 ```
 
 > Replace the *`<xxxx>`* inside the above command with the correct values for authentication to the Canopsis host.
+> Default values defined in the connector are canopsis_port:443 and canopsis_pbehavior_types:/api/v4/pbehavior-types.
 
 3. Check if the command returns a data structure of this form:
 ```json
@@ -377,7 +380,7 @@ curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth
 ```
 
 > Replace all the *`<xxxx>`* inside the above command with the correct values for authentication to the Canopsis host.
-> For canopsis_port, the default value defined in the connector is canopsis_port:443.
+> Default value defined in the connector is canopsis_port:443.
 
 3. This command only allows access to the Canopsis version so no need to inspect all the returned content of it.
 
