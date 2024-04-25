@@ -295,7 +295,7 @@ curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth
 ```
 
 > Replace the *`<xxxx>`* inside the above command with the correct values for authentication to the Canopsis host.
-> Default values defined in the connector are canopsis_port:443 and canopsis_pbehavior_reasons:/api/v4/pbehavior-reasons.
+> The default values defined in the connector are **443** for **canopsis_port** and **/api/v4/pbehavior-reasons** for **canopsis_pbehavior_reasons**.
 
 
 3. Check if the command returns a data structure of this form:
@@ -322,7 +322,7 @@ curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth
 ```
 
 > Replace the *`<xxxx>`* inside the above command with the correct values for authentication to the Canopsis host.
-> Default values defined in the connector are canopsis_port:443 and canopsis_pbehavior_types:/api/v4/pbehavior-types.
+> The default values defined in the connector are **443** for **canopsis_port** and **/api/v4/pbehavior-types** for **canopsis_pbehavior_types**.
 
 3. Check if the command returns a data structure of this form:
 ```json
@@ -380,7 +380,7 @@ curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth
 ```
 
 > Replace all the *`<xxxx>`* inside the above command with the correct values for authentication to the Canopsis host.
-> Default value defined in the connector is canopsis_port:443.
+> The default value defined in the connector for **canopsis_port** is **443**.
 
 3. This command only allows access to the Canopsis version so no need to inspect all the returned content of it.
 
@@ -397,7 +397,7 @@ curl -X POST -H 'content-length: 400' -H 'content-type: application/json' -H 'x-
 ```
 
 > Replace all the *`<xxxx>`* inside the above command with the correct values for authentication to the Canopsis host. 
-> Default values defined in the connector are canopsis_port:443 and canopsis_event_route:/api/v4/event.
+> The default values defined in the connector are **443** for **canopsis_port** and **/api/v4/event** for **canopsis_event_route**.
 
 3. Check that the event has been received by Canopsis. The status should appear in the **Alarms > In progress** page of Canopsis.
 
@@ -416,6 +416,6 @@ curl -X POST -H 'content-length: 400' -H 'content-type: application/json' -H 'x-
 ```
 
 > Replace all the *`<xxxx>`* inside the above command with the correct values for authentication to the Canopsis host. 
-> Default values defined in the connector are canopsis_port:443 and canopsis_pbehaviors:/api/v4/pbehaviors.
+> Default values defined in the connector are **443** for **canopsis_port** and **/api/v4/pbehaviors** for **canopsis_pbehaviors**.
 
 3. Check that the event has been received by Canopsis: the downtimes should appear in the **Administration > Tags gestion** page of Canopsis.

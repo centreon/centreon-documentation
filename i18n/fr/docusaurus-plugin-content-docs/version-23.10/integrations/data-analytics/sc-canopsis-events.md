@@ -303,7 +303,7 @@ curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth
 ```
 
 > Remplacez les *`<xxxx>`* dans la commande ci-dessus par les valeurs correctes d'authentification à l'hôte Canopsis.
-> Les valeurs par défaut définies dans le stream connector sont : canopsis_port:443 et canopsis_pbehavior_reasons:/api/v4/pbehavior-reasons.
+> Les valeurs par défaut définies dans le stream connector sont : pour **canopsis_port** : **443** et pour **canopsis_pbehavior_reasons** : **/api/v4/pbehavior-reasons**.
 
 3. Vérifiez que la commande renvoie bien une structure de données de la forme suivante :
 
@@ -331,7 +331,7 @@ curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth
 ```
 
 > Remplacez les *`<xxxx>`* dans la commande ci-dessus par les valeurs correctes d'authentification à l'hôte Canopsis.
-> Les valeurs par défaut définies dans le stream connector sont : canopsis_port:443 et canopsis_pbehavior_types:/api/v4/pbehavior-types.
+> Les valeurs par défaut définies dans le stream connector sont : pour **canopsis_port** : **443**, et pour **canopsis_pbehavior_types** : **/api/v4/pbehavior-types**.
 
 3. Vérifiez que la commande renvoie bien une structure de données de la forme suivante :
 
@@ -391,7 +391,7 @@ curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth
 ```
 
 > Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par les valeurs correctes d'authentification à l'hôte Canopsis.
-> Pour le port, la valeur par défaut définie dans le stream connector est canopsis_port:443.
+> Pour le port, la valeur par défaut définie dans le stream connector est **443**.
 
 Cette commande permet entre autres d'accéder à la version de Canopsis.
 
@@ -408,7 +408,7 @@ curl -X POST -H 'content-length: 400' -H 'content-type: application/json' -H 'x-
 ```
 
 > Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par les valeurs correctes d'authentification à l'hôte Canopsis.
-> Les valeurs par défaut définies dans le stream connector sont : canopsis_port:443 et canopsis_event_route:/api/v4/event.
+> Les valeurs par défaut définies dans le stream connector sont : pour **canopsis_port** : **443** et **canopsis_event_route** : **/api/v4/event**.
 
 3. Vérifiez que l'évènement a bien été reçu par Canopsis : les statuts doivent apparaître à la page **Alarmes > En Cours** de Canopsis.
 
@@ -427,5 +427,5 @@ curl -X POST -H 'content-length: 400' -H 'content-type: application/json' -H 'x-
 ```
 
 > Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par les valeurs correctes d'authentification à l'hôte Canopsis.
-> Les valeurs par défaut définies dans le stream connector sont les suivantes : canopsis_port:443 et canopsis_pbehaviors:/api/v4/pbehaviors.
+> Les valeurs par défaut définies dans le stream connector sont les suivantes : pour **canopsis_port** : **443** et pour **canopsis_pbehaviors** : **/api/v4/pbehaviors**.
 3. Vérifiez que l'évènement a bien été reçu par Canopsis : les statuts doivent arriver à la page **Administration > Gestion des Tags** de Canopsis.
