@@ -69,7 +69,6 @@ You will need to configure your Canopsis host to receive data from Centreon. Ref
 , in particular check if creation, reading and deletion rights are activated. See the following documentations: 
 * [rights administration](https://doc.canopsis.net/guide-utilisation/menu-administration/droits/) 
 * [planification administration](https://doc.canopsis.net/guide-utilisation/menu-administration/planification/) (in case of downtimes). 
-in case of downtimes). 
 For the user associated to the **Authentication key** you must modify the rights matrix on the Canopsis **Administration > Rights** page, **API** tab, **PBehavior** section.
 Select **create**, **read** and **delete** in the following subsections:
 **PBehaviors**, **Behaviors Reason** and **PBehaviors Types**.
