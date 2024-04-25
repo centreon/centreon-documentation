@@ -268,32 +268,32 @@ yum install centreon-plugin-Hardware-Devices-Camera-Avigilon-Snmp
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro             | Description                                                                                        | Default value     | Mandatory   |
-|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGAVAILABLE  |                                                                                                    |                   |             |
-| CRITICALAVAILABLE |                                                                                                    |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro             | Description                                                                                                                                      | Default value     | Mandatory   |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGAVAILABLE  | Warning threshold for total memory available (B).                                                                                                |                   |             |
+| CRITICALAVAILABLE | Critical threshold for total memory available (B).                                                                                               |                   |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Storage state" label="Storage state">
 
 | Macro          | Description                                                                                                                                                                                                                                              | Default value                                                                                         | Mandatory   |
 |:---------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------|:-----------:|
-| UNKNOWNSTATUS  | Define the conditions to match to return a unknown status (default: "%{storage\_state} =~ /Unknown/i"). The condition can be written using the following macros: %{storage\_state}                                                                       | %{storage\_state} =~ /Unknown/i                                                                       |             |
-| WARNINGSTATUS  | Define the conditions to match to return a warning status (default: "%{storage\_state} =~ /insufficientMediaCapacity/i \|\| %{storage\_state} =~ /insufficientMediaSpeed/i"). The condition can be written using the following macros: %{storage\_state} | %{storage\_state} =~ /insufficientMediaCapacity/i \|\| %{storage\_state} =~ /insufficientMediaSpeed/i |             |
-| CRITICALSTATUS | Define the conditions to match to return a critical status (default: "%{storage\_state} =~ /mediaNotPresent/i \|\| %{storage\_state} =~ /error/i"). The condition can be written using the following macros: %{storage\_state}                           | {storage\_state} =~ /mediaNotPresent/i \|\| %{storage\_state} =~ /error/i                             |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                                                       |                                                                                                       |             |
+| UNKNOWNSTATUS  | Define the conditions to match to return a unknown status. The condition can be written using the following macros: %{storage\_state}            | %{storage\_state} =~ /Unknown/i                   |             |
+| WARNINGSTATUS  | Define the conditions to match to return a warning status. The condition can be written using the following macros: %{storage\_state}            | %{storage_state} =~ /insufficientMediaCapacity/i \|      \      | %{storage_state} =~ /insufficientMediaSpeed/i |             |
+| CRITICALSTATUS | Define the conditions to match to return a critical status. The condition can be written using the following macros: %{storage\_state}           | %{storage_state} =~ /mediaNotPresent/i \|      \      | %{storage_state} =~ /error/i                            |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                                                   |             |
 
 </TabItem>
 <TabItem value="Temperature sensor" label="Temperature sensor">
 
-| Macro               | Description                                                                                                                                                   | Default value     | Mandatory   |
-|:--------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CRITICALSTATUS      | Define the conditions to match to return a critical status (default: '%{status} ne "ok"'). The condition can be written using the following macros: %{status} | %{status} ne "ok" |             |
-| WARNINGSTATUS       | Define the conditions to match to return a warning status. The condition can be written using the following macros: %{status}                                 |                   |             |
-| WARNINGTEMPERATURE  |                                                                                                                                                               |                   |             |
-| CRITICALTEMPERATURE |                                                                                                                                                               |                   |             |
-| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                            |                   |             |
+| Macro               | Description                                                                                                                                      | Default value     | Mandatory   |
+|:--------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| CRITICALSTATUS      | Define the conditions to match to return a critical status. The condition can be written using the following macros: %{status}                   | %{status} ne "ok" |             |
+| WARNINGSTATUS       | Define the conditions to match to return a warning status. The condition can be written using the following macros: %{status}                    |                   |             |
+| WARNINGTEMPERATURE  | Warning threshold for temperature (Celsius).                                                                                                     |                   |             |
+| CRITICALTEMPERATURE | Critical threshold for temperature (Celsius).                                                                                                    |                   |             |
+| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
@@ -301,9 +301,9 @@ yum install centreon-plugin-Hardware-Devices-Camera-Avigilon-Snmp
 | Macro          | Description                                                                                                                                 | Default value                                             | Mandatory   |
 |:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------|:-----------:|
 | UNIT           | Select the time unit for thresholds. May be 's' for seconds, 'm'for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds | s                                                         |             |
-| WARNINGUPTIME  | Warning threshold                                                                                                                           |                                                           |             |
-| CRITICALUPTIME | Critical threshold                                                                                                                          |                                                           |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                          | --force-oid=.1.3.6.1.4.1.46202.1.1.1.3.0 --check-overload |             |
+| WARNINGUPTIME  | Warning uptime threshold                                                                                                                    |                                                           |             |
+| CRITICALUPTIME | Critical uptime threshold                                                                                                                   |                                                           |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).      | --force-oid=.1.3.6.1.4.1.46202.1.1.1.3.0 --check-overload |             |
 
 </TabItem>
 </Tabs>
@@ -318,19 +318,17 @@ is able to monitor a resource using a command like this one (replace the sample 
 
 ```bash
 /usr/lib/centreon/plugins/centreon_camera_avigilon_snmp.pl  \
+/usr/lib/centreon/plugins/centreon_camera_avigilon_snmp.pl  \
 	--plugin=hardware::devices::camera::avigilon::snmp::plugin \
-	--mode=storage \
+	--mode=temperature \
 	--hostname='10.0.0.1' \
 	--snmp-version='2c' \
-	--unknown-status='%{storage_state} =~ /Unknown/i' \
-	--warning-status='%{storage_state} =~ /insufficientMediaCapacity/i || %{storage_state} =~ /insufficientMediaSpeed/i' \
-	--critical-status='{storage_state} =~ /mediaNotPresent/i || %{storage_state} =~ /error/i' 
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: | 
+OK: temperature: 23.00 C, sensor 1 [type:mainSensor] status: ok | 'sensor.temperature.celsius'=23C;;;0;
 ```
 
 ### Troubleshooting
