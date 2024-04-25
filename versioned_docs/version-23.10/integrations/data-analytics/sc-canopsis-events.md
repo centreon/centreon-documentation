@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 The Canopsis Events stream connector allows you to send data from Centreon to Canopsis
-using HTTP REST API.
+using their HTTP REST API.
 
 ## Before starting
 
@@ -24,8 +24,8 @@ you [filter out events](#filtering-or-adapting-the-data-you-want-to-send-to-cano
 
 ## Compatibility
 
-Designed to be compatible with Canopsis (API v.4) and more specifically versions : 22.10, 
-23.04, 23.10 et 24.04
+This stream connector is designed to be compatible with Canopsis' API v.4, and more specifically the following versions of Canopsis : 22.10, 
+23.04, 23.10 and 24.04.
 
 ## Installation
 
@@ -64,11 +64,11 @@ apt install centreon-stream-connector-canopsis
 
 ## Configuring Canopsis
 
-You will need to configure your Canopsis to receive data from Centreon. Refer to the 
+You will need to configure your Canopsis server to receive data from Centreon. Refer to the 
 [Canopsis user guide](https://doc.canopsis.net/guide-utilisation/menu-administration/droits/)
-, in particular check if creation, reading and deletion rights are activated (see documentation dedicated 
-[rights administration](https://doc.canopsis.net/guide-utilisation/menu-administration/droits/) and this one 
-[planification administration](https://doc.canopsis.net/guide-utilisation/menu-administration/planification/) 
+, in particular check if creation, reading and deletion rights are activated. See the following documentations: 
+* [rights administration](https://doc.canopsis.net/guide-utilisation/menu-administration/droits/) 
+* [planification administration] (https://doc.canopsis.net/guide-utilisation/menu-administration/planification/) (in case of downtimes). 
 in case of downtimes). 
 For the associated user at the "authKey" you must modify the "Mandatory" rights matrix:
 
@@ -82,7 +82,7 @@ For the associated user at the "authKey" you must modify the "Mandatory" rights 
 > 
 > “create”, “read”, “delete” must be checked
 
-Make sure Canospsi is able to receive data sent by Centreon: flows must not be blocked 
+Make sure Canopsis is able to receive data sent by Centreon: flows must not be blocked 
 by Canopsis's configuration or by a security equipment.
 
 ## Configuring the stream connector in Centreon
@@ -107,7 +107,7 @@ another one.
 
 | Type   | Name             | Value explanation                     | Value exemple |
 | ------ |------------------|---------------------------------------|--------------|
-| string | canopsis_authkey | The Canopsis API authentification key | `an_authkey` |
+| string | canopsis_authkey | The Canopsis API authentication key | `an_authkey` |
 | string | canopsis_host    | Canopsis host address                 | `a host`     |
 
 6. Fill in any optional parameters you want (using the **+Add a new entry** link):
@@ -141,7 +141,7 @@ documentation.
 
 * To override the default value of a parameter, click on the **+Add a new entry** link 
 located below the **Filter category** table to add a custom parameter. For example, if 
-you want to only send to Canopsis the events link to a hostgroup called "Europe", enter:
+you want to only send to Canopsis the events linked to a hostgroup called "Europe", enter:
 
    ```text
    type = string
@@ -151,7 +151,7 @@ you want to only send to Canopsis the events link to a hostgroup called "Europe"
 
 * For the Canopsis Events stream connector, the following values always override the 
 default values, you do not need to define them in the interface except if you want to 
-change their values (for example add the downtimes in the accepted_elements varialbe).
+change their values (for example to add the downtimes in the **accepted_elements** variable).
 
 | Type   | Name                             | Default value for the stream connector      |
 | ------ |----------------------------------|---------------------------------------------|
@@ -273,7 +273,7 @@ This stream connector will send events with the following format.
 
 This stream connector allows you to change the format of the event to suit your needs. 
 It allows you to handle events type that are not handled by default such as 
-**ba_status events**.
+**ba_status** events.
 
 In order to use this feature you need to configure a json event format file and add 
 a new stream connector parameter.
@@ -282,16 +282,17 @@ a new stream connector parameter.
 | ------ |-------------|-------------------------------------------------|
 | string | format_file | /etc/centreon-broker/canopsis-events-format.json|
 
-> The event format configuration file must be readable by the centreon-broker user
+> The event format configuration file must be readable by the **centreon-broker** user.
 
-To learn more about custom event format and templating file, head over the following
-**[documentation](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)** dédiée.
+To learn more about custom event formats and templating files, read
+**[this documentation](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
 
 ## Curl commands: testing the stream connector
 
-This are the curl commands list used in the stream connector Canopsis:
+Here is the list of curl commands used by the Canopsis stream connector:
 
 #### Request pbehavior-reasons route
+
 1. Log in to the server that you configured to send events to Canopsis (your central 
 server, a remote server or a poller).
 2. Run the following command:
@@ -300,10 +301,10 @@ server, a remote server or a poller).
 curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port><canopsis_pbehavior-reasons>'
 ```
 
-> Replace all the *`<xxxx>`* inside the above command with the correct value for authentification and Canopsis host. 
+> Replace all the *`<xxxx>`* inside the above command with the correct values for authentication to the Canopsis host. 
 > For others, their default values defined in the connector are canopsis_port:443 and canopsis_pbehavior-reasons:/api/v4/pbehavior-reasons
 
-3. Check if command returns a data structure of this form:
+3. Check if the command returns a data structure of this form:
 ```json
    "data":[
       {
@@ -315,6 +316,7 @@ curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth
 ```
 
 #### Request pbehavior-types route
+
 1. Log in to the server that you configured to send events to Canopsis (your central 
 server, a remote server or a poller).
 2. Run the following command:
@@ -323,10 +325,10 @@ server, a remote server or a poller).
 curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port><canopsis_pbehavior-types>'
 ```
 
-> Replace all the *`<xxxx>`* inside the above command with the correct value for authentification and Canopsis host. 
+> Replace all the *`<xxxx>`* inside the above command with the correct values for authentication to the Canopsis host. 
 > For others, their default values defined in the connector are canopsis_port:443 and canopsis_pbehavior-types:/api/v4/pbehavior-types
 
-3. Check if command returns a data structure of this form:
+3. Check if the command returns a data structure of this form:
 ```json
 "data":[
       {
@@ -367,7 +369,7 @@ curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth
       }
    ]
 ```
-> With default values of the Canopsis connector, it classifies the downtimes in Default maintenance type.
+> With the default values of the Canopsis connector, downtimes have the "Default maintenance" type.
 
 #### Request app-info route
 1. Log in to the server that you configured to send events to Canopsis (your central 
@@ -378,8 +380,8 @@ server, a remote server or a poller).
 curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port>/api/v4/app-info'
 ```
 
-> Replace all the *`<xxxx>`* inside the above command with the correct value for authentification and Canopsis host. 
-> For canopsis port the default value defined in the connector is canopsis_port:443
+> Replace all the *`<xxxx>`* inside the above command with the correct values for authentication to the Canopsis host.
+> For canopsis_port, the default value defined in the connector is canopsis_port:443.
 
 3. This command only allows access to the Canopsis version so no need to inspect all the returned content of it.
 
@@ -395,10 +397,10 @@ server, a remote server or a poller).
 curl -X POST -H 'content-length: 400' -H 'content-type: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port><canopsis_event_route>' -d '[{"hostgroups":[],"component":"Test-Canopsis","host_id":"8","event_type":"check","resource":"passif","output":"Test_passif_output","servicegroups":[],"connector":"centreon-stream","source_type":"resource","action_url":"","long_output":"Test-curl-command Passif long output","notes_url":"","connector_name":"Central","timestamp":1710843117,"service_id":"10","state":1}]'
 ```
 
-> Replace all the *`<xxxx>`* inside the above command with the correct value for authentification and Canopsis host. 
-> For others, their default values defined in the connector are canopsis_port:443 and canopsis_event_route:/api/v4/event
+> Replace all the *`<xxxx>`* inside the above command with the correct values for authentication to the Canopsis host. 
+> Default values defined in the connector are canopsis_port:443 and canopsis_event_route:/api/v4/event.
 
-3. Check that the event has been received by Canopsis. Status arrived in page Canopsis Alarms > In progress
+3. Check that the event has been received by Canopsis. The status should appear in the **Alarms > In progress** page of Canopsis.
 
 ![image](../../assets/integrations/data-analytics/status.png)
 
@@ -414,9 +416,9 @@ server, a remote server or a poller).
 curl -X POST -H 'content-length: 400' -H 'content-type: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port><canopsis_pbehaviors>' -d '{"tstart":1713959323,"enabled":true,"type":"5ea9d2d8-0f16-4e19-bcca-64b1e96e00fa","tstop":1713960043,"author":"admin","entity_pattern":[[{"field":"name","cond":{"value":"Test-Service-Demo-Canopsis/Test-Demo-Canopsis","type":"eq"}}]],"rrule":"","reason":"3010f2a3-f43c-421a-8c7c-e70522f0c862","name":"centreon-downtime-1-1713959345","_id":"centreon-downtime-1-1713959345"}'
 ```
 
-> Replace all the *`<xxxx>`* inside the above command with the correct value for authentification and Canopsis host. 
-> For others, their default values defined in the connector are canopsis_port:443 and canopsis_pbehaviors:/api/v4/pbehaviors
+> Replace all the *`<xxxx>`* inside the above command with the correct values for authentication to the Canopsis host. 
+> Default values defined in the connector are canopsis_port:443 and canopsis_pbehaviors:/api/v4/pbehaviors.
 
-3. Check that the event has been received by Canopsis. Downtimes arrived in page Administration > Tags gestion
+3. Check that the event has been received by Canopsis: the downtimes should appear in the **Administration > Tags gestion** page of Canopsis.
 
 ici je n'ai pas pu faire de capture d'écran... ?
