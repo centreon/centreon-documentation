@@ -23,7 +23,7 @@ Le connecteur apporte les modèles de service suivants
 |:-------------------|:--------------------------------------------------|:------------------------------------------------------------------------------|
 | Interfaces         | HW-Device-Camera-Avigilon-Interfaces-SNMP-custom  | Contrôle les interfaces                                                       |
 | Memory             | HW-Device-Camera-Avigilon-Memory-SNMP-custom      | Contrôle la mémoire système disponible                                        |
-| Storage state      | HW-Device-Camera-Avigilon-Storage-SNMP-custom     | Contrôle l'état de stockage de la carte SD                                    |
+| Storage state      | HW-Device-Camera-Avigilon-Storage-SNMP-custom     | Contrôle l'état du stockage de la carte SD                                    |
 | Temperature sensor | HW-Device-Camera-Avigilon-Temperature-SNMP-custom | Contrôle l'état et la valeur du capteur de température                        |
 | Uptime             | HW-Device-Camera-Avigilon-Uptime-SNMP-custom      | Durée depuis laquelle l'appareil tourne sans interruption en étant disponible |
 

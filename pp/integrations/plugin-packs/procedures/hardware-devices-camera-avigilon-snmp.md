@@ -21,7 +21,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias      | Service Template                                  | Service Description                                  |
 |:-------------------|:--------------------------------------------------|:-----------------------------------------------------|
 | Interfaces         | HW-Device-Camera-Avigilon-Interfaces-SNMP-custom  | Check interfaces                                     |
-| Memory             | HW-Device-Camera-Avigilon-Memory-SNMP-custom      | Check system memory available                        |
+| Memory             | HW-Device-Camera-Avigilon-Memory-SNMP-custom      | Check available system memory |
 | Storage state      | HW-Device-Camera-Avigilon-Storage-SNMP-custom     | Check storage state of the SD card                   |
 | Temperature sensor | HW-Device-Camera-Avigilon-Temperature-SNMP-custom | Check temperature sensor state and value             |
 | Uptime             | HW-Device-Camera-Avigilon-Uptime-SNMP-custom      | Time since the device has been working and available |
