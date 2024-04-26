@@ -212,7 +212,7 @@ databases:
 > We strongly recommend that you set a more secure password.
 
 ```sql
-CREATE USER 'centreon_map'@'<IP_SERVER_MAP>' IDENTIFIED BY 'centreon_map';
+mysql> CREATE USER 'centreon_map'@'IP_MAP_SERVER' IDENTIFIED BY 'centreon_Map2023!';
 GRANT SELECT ON centreon_storage.* TO 'centreon_map'@'<IP_SERVER_MAP>';
 GRANT SELECT, INSERT ON centreon.* TO 'centreon_map'@'<IP_SERVER_MAP>';
 ```

@@ -285,7 +285,7 @@ Créez un utilisateur dans l'instance mysql hébergeant les bases de données **
 > Nous vous recommandons vivement de définir un mot de passe plus sécurisé.
 
 ```sql
-CREATE USER 'centreon_map'@'<IP_SERVER_MAP>' IDENTIFIED BY 'centreon_map';
+mysql> CREATE USER 'centreon_map'@'IP_MAP_SERVER' IDENTIFIED BY 'centreon_Map2023!';
 GRANT SELECT ON centreon_storage.* TO 'centreon_map'@'<IP_SERVER_MAP>';
 GRANT SELECT, INSERT ON centreon.* TO 'centreon_map'@'<IP_SERVER_MAP>';
 ```
