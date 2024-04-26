@@ -21,7 +21,6 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias              | Modèle de service                                 | Description                                                                   |
 |:-------------------|:--------------------------------------------------|:------------------------------------------------------------------------------|
-| Interfaces         | HW-Device-Camera-Avigilon-Interfaces-SNMP-custom  | Contrôle les interfaces                                                       |
 | Memory             | HW-Device-Camera-Avigilon-Memory-SNMP-custom      | Contrôle la mémoire système disponible                                        |
 | Storage state      | HW-Device-Camera-Avigilon-Storage-SNMP-custom     | Contrôle l'état du stockage de la carte SD                                    |
 | Temperature sensor | HW-Device-Camera-Avigilon-Temperature-SNMP-custom | Contrôle l'état et la valeur du capteur de température                        |
@@ -30,17 +29,37 @@ Le connecteur apporte les modèles de service suivants
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Device-Camera-Avigilon-SNMP-custom** est utilisé.
 
 </TabItem>
+<TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
+
+| Alias      | Modèle de service                                | Description             | Découverte |
+|:-----------|:-------------------------------------------------|:------------------------|:----------:|
+| Interfaces | HW-Device-Camera-Avigilon-Interfaces-SNMP-custom | Contrôle les interfaces | X          |
+
+> Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
+
+> Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
+
+</TabItem>
 </Tabs>
 
 ### Règles de découverte
 
 #### Découverte d'hôtes
 
-| Nom de la règle | Description                                                                                                                                                                                                                                             |
-|:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créer un modèle mappeur pour le modèle d'hôte **HW-Device-Camera-Avigilon-SNMP-custom** |
+| Nom de la règle | Description                                                                                                                                                                                                                                                   |
+|:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créer un modèle associatif pour le modèle d'hôte **HW-Device-Camera-Avigilon-SNMP-custom** |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
+
+#### Découverte de service
+
+| Nom de la règle                               | Description                                                             |
+|:----------------------------------------------|:-----------------------------------------------------------------------|
+| HW-Device-Camera-Avigilon-SNMP-Interface-Name | Découvre les interfaces réseau et supervise le statut et l'utilisation |
+
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
+pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
 
 ### Métriques & statuts collectés
 
@@ -232,8 +251,8 @@ yum install centreon-plugin-Hardware-Devices-Camera-Avigilon-Snmp
 | CRITICALINTRAFFIC      | Thresholds                                                                                                                                                                                                          |                                                       |             |
 | WARNINGINUCAST         | Thresholds                                                                                                                                                                                                          |                                                       |             |
 | CRITICALINUCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| WARNINGINVOLUME        |                                                                                                                                                                                                                     |                                                       |             |
-| CRITICALINVOLUME       |                                                                                                                                                                                                                     |                                                       |             |
+| WARNINGINVOLUME        | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALINVOLUME       | Thresholds                                                                                                                                                                                                          |                                                       |             |
 | WARNINGOUTBCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
 | CRITICALOUTBCAST       | Thresholds                                                                                                                                                                                                          |                                                       |             |
 | WARNINGOUTDISCARD      | Thresholds                                                                                                                                                                                                          |                                                       |             |
@@ -246,8 +265,8 @@ yum install centreon-plugin-Hardware-Devices-Camera-Avigilon-Snmp
 | CRITICALOUTTRAFFIC     | Thresholds                                                                                                                                                                                                          |                                                       |             |
 | WARNINGOUTUCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
 | CRITICALOUTUCAST       | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| WARNINGOUTVOLUME       |                                                                                                                                                                                                                     |                                                       |             |
-| CRITICALOUTVOLUME      |                                                                                                                                                                                                                     |                                                       |             |
+| WARNINGOUTVOLUME       | Thresholds                                                                                                                                                                                                          |                                                       |             |
+| CRITICALOUTVOLUME      | Thresholds                                                                                                                                                                                                          |                                                       |             |
 | WARNINGSPEED           | Thresholds                                                                                                                                                                                                          |                                                       |             |
 | CRITICALSPEED          | Thresholds                                                                                                                                                                                                          |                                                       |             |
 | CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} | %{admstatus} eq "up" and %{opstatus} !~ /up\|dormant/ |             |
@@ -267,32 +286,32 @@ yum install centreon-plugin-Hardware-Devices-Camera-Avigilon-Snmp
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro             | Description                                                                                                                                         | Valeur par défaut | Obligatoire |
+| Macro             | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNINGAVAILABLE  | Warning threshold for total memory available (B).                                                                                                   |                   |             |
 | CRITICALAVAILABLE | Critical threshold for total memory available (B).                                                                                                  |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).    |                   |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Storage state" label="Storage state">
 
-| Macro          | Description                                                                                                                                      | Valeur par défaut                                 | Obligatoire |
+| Macro          | Description                                                                                                                                                                                                                                              | Valeur par défaut                                                                                     | Obligatoire |
 |:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------|:-----------:|
 | UNKNOWNSTATUS  | Define the conditions to match to return a unknown status. The condition can be written using the following macros: %{storage\_state}            | %{storage\_state} =~ /Unknown/i                   |             |
 | WARNINGSTATUS  | Define the conditions to match to return a warning status. The condition can be written using the following macros: %{storage\_state}            | %{storage_state} =~ /insufficientMediaCapacity/i \|      \      | %{storage_state} =~ /insufficientMediaSpeed/i |             |
 | CRITICALSTATUS | Define the conditions to match to return a critical status. The condition can be written using the following macros: %{storage\_state}           | %{storage_state} =~ /mediaNotPresent/i \|      \      | %{storage_state} =~ /error/i                            |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                                                   |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                                       |                                                                                                       |             |
 
 </TabItem>
 <TabItem value="Temperature sensor" label="Temperature sensor">
 
-| Macro               | Description                                                                                                                                                                                               | Valeur par défaut | Obligatoire |
+| Macro               | Description                                                                                                                                                   | Valeur par défaut | Obligatoire |
 |:--------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | CRITICALSTATUS      | Define the conditions to match to return a critical status. The condition can be written using the following macros: %{status}                                                                            | %{status} ne "ok" |             |
-| WARNINGSTATUS       | Define the conditions to match to return a warning status. The condition can be written using the following macros: %{status}                                                                             |                   |             |
+| WARNINGSTATUS       | Define the conditions to match to return a warning status. The condition can be written using the following macros: %{status}                                 |                   |             |
 | WARNINGTEMPERATURE  | Warning threshold for temperature (Celsius).                                                                                                                                                              |                   |             |
 | CRITICALTEMPERATURE | Critical threshold for temperature (Celsius).                                                                                                                                                             |                   |             |
-| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                          |                   |             |
+| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                            |                   |             |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
@@ -357,6 +376,7 @@ Le plugin apporte les modes suivants :
 | Mode                                                                                                                                          | Modèle de service associé                         |
 |:----------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------|
 | interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/devices/camera/avigilon/snmp/mode/interfaces.pm)]   | HW-Device-Camera-Avigilon-Interfaces-SNMP-custom  |
+| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]                  | Used for service discovery                        |
 | memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/devices/camera/avigilon/snmp/mode/memory.pm)]           | HW-Device-Camera-Avigilon-Memory-SNMP-custom      |
 | storage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/devices/camera/avigilon/snmp/mode/storage.pm)]         | HW-Device-Camera-Avigilon-Storage-SNMP-custom     |
 | temperature [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/devices/camera/avigilon/snmp/mode/temperature.pm)] | HW-Device-Camera-Avigilon-Temperature-SNMP-custom |

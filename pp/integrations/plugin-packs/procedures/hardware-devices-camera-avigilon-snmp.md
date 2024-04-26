@@ -20,13 +20,23 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias      | Service Template                                  | Service Description                                  |
 |:-------------------|:--------------------------------------------------|:-----------------------------------------------------|
-| Interfaces         | HW-Device-Camera-Avigilon-Interfaces-SNMP-custom  | Check interfaces                                     |
-| Memory             | HW-Device-Camera-Avigilon-Memory-SNMP-custom      | Check available system memory |
+| Memory             | HW-Device-Camera-Avigilon-Memory-SNMP-custom      | Check system memory available                        |
 | Storage state      | HW-Device-Camera-Avigilon-Storage-SNMP-custom     | Check storage state of the SD card                   |
 | Temperature sensor | HW-Device-Camera-Avigilon-Temperature-SNMP-custom | Check temperature sensor state and value             |
 | Uptime             | HW-Device-Camera-Avigilon-Uptime-SNMP-custom      | Time since the device has been working and available |
 
 > The services listed above are created automatically when the **HW-Device-Camera-Avigilon-SNMP-custom** host template is used.
+
+</TabItem>
+<TabItem value="Not attached to a host template" label="Not attached to a host template">
+
+| Service Alias | Service Template                                 | Service Description | Discovery  |
+|:--------------|:-------------------------------------------------|:--------------------|:----------:|
+| Interfaces    | HW-Device-Camera-Avigilon-Interfaces-SNMP-custom | Check interfaces    | X          |
+
+> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
+
+> If **Discovery** is checked, it means a service discovery rule exists for this service template.
 
 </TabItem>
 </Tabs>
@@ -40,6 +50,15 @@ The connector brings the following service templates (sorted by the host templat
 | SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **HW-Device-Camera-Avigilon-SNMP-custom** host template |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
+
+#### Service discovery
+
+| Rule name                                     | Description                                                   |
+|:----------------------------------------------|:--------------------------------------------------------------|
+| HW-Device-Camera-Avigilon-SNMP-Interface-Name | Discover network interfaces and monitor bandwidth utilization |
+
+More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
+and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
 
 ### Collected metrics & status
 
@@ -217,7 +236,7 @@ yum install centreon-plugin-Hardware-Devices-Camera-Avigilon-Snmp
 <TabItem value="Interfaces" label="Interfaces">
 
 | Macro                  | Description                                                                                                                                                                                                         | Default value                                         | Mandatory   |
-|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
 | OIDFILTER              | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                                          | ifname                                                |             |
 | OIDDISPLAY             | Define the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                                 | ifname                                                |             |
 | INTERFACENAME          | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                                                                                           |                                                       |             |
@@ -233,8 +252,8 @@ yum install centreon-plugin-Hardware-Devices-Camera-Avigilon-Snmp
 | CRITICALINTRAFFIC      | Thresholds                                                                                                                                                                                                          |                                                       |             |
 | WARNINGINUCAST         | Thresholds                                                                                                                                                                                                          |                                                       |             |
 | CRITICALINUCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| WARNINGINVOLUME        |                                                                                                                                                                                                                     |                                                       |             |
-| CRITICALINVOLUME       |                                                                                                                                                                                                                     |                                                       |             |
+| WARNINGINVOLUME        | Thresholds                                                                                                                                                                                                                                             |                                                       |             |
+| CRITICALINVOLUME       | Thresholds                                                                                                                                                                                                                                             |                                                       |             |
 | WARNINGOUTBCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
 | CRITICALOUTBCAST       | Thresholds                                                                                                                                                                                                          |                                                       |             |
 | WARNINGOUTDISCARD      | Thresholds                                                                                                                                                                                                          |                                                       |             |
@@ -247,8 +266,8 @@ yum install centreon-plugin-Hardware-Devices-Camera-Avigilon-Snmp
 | CRITICALOUTTRAFFIC     | Thresholds                                                                                                                                                                                                          |                                                       |             |
 | WARNINGOUTUCAST        | Thresholds                                                                                                                                                                                                          |                                                       |             |
 | CRITICALOUTUCAST       | Thresholds                                                                                                                                                                                                          |                                                       |             |
-| WARNINGOUTVOLUME       |                                                                                                                                                                                                                     |                                                       |             |
-| CRITICALOUTVOLUME      |                                                                                                                                                                                                                     |                                                       |             |
+| WARNINGOUTVOLUME       | Thresholds                                                                                                                                                                                                                                                       |                                                       |             |
+| CRITICALOUTVOLUME      | Thresholds                                                                                                                                                                                                                                                       |                                                       |             |
 | WARNINGSPEED           | Thresholds                                                                                                                                                                                                          |                                                       |             |
 | CRITICALSPEED          | Thresholds                                                                                                                                                                                                          |                                                       |             |
 | CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} | %{admstatus} eq "up" and %{opstatus} !~ /up\|dormant/ |             |
@@ -268,7 +287,7 @@ yum install centreon-plugin-Hardware-Devices-Camera-Avigilon-Snmp
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro             | Description                                                                                                                                      | Default value     | Mandatory   |
+| Macro             | Description                                                                                        | Default value     | Mandatory   |
 |:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNINGAVAILABLE  | Warning threshold for total memory available (B).                                                                                                |                   |             |
 | CRITICALAVAILABLE | Critical threshold for total memory available (B).                                                                                               |                   |             |
@@ -287,10 +306,10 @@ yum install centreon-plugin-Hardware-Devices-Camera-Avigilon-Snmp
 </TabItem>
 <TabItem value="Temperature sensor" label="Temperature sensor">
 
-| Macro               | Description                                                                                                                                      | Default value     | Mandatory   |
+| Macro               | Description                                                                                                                                                   | Default value     | Mandatory   |
 |:--------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | CRITICALSTATUS      | Define the conditions to match to return a critical status. The condition can be written using the following macros: %{status}                   | %{status} ne "ok" |             |
-| WARNINGSTATUS       | Define the conditions to match to return a warning status. The condition can be written using the following macros: %{status}                    |                   |             |
+| WARNINGSTATUS       | Define the conditions to match to return a warning status. The condition can be written using the following macros: %{status}                                 |                   |             |
 | WARNINGTEMPERATURE  | Warning threshold for temperature (Celsius).                                                                                                     |                   |             |
 | CRITICALTEMPERATURE | Critical threshold for temperature (Celsius).                                                                                                    |                   |             |
 | EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
@@ -303,7 +322,7 @@ yum install centreon-plugin-Hardware-Devices-Camera-Avigilon-Snmp
 | UNIT           | Select the time unit for thresholds. May be 's' for seconds, 'm'for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds | s                                                         |             |
 | WARNINGUPTIME  | Warning uptime threshold                                                                                                                    |                                                           |             |
 | CRITICALUPTIME | Critical uptime threshold                                                                                                                   |                                                           |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).      | --force-oid=.1.3.6.1.4.1.46202.1.1.1.3.0 --check-overload |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                          | --force-oid=.1.3.6.1.4.1.46202.1.1.1.3.0 --check-overload |             |
 
 </TabItem>
 </Tabs>
@@ -317,7 +336,6 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
-/usr/lib/centreon/plugins/centreon_camera_avigilon_snmp.pl  \
 /usr/lib/centreon/plugins/centreon_camera_avigilon_snmp.pl  \
 	--plugin=hardware::devices::camera::avigilon::snmp::plugin \
 	--mode=temperature \
@@ -357,6 +375,7 @@ The plugin brings the following modes:
 | Mode                                                                                                                                          | Linked service template                           |
 |:----------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------|
 | interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/devices/camera/avigilon/snmp/mode/interfaces.pm)]   | HW-Device-Camera-Avigilon-Interfaces-SNMP-custom  |
+| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]                  | Used for service discovery                        |
 | memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/devices/camera/avigilon/snmp/mode/memory.pm)]           | HW-Device-Camera-Avigilon-Memory-SNMP-custom      |
 | storage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/devices/camera/avigilon/snmp/mode/storage.pm)]         | HW-Device-Camera-Avigilon-Storage-SNMP-custom     |
 | temperature [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/devices/camera/avigilon/snmp/mode/temperature.pm)] | HW-Device-Camera-Avigilon-Temperature-SNMP-custom |
