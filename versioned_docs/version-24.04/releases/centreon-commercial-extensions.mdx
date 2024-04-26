@@ -7,15 +7,16 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 
 ## Introduction
 
-Vous trouverez dans ce chapitre tout ce qui concerne les **extensions commerciales** de Centreon.
+In this chapter, you can find all the changelogs concerning **Centreon Commercial Extensions**.
 
-> Il est important de mettre à jour en utilisant la documentation adéquate de mise à jour et de lire attentivement les
-> notes de mise à jour afin d'être au courant des changements qui pourraient impacter votre usage ou votre plateforme
-> ou des développements spécifiques que vous auriez fait.
+> It is very important when you update your system to refer to this section in order to learn about behavior changes or
+> major changes that have been made on this version. This will inform you about the impact of installing these
+> versions on the features you use or the specific developments that you have built on your platform (modules,
+> widgets, plugins).
 
-Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions commerciales, veuillez contacter le support.
+If you have feature requests or want to report a bug, please contact support.
 
-> Retrouvez plus de détails sur la version 23.10 dans notre [post de blog](https://www.centreon.com/fr/centreon-23-10-decouvrez-les-dernieres-nouveautes/).
+> Read more about version 24.04 in our [blog post](https://www.centreon.com/centreon-announces-its-latest-software-release-centreon-24-04/).
 
 <ExpandCollapseAll />
 
@@ -28,61 +29,7 @@ Release date: `April 30, 2024`
 <details open>
   <summary>Enhancements</summary>
 
-- [Editor] Removed non available features for "Links".
-- [Editor] Removed the possibility to edit link color for status link and metric link.
-- [Editor] Handled meta services in output widget.
-- [Homepage] The loading page has been improved.
-- [Viewer] You can now perform delete and duplicate actions from the viewer.
-
-</details>
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [Editor] Removed useless fill parameters.
-- [Editor] Fixed issue where deleted resources were displayed.
-- [Engine] Updated dependency.
-- [Install] Fixed an issue where MAP failed to start when Anomaly Detection and BAM were also installed.
-- [Install] Fixed MYSQL 8 failure at centreon-map-engine startup.
-- [Viewer] Added "acknowledged" and "in downtime" icons on the list of host services.
-- [Viewer] Inverted IN and OUT metric values, for more clarity.
-- [Viewer] Fixed widgets values and resources statuses updates when compression is activated.
-- [Viewer] Fixed widget values and resource status updates when compression is activated.
-
-</details>
-
-<details open>
-  <summary>Security fixes</summary>
-
-- [Security] Updated dependencies.
-
-</details>
-
-### 23.10.0
-
-Release date: `October 30, 2023`
-
-<details open>
-  <summary>Enhancements</summary>
-
-- [Editor] Improved the layout of the output widget edition window.
-- [Editor] You can now add Centreon resources to a map by searching their names.
-- [UI] You can now use the MAP module in French.
-- [UI] You can now use a button to save zoom and position in editor and viewer.
-- [UI] You can now hide the label of a resource.
-- [UI] Made the labels in the metric link window more explicit by replacing "metric 1" and "metric 2" by "metric in" and "metric out".
-- [UX] You can now duplicate maps.
-- [Server] Made link anchors consistent between viewer and editor.
-- [Server] You can now save maps that contain elements not associated with a Centreon resource.
-- [Viewer] Made resource status unique for hosts (include host status in inherited status computation).
-- [Viewer] You can now define a label for a URL shape.
-
-</details>
-
-<details>
-  <summary>Compatibility</summary>
-
-- Compatibility with other 23.10 components.
+- To facilitate smooth transition from MAP Legacy to MAP, we have made sure that features and enhancements already available in previous versions are fully compatible.
 
 </details>
 
@@ -99,91 +46,55 @@ Release date: `April 30, 2024`
 
 </details>
 
-<details>
-  <summary>Bug fixes</summary>
-
-- Fixed an issue where it was possible to create an infinite loop when defining BA KPIs.
-
-</details>
-
-### 23.10.0
-
-Release date: `October 30, 2023`
-
-<details open>
-  <summary>Enhancements</summary>
-
-- The output message for business activities has been modified to give more understandable information about the reason for the BA's status. This will particularly affect the clarity of the notifications.
-
-</details>
-
-<details>
-  <summary>Compatibility</summary>
-
-- Compatibility with other 23.10 components.
-
-</details>
-
 ## Centreon MBI
 
 ### 24.04.0
 
 Release date: `April 30, 2024`
 
-<details open>
-  <summary>Security fixes</summary>
-
-- [Security] Dependency upgrade.
-
-</details>
-
-### 23.10.0
-
-Release date: `October 30, 2023`
-
 <details>
   <summary>Compatibility</summary>
 
-- Compatibility with other 23.10 components.
+- Compatibility with other 24.04 components.
 
 </details>
 
 ## Centreon Auto Discovery
 
-### 23.10.0
+### 24.04.0
 
-Release date: `October 30, 2023`
+Release date: `April 30, 2024`
 
 <details>
   <summary>Compatibility</summary>
 
-- Compatibility with other 23.10 components.
+- Compatibility with other 24.04 components.
 
 </details>
 
 ## Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager)
 
-### 23.10.0
+### 24.04.0
 
-Release date: `October 30, 2023`
+Release date: `April 30, 2024`
 
 <details>
   <summary>Compatibility</summary>
 
-- Compatibility with other 23.10 components.
+- Compatibility with other 24.04 components.
 
 </details>
 
 ## Centreon License Manager
 
-### 23.10.0
+### 24.04.0
 
-Release date: `October 30, 2023`
+Release date: `April 30, 2024`
 
 <details>
   <summary>Compatibility</summary>
 
-- Compatibility with other 23.10 components.
+- Compatibility with other 24.04 components.
 
 </details>
 
@@ -201,17 +112,6 @@ Release date: `April 30, 2024`
 
 </details>
 
-### 23.10.0
-
-Release date: `October 30, 2023`
-
-<details>
-  <summary>Compatibility</summary>
-
-- Compatibility with other 23.10 components.
-
-</details>
-
 ## Centeon IT Edition Extensions
 
 ### 24.04.0
@@ -221,24 +121,25 @@ Release date: `April 30, 2024`
 <details open>
   <summary>Enhancements</summary>
 
-- [API] Added new endpoint to list shares of playlists of dashboards.
-- [API] Added new endpoint to share playlists of dashboards.
-- [API] Added new endpoint to create a Playlist of dashboards.
-- [API] Added new endpoint to list Playlists of dashboards.
-- [CEIP] Added usage statistics for Playlists.
+- [API] Added a new endpoint to list shares of playlists of dashboards.
+- [API] Added a new endpoint to share playlists of dashboards.
+- [API] Added a new endpoint to create a playlist of dashboards.
+- [API] Added a new endpoint to list playlists of dashboards.
+- [CEIP] Added usage statistics for playlists.
 - [Dashboards] Added a modal when deleting widgets, dashboards or playlists.
-- [IT edition extensions] Added EPP license control mechanism.
-- [Playlist]: Add an endpoint to revoke share of a contactgroup on a playlist.
-
-</details>
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [Dashboards] Allowed null values on dashboards and playlists.
+- [Licensing] Added EPP license control mechanism.
 
 </details>
 
 ## Centreon IT & Business Extensions
 
-### 23.10.0
+### 24.04.0
+
+Release date: `April 30, 2024`
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 24.04 components.
+
+</details>
