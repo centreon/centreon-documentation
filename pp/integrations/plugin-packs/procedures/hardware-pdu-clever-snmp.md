@@ -50,7 +50,6 @@ Here is the list of services for this connector, detailing all metrics linked to
 | current     | A     |
 | voltage     | V     |
 
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 </Tabs>
