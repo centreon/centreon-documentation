@@ -4,11 +4,15 @@ title: Using packages
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DatabaseRepository from '../_database-repository.mdx';
+import DatabaseLocalInstall from '../_database-local-install.mdx';
+import DatabaseRemoteInstall from '../_database-remote-install.mdx';
+import DatabaseEnableRestart from '../_database-enable-restart.mdx';
 
 Centreon provides RPM and DEB packages for its products through the Centreon Open
 Source version available free of charge in our repository.
 
-These packages can be installed on Alma/RHEL/Oracle Linux 8 and 9 and on Debian 11.
+These packages can be installed on Alma/RHEL/Oracle Linux 8 and 9 and on Debian 11 and 12.
 
 You must run the installation procedure as a privileged user.
 
@@ -111,6 +115,10 @@ You should have this result:
 Disabled
 ```
 
+> **Note that this deactivation should be temporary.** To enable SELinux again, edit the **/etc/selinux/config** file and change the value with the following options:
+> - ``SELINUX=enforcing`` to make SELinux security policy enforced.
+> - ``SELINUX=permissive`` to make SELinux print warnings instead of enforce security policy.
+
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
@@ -139,10 +147,14 @@ You should have this result:
 Disabled
 ```
 
+> **Note that this deactivation should be temporary.** To enable SELinux again, edit the **/etc/selinux/config** file and change the value with the following options:
+> - ``SELINUX=enforcing`` to make SELinux security policy enforced.
+> - ``SELINUX=permissive`` to make SELinux print warnings instead of enforce security policy.
+
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
-SELinux is not installed on Debian 11, continue.
+SELinux is not installed on Debian 11 and 12, continue.
 
 </TabItem>
 </Tabs>
@@ -320,39 +332,9 @@ apt update
 </TabItem>
 </Tabs>
 
-#### MariaDB repository
+#### Database repository
 
-<Tabs groupId="sync">
-
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=9 --mariadb-server-version="mariadb-10.5"
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
-
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.5"
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | bash -s -- --os-type=debian --os-version=12 --mariadb-server-version="mariadb-10.11"
-```
-
-</TabItem>
-</Tabs>
+<DatabaseRepository />
 
 #### Centreon repository
 
@@ -408,229 +390,12 @@ You can install this server with a local database on the server or
 a remote database on a dedicated server.
 
 <Tabs groupId="sync">
-<TabItem value="With a local database" label="With a local database">
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y centreon
-systemctl daemon-reload
-systemctl restart mariadb
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf install -y centreon
-systemctl daemon-reload
-systemctl restart mariadb
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
-
-```shell
-apt install -y --no-install-recommends centreon
-systemctl daemon-reload
-systemctl restart mariadb
-```
-
-</TabItem>
-</Tabs>
-
-</TabItem>
-<TabItem value="With a remote database" label="With a remote database">
-
-> If installing the database on a dedicated server, this server should also have
-> the prerequisite repositories.
-
-Run the following command on the Central server:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y centreon-central
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf install -y centreon-central
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
-
-```shell
-apt update
-apt install -y --no-install-recommends centreon-central
-```
-
-</TabItem>
-</Tabs>
-
-Then run the following commands on the dedicated server for your database:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y centreon-database
-systemctl daemon-reload
-systemctl restart mariadb
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf install -y centreon-database
-systemctl daemon-reload
-systemctl restart mariadb
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
-
-```shell
-apt update
-apt install -y --no-install-recommends centreon-database
-systemctl daemon-reload
-systemctl restart mariadb
-```
-
-</TabItem>
-</Tabs>
-
-> It is mandatory to set a password for the root user of the database.
-
-Secure your MariaDB root access by executing the following command:
-
-```shell
-mysql_secure_installation
-```
-
-Then, in the remote dabatase, create a user with **root** privileges. You will have to enter this user during the 
-web installation process (at [step 6](../web-and-post-installation.md#step-6-database-information),
-in the **Root user** and **Root password** fields).
-
-```SQL
-CREATE USER '<USER>'@'<CENTRAL_SERVER_IP>' IDENTIFIED BY '<PASSWORD>';
-GRANT ALL PRIVILEGES ON *.* TO '<USER>'@'<CENTRAL_SERVER_IP>' WITH GRANT OPTION;
-FLUSH PRIVILEGES;
-```
-
-Example:
-
-```shell
-CREATE USER 'dbadmin'@'<CENTRAL_SERVER_IP>' IDENTIFIED BY '<DBADMIN_PASSWORD>';
-GRANT ALL PRIVILEGES ON *.* TO 'dbadmin'@'<CENTRAL_SERVER_IP>' WITH GRANT OPTION;
-FLUSH PRIVILEGES;
-```
-
-> Replace **<CENTRAL_SERVER_IP\>** with the Centreon Central IP address that will connect to the database server.
->
-> Replace **<USER\>** and **<PASSWORD\>** with the user's credentials.
-
-This user will only be used for the installation process; once the [web installation](../web-and-post-installation.md) is complete you can delete this user using:
-
-```SQL
-DROP USER '<USER>'@'<CENTRAL_SERVER_IP>';
-```
-
-Example:
-
-```SQL
-DROP USER 'dbadmin'@'<CENTRAL_SERVER_IP>';
-```
-
-* The package **centreon-database** installs an optimized MariaDB configuration
- to be used with Centreon.
-
-> If this package is not installed, system limitation **LimitNOFILE** should be
-> at least set to **32000** using a dedicated configuration file; for example:
->
-> ```shell
-> $ cat /etc/systemd/system/mariadb.service.d/centreon.conf
-> [Service]
-> LimitNOFILE=32000
-> ```
-
-* Same for the MariaDB **open_files_limit** directive:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-> ```shell
-> $ cat /etc/my.cnf.d/centreon.cnf
-> [server]
-> innodb_file_per_table=1
-> open_files_limit=32000
-> ```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-> ```shell
-> $ cat /etc/my.cnf.d/centreon.cnf
-> [server]
-> innodb_file_per_table=1
-> open_files_limit=32000
-> ```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
-
-> ```shell
-> $ cat /etc/mysql/mariadb.conf.d/80-centreon.cnf
-> [server]
-> innodb_file_per_table=1
-> open_files_limit=32000
-> ```
-> 
-> MariaDB must listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
-> 
-> ```shell
-> /etc/mysql/mariadb.conf.d/50-server.cnf
-> ```
-> 
-> Set the **bind-address** parameter to **0.0.0.0** and restart mariadb.
-> 
-> ```shell
-> systemctl restart mariadb
-> ```
-
-</TabItem>
-</Tabs>
-
-> In addition to the directives above, it is strongly recommended to tune the
-> database configuration with the following parameters:
->
-> ```shell
-> [server]
-> key_buffer_size = 256M
-> sort_buffer_size = 32M
-> join_buffer_size = 4M
-> thread_cache_size = 64
-> read_buffer_size = 512K
-> read_rnd_buffer_size = 256K
-> max_allowed_packet = 128M
-> ```
->
-> Optionally, tune the memory and buffer utilization of the InnoDB engine powered
-> tables. The example below applies to a database server with 8 GB RAM
->
-> ```shell
-> innodb_buffer_pool_size=1G
-> ```
->
-> Remember to restart MariaDB after changing the configuration.
-
-</TabItem>
+  <TabItem value="With a local database" label="With a local database">
+    <DatabaseLocalInstall />
+  </TabItem>
+  <TabItem value="With a remote database" label="With a remote database">
+    <DatabaseRemoteInstall />
+  </TabItem>
 </Tabs>
 
 ## Step 3: Configuration
@@ -739,14 +504,11 @@ systemctl enable php8.1-fpm apache2 centreon cbd centengine gorgoned centreontra
 
 Then execute the following command (on the central server if you are using a local database, or on your remote database server):
 
-```shell
-systemctl enable mariadb
-systemctl restart mariadb
-```
+<DatabaseEnableRestart />
 
 ### Secure the database
 
-Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon.
+It is mandatory to secure the database's root access before installing Centreon.
 If you are using a local database, run the following command on the central server:
 
 ```shell

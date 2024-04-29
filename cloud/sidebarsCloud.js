@@ -158,11 +158,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'installation/poller-update',
-        },
-        {
-          type: 'doc',
-          id: 'installation/poller-upgrade',
+          id: 'installation/poller-update-upgrade',
         },
         {
           type: 'doc',
@@ -290,6 +286,10 @@ module.exports = {
                      },
             "items": [
               {
+                "type": "doc",
+                "id": "monitoring/basic-objects/commands"
+              },
+                            {
                 "type": "doc",
                 "id": "monitoring/basic-objects/timeperiods"
               },
@@ -505,78 +505,6 @@ module.exports = {
         "href": "/pp/integrations/plugin-packs/getting-started/introduction",
         "label": "Monitoring Connectors"
         },
-      {
-        "type": "category",
-        "label": "Integrations",
-        link: {
-          type: "doc",
-          id: "integrations/introduction-integrations"
-        },
-        "items": [
-          {
-            "type": "category",
-            "label": "ITSM",
-            link: {
-              type: "doc",
-              id: "integrations/itsm/itsm-overview"
-            },
-            "items": [
-              {
-                "type": "doc",
-                "id": "integrations/itsm/ot-bmc-footprints"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/itsm/ot-bmc-remedy"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/itsm/ot-easyvista"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/itsm/ot-glpi"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/itsm/ot-glpi-restapi"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/itsm/ot-itop"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/itsm/ot-iws-isilog"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/itsm/ot-jira"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/itsm/ot-mail"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/itsm/ot-otrs-restapi"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/itsm/ot-request-tracker-restapi"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/itsm/ot-serena"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/itsm/ot-servicenow"
-              }
-            ]
-          }
-        ]
-  },
       {
         "type": "category",
         "label": "Security",

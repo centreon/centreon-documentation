@@ -4,11 +4,15 @@ title: À partir des paquets
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import DatabaseRepository from '../_database-repository.mdx';
+import DatabaseLocalInstall from '../_database-local-install.mdx';
+import DatabaseRemoteInstall from '../_database-remote-install.mdx';
+import DatabaseEnableRestart from '../_database-enable-restart.mdx';
 
 Centreon fournit des paquets RPM et DEB pour ses produits au travers de la solution
 Centreon Open Source disponible gratuitement sur notre dépôt.
 
-Les paquets peuvent être installés sur Alma/RHEL/Oracle Linux 8 et 9, et Debian 11.
+Les paquets peuvent être installés sur Alma/RHEL/Oracle Linux 8 et 9, et Debian 11 et 12.
 
 L'ensemble de la procédure d'installation doit être faite en tant qu'utilisateur privilégié.
 
@@ -109,6 +113,10 @@ $ getenforce
 Disabled
 ```
 
+> **Notez que cette désactivation doit être temporaire.** Pour réactiver SELinux, éditez le fichier **/etc/selinux/config** et changez la valeur avec les options suivantes :
+> - ``SELINUX=enforcing`` pour que la politique de sécurité SELinux soit appliquée en mode strict.
+> - ``SELINUX=permissive`` pour que les erreurs d’accès soient enregistrées dans les logs, mais l’accès ne sera pas bloqué.
+
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
@@ -134,10 +142,14 @@ $ getenforce
 Disabled
 ```
 
+> **Notez que cette désactivation doit être temporaire.** Pour réactiver SELinux, éditez le fichier **/etc/selinux/config** et changez la valeur avec les options suivantes :
+> - ``SELINUX=enforcing`` pour que la politique de sécurité SELinux soit appliquée en mode strict.
+> - ``SELINUX=permissive`` pour que les erreurs d’accès soient enregistrées dans les logs, mais l’accès ne sera pas bloqué.
+
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
-SELinux n'est pas installé sur Debian 11, continuez.
+SELinux n'est pas installé sur Debian 11 et 12, continuez.
 
 </TabItem>
 </Tabs>
@@ -311,32 +323,9 @@ wget -O- https://packages.sury.org/php/apt.gpg | gpg --dearmor | tee /etc/apt/tr
 </TabItem>
 </Tabs>
 
-#### Dépôt MariaDB
+#### Dépôt de base données
 
-<Tabs groupId="sync">
-
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=9 --mariadb-server-version="mariadb-10.5"
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
-
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.5"
-```
-
-</TabItem>
-</Tabs>
+<DatabaseRepository />
 
 #### Dépôt Centreon
 
@@ -390,173 +379,17 @@ Ce chapitre décrit l'installation d'un serveur Centreon Remote Server.
 Il est possible d'installer ce serveur avec une base de données locale au
 serveur, ou déportée sur un serveur dédié.
 
-### Avec base de données locale
-
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y centreon
-systemctl daemon-reload
-systemctl restart mariadb
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-yum install -y centreon
-systemctl daemon-reload
-systemctl restart mariadb
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
-
-```shell
-apt install -y --no-install-recommends centreon
-systemctl daemon-reload
-systemctl restart mariadb
-```
-
-</TabItem>
-</Tabs>
+  <TabItem value="With a local database" label="With a local database">
+    <DatabaseLocalInstall />
 
 Passez maintenant à [l'étape suivante](#étape-3--configuration).
 
-### Avec base de données déportée
-
-> Dans le cas d'une installation avec un serveur dédié à la base de données, ce
-> dernier doit aussi avoir les dépôts prérequis.
-
-Exécutez la commande suivante sur le serveur Centreon Central :
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y centreon-central
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-yum install -y centreon-central
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
-
-```shell
-apt update
-apt install -y --no-install-recommends centreon-central
-```
-
-</TabItem>
+  </TabItem>
+  <TabItem value="With a remote database" label="With a remote database">
+    <DatabaseRemoteInstall />
+  </TabItem>
 </Tabs>
-
-Puis exécutez les commandes suivantes sur le serveur dédié à la base de données :
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y centreon-database
-systemctl daemon-reload
-systemctl restart mariadb
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-yum install -y centreon-database
-systemctl daemon-reload
-systemctl restart mariadb
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
-
-```shell
-apt update
-apt install -y --no-install-recommends centreon-database
-systemctl daemon-reload
-systemctl restart mariadb
-```
-
-</TabItem>
-</Tabs>
-
-Sécurisez votre installation MariaDB en exécutant la commande suivante :
-
-```shell
-mysql_secure_installation
-```
-
-Créez enfin un utilisateur avec privilèges **root** nécessaire à l'installation de Centreon :
-
-```SQL
-CREATE USER '<USER>'@'<IP>' IDENTIFIED BY '<PASSWORD>';
-GRANT ALL PRIVILEGES ON *.* TO '<USER>'@'<IP>' WITH GRANT OPTION;
-FLUSH PRIVILEGES;
-```
-
-> Remplacez **<IP\>** par l'adresse IP avec laquelle le serveur Centreon
-> Remote Server se connectera au serveur de base de données.
->
-> Remplacez **<USER\>** et **<PASSWORD\>** par les identifiants de
-> l'utilisateur.
-
-Une fois l'installation terminée, supprimez cet utilisateur via la commande :
-
-```SQL
-DROP USER '<USER>'@'<IP>';
-```
-
-
-> Le paquet **centreon-database** installe une configuration MariaDB optimisée
-> pour l'utilisation avec Centreon.
->
-> Si ce paquet n'est pas installé, il faut à minima adapter la limitation
-> **LimitNOFILE** à **32000** via une configuration dédiée, exemple:
->
-> ```shell
-> $ cat /etc/systemd/system/mariadb.service.d/centreon.conf
-> [Service]
-> LimitNOFILE=32000
-> ```
->
-> De même pour la directive MariaDB **open_files_limit**, exemple pour Centos 7, Alma/RHEL/OL 8 :
->
-> ```shell
-> $ cat /etc/my.cnf.d/centreon.cnf
-> [server]
-> innodb_file_per_table=1
-> open_files_limit=32000
-> ```
->
-> Pour Debian 11:
->
-> ```shell
-> $ cat /etc/mysql/mariadb.conf.d/80-centreon.cnf
-> [server]
-> innodb_file_per_table=1
-> open_files_limit=32000
-> ```
-
->
-> Redémarrez le service mariadb après chaque changement de configuration.
-
-#### Configuration spécifique à Debian 11
-
-MariaDB doit écouter sur toutes les interfaces au lieu d'écouter sur localhost/127.0.0.1 (valeur par défaut). Éditez le fichier suivant :
-
-```shell
-/etc/mysql/mariadb.conf.d/50-server.cnf
-```
-
-Attribuez au paramètre **bind-address** la valeur **0.0.0.0**.
 
 ## Étape 3 : Configuration
 
@@ -673,20 +506,17 @@ systemctl enable php8.1-fpm apache2 centreon cbd centengine gorgoned centreontra
 
 Puis exécutez la commande suivante (sur le serveur distant si vous utilisez une base de données locale, sinon sur le serveur de base de données déporté):
 
-```shell
-systemctl enable mariadb
-systemctl restart mariadb
-```
+<DatabaseEnableRestart />
 
 ### Sécuriser la base de données
 
-Depuis MariaDB 10.5, il est obligatoire de sécuriser l'accès en root à la base avant d'installer Centreon. Si vous utilisez une base de données locale, exécutez la commande suivante sur le serveur central :
+Il est obligatoire de sécuriser l'accès en root à la base avant d'installer Centreon. Si vous utilisez une base de données locale, exécutez la commande suivante sur le serveur central :
 
 ```shell
 mysql_secure_installation
 ```
 
-* Répondez oui à toute question sauf à "Disallow root login remotely?". 
+* Répondez oui à toute question sauf à "Disallow root login remotely?".
 * Définissez obligatoirement un mot de passe pour l'utilisateur **root** de la base de données.
 Ce mot de passe vous sera demandé lors de l'[installation web](../web-and-post-installation.md).
 
