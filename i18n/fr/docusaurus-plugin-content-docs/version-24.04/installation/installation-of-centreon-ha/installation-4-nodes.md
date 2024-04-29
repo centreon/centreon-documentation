@@ -733,6 +733,7 @@ systemctl restart mariadb
 ```
 
 </TabItem>
+
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 Maintenant que tout est bien configuré, activez le mode `read_only` sur les deux serveurs en décommentant (c'est-à-dire en retirant le `#` en début de ligne) cette instruction dans le fichier `/etc/my.cnf.d/mariadb-server.cnf` :
