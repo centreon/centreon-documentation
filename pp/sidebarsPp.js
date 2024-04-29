@@ -2794,6 +2794,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/virtualization-ovirt-api'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/virtualization-proxmox-ve-restapi'
         },
         {
