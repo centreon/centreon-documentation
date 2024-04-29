@@ -336,6 +336,3 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=cpu-host \
 	--help
 ```
-
-
-tests pour relancer la PR
