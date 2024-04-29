@@ -113,7 +113,7 @@ Ce connecteur de supervision n'a aucun prérequis spécifique hormis le check IC
 
 | Macro        | Description        | Valeur par défaut |
 | :----------- | :----------------- | :------------ |
-| PACKETNUMBER | Number of packet   | 5             |
+| PACKETNUMBER | Number of packets   | 5             |
 | WARNING      | Warning threshold  | 200,20%       |
 | CRITICAL     | Critical Threshold | 400,50%       |
 
