@@ -51,7 +51,6 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 | current     | A     |
 | voltage     | V     |
 
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
 </Tabs>
