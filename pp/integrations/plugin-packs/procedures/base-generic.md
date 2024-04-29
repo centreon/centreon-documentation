@@ -110,7 +110,7 @@ This Monitoring Connector has no specific prerequisites except the Nagios ICMP p
 
 | Macro        | Description        | Default Value |
 | :----------- | :----------------- | :------------ |
-| PACKETNUMBER | Number of packet   | 5             |
+| PACKETNUMBER | Number of packets   | 5             |
 | WARNING      | Warning threshold  | 200,20%       |
 | CRITICAL     | Critical Threshold | 400,50%       |
 
