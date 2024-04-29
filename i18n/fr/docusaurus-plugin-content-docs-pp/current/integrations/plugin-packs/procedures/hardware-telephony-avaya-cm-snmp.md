@@ -86,7 +86,7 @@ yum install centreon-pack-hardware-telephony-avaya-cm-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-telephony-avaya-cm-snmp
@@ -124,7 +124,7 @@ yum install centreon-plugin-Hardware-Telephony-Avaya-Cm-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-telephony-avaya-cm-snmp

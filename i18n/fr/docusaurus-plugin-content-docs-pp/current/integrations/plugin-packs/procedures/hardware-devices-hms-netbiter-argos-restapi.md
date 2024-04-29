@@ -106,7 +106,7 @@ yum install centreon-pack-hardware-devices-hms-netbiter-argos-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-devices-hms-netbiter-argos-restapi
@@ -151,7 +151,7 @@ yum install centreon-plugin-Hardware-Devices-Hms-Netbiter-Argos-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-devices-hms-netbiter-argos-restapi

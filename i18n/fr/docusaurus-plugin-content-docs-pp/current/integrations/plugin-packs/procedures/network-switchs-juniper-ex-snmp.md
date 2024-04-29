@@ -161,7 +161,7 @@ dnf install centreon-pack-network-switchs-juniper-ex-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-network-switchs-juniper-ex-snmp
@@ -206,7 +206,7 @@ dnf install centreon-plugin-Network-Switchs-Juniper-Ex-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-network-switchs-juniper-ex-snmp

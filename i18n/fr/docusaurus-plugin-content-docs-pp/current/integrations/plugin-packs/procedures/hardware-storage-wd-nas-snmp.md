@@ -89,7 +89,7 @@ yum install centreon-pack-hardware-storage-wd-nas-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-storage-wd-nas-snmp
@@ -127,7 +127,7 @@ yum install centreon-plugin-Hardware-Storage-Wd-Nas-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-storage-wd-nas-snmp

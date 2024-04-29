@@ -147,7 +147,7 @@ dnf install centreon-pack-network-adva-fsp3000-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-network-adva-fsp3000-snmp
@@ -192,7 +192,7 @@ dnf install centreon-plugin-Network-Adva-Fsp3000-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-network-adva-fsp3000-snmp

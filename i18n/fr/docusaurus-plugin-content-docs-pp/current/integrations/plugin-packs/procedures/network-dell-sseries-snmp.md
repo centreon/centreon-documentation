@@ -145,7 +145,7 @@ dnf install centreon-pack-network-dell-sseries-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-network-dell-sseries-snmp
@@ -190,7 +190,7 @@ dnf install centreon-plugin-Network-Dell-Sseries-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-network-dell-sseries-snmp

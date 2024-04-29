@@ -110,7 +110,7 @@ yum install centreon-pack-hardware-storage-purestorage-flashblade-v2-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-storage-purestorage-flashblade-v2-restapi
@@ -148,7 +148,7 @@ yum install centreon-plugin-Hardware-Storage-Purestorage-Flashblade-V2-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-storage-purestorage-flashblade-v2-restapi

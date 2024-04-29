@@ -138,7 +138,7 @@ dnf install centreon-pack-applications-databases-elasticsearch
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-databases-elasticsearch
@@ -183,7 +183,7 @@ dnf install centreon-plugin-Applications-Databases-Elasticsearch
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-databases-elasticsearch

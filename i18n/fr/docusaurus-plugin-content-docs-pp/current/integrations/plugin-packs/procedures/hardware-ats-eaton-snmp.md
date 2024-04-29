@@ -108,7 +108,7 @@ dnf install centreon-pack-hardware-ats-eaton-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-ats-eaton-snmp
@@ -153,7 +153,7 @@ dnf install centreon-plugin-Hardware-Ats-Eaton-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-ats-eaton-snmp

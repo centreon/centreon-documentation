@@ -80,7 +80,7 @@ yum install centreon-pack-applications-pineapp-securemail-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-pineapp-securemail-snmp
@@ -118,7 +118,7 @@ yum install centreon-plugin-Applications-Pineapp-Securemail-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-pineapp-securemail-snmp

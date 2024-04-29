@@ -181,7 +181,7 @@ Pour la supervision VMware, Centreon utilise un daemon pour se connecter et requ
 Installer le daemon sur tous les pollers :
 
 <Tabs groupId="sync">
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-virtualization-vmware-daemon
@@ -293,7 +293,7 @@ dnf install centreon-pack-virtualization-vmware2-vm
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-virtualization-vmware2-vm
@@ -338,7 +338,7 @@ dnf install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-virtualization-vmware2-connector-plugin
