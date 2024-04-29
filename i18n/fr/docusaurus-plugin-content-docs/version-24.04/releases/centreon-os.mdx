@@ -34,7 +34,7 @@ Release date: `April 30, 2024`
 Dashboards are now in Global Availability (GA) and fully supported by Centreon.
 Many features have been added in this version.
 
-- **Playlists feature:** you can now create dashboards playlists. Selected dashboards will be displayed sequentially without any interaction allowing to broadcast them on TV set on public spaces.
+- **Playlists feature:** you can now create dashboard playlists. Selected dashboards will be displayed sequentially without any interaction, allowing you to broadcast them on TVs in public spaces.
 - **New widgets**
   - The "Status Chart" widget displays the distribution of current statuses on selected resources, as a chart.
   - The "Group Monitoring" widget displays the distribution of current statuses on selected groups of resources, as a table.
@@ -46,7 +46,7 @@ Many features have been added in this version.
   - You can now access widgets more easily thanks to pictograms representing each type of widget.
   - You can now display dashboards as a list, with the **View as list** button.
   - A modal now appears when deleting widgets, dashboards or playlists.
-  - A warning modal is now preventing user from quitting the dashboard without saving it first.
+  - A warning modal is now preventing users from leaving the dashboard without saving it first.
   
 </details>
 
@@ -55,20 +55,20 @@ Many features have been added in this version.
 
 **Dashboards GA**
 
-- **Improvements made on global Dashboards behavior**
+- **Improvements made on global Dashboard behavior**
   - Improved the retrieval of contacts and contact groups based on ACLs for sharing.
-  - Optimized the widget rendering.
+  - Optimized the rendering of widgets.
   - Optimized legend and thickened curves on graphs.
-  - Moved the parameter used for hiding widget's description.
+  - Moved the parameter used for hiding widgets' descriptions.
   - Updated the dashboard global refresh icon.
-  - Made the widget edition more accessible.
-  - Made the dashboards library view as list the default one.
-  - Reorganized rich text options for widget description.
+  - Made widget edition more accessible.
+  - Made the dashboard library's "view as list" the default view.
+  - Reorganized rich text options for widget descriptions.
 
-- **Improvements made on specific widgets**
-  - [MAP widget] Added information message when editing.
+- **Improvements made to specific widgets**
+  - [MAP widget] Added an information message displayed when editing the widget.
   - [Metrics Graph widget] Added a warning message indicating that thresholds have been hidden when selecting two different metric units.
-  - [Metrics Graph widget] Added an information tooltip when hovering an element on the graph.
+  - [Metrics Graph widget] Added an information tooltip when hovering over an element on the graph.
   - [Single Metric widget] Simplified metric selection.
   - [Single Metric widget] Simplified dataset selection by forcing a "host + service" pair.
   - [Status Grid widget] Added an "unhandled" state property.
@@ -83,11 +83,8 @@ Many features have been added in this version.
 **API**
 
 - **Dashboards**
-  - Added a new endpoint to create a playlist of dashboards.
-  - Added a new endpoint to share playlist of dashboards to contact/contactgroup.
-  - Added a new endpoint to delete playlist of dashboards.
-  - Added a new endpoint to list playlist shares.
-  - Added a new endpoint to duplicate dashboard.
+  - Added new endpoints to manage [playlists](centreon-commercial-extensions.md#centreon-it-edition-extensions).
+  - Added a new endpoint to duplicate dashboards.
   - Update the endpoint to handle Status Grid "condensed" view.
 
 - **Configuration**
@@ -97,21 +94,21 @@ Many features have been added in this version.
   - Added an endpoint to list graph templates.
   - Added an endpoint to list and delete Business Activities.
   - Added an endpoint to update a service.
-  - Added an endpoint to update partially a host.
-  - Added an endpoint to handle fileformat associated to a Stream Connector.
+  - Added an endpoint to update a host partially.
+  - Added an endpoint to handle the file format associated with a Stream Connector.
 
 - **Monitoring**
   - Added an endpoint to list all metrics of a given service.
   - Added metrics by service listing endpoint to service resource type.
 
 - **Administration**:
-  - Added endpoints to upload and list medias.
+  - Added endpoints to upload and list media.
 
 **Installation**
 
-- Added the support of Debian 12 as operating system.
-- Added the compatibility with MySQL 8.0.
-- Updated the MariaDB version to latest LTS 10.11.
+- Added support for the Debian 12 operating system.
+- Added compatibility with MySQL 8.0.
+- Updated the MariaDB version to its latest LTS, 10.11.
 - Improved the unattended.sh script to offer the possibility to select which DBMS will be installed.
 
 </details>
@@ -167,7 +164,7 @@ Release date: `April 30, 2024`
 <details open>
   <summary>Enhancements</summary>
 
-- Moved gorgone whitelists to a dedicated file.
+- Moved custom gorgone whitelists to a dedicated file.
 
 </details>
 
