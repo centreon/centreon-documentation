@@ -58,7 +58,7 @@ Many features have been added in this version.
 **Dashboards GA**
 
 - **Improvements made on global Dashboards behavior**
-  - Improved the retrieval of contacts and contact groups based on ACLs for sharing.
+  -When sharing a dashboard, only contacts and contact groups that have access to the dashboard are displayed.
   - Optimized the rendering of widgets.
   - Optimized legend and thickened curves on graphs.
   - Moved the parameter used for hiding widgets' descriptions.
@@ -76,7 +76,7 @@ Many features have been added in this version.
   - [Status Grid widget] Added an "unhandled" state property.
   - [Status Grid widget] Added a new "condensed" view.
 
-> BREAKING CHANGE: simplified metric selection by displaying corresponding service names.
+> BREAKING CHANGE: The way metrics are handled has been changed to allow for more flexibility (e.g., you now have the possibility to exclude metrics). If you used the metrics graph widget, you may have to select your metrics again.
 
 **User Experience**
 
@@ -87,7 +87,7 @@ Many features have been added in this version.
 - **Dashboards**
   - Added new endpoints to manage [playlists](centreon-commercial-extensions.md#centreon-it-edition-extensions).
   - Added a new endpoint to duplicate dashboards.
-  - Update the endpoint to handle Status Grid "condensed" view.
+  - Updated endpoints to handle the Status Grid "condensed" view.
 
 - **Configuration**
   - Added an endpoint to update a service severity.
