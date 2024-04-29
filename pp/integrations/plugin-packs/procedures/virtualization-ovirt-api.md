@@ -33,9 +33,9 @@ The connector brings the following service templates (sorted by the host templat
 
 #### Service discovery
 
-| Rule name                | Description |
-|:-------------------------|:------------|
-| Virt-Ovirt-Api-Host-Name |             |
+| Rule name                | Description                               |
+|:-------------------------|:------------------------------------------|
+| Virt-Ovirt-Api-Host-Name | Discover hosts and then monitor their CPU |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -158,12 +158,12 @@ yum install centreon-plugin-Virtualization-Ovirt-Api
 3. Apply the **Virt-Ovirt-Api-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                | Description                                                                                          | Default value     | Mandatory   |
-|:---------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| OVIRTAPIUSERNAME     | oVirt API username                                                                                   |                   |             |
-| OVIRTAPIPASSWORD     | oVirt API password                                                                                   |                   |             |
-| OVIRTAPIPROTO        | Specify https if needed (default: 'https')                                                           | https             |             |
-| OVIRTAPIPORT         | Port used (default: 443)                                                                             | 443               |             |
+| Macro                | Description                                                                                                                              | Default value     | Mandatory   |
+|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| OVIRTAPIUSERNAME     | oVirt API username                                                                                                                       |                   |             |
+| OVIRTAPIPASSWORD     | oVirt API password                                                                                                                       |                   |             |
+| OVIRTAPIPROTO        | Specify https if needed                                                                                                                  | https             |             |
+| OVIRTAPIPORT         | Port used                                                                                                                                | 443               |             |
 | OVIRTAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -176,15 +176,15 @@ yum install centreon-plugin-Virtualization-Ovirt-Api
 <Tabs groupId="sync">
 <TabItem value="Hosts CPU" label="Hosts CPU">
 
-| Macro             | Description                                                                                        | Default value     | Mandatory   |
-|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNAME        | Filter host name (can be a regexp)                                                                 |                   |             |
-| FILTERID          | Filter host ID (can be a regexp)                                                                   |                   |             |
-| WARNINGCPUSYSTEM  |                                                                                                    |                   |             |
-| CRITICALCPUSYSTEM |                                                                                                    |                   |             |
-| WARNINGCPUUSER    |                                                                                                    |                   |             |
-| CRITICALCPUUSER   |                                                                                                    |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro             | Description                                                                                                                                      | Default value     | Mandatory   |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERNAME        | Filter host name (can be a regexp)                                                                                                               |                   |             |
+| FILTERID          | Filter host ID (can be a regexp)                                                                                                                 |                   |             |
+| WARNINGCPUSYSTEM  | Warning threshold for CPU system                                                                                                                 |                   |             |
+| CRITICALCPUSYSTEM | Critical threshold for CPU system                                                                                                                |                   |             |
+| WARNINGCPUUSER    | Warning threshold for CPU user                                                                                                                   |                   |             |
+| CRITICALCPUUSER   | Critical threshold for CPU user                                                                                                                  |                   |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 </Tabs>
