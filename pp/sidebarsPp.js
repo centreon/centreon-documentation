@@ -482,6 +482,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-rrdcached'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-rubrik-restapi'
         },
         {
