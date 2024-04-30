@@ -21,6 +21,7 @@ Lorsque vous passez d'une version majeure de Centreon à une autre, vous devez :
 
 | Centreon | MariaDB |
 |----------|---------|
+| 24.04    | 10.11   |
 | 23.10    | 10.5    |
 | 23.04    | 10.5    |
 | 22.10    | 10.5    |
@@ -95,7 +96,7 @@ ii  mysql-common                           1:10.5.17+maria~deb11      all       
 
 ## Changer de version majeure de MariaDB
 
-Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de version majeure (par exemple pour passer d'une version 10.4 à une version 10.5).
+Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de version majeure (par exemple pour passer d'une version 10.5 à une version 10.11).
 
 1. Arrêtez le service mariadb :
 
@@ -141,27 +142,27 @@ dpkg -r --ignore-depends=MariaDB-server,MariaDB-client,MariaDB-shared,MariaDB-co
 
 > Assurez-vous d'avoir [installé le dépôt officiel de MariaDB](./upgrade-from-22-04.md#installer-le-dépôt-mariadb) avant de poursuivre la procédure.
 
-3. Installez la version 10.5 :
+3. Installez la version 10.11 :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
+dnf install MariaDB-server-10.11\* MariaDB-client-10.11\* MariaDB-shared-10.11\* MariaDB-compat-10.11\* MariaDB-common-10.11\*
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-compat-10.5\* MariaDB-common-10.5\*
+dnf install MariaDB-server-10.11\* MariaDB-client-10.11\* MariaDB-shared-10.11\* MariaDB-compat-10.11\* MariaDB-common-10.11\*
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.5"
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.11"
 ```
 
 </TabItem>
@@ -200,7 +201,7 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
     systemctl enable mariadb
     ```
 
-### Montée de version de 10.1 à 10.5
+### Montée de version de 10.1 à une version plus récente
 
 Le paramètre `innodb_additional_mem_pool_size` a été supprimé depuis MariaDB
 10.2, vous devez donc le supprimer du fichier **/etc/my.cnf.d/centreon.cnf**
@@ -263,6 +264,6 @@ apt update MariaDB-*
 
 2. Redémarrez MariaDB :
 
-    ```
+    ```shell
     restart mariadb
     ```

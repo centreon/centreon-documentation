@@ -34,7 +34,7 @@ apt install -y --no-install-recommends centreon-central
 
 Exécutez ensuite les commandes suivantes sur le serveur dédié à votre base de données :
 
-<Tabs groupId="database-sync">
+<Tabs groupId="sync">
 <TabItem value="MariaDB" label="MariaDB">
 
 <Tabs groupId="sync">
@@ -75,7 +75,11 @@ systemctl restart mariadb
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
+dnf install -y mysql-server mysql
 dnf install -y centreon-mysql
+systemctl enable --now mysqld
+echo "default-authentication-plugin=mysql_native_password" >> /etc/my.cnf.d/mysql-server.cnf
+sed -Ei 's/LimitNOFILE\s\=\s[0-9]{1,}/LimitNOFILE = 32000/' /usr/lib/systemd/system/$mysql_service_name.service
 systemctl daemon-reload
 systemctl restart mysqld
 ```
@@ -84,7 +88,11 @@ systemctl restart mysqld
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
+dnf install -y mysql-server mysql
 dnf install -y centreon-mysql
+systemctl enable --now mysqld
+echo "default-authentication-plugin=mysql_native_password" >> /etc/my.cnf.d/mysql-server.cnf
+sed -Ei 's/LimitNOFILE\s\=\s[0-9]{1,}/LimitNOFILE = 32000/' /usr/lib/systemd/system/$mysql_service_name.service
 systemctl daemon-reload
 systemctl restart mysqld
 ```

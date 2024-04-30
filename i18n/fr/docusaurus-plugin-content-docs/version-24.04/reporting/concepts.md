@@ -356,7 +356,7 @@ Exemple:
     /usr/share/centreon-bi/bin/centreonBIETL -r
 
 Afin d'obtenir des temps d'exécution raisonnables, la configuration
-matérielle, l'espace de stockage disponible et les optimisations MariaDB
+matérielle, l'espace de stockage disponible et les optimisations MariaDB/MySQL
 doivent avoir été bien positionnés lors de l'installation.
 
 Toutes les recommandations matérielles, logicielles et

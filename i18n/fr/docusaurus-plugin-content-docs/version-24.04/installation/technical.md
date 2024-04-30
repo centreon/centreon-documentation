@@ -96,7 +96,7 @@ Description des logiciels et utilisateurs liés :
 | ----------------- | ---------------- | ---------------- | --------------- |
 | Apache            | httpd            | apache           | automatic start |
 | PHP-FPM           | php-fpm          | apache           | automatic start |
-| MariaDB           | mariadb          | mysql            | automatic start |
+| MariaDB/MySQL     | mariadb/mysqld   | mysql            | automatic start |
 | Centreon          | centreontrapd    | centreon         | automatic start |
 | Centreon Broker   | cbwd             | centreon-broker  | automatic start |
 | Centreon Broker   | cbd              | centreon-broker  | automatic start |
@@ -110,7 +110,7 @@ Description des logiciels et utilisateurs liés :
 | ----------------- | ---------------- | ---------------- | --------------- |
 | Apache            | httpd            | apache           | automatic start |
 | PHP-FPM           | php-fpm          | apache           | automatic start |
-| MariaDB           | mariadb          | mysql            | automatic start |
+| MariaDB/MySQL     | mariadb/mysqld   | mysql            | automatic start |
 | Centreon          | centreontrapd    | centreon         | automatic start |
 | Centreon Broker   | cbwd             | centreon-broker  | automatic start |
 | Centreon Broker   | cbd              | centreon-broker  | automatic start |
@@ -124,7 +124,7 @@ Description des logiciels et utilisateurs liés :
 | ----------------- | ---------------- | ---------------- | --------------- |
 | Apache            | apache2          | www-data         | automatic start |
 | PHP-FPM           | php-fpm          | apache           | automatic start |
-| MariaDB           | mariadb          | mysql            | automatic start |
+| MariaDB/MySQL     | mariadb/mysqld   | mysql            | automatic start |
 | Centreon          | centreontrapd    | centreon         | automatic start |
 | Centreon Broker   | cbwd             | centreon-broker  | automatic start |
 | Centreon Broker   | cbd              | centreon-broker  | automatic start |
@@ -219,7 +219,7 @@ Si vous ne supervisez qu'un petit nombre d'hôtes, vous pouvez n'avoir besoin qu
 Plusieurs entités servent à mettre en place cette architecture :
 
 * Le serveur Apache est chargé d'héberger l'interface web de Centreon
-* Plusieurs bases de données MariaDB sont chargées de stocker la configuration de Centreon, les informations de
+* Plusieurs bases de données MariaDB/MySQL sont chargées de stocker la configuration de Centreon, les informations de
   supervision ainsi que les données de performances
 * Le moteur de supervision supervise le système d'informations
 * Les informations de supervision sont envoyées via cbmod à Centreon Broker SQL
@@ -243,7 +243,7 @@ L'architecture distribuée consiste à avoir deux types d'entités :
 Le serveur central regroupe les éléments suivants :
 
 * L'interface web de Centreon
-* La base de données (MariaDB + RRD)
+* La base de données (MariaDB/MySQL + RRD)
 * Le moteur de supervision
 * Le broker
 
@@ -265,7 +265,7 @@ simple (et sécurisant) de placer un serveur satellite sur le réseau DMZ
 Le serveur central fonctionne de la manière suivante :
 
 * Le serveur Apache est chargé d'héberger l'interface web de Centreon
-* Plusieurs bases de données MariaDB sont chargées de stocker la configuration de Centreon, les informations de supervision ainsi que les données de performances
+* Plusieurs bases de données MariaDB/MySQL sont chargées de stocker la configuration de Centreon, les informations de supervision ainsi que les données de performances
 * Le service Centreon Gorgone est chargé d'exporter la configuration des moteurs de supervision vers le serveur central et satellites ainsi que du redémarrage des moteurs de supervision
 * Le moteur de supervision supervise le système d'informations
 * Les informations de supervision sont envoyées via cbmod à Centreon Broker SQL
@@ -300,7 +300,7 @@ Le serveur central regroupe les éléments suivants :
 * Le broker
 * Les fichiers RRD
 
-Le serveur de base de données est chargé de stocker la base de données MariaDB.
+Le serveur de base de données est chargé de stocker la base de données MariaDB/MySQL.
 
 Le collecteur regroupe les éléments suivants :
 
@@ -312,14 +312,14 @@ Cette architecture a plusieurs intérêts :
 * Elle permet la répartition de la charge de supervision entre plusieurs serveurs de supervision
 * Isolation des flux réseaux : si votre infrastructure de supervision est chargée de superviser une DMZ, il est plus
   simple (et sécurisant) de placer un collecteur sur le réseau DMZ
-* Avoir une base de données MariaDB externalisée
+* Avoir une base de données MariaDB/MySQL externalisée
 
 #### Entités
 
 ##### Serveur de base de données
 
 Le serveur de base de données sert uniquement à stocker la configuration de Centreon, les informations de supervision
-ainsi que les données de performances au sein de la base de données MariaDB.
+ainsi que les données de performances au sein de la base de données MariaDB/MySQL.
 
 ##### Serveur central
 
@@ -362,14 +362,14 @@ Le serveur central regroupe les éléments suivants :
 * L'interface web de Centreon (configuration, présentation et opération)
 * Le moteur de supervision
 * Le broker
-* Les bases de données (MariaDB + RRD)
+* Les bases de données (MariaDB/MySQL + RRD)
 
 Le Remote Server regroupe les éléments suivants :
 
 * L'interface web de Centreon (présentation et opération d'un sous-ensemble des données)
 * Le moteur de supervision
 * Le broker
-* Les bases de données (MariaDB + RRD)
+* Les bases de données (MariaDB/MySQL + RRD)
 
 Le collecteur contient les éléments suivants :
 
@@ -390,7 +390,7 @@ Cette architecture a plusieurs intérêts :
 Le serveur central fonctionne normalement :
 
 * Le serveur Apache est chargé d'héberger l'interface web de Centreon
-* Plusieurs bases de données MariaDB sont chargées de stocker la configuration de Centreon, les informations de supervision
+* Plusieurs bases de données MariaDB/MySQL sont chargées de stocker la configuration de Centreon, les informations de supervision
   ainsi que les données de performances
 * Le service Centreon Gorgone est chargé d'exporter la configuration des moteurs de supervision vers le serveur central et
   collecteurs ainsi que du redémarrage des moteurs de supervision
@@ -405,7 +405,7 @@ Le serveur central fonctionne normalement :
 Le Remote Server fonctionne normalement :
 
 * Le serveur Apache est chargé d'héberger l'interface web de Centreon
-* Plusieurs bases de données MariaDB sont chargées de stocker les informations de supervision ainsi que les données de
+* Plusieurs bases de données MariaDB/MySQL sont chargées de stocker les informations de supervision ainsi que les données de
   performances
 * Le service Centreon Gorgone est chargé d'opérer sur les données collectées
 * Le moteur de supervision supervise le système d'informations

@@ -5,9 +5,22 @@ import TabItem from '@theme/TabItem';
 
 Secure your database root access by executing the following command:
 
+<Tabs groupId="sync">
+<TabItem value="MariaDB" label="MariaDB"> 
+
+```shell
+mariadb-secure-installation
+```
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL"> 
+
 ```shell
 mysql_secure_installation
 ```
+
+</TabItem>
+</Tabs>
 
 Then, in the remote dabatase, create a user with **root** privileges. You will have to enter this user during the 
 web installation process (at [step 6](./web-and-post-installation.md#step-6-database-information),

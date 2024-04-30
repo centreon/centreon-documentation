@@ -361,7 +361,7 @@ dnf update
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-23.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-24.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -505,9 +505,22 @@ Exécutez ensuite la commande suivante (sur le serveur central si vous utilisez 
 Il est obligatoire de sécuriser l'accès root de la base de données avant d'installer Centreon.
 Si vous utilisez une base de données locale, exécutez la commande suivante sur le serveur central :
 
+<Tabs groupId="sync">
+<TabItem value="MariaDB" label="MariaDB"> 
+
+```shell
+mariadb-secure-installation
+```
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL"> 
+
 ```shell
 mysql_secure_installation
 ```
+
+</TabItem>
+</Tabs>
 
 * Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely ?".
 * Il est obligatoire de définir un mot de passe pour l'utilisateur **root** de la base de données. Ce mot de passe vous sera demandé pendant l'[installation web](../web-and-post-installation.md).

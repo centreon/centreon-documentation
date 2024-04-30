@@ -9,7 +9,7 @@ The difference with the MAP (Legacy) version is that MAP provides you with an ed
 
 > If you have already used the MAP (Legacy) version, note that you can easily [import your legacy maps](import-into-map-web.md#importing-legacy-maps-into-map) into the MAP interface.
 
-> See how to manage views using the Centreon MAP REST API [here](https://docs-api.centreon.com/api/centreon-map/23.10/).
+> See how to manage views using the Centreon MAP REST API [here](https://docs-api.centreon.com/api/centreon-map/24.04/).
 
 ## Overview
 

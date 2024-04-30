@@ -96,7 +96,7 @@ Description of software and linked users:
 | ----------------- | ---------------- | ---------------- | --------------- |
 | Apache            | httpd            | apache           | automatic start |
 | PHP-FPM           | php-fpm          | apache           | automatic start |
-| MariaDB           | mariadb          | mysql            | automatic start |
+| MariaDB/MySQL     | mariadb/mysqld   | mysql            | automatic start |
 | Centreon          | centreontrapd    | centreon         | automatic start |
 | Centreon Broker   | cbwd             | centreon-broker  | automatic start |
 | Centreon Broker   | cbd              | centreon-broker  | automatic start |
@@ -110,7 +110,7 @@ Description of software and linked users:
 | ----------------- | ---------------- | ---------------- | --------------- |
 | Apache            | httpd            | apache           | automatic start |
 | PHP-FPM           | php-fpm          | apache           | automatic start |
-| MariaDB           | mariadb          | mysql            | automatic start |
+| MariaDB/MySQL     | mariadb/mysqld    | mysql            | automatic start |
 | Centreon          | centreontrapd    | centreon         | automatic start |
 | Centreon Broker   | cbwd             | centreon-broker  | automatic start |
 | Centreon Broker   | cbd              | centreon-broker  | automatic start |
@@ -124,7 +124,7 @@ Description of software and linked users:
 | ----------------- | ---------------- | ---------------- | --------------- |
 | Apache            | apache2          | www-data         | automatic start |
 | PHP-FPM           | php-fpm          | apache           | automatic start |
-| MariaDB           | mariadb          | mysql            | automatic start |
+| MariaDB/MySQL     | mariadb/mysqld   | mysql            | automatic start |
 | Centreon          | centreontrapd    | centreon         | automatic start |
 | Centreon Broker   | cbwd             | centreon-broker  | automatic start |
 | Centreon Broker   | cbd              | centreon-broker  | automatic start |
@@ -218,10 +218,10 @@ If you are not monitoring many hosts, you may only need one central server.
 The following components are used in a central server:
 
 * Apache web server for the Centreon web interface
-* MariaDB databases to store Centreon configuration parameters as well as monitoring and performance data
+* MariaDB or MySQL databases to store Centreon configuration parameters as well as monitoring and performance data
 * A monitoring engine to collect data
 * Collected data are sent to Centreon Broker SQL using cbmod by the monitoring engine
-* Centreon Broker SQL stores information in MariaDB databases and forwards them to Centreon Broker RRD
+* Centreon Broker SQL stores information in MariaDB/MySQL databases and forwards them to Centreon Broker RRD
 * Centreon Broker RRD generates and updates RRD files with data in order to display performance graphs
 
 #### Architecture
@@ -242,7 +242,7 @@ The distributed architecture has the following elements:
 The central Centreon server includes the following items:
 
 * Centreon web interface
-* Databases (MariaDB + RRD)
+* Databases (MariaDB/MySQL + RRD)
 * Monitoring Engine
 * Broker
 
@@ -263,11 +263,11 @@ This architecture is used for:
 Many components are used to build a central Centreon server:
 
 * Apache web server for Centreon web interface
-* MariaDB databases to store Centreon configuration parameters as well as monitoring and performance data
+* MariaDB/MySQL databases to store Centreon configuration parameters as well as monitoring and performance data
 * The Centreon Gorgone process is used to send the monitoring configuration to the remote server and to manage it
 * A monitoring engine to collect data
 * Collected data are sent to Centreon Broker SQL using cbmod by the monitoring engine
-* Centreon Broker SQL stores information in MariaDB databases and forwards them to Centreon Broker RRD
+* Centreon Broker SQL stores information in MariaDB/MySQL databases and forwards them to Centreon Broker RRD
 * Centreon Broker RRD generates and updates RRD files with data in order to display performance graphs
 
 ##### Poller
@@ -298,7 +298,7 @@ The central Centreon server includes the following items:
 * Broker
 * RRD files
 
-The DBMS server stores information in MariaDB databases.
+The DBMS server stores information in MariaDB/MySQL databases.
 
 The poller includes the following items:
 
@@ -315,7 +315,7 @@ This architecture is used for:
 
 ##### DBMS server
 
-The DBMS server is used only to store Centreon configuration parameters as well as monitoring and performance data in MariaDB databases
+The DBMS server is used only to store Centreon configuration parameters as well as monitoring and performance data in MariaDB/MySQL databases.
 
 ##### Central Centreon server
 
@@ -326,7 +326,7 @@ Many components are used to build a central Centreon server:
 * The Centreon Gorgone process is used to send the monitoring configuration to the remote server and to manage it
 * A monitoring engine to collect data
 * Collected data are sent to Centreon Broker SQL using cbmod by the monitoring engine
-* Centreon Broker SQL stores information in MariaDB databases and forwards them to Centreon Broker RRD
+* Centreon Broker SQL stores information in MariaDB/MySQL databases and forwards them to Centreon Broker RRD
 * Centreon Broker RRD generates and updates RRD files with data in order to display performance graphs
 
 ##### Poller
@@ -355,13 +355,13 @@ The central Centreon server includes the following items:
 * Centreon web interface (configure, display and operate)
 * Monitoring Engine
 * Broker
-* Databases (MariaDB + RRD)
+* Databases (MariaDB/MySQL + RRD)
 
 The Remote servers include the following items:
 
 * Centreon web interface (display & operate a subset of data)
 * Monitoring Engine
-* Databases (MariaDB + RRD)
+* Databases (MariaDB/MySQL + RRD)
 * Broker module to forward collected data to a central broker
 
 This architecture is used for:
@@ -377,11 +377,11 @@ This architecture is used for:
 Many components are used to build a Centreon server:
 
 * Apache web server for Centreon web interface
-* MariaDB databases to store Centreon configuration parameters as well as monitoring and performance data
+* MariaDB/MySQL databases to store Centreon configuration parameters as well as monitoring and performance data
 * The Centreon Gorgone process is used to send the monitoring configuration to the remote server and to manage it
 * A monitoring engine to collect data
 * Collected data are sent to Centreon Broker SQL using cbmod by the monitoring engine
-* Centreon Broker SQL stores information in MariaDB databases and forwards them to Centreon Broker RRD
+* Centreon Broker SQL stores information in MariaDB/MySQL databases and forwards them to Centreon Broker RRD
 * Centreon Broker RRD generates and updates RRD files with data in order to display performance graphs
 
 ##### Remote monitoring server
@@ -389,11 +389,11 @@ Many components are used to build a Centreon server:
 Many components are used to build a remote server:
 
 * Apache web server for Centreon web interface
-* MariaDB databases to store monitoring and performance data
+* MariaDB/MySQL databases to store monitoring and performance data
 * The Centreon Gorgone process is used to operate on collected data
 * A monitoring engine to collect data
 * Collected data are sent to Centreon Broker SQL using cbmod by the monitoring engine
-* Centreon Broker SQL stores information in MariaDB databases and forwards them to Centreon Broker RRD locally. All information is forwarded to the Centreon central server.
+* Centreon Broker SQL stores information in MariaDB/MySQL databases and forwards them to Centreon Broker RRD locally. All information is forwarded to the Centreon central server.
 * Centreon Broker RRD generates and updates RRD files with data in order to display performance graphs
 
 ##### Poller

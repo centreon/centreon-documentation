@@ -96,7 +96,7 @@ Follow this procedure to set a default page:
 
 > First, you need the "topology page" number associated with the default page in the interface. In this example, we need the number associated with the Resource Status page.
 
-1. From your terminal, connect to **MariaDB** and run the following command:
+1. From your terminal, connect to **MariaDB/MySQL** and run the following command:
   
   ```shell
   use centreon;

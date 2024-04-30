@@ -1,6 +1,6 @@
 ---
 id: migrate-from-el-to-debian
-title: Migrate from an EL-type OS to Debian 11
+title: Migrate from an EL-type OS to Debian
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 This procedure only applies if the following conditions are met:
 
-- You wish to migrate from a 64-bit EL-type OS to Debian 11. For instance, if you want to migrate from CentOS 7 to Debian 11.
+- You wish to migrate from a 64-bit EL-type OS to Debian. For instance, if you want to migrate from CentOS 7 to Debian 11.
 - Your version of Centreon is 18.10 or newer and you wish to upgrade to the latest version of Centreon. If you wish to migrate from an older version, [contact the Centreon support team](https://support.centreon.com).
 
 All servers (central, remote and pollers) in your architecture must have the same major version of Centreon. It is also recommended that they have the same minor version.
@@ -172,12 +172,12 @@ If you are using custom plugins, synchronize the directories that contain your c
 ### Step 5: Upgrade Centreon
 
 1. On the new server, force the update by moving the contents of the
-**/var/lib/centreon/installs/install-22.10.x-YYYYMMDD\_HHMMSS** directory to
+**/var/lib/centreon/installs/install-24.04.x-YYYYMMDD\_HHMMSS** directory to
 the **/usr/share/centreon/www/install** directory (**x** is the target version number for your migrated machine):
 
    ```shell
    cd /var/lib/centreon/installs/
-   mv install-22.10.x-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
+   mv install-24.04.x-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
    ```
 
 2. If you use the same IP address or same DNS name on the old Centreon webserver and the new one, do a full cache cleanup of your browser to avoid JS issues.

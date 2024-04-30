@@ -28,12 +28,12 @@ Lancer la commande suivante pour assurer la compatibilité des données:
 
     mysql_upgrade
 
--   Si aucune erreur n'apparaît, redémarrez MariaDB et continuer à la
+-   Si aucune erreur n'apparaît, redémarrez MariaDB/MySQL et continuez à la
     section ci-dessous "Déplacer les rapports générés".
 -   Si des erreurs sont visibles, notamment sur les tables mysql
     innodb\_index\_stats, innodb\_table\_stats, gtid\_slave\_pos, cela
     peut être dû à une incompatibilité entre MySQL/MariaDB 5.5 et
-    MariaDB 10.5. Dans ce cas, effectuer les actions suivantes:
+    MariaDB 10.11. Dans ce cas, effectuer les actions suivantes:
 
         service mysql stop
         cp -a /var/lib/mysql/ /var/lib/mysql.bak

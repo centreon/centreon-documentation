@@ -568,9 +568,7 @@ process new metric data at a reduced speed.
 *Storage*-type outputs have the following parameters:
 
   - DB Type  
-    The type of the database being accessed. MariaDB is a state-of-the-art
-    database that has been extensively tested by Centreon. We advise using
-    MariaDB.
+    The type of the database being accessed.
 
   - DB Port  
     The port of the database being accessed.
@@ -629,9 +627,7 @@ the database occasionally. This is an optional process, as old data is marked
 *SQL*-type outputs have the following parameters:
 
   - DB Type  
-    The type of the database being accessed. MariaDB is a state-of-the-art
-    database that has been extensively tested by Centreon. We advise using
-    MariaDB.
+    The type of the database being accessed.
 
   - DB Port  
     The port of the database being accessed.
@@ -702,9 +698,7 @@ outputs.
 **unified-sql**-type outputs have the following parameters:
 
   - DB Type
-    The type of the database being accessed. MariaDB is a state-of-the-art
-    database that has been extensively tested by Centreon. We advise using
-    MariaDB.
+    The type of the database being accessed.
 
   - DB Port
     The port of the database being accessed.
@@ -804,9 +798,7 @@ configure those *Outputs*.
 parameters:
 
   - DB Type  
-    The type of the database being accessed. MariaDB is a state-of-the-art
-    database that has been extensively tested with Centreon. We advice the use
-    of MariaDB.
+    The type of the database being accessed.
 
   - DB Port  
     The port of the database being accessed.
