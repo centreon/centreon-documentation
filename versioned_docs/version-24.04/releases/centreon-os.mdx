@@ -121,6 +121,15 @@ Many features have been added in this version.
 
 Release date: `April 30, 2024`
 
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed some incorrect statuses in Broker's statistics retrieved by the `broker-stats.json` file.
+- [Packaging] Added symbolic link from /usr/lib64/nagios/plugins to /usr/lib/nagios/plugins.
+- Semicolons are no longer considered as the beginning of a comment in Engine's configuration files. This is because comments were not useful in these files, and they prevented the use of semicolons in macros (e.g., passwords).
+
+</details>
+
 #### Centreon Engine
 
 <details>
@@ -131,24 +140,6 @@ Release date: `April 30, 2024`
 </details>
 
 #### Centreon Broker
-
-<details open>
-  <summary>New features</summary>
-
-- An **experimental** output type has been added to send internal performance data to OpenTelemetry receivers. This cannot be used from the WUI at the moment.
-- An **experimental** output type has been added to send the monitored metrics to VictoriaMetrics time-series databases. This cannot be used from the WUI at the moment.
-
-</details>
-
-<details open>
-  <summary>Enhancements</summary>
-
-- Broker management of SQL database connections has been improved. It now uses auto-commited bulk inserts in tables where insert is safe while using transactions for all other write operations, keeping the latter bound to the same connection. This secures the utilization of up to 3 connections to the database, improving the performance in updating the real time data.
-- The RRD files used to store status history are now rebuilt at the same time as metric files.
-- Broker now ignores incorrect filter settings if these prevent some features from functioning.
-- New performance counters have been added to the gRPC API in order to track the longest queries and statements.
-
-</details>
 
 <details>
   <summary>Compatibility</summary>
