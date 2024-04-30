@@ -145,9 +145,9 @@ yum install centreon-plugin-Applications-RRDCached
 
 | Macro                   | Description                                                                                                                              | Default value                         | Mandatory   |
 |:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|:-----------:|
-| RRDCACHEDPORT           | Port where the socket is listening (default: 42217)                                                                                      | 42217                                 |             |
-| RRDCACHEDSOCKETTYPE     | Specify the socket type (usually TCP or UNIX, default: unix)                                                                             | unix                                  |             |
-| RRDCACHEDUNIXSOCKETPATH | Path to the unix socket (should be set if --socket-type is unix) (default is /var/rrdtool/rrdcached/rrdcached.sock)                      | /var/rrdtool/rrdcached/rrdcached.sock |             |
+| RRDCACHEDPORT           | Port where the socket is listening                                                                                                       | 42217                                 |             |
+| RRDCACHEDSOCKETTYPE     | Specify the socket type (usually TCP or UNIX)                                                                                            | unix                                  |             |
+| RRDCACHEDUNIXSOCKETPATH | Path to the unix socket (should be set if --socket-type is unix)                                                                         | /var/rrdtool/rrdcached/rrdcached.sock |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                                       |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
