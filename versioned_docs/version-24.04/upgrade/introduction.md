@@ -3,7 +3,7 @@ id: introduction
 title: Introduction to upgrade
 ---
 
-This chapter describes how to upgrade your Centreon monitoring platform, i.e. switching between major versions (for instance, from 21.10 to 23.10).
+This chapter describes how to upgrade your Centreon monitoring platform, i.e. switching between major versions (for instance, from 21.10 to 24.04).
 
 > As of version 23.04, Centreon no longer supports CentOS 7. If your Centreon platform was installed on CentOS 7, you cannot simply upgrade it; you must change to a [supported OS](../installation/compatibility.md#operating-systems) using a [migration procedure](../migrate/introduction.md).
 

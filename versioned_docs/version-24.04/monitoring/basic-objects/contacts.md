@@ -12,6 +12,7 @@ In Centreon, users can:
   - Change the user interface language.
   - Reset the password.
   - Define a default page after login.
+  - Display the page in full screen mode (F).
 
 Use these procedures to manage users:
 - [Create users manually](contacts-create.md).

@@ -1383,6 +1383,10 @@
         {
           "type": "doc",
           "id": "version-24.04/api/graph-views-api"
+        },
+        {
+          "type": "doc",
+          "id": "version-24.04/api/api-tokens"
         }
       ]
     },

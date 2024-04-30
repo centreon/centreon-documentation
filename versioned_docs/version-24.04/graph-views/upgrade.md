@@ -22,7 +22,7 @@ allow you easily to roll back to the previous state if necessary.
 Be sure to read the release notes for an explanation of features, fixes
 and custom procedures.
 
-**When you are upgrading to a new major or minor version (i.e: A.B.x with
+**When you are upgrading to a new major version (i.e: A.B.x with
 A or B that changes), you need to contact our Support service to retrieve
 the new repository**.
 
@@ -70,7 +70,7 @@ Run the following commands to upgrade your Centreon MAP (Legacy) server:
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 ```
 
 > Install the Centreon MAP (Legacy) repository. You can find it on the
@@ -87,7 +87,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/e
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el9/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el9/centreon-24.04.repo
 ```
 
 > Install the Centreon Business repository. You can find it on the
@@ -103,7 +103,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/e
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-23.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-24.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 

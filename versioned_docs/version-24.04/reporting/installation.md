@@ -36,7 +36,7 @@ The diagram below highlights the main components of Centreon MBI:
 
 - **ETL**: Process that extracts, transforms and loads data into the reporting database.
 - **CBIS**: The scheduler that manages the execution and publication of reports.
-- **Reporting Database**: The MariaDB database that contains the reporting data and some raw data extracted from the monitoring database.
+- **Reporting Database**: The MariaDB/MySQL database that contains the reporting data and some raw data extracted from the monitoring database.
 
 ### Network Flow Tables
 
@@ -61,7 +61,7 @@ The Centreon MBI installation is based on two RPM packages:
 - **Centreon-bi-reporting-server**: Contains all the components needed to run the reporting server
   (report scheduler, ETL, standard reports). It must be installed on a server dedicated to reporting processes.
 
-The installation of the database must be done at the same time. We strongly recommend installing the MariaDB database on the
+The installation of the database must be done at the same time. We strongly recommend installing the MariaDB/MySQL database on the
 reporting server, for performance and isolation reasons.
 
 ## Prerequisites
@@ -73,7 +73,7 @@ reporting server, for performance and isolation reasons.
 
 See the [software requirements](../installation/prerequisites.md#software).
 
-You should install the MariaDB database at the same time. We highly recommend
+You should install the MariaDB/MySQL database at the same time. We highly recommend
 installing the database on the same server, due to performance and isolation
 considerations.
 
@@ -81,7 +81,7 @@ considerations.
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-- Centreon Web 23.10
+- Centreon Web 24.04
 - Check that `date.timezone` is correctly configured in the `/etc/php.d/50-centreon.ini`
   file (same as the one returned by the `timedatectl status` command).
 - Avoid using the following variables in the configuration file `/etc/my.cnf`. They interrupt the
@@ -99,7 +99,7 @@ considerations.
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-- Centreon Web 23.10
+- Centreon Web 24.04
 - Check that `date.timezone` is correctly configured in the `/etc/php.d/50-centreon.ini`
   file (same as the one returned by the `timedatectl status` command).
 - Avoid using the following variables in the configuration file `/etc/my.cnf`. They interrupt the
@@ -117,7 +117,7 @@ considerations.
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
-- Centreon Web 23.10
+- Centreon Web 24.04
 - Check that `date.timezone` is correctly configured in the `/etc/php/8.1/mods-available/centreon.ini` file
   (same as the one returned by the `timedatectl status` command).
 - Avoid using the following variables in the configuration file `/etc/mysql/mariadb.cnf`. They interrupt the
@@ -261,8 +261,8 @@ vgdisplay vg_data | grep -i free*
 
 #### Firmware and software layer
 
-- OS: RHEL / Oracle Linux / Alma 8 or 9, Debian 11
-- SGBD: MariaDB 10.5
+- OS: see [compatibility info here](../installation/compatibility.md#operating-systems)
+- SGBD: see [compatibility info here](../installation/compatibility.md#dbms)
 - Firewalld: Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#configure-or-disable-the-firewall))
 - SELinux: Disabled ([look here](../installation/installation-of-a-central-server/using-packages.md#disable-selinux))
 
@@ -274,7 +274,7 @@ vgdisplay vg_data | grep -i free*
 >timedatectl set-timezone Europe/Paris
 >```
 
-Be sure to optimize MariaDB on your reporting server.
+Be sure to optimize MariaDB/MySQL on your reporting server.
 You will need at least 12 GB of RAM in order to use the [next file](../assets/reporting/installation/centreon.cnf).
 
 Make sure you have a **tmp** folder in **/var/lib/mysql**.
@@ -468,7 +468,7 @@ You must have the following information before proceeding with the installation 
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -478,7 +478,7 @@ dnf update
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el9/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el9/centreon-24.04.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -489,7 +489,7 @@ dnf update
 To install the Centreon repository, execute the following command:
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-23.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-24.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -527,21 +527,21 @@ apt update
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.11"
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=9 --mariadb-server-version="mariadb-10.5"
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=9 --mariadb-server-version="mariadb-10.11"
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.5"
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.11"
 ```
 
 </TabItem>
@@ -736,7 +736,7 @@ wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 Install the Centreon repository:
 ￼
 ￼```shell
-￼echo "deb https://packages.centreon.com/apt-standard-23.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+￼echo "deb https://packages.centreon.com/apt-standard-24.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ￼```
 
 Install the prerequisite packages:
@@ -909,12 +909,25 @@ socket=$PATH_TO_SOCKET$
 
 ### Secure the database
 
-Since MariaDB 10.5, it is mandatory to secure the root access of the database before installing Centreon.
+It is mandatory to secure the root access of the database before installing Centreon.
 If you use a local database, execute the following command on the central server, otherwise on the database server:
+
+<Tabs groupId="sync">
+<TabItem value="MariaDB" label="MariaDB"> 
+
+```shell
+mariadb-secure-installation
+```
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL"> 
 
 ```shell
 mysql_secure_installation
 ```
+
+</TabItem>
+</Tabs>
 
 - Answer **yes** to all questions except "Disallow root login remotely?"
 - It is mandatory to define a password for the **root** user of the database. You will need this password during the [web-installation](../installation/web-and-post-installation.md).

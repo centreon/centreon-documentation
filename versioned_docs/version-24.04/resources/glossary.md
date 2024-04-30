@@ -48,7 +48,7 @@ Broker Binary Data Object: communication protocol used to transfer monitoring da
 ## Broker
 
 Centreon Broker is the software component that receives monitoring data collected by [monitoring engines](#monitoring-engine).
-Once it receives this data, by default, Centreon Broker redistributes it to the MariaDB and RRD databases.
+Once it receives this data, by default, Centreon Broker redistributes it to the MariaDB/MySQL and RRD databases.
 
 **See also**: [Centreon Broker Event Mapping](../developer/developer-broker-mapping.md).
 
@@ -211,7 +211,7 @@ Retention files belong to Centreon [Broker](#broker). These files store the moni
 
 ## Retention period
 
-Time period, in days, during which you want to keep the data from your RRD and MariaDB databases.
+Time period, in days, during which you want to keep the data from your RRD and MariaDB/MySQL databases.
 
 ## RRD files
 

@@ -6,9 +6,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit la procédure de montée de version de votre plate-forme
-Centreon depuis la version 20.10 vers la version 23.10.
+Centreon depuis la version 20.10 vers la version 24.04.
 
-Vous ne pouvez pas simplement monter de version depuis une version antérieure à Centreon 20.10 et vers une version 23.10, car CentOS 7 n'est plus supporté: vous devez [migrer votre plateforme vers un OS supporté](../migrate/introduction.md).
+Vous ne pouvez pas simplement monter de version depuis une version antérieure à Centreon 20.10 et vers une version 24.04, car CentOS 7 n'est plus supporté: vous devez [migrer votre plateforme vers un OS supporté](../migrate/introduction.md).
 
 > Lorsque vous effectuez la montée de version de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs. Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon. De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
@@ -41,7 +41,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 ## Montée de version du serveur Centreon Central
 
-> Depuis la version 21.04, Centreon utilise **MariaDB 10.5**.
+> Depuis la version 24.04, Centreon utilise **MariaDB 10.11**.
 >
 > Le processus suivant met seulement à jour les composants Centreon pour le
 > moment.
@@ -64,7 +64,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 ```
 
 > Si vous avez une [licence offline](../administration/licenses.md#types-de-licences), supprimez également l'ancien dépôt des connecteurs de supervision, puis installez le nouveau dépôt.
@@ -79,7 +79,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/e
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.11"
 ```
 
 </TabItem>
@@ -87,7 +87,7 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 
 ### Montée de version de PHP
 
-Centreon 23.10 utilise PHP en version 8.1.
+Centreon 24.04 utilise PHP en version 8.1.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
@@ -142,7 +142,7 @@ dnf module install php:remi-8.1
 > Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer
 > la procédure de mise à jour.
 
-Si vous avez des extensions Business installées, mettez à jour le dépôt business en 23.10.
+Si vous avez des extensions Business installées, mettez à jour le dépôt business en 24.04.
 Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
 
 Arrêter le processus Centreon Broker :
@@ -293,7 +293,7 @@ Exécutez la commande suivante sur le serveur de base de données dédié :
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 ```
 
 </TabItem>
@@ -301,7 +301,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/e
 
 #### Mettre à jour MariaDB
 
-Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de version majeure (c'est-à-dire pour passer d'une version 10.3 à une version 10.5).
+Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de version majeure (c'est-à-dire pour passer d'une version 10.3 à une version 10.11).
 
 1. Arrêtez le service mariadb :
 
@@ -331,10 +331,10 @@ Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de ve
 
   > Assurez-vous d'avoir [installé le dépôt officiel de MariaDB](./upgrade-from-20-10.md#installer-le-dépôt-mariadb) avant de poursuivre la procédure.
 
-3. Installez la version 10.5 :
+3. Installez la version 10.11 :
 
     ```shell
-    dnf install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-common-10.5\*
+    dnf install MariaDB-server-10.11\* MariaDB-client-10.11\* MariaDB-shared-10.11\* MariaDB-common-10.11\*
     ```
 
 4. Démarrer le service mariadb :
@@ -436,6 +436,10 @@ associée](../service-mapping/upgrade.md) pour le mettre à jour.
    systemctl restart cbd centengine centreontrapd gorgoned
    ```
 
+## Mettre à jour MariaDB
+
+Suivez [cette procédure](upgrade-mariadb.md) pour monter de version MariaDB en 10.11.
+
 ## Montée de version des Remote Servers
 
 Cette procédure est identique à la montée de version d'un serveur Centreon
@@ -454,7 +458,7 @@ Exécutez la commande suivante :
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 ```
 
 </TabItem>

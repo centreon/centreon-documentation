@@ -3,8 +3,6 @@ id: dashboards
 title: Dashboards Beta
 ---
 
-> Centreon Dashboards is now available as a beta feature.
-
 Get started with creating dashboards and adding widgets specially designed to optimize your user experience. Then benefit from data visualization options to display and monitor your resources in real time.
 
 ![image](../assets/alerts/dashboard-view.png)

@@ -339,7 +339,7 @@ Exécutez la commande suivante :
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -349,7 +349,7 @@ dnf update
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el9/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el9/centreon-24.04.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -358,7 +358,7 @@ dnf update
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-23.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-24.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -512,9 +512,22 @@ Puis exécutez la commande suivante (sur le serveur distant si vous utilisez une
 
 Il est obligatoire de sécuriser l'accès en root à la base avant d'installer Centreon. Si vous utilisez une base de données locale, exécutez la commande suivante sur le serveur central :
 
+<Tabs groupId="sync">
+<TabItem value="MariaDB" label="MariaDB"> 
+
+```shell
+mariadb-secure-installation
+```
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL"> 
+
 ```shell
 mysql_secure_installation
 ```
+
+</TabItem>
+</Tabs>
 
 * Répondez oui à toute question sauf à "Disallow root login remotely?".
 * Définissez obligatoirement un mot de passe pour l'utilisateur **root** de la base de données.
@@ -682,7 +695,7 @@ Failed connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 23.10.
+> La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 24.04.
 
 ## Étape 6 : Étendre les droits du SGBD local
 
@@ -692,6 +705,7 @@ utiliser la commande **LOAD DATA INFILE** :
 ```sql
 mysql -u root -p
 GRANT FILE on *.* to 'centreon'@'localhost';
+SET GLOBAL local_infile=1;
 exit
 ```
 
