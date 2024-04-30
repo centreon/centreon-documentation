@@ -60,8 +60,6 @@ Here is the list of services for this connector, detailing all metrics linked to
 | voltage     | V     |
 | temperature | C     |
 
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
-
 </TabItem>
 </Tabs>
 
