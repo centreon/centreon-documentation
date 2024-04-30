@@ -6,8 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-> Centreon MAP requires a valid license key. To purchase one and retrieve the
-> necessary repositories, contact [Centreon](mailto:sales@centreon.com).
+> Centreon MAP requires a valid license key. To purchase one and retrieve the necessary repositories, contact [Centreon](mailto:sales@centreon.com).
 
 This chapter describes how to install Centreon MAP. The server must be
 installed on a dedicated machine to allow Centreon MAP to operate with
@@ -210,8 +209,10 @@ Exclude the user from the password expiration policy on the **Administration > A
 Create a user in the mysql instance hosting 'centreon' and 'centreon_storage'
 databases:
 
+> We strongly recommend that you set a more secure password.
+
 ```sql
-CREATE USER 'centreon_map'@'<IP_SERVER_MAP>' IDENTIFIED BY 'centreon_map';
+mysql> CREATE USER 'centreon_map'@'IP_MAP_SERVER' IDENTIFIED BY 'centreon_Map2023!';
 GRANT SELECT ON centreon_storage.* TO 'centreon_map'@'<IP_SERVER_MAP>';
 GRANT SELECT, INSERT ON centreon.* TO 'centreon_map'@'<IP_SERVER_MAP>';
 ```

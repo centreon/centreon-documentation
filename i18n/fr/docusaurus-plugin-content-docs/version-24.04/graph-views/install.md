@@ -196,8 +196,10 @@ Excluez l'utilisateur de la politique d'expiration du mot de passe sur la page *
 
 Créez un utilisateur dans l'instance mysql hébergeant les bases de données 'centreon' et 'centreon_storage' :
 
+> Nous vous recommandons vivement de définir un mot de passe plus sécurisé.
+
 ```sql
-CREATE USER 'centreon_map'@'<IP_SERVER_MAP>' IDENTIFIED BY 'centreon_map';
+mysql> CREATE USER 'centreon_map'@'IP_MAP_SERVER' IDENTIFIED BY 'centreon_Map2023!';
 GRANT SELECT ON centreon_storage.* TO 'centreon_map'@'<IP_SERVER_MAP>';
 GRANT SELECT, INSERT ON centreon.* TO 'centreon_map'@'<IP_SERVER_MAP>';
 ```
@@ -346,7 +348,7 @@ Pour installer MariaDB, exécutez la commande suivante :
 Vous devez d'abord ajouter le dépôt MariaDB :
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.11"
 ```
 
 Puis installez MariaDB :
