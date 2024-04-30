@@ -1,44 +1,476 @@
 ---
 id: cloud-prometheus-kubernetes-api
-title: Kubernetes w/ Prometheus
+title: Kubernetes w
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-## Prerequisites
+## Contenu du pack
 
-### Centreon Plugin
+### Modèles
 
-Install this plugin on each needed poller:
+Le connecteur de supervision **Kubernetes w/ Prometheus** apporte un modèle d'hôte :
 
-``` shell
+* **Cloud-Prometheus-Kubernetes-Api-custom**
+
+Le connecteur apporte les modèles de service suivants
+(classés selon le modèle d'hôte auquel ils sont rattachés) :
+
+<Tabs groupId="sync">
+<TabItem value="Cloud-Prometheus-Kubernetes-Api-custom" label="Cloud-Prometheus-Kubernetes-Api-custom">
+
+| Alias             | Modèle de service                                        | Description                        |
+|:------------------|:---------------------------------------------------------|:-----------------------------------|
+| Container-Status  | Cloud-Prometheus-Kubernetes-Container-Status-Api-custom  | Contrôle le statut des conteneurs  |
+| Daemonset-Status  | Cloud-Prometheus-Kubernetes-Daemonset-Status-Api-custom  | Contrôle le statut des daemonsets  |
+| Deployment-Status | Cloud-Prometheus-Kubernetes-Deployment-Status-Api-custom | Contrôle le statut des déploiements |
+| Namespace-Status  | Cloud-Prometheus-Kubernetes-Namespace-Status-Api-custom  | Contrôle le statut des namespaces  |
+| Node-Status       | Cloud-Prometheus-Kubernetes-Node-Status-Api-custom       | Contrôle le statut des noeuds      |
+
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Prometheus-Kubernetes-Api-custom** est utilisé.
+
+</TabItem>
+</Tabs>
+
+### Métriques & statuts collectés
+
+Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
+
+<Tabs groupId="sync">
+<TabItem value="Container-Status" label="Container-Status">
+
+| Métrique                               | Unité |
+|:---------------------------------------|:------|
+| *containers*#status                    | N/A   |
+| *containers*#containers.restarts.count | count |
+
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+
+</TabItem>
+<TabItem value="Daemonset-Status" label="Daemonset-Status">
+
+| Métrique                                        | Unité |
+|:------------------------------------------------|:------|
+| *daemonsets*#daemonset.nodes.misscheduled.count | count |
+
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+
+</TabItem>
+<TabItem value="Deployment-Status" label="Deployment-Status">
+
+| Métrique                                         | Unité |
+|:-------------------------------------------------|:------|
+| *deployments*#deployment.replicas.uptodate.count | count |
+
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+
+</TabItem>
+<TabItem value="Namespace-Status" label="Namespace-Status">
+
+| Métrique                     | Unité |
+|:-----------------------------|:------|
+| namespaces.active.count      | count |
+| namespaces.terminating.count | count |
+| *namespaces*#status          | N/A   |
+
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+
+</TabItem>
+<TabItem value="Node-Status" label="Node-Status">
+
+| Métrique                     | Unité |
+|:-----------------------------|:------|
+| *nodes*#status               | N/A   |
+| *nodes*#pods.allocated.count | count |
+
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+
+</TabItem>
+</Tabs>
+
+## Prérequis
+
+*Specify prerequisites that are relevant. You may want to just provide a link\n\
+to the manufacturer official documentation BUT you should try to be as complete\n\
+as possible here as it will save time to everybody.*
+
+## Installer le connecteur de supervision
+
+### Pack
+
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-pack-cloud-prometheus-kubernetes-api
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-pack-cloud-prometheus-kubernetes-api
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-pack-cloud-prometheus-kubernetes-api
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-pack-cloud-prometheus-kubernetes-api
+```
+
+</TabItem>
+</Tabs>
+
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Kubernetes w/ Prometheus**
+depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+
+### Plugin
+
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
+
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Cloud-Prometheus-Kubernetes-Api
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Cloud-Prometheus-Kubernetes-Api
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-plugin-cloud-prometheus-kubernetes-api
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
 yum install centreon-plugin-Cloud-Prometheus-Kubernetes-Api
 ```
 
-## Centreon Configuration
+</TabItem>
+</Tabs>
 
-### Create a new host
+## Utiliser le connecteur de supervision
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+### Utiliser un modèle d'hôte issu du connecteur
 
-| Field                   | Value                                  |
-| :---------------------- | :------------------------------------- |
-| Host name               | *Name of the host*                     |
-| Alias                   | *Host description*                     |
-| IP                      | *Host IP Address*                      |
-| Monitored from          | *Monitoring Poller to use*             |
-| Host Multiple Templates | Cloud-Prometheus-Kubernetes-Api-custom |
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **Cloud-Prometheus-Kubernetes-Api-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-Click on the *Save* button.
+| Macro                 | Description                                                                                          | Valeur par défaut | Obligatoire |
+|:----------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROMETHEUSAPIHOSTNAME | Prometheus hostname                                                                                  |                   | X           |
+| PROMETHEUSAPIPROTO    | Specify https if needed (default: 'http')                                                            | http              |             |
+| PROMETHEUSAPIPORT     | API port (default: 9090)                                                                             | 9090              |             |
+| PROMETHEUSAPIURL      | API url path (default: '/api/v1')                                                                    | /api/v1           |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
-### Host Macro Configuration
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
-The following macros must be configured on host:
+### Utiliser un modèle de service issu du connecteur
 
-| Macro                 | Description                       | Default value |
-| :-------------------- | :-------------------------------- | :------------ |
-| PROMETHEUSAPIHOSTNAME | Hostname of the Prometheus Server |               |
-| PROMETHEUSAPIURL      | URL of the API                    | /api/v1       |
-| PROMETHEUSAPIPORT     | Port of the API                   | 9090          |
-| PROMETHEUSAPIPROTO    | Protocol used by API              | http          |
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
-Click on the *Save* button.
+<Tabs groupId="sync">
+<TabItem value="Container-Status" label="Container-Status">
+
+| Macro                 | Description                                                                                                                                                                                    | Valeur par défaut                               | Obligatoire |
+|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------|:-----------:|
+| CONTAINER             | Filter on a specific container (must be a PromQL filter, Default: 'container=~".*"')                                                                                                           | container=~".*"                                 |             |
+| POD                   | Filter on a specific pod (must be a PromQL filter, Default:'pod=~".*"')                                                                                                                        | pod=~".*"                                       |             |
+| WARNINGRESTARTSCOUNT  | Warning threshold for container restarts count                                                                                                                                                 |                                                 |             |
+| CRITICALRESTARTSCOUNT | Critical threshold for container restarts count                                                                                                                                                |                                                 |             |
+| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /running/ \|\| %{state} !~ /ready/'). You can use the following variables: %{status}, %{state}, %{reason} | %{status} !~ /running/ \|\| %{state} !~ /ready/ |             |
+| WARNINGSTATUS         | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %{status}, %{state}, %{reason}                                                  |                                                 |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                             | --verbose                                       |             |
+
+</TabItem>
+<TabItem value="Daemonset-Status" label="Daemonset-Status">
+
+| Macro          | Description                                                                                                                                                                                                                                              | Valeur par défaut             | Obligatoire |
+|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------:|
+| DAEMONSET      | Filter on a specific daemonset (must be a PromQL filter, Default: 'daemonset=~".*"')                                                                                                                                                                     | daemonset=~".*"               |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: '%{up\_to\_date} \< %{desired}') You can use the following variables: %{display}, %{desired}, %{current}, %{available}, %{unavailable}, %{up\_to\_date}, %{ready}, %{misscheduled} | %{up\_to\_date} \< %{desired} |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{available} \< %{desired}'). You can use the following variables: %{display}, %{desired}, %{current}, %{available}, %{unavailable}, %{up\_to\_date}, %{ready}, %{misscheduled}  | %{available} \< %{desired}    |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                                       | --verbose                     |             |
+
+</TabItem>
+<TabItem value="Deployment-Status" label="Deployment-Status">
+
+| Macro          | Description                                                                                                                                                                                                                   | Valeur par défaut             | Obligatoire |
+|:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------:|
+| DEPLOYMENT     | Filter on a specific deployment (must be a PromQL filter, Default: 'deployment=~".*"')                                                                                                                                        | deployment=~".*"              |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: '%{up\_to\_date} \< %{desired}') You can use the following variables: %{display}, %{desired}, %{current}, %{available}, %{unavailable}, %{up\_to\_date} | %{up\_to\_date} \< %{desired} |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{available} \< %{desired}'). You can use the following variables: %{display}, %{desired}, %{current}, %{available}, %{unavailable}, %{up\_to\_date}  | %{available} \< %{desired}    |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                            | --verbose                     |             |
+
+</TabItem>
+<TabItem value="Namespace-Status" label="Namespace-Status">
+
+| Macro          | Description                                                                                                                                               | Valeur par défaut    | Obligatoire |
+|:---------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|:-----------:|
+| NAMESPACE      | Filter on a specific namespace (must be a PromQL filter, Default: 'namespace=~".*"')                                                                      | namespace=~".*"      |             |
+| PHASE          | Filter on a specific phase (must be a PromQL filter, Default:'phase=~".*"')                                                                               | phase=~".*"          |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{phase} !~ /Active/'). You can use the following variables: %{display}, %{phase} | %{phase} !~ /Active/ |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %{display}, %{phase}                       |                      |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                        | --verbose            |             |
+
+</TabItem>
+<TabItem value="Node-Status" label="Node-Status">
+
+| Macro                 | Description                                                                                                                                                                                               | Valeur par défaut                                   | Obligatoire |
+|:----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------|:-----------:|
+| NODE                  | Filter on a specific node (must be a PromQL filter, Default:'node=~".*"')                                                                                                                                 | node=~".*"                                          |             |
+| UNITS                 | Units of thresholds (default: '') (can be '%')                                                                                                                                                            |                                                     |             |
+| WARNINGALLOCATEDPODS  | Warning threshold for pods allocation                                                                                                                                                                     |                                                     |             |
+| CRITICALALLOCATEDPODS | Critical threshold for pods allocation                                                                                                                                                                    |                                                     |             |
+| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /Ready/ \|\| %{schedulable} != /false/'). You can use the following variables: %{display}, %{status}, %{schedulable} | %{status} !~ /Ready/ \|\| %{schedulable} =~ /false/ |             |
+| WARNINGSTATUS         | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %{display}, %{status}, %{schedulable}                                                      |                                                     |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                        | --verbose                                           |             |
+
+</TabItem>
+</Tabs>
+
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
+
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
+que le connecteur arrive bien à superviser une ressource en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
+
+```bash
+/usr/lib/centreon/plugins/centreon_prometheus_kubernetes_api.pl \
+	--plugin=cloud::prometheus::direct::kubernetes::plugin \
+	--mode=node-status \
+	--hostname= \
+	--url-path='/api/v1' \
+	--port='9090' \
+	--proto='http'  \
+	--node='node=~".*"' \
+	--warning-status='' \
+	--critical-status='%{status} !~ /Ready/ || %{schedulable} =~ /false/' \
+	--warning-allocated-pods='' \
+	--critical-allocated-pods='' \
+	--units='' \
+	--verbose
+```
+
+La commande devrait retourner un message de sortie similaire à :
+
+```bash
+OK: All nodes status are ok | '*nodes*#pods.allocated.count'=;;;;
+```
+
+### Diagnostic des erreurs communes
+
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+des plugins basés sur HTTP/API.
+
+### Modes disponibles
+
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution
+du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
+implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
+modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
+
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
+
+```bash
+/usr/lib/centreon/plugins/centreon_prometheus_kubernetes_api.pl \
+	--plugin=cloud::prometheus::direct::kubernetes::plugin \
+	--list-mode
+```
+
+Le plugin apporte les modes suivants :
+
+| Mode                                                                                                                                                  | Modèle de service associé                                |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------|
+| container-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/prometheus/direct/kubernetes/mode/containerstatus.pm)]   | Cloud-Prometheus-Kubernetes-Container-Status-Api-custom  |
+| daemonset-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/prometheus/direct/kubernetes/mode/daemonsetstatus.pm)]   | Cloud-Prometheus-Kubernetes-Daemonset-Status-Api-custom  |
+| deployment-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/prometheus/direct/kubernetes/mode/deploymentstatus.pm)] | Cloud-Prometheus-Kubernetes-Deployment-Status-Api-custom |
+| list-containers [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/prometheus/direct/kubernetes/mode/listcontainers.pm)]     | Not used in this Monitoring Connector                    |
+| list-daemonsets [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/prometheus/direct/kubernetes/mode/listdaemonsets.pm)]     | Not used in this Monitoring Connector                    |
+| list-deployments [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/prometheus/direct/kubernetes/mode/listdeployments.pm)]   | Not used in this Monitoring Connector                    |
+| list-namespaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/prometheus/direct/kubernetes/mode/listnamespaces.pm)]     | Not used in this Monitoring Connector                    |
+| list-nodes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/prometheus/direct/kubernetes/mode/listnodes.pm)]               | Not used in this Monitoring Connector                    |
+| list-services [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/prometheus/direct/kubernetes/mode/listservices.pm)]         | Not used in this Monitoring Connector                    |
+| namespace-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/prometheus/direct/kubernetes/mode/namespacestatus.pm)]   | Cloud-Prometheus-Kubernetes-Namespace-Status-Api-custom  |
+| node-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/prometheus/direct/kubernetes/mode/nodestatus.pm)]             | Cloud-Prometheus-Kubernetes-Node-Status-Api-custom       |
+
+### Options disponibles
+
+#### Options génériques
+
+Les options génériques sont listées ci-dessous :
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     | Define the mode in which you want the plugin to be executed (see--list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --custommode                               | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --list-custommode                          | List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --multiple                                 | Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale(Mbps),mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                                |
+| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-ignore-perfdata                   | Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-ignore-label                      | Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --output-file                              | Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.      Prometheus Rest API                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --timeframe                                | Set timeframe in seconds (i.e. 3600 to check last hour).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --step                                     | Set the step of the metric query (examples: '30s', '1m', '15m','1h').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --hostname                                 | Prometheus hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --url-path                                 | API url path (default: '/api/v1')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --port                                     | API port (default: 9090)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --proto                                    | Specify https if needed (default: 'http')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --credentials                              | Specify this option if you access the API with authentication                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --username                                 | Specify the username for authentication (mandatory if --credentials is specified)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --password                                 | Specify the password for authentication (mandatory if --credentials is specified)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --basic                                    | Specify this option if you access the API over basicauthentication and don't want a '401 UNAUTHORIZED' error to be logged on your web server.  Specify this option if you access the API over hidden basic authentication or you'll get a '404 NOT FOUND' error.  (use with --credentials)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --timeout                                  | Set HTTP timeout                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --header                                   | Set HTTP header (can be multiple, example: --header='Authorization:Bearer ABCD')  Useful to access Prometheus API hosted in a specific environment.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --http-peer-addr                           | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --proxyurl                                 | Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --proxypac                                 | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --insecure                                 | Accept insecure SSL connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --http-backend                             | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --ssl-opt                                  | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --curl-opt                                 | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+
+#### Options des modes
+
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
+
+<Tabs groupId="sync">
+<TabItem value="Container-Status" label="Container-Status">
+
+| Option                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --container               | Filter on a specific container (must be a PromQL filter, Default: 'container=~".*"')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --pod                     | Filter on a specific pod (must be a PromQL filter, Default:'pod=~".*"')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --warning-status          | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %{status}, %{state}, %{reason}                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --critical-status         | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /running/ \|\| %{state} !~ /ready/'). You can use the following variables: %{status}, %{state}, %{reason}                                                                                                                                                                                                                                                                                                                                                                                         |
+| --warning-restarts-count  | Warning threshold for container restarts count.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --critical-restarts-count | Critical threshold for container restarts count.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --extra-filter            | Add a PromQL filter (can be defined multiple times)  Example : --extra-filter='name=~".*pretty.*"'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --metric-overload         | Overload default metrics name (can be defined multiple times)  Example : --metric-overload='metric,^my\_metric\_name$'  Default :      - ready: ^kube\_pod\_container\_status\_ready$     - running: ^kube\_pod\_container\_status\_running$     - terminated: ^kube\_pod\_container\_status\_terminated$     - terminated\_reason: ^kube\_pod\_container\_status\_terminated\_reason$     - waiting: ^kube\_pod\_container\_status\_waiting$     - waiting\_reason: ^kube\_pod\_container\_status\_waiting\_reason$     - restarts: ^kube\_pod\_container\_status\_restarts\_total$   |
+| --filter-counters         | Only display some counters (regexp can be used). Example: --filter-counters='status'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+
+</TabItem>
+<TabItem value="Daemonset-Status" label="Daemonset-Status">
+
+| Option            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --daemonset       | Filter on a specific daemonset (must be a PromQL filter, Default: 'daemonset=~".*"')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%{up\_to\_date} \< %{desired}') You can use the following variables: %{display}, %{desired}, %{current}, %{available}, %{unavailable}, %{up\_to\_date}, %{ready}, %{misscheduled}                                                                                                                                                                                                                                                                                                                                                    |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{available} \< %{desired}'). You can use the following variables: %{display}, %{desired}, %{current}, %{available}, %{unavailable}, %{up\_to\_date}, %{ready}, %{misscheduled}                                                                                                                                                                                                                                                                                                                                                     |
+| --extra-filter    | Add a PromQL filter (can be defined multiple times)  Example : --extra-filter='name=~".*pretty.*"'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --metric-overload | Overload default metrics name (can be defined multiple times)  Example : --metric-overload='metric,^my\_metric\_name$'  Default :      - desired: ^kube\_daemonset\_status\_desired\_number\_scheduled$     - current: ^kube\_daemonset\_status\_current\_number\_scheduled$     - available: ^kube\_daemonset\_status\_number\_available$     - unavailable: ^kube\_daemonset\_status\_number\_unavailable$     - up\_to\_date: ^kube\_daemonset\_updated\_number\_scheduled$     - ready: ^kube\_daemonset\_status\_number\_ready$     - misscheduled: ^kube\_daemonset\_status\_number\_misscheduled$    |
+
+</TabItem>
+<TabItem value="Deployment-Status" label="Deployment-Status">
+
+| Option            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+|:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --deployment      | Filter on a specific deployment (must be a PromQL filter, Default: 'deployment=~".*"')                                                                                                                                                                                                                                                                                                                                                              |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%{up\_to\_date} \< %{desired}') You can use the following variables: %{display}, %{desired}, %{current}, %{available}, %{unavailable}, %{up\_to\_date}                                                                                                                                                                                                                       |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{available} \< %{desired}'). You can use the following variables: %{display}, %{desired}, %{current}, %{available}, %{unavailable}, %{up\_to\_date}                                                                                                                                                                                                                        |
+| --extra-filter    | Add a PromQL filter (can be defined multiple times)  Example : --extra-filter='name=~".*pretty.*"'                                                                                                                                                                                                                                                                                                                                                  |
+| --metric-overload | Overload default metrics name (can be defined multiple times)  Example : --metric-overload='metric,^my\_metric\_name$'  Default :      - desired: ^kube\_deployment\_spec\_replicas$     - current: ^kube\_deployment\_status\_replicas$     - available: ^kube\_deployment\_status\_replicas\_available$     - unavailable: ^kube\_deployment\_status\_replicas\_unavailable$     - up\_to\_date: ^kube\_deployment\_status\_replicas\_updated$    |
+
+</TabItem>
+<TabItem value="Namespace-Status" label="Namespace-Status">
+
+| Option            | Description                                                                                                                                                                         |
+|:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --namespace       | Filter on a specific namespace (must be a PromQL filter, Default: 'namespace=~".*"')                                                                                                |
+| --phase           | Filter on a specific phase (must be a PromQL filter, Default:'phase=~".*"')                                                                                                         |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %{display}, %{phase}.                                                |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{phase} !~ /Active/'). You can use the following variables: %{display}, %{phase}                           |
+| --extra-filter    | Add a PromQL filter (can be defined multiple times)  Example : --extra-filter='name=~".*pretty.*"'                                                                                  |
+| --metric-overload | Overload default metrics name (can be defined multiple times)  Example : --metric-overload='metric,^my\_metric\_name$'  Default :      - status: ^kube\_namespace\_status\_phase$   |
+| --filter-counters | Only display some counters (regexp can be used). Example: --filter-counters='status'                                                                                                |
+
+</TabItem>
+<TabItem value="Node-Status" label="Node-Status">
+
+| Option                    | Description                                                                                                                                                                                                                                                                                                                                                                                               |
+|:--------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --node                    | Filter on a specific node (must be a PromQL filter, Default:'node=~".*"')                                                                                                                                                                                                                                                                                                                                 |
+| --warning-status          | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %{display}, %{status}, %{schedulable}                                                                                                                                                                                                                                                      |
+| --critical-status         | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /Ready/ \|\| %{schedulable} != /false/'). You can use the following variables: %{display}, %{status}, %{schedulable}                                                                                                                                                                                                 |
+| --warning-allocated-pods  | Warning threshold for pods allocation.                                                                                                                                                                                                                                                                                                                                                                    |
+| --critical-allocated-pods | Critical threshold for pods allocation.                                                                                                                                                                                                                                                                                                                                                                   |
+| --units                   | Units of thresholds (default: '') (can be '%').                                                                                                                                                                                                                                                                                                                                                           |
+| --extra-filter            | Add a PromQL filter (can be defined multiple times)  Example : --extra-filter='name=~".*pretty.*"'                                                                                                                                                                                                                                                                                                        |
+| --metric-overload         | Overload default metrics name (can be defined multiple times)  Example : --metric-overload='metric,^my\_metric\_name$'  Default :      - status: ^kube\_node\_status\_condition$     - unschedulable: ^kube\_node\_spec\_unschedulable$     - capacity: ^kube\_node\_status\_capacity\_pods$     - allocatable: ^kube\_node\_status\_allocatable\_pods$     - allocated: ^kubelet\_running\_pod\_count$   |
+| --filter-counters         | Only display some counters (regexp can be used). Example: --filter-counters='status'                                                                                                                                                                                                                                                                                                                      |
+
+</TabItem>
+</Tabs>
+
+Pour un mode, la liste de toutes les options disponibles et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
+
+```bash
+/usr/lib/centreon/plugins/centreon_prometheus_kubernetes_api.pl \
+	--plugin=cloud::prometheus::direct::kubernetes::plugin \
+	--mode=node-status \
+	--help
+```
