@@ -182,15 +182,6 @@ jobs:
         with:
           cmd: install --frozen-lockfile
 
-      - name: Cache Docusaurus Build
-        uses: actions/cache@v4
-        with:
-          path: node_modules/.cache/webpack
-          key: docusaurus-${{ github.ref_name }}-${{ github.run_id }}
-          restore-keys: |
-            docusaurus-${{ github.ref_name }}
-            docusaurus-staging
-
       - name: Build documentation
         run: yarn build
         env:
