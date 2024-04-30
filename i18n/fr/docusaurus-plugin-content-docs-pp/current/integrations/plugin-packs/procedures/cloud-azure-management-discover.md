@@ -55,7 +55,7 @@ dnf install centreon-plugin-Cloud-Azure-Management-Discover-Api
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt install centreon-plugin-cloud-azure-management-discover-api
@@ -87,7 +87,7 @@ dnf install centreon-plugin-Cloud-Azure-Management-Discover-Api
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt install centreon-plugin-cloud-azure-management-discover-api
@@ -113,7 +113,7 @@ dnf install centreon-pack-cloud-azure\*
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt install centreon-pack-cloud-azure\*

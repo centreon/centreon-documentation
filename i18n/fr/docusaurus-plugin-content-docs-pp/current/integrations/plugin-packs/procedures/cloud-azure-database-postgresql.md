@@ -126,7 +126,7 @@ dnf install centreon-pack-cloud-azure-database-postgresql
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-cloud-azure-database-postgresql
@@ -171,7 +171,7 @@ dnf install centreon-plugin-Cloud-Azure-Database-Postgres-Api
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-cloud-azure-database-postgres-api

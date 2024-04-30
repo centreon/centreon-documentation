@@ -119,7 +119,7 @@ dnf install centreon-pack-network-digi-anywhereusb-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-network-digi-anywhereusb-snmp
@@ -164,7 +164,7 @@ dnf install centreon-plugin-Network-Digi-AnywhereUSB-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-network-digi-anywhereusb-snmp

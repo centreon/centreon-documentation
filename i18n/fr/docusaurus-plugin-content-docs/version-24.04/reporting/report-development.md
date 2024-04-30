@@ -352,9 +352,9 @@ profile depuis votre poste de travail.
 
 > **Important**
 >
-> Ne remplacer jamais le fichier L2_datasources sur le serveur de
+> Ne remplacez jamais le fichier L2_datasources sur le serveur de
 > reporting par celui sur votre poste. Vous écraseriez la configuration
-> vers les bases et rendrai Centreon MBI non fonctionnel (génération de
+> vers les bases et rendriez Centreon MBI non fonctionnel (génération de
 > rapports, ETL).
 
 Tous les rapports utilisent la bibliothèque L2_datasources pour se
@@ -410,7 +410,7 @@ Vous derriez avoir un message de connexion réussie:
 
 
 > En cas de message d'erreur faisant réference au Driver manquant, pensez
-> à rajouter le driver MariaDB (.jar) dans menu manage driver.
+> à rajouter le driver MariaDB/MySQL (.jar) dans menu manage driver.
 
 ![image](../assets/reporting/dev-guide/db_conn_8.png)
 

@@ -117,7 +117,7 @@ dnf install centreon-pack-applications-veeam-wsman
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-veeam-wsman
@@ -162,7 +162,7 @@ dnf install centreon-plugin-Applications-Backup-Veeam-Wsman
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-backup-veeam-wsman

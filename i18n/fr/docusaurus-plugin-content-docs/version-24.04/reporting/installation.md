@@ -36,7 +36,7 @@ Le schéma ci-dessous met en avant les principaux composants de Centreon MBI :
 - **ETL** : Processus qui extrait, transforme et charge les données dans la
   base de données de reporting.
 - **CBIS** : Ordonnanceur qui gère l'exécution et la publication des rapports.
-- **Base de données de reporting** : Base de données MariaDB qui contient les données de reporting
+- **Base de données de reporting** : Base de données MariaDB/MySQL qui contient les données de reporting
   et certaines données brutes extraites de la base de données de supervision.
 
 ### Tableaux des flux réseau
@@ -64,7 +64,7 @@ L'installation de Centreon MBI est basée sur deux paquets RPM :
   installé sur un serveur dédié aux processus de reporting.
 
 L'installation de la base de données doit être faite en même temps. Nous recommandons
-fortement d'installer la base MariaDB sur le serveur de reporting pour des raisons de
+fortement d'installer la base MariaDB/MySQL sur le serveur de reporting pour des raisons de
 performances & d'isolation.
 
 ## Pré-requis
@@ -78,7 +78,7 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-- Centreon Web 23.10
+- Centreon Web 24.04
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
   `/etc/php.d/50-centreon.ini` (même que celui retourné par la commande
   `timedatectl status`)
@@ -95,7 +95,7 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-- Centreon Web 23.10
+- Centreon Web 24.04
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
   `/etc/php.d/50-centreon.ini` (même que celui retourné par la commande
   `timedatectl status`)
@@ -112,7 +112,7 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
-- Centreon Web 23.10
+- Centreon Web 24.04
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
   `/etc/php/8.1/mods-available/centreon.ini` (même que celui retourné par la commande
   `timedatectl status`)
@@ -256,10 +256,10 @@ Pour contrôler l'espace libre, utilisez la commande suivante en remplaçant
 vgdisplay vg_data | grep -i free*
 ```
 
-#### Couche Interlogiciel et logiciel
+#### Couche interlogiciel et logiciel
 
-- OS : voir la compatibilité [ici](../installation/prerequisites.md#système-dexploitation)
-- SGBD : voir la compatibilité [ici](../installation/prerequisites.md#sgbd)
+- OS : voir la compatibilité [ici](../installation/compatibility.md#système-dexploitation)
+- SGBD : voir la compatibilité [ici](../installation/compatibility.md#sgbd)
 - Firewalld : Désactivé ([voir ici](../installation/installation-of-a-central-server/using-packages.md#Configurer-ou-désactiver-le-pare-feu))
 - SELinux : Désactivé ([voir ici](../installation/installation-of-a-central-server/using-packages.md#Désactiver-SELinux))
 
@@ -271,13 +271,13 @@ vgdisplay vg_data | grep -i free*
 >timedatectl set-timezone Europe/Paris
 >```
 
-Veillez à optimiser MariaDB sur votre serveur de reporting. Vous aurez besoin
+Veillez à optimiser MariaDB/MySQL sur votre serveur de reporting. Vous aurez besoin
 d'au moins 12GB de mémoire vive afin d'utiliser le
 [fichier suivant](../assets/reporting/installation/centreon.cnf).
 
 Assurez-vous d'avoir un dossier **tmp** dans **/var/lib/mysql**.
 
-> Ne définissez pas ces optimisations MariaDB sur votre serveur de supervision.
+> Ne définissez pas ces optimisations MariaDB/MySQL sur votre serveur de supervision.
 
 Utilisateurs et groupes :
 
@@ -373,7 +373,7 @@ Téléchargez la licence envoyée par l'équipe Centreon pour pouvoir commencer 
 <TabItem value="Base de supervision locale au central" label="Base de supervision locale au central">
 
 
-La base de données de supervision MariaDB est hébergée sur le serveur de supervision central.
+La base de données de supervision MariaDB/MySQL est hébergée sur le serveur de supervision central.
 
 Lancez la commande ci-dessous pour autoriser le serveur de reporting à se connecter
 aux bases de données du serveur de supervision. Utilisez l'option suivante :
@@ -382,13 +382,13 @@ aux bases de données du serveur de supervision. Utilisez l'option suivante :
 /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
 ```
 
-**@ROOTPWD@** : Mot de passe root de la base MariaDB de supervision.
+**@ROOTPWD@** : Mot de passe root de la base MariaDB/MySQL de supervision.
 S'il n'y a pas de mot de passe pour l'utilisateur "root", ne spécifiez pas l'option **root-password**.
 
 </TabItem>
 <TabItem value="Base de supervision déportée par rapport au central" label="Base de supervision déportée par rapport au central">
 
-La base de données de supervision MariaDB est hébergée sur un serveur dédié.
+La base de données de supervision MariaDB/MySQL est hébergée sur un serveur dédié.
 
 Connectez-vous par SSH au serveur de la base de données, et exécutez les commandes suivantes :
 
@@ -486,7 +486,7 @@ processus d'installation :
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -496,7 +496,7 @@ dnf update
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el9/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el9/centreon-24.04.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -505,7 +505,7 @@ dnf update
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-23.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-24.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -543,21 +543,21 @@ apt update
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.11"
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=9 --mariadb-server-version="mariadb-10.5"
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=9 --mariadb-server-version="mariadb-10.11"
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.5"
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.11"
 ```
 
 </TabItem>
@@ -745,7 +745,7 @@ wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 Installez le dépôt Centreon :
 ￼
 ￼```shell
-￼echo "deb https://packages.centreon.com/apt-standard-23.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+￼echo "deb https://packages.centreon.com/apt-standard-24.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 ￼```
 
 
@@ -926,12 +926,25 @@ socket=$PATH_TO_SOCKET$
 
 ### Sécuriser la base de données
 
-Depuis MariaDB 10.5, il est obligatoire de sécuriser l'accès root de la base de données avant d'installer Centreon.
+Il est obligatoire de sécuriser l'accès root de la base de données avant d'installer Centreon.
 Si vous utilisez une base de données locale, exécutez la commande suivante sur le serveur central, sinon sur le serveur de base de données :
+
+<Tabs groupId="sync">
+<TabItem value="MariaDB" label="MariaDB"> 
+
+```shell
+mariadb-secure-installation
+```
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL"> 
 
 ```shell
 mysql_secure_installation
 ```
+
+</TabItem>
+</Tabs>
 
 - Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely?"
 - Il est obligatoire de définir un mot de passe pour l'utilisateur **root** de la base de données. Vous aurez besoin de ce mot de passe pendant l'[installation web](../installation/web-and-post-installation.md).

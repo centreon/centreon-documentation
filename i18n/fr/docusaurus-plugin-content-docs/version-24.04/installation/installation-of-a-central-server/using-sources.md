@@ -5,7 +5,6 @@ title: À partir des sources
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Prérequis
 
 > La plupart des utilisateurs de CentOS préfèreront installer Centreon Web en utilisant
@@ -25,7 +24,7 @@ dnf config-manager --set-enabled ol8_codeready_builder
 Installez le dépôt Centreon pour les dépendances perl additionnelles :
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 ```
 
 Activez PHP 7.3 avec la commande suivante :
@@ -155,7 +154,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 Installez le dépôt Centreon pour les dépendances perl additionnelles :
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 ```
 
 Activez PHP 7.3 avec la commande suivante :
@@ -333,11 +332,24 @@ Installez Centreon Gorgone en utilisant [cette procédure](https://github.com/ce
 
 ### Sécuriser la base de données
 
-Depuis MariaDB 10.5, il est obligatoire de sécuriser l'accès en root à la base avant d'installer Centreon. Exécutez la commande suivante :
+Il est obligatoire de sécuriser l'accès en root à la base avant d'installer Centreon. Exécutez la commande suivante :
+
+<Tabs groupId="sync">
+<TabItem value="MariaDB" label="MariaDB"> 
+
+```shell
+mariadb-secure-installation
+```
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL"> 
 
 ```shell
 mysql_secure_installation
 ```
+
+</TabItem>
+</Tabs>
 
 * Répondez oui à toute question sauf à "Disallow root login remotely?". 
 * Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données.

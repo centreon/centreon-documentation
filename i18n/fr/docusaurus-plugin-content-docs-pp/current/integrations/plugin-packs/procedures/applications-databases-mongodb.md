@@ -181,7 +181,7 @@ dnf install centreon-pack-applications-databases-mongodb
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-databases-mongodb
@@ -226,7 +226,7 @@ dnf install centreon-plugin-Applications-Databases-Mongodb
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-databases-mongodb

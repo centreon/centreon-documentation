@@ -49,7 +49,7 @@ Le schéma ci-dessous résume l'architecture :
 
 ### Centreon
 
-Le serveur central et Centreon MAP doivent être installés dans les mêmes versions majeures (c'est-à-dire tous deux en 23.10.x).
+Le serveur central et Centreon MAP doivent être installés dans les mêmes versions majeures (c'est-à-dire tous deux en 24.04.x).
 
 ### Serveur MAP Centreon
 
@@ -196,8 +196,10 @@ Excluez l'utilisateur de la politique d'expiration du mot de passe sur la page *
 
 Créez un utilisateur dans l'instance mysql hébergeant les bases de données 'centreon' et 'centreon_storage' :
 
+> Nous vous recommandons vivement de définir un mot de passe plus sécurisé.
+
 ```sql
-CREATE USER 'centreon_map'@'<IP_SERVER_MAP>' IDENTIFIED BY 'centreon_map';
+mysql> CREATE USER 'centreon_map'@'IP_MAP_SERVER' IDENTIFIED BY 'centreon_Map2023!';
 GRANT SELECT ON centreon_storage.* TO 'centreon_map'@'<IP_SERVER_MAP>';
 GRANT SELECT, INSERT ON centreon.* TO 'centreon_map'@'<IP_SERVER_MAP>';
 ```
@@ -250,7 +252,7 @@ Ensuite installez le dépôt Centreon :
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 ```
 
 </TabItem>
@@ -275,7 +277,7 @@ Ensuite installez le dépôt Centreon :
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el9/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el9/centreon-24.04.repo
 ```
 
 </TabItem>
@@ -290,7 +292,7 @@ apt update && apt install lsb-release ca-certificates apt-transport-https softwa
 Pour installer le dépôt Centreon, exécutez la commande suivante :
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-23.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-24.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -346,7 +348,7 @@ Pour installer MariaDB, exécutez la commande suivante :
 Vous devez d'abord ajouter le dépôt MariaDB :
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.11"
 ```
 
 Puis installez MariaDB :
@@ -389,11 +391,24 @@ systemctl restart mariadb
 
 #### Sécuriser la base de données
 
-Depuis MariaDB 10.5, il est obligatoire de sécuriser l'accès root de la base de données avant d'installer Centreon. Si vous utilisez une base de données locale, exécutez la commande suivante sur le serveur central :
+Il est obligatoire de sécuriser l'accès root de la base de données avant d'installer Centreon. Si vous utilisez une base de données locale, exécutez la commande suivante sur le serveur central :
+
+<Tabs groupId="sync">
+<TabItem value="MariaDB" label="MariaDB"> 
+
+```shell
+mariadb-secure-installation
+```
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL"> 
 
 ```shell
 mysql_secure_installation
 ```
+
+</TabItem>
+</Tabs>
 
 * Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely ?
 * Il est obligatoire de définir un mot de passe pour l'utilisateur **root** de la base de données. Vous aurez besoin de ce mot de passe pendant l'[installation web](../installation/web-and-post-installation.md).
@@ -553,7 +568,7 @@ Allez dans **Administration > Extensions** et cliquez sur le bouton **Installer*
 Le client lourd est actuellement disponible uniquement pour les plateformes **64-bit** Windows, Mac et Linux (Debian et Ubuntu).
 
 Vous pouvez trouver les installateurs dans **Supervision > Map > Desktop Client** ou
-[ici](https://download.centreon.com/?action=product&product=centreon-map&version=23.10&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
+[ici](https://download.centreon.com/?action=product&product=centreon-map&version=24.04&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
 
 > Pour des raisons de performance, nous recommandons fortement d'avoir moins de 5 à 10 utilisateurs maximum connectés en même temps pour manipuler les vues.
 

@@ -98,7 +98,7 @@ dnf install centreon-pack-hardware-ats-apc
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-ats-apc
@@ -143,7 +143,7 @@ dnf install centreon-plugin-Hardware-Ats-Apc-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-ats-apc-snmp

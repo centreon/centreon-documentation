@@ -139,7 +139,7 @@ dnf install centreon-pack-network-cambium-cnpilot-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-network-cambium-cnpilot-snmp
@@ -186,7 +186,7 @@ dnf install centreon-plugin-Network-Cambium-cnPilot-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-network-cambium-cnpilot-snmp
