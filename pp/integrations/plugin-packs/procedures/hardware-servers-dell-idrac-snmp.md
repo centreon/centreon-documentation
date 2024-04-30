@@ -50,8 +50,6 @@ Here is the list of services for this connector, detailing all metrics linked to
 | status         | N/A   |
 | storage-status | N/A   |
 
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
-
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
@@ -215,7 +213,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 ```bash
 /usr/lib/centreon/plugins/centreon_dell_idrac.pl \
 	--plugin=hardware::server::dell::idrac::snmp::plugin \
-	--mode=hardware \
+	--mode=global-status \
 	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
@@ -226,7 +224,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: |
+OK: Overall global status is 'ok' |
 ```
 
 ### Troubleshooting
