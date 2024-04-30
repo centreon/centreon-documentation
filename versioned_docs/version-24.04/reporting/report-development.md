@@ -51,7 +51,7 @@ BIRT also allows you to script your own data sources accessed by Java or
 Javascript objects.
 
 We highly recommend collecting and consolidating report data into a
-single type of data source, and storing it as such (e.g., a MariaDB data).
+single type of data source, and storing it as such (e.g., a MariaDB data source).
 Multiplying your data sources in a report might have an impact on
 performance and maintenance. You are advised not to use more than two
 types of data source in the same report project (e.g., JDBC and CSV).
@@ -338,7 +338,7 @@ users to connect to the above servers.
 > **Warning**
 >
 > Never upload the L2_Datasource.rptlibrary file to your reporting
-> server. This will delete the configuration for connection to the MariaDB
+> server. This will delete the configuration for connection to the MariaDB/MySQL
 > server and cause Centreon MBI (for ETL & report generation) to crash.
 
 All standard reports use the library L2_datasources to connect to data.
@@ -388,7 +388,7 @@ Click "Test Connection". A pop-up appears, displaying the message
 ![image](../assets/reporting/dev-guide/db_conn_7.png)
 
 
-> In case of an error message indicating a missing driver, add the MariaDB
+> In case of an error message indicating a missing driver, add the MariaDB/MySQL
 > driver ( .jar) from the "Manage drivers" menu.
 >
 > ![image](../assets/reporting/dev-guide/db_conn_8.png)

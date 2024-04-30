@@ -42,7 +42,7 @@ servers:
 
 ## Upgrade the Centreon Central server
 
-> From 21.04, Centreon uses **MariaDB 10.5**.
+> From 24.04, Centreon uses **MariaDB 10.11**.
 >
 > This upgrade process will only upgrade Centreon components first.
 >
@@ -64,7 +64,7 @@ servers:
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 ```
 
 > If you have an [offline license](../administration/licenses.md#types-of-licenses), also remove the old Monitoring Connectors repository, then install the new one.
@@ -79,7 +79,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/e
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.11"
 ```
 
 </TabItem>
@@ -87,7 +87,7 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 
 ### Upgrade PHP
 
-Centreon 23.10 uses PHP in version 8.1.
+Centreon 24.04 uses PHP in version 8.1.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
@@ -142,7 +142,7 @@ dnf module install php:remi-8.1
 > Make sure all users are logged out from the Centreon web interface
 > before starting the upgrade procedure.
 
-If you have installed Business extensions, update the Business repository to version 23.10.
+If you have installed Business extensions, update the Business repository to version 24.04.
 Visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
 
 Stop the Centreon Broker process:
@@ -298,7 +298,7 @@ Run the following command on the dedicated DBMS server:
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 ```
 
 </TabItem>
@@ -306,7 +306,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/e
 
 #### Upgrading MariaDB
 
-You must uninstall and then reinstall MariaDB to upgrade between major versions (i.e. to switch from version 10.3 to version 10.5).
+You must uninstall and then reinstall MariaDB to upgrade between major versions (i.e. to switch from version 10.3 to version 10.11).
 
 1. Stop the MariaDB service:
 
@@ -336,10 +336,10 @@ You must uninstall and then reinstall MariaDB to upgrade between major versions 
 
   > Make sure you have [installed the official MariaDB repository](upgrade-from-20-10.md#install-the-mariadb-repository) before you continue the procedure.
 
-3. Install the 10.5 version:
+3. Install the 10.11 version:
 
     ```shell
-    dnf install MariaDB-server-10.5\* MariaDB-client-10.5\* MariaDB-shared-10.5\* MariaDB-common-10.5\*
+    dnf install MariaDB-server-10.11\* MariaDB-client-10.11\* MariaDB-shared-10.11\* MariaDB-common-10.11\*
     ```
 
 4. Start the MariaDB service:
@@ -438,6 +438,10 @@ with the following:
    systemctl restart cbd centengine centreontrapd gorgoned
    ```
 
+## Upgrade MariaDB
+
+Follow [this procedure](upgrade-mariadb.md) to upgrade MariaDB to version 10.11.
+
 ## Upgrade the Remote Servers
 
 This procedure is the same as for upgrading a Centreon Central server.
@@ -455,7 +459,7 @@ Run the following command:
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 ```
 
 </TabItem>

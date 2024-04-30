@@ -26,7 +26,7 @@ POST : http://{{serverURL}}:8081/centreon-map/api/beta/auth/sign-in
 ```
 Headers {
     Content-Type = application/json
-    X-Client-Version = 23.10.0
+    X-Client-Version = 24.04.0
 }
 
 Body {
@@ -40,7 +40,7 @@ Body {
 ```
 Headers {
     Content-Type = application/json
-    X-client-version = 23.10.0
+    X-client-version = 24.04.0
     Authorization = Bearer {jwtToken}
 }
 ```
@@ -54,7 +54,7 @@ POST http://{{serverURL}}:8081/centreon-map/api/beta/maps
 ```
 Headers {
     Content-Type = application/json
-    X-client-version =  23.10.0
+    X-client-version =  24.04.0
     Authorization = Bearer {jwtToken}
 }
 
@@ -103,4 +103,4 @@ Body: {
 
 ## More information
 
-> Follow this [link](https://docs-api.centreon.com/api/centreon-map/23.10/) to access Centreon API documentation and preview the API capabilities.
+> Follow this [link](https://docs-api.centreon.com/api/centreon-map/24.04/) to access the Centreon API documentation and preview the API capabilities.

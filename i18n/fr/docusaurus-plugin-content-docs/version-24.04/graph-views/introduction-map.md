@@ -9,7 +9,7 @@ Contrairement à la version MAP (Legacy), MAP vous fournit un outil d'édition e
 
 > Si vous êtes déjà utilisateur de MAP (Legacy), notez que vous pouvez aisément [importer vos anciennes cartes](import-into-map-web.md) dans l'interface MAP.
 
-> Vous pouvez consulter la procédure de gestion des vues à l'aide de l'API REST de Centreon MAP [ici](https://docs-api.centreon.com/api/centreon-map/23.10/).
+> Vous pouvez consulter la procédure de gestion des vues à l'aide de l'API REST de Centreon MAP [ici](https://docs-api.centreon.com/api/centreon-map/24.04/).
 
 ## Aperçu de l'interface
 

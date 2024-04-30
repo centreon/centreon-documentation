@@ -43,7 +43,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 3. Installez le nouveau dépôt :
 
 ```shell
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 ```
 
 </TabItem>
@@ -60,14 +60,14 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/e
 3. Installez le nouveau dépôt :
 
 ```shell
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el9/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el9/centreon-24.04.repo
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-23.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-24.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -92,7 +92,7 @@ apt update
 > Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer
 > la procédure de mise à jour.
 
-Si vous avez des extensions Business installées, mettez à jour le dépôt business en 23.10.
+Si vous avez des extensions Business installées, mettez à jour le dépôt business en 24.04.
 Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
 
 Si votre OS est Debian 11 et que vous avez une configuration Apache personnalisée, faites une sauvegarde de votre fichier de configuration (**/etc/apache2/sites-available/centreon.conf**).
@@ -429,14 +429,14 @@ mise à jour.
 
    - adresse : 10.25.XX.XX
    - port : 80
-   - version : 23.10
+   - version : 24.04
    - identifiant : Admin
    - mot de passe : xxxxx
 
 2. Entrez la requête suivante :
 
   ```shell
-  curl --location --request POST '10.25.XX.XX:80/centreon/api/v23.10/login' \
+  curl --location --request POST '10.25.XX.XX:80/centreon/api/v24.04/login' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --data '{
@@ -536,6 +536,10 @@ associée](../service-mapping/upgrade.md) pour le mettre à jour.
     systemctl restart cbd centengine centreontrapd gorgoned
     ```
 
+## Mettre à jour MariaDB
+
+Suivez [cette procédure](upgrade-mariadb.md) pour monter de version MariaDB en 10.11.
+
 ## Montée de version des Remote Servers
 
 Cette procédure est identique à la montée de version d'un serveur Centreon
@@ -553,21 +557,21 @@ Exécutez la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el9/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el9/centreon-24.04.repo
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-23.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-24.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 apt update
 ```
 

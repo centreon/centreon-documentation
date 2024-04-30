@@ -6,9 +6,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 This chapter describes how to upgrade your Centreon HA platform from version 21.04
-to version 23.10.
+to version 24.04.
 
-You cannot simply upgrade a platform with Centreon HA (or Centreon Failover) from a version earlier than 21.04 to version 23.10, as CentOS 7 is no longer supported. You need to [migrate your platform to a supported OS](../../migrate/introduction.md), then install Centreon HA on the new platform. You can also contact Centreon to order a migration service.
+You cannot simply upgrade a platform with Centreon HA (or Centreon Failover) from a version earlier than 21.04 to version 24.04, as CentOS 7 is no longer supported. You need to [migrate your platform to a supported OS](../../migrate/introduction.md), then install Centreon HA on the new platform. You can also contact Centreon to order a migration service.
 
 ## Prerequisites
 

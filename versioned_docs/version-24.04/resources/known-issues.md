@@ -48,7 +48,7 @@ There is no workaround and this message does not prevent you from finalizing the
 
 #### Workaround
 
-Play the following query into MariaDB:
+Play the following query into MariaDB/MySQL:
 
 In your monitoring database:
 ```sql
