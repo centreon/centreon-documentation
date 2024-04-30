@@ -84,7 +84,7 @@ dnf install centreon-pack-applications-protocol-bgp-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-protocol-bgp-snmp
@@ -129,7 +129,7 @@ dnf install centreon-plugin-Applications-Protocol-Bgp-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-protocol-bgp-snmp

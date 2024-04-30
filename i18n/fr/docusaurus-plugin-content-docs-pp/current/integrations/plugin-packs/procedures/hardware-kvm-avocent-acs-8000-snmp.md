@@ -157,7 +157,7 @@ dnf install centreon-pack-hardware-kvm-avocent-acs-8000-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-kvm-avocent-acs-8000-snmp
@@ -202,7 +202,7 @@ dnf install centreon-plugin-Hardware-Kvm-Avocent-Acs-8000-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-kvm-avocent-acs-8000-snmp

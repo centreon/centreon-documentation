@@ -104,7 +104,7 @@ dnf install centreon-pack-applications-hashicorp-vault-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-hashicorp-vault-restapi
@@ -149,7 +149,7 @@ dnf install centreon-plugin-Applications-HashiCorp-Vault-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-hashicorp-vault-restapi

@@ -88,7 +88,7 @@ dnf install centreon-pack-applications-tosca-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-tosca-restapi
@@ -133,7 +133,7 @@ dnf install centreon-plugin-Applications-Tosca-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-tosca-restapi

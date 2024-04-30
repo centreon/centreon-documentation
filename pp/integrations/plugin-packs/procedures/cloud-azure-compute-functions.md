@@ -202,7 +202,7 @@ dnf install centreon-pack-cloud-azure-compute-functions
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-cloud-azure-compute-functions
@@ -249,7 +249,7 @@ dnf install centreon-plugin-Cloud-Azure-Compute-Functions-Api
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-cloud-azure-compute-functions-api

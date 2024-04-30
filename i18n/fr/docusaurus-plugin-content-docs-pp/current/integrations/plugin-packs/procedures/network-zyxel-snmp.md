@@ -157,7 +157,7 @@ dnf install centreon-pack-network-zyxel-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-network-zyxel-snmp
@@ -202,7 +202,7 @@ dnf install centreon-plugin-Network-Zyxel-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-network-zyxel-snmp

@@ -302,7 +302,7 @@ yum install gcc wget
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install wget gcc make unzip libaio1 libdbi-perl
@@ -330,7 +330,7 @@ rpm -ivh oracle-*.rpm
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Se connecter sur [Instant Client Downloads](https://www.oracle.com/database/technologies/instant-client/downloads.html).
 Choisir le groupe de paquets correspondant au système d'exploitation du collecteur et télécharger les paquets (ZIP) suivants :
@@ -383,7 +383,7 @@ Si vous rencontrez une erreur durant l'étape du **Makefile.PL**, essayez de sp�
 fonctionnelle pour la compilation (cela n'aura pas d'impact sur le fonctionnement): `perl Makefile.PL -V 12.1.0 -m /usr/share/oracle/21/client64/demo/demo.mk`
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 En tant que **root**, exécuter :
 
@@ -439,7 +439,7 @@ EOF
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Puis créer le fichier : **/etc/ld.so.conf.d/oracle-instantclient.conf**. Éditer et ajouter un lien vers la bibliothèque Perl d’Oracle :
 
@@ -529,7 +529,7 @@ dnf install centreon-pack-applications-databases-oracle
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-databases-oracle
@@ -574,7 +574,7 @@ dnf install centreon-plugin-Applications-Databases-Oracle
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-databases-oracle

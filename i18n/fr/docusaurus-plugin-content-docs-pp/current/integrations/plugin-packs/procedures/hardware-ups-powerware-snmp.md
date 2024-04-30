@@ -157,7 +157,7 @@ dnf install centreon-pack-hardware-ups-powerware-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-ups-powerware-snmp
@@ -202,7 +202,7 @@ dnf install centreon-plugin-Hardware-Ups-Powerware-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-ups-powerware-snmp

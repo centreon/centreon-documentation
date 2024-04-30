@@ -102,7 +102,7 @@ dnf install centreon-pack-applications-docker-ssh
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-docker-ssh
@@ -149,7 +149,7 @@ dnf install centreon-plugin-Applications-Docker-Ssh
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-docker-ssh

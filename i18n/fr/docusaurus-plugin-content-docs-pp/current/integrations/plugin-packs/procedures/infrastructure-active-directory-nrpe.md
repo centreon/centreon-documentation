@@ -94,7 +94,7 @@ dnf install centreon-pack-infrastructure-active-directory-nrpe
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-infrastructure-active-directory-nrpe
@@ -132,7 +132,7 @@ dnf install nagios-plugins-nrpe
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install nagios-nrpe-plugin
