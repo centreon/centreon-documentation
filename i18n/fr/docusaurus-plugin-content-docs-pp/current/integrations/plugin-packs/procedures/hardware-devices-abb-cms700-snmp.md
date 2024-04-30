@@ -45,7 +45,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                                | Description |
 |:-----------------------------------------------|:------------|
-| HW-Device-Abb-Cms700-SNMP-Sensors-Measurements |             |
+| HW-Device-Abb-Cms700-SNMP-Sensors-Measurements |  Découvre les capteurs proposés par l'équipement. |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
