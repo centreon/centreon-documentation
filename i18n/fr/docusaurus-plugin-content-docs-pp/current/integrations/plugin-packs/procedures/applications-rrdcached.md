@@ -45,7 +45,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-To use this connector you must have installed and configured RRDCached (see this [documentation](https://oss.oetiker.ch/rrdtool/doc/rrdcached.en.html))
+Pour utiliser ce connecteur, vous devez installer et configurer RRDCached (voir cette [documentation](https://oss.oetiker.ch/rrdtool/doc/rrdcached.en.html)).
 
 ## Installer le connecteur de supervision
 
