@@ -44,7 +44,7 @@ More information about discovering hosts automatically is available on the [dedi
 
 | Rule name                                      | Description |
 |:-----------------------------------------------|:------------|
-| HW-Device-Abb-Cms700-SNMP-Sensors-Measurements |             |
+| HW-Device-Abb-Cms700-SNMP-Sensors-Measurements | Discovers the sensors that are provided by the device. |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
