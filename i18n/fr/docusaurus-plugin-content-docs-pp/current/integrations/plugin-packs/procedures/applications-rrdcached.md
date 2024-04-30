@@ -35,9 +35,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Stats" label="Stats">
 
-| Métrique       | Unité   |
-|:---------------|:--------|
-| UpdatesWaiting | updates |
+| Métrique       | Unité |
+|:---------------|:------|
+| UpdatesWaiting | count |
+| QueueLenght    | coun  |
 
 </TabItem>
 </Tabs>

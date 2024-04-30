@@ -34,9 +34,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Stats" label="Stats">
 
-| Metric name    | Unit    |
-|:---------------|:--------|
-| UpdatesWaiting | updates |
+| Metric name    | Unit  |
+|:---------------|:------|
+| UpdatesWaiting | count |
+| QueueLenght    | count |
 
 </TabItem>
 </Tabs>
