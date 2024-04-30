@@ -179,6 +179,20 @@ installation. The main directories to synchronize are:
 > -rwxr-xr-x   1 root root 1711288  6 avril  2018 cbmod.so
 > ```
 
+The credentials of the newly created **centreon-gorgone** user need to be updated to match those of the **centreon-gorgone** user on the old server. Edit `etc/centreon-gorgone/config.d/31-centreon-api.yaml` and enter the credentials of the old user. Example:
+
+   ```shell
+   gorgone:
+     tpapi:
+       - name: centreonv2
+         base_url: "http://127.0.0.1/centreon/api/latest/"
+         username: "@GORGONE_USER@"
+         password: "@GORGONE_PASSWORD@"
+       - name: clapi
+         username: "@GORGONE_USER@"
+         password: "@GORGONE_PASSWORD@"
+   ```
+
 You can now push the poller's configuration from Centreon 24.04 whether the remote
 Poller is Centreon Engine 24.04 or 1.8.1.
 
