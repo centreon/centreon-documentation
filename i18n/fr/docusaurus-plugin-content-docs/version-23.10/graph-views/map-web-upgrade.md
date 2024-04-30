@@ -5,9 +5,7 @@ title: Monter de version MAP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> Lorsque vous mettez à jour une nouvelle version majeure ou
-mineure (c'est à dire version A.B.x avec A ou B qui évolue), contactez
-le support pour récupérer l'adresse du nouveau dépôt.
+> Lorsque vous mettez à jour une nouvelle version majeure (c'est à dire version A.B.x avec A ou B qui évolue), vous devez installer le nouveau dépôt Business. Vous pouvez trouver l'adresse du dépôt sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 ## Prérequis
 
