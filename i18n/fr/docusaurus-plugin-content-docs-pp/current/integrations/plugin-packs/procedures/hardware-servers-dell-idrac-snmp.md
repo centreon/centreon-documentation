@@ -51,8 +51,6 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 | status         | N/A   |
 | storage-status | N/A   |
 
-> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
-
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
@@ -217,7 +215,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 ```bash
 /usr/lib/centreon/plugins/centreon_dell_idrac.pl \
 	--plugin=hardware::server::dell::idrac::snmp::plugin \
-	--mode=hardware \
+	--mode=global-status \
 	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
@@ -228,7 +226,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: |
+OK: Overall global status is 'ok' |
 ```
 
 ### Diagnostic des erreurs communes
