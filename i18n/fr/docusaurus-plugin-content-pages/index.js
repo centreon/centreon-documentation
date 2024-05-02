@@ -78,7 +78,7 @@ const cards = [
 
 const versionInfo = {
   version: '24.04',
-  link: 'https://docs.centreon.com/fr/docs/getting-started/welcome/',
+  link: 'https://www.centreon.com/fr/centreon-annonce-la-sortie-de-sa-derniere-version-logicielle-centreon-24-04/',
   target: '_blank'
  }
 
