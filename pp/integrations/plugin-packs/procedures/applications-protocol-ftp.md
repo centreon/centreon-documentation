@@ -170,10 +170,10 @@ yum install centreon-plugin-Applications-Protocol-Ftp
 3. Apply the **App-Protocol-FTP-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro           | Description                                                                                          | Default value     | Mandatory   |
-|:----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FTPUSERNAME     |                                                                                                      |                   |             |
-| FTPPASSWORD     |                                                                                                      |                   |             |
+| Macro           | Description                                                                                                                              | Default value     | Mandatory   |
+|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FTPUSERNAME     | FTP Username                                                                                                                             |                   |             |
+| FTPPASSWORD     | FTP Password                                                                                                                             |                   |             |
 | FTPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -186,40 +186,40 @@ yum install centreon-plugin-Applications-Protocol-Ftp
 <Tabs groupId="sync">
 <TabItem value="FTP-Commands" label="FTP-Commands">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FTPCOMMAND   |                                                                                                    | cwd,DIR           |             |
-| CRITICAL     |                                                                                                    |                   |             |
-| WARNING      |                                                                                                    |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro        | Description                                                                                                                                                                          | Default value     | Mandatory   |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FTPCOMMAND   | Set command to test. (can be : binary; ascii; cwd,DIR; rmdir,DIR; mdkir,DIR; ls,DIR; rename,OLDNAME,NEWNAME; delete,FILENAME; get,REMOTE_FILE,LOCAL_FILE; put,LOCAL_FILE,REMOTE_FILE | cwd,DIR           |             |
+| CRITICAL     | Threshold                                                                                                                                                                            |                   |             |
+| WARNING      | Threshold                                                                                                                                                                                     |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                               |                   |             |
 
 </TabItem>
 <TabItem value="FTP-Date" label="FTP-Date">
 
 | Macro        | Description                                                                                        | Default value     | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| DIRECTORY    |                                                                                                    |                   |             |
-| CRITICAL     |                                                                                                    |                   |             |
-| WARNING      |                                                                                                    |                   |             |
+| DIRECTORY    | Check files in the directory (no recursive)                                                                                                   |                   |             |
+| CRITICAL     | Threshold                                                                                                   |                   |             |
+| WARNING      | Threshold                                                                                                   |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="FTP-FilesCount" label="FTP-FilesCount">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| DIRECTORY    |                                                                                                    |                   |             |
-| WARNING      |                                                                                                    |                   |             |
-| CRITICAL     |                                                                                                    |                   |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| DIRECTORY    | Check files in the directory (no recursive)                                                                                            |                   |             |
+| WARNING      | Threshold                                                                                                                              |                   |             |
+| CRITICAL     | Threshold                                                                                                                              |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="FTP-Login" label="FTP-Login">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CRITICAL     |                                                                                                    |                   |             |
-| WARNING      |                                                                                                    |                   |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| CRITICAL     | Threshold                                                                                                                              |                   |             |
+| WARNING      | Threshold                                                                                                                              |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>

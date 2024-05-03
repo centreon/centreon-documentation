@@ -181,11 +181,11 @@ yum install centreon-plugin-Applications-Protocol-Sftp
 3. Appliquez le modèle d'hôte **App-Protocol-Sftp-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro                    | Description                                                                                          | Valeur par défaut | Obligatoire |
-|:-------------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PROTOCOLSFTPUSERNAME     |                                                                                                      |                   |             |
-| PROTOCOLSFTPPASSWORD     |                                                                                                      |                   |             |
-| PROTOCOLSFTPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| Macro                    | Description                                                                                                                              | Default value     | Mandatory   |
+|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROTOCOLSFTPUSERNAME     | Username                                                                                                                                 |                   |             |
+| PROTOCOLSFTPPASSWORD     | Password                                                                                                                                 |                   |             |
+| PROTOCOLSFTPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -197,56 +197,57 @@ yum install centreon-plugin-Applications-Protocol-Sftp
 <Tabs groupId="sync">
 <TabItem value="Connection" label="Connection">
 
-| Macro          | Description                                                                                        | Valeur par défaut                         | Obligatoire |
-|:---------------|:---------------------------------------------------------------------------------------------------|:------------------------------------------|:-----------:|
-| CRITICALSTATUS |                                                                                                    | %{message} !~ /authentication succeeded/i |             |
-| WARNINGSTATUS  |                                                                                                    |                                           |             |
-| WARNINGTIME    |                                                                                                    |                                           |             |
-| CRITICALTIME   |                                                                                                    |                                           |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                                           |             |
+| Macro          | Description                                                                                                                            | Default value                             | Mandatory   |
+|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------|:-----------:|
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{message}               | %{message} !~ /authentication succeeded/i |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{message}                |                                           |             |
+| WARNINGTIME    | Threshold                                                                                                                              |                                           |             |
+| CRITICALTIME   | Threshold                                                                                                                              |                                           |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                                           |             |
 
 </TabItem>
 <TabItem value="Files-Count" label="Files-Count">
 
-| Macro                 | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:----------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| MAXDEPTH              |                                                                                                    | 0                 |             |
-| DIRECTORY             |                                                                                                    |                   | X           |
-| FILTERFILE            |                                                                                                    |                   |             |
-| WARNINGFILESDETECTED  |                                                                                                    |                   |             |
-| CRITICALFILESDETECTED |                                                                                                    |                   |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| Macro                 | Description                                                                                                                            | Default value     | Mandatory   |
+|:----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| MAXDEPTH              | Number of level of directory to check. 0 mean current directory only.                                                                  | 0                 |             |
+| DIRECTORY             | Directory name to check.                                                                                                                                       |                   | X           |
+| FILTERFILE            | Filter files (can be a regexp. Directory in the name).                                                                                                                                       |                   |             |
+| WARNINGFILESDETECTED  | Thresholds                                                                                                                                       |                   |             |
+| CRITICALFILESDETECTED | Thresholds                                                                                                                                       |                   |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Files-Date" label="Files-Date">
 
-| Macro             | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILE              |                                                                                                    |                   | X           |
-| DIRECTORY         |                                                                                                    |                   | X           |
-| WARNINGMTIMELAST  |                                                                                                    |                   |             |
-| CRITICALMTIMELAST |                                                                                                    |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| Macro             | Description                                                                                                                            | Default value     | Mandatory   |
+|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILE              | File name to check.                                                                                                                    |                   | X           |
+| DIRECTORY         | Directory name to check  (no recursive).                                                                                               |                   | X           |
+| WARNINGMTIMELAST  | Thresholds                                                                                                                             |                   |             |
+| CRITICALMTIMELAST | Thresholds                                                                                                                             |                   |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Scenario" label="Scenario">
 
-| Macro              | Description                                                                                        | Valeur par défaut      | Obligatoire |
-|:-------------------|:---------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
-| SCENARIO           |                                                                                                    |                        | X           |
-| WARNINGERRORS      |                                                                                                    |                        |             |
-| CRITICALERRORS     |                                                                                                    |                        |             |
-| CRITICALSTATUS     |                                                                                                    | %{status} ne "success" |             |
-| WARNINGSTATUS      |                                                                                                    |                        |             |
-| WARNINGSTEPSTATUS  |                                                                                                    |                        |             |
-| CRITICALSTEPSTATUS |                                                                                                    |                        |             |
-| WARNINGSTEPTIME    |                                                                                                    |                        |             |
-| CRITICALSTEPTIME   |                                                                                                    |                        |             |
-| WARNINGTOTALSTEPS  |                                                                                                    |                        |             |
-| CRITICALTOTALSTEPS |                                                                                                    |                        |             |
-| WARNINGTOTALTIME   |                                                                                                    |                        |             |
-| CRITICALTOTALTIME  |                                                                                                    |                        |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose              |             |
+
+| Macro              | Description                                                                                                                            | Default value          | Mandatory   |
+|:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
+| SCENARIO           | Scenario used (required). Can be a file or json content.                                                                               |                        | X           |
+| WARNINGERRORS      | Thresholds.                                                                                                                            |                        |             |
+| CRITICALERRORS     | Thresholds.                                                                                                                            |                        |             |
+| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}                           | %{status} ne "success" |             |
+| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}                            |                        |             |
+| WARNINGSTEPSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{message}                |                        |             |
+| CRITICALSTEPSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{message}               |                        |             |
+| WARNINGSTEPTIME    | Thresholds.                                                                                                                            |                        |             |
+| CRITICALSTEPTIME   | Thresholds.                                                                                                                            |                        |             |
+| WARNINGTOTALSTEPS  | Thresholds.                                                                                                                            |                        |             |
+| CRITICALTOTALSTEPS | Thresholds.                                                                                                                            |                        |             |
+| WARNINGTOTALTIME   | Thresholds.                                                                                                                            |                        |             |
+| CRITICALTOTALTIME  | Thresholds.                                                                                                                            |                        |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose              |             |
 
 </TabItem>
 </Tabs>
