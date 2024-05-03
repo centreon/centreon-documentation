@@ -106,12 +106,12 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Afin de superviser votre **Himoinsa** en SNMP,  il est nécessaire de configurer l'agent sur le serveur comme indiqué sur la documentation officielle.
+Le service SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
 
 ### Flux réseau
 
 La communication doit être possible sur le port UDP 161 depuis le collecteur
-Centreon vers le serveur supervisé.
+Centreon vers la ressource supervisée.
 
 ## Installer le connecteur de supervision
 
