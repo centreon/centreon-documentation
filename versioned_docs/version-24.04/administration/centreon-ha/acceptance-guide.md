@@ -583,7 +583,7 @@ Migration Summary:
 <!--
 ## HA 4 Nodes
 
-> This document will refer to parameters that vary from one installation to another (e.g., names and IP addresses of nodes) via [macros defined here](../../installation/installation-of-centreon-ha/installation-4-nodes.md#defining-hosts-names-and-addresses)
+> This document will refer to parameters that vary from one installation to another (e.g., names and IP addresses of nodes) via [macros defined here]
 
 ## Requirements of the tests
 

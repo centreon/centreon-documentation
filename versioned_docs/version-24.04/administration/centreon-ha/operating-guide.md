@@ -200,4 +200,4 @@ crm_resource --resource [resource] -D -t primitive -C
 pcs resource cleanup centreon
 ```
 
-To create the resources again, follow the installation procedure [from this point](../../installation/installation-of-centreon-ha/installation-2-nodes.md#creating-the-centreon-resource-group)
+To create the resources again, follow the installation procedure [from this point](../../installation/installation-of-centreon-ha/installation.md#creating-the-centreon-resource-group)
