@@ -78,9 +78,12 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-Afin de contrôler votre équipement Phoenixtec UPS, le SNMP doit être configuré.
+### Configuration SNMP
+Le service SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
 
-Le flux SNMP UDP/161 doit être ouvert entre le Collecteur et l'équipement.
+### Flux réseau
+La communication doit être possible sur le port UDP 161 depuis le collecteur
+Centreon vers la ressource supervisée.
 
 ## Installer le connecteur de supervision
 
