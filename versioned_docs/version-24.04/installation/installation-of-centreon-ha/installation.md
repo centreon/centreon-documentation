@@ -9,18 +9,14 @@ import TabItem from '@theme/TabItem';
 
 ## Before you start
 
-This procedure only applies if you are able to set up a database cluster with a dedicated VIP. The Centreon cluster and the database cluster will be independent.
-
 ### Disclaimer
 
-It is strongly recommended that your HA is installed by Centreon Professional Services. You may implement HA yourself **only** if:
-
-* you are able to set up replicated databases with a dedicated VIP. The following procedure only applies if you already have a database cluster.
-* you have a strong knowledge of the Pacemaker-Corosync clustering tools, of networks, of Linux OS and of Centreon, in order to have a proper understanding of what is being done and to be able to correct any mistakes that might occur.
-
-See also "[What is supported, and what isn't?](faq.md#what-is-supported-and-what-isnt)".
+Your HA must be installed by Centreon.
+This procedure is geared towards experts users who have a strong knowledge of the Pacemaker-Corosync clustering tools, of networks, of Linux OS and of Centreon.
 
 > **WARNING:** Anyone following this procedure does so at their own risk. Under no circumstances shall Centreon be liable for any breakdown or data loss.
+
+See also "[What is supported, and what isn't?](faq.md#what-is-supported-and-what-isnt)".
 
 ### Convention for names and IP addresses
 

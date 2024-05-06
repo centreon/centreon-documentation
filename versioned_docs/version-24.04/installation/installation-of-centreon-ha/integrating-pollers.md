@@ -27,7 +27,7 @@ The command output should look like this:
 
 ## Adding the Poller to the configuration
 
-* Add your poller to the configuration "the standard way" [following these steps with the ZeroMQ protocol](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md). Make sure you declare the VIP as the address of the central server the poller will be attached to.
+* Add your poller to the configuration "the standard way" [following these steps with the ZeroMQ protocol](https://docs.centreon.com/docs/monitoring/monitoring-servers/add-a-poller-to-configuration/). Make sure you declare the VIP as the address of the central server the poller will be attached to.
 
 * You should now have overwritten the `/etc/centreon-gorgone/config.d/40-gorgoned.yaml` file, and it should contain lines like these:
 

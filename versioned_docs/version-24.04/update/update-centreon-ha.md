@@ -142,7 +142,7 @@ The Centreon extensions are also updated *via* the WUI, from the "Administration
 
 ### Updating the Monitoring Connectors
 
-In order to maintain compatibility between the [Monitoring Connectors](../monitoring/pluginpacks.md) and the installed plugins (that have just been updated on the central server), the Monitoring Connectors must also be updated in the WUI from the **Configuration > Monitoring Connector Manager** menu.
+In order to maintain compatibility between the [Monitoring Connectors](https://docs.centreon.com/docs/monitoring/pluginpacks/) and the installed plugins (that have just been updated on the central server), the Monitoring Connectors must also be updated in the WUI from the **Configuration > Monitoring Connector Manager** menu.
 
 ### Exporting Engine/Broker configuration
 
