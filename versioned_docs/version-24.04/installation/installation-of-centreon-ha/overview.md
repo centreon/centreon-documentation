@@ -7,15 +7,16 @@ import TabItem from '@theme/TabItem';
 
 ## What are the elements of Centreon HA?
 
-Centreon HA consists of a set of clustering tools on top of twin Centreon central servers that manage pollers (in a [distributed architecture](../../installation/architectures.md#distributed-architecture)).
+Centreon HA consists of a set of clustering tools on top of twin Centreon central servers that manage pollers (in a [distributed architecture](../../installation/architectures.md#distributed-architecture)), with remote databases.
 
-* Members of the Centreon HA cluster:
+* There are 5 members in a Centreon HA cluster:
 
-   * 2 Centreon central servers: 1 active node, 1 passive node. Thanks to synchronization scripts, the same data will exist on both servers so that if the active node goes down, the passive node will take its place. The central servers do not monitor your resources (the pollers do). In this documentation, we may call the central servers "node 1" and "node 2" to differentiate them: bear in mind that both of them can have the role of active or passive node.
+   * 2 Centreon central servers: one active node, one passive node. Thanks to synchronization scripts, the same data will exist on both servers so that if the active node goes down, the passive node will take its place. The central servers do not monitor your resources (the pollers do). In this documentation, we will call the central servers "node 1" and "node 2" to differentiate them: bear in mind that both of them can have the role of active or passive node.
    * 1 server called "quorum device", whose sole purpose is to decide which central server is the active node and which is the passive node. This is mandatory to avoid split-brain issues. You can define one of your pollers as the quorum device.
+   * 2 database nodes. They are remote, replicated databases. There is one active database node and one passive database node.
 
 * Clustering tools:
-   - Centreon high availability scripts, contained in the **centreon-ha-web** package. They include the **centreon_central_sync** service, that synchronizes all the necessary processes ("resources").
+   - Centreon high availability scripts, contained in the **centreon-ha-web** package. They include the **centreon_central_sync** service, that synchronizes all the necessary processes ("resources"). Also, in the **centreon-ha-common** package, scripts that manage the replication of the database and the automation of the failover process.
    - Corosync: allows the members of the cluster to communicate in real time, to check if the active node is up, and take the decision to failover if needed.
    - Pacemaker: starts, stops and controls the state of Centreon processes. You need to tell Pacemaker which processes should be checked: these processes are called "resources".
       - crm_mon: a command-line tool that allows you to know the state of the cluster in real time.
@@ -23,15 +24,15 @@ Centreon HA consists of a set of clustering tools on top of twin Centreon centra
 
 * Pollers, which do the actual monitoring.
 
-* A VIP, to which the pollers send the data, so that the VIP can forward the data to the current active node.
+* A VIP to which the pollers send the data, so that the VIP can forward the data to the current active central node.
 
-* Remote, replicated databases.
+* A VIP to which the active central node sends the data, so that the VIP can forward the data to the current active database node.
 
 ![image](../../assets/integrations/centreon-ha/centreon-ha.png)
 
 ## How does the HA cluster work?
 
-In an HA cluster, all processes ("resources") are managed by the clustering tools (Pacemaker and Corosync).
+In a Centreon HA cluster, all processes ("resources") are managed by the clustering tools (Pacemaker and Corosync).
 
 1. Everything is OK : Node 1 (the current active node) receives data from the pollers, and all relevant files are synchronized by a dedicated script  (**centreon_central_sync**) onto node 2 (the current passive node) so that the passive node is ready to become the active node at all times.
 2. An incident occurs and node 1 (the active node) goes down.

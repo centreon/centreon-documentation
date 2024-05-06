@@ -319,15 +319,16 @@ Exit the SSH session (`Ctrl D`), then exit the `centreon` session by typing `exi
 In addition to the necessary flows described in the [official documentation](https://docs.centreon.com/docs/installation/technical/#tables-of-network-flows),
 you will need to open the following flows:
 
-| From                      | Destination               | Protocol | Port     | Application                                                                                |
-| :------------------------ | :------------------------ | :------- | :------- | :----------------------------------------------------------------------------------------- |
-| Active Node               | Passive Node              | SSH      | TCP 22   | Synchronization of configuration files (Must also be open from passive to active node) |
-| Active Node               | Passive Node              | BDDO     | TCP 5670 | RRDs synchronization (Must also be from passive to active node)                   |
-| Active Node               | Passive Node              | MySQL    | TCP 3306 | MySQL synchronization (Must also be open from passive to active node)                  |
-| Central Servers + QDevice | Central Servers + QDevice | Corosync | UDP 5404 | Communication inside the cluster (Multicast)                                               |
-| Central Servers + QDevice | Central Servers + QDevice | Corosync | UDP 5405 | Communication inside the cluster (Unicast)                                                 |
-| Central Servers + QDevice | Central Servers + QDevice | PCS      | TCP 2224 | Communication inside the cluster                                                           |
-| Central Servers + QDevice | Central Servers + QDevice | Corosync | TCP 5403 | Communication with the QDevice                                                             |
+| From                           | Destination                    | Protocol | Port     | Application                                                                                |
+| :----------------------------- | :----------------------------- | :------- | :------- | :----------------------------------------------------------------------------------------- |
+| Active Central Server          | Passive Central Server         | SSH      | TCP 22   | Synchronization of configuration files (Must also be open from passive to active node) |
+| Active Central Server          | Passive Central Server         | BDDO     | TCP 5670 | RRDs synchronization (Must also be open from passive to active node)                   |
+| Active Database Server         | Passive Database Server        | MySQL    | TCP 3306 | MySQL synchronization (Must also be open from passive to active node)                  |
+| Active Database Server         | Passive Database Server        | SSH      | TCP 22   | MySQL synchronization (Must also be open from passive to active node)                  |
+| Central Servers + DB + QDevice | Central Servers + DB + QDevice | Corosync | UDP 5404 | Communication inside the cluster (Multicast)                                               |
+| Central Servers + DB + QDevice | Central Servers + DB + QDevice | Corosync | UDP 5405 | Communication inside the cluster (Unicast)                                                 |
+| Central Servers + DB + QDevice | Central Servers + DB + QDevice | PCS      | TCP 2224 | Communication inside the cluster                                                           |
+| Central Servers + DB + QDevice | Central Servers + DB + QDevice | Corosync | TCP 5403 | Communication with the QDevice                                                             |
 
 ## Step 2: Set up the Centreon cluster
 

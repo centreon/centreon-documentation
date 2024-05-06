@@ -1482,7 +1482,7 @@
         },
         {
           "type": "category",
-          "label": "Upgrading Centreon HA",
+          "label": "Installing Centreon HA",
           "link": {
             "type": "generated-index"
           },
