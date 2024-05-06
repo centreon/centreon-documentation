@@ -34,7 +34,7 @@ The connector brings the following service templates (sorted by the host templat
 |:---------------------|:-------------------------------------------------|:---------------------------------------------------------------------------------------------|:----------:|
 | Disk-Global          | HW-Storage-Qnap-Disk-Global-SNMP-custom          | Check the rate of free space on disks. For each check the mount point of disks will appear  | X          |
 | Pools                | HW-Storage-Qnap-Pools-SNMP-custom                | Check pools                                                                                  |            |
-| Traffic-Generic-Id   | HW-Storage-Qnap-Traffic-Generic-Id-SNMP-custom   | Check traffic of an network interface                                                        |            |
+| Traffic-Generic-Id   | HW-Storage-Qnap-Traffic-Generic-Id-SNMP-custom   | Check traffic of a network interface                                                        |            |
 | Traffic-Generic-Name | HW-Storage-Qnap-Traffic-Generic-Name-SNMP-custom | Check traffic of a network interface                                                        |            |
 | Traffic-Global       | HW-Storage-Qnap-Traffic-Global-SNMP-custom       | Check traffic of multiple network interfaces                                                 | X          |
 
