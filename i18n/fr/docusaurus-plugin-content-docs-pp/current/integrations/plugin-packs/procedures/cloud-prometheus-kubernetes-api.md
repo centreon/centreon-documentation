@@ -1,6 +1,6 @@
 ---
 id: cloud-prometheus-kubernetes-api
-title: Kubernetes w
+title: Kubernetes w/ Prometheus
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
