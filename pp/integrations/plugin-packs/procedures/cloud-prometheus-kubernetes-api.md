@@ -1,6 +1,6 @@
 ---
 id: cloud-prometheus-kubernetes-api
-title: Kubernetes w
+title: Kubernetes w/ Prometheus
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -20,11 +20,15 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias     | Service Template                                         | Service Description      |
 |:------------------|:---------------------------------------------------------|:-------------------------|
-| Container-Status  | Cloud-Prometheus-Kubernetes-Container-Status-Api-custom  | Check containers status  |
-| Daemonset-Status  | Cloud-Prometheus-Kubernetes-Daemonset-Status-Api-custom  | Check daemonsets status  |
-| Deployment-Status | Cloud-Prometheus-Kubernetes-Deployment-Status-Api-custom | Check deployments status |
-| Namespace-Status  | Cloud-Prometheus-Kubernetes-Namespace-Status-Api-custom  | Check namespaces status  |
-| Node-Status       | Cloud-Prometheus-Kubernetes-Node-Status-Api-custom       | Check nodes status       |
+| Container-Status  | Cloud-Prometheus-Kubernetes-Container-Status-Api-custom  | Check the status of the containers  |
+| Daemonset-Status  | Cloud-Prometheus-Kubernetes-Daemonset-Status-Api-custom  | Check the status  
+ of the daemonsets  |
+| Deployment-Status | Cloud-Prometheus-Kubernetes-Deployment-Status-Api-custom | Check the status 
+ of the deployments |
+| Namespace-Status  | Cloud-Prometheus-Kubernetes-Namespace-Status-Api-custom  | Check the status  
+ of the namespaces  |
+| Node-Status       | Cloud-Prometheus-Kubernetes-Node-Status-Api-custom       | Check the status  
+ of the nodes       |
 
 > The services listed above are created automatically when the **Cloud-Prometheus-Kubernetes-Api-custom** host template is used.
 
