@@ -329,9 +329,9 @@ is able to monitor a resource using a command like this one (replace the sample 
 /usr/lib/centreon/plugins/centreon_office365_management_api.pl \
 	--plugin=cloud::microsoft::office365::management::plugin \
 	--mode=subscriptions \
-	--tenant='' \
-	--client-id='' \
-	--client-secret=''  \
+	--tenant='b3dd28de-012x2xxe-4d741212-bxx9-f093c1x9xx01' \
+	--client-id='28f82731-073b-4eb2-0012-001d252d2cb6-1b0d' \
+	--client-secret='9/kRTASjPxx9FJfQZg6iznX\AkzCGertBgNq5r3tPfECJfKxj6zA='  \
 	--filter-sku-part-number='' \
 	--warning-status='%{capabilityStatus} =~ /warning/i' \
 	--critical-status='' \
@@ -347,7 +347,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All subscriptions are ok | '*subscriptions*#subscription.usage.count'=;;;0;total'*subscriptions*#subscription.free.count'=;;;0;total'*subscriptions*#subscription.usage.percentage'=%;;;0;100
+OK: All subscriptions are ok | '*subscriptions*#subscription.usage.count'=;;;0;total'*subscriptions*#subscription.free.count'=;;;0;total'*subscriptions*#subscription.usage.percentage'=30%;;;0;100
 ```
 
 ### Troubleshooting
