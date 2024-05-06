@@ -186,4 +186,4 @@ You should now check that everything works fine:
 
 ## Updating the pollers
 
-Pollers can then be updated by following the [procedure indicated here](../update/update-centreon-platform.md#update-the-pollers).
+Pollers can then be updated by following the [procedure indicated here](https://docs.centreon.com/docs/update/update-centreon-platform/#update-the-pollers).
