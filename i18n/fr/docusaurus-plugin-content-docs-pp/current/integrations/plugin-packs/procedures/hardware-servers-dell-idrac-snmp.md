@@ -22,7 +22,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias        | Modèle de service                      | Description                             |
 |:-------------|:---------------------------------------|:----------------------------------------|
 | GlobalStatus | HW-Dell-iDrac-GlobalStatus-SNMP-custom | Contrôle l'état global de l'équipement |
-| Hardware     | HW-Dell-iDrac-Hardware-SNMP-custom     | Contrôle l'état globale de l'équipement |
+| Hardware     | HW-Dell-iDrac-Hardware-SNMP-custom     | Contrôle l'état global de l'équipement |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Server-Dell-iDrac-SNMP-custom** est utilisé.
 
