@@ -20,8 +20,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                                      | Service Description                   | Discovery  |
 |:---------------------|:------------------------------------------------------|:--------------------------------------|:----------:|
-| Mains-Measurements   | HW-Device-Abb-Cms700-Mains-Measurements-SNMP-custom   | Check mains/phases collected data     |            |
-| Sensors-Measurements | HW-Device-Abb-Cms700-Sensors-Measurements-SNMP-custom | Check branches/sensors collected data | X          |
+| Mains-Measurements   | HW-Device-Abb-Cms700-Mains-Measurements-SNMP-custom   | Check collected data for mains/phases     |            |
+| Sensors-Measurements | HW-Device-Abb-Cms700-Sensors-Measurements-SNMP-custom | Check collected data for branches/sensors | X          |
 
 > The services listed above are created automatically when the **HW-Device-Abb-Cms700-SNMP-custom** host template is used.
 
