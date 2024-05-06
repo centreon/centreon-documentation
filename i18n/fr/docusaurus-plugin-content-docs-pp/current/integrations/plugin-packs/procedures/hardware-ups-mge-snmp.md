@@ -22,7 +22,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias          | Modèle de service                     | Description                                          |
 |:---------------|:--------------------------------------|:-----------------------------------------------------|
 | Battery-Status | HW-UPS-Mge-Battery-Status-SNMP-custom | Contrôle l'état de la batterie et la charge restante |
-| Environment    | HW-UPS-Mge-Environment-SNMP-custom    | Contrôle le taux d'humidité et la témperature        |
+| Environment    | HW-UPS-Mge-Environment-SNMP-custom    | Contrôle le taux d'humidité et la température        |
 | Input-Lines    | HW-UPS-Mge-Input-Lines-SNMP-custom    | Contrôle les métriques de l'alimentation             |
 | Output-Lines   | HW-UPS-Mge-Output-Lines-SNMP-custom   | Contrôle les métriques de la source d'alimentation   |
 | Output-Source  | HW-UPS-Mge-Output-Source-SNMP-custom  | Contrôle l'état de la source d'alimentation          |
