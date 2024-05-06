@@ -1514,10 +1514,6 @@
             },
             {
               "type": "doc",
-              "id": "version-24.04/administration/centreon-ha/monitoring-guide"
-            },
-            {
-              "type": "doc",
               "id": "version-24.04/administration/centreon-ha/operating-guide"
             },
             {
