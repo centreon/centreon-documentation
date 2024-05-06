@@ -22,7 +22,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias                | Modèle de service                                     | Description                                          | Découverte |
 |:---------------------|:------------------------------------------------------|:-----------------------------------------------------|:----------:|
 | Mains-Measurements   | HW-Device-Abb-Cms700-Mains-Measurements-SNMP-custom   | Contrôle les données collectées pour les phases      |            |
-| Sensors-Measurements | HW-Device-Abb-Cms700-Sensors-Measurements-SNMP-custom | Contrôle les données collectées pour chaque capteurs | X          |
+| Sensors-Measurements | HW-Device-Abb-Cms700-Sensors-Measurements-SNMP-custom | Contrôle les données collectées pour chaque capteur | X          |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Device-Abb-Cms700-SNMP-custom** est utilisé.
 
