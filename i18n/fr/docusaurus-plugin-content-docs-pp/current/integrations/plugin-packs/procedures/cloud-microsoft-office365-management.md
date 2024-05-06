@@ -5,7 +5,7 @@ title: Office 365 Management
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Office 365 est une suite de services en ligne proposés par Microsoft dans le cadre de sa ligne de produit Microsoft Office.
+Office 365 est une suite de services en ligne proposés par Microsoft dans le cadre de sa ligne de produits Microsoft Office.
 Les informations de monitoring de la suite Office sont mises à disposition par Microsoft à travers une API de gestion Office 365.
 
 ## Contenu du pack
@@ -33,7 +33,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias           | Modèle de service                                               | Description                               |
 |:----------------|:----------------------------------------------------------------|:------------------------------------------|
-| App-Credentials | Cloud-Microsoft-Office365-Management-App-Credentials-Api-custom | Contrôle les credentials des applications |
+| App-Credentials | Cloud-Microsoft-Office365-Management-App-Credentials-Api-custom | Contrôle les informations de connexion des applications |
 | Subscriptions   | Cloud-Microsoft-Office365-Management-Subscriptions-Api-custom   | Contrôle les abonnements                  |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
@@ -331,9 +331,9 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 /usr/lib/centreon/plugins/centreon_office365_management_api.pl \
 	--plugin=cloud::microsoft::office365::management::plugin \
 	--mode=subscriptions \
-	--tenant='' \
-	--client-id='' \
-	--client-secret=''  \
+	--tenant='b3dd28de-012x2xxe-4d741212-bxx9-f093c1x9xx01' \
+	--client-id='28f82731-073b-4eb2-0012-001d252d2cb6-1b0d' \
+	--client-secret='9/kRTASjPxx9FJfQZg6iznX\AkzCGertBgNq5r3tPfECJfKxj6zA='  \
 	--filter-sku-part-number='' \
 	--warning-status='%{capabilityStatus} =~ /warning/i' \
 	--critical-status='' \
@@ -349,7 +349,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All subscriptions are ok | '*subscriptions*#subscription.usage.count'=;;;0;total'*subscriptions*#subscription.free.count'=;;;0;total'*subscriptions*#subscription.usage.percentage'=%;;;0;100
+OK: All subscriptions are ok | '*subscriptions*#subscription.usage.count'=;;;0;total'*subscriptions*#subscription.free.count'=;;;0;total'*subscriptions*#subscription.usage.percentage'=30%;;;0;100
 ```
 
 ### Diagnostic des erreurs communes
