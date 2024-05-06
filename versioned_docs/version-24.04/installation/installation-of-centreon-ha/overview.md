@@ -25,9 +25,9 @@ Centreon HA consists of a set of clustering tools on top of twin Centreon centra
 
 * A VIP, to which the pollers send the data, so that the VIP can forward the data to the current active node.
 
-* Remote databases. Setting up redundancy for the database is [the responsibility of the customer](faq.md#what-is-supported-and-what-isnt). The [installation procedure](installation.md) describes the case where you already have a database cluster set up. The Centreon cluster and the database cluster are independent. The Centreon cluster communicates with the database cluster through a dedicated VIP.
+* Remote, replicated databases.
 
-![image](../../assets/integrations/centreon-ha/centreon-ha-2-nodes-arch.png)
+![image](../../assets/integrations/centreon-ha/centreon-ha.png)
 
 ## How does the HA cluster work?
 
@@ -42,7 +42,7 @@ In an HA cluster, all processes ("resources") are managed by the clustering tool
 
 ## How do I know the state of the cluster?
 
-The installation procedure includes a step where you set up the monitoring of the members of the cluster by a poller. This way, you can be notified if a member of the cluster goes down.
+The installation process includes the monitoring of the members of the cluster by a poller. This way, you can be notified if a member of the cluster goes down.
 
 You access the interface of the active node via the IP address of the VIP. This means that you always use the same URL to access the interface, whether the interface is that of node 1 or of node 2.
 

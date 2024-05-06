@@ -53,7 +53,7 @@ Full List of Resources:
 
 ### Check the constraints
 
-If a failover has occurred at some point, there may be some leftover `Location Constraints`. Run the following command:
+If a failover has occurred at some point, there may be some leftover location constraints. Run the following command:
 
 ```bash
 pcs constraint
@@ -68,11 +68,17 @@ Colocation Constraints:
 Ticket Constraints:
 ```
 
+To remove unwanted constraints, run the following command:
+
+```bash
+pcs resource clear centreon
+```
+
 ## Test 1: Centreon resource failover
 
 ### Perform a failover
 
-Before performing the tests, [check the state of the cluster](#check-the-state-of-the-cluster).
+We're assuming that node 1 is the active node and node 2 is the passive node ([check the state of the cluster](#check-the-state-of-the-cluster) if you need to).
 
 When you move all resources from node 1 to node 2 (i.e., the **centreon** resource group), node 2 will become the active node and node 1 will become the passive node. Run the following command:
 
@@ -204,8 +210,8 @@ Daemon Status:
 
 If you run `pcs status` on the passive node:
 
-* The resources (php-clone and cbd_rrd-clone) appear stopped on the passive node
-* The active node is seen as `offline`:
+* All resources appear stopped on the passive node
+* The active node is seen as `offline` (as the passive node is cut off from the rest of the cluster):
 
 ```text
 Cluster name: centreon_cluster
@@ -328,7 +334,7 @@ iptables -A INPUT -s @QDEVICE_IP@ -j DROP
 iptables -A OUTPUT -d @QDEVICE_IP@  -j DROP
 ```
 
-Resources on the active node should stop. The passive node becomes the active node and all the resources switch to it. You can use the `crm_mon -fr` command on the passive node to watch the startup of resources:
+Resources on the active node (node 1) should stop. Node 2 becomes the active node and all the resources switch to it. You can use the `crm_mon -fr` command on node 2 to watch the startup of resources:
 
 ```text
 Cluster Summary:
@@ -404,7 +410,7 @@ iptables -D INPUT @RULE_NUMBER@;
 iptables -D OUTPUT @RULE_NUMBER@
 ```
 
-By running the `crm_mon` command on the second node, you will see the active node move up in the cluster but staying as SLAVE node.
+If you run the `crm_mon` command on node 2, you can see that node 1 is still the passive node:
 
 ```text
 Cluster Summary:
@@ -573,6 +579,7 @@ Full List of Resources:
     * snmptrapd (systemd:snmptrapd):     Started @NODE1_NAME@
 Migration Summary:
 ```
+
 <!--
 ## HA 4 Nodes
 
