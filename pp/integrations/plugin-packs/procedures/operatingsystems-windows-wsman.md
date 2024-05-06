@@ -224,7 +224,7 @@ dnf install centreon-pack-operatingsystems-windows-wsman
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-operatingsystems-windows-wsman
@@ -271,7 +271,7 @@ dnf install centreon-plugin-Operatingsystems-Windows-Wsman
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-operatingsystems-windows-wsman

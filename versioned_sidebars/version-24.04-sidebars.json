@@ -725,6 +725,10 @@
             },
             {
               "type": "doc",
+              "id": "version-24.04/graph-views/map-web-upgrade"
+            },
+            {
+              "type": "doc",
               "id": "version-24.04/graph-views/import-into-map-web"
             },
             {
@@ -1383,6 +1387,10 @@
         {
           "type": "doc",
           "id": "version-24.04/api/graph-views-api"
+        },
+        {
+          "type": "doc",
+          "id": "version-24.04/api/api-tokens"
         }
       ]
     },
@@ -1474,7 +1482,7 @@
         },
         {
           "type": "category",
-          "label": "Installing Centreon HA",
+          "label": "Upgrading Centreon HA",
           "link": {
             "type": "generated-index"
           },
@@ -1506,6 +1514,10 @@
             },
             {
               "type": "doc",
+              "id": "version-24.04/administration/centreon-ha/monitoring-guide"
+            },
+            {
+              "type": "doc",
               "id": "version-24.04/administration/centreon-ha/operating-guide"
             },
             {
@@ -1534,30 +1546,30 @@
             "type": "generated-index"
           },
           "items": [
+            {
+              "type": "doc",
+              "id": "version-24.04/upgrade/centreon-ha/upgrade-centreon-ha-from-23-10"
+            },
+            {
+              "type": "doc",
+              "id": "version-24.04/upgrade/centreon-ha/upgrade-centreon-ha-from-23-04"
+            },
+            {
+              "type": "doc",
+              "id": "version-24.04/upgrade/centreon-ha/upgrade-centreon-ha-from-22-10"
+            },
+            {
+              "type": "doc",
+              "id": "version-24.04/upgrade/centreon-ha/upgrade-centreon-ha-from-22-04"
+            },
+            {
+              "type": "doc",
+              "id": "version-24.04/upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
+            },
         {
           "type": "doc",
           "id": "version-24.04/upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
-        },
-        {
-          "type": "doc",
-          "id": "version-24.04/upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
-        },
-        {
-          "type": "doc",
-          "id": "version-24.04/upgrade/centreon-ha/upgrade-centreon-ha-from-22-04"
-        },
-        {
-          "type": "doc",
-          "id": "version-24.04/upgrade/centreon-ha/upgrade-centreon-ha-from-22-10"
-        },
-        {
-          "type": "doc",
-          "id": "version-24.04/upgrade/centreon-ha/upgrade-centreon-ha-from-23-04"
-        },
-        {
-          "type": "doc",
-          "id": "version-24.04/upgrade/centreon-ha/upgrade-centreon-ha-from-23-10"
-            }
+        }
           ]
         }
       ]

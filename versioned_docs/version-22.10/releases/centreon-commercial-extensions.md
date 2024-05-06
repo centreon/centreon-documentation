@@ -18,6 +18,18 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon MAP
 
+### 22.10.16
+
+Release date: `April 17, 2024`
+
+#### Enhancements
+
+- [Packaging] Correct rights are now set for Centreon MAP configuration files.
+
+#### Security fixes
+
+- [Security] Updated dependencies.
+
 ### 22.10.15
 
 Release date: `February 19, 2024`
@@ -366,6 +378,14 @@ Release date: `October 26, 2022`
 
 ## Centreon BAM
 
+### 22.10.6
+
+Release date: `April 17, 2024`
+
+#### Security fixes
+
+- Upgraded svg-sanitize dependency.
+
 ### 22.10.5
 
 Release date: `November 22, 2023`
@@ -421,6 +441,14 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon MBI
+
+### 22.10.9
+
+Release date: `April 17, 2024`
+
+#### Enhancements
+
+- [Packaging] Correct rights are now set for Centreon MBI configuration files.
 
 ### 22.10.8
 
@@ -541,6 +569,14 @@ Release date: `October 26, 2022`
 - When no template mappers apply to a host, one can choose whether the default template must be applied or if the host must not be monitored at all
 
 ## Centreon Plugin Packs Manager
+
+### 22.10.1
+
+Release date: `April 17, 2024`
+
+#### Bug fixes
+
+- Fixed the absence of error displayed when the deletion of a Monitoring Connector is not possible.
 
 ### 22.10.0
 

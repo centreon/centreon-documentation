@@ -112,7 +112,7 @@ dnf install centreon-pack-hardware-storage-datacore-api
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-storage-datacore-api
@@ -157,7 +157,7 @@ dnf install centreon-plugin-Hardware-Storage-DataCore-Sansymphony-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-storage-datacore-sansymphony-restapi

@@ -541,7 +541,7 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch https://packa
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 1. Ajoutez le dépôt des plugins Centreon.
 
@@ -620,7 +620,7 @@ dnf install centreon-pack-operatingsystems-linux-nrpe4
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-operatingsystems-linux-nrpe4
@@ -658,7 +658,7 @@ dnf install nagios-plugins-nrpe
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install nagios-nrpe-plugin

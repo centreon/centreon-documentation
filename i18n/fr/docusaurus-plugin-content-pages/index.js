@@ -77,10 +77,10 @@ const cards = [
 ]
 
 const versionInfo = {
-  version: '23.10',
-  link: 'https://www.centreon.com/fr/centreon-23-10-decouvrez-les-dernieres-nouveautes/',
+  version: '24.04',
+  link: 'https://www.centreon.com/fr/centreon-annonce-la-sortie-de-sa-derniere-version-logicielle-centreon-24-04/',
   target: '_blank'
-}
+ }
 
 const Button = (props) => {
   return (

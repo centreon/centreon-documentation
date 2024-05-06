@@ -158,11 +158,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'installation/poller-update',
-        },
-        {
-          type: 'doc',
-          id: 'installation/poller-upgrade',
+          id: 'installation/poller-update-upgrade',
         },
         {
           type: 'doc',
@@ -290,6 +286,10 @@ module.exports = {
                      },
             "items": [
               {
+                "type": "doc",
+                "id": "monitoring/basic-objects/commands"
+              },
+                            {
                 "type": "doc",
                 "id": "monitoring/basic-objects/timeperiods"
               },

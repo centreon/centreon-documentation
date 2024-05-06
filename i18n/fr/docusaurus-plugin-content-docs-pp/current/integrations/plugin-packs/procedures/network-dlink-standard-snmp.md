@@ -152,7 +152,7 @@ dnf install centreon-pack-network-dlink-standard-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-network-dlink-standard-snmp
@@ -197,7 +197,7 @@ dnf install centreon-plugin-Network-Dlink-Standard-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-network-dlink-standard-snmp

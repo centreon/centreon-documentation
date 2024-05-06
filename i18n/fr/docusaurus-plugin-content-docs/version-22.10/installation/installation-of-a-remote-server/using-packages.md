@@ -355,7 +355,7 @@ serveur, ou déportée sur un serveur dédié.
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y centreon
+dnf install -y centreon-database centreon-central
 systemctl daemon-reload
 systemctl restart mariadb
 ```
