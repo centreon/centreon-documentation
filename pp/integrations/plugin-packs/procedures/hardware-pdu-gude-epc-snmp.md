@@ -95,8 +95,12 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-To monitor your Gude Export Power Control, the SNMP must be configured.
-The Poller should be able to perform SNMP requests toward the Lenovo device over SNMP UDP/161 port.
+### SNMP Configuration
+The SNMP service must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
+
+### Network flow
+The target resource must be reachable from the Centreon poller on the UDP/161
+SNMP port.
 
 ## Installing the monitoring connector
 
