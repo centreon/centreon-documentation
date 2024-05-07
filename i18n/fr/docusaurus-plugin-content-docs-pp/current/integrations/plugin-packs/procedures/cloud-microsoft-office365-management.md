@@ -331,9 +331,9 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 /usr/lib/centreon/plugins/centreon_office365_management_api.pl \
 	--plugin=cloud::microsoft::office365::management::plugin \
 	--mode=subscriptions \
-	--tenant='b3dd28de-012x2xxe-4d741212-bxx9-f093c1x9xx01' \
-	--client-id='28f82731-073b-4eb2-0012-001d252d2cb6-1b0d' \
-	--client-secret='9/kRTASjPxx9FJfQZg6iznX\AkzCGertBgNq5r3tPfECJfKxj6zA='  \
+	--tenant='xxxxxxxx-xxxxxxxx-xxxxxxxx-xxxx-xxxxxxxxxxxx' \
+	--client-id='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx-xxxx' \
+	--client-secret='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'  \
 	--filter-sku-part-number='' \
 	--warning-status='%{capabilityStatus} =~ /warning/i' \
 	--critical-status='' \
