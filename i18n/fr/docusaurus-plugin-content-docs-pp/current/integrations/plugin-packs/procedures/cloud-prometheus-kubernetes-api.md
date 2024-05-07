@@ -288,7 +288,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All nodes status are ok | '*nodes*#pods.allocated.count'=;;;;
+OK: All nodes status are ok | '*nodes*#pods.allocated.count'=42;;;;
 ```
 
 ### Diagnostic des erreurs communes
