@@ -193,7 +193,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--mode=web-scenarios-availability \
 	--hostname='10.0.0.1' \
 	--port='443' \
-	--proto='HTTPS' \
+	--proto='https' \
 	--url-path='/api' \
 	--api-token='' \
 	--timeout=''  \

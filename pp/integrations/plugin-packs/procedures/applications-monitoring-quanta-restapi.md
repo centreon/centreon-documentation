@@ -192,7 +192,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--mode=web-scenarios-availability \
 	--hostname='10.0.0.1' \
 	--port='443' \
-	--proto='HTTPS' \
+	--proto='https' \
 	--url-path='/api' \
 	--api-token='' \
 	--timeout=''  \
