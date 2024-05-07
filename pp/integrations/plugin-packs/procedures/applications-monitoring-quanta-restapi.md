@@ -163,10 +163,10 @@ yum install centreon-plugin-Applications-Monitoring-Quanta-Restapi
 <Tabs groupId="sync">
 <TabItem value="Web scenarios Availability" label="Web scenarios Availability">
 
-| Macro                     | Description                                                                                                                            | Default value     | Mandatory   |
-|:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| TIMEFRAME                 | Set timeframe in seconds (default: 900)                                                                                                | 900               |             |
-| SCENARIOID                | Set ID of the scenario                                                                                                                 |                   | X           |
+| Macro                     | Description                                                                                                                                      | Default value     | Mandatory   |
+|:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME                 | Set timeframe in seconds                                                                                                                         | 900               |             |
+| SCENARIOID                | Set ID of the scenario                                                                                                                           |                   | X           |
 | WARNINGAVAILABILITY       | Warning threshold on availability                                                                                                                |                   |             |
 | CRITICALAVAILABILITY      | Critical threshold on availability                                                                                                               |                   |             |
 | WARNINGSTEPRESPONSETIME   | Warning threshold on step average response time                                                                                                  |                   |             |

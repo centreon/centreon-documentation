@@ -146,7 +146,7 @@ yum install centreon-plugin-Applications-Monitoring-Quanta-Restapi
 | Macro                 | Description                                                                                          | Valeur par défaut | Obligatoire |
 |:----------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | QUANTAAPITOKEN        | API token                                                                                            |                   | X           |
-| QUANTAAPIPROTO        | Specify https if needed (default: 'https')                                                           | HTTPS             |             |
+| QUANTAAPIPROTO        | Specify https if needed (default: 'https')                                                           | https             |             |
 | QUANTAAPIPORT         | API port (default: 443)                                                                              | 443               |             |
 | QUANTAAPIURLPATH      | API URL path (default: '/api')                                                                       | /api              |             |
 | QUANTATIMEOUT         | Set HTTP timeout                                                                                     | 10                |             |
@@ -164,7 +164,7 @@ yum install centreon-plugin-Applications-Monitoring-Quanta-Restapi
 
 | Macro                     | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| TIMEFRAME                 | Set timeframe in seconds (default: 900)                                                                                                          | 900               |             |
+| TIMEFRAME                 | Set timeframe in seconds                                                                                                                         | 900               |             |
 | SCENARIOID                | Set ID of the scenario                                                                                                                           |                   | X           |
 | WARNINGAVAILABILITY       | Warning threshold on availability                                                                                                                |                   |             |
 | CRITICALAVAILABILITY      | Critical threshold on availability                                                                                                               |                   |             |
