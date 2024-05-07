@@ -45,9 +45,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+In order to supervise your Quanta interface and more particularly the web scenarios, it is necessary to [configure your Quanta interface](https://quantaio.notion.site/Cr-ation-d-un-sc-nario-Parcours-User- dcdc4e44b9af44fd892dd834e2d0a452).
 
 ## Installing the monitoring connector
 
@@ -146,14 +144,14 @@ yum install centreon-plugin-Applications-Monitoring-Quanta-Restapi
 3. Apply the **App-Monitoring-Quanta-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                 | Description                                                                                          | Default value     | Mandatory   |
-|:----------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| QUANTAAPITOKEN        | API token                                                                                            |                   | X           |
-| QUANTAAPIPROTO        | Specify https if needed (default: 'https')                                                           | HTTPS             |             |
-| QUANTAAPIPORT         | API port (default: 443)                                                                              | 443               |             |
-| QUANTAAPIURLPATH      | API URL path (default: '/api')                                                                       | /api              |             |
-| QUANTATIMEOUT         | Set HTTP timeout                                                                                     |                   |             |
-| QUANTAAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro                 | Description                                                                                          | Default value | Mandatory   |
+|:----------------------|:-----------------------------------------------------------------------------------------------------|:--------------|:-----------:|
+| QUANTAAPITOKEN        | API token                                                                                            |               | X           |
+| QUANTAAPIPROTO        | Specify https if needed (default: 'https')                                                           | HTTPS         |             |
+| QUANTAAPIPORT         | API port (default: 443)                                                                              | 443           |             |
+| QUANTAAPIURLPATH      | API URL path (default: '/api')                                                                       | /api          |             |
+| QUANTATIMEOUT         | Set HTTP timeout                                                                                     | 10            |             |
+| QUANTAAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |               |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -165,17 +163,17 @@ yum install centreon-plugin-Applications-Monitoring-Quanta-Restapi
 <Tabs groupId="sync">
 <TabItem value="Web scenarios Availability" label="Web scenarios Availability">
 
-| Macro                     | Description                                                                                        | Default value     | Mandatory   |
-|:--------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| TIMEFRAME                 | Set timeframe in seconds (default: 900)                                                            | 900               |             |
-| SCENARIOID                | Set ID of the scenario (mandatory option)                                                          |                   | X           |
-| WARNINGAVAILABILITY       |                                                                                                    |                   |             |
-| CRITICALAVAILABILITY      |                                                                                                    |                   |             |
-| WARNINGSTEPRESPONSETIME   |                                                                                                    |                   |             |
-| CRITICALSTEPRESPONSETIME  |                                                                                                    |                   |             |
-| WARNINGTOTALRESPONSETIME  |                                                                                                    |                   |             |
-| CRITICALTOTALRESPONSETIME |                                                                                                    |                   |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro                     | Description                                                                                                                            | Default value     | Mandatory   |
+|:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME                 | Set timeframe in seconds (default: 900)                                                                                                | 900               |             |
+| SCENARIOID                | Set ID of the scenario                                                                                                                 |                   | X           |
+| WARNINGAVAILABILITY       | Warning threshold on availability                                                                                                                |                   |             |
+| CRITICALAVAILABILITY      | Critical threshold on availability                                                                                                               |                   |             |
+| WARNINGSTEPRESPONSETIME   | Warning threshold on step average response time                                                                                                  |                   |             |
+| CRITICALSTEPRESPONSETIME  | Critical threshold on step average response time                                                                                                 |                   |             |
+| WARNINGTOTALRESPONSETIME  | Warning threshold on total response time                                                                                                         |                   |             |
+| CRITICALTOTALRESPONSETIME | Critical threshold on total response time                                                                                                        |                   |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 </Tabs>
