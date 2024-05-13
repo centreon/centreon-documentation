@@ -17,15 +17,16 @@ défaillance unique, ou bien si vous êtes un MSP et vous installez le stream co
 sur un collecteur ou un serveur distant dans l'infratructure de votre client).
 - Par défaut, le stream connector Canopsis Events envoie des évènements Broker 
 **[host_status](https://docs.centreon.com/fr/docs/developer/developer-broker-mapping/#host-status)**,
-**[service_status](https://docs.centreon.com/fr/docs/developer/developer-broker-mapping/#service-status)**
-et **[acknowledgement](https://docs.centreon.com/fr/docs/developer/developer-broker-mapping/#acknowledgement)**.
+**[service_status](https://docs.centreon.com/fr/docs/developer/developer-broker-mapping/#service-status)**,
+**[acknowledgement](https://docs.centreon.com/fr/docs/developer/developer-broker-mapping/#acknowledgement)**
+et **[downtime](https://docs.centreon.com/fr/docs/developer/developer-broker-mapping/#downtime)**.
 Ces formats d'événement sont décrits **[ici](#event-format)**.
 - Ces évènements sont envoyés à chaque contrôle sur l'hôte ou le service. Des paramètres 
 dédiés vous permettent de [ne pas envoyer certains évènements](#filtering-or-adapting-the-data-you-want-to-send-to-canopsis).
 
 ## Compatibilité
 
-Ce stream connector est conçu pour être compatible avec l'API v.4 de Canopsis, et plus précisément les versions suivantes de Canopsis : 22.10, 
+Ce stream connector est conçu pour être compatible avec l'API v.4 de Canopsis, ce qui inclut les versions suivantes de **Canopsis** : 22.10, 
 23.04, 23.10 et 24.04.
 
 ## Installation
@@ -65,7 +66,7 @@ apt install centreon-stream-connector-canopsis
 
 ## Configuration de Canopsis 
 
-Vous devrez paramétrer votre équipement Canopsis pour qu'il puisse recevoir des données 
+Vous devrez paramétrer votre interface Canopsis pour qu'elle puisse recevoir des données 
 de la part de Centreon. Reportez-vous au [guide d'utilisation Canopsis](https://doc.canopsis.net/guide-utilisation/)
 , notamment vérifiez que les droits de création, lecture et suppression sont activés (voir la documentation d'
 [administration des droits](https://doc.canopsis.net/guide-utilisation/menu-administration/droits/) et celle d'
@@ -97,16 +98,16 @@ sur **Add**. Un nouvel output apparaît dans la liste.
 paramètres obligatoires suivants. La première entrée existe déjà. Cliquez sur le lien **+Add 
 a new entry** en-dessous du tableau **Filter category** pour en ajouter un autre.
 
-| Type   | Nom              | Explication de "Value"                      | Exemple de valeur |
-| ------ |------------------|---------------------------------------------|-------------------|
-| string | canopsis_authkey | Clé d'authentification à l'API Canopsis | `an_authkey`      |
+| Type   | Nom              | Explication de "Value"                    | Exemple de valeur |
+| ------ |------------------|-------------------------------------------|-------------------|
+| string | canopsis_authkey | Clé d'authentification à l'API Canopsis   | `an_authkey`      |
 | string | canopsis_host    | Adresse de l'hôte Canopsis                | `a host`          |
 
 6. Renseignez les paramètres optionnels désirés (en utilisant le lien **+Add a new entry**) :
 
-| Type   | Nom       | Explication de "Value"                                  | Valeur par défaut                                  |
-| ------ |-----------|---------------------------------------------------------|----------------------------------------------------|
-| string | logfile   | Fichier dans lequel les logs sont écrits                | /var/log/centreon-broker/canopsis-events-apiv2.log |
+| Type   | Nom       | Explication de "Value"                                    | Valeur par défaut                                  |
+| ------ |-----------|-----------------------------------------------------------|----------------------------------------------------|
+| string | logfile   | Fichier dans lequel les logs sont écrits                  | /var/log/centreon-broker/canopsis-events-apiv2.log |
 | number | log_level | Niveau de verbosité des logs : de 1 (erreurs) à 3 (debug) | 1                                                  |
 
 7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les 
@@ -144,31 +145,31 @@ nommé "Europe", entrez :
 
 * Pour le stream connector Canopsis Events, les données suivantes remplacent toujours les 
 valeurs par défaut. Il n'est donc pas nécessaire de les redéfinir 
-dans l'interface sauf si vous voulez en changer les valeurs (par exemple ajouter les 
+dans l'interface sauf si vous voulez en changer les valeurs (par exemple retirer les 
 plages de maintenance à la variable **accepted_elements**).
 
 
-| Type   | Nom                              | Valeur par défaut pour le stream connector Canopsis |
-|--------|----------------------------------|-----------------------------------------------------|
-| string | accepted_categories              | neb                                                 |
-| string | accepted_elements                | host_status,service_status,acknowledgement          |
-| string | canopsis_downtime_comment_route  | /api/v4/pbehavior-comments                          |
-| string | canopsis_downtime_reason_name    | Centreon_downtime                                   |
-| string | canopsis_downtime_reason_route   | /api/v4/pbehavior-reasons                           |
-| string | canopsis_downtime_route          | /api/v4/pbehaviors                                  |
-| number | canopsis_downtime_send_pbh       | 1                                                   |
-| string | canopsis_downtime_type_name      | Default maintenance                                 |
-| string | canopsis_downtime_type_route     | /api/v4/pbehavior-types                             |
-| string | canopsis_event_route             | /api/v4/event                                       |
-| string | canopsis_port                    | 443                                                 |
-| number | canopsis_sort_list_hostgroups    | 0                                                   |
-| string | canopsis_sort_list_servicegroups | 0                                                   |
-| string | connector                        | centreon-stream                                     |
-| string | connector_name                   | centreon-stream-central                             |
-| string | connector_name_type              | poller                                              |
-| string | sending_method                   | api                                                 |
-| string | sending_protocol                 | https                                               |
-| string | use_severity_as_state            | 0                                                   |
+| Type   | Nom                              | Explication de "Value"                                                                                                                         | Valeur par défaut pour le stream connector Canopsis |
+|--------|----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| string | accepted_categories              | Chaque événement est lié à une catégorie de broker (neb ou bam) qui peut être utilisée pour filtrer les événements                             | neb                                                 |
+| string | accepted_elements                | Élément Centreon géré par ce connecteur (pour en ajouter, vous devez regarder la section des format d'événement personnalisé, voir ci-dessous) | host_status,service_status,acknowledgement,downtime |
+| string | canopsis_downtime_comment_route  | Route Canopsis pour envoyer les commentaires sur les plages de maintenance                                                                     | /api/v4/pbehavior-comments                          |
+| string | canopsis_downtime_reason_name    | Nom de la raison Canopsis pour les plages de maintenance                                                                                       | Centreon_downtime                                   |
+| string | canopsis_downtime_reason_route   | Route Canopsis pour requêter le champs "raison"                                                                                                | /api/v4/pbehavior-reasons                           |
+| string | canopsis_downtime_route          | Route Canospsis pour envoyer les plages de maintenance                                                                                         | /api/v4/pbehaviors                                  |
+| number | canopsis_downtime_send_pbh       | Activer (1) l'envoi des plages de maintenance si toutes les règles pour le faire sont validées (le champs raison et le type existent)          | 1                                                   |
+| string | canopsis_downtime_type_name      | Nom de la catégorie de type des plages de maintenance de Canopsis                                                                              | Default maintenance                                 |
+| string | canopsis_downtime_type_route     | Route Canopsis pour requêter le champs "type"                                                                                                  | /api/v4/pbehavior-types                             |
+| string | canopsis_event_route             | Route Canospsis pour envoyer les événements (hors plages de maintenance)                                                                       | /api/v4/event                                       |
+| string | canopsis_port                    | Port Canopsis                                                                                                                                  | 443                                                 |
+| number | canopsis_sort_list_hostgroups    | Activer (1) le tri des listes de groupes d'hôtes                                                                                               | 0                                                   |
+| number | canopsis_sort_list_servicegroups | Activer (1) le tri des listes de groupes de services                                                                                           | 0                                                   |
+| string | connector                        | Le type de connecteur s'affichant dans l'interface Canopsis dans Alarmes > Type de connecteur                                                  | centreon-stream                                     |
+| string | connector_name                   | Nom du connector                                                                                                                               | centreon-stream-central                             |
+| string | connector_name_type              | Type de connector                                                                                                                              | poller                                              |
+| string | sending_method                   | Méthode d'envoi (seule l'API est disponible pour le moment)                                                                                    | api                                                 |
+| string | sending_protocol                 | Protocole d'envoi (peut être https ou http)                                                                                                    | https                                               |
+| number | use_severity_as_state            | Activer (1) convertit la sévérité en état                                                                                                      | 0                                                   |
 
 ## Event bulking
 
@@ -261,6 +262,35 @@ Ce stream connector envoie des évènements au format suivant :
       "timestamp":1709052753,
       "resource":"passif"
    }
+]
+```
+
+### Exemple de sortie pour un événement plage de maintenance
+
+```json
+[
+   {
+       "type":"XXXX",
+       "name":"centreon-downtime-8-1715607730",
+       "author":"admin",
+       "reason":"XXXX",
+       "_id":"centreon-downtime-8-1715607730",
+       "enabled":true,
+       "entity_pattern":[
+          [
+             {
+                "field":"name",
+                "cond":{
+                   "type":"eq",
+                   "value":"Test-Service-Demo-Canopsis/Test-Demo-Canopsis"
+                }
+             }
+          ]
+       ],
+       "tstop":1715607958,
+       "tstart":1715607718,
+       "rrule":""
+    }
 ]
 ```
 
@@ -413,19 +443,3 @@ curl -X POST -H 'content-length: 400' -H 'content-type: application/json' -H 'x-
 3. Vérifiez que l'évènement a bien été reçu par Canopsis : les statuts doivent apparaître à la page **Alarmes > En Cours** de Canopsis.
 
 ![image](../../assets/integrations/data-analytics/status.png)
-
-### Envoyer des plages de maintenance
-
-Si vous voulez tester que les palges de maintenance sont envoyées correctement à Canopsis :
-
-1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à 
-Canopsis (le serveur central, un serveur distant ou un collecteur)
-2. Exécutez la commande suivante :
-
-```shell
-curl -X POST -H 'content-length: 400' -H 'content-type: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port><canopsis_pbehaviors>' -d '{"tstart":1713959323,"enabled":true,"type":"5ea9d2d8-0f16-4e19-bcca-64b1e96e00fa","tstop":1713960043,"author":"admin","entity_pattern":[[{"field":"name","cond":{"value":"Test-Service-Demo-Canopsis/Test-Demo-Canopsis","type":"eq"}}]],"rrule":"","reason":"3010f2a3-f43c-421a-8c7c-e70522f0c862","name":"centreon-downtime-1-1713959345","_id":"centreon-downtime-1-1713959345"}'
-```
-
-> Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par les valeurs correctes d'authentification à l'hôte Canopsis.
-> Les valeurs par défaut définies dans le stream connector sont les suivantes : pour **canopsis_port** : **443** et pour **canopsis_pbehaviors** : **/api/v4/pbehaviors**.
-3. Vérifiez que l'évènement a bien été reçu par Canopsis : les statuts doivent arriver à la page **Administration > Gestion des Tags** de Canopsis.

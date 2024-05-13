@@ -15,16 +15,17 @@ to send it from a remote server or a poller (e.g. if you want to avoid the centr
 server being a SPOF, or if you are an MSP and you install the stream connector on a 
 poller or a remote server within your customer's infrastructure).
 - By default, the Canopsis Events stream connector sends events from 
-**[host_status](https://docs.centreon.com/fr/docs/developer/developer-broker-mapping/#host-status)**, 
-**[service_status](https://docs.centreon.com/fr/docs/developer/developer-broker-mapping/#service-status)** 
-and **[acknowledgement](https://docs.centreon.com/fr/docs/developer/developer-broker-mapping/#acknowledgement)** 
+**[host_status](https://docs.centreon.com/docs/developer/developer-broker-mapping/#host-status)**, 
+**[service_status](https://docs.centreon.com/docs/developer/developer-broker-mapping/#service-status)**,  
+**[acknowledgement](https://docs.centreon.com/docs/developer/developer-broker-mapping/#acknowledgement)** 
+and **[downtime](https://docs.centreon.com/docs/developer/developer-broker-mapping/#downtime)**. 
 Broker events. The event format is shown **[here](#event-format)**.
 - These events are sent each time a host or a service is checked. Various parameters let 
 you [filter out events](#filtering-or-adapting-the-data-you-want-to-send-to-canopsis).
 
 ## Compatibility
 
-This stream connector is designed to be compatible with Canopsis' API v.4, and more specifically the following versions of Canopsis : 22.10, 
+This stream connector is designed to be compatible with Canopsis' API v.4, this include the following versions of **Canopsis** : 22.10, 
 23.04, 23.10 and 24.04.
 
 ## Installation
@@ -64,7 +65,7 @@ apt install centreon-stream-connector-canopsis
 
 ## Configuring Canopsis
 
-You will need to configure your Canopsis host to receive data from Centreon. Refer to the 
+You will need to configure your Canopsis instance to receive data from Centreon. Refer to the 
 [Canopsis user guide](https://doc.canopsis.net/guide-utilisation/menu-administration/droits/)
 , in particular check if creation, reading and deletion rights are activated. See the following documentations: 
 * [rights administration](https://doc.canopsis.net/guide-utilisation/menu-administration/droits/) 
@@ -105,7 +106,7 @@ another one.
 
 | Type   | Name              | Value explanation                          | default value                                      |
 | ------ | ----------------- |--------------------------------------------|----------------------------------------------------|
-| string | logfile           | File in which logs are written         | /var/log/centreon-broker/canopsis-events-apiv2.log |
+| string | logfile           | File in which logs are written             | /var/log/centreon-broker/canopsis-events-apiv2.log |
 | number | log_level         | Logging level from 1 (errors) to 3 (debug) | 1                                                  |
 
 7. Use the stream connector's optional parameters to [filter or adapt the data you want 
@@ -141,29 +142,29 @@ you want to only send to Canopsis the events linked to a hostgroup called "Europ
 
 * For the Canopsis Events stream connector, the following values always override the 
 default values, you do not need to define them in the interface except if you want to 
-change their values (for example to add the downtimes in the **accepted_elements** variable).
+change their values (for example to remove the downtimes in the **accepted_elements** variable).
 
-| Type   | Name                             | Default value for the stream connector      |
-| ------ |----------------------------------|---------------------------------------------|
-| string | accepted_categories              | neb                                         |
-| string | accepted_elements                | host_status,service_status,acknowledgement  |
-| string | canopsis_downtime_comment_route  | /api/v4/pbehavior-comments                  |
-| string | canopsis_downtime_reason_name    | Centreon_downtime                           |
-| string | canopsis_downtime_reason_route   | /api/v4/pbehavior-reasons                   |
-| string | canopsis_downtime_route          | /api/v4/pbehaviors                          |
-| number | canopsis_downtime_send_pbh       | 1                                           |
-| string | canopsis_downtime_type_name      | Default maintenance                         |
-| string | canopsis_downtime_type_route     | /api/v4/pbehavior-types                     |
-| string | canopsis_event_route             | /api/v4/event                               |
-| string | canopsis_port                    | 443                                         |
-| number | canopsis_sort_list_hostgroups    | 0                                           |
-| string | canopsis_sort_list_servicegroups | 0                                           |
-| string | connector                        | centreon-stream                             |
-| string | connector_name                   | centreon-stream-central                     |
-| string | connector_name_type              | poller                                      |
-| string | sending_method                   | api                                         |
-| string | sending_protocol                 | https                                       |
-| string | use_severity_as_state            | 0                                           |
+| Type   | Name                             | Value explanation                                                                                        | Default value for the stream connector              |
+|--------|----------------------------------|----------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| string | accepted_categories              | Each event is linked to a broker category (neb or bam) that we can use to filter events                  | neb                                                 |
+| string | accepted_elements                | Centreon element handle by this connector (for more you need to add custom event format input see below) | host_status,service_status,acknowledgement,downtime |
+| string | canopsis_downtime_comment_route  | Canopsis route to send downtime comments                                                                 | /api/v4/pbehavior-comments                          |
+| string | canopsis_downtime_reason_name    | Canopsis reason name for downtimes                                                                       | Centreon_downtime                                   |
+| string | canopsis_downtime_reason_route   | Canopsis route to request "reason" field                                                                 | /api/v4/pbehavior-reasons                           |
+| string | canopsis_downtime_route          | Canopsis route to send downtime events                                                                   | /api/v4/pbehaviors                                  |
+| number | canopsis_downtime_send_pbh       | Activate (1) the sending of downtimes if all rules to do it are checked (reason and type exists)         | 1                                                   |
+| string | canopsis_downtime_type_name      | Canopsis downtime type category name                                                                     | Default maintenance                                 |
+| string | canopsis_downtime_type_route     | Canopsis route to request the "type" field (except downtimes)                                            | /api/v4/pbehavior-types                             |
+| string | canopsis_event_route             | Canopsis route to send events                                                                            | /api/v4/event                                       |
+| string | canopsis_port                    | Canopsis port                                                                                            | 443                                                 |
+| number | canopsis_sort_list_hostgroups    | Activate (1) the sort of hosts groups lists                                                              | 0                                                   |
+| number | canopsis_sort_list_servicegroups | Activate (1) the sort of services groups lists                                                           | 0                                                   |
+| string | connector                        | Connector type shows in Canopsis interface in Alarms > Connector Type                                    | centreon-stream                                     |
+| string | connector_name                   | Connector name                                                                                           | centreon-stream-central                             |
+| string | connector_name_type              | Connector type                                                                                           | poller                                              |
+| string | sending_method                   | Sending method (only API is available at this moment)                                                    | api                                                 |
+| string | sending_protocol                 | Sending protocol use (can be https or http)                                                              | https                                               |
+| number | use_severity_as_state            | Activate (1) convert the severity as state                                                               | 0                                                   |
 
 ## Event bulking
 
@@ -255,6 +256,35 @@ This stream connector will send events with the following format.
       "timestamp":1709052753,
       "resource":"passif"
    }
+]
+```
+
+### Output example for downtime event
+
+```json
+[
+   {
+       "type":"XXXX",
+       "name":"centreon-downtime-8-1715607730",
+       "author":"admin",
+       "reason":"XXXX",
+       "_id":"centreon-downtime-8-1715607730",
+       "enabled":true,
+       "entity_pattern":[
+          [
+             {
+                "field":"name",
+                "cond":{
+                   "type":"eq",
+                   "value":"Test-Service-Demo-Canopsis/Test-Demo-Canopsis"
+                }
+             }
+          ]
+       ],
+       "tstop":1715607958,
+       "tstart":1715607718,
+       "rrule":""
+    }
 ]
 ```
 
@@ -402,20 +432,3 @@ curl -X POST -H 'content-length: 400' -H 'content-type: application/json' -H 'x-
 3. Check that the event has been received by Canopsis. The status should appear in the **Alarms > In progress** page of Canopsis.
 
 ![image](../../assets/integrations/data-analytics/status.png)
-
-### Sending downtimes
-
-If you want to test that downtimes are sent to Canopsis correctly:
-
-1. Log in to the server that you configured to send events to Canopsis (your central 
-server, a remote server or a poller).
-2. Run the following command:
-
-```shell
-curl -X POST -H 'content-length: 400' -H 'content-type: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port><canopsis_pbehaviors>' -d '{"tstart":1713959323,"enabled":true,"type":"5ea9d2d8-0f16-4e19-bcca-64b1e96e00fa","tstop":1713960043,"author":"admin","entity_pattern":[[{"field":"name","cond":{"value":"Test-Service-Demo-Canopsis/Test-Demo-Canopsis","type":"eq"}}]],"rrule":"","reason":"3010f2a3-f43c-421a-8c7c-e70522f0c862","name":"centreon-downtime-1-1713959345","_id":"centreon-downtime-1-1713959345"}'
-```
-
-> Replace all the *`<xxxx>`* inside the above command with the correct values for authentication to the Canopsis host. 
-> Default values defined in the connector are **443** for **canopsis_port** and **/api/v4/pbehaviors** for **canopsis_pbehaviors**.
-
-3. Check that the event has been received by Canopsis: the downtimes should appear in the **Administration > Tags gestion** page of Canopsis.
