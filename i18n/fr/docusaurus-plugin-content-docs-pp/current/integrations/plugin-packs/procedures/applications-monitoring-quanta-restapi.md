@@ -21,7 +21,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Alias                      | Modèle de service                                              | Description                                               |
 |:---------------------------|:---------------------------------------------------------------|:----------------------------------------------------------|
-| Web scenarios Availability | App-Monitoring-Quanta-Webscenarios-Availability-Restapi-custom | Contrôle les métriques de disponibilité d'un scénario Web |
+| Web scenarios Availability | App-Monitoring-Quanta-Webscenarios-Availability-Restapi-custom | Contrôle les métriques de disponibilité d'un scénario web |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Monitoring-Quanta-Restapi-custom** est utilisé.
 
