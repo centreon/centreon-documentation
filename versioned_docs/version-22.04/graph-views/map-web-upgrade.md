@@ -73,7 +73,6 @@ sudo yum update centreon-map-engine centreon-map-web-client
 </Tabs>
 
 2. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).
- > If you upgrade to version 24.04 and above, you have to upgrade MariaDB to version 10.11.
 
 ## Update through the interface
 
