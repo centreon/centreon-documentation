@@ -30,7 +30,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias       | Modèle de service                    | Description                                                          |
 |:------------|:-------------------------------------|:---------------------------------------------------------------------|
-| Files-Count | App-Protocol-Sftp-Files-Count-custom | Contrôle permettant le nombre de fichiers dans un répertoire         |
+| Files-Count | App-Protocol-Sftp-Files-Count-custom | Contrôle permettant de vérifier le nombre de fichiers dans un répertoire         |
 | Files-Date  | App-Protocol-Sftp-Files-Date-custom  | Contrôle permettant de vérifier la dernière modification de fichiers |
 | Scenario    | App-Protocol-Sftp-Scenario-custom    | Contrôle permettant d'exécuter des commandes SFTP                    |
 
@@ -210,8 +210,8 @@ yum install centreon-plugin-Applications-Protocol-Sftp
 
 | Macro                 | Description                                                                                                                            | Default value     | Mandatory   |
 |:----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| MAXDEPTH              | Number of level of directory to check. 0 mean current directory only.                                                                  | 0                 |             |
-| DIRECTORY             | Directory name to check.                                                                                                                                       |                   | X           |
+| MAXDEPTH              | Number of levels of directories to check. 0 means current directory only.                                                                  | 0                 |             |
+| DIRECTORY             | Name of the directory to check.                                                                                                                                       |                   | X           |
 | FILTERFILE            | Filter files (can be a regexp. Directory in the name).                                                                                                                                       |                   |             |
 | WARNINGFILESDETECTED  | Thresholds                                                                                                                                       |                   |             |
 | CRITICALFILESDETECTED | Thresholds                                                                                                                                       |                   |             |
@@ -222,8 +222,8 @@ yum install centreon-plugin-Applications-Protocol-Sftp
 
 | Macro             | Description                                                                                                                            | Default value     | Mandatory   |
 |:------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILE              | File name to check.                                                                                                                    |                   | X           |
-| DIRECTORY         | Directory name to check  (no recursive).                                                                                               |                   | X           |
+| FILE              | Name of the file to check.                                                                                                                    |                   | X           |
+| DIRECTORY         | Name of the directory to check (no recursion).                                                                                               |                   | X           |
 | WARNINGMTIMELAST  | Thresholds                                                                                                                             |                   |             |
 | CRITICALMTIMELAST | Thresholds                                                                                                                             |                   |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |

@@ -30,7 +30,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias       | Modèle de service                    | Description                                                          |
 |:------------|:-------------------------------------|:---------------------------------------------------------------------|
-| Files-Count | App-Protocol-Cifs-Files-Count-custom | Contrôle permettant le nombre de fichiers dans un répertoire         |
+| Files-Count | App-Protocol-Cifs-Files-Count-custom | Contrôle permettant de vérifier le nombre de fichiers dans un répertoire         |
 | Files-Date  | App-Protocol-Cifs-Files-Date-custom  | Contrôle permettant de vérifier la dernière modification de fichiers |
 | Files-Size  | App-Protocol-Cifs-Files-Size-custom  | Contrôle permettant de vérifier la taille de fichiers ou répertoires |
 | Scenario    | App-Protocol-Cifs-Scenario-custom    | Contrôle permettant d'exécuter des commandes CIFS                    |
@@ -208,7 +208,7 @@ yum install centreon-plugin-Applications-Protocol-Cifs
 | Macro          | Description                                                                                                                            | Default value                             | Mandatory   |
 |:---------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------|:-----------:|
 | DIRECTORY      | Set the share directory.                                                                                                               |                                           | X           |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL You can use the following variables: %{status}, %{message}                | %{message} !~ /authentication succeeded/i |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{message}                | %{message} !~ /authentication succeeded/i |             |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{message}                |                                           |             |
 | WARNINGTIME    | Warning threshold in seconds.                                                                                                          |                                           |             |
 | CRITICALTIME   | Critical threshold in seconds.                                                                                                         |                                           |             |
@@ -219,8 +219,8 @@ yum install centreon-plugin-Applications-Protocol-Cifs
 
 | Macro                 | Description                                                                                                                            | Default value     | Mandatory   |
 |:----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| MAXDEPTH              | Number of level of directory to check. 0 mean current directory only.                                                                  | 0                 | X           |
-| DIRECTORY             | Directory name to check.                                                                                                               |                   | X           |
+| MAXDEPTH              | Number of levels of directories to check. 0 means current directory only.                                                                  | 0                 | X           |
+| DIRECTORY             | Name of the directory  to check.                                                                                                               |                   | X           |
 | FILTERFILE            | Filter files (can be a regexp. Directory in the name).                                                                                 |                   |             |
 | WARNINGFILESDETECTED  | Thresholds                                                                                                                             |                   |             |
 | CRITICALFILESDETECTED | Thresholds                                                                                                                             |                   |             |
@@ -232,7 +232,7 @@ yum install centreon-plugin-Applications-Protocol-Cifs
 | Macro             | Description                                                                                                                            | Default value     | Mandatory   |
 |:------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILE              | File name to check                                                                                                                     |                   | X           |
-| DIRECTORY         | Check files in the directory (no recursive)                                                                                            |                   | X           |
+| DIRECTORY         | Check files in the directory (no recursion)                                                                                            |                   | X           |
 | WARNINGMTIMELAST  | Thresholds                                                                                                                             |                   |             |
 | CRITICALMTIMELAST | Thresholds                                                                                                                             |                   |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
@@ -242,7 +242,7 @@ yum install centreon-plugin-Applications-Protocol-Cifs
 
 | Macro        | Description                                                                                                                            | Default value     | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| MAXDEPTH     | Number of level of directory to check. 0 mean current directory only.                                                                  | 0                 | X           |
+| MAXDEPTH     | Number of levels of directories to check. 0 means current directory only.                                                                  | 0                 | X           |
 | FILE         | Check file                                                                                                                             |                   | X           |
 | DIRECTORY    | Check directory size (multiple option). Can get sub directory size with --max-depth option.                                            |                   | X           |
 | WARNINGSIZE  | Thresholds                                                                                                                                       |                   |             |

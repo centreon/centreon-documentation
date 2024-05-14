@@ -30,7 +30,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias          | Modèle de service                  | Description                                                                                                                    |
 |:---------------|:-----------------------------------|:-------------------------------------------------------------------------------------------------------------------------------|
-| FTP-Commands   | App-Protocol-FTP-Commands-custom   | Contrôle permettant d'executer une commande sur un serveur FTP distant                                                         |
+| FTP-Commands   | App-Protocol-FTP-Commands-custom   | Contrôle permettant d'exécuter une commande sur un serveur FTP distant                                                         |
 | FTP-Date       | App-Protocol-FTP-Date-custom       | Contrôle permettant de vérifier la date des fichiers d'un répertoire ou d'un fichier en particulier sur un serveur FTP distant |
 | FTP-FilesCount | App-Protocol-FTP-FilesCount-custom | Compter les fichiers dans un répertoire FTP distant                                                                            |
 
@@ -197,7 +197,7 @@ yum install centreon-plugin-Applications-Protocol-Ftp
 
 | Macro        | Description                                                                                        | Default value     | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| DIRECTORY    | Check files in the directory (no recursive)                                                                                                   |                   |             |
+| DIRECTORY    | Check files in the directory (no recursion)                                                                                                   |                   |             |
 | CRITICAL     | Threshold                                                                                                   |                   |             |
 | WARNING      | Threshold                                                                                                   |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
@@ -207,7 +207,7 @@ yum install centreon-plugin-Applications-Protocol-Ftp
 
 | Macro        | Description                                                                                                                            | Default value     | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| DIRECTORY    | Check files in the directory (no recursive)                                                                                            |                   |             |
+| DIRECTORY    | Check files in the directory (no recursion)                                                                                            |                   |             |
 | WARNING      | Threshold                                                                                                                              |                   |             |
 | CRITICAL     | Threshold                                                                                                                              |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
