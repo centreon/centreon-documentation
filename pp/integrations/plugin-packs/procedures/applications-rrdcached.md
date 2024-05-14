@@ -65,7 +65,7 @@ No metrics for this service.
 
 ## Prerequisites
 
-To use this connector you must have installed and configured RRDCached (read this [documentation](https://oss.oetiker.ch/rrdtool/doc/rrdcached.en.html)).
+To use this connector you must have [installed and configured RRDCached](https://oss.oetiker.ch/rrdtool/doc/rrdcached.en.html).
 
 ### On a Centreon central or remote server
 
