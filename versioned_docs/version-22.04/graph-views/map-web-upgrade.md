@@ -72,7 +72,7 @@ sudo yum update centreon-map-engine centreon-map-web-client
 </TabItem>
 </Tabs>
 
-2. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).
+2. Make sure you are using the correct version of MariaDB and update it if needed. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).
 
 ## Update through the interface
 

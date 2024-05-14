@@ -69,7 +69,7 @@ sudo dnf update centreon-map-engine centreon-map-web-client
 </TabItem>
 </Tabs>
 
-2. Voir [Mettre à jour MariaDB](../upgrade/upgrade-mariadb.md).
+2. Assurez-vous d'utiliser la bonne version de MariaDB et mettez-la à jour si besoin. Voir [Mettre à jour MariaDB](../upgrade/upgrade-mariadb.md).
 
 ## Mise à jour de l'interface
 

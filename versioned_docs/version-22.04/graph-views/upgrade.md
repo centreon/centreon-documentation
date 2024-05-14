@@ -171,7 +171,7 @@ In the **/etc/centreon-studio/centreon-database.properties** and the **/etc/cent
     systemctl stop centreon-map
     ```
 
-2. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).
+2. Make sure you are using the correct version of MariaDB and update it if needed. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).
 
 3. If you have upgraded your Centreon platform to version 22.04, the new BBDO v3 protocol is enabled. You need to edit the following file to allow MAP to work properly: **/etc/centreon-studio/studio-config.properties**
 
