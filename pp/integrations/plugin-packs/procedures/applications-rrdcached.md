@@ -22,7 +22,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias | Service Template                    | Service Description                      |
 |:--------------|:------------------------------------|:-----------------------------------------|
 | Ping-Socket | App-Rrdcached-Ping-Socket-Tcp-custom  | Monitor status and performance of RRDcached daemon  |
-| Stats       | App-Rrdcached-Stats-Tcp-custom        | Check Updates cache of rrdcached daemon  |
+| Stats       | App-Rrdcached-Stats-Tcp-custom        | Monitor status and performance of RRDcached daemon  |
 
 > The services listed above are created automatically when the **App-Rrdcached-Tcp-custom** host template is used.
 
