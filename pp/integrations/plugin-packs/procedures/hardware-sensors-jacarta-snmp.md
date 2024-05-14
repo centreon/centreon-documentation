@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias  | Service Template                              | Service Description            |
 |:---------------|:----------------------------------------------|:-------------------------------|
-| Sensors-Global | HW-Sensors-Jacarta-Sensors-Global-SNMP-custom | Check all sensors of equipment |
+| Sensors-Global | HW-Sensors-Jacarta-Sensors-Global-SNMP-custom | Check all sensors on the equipment |
 
 > The services listed above are created automatically when the **HW-Sensor-Jacarta-SNMP-custom** host template is used.
 
@@ -210,7 +210,6 @@ The expected command output is shown below:
 
 ```bash
 OK: All 2 components are ok [1/1 temperatures][1/1 humidity]. | 'sensor1#hardware.sensor.temperature.celsius'=23C;;;; 'sensor1#hardware.sensor.humidity.percentage'=35%;;;0;100
-
 ```
 
 ### Troubleshooting
