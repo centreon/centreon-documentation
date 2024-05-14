@@ -33,7 +33,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias       | Modèle de service                     | Description                              |
 |:------------|:--------------------------------------|:-----------------------------------------|
 | Ping-Socket | App-Rrdcached-Ping-Socket-Unix-custom | Monitor status and performance of RRDcached daemon |
-| Stats       | App-Rrdcached-Stats-Unix-custom       | Check Updates cache of rrdcached daemon  |
+| Stats       | App-Rrdcached-Stats-Unix-custom       | Monitor status and performance of RRDcached daemon |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Rrdcached-Unix-custom** est utilisé.
 
