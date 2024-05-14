@@ -22,7 +22,7 @@ The connector brings the following service templates (sorted by the host templat
 |:--------------|:---------------------------------------|:----------------------------------|
 | Frequency     | HW-UPS-Himoinsa-Frequency-SNMP-custom  | Check frequency                   |
 | Fuel-Level    | HW-UPS-Himoinsa-Fuel-Level-SNMP-custom | Check fuel level                  |
-| Phase         | HW-UPS-Himoinsa-Phase-SNMP-custom      | Check 1 phase, 2 phase et 3 phase |
+| Phase         | HW-UPS-Himoinsa-Phase-SNMP-custom      | Checks the electrical current for each phase in a three-phase system |
 | Status        | HW-UPS-Himoinsa-Status-SNMP-custom     | Check Himoinsa UPS device status  |
 | Voltage       | HW-UPS-Himoinsa-Voltage-SNMP-custom    | Check voltage                     |
 
