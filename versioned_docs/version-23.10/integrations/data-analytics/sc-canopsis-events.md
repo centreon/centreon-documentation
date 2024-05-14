@@ -104,7 +104,7 @@ another one.
 
 6. Fill in any optional parameters you want (using the **+Add a new entry** link):
 
-| Type   | Name              | Value explanation                          | default value                                      |
+| Type   | Name              | Value explanation                          | Default value                                      |
 | ------ | ----------------- |--------------------------------------------|----------------------------------------------------|
 | string | logfile           | File in which logs are written             | /var/log/centreon-broker/canopsis-events-apiv2.log |
 | number | log_level         | Logging level from 1 (errors) to 3 (debug) | 1                                                  |
@@ -144,27 +144,27 @@ you want to only send to Canopsis the events linked to a hostgroup called "Europ
 default values, you do not need to define them in the interface except if you want to 
 change their values (for example to remove the downtimes in the **accepted_elements** variable).
 
-| Type   | Name                             | Value explanation                                                                                        | Default value for the stream connector              |
-|--------|----------------------------------|----------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
-| string | accepted_categories              | Each event is linked to a broker category (neb or bam) that we can use to filter events                  | neb                                                 |
-| string | accepted_elements                | Centreon element handle by this connector (for more you need to add custom event format input see below) | host_status,service_status,acknowledgement,downtime |
-| string | canopsis_downtime_comment_route  | Canopsis route to send downtime comments                                                                 | /api/v4/pbehavior-comments                          |
-| string | canopsis_downtime_reason_name    | Canopsis reason name for downtimes                                                                       | Centreon_downtime                                   |
-| string | canopsis_downtime_reason_route   | Canopsis route to request "reason" field                                                                 | /api/v4/pbehavior-reasons                           |
-| string | canopsis_downtime_route          | Canopsis route to send downtime events                                                                   | /api/v4/pbehaviors                                  |
-| number | canopsis_downtime_send_pbh       | Activate (1) the sending of downtimes if all rules to do it are checked (reason and type exists)         | 1                                                   |
-| string | canopsis_downtime_type_name      | Canopsis downtime type category name                                                                     | Default maintenance                                 |
-| string | canopsis_downtime_type_route     | Canopsis route to request the "type" field (except downtimes)                                            | /api/v4/pbehavior-types                             |
-| string | canopsis_event_route             | Canopsis route to send events                                                                            | /api/v4/event                                       |
-| string | canopsis_port                    | Canopsis port                                                                                            | 443                                                 |
-| number | canopsis_sort_list_hostgroups    | Activate (1) the sort of hosts groups lists                                                              | 0                                                   |
-| number | canopsis_sort_list_servicegroups | Activate (1) the sort of services groups lists                                                           | 0                                                   |
-| string | connector                        | Connector type shows in Canopsis interface in Alarms > Connector Type                                    | centreon-stream                                     |
-| string | connector_name                   | Connector name                                                                                           | centreon-stream-central                             |
-| string | connector_name_type              | Connector type                                                                                           | poller                                              |
-| string | sending_method                   | Sending method (only API is available at this moment)                                                    | api                                                 |
-| string | sending_protocol                 | Sending protocol use (can be https or http)                                                              | https                                               |
-| number | use_severity_as_state            | Activate (1) convert the severity as state                                                               | 0                                                   |
+| Type   | Name                             | Value explanation                                                                                        | Default value for the stream connector              | Possible values                                              |
+|--------|----------------------------------|----------------------------------------------------------------------------------------------------------|-----------------------------------------------------|--------------------------------------------------------------|
+| string | accepted_categories              | Each event is linked to a broker category (neb or bam) that we can use to filter events                  | neb                                                 | neb or bam                                                   |
+| string | accepted_elements                | Centreon element handle by this connector (for more you need to add custom event format input see below) | host_status,service_status,acknowledgement,downtime | host_status or service_status or acknowledgement or downtime |
+| string | canopsis_downtime_comment_route  | Canopsis route to send downtime comments                                                                 | /api/v4/pbehavior-comments                          | /api/v4/pbehavior-comments                                   |
+| string | canopsis_downtime_reason_name    | Canopsis reason name for downtimes                                                                       | Centreon_downtime                                   | -                                                            |
+| string | canopsis_downtime_reason_route   | Canopsis route to request "reason" field                                                                 | /api/v4/pbehavior-reasons                           | /api/v4/pbehavior-reasons                                    |
+| string | canopsis_downtime_route          | Canopsis route to send downtime events                                                                   | /api/v4/pbehaviors                                  | /api/v4/pbehaviors                                           |
+| number | canopsis_downtime_send_pbh       | Activate (1) the sending of downtimes if all rules to do it are checked (reason and type exists)         | 1                                                   | 0 ou 1                                                       |
+| string | canopsis_downtime_type_name      | Canopsis downtime type category name                                                                     | Default maintenance                                 | -                                                            |
+| string | canopsis_downtime_type_route     | Canopsis route to request the "type" field (except downtimes)                                            | /api/v4/pbehavior-types                             | /api/v4/pbehavior-types                                      |
+| string | canopsis_event_route             | Canopsis route to send events                                                                            | /api/v4/event                                       | /api/v4/event                                                |
+| number | canopsis_port                    | Canopsis port                                                                                            | 443                                                 | -                                                            |
+| number | canopsis_sort_list_hostgroups    | Activate (1) the sort of hosts groups lists                                                              | 0                                                   | 0 ou 1                                                       |
+| number | canopsis_sort_list_servicegroups | Activate (1) the sort of services groups lists                                                           | 0                                                   | 0 ou 1                                                       |
+| string | connector                        | Connector type shows in Canopsis interface in Alarms > Connector Type                                    | centreon-stream                                     | -                                                            |
+| string | connector_name                   | Connector name                                                                                           | centreon-stream-central                             | -                                                            |
+| string | connector_name_type              | Connector type                                                                                           | poller                                              | -                                                            |
+| string | sending_method                   | Sending method (only API is available at this moment)                                                    | api                                                 | api                                                          |
+| string | sending_protocol                 | Sending protocol use (can be https or http)                                                              | https                                               | http ou https                                                |
+| number | use_severity_as_state            | Activate (1) convert the severity as state                                                               | 0                                                   | 0 ou 1                                                       |
 
 ## Event bulking
 
@@ -188,29 +188,27 @@ This stream connector will send events with the following format.
 
 ```json
 [
-   {
-      "notes_url":"",
-      "host_id":"15",
-      "event_type":"check",
-      "service_id":"47",
-      "timestamp":1708693347,
-      "hostgroups":[
-         "Group 1",
-         "Group 2"
-      ],
-      "servicegroups":[
-         
-      ],
-      "state":1,
-      "connector":"centreon-stream",
-      "action_url":"",
-      "long_output":"Plugin's long output",
-      "resource":"Service-name",
-      "output":"Plugin's output",
-      "source_type":"resource",
-      "component":"Host-name",
-      "connector_name":"Central"
-   }
+	{
+		"action_url": "",
+		"component": "Host-name",
+		"connector": "centreon-stream",
+		"connector_name": "Central",
+		"event_type": "check",
+		"host_id": "15",
+		"hostgroups": [
+			"Group 1",
+			"Group 2"
+		],
+		"long_output": "Plugin's long output",
+		"notes_url": "",
+		"output": "Plugin's output",
+		"resource": "Service-name",
+		"service_id": "47",
+		"servicegroups": [],
+		"source_type": "resource",
+		"state": 1,
+		"timestamp": 1708693347
+	}
 ]
 ```
 
@@ -218,24 +216,24 @@ This stream connector will send events with the following format.
 
 ```json
 [
-   {
-      "event_type":"check",
-      "state":0,
-      "component":"Host-1",
-      "timestamp":1708953238,
-      "host_id":"15",
-      "connector":"centreon-stream",
-      "source_type":"component",
-      "hostgroups":[
-         "Group 1",
-         "Group 2"
-      ],
-      "action_url":"",
-      "notes_url":"",
-      "long_output":"OK: Host is OK",
-      "connector_name":"Central",
-      "output":"OK: Host is OK"
-   }
+	{
+		"action_url": "",
+		"component": "Host-1",
+		"connector": "centreon-stream",
+		"connector_name": "Central",
+		"event_type": "check",
+		"host_id": "15",
+		"hostgroups": [
+			"Group 1",
+			"Group 2"
+		],
+		"long_output": "OK: Host is OK",
+		"notes_url": "",
+		"output": "OK: Host is OK",
+		"source_type": "component",
+		"state": 0,
+		"timestamp": 1708953238
+	}
 ]
 ```
 
@@ -243,19 +241,19 @@ This stream connector will send events with the following format.
 
 ```json
 [
-   {
-      "event_type":"ack",
-      "component":"Host-1",
-      "connector":"centreon-stream",
-      "author":"admin",
-      "state":1,
-      "output":"Acknowledged by admin",
-      "source_type":"resource",
-      "long_output":"Acknowledged by admin",
-      "connector_name":"Central",
-      "timestamp":1709052753,
-      "resource":"passif"
-   }
+	{
+		"author": "admin",
+		"component": "Host-1",
+		"connector": "centreon-stream",
+		"connector_name": "Central",
+		"event_type": "ack",
+		"long_output": "Acknowledged by admin",
+		"output": "Acknowledged by admin",
+		"resource": "passif",
+		"source_type": "resource",
+		"state": 1,
+		"timestamp": 1709052753
+	}
 ]
 ```
 
@@ -263,30 +261,32 @@ This stream connector will send events with the following format.
 
 ```json
 [
-   {
-       "type":"XXXX",
-       "name":"centreon-downtime-8-1715607730",
-       "author":"admin",
-       "reason":"XXXX",
-       "_id":"centreon-downtime-8-1715607730",
-       "enabled":true,
-       "entity_pattern":[
-          [
-             {
-                "field":"name",
-                "cond":{
-                   "type":"eq",
-                   "value":"Test-Service-Demo-Canopsis/Test-Demo-Canopsis"
-                }
-             }
-          ]
-       ],
-       "tstop":1715607958,
-       "tstart":1715607718,
-       "rrule":""
-    }
+	{
+		"_id": "centreon-downtime-8-1715607730",
+		"author": "admin",
+		"enabled": true,
+		"entity_pattern": [
+			[
+				{
+					"field": "name",
+					"cond": {
+						"type": "eq",
+						"value": "Test-Service-Demo-Canopsis/Test-Demo-Canopsis"
+					}
+				}
+			]
+		],
+		"name": "centreon-downtime-8-1715607730",
+		"reason": "XXXX",
+		"rrule": "",
+		"tstart": 1715607718,
+		"tstop": 1715607958,
+		"type": "XXXX"
+	}
 ]
 ```
+
+* Note: In version 22.10 of Canopsis there is also a color field.*
 
 ### Custom event format
 
@@ -333,8 +333,8 @@ curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth
    "data":[
       {
          "_id":"XXXX",
-         "name":"NAME",
-         "description":"DESCRIPTION"
+         "description":"DESCRIPTION",
+         "name":"NAME"         
       }
    ]
 ```

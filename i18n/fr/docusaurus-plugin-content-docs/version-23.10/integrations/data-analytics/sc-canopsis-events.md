@@ -98,14 +98,14 @@ sur **Add**. Un nouvel output apparaît dans la liste.
 paramètres obligatoires suivants. La première entrée existe déjà. Cliquez sur le lien **+Add 
 a new entry** en-dessous du tableau **Filter category** pour en ajouter un autre.
 
-| Type   | Nom              | Explication de "Value"                    | Exemple de valeur |
-| ------ |------------------|-------------------------------------------|-------------------|
-| string | canopsis_authkey | Clé d'authentification à l'API Canopsis   | `an_authkey`      |
-| string | canopsis_host    | Adresse de l'hôte Canopsis                | `a host`          |
+| Type   | Nom              | Description                             | Exemple de valeur |
+| ------ |------------------|-----------------------------------------|-------------------|
+| string | canopsis_authkey | Clé d'authentification à l'API Canopsis | `an_authkey`      |
+| string | canopsis_host    | Adresse de l'hôte Canopsis              | `a host`          |
 
 6. Renseignez les paramètres optionnels désirés (en utilisant le lien **+Add a new entry**) :
 
-| Type   | Nom       | Explication de "Value"                                    | Valeur par défaut                                  |
+| Type   | Nom       | Description                                               | Valeur par défaut                                  |
 | ------ |-----------|-----------------------------------------------------------|----------------------------------------------------|
 | string | logfile   | Fichier dans lequel les logs sont écrits                  | /var/log/centreon-broker/canopsis-events-apiv2.log |
 | number | log_level | Niveau de verbosité des logs : de 1 (erreurs) à 3 (debug) | 1                                                  |
@@ -149,27 +149,27 @@ dans l'interface sauf si vous voulez en changer les valeurs (par exemple retirer
 plages de maintenance à la variable **accepted_elements**).
 
 
-| Type   | Nom                              | Explication de "Value"                                                                                                                         | Valeur par défaut pour le stream connector Canopsis |
-|--------|----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
-| string | accepted_categories              | Chaque événement est lié à une catégorie de broker (neb ou bam) qui peut être utilisée pour filtrer les événements                             | neb                                                 |
-| string | accepted_elements                | Élément Centreon géré par ce connecteur (pour en ajouter, vous devez regarder la section des format d'événement personnalisé, voir ci-dessous) | host_status,service_status,acknowledgement,downtime |
-| string | canopsis_downtime_comment_route  | Route Canopsis pour envoyer les commentaires sur les plages de maintenance                                                                     | /api/v4/pbehavior-comments                          |
-| string | canopsis_downtime_reason_name    | Nom de la raison Canopsis pour les plages de maintenance                                                                                       | Centreon_downtime                                   |
-| string | canopsis_downtime_reason_route   | Route Canopsis pour requêter le champs "raison"                                                                                                | /api/v4/pbehavior-reasons                           |
-| string | canopsis_downtime_route          | Route Canospsis pour envoyer les plages de maintenance                                                                                         | /api/v4/pbehaviors                                  |
-| number | canopsis_downtime_send_pbh       | Activer (1) l'envoi des plages de maintenance si toutes les règles pour le faire sont validées (le champs raison et le type existent)          | 1                                                   |
-| string | canopsis_downtime_type_name      | Nom de la catégorie de type des plages de maintenance de Canopsis                                                                              | Default maintenance                                 |
-| string | canopsis_downtime_type_route     | Route Canopsis pour requêter le champs "type"                                                                                                  | /api/v4/pbehavior-types                             |
-| string | canopsis_event_route             | Route Canospsis pour envoyer les événements (hors plages de maintenance)                                                                       | /api/v4/event                                       |
-| string | canopsis_port                    | Port Canopsis                                                                                                                                  | 443                                                 |
-| number | canopsis_sort_list_hostgroups    | Activer (1) le tri des listes de groupes d'hôtes                                                                                               | 0                                                   |
-| number | canopsis_sort_list_servicegroups | Activer (1) le tri des listes de groupes de services                                                                                           | 0                                                   |
-| string | connector                        | Le type de connecteur s'affichant dans l'interface Canopsis dans Alarmes > Type de connecteur                                                  | centreon-stream                                     |
-| string | connector_name                   | Nom du connector                                                                                                                               | centreon-stream-central                             |
-| string | connector_name_type              | Type de connector                                                                                                                              | poller                                              |
-| string | sending_method                   | Méthode d'envoi (seule l'API est disponible pour le moment)                                                                                    | api                                                 |
-| string | sending_protocol                 | Protocole d'envoi (peut être https ou http)                                                                                                    | https                                               |
-| number | use_severity_as_state            | Activer (1) convertit la sévérité en état                                                                                                      | 0                                                   |
+| Type   | Nom                              | Description                                                                                                                                            | Valeur par défaut pour le stream connector Canopsis | Valeur(s) possibles                                          |
+|--------|----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|--------------------------------------------------------------|
+| string | accepted_categories              | Chaque événement est lié à une catégorie de broker qui peut être utilisée pour filtrer les événements                                                  | neb                                                 | neb ou bam                                                   |
+| string | accepted_elements                | Élément Centreon géré par ce connecteur (pour en ajouter, vous devez regarder la section des format d'événement personnalisé, voir ci-dessous)         | host_status,service_status,acknowledgement,downtime | host_status ou service_status ou acknowledgement ou downtime |
+| string | canopsis_downtime_comment_route  | Route Canopsis pour envoyer les commentaires sur les plages de maintenance                                                                             | /api/v4/pbehavior-comments                          | /api/v4/pbehavior-comments                                   |
+| string | canopsis_downtime_reason_name    | Nom de la raison Canopsis pour les plages de maintenance                                                                                               | Centreon_downtime                                   | -                                                            |
+| string | canopsis_downtime_reason_route   | Route Canopsis pour requêter le champs "raison"                                                                                                        | /api/v4/pbehavior-reasons                           | /api/v4/pbehavior-reasons                                    |
+| string | canopsis_downtime_route          | Route Canospsis pour envoyer les plages de maintenance                                                                                                 | /api/v4/pbehaviors                                  | /api/v4/pbehaviors                                           |
+| number | canopsis_downtime_send_pbh       | Désactiver (0) / Activer (1) l'envoi des plages de maintenance si toutes les règles pour le faire sont validées (le champs raison et le type existent) | 1                                                   | 0 ou 1                                                       |
+| string | canopsis_downtime_type_name      | Nom de la catégorie de type des plages de maintenance de Canopsis                                                                                      | Default maintenance                                 | -                                                            |
+| string | canopsis_downtime_type_route     | Route Canopsis pour requêter le champs "type"                                                                                                          | /api/v4/pbehavior-types                             | /api/v4/pbehavior-types                                      |
+| string | canopsis_event_route             | Route Canospsis pour envoyer les événements (hors plages de maintenance)                                                                               | /api/v4/event                                       | /api/v4/event                                                |
+| number | canopsis_port                    | Port Canopsis                                                                                                                                          | 443                                                 | -                                                            |
+| number | canopsis_sort_list_hostgroups    | Désactiver (0) / Activer (1) le tri des listes de groupes d'hôtes                                                                                      | 0                                                   | 0 ou 1                                                       |
+| number | canopsis_sort_list_servicegroups | Désactiver (0) /Activer (1) le tri des listes de groupes de services                                                                                   | 0                                                   | 0 ou 1                                                       |
+| string | connector                        | Le type de connecteur s'affichant dans l'interface Canopsis dans Alarmes > Type de connecteur                                                          | centreon-stream                                     | -                                                            |
+| string | connector_name                   | Nom du connector                                                                                                                                       | centreon-stream-central                             | -                                                            |
+| string | connector_name_type              | Type de connector                                                                                                                                      | poller                                              | -                                                            |
+| string | sending_method                   | Méthode d'envoi (seule l'API est disponible pour le moment)                                                                                            | api                                                 | api                                                          |
+| string | sending_protocol                 | Protocole d'envoi (peut être https ou http)                                                                                                            | https                                               | http ou https                                                |
+| number | use_severity_as_state            | Désactiver (0) /Activer (1) convertit la sévérité en état                                                                                              | 0                                                   | 0 ou 1                                                       |
 
 ## Event bulking
 
@@ -194,29 +194,27 @@ Ce stream connector envoie des évènements au format suivant :
 
 ```json
 [
-   {
-      "notes_url":"",
-      "host_id":"15",
-      "event_type":"check",
-      "service_id":"47",
-      "timestamp":1708693347,
-      "hostgroups":[
-         "Group 1",
-         "Group 2"
-      ],
-      "servicegroups":[
-         
-      ],
-      "state":1,
-      "connector":"centreon-stream",
-      "action_url":"",
-      "long_output":"Plugin's long output",
-      "resource":"Service-name",
-      "output":"Plugin's output",
-      "source_type":"resource",
-      "component":"Host-name",
-      "connector_name":"Central"
-   }
+	{
+		"action_url": "",
+		"component": "Host-name",
+		"connector": "centreon-stream",
+		"connector_name": "Central",
+		"event_type": "check",
+		"host_id": "15",
+		"hostgroups": [
+			"Group 1",
+			"Group 2"
+		],
+		"long_output": "Plugin's long output",
+		"notes_url": "",
+		"output": "Plugin's output",
+		"resource": "Service-name",
+		"service_id": "47",
+		"servicegroups": [],
+		"source_type": "resource",
+		"state": 1,
+		"timestamp": 1708693347
+	}
 ]
 ```
 
@@ -224,24 +222,24 @@ Ce stream connector envoie des évènements au format suivant :
 
 ```json
 [
-   {
-      "event_type":"check",
-      "state":0,
-      "component":"Host-1",
-      "timestamp":1708953238,
-      "host_id":"15",
-      "connector":"centreon-stream",
-      "source_type":"component",
-      "hostgroups":[
-         "Group 1",
-         "Group 2"
-      ],
-      "action_url":"",
-      "notes_url":"",
-      "long_output":"OK: Host is OK",
-      "connector_name":"Central",
-      "output":"OK: Host is OK"
-   }
+	{
+		"action_url": "",
+		"component": "Host-1",
+		"connector": "centreon-stream",
+		"connector_name": "Central",
+		"event_type": "check",
+		"host_id": "15",
+		"hostgroups": [
+			"Group 1",
+			"Group 2"
+		],
+		"long_output": "OK: Host is OK",
+		"notes_url": "",
+		"output": "OK: Host is OK",
+		"source_type": "component",
+		"state": 0,
+		"timestamp": 1708953238
+	}
 ]
 ```
 
@@ -249,19 +247,19 @@ Ce stream connector envoie des évènements au format suivant :
 
 ```json
 [
-   {
-      "event_type":"ack",
-      "component":"Host-1",
-      "connector":"centreon-stream",
-      "author":"admin",
-      "state":1,
-      "output":"Acknowledged by admin",
-      "source_type":"resource",
-      "long_output":"Acknowledged by admin",
-      "connector_name":"Central",
-      "timestamp":1709052753,
-      "resource":"passif"
-   }
+	{
+		"author": "admin",
+		"component": "Host-1",
+		"connector": "centreon-stream",
+		"connector_name": "Central",
+		"event_type": "ack",
+		"long_output": "Acknowledged by admin",
+		"output": "Acknowledged by admin",
+		"resource": "passif",
+		"source_type": "resource",
+		"state": 1,
+		"timestamp": 1709052753
+	}
 ]
 ```
 
@@ -269,30 +267,32 @@ Ce stream connector envoie des évènements au format suivant :
 
 ```json
 [
-   {
-       "type":"XXXX",
-       "name":"centreon-downtime-8-1715607730",
-       "author":"admin",
-       "reason":"XXXX",
-       "_id":"centreon-downtime-8-1715607730",
-       "enabled":true,
-       "entity_pattern":[
-          [
-             {
-                "field":"name",
-                "cond":{
-                   "type":"eq",
-                   "value":"Test-Service-Demo-Canopsis/Test-Demo-Canopsis"
-                }
-             }
-          ]
-       ],
-       "tstop":1715607958,
-       "tstart":1715607718,
-       "rrule":""
-    }
+	{
+		"_id": "centreon-downtime-8-1715607730",
+		"author": "admin",
+		"enabled": true,
+		"entity_pattern": [
+			[
+				{
+					"field": "name",
+					"cond": {
+						"type": "eq",
+						"value": "Test-Service-Demo-Canopsis/Test-Demo-Canopsis"
+					}
+				}
+			]
+		],
+		"name": "centreon-downtime-8-1715607730",
+		"reason": "XXXX",
+		"rrule": "",
+		"tstart": 1715607718,
+		"tstop": 1715607958,
+		"type": "XXXX"
+	}
 ]
 ```
+
+* Remarque : En version 22.10 de Canopsis il y a en plus un champs color.*
 
 ### Format d'évènement personnalisé
 
@@ -341,8 +341,8 @@ curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth
    "data":[
       {
          "_id":"XXXX",
-         "name":"NAME",
-         "description":"DESCRIPTION"
+         "description":"DESCRIPTION",
+         "name":"NAME"         
       }
    ]
 ```
