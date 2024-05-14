@@ -23,7 +23,7 @@ Le connecteur apporte les modèles de service suivants
 |:-----------|:---------------------------------------|:--------------------------------------------|
 | Frequency  | HW-UPS-Himoinsa-Frequency-SNMP-custom  | Contrôle la fréquence                       |
 | Fuel-Level | HW-UPS-Himoinsa-Fuel-Level-SNMP-custom | Contrôle le niveau de fuel                  |
-| Phase      | HW-UPS-Himoinsa-Phase-SNMP-custom      | Contrôle phase 1, phase 2 et phase 3        |
+| Phase      | HW-UPS-Himoinsa-Phase-SNMP-custom      | Vérifie le courant électrique pour chaque phase dans un système triphasé       |
 | Status     | HW-UPS-Himoinsa-Status-SNMP-custom     | Contrôle le statut de l'équipement Himoinsa |
 | Voltage    | HW-UPS-Himoinsa-Voltage-SNMP-custom    | Contrôle le voltage                         |
 
