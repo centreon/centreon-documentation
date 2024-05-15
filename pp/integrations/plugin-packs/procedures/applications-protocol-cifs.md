@@ -30,7 +30,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias | Service Template                     | Service Description                  |
 |:--------------|:-------------------------------------|:-------------------------------------|
 | Files-Count   | App-Protocol-Cifs-Files-Count-custom | Check number of files in a directory |
-| Files-Date    | App-Protocol-Cifs-Files-Date-custom  | Check modified time of files         |
+| Files-Date    | App-Protocol-Cifs-Files-Date-custom  | Check last modified time of files         |
 | Files-Size    | App-Protocol-Cifs-Files-Size-custom  | Check files/directories size         |
 | Scenario      | App-Protocol-Cifs-Scenario-custom    | Execute CIFS commands                |
 
@@ -89,7 +89,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-To monitor your CIFS server, you can use username authentication.
+To monitor your CIFS server, the plugin needs to log in to it using a username and a password.
 
 ## Installing the monitoring connector
 
@@ -285,8 +285,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--plugin=apps::protocols::cifs::plugin \
 	--mode=scenario \
 	--hostname='10.0.0.1' \
-	--cifs-username='' \
-	--cifs-password='' \
+	--cifs-username='my-username' \
+        --cifs-password='my-password' \
 	--timeout=''   \
 	--scenario='' \
 	--warning-status='' \

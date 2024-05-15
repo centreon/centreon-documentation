@@ -30,7 +30,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias | Service Template                     | Service Description                  |
 |:--------------|:-------------------------------------|:-------------------------------------|
 | Files-Count   | App-Protocol-Sftp-Files-Count-custom | Check number of files in a directory |
-| Files-Date    | App-Protocol-Sftp-Files-Date-custom  | Check modified time of files         |
+| Files-Date    | App-Protocol-Sftp-Files-Date-custom  | Check last modified time of files         |
 | Scenario      | App-Protocol-Sftp-Scenario-custom    | Execute SFTP commands                |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
@@ -81,7 +81,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-To monitor your SFTP server, you can use pubkey authentication and/or username authentication.
+To monitor your SFTP server, the plugin can either log in using an SSH key, or use username authentication.
 
 ## Installing the monitoring connector
 
@@ -263,8 +263,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--plugin=apps::protocols::sftp::plugin \
 	--mode=scenario \
 	--hostname='10.0.0.1'  \
-	--ssh-username='' \
-	--ssh-password=''  \
+	--ssh-username='my-username' \
+	--ssh-password='my-password'  \
 	--scenario='' \
 	--warning-status='' \
 	--critical-status='%{status} ne "success"' \

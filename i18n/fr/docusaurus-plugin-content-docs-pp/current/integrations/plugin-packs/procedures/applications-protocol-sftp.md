@@ -266,8 +266,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=apps::protocols::sftp::plugin \
 	--mode=scenario \
 	--hostname='10.0.0.1'  \
-	--ssh-username='' \
-	--ssh-password=''  \
+	--ssh-username='my-username' \
+	--ssh-password='my-password' \
 	--scenario='' \
 	--warning-status='' \
 	--critical-status='%{status} ne "success"' \

@@ -29,7 +29,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias  | Service Template                   | Service Description                                                              |
 |:---------------|:-----------------------------------|:---------------------------------------------------------------------------------|
-| FTP-Commands   | App-Protocol-FTP-Commands-custom   | Check several commands execution on a remote FTP server                          |
+| FTP-Commands   | App-Protocol-FTP-Commands-custom   | Check  the execution of several commands on a remote FTP server                          |
 | FTP-Date       | App-Protocol-FTP-Date-custom       | Check date of files within a directory or a specific file on a remote FTP Server |
 | FTP-FilesCount | App-Protocol-FTP-FilesCount-custom | Count files on a remote FTP directory                                            |
 
@@ -43,9 +43,6 @@ The connector brings the following service templates (sorted by the host templat
 Here is the list of services for this connector, detailing all metrics linked to each service.
 
 <Tabs groupId="sync">
-<TabItem value="FTP-Commands" label="FTP-Commands">
-
-</TabItem>
 <TabItem value="FTP-Commands" label="FTP-Commands">
 
 For this specific service template, the names of the metrics depend on the configuration made by the user.
@@ -76,7 +73,7 @@ For this specific service template, the names of the metrics depend on the confi
 
 ## Prerequisites
 
-User and password to connect to the ftp share.
+The plugin will need a username and password to connect to the FTP share.
 
 ## Installing the monitoring connector
 
@@ -177,8 +174,8 @@ yum install centreon-plugin-Applications-Protocol-Ftp
 
 | Macro           | Description                                                                                                                              | Default value     | Mandatory   |
 |:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FTPUSERNAME     | Specify username for authentification.                                                                                                   |                   |             |
-| FTPPASSWORD     | Specify password for authentification.                                                                                                   |                   |             |
+| FTPUSERNAME     | Specify username for authentication.                                                                                                   |                   |             |
+| FTPPASSWORD     | Specify password for authentication.                                                                                                   |                   |             |
 | FTPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -243,8 +240,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--plugin=apps::protocols::ftp::plugin \
 	--mode=login \
 	--hostname=10.0.0.1  \
-	--username='' \
-	--password='' \
+	--username='username' \
+	--password=password' \
 	--warning='' \
 	--critical='' 
 ```
@@ -336,8 +333,8 @@ All available options for each service template are listed below:
 | --port        | Port used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --ssl         | Use SSL connection Need Perl 'Net::FTPSSL' module                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --ftp-options | Add custom ftp options. Example: --ftp-options='Debug=1" --ftp-options='useSSL=1'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --username    | Specify username for authentification                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --password    | Specify password for authentification                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --username    | Specify username for authentication                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --password    | Specify password for authentication                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --timeout     | Connection timeout in seconds (default: 30)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --warning     | Warning threshold in seconds                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --critical    | Critical threshold in seconds                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
@@ -352,8 +349,8 @@ All available options for each service template are listed below:
 | --port        | Port used                                                                           |
 | --ssl         | Use SSL connection Need Perl 'Net::FTPSSL' module                                   |
 | --ftp-options | Add custom ftp options. Example: --ftp-options='Debug=1" --ftp-options='useSSL=1'   |
-| --username    | Specify username for authentification                                               |
-| --password    | Specify password for authentification                                               |
+| --username    | Specify username for authentication                                               |
+| --password    | Specify password for authentication                                               |
 | --timeout     | Connection timeout in seconds (default: 30)                                         |
 | --warning     | Warning threshold in seconds for each files (diff time)                             |
 | --critical    | Critical threshold in seconds for each files (diff time)                            |
@@ -370,8 +367,8 @@ All available options for each service template are listed below:
 | --port        | Port used                                                                           |
 | --ssl         | Use SSL connection Need Perl 'Net::FTPSSL' module                                   |
 | --ftp-options | Add custom ftp options. Example: --ftp-options='Debug=1" --ftp-options='useSSL=1'   |
-| --username    | Specify username for authentification                                               |
-| --password    | Specify password for authentification                                               |
+| --username    | Specify username for authentication                                               |
+| --password    | Specify password for authentication                                               |
 | --timeout     | Connection timeout in seconds (default: 30)                                         |
 | --warning     | Warning threshold (number of files)                                                 |
 | --critical    | Critical threshold (number of files)                                                |
@@ -388,8 +385,8 @@ All available options for each service template are listed below:
 | --port        | Port used                                                                           |
 | --ssl         | Use SSL connection Need Perl 'Net::FTPSSL' module                                   |
 | --ftp-options | Add custom ftp options. Example: --ftp-options='Debug=1" --ftp-options='useSSL=1'   |
-| --username    | Specify username for authentification                                               |
-| --password    | Specify password for authentification                                               |
+| --username    | Specify username for authentication                                               |
+| --password    | Specify password for authentication                                               |
 | --timeout     | Connection timeout in seconds (default: 30)                                         |
 | --warning     | Warning threshold in seconds                                                        |
 | --critical    | Critical threshold in seconds                                                       |

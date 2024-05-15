@@ -90,7 +90,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-Pour superviser votre serveur CIFS, il est possible de réaliser une authentification par : 
+Pour superviser votre serveur CIFS, le plugin devra s'y connecter avec un login et mot de passe. 
 * utilisateur et mot de passe
 
 ## Installer le connecteur de supervision
@@ -287,8 +287,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=apps::protocols::cifs::plugin \
 	--mode=scenario \
 	--hostname='10.0.0.1' \
-	--cifs-username='' \
-	--cifs-password='' \
+        --cifs-username='my-username' \
+        --cifs-password='my-password' \
 	--timeout=''   \
 	--scenario='' \
 	--warning-status='' \
