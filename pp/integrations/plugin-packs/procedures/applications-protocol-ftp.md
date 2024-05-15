@@ -46,7 +46,9 @@ Here is the list of services for this connector, detailing all metrics linked to
 <TabItem value="FTP-Commands" label="FTP-Commands">
 
 </TabItem>
-<TabItem value="FTP-Date" label="FTP-Date">
+<TabItem value="FTP-Commands" label="FTP-Commands">
+
+For this specific service template, the names of the metrics depend on the configuration made by the user.
 
 </TabItem>
 <TabItem value="FTP-Date" label="FTP-Date">

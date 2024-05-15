@@ -46,6 +46,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="FTP-Commands" label="FTP-Commands">
 
+Pour ce modèle de service spécifique, les noms des métriques dépendront de la configuration effectuée par l'utilisateur.
+
 </TabItem>
 <TabItem value="FTP-Date" label="FTP-Date">
 
