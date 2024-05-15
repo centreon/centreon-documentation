@@ -72,9 +72,17 @@ de la part de Centreon. Reportez-vous au [guide d'utilisation Canopsis](https://
 [administration des droits](https://doc.canopsis.net/guide-utilisation/menu-administration/droits/) et celle d'
 [administration de la planification](https://doc.canopsis.net/guide-utilisation/menu-administration/planification/) 
 dans le cas des plages de maintenance). 
-Pour l'utilisateur associé à la clé d'authentification, il faut modifier la matrice de droits à la page **Administration > Droits**, onglet **API**, section **Comportements périodiques** de Canopsis.
-Cochez les cases **create**, **read** et **delete** pour les sous-sections suivantes :
-**Comportements périodiques**, **Comportements périodiques : Raisons** et **Comportements périodiques : Types**.
+Pour l'utilisateur associé à la clé d'authentification, il faut modifier la matrice de droits à la page **Administration > Droits**.
+Vous devez avoir au minimum coché les cases indiquées dans le tableau suivant :
+
+| Section                   | Sous-section                                   | Case minimales à cocher                         |
+|---------------------------|------------------------------------------------|-------------------------------------------------|
+| Général                   | Événement                                      | Cocher la seule case disponible                 |
+| Comportements périodiques | Comportements périodiques                      | Cocher les cases create, read, update et delete |
+| Comportements périodiques | Comportements périodiques : Dates d'exceptions | Cocher les cases create et read                 |
+| Comportements périodiques | Comportements périodiques : Raisons            | Cocher les cases create et read                 |
+| Comportements périodiques | Comportements périodiques : Types              | Cocher la case read                             |
+
 Assurez-vous que Canopsis puisse recevoir les données envoyées par Centreon : les flux 
 ne doivent pas être bloqués par la configuration de Canopsis ou par un équipement de sécurité.
 
@@ -173,18 +181,8 @@ plages de maintenance à la variable **accepted_elements**).
 
 ## Event bulking
 
-Ce stream connector est compatible avec l'event bulking. Cela signifie qu'il est capable 
+Ce stream connector n'est compatible **pas** avec l'event bulking pour le moment. Cela signifie qu'il n'est **pas** capable 
 d'envoyer plus d'un évènement lors de chaque appel à l'API REST Canopsis.
-
-Pour utiliser cette fonctionnalité, vous devez ajouter le paramètre suivant à la configuration 
-de votre stream connector.
-
-| Type   | Nom             | Exemple de valeur |
-| ------ |-----------------|-------------------|
-| number | max_buffer_size | `3`               |
-
-Dans l'exemple ci-dessus, le stream connector Canopsis attendra d'avoir 4 évènements pour les envoyer. 
-
 
 ## Format des évènements
 

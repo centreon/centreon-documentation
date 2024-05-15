@@ -70,9 +70,16 @@ You will need to configure your Canopsis instance to receive data from Centreon.
 , in particular check if creation, reading and deletion rights are activated. See the following documentations: 
 * [rights administration](https://doc.canopsis.net/guide-utilisation/menu-administration/droits/) 
 * [planification administration](https://doc.canopsis.net/guide-utilisation/menu-administration/planification/) (in case of downtimes). 
-For the user associated to the **Authentication key** you must modify the rights matrix on the Canopsis **Administration > Rights** page, **API** tab, **PBehavior** section.
-Select **create**, **read** and **delete** in the following subsections:
-**PBehaviors**, **Behaviors Reason** and **PBehaviors Types**.
+For the user associated to the **Authentication key** you must modify the rights matrix on the Canopsis **Administration > Rights** page, **API** tab. 
+You need to check at least the box listed in this table:
+
+| Section   | Subsection            | Minimum box to check                      |
+|-----------|-----------------------|-------------------------------------------|
+| Global    | Event                 | Check the only available                  |
+| PBehavior | PBehaviors            | Check create, read, update and delete box |
+| PBehavior | PBehaviors Exceptions | Check create and read box                 |
+| PBehavior | PBehaviors Reason     | Check create and read box                 |
+| PBehavior | PBehaviors Types      | Check read box                            |
 
 Make sure Canopsis is able to receive data sent by Centreon: flows must not be blocked 
 by Canopsis's configuration or by a security equipment.
@@ -168,17 +175,8 @@ change their values (for example to remove the downtimes in the **accepted_eleme
 
 ## Event bulking
 
-This stream connector is compatible with event bulking. Meaning that it is able to send 
+This stream connector is **not** compatible with event bulking at this moment. Meaning that it is **not** able to send 
 more than one event in each call to the Canopsis REST API.
-
-To use this feature you must add the following parameter in your stream connector 
-configuration.
-
-| Type   | Name            | Value example |
-| ------ | --------------- |---------------|
-| number | max_buffer_size | `3`           |
-
-In the example above, the Canopsis stream connector waits until there are 4 events to send them all.
 
 ## Event format
 
