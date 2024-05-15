@@ -45,33 +45,36 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="FTP-Commands" label="FTP-Commands">
 
-Coming soon
+</TabItem>
+<TabItem value="FTP-Date" label="FTP-Date">
 
 </TabItem>
 <TabItem value="FTP-Date" label="FTP-Date">
 
-Coming soon
+| Métrique   | Unité |
+|:-----------|:------|
+| files#list | N/A   |
 
 </TabItem>
 <TabItem value="FTP-FilesCount" label="FTP-FilesCount">
 
-| Metric name | Unit  |
+| Métrique    | Unité |
 |:------------|:------|
 | files       | N/A   |
 
 </TabItem>
 <TabItem value="FTP-Login" label="FTP-Login">
 
-Coming soon
+| Métrique | Unité |
+|:---------|:------|
+| time     | N/A   |
 
 </TabItem>
 </Tabs>
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+User and password to connect to the ftp share.
 
 ## Installing the monitoring connector
 
@@ -172,8 +175,8 @@ yum install centreon-plugin-Applications-Protocol-Ftp
 
 | Macro           | Description                                                                                                                              | Default value     | Mandatory   |
 |:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FTPUSERNAME     | Specify username for authentification                                                                                                    |                   |             |
-| FTPPASSWORD     | Specify password for authentification                                                                                                    |                   |             |
+| FTPUSERNAME     | Specify username for authentification.                                                                                                   |                   |             |
+| FTPPASSWORD     | Specify password for authentification.                                                                                                   |                   |             |
 | FTPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -189,8 +192,8 @@ yum install centreon-plugin-Applications-Protocol-Ftp
 | Macro        | Description                                                                                                                                                                          | Default value     | Mandatory   |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FTPCOMMAND   | Set command to test. (can be : binary; ascii; cwd,DIR; rmdir,DIR; mdkir,DIR; ls,DIR; rename,OLDNAME,NEWNAME; delete,FILENAME; get,REMOTE_FILE,LOCAL_FILE; put,LOCAL_FILE,REMOTE_FILE | cwd,DIR           |             |
-| CRITICAL     | Threshold                                                                                                                                                                            |                   |             |
-| WARNING      | Threshold                                                                                                                                                                            |                   |             |
+| CRITICAL     | Threshold.                                                                                                                                                                           |                   |             |
+| WARNING      | Threshold.                                                                                                                                                                           |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                               |                   |             |
 
 </TabItem>
@@ -198,28 +201,28 @@ yum install centreon-plugin-Applications-Protocol-Ftp
 
 | Macro        | Description                                                                                                                            | Default value     | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| DIRECTORY    | Check files in the directory (no recursion)                                                                                            |                   |             |
-| CRITICAL     | Critical threshold in seconds for each files (diff time)                                                                               |                   |             |
-| WARNING      | Warning threshold in seconds for each files (diff time)                                                                                |                   |             |
+| DIRECTORY    | Check files in the directory (no recursion).                                                                                           |                   |             |
+| CRITICAL     | Critical threshold in seconds for each files (diff time).                                                                              |                   |             |
+| WARNING      | Warning threshold in seconds for each files (diff time).                                                                               |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="FTP-FilesCount" label="FTP-FilesCount">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| DIRECTORY    | Check files in the directory (multiple option)                                                     |                   |             |
-| WARNING      | Warning threshold (number of files)                                                                |                   |             |
-| CRITICAL     | Critical threshold (number of files)                                                               |                   |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| DIRECTORY    | Check files in the directory (multiple option).                                                                                        |                   |             |
+| WARNING      | Warning threshold (number of files).                                                                                                   |                   |             |
+| CRITICAL     | Critical threshold (number of files).                                                                                                  |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="FTP-Login" label="FTP-Login">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CRITICAL     | Critical threshold in seconds                                                                      |                   |             |
-| WARNING      | Warning threshold in seconds                                                                       |                   |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| CRITICAL     | Critical threshold in seconds.                                                                                                         |                   |             |
+| WARNING      | Warning threshold in seconds.                                                                                                          |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
@@ -247,7 +250,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: | 
+OK: Response time 0.024  | 'time'=0.024;;;;
 
 ```
 

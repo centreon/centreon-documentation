@@ -46,12 +46,12 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="FTP-Commands" label="FTP-Commands">
 
-Coming soon
-
 </TabItem>
 <TabItem value="FTP-Date" label="FTP-Date">
 
-Coming soon
+| Métrique   | Unité |
+|:-----------|:------|
+| files#list | N/A   |
 
 </TabItem>
 <TabItem value="FTP-FilesCount" label="FTP-FilesCount">
@@ -63,16 +63,16 @@ Coming soon
 </TabItem>
 <TabItem value="FTP-Login" label="FTP-Login">
 
-Coming soon
+| Métrique | Unité |
+|:---------|:------|
+| time     | N/A   |
 
 </TabItem>
 </Tabs>
 
 ## Prérequis
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+User and password to connect to the ftp share.
 
 ## Installer le connecteur de supervision
 
@@ -171,8 +171,8 @@ yum install centreon-plugin-Applications-Protocol-Ftp
 
 | Macro           | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FTPUSERNAME     | Specify username for authentification                                                                                                              |                   |             |
-| FTPPASSWORD     | Specify password for authentification                                                                                                              |                   |             |
+| FTPUSERNAME     | Specify username for authentification.                                                                                                             |                   |             |
+| FTPPASSWORD     | Specify password for authentification.                                                                                                             |                   |             |
 | FTPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -188,8 +188,8 @@ yum install centreon-plugin-Applications-Protocol-Ftp
 | Macro        | Description                                                                                                                                                                          | Valeur par défaut | Obligatoire |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FTPCOMMAND   | Set command to test. (can be : binary; ascii; cwd,DIR; rmdir,DIR; mdkir,DIR; ls,DIR; rename,OLDNAME,NEWNAME; delete,FILENAME; get,REMOTE_FILE,LOCAL_FILE; put,LOCAL_FILE,REMOTE_FILE | cwd,DIR           |             |
-| CRITICAL     | Threshold                                                                                                                                                                            |                   |             |
-| WARNING      | Threshold                                                                                                                                                                            |                   |             |
+| CRITICAL     | Threshold.                                                                                                                                                                           |                   |             |
+| WARNING      | Threshold.                                                                                                                                                                           |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                     |                   |             |
 
 </TabItem>
@@ -197,9 +197,9 @@ yum install centreon-plugin-Applications-Protocol-Ftp
 
 | Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| DIRECTORY    | Check files in the directory (no recursive)                                                                                                      |                   |             |
-| CRITICAL     | Critical threshold in seconds for each files (diff time)                                                                                         |                   |             |
-| WARNING      | Warning threshold in seconds for each files (diff time)                                                                                          |                   |             |
+| DIRECTORY    | Check files in the directory (no recursive).                                                                                                     |                   |             |
+| CRITICAL     | Critical Threshold. in seconds for each files (diff time).                                                                                       |                   |             |
+| WARNING      | Warning Threshold. in seconds for each files (diff time).                                                                                        |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -207,9 +207,9 @@ yum install centreon-plugin-Applications-Protocol-Ftp
 
 | Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| DIRECTORY    | Check files in the directory                                                                                                                     |                   |             |
-| WARNING      | Warning threshold (number of files)                                                                                                              |                   |             |
-| CRITICAL     | Critical threshold (number of files)                                                                                                             |                   |             |
+| DIRECTORY    | Check files in the directory.                                                                                                                    |                   |             |
+| WARNING      | Warning Threshold. (number of files).                                                                                                            |                   |             |
+| CRITICAL     | Critical Threshold. (number of files).                                                                                                           |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -217,8 +217,8 @@ yum install centreon-plugin-Applications-Protocol-Ftp
 
 | Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CRITICAL     | Critical threshold in seconds                                                                                                                    |                   |             |
-| WARNING      | Warning threshold in seconds                                                                                                                     |                   |             |
+| CRITICAL     | Critical Threshold. In seconds.                                                                                                                  |                   |             |
+| WARNING      | Warning Threshold. In seconds.                                                                                                                   |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -248,7 +248,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: | 
+OK: Response time 0.028  | 'time'=0.028;;;;
 
 ```
 

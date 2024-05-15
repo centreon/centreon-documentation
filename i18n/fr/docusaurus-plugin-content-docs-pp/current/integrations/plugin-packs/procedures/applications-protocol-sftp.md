@@ -199,10 +199,10 @@ yum install centreon-plugin-Applications-Protocol-Sftp
 
 | Macro          | Description                                                                                                                                      | Valeur par défaut                         | Obligatoire |
 |:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------|:-----------:|
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{message}                         | %{message} !~ /authentication succeeded/i |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{message}                          |                                           |             |
-| WARNINGTIME    | Warning threshold in seconds                                                                                                                     |                                           |             |
-| CRITICALTIME   | Critical threshold in seconds                                                                                                                    |                                           |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{message}.                        | %{message} !~ /authentication succeeded/i |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{message}.                         |                                           |             |
+| WARNINGTIME    | Warning threshold in seconds.                                                                                                                    |                                           |             |
+| CRITICALTIME   | Critical threshold in seconds.                                                                                                                   |                                           |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                                           |             |
 
 </TabItem>
@@ -212,9 +212,9 @@ yum install centreon-plugin-Applications-Protocol-Sftp
 |:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | MAXDEPTH              | Number of levels of directories to check. 0 means current directory only.                                                                        | 0                 |             |
 | DIRECTORY             | Name of the directory to check.                                                                                                                  |                   | X           |
-| FILTERFILE            | Filter files (can be a regexp. Directory in the name)                                                                                            |                   |             |
-| WARNINGFILESDETECTED  | Thresholds                                                                                                                                       |                   |             |
-| CRITICALFILESDETECTED | Thresholds                                                                                                                                       |                   |             |
+| FILTERFILE            | Filter files (can be a regexp. Directory in the name).                                                                                           |                   |             |
+| WARNINGFILESDETECTED  | Thresholds.                                                                                                                                      |                   |             |
+| CRITICALFILESDETECTED | Thresholds.                                                                                                                                      |                   |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -224,8 +224,8 @@ yum install centreon-plugin-Applications-Protocol-Sftp
 |:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILE              | Name of the file to check.                                                                                                                       |                   | X           |
 | DIRECTORY         | Name of the directory to check (no recursion).                                                                                                   |                   | X           |
-| WARNINGMTIMELAST  | Thresholds                                                                                                                                       |                   |             |
-| CRITICALMTIMELAST | Thresholds                                                                                                                                       |                   |             |
+| WARNINGMTIMELAST  | Thresholds.                                                                                                                                      |                   |             |
+| CRITICALMTIMELAST | Thresholds.                                                                                                                                      |                   |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -234,18 +234,18 @@ yum install centreon-plugin-Applications-Protocol-Sftp
 | Macro              | Description                                                                                                                                      | Valeur par défaut      | Obligatoire |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
 | SCENARIO           | Scenario used (required). Can be a file or json content                                                                                          |                        | X           |
-| WARNINGERRORS      | Thresholds                                                                                                                                       |                        |             |
-| CRITICALERRORS     | Thresholds                                                                                                                                       |                        |             |
-| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL.  You can use the following variables: %{status}                                    | %{status} ne "success" |             |
-| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}                                      |                        |             |
-| WARNINGSTEPSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{message}                          |                        |             |
-| CRITICALSTEPSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{message}                         |                        |             |
-| WARNINGSTEPTIME    | Thresholds                                                                                                                                       |                        |             |
-| CRITICALSTEPTIME   | Thresholds                                                                                                                                       |                        |             |
-| WARNINGTOTALSTEPS  | Thresholds                                                                                                                                       |                        |             |
-| CRITICALTOTALSTEPS | Thresholds                                                                                                                                       |                        |             |
-| WARNINGTOTALTIME   | Thresholds                                                                                                                                       |                        |             |
-| CRITICALTOTALTIME  | Thresholds                                                                                                                                       |                        |             |
+| WARNINGERRORS      | Thresholds.                                                                                                                                      |                        |             |
+| CRITICALERRORS     | Thresholds.                                                                                                                                      |                        |             |
+| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL.  You can use the following variables: %{status}.                                   | %{status} ne "success" |             |
+| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}.                                     |                        |             |
+| WARNINGSTEPSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{message}.                         |                        |             |
+| CRITICALSTEPSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{message}.                        |                        |             |
+| WARNINGSTEPTIME    | Thresholds.                                                                                                                                      |                        |             |
+| CRITICALSTEPTIME   | Thresholds.                                                                                                                                      |                        |             |
+| WARNINGTOTALSTEPS  | Thresholds.                                                                                                                                      |                        |             |
+| CRITICALTOTALSTEPS | Thresholds.                                                                                                                                      |                        |             |
+| WARNINGTOTALTIME   | Thresholds.                                                                                                                                      |                        |             |
+| CRITICALTOTALTIME  | Thresholds.                                                                                                                                      |                        |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose              |             |
 
 </TabItem>

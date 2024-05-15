@@ -180,10 +180,10 @@ yum install centreon-plugin-Applications-Protocol-Sftp
 3. Apply the **App-Protocol-Sftp-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                    | Description                                                                                          | Default value     | Mandatory   |
-|:-------------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PROTOCOLSFTPUSERNAME     | SSH username                                                                                         |                   |             |
-| PROTOCOLSFTPPASSWORD     | SSH password                                                                                         |                   |             |
+| Macro                    | Description                                                                                                                              | Default value     | Mandatory   |
+|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROTOCOLSFTPUSERNAME     | SSH username.                                                                                                                            |                   |             |
+| PROTOCOLSFTPPASSWORD     | SSH password.                                                                                                                            |                   |             |
 | PROTOCOLSFTPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -198,10 +198,10 @@ yum install centreon-plugin-Applications-Protocol-Sftp
 
 | Macro          | Description                                                                                                                            | Default value                             | Mandatory   |
 |:---------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------|:-----------:|
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{message}               | %{message} !~ /authentication succeeded/i |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{message}                |                                           |             |
-| WARNINGTIME    | Warning threshold in seconds                                                                                                           |                                           |             |
-| CRITICALTIME   | Critical threshold in seconds                                                                                                          |                                           |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{message}.              | %{message} !~ /authentication succeeded/i |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{message}.               |                                           |             |
+| WARNINGTIME    | Warning threshold in seconds.                                                                                                          |                                           |             |
+| CRITICALTIME   | Critical threshold in seconds.                                                                                                         |                                           |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                                           |             |
 
 </TabItem>
@@ -212,8 +212,8 @@ yum install centreon-plugin-Applications-Protocol-Sftp
 | MAXDEPTH              | Number of level of directory to check. 0 mean current directory only.                                                                  | 0                 |             |
 | DIRECTORY             | Directory name to check.                                                                                                               |                   | X           |
 | FILTERFILE            | Filter files (can be a regexp. Directory in the name).                                                                                 |                   |             |
-| WARNINGFILESDETECTED  | Thresholds                                                                                                                             |                   |             |
-| CRITICALFILESDETECTED | Thresholds                                                                                                                             |                   |             |
+| WARNINGFILESDETECTED  | Thresholds.                                                                                                                            |                   |             |
+| CRITICALFILESDETECTED | Thresholds.                                                                                                                            |                   |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
@@ -223,8 +223,8 @@ yum install centreon-plugin-Applications-Protocol-Sftp
 |:------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILE              | File name to check.                                                                                                                    |                   | X           |
 | DIRECTORY         | Directory name to check  (no recursion).                                                                                               |                   | X           |
-| WARNINGMTIMELAST  | Thresholds                                                                                                                             |                   |             |
-| CRITICALMTIMELAST | Thresholds                                                                                                                             |                   |             |
+| WARNINGMTIMELAST  | Thresholds.                                                                                                                            |                   |             |
+| CRITICALMTIMELAST | Thresholds.                                                                                                                            |                   |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
@@ -235,10 +235,10 @@ yum install centreon-plugin-Applications-Protocol-Sftp
 | SCENARIO           | Scenario used (required). Can be a file or json content                                                                                |                        | X           |
 | WARNINGERRORS      | Thresholds.                                                                                                                            |                        |             |
 | CRITICALERRORS     | Thresholds.                                                                                                                            |                        |             |
-| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}                           | %{status} ne "success" |             |
-| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}                            |                        |             |
-| WARNINGSTEPSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{message}                |                        |             |
-| CRITICALSTEPSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{message}               |                        |             |
+| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}.                          | %{status} ne "success" |             |
+| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}.                           |                        |             |
+| WARNINGSTEPSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{message}.               |                        |             |
+| CRITICALSTEPSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{message}.              |                        |             |
 | WARNINGSTEPTIME    | Thresholds.                                                                                                                            |                        |             |
 | CRITICALSTEPTIME   | Thresholds.                                                                                                                            |                        |             |
 | WARNINGTOTALSTEPS  | Thresholds.                                                                                                                            |                        |             |
