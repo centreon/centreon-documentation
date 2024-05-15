@@ -73,13 +73,13 @@ You will need to configure your Canopsis instance to receive data from Centreon.
 For the user associated to the **Authentication key** you must modify the rights matrix on the Canopsis **Administration > Rights** page, **API** tab. 
 You need to check at least the box listed in this table:
 
-| Section   | Subsection            | Minimum box to check                      |
+| Section   | Subsection            | Boxes to check                      |
 |-----------|-----------------------|-------------------------------------------|
-| Global    | Event                 | Check the only available                  |
-| PBehavior | PBehaviors            | Check create, read, update and delete box |
-| PBehavior | PBehaviors Exceptions | Check create and read box                 |
-| PBehavior | PBehaviors Reason     | Check create and read box                 |
-| PBehavior | PBehaviors Types      | Check read box                            |
+| Global    | Event                 | Check the only available box               |
+| PBehavior | PBehaviors            | Check the create, read, update and delete boxes |
+| PBehavior | PBehaviors Exceptions | Check the create and read boxes             |
+| PBehavior | PBehaviors Reason     | Check the create and read boxes                 |
+| PBehavior | PBehaviors Types      | Check the read box                            |
 
 Make sure Canopsis is able to receive data sent by Centreon: flows must not be blocked 
 by Canopsis's configuration or by a security equipment.
@@ -104,14 +104,14 @@ mandatory parameters. The fields for the first entry are already present. Click 
 the **+Add a new entry** link located below the **Filter category** table to add 
 another one.
 
-| Type   | Name             | Value explanation                     | Value exemple |
+| Type   | Name             | Description                     | Example of value |
 | ------ |------------------|---------------------------------------|--------------|
 | string | canopsis_authkey | Canopsis API authentication key | `an_authkey` |
 | string | canopsis_host    | Canopsis host address                 | `a host`     |
 
 6. Fill in any optional parameters you want (using the **+Add a new entry** link):
 
-| Type   | Name              | Value explanation                          | Default value                                      |
+| Type   | Name              | Description                          | Default value                                      |
 | ------ | ----------------- |--------------------------------------------|----------------------------------------------------|
 | string | logfile           | File in which logs are written             | /var/log/centreon-broker/canopsis-events-apiv2.log |
 | number | log_level         | Logging level from 1 (errors) to 3 (debug) | 1                                                  |
@@ -175,14 +175,14 @@ change their values (for example to remove the downtimes in the **accepted_eleme
 
 ## Event bulking
 
-This stream connector is **not** compatible with event bulking at this moment. Meaning that it is **not** able to send 
+This stream connector is not compatible with event bulking at this moment. Meaning that it is not able to send 
 more than one event in each call to the Canopsis REST API.
 
 ## Event format
 
 This stream connector will send events with the following format.
 
-### Output example for service_status event
+### Output example for service_status events
 
 ```json
 [
@@ -210,7 +210,7 @@ This stream connector will send events with the following format.
 ]
 ```
 
-### Output example for host_status event
+### Output example for host_status events
 
 ```json
 [
@@ -235,7 +235,7 @@ This stream connector will send events with the following format.
 ]
 ```
 
-### Output example for acknowledgement event
+### Output example for acknowledgement events
 
 ```json
 [
@@ -255,7 +255,7 @@ This stream connector will send events with the following format.
 ]
 ```
 
-### Output example for downtime event
+### Output example for downtime events
 
 ```json
 [
@@ -284,12 +284,12 @@ This stream connector will send events with the following format.
 ]
 ```
 
-* Note: In version 22.10 of Canopsis there is also a color field.*
+* Note: In version 22.10 of Canopsis there is also a "color" field.
 
 ### Custom event format
 
 This stream connector allows you to change the format of the event to suit your needs. 
-It allows you to handle events type that are not handled by default such as 
+It allows you to handle event types that are not handled by default such as 
 **ba_status** events.
 
 In order to use this feature you need to configure a json event format file and add 
@@ -316,7 +316,7 @@ This command checks that the **pbehavior-reasons** route is accessible and retur
 
 1. Log in to the server that you configured to send events to Canopsis (your central 
 server, a remote server or a poller).
-2. Run the following command (replace with you own values):
+2. Run the following command (replace with your own values):
 
 ```shell
 curl -X GET -H 'accept: application/json' -H 'x-canopsis-authkey: <canopsis-auth-token>' '<https_canopsis_host_url>:<canopsis_port><canopsis_pbehavior_reasons>'

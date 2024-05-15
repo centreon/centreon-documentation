@@ -129,7 +129,6 @@ données que vous voulez que Centreon envoie à Canopsis](#filtering-or-adapting
 
    Canopsis reçoit maintenant les données de Centreon.
 
-<div id='filtering-or-adapting-the-data-you-want-to-send-to-canopsis'/>
 
 ### Filtrer ou adapter les données que vous voulez envoyer à Canopsis
 
@@ -164,11 +163,11 @@ plages de maintenance à la variable **accepted_elements**).
 | string | canopsis_downtime_comment_route  | Route Canopsis pour envoyer les commentaires sur les plages de maintenance                                                                                                                                  | /api/v4/pbehavior-comments                          | /api/v4/pbehavior-comments                                   |
 | string | canopsis_downtime_reason_name    | Nom de la raison Canopsis pour les plages de maintenance                                                                                                                                                    | Centreon_downtime                                   | -                                                            |
 | string | canopsis_downtime_reason_route   | Route Canopsis pour requêter le champs "raison"                                                                                                                                                             | /api/v4/pbehavior-reasons                           | /api/v4/pbehavior-reasons                                    |
-| string | canopsis_downtime_route          | Route Canospsis pour envoyer les plages de maintenance                                                                                                                                                      | /api/v4/pbehaviors                                  | /api/v4/pbehaviors                                           |
+| string | canopsis_downtime_route          | Route Canopsis pour envoyer les plages de maintenance                                                                                                                                                      | /api/v4/pbehaviors                                  | /api/v4/pbehaviors                                           |
 | number | canopsis_downtime_send_pbh       | Désactiver (0) / Activer (1) l'envoi des plages de maintenance si toutes les règles pour le faire sont validées (le champs raison et le type existent)                                                      | 1                                                   | 0 ou 1                                                       |
 | string | canopsis_downtime_type_name      | Nom de la catégorie de type des plages de maintenance de Canopsis                                                                                                                                           | Default maintenance                                 | -                                                            |
 | string | canopsis_downtime_type_route     | Route Canopsis pour requêter le champs "type"                                                                                                                                                               | /api/v4/pbehavior-types                             | /api/v4/pbehavior-types                                      |
-| string | canopsis_event_route             | Route Canospsis pour envoyer les événements (hors plages de maintenance)                                                                                                                                    | /api/v4/event                                       | /api/v4/event                                                |
+| string | canopsis_event_route             | Route Canopsis pour envoyer les événements (hors plages de maintenance)                                                                                                                                    | /api/v4/event                                       | /api/v4/event                                                |
 | number | canopsis_port                    | Port Canopsis                                                                                                                                                                                               | 443                                                 | -                                                            |
 | number | canopsis_sort_list_hostgroups    | Désactiver (0) / Activer (1) le tri des listes de groupes d'hôtes                                                                                                                                           | 0                                                   | 0 ou 1                                                       |
 | number | canopsis_sort_list_servicegroups | Désactiver (0) /Activer (1) le tri des listes de groupes de services                                                                                                                                        | 0                                                   | 0 ou 1                                                       |
@@ -181,7 +180,7 @@ plages de maintenance à la variable **accepted_elements**).
 
 ## Event bulking
 
-Ce stream connector n'est compatible **pas** avec l'event bulking pour le moment. Cela signifie qu'il n'est **pas** capable 
+Ce stream connector n'est pas compatible avec l'event bulking pour le moment. Cela signifie qu'il n'est pas capable 
 d'envoyer plus d'un évènement lors de chaque appel à l'API REST Canopsis.
 
 ## Format des évènements
@@ -290,7 +289,7 @@ Ce stream connector envoie des évènements au format suivant :
 ]
 ```
 
-* Remarque : En version 22.10 de Canopsis il y a en plus un champs color.*
+* Remarque : Dans la version 22.10 de Canopsis, il y a en plus un champ "color" supplémentaire.
 
 ### Format d'évènement personnalisé
 
