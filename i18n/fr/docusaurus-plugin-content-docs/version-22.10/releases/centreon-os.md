@@ -18,6 +18,29 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 22.10.22
+
+Release date: `May 16, 2024`
+
+#### Enhancements
+
+- [Enhancement] unattended.sh script now allows new options (Debian12, MariaDB versionalization, MySQL 8)
+
+#### Bug fixes
+
+- [API] Fixed an issue on downtimes for services linked to service group via service template.
+- [Configuration] Fixed an issue in Service Categories configuration page (blank page in some cases).
+
+#### Security fixes
+
+- [Security] Fixed SQLi in configuration.
+- [Security] Fixed SQLi in graph generation.
+- [Security] Fixed SQLi in service configuration.
+- [Security] Fixed SLQi in hosts configuration.
+- [Security] Fixed SQLi in connectors configuration.
+- [Security] Fixed SQLi in hostgroups configuration.
+- [Security] Fixed SQLi in media management.
+
 ### 22.10.21
 
 Release date: `Avril 10, 2024`
@@ -592,6 +615,15 @@ Release date: `October 26, 2022`
 - [Code] Calls to the `atoi()` C function have been replaced by more secure functions
 
 ## Centreon Gorgone
+
+### 22.10.7
+
+Release date: `May 16, 2024`
+
+#### Bug fixes
+
+- [Gorgone] Fixed a path issue on systemctl (Gorgone whitelist).
+- [Packaging] Fixed inconsistent system permissions on /var/log/centreon-engine/centengine.log.
 
 ### 22.10.6
 
