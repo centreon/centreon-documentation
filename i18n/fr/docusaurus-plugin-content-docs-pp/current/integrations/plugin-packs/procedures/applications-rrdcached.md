@@ -22,8 +22,8 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias       | Modèle de service                     | Description                              |
 |:------------|:--------------------------------------|:-----------------------------------------|
-| Ping-Socket | App-Rrdcached-Ping-Socket-Tcp-custom  | Monitor status and performance of RRDcached daemon  |
-| Stats       | App-Rrdcached-Stats-Tcp-custom        | Monitor status and performance of RRDcached daemon  |
+| Ping-Socket | App-Rrdcached-Ping-Socket-Tcp-custom  | Contrôle la disponibilité du service RRDCached en lui envoyant une commande PING.  |
+| Stats       | App-Rrdcached-Stats-Tcp-custom        | Contrôle les statistiques de RRDCached via la commande STATS.  |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Rrdcached-Tcp-custom** est utilisé.
 
@@ -32,8 +32,8 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias       | Modèle de service                     | Description                              |
 |:------------|:--------------------------------------|:-----------------------------------------|
-| Ping-Socket | App-Rrdcached-Ping-Socket-Unix-custom | Monitor status and performance of RRDcached daemon |
-| Stats       | App-Rrdcached-Stats-Unix-custom       | Monitor status and performance of RRDcached daemon |
+| Ping-Socket | App-Rrdcached-Ping-Socket-Unix-custom | Contrôle la disponibilité du service RRDCached en lui envoyant une commande PING. |
+| Stats       | App-Rrdcached-Stats-Unix-custom       | Contrôle les statistiques de RRDCached via la commande STATS. |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Rrdcached-Unix-custom** est utilisé.
 
