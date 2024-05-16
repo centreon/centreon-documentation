@@ -30,7 +30,7 @@ Release date: `May 16, 2024`
 #### Bug fixes
 
 - [API] Fixed an issue on downtimes for services linked to service group via service template.
-- [Configuration] Fixed an issue in Service Categories configuration page (blank page in some cases).
+- [Configuration] Fixed an issue where the Service Categories configuration page could appear blank.
 
 #### Security fixes
 
