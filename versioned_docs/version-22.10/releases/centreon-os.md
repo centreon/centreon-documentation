@@ -34,13 +34,7 @@ Release date: `May 16, 2024`
 
 #### Security fixes
 
-- [Security] Fixed SQLi in configuration.
-- [Security] Fixed SQLi in graph generation.
-- [Security] Fixed SQLi in service configuration.
-- [Security] Fixed SLQi in hosts configuration.
-- [Security] Fixed SQLi in connectors configuration.
-- [Security] Fixed SQLi in hostgroups configuration.
-- [Security] Fixed SQLi in media management.
+- [Security] Fixed several SQLi issues.
 
 ### 22.10.21
 
