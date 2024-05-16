@@ -22,16 +22,11 @@ Release date: `May 16, 2024`
 
 #### Bug fixes
 
-- [API] Fixed an issue on downtimes for services linked to service group via service template.
+- [API] Fixed an issue affecting downtimes on services linked to a service group via a service template.
   
 #### Security fixes
 
-- [Security] Fixed SQLi in configuration.
-- [Security] Fixed SQLi in graph generation.
-- [Security] Fixed SQLi in media management.
-- [Security] Fixed SQLi in service configuration.
-- [Security] Fixed SLQi in hosts configuration.
-- [Security] Fixed SQLi in hostgroups configuration.
+- [Security] Fixed several SQLi issues.
 
 ### 22.04.23
 
