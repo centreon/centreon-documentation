@@ -21,7 +21,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                    | Service Description                      |
 |:--------------|:------------------------------------|:-----------------------------------------|
-| Ping-Socket | App-Rrdcached-Ping-Socket-Tcp-custom  | Monitor status and performance of RRDcached daemon  |
+| Ping-Socket | App-Rrdcached-Ping-Socket-Tcp-custom  | Check the availability of the RRDCached service by sending it a PING command.  |
 | Stats       | App-Rrdcached-Stats-Tcp-custom        | Monitor status and performance of RRDcached daemon  |
 
 > The services listed above are created automatically when the **App-Rrdcached-Tcp-custom** host template is used.
@@ -31,8 +31,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                    | Service Description                      |
 |:------------|:--------------------------------------|:-----------------------------------------|
-| Ping-Socket | App-Rrdcached-Ping-Socket-Unix-custom | Monitor status and performance of RRDcached daemon |
-| Stats       | App-Rrdcached-Stats-Unix-custom       | Check Updates cache of rrdcached daemon  |
+| Ping-Socket | App-Rrdcached-Ping-Socket-Unix-custom | Check the availability of the RRDCached service by sending it a PING command. |
+| Stats       | App-Rrdcached-Stats-Unix-custom       | Monitor status and performance of RRDcached daemon  |
 
 > The services listed above are created automatically when the **App-Rrdcached-Unix-custom** host template is used.
 
