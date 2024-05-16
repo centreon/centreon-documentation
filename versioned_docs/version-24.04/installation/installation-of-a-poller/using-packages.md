@@ -210,7 +210,7 @@ dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-relea
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
-If your server is an AWS machine, you will have to execute the following command:
+If your server is a Cloud RHEL instance, you will have to execute the following command:
 
 ```shell
 dnf config-manager --set-enabled codeready-builder-for-rhel-8-rhui-rpms
@@ -259,7 +259,7 @@ dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch
 subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
 ```
 
-If your server is an AWS machine, you will have to execute the following command:
+If your server is a Cloud RHEL instance, you will have to execute the following command:
 
 ```shell
 dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
