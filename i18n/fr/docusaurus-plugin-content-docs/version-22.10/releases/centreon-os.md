@@ -24,22 +24,16 @@ Release date: `May 16, 2024`
 
 #### Enhancements
 
-- [Enhancement] unattended.sh script now allows new options (Debian12, MariaDB versionalization, MySQL 8)
+- [Enhancement] The unattended.sh script now offers new options (Debian12, MariaDB versioning, MySQL 8).
 
 #### Bug fixes
 
-- [API] Fixed an issue on downtimes for services linked to service group via service template.
-- [Configuration] Fixed an issue in Service Categories configuration page (blank page in some cases).
+- [API] Fixed an issue affecting downtimes on services linked to a service group via a service template.
+- [Configuration] Fixed an issue where the Service Categories configuration page could appear blank.
 
 #### Security fixes
 
-- [Security] Fixed SQLi in configuration.
-- [Security] Fixed SQLi in graph generation.
-- [Security] Fixed SQLi in service configuration.
-- [Security] Fixed SLQi in hosts configuration.
-- [Security] Fixed SQLi in connectors configuration.
-- [Security] Fixed SQLi in hostgroups configuration.
-- [Security] Fixed SQLi in media management.
+- [Security] Fixed several SQLi issues.
 
 ### 22.10.21
 
