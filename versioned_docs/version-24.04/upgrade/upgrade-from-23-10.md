@@ -53,7 +53,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/e
 2. Remove the repository files:
 
    ```shell
-   rm -f /etc/yum.repos.d/centreon-23.10.repo
+   rm /etc/yum.repos.d/centreon-23.10.repo
    rm /etc/yum.repos.d/centreon.repo
    ```
 
