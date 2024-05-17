@@ -37,7 +37,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 2. Supprimez les fichiers des dépôts :
 
    ```shell
-   rm -f /etc/yum.repos.d/centreon-23.04.repo
+   rm /etc/yum.repos.d/centreon-23.04.repo
    rm /etc/yum.repos.d/centreon.repo
    ```
 
