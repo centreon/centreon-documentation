@@ -51,9 +51,10 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/e
 
 1. Mettez à jour votre Centreon 23.10 jusqu'à la dernière version mineure.
 
-2. Supprimez le fichier **centreon.repo** :
+2. Supprimez les fichiers des dépôts :
 
    ```shell
+   rm /etc/yum.repos.d/centreon-23.10.repo
    rm /etc/yum.repos.d/centreon.repo
    ```
 
