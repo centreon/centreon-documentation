@@ -23,7 +23,7 @@ Le fournisseur EasyVista Open Tickets utilise l'API Rest EasyVista pour ouvrir d
   $register_providers['EasyVistaRest'] = 14;
   ```
 
-## Configurer votre serveur Elasticsearch
+## Configurer votre serveur EasyVista
 
 Vous devrez paramétrer votre équipement EasyVista pour qu'il puisse recevoir des données de la part de Centreon. Reportez-vous à la documentation d'EasyVista. Assurez-vous qu'EasyVista puisse recevoir les données envoyées par Centreon : les flux ne doivent pas être bloqués par la configuration d'EasyVista ou par un équipement de sécurité.
 
