@@ -55,12 +55,14 @@ For security reasons, Centreon Cloud has a built-in whitelist that defines which
 2. Edit the following file: **/etc/centreon-engine-whitelist/my-whitelist.yml**.
 3. Use a regex to define which commands to authorize. Example: to authorize all commands from Centreon plugins, the correct syntax is:
 
-   ```shell
+   ```yaml /etc/centreon-engine-whitelist/my_whitelist.yml
    whitelist:
      regex:
-       - 'centreon_[a-z]*.pl .*'
-       - '.*centreon.* .*'
+       - \/opt\/my_plugins\/my_custom_plugin\.py .*
     ```
+
+Use `.*` to include all arguments in the regex.
+
 
 > If you have not authorized your custom command in a whitelist, it will say so in the **Information** column of the **Resources Status** page.
 
