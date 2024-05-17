@@ -63,7 +63,6 @@ For security reasons, Centreon Cloud has a built-in whitelist that defines which
 
 The `.*`  at the end of the regex allows it to handle any arguments it may contain. Bear in mind that the format must be strictly indentical to the one above (including indents).
 
-
 > If you have not authorized your custom command in a whitelist, it will say so in the **Information** column of the **Resources Status** page.
 
 ## Optimization connectors
