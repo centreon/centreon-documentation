@@ -36,7 +36,7 @@ servers:
 2. Remove the repository files:
 
    ```shell
-   rm -f /etc/yum.repos.d/centreon-23.04.repo
+   rm /etc/yum.repos.d/centreon-23.04.repo
    rm /etc/yum.repos.d/centreon.repo
    ```
 
