@@ -52,7 +52,7 @@ For security reasons, Centreon Cloud has a built-in whitelist that defines which
 ### Add a command to the whitelist
 
 1. Log in as **root** to the poller that will run the commmand.
-2. Edit the following file: **/etc/centreon-engine-whitelist/my-whitelist.yml**.
+2. Edit (or create) the following file: **/etc/centreon-engine-whitelist/my-whitelist.yml**. (You can create as many whitelist files as you want in this directory.)
 3. Use a regex to define which commands to authorize. Example:
 
    ```yaml /etc/centreon-engine-whitelist/my_whitelist.yml
@@ -61,7 +61,7 @@ For security reasons, Centreon Cloud has a built-in whitelist that defines which
        - \/opt\/my_plugins\/my_custom_plugin\.py .*
     ```
 
-Use `.*` to include all arguments in the regex.
+The `.*`  at the end of the regex allows it to handle any arguments it may contain. Bear in mind that the format must be strictly indentical to the one above (including indents).
 
 
 > If you have not authorized your custom command in a whitelist, it will say so in the **Information** column of the **Resources Status** page.
