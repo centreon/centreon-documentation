@@ -57,11 +57,11 @@ Pour des raisons de sécurité, Centreon Cloud inclut une liste blanche préremp
 
    ```yaml /etc/centreon-engine-whitelist/my_whitelist.yml
    whitelist:
-   regex:
-      - \/opt\/my_plugins\/my_custom_plugin\.py .*
+      regex:
+         - \/opt\/my_plugins\/my_custom_plugin\.py .*
    ```
 
-   Utilisez `.*` afin d'inclure tous les arguments dans la regex.
+Utilisez `.*` afin d'inclure tous les arguments dans la regex.
 
 
 > Si vous n'avez pas autorisé votre commande dans la liste blanche du collecteur, cela vous sera signalé dans la colonne **Informations** de la page **Statut des ressources**.
