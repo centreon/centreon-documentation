@@ -338,7 +338,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --time-period            | Set request period, in minutes (mandatory option).                               |
 | --query                  | Set the query (mandatory option).                                                |
 | --field                  | Set the field to count unique values for example: json.host(mandatory option).   |
-| --filter-field           | Set the a field filter.                                                          |
+| --filter-field           |  Define which fields should be counted. This option will be treated as a regular expression. If this option is empty, all fields will be counted.                                                          |
 | --warning-* --critical-* | Thresholds. Can be: 'events', 'fields', field-events'.                           |
 
 </TabItem>
