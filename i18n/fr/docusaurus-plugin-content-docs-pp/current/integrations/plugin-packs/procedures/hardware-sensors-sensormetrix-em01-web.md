@@ -100,9 +100,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+Pour utiliser ce plugin, vous devez disposer d'un nom d'utilisateur et d'un mot de passe pour vous connecter à l'interface web de gestion du capteur.
 
 ## Installer le connecteur de supervision
 
