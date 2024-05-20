@@ -186,7 +186,7 @@ yum install centreon-plugin-Applications-Monitoring-Loggly-Restapi
 | TIMEPERIOD          | Set request period, in minutes (mandatory option)                                                  |                   | X           |
 | QUERY               | Set the query (mandatory option)                                                                   |                   | X           |
 | FIELD               | Set the field to count unique values for example: json.host(mandatory option)                      |                   | X           |
-| FILTERFIELD         | Set a field filter                                                                             |                   |             |
+| FILTERFIELD         | Define which fields should be counted. This option will be treated as a regular expression. If this option is empty, all fields will be counted                                                                            |                   |             |
 | WARNINGEVENTS       | Warning thresholds for events matching count                                                                                          |                   |             |
 | CRITICALEVENTS      | Critical thresholds for events matching count                                                                                          |                   |             |
 | WARNINGFIELDEVENTS  | Warning thresholds for count entry in fields                                                                                                   |                   |             |
