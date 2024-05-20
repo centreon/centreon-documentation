@@ -53,9 +53,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+In order to supervise your Loggly interface and more particularly the events, it is necessary to [configure your Loggly interface](https://documentation.solarwinds.com/en/success_center/loggly/content/admin/token-based-api-authentication.htm?cshid=loggly_token-based-api-authentication).
 
 ## Installing the monitoring connector
 
@@ -157,9 +155,9 @@ yum install centreon-plugin-Applications-Monitoring-Loggly-Restapi
 | Macro                 | Description                                                                                          | Default value     | Mandatory   |
 |:----------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | LOGGLYAPIPASSWORD     | Set Loggly API token                                                                                 |                   | X           |
-| LOGGLYAPIPROTO        | Specify http if needed (default: 'https')                                                            | https             |             |
-| LOGGLYAPIPORT         | Set Loggly Port (default: '443')                                                                     | 443               |             |
-| LOGGLYAPITIMEOUT      | Threshold for HTTP timeout (default: '30')                                                           | 30                |             |
+| LOGGLYAPIPROTO        | Specify http if needed                                                           | https             |             |
+| LOGGLYAPIPORT         | Set Loggly Port                                                                     | 443               |             |
+| LOGGLYAPITIMEOUT      | Threshold for HTTP timeout                                                           | 30                |             |
 | LOGGLYAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -177,8 +175,8 @@ yum install centreon-plugin-Applications-Monitoring-Loggly-Restapi
 | TIMEPERIOD     | Set request period, in minutes (mandatory option)                                                  |                   | X           |
 | QUERY          | Set the query (mandatory option)                                                                   |                   | X           |
 | OUTPUTFIELD    | Set the field to verbose-output from the last matching event (example: json.message)               |                   |             |
-| WARNINGEVENTS  | Thresholds                                                                                         |                   |             |
-| CRITICALEVENTS | Thresholds                                                                                         |                   |             |
+| WARNINGEVENTS  | Warning thresholds for events matching count                                                                                         |                   |             |
+| CRITICALEVENTS | Critical thresholds for events matching count                                                                                         |                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
@@ -190,12 +188,12 @@ yum install centreon-plugin-Applications-Monitoring-Loggly-Restapi
 | QUERY               | Set the query (mandatory option)                                                                   |                   | X           |
 | FIELD               | Set the field to count unique values for example: json.host(mandatory option)                      |                   | X           |
 | FILTERFIELD         | Set the a field filter                                                                             |                   |             |
-| WARNINGEVENTS       | Thresholds                                                                                         |                   |             |
-| CRITICALEVENTS      | Thresholds                                                                                         |                   |             |
+| WARNINGEVENTS       | Warning thresholds for events matching count                                                                                         |                   |             |
+| CRITICALEVENTS      | Critical thresholds for events matching count                                                                                         |                   |             |
 | WARNINGFIELDEVENTS  |                                                                                                    |                   |             |
 | CRITICALFIELDEVENTS |                                                                                                    |                   |             |
-| WARNINGFIELDS       | Thresholds                                                                                         |                   |             |
-| CRITICALFIELDS      | Thresholds                                                                                         |                   |             |
+| WARNINGFIELDS       | Warning thresholds for fields matching count                                                                                         |                   |             |
+| CRITICALFIELDS      | Critical thresholds for fields matching count                                                                                         |                   |             |
 | EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
