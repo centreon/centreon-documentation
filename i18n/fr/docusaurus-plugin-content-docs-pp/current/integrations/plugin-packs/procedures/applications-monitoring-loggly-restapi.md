@@ -189,8 +189,8 @@ yum install centreon-plugin-Applications-Monitoring-Loggly-Restapi
 | FILTERFIELD         | Set a field filter                                                                             |                   |             |
 | WARNINGEVENTS       | Warning thresholds for events matching count                                                                                          |                   |             |
 | CRITICALEVENTS      | Critical thresholds for events matching count                                                                                          |                   |             |
-| WARNINGFIELDEVENTS  |                                                                                                    |                   |             |
-| CRITICALFIELDEVENTS |                                                                                                    |                   |             |
+| WARNINGFIELDEVENTS  | Warning thresholds for count entry in fields                                                                                                   |                   |             |
+| CRITICALFIELDEVENTS | Critical thresholds for count entry in fields                                                                                                  |                   |             |
 | WARNINGFIELDS       | Warning thresholds for fields matching count                                                                                          |                   |             |
 | CRITICALFIELDS      | Critical thresholds for fields matching count                                                                                          |                   |             |
 | EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
