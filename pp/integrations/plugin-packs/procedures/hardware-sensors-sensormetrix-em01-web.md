@@ -99,9 +99,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+To use this plugin, you need a username and password to log in to the management web interface of the sensor.
 
 ## Installing the monitoring connector
 
