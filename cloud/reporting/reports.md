@@ -3,7 +3,7 @@ id: reports
 title: Centreon Reports Beta
 ---
 
-Centreon Reports is a reporting solution available as a beta feature for cloud users. You can create reports from the Centreon interface and view data directly in Grafana.
+Centreon Reports is a reporting solution available as a beta feature for Cloud users. You can create reports from the Centreon interface and view data directly in Grafana.
 
 ## Creating a report
 
