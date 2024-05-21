@@ -5,30 +5,138 @@ title: Develop with centreon-plugins
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+
 ## Set up your environment
 
 To use the centreon-plugins framework, you'll need the following:
 
-- A Linux operating system, ideally Debian 11 or RHEL/RHEL-like >= 8
+- A Linux operating system, Debian 11 or 12 or RHEL/RHEL-like >= 8
 - The [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) command line utility
 - A [GitHub](https://github.com/) account.
 
-### Enable our standard repositories
+### Enable our plugins repository
+
+This repository will provide you our packaged plugins as well as **the dependencies that are not available in the
+standard distribution repositories**.
 
 <Tabs groupId="sync">
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-```shell
-echo "deb https://packages.centreon.com/apt-22.04-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```bash
+cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
+[centreon-plugins-stable]
+name=Centreon plugins repository.
+baseurl=https://packages.centreon.com/rpm-plugins/el8/stable/$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-stable-noarch]
+name=Centreon plugins repository.
+baseurl=https://packages.centreon.com/rpm-plugins/el8/stable/noarch/
+enabled=1
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-testing]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el8/testing/$basearch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-testing-noarch]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el8/testing/noarch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-unstable]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el8/unstable/$basearch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-unstable-noarch]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el8/unstable/noarch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+EOF
+
 ```
 
 </TabItem>
-<TabItem value="RHEL 8 and alike" label="RHEL 8 and alike">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.04/el8/centreon-22.04.repo
+```bash
+cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
+[centreon-plugins-stable]
+name=Centreon plugins repository.
+baseurl=https://packages.centreon.com/rpm-plugins/el9/stable/$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-stable-noarch]
+name=Centreon plugins repository.
+baseurl=https://packages.centreon.com/rpm-plugins/el9/stable/noarch/
+enabled=1
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-testing]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el9/testing/$basearch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-testing-noarch]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el9/testing/noarch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-unstable]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el9/unstable/$basearch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-unstable-noarch]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el9/unstable/noarch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+EOF
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
+apt-get update
 ```
 
 </TabItem>
@@ -37,23 +145,35 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.04/e
 Install the following dependencies:
 
 <Tabs groupId="sync">
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-```shell
-apt-get install 'libpod-parser-perl' 'libnet-curl-perl' 'liburi-encode-perl' 'libwww-perl' \
-    'liblwp-protocol-https-perl' 'libhttp-cookies-perl' 'libio-socket-ssl-perl' 'liburi-perl' \
-    'libhttp-proxypac-perl' 'libcryptx-perl' 'libjson-xs-perl' 'libjson-path-perl' \
-    'libcrypt-argon2-perl' 'libkeepass-reader-perl'
-```
-
-</TabItem>
-<TabItem value="RHEL 8 and alike" label="RHEL 8 and alike">
-
-```shell
-dnf install 'perl(Digest::MD5)' 'perl(Pod::Find)' 'perl-Net-Curl' 'perl(URI::Encode)' \
+```bash
+dnf config-manager --set-enabled powertools
+dnf install -y git 'perl(Digest::MD5)' 'perl(Pod::Find)' 'perl-Net-Curl' 'perl(URI::Encode)' \
     'perl(LWP::UserAgent)' 'perl(LWP::Protocol::https)' 'perl(IO::Socket::SSL)' 'perl(URI)' \
     'perl(HTTP::ProxyPAC)' 'perl-CryptX' 'perl(MIME::Base64)' 'perl(JSON::XS)' 'perl-JSON-Path' \
     'perl-KeePass-Reader' 'perl(Storable)' 'perl(POSIX)' 'perl(Encode)'
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf config-manager --set-enabled crb
+dnf install -y git 'perl(Digest::MD5)' 'perl(Pod::Find)' 'perl-Net-Curl' 'perl(URI::Encode)' \
+    'perl(LWP::UserAgent)' 'perl(LWP::Protocol::https)' 'perl(IO::Socket::SSL)' 'perl(URI)' \
+    'perl(HTTP::ProxyPAC)' 'perl-CryptX' 'perl(MIME::Base64)' 'perl(JSON::XS)' 'perl-JSON-Path' \
+    'perl-KeePass-Reader' 'perl(Storable)' 'perl(POSIX)' 'perl(Encode)'
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt-get install -y git 'libpod-parser-perl' 'libnet-curl-perl' 'liburi-encode-perl' 'libwww-perl' \
+    'liblwp-protocol-https-perl' 'libhttp-cookies-perl' 'libio-socket-ssl-perl' 'liburi-perl' \
+    'libhttp-proxypac-perl' 'libcryptx-perl' 'libjson-xs-perl' 'libjson-path-perl' \
+    'libcrypt-argon2-perl' 'libkeepass-reader-perl'
 ```
 
 </TabItem>
@@ -67,13 +187,13 @@ Within GitHub UI, on the top left, click on the **Fork** button:
 
 Use the git utility to fetch your repository fork:
 
-```shell
+```bash
 git clone https://<githubusername>@github.com/<githubusername>/centreon-plugins
 ```
 
 Create a branch:
 
-```shell
+```bash
 cd centreon-plugins
 git checkout -b 'my-first-plugin'
 ```
@@ -88,7 +208,7 @@ are referring to.
 
 You can display it using the command `tree -L 1`.
 
-```shell
+```bash
 .
 ├── apps
 ├── blockchain
@@ -115,7 +235,7 @@ You can display it using the command `tree -L 1`.
 Let's take a deeper look at the layout of the directory containing modes to monitor Linux
 systems through the command-line (`tree os/linux/local/ -L 1`).
 
-```shell
+```bash
 os/linux/local/
 ├── custom      # Type: Directory. Contains code that can be used by several modes (e.g authentication, token management, ...).
 │   └── cli.pm  # Type: File. *Custom mode* defining common methods
@@ -132,7 +252,7 @@ them across several directories making it clear what protocol they rely on.
 
 Now, let's see how these concepts combine to build a command line:
 
-```shell
+```bash
 # <perl interpreter> <main_binary> --plugin=<perl_normalized_path_to_plugin_file> --mode=<mode_name>
 perl centreon_plugins.pl --plugin=os::linux::local::plugin --mode=cpu
 ```
@@ -202,7 +322,7 @@ It returns the following output:
 }
 ```
 
-All files showed in this tutorial can be found on the centreon-plugins GitHub in the 
+All files showed in this tutorial can be found on the centreon-plugins GitHub in the
 [tutorial](https://github.com/centreon/centreon-plugins/tree/master/contrib/tutorial/)
 **contrib** section.
 
@@ -237,7 +357,7 @@ Create directories and files required for your **plugin** and **modes**.
 
 Go to your centreon-plugins local git and create the appropriate directories and files:
 
-```shell
+```bash
 # path to the main directory and the subdirectory containing modes
 mkdir -p apps/myawesomeapp/api/mode/
 # path to the main plugin file
@@ -544,7 +664,7 @@ sub set_counters {
 The mode compiles. Run the command
 supplying a value to the `--hostname` option to see what it displays:
 
-```shell
+```bash
 perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=fakehost
 OK: status : skipped (no value(s)) - select : skipped (no value(s)), update : skipped (no value(s)), delete : skipped (no value(s))
 ```
@@ -591,7 +711,7 @@ sub prefix_app_output {
 
 Execute your command and check that the output matches the one below:
 
-```shell
+```bash
 perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=fakehost
 OK: My-awesome-app: status : skipped (no value(s)) - Queries: select : skipped (no value(s)), update : skipped (no value(s)), delete : skipped (no value(s))
 ```
@@ -629,7 +749,7 @@ sub manage_selection {
 1;
 ```
 
-Run this command `perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=run.mocky.io`. 
+Run this command `perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=run.mocky.io`.
 
 The output should be:
 
@@ -703,7 +823,7 @@ You now have your JSON deserialized into a perl `$VAR1` which represents your `$
 
 You can also note the result of the latest print and how we accessed the `yellow` value.
 
-```shell tile="Perl data structure from JSON"
+```perl tile="Perl data structure from JSON"
 $VAR1 = {
           'connections' => [
                              {
@@ -890,20 +1010,20 @@ additional parameters:
 as a parameter will automatically override the hardcoded default code value
 - `--verbose` will display the long output and the details for each `type => 1` counters
 
-```shell
+```bash
 perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname=run.mocky.io --warning-health='%{health} eq "care"' --verbose
 ```
 
 Here is the expected output:
 
-```shell
+```bash
 OK: My-awesome-app status: yellow - Queries: select: 1230, update: 640, delete: 44 | 'myawesomeapp.db.queries.select.count'=1230;;;0; 'myawesomeapp.db.queries.update.count'=640;;;0; 'myawesomeapp.db.queries.delete.count'=44;;;0; 'my-awesome-db#myawesomeapp.connections.count'=92;;;0; 'my-awesome-db#myawesomeapp.errors.count'=27;;;0; 'my-awesome-frontend#myawesomeapp.connections.count'=122;;;0; 'my-awesome-frontend#myawesomeapp.errors.count'=32;;;0;
 'my-awesome-db' connections: 92, errors: 27
 'my-awesome-frontend' connections: 122, errors: 32
 ```
 
 You now get metrics displayed for both components `'my-awesome-db'` and `'my-awesome-frontend'` and also performance data
-for your graphs. Note how the counter template automatically added the instance dimension on the left of the `nlabel` defined 
+for your graphs. Note how the counter template automatically added the instance dimension on the left of the `nlabel` defined
 for each counters: `**my-awesome-frontend#**myawesomeapp.errors.count'=32;;;0;`
 
 #### Help section and assistant to build your centreon objects
@@ -917,14 +1037,14 @@ and options.
 Run this command to obtain a summary that will simplify the work of creating Centreon commands and write
 the mode's help:
 
-```shell
+```bash
 perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --hostname='anyvalue' --list-coun
 ters --verbose
 ```
 
 Get information from its output (shown below) to start building your mode's help:
 
-```shell
+```bash
 counter list: select update delete health connections errors
 configuration:  --warning-select='$_SERVICEWARNINGSELECT$' --critical-select='$_SERVICECRITICALSELECT$' --warning-update='$_SERVICEWARNINGUPDATE$' --critical-update='$_SERVICECRITICALUPDATE$' --warning-delete='$_SERVICEWARNINGDELETE$' --critical-delete='$_SERVICECRITICALDELETE$' --warning-health='$_SERVICEWARNINGHEALTH$' --critical-health='$_SERVICECRITICALHEALTH$' --warning-connections='$_SERVICEWARNINGCONNECTIONS$' --critical-connections='$_SERVICECRITICALCONNECTIONS$' --warning-errors='$_SERVICEWARNINGERRORS$' --critical-errors='$_SERVICECRITICALERRORS$'
 ```
@@ -975,7 +1095,7 @@ You're done! You can enjoy a complete plugin and mode and the help now displays 
 mode section:
 
 
-```shell
+```bash
 perl centreon_plugins.pl --plugin=apps::myawesomeapp::api::plugin --mode=app-metrics --help
 [..
    All global options from the centreon-plugins framework that your plugin benefits from
