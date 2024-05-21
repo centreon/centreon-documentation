@@ -299,7 +299,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK:  | 'voltage'=54V;;;;
+OK: Voltage: 54V | 'voltage'=54V;;;;
 ```
 
 ### Troubleshooting
