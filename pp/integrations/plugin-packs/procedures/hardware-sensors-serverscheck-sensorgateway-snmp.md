@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias  | Service Template                                                 | Service Description            |
 |:---------------|:-----------------------------------------------------------------|:-------------------------------|
-| Sensors-Global | HW-Sensors-Serverscheck-Sensorgateway-Sensors-Global-SNMP-custom | Check all sensors of equipment |
+| Sensors-Global | HW-Sensors-Serverscheck-Sensorgateway-Sensors-Global-SNMP-custom | Check all the sensors on the equipment |
 
 > The services listed above are created automatically when the **HW-Sensor-Serverscheck-Sensorgateway-SNMP-custom** host template is used.
 
