@@ -168,7 +168,7 @@ dnf update centreon\* php-pecl-gnupg
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt upgrade centreon
+apt install centreon
 ```
 
 </TabItem>
@@ -550,7 +550,7 @@ dnf update centreon\*
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt upgrade centreon-poller
+apt install centreon-poller
 ```
 
 </TabItem>

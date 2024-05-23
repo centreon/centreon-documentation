@@ -112,7 +112,7 @@ echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) m
 2. Update Centreon MAP (Legacy) server:
 
     ```shell
-    apt update && apt upgrade centreon-map-server
+    apt update && apt install centreon-map-server
     ```
 
 </TabItem>
@@ -157,7 +157,7 @@ dnf update centreon-map-web-client
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt update && apt upgrade centreon-map-web-client
+apt update && apt install centreon-map-web-client
 ```
 
 </TabItem>
