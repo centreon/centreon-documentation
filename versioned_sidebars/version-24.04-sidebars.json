@@ -1170,6 +1170,10 @@
           "items": [
             {
               "type": "doc",
+              "id": "version-23.10/integrations/data-analytics/sc-canopsis-events"
+            },
+            {
+              "type": "doc",
               "id": "version-24.04/integrations/data-analytics/sc-elastic-events"
             },
             {
