@@ -1165,6 +1165,14 @@
           "items": [
             {
               "type": "doc",
+              "id": "version-23.10/integrations/data-analytics/data-analytics-overview"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/integrations/data-analytics/sc-canopsis-events"
+            },
+            {
+              "type": "doc",
               "id": "version-23.10/integrations/data-analytics/sc-elastic-events"
             },
             {
