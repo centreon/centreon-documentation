@@ -1249,8 +1249,12 @@
           },
           "items": [
             {
-              "type": "doc",
+              "type": "doc",            
               "id": "version-22.10/integrations/event-management/sc-hp-bsm"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.10/integrations/data-analytics/sc-canopsis-events"
             },
             {
               "type": "doc",

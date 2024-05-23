@@ -1174,6 +1174,10 @@
             },
             {
               "type": "doc",
+              "id": "version-24.10/integrations/data-analytics/sc-canopsis-events"
+            },
+            {
+              "type": "doc",
               "id": "version-24.10/integrations/data-analytics/sc-clickhouse"
             },
             {
@@ -1257,6 +1261,10 @@
             {
               "type": "doc",
               "id": "version-24.10/integrations/itsm/ot-easyvista"
+            },
+            {
+              "type": "doc",
+              "id": "version-24.10/integrations/itsm/ot-easyvista-rest-api"
             },
             {
               "type": "doc",

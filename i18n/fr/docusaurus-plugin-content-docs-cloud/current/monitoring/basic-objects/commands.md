@@ -52,8 +52,18 @@ Pour des raisons de sécurité, Centreon Cloud inclut une liste blanche préremp
 ### Ajouter une commande à la liste blanche
 
 1. Connectez-vous en **root** au collecteur qui exécutera la commande.
-2. Éditez le fichier suivant : **/etc/centreon-engine-whitelist/my-whitelist.yml**.
-3. Ajoutez une ligne pour votre commande, en utilisant une regex. Exemple : pour autoriser toutes les commandes des plugins Centreon, la syntaxe correcte est **\/usr\/lib\/centreon\/plugins\/centreon_.*\.pl .***
+2. Éditez (ou créez) le fichier suivant : **/etc/centreon-engine-whitelist/my-whitelist.yml**. (Vous pouvez créer autant de fichiers de whitelists que vous souhaitez dans ce répertoire.)
+3. Utilisez une regex pour définir les comandes autorisées. Exemple : 
+
+   ```yaml /etc/centreon-engine-whitelist/my_whitelist.yml
+   whitelist:
+      regex:
+         - \/opt\/my_plugins\/my_custom_plugin\.py .*
+   ```
+
+Utilisez `.*` afin d'inclure tous les arguments dans la regex.
+Le `.*` à la fin de la regex lui permet de gérer tout argument qu'elle contiendrait. Attention, le format doit être strictement identique à celui ci-dessus (cela inclut les indentations).
+
 
 > Si vous n'avez pas autorisé votre commande dans la liste blanche du collecteur, cela vous sera signalé dans la colonne **Informations** de la page **Statut des ressources**.
 
