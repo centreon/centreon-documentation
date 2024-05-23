@@ -1242,23 +1242,19 @@
       "items": [
         {
           "type": "category",
-          "label": "Data Analytics",
+          "label": "Stream connectors",
           "link": {
             "type": "doc",
-            "id": "version-22.10/integrations/data-analytics/data-analytics-overview"
+            "id": "version-22.10/integrations/stream-connectors"
           },
           "items": [
             {
               "type": "doc",
-              "id": "version-22.10/integrations/data-analytics/sc-elastic-events"
+              "id": "version-22.10/integrations/event-management/sc-hp-bsm"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/data-analytics/sc-elastic-metrics"
-            },
-            {
-              "type": "doc",
-              "id": "version-22.10/integrations/data-analytics/sc-logstash-events"
+              "id": "version-22.10/integrations/data-analytics/sc-clickhouse"
             },
             {
               "type": "doc",
@@ -1270,37 +1266,23 @@
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/data-analytics/sc-splunk-metrics"
+              "id": "version-22.10/integrations/data-analytics/sc-elastic-events"
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/data-analytics/sc-splunk-events"
-            },
-            {
-              "type": "doc",
-              "id": "version-22.10/integrations/data-analytics/sc-warp10"
-            },
-            {
-              "type": "doc",
-              "id": "version-22.10/integrations/data-analytics/sc-kafka-events"
-            }
-          ]
-        },
-        {
-          "type": "category",
-          "label": "Event Management",
-          "link": {
-            "type": "doc",
-            "id": "version-22.10/integrations/event-management/event-management-overview"
-          },
-          "items": [
-            {
-              "type": "doc",
-              "id": "version-22.10/integrations/event-management/sc-hp-bsm"
+              "id": "version-22.10/integrations/data-analytics/sc-elastic-metrics"
             },
             {
               "type": "doc",
               "id": "version-22.10/integrations/event-management/sc-hp-omi"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.10/integrations/data-analytics/sc-kafka-events"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.10/integrations/data-analytics/sc-logstash-events"
             },
             {
               "type": "doc",
@@ -1312,15 +1294,27 @@
             },
             {
               "type": "doc",
-              "id": "version-22.10/integrations/event-management/sc-service-now-incident-events"
-            },
-            {
-              "type": "doc",
               "id": "version-22.10/integrations/event-management/sc-service-now-em-events"
             },
             {
               "type": "doc",
+              "id": "version-22.10/integrations/event-management/sc-service-now-incident-events"
+            },
+            {
+              "type": "doc",
               "id": "version-22.10/integrations/event-management/sc-signl4-events"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.10/integrations/data-analytics/sc-splunk-events"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.10/integrations/data-analytics/sc-splunk-metrics"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.10/integrations/data-analytics/sc-warp10"
             }
           ]
         },
