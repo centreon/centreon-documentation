@@ -23,6 +23,35 @@ Read more about version 23.04 in our [blog post](https://www.centreon.com/centre
 
 ## Centreon Web
 
+### 23.04.18
+
+Release date: `May 27, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Installation] It is now possible to choose between MariaDB or MySQL8 for database installation.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed an issue on downtimes for services linked to service group via service template.
+- [Configuration] Fixed an issue in Service Categories configuration page (blank page in some cases).
+- [Packaging] Fixed symbolic link between /usr/lib/nagios/plugins and /usr/lib64/nagios/plugins.
+- [UX] Fixed possibility to close top counter pop-up when user click away.
+
+</details>
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed several SQLi issues.
+- [Security] Fixed XSS in host configuration.
+
+</details>
+
 ### 23.04.17
 
 Release date: `April 10, 2024`
@@ -629,6 +658,19 @@ Compatibility with other 23.04 components.
 </details>
 
 ## Centreon Gorgone
+
+### 23.04.14
+
+Release date: `May 27, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a path issue on systemctl (Gorgone whitelist).
+- Fixed a minor issue where unnecessary error messages were displayed.
+- [Packaging] Fixed inconsistent system permissions on /var/log/centreon-engine/centengine.log.
+
+</details>
 
 ### 23.04.13
 
