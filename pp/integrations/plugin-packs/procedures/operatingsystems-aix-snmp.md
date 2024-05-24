@@ -5,6 +5,10 @@ title: AIX SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Known issue with AIX version `07.02.0004` on CPU mode.
+> There is [a bug](https://www.ibm.com/support/pages/apar/IJ32354) on this version that causes the SNMP response related to CPU to report wrong values.
+> [The fix](https://www.ibm.com/support/pages/apar/IJ36641) is available starting version `07.02.0050`.
+
 ## Pack assets
 
 ### Templates
@@ -176,7 +180,7 @@ dnf install centreon-pack-operatingsystems-aix-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-operatingsystems-aix-snmp
@@ -223,7 +227,7 @@ dnf install centreon-plugin-Operatingsystems-Aix-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-operatingsystems-aix-snmp
