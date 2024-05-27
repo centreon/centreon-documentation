@@ -23,6 +23,29 @@ Read more about version 23.04 in our [blog post](https://www.centreon.com/centre
 
 ## Centreon Web
 
+### 23.04.18
+
+Release date: `May 27, 2024`
+
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed an issue affecting downtimes on services linked to a service group via a service template.
+- [Configuration] Fixed an issue where the Service Categories configuration page could appear blank.
+- [Packaging] Fixed symbolic link between **/usr/lib/nagios/plugins** and **/usr/lib64/nagios/plugins**.
+- [UX] Fixed possibility to close top counter pop-up when user click away.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed several SQLi issues.
+- [Security] Fixed XSS in host configuration.
+
+</details>
+
 ### 23.04.17
 
 Release date: `April 10, 2024`
@@ -641,6 +664,19 @@ Compatibility with other 23.04 components.
 </details>
 
 ## Centreon Gorgone
+
+### 23.04.14
+
+Release date: `May 27, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a path issue on systemctl (Gorgone whitelist).
+- Fixed a minor issue where unnecessary error messages were displayed.
+- [Packaging] Fixed inconsistent system permissions on **/var/log/centreon-engine/centengine.log**.
+
+</details>
 
 ### 23.04.13
 
