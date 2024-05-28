@@ -182,7 +182,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--hostname=10.0.0.1 \
 	--proto=http \
 	--port=3000 \
-	--username= \
+	--username='' \
 	--password='' \
 	--warning-status='' \
 	--critical-status='%{state} ne "ok"'

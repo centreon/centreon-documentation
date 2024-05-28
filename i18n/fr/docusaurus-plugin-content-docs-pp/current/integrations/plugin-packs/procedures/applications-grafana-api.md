@@ -183,7 +183,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--hostname=10.0.0.1 \
 	--proto=http \
 	--port=3000 \
-	--username= \
+	--username='' \
 	--password='' \
 	--warning-status='' \
 	--critical-status='%{state} ne "ok"'
