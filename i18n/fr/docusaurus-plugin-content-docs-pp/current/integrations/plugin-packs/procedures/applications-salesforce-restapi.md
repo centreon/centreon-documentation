@@ -21,7 +21,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Alias           | Modèle de service                             | Description                                                                         |
 |:----------------|:----------------------------------------------|:------------------------------------------------------------------------------------|
-| Instance-Status | App-Salesforce-Instance-Status-Restapi-custom | Contrôle le statut et le nombre d'incident de votre instance Salesforce via son API |
+| Instance-Status | App-Salesforce-Instance-Status-Restapi-custom | Contrôle le statut et le nombre d'incidents de votre instance Salesforce via son API |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Salesforce-Restapi-custom** est utilisé.
 
@@ -45,7 +45,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-Afin de superviser le statut d'une instance Salesforce, l'adresse api.status.salesforce.com doit pouvoir être accessible depuis le collecteur.
+Afin de superviser le statut d'une instance Salesforce, l'adresse `api.status.salesforce.com` doit pouvoir être accessible depuis le collecteur en HTTPS.
 
 ## Installer le connecteur de supervision
 

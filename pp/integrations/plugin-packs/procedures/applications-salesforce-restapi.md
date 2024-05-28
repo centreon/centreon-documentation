@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias   | Service Template                              | Service Description                                         |
 |:----------------|:----------------------------------------------|:------------------------------------------------------------|
-| Instance-Status | App-Salesforce-Instance-Status-Restapi-custom | Check status and incident of your Salesforce cloud instance |
+| Instance-Status | App-Salesforce-Instance-Status-Restapi-custom | Check the status and the number of incidents for your Salesforce cloud instance |
 
 > The services listed above are created automatically when the **App-Salesforce-Restapi-custom** host template is used.
 
@@ -44,7 +44,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-To monitor your Salesforce instance, the Centreon poller must be allowed to reach the Salesforce API endpoint (api.status.salesforce.com) via HTTPS.
+To monitor your Salesforce instance, the Centreon poller must be allowed to reach the Salesforce API endpoint (`api.status.salesforce.com`) via HTTPS.
 
 ## Installing the monitoring connector
 
