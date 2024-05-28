@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                       | Service Description         |
 |:--------------|:---------------------------------------|:----------------------------|
-| EDI-Order     | App-Dynamics-AX-EDI-Order-MSSQL-custom | Check the EDI Orders errors |
+| EDI-Order     | App-Dynamics-AX-EDI-Order-MSSQL-custom | Check the EDI Order errors |
 
 > The services listed above are created automatically when the **App-Dynamics-AX-Database-Mssql-custom** host template is used.
 
@@ -44,7 +44,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-You'll need access to the Microsoft Dynamics AX database server with a valid server name. In some cases, credentials such as a username and password may also be required depending on the security configuration in place.
+You'll need access to the Microsoft Dynamics AX database server with a valid server name. In some cases, credentials such as a username and password may also be required depending on the existing security configuration.
 
 ## Installing the monitoring connector
 

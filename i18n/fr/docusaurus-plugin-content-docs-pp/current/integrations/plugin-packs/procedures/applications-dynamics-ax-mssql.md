@@ -21,7 +21,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Alias     | Modèle de service                      | Description                                                  |
 |:----------|:---------------------------------------|:-------------------------------------------------------------|
-| EDI-Order | App-Dynamics-AX-EDI-Order-MSSQL-custom | Contrôle permettant de vérifier les erreurs des commande EDI |
+| EDI-Order | App-Dynamics-AX-EDI-Order-MSSQL-custom | Contrôle permettant de vérifier les erreurs des commandes EDI |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Dynamics-AX-Database-Mssql-custom** est utilisé.
 
