@@ -142,6 +142,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
+In order to supervise your IWSVA TrendMicro equipment, it is necessary to [install and configure it propely](https://success.trendmicro.com/dcx/s/solution/1096980-best-practices-for-installation-and-deployment-of-interscan-web-security-virtual-appliance-iwsva?language=en_US&sfdcIFrameOrigin=null).
+
 ### SNMP Configuration
 
 The SNMP service must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
@@ -264,13 +266,13 @@ yum install centreon-plugin-Applications-TrendMicro-Iwsva
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold average CPU utilization                                                          | 80                |             |
-| CRITICAL     | Critical threshold average CPU utilization                                                         | 90                |             |
-| WARNINGCORE  | Warning thresholds for each CPU core                                                               |                   |             |
-| CRITICALCORE | Critical thresholds for each CPU core                                                              |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro           | Description                                                                                                                            | Default value     | Mandatory   |
+|:----------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGAVERAGE  | Warning threshold for average CPU utilization                                                                                          | 80                |             |
+| CRITICALAVERAGE | Critical threshold for average CPU utilization                                                                                         | 90                |             |
+| WARNINGCORE     | Warning thresholds for each CPU core                                                                                                   |                   |             |
+| CRITICALCORE    | Critical thresholds for each CPU core                                                                                                  |                   |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Disk-Global" label="Disk-Global">
@@ -280,47 +282,47 @@ yum install centreon-plugin-Applications-TrendMicro-Iwsva
 | FILTER         | Set the storage (number expected) example: 1, 2,... (empty means 'check all storage')                                                                                                          | .*                |             |
 | TRANSFORMSRC   | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run' will replace all occurrences of 'dev' with 'run' |                   |             |
 | TRANSFORMDST   | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run' will replace all occurrences of 'dev' with 'run' |                   |             |
-| WARNING        | Warning threshold                                                                                                                                                                              | 80                |             |
-| CRITICAL       | Critical threshold                                                                                                                                                                             | 90                |             |
-| WARNINGACCESS  | Warning threshold                                                                                                                                                                              |                   |             |
-| CRITICALACCESS | Critical threshold. Check if storage is readOnly: --critical-access=readOnly                                                                                                                   |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                             | --verbose         |             |
+| WARNINGUSAGE   | Warning threshold for storage space usage                                                                                                                                                      | 80                |             |
+| CRITICALUSAGE  | Critical threshold for storage space usage                                                                                                                                                     | 90                |             |
+| WARNINGACCESS  | Warning threshold if storage is readOnly: --warning-access=readOnly                                                                                                                            |                   |             |
+| CRITICALACCESS | Critical threshold if storage is readOnly: --critical-access=readOnly                                                                                                                          |                   |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                         | --verbose         |             |
 
 </TabItem>
 <TabItem value="Load" label="Load">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold (1min,5min,15min)                                                                | 4,3,2             |             |
-| CRITICAL     | Critical threshold (1min,5min,15min)                                                               | 6,5,4             |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold (1min,5min,15min). Example --warning=4,3,2 (4 for 1 min, 3 for 5 min and 2 for 15 min)                               | 4,3,2             |             |
+| CRITICAL     | Critical threshold (1min,5min,15min). Example --critical=6,5,4 (4 for 1 min, 3 for 5 min and 2 for 15 min)                             | 6,5,4             |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Thresholds                                                                                         | 80                |             |
-| CRITICAL     | Thresholds                                                                                         | 90                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro         | Description                                                                                                                            | Default value     | Mandatory   |
+|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGUSAGE  | Warning threshold for memory usage                                                                                                     | 80                |             |
+| CRITICALUSAGE | Critical threshold for memory usage                                                                                                    | 90                |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Proxy-Connections" label="Proxy-Connections">
 
-| Macro        | Description                                                                                        | Default value            | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:-------------------------|:-----------:|
-| WARNING      | Warning threshold for total connections                                                            |                          |             |
-| CRITICAL     | Critical threshold for total connections                                                           |                          |             |
+| Macro        | Description                                                                                                                            | Default value            | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:-----------:|
+| WARNING      | Warning threshold for total connections                                                                                                |                          |             |
+| CRITICAL     | Critical threshold for total connections                                                                                               |                          |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --service='proxy,,,3128' |             |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Thresholds                                                                                         | 10                |             |
-| CRITICAL     | Thresholds                                                                                         | 30                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro         | Description                                                                                                                            | Default value     | Mandatory   |
+|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGUSAGE  | Warning threshold for swap usage                                                                                                       | 10                |             |
+| CRITICALUSAGE | Critical threshold for swap usage                                                                                                      | 30                |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Traffic-Global" label="Traffic-Global">
@@ -328,12 +330,12 @@ yum install centreon-plugin-Applications-TrendMicro-Iwsva
 | Macro          | Description                                                                                                                                                                                                         | Default value     | Mandatory   |
 |:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTER         | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name                                                               | .*                |             |
-| WARNINGIN      | Thresholds                                                                                                                                                                                                          | 80                |             |
-| CRITICALIN     | Thresholds                                                                                                                                                                                                          | 90                |             |
-| WARNINGOUT     | Thresholds                                                                                                                                                                                                          | 80                |             |
-| CRITICALOUT    | Thresholds                                                                                                                                                                                                          | 90                |             |
+| WARNINGIN      | Warning thresholds for in traffic                                                                                                                                                                                   | 80                |             |
+| CRITICALIN     | Critical thresholds for in traffic                                                                                                                                                                                  | 90                |             |
+| WARNINGOUT     | Warning thresholds for out traffic                                                                                                                                                                                  | 80                |             |
+| CRITICALOUT    | Critical thresholds for out traffic                                                                                                                                                                                 | 90                |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                  | --verbose         |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                              | --verbose         |             |
 
 </TabItem>
 </Tabs>
