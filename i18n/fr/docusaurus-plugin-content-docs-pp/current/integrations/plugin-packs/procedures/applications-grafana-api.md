@@ -21,7 +21,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Alias  | Modèle de service             | Description |
 |:-------|:------------------------------|:------------|
-| Health | App-Grafana-Health-Api-custom | Check the operational health of Grafana.            |
+| Health | App-Grafana-Health-Api-custom | Contrôle l'état opérationel de Grafana.            |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Grafana-Api-custom** est utilisé.
 
