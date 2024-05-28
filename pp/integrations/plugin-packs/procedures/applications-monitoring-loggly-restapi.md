@@ -53,7 +53,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-In order to supervise your Loggly interface and more particularly the events, it is necessary to [configure your Loggly interface](https://documentation.solarwinds.com/en/success_center/loggly/content/admin/token-based-api-authentication.htm?cshid=loggly_token-based-api-authentication).
+In order to monitor your Loggly interface - particularly the events - it is necessary to [configure your Loggly interface](https://documentation.solarwinds.com/en/success_center/loggly/content/admin/token-based-api-authentication.htm?cshid=loggly_token-based-api-authentication).
 
 ## Installing the monitoring connector
 
