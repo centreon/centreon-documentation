@@ -414,7 +414,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All interfaces are ok | '*interface_name*#status'=;;;;'*interface_name*#interface.traffic.in.bitspersecond'=b/s;;;;'*interface_name*#interface.traffic.out.bitspersecond'=b/s;;;;
+OK: All interfaces are ok | *interface_name*#interface.traffic.in.bitspersecond'=4212b/s;;;;' *interface_name*#interface.traffic.out.bitspersecond'=1242b/s;;;;
 ```
 
 ### Diagnostic des erreurs communes
