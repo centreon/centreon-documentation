@@ -1,6 +1,6 @@
 ---
 id: network-securactive-snmp
-title: Securactive
+title: SecurActive
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Securactive ** brings a host template:
+The Monitoring Connector **SecurActive** brings a host template:
 
 * **Net-Securactive-SNMP-custom**
 
@@ -20,8 +20,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                | Service Description                 | Discovery  |
 |:--------------|:--------------------------------|:------------------------------------|:----------:|
-| Bca           | Net-Securactive-bca-SNMP-custom | Check Business Critical Application | X          |
-| Bcn           | Net-Securactive-bcn-SNMP-custom | Check Business Critical Network     | X          |
+| Bca           | Net-Securactive-bca-SNMP-custom | Check Business-Critical Applications (BCA) | X          |
+| Bcn           | Net-Securactive-bcn-SNMP-custom | Check Business-Critical Networks (BCN)    | X          |
 
 > The services listed above are created automatically when the **Net-Securactive-SNMP-custom** host template is used.
 
@@ -45,7 +45,7 @@ More information about discovering hosts automatically is available on the [dedi
 | Rule name                     | Description |
 |:------------------------------|:------------|
 | Net-Securactive-SNMP-List-Bca | Discover the status and availability of business-critical applications via SNMP using SecurActive BCA lists.            |
-| Net-Securactive-SNMP-List-Bcn | Discover the status and availability of business-critical networks via SNMP using SecurActive BCN lists."            |
+| Net-Securactive-SNMP-List-Bcn | Discover the status and availability of business-critical networks via SNMP using SecurActive BCN lists.            |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -233,7 +233,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
 	--bcn='' \
-	--name=' \
+	--name='' \
 	--filter= \
 	--display-transform-src= \
 	--display-transform-dst=

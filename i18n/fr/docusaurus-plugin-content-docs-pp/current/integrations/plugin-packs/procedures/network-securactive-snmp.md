@@ -1,6 +1,6 @@
 ---
 id: network-securactive-snmp
-title: Securactive
+title: SecurActive
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Securactive ** apporte un modèle d'hôte :
+Le connecteur de supervision **SecurActive** apporte un modèle d'hôte :
 
 * **Net-Securactive-SNMP-custom**
 
@@ -21,8 +21,8 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias | Modèle de service               | Description                        | Découverte |
 |:------|:--------------------------------|:-----------------------------------|:----------:|
-| Bca   | Net-Securactive-bca-SNMP-custom | Contrôle des applications critique | X          |
-| Bcn   | Net-Securactive-bcn-SNMP-custom | Contrôle du réseaeu critique       | X          |
+| Bca   | Net-Securactive-bca-SNMP-custom | Contrôle des applications business critiques (BCA) | X          |
+| Bcn   | Net-Securactive-bcn-SNMP-custom | Contrôle les réseaux business critiques (BCN)       | X          |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Securactive-SNMP-custom** est utilisé.
 
@@ -234,7 +234,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
 	--bcn='' \
-	--name=' \
+	--name='' \
 	--filter= \
 	--display-transform-src= \
 	--display-transform-dst=
