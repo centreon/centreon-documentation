@@ -5,9 +5,9 @@ title: AIX SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> Known issue with AIX version `07.02.0004` on CPU mode.
-> There is [a bug](https://www.ibm.com/support/pages/apar/IJ32354) on this version that causes the SNMP response related to CPU to report wrong values.
-> [The fix](https://www.ibm.com/support/pages/apar/IJ36641) is available starting version `07.02.0050`.
+> A known issue with AIX version `07.02.0004` affects the CPU mode.
+> There is [a bug](https://www.ibm.com/support/pages/apar/IJ32354) in this version that causes the SNMP response related to the CPU to report wrong values.
+> [The fix](https://www.ibm.com/support/pages/apar/IJ36641) is available from version `07.02.0050`.
 
 ## Pack assets
 
