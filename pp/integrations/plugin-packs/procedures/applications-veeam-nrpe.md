@@ -102,7 +102,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### Centreon NSClient++
 
-To monitor an *Active Directory* domain controller through NRPE, install the
+To monitor a *Veeam* backup solution through NRPE, install the
 Centreon packaged version of the NSClient++ agent. Please follow our [official documentation](../getting-started/how-to-guides/centreon-nsclient-tutorial.md)
 and make sure that the NRPE server's configuration is correct.
 
@@ -340,7 +340,7 @@ the command:
 ```bash
 /usr/lib64/nagios/plugins//check_centreon_nrpe -H 10.0.0.1 -p 5666 -t 55  -c check_centreon_plugins -a 'apps::backup::veeam::local::plugin' 'tape-jobs'  ' \
 	--filter-name="" \
-	--list-mode
+	--list-mode'
 ```
 
 The plugin brings the following modes:

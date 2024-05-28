@@ -339,7 +339,7 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 ```bash
 /usr/lib64/nagios/plugins//check_centreon_nrpe -H 10.0.0.1 -p 5666 -t 55  -c check_centreon_plugins -a 'apps::backup::veeam::local::plugin' 'tape-jobs'  ' \
 	--filter-name="" \
-	--list-mode
+	--list-mode'
 ```
 
 Le plugin apporte les modes suivants :
