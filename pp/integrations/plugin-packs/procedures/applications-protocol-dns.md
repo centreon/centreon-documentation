@@ -7,8 +7,6 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-The Domain Name System (DNS) is a naming system for resources connected to the Internet or a private network. A DNS Service provides a way to match domain names to IP addresses.
-
 The Centreon Monitoring Connector * DNS Service * checks if a resolution for a domain name (default: google.com) can be obtained.
 
 ## Pack assets
