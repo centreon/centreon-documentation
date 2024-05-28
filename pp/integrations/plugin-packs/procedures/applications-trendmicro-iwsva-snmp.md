@@ -50,7 +50,7 @@ More information about discovering hosts automatically is available on the [dedi
 | Rule name                              | Description                                                   |
 |:---------------------------------------|:--------------------------------------------------------------|
 | App-Trendmicro-Iwsva-SNMP-Disk-Name    | Discover the disk partitions and monitor space occupation     |
-| App-Trendmicro-Iwsva-SNMP-Traffic-Name | Discover network interfaces and monitor bandwidth utilization |
+| App-Trendmicro-Iwsva-SNMP-Traffic-Name | Discover network interfaces and monitor bandwidth status and utilization |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
