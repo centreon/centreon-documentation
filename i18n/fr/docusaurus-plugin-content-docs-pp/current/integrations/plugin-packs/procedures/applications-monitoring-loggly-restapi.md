@@ -54,7 +54,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-Afin de superviser votre interface Loggly et plus particulièrement les événéments, il est nécessaire de [configurer votre interface Loggly](https://documentation.solarwinds.com/en/success_center/loggly/content/admin/token-based-api-authentication.htm?cshid=loggly_token-based-api-authentication).
+Afin de superviser votre interface Loggly et plus particulièrement les événements, il est nécessaire de [configurer votre interface Loggly](https://documentation.solarwinds.com/en/success_center/loggly/content/admin/token-based-api-authentication.htm?cshid=loggly_token-based-api-authentication).
 
 ## Installer le connecteur de supervision
 
