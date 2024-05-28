@@ -22,10 +22,6 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 Release date: `May 16, 2024`
 
-#### Enhancements
-
-- [Enhancement] The unattended.sh script now offers new options (Debian12, MariaDB versioning, MySQL 8).
-
 #### Bug fixes
 
 - [API] Fixed an issue affecting downtimes on services linked to a service group via a service template.
