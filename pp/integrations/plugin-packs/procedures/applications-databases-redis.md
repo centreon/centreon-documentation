@@ -121,7 +121,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-To control your Redis database, the poller can execute _INFO_ command (Eg: https://redis.io/commands/INFO)
+To control your Redis database, the poller must be able to execute the _INFO_ command (see https://redis.io/commands/INFO).
 
 ## Installing the monitoring connector
 
