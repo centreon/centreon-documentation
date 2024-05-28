@@ -5,8 +5,8 @@ title: AIX SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> Problème connu sur la version `07.02.0004` d'AIX avec le mode CPU.
-> Il y a [un bug](https://www.ibm.com/support/pages/apar/IJ32354) relatif à SNMP qui a pour effet de retourner des valeurs erronées concernant le processeur.
+> Un problème connu sur la version `07.02.0004` d'AIX affecte le mode CPU.
+> [Un bug](https://www.ibm.com/support/pages/apar/IJ32354) relatif à SNMP a pour effet de retourner des valeurs erronées concernant le processeur.
 > [Le correctif](https://www.ibm.com/support/pages/apar/IJ36641) est disponible à partir de la version `07.02.0050`.
 
 ## Contenu du pack
@@ -67,7 +67,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 |:---------------------------|:------------------------------------------------------------------------|
 | OS-AIX-SNMP-Disk-Name      | Discover the disk partitions and monitor space occupation               |
 | OS-AIX-SNMP-Processes-Name | Discover processes and monitor their system usage                       |
-| OS-AIX-SNMP-Traffic-Name   | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
+| OS-AIX-SNMP-Traffic-Name   | Découvre les interfaces réseau et supervise le statut et l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
