@@ -23,6 +23,33 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 23.10.12
+
+Release date: `May 29, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed an issue affecting downtimes on services linked to a service group via a service template.
+- [API] Fixed an issue with is_password when using Service and Service Template POST endpoint.
+- [API] Fixed access control for some v2 API endpoints.
+- [Auto Discovery] Fixed rights for temporary files created during the generation of the configuration.
+- [Configuration] Fixed an issue where the Service Categories configuration page could appear blank.
+- [Packaging] Fixed symbolic link between /usr/lib/nagios/plugins and /usr/lib64/nagios/plugins.
+- [Resource Status] Fixed access to "View report" icon in the resource details panel.
+- [Resource Status] Disabled pollers can no longer be selected in filters.
+- [UX] Fixed an issue where the top counter pop-up was not closed when users clicked outside of it.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed several SQLi issues.
+- [Security] Fixed XSS in a configuration page.
+
+</details>
+
 ### 23.10.11
 
 Release date: `April 9, 2024`
@@ -534,6 +561,19 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon Gorgone
+
+### 23.10.7
+
+Release date: `May 29, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Fixed a path issue on systemctl (Gorgone whitelist).
+- [Gorgone] Fixed an issue where unnecessary error messages were displayed.
+- [Packaging] Fixed inconsistent system permissions on /var/log/centreon-engine/centengine.log.
+
+</details>
 
 ### 23.10.6
 
