@@ -142,7 +142,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-In order to supervise your IWSVA TrendMicro equipment, it is necessary to [install and configure it propely](https://success.trendmicro.com/dcx/s/solution/1096980-best-practices-for-installation-and-deployment-of-interscan-web-security-virtual-appliance-iwsva?language=en_US&sfdcIFrameOrigin=null).
+In order to supervise your IWSVA TrendMicro equipment, it is necessary to [install and configure it properly](https://success.trendmicro.com/dcx/s/solution/1096980-best-practices-for-installation-and-deployment-of-interscan-web-security-virtual-appliance-iwsva?language=en_US&sfdcIFrameOrigin=null).
 
 ### SNMP Configuration
 
