@@ -5,6 +5,9 @@ title: Veeam NSClient++ NRPE
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+The *Veeam* Monitoring Connector works with the Centreon NSClient++ monitoring agent and 
+Powershell to check the operating status of a Veeam Server.
+
 ## Pack assets
 
 ### Templates
@@ -101,7 +104,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 To monitor an *Active Directory* domain controller through NRPE, install the
 Centreon packaged version of the NSClient++ agent. Please follow our [official documentation](../getting-started/how-to-guides/centreon-nsclient-tutorial.md)
-and make sure that the **NRPE Server** configuration is correct.
+and make sure that the NRPE server's configuration is correct.
 
 ## Installing the monitoring connector
 
