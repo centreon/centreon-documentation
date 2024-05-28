@@ -65,7 +65,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle            | Description                                                             |
 |:---------------------------|:------------------------------------------------------------------------|
-| OS-AIX-SNMP-Disk-Name      | Discover the disk partitions and monitor space occupation               |
+| OS-AIX-SNMP-Disk-Name      | Découvre les partitions de disque et supervise l'espace occupé               |
 | OS-AIX-SNMP-Processes-Name | Discover processes and monitor their system usage                       |
 | OS-AIX-SNMP-Traffic-Name   | Découvre les interfaces réseau et supervise le statut et l'utilisation |
 
