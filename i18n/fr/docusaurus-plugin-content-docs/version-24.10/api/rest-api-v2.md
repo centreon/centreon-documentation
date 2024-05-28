@@ -21,7 +21,7 @@ Aller dans l'onglet **Link** et entrer l'URL vers la définition OpenAPI de
 GitHub :
 
 ```text
-https://raw.githubusercontent.com/centreon/centreon/develop/centreon/doc/API/centreon-api-v24.10.yaml
+https://raw.githubusercontent.com/centreon/centreon/24.10.x/centreon/doc/API/centreon-api.yaml
 ```
 
 ![image](../assets/api/postman-import-link.png)
