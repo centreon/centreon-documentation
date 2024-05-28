@@ -23,10 +23,6 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 Release date: `May 16, 2024`
 
-#### Enhancements
-
-- [Enhancement] The unattended.sh script now allows new options (Debian12, MariaDB versioning, MySQL 8).
-
 #### Bug fixes
 
 - [API] Fixed an issue affecting downtimes on services linked to a service group via a service template.
