@@ -161,7 +161,7 @@ yum install centreon-plugin-Applications-Protocol-Dns
 
 | Macro        | Description                                                                                        | Default value     | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SEARCH       | Set the search value (required)                                                                    | google.com        | X           |
+| SEARCH       | Define the DNS you want to check (required)                                                                 | google.com        | X           |
 | WARNING      | Warning threshold in seconds                                                                       |                   |             |
 | CRITICAL     | Critical threshold in seconds                                                                      |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
