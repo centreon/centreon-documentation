@@ -191,7 +191,6 @@ is able to monitor a resource using a command like this one (replace the sample 
 /usr/lib/centreon/plugins/centreon_protocol_dns.pl \
 	--plugin=apps::protocols::dns::plugin \
 	--mode=request \
-	--nameservers 10.0.0.1 \
 	--search='google.com' \
 	--warning='' \
 	--critical=''
