@@ -28,7 +28,7 @@ This host template is not linked to any service template.
 | Service Alias    | Service Template                                  | Service Description                               | Discovery  |
 |:-----------------|:--------------------------------------------------|:--------------------------------------------------|:----------:|
 | ApplicationPools | App-Webserver-IIS-ApplicationPools-Restapi-custom | Check states of application pools trought IIS API | X          |
-| Websites         | App-Webserver-IIS-Websites-Restapi-custom         | Check performances of IIS sites trought IIS API   | X          |
+| Websites         | App-Webserver-IIS-Websites-Restapi-custom         | Check the performance of IIS sites through the IIS API   | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
