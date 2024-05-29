@@ -7,9 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-The Domain Name System (DNS) is a naming system for resources connected to the Internet or a private network. A DNS Service provides a way to match domain names to IP addresses.
-
-The Centreon Monitoring Connector * DNS Service * checks if a resolution for a domain name (default: google.com) can be obtained.
+Le connecteur de surveillance Centreon *DNS Service* vérifie s'il est possible d'obtenir une résolution pour un nom de domaine (par défaut : google.com).
 
 ## Contenu du pack
 
@@ -194,7 +192,6 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 /usr/lib/centreon/plugins/centreon_protocol_dns.pl \
 	--plugin=apps::protocols::dns::plugin \
 	--mode=request \
-	--nameservers 10.0.0.1 \
 	--search='google.com' \
 	--warning='' \
 	--critical=''
