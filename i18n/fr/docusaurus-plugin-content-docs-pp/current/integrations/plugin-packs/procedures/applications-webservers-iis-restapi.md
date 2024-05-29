@@ -29,7 +29,7 @@ This host template is not linked to any service template.
 | Alias            | Modèle de service                                 | Description                                                                  | Découverte |
 |:-----------------|:--------------------------------------------------|:-----------------------------------------------------------------------------|:----------:|
 | ApplicationPools | App-Webserver-IIS-ApplicationPools-Restapi-custom | Contrôle permettant de vérifier l'état des "application pools" via l'API IIS | X          |
-| Websites         | App-Webserver-IIS-Websites-Restapi-custom         | Contrôle de performances des sites IIS via l'API IIS                         | X          |
+| Websites         | App-Webserver-IIS-Websites-Restapi-custom         | Contrôle les performances des sites IIS via l'API IIS                         | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
