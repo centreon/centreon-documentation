@@ -20,7 +20,7 @@ Rights are granted by creating access rules. You can create as many rules as you
    * To refine your selection, click **Add filter** and select narrower criteria: the second filter only shows the resources that depend from the first filter. You can narrow your selection down to metrics.
    * If you want to add another batch of resources that do not depend on any of the criteria defined above, click **Add new dataset**. The list will propose all types of resources again.
 
-   > You can also select **All resources**: users will be able to see any resources created afterwards automatically.
+   > You can also select **All resources**: users will see all existing resources, as well as be able to see any resources created afterwards automatically.
 
 4. In the **Contacts/contact groups** section, define which users will be able to see these resources. If you select **All contacts**, the rule will apply to all existing contacts, and also to any contacts created in the future. Bear in mind that users are managed using the [CIAM](../ciam/ciam.md).
 

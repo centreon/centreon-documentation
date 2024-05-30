@@ -20,7 +20,7 @@ Les droits sont attribués en créant des règles d'accès. Vous pouvez créer a
    * Pour affiner votre sélection, cliquez sur **Add filter** et sélectionnez des critères plus restrictifs : le deuxième filtre montre uniquement les ressources qui dépendent du premier filtre. Vous pouvez ainsi descendre jusqu'aux métriques.
    * Si vous voulez ajouter un autre groupe de ressources indépendant des critères définis au-dessus, cliquez sur **Ajouter un nouveau jeu de données**. La liste propose à nouveau tous les types de ressources.
 
-   > Vous pouvez également sélectionner **All resources** : les utilisateurs pourront voir toutes les ressources crées par la suite.
+   > Vous pouvez également sélectionner **All resources** : les utilisateurs pourront voir toutes les ressources existantes ainsi que toutes celles crées par la suite.
 
 4. Dans la section **Contacts/Groupes de contacts**, définissez quels utilisateurs verront ces ressources. Si vous sélectionnez **Tous les contacts**, la règle s'appliquera à tous les contacts existants, mais aussi à tout contact créé dans le futur. Attention, les utilisateurs sont gérés via la [CIAM](../ciam/ciam.md).
 
