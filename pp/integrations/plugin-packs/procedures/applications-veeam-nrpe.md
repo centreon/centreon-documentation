@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 The *Veeam* Monitoring Connector works with the Centreon NSClient++ monitoring agent and 
-Powershell to check the operating status of a Veeam Server.
+Powershell to check the operating status of a Veeam server.
 
 ## Pack assets
 
