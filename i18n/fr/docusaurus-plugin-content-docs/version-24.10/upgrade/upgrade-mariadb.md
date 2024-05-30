@@ -124,7 +124,7 @@ rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared Mari
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
-dpkg -r --ignore-depends=MariaDB-server,MariaDB-client,MariaDB-shared,MariaDB-compat,MariaDB-common
+dpkg -r --ignore-depends=mariadb-server,mariadb-client,mariadb-shared,mariadb-compat,mariadb-common mariadb-server mariadb-server-10.5 mariadb-client mariadb-client-10.5 mariadb-client-core-10.5 mariadb-common mariadb-server-core-10.5 mysql-common
 ```
 
 </TabItem>
