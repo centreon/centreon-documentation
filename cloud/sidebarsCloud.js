@@ -139,6 +139,10 @@ module.exports = {
           type: 'doc',
           id: 'users/users',
         },
+        {
+          type: 'doc',
+          id: 'administration/ram',
+        },
       ],
     },
     {
