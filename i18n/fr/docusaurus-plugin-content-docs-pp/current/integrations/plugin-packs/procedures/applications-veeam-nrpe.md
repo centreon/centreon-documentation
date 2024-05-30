@@ -5,6 +5,8 @@ title: Veeam NSClient++ NRPE
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+Le connecteur de supervision *Veeam* fonctionne avec l'agent de supervision Centreon NSClient++ et Powershell, et contrôle le statut opérationnel d'un serveur Veeam.
+
 ## Contenu du pack
 
 ### Modèles
