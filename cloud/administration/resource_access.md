@@ -9,7 +9,7 @@ By default, ...
 * For all other users (i.e. users with a **User** or **Editor** role), administrators must define which [resources](../resources/glossary.md#resource) they can see.
 * Only administrators can access the **Resource Acces Management** screen.
 
-Rights are granted by creating access rules. You can create as many rules as you want. If a user is mentioned in two access rules with different rights, the less restrictive rule will be taken into account.
+Rights are granted by creating access rules. You can create as many rules as you want. If a user is mentioned in two access rules with different rights, the less restrictive rule will take precedence.
 
 ## Creating an access rule
 
