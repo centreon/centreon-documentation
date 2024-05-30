@@ -15,9 +15,8 @@ You can create as many rules as you want. If a user is mentioned in two access r
 
 If you don't want all users to see all resources, you need to:
 
-1. [Create](#creating-an-access-rule) a first access rule that grants you the right to see all resources (you may want to grant this right to all administrators).
-2. [Delete](#managing-access-rules) the default rule called "ALL".
-3. Create the rules you want for your users.
+1. Edit the default rule called "ALL" so that it grants the right to see all resources only to you (or to all administrators). Remember to rename the rule.
+2. Create the rules you want for your users.
 
 ## Creating an access rule
 
@@ -34,7 +33,7 @@ If you don't want all users to see all resources, you need to:
 
    > Contact groups will be implemented soon.
 
-5. Click **Save**. The new rule appears in the list. (is it applied straightaway?)
+5. Click **Save**. The new rule appears in the list. It can take up to one minute to be applied.
 
 ## Managing access rules
 

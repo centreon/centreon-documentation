@@ -15,9 +15,8 @@ Vous pouvez créer autant de règles que vous désirez. Si un utilisateur est me
 
 Voici la marche à suivre si vous ne souhaitez pas que tous les utilisateurs puissent voir toutes les ressources :
 
-1. [Créez](#creating-an-access-rule) une première règle d'accès qui vous donne le droit de voir toutes les ressources (il peut être pertinent d'attribuer ce droit à tous les administrateurs).
-2. [Supprimez](#managing-access-rules) la règle par défaut nommée "ALL".
-3. Créez les règles désirées pour vos utilisateurs.
+1. Modifiez la règle par défaut nommée "ALL" afin qu'elle ne donne le droit de voir toutes les ressources qu'à vous (ou à tous les administrateurs). N'oubliez pas de renommer la règle.
+2. Créez les règles désirées pour vos utilisateurs.
 
 ## Créer une règle d'accès
 
@@ -34,7 +33,7 @@ Voici la marche à suivre si vous ne souhaitez pas que tous les utilisateurs pui
 
    > Les groupes de contacts seront implémentés bientôt.
 
-5. Cliquez sur **Enregistrer**. La nouvelle règle apparaît dans la liste. (is it applied straightaway?)
+5. Cliquez sur **Enregistrer**. La nouvelle règle apparaît dans la liste. Celle-ci peut mettre une minute à être appliquée.
 
 ## Gérer les règles d'accès
 
