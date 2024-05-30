@@ -3,13 +3,21 @@ id: ram
 title: Granting users rights on resources
 ---
 
-By default, ... 
+Resource access rules allow you to grant users the right to see specific [resources](../resources/glossary.md#resource).
 
-* Administrators can see all resources.
-* For all other users (i.e. users with a **User** or **Editor** role), administrators must define which [resources](../resources/glossary.md#resource) they can see.
-* Only administrators can access the **Resource Acces Management** screen.
+By default, all users can see all resources. This is because a default access rule called "ALL" is created automatically when the platform is installed.
 
-Rights are granted by creating access rules. You can create as many rules as you want. If a user is mentioned in two access rules with different rights, the less restrictive rule will take precedence.
+Administrators can create more specific rules to determine which users can see which resources. Only administrators can access the **Resource Acces Management** screen.
+
+You can create as many rules as you want. If a user is mentioned in two access rules with different rights, the more permissive rule will take precedence.
+
+## Granting users rights
+
+If you don't want all users to see all resources, you need to:
+
+1. [Create](#creating-an-access-rule) a first access rule that grants you the right to see all resources (you may want to grant this right to all administrators).
+2. [Delete](#managing-access-rules) the default rule called "ALL".
+3. Create the rules you want for your users.
 
 ## Creating an access rule
 
