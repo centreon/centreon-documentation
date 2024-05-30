@@ -123,7 +123,7 @@ rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared Mari
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-dpkg -r --ignore-depends=MariaDB-server,MariaDB-client,MariaDB-shared,MariaDB-compat,MariaDB-common
+dpkg -r --ignore-depends=MariaDB-server,MariaDB-client,MariaDB-shared,MariaDB-compat,MariaDB-common MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
 ```
 
 </TabItem>
