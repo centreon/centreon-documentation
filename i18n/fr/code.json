@@ -140,7 +140,7 @@
     "description": "The label used to tell the user that he's browsing an unreleased doc version"
   },
   "theme.docs.versions.unmaintainedVersionLabel": {
-    "message": "Ceci est la documentation de {siteTitle} {versionLabel}. Cette version n'est plus supportée, et sa documentation n'est plus maintenue.",
+    "message": "Ceci est la documentation de Centreon {versionLabel}. Cette version n'est plus supportée, et sa documentation n'est plus maintenue.",
     "description": "The label used to tell the user that he's browsing an unmaintained doc version"
   },
   "theme.docs.versions.latestVersionSuggestionLabel": {
