@@ -2,6 +2,57 @@
 id: cloud-release-notes
 title: Centreon Cloud - notes de release
 ---
+## April 11, 2024
+
+### centreon-web 24.05.1
+
+- [ACL] Added listing of access management rules.
+- [API] Added an endpoint to create Broker outputs.
+- [API] Added an endpoint to PATCH (partial update) openid provider.
+- [API] Added an endpoint to handle fileformat associated to Stream Connector.
+- [API] Update endpoint to handle Status Grid "condensed" view.
+- [API] Added new endpoint to duplicate dashboard.
+- [API] Added API endpoints to return the complete hierarchy for a given BA.
+- [Cloud migration] Added BA in MAP script.
+- [Configuration] Improved service groups configuration.
+- [Configuration] Improved host groups configuration.
+- [Configuration] Updated host configuration form to link host to at least one hostgroup.
+- [Dashboards] Added duplicate feature.
+- [Dashboards] Added new "Status Chart" widget.
+- [Edition] Added a warning modal preventing user from quitting his dashboard without saving it first.
+- [Metrics Graph widget] Added information tooltip when hovering an element on the graph.
+- [Status Grid widget] Added new "condensed" view.
+- [Widgets] Added warning message when no resource is matching the filters selected.
+- [Widgets] Optimized widget rendering.
+- [UX] Made the dashboards library view as list the default one.
+- [UX] Removed "Beta" mention in menus.
+
+###  centreon-gorgone 24.05.1
+
+Enhancement
+
+- [Gorgone] Moved gorgone whitelists in a dedicated file.
+
+### centreon-map 24.05.1
+
+Enhancement
+
+- [Editor] Removed non available features for "Links".
+- [Editor] Removed the possibility to edit link color for status link and metric link.
+- [Protobuf] Implemented "pb_instance_configuration" event.
+
+### centreon-it-edition-extensions 24.05.1
+
+Feature
+
+- [CEIP] Added usage statistics for Playlists.
+- [Playlist] New endpoint PATCH for playlists update.
+
+### centreon-bam 24.05.1
+
+Feature
+
+- [BAM] Added BA Diagram widget to Dashboards.
 
 ## April 11, 2024
 
