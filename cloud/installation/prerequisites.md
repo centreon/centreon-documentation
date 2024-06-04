@@ -7,7 +7,7 @@ title: Prerequisites
 
 ## OS
 
-The poller must be installed on a dedicated fresh Alma Linux/RHEL/Oracle Linux 8 or 9, or Debian 11 server.
+The poller must be installed on a dedicated fresh Alma Linux/RHEL/Oracle Linux 8 or 9, or Debian 11 server. Debian 12 is also supported for pollers with at least version 24.04.
 
 ## Hardware
 
