@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-Le connecteur de surveillance Centreon *DNS Service* vérifie s'il est possible d'obtenir une résolution pour un nom de domaine (par défaut : google.com).
+Le connecteur de supervision Centreon **DNS Service** vérifie s'il est possible d'obtenir une résolution pour un nom de domaine (par défaut : google.com).
 
 ## Contenu du pack
 
