@@ -9,7 +9,7 @@ Par défaut, tous les utilisateurs peuvent voir toutes les ressources. En effet,
 
 Les administrateurs peuvent créer des règles plus spécifiques pour déterminer quels utilisateurs peuvent voir quelles ressources. Seuls les administrateurs ont accès à l'écran de gestion de l'accès aux ressources.
 
-Vous pouvez créer autant de règles que vous désirez. Si un utilisateur est mentionné dans deux règles aux droits différents, c'est la règle la plus permissive qui l'emportera.
+Vous pouvez créer autant de règles que vous désirez. Si un utilisateur est mentionné dans deux règles aux droits différents, les deux règles seront appliquées.
 
 ## Attribuer des droits à des utilisateurs
 
