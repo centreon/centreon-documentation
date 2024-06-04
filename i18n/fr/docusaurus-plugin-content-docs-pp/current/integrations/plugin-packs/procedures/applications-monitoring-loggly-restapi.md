@@ -22,7 +22,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias  | Modèle de service                           | Description                                                                                  |
 |:-------|:--------------------------------------------|:---------------------------------------------------------------------------------------------|
 | Events | App-Monitoring-Loggly-Events-Restapi-custom | Compte le nombre d'événements qui correspondent à la requête                                 |
-| Fields | App-Monitoring-Loggly-Fields-Restapi-custom | Compte le nombre de champs valeur uniques issus des événements et correspondant à la requête |
+| Fields | App-Monitoring-Loggly-Fields-Restapi-custom | Compte les valeurs de champ uniques issues des événements et correspondant à la requête |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Monitoring-Loggly-Restapi-custom** est utilisé.
 

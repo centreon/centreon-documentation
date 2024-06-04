@@ -21,7 +21,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias | Service Template                            | Service Description                                      |
 |:--------------|:--------------------------------------------|:---------------------------------------------------------|
 | Events        | App-Monitoring-Loggly-Events-Restapi-custom | Count events matching the query                          |
-| Fields        | App-Monitoring-Loggly-Fields-Restapi-custom | Count unique field-values from events matching the query |
+| Fields        | App-Monitoring-Loggly-Fields-Restapi-custom | Count unique field values from events matching the query |
 
 > The services listed above are created automatically when the **App-Monitoring-Loggly-Restapi-custom** host template is used.
 
