@@ -27,7 +27,7 @@ This host template is not linked to any service template.
 
 | Service Alias    | Service Template                                  | Service Description                               | Discovery  |
 |:-----------------|:--------------------------------------------------|:--------------------------------------------------|:----------:|
-| ApplicationPools | App-Webserver-IIS-ApplicationPools-Restapi-custom | Check states of application pools trought IIS API | X          |
+| ApplicationPools | App-Webserver-IIS-ApplicationPools-Restapi-custom | Check the state of application pools through the IIS API | X          |
 | Websites         | App-Webserver-IIS-Websites-Restapi-custom         | Check the performance of IIS sites through the IIS API   | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
@@ -244,8 +244,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--hostname='10.0.0.1' \
 	--port='55539' \
 	--proto='https' \
-	--api-username='' \
-	--api-password='' \
+	--api-username='XXXXXXXXXXXX' \
+	--api-password='XXXXXXXXXXXX' \
 	--api-token=''  \
 	--filter-name='.*' \
 	--warning-status='' \

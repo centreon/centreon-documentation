@@ -44,8 +44,8 @@ This host template is not linked to any service template.
 
 | Nom de la règle                                 | Description |
 |:------------------------------------------------|:------------|
-| App-Webserver-IIS-Restapi-ApplicationPools-Name | Discover application pools hosted by your IIS server            |
-| App-Webserver-IIS-Restapi-Websites-Name         | Discover websites hosted by your IIS server             |
+| App-Webserver-IIS-Restapi-ApplicationPools-Name | Découvre les pools d'applications hébergés sur un serveur IIS.            |
+| App-Webserver-IIS-Restapi-Websites-Name         | Découvre les sites hébergés sur un serveur IIS.             |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -245,8 +245,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--hostname='10.0.0.1' \
 	--port='55539' \
 	--proto='https' \
-	--api-username='' \
-	--api-password='' \
+	--api-username='XXXXXXXXXXXX' \
+	--api-password='XXXXXXXXXXXX' \
 	--api-token=''  \
 	--filter-name='.*' \
 	--warning-status='' \
