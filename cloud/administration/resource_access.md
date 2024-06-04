@@ -9,7 +9,7 @@ By default, all users can see all resources. This is because a default access ru
 
 Administrators can create more specific rules to determine which users can see which resources. Only administrators can access the **Resource Acces Management** screen.
 
-You can create as many rules as you want. If a user is mentioned in two access rules with different rights, the more permissive rule will take precedence.
+You can create as many rules as you want. If a user is mentioned in two access rules with different rights, they will be granted all rights.
 
 ## Granting users rights
 
