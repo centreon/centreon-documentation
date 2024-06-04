@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-The Centreon Monitoring Connector *DNS Service* checks if a resolution for a domain name (default: google.com) can be obtained.
+The **DNS Service** Monitoring Connector checks if a resolution for a domain name (default: google.com) can be obtained.
 
 ## Pack assets
 
