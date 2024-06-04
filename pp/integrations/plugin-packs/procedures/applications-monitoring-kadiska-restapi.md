@@ -5,7 +5,7 @@ title: Kadiska Rest API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> This Monitoring Connector is deprecated and should not be used.
+> This Monitoring Connector is no longer maintained.
 
 ## Pack assets
 
