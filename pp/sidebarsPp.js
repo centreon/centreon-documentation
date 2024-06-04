@@ -198,6 +198,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-grafana-api'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-graylog-restapi'
         },
         {
