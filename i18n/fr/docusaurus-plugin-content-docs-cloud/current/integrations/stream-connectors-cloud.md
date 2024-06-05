@@ -14,11 +14,14 @@ Utilisez les stream connectors pour envoyer les données collectées par Centreo
 * Datadog Metrics
 * Elastic Events
 * Elastic Metrics
+* Google
 * HP OMI
+* InfluxDB
 * Kafka Event Manager
 * Logstash Events
 * Opsgenie integration
 * PagerDuty Events
+* Prometheus
 * ServiceNow Event Manager
 * ServiceNow Incident
 * Signl4 Events

@@ -14,11 +14,14 @@ Use stream connectors to forward data collected by Centreon to third-party syste
 * Datadog Metrics
 * Elastic Events
 * Elastic Metrics
+* Google
 * HP OMI
+* InfluxDB
 * Kafka Event Manager
 * Logstash Events
 * Opsgenie integration
 * PagerDuty Events
+* Prometheus
 * ServiceNow Event Manager
 * ServiceNow Incident
 * Signl4 Events
