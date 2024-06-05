@@ -1992,10 +1992,7 @@ module.exports = {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-symbol-wing-snmp'
         },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-switchs-symbol-wing-snmp'
-        },
+
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-teldat-snmp'
