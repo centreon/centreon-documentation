@@ -23,6 +23,10 @@ module.exports = {
               type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/centreon-nsclient-tutorial'
             },
+			{
+              type: 'doc',
+              id: 'integrations/plugin-packs/getting-started/how-to-guides/telegraf'
+            },
             {
               type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/collect-openmetrics'
