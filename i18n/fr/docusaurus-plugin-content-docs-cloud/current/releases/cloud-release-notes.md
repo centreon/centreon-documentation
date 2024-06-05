@@ -16,7 +16,7 @@ We have also improved the look and feel of existing widgets, in particular graph
 
 ### Stream Connectors
 
-It is now possible to forward data collected by Centreon to third-party systems using our Stream Connectors library. Please contact your Customer Success Manager if you need to set up such an integration.
+It is now possible to forward data collected by Centreon to third-party systems using our Stream Connector library. Please contact your Customer Success Manager if you need to set up such an integration.
 
 ### Pollers
 
