@@ -224,7 +224,7 @@ Install the Open Telemetry processor on your central server:
 | --------- | ---- |
 | Connector Name | Telegraf |
 | Connector Description | Telegraf |
-| Command Line |```open_telemetry --processor=nagios_telegraf --extractor=attributes --host_path=resource_metrics.scope_metrics.data.data_points.attributes.host --service_path=resource_metrics.scope_metrics.data.data_points.attributes.service``` |
+| Command Line |```opentelemetry --processor=nagios_telegraf --extractor=attributes --host_path=resource_metrics.scope_metrics.data.data_points.attributes.host --service_path=resource_metrics.scope_metrics.data.data_points.attributes.service``` |
 | Used by command |<ul><li>OS-Windows-Telegraf-Agent-Certificates</li><li>OS-Windows-Telegraf-Agent-Ntp</li><li>OS-Windows-Telegraf-Agent-Pending-Reboot</li><li>OS-Windows-Telegraf-Agent-Sessions</li><li>OS-Windows-Telegraf-Agent-Updates</li></ul>|
 | Connector Status | Enabled |
 
