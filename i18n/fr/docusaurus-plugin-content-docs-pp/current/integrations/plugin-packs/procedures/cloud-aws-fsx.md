@@ -125,7 +125,7 @@ dnf install centreon-pack-cloud-aws-fsx
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-cloud-aws-fsx
@@ -170,7 +170,7 @@ dnf install centreon-plugin-Cloud-Aws-Fsx-Api
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-cloud-aws-fsx-api

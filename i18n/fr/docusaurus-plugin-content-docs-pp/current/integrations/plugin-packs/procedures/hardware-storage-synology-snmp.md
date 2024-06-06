@@ -180,7 +180,7 @@ dnf install centreon-pack-hardware-storage-synology-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-storage-synology-snmp
@@ -225,7 +225,7 @@ dnf install centreon-plugin-Hardware-Storage-Synology-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-storage-synology-snmp

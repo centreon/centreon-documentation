@@ -57,7 +57,7 @@ Then upgrade all the components with the following command:
 Clean the cache:
 
   ```shell
-  apt clean all
+  apt clean
   apt update
   ```
 
@@ -221,7 +221,7 @@ This procedure is the same as to update a Centreon central server.
 1. Clean the cache:
 
   ```shell
-  apt clean all
+  apt clean
   apt update
   ```
 

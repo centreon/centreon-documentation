@@ -124,7 +124,7 @@ dnf install centreon-pack-network-chapsvision-crossing-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-network-chapsvision-crossing-snmp
@@ -169,7 +169,7 @@ dnf install centreon-plugin-Network-Chapsvision-Crossing-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-network-chapsvision-crossing-snmp
