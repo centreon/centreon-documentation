@@ -285,7 +285,10 @@ broker_module=/usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engin
 {
  "otel_server": {
    "host": "0.0.0.0",
-   "port": 4317
+   "port": 4317,
+   "encryption": true,
+   "certificate_path": "/tmp/otel/server.crt",
+   "key_path": "/tmp/otel/server.key"
  },
  "max_length_grpc_log": 0,
  "telegraf_conf_server": {
@@ -297,7 +300,7 @@ broker_module=/usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engin
    },
    "telegraf_conf": {
      "interval": "60s",
-     "service_address": "xxx.xxx.xxx.xxx:4317"
+     "service_address": "127.0.0.1:4317"
    }
  }
 }
