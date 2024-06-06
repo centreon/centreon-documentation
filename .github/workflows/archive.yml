@@ -37,7 +37,7 @@ jobs:
         run: ARCHIVED_VERSION="${{ github.event.inputs.version }}" yarn build
 
       - name: Store build archived doc in cache
-        uses: actions/cache/save@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
+        uses: actions/cache/save@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
         with:
           path: "./build"
           key: "${{ github.sha }}-${{ github.run_id }}-build-archived-doc"
@@ -47,7 +47,7 @@ jobs:
     runs-on: [self-hosted, infra]
     steps:
       - name: Restore built archived doc from cache
-        uses: actions/cache/restore@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
+        uses: actions/cache/restore@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
         with:
           path: "./build"
           key: "${{ github.sha }}-${{ github.run_id }}-build-archived-doc"
