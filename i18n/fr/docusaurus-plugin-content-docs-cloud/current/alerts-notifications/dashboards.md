@@ -78,7 +78,7 @@ Depuis le bouton **Plus d'actions**, cliquez sur **Supprimer** et confirmez la s
 Vous utilisez la fonctionnalité Tableaux de bord avec un profil de **viewer** ou **editor** :
 
 - Les **viewers** : peuvent uniquement visualiser les tableaux de bord que vous partagez avec eux.
-- Les **editors** : peuvent visualiser et modifier les tableaux de bord que vous partagez avec eux.
+- Les **editors** : peuvent visualiser, modifier et partager les tableaux de bord.
 
 ### Gérer les droits d'accès
 

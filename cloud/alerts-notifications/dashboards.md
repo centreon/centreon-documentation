@@ -82,7 +82,7 @@ You can share dashboards using the **Manage access rights** interface.
 You are using the Dashboards feature with a **viewer** or an **editor** profile:
 
 - **Viewers:** can only view dashboards you share with them.
-- **Editors:** can view and edit dashboards you share with them.
+- **Editors:** can view, edit and share dashboards.
 
 ### Manage access rights
 
