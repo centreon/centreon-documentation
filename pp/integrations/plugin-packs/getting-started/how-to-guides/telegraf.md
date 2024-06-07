@@ -36,11 +36,11 @@ Due to Telegraf or Centreon constraints, the following limitations need to be co
 .\telegraf.exe --service install --config "http(s)://<ip_poller>:<port poller>/engine?host=<host_to_monitor>"
 ```
 
-The arguments in this command will allow Telegraf to know where to fetch the configuration of the resources that it must monitor (i.e on the poller or the central, according to the IP address you have entered in the command).
+The arguments in this command will allow Telegraf to know where to fetch the configuration of the resources that it must monitor (i.e on the poller or the central, according to the IP address you have entered in the command). The `<host_to_monitor>` parameter is the name of the host as you entered it in the **Name** field in its configuration.
 
-### Deploy the Centreon plugins on the host
+### Deploy the Centreon plugin on the host
 
-The Centreon plugins will execute the checks on the host.
+The Centreon plugin will execute the checks on the host.
 
 <!--
 <Tabs groupId="sync">
@@ -215,7 +215,7 @@ On the hosts you want to monitor, download and execute the corresponding [packag
 
 ### Create the Telegraf connector
 
-Install the Open Telemetry processor on your central server:
+Install the Open Telemetry processor for Telegraf on your central server:
 
 1. Go to **Configuration > Commands > Connectors**.
 2. Create a new connector with the following values:
