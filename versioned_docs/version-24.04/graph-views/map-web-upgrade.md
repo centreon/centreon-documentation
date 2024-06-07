@@ -72,6 +72,11 @@ sudo dnf update centreon-map-engine centreon-map-web-client
 </TabItem>
 </Tabs>
 
+<<<<<<< HEAD
+=======
+> When upgrading to version 24.04 and above, you have to upgrade MariaDB to version 10.11. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).
+
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
 ## Update through the interface
 
 Log on to the Centreon web interface and go to `Administration > Extension >

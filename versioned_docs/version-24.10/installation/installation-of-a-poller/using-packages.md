@@ -208,6 +208,14 @@ Enable the CodeReady Builder repository using these commands:
 ```shell
 dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+<<<<<<< HEAD
+=======
+```
+
+If your server is a Cloud RHEL instance, you will have to execute the following command:
+
+```shell
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
 dnf config-manager --set-enabled codeready-builder-for-rhel-8-rhui-rpms
 ```
 
@@ -252,6 +260,14 @@ Run the following commands:
 dnf install -y dnf-plugins-core
 dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
+<<<<<<< HEAD
+=======
+```
+
+If your server is a Cloud RHEL instance, you will have to execute the following command:
+
+```shell
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
 dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
 ```
 
@@ -472,4 +488,8 @@ Go to [Attach a poller to a central or a remote server](../../monitoring/monitor
 ## Step 5: Secure your platform
 
 Remember to secure your Centreon platform following our
+<<<<<<< HEAD
 [recommendations](../../administration/secure-platform.md).
+=======
+[recommendations](../../administration/secure-platform.md).
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08

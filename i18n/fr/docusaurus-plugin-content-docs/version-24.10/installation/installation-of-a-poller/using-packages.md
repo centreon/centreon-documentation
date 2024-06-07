@@ -180,16 +180,30 @@ hostnamectl set-hostname poller1
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
 
+<<<<<<< HEAD
 #### Redhat CodeReady Builder repository
 
 To install Centreon you will need to enable the official CodeReady Builder
 repository supported by Redhat.
 
 Enable the CodeReady Builder repository using these commands:
+=======
+#### Dépôt Redhat CodeReady Builder
+
+Pour installer Centreon, vous devez installer le dépôt **CodeReady Builder**.
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
 
 ```shell
 dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+<<<<<<< HEAD
+=======
+```
+
+S'il s'agit d'une instance Cloud RHEL, vous devrez exécuter la commande suivante :
+
+```shell
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
 dnf config-manager --set-enabled codeready-builder-for-rhel-8-rhui-rpms
 ```
 
@@ -243,6 +257,14 @@ Exécutez les commandes suivantes :
 dnf install -y dnf-plugins-core
 dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
+<<<<<<< HEAD
+=======
+```
+
+S'il s'agit d'une instance Cloud RHEL, vous devrez exécuter la commande suivante :
+
+```shell
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
 dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
 ```
 

@@ -210,6 +210,14 @@ dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+<<<<<<< HEAD
+=======
+```
+
+S'il s'agit d'une instance Cloud RHEL, vous devrez exécuter la commande suivante :
+
+```shell
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
 dnf config-manager --set-enabled codeready-builder-for-rhel-8-rhui-rpms
 ```
 
@@ -270,6 +278,14 @@ Exécutez les commandes suivantes :
 dnf install -y dnf-plugins-core
 dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
+<<<<<<< HEAD
+=======
+```
+
+S'il s'agit d'une instance Cloud RHEL, vous devrez exécuter la commande suivante :
+
+```shell
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
 dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
 ```
 

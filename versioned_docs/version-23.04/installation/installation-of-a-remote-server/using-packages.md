@@ -204,6 +204,11 @@ dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
+
+If your server is a Cloud RHEL instance, you will have to execute the following command:
+
+```shell
 dnf config-manager --set-enabled codeready-builder-for-rhel-8-rhui-rpms
 ```
 
@@ -267,6 +272,11 @@ Run the following commands:
 dnf install -y dnf-plugins-core
 dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
+```
+
+If your server is a Cloud RHEL instance, you will have to execute the following command:
+
+```shell
 dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
 ```
 
@@ -412,7 +422,7 @@ a remote database on a dedicated server.
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y centreon
+dnf install -y centreon-database centreon-central
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -421,7 +431,7 @@ systemctl restart mariadb
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf install -y centreon
+dnf install -y centreon-database centreon-central
 systemctl daemon-reload
 systemctl restart mariadb
 ```

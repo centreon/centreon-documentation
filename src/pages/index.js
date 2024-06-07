@@ -78,7 +78,11 @@ const cards = [
 
 const versionInfo = {
   version: '24.04',
+<<<<<<< HEAD
   link: 'https://docs.centreon.com/docs/getting-started/welcome/',
+=======
+  link: 'https://www.centreon.com/centreon-announces-its-latest-software-release-centreon-24-04/',
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
   target: '_blank'
 }
 

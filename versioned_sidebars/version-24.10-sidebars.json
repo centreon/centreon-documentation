@@ -725,7 +725,19 @@
             },
             {
               "type": "doc",
+<<<<<<< HEAD
               "id": "version-24.10/graph-views/map-web-upgrade"
+=======
+<<<<<<<< HEAD:versioned_sidebars/version-22.04-sidebars.json
+              "id": "version-22.04/graph-views/map-web-upgrade"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.04/graph-views/import-into-map-web"
+========
+              "id": "version-24.10/graph-views/map-web-upgrade"
+>>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08:versioned_sidebars/version-24.10-sidebars.json
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
             },
             {
               "type": "doc",
@@ -1162,14 +1174,22 @@
       "items": [
         {
           "type": "category",
+<<<<<<< HEAD
           "label": "Data Analytics",
           "link": {
             "type": "doc",
             "id": "version-24.10/integrations/data-analytics/data-analytics-overview"
+=======
+          "label": "Stream connectors",
+          "link": {
+            "type": "doc",
+            "id": "version-24.10/integrations/stream-connectors"
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
           },
           "items": [
             {
               "type": "doc",
+<<<<<<< HEAD
               "id": "version-24.10/integrations/data-analytics/sc-elastic-events"
             },
             {
@@ -1179,6 +1199,17 @@
             {
               "type": "doc",
               "id": "version-24.10/integrations/data-analytics/sc-logstash-events"
+=======
+              "id": "version-24.10/integrations/event-management/sc-hp-bsm"
+            },
+            {
+              "type": "doc",
+              "id": "version-24.10/integrations/data-analytics/sc-canopsis-events"
+            },
+            {
+              "type": "doc",
+              "id": "version-24.10/integrations/data-analytics/sc-clickhouse"
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
             },
             {
               "type": "doc",
@@ -1190,6 +1221,7 @@
             },
             {
               "type": "doc",
+<<<<<<< HEAD
               "id": "version-24.10/integrations/data-analytics/sc-splunk-metrics"
             },
             {
@@ -1199,6 +1231,17 @@
             {
               "type": "doc",
               "id": "version-24.10/integrations/data-analytics/sc-warp10"
+=======
+              "id": "version-24.10/integrations/data-analytics/sc-elastic-events"
+            },
+            {
+              "type": "doc",
+              "id": "version-24.10/integrations/data-analytics/sc-elastic-metrics"
+            },
+            {
+              "type": "doc",
+              "id": "version-24.10/integrations/event-management/sc-hp-omi"
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
             },
             {
               "type": "doc",
@@ -1206,6 +1249,7 @@
             },
             {
               "type": "doc",
+<<<<<<< HEAD
               "id": "version-24.10/integrations/data-analytics/sc-clickhouse"
             }
           ]
@@ -1225,6 +1269,9 @@
             {
               "type": "doc",
               "id": "version-24.10/integrations/event-management/sc-hp-omi"
+=======
+              "id": "version-24.10/integrations/data-analytics/sc-logstash-events"
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
             },
             {
               "type": "doc",
@@ -1236,15 +1283,38 @@
             },
             {
               "type": "doc",
+<<<<<<< HEAD
               "id": "version-24.10/integrations/event-management/sc-service-now-incident-events"
             },
             {
               "type": "doc",
+=======
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
               "id": "version-24.10/integrations/event-management/sc-service-now-em-events"
             },
             {
               "type": "doc",
+<<<<<<< HEAD
               "id": "version-24.10/integrations/event-management/sc-signl4-events"
+=======
+              "id": "version-24.10/integrations/event-management/sc-service-now-incident-events"
+            },
+            {
+              "type": "doc",
+              "id": "version-24.10/integrations/event-management/sc-signl4-events"
+            },
+            {
+              "type": "doc",
+              "id": "version-24.10/integrations/data-analytics/sc-splunk-events"
+            },
+            {
+              "type": "doc",
+              "id": "version-24.10/integrations/data-analytics/sc-splunk-metrics"
+            },
+            {
+              "type": "doc",
+              "id": "version-24.10/integrations/data-analytics/sc-warp10"
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
             }
           ]
         },
@@ -1270,6 +1340,13 @@
             },
             {
               "type": "doc",
+<<<<<<< HEAD
+=======
+              "id": "version-24.10/integrations/itsm/ot-easyvista-rest-api"
+            },
+            {
+              "type": "doc",
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
               "id": "version-24.10/integrations/itsm/ot-glpi"
             },
             {

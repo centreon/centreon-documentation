@@ -34,9 +34,16 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 1. Mettez à jour votre Centreon 23.04 jusqu'à la dernière version mineure.
 
+<<<<<<< HEAD
 2. Supprimez le fichier **centreon.repo** :
 
    ```shell
+=======
+2. Supprimez les fichiers des dépôts :
+
+   ```shell
+   rm /etc/yum.repos.d/centreon-23.04.repo
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
    rm /etc/yum.repos.d/centreon.repo
    ```
 

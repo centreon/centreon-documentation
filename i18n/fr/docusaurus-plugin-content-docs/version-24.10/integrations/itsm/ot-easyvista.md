@@ -1,8 +1,16 @@
 ---
 id: ot-easyvista
+<<<<<<< HEAD
 title: EasyVista
 ---
 
+=======
+title: EasyVista API SOAP
+---
+
+> **SOAP** Service Manager web services are no longer maintained, so we recommend that you use the [**Rest API** version](./ot-easyvista-rest-api.md) to benefit from the latest enhancements and features.
+
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
 ## How it works
 
 EasyVista open-tickets provider uses the EasyVista SOAP API to open incidents

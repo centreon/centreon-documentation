@@ -124,7 +124,11 @@ rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared Mari
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
+<<<<<<< HEAD
 dpkg -r --ignore-depends=MariaDB-server,MariaDB-client,MariaDB-shared,MariaDB-compat,MariaDB-common
+=======
+dpkg -r --ignore-depends=MariaDB-server,MariaDB-client,MariaDB-shared,MariaDB-compat,MariaDB-common MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
 ```
 
 </TabItem>
@@ -140,7 +144,11 @@ dpkg -r --ignore-depends=MariaDB-server,MariaDB-client,MariaDB-shared,MariaDB-co
 >
 >   `rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-common`
 
+<<<<<<< HEAD
 > Assurez-vous d'avoir [installé le dépôt officiel de MariaDB](./upgrade-from-22-04.md#installer-le-dépôt-mariadb) avant de poursuivre la procédure.
+=======
+> Assurez-vous d'avoir [installé le dépôt officiel de MariaDB](https://mariadb.com/kb/en/mariadb-package-repository-setup-and-usage/) avant de poursuivre la procédure.
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
 
 3. Installez la version 10.11 :
 

@@ -3,7 +3,11 @@ id: api-tokens
 title: API tokens
 ---
 
+<<<<<<< HEAD
 Using the API, a third-party application can perform actions (webhook) in Centreon using an API token.
+=======
+Using an API token, a third-party application can call the Centreon API to perform actions in Centreon (webhooks).
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
 
 A token is linked to one [Centreon user](../monitoring/basic-objects/contacts.md) and is valid only for a certain period of time. API calls will be executed according to the [rights assigned to this user](../administration/access-control-lists.md#granting-rights-to-a-user). A specific user can have several tokens.
 

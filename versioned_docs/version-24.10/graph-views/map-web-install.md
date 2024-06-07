@@ -246,9 +246,15 @@ Disabled
 > - ``SELINUX=permissive`` to make SELinux print warnings instead of enforce security policy.
 
 </TabItem>
+<<<<<<< HEAD
 <TabItem value="Debian 11" label="Debian 11">
 
 SELinux is not installed on Debian 11, continue.
+=======
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+SELinux is not installed on Debian 11 & 12, continue.
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
 
 </TabItem>
 </Tabs>
@@ -831,7 +837,11 @@ Install the Centreon Business repository. You can find this on the
   ```
 
   </TabItem>
+<<<<<<< HEAD
   <TabItem value="Debian" label="Debian">
+=======
+  <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
 
   ```shell
   sudo apt install centreon-map-web-client

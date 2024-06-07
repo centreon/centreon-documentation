@@ -162,6 +162,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-dynamics-ax-mssql'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-monitoring-dynatrace-restapi'
         },
         {
@@ -191,6 +195,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-gorgone-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-grafana-api'
         },
         {
           type: 'doc',
@@ -462,6 +470,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-quanta-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-rabbitmq-restapi'
         },
         {
@@ -479,6 +491,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-redis-sentinel'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-rrdcached'
         },
         {
           type: 'doc',
@@ -1201,6 +1217,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-devices-barco-cs-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-devices-camera-avigilon-snmp'
         },
         {
           type: 'doc',
@@ -1947,6 +1967,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-ruggedcom'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-securactive-snmp'
         },
         {
           type: 'doc',

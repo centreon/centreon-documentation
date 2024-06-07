@@ -245,9 +245,15 @@ Disabled
 > - ``SELINUX=permissive`` pour que les erreurs d’accès soient enregistrées dans les logs, mais l’accès ne sera pas bloqué.
 
 </TabItem>
+<<<<<<< HEAD
 <TabItem value="Debian 11" label="Debian 11">
 
 SELinux n'est pas installé sur Debian 11, continuez.
+=======
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+SELinux n'est pas installé sur Debian 11 & 12, continuez.
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
 
 </TabItem>
 </Tabs>
@@ -412,13 +418,27 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 ```
 
 </TabItem>
+<<<<<<< HEAD
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+=======
+<TabItem value="Debian 11" label="Debian 11">
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
 
 ```shell
 curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.11"
 ```
 
 </TabItem>
+<<<<<<< HEAD
+=======
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=12 --mariadb-server-version="mariadb-10.11"
+```
+
+</TabItem>
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
 </Tabs>
 
 Ensuite installez le serveur MariaDB :
@@ -811,7 +831,11 @@ Installez le dépôt de Centreon Business : vous pouvez le trouver sur le [porta
   ```
 
   </TabItem>
+<<<<<<< HEAD
   <TabItem value="Debian" label="Debian">
+=======
+  <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
 
   ```shell
   sudo apt install centreon-map-web-client

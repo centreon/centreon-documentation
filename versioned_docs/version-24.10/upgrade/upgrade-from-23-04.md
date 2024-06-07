@@ -33,9 +33,16 @@ servers:
 
 1. Update your Centreon 23.04 to the latest minor version.
 
+<<<<<<< HEAD
 2. Remove the **centreon.repo** file:
 
    ```shell
+=======
+2. Remove the repository files:
+
+   ```shell
+   rm /etc/yum.repos.d/centreon-23.04.repo
+>>>>>>> fa6ed78579cfd2fb8ccfcba5771992c1bb7e5e08
    rm /etc/yum.repos.d/centreon.repo
    ```
 
