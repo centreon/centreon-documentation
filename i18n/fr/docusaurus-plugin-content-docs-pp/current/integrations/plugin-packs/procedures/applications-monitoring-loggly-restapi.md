@@ -171,7 +171,7 @@ yum install centreon-plugin-Applications-Monitoring-Loggly-Restapi
 
 | Macro          | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:---------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| TIMEPERIOD     | Set request period, in minutes (mandatory option)                                                  |                   | X           |
+| TIMEPERIOD     | Set request period, in minutes (mandatory option)                                                  | 60                | X           |
 | QUERY          | Set the query (mandatory option)                                                                   |                   | X           |
 | OUTPUTFIELD    | Set the field to verbose-output from the last matching event (example: json.message)               |                   |             |
 | WARNINGEVENTS  | Warning thresholds for events matching count                                                                                        |                   |             |
@@ -183,7 +183,7 @@ yum install centreon-plugin-Applications-Monitoring-Loggly-Restapi
 
 | Macro               | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:--------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| TIMEPERIOD          | Set request period, in minutes (mandatory option)                                                  |                   | X           |
+| TIMEPERIOD          | Set request period, in minutes (mandatory option)                                                  | 60                | X           |
 | QUERY               | Set the query (mandatory option)                                                                   |                   | X           |
 | FIELD               | Set the field to count unique values for example: json.host(mandatory option)                      |                   | X           |
 | FILTERFIELD         | Define which fields should be counted. This option will be treated as a regular expression. If this option is empty, all fields will be counted                                                                            |                   |             |

@@ -170,31 +170,31 @@ yum install centreon-plugin-Applications-Monitoring-Loggly-Restapi
 <Tabs groupId="sync">
 <TabItem value="Events" label="Events">
 
-| Macro          | Description                                                                                        | Default value     | Mandatory   |
-|:---------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| TIMEPERIOD     | Set request period, in minutes (mandatory option)                                                  |                   | X           |
-| QUERY          | Set the query (mandatory option)                                                                   |                   | X           |
-| OUTPUTFIELD    | Set the field to verbose-output from the last matching event (example: json.message)               |                   |             |
-| WARNINGEVENTS  | Warning thresholds for events matching count                                                                                         |                   |             |
-| CRITICALEVENTS | Critical thresholds for events matching count                                                                                         |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro          | Description                                                                                        | Default value | Mandatory   |
+|:---------------|:---------------------------------------------------------------------------------------------------|:--------------|:-----------:|
+| TIMEPERIOD     | Set request period, in minutes (mandatory option)                                                  | 60            | X           |
+| QUERY          | Set the query (mandatory option)                                                                   |               | X           |
+| OUTPUTFIELD    | Set the field to verbose-output from the last matching event (example: json.message)               |               |             |
+| WARNINGEVENTS  | Warning thresholds for events matching count                                                                                         |               |             |
+| CRITICALEVENTS | Critical thresholds for events matching count                                                                                         |               |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose     |             |
 
 </TabItem>
 <TabItem value="Fields" label="Fields">
 
-| Macro               | Description                                                                                        | Default value     | Mandatory   |
-|:--------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| TIMEPERIOD          | Set request period, in minutes (mandatory option)                                                  |                   | X           |
-| QUERY               | Set the query (mandatory option)                                                                   |                   | X           |
-| FIELD               | Set the field to count unique values for example: json.host(mandatory option)                      |                   | X           |
-| FILTERFIELD         | Define which fields should be counted. This option will be treated as a regular expression. If this option is empty, all fields will be counted                                                                             |                   |             |
-| WARNINGEVENTS       | Warning thresholds for events matching count                                                                                         |                   |             |
-| CRITICALEVENTS      | Critical thresholds for events matching count                                                                                         |                   |             |
-| WARNINGFIELDEVENTS  |  Warning thresholds for count entry in fields                                                                                                  |                   |             |
-| CRITICALFIELDEVENTS | Critical thresholds for count entry in fields                                                                                                   |                   |             |
-| WARNINGFIELDS       | Warning thresholds for fields matching count                                                                                         |                   |             |
-| CRITICALFIELDS      | Critical thresholds for fields matching count                                                                                         |                   |             |
-| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro               | Description                                                                                        | Default value | Mandatory   |
+|:--------------------|:---------------------------------------------------------------------------------------------------|:--------------|:-----------:|
+| TIMEPERIOD          | Set request period, in minutes (mandatory option)                                                  | 60            | X           |
+| QUERY               | Set the query (mandatory option)                                                                   |               | X           |
+| FIELD               | Set the field to count unique values for example: json.host(mandatory option)                      |               | X           |
+| FILTERFIELD         | Define which fields should be counted. This option will be treated as a regular expression. If this option is empty, all fields will be counted                                                                             |               |             |
+| WARNINGEVENTS       | Warning thresholds for events matching count                                                                                         |               |             |
+| CRITICALEVENTS      | Critical thresholds for events matching count                                                                                         |               |             |
+| WARNINGFIELDEVENTS  |  Warning thresholds for count entry in fields                                                                                                  |               |             |
+| CRITICALFIELDEVENTS | Critical thresholds for count entry in fields                                                                                                   |               |             |
+| WARNINGFIELDS       | Warning thresholds for fields matching count                                                                                         |               |             |
+| CRITICALFIELDS      | Critical thresholds for fields matching count                                                                                         |               |             |
+| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose     |             |
 
 </TabItem>
 </Tabs>
