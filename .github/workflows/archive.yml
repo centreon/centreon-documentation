@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout sources
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4.1.4
 
       - name: Set up Node
         uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
@@ -37,7 +37,7 @@ jobs:
         run: ARCHIVED_VERSION="${{ github.event.inputs.version }}" yarn build
 
       - name: Store build archived doc in cache
-        uses: actions/cache/save@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
+        uses: actions/cache/save@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
         with:
           path: "./build"
           key: "${{ github.sha }}-${{ github.run_id }}-build-archived-doc"
@@ -47,7 +47,7 @@ jobs:
     runs-on: [self-hosted, infra]
     steps:
       - name: Restore built archived doc from cache
-        uses: actions/cache/restore@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
+        uses: actions/cache/restore@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
         with:
           path: "./build"
           key: "${{ github.sha }}-${{ github.run_id }}-build-archived-doc"
