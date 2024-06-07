@@ -22,7 +22,7 @@ Due to Telegraf or Centreon constraints, the following limitations need to be co
 * Only known metrics (i.e., the metrics for the hosts and services created in Centreon) are sent to Centreon. Metrics for unknown hosts or services are discarded.
 * Only metrics and statuses are returned (no outputs).
 * Network connections are one-way only: data goes from the agent to the poller. This means that a host in a DMZ will need a poller in this DMZ.
-* When an enhancement or fix is released, Centreon plugins must be re-deployed on your monitored host (there is no auto-update).
+* When an enhancement or fix is released, the Centreon plugin must be re-deployed on your monitored host (there is no auto-update).
 
 ## Step 1: Install the agent and the Centreon plugins on the host
 

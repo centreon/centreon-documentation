@@ -21,7 +21,7 @@ Les limitations suivantes sont dues à des contraintes côté Telegraf ou côté
 * Seules les métriques connues (c'est-à-dire les métriques pour les hôtes et services existant dans Centreon) sont envoyées à Centreon. Les métriques concernant des hôtes ou services inconnus sont ignorées.
 * Seuls des métriques et des status sont retournés (pas d'outputs).
 * Les connexions réseau sont unidirectionnelles : les données vont de l'agent au collecteur. Cela signifie qu'un hôte situé dans une DMZ devra communiquer avec un collecteur situé dans la même DMZ.
-* Lorsqu'une amélioration ou une correction sont publiées, les plugins Centreon doivent être redéployées sur les hôtes supervisés (il n'y a pas de mise à jour automatique).
+* Lorsqu'une amélioration ou une correction sont publiées, le plugin Centreon doit être redéployé sur les hôtes supervisés (il n'y a pas de mise à jour automatique).
 
 ## Étape 1 : Installer l'agent et les plugins Centreon sur l'hôte
 
