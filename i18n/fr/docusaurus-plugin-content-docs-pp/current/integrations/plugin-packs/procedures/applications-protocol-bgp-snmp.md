@@ -21,7 +21,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Alias       | Modèle de service                        | Description                                                  |
 |:------------|:-----------------------------------------|:-------------------------------------------------------------|
-| Peers-State | App-Protocol-BGP-Peers-State-SNMP-custom | Controle l'etat d'une ou plusieurs peers BGP de l'equipement |
+| Peers-State | App-Protocol-BGP-Peers-State-SNMP-custom | Controle l'etat d'une ou plusieurs peers BGP de l'équipement |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Protocol-BGP-SNMP-custom** est utilisé.
 
