@@ -275,8 +275,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--hostname='10.0.0.1' \
 	--port='443' \
 	--proto='https' \
-	--api-key='' \
-	--api-secret=''  \
+	--api-key='myapikey' \
+	--api-secret='myapisecret'  \
 	--filter-counters='' \
 	--filter-name='' \
 	--warning-traffic='' \

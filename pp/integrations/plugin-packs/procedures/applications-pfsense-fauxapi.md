@@ -272,8 +272,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--hostname='10.0.0.1' \
 	--port='443' \
 	--proto='https' \
-	--api-key='' \
-	--api-secret=''  \
+	--api-key='myapikey' \
+	--api-secret='myapisecret'  \
 	--filter-counters='' \
 	--filter-name='' \
 	--warning-traffic='' \
