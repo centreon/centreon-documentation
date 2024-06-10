@@ -18,17 +18,13 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="Cloud-Prometheus-Kubernetes-Api-custom" label="Cloud-Prometheus-Kubernetes-Api-custom">
 
-| Service Alias     | Service Template                                         | Service Description      |
-|:------------------|:---------------------------------------------------------|:-------------------------|
+| Service Alias     | Service Template                                         | Service Description                 |
+|:------------------|:---------------------------------------------------------|:------------------------------------|
 | Container-Status  | Cloud-Prometheus-Kubernetes-Container-Status-Api-custom  | Check the status of the containers  |
-| Daemonset-Status  | Cloud-Prometheus-Kubernetes-Daemonset-Status-Api-custom  | Check the status  
- of the daemonsets  |
-| Deployment-Status | Cloud-Prometheus-Kubernetes-Deployment-Status-Api-custom | Check the status 
- of the deployments |
-| Namespace-Status  | Cloud-Prometheus-Kubernetes-Namespace-Status-Api-custom  | Check the status  
- of the namespaces  |
-| Node-Status       | Cloud-Prometheus-Kubernetes-Node-Status-Api-custom       | Check the status  
- of the nodes       |
+| Daemonset-Status  | Cloud-Prometheus-Kubernetes-Daemonset-Status-Api-custom  | Check the status of the daemonsets  |
+| Deployment-Status | Cloud-Prometheus-Kubernetes-Deployment-Status-Api-custom | Check the status of the deployments |
+| Namespace-Status  | Cloud-Prometheus-Kubernetes-Namespace-Status-Api-custom  | Check the status of the namespaces  |
+| Node-Status       | Cloud-Prometheus-Kubernetes-Node-Status-Api-custom       | Check the status of the nodes       |
 
 > The services listed above are created automatically when the **Cloud-Prometheus-Kubernetes-Api-custom** host template is used.
 
