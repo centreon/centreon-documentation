@@ -15,10 +15,10 @@ Un jeton est lié à un [utilisateur Centreon](../monitoring/basic-objects/conta
 ## Créer un jeton d'API
 
 1. Allez à la page **Administration > Jetons d'API**.
-2. Cliquer sur **Générer un nouveau jeton**. Une fenêtre pop-up apparaît.
-3. Remplissez les champs demandés puis cliquez sur **Générer un nouveau jeton**. Un champ **Jeton** apparaît dans la fenêtre.
-4. Copiez le jeton à l'aide du bouton à droite du champ. Stockez le jeton avec soin : vous ne pourrez pas l'afficher une deuxième fois.
-5. Cliquez sur **Terminé**.
+2. Cliquer sur **Ajouter**. Une fenêtre pop-up apparaît.
+3. Remplissez les champs demandés puis cliquez sur **Créer un nouveau jeton**. Un champ **Jeton** apparaît dans la fenêtre. Vous pouvez cliquer sur l'icône en forme d'oeil pour afficher le jeton si vous le souhaitez. 
+4. Copiez le jeton à l'aide du bouton "copie" à droite du champ. Stockez le jeton avec soin : vous ne pourrez pas l'afficher une deuxième fois.
+5. Cliquez sur **Fermer**.
 
 ## Gérer les jetons d'API
 
