@@ -5,7 +5,7 @@ title: Attribuer des droits aux utilisateurs sur les ressources
 
 Les règles d'accès aux ressources vous permettent d'attribuer aux utilisateurs le droit de voir des [ressources](../resources/glossary.md#resource) spécifiques.
 
-Par défaut, tous les utilisateurs peuvent voir toutes les ressources. En effet, une règle par défaut nommée "ALL" est créée automatiquement à l'installation de la plateforme.
+Par défaut, tous les utilisateurs peuvent voir toutes les ressources. En effet, une règle par défaut nommée "ALL" est créée automatiquement à l'installation de la plateforme. Les utilisateurs ayant le rôle **Administrator** peuvent voir toutes les ressources dans tous les cas, même si aucune règle ne leur attribue explicitement ce droit.
 
 Les administrateurs peuvent créer des règles plus spécifiques pour déterminer quels utilisateurs peuvent voir quelles ressources. Seuls les administrateurs ont accès à l'écran de gestion de l'accès aux ressources.
 
@@ -15,7 +15,7 @@ Vous pouvez créer autant de règles que vous désirez. Si un utilisateur est me
 
 Voici la marche à suivre si vous ne souhaitez pas que tous les utilisateurs puissent voir toutes les ressources :
 
-1. Modifiez la règle par défaut nommée "ALL" afin qu'elle ne donne le droit de voir toutes les ressources qu'à vous (ou à tous les administrateurs). N'oubliez pas de renommer la règle.
+1. Supprimez la règle par défaut nommée "ALL".
 2. Créez les règles désirées pour vos utilisateurs.
 
 ## Créer une règle d'accès
