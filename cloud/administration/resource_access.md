@@ -25,7 +25,7 @@ If you don't want all users to see all resources, you need to:
 3. In the **Add resource datasets** section, define which resources you want to grant access to:
    * Select a type of resource from the list, then select which of the corresponding resources you want to allow access to.
    * To refine your selection, click **Add filter** and select narrower criteria: the second filter only shows the resources that depend from the first filter. You can narrow your selection down to services.
-   * If you want to add another batch of resources that do not depend on any of the criteria defined above, click **Add new dataset**. The list will propose all types of resources again.
+   * If you want to add another set of resources that do not depend on any of the criteria defined above, click **Add new dataset**. The list will propose all types of resources again.
 
    > You can also select **All resources**: users will see all existing resources, as well as be able to see any resources created afterwards automatically.
    > If you select a group of resources (hosts, services, BVs), users will see all existing resources in the group, as well as see any resources added to the group afterwards automatically.
