@@ -131,6 +131,7 @@ need to configure multiple sections to have an agregated indicator. The
 name is the only parameter mandatory but to have a BA that works, **you
 need at least to configure some indicators and define the
 calculation methods**. This can be done in the "Indicator" section.
+ The only authorized special characters in the name of a BA are: slash, hyphen and underscore.
 
 #### Indicators
 
