@@ -10,7 +10,7 @@ To create a service manually, go to **Configuration > Services > Services by hos
 ### General information
 
 * **Host**: Host to which the service is attached.
-* **Name**: define the name of the service.
+* **Name**: define the name of the service. The only authorized special characters are: slash, hyphen and underscore.
 * **Template**: indicates the service template to which the service is linked.
 * The **Enable/disable resource** field allows us to enable or disable the service.
 
