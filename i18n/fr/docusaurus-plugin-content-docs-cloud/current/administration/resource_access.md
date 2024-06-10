@@ -24,7 +24,7 @@ Voici la marche à suivre si vous ne souhaitez pas que tous les utilisateurs pui
 2. Entrez un nom et une description.
 3. Dans la section **Add resource datasets**, définissez à quelles ressources vous voulez donner accès :
    * Sélectionnez un type de ressource dans la liste, puis sélectionnez les ressources auxquelles vous voulez donner accès.
-   * Pour affiner votre sélection, cliquez sur **Add filter** et sélectionnez des critères plus restrictifs : le deuxième filtre montre uniquement les ressources qui dépendent du premier filtre. Vous pouvez ainsi descendre jusqu'aux services.
+   * Pour affiner votre sélection, cliquez sur **Add filter** et sélectionnez des critères plus restrictifs : le deuxième filtre montre uniquement les ressources qui dépendent du premier filtre.
    * Si vous voulez ajouter un autre groupe de ressources indépendant des critères définis au-dessus, cliquez sur **Ajouter un nouveau jeu de données**. La liste propose à nouveau tous les types de ressources.
 
    > Vous pouvez également sélectionner **All resources** : les utilisateurs pourront voir toutes les ressources existantes ainsi que toutes celles crées par la suite.
