@@ -13,7 +13,7 @@ Resource Access Management allows administrators to assign specific access permi
 
 Centreon Dashboards is now Generally Available!
 In addition to our stabilization work through the beta, we have added several features like dashboard duplication, or a new mechanism to prevent exiting edition mode with unsaved changes.
-We have also improved the look and feel of existing widgets, in particular graph legends and tooltips, and enriched our widget library with three new widgets: Status Chart, Status Grid and Business Activity Diagram.
+We have also improved the look and feel of existing widgets, in particular graph legends and tooltips, and enriched our widget library with two new widgets: Status Chart and Business Activity Diagram.
 
 ### Stream Connectors
 
