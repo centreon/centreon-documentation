@@ -10,7 +10,7 @@ Pour créer un service, allez à la page **Configuration > Services > Services p
 ### Informations générales
 
 * La liste **Hôte** permet de définir l'hôtes auxquels lier ce service.
-* Le champ **Nom** définit le nom du service.
+* Le champ **Nom** définit le nom du service. Les seuls caractères spéciaux autorisés sont : slash, tiret et underscore.
 * Le champ **Modèle** indique le modèle de service auquel le service est lié.
 * Le champ **Activer/désactiver la ressource** permet d’activer ou de désactiver le service.
 
