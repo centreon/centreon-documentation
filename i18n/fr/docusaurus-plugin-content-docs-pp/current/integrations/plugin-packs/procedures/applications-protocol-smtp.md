@@ -52,7 +52,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-The remote server must have a SMTP service running and available.
+Le collecteur doit pouvoir accéder au port SMTP de l'hôte supervisé. Rappel : les ports les plus couramment utilisés sont 25 (sans chiffrement), 465 (chiffrement implicite), 587 (chiffrement explicite).
 
 ## Installer le connecteur de supervision
 

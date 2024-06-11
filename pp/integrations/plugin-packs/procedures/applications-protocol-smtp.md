@@ -51,7 +51,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-The remote server must have a SMTP service running and available.
+The poller must be able to reach the SMTP port of the monitored host. As a reminder, the most standard ports are 25 (unencrypted), 465 (implicitely encrypted), 587 (explicitely encrypted).
 
 ## Installing the monitoring connector
 
