@@ -5,7 +5,7 @@ title: Jetons d'API
 
 Avec un jeton d'application, une application tierce peut faire des appels à l'API Centreon afin de réaliser des actions dans Centreon (webhooks).
 
-Un jeton est lié à un [utilisateur Centreon](../monitoring/basic-objects/contacts.md) et a une durée de validité. Les appels API seront exécutées en fonction des [droits assignés à cet utilisateur](../administration/access-control-lists.md#donner-des-droits-à-un-utilisateur). Un même utilisateur peut avoir plusieurs jetons.
+Un jeton est lié à un [utilisateur Centreon](../monitoring/basic-objects/contacts.md) et a une durée de validité. Les appels API seront exécutés en fonction des [droits assignés à cet utilisateur](../administration/access-control-lists.md#donner-des-droits-à-un-utilisateur). Un même utilisateur peut avoir plusieurs jetons.
 
 ## Qui peut créer des jetons d'API ?
 
