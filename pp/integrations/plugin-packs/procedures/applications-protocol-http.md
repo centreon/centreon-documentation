@@ -29,7 +29,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias         | Service Template                          | Service Description                         |
 |:----------------------|:------------------------------------------|:--------------------------------------------|
-| Collection            | App-Protocol-HTTP-Collection-custom       | Collect and compute data obtained using HTTP protocol.              |
+| Collection            | App-Protocol-HTTP-Collection-custom       | Collect and compute data obtained using the HTTP protocol.              |
 | HTTP-Expected-Content | App-Protocol-HTTP-Expected-Content-custom | Check the presence of a string in a web page. |
 | HTTP-Json-Content     | App-Protocol-HTTP-Json-Content-custom     | Check JSON content                          |
 | HTTP-Soap-Content     | App-Protocol-HTTP-Soap-Content-custom     | Check SOAP content                          |
