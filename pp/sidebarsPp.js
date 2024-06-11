@@ -282,10 +282,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-monitoring-loggly-restapi'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-lync-2013-mssql'
         },
         {
@@ -2137,6 +2133,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/operatingsystems-windows-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/operatingsystems-windows-telegraf-agent'
         },
         {
           type: 'doc',
