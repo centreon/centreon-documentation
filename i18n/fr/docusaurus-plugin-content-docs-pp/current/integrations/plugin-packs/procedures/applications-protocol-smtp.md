@@ -79,7 +79,7 @@ dnf install centreon-pack-applications-protocol-smtp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-protocol-smtp
@@ -124,7 +124,7 @@ dnf install centreon-plugin-Applications-Protocol-Smtp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-protocol-smtp
