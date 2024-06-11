@@ -10,7 +10,7 @@ Un jeton est lié à un [utilisateur Centreon](../monitoring/basic-objects/conta
 ## Qui peut créer des jetons d'API ?
 
 * [Les utilisateurs ou les administrateurs](../administration/access-control-lists.md#donner-des-droits-à-un-utilisateur) ayant accès à la page **Administration > Jetons d'API** peuvent créer des jetons d'API pour leur propre usage.
-* Les administrateurs peuvent également voir les jetons créés par d'autres utilisateurs, créer des jetons pour d'autres utilisateurs, ou les désactiver ou les supprimer.
+* Les administrateurs ou les utilisateurs avec la permission **Gérer les jetons d’authentification de l’organisation** dans les [ACL d'actions](../administration/access-control-lists.md#filtres-daccès-sur-les-actions) peuvent également voir les jetons créés par d'autres utilisateurs, créer des jetons pour d'autres utilisateurs, ou les désactiver ou les supprimer.
 
 ## Créer un jeton d'API
 
