@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-Telegraf est un agent d'observabilité développé en GO implémentant le protocole
+Telegraf est un agent d'observabilité implémentant le protocole
 OpenTelemetry.
 
 > Ce connecteur de supervision est une **preuve de concept**, Centreon ne recommande
@@ -103,19 +103,19 @@ Pas de métrique pour ce service.
 
 ### Centreon Engine
 
-> Pour pouvoir utiliser l'agent Telegraf, vous devez utiliser un poller ayant au
+> Pour pouvoir utiliser l'agent Telegraf, vous devez utiliser un collecteur ayant au
 minimum la version `24.04.2` de `centreon-engine`.
 
 L'agent Telegraf devra se configurer via une requête HTTPS adressée à Centreon Engine.
 
-1. Pour cela il faut commencer par générer un certificat sur le poller :
+1. Pour cela il faut commencer par générer un certificat sur le collecteur :
 
 ```bash
 openssl req -new -newkey rsa:2048 -sha256 -days 3650 -nodes -x509 -keyout /etc/centreon-engine/conf-server.key -out /etc/centreon-engine/conf-server.crt
 chown centreon-engine: /etc/centreon-engine/conf-*
 ```
 
-> **Important** : donner l'adresse IP ou le FQDN du poller quand l'information **Common Name** est demandée.
+> **Important** : donner l'adresse IP ou le FQDN du collecteur quand l'information **Common Name** est demandée.
 >
 > Par exemple :
 > ```
@@ -153,25 +153,25 @@ systemctl restart centengine
 
 ### Agent Telegraf
 
-La procédure officielle d'installation de Telegraf est [ici](https://docs.influxdata.com/telegraf/v1/install/?t=Windows)
-mais vous trouverez ici les étapes nécessaires.
+La procédure officielle d'installation de Telegraf se trouve [ici](https://docs.influxdata.com/telegraf/v1/install/?t=Windows)
+mais voici ci-dessous les étapes nécessaires.
 
 #### Installation de Telegraf
 
-1. Téléchargement et désarchivage
+1. Téléchargez et désarchivez l'agent :
 
 ```powershell
 wget https://dl.influxdata.com/telegraf/releases/telegraf-1.30.1_windows_amd64.zip -UseBasicParsing -OutFile telegraf-1.30.1_windows_amd64.zip
 Expand-Archive .\telegraf-1.30.1_windows_amd64.zip -DestinationPath 'C:\Program Files\InfluxData\telegraf\'
 ```
 
-2. Installation du service
+2. Installez le service :
 
 ```cmd
 "C:\Program Files\InfluxData\telegraf\telegraf-1.30.3\telegraf.exe" --config https://<poller_ip_address>:1443/engine?host=<windows_server_name> --service install
 ```
 
-> Les éléments **poller_ip_address** et **windows_server_name** doivent être remplacés par l'adresse ou le FQDN du poller (en étant cohérent avec la valeur mise plus haut dans le serveur de configuration d'Engine) et le nom de l'hôte sous lequel le serveur Windows sera connu de Centreon.
+> Les éléments **poller_ip_address** et **windows_server_name** doivent être remplacés par l'adresse ou le FQDN du collecteur (en étant cohérent avec la valeur entrée plus haut dans le serveur de configuration d'Engine) et le nom de l'hôte sous lequel le serveur Windows sera connu de Centreon.
 
 #### Téléchargement de centreon_plugins.exe
 
@@ -181,20 +181,19 @@ si la procédure a été suivie à la lettre.
 
 #### Import du certificat du poller
 
-1. Ouvrir Edge
-2. Saisir https://poller_ip_address:1443 dans la barre d'URL
-3. Accepter le certificat
-4. Normalement le navigateur affiche `No host service found from get parameters`
-5. Cliquer sur le certificat à gauche de la barre d'URL
-6. Aller dans **Détails**
-7. Exporter le certificat
-8. Ouvrir l'explorateur de fichiers
-9. Clic droit sur le certificat depuis l'emplacement où il a été téléchargé.
-10. Installer le certificat
-11. Choisir **Ordinateur local** puis **Suivant**
-12. Choisir **Placer tous les certificats dans le magasin suivant** puis **Parcourir**
-13. Choisir **Autorités de certification racines de confiance** puis **OK**
-14. Cliquer sur **Suivant** puis sur **Terminer**
+1. Ouvrez Edge.
+2. Saisissez `https://poller_ip_address:1443` dans la barre d'URL.
+3. Acceptez le certificat. Normalement le navigateur affiche `No host service found from get parameters`.
+5. Cliquez sur le certificat à gauche de la barre d'URL.
+6. Allez dans **Détails**.
+7. Exportez le certificat.
+8. Ouvrez l'explorateur de fichiers.
+9. Faites un clic droit sur le certificat depuis l'emplacement où il a été téléchargé.
+10. Installez le certificat.
+11. Sélectionnez **Ordinateur local** puis **Suivant**.
+12. Sélectionnez **Placer tous les certificats dans le magasin suivant** puis **Parcourir**.
+13. Sélectionnez **Autorités de certification racines de confiance** puis **OK**.
+14. Cliquez sur **Suivant** puis sur **Terminer**.
 
 ## Installer le connecteur de supervision
 
@@ -240,7 +239,7 @@ yum install centreon-pack-operatingsystems-windows-telegraf-agent
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Windows Telegraf Agent**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
-3. Connecteur à associer aux commandes
+3. Créez le connecteur suivant :
 
 Dans le menu **Configuration > Commandes > Connecteurs**, cliquez sur **Ajouter** puis saisissez les champs suivants :
 
@@ -361,7 +360,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 "\Program Files\InfluxData\telegraf\telegraf-1.30.3\centreon_plugins.exe" --plugin os::windows::local::plugin --mode sessions --language='fr' --timeout='30' --use-new-perfdata
 ```
 
-> NB : Cette commande ne peut pas s'exécuter sur les pollers, il faut la lancer directement sur le serveur Windows.
+> NB : Cette commande ne peut pas s'exécuter sur les collecteurs, il faut la lancer directement sur le serveur Windows.
 
 La commande devrait retourner un message de sortie similaire à :
 

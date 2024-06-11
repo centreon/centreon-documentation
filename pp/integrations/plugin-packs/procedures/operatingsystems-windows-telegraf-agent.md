@@ -6,13 +6,13 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-Telegraf is an observability tool coded in GO implementing the Opentelemetry protocol.
+Telegraf is an observability tool implementing the OpenTelemetry protocol.
 
 > This monitoring connector is a **proof of concept**, Centreon does not recommend to use it in production.
 > It has some limitations such as:
-> - the need to restart the Teletraf service whenever the configuration is changed.
+> - the need to restart the Telegraf service whenever the configuration is changed.
 > - the impossibility to display the informational output message of the host or service (due to 
-> Opentelemetry protocol).
+> limitations of the OpenTelemetry protocol).
 
 ## Pack assets
 
@@ -30,7 +30,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias | Service Template                                   | Service Description                                                                                                                                |
 |:--------------|:---------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ntp            | OS-Windows-Telegraf-Ntp-Agent-custom            | Check the synchronization with a NTP server. |
-| Pending-Reboot | OS-Windows-Telegraf-Pending-Reboot-Agent-custom | ContrôleCheck if Windows needs rebooting.    |
+| Pending-Reboot | OS-Windows-Telegraf-Pending-Reboot-Agent-custom | Check if Windows needs rebooting.    |
 | Sessions       | OS-Windows-Telegraf-Sessions-Agent-custom       | Check the number of active sessions.          |
 | Updates        | OS-Windows-Telegraf-Updates-Agent-custom        | Check if there are pending updates.    |
 
@@ -103,14 +103,14 @@ No metrics for this service.
 
 The Telegraf agent will configure itself via a HTTPS request sent to Centreon Engine.
 
-1. For it to work, you must first generate a certificate on the poller:
+1. For this to work, you must first generate a certificate on the poller:
 
 ```bash
 openssl req -new -newkey rsa:2048 -sha256 -days 3650 -nodes -x509 -keyout /etc/centreon-engine/conf-server.key -out /etc/centreon-engine/conf-server.crt
 chown centreon-engine: /etc/centreon-engine/conf-*
 ```
 
-> **Important** : give the ip address or the FQDN of the poller when the **Common Name** information is prompted.
+> **Important** : give the IP address or the FQDN of the poller when the **Common Name** information is prompted.
 >
 > Example:
 > ```
@@ -119,7 +119,7 @@ chown centreon-engine: /etc/centreon-engine/conf-*
 
 2. Then the configuration server must be set up
 
-Prepare the information Engine will have to provide to the Telegraf agents.
+Prepare the information Engine will have to provide to the Telegraf agent.
 
 ```bash
 host_ip=$(hostname -I)
@@ -148,18 +148,18 @@ systemctl restart centengine
 
 ### Telegraf agent
 
-The official installation procedure is [here](https://docs.influxdata.com/telegraf/v1/install/?t=Windows) but you'll find the main steps here.
+The official installation procedure is [here](https://docs.influxdata.com/telegraf/v1/install/?t=Windows) but you'll find the main steps below.
 
 #### Installing the Telegraf agent
 
-1. Downloading and unarchiving
+1. Download and unarchive the agent.
 
 ```powershell
 wget https://dl.influxdata.com/telegraf/releases/telegraf-1.30.1_windows_amd64.zip -UseBasicParsing -OutFile telegraf-1.30.1_windows_amd64.zip
 Expand-Archive .\telegraf-1.30.1_windows_amd64.zip -DestinationPath 'C:\Program Files\InfluxData\telegraf\'
 ```
 
-2. Installation of the service
+2. Install the service:
 
 ```cmd
 "C:\Program Files\InfluxData\telegraf\telegraf-1.30.3\telegraf.exe" --config https://<poller_ip_address>:1443/engine?host=<windows_server_name> --service install
@@ -168,25 +168,24 @@ Expand-Archive .\telegraf-1.30.1_windows_amd64.zip -DestinationPath 'C:\Program 
 #### Downloading centreon_plugins.exe
 
 Download the **centreon_plugins.exe** from the latest release available [here](https://github.com/centreon/centreon-nsclient-build/releases)
-and copy it at the same place as the Telegraf agent (that should be `"C:\Program Files\InfluxData\telegraf\telegraf-1.30.3\"`)
+and copy it in the same place as the Telegraf agent (that should be `"C:\Program Files\InfluxData\telegraf\telegraf-1.30.3\"`)
 if you followed the procedure to the letter. 
 
 #### Import du certificat du poller
 
-1. Open Edge web browser.
-2. Browse https://<poller_ip_address>:1443
-3. Accept the certificate.
-4. `No host service found from get parameters` should be displayed.
+1. Open the Edge web browser.
+2. Browse to `https://<poller_ip_address>:1443`.
+3. Accept the certificate. `No host service found from get parameters` should be displayed.
 5. Click on the certificate on the left of the URL bar.
 6. Go to **Details**.
 7. Export the certificate.
 8. Open the file explorer.
-9. Right click on the certificate at the place where you downloaded it.
-10. Select Install the certificate.
+9. Right-click on the certificate where you downloaded it.
+10. Select **Install the certificate**.
 11. Select **Local machine** then **Next**.
 12. Specify you want to choose the certificate store manually.
 13. Select **Trusted Root Certificate Authority** then **OK**.
-14. Click on **Next** puis sur **Finish**.
+14. Click **Next**, then  **Finish**.
 
 ## Installing the monitoring connector
 
@@ -232,9 +231,9 @@ yum install centreon-pack-operatingsystems-windows-telegraf-agent
 2. Whatever the license type (*online* or *offline*), install the **Windows Telegraf Agent** connector through
 the **Configuration > Monitoring Connectors Manager** menu.
 
-3. Connector to associate with commands
+3. Create the corresponding connector:
 
-In the **Configuration > Commandes > Connecteurs** menu, click **Add** and fill the following fields:
+In the **Configuration > Commands > Connectors** menu, click **Add** and fill the following fields:
 
 | Parameter                 | Value                                                                                                                                                                                                                           |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -242,7 +241,7 @@ In the **Configuration > Commandes > Connecteurs** menu, click **Add** and fill 
 | Connector Description | Telegraf Agent                                                                                                                                                                                                                   |
 | Command Line         | `opentelemetry --processor=nagios_telegraf --extractor=attributes --host_path=resourceMetrics.scopeMetrics.metrics.dataPoints.attributes.host --service_path=resourceMetrics.scopeMetrics.metrics.dataPoints.attributes.service` |
 | Used by command   | Select all the commands named like `OS-Windows-Telegraf-Agent-*`                                                                                                                                                                  |
-| Connector Status     | Activé                                                                                                                                                                                                                           |
+| Connector Status     | Enabled                                                                                                                                                                                                                          |
 
 
 ### Plugin
