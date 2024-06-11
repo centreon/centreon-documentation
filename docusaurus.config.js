@@ -305,10 +305,10 @@ const config = {
             items = [
               ...items,
               {
-                to: '/pp/integrations/plugin-packs/getting-started/introduction',
+                to: '/monitoring-connectors/integrations/plugin-packs/getting-started/introduction',
                 label: 'Monitoring Connectors',
                 position: 'left',
-                activeBaseRegex: '/pp/',
+                activeBaseRegex: '/monitoring-connectors/',
               },
             ];
           }
