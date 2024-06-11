@@ -152,8 +152,8 @@ yum install centreon-plugin-Applications-Protocol-Smtp
 
 | Macro            | Description                                                                                          | Default value     | Mandatory   |
 |:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SMTPUSERNAME     | Specify username for authentification                                                                |                   |             |
-| SMTPPASSWORD     | Specify password for authentification                                                                |                   |             |
+| SMTPUSERNAME     | Specify username for authentication                                                                |                   |             |
+| SMTPPASSWORD     | Specify password for authentication                                                                |                   |             |
 | SMTPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
