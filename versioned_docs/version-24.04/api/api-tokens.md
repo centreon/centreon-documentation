@@ -10,15 +10,15 @@ A token is linked to one [Centreon user](../monitoring/basic-objects/contacts.md
 ## Who can create API tokens?
 
 * [Users or administrators](../administration/access-control-lists.md#granting-rights-to-a-user) accessing the **Administration > API Tokens** page can create tokens for themselves.
-* Administrators can also see tokens created by other users, can create tokens for other users, and can disable or delete them.
+* Administrators can also see tokens created by other users, can create tokens for other users, and can disable or delete them. This is the same for users with the **Manage the organization's authentication tokens** permission in [action ACLs](../administration/access-control-lists.md#access-filters-on-actions).
 
 ## Creating an API token
 
 1. Go to **Administration > API Tokens**.
-2. Click **Generate new token**. A pop-up window appears.
-3. Fill in the required fields and then click **Generate new token**. A **Token** field appears in the window.
-4. Copy the token using the button to the right of the field. Store the token carefully: you will not be able to display it a second time.
-5. Click **Done**.
+2. Click **Add**. A pop-up window appears.
+3. Fill in the required fields and then click **Generate new token**. A **Token** field appears in the window. You can click the eye icon to display the token if you want.
+4. Copy the token using the "copy" button to the right of the field. Store the token carefully: you will not be able to display it a second time.
+5. Click **Close**.
 
 ## Managing API tokens
 
