@@ -26,7 +26,7 @@ Les commandes peuvent être configurées à la page **Configuration > Commands >
 
       * l'application ou le script exécuté par la commande (chemin et nom de fichier). Pour des plugins Centreon ou Nagios, utilisez une variable afin que Centreon trouve le chemin du répertoire des pugins quel que soit l'OS (la variable est définie à la page **Configuration > Collecteurs > Ressources** page). Si vous utilisez vos propres plugins, spécifiez le chemin du répertoire où vous avez placé les plugins.
       * le [mode](../../resources/glossary.md#mode) du plugin à utiliser.
-      * tout paramètre que vous voulez passer au plugin dans ce mode. Pour les plugins Centreon, reportez-vous à la documentation du plugin dans la section [Connecteurs de supervision](/pp/integrations/plugin-packs/getting-started/introduction).
+      * tout paramètre que vous voulez passer au plugin dans ce mode. Pour les plugins Centreon, reportez-vous à la documentation du plugin dans la section [Connecteurs de supervision](/monitoring-connectors/integrations/plugin-packs/getting-started/introduction).
       * Vous pouvez utiliser des [macros](macros.md) (macros d'hôtes ou de services) afin de rendre votre commande plus générique, mais ce n'est pas obligatoire. Le nom de la macro apparaîtra dans le formulaire de configuration de l'hôte ou du service afin que vous puissiez lui attribuer une valeur spécifique pour chaque hôte ou service avec lequel vous l'utiliserez.
 
    * **Description des macros** : saisissez une description pour les macros personnalisées. Cette description sera visible lorsque vous utiliserez la commande dans le formulaire de configuration d'hôte ou de service.
