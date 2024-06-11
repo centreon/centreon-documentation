@@ -122,9 +122,7 @@ chown centreon-engine: /etc/centreon-engine/conf-*
 > Common Name (e.g. server FQDN or YOUR name) []:172.16.5.166
 > ```
 
-2. Puis il faut mettre en place du serveur de configuration pour Telegraf
-
-Indiquez à Engine les informations de connexion qu'il devra fournir aux agents Telegraf.
+2. Puis indiquez à Engine les informations de connexion qu'il devra fournir aux agents Telegraf.
 
 ```bash
 host_ip=$(hostname -I)
