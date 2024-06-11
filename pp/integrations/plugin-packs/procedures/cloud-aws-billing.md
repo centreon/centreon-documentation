@@ -26,7 +26,7 @@ The pack provides a discovery rule to automatically discover AWS services genera
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-billing-provider.png)
 
-More information about the Host Discovery module is available in the Centreon documentation: [Host Discovery](/docs/monitoring/discovery/hosts-discovery)
+More information about the Host Discovery module is available in the Centreon documentation: [Host Discovery](/onprem/monitoring/discovery/hosts-discovery)
 
 
 ### Collected metrics & status

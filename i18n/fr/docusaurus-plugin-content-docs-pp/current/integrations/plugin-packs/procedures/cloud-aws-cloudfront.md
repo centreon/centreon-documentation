@@ -28,7 +28,7 @@ Ce pack propose une règle de découverte d'hôtes permettant de découvrir auto
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-cloudfront-provider.png)
 
-Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module : [Découverte des hôtes](/docs/monitoring/discovery/hosts-discovery).
+Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module : [Découverte des hôtes](/onprem/monitoring/discovery/hosts-discovery).
 
 ### Métriques & statuts collectés
 
@@ -140,7 +140,7 @@ du plugin lors de l'utilisation d'un pack. Si cette fonctionnalité est activée
 que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
 étape n'est pas requise.
 
-> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+> Plus d'informations dans la section [Installer le plugin](/onprem/monitoring/pluginpacks/#installer-le-plugin).
 
 Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
 

@@ -50,7 +50,7 @@ It brings the following service templates:
 |:--------------------------|:--------------------|
 | OS-Winfows-NRPE-Disk-Name | Discover disk name. |
 
-More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery).
+More information about discovering services automatically is available on the [dedicated page](/onprem/monitoring/discovery/services-discovery).
 
 </TabItem>
 </Tabs>

@@ -14,7 +14,7 @@ Centreon recommande d'utiliser la méthode **API** plutôt que Azure CLI pour le
 > La découverte d'hôtes n'est disponible qu'en utilisant la méthode API.
 
 Pour plus d'information, rendez-vous sur la documentation Centreon :
-[Découverte d'hôtes](/docs/monitoring/discovery/hosts-discovery)
+[Découverte d'hôtes](/onprem/monitoring/discovery/hosts-discovery)
 
 
 ## Configuration Azure API

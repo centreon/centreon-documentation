@@ -27,7 +27,7 @@ Le connecteur de supervision Centreon *Azure Discover* comprend deux fournisseur
 > Ces règles de découverte sont uniquement compatibles avec le *custom-mode* 'api'.
 
 Vous trouverez plus d'informations sur la découverte d'Hôtes et son fonctionnement sur la documentation du module:
-[Découverte des hôtes](/docs/monitoring/discovery/hosts-discovery)
+[Découverte des hôtes](/onprem/monitoring/discovery/hosts-discovery)
 
 ## Prérequis
 
@@ -130,7 +130,7 @@ apt install centreon-pack-cloud-azure\*
 
 ## Paramétrer une découverte
 
-> Le descriptif du fonctionnement général de la fonctionnalité *Host Discovery* est disponible [ici](/docs/monitoring/discovery/hosts-discovery)
+> Le descriptif du fonctionnement général de la fonctionnalité *Host Discovery* est disponible [ici](/onprem/monitoring/discovery/hosts-discovery)
 
 ### Paramètres d'accès
 
@@ -192,10 +192,10 @@ Renseignez si besoin les information ci-après:
 
 L'étape 4 permet d'ajuster les *mappers*; ceux-ci sont déjà prédéfinis par le connecteur de supervision, il n'est normalement pas
 nécessaire de les modifier dans le cadre d'un *job* de découverte *standard*. Si besoin, référez-vous à la 
-[documentation des mappers](/docs/monitoring/discovery/hosts-discovery#comment-utiliser-les-modificateurs).
+[documentation des mappers](/onprem/monitoring/discovery/hosts-discovery#comment-utiliser-les-modificateurs).
 
 Les étapes 5 & 6 permettent d'ajuster la politique de modélisation des résultats si besoin. Rendez-vous 
-[ici](/docs/monitoring/discovery/hosts-discovery#définir-les-politiques-danalyse-et-de-mise-à-jour) pour plus d'informations.
+[ici](/onprem/monitoring/discovery/hosts-discovery#définir-les-politiques-danalyse-et-de-mise-à-jour) pour plus d'informations.
 
 Une fois la découverte terminé, vous pouvez afficher les résultats en cliquant sur *job results*. Les modèles relatifs aux types de resources
 Azure sont automatiquement appliqués:

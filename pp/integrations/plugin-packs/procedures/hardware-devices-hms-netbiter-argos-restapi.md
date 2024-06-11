@@ -34,7 +34,7 @@ It brings the following service templates:
 |:-------------------------------|:-------------------------------------------------------|
 | Netbiter Argos RestAPI Systems | Discover HMS/Ewon Netbiter Systems using Argos RestAPI |
 
-> More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
+> More information about discovering hosts automatically is available on the [dedicated page](/onprem/monitoring/discovery/hosts-discovery).
 
 </TabItem>
 <TabItem value="Service" label="Service">
@@ -43,8 +43,8 @@ It brings the following service templates:
 |:-------------------------------------------------|:-----------------------------------|
 | HW-Device-Hms-Netbiter-Argos-Restapi-Sensor-Name | Discover HMS/Ewon Netbiter Sensors |
 
-> More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
-and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
+> More information about discovering services automatically is available on the [dedicated page](/onprem/monitoring/discovery/services-discovery)
+and in the [following chapter](/onprem/monitoring/discovery/services-discovery/#discovery-rules).
 
 </TabItem>
 </Tabs>
@@ -125,7 +125,7 @@ You still have to manually install the plugin on the poller(s) when:
 - Automatic plugin installation is turned off
 - You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
 
-> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+> More information in the [Installing the plugin](/onprem/monitoring/pluginpacks/#installing-the-plugin) section.
 
 Use the commands below according to your operating system's package manager:
 

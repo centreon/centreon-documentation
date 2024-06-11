@@ -103,7 +103,7 @@ Could not retrive metrics
 To use this pack, the SNMP service must be properly configured on your **Cisco Umbrella**
 server. Please refer to the official documentation from Cisco:
 
-* [Cisco Umbrella](https://docs.umbrella.com/deployment-umbrella/docs/appendix-c-enable-snmp-monitoring)
+* [Cisco Umbrella](https://docs.umbrella.com/deployment-umbrella/onprem/appendix-c-enable-snmp-monitoring)
 
 ### Network flow
 

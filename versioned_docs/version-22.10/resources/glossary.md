@@ -161,7 +161,7 @@ A pack contains the configuration of the plugin in Centreon (command, [templates
 **See also**:
 
 - [Plugin Packs](../monitoring/pluginpacks.md),
-- [Introduction to Plugin Packs](/pp/integrations/plugin-packs/getting-started/introduction).
+- [Introduction to Plugin Packs](/monitoring-connectors/integrations/plugin-packs/getting-started/introduction).
 
 ## Poller
 

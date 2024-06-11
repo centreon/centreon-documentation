@@ -22,7 +22,7 @@ The Centreon Pack *Ericsson ENM API* includes a Host Discovery *provider* to aut
 for a given Ericsson Network Manager.
 
 More information about the Host Discovery module is available in the Centreon documentation:
-[Host Discovery](/docs/monitoring/discovery/hosts-discovery)
+[Host Discovery](/onprem/monitoring/discovery/hosts-discovery)
 
 </TabItem>
 <TabItem value="Services" label="Services">

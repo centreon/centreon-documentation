@@ -57,7 +57,7 @@ apt install centreon-plugin-applications-databases-mysql
 
 ### On the central server
 
-The database will be monitored using the [**MySQL/MariaDB** Monitoring Connector](/pp/integrations/plugin-packs/procedures/applications-databases-mysql).
+The database will be monitored using the [**MySQL/MariaDB** Monitoring Connector](/monitoring-connectors/integrations/plugin-packs/procedures/applications-databases-mysql).
 Go to **Configuration > Monitoring Connector Manager** and install the **MySQL/MariaDB** Monitoring Connector:
 
 ![image](../assets/getting-started/quick_start_mysql_0.gif)

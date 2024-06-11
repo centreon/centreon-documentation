@@ -29,7 +29,7 @@ Il apporte les modèles de service suivants :
 |:-------------------|:----------------------------------------------|
 | Proxmox VM         | Découverte des machines virtuelles Proxmox VE |
 
-Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery)
+Rendez-vous sur la [documentation dédiée](/onprem/monitoring/discovery/hosts-discovery)
 pour en savoir plus sur la découverte automatique d'hôtes.
 
 </TabItem>
@@ -41,7 +41,7 @@ pour en savoir plus sur la découverte automatique d'hôtes.
 | Virt-Proxmox-Ve-Restapi-Storage-Name | Découvre les stockages et supervise l'utilisation           |
 | Virt-Proxmox-Ve-Restapi-Vm-Name      | Découvre les machines virtuelles et supervise l'utilisation |
 
-Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
+Rendez-vous sur la [documentation dédiée](/onprem/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](https://docs.centreon.com/fr/docs/monitoring/discovery/services-discovery/#r%C3%A8gles-de-d%C3%A9couverte).
 
 </TabItem>

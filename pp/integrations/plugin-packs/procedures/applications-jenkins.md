@@ -25,8 +25,8 @@ It brings the following service template:
 |:-------------------------|:---------------------------------|
 | App-Jenkins-Api-Job-Name | Discover jobs and monitor status |
 
-More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
-and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
+More information about discovering services automatically is available on the [dedicated page](/onprem/monitoring/discovery/services-discovery)
+and in the [following chapter](/onprem/monitoring/discovery/services-discovery/#discovery-rules).
 
 ### Collected metrics & status
 
@@ -87,7 +87,7 @@ You still have to manually install the plugin on the poller(s) when:
 - Automatic plugin installation is turned off
 - You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
 
-> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+> More information in the [Installing the plugin](/onprem/monitoring/pluginpacks/#installing-the-plugin) section.
 
 Use the commands below according to your operating system's package manager:
 

@@ -49,7 +49,7 @@ Il apporte les modèles de service suivants :
 |:--------------------------|:------------------------|
 | OS-Winfows-NRPE-Disk-Name | Découverte des disques. |
 
-De plus amples informations sur la découverte automatique des services sont disponibles sur la [page dédiée](/docs/monitoring/discovery/services-discovery).
+De plus amples informations sur la découverte automatique des services sont disponibles sur la [page dédiée](/onprem/monitoring/discovery/services-discovery).
 
 </TabItem>
 </Tabs>

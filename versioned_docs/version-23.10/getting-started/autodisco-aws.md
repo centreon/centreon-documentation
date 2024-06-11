@@ -57,7 +57,7 @@ apt install centreon-pack-*
 
 6. Click the `+` sign in the top right corner of the Monitoring Connector. The Monitoring Connector now has a green border and a tick mark in the top right corner: configuration templates and discovery providers are now installed.
 
-7. Follow [this procedure](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2) (sections [Plugin dependencies](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#plugin-dependencies) and [Setup](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#setup)) to finish installing the Monitoring Connector. (You can also access the documentation for a Monitoring Connector by clicking the `i`.)
+7. Follow [this procedure](/monitoring-connectors/integrations/plugin-packs/procedures/cloud-aws-ec2) (sections [Plugin dependencies](/monitoring-connectors/integrations/plugin-packs/procedures/cloud-aws-ec2#plugin-dependencies) and [Setup](/monitoring-connectors/integrations/plugin-packs/procedures/cloud-aws-ec2#setup)) to finish installing the Monitoring Connector. (You can also access the documentation for a Monitoring Connector by clicking the `i`.)
 
     ![image](../assets/getting-started/aws-doc.png)
 

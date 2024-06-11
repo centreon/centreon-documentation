@@ -5,7 +5,7 @@ title: Troubleshooting your Centreon platform
 
 This page lists the troubleshooting items available in this documentation. Click an item to access more detailed content.
 
-* [Troubleshooting Plugin errors](/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins)
+* [Troubleshooting Plugin errors](/monitoring-connectors/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins)
 * [Troubleshooting MAP](../graph-views/map-web-troubleshooting.md)
 * [Troubleshooting MAP Legacy](../graph-views/troubleshooter.md)
 * [Testing and troubleshooting email configuration](../administration/postfix.md#testing-and-troubleshooting-email-configuration)

@@ -29,8 +29,8 @@ It brings the following service templates:
 |:------------------------------------|:----------------------------------------------------|
 | Net-Hp-Moonshot-SNMP-Interface-Name | Discover network interfaces and monitor usage|
 
-More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
-and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
+More information about discovering services automatically is available on the [dedicated page](/onprem/monitoring/discovery/services-discovery)
+and in the [following chapter](/onprem/monitoring/discovery/services-discovery/#discovery-rules).
 
 </TabItem>
 </Tabs>

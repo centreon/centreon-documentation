@@ -25,7 +25,7 @@ fine-tuned later on).
   Some packs also contain [discovery rules](discovery/introduction.md).
 
 To get an up-to-date list of all Monitoring Connectors with their respective monitoring
-procedures, please refer to the section on [Monitoring Connectors](/pp/integrations/plugin-packs/getting-started/introduction).
+procedures, please refer to the section on [Monitoring Connectors](/monitoring-connectors/integrations/plugin-packs/getting-started/introduction).
 
 ## Prerequisites
 

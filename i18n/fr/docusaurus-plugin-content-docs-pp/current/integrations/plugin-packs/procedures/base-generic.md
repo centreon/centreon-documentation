@@ -105,7 +105,7 @@ Ce connecteur de supervision n'a aucun prérequis spécifique hormis le check IC
 
 ### Utiliser un modèle de service issu du connecteur
 
-1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/onprem/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
 2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte).
 
 <Tabs groupId="sync">

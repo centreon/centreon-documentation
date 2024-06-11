@@ -22,7 +22,7 @@ Critical (celles-ci sont modifiables par la suite).
 
 La liste de tous les connecteurs de supervision disponibles dans la
 bibliothèque en ligne Centreon et les procédures de mise en supervision
-associées sont présentées dans la section [connecteurs de supervision](/pp/integrations/plugin-packs/getting-started/introduction).
+associées sont présentées dans la section [connecteurs de supervision](/monitoring-connectors/integrations/plugin-packs/getting-started/introduction).
 
 ## Prérequis
 

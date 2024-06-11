@@ -52,7 +52,7 @@ Il apporte les modèles de service suivants :
 | Nutanix Container  | Découverte des conteneurs Nutanix avec l'agent SNMP           |
 | Nutanix Hypervisor | Découverte des hyperviseurs Nutanix avec l'agent SNMP         |
 
-Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery)
+Rendez-vous sur la [documentation dédiée](/onprem/monitoring/discovery/hosts-discovery)
 pour en savoir plus sur la découverte automatique d'hôtes.
 
 </TabItem>
@@ -63,7 +63,7 @@ pour en savoir plus sur la découverte automatique d'hôtes.
 | Virt-Nutanix-SNMP-Disk-Name     | Découverte des partitions et supervision de l'espace de stockage utilisé |
 | Virt-Nutanix-SNMP-Storage-Pools | Découverte des Storage Pools et supervision de leur utilisation          |
 
-Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
+Rendez-vous sur la [documentation dédiée](/onprem/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](https://docs.centreon.com/fr/docs/monitoring/discovery/services-discovery/#r%C3%A8gles-de-d%C3%A9couverte).
 
 </TabItem>

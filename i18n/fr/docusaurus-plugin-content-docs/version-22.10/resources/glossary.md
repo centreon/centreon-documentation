@@ -218,7 +218,7 @@ Le pack contient la configuration associée au plugin dans Centreon (commandes, 
 **Voir aussi** :
 
 - [Utiliser des Plugin Packs](../monitoring/pluginpacks.md),
-- [Introduction aux Plugin Packs](/pp/integrations/plugin-packs/getting-started/introduction).
+- [Introduction aux Plugin Packs](/monitoring-connectors/integrations/plugin-packs/getting-started/introduction).
 
 ## Ressource
 

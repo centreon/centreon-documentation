@@ -35,7 +35,7 @@ rattachées à une souscription Microsoft Azure donnée:
 > La découverte **Azure Recovery** n'est compatible qu'avec le mode **api**. Le mode **azcli** n'est pas supporté dans le cadre
 > de cette utilisation.
 
-Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery)
+Rendez-vous sur la [documentation dédiée](/onprem/monitoring/discovery/hosts-discovery)
 pour en savoir plus sur la découverte automatique d'hôtes.
 
 ### Métriques & statuts collectés

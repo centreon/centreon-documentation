@@ -52,7 +52,7 @@ It brings the following service templates:
 | Nutanix Container  | Discover Nutanix containers by requesting its SNMP agent      |
 | Nutanix Hypervisor | Discover Nutanix hypervisors by requesting its SNMP agent     |
 
-More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
+More information about discovering hosts automatically is available on the [dedicated page](/onprem/monitoring/discovery/hosts-discovery).
 
 </TabItem>
 <TabItem value="Service" label="Service">
@@ -62,8 +62,8 @@ More information about discovering hosts automatically is available on the [dedi
 | Virt-Nutanix-SNMP-Disk-Name     | Discover the disk partitions and monitor space occupation |
 | Virt-Nutanix-SNMP-Storage-Pools | Discover the storage pools and their usage                |
 
-More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
-and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
+More information about discovering services automatically is available on the [dedicated page](/onprem/monitoring/discovery/services-discovery)
+and in the [following chapter](/onprem/monitoring/discovery/services-discovery/#discovery-rules).
 
 </TabItem>
 </Tabs>

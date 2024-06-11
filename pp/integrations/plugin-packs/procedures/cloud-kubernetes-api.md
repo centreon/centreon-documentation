@@ -140,7 +140,7 @@ The defaults values are the following:
 | Critical  | `%{type} =~ /error/i`   | Will raise a critical alert if there is `error` events  |
 
 Refer to the
-[official documentation](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application-introspection/)
+[official documentation](https://kubernetes.io/onprem/tasks/debug-application-cluster/debug-application-introspection/)
 for more information about collected metrics and how to fine tune your
 thresholds.
 
@@ -185,7 +185,7 @@ There is no default thresholds. An interesting one could be the following:
 the CronJob is considered not running as scheduled.
 
 Refer to the
-[official documentation](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/)
+[official documentation](https://kubernetes.io/onprem/concepts/workloads/controllers/cron-jobs/)
 for more information about collected metrics and how to fine tune your
 thresholds.
 
@@ -245,7 +245,7 @@ The defaults values are the following:
 | Critical  | `%{available} < %{desired}`  | Will raise a critical alert if the number of available pods is lower than the desired number |
 
 Refer to the
-[official documentation](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)
+[official documentation](https://kubernetes.io/onprem/concepts/workloads/controllers/daemonset/)
 for more information about collected metrics and how to fine tune your
 thresholds.
 
@@ -307,7 +307,7 @@ The defaults values are the following:
 | Critical  | `%{available} < %{desired}`  | Will raise a critical alert if the number of available replicas is lower than the desired number |
 
 Refer to the
-[official documentation](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+[official documentation](https://kubernetes.io/onprem/concepts/workloads/controllers/deployment/)
 for more information about collected metrics and how to fine tune your
 thresholds.
 
@@ -351,7 +351,7 @@ The defaults values are the following:
 | Critical  | <code>(%{type} =~ /Ready/i && %{status} !~ /True/i) &#124;&#124; (%{type} =~ /.*Pressure/i && %{status} !~ /False/i)</code>  | Will raise a critical alert if the status of the `Ready` condition is not `True` or if the status of a `Pressure` condition is not `False` |
 
 Refer to the
-[official documentation](https://kubernetes.io/docs/concepts/architecture/nodes/#condition)
+[official documentation](https://kubernetes.io/onprem/concepts/architecture/nodes/#condition)
 for more information about statuses and how to fine tune your thresholds.
 
 ### Nodes usage
@@ -460,7 +460,7 @@ The defaults values are the following:
 | Critical  | `%{phase} !~ /Bound|Available|Released/i` | Will raise a critical alert if the phase is not `Bound`, `Available` or `Released` |
 
 Refer to the
-[official documentation](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
+[official documentation](https://kubernetes.io/onprem/concepts/storage/persistent-volumes/)
 for more information about statuses and how to fine tune your thresholds.
 
 ### Pods status
@@ -536,7 +536,7 @@ The defaults values are the following:
 | Critical (container) | <code>%{status} !~ /running/i &#124;&#124; %{state} !~ /^ready$/</code> | Will raise a critical alert if a container is not in a `running` status or not in a `ready` state |
 
 Refer to the
-[official documentation](https://kubernetes.io/docs/concepts/workloads/pods/)
+[official documentation](https://kubernetes.io/onprem/concepts/workloads/pods/)
 for more information about collected metrics and how to fine tune your
 thresholds.
 
@@ -593,7 +593,7 @@ The defaults values are the following:
 | Critical  | `%{ready} < %{desired}` | Will raise a critical alert if the number of ready replicas is lower than the desired number |
 
 Refer to the
-[official documentation](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/)
+[official documentation](https://kubernetes.io/onprem/concepts/workloads/controllers/replicaset/)
 for more information about collected metrics and how to fine tune your
 thresholds.
 
@@ -645,7 +645,7 @@ The defaults values are the following:
 | Critical  | `%{ready} < %{desired}` | Will raise a critical alert if the number of ready replicas is lower than the desired number |
 
 Refer to the
-[official documentation](https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/)
+[official documentation](https://kubernetes.io/onprem/concepts/workloads/controllers/replicationcontroller/)
 for more information about collected metrics and how to fine tune your
 thresholds.
 
@@ -703,7 +703,7 @@ The defaults values are the following:
 | Critical  | `%{ready} < %{desired}`      | Will raise a critical alert if the number of ready replicas is lower than the desired number     |
 
 Refer to the
-[official documentation](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)
+[official documentation](https://kubernetes.io/onprem/concepts/workloads/controllers/statefulset/)
 for more information about collected metrics and how to fine tune your
 thresholds.
 
@@ -784,9 +784,9 @@ EOF
 ```
 
 Refer to the official documentation for
-[service account creation](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#service-account-tokens)
+[service account creation](https://kubernetes.io/onprem/reference/access-authn-authz/authentication/#service-account-tokens)
 or information about
-[secret concept](https://kubernetes.io/docs/concepts/configuration/secret/).
+[secret concept](https://kubernetes.io/onprem/concepts/configuration/secret/).
 
 #### Using RestAPI
 
@@ -844,7 +844,7 @@ EOF
 Adapt the host entry to your needs.
 
 Refer to the official documentation for
-[ingresses management](https://kubernetes.io/docs/concepts/services-networking/ingress/).
+[ingresses management](https://kubernetes.io/onprem/concepts/services-networking/ingress/).
 
 ##### Retrieve token from service account
 
@@ -891,7 +891,7 @@ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 ```
 
 Refer to the
-[official documentation](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
+[official documentation](https://kubernetes.io/onprem/tasks/tools/install-kubectl-linux/)
 for more details.
 
 ##### Create a kubectl configuration
@@ -954,7 +954,7 @@ This path will be used later in Centreon host configuration.
 > if using Host Discovery.
 
 Refer to the
-[official documentation](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/)
+[official documentation](https://kubernetes.io/onprem/concepts/configuration/organize-cluster-access-kubeconfig/)
 for more details.
 
 ## Monitoring configuration

@@ -28,7 +28,7 @@ It brings the following service templates:
 |:-----------------------------|:--------------------|
 | Aruba Orchestrator Appliance | Discover appliances |
 
-More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
+More information about discovering hosts automatically is available on the [dedicated page](/onprem/monitoring/discovery/hosts-discovery).
 
 </TabItem>
 </Tabs>

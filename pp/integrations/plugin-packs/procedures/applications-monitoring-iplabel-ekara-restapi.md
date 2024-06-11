@@ -26,7 +26,7 @@ The Centreon Monitoring Connector **IP-Label Ekara Rest API** includes a Host Di
 This provider is named **IP-Label Ekara**.
 
 More information about the Host Discovery module is available in the Centreon documentation:
-[Host Discovery](/docs/monitoring/discovery/hosts-discovery)
+[Host Discovery](/onprem/monitoring/discovery/hosts-discovery)
 
 ### Collected metrics & status
 

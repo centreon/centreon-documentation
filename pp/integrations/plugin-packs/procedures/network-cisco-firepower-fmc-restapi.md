@@ -34,7 +34,7 @@ The Monitoring Connector includes health monitoring of devices managed by Firepo
 
 To control your Cisco Firepower Management Center, the Rest API must be configured.
 
-E.g: https://www.cisco.com/c/en/us/td/docs/security/firepower/620/api/REST/Firepower_Management_Center_REST_API_Quick_Start_Guide_620.html
+E.g: https://www.cisco.com/c/en/us/td/onprem/security/firepower/620/api/REST/Firepower_Management_Center_REST_API_Quick_Start_Guide_620.html
 
 ## Setup
 

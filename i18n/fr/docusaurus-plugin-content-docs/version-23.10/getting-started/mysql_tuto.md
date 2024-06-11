@@ -57,7 +57,7 @@ apt install centreon-plugin-applications-databases-mysql
 
 ### Sur le serveur central
 
-La base de données sera supervisée à l'aide du [connecteur de supervision **MySQL/MariaDB**](/pp/integrations/plugin-packs/procedures/applications-databases-mysql).
+La base de données sera supervisée à l'aide du [connecteur de supervision **MySQL/MariaDB**](/monitoring-connectors/integrations/plugin-packs/procedures/applications-databases-mysql).
 Rendez-vous dans le menu **Configuration > Gestionnaire de connecteurs de supervision** et installez le connecteur de supervision **MySQL/MariaDB** :
 
 ![image](../assets/getting-started/quick_start_mysql_0.gif)

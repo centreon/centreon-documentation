@@ -27,7 +27,7 @@ Il apporte les modèles de services suivants :
 |:------------------------------|:-------------------------------------------|
 | Cloud-Iics-Restapi-Agent-Name | Découvre les agents et supervise le statut |
 
-Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
+Rendez-vous sur la [documentation dédiée](/onprem/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](https://docs.centreon.com/fr/docs/monitoring/discovery/services-discovery/#r%C3%A8gles-de-d%C3%A9couverte).
 
 </TabItem>

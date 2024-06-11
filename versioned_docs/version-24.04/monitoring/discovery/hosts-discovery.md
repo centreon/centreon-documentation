@@ -12,7 +12,7 @@ See also our tutorial on [how to detect AWS EC2 instances](../../getting-started
 2. Install the Monitoring Connector for the resources you want to discover.
     > The discovery providers are included in Monitoring Connectors (Azure,
     > Amazon AWS, VMware, etc.). To see the complete list, please go to
-    > the [Monitoring Connectors](/pp/integrations/plugin-packs/getting-started/introduction)
+    > the [Monitoring Connectors](/monitoring-connectors/integrations/plugin-packs/getting-started/introduction)
     > catalog.
     >
     > If you have set **Automatic installation of plugins** to **ON** on the **Configuration > Monitoring Connector Manager** page, the discovery plugin will be installed automatically when you run the discovery job.
