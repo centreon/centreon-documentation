@@ -35,7 +35,7 @@ sudo dnf update centreon-map-engine centreon-map-web-client
  - Si MAP seul est installé :
  
  ``` shell
- sudo apt upgrade centreon-map-engine centreon-map-web-client
+ sudo apt install centreon-map-engine centreon-map-web-client
  ```
   
  - Si MAP et MAP Legacy sont installés sur le même serveur :
@@ -49,7 +49,7 @@ sudo dnf update centreon-map-engine centreon-map-web-client
    - Mettez les paquets de **centreon-map-engine** à jour :
    
     ``` shell
-    sudo apt upgrade -o Dpkg::Options::="--force-overwrite" centreon-map-engine centreon-map-web-client
+    sudo apt install -o Dpkg::Options::="--force-overwrite" centreon-map-engine centreon-map-web-client
     ```
 
    - Récupérez la sauvegarde du fichier de configuration :

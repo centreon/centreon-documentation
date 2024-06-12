@@ -18,7 +18,7 @@ N'oubliez pas de lire les notes de release pour une explication des fonctionnali
 
 ## Serveur Centreon MAP
 
-Exécutez les commandes suivantes pour mettre à niveau votre serveur Centreon MAP (Legacy) :
+Exécutez les commandes suivantes pour mettre à niveau votre serveur Centreon MAP :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -91,11 +91,12 @@ apt update && apt install centreon-map-web-client
 </TabItem>
 </Tabs>
 
+
 Terminez la mise à niveau en allant dans **Administration > Extensions > Gestionnaire** (parties module et widget) :
 
 ![image](../assets/graph-views/update-web-client.png)
 
-## Client lourd Centreon MAP
+## client lourd Centreon MAP
 
 Si l'ordinateur de l'utilisateur dispose d'une connexion internet, le client de bureau est automatiquement mis à jour à la dernière version correspondant au serveur.
 
