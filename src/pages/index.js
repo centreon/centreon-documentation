@@ -32,26 +32,26 @@ const links = {
 const cards = [
   {
     title: "Centreon OnPrem",
-    href: "docs/getting-started/welcome/",
+    href: "onprem/getting-started/welcome/",
     links: [
       {
         label: "Getting started with Centreon OnPrem",
-        href: "docs/getting-started/welcome"
+        href: "onprem/getting-started/welcome"
       },{
         label: "Installation",
-        href: "docs/installation/introduction"
+        href: "onprem/installation/introduction"
       },{
         label: "Setting up the monitoring",
-        href: "docs/category/setting-up-the-monitoring/"
+        href: "onprem/category/setting-up-the-monitoring/"
       },{
         label: "Service mapping",
-        href: "docs/service-mapping/introduction/"
+        href: "onprem/service-mapping/introduction/"
       },{
         label: "Graphical views",
-        href: "docs/graph-views/introduction-map/"
+        href: "onprem/graph-views/introduction-map/"
       },{
         label: "Reporting",
-        href: "docs/reporting/introduction/"
+        href: "onprem/reporting/introduction/"
       },
     ]
   },
