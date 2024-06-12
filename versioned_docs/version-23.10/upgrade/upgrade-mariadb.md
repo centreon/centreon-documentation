@@ -265,5 +265,5 @@ apt update MariaDB-*
 2. Restart MariaDB:
 
     ```shell
-    restart mariadb
+    systemctl restart mariadb
     ```
