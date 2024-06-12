@@ -31,7 +31,7 @@ The connector brings the following service templates (sorted by the host templat
 |:---------------------|:-------------------------------------------------|:----------------------------------------------------------------|:----------:|
 | Packet-Errors        | Net-Symbol-wing-Packet-Errors-Global-SNMP-custom | Check packets in error/discarded from multiple network interfaces | X          |
 | Traffic-Generic-Id   | Net-Symbol-Wing-Traffic-Generic-Id-SNMP-custom   | Check traffic of a network interface                           |            |
-| Traffic-Generic-Name | Net-Symbol-Wing-Traffic-Generic-Name-SNMP-custom | Check traffic of an network interface                           | X          |
+| Traffic-Generic-Name | Net-Symbol-Wing-Traffic-Generic-Name-SNMP-custom | Check traffic of a network interface                           | X          |
 | Traffic-Global       | Net-Symbol-Wing-Traffic-Global-SNMP-custom       | Check traffic of a network interface                           |            |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
