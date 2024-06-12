@@ -22,7 +22,7 @@ The connector brings the following service templates (sorted by the host templat
 |:--------------|:-------------------------------------|:----------------------------------------------------------------|
 | CRM           | App-Pacemaker-CRM-SSH-custom         | Check cluster state with crm_mon command                        |
 | Clustat       | App-Pacemaker-Clustat-SSH-custom     | Check cluster state with clustat command                        |
-| Constraints   | App-Pacemaker-Constraints-SSH-custom | Check if there is any constraints applied to a cluster resource |
+| Constraints   | App-Pacemaker-Constraints-SSH-custom | Check if there are any constraints applied to a cluster resource |
 
 > The services listed above are created automatically when the **App-Pacemaker-SSH-custom** host template is used.
 
