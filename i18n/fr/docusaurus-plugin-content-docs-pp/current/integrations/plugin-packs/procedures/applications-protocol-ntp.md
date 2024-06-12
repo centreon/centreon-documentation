@@ -50,9 +50,6 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 </Tabs>
 
-## Prérequis
-
-The remote server must have a NTP service running and available.
 
 ## Installer le connecteur de supervision
 
