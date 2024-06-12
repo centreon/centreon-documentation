@@ -1,252 +1,231 @@
 ---
-id: applications-protocol-smtp
-title: SMTP Server
+id: applications-salesforce-restapi
+title: Salesforce
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Contenu du pack
+## Pack assets
 
-### Modèles
+### Templates
 
-Le connecteur de supervision **SMTP Server** apporte un modèle d'hôte :
+The Monitoring Connector **Salesforce** brings a host template:
 
-* **App-Protocol-SMTP-custom**
+* **App-Salesforce-Restapi-custom**
 
-Le connecteur apporte les modèles de service suivants
-(classés selon le modèle d'hôte auquel ils sont rattachés) :
+The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="App-Protocol-SMTP-custom" label="App-Protocol-SMTP-custom">
+<TabItem value="App-Salesforce-Restapi-custom" label="App-Salesforce-Restapi-custom">
 
-| Alias        | Modèle de service                | Description                                        |
-|:-------------|:---------------------------------|:---------------------------------------------------|
-| SMTP-Login   | App-Protocol-SMTP-Login-custom   | Contrôle la connexion vers un serveur SMTP         |
-| SMTP-Message | App-Protocol-SMTP-Message-custom | Contrôle l'envoi d'un message vers un serveur SMTP |
+| Service Alias   | Service Template                              | Service Description                                         |
+|:----------------|:----------------------------------------------|:------------------------------------------------------------|
+| Instance-Status | App-Salesforce-Instance-Status-Restapi-custom | Check the status and the number of incidents for your Salesforce cloud instance |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Protocol-SMTP-custom** est utilisé.
+> The services listed above are created automatically when the **App-Salesforce-Restapi-custom** host template is used.
 
 </TabItem>
 </Tabs>
 
-### Métriques & statuts collectés
+### Collected metrics & status
 
-Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
+Here is the list of services for this connector, detailing all metrics linked to each service.
 
 <Tabs groupId="sync">
-<TabItem value="SMTP-Login" label="SMTP-Login">
+<TabItem value="Instance-Status" label="Instance-Status">
 
-| Métrique                | Unité |
-|:------------------------|:------|
-| time                  | s   |
-
-</TabItem>
-<TabItem value="SMTP-Message" label="SMTP-Message">
-
-| Métrique                | Unité |
-|:------------------------|:------|
-| time                  | s   |
+| Metric name                                    | Unit  |
+|:-----------------------------------------------|:------|
+| *salesforce*#status                            | N/A   |
+| *salesforce*#salesforce.incident.current.count | count |
 
 </TabItem>
 </Tabs>
 
-## Prérequis
+## Prerequisites
 
-Le collecteur doit pouvoir accéder au port SMTP de l'hôte supervisé. Rappel : les ports les plus couramment utilisés sont 25 (sans chiffrement), 465 (chiffrement implicite), 587 (chiffrement explicite).
+To monitor your Salesforce instance, the Centreon poller must be allowed to reach the Salesforce API endpoint (`api.status.salesforce.com`) via HTTPS.
 
-## Installer le connecteur de supervision
+## Installing the monitoring connector
 
 ### Pack
 
-1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
-n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
-Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
-sur le **serveur central** via la commande correspondant au gestionnaire de paquets
-associé à sa distribution :
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Monitoring Connector Manager** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-applications-protocol-smtp
+dnf install centreon-pack-applications-salesforce-restapi
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-applications-protocol-smtp
+dnf install centreon-pack-applications-salesforce-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-pack-applications-protocol-smtp
+apt install centreon-pack-applications-salesforce-restapi
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-applications-protocol-smtp
+yum install centreon-pack-applications-salesforce-restapi
 ```
 
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **SMTP Server**
-depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+2. Whatever the license type (*online* or *offline*), install the **Salesforce** connector through
+the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
 
-À partir de Centreon 22.04, il est possible de demander le déploiement automatique
-du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
-que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
-étape n'est pas requise.
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
 
-> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
 
-Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Applications-Protocol-Smtp
+dnf install centreon-plugin-Applications-Salesforce-Restapi
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-Applications-Protocol-Smtp
+dnf install centreon-plugin-Applications-Salesforce-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-plugin-applications-protocol-smtp
+apt install centreon-plugin-applications-salesforce-restapi
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-plugin-Applications-Protocol-Smtp
+yum install centreon-plugin-Applications-Salesforce-Restapi
 ```
 
 </TabItem>
 </Tabs>
 
-## Utiliser le connecteur de supervision
+## Using the monitoring connector
 
-### Utiliser un modèle d'hôte issu du connecteur
+### Using a host template provided by the connector
 
-1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
-2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
-3. Appliquez le modèle d'hôte **App-Protocol-SMTP-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
-4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **App-Salesforce-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro            | Description                                                                                          | Valeur par défaut | Obligatoire |
-|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SMTPUSERNAME     | Specify username for authentication                                                                |                   |             |
-| SMTPPASSWORD     | Specify password for authentication                                                                |                   |             |
-| SMTPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| Macro        | Description                                                                                          | Default value             | Mandatory   |
+|:-------------|:-----------------------------------------------------------------------------------------------------|:--------------------------|:-----------:|
+| APIURL       | Set hostname to query (default: 'api.status.salesforce.com')                                         | api.status.salesforce.com |             |
+| DUMMYOUTPUT  | Host check output. Default is 'This is a dummy check'. Customize it with your own if needed                                                                                                     | This is a dummy check     |             |
+| DUMMYSTATUS  | Host state. Default is OK, do not modify it until you know what you are doing                                                                                                     | OK                        |             |
+| INSTANCENAME | Set your instance identifier                                                                         |                           |             |
+| EXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                           |             |
 
-5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
-### Utiliser un modèle de service issu du connecteur
+### Using a service template provided by the connector
 
-1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
-2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
-<TabItem value="SMTP-Login" label="SMTP-Login">
+<TabItem value="Instance-Status" label="Instance-Status">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
+| Macro        | Description                                                                                        | Default value     | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold in seconds                                                                       |                   |             |
-| CRITICAL     | Critical threshold in seconds                                                                      |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
-
-</TabItem>
-<TabItem value="SMTP-Message" label="SMTP-Message">
-
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SMTPFROM     | Set 'from' email (required)                                                                        |                   | X           |
-| SMTPTO       | Set 'to' email (required)                                                                          |                   | X           |
-| WARNING      | Warning threshold in seconds                                                                       |                   |             |
-| CRITICAL     | Critical threshold in seconds                                                                      |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 </Tabs>
 
-3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
-## Comment puis-je tester le plugin et que signifient les options des commandes ?
+## How to check in the CLI that the configuration is OK and what are the main options for?
 
-Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
-de commande depuis votre collecteur Centreon en vous connectant avec
-l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
-que le connecteur arrive bien à superviser une ressource en utilisant une commande
-telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector
+is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
-/usr/lib/centreon/plugins/centreon_protocol_smtp.pl \
-	--plugin=apps::protocols::smtp::plugin \
-	--mode=message \
-	--hostname=10.0.0.1 \
-	--username='' \
-	--password=''  \
-	--smtp-from='example@example.com' \
-	--smtp-to='example2@example.com' \
-	--warning='' \
-	--critical=''
+/usr/lib/centreon/plugins/centreon_salesforce_restapi.pl \
+	--plugin=apps::salesforce::restapi::plugin \
+	--mode=sfdc-instance \
+	--hostname='api.status.salesforce.com' \
+	--http-backend=curl \
+	--instance=''
 ```
 
-La commande devrait retourner un message de sortie similaire à :
+The expected command output is shown below:
 
 ```bash
-OK: Message sent - Response time 0.091 second(s) | 'time'=0.091s;;;;
+OK: All salesforce instances are ok | '*salesforce*#salesforce.incident.current.count'=;;;0;
 ```
 
-### Diagnostic des erreurs communes
+### Troubleshooting
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
-pour le diagnostic des erreurs communes des plugins Centreon.
+Please find the troubleshooting documentation for the API-based plugins in
+this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
 
-### Modes disponibles
+### Available modes
 
-Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution
-du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
-implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
-modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the
+connector in your terminal.
 
-Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
-`--list-mode` à la commande :
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_protocol_smtp.pl \
-	--plugin=apps::protocols::smtp::plugin \
+/usr/lib/centreon/plugins/centreon_salesforce_restapi.pl \
+	--plugin=apps::salesforce::restapi::plugin \
 	--list-mode
 ```
 
-Le plugin apporte les modes suivants :
+The plugin brings the following modes:
 
-| Mode                                                                                                                | Modèle de service associé        |
-|:--------------------------------------------------------------------------------------------------------------------|:---------------------------------|
-| login [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/protocols/smtp/mode/login.pm)]     | App-Protocol-SMTP-Login-custom   |
-| message [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/protocols/smtp/mode/message.pm)] | App-Protocol-SMTP-Message-custom |
+| Mode                                                                                                                               | Linked service template                       |
+|:-----------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+| sfdc-instance [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/salesforce/restapi/mode/sfdcinstance.pm)] | App-Salesforce-Instance-Status-Restapi-custom |
 
-### Options disponibles
+### Available options
 
-#### Options génériques
+#### Modes options
 
-Les options génériques sont listées ci-dessous :
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<TabItem value="Instance-Status" label="Instance-Status">
 
 | Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -255,6 +234,9 @@ Les options génériques sont listées ci-dessous :
 | --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --custommode                               | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --list-custommode                          | List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --multiple                                 | Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
@@ -278,51 +260,31 @@ Les options génériques sont listées ci-dessous :
 | --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-
-#### Options des modes
-
-Les options disponibles pour chaque modèle de services sont listées ci-dessous :
-
-<Tabs groupId="sync">
-<TabItem value="SMTP-Login" label="SMTP-Login">
-
-| Option         | Description                                                                              |
-|:---------------|:-----------------------------------------------------------------------------------------|
-| --hostname     | IP Addr/FQDN of the smtp host                                                            |
-| --port         | Port used                                                                                |
-| --smtp-options | Add custom smtp options. Example: --smtp-options='debug=1" --smtp-options='layer=none"   |
-| --username     | Specify username for authentification                                                    |
-| --password     | Specify password for authentification                                                    |
-| --timeout      | Connection timeout in seconds (default: 30)                                              |
-| --warning      | Warning threshold in seconds                                                             |
-| --critical     | Critical threshold in seconds                                                            |
-
-</TabItem>
-<TabItem value="SMTP-Message" label="SMTP-Message">
-
-| Option              | Description                                                                                                                   |
-|:--------------------|:------------------------------------------------------------------------------------------------------------------------------|
-| --hostname          | IP Addr/FQDN of the smtp host                                                                                                 |
-| --port              | Port used                                                                                                                     |
-| --smtp-from         | Set 'from' email (required).                                                                                                  |
-| --smtp-to           | Set 'to' email (required).                                                                                                    |
-| --smtp-options      | Add custom smtp options. Example: --smtp-options='debug=1" --smtp-options='layer=none"                                        |
-| --smtp-send-options | Add custom smtp send options. Example: --smtp-send-options='contenttype=text/html" --smtp-send-options='subject=My subject"   |
-| --username          | Specify username for authentification                                                                                         |
-| --password          | Specify password for authentification                                                                                         |
-| --timeout           | Connection timeout in seconds (default: 30)                                                                                   |
-| --warning           | Warning threshold in seconds                                                                                                  |
-| --critical          | Critical threshold in seconds                                                                                                 |
+| --hostname                                 | Set hostname to query (default: 'api.status.salesforce.com')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --timeout                                  | Set HTTP timeout in seconds (default: '10').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --api-version                              | API version (default: 'v1').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --http-peer-addr                           | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --proxyurl                                 | Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --proxypac                                 | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --insecure                                 | Accept insecure SSL connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --http-backend                             | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --ssl-opt                                  | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --curl-opt                                 | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --instance                                 | Set your instance identifier                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --alias                                    | Add this option if your want to use your instance alias                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --unknown-status                           | Set unknown threshold for instance status (default: '').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --warning-status                           | Set warning threshold for instance status (default: '').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --critical-status                          | Set critical threshold for instance status (default: '%{status} !~ /OK/').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
 </TabItem>
 </Tabs>
 
-Pour un mode, la liste de toutes les options disponibles et leur signification peut être
-affichée en ajoutant le paramètre `--help` à la commande :
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins/centreon_protocol_smtp.pl \
-	--plugin=apps::protocols::smtp::plugin \
-	--mode=message \
+/usr/lib/centreon/plugins/centreon_salesforce_restapi.pl \
+	--plugin=apps::salesforce::restapi::plugin \
+	--mode=sfdc-instance \
 	--help
 ```
