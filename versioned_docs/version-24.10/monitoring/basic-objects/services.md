@@ -11,7 +11,7 @@ To create a service manually, go to **Configuration \> Services > Services by ho
 
 #### Service Basic Information
 
-* **Name**: define the name of the service.
+* **Name**: define the name of the service.  The only authorized special characters are: slash, hyphen and underscore.
 * **Hosts**: Host(s) to which the service is attached. We recommend that you link a service to only one host.
 * **Template**: indicates the service template to which the service is linked.
 

@@ -125,7 +125,7 @@ rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared Mari
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
-dpkg -r --ignore-depends=MariaDB-server,MariaDB-client,MariaDB-shared,MariaDB-compat,MariaDB-common
+dpkg -r --ignore-depends=MariaDB-server,MariaDB-client,MariaDB-shared,MariaDB-compat,MariaDB-common MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
 ```
 
 </TabItem>
@@ -273,5 +273,5 @@ apt update MariaDB-*
 2. Restart MariaDB:
 
     ```shell
-    restart mariadb
+    systemctl restart mariadb
     ```

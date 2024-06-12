@@ -23,6 +23,33 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 23.10.12
+
+Release date: `May 29, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed an issue affecting downtimes on services linked to a service group via a service template.
+- [API] Fixed an issue with is_password when using Service and Service Template POST endpoint.
+- [API] Fixed access control for some v2 API endpoints.
+- [Auto Discovery] Fixed rights for temporary files created during the generation of the configuration.
+- [Configuration] Fixed an issue where the Service Categories configuration page could appear blank.
+- [Packaging] Fixed symbolic link between /usr/lib/nagios/plugins and /usr/lib64/nagios/plugins.
+- [Resource Status] Fixed access to "View report" icon in the resource details panel.
+- [Resource Status] Disabled pollers can no longer be selected in filters.
+- [UX] Fixed an issue where the top counter pop-up was not closed when users clicked outside of it.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed several SQLi issues.
+- [Security] Fixed XSS in a configuration page.
+
+</details>
+
 ### 23.10.11
 
 Release date: `April 9, 2024`
@@ -45,7 +72,7 @@ Release date: `April 9, 2024`
 
 </details>
 
-<details open>
+<details>
   <summary>Security fixes</summary>
 
 - [Security] Upgraded axios dependency.
@@ -75,7 +102,7 @@ Release date: `March 13, 2024`
 
 </details>
 
-<details open>
+<details>
   <summary>Security fixes</summary>
 
 - [Security] Improved allowed commands for Centreon Gorgone.
@@ -182,7 +209,7 @@ Release date: `January 15, 2024`
 
 Release date: `January 2, 2024`
 
-<details open>
+<details>
   <summary>Security fixes</summary>
 
 - [Security] Fixed an SQLi vulnerability (CVE-2024-0637, CVE-2024-23115, CVE-2024-23116, CVE-2024-23117, CVE-2024-23118, CVE-2024-23119).
@@ -222,7 +249,7 @@ Release date: `December 21, 2023`
 
 </details>
 
-<details open>
+<details>
   <summary>Security fixes</summary>
 
 - [Security] Prevented a command injection.
@@ -280,7 +307,7 @@ Release date: `November 17, 2023`
 
 </details>
 
-<details open>
+<details>
   <summary>Security fixes</summary>
 
 - Fixed potential XSS vulnerability in the list of discovered hosts (CVE-2023-51633).
@@ -380,11 +407,25 @@ Release date: `October 30, 2023`
 
 ## Centreon Collect
 
+### 23.10.7
+
+Release date: `May 28, 2024`
+
+<details>
+  <summary>Bug Fixes</summary>
+
+- [Broker] Fixed a stability issue that could occur when an LVM snapshot was launched to backup the database.
+- [Broker] Fixed an issue where incomplete BAM queries resulted in unnecessary error messages.
+- [Broker] Fixed an issue that caused MySQL errors in Broker logs, due to attempts to insert relations between BAs and disabled time periods.
+- [Packaging] Added symbolic link from **/usr/lib64/nagios/plugins** to **/usr/lib/nagios/plugins**.
+
+</details>
+
 ### 23.10.6
 
 Release date: `April 08, 2024`
 
-<details open>
+<details>
   <summary>Bug Fixes</summary>
 
 - [Broker] BA initialization could result in KPIs having incoherent statuses. This was breaking the statuses of the BAs.
@@ -401,7 +442,7 @@ Release date: `March 19, 2024`
 
 #### Centreon Broker
 
-<details open>
+<details>
   <summary>Bug Fixes</summary>
 
 - [Broker] Fixed an issue causing hostgroups to fail to appear if they had been used before and emptied of their hosts and then populated again.
@@ -520,6 +561,19 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon Gorgone
+
+### 23.10.7
+
+Release date: `May 29, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Fixed a path issue on systemctl (Gorgone whitelist).
+- [Gorgone] Fixed an issue where unnecessary error messages were displayed.
+- [Packaging] Fixed inconsistent system permissions on /var/log/centreon-engine/centengine.log.
+
+</details>
 
 ### 23.10.6
 
