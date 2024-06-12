@@ -13,9 +13,9 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
 
-- [**Loggly Rest API**](../procedures/applications-monitoring-loggly-restapi.md) - Initial release.
-- [**Windows Telegraf Agent**](../procedures/operatingsystems-windows-telegraf-agent.md) - Initial release.
-- [**Mosquitto MQTT Broker**](../procedures/) - Initial release.
+- [**Loggly Rest API**](../procedures/applications-monitoring-loggly-restapi.md) - Initial release of Loggly Rest API.
+- [**Windows Telegraf Agent**](../procedures/operatingsystems-windows-telegraf-agent.md) - Initial release of Windows Telegraf Agent.
+- [**Mosquitto MQTT Broker**](../procedures/) - Initial release of Mosquitto MQTT Broker.
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
