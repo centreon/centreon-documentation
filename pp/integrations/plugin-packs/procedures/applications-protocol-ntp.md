@@ -49,9 +49,6 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 </Tabs>
 
-## Prerequisites
-
-The remote server must have a NTP service running and available.
 
 ## Installing the monitoring connector
 
