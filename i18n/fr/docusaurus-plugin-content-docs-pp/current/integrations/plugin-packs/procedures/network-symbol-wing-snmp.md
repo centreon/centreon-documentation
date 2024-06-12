@@ -30,7 +30,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                | Modèle de service                                | Description                                                                        | Découverte |
 |:---------------------|:-------------------------------------------------|:-----------------------------------------------------------------------------------|:----------:|
-| Packet-Errors        | Net-Symbol-wing-Packet-Errors-Global-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écarté de plusieurs interfaces réseau | X          |
+| Packet-Errors        | Net-Symbol-wing-Packet-Errors-Global-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau | X          |
 | Traffic-Generic-Id   | Net-Symbol-Wing-Traffic-Generic-Id-SNMP-custom   | Contrôle le traffic réseau d'une interface réseau                                  |            |
 | Traffic-Generic-Name | Net-Symbol-Wing-Traffic-Generic-Name-SNMP-custom | Contrôle le traffic réseau d'une interface réseau                                  | X          |
 | Traffic-Global       | Net-Symbol-Wing-Traffic-Global-SNMP-custom       | Contrôle le traffic réseau d'une interface réseau                                  |            |
