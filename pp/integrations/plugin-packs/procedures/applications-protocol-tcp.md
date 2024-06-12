@@ -19,16 +19,14 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="App-Protocol-Tcp-custom" label="App-Protocol-Tcp-custom">
 
-| Service Alias | Service Template  | Service Description |
-|:--------------|:------------------|:--------------------|
+No service template is linked to this host template.
 
 > The services listed above are created automatically when the **App-Protocol-Tcp-custom** host template is used.
 
 </TabItem>
 <TabItem value="App-Protocol-Tcp-Only-custom" label="App-Protocol-Tcp-Only-custom">
 
-| Service Alias | Service Template  | Service Description |
-|:--------------|:------------------|:--------------------|
+No service template is linked to this host template.
 
 > The services listed above are created automatically when the **App-Protocol-Tcp-Only-custom** host template is used.
 
@@ -208,7 +206,7 @@ yum install centreon-plugin-Applications-Protocol-Tcp
 
 | Macro        | Description                                                                                        | Default value     | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| TIMEOUT      | Connection timeout in seconds (default: 3)                                                         | 5                 |             |
+| TIMEOUT      | Connection timeout in seconds                                                         | 5                 |             |
 | PORT         | Port used                                                                                          |                   | X           |
 | WARNING      | Warning threshold                                                                                                   |                   |             |
 | CRITICAL     | Critical threshold                                                                                                   |                   |             |
@@ -219,8 +217,8 @@ yum install centreon-plugin-Applications-Protocol-Tcp
 
 | Macro         | Description                                                                                        | Default value     | Mandatory   |
 |:--------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PACKETS       | Number of packets to send (default: 5)                                                             | 5                 |             |
-| TIMEOUT       | Set timeout in seconds (default: 5)                                                                | 5                 |             |
+| PACKETS       | Number of packets to send                                                            | 5                 |             |
+| TIMEOUT       | Set timeout in seconds                                                                 | 5                 |             |
 | PORT          | Port used                                                                                          |                   | X           |
 | WARNINGPL     | Packets lost threshold warning in %                                                                |                   |             |
 | CRITICALPL    | Packets lost threshold critical in %                                                               |                   |             |

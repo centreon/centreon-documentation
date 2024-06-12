@@ -20,18 +20,14 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="App-Protocol-Tcp-custom" label="App-Protocol-Tcp-custom">
 
-| Alias | Modèle de service | Description |
-|:------|:------------------|:------------|
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Protocol-Tcp-custom** est utilisé.
+Aucun modèle de service n'est lié à ce modèle d'hôte.
 
 </TabItem>
 <TabItem value="App-Protocol-Tcp-Only-custom" label="App-Protocol-Tcp-Only-custom">
 
-| Alias | Modèle de service | Description |
-|:------|:------------------|:------------|
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Protocol-Tcp-Only-custom** est utilisé.
+Aucun modèle de service n'est lié à ce modèle d'hôte.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
@@ -207,7 +203,7 @@ yum install centreon-plugin-Applications-Protocol-Tcp
 
 | Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| TIMEOUT      | Connection timeout in seconds (default: 3)                                                         | 5                 |             |
+| TIMEOUT      | Connection timeout in seconds                                                         | 5                 |             |
 | PORT         | Port used                                                                                          |                   | X           |
 | WARNING      | Warning threshold                                                                                                   |                   |             |
 | CRITICAL     | Critical threshold                                                                                                   |                   |             |
@@ -218,8 +214,8 @@ yum install centreon-plugin-Applications-Protocol-Tcp
 
 | Macro         | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:--------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PACKETS       | Number of packets to send (default: 5)                                                             | 5                 |             |
-| TIMEOUT       | Set timeout in seconds (default: 5)                                                                | 5                 |             |
+| PACKETS       | Number of packets to send                                                            | 5                 |             |
+| TIMEOUT       | Set timeout in seconds                                                                | 5                 |             |
 | PORT          | Port used                                                                                          |                   | X           |
 | WARNINGPL     | Packets lost threshold warning in %                                                                |                   |             |
 | CRITICALPL    | Packets lost threshold critical in %                                                               |                   |             |
@@ -227,7 +223,6 @@ yum install centreon-plugin-Applications-Protocol-Tcp
 | CRITICALRTA   | Response time threshold critical in milliseconds                                                   |                   |             |
 | WARNINGRTMAX  | Warning maximum response time threshold                                                                                                   |                   |             |
 | CRITICALRTMAX | Critical maximum response time threshold
-                                                                                                   |                   |             |
 | WARNINGRTMIN  | Warning minimum response time threshold                                                                                                   |                   |             |
 | CRITICALRTMIN | Critical minimum response time threshold                                                                                                   |                   |             |
 | EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
