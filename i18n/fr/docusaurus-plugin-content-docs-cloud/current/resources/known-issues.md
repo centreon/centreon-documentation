@@ -11,9 +11,9 @@ Les paragraphes ci-après détaillent les problèmes connus de Centreon. Ceux-ci
 
    **Contournement**: Définissez une recherche plus précise, jusqu'à avoir moins de 10 résultats dans la liste déroulante.
 
-* La zone de clic pour les cases "Tous" (Tous les contacts, Tous les groupes de contacts, Tous les hôtes...) est trop large : il est facile de sélectionner "Tous" par erreur.
+* La zone de clic pour les cases "Tous" (**Tous les contacts**, **Tous les groupes de contacts**, **Tous les hôtes**...) est trop large : il est facile de sélectionner "Tous" par erreur.
 
-* Il n'est pas possible de sélectionner une règle d'accès aux ressources dans le formulaire de configuration des Business Views.
+* Il n'est pas possible de sélectionner une règle d'accès aux ressources dans le formulaire de configuration des Vues Métier.
 
 * Les règles d'accès aux ressources peuvent descendre jusqu'au niveau des hôtes, mais pas jusqu'au niveau des services.
 
@@ -47,11 +47,11 @@ Les paragraphes ci-après détaillent les problèmes connus de Centreon. Ceux-ci
 
 * Il est possible de créer deux services portant le même nom rattachés à un même hôte.
 
-* Déployer un service ne fonctionne pas si le modèle appliqué à un hôte existant a été changé.
+* Déployer un service ne fonctionne pas si le modèle appliqué à un hôte existant a été changé. (Commande **Plus d'actions > Déployer les services**.)
 
-* Il n'est pas ecore possible de définir un collecteur par défaut. Lorsque vous créez un hôte, assurez-vous de définir le bon collecteur pour le superviser au lieu du serveur central.
+* Il n'est pas encore possible de définir un collecteur par défaut. Lorsque vous créez un hôte, assurez-vous de définir le bon collecteur pour le superviser au lieu du serveur central.
 
-* Les comptes de service (par exemple, "broker service user") apparaissent dans les listes de sélection des contacts. Ne les utilisez pas.
+* Les comptes de service (par exemple, **broker service user**) apparaissent dans les listes de sélection des contacts. Ne les utilisez pas.
 
 * Dans le formulaire de configuration des Activités Métier, la section **Notification**  n'a aucun effet.
 

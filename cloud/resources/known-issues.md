@@ -11,7 +11,7 @@ The following paragraphs detail issues which are known to Centreon and will be f
 
    **Workaround**: Refine the search until the number of results is less than ten.
 
-* The click area for “All" boxes (All contacts, All contact groups, All hosts...) is too wide: it is easy to select "All" by mistake.
+* The click area for “All" boxes (**All contacts**, **All contact groups**, **All hosts**...) is too wide: it is easy to select "All" by mistake.
 
 * It is not possible to select a Resource Access Management rule in the Business View configuration form.
 
@@ -47,11 +47,11 @@ The following paragraphs detail issues which are known to Centreon and will be f
 
 * It is possible to create two services with the same name on a host.
 
-* Deploying a service does not work if the template of an existing host is changed.
+* Deploying a service does not work if the template of an existing host is changed. (**More actions > Deploy services** command.)
 
 * It is not possible yet to define a default poller. When you create a host, make sure you define the correct poller to monitor it instead of the central server.
 
-* Service accounts (e.g. "broker service user") are listed in contact selection dropdown lists. Do not use them.
+* Service accounts (e.g. **broker service user**) are listed in contact selection dropdown lists. Do not use them.
 
 * In the Business Activities configuration form, the **Notification** section does not have any effect.
 
