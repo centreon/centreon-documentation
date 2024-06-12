@@ -22,13 +22,13 @@ import TabItem from '@theme/TabItem';
 
 - [**HTTP Server**](../procedures/applications-protocol-http.md) - Added possibility for collection mode to use the `full_url` and `functions` attributes ([Community contribution](https://github.com/centreon/centreon-plugins/pull/4915)). 
 - [**TrendMicro Iwsva**](../procedures/applications-trendmicro-iwsva-snmp.md) - Added disk partition discovery rule.
+- [**HashiCorp Vault Rest API**](../procedures/applications-hashicorp-vault-restapi.md) - Added an option `auth-path` to handle variable path for hashicorp vault authentication ([Community contribution](https://github.com/centreon/centreon-plugins/pull/4764)).
 
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
 
 - [**Kadiska Rest API**](../procedures/applications-monitoring-kadiska-restapi.md) - Will no longer be supported and will be deprecated.
 - [**TrendMicro Iwsva**](../procedures/applications-trendmicro-iwsva-snmp.md) - Fixed packaging and change thresholds macro naming.
-- [**HashiCorp Vault Rest API**](../procedures/applications-hashicorp-vault-restapi.md) - Added an option `auth-path` to handle variable path for hashicorp vault authentication ([Community contribution](https://github.com/centreon/centreon-plugins/pull/4764)). 
 
 </TabItem>
 <TabItem value="Fix" label="Fix">
