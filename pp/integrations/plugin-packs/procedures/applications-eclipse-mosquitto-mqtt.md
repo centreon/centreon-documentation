@@ -288,23 +288,27 @@ is able to monitor a resource using a command like this one (replace the sample 
 ```bash
 /usr/lib/centreon/plugins/centreon_eclipse_mosquitto_mqtt.pl \
 	--plugin=apps::eclipse::mosquitto::mqtt::plugin \
-	--mode=uptime \
-	--hostname='10.0.0.1' \
-	--mqtt-port='8883' \
+	--mode=messages \
+	--hostname='test.mosquitto.org' \
+	--mqtt-port='1883' \
 	--mqtt-ca-certificate='' \
 	--mqtt-ssl-certificate='' \
 	--mqtt-ssl-key='' \
 	--mqtt-username='' \
 	--mqtt-password='' \
-	--mqtt-ssl='1'  \
-	--warning-uptime='' \
-	--critical-uptime='' 
+	--mqtt-ssl='0'  \
+	--warning-messages-stored='' \
+	--critical-messages-stored='' \
+	--warning-messages-received='' \
+	--critical-messages-received='' \
+	--warning-messages-sent='' \
+	--critical-messages-sent=''
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK:  | 'system.uptime.seconds'=73s;;;; 
+OK: Stored messages: 73830, Received messages: 3281515467, Sent messages: 27697734205 | 'stored_messages'=73830;;;0; 'received_messages'=3281515467;;;0; 'sent_messages'=27697734205;;;0;
 
 ```
 
