@@ -49,10 +49,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique              | Unité |
 |:----------------------|:------|
-| client.connected| count     |
-| client.maximum| count     |
-| client.active| count     |
-| client.inactive| count     |
+| client.connected | count     |
+| client.maximum | count     |
+| client.active | count     |
+| client.inactive | count     |
 
 </TabItem>
 <TabItem value="Messages" label="Messages">
