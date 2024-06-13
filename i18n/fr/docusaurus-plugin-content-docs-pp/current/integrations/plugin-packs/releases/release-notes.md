@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
 
-- [**Mosquitto MQTT Broker**](../procedures/) - Initial release of Mosquitto MQTT Broker.
+- [**Eclipse Mosquitto MQTT**](../procedures/applications-eclipse-mosquitto-mqtt.md)  - Initial release of Eclipse Mosquitto MQTT.
 - [**Loggly Rest API**](../procedures/applications-monitoring-loggly-restapi.md) - Initial release of Loggly Rest API.
 - [**Windows Telegraf Agent**](../procedures/operatingsystems-windows-telegraf-agent.md) - Initial release of Windows Telegraf Agent.
 
