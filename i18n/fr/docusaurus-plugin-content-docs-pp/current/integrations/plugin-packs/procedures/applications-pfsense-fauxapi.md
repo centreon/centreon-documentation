@@ -116,7 +116,7 @@ dnf install centreon-pack-applications-pfsense-fauxapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-pfsense-fauxapi
@@ -161,7 +161,7 @@ dnf install centreon-plugin-Applications-Pfsense-Fauxapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-pfsense-fauxapi

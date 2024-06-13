@@ -25,9 +25,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                        | Service Description                          |
 |:--------------|:----------------------------------------|:---------------------------------------------|
-| Backup-Files  | App-Pfsense-Backup-Files-Fauxapi-custom | Check the Backup files Pfsense using Fauxapi |
-| Gateways      | App-Pfsense-Gateways-Fauxapi-custom     | Check the Gateways Pfsense using Fauxapi     |
-| Rules         | App-Pfsense-Rules-Fauxapi-custom        | Check the rules Pfsense using Fauxapi        |
+| Backup-Files  | App-Pfsense-Backup-Files-Fauxapi-custom | Check the Pfsense Backup files using Fauxapi |
+| Gateways      | App-Pfsense-Gateways-Fauxapi-custom     | Check the Pfsense Gateways using Fauxapi     |
+| Rules         | App-Pfsense-Rules-Fauxapi-custom        | Check the Pfsense rules using Fauxapi        |
 | System        | App-Pfsense-System-Fauxapi-custom       | Check Pfsense system status using Fauxapi    |
 
 > The services listed above are created automatically when the **App-Pfsense-Fauxapi-custom** host template is used.
@@ -113,7 +113,7 @@ dnf install centreon-pack-applications-pfsense-fauxapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-pfsense-fauxapi
