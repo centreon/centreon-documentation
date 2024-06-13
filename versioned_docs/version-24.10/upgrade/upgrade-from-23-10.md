@@ -32,10 +32,10 @@ servers:
 
 1. Update your Centreon 23.10 to the latest minor version.
 
-2. Remove the repository files:
+
+2. Remove the **centreon.repo** file:
 
    ```shell
-   rm /etc/yum.repos.d/centreon-23.10.repo
    rm /etc/yum.repos.d/centreon.repo
    ```
 
@@ -51,9 +51,10 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/e
 
 1. Update your Centreon 23.10 to the latest minor version.
 
-2. Remove the **centreon.repo** file:
+2. Remove the repository files:
 
    ```shell
+   rm /etc/yum.repos.d/centreon-23.10.repo
    rm /etc/yum.repos.d/centreon.repo
    ```
 
