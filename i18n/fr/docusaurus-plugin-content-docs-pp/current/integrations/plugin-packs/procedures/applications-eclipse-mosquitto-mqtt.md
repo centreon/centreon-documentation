@@ -57,7 +57,11 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Messages" label="Messages">
 
-Coming soon
+| Métrique              | Unité |
+|:----------------------|:------|
+| messages.stored | count     |
+| messages.received | count     |
+| messages.sent | count     |
 
 </TabItem>
 <TabItem value="Numeric-Value" label="Numeric-Value">
