@@ -250,3 +250,8 @@ en choisissant la méthode **Redémarrer** pour le processus Engine.
   ```shell
   systemctl restart centengine gorgoned
   ```
+5. Pour les systèmes Debian, exécutez la commande suivante :
+
+  ```shell
+  apt-mark unhold centreon-pack*
+  ```
