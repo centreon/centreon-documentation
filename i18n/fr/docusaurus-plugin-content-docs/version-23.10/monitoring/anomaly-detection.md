@@ -124,7 +124,7 @@ cliquez sur le bouton **Create manually**.
 
 2. Remplissez les champs suivants :
 
-    - **Description**: nom du service. Les seuls caractères spéciaux autorisés sont : slash, tiret et underscore.
+    - **Description**: nom du service. Les caractères suivants ne sont pas autorisés : `~!$%^&|'"<>?,()=*{}` et les espaces.
     - **Statut**: permet d'activer ou désactiver le service. Si vous désactivez un service, après avoir déployé la configuration, celui-ci ne sera plus supervisé (notamment, il n'apparaîtra plus à la page **Statut des ressources**).
     - **Select host - service**: définir le couple hôte/service sur lequel le service Anomaly Detection se basera.
     - **Select metric** : sélectionnez la métrique sur laquelle appliquer la détection d'anomalie.

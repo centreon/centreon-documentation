@@ -128,7 +128,7 @@ La création de l'activité métier se fait directement dans le panneau qui
 s'ouvre. Après avoir donné un nom (obligatoire & unique) à votre
 activité métier, vous devrez configurer plusieurs sections. La section
 **Indicateur** est la plus importante.
-Les seuls caractères spéciaux autorisés dans le nom d'une BA sont : slash, tiret et underscore.
+Les caractères suivants ne sont pas autorisés dans le nom d'une BA : `~!$%^&|'"<>?,()=*{}` et les espaces.
 
 #### Indicateurs
 
