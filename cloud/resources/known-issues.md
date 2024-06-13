@@ -15,7 +15,9 @@ The following paragraphs detail issues which are known to Centreon and will be f
 
 * It is not possible to select a Resource Access Management rule in the Business View configuration form.
 
-* Resource Access Management rules can be defined down to host level, not down to service level.
+   **Workaround**: When you create a new Business View, you need to go to the **Resource Access Management** menu to add the Business View to a rule.
+
+* To grant access to services independently of their host, you can define rules only at services group or service category level.
 
 * Changes are not displayed immediately when editing a Resource Access Management rule.
 

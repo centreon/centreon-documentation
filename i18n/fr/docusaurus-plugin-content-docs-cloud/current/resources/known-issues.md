@@ -15,7 +15,9 @@ Les paragraphes ci-après détaillent les problèmes connus de Centreon. Ceux-ci
 
 * Il n'est pas possible de sélectionner une règle d'accès aux ressources dans le formulaire de configuration des Vues Métier.
 
-* Les règles d'accès aux ressources peuvent descendre jusqu'au niveau des hôtes, mais pas jusqu'au niveau des services.
+   **Workaround**: Lorsque vous créez une nouvelle Vue Métier, allez dans le menu **Gestion de l'accès aux ressources** et ajoutez la Vue Métier à une règle.
+
+* Pour donner accès à un service indépendemment de son hôte, vous pouvez définir des règles uniquement au niveau des groupes de services ou des catégories de services.
 
 * Les changements ne sont pas affichés immédiatement lorsque vous éditez une règle d'accès aux ressources.
 
