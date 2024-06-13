@@ -46,12 +46,20 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Clients" label="Clients">
 
-Coming soon
+| Metric name           | Unit  |
+|:----------------------|:------|
+| messages.stored | count     |
+| messages.received | count     |
+| messages.sent | count     |
 
 </TabItem>
 <TabItem value="Messages" label="Messages">
 
-Coming soon
+| Metric name           | Unit  |
+|:----------------------|:------|
+| messages.stored | count     |
+| messages.received | count     |
+| messages.sent | count     |
 
 </TabItem>
 <TabItem value="Numeric-Value" label="Numeric-Value">
