@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                           | Service Description                                  |
 |:--------------|:-------------------------------------------|:-----------------------------------------------------|
-| Clients       | App-Eclipse-Mosquitto-Mqtt-Clients-custom  | Check connected clients count                        |
+| Clients       | App-Eclipse-Mosquitto-Mqtt-Clients-custom  | Check the number of connected clients |
 | Messages      | App-Eclipse-Mosquitto-Mqtt-Messages-custom | Check messages count, open                           |
 | Uptime        | App-Eclipse-Mosquitto-Mqtt-Uptime-custom   | Time since the server has been working and available |
 
@@ -31,8 +31,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                                | Service Description                                     |
 |:--------------|:------------------------------------------------|:--------------------------------------------------------|
-| Numeric-Value | App-Eclipse-Mosquitto-Mqtt-Numeric-Value-custom | Check allowing to retrieve a digital value from a topic |
-| String-Value  | App-Eclipse-Mosquitto-Mqtt-String-Value-custom  | Check allowing to retrieve a string value from a topic  |
+| Numeric-Value | App-Eclipse-Mosquitto-Mqtt-Numeric-Value-custom | Check that retrieves a digital value from a topic |
+| String-Value  | App-Eclipse-Mosquitto-Mqtt-String-Value-custom  | Check that retrieves a string value from a topic  |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -114,7 +114,7 @@ dnf install centreon-pack-applications-eclipse-mosquitto-mqtt
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-eclipse-mosquitto-mqtt
@@ -161,7 +161,7 @@ dnf install centreon-plugin-Applications-Eclipse-Mosquitto-MQTT
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-eclipse-mosquitto-mqtt

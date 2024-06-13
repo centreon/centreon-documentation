@@ -33,7 +33,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias         | Modèle de service                               | Description                                                          |
 |:--------------|:------------------------------------------------|:---------------------------------------------------------------------|
 | Numeric-Value | App-Eclipse-Mosquitto-Mqtt-Numeric-Value-custom | Contrôle permettant de récupérer une valeur numérique d'un topic     |
-| String-Value  | App-Eclipse-Mosquitto-Mqtt-String-Value-custom  | Contrôle permettant de récupérer une chaine de caractères d'un topic |
+| String-Value  | App-Eclipse-Mosquitto-Mqtt-String-Value-custom  | Contrôle permettant de récupérer une chaîne de caractères d'un topic |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -115,7 +115,7 @@ dnf install centreon-pack-applications-eclipse-mosquitto-mqtt
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-eclipse-mosquitto-mqtt
@@ -160,7 +160,7 @@ dnf install centreon-plugin-Applications-Eclipse-Mosquitto-MQTT
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-eclipse-mosquitto-mqtt
