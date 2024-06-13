@@ -246,6 +246,12 @@ and choose the **Restart** method for the Engine process.
   systemctl restart centengine gorgoned
   ```
 
+5. For Debian systems, run the following command:
+
+  ```shell
+  apt-mark unhold centreon-pack*
+  ```
+
 ## Unattended update
 
 You can perform an unattended update of your platform using the **unattended.sh** script.
