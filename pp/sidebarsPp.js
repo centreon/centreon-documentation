@@ -166,6 +166,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-eclipse-mosquitto-mqtt'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-emc-ppma-restapi'
         },
         {
