@@ -11,7 +11,7 @@ Pour créer un service, allez à la page **Configuration > Services > Services p
 
 #### Informations sur le service
 
-* Le champ **Nom** définit le nom du service. Les seuls caractères spéciaux autorisés sont : slash, tiret et underscore.
+* Le champ **Nom** définit le nom du service. Les caractères suivants ne sont pas autorisés : `~!$%^&|'"<>?,()=*{}` et les espaces.
 * La liste **Hôtes** permet de définir le ou les hôtes auxquels lier ce service. Il est recommandé de ne lier un service qu'à un seul hôte.
 * Le champ **Modèle** indique le modèle de service auquel le service est lié.
 

@@ -46,7 +46,7 @@ Rendez-vous dans le menu : **Configuration > Services > Meta Services** et cliqu
 
 ### Informations générales
 
-* Le champ **Meta Service Name** correspond au nom du méta-service affiché dans l’interface. Les seuls caractères spéciaux autorisés sont : slash, tiret et underscore.
+* Le champ **Meta Service Name** correspond au nom du méta-service affiché dans l’interface. Les caractères suivants ne sont pas autorisés : `~!$%^&|'"<>?,()=*{}` et les espaces.
 * Le champ **Output format string (printf-style)** correspond au message de sortie (‘output’) visible dans Centreon.
   La valeur “%d” correspond à la valeur calculée par le méta-service.
 * Le champ **Warning level** and **Critical level** correspondent respectivement aux seuils "WARNING" et

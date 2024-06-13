@@ -117,7 +117,7 @@ You can create an Anomaly Detection service manually, or [use the creation wizar
 
 2. Fill in the following fields:
 
-  - **Description**: the name of the service. The only authorized special characters are: slash, hyphen and underscore.
+  - **Description**: the name of the service. The following characters are not authorized: `~!$%^&|'"<>?,()=*{}` and spaces.
   - **Status**: enable or disable the service. If you disable the service, after you deploy the configuration, the service will no longer be monitored (for instance it won't appear on page **Resources Status** anymore).
   - **Select host - service**: choose the host/service couple on which the Anomaly Detection service will be based.
   - **Select metric**: select the metric on which to apply anomaly detection.
