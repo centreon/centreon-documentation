@@ -47,7 +47,12 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Clients" label="Clients">
 
-Coming soon
+| Métrique              | Unité |
+|:----------------------|:------|
+| client.connected| count     |
+| client.maximum| count     |
+| client.active| count     |
+| client.inactive| count     |
 
 </TabItem>
 <TabItem value="Messages" label="Messages">
