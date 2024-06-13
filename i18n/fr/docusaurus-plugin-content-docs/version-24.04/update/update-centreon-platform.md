@@ -251,6 +251,12 @@ en choisissant la méthode **Redémarrer** pour le processus Engine.
   systemctl restart centengine gorgoned
   ```
 
+5. Pour les systèmes Debian, exécutez la commande suivante :
+
+  ```shell
+  apt-mark unhold centreon-pack*
+  ```
+
 ## Mise à jour silencieuse
 
 Vous pouvez réaliser une mise à jour silencieuse de votre plateforme en utilisant le script **unattended.sh**.
