@@ -57,18 +57,14 @@ Coming soon
 </TabItem>
 <TabItem value="Numeric-Value" label="Numeric-Value">
 
-| Métrique    | Unité |
-|:------------|:------|
-| generic     | N/A   |
+Les métriques obtenues dépendent entièrement de la configuration.
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
 <TabItem value="String-Value" label="String-Value">
 
-| Métrique    | Unité |
-|:------------|:------|
-| generic     | N/A   |
+Pas de métrique pour ce service.
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
