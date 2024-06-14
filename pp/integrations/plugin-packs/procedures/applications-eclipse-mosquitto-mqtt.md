@@ -89,9 +89,9 @@ No metrics for this service.
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+The **Eclipse Mosquitto MQTT** monitoring connector needs network access to the **Eclipse Mosquitto MQTT** instance.
+If the **Eclipse Mosquitto MQTT** server is configured to use SSL, make sure the connector is able to validate the server's certificate.
+If the **Eclipse Mosquitto MQTT** server is configured to use authentication, make sure the connector is able to authenticate.
 
 ## Installing the monitoring connector
 

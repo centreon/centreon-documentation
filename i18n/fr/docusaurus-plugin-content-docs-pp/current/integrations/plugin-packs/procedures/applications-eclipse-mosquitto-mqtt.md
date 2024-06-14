@@ -91,9 +91,9 @@ Pas de métrique pour ce service.
 
 ## Prérequis
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+Le connecteur de supervision **Eclipse Mosquitto MQTT** a besoin d'un accès réseau à l'instance **Eclipse Mosquitto MQTT**.
+Si le serveur **Eclipse Mosquitto MQTT** est configuré pour utiliser SSL, assurez-vous que le connecteur est capable de valider le certificat du serveur.
+Si le serveur **Eclipse Mosquitto MQTT** est configuré pour utiliser l'authentification, assurez-vous que le connecteur est capable de s'authentifier.
 
 ## Installer le connecteur de supervision
 
