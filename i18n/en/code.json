@@ -158,6 +158,10 @@
     "message": "Edit this page",
     "description": "The link label to edit the current page"
   },
+  "theme.common.theWatchButton": {
+    "message": "Ask on The Watch",
+    "description": "The link label to ask a question on the watch"
+  },
   "theme.common.headingLinkTitle": {
     "message": "Direct link to heading",
     "description": "Title for link to heading"

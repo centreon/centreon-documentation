@@ -9,3 +9,56 @@
     text-align: right;
   }
 }
+
+.buttonFilled {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00bfa6;
+  color: #ffffff;
+  border: none;
+  border-radius: 24px;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  margin: 4px;
+}
+
+.buttonFilled:hover {
+  background-color: #008d76;
+  color: #ffffff;
+}
+
+.buttonIcon {
+  margin-right: 8px;
+}
+
+.theWatchButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lastUpdatedText {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+  margin-left: -5px;
+}
+
+.theWatchButton svg {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
