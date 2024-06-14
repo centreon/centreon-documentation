@@ -92,8 +92,8 @@ Pas de métrique pour ce service.
 ## Prérequis
 
 Le connecteur de supervision **Eclipse Mosquitto MQTT** a besoin d'un accès réseau à l'instance **Eclipse Mosquitto MQTT**.
-Si le serveur **Eclipse Mosquitto MQTT** est configuré pour utiliser SSL, assurez-vous que le connecteur est capable de valider le certificat du serveur.
-Si le serveur **Eclipse Mosquitto MQTT** est configuré pour utiliser l'authentification, assurez-vous que le connecteur est capable de s'authentifier.
+Si le serveur **Eclipse Mosquitto MQTT** est configuré pour utiliser SSL, assurez-vous que le certificat du serveur est bien reconnu par le collecteur ou a minima que le certificat de l'autorité de certification est bien accessible par le plugin. Dans le cas contraire, la supervision devra se faire sans contrôle du certificat.
+Si le serveur **Eclipse Mosquitto MQTT** est configuré pour utiliser l'authentification, vous devrez disposer d'un compte en lecture seule.
 
 ## Installer le connecteur de supervision
 
