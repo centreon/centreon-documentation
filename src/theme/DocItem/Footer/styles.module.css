@@ -49,12 +49,12 @@
 
 .buttonsContainer {
   display: flex;
-  justify-content: center;
+  justify-content: space-between; 
   align-items: center;
   gap: 40px;
+  margin-left: -5px;
   margin-top: 8px;
   flex-wrap: wrap;
-  margin-left: -5px;
 }
 
 .theWatchButton svg {
