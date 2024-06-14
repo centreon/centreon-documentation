@@ -35,6 +35,12 @@
 .buttonIcon {
   margin-right: 8px;
 }
+.svgIcon {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
 
 .theWatchButton {
   display: inline-flex;
@@ -49,16 +55,16 @@
 
 .buttonsContainer {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
-  gap: 40px;
+  gap: 30px;
   margin-left: -5px;
   margin-top: 8px;
   flex-wrap: wrap;
 }
 
 .theWatchButton svg {
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
   margin-right: 8px;
 }
