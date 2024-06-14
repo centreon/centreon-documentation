@@ -21,7 +21,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias | Service Template                           | Service Description                                  |
 |:--------------|:-------------------------------------------|:-----------------------------------------------------|
 | Clients       | App-Eclipse-Mosquitto-Mqtt-Clients-custom  | Check the number of connected clients |
-| Messages      | App-Eclipse-Mosquitto-Mqtt-Messages-custom | Check messages count, open                           |
+| Messages      | App-Eclipse-Mosquitto-Mqtt-Messages-custom | Check messages statistics                           |
 | Uptime        | App-Eclipse-Mosquitto-Mqtt-Uptime-custom   | Time since the server has been working and available |
 
 > The services listed above are created automatically when the **App-Eclipse-Mosquitto-Mqtt-custom** host template is used.
