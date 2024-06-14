@@ -48,9 +48,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 | Metric name           | Unit  |
 |:----------------------|:------|
-| messages.stored | count     |
-| messages.received | count     |
-| messages.sent | count     |
+| client.connected | count     |
+| client.maximum | count     |
+| client.active | count     |
+| client.inactive | count     |
 
 </TabItem>
 <TabItem value="Messages" label="Messages">
