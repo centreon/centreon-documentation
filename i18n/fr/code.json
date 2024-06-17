@@ -409,6 +409,10 @@
     "message": "Envoyer du feedback sur cette page",
     "description": "To give feedback"
   },
+  "theme.common.theWatchButton": {
+    "message": "Question sur The Watch",
+    "description": "To ask question"
+  },
   "Expand all": {
     "message": "Tout étendre",
     "description": "The label for the expand all button"
