@@ -22,7 +22,7 @@ Your screen resolution must be at least 1280 x 768.
 
 ### Operating Systems
 
-Centreon supports the following operating systems: AlmaLinux/RedHat/OracleLinux 8 or 9, and Debian 11.
+Centreon supports the following operating systems:
 
 | Version                        | Installation mode                                      |
 |--------------------------------|--------------------------------------------------------|
