@@ -71,60 +71,67 @@ function EditMetaRow({
             className={clsx(styles.buttonFilled)}
           >
             <svg
-              className={styles.svgIcon}
-              id="feedback"
-              version="1.1"
+              id="Commentaire_doc"
+              data-name="Commentaire doc"
               xmlns="http://www.w3.org/2000/svg"
-              xmlnsXlink="http://www.w3.org/1999/xlink"
-              x="0px"
-              y="0px"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              width="24"
+              height="24"
               viewBox="0 0 24 24"
-              xmlSpace="preserve"
-              fill="none"
-              style={{ height: '24px', width: '24px', verticalAlign: "text-top", marginRight: '4px' }}
+              className={styles.svgIconFeedback} /* Appliquer la classe CSS */
             >
-              <rect y="0" className="st0" width="24" height="24" />
-              <rect x="2" y="2" className="st0" width="20" height="20" />
-              <path
-                fill="none"
-                stroke="white"
-                strokeMiterlimit="10"
-                d="M16.14,9.08c0,3.09-2.76,5.6-6.16,5.6c-1.11,0-5.45,0-5.45,0s1.36-1.38,0.93-1.79c-1.02-1-1.64-2.34-1.64-3.81c0-3.09,2.76-5.6,6.16-5.6S16.14,5.99,16.14,9.08z"
-              />
-              <path
-                fill="none"
-                stroke="white"
-                strokeLinecap="round"
-                strokeMiterlimit="10"
-                d="M8.61,16.28c0.76,2.31,3.12,4,5.91,4c1.11,0,5.45,0,5.45,0s-1.36-1.38-0.93-1.79c1.02-1,1.64-2.34,1.64-3.81c0-2-1.15-3.75-2.88-4.74"
-              />
-              <line
-                fill="none"
-                stroke="white"
-                strokeLinecap="round"
-                x1="6.78"
-                y1="6.86"
-                x2="13.55"
-                y2="6.86"
-              />
-              <line
-                fill="none"
-                stroke="white"
-                strokeLinecap="round"
-                x1="6.78"
-                y1="8.74"
-                x2="13.55"
-                y2="8.74"
-              />
-              <line
-                fill="none"
-                stroke="white"
-                strokeLinecap="round"
-                x1="6.78"
-                y1="10.62"
-                x2="13.55"
-                y2="10.62"
-              />
+              <defs>
+                <clipPath id="clip-path">
+                  <rect
+                    id="Rectangle_2308"
+                    data-name="Rectangle 2308"
+                    width="24"
+                    height="24"
+                    fill="none"
+                  />
+                </clipPath>
+              </defs>
+              <g
+                id="Groupe_4176"
+                data-name="Groupe 4176"
+                clip-path="url(#clip-path)"
+              >
+                <path
+                  id="Tracé_4198"
+                  data-name="Tracé 4198"
+                  d="M8.414,15.364H-.3l1.4-1.421a5.989,5.989,0,0,0,.952-1.234A7.34,7.34,0,0,1-.011,7.632C-.011,3.369,3.768-.1,8.414-.1s8.425,3.469,8.425,7.732S13.059,15.364,8.414,15.364Zm-5-1.67h5c3.725,0,6.756-2.719,6.756-6.062S12.139,1.57,8.414,1.57,1.658,4.289,1.658,7.632a5.711,5.711,0,0,0,1.771,4.09,1.2,1.2,0,0,1,.353.854A2.314,2.314,0,0,1,3.417,13.694Z"
+                  transform="translate(0.813 0.92)"
+                  fill="#fff"
+                />
+                <path
+                  id="Tracé_4199"
+                  data-name="Tracé 4199"
+                  d="M22.47,21.96H13.763a8.861,8.861,0,0,1-5.051-1.542,7.826,7.826,0,0,1-3.019-3.96.835.835,0,1,1,1.586-.52,6.148,6.148,0,0,0,2.378,3.1,7.2,7.2,0,0,0,4.105,1.248h5a2.314,2.314,0,0,1-.365-1.118,1.2,1.2,0,0,1,.352-.853,5.712,5.712,0,0,0,1.772-4.091,5.923,5.923,0,0,0-3.13-5.115.835.835,0,0,1,.829-1.449,7.573,7.573,0,0,1,3.97,6.565,7.341,7.341,0,0,1-2.07,5.077,6.034,6.034,0,0,0,.951,1.234Z"
+                  transform="translate(1.062 1.22)"
+                  fill="#fff"
+                />
+                <path
+                  id="Ligne_476"
+                  data-name="Ligne 476"
+                  d="M8.428.92H.085a.835.835,0,0,1,0-1.67H8.428a.835.835,0,0,1,0,1.67Z"
+                  transform="translate(5.211 5.722)"
+                  fill="#fff"
+                />
+                <path
+                  id="Ligne_477"
+                  data-name="Ligne 477"
+                  d="M8.428.92H.085a.835.835,0,0,1,0-1.67H8.428a.835.835,0,0,1,0,1.67Z"
+                  transform="translate(5.211 8.039)"
+                  fill="#fff"
+                />
+                <path
+                  id="Ligne_478"
+                  data-name="Ligne 478"
+                  d="M8.428.92H.085a.835.835,0,0,1,0-1.67H8.428a.835.835,0,0,1,0,1.67Z"
+                  transform="translate(5.211 10.358)"
+                  fill="#fff"
+                />
+              </g>
             </svg>
             <Translate
               id="theme.common.feedback"
