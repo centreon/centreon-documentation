@@ -100,7 +100,7 @@ function BannerBlock() {
     <div className={clsx(styles.bannerContainer)}>
       <div className={clsx(styles.mainContainer)}>
         <div className={clsx(styles.bannerWrapper)}>
-          <span className={clsx(styles.badge)}>CENTREON {versionInfo.version}</span>
+          {/* <span className={clsx(styles.badge)}>CENTREON {versionInfo.version}</span> */}
           <p>New software version available</p>
           <Button href={versionInfo.link} target={versionInfo.target} label="Learn more" dark="true"/>
         </div>
