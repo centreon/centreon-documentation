@@ -437,6 +437,17 @@ Release date: `October 26, 2022`
 
 ## Centreon Collect
 
+### 22.10.10
+
+Release date: `June 17, 2024`
+
+#### Centreon Broker
+
+##### Enhancements
+
+- [Engine] Added a new centengine parameter (`send_recovery_notifications_anyways`) to force sending a recovery notification even when the resource is outside of its notification period. This aims at keeping third-party tools up-to-date at any time when they are fed notifications.
+- [Engine] Engine can now handle extra configuration files to complement/overload the centengine.cfg file. This enhancement allows you to keep a custom configuration unchanged when exporting the configuration.
+
 ### 22.10.9
 
 Release date: `March 6, 2024`
