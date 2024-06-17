@@ -22,7 +22,7 @@ Votre résolution doit être au minimum à 1280 x 768.
 
 ### Système d'exploitation
 
-Les OS supportés par Centreon sont AlmaLinux/RedHat/OracleLinux 8 et 9 et Debian 11 et 12.
+Les OS supportés par Centreon sont les suivants :
 
 | Version                        | Mode d'installation                                   |
 |--------------------------------|-------------------------------------------------------|
