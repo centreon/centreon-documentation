@@ -145,6 +145,28 @@ Many features have been added in this version.
 
 ## Centreon Collect
 
+### 24.04.2
+
+Release date: `June 17, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Engine] Added a new centengine parameter (`send_recovery_notifications_anyways`) to force sending a recovery notification even when the resource is outside of its notification period. This aims at keeping third-party tools up-to-date at any time when they are fed notifications.
+- [Engine] The whitelist works with all the commands executed by Engine.
+- [Engine] Engine can now handle extra configuration files to complement/overload the centengine.cfg file. This enhancement allows you to keep a custom configuration unchanged when exporting the configuration.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed an issue where incomplete BAM queries resulted in unnecessary error messages.
+- [Broker] Fixed an issue where grpc layers crashed if channel was deleted by a grpc thread.
+- [Broker] Fixed a stability issue that could occur when a LVM snapshot is launched to backup the database.
+
+</details>
+
 ### 24.04.1
 
 Release date: `May 28, 2024`
