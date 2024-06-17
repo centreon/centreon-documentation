@@ -170,6 +170,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-eclipse-mosquitto-mqtt'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-emc-ppma-restapi'
         },
         {
@@ -287,6 +291,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-keepalived-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-loggly-restapi'
         },
         {
           type: 'doc',
@@ -2145,6 +2153,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/operatingsystems-windows-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/operatingsystems-windows-telegraf-agent'
         },
         {
           type: 'doc',
