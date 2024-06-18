@@ -171,17 +171,17 @@ systemctl restart php8.1-fpm.service
 </TabItem>
 </Tabs>
 
-    - The hostname of your server (this is optional). The default name is `centreon-central`. To change it, use the following command:
+- The hostname of your server (this is optional). The default name is `centreon-central`. To change it, use the following command:
 
-        ```shell
-        hostnamectl set-hostname your-hostname
-        ```
+  ```shell
+  hostnamectl set-hostname your-hostname
+  ```
 
-        For example, if you want your machine to be called `monitoring`, type:
+  For example, if you want your machine to be called `monitoring`, type:
 
-        ```shell
-        hostnamectl set-hostname monitoring
-        ```
+  ```shell
+  hostnamectl set-hostname monitoring
+  ```
 
 5. Add a MariaDB table partition. This step is mandatory. Your Centreon server will not work if this isn't done.
 
