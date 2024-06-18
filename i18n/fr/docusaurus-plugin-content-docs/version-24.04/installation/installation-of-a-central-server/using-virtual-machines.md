@@ -148,16 +148,16 @@ configuration.
 <Tabs groupId="sync">
 <TabItem value="Alma 8" label="Alma 8">
 
-```shell
-/etc/php.d/50-centreon.ini
-```
+   ```shell
+   /etc/php.d/50-centreon.ini
+   ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
       
-```shell
-/etc/php/8.1/mods-available/centreon.ini
-```
+   ```shell
+   /etc/php/8.1/mods-available/centreon.ini
+   ```
 
 </TabItem>
 </Tabs>
