@@ -92,9 +92,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-To control your Oracle VM Manager, the Rest API must be configured (SOAP legacy is not supported).
-
-E.g: https://docs.oracle.com/en/virtualization/oracle-vm/3.4/developer/vmapi-preface
+To control your Oracle VM Manager, the Rest API must be configured (the SOAP API is deprecated).
 
 ## Installing the monitoring connector
 
