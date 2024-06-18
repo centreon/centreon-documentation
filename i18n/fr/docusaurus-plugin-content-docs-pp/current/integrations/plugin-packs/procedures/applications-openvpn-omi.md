@@ -21,7 +21,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Alias        | Modèle de service                   | Description                            |
 |:-------------|:------------------------------------|:---------------------------------------|
-| Server-Usage | App-Openvpn-Server-Usage-OMI-custom | Contrôle l'utilisation du serveur vpn |
+| Server-Usage | App-Openvpn-Server-Usage-OMI-custom | Contrôle l'utilisation du serveur VPN |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Openvpn-OMI-custom** est utilisé.
 
@@ -49,7 +49,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 ## Prérequis
 
 Le serveur Open VPN doit avoir une OMI fonctionnelle. Un utilisateur et un mot
-de passe dédiés au monitoring sont fortement conseillés pour des raisons de
+de passe dédiés à la supervision sont fortement conseillés pour des raisons de
 sécurité.
 
 ## Installer le connecteur de supervision
@@ -122,7 +122,7 @@ dnf install centreon-plugin-Applications-Openvpn-Omi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-openvpn-omi

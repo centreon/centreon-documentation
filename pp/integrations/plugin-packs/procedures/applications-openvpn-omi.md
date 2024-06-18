@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                    | Service Description |
 |:--------------|:------------------------------------|:--------------------|
-| Server-Usage  | App-Openvpn-Server-Usage-OMI-custom | Check server usage  |
+| Server-Usage  | App-Openvpn-Server-Usage-OMI-custom | Check VPN server usage  |
 
 > The services listed above are created automatically when the **App-Openvpn-OMI-custom** host template is used.
 
@@ -47,8 +47,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-The Open VPN server must have an management interface running and available. 
-A user and password dedicated to monitoring is needed for security reasons.
+The Open VPN server must have a management interface running and available. 
+A user and password dedicated to the monitoring are needed for security reasons.
 
 ## Installing the monitoring connector
 
@@ -122,7 +122,7 @@ dnf install centreon-plugin-Applications-Openvpn-Omi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-openvpn-omi
