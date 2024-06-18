@@ -142,42 +142,43 @@ configuration.
     ```
 
 - Le fuseau horaire du serveur PHP. Pour éviter les erreurs, celui-ci doit être identique au fuseau horaire du serveur. Par défaut, le fuseau horaire PHP est Europe/London.
+    
     1. Ouvrez le fichier suivant :
 
 <Tabs groupId="sync">
 <TabItem value="Alma 8" label="Alma 8">
 
-        ```shell
-        /etc/php.d/50-centreon.ini
-        ```
+```shell
+/etc/php.d/50-centreon.ini
+```
 
-  </TabItem>
-  <TabItem value="Debian 11" label="Debian 11">
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
       
-        ```shell
-        /etc/php/8.1/mods-available/centreon.ini
-        ```
+```shell
+/etc/php/8.1/mods-available/centreon.ini
+```
 
 </TabItem>
 </Tabs>
 
-    2. Après date.timezone, entrez le fuseau horaire désiré.
+  2. Après date.timezone, entrez le fuseau horaire désiré.
 
-    3. Redémarrez le serveur PHP :
+  3. Redémarrez le serveur PHP :
 
 <Tabs groupId="sync">
 <TabItem value="Alma 8" label="Alma 8">
 
-        ```shell
-       systemctl restart php-fpm
-        ```
+```shell
+systemctl restart php-fpm
+```
 
-  </TabItem>
-  <TabItem value="Debian 11" label="Debian 11">
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
       
-        ```shell
-        systemctl restart php8.1-fpm.service
-        ```
+```shell
+systemctl restart php8.1-fpm.service
+```
 
 </TabItem>
 </Tabs>
