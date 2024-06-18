@@ -150,9 +150,9 @@ The host machine must have the following characteristics:
 </TabItem>
 </Tabs>
 
-        2. In `date.timezone`, define the time zone you want.
+   2. In `date.timezone`, define the time zone you want.
 
-        3. Restart the PHP server:
+   3. Restart the PHP server:
 
 <Tabs groupId="sync">
 <TabItem value="Alma 8" label="Alma 8">
