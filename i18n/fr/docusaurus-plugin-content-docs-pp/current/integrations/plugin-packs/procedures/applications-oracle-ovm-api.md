@@ -93,7 +93,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-Afin de contrôler l'application Oracle VM Manager, l'API Rest doit être configuré (cf: https://docs.oracle.com/en/virtualization/oracle-vm/3.4/developer/vmapi-preface)
+Afin de contrôler l'application Oracle VM Manager, l'API Rest doit être configurée (l'API SOAP est dépréciée). 
 
 ## Installer le connecteur de supervision
 
