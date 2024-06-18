@@ -21,7 +21,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Alias    | Modèle de service                 | Description                                   |
 |:---------|:----------------------------------|:----------------------------------------------|
-| Neighbor | App-Protocol-Ospf-Neighbor-custom | Controle l'etat des neighbors OSPF du routeur |
+| Neighbor | App-Protocol-Ospf-Neighbor-custom | Controle l'état des "voisins" OSPF du routeur |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Protocol-Ospf-custom** est utilisé.
 
