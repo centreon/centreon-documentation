@@ -5,14 +5,14 @@ title: À partir d'une VM
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sur sa [page de téléchargement](https://download.centreon.com), Centreon fournit une machine virtuelle prête à l’emploi. Cette machine virtuelle est disponible au format OVA pour les environnements
-VMware et OVF pour l'outil Oracle VirtualBox.
-Elle est basée sur le système d'exploitation **Alma Linux 8** et inclut
+Sur sa [page de téléchargement](https://download.centreon.com), Centreon fournit des machines virtuelles prêtes à l’emploi. Ces machines virtuelles sont disponibles pour les environnements
+VMware et pour l'outil Oracle VirtualBox.
+Elles sont basées sur les systèmes d'exploitation **Alma Linux 8** et **Debian 11** et incluent
 une installation de Centreon permettant de démarrer en toute simplicité votre première supervision.
 
 > L'installation par machine virtuelle n'est adaptée que pour utiliser IT-100, ou à des fins de test.
 
-La VM est configurée en **Thin Provision** pour économiser autant d'espace libre que possible sur le disque (meilleure pratique).
+Les VMs sont configurées en **Thin Provision** pour économiser autant d'espace libre que possible sur le disque (meilleure pratique).
 
 ## Prérequis
 
@@ -144,17 +144,43 @@ configuration.
 - Le fuseau horaire du serveur PHP. Pour éviter les erreurs, celui-ci doit être identique au fuseau horaire du serveur. Par défaut, le fuseau horaire PHP est Europe/London.
     1. Ouvrez le fichier suivant :
 
+<Tabs groupId="sync">
+<TabItem value="Alma 8" label="Alma 8">
+
         ```shell
         /etc/php.d/50-centreon.ini
         ```
+
+  </TabItem>
+  <TabItem value="Debian 11" label="Debian 11">
+      
+        ```shell
+        /etc/php/8.1/mods-available/centreon.ini
+        ```
+
+</TabItem>
+</Tabs>
 
     2. Après date.timezone, entrez le fuseau horaire désiré.
 
     3. Redémarrez le serveur PHP :
 
+<Tabs groupId="sync">
+<TabItem value="Alma 8" label="Alma 8">
+
         ```shell
-        systemctl restart php-fpm
+       systemctl restart php-fpm
         ```
+
+  </TabItem>
+  <TabItem value="Debian 11" label="Debian 11">
+      
+        ```shell
+        systemctl restart php8.1-fpm.service
+        ```
+
+</TabItem>
+</Tabs>
 
 - Le hostname de votre serveur (facultatif). Le nom par défaut du serveur est centreon-central. Pour le
 changer, utilisez la commande suivante :
