@@ -52,7 +52,7 @@ The Pack IBM MQ collects metrics for:
 ## Prerequisites
 
 To control your IBM MQ, the Rest API must be configured.
-E.g: https://www.ibm.com/docs/en/ibm-mq/9.0?topic=api-getting-started-administrative-rest
+E.g: https://www.ibm.com/onprem/en/ibm-mq/9.0?topic=api-getting-started-administrative-rest
 
 The Pack supports only the basic authentification.
 

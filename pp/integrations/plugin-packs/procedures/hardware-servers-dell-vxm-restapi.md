@@ -28,7 +28,7 @@ It brings the following service templates:
 |:-----------------|:----------------------|
 | Dell VxRail Host | Discover VxRail hosts |
 
-More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
+More information about discovering hosts automatically is available on the [dedicated page](/onprem/monitoring/discovery/hosts-discovery).
 
 </TabItem>
 </Tabs>
@@ -63,7 +63,7 @@ More information about discovering hosts automatically is available on the [dedi
 
 To monitor, a user with read privileges is required.
 
-Please refer to their official documentation: https://developer.dell.com/apis/5538/versions/7.0.210/docs/Introduction.md
+Please refer to their official documentation: https://developer.dell.com/apis/5538/versions/7.0.210/onprem/Introduction.md
 
 ## Setup
 

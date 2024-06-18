@@ -57,9 +57,9 @@ apt install centreon-pack-*
 
 6. Cliquez sur le `+` dans le coin supérieur droit du connecteur de supervision. Le connecteur de supervision a maintenant une bordure verte et une coche dans le coin supérieur droit : les modèles de configuration et les fournisseurs de découverte sont maintenant installés.
 
-7. Suivez [cette procédure](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2)
- (sections [Plugin dependencies](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#plugin-dependencies) et 
-[Setup](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#setup)) pour finir d'installer le connecteur de supervision. (Vous pouvez également accéder à la documentation d'un connecteur de supervision en cliquant sur le `i`.)
+7. Suivez [cette procédure](/monitoring-connectors/integrations/plugin-packs/procedures/cloud-aws-ec2)
+ (sections [Plugin dependencies](/monitoring-connectors/integrations/plugin-packs/procedures/cloud-aws-ec2#plugin-dependencies) et 
+[Setup](/monitoring-connectors/integrations/plugin-packs/procedures/cloud-aws-ec2#setup)) pour finir d'installer le connecteur de supervision. (Vous pouvez également accéder à la documentation d'un connecteur de supervision en cliquant sur le `i`.)
 
   ![image](../assets/getting-started/aws-doc.png)
 

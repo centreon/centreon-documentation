@@ -26,7 +26,7 @@ Commands can be configured in the following menu: **Configuration > Commands > C
 
       * the application or script executed by the command (path and filename). For Centreon or Nagios plugins, use a variable so that Centreon can find the path to the plugins folder on any OS (the variable is defined on the **Configuration > Pollers > Resources** page). If you are using your own plugins, specify the path where you have stored the plugins.
       * the [mode](../../resources/glossary.md#mode) of the plugin to use.
-      * any parameter you want to pass to the plugin in this mode. For Centreon plugins, refer to the documentation of the plugin in the [Monitoring Connectors](/pp/integrations/plugin-packs/getting-started/introduction) section.
+      * any parameter you want to pass to the plugin in this mode. For Centreon plugins, refer to the documentation of the plugin in the [Monitoring Connectors](/monitoring-connectors/integrations/plugin-packs/getting-started/introduction) section.
       * You can use [macros](macros.md) (host macros or service macros) to make your command more generic, but it is not compulsory. The macros's name will appear in the configuration form for the host or service so that you can give it a specific value for each host or service you use it with.
 
    * **Describe macros**: add a description to custom macros. This description will be visible when using the command in a host or service configuration form.

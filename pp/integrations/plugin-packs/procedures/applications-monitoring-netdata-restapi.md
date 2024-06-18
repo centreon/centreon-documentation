@@ -127,7 +127,7 @@ The following metrics are collected by the Centreon Netdata RestAPI Plugin:
 The Netdata agent has to be set up and configured on the targeted server in order to use the Monitoring Connector.
 
 More information about how to get and install the agent is available in the official Netdata documentation:
-https://learn.netdata.cloud/docs/agent/packaging/installer
+https://learn.netdata.cloud/onprem/agent/packaging/installer
 
 ## Installation
 

@@ -38,7 +38,7 @@ Le connecteur apporte les modèles de service suivants
 |:-------------------|:-----------------------------------------|:----------------------------------------------------------------------------------|
 | Replication-Status | App-DB-Mongodb-Replication-Status-custom | Contrôle le statut de la réplication entre les différents membres d'un replicaset |
 
-> Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
+> Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/onprem/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
 </TabItem>
 </Tabs>
@@ -52,8 +52,8 @@ Le connecteur apporte les modèles de service suivants
 | App-DB-Mongodb-Collection-Statistics | Découvre les bases de données et supervise l'utilisation des collections |
 | App-DB-Mongodb-Database-Statistics   | Découvre les bases de données et supervise l'utilisation                 |
 
-Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
-pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
+Rendez-vous sur la [documentation dédiée](/onprem/monitoring/discovery/services-discovery)
+pour en savoir plus sur la découverte automatique de services et sa [planification](/onprem/monitoring/discovery/services-discovery/#règles-de-découverte).
 
 ### Métriques & statuts collectés
 
@@ -207,7 +207,7 @@ du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est ac
 que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
 étape n'est pas requise.
 
-> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+> Plus d'informations dans la section [Installer le plugin](/onprem/monitoring/pluginpacks/#installer-le-plugin).
 
 Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
 
@@ -259,11 +259,11 @@ yum install centreon-plugin-Applications-Databases-Mongodb
 | MONGODBPORT     | Port used by MongoDB                                                                                  | 27017             |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
-5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
+5. [Déployez la configuration](/onprem/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
 ### Utiliser un modèle de service issu du connecteur
 
-1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/onprem/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
 2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
@@ -368,7 +368,7 @@ yum install centreon-plugin-Applications-Databases-Mongodb
 </TabItem>
 </Tabs>
 
-3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+3. [Déployez la configuration](/onprem/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
 
 ## Comment puis-je tester le plugin et que signifient les options des commandes ?
 

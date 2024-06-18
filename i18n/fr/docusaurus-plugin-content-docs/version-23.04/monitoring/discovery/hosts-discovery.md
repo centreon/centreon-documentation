@@ -13,7 +13,7 @@ Voir aussi [notre tutoriel sur la détection d'instances AWS EC2](../../getting-
     > Les fournisseurs de découverte sont amenés par l'installation de connecteurs de supervision
     > (Azure, Amazon AWS, VMware, etc). Pour connaître la liste complète, consultez
     > le [catalogue des Plugin
-    > Packs](/pp/integrations/plugin-packs/getting-started/introduction).
+    > Packs](/monitoring-connectors/integrations/plugin-packs/getting-started/introduction).
     >
     > Si, à la page **Configuration > Gestionnaire de connecteurs de supervision**, vous avez réglé **Installation automatique des plugins** sur **ON**, le plugin de découverte sera installé automatiquement lorsque la tâche de découverte sera exécutée.
 

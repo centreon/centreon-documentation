@@ -42,7 +42,7 @@ Le pack contient la configuration associée au plugin dans Centreon (commandes, 
 **Voir aussi** :
 
 - [Utiliser des connecteurs de supervision](../monitoring/pluginpacks.md),
-- [Introduction aux connecteurs de supervision](/pp/integrations/plugin-packs/getting-started/introduction).
+- [Introduction aux connecteurs de supervision](/monitoring-connectors/integrations/plugin-packs/getting-started/introduction).
 
 ## Donnée de performance
 

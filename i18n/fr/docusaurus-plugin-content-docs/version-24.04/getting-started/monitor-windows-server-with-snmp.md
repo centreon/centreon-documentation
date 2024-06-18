@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Dans ce tutoriel, nous supposons que votre plateforme Centreon est installée et fonctionnelle. Une [licence](../administration/licenses.md) est nécessaire pour accéder au catalogue complet des connecteurs de supervision. Nous supposons que vous avez au moins une licence [Centreon IT 100 Edition](it100.md).
 
-La supervision d'un serveur Windows en SNMP se fait via le [connecteur de supervision Windows SNMP](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-snmp). (Vous pouvez obtenir plus d'informations sur les connecteurs de supervision [ici](../monitoring/pluginpacks.md)).
+La supervision d'un serveur Windows en SNMP se fait via le [connecteur de supervision Windows SNMP](/monitoring-connectors/integrations/plugin-packs/procedures/operatingsystems-windows-snmp). (Vous pouvez obtenir plus d'informations sur les connecteurs de supervision [ici](../monitoring/pluginpacks.md)).
 
 ## Prérequis
 
@@ -93,7 +93,7 @@ Sélectionnez ensuite **Accepter les paquets SNMP de ces hôtes** et ajoutez l'a
 
 ### Sur le serveur Centreon (collecteur)
 
-Connectez-vous à votre collecteur en SSH et installez le plugin Windows SNMP (voir la [procédure de supervision du connecteur de supervision **Windows SNMP**](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-snmp) pour plus d'informations):
+Connectez-vous à votre collecteur en SSH et installez le plugin Windows SNMP (voir la [procédure de supervision du connecteur de supervision **Windows SNMP**](/monitoring-connectors/integrations/plugin-packs/procedures/operatingsystems-windows-snmp) pour plus d'informations):
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -166,7 +166,7 @@ Dans l'interface Web, accédez à **Configuration > Gestionnaire de connecteurs 
 
    ![image](../assets/getting-started/prise_en_main_windows_snmp_16.png)
 
-   Si tous les services ne sont pas dans un état **OK**, dépannez et [corrigez le problème](/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins/)
+   Si tous les services ne sont pas dans un état **OK**, dépannez et [corrigez le problème](/monitoring-connectors/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins/)
 
 ### Pour aller plus loin
 

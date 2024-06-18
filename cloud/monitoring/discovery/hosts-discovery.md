@@ -10,7 +10,7 @@ See also our tutorial on [how to detect AWS EC2 instances](../../getting-started
 1. Install the Monitoring Connector for the resources you want to discover.
     > The discovery providers are included in Monitoring Connectors (Azure,
     > Amazon AWS, VMware, etc.). To see the complete list, please go to
-    > the [Monitoring Connectors](/pp/integrations/plugin-packs/getting-started/introduction)
+    > the [Monitoring Connectors](/monitoring-connectors/integrations/plugin-packs/getting-started/introduction)
     > catalog.
 
 2. Create a discovery job for each type of resource you want to discover: go to **Configuration > Hosts > Discovery** and click **+ADD**. A wizard opens.

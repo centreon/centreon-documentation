@@ -13,7 +13,7 @@ Centreon recommends to use Azure Monitor API instead of Azure CLI for the follow
 > This discovery feature is only compatible with Azure Monitor API.
 
 More information about the Host Discovery module is available in the Centreon documentation:
-[Host Discovery](/docs/monitoring/discovery/hosts-discovery)
+[Host Discovery](/onprem/monitoring/discovery/hosts-discovery)
 
 ## Azure API setup 
 

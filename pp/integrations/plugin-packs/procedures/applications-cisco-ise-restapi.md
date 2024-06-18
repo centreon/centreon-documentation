@@ -50,7 +50,7 @@ users):
 
 Futhermore, the Centreon Pollers must be able to reach the Ciso ISE Rest API on 
 the TCP/80 or TCP/443 port(s). More information on the official Cisco website:
-https://developer.cisco.com/docs/identity-services-engine/3.0/#!introduction-to-monitoring-rest-apis/verifying-a-monitoring-node
+https://developer.cisco.com/onprem/identity-services-engine/3.0/#!introduction-to-monitoring-rest-apis/verifying-a-monitoring-node
 
 ## Setup
 

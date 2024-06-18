@@ -54,7 +54,7 @@ The connector brings the following service templates (sorted by the host templat
 | Traffic-Generic-Name           | Net-Cisco-Wlc-Traffic-Generic-Name-SNMP-custom           | Check traffic of an network interface            |            |
 | Traffic-Global                 | Net-Cisco-Wlc-Traffic-Global-SNMP-custom                 | Check traffic of multiple network interfaces     | X          |
 
-> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
+> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/onprem/monitoring/basic-objects/services), then apply the service template you want.
 
 > If **Discovery** is checked, it means a service discovery rule exists for this service template.
 
@@ -69,7 +69,7 @@ The connector brings the following service templates (sorted by the host templat
 |:----------------|:----------------------------------------------------------|
 | Cisco WLC       | Discover Access Points from Cisco Wireless LAN Controller |
 
-More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
+More information about discovering hosts automatically is available on the [dedicated page](/onprem/monitoring/discovery/hosts-discovery).
 
 #### Service discovery
 
@@ -78,8 +78,8 @@ More information about discovering hosts automatically is available on the [dedi
 | Net-Cisco-Wlc-SNMP-AP-Name      | Discover access points and monitor status                     |
 | Net-Cisco-Wlc-SNMP-Traffic-Name | Discover network interfaces and monitor bandwidth utilization |
 
-More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
-and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
+More information about discovering services automatically is available on the [dedicated page](/onprem/monitoring/discovery/services-discovery)
+and in the [following chapter](/onprem/monitoring/discovery/services-discovery/#discovery-rules).
 
 ### Collected metrics & status
 
@@ -198,7 +198,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 To use this pack, the SNMP service must be properly configured on your ressource.
 Please refer to the official documentation:
-* [CISCO WLC](https://www.cisco.com/c/en/us/td/docs/wireless/controller/8-5/config-guide/b_cg85/snmp.html)
+* [CISCO WLC](https://www.cisco.com/c/en/us/td/onprem/wireless/controller/8-5/config-guide/b_cg85/snmp.html)
 
 ### Network flow
 
@@ -258,7 +258,7 @@ You still have to manually install the plugin on the poller(s) when:
 - Automatic plugin installation is turned off
 - You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
 
-> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+> More information in the [Installing the plugin](/onprem/monitoring/pluginpacks/#installing-the-plugin) section.
 
 Use the commands below according to your operating system's package manager:
 
@@ -311,7 +311,7 @@ yum install centreon-plugin-Network-Cisco-Wlc-Snmp
 |:-----------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
-4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+4. [Deploy the configuration](/onprem/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
 </TabItem>
 <TabItem value="Net-Cisco-Wlc-SNMP-Access-Point-custom" label="Net-Cisco-Wlc-SNMP-Access-Point-custom">
@@ -331,14 +331,14 @@ yum install centreon-plugin-Network-Cisco-Wlc-Snmp
 | WLCSNMPVERSION      | Version of the SNMP protocol. 1 for SNMP v1 , 2 for SNMP v2c, 3 for SNMP v3                           |                   |             |
 | WLCSNMPEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
-4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+4. [Deploy the configuration](/onprem/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
 </TabItem>
 </Tabs>
 
 ### Using a service template provided by the connector
 
-1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/onprem/monitoring/basic-objects/services) and apply a service template to them.
 2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
@@ -480,7 +480,7 @@ yum install centreon-plugin-Network-Cisco-Wlc-Snmp
 </TabItem>
 </Tabs>
 
-3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on page **Resources Status**. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+3. [Deploy the configuration](/onprem/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on page **Resources Status**. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 

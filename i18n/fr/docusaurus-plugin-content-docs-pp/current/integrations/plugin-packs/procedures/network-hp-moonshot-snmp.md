@@ -29,7 +29,7 @@ Il apporte les modèles de services suivants :
 |:------------------------------------|:------------------------------------------------------------------------|
 | Net-Hp-Moonshot-SNMP-Interface-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
 
-Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
+Rendez-vous sur la [documentation dédiée](/onprem/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](https://docs.centreon.com/fr/docs/monitoring/discovery/services-discovery/#r%C3%A8gles-de-d%C3%A9couverte).
 
 </TabItem>

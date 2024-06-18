@@ -27,7 +27,7 @@ The pack provides a discovery rule to automatically discover VPN resources:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-vpn-provider.png)
 
-More information about the Host Discovery module is available in the Centreon documentation: [Host Discovery](/docs/monitoring/discovery/hosts-discovery)
+More information about the Host Discovery module is available in the Centreon documentation: [Host Discovery](/onprem/monitoring/discovery/hosts-discovery)
 
 ## Collected Metrics & status
 

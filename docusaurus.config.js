@@ -93,6 +93,7 @@ const config = {
           editLocalizedFiles: true,
           showLastUpdateTime: true,
           includeCurrentVersion: false,
+          routeBasePath: 'onprem',
           onlyIncludeVersions: versions,
           versions: (() => {
             if (archivedVersion) {
@@ -191,7 +192,7 @@ const config = {
           {
             id: 'pp',
             path: 'pp',
-            routeBasePath: 'pp',
+            routeBasePath: 'monitoring-connectors',
             sidebarPath: require.resolve('./pp/sidebarsPp.js'),
             breadcrumbs: true,
             editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
@@ -304,10 +305,10 @@ const config = {
             items = [
               ...items,
               {
-                to: '/pp/integrations/plugin-packs/getting-started/introduction',
+                to: '/monitoring-connectors/integrations/plugin-packs/getting-started/introduction',
                 label: 'Monitoring Connectors',
                 position: 'left',
-                activeBaseRegex: '/pp/',
+                activeBaseRegex: '/monitoring-connectors/',
               },
             ];
           }

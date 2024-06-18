@@ -33,8 +33,8 @@ Il apporte les modèles de service suivants :
 | HW-Storage-Huawei-Oceanstor-SNMP-Lun-Name          | Découvre les LUNs et supervise l'espace utilisé                                        |
 | HW-Storage-Huawei-Oceanstor-SNMP-Storage-Pool-Name | Découvre les pools de stockage et supervise le statut et l'espace utilisé              |
 
-Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
-pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
+Rendez-vous sur la [documentation dédiée](/onprem/monitoring/discovery/services-discovery)
+pour en savoir plus sur la découverte automatique de services et sa [planification](/onprem/monitoring/discovery/services-discovery/#règles-de-découverte).
 
 </TabItem>
 </Tabs>
@@ -143,7 +143,7 @@ du plugin lors de l'utilisation d'un pack. Si cette fonctionnalité est activée
 que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
 étape n'est pas requise.
 
-> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+> Plus d'informations dans la section [Installer le plugin](/onprem/monitoring/pluginpacks/#installer-le-plugin).
 Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
 
 <Tabs groupId="sync">

@@ -117,7 +117,7 @@ depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs 
 À partir de Centreon 22.04, il est possible de demander le déploiement automatique
 du plugin lors de l'utilisation d'un pack.
 
-> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+> Plus d'informations dans la section [Installer le plugin](/onprem/monitoring/pluginpacks/#installer-le-plugin).
 
 Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
 

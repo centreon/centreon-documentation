@@ -37,7 +37,7 @@ Le connecteur de supervision Centreon **AWS Discover** fournit un *provider* de 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-cloudwatch-discover-provider.png)
 
 Vous trouverez plus d'informations sur la découverte d'hôtes et son fonctionnement sur la documentation du module :
-[Découverte des hôtes](/docs/monitoring/discovery/hosts-discovery)
+[Découverte des hôtes](/onprem/monitoring/discovery/hosts-discovery)
 
 # Prérequis
 
@@ -129,7 +129,7 @@ Les connecteurs de supervision supplémentaires seront installés en dépendance
 
 ## Paramétrer une découverte
 
-> Le descriptif du fonctionnement général de la fonctionnalité *Host Discovery* est disponible [ici](/docs/monitoring/discovery/hosts-discovery)
+> Le descriptif du fonctionnement général de la fonctionnalité *Host Discovery* est disponible [ici](/onprem/monitoring/discovery/hosts-discovery)
 
 ### Paramètres d'accès
 
@@ -164,10 +164,10 @@ Renseignez si besoin les informations ci-après :
 
 L'étape 4 permet d'ajuster les *modificateurs*; ceux-ci sont déjà prédéfinis par le connecteur de supervision, il n'est normalement pas
 nécessaire de les modifier dans le cadre d'un *job* de découverte *standard*. Si besoin, référez-vous à la 
-[documentation des modificateurs](/docs/monitoring/discovery/hosts-discovery#comment-utiliser-les-modificateurs).
+[documentation des modificateurs](/onprem/monitoring/discovery/hosts-discovery#comment-utiliser-les-modificateurs).
 
 Les étapes 5 & 6 permettent d'ajuster la politique de modélisation des résultats si besoin. Rendez-vous 
-[ici](/docs/monitoring/discovery/hosts-discovery#définir-les-politiques-danalyse-et-de-mise-à-jour) pour plus d'informations.
+[ici](/onprem/monitoring/discovery/hosts-discovery#définir-les-politiques-danalyse-et-de-mise-à-jour) pour plus d'informations.
 
 Une fois la découverte terminé, vous pouvez afficher les résultats en cliquant sur *job results*. Les modèles relatifs aux types de resources
 AWS sont automatiquement appliqués:

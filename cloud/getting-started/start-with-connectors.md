@@ -16,4 +16,4 @@ Install the Monitoring Connectors you need on each poller that will monitor reso
 
 ## Troubleshooting
 
-In case of a problem, a troubleshooting section is available in the [Monitoring Connectors section](/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins/). Also, feel free to ask any questions you may have on our community platform [The Watch](https://thewatch.centreon.com/).
+In case of a problem, a troubleshooting section is available in the [Monitoring Connectors section](/monitoring-connectors/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins/). Also, feel free to ask any questions you may have on our community platform [The Watch](https://thewatch.centreon.com/).

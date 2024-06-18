@@ -10,14 +10,14 @@ import TabItem from '@theme/TabItem';
 
 Dans ce tutoriel, nous partons du principe que votre plate-forme Centreon est installée et fonctionne correctement, et que vous disposez au moins d'une édition [Centreon IT 100](it100.md) qui fournit des connecteurs de supervision Centreon (votre [licence](../administration/licenses.md) est déjà configurée).
 
-Votre routeur Cisco sera supervisé à l'aide du connecteur de supervision [Cisco standard](/pp/integrations/plugin-packs/procedures/network-cisco-standard-snmp). (Plus d'informations sur les connecteurs de supervision [ici](../monitoring/pluginpacks.md)).
+Votre routeur Cisco sera supervisé à l'aide du connecteur de supervision [Cisco standard](/monitoring-connectors/integrations/plugin-packs/procedures/network-cisco-standard-snmp). (Plus d'informations sur les connecteurs de supervision [ici](../monitoring/pluginpacks.md)).
 
 ## Prérequis
 
 ### Sur le routeur Cisco que vous souhaitez superviser
 
 La première étape consiste à activer et à configurer un service SNMP sur votre appareil Cisco.
-Veuillez vous référer à la documentation de votre appareil Cisco pour savoir comment configurer le service SNMP. La procédure de surveillance des Plugins Packs [Cisco standard](/pp/integrations/plugin-packs/procedures/network-cisco-standard-snmp) inclut un exemple.
+Veuillez vous référer à la documentation de votre appareil Cisco pour savoir comment configurer le service SNMP. La procédure de surveillance des Plugins Packs [Cisco standard](/monitoring-connectors/integrations/plugin-packs/procedures/network-cisco-standard-snmp) inclut un exemple.
 
 ### Flux réseau
 
@@ -25,7 +25,7 @@ L'équipement doit être accessible depuis le collecteur Centreon sur le port SN
 
 ### Sur le collecteur
 
-Connectez-vous à votre collecteur en SSH et installez le plugin standard Cisco (voir la [procédure de surveillance pour le connecteur de supervision **Cisco standard**](/pp/integrations/plugin-packs/procedures/network-cisco-standard-snmp) pour plus d'informations) :
+Connectez-vous à votre collecteur en SSH et installez le plugin standard Cisco (voir la [procédure de surveillance pour le connecteur de supervision **Cisco standard**](/monitoring-connectors/integrations/plugin-packs/procedures/network-cisco-standard-snmp) pour plus d'informations) :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">

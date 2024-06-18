@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 In this tutorial, we're assuming that your Centreon platform is installed and running well, and that you have at least a [Centreon IT 100 Edition](it100.md) that provides Centreon Monitoring Connectors (your [license](../administration/licenses.md) is already set up).
 
-Your Windows server will be monitored using the [Windows SNMP Monitoring Connector](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-snmp). (More about Monitoring Connectors [here](../monitoring/pluginpacks.md)).
+Your Windows server will be monitored using the [Windows SNMP Monitoring Connector](/monitoring-connectors/integrations/plugin-packs/procedures/operatingsystems-windows-snmp). (More about Monitoring Connectors [here](../monitoring/pluginpacks.md)).
 
 ## Prerequisites
 
@@ -92,7 +92,7 @@ Then select **Accept SNMP packets from these hosts** and add the IP address of t
 
 ### On the Centreon poller
 
-Connect to your poller using SSH and install the Windows SNMP plugin (see the [monitoring procedure for the **Windows SNMP** Monitoring Connector](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-snmp) for more information):
+Connect to your poller using SSH and install the Windows SNMP plugin (see the [monitoring procedure for the **Windows SNMP** Monitoring Connector](/monitoring-connectors/integrations/plugin-packs/procedures/operatingsystems-windows-snmp) for more information):
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -161,7 +161,7 @@ In the web interface, go to **Configuration > Monitoring Connector Manager** and
 
    ![image](../assets/getting-started/quick_start_windows_snmp_16.png)
 
-   If not all services are in an OK state, check what causes the error and [fix the problem](/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins/).
+   If not all services are in an OK state, check what causes the error and [fix the problem](/monitoring-connectors/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins/).
 
 ### To go further
 

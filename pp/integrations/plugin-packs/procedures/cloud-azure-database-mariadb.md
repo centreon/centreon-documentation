@@ -36,7 +36,7 @@ to the Centreon configuration. This provider is named **Microsoft Azure Database
 
 > This discovery feature is only compatible with the **api** custom mode. **azcli** is not supported.
 
-More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
+More information about discovering hosts automatically is available on the [dedicated page](/onprem/monitoring/discovery/hosts-discovery).
 
 ### Collected metrics & status
 

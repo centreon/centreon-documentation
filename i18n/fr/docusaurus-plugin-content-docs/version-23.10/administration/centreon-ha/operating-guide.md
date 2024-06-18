@@ -271,7 +271,7 @@ Une plate-forme de haute disponibilité est avant tout une plate-forme LAMP (Lin
 
 ### Indicateurs systèmes et processus
 
-La partie la plus simple consiste à surveiller les indicateurs systèmes de base, principalement *via* le protocole SNMP, ce qui est facilité par le [connecteur de supervision Linux](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp)
+La partie la plus simple consiste à surveiller les indicateurs systèmes de base, principalement *via* le protocole SNMP, ce qui est facilité par le [connecteur de supervision Linux](/monitoring-connectors/integrations/plugin-packs/procedures/operatingsystems-linux-snmp)
 
 * Métriques systèmes
     * LOAD Average
@@ -287,8 +287,8 @@ La partie la plus simple consiste à surveiller les indicateurs systèmes de bas
 
 ### Supervision applicative
 
-* Contrôle de l'accès à l'url `http://@VIP_IPADDR@/centreon` à l'aide du [connecteur de supervision HTTP Protocol](/pp/integrations/plugin-packs/procedures/applications-protocol-http)
-* Contrôle de la base de données MariaDB en utilisant le [connecteur de supervision MySQL/MariaDB](/pp/integrations/plugin-packs/procedures/applications-databases-mysql) :
+* Contrôle de l'accès à l'url `http://@VIP_IPADDR@/centreon` à l'aide du [connecteur de supervision HTTP Protocol](/monitoring-connectors/integrations/plugin-packs/procedures/applications-protocol-http)
+* Contrôle de la base de données MariaDB en utilisant le [connecteur de supervision MySQL/MariaDB](/monitoring-connectors/integrations/plugin-packs/procedures/applications-databases-mysql) :
     * Contrôle de connexion au serveur MariaDB
     * Les buffers et caches MariaDB/InnoDB
     * L’usage des index
@@ -296,7 +296,7 @@ La partie la plus simple consiste à surveiller les indicateurs systèmes de bas
 
 ### Supervision du cluster
 
-Les points de contrôle spécifiques au cluster peuvent être supervisés en utilisant le [connecteur de supervision Pacemaker](/pp/integrations/plugin-packs/procedures/applications-pacemaker-ssh) :
+Les points de contrôle spécifiques au cluster peuvent être supervisés en utilisant le [connecteur de supervision Pacemaker](/monitoring-connectors/integrations/plugin-packs/procedures/applications-pacemaker-ssh) :
 
 * Contraintes sur les ressources : uniquement sur la ressource `ms_mysql` et le groupe `centreon`
 * Failed actions

@@ -32,7 +32,7 @@ The connector brings the following service templates (sorted by the host templat
 |:---------------------|:---------------------------------------|:-------------------------------------------------------------------------------|
 | Query-Matches-Number | App-Monitoring-Splunk-Query-Api-custom | Check number of results for a query. Query has to start with "search ".Example: 'search host="prod-server" "ERROR" earliest=-150000min' |
 
-> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
+> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/onprem/monitoring/basic-objects/services), then apply the service template you want.
 
 </TabItem>
 </Tabs>
@@ -130,7 +130,7 @@ You still have to manually install the plugin on the poller(s) when:
 - Automatic plugin installation is turned off
 - You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
 
-> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+> More information in the [Installing the plugin](/onprem/monitoring/pluginpacks/#installing-the-plugin) section.
 
 Use the commands below according to your operating system's package manager:
 
@@ -183,11 +183,11 @@ yum install centreon-plugin-Applications-Monitoring-Splunk-Api
 | SPLUNKAPIHOST         | Splunk server address                                                                                |                   | X           |
 | SPLUNKAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
-5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+5. [Deploy the configuration](/onprem/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
 ### Using a service template provided by the connector
 
-1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/onprem/monitoring/basic-objects/services) and apply a service template to them.
 2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
@@ -227,7 +227,7 @@ yum install centreon-plugin-Applications-Monitoring-Splunk-Api
 </TabItem>
 </Tabs>
 
-3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+3. [Deploy the configuration](/onprem/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 

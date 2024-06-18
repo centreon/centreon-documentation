@@ -49,7 +49,7 @@ Il apporte les modèles de service suivants :
 |:---------------------------|:---------------------------------------------------|
 | Thales Mistral VS9 Devices | Discover devices from Thales Mistral MMC inventory |
 
-Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery)
+Rendez-vous sur la [documentation dédiée](/onprem/monitoring/discovery/hosts-discovery)
 pour en savoir plus sur la découverte automatique d'hôtes.
 
 </TabItem>
@@ -188,7 +188,7 @@ du plugin lors de l'utilisation d'un pack. Si cette fonctionnalité est activée
 que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
 étape n'est pas requise.
 
-> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+> Plus d'informations dans la section [Installer le plugin](/onprem/monitoring/pluginpacks/#installer-le-plugin).
 
 Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
 

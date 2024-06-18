@@ -32,7 +32,7 @@ to the Centreon configuration. This provider is named **Microsoft Azure Virtual 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-compute-vmscalesets-provider.png)
 > This discovery feature is only compatible with the 'api' custom mode. 'azcli' is not supported.
 
-More information about the Host Discovery module is available in the Centreon documentation: [Host Discovery](/docs/monitoring/discovery/hosts-discovery)
+More information about the Host Discovery module is available in the Centreon documentation: [Host Discovery](/onprem/monitoring/discovery/hosts-discovery)
 
 ### Collected metrics & status
 

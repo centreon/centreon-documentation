@@ -86,7 +86,7 @@ A pack contains the configuration of the plugin in Centreon (command, [templates
 **See also**:
 
 - [Monitoring Connectors](../monitoring/pluginpacks.md),
-- [Introduction to Monitoring Connectors](/pp/integrations/plugin-packs/getting-started/introduction).
+- [Introduction to Monitoring Connectors](/monitoring-connectors/integrations/plugin-packs/getting-started/introduction).
 
 ## Monitoring engine
 

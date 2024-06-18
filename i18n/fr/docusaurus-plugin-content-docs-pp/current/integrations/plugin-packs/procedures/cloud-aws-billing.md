@@ -27,7 +27,7 @@ d'hôtes nommé **Amazon Billing**. Celui-ci permet de découvrir l'ensemble des
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-billing-provider.png)
 
-Vous trouverez plus d'informations sur la découverte d'hôtes et son fonctionnement sur la documentation du module : [Découverte des hôtes](/docs/monitoring/discovery/hosts-discovery)
+Vous trouverez plus d'informations sur la découverte d'hôtes et son fonctionnement sur la documentation du module : [Découverte des hôtes](/onprem/monitoring/discovery/hosts-discovery)
 
 
 ### Métriques & statuts collectés

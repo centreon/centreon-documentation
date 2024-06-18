@@ -49,7 +49,7 @@ It brings the following service templates:
 |:---------------------------|:---------------------------------------------------|
 | Thales Mistral VS9 Devices | Discover devices from Thales Mistral MMC inventory |
 
-More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
+More information about discovering hosts automatically is available on the [dedicated page](/onprem/monitoring/discovery/hosts-discovery).
 
 </TabItem>
 </Tabs>
@@ -188,7 +188,7 @@ You still have to manually install the plugin on the poller(s) when:
 - Automatic plugin installation is turned off
 - You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
 
-> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+> More information in the [Installing the plugin](/onprem/monitoring/pluginpacks/#installing-the-plugin) section.
 
 Use the commands below according to your operating system's package manager:
 

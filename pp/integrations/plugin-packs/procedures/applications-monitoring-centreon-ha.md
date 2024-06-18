@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-Centreon-HA is Centreon central server's high availability implementation. More information available [here](/docs/installation/installation-of-centreon-ha/overview).
+Centreon-HA is Centreon central server's high availability implementation. More information available [here](/onprem/installation/installation-of-centreon-ha/overview).
 
 This Monitoring Connector relies on two other Monitoring Connectors:
 

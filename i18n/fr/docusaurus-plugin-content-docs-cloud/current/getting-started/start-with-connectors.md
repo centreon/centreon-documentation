@@ -12,4 +12,4 @@ Les connecteurs de supervision constituent la façon la plus facile de mettre en
 
 ## Dépannage
 
-En cas d'incident, une [section de dépannage](/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins/) est disponible dans la documentation des connecteurs de supervision. N'hésitez pas également à poser vos questions sur notre plateforme communautaire [The Watch](https://thewatch.centreon.com/).
+En cas d'incident, une [section de dépannage](/monitoring-connectors/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins/) est disponible dans la documentation des connecteurs de supervision. N'hésitez pas également à poser vos questions sur notre plateforme communautaire [The Watch](https://thewatch.centreon.com/).

@@ -99,7 +99,7 @@ du plugin lors de l'utilisation d'un pack. Si cette fonctionnalité est activée
 que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
 étape n'est pas requise.
 
-> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+> Plus d'informations dans la section [Installer le plugin](/onprem/monitoring/pluginpacks/#installer-le-plugin).
 
 Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
 

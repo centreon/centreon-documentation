@@ -90,7 +90,7 @@ It brings the following service templates:
 
 ## Prerequisites
 
-To install Node exporter on your Linux server please refer to this documentation: https://prometheus.io/docs/guides/node-exporter/#installing-and-running-the-node-exporter. 
+To install Node exporter on your Linux server please refer to this documentation: https://prometheus.io/onprem/guides/node-exporter/#installing-and-running-the-node-exporter. 
 
 ## Setup
 

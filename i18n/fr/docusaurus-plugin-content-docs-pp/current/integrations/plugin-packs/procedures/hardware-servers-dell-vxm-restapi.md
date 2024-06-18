@@ -28,7 +28,7 @@ Il apporte les modèles de service suivants :
 |:-----------------|:----------------------------------------------|
 | Dell VxRail Host | Découverte les hôtes VxRail                   |
 
-Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery)
+Rendez-vous sur la [documentation dédiée](/onprem/monitoring/discovery/hosts-discovery)
 pour en savoir plus sur la découverte automatique d'hôtes.
 
 </TabItem>

@@ -34,7 +34,7 @@ Il apporte les modèles de service suivants :
 |:-------------------------------|:-------------------------------------------------------|
 | Netbiter Argos RestAPI Systems | Discover HMS/Ewon Netbiter Systems using Argos RestAPI |
 
-> Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery)
+> Rendez-vous sur la [documentation dédiée](/onprem/monitoring/discovery/hosts-discovery)
 > pour en savoir plus sur la découverte automatique d'hôtes.
 
 </TabItem>
@@ -44,8 +44,8 @@ Il apporte les modèles de service suivants :
 |:-------------------------------------------------|:-----------------------------------|
 | HW-Device-Hms-Netbiter-Argos-Restapi-Sensor-Name | Discover HMS/Ewon Netbiter Sensors |
 
-> Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
-> pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
+> Rendez-vous sur la [documentation dédiée](/onprem/monitoring/discovery/services-discovery)
+> pour en savoir plus sur la découverte automatique de services et sa [planification](/onprem/monitoring/discovery/services-discovery/#règles-de-découverte).
 
 </TabItem>
 </Tabs>
@@ -125,7 +125,7 @@ du plugin lors de l'utilisation d'un pack. Si cette fonctionnalité est activée
 que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
 étape n'est pas requise.
 
-> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+> Plus d'informations dans la section [Installer le plugin](/onprem/monitoring/pluginpacks/#installer-le-plugin).
 
 Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
 

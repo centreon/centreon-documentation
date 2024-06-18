@@ -57,7 +57,7 @@ It brings the following Service Templates:
 To take advantage of this Monitoring Pack, you must deploy the Linux MQ client 
 library on the Poller expected to monitor IBM MQ servers. Please refer to the 
 official IBM documentation:
-* https://www.ibm.com/docs/en/ibm-mq/8.0?topic=server-installing-mq-linux. 
+* https://www.ibm.com/onprem/en/ibm-mq/8.0?topic=server-installing-mq-linux. 
 
 ## Setup
 

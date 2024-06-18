@@ -46,7 +46,7 @@ The Monitoring Connector includes monitoring of Network devices and Sites.
 
 To control your Cisco DNA Center, the Rest API must be configured.
 
-E.g: ```https://developer.cisco.com/docs/dna-center/#!cisco-dna-center-platform-overview```
+E.g: ```https://developer.cisco.com/onprem/dna-center/#!cisco-dna-center-platform-overview```
 
 ## Setup
 
