@@ -178,6 +178,7 @@ configuration.
         ```shell
         systemctl restart php8.1-fpm.service
         ```
+
 </TabItem>
 </Tabs>
 
