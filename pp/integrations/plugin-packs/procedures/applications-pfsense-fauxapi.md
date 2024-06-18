@@ -7,8 +7,6 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-At its core FauxAPI simply reads the core pfSense config.xml file, converts it to JSON and returns to the API caller.
-FauxAPI provides easy backup and restore API interfaces that by default store configuration backups on all configuration write operations thus it is very easy to roll-back even if the API user manages to deploy a "very broken" configuration.
 
 ## Pack assets
 
