@@ -157,6 +157,7 @@ configuration.
         ```shell
         /etc/php/8.1/mods-available/centreon.ini
         ```
+
 </TabItem>
 </Tabs>
 
