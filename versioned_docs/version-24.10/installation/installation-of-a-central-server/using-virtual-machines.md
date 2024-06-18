@@ -133,45 +133,44 @@ The host machine must have the following characteristics:
 
         1. Open the following file:
 
-        1. Open the following file:
-
 <Tabs groupId="sync">
 <TabItem value="Alma 8" label="Alma 8">
 
-        ```shell
-        /etc/php.d/50-centreon.ini
-        ```
+```shell
+/etc/php.d/50-centreon.ini
+```
 
-  </TabItem>
-  <TabItem value="Debian 11" label="Debian 11">
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
       
-        ```shell
-        /etc/php/8.1/mods-available/centreon.ini
-        ```
+```shell
+/etc/php/8.1/mods-available/centreon.ini
+```
         
 </TabItem>
 </Tabs>
 
-        2. In `date.timezone`, define the time zone you want.
+   2. In `date.timezone`, define the time zone you want.
 
-        3. Restart the PHP server:
+   3. Restart the PHP server:
 
 <Tabs groupId="sync">
 <TabItem value="Alma 8" label="Alma 8">
 
-        ```shell
-       systemctl restart php-fpm
-        ```
+```shell
+systemctl restart php-fpm
+```
 
-  </TabItem>
-  <TabItem value="Debian 11" label="Debian 11">
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
       
-        ```shell
-        systemctl restart php8.1-fpm.service
-        ```
+```shell
+systemctl restart php8.1-fpm.service
+```
         
 </TabItem>
 </Tabs>
+
     - The hostname of your server (this is optional). The default name is `centreon-central`. To change it, use the following command:
 
         ```shell
