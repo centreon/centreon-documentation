@@ -232,21 +232,6 @@ entrez:
 </TabItem>
 </Tabs>
 
-- Le hostname de votre serveur (facultatif). Le nom par défaut du serveur est centreon-central. Pour le
-changer, utilisez la commande suivante :
-
-  ```shell
-  hostnamectl set-hostname votre-hostname
-  ```
-
-  Par exemple, si vous voulez renommer la machine `supervision`,
-entrez:
-
-
-  ```shell
-  hostnamectl set-hostname supervision
-  ```
-
 5. Ajoutez une partition pour la table MariaDB : cette étape est obligatoire. Votre serveur ne
 fonctionnera pas si vous ne l’exécutez pas.
 
