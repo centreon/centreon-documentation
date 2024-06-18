@@ -7,9 +7,6 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-Dans son principe, FauxAPI lit simplement le fichier config.xml de pfSense, le convertit en JSON et retourne à l'appelant de l'API.
-FauxAPI fournit des interfaces API de sauvegarde et de restauration faciles qui, par défaut, stockent les sauvegardes de la configuration
-sur toutes les opérations d'écriture de la configuration ; il est donc très facile de revenir en arrière même si l'utilisateur de l'API parvient à déployer une configuration "très cassée".
 
 ## Contenu du pack
 
