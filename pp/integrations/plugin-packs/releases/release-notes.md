@@ -935,7 +935,7 @@ import TabItem from '@theme/TabItem';
 - [**Microsoft IIS NSClient 0.5**](../procedures/applications-webservers-iis-nsclient-05-restapi.md) - Align pack status with documentation (deprecated).
 - [**Microsoft IIS NRPE**](../procedures/applications-webservers-iis-nrpe.md) - Align pack status with documentation (deprecated).
 - [**Azure Virtual Machine Scale Sets**](../procedures/cloud-azure-compute-vmscalesets.md) - Fix discovery provider description.
-- [**Symbol WiNG SNMP**](../procedures/network-switchs-symbol-wing-snmp.md) - Fix Systems command.
+- [**Symbol WiNG SNMP**](../procedures/network-symbol-wing-snmp.md) - Fix Systems command.
 - [**IBM Softlayer**](../procedures/cloud-ibm-softlayer-api.md) - Fix commands options.
 
 </TabItem>
