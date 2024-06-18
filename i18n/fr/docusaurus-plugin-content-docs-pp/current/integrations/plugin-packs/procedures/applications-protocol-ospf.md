@@ -48,7 +48,15 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-Pour utiliser ce Pack, le service SNMP doit être correctement configuré sur votre appareil.
+### Configuration SNMP
+
+Afin de superviser votre ressource en SNMP, il est nécessaire de configurer l'agent SNMP
+sur la ressource comme indiqué sur la documentation officielle du constructeur.
+
+### Flux réseau
+
+La communication doit être possible sur le port UDP 161 depuis le collecteur
+Centreon vers la ressource supervisée.
 
 ## Installer le connecteur de supervision
 

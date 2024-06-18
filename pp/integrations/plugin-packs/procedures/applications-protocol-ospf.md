@@ -47,7 +47,17 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-To use this Pack, the SNMP service must be properly configured on your device.
+### SNMP Configuration
+
+To use this pack, the SNMP service must be properly configured on your ressource.
+Please refer to the official documentation from the constructor.
+
+### Network flow
+
+The target resource must be reachable from the Centreon poller on the UDP/161
+SNMP port.
+
+## Installing the monitoring connector
 
 ## Installing the monitoring connector
 
