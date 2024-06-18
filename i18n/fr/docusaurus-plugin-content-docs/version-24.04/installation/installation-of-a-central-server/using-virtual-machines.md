@@ -5,8 +5,8 @@ title: À partir d'une VM
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sur sa [page de téléchargement](https://download.centreon.com), Centreon fournit des machines virtuelles prêtes à l’emploi. Ces machines virtuelles sont disponibles au format OVA pour les environnements
-VMware et OVF pour l'outil Oracle VirtualBox.
+Sur sa [page de téléchargement](https://download.centreon.com), Centreon fournit des machines virtuelles prêtes à l’emploi. Ces machines virtuelles sont disponibles pour les environnements
+VMware et pour l'outil Oracle VirtualBox.
 Elles sont basées sur les systèmes d'exploitation **Alma Linux 8** et **Debian 11** et incluent
 une installation de Centreon permettant de démarrer en toute simplicité votre première supervision.
 
