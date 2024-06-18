@@ -5,11 +5,11 @@ title: Using a virtual machine (VM)
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-On its [download page](https://download.centreon.com), Centreon provides a ready-to-use virtual machine. This virtual machine is available in OVA format for VMware environments and OVF format for Oracle VirtualBox. It is based on the **Alma Linux 8** operating system and includes a Centreon installation that allows you to easily start your first monitoring.
+On its [download page](https://download.centreon.com), Centreon provides ready-to-use virtual machines. These virtual machines are available in OVA format for VMware environments and OVF format for Oracle VirtualBox. They are based on the **Alma Linux 8** and **Debian 11** operating system and include a Centreon installation that allows you to easily start your first monitoring.
 
-> The virtual machine is only suitable to use Centreon IT-100 or to test the solution.
+> Virtual machines are only suitable to use Centreon IT-100 or to test the solution.
 
-The VM uses the **Thin Provision** option to save as much free space as possible on the disk (this is best practice).
+The VMs use the **Thin Provision** option to save as much free space as possible on the disk (this is best practice).
 
 ## Prerequisites
 
@@ -133,17 +133,43 @@ The host machine must have the following characteristics:
 
         1. Open the following file:
 
-            ```shell
-            /etc/php.d/50-centreon.ini
-            ```
+<Tabs groupId="sync">
+<TabItem value="Alma 8" label="Alma 8">
+
+        ```shell
+        /etc/php.d/50-centreon.ini
+        ```
+
+  </TabItem>
+  <TabItem value="Debian 11" label="Debian 11">
+      
+        ```shell
+        /etc/php/8.1/mods-available/centreon.ini
+        ```
+        
+</TabItem>
+</Tabs>
 
         2. In `date.timezone`, define the time zone you want.
 
         3. Restart the PHP server:
 
-            ```shell
-            systemctl restart php-fpm
-            ```
+<Tabs groupId="sync">
+<TabItem value="Alma 8" label="Alma 8">
+
+        ```shell
+       systemctl restart php-fpm
+        ```
+
+  </TabItem>
+  <TabItem value="Debian 11" label="Debian 11">
+      
+        ```shell
+        systemctl restart php8.1-fpm.service
+        ```
+        
+</TabItem>
+</Tabs>
 
     - The hostname of your server (this is optional). The default name is `centreon-central`. To change it, use the following command:
 
