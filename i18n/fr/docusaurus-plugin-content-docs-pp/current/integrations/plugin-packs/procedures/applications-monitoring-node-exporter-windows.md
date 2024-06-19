@@ -5,6 +5,10 @@ title: Node Exporter Windows Metrics
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Vue d'ensemble
+
+Ce pack permet la supervision d'un hôte Windows basée sur les métriques remontées par l'exporteur Prometheus, un agent logiciel qui collecte et expose des données de performance et de ressources système pour une surveillance efficace.
+
 ## Contenu du pack
 
 ### Modèles
@@ -42,7 +46,7 @@ Le connecteur apporte les modèles de service suivants
 |:----------------------------------------------------|:------------------------------------------------------------------------|
 | App-Monitoring-Node-Exporter-Windows-Interface-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
 | App-Monitoring-Node-Exporter-Windows-Service-Name   | Découvre les services et supervise leur utilisation système                        |
-| App-Monitoring-Node-Exporter-Windows-Storage-Name   | Découvre les partitions de disque et supervise l'occupation de l'espace de stockage|
+| App-Monitoring-Node-Exporter-Windows-Storage-Name   | Découvre les partitions de disque et supervise l'occupation de l'espace de stockage |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -103,7 +107,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-Ce pack est basé sur l'exporteur Prometheus community pour les machines Windows : https://github.com/prometheus-community/windows_exporter#installation.
+Ce pack est basé sur l'exporteur "Prometheus community" pour les machines Windows : https://github.com/prometheus-community/windows_exporter#installation.
 
 ## Installer le connecteur de supervision
 
@@ -130,7 +134,7 @@ dnf install centreon-pack-applications-monitoring-node-exporter-windows
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-monitoring-node-exporter-windows
@@ -175,7 +179,7 @@ dnf install centreon-plugin-Applications-Monitoring-Nodeexporter-Windows
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-monitoring-nodeexporter-windows
