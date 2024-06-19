@@ -118,8 +118,11 @@ cliquez sur **Download**.
 
 4. À votre première connexion au serveur, des instructions s’affichent pour vous aider à terminer la
 configuration.
- 
-   Définissez les paramètres suivants :
+
+<Tabs groupId="sync">
+<TabItem value="Alma 8" label="Alma 8">
+  
+Définissez les paramètres suivants :
 
 - Le fuseau horaire (timezone) du serveur Centreon. Par défaut, celui-ci est UTC. Cela définira l'heure des différents logs de Centreon.
 
@@ -142,45 +145,74 @@ configuration.
     ```
 
 - Le fuseau horaire du serveur PHP. Pour éviter les erreurs, celui-ci doit être identique au fuseau horaire du serveur. Par défaut, le fuseau horaire PHP est Europe/London.
+    
     1. Ouvrez le fichier suivant :
 
-<Tabs groupId="sync">
-<TabItem value="Alma 8" label="Alma 8">
+   ```shell
+   /etc/php.d/50-centreon.ini
+   ```
 
-        ```shell
-        /etc/php.d/50-centreon.ini
-        ```
+  2. Après date.timezone, entrez le fuseau horaire désiré.
 
-  </TabItem>
-  <TabItem value="Debian 11" label="Debian 11">
-      
-        ```shell
-        /etc/php/8.1/mods-available/centreon.ini
-        ```
+  3. Redémarrez le serveur PHP :
 
-</TabItem>
-</Tabs>
+   ```shell
+   systemctl restart php-fpm
+   ```
 
-    2. Après date.timezone, entrez le fuseau horaire désiré.
+- Le hostname de votre serveur (facultatif). Le nom par défaut du serveur est centreon-central. Pour le
+changer, utilisez la commande suivante :
 
-    3. Redémarrez le serveur PHP :
+  ```shell
+  hostnamectl set-hostname votre-hostname
+  ```
 
-<Tabs groupId="sync">
-<TabItem value="Alma 8" label="Alma 8">
+  Par exemple, si vous voulez renommer la machine `supervision`, entrez:
 
-        ```shell
-       systemctl restart php-fpm
-        ```
-
-  </TabItem>
-  <TabItem value="Debian 11" label="Debian 11">
-      
-        ```shell
-        systemctl restart php8.1-fpm.service
-        ```
+  ```shell
+  hostnamectl set-hostname supervision
+  ```
 
 </TabItem>
-</Tabs>
+<TabItem value="Debian 11" label="Debian 11">
+
+Définissez les paramètres suivants :
+
+- Le fuseau horaire (timezone) du serveur Centreon. Par défaut, celui-ci est UTC. Cela définira l'heure des différents logs de Centreon.
+
+    Utilisez la commande suivante :
+    
+    ```shell
+    timedatectl set-timezone votre_timezone
+    ```
+
+    Par exemple, pour définir le fuseau horaire Europe/London, tapez :
+
+    ```shell
+    timedatectl set-timezone Europe/London
+    ```
+
+    Vous pouvez obtenir une liste de tous les fuseaux horaires possibles en utilisant la commande suivante :
+
+    ```shell
+    timedatectl list-timezones
+    ```
+
+- Le fuseau horaire du serveur PHP. Pour éviter les erreurs, celui-ci doit être identique au fuseau horaire du serveur. Par défaut, le fuseau horaire PHP est Europe/London.
+    
+    1. Ouvrez le fichier suivant :
+      
+   ```shell
+   /etc/php/8.1/mods-available/centreon.ini
+   ```
+   
+   2. Après date.timezone, entrez le fuseau horaire désiré.
+
+   3. Redémarrez le serveur PHP :
+
+   ```shell
+   systemctl restart php8.1-fpm.service
+   ```
 
 - Le hostname de votre serveur (facultatif). Le nom par défaut du serveur est centreon-central. Pour le
 changer, utilisez la commande suivante :
@@ -196,6 +228,9 @@ entrez:
   ```shell
   hostnamectl set-hostname supervision
   ```
+
+</TabItem>
+</Tabs>
 
 5. Ajoutez une partition pour la table MariaDB : cette étape est obligatoire. Votre serveur ne
 fonctionnera pas si vous ne l’exécutez pas.

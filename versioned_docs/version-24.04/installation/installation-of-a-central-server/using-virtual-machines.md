@@ -106,82 +106,115 @@ The host machine must have the following characteristics:
 3. Log in to the server from another machine, as user `root`, using the terminal you want and the IP address you obtained in the previous step.
 
 4. The first time you connect to the server, instructions are displayed to help you complete the configuration.
-   
-    Change the following settings:
-
-    - The time zone for the Centreon server. By default, it is set to UTC. This will set the time for the various Centreon logs.
-
-        Use the following command:
-
-        ```shell
-        timedatectl set-timezone your_timezone
-        ```
-
-        For example, to set the time zone to Europe/London, type:
-
-        ```shell
-        timedatectl set-timezone Europe/London
-        ```
-
-        You can obtain a list of all available timezones using this command:
-
-        ```shell
-        timedatectl list-timezones
-        ```
-
-    - The time zone for the PHP server. To avoid errors, this should be the same as the time zone of the server. By default, it is set to Europe/London.
-
-        1. Open the following file:
 
 <Tabs groupId="sync">
 <TabItem value="Alma 8" label="Alma 8">
+   
+Change the following settings:
+
+   - The time zone for the Centreon server. By default, it is set to UTC. This will set the time for the various Centreon logs.
+
+       Use the following command:
+
+       ```shell
+       timedatectl set-timezone your_timezone
+       ```
+
+       For example, to set the time zone to Europe/London, type:
+
+       ```shell
+       timedatectl set-timezone Europe/London
+       ```
+
+       You can obtain a list of all available timezones using this command:
+
+       ```shell
+       timedatectl list-timezones
+       ```
+
+   - The time zone for the PHP server. To avoid errors, this should be the same as the time zone of the server. By default, it is set to Europe/London.
+
+        1. Open the following file:
 
         ```shell
         /etc/php.d/50-centreon.ini
         ```
 
-  </TabItem>
-  <TabItem value="Debian 11" label="Debian 11">
-      
+   2. In `date.timezone`, define the time zone you want.
+
+   3. Restart the PHP server:
+
+      ```shell
+      systemctl restart php-fpm
+      ```
+
+- The hostname of your server (this is optional). The default name is `centreon-central`. To change it, use the following command:
+
+  ```shell
+  hostnamectl set-hostname your-hostname
+  ```
+
+  For example, if you want your machine to be called `monitoring`, type:
+
+  ```shell
+  hostnamectl set-hostname monitoring
+  ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Change the following settings:
+
+   - The time zone for the Centreon server. By default, it is set to UTC. This will set the time for the various Centreon logs.
+
+       Use the following command:
+
+       ```shell
+       timedatectl set-timezone your_timezone
+       ```
+
+       For example, to set the time zone to Europe/London, type:
+
+       ```shell
+       timedatectl set-timezone Europe/London
+       ```
+
+       You can obtain a list of all available timezones using this command:
+
+       ```shell
+       timedatectl list-timezones
+       ```
+
+   - The time zone for the PHP server. To avoid errors, this should be the same as the time zone of the server. By default, it is set to Europe/London.
+
+        1. Open the following file:
+
         ```shell
         /etc/php/8.1/mods-available/centreon.ini
         ```
-        
+
+   2. In `date.timezone`, define the time zone you want.
+
+   3. Restart the PHP server:
+
+      ```shell
+      systemctl restart php8.1-fpm.service
+      ```
+
+- The hostname of your server (this is optional). The default name is `centreon-central`. To change it, use the following command:
+
+  ```shell
+  hostnamectl set-hostname your-hostname
+  ```
+
+  For example, if you want your machine to be called `monitoring`, type:
+
+  ```shell
+  hostnamectl set-hostname monitoring
+  ```
+
 </TabItem>
 </Tabs>
-
-        2. In `date.timezone`, define the time zone you want.
-
-        3. Restart the PHP server:
-
-<Tabs groupId="sync">
-<TabItem value="Alma 8" label="Alma 8">
-
-        ```shell
-       systemctl restart php-fpm
-        ```
-
-  </TabItem>
-  <TabItem value="Debian 11" label="Debian 11">
-      
-        ```shell
-        systemctl restart php8.1-fpm.service
-        ```
-        
-</TabItem>
-</Tabs>
-
-    - The hostname of your server (this is optional). The default name is `centreon-central`. To change it, use the following command:
-
-        ```shell
-        hostnamectl set-hostname your-hostname
-        ```
-
-        For example, if you want your machine to be called `monitoring`, type:
-
-        ```shell
-        hostnamectl set-hostname monitoring
-        ```
 
 5. Add a MariaDB table partition. This step is mandatory. Your Centreon server will not work if this isn't done.
 
