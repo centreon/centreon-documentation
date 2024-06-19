@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-This pack enables the monitoring of a Windows host based on metrics provided by the Prometheus exporter, a software agent that collects and exposes performance and system resource data for effective monitoring.
+This pack enables the monitoring of a Windows host based on metrics provided by the Prometheus exporter, a software agent that collects and exposes performance and system resource data.
 
 ## Pack assets
 
