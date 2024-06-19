@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 You can customize some elements of your Centreon platform:
 
 - **Login page:** you can change the background and the logo, and add a text.
-- **Name of the platform:** you can define a name for your platform (e.g. Test, Production) that will be displayed in the banner once you are logged in.
+- **Name of the platform:** you can define a name for your platform (e.g. **Test**, **Production**) that will be displayed in the banner once you are logged in.
 
 Customizing your Centreon platform required the **Centreon IT Edition Extensions** extension. This extension is automatically installed on your platform.
 
