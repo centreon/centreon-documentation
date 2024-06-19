@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-Ce pack permet la supervision d'un hôte Windows basée sur les métriques remontées par l'exporteur Prometheus, un agent logiciel qui collecte et expose des données de performance et de ressources système pour une surveillance efficace.
+Ce pack permet la supervision d'un hôte Windows basée sur les métriques remontées par l'exporteur Prometheus, un agent logiciel qui collecte et expose des données de performance et de ressources système.
 
 ## Contenu du pack
 
