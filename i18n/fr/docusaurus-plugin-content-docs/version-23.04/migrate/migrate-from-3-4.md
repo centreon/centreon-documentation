@@ -225,6 +225,20 @@ connexion au serveur Centreon central (output IPv4). Consultez le chapitre
 avancée](../monitoring/monitoring-servers/advanced-configuration.md#tcp-outputs)
 pour plus d'information.
 
+Les informations de connexion de l'utilisateur **centreon-gorgone** nouvellement créé doivent être les mêmes que celles de l'utilisateur **centreon-gorgone** sur l'ancien serveur. Éditez le fichier `etc/centreon-gorgone/config.d/31-centreon-api.yaml` et entrez les information de connexion de l'ancien utilisateur. Exemple :
+
+   ```shell
+   gorgone:
+     tpapi:
+       - name: centreonv2
+         base_url: "http://127.0.0.1/centreon/api/latest/"
+         username: "@GORGONE_USER@"
+         password: "@GORGONE_PASSWORD@"
+       - name: clapi
+         username: "@GORGONE_USER@"
+         password: "@GORGONE_PASSWORD@"
+   ```
+
 Puis [générez](../monitoring/monitoring-servers/deploying-a-configuration.md)
 la configuration de l'ensemble de la plateforme et exportez là.
 

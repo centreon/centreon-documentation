@@ -35,7 +35,7 @@ sudo yum update centreon-map-engine centreon-map-web-client
  - If MAP only is installed:
  
  ``` shell
- sudo apt upgrade centreon-map-engine centreon-map-web-client
+ sudo apt install centreon-map-engine centreon-map-web-client
  ```
   
  - If MAP and MAP Legacy are installed on the same server:
@@ -49,7 +49,7 @@ sudo yum update centreon-map-engine centreon-map-web-client
    - Update the centreon-map-engine package
    
     ``` shell
-    sudo apt upgrade -o Dpkg::Options::="--force-overwrite" centreon-map-engine centreon-map-web-client
+    sudo apt install -o Dpkg::Options::="--force-overwrite" centreon-map-engine centreon-map-web-client
     ```
 
    - Retrieve the configuration file backup:

@@ -98,7 +98,7 @@ dnf install centreon-pack-applications-databases-warp10-sensision
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-databases-warp10-sensision
@@ -143,7 +143,7 @@ dnf install centreon-plugin-Applications-Databases-Warp10-Sensision
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-databases-warp10-sensision

@@ -5,6 +5,8 @@ title: Installation de Centreon-HA 2 nœuds à basculement manuel
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> La HA manuelle est maintenant dépréciée. Ne réalisez plus de nouvelles installations suivant cette procédure.
+
 ## Conditions préalables
 
 ### Compréhension

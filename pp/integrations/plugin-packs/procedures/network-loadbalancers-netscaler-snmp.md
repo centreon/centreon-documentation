@@ -201,7 +201,7 @@ dnf install centreon-pack-network-loadbalancers-netscaler-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-network-loadbalancers-netscaler-snmp
@@ -248,7 +248,7 @@ dnf install centreon-plugin-Network-Loadbalancers-Netscaler-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-network-loadbalancers-netscaler-snmp
@@ -574,15 +574,16 @@ All available options for each service template are listed below:
 </TabItem>
 <TabItem value="Health" label="Health">
 
-| Option               | Description                                                                                                                                                                                                                  |
-|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --component          | Which component to check (Default: '.*'). Can be: 'temperature', 'voltage', 'fanspeed', 'psu'.                                                                                                                               |
-| --filter             | Exclude the items given as a comma-separated list (example: --filter=psu). You can also exclude items from specific instances: --filter=fan,1                                                                                |
-| --no-component       | Define the expected status if no components are found (default: critical).                                                                                                                                                   |
-| --absent-problem     | Return an error if an entity is not 'present' (default is skipping) (comma seperated list) Can be specific or global: --absent-problem=psu,1                                                                                 |
-| --threshold-overload | Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='psu,CRITICAL,^(?!(normal)$)'   |
-| --warning            | Set warning threshold for 'temperature', 'fanspeed', 'voltage' (syntax: type,regexp,threshold) Example: --warning='temperature,.,30'                                                                                         |
-| --critical           | Set critical threshold for 'temperature', 'fanspeed', 'voltage'(syntax: type,regexp,threshold) Example: --critical='temperature,.*,40'                                                                                       |
+| Option                       | Description                                                                                                                                                                                                                                                                                              |
+|:-----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --component                  | Which component to check (Default: '.*'). Can be: 'temperature', 'voltage', 'fanspeed', 'psu'.                                                                                                                                                                                                           |
+| --filter                     | Exclude the items given as a comma-separated list (example: --filter=psu). You can also exclude items from specific instances: --filter=fan,1                                                                                                                                                            |
+| --no-component               | Define the expected status if no components are found (default: critical).                                                                                                                                                                                                                               |
+| --absent-problem             | Return an error if an entity is not 'present' (default is skipping) (comma seperated list) Can be specific or global: --absent-problem=psu,1                                                                                                                                                             |
+| --threshold-overload         | Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='psu,CRITICAL,^(?!(normal)$)'                                                                               |
+| --warning                    | Set warning threshold for 'temperature', 'fanspeed', 'voltage' (syntax: type,regexp,threshold) Example: --warning='temperature,.,30'                                                                                                                                                                     |
+| --critical                   | Set critical threshold for 'temperature', 'fanspeed', 'voltage'(syntax: type,regexp,threshold) Example: --critical='temperature,.*,40'                                                                                                                                                                   |
+| --alternative-status-mapping | Depending on the Netscaler product, the translation of OID .1.3.6.1.4.1.5951.4.1.1.41.7.1.2 may diverge. The default interpretation of this OID is: 0 => not supported, 1 => not present, 2 => failed, 3 => normal. With this option set to '1', the OID will be interpreted otherwise: 0 => normal, 1 => not present, 2 => failed, 3 => not supported. |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">

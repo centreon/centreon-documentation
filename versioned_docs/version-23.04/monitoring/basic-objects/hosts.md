@@ -13,7 +13,7 @@ To create a host manually:
 
 ### Host basic information
 
-* The **Name** field defines the host name that will be used by the Monitoring Engine.
+* The **Name** field defines the host name that will be used by the Monitoring Engine. The following characters are not authorized: `~!$%^&|'"<>?,()=*{}` and spaces.
 * The **Alias** field shows the alias of the host.
 * The **Address** field defines IP address or DNS name of the host. The **Resolve** button enables us to
   resolve the domain name by questioning the DNS server configured on the central server.

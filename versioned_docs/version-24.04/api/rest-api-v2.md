@@ -20,7 +20,7 @@ From your workspace, click the **Import** button.
 Go to the **Link** tab and enter the URL to the OpenAPI definition from GitHub:
 
 ```text
-https://raw.githubusercontent.com/centreon/centreon/develop/doc/API/centreon-api-v23.10.yaml
+https://raw.githubusercontent.com/centreon/centreon/24.04.x/centreon/doc/API/centreon-api-v24.04.yaml
 ```
 
 ![image](../assets/api/postman-import-link.png)
@@ -59,7 +59,7 @@ Then click **Add**, and select it in the environments list.
 > ![image](../assets/api/postman-collection-edit.png)
 >
 > In the **Variables** tab, change the *version* value to either
-> "latest" or your `v<major>.<minor>` version number, e.g. "v23.10".
+> "latest" or your `v<major>.<minor>` version number, e.g. "v24.04".
 >
 > You can obtain your "major.minor" version number using the following command:
 > `curl -s http://127.0.0.1:80/centreon/api/latest/platform/versions | jq '.web '`
@@ -67,10 +67,10 @@ Then click **Add**, and select it in the environments list.
 > Here is an example of output for this command:
 >
 > {
->   "version": "23.10.6",
->   "major": "23",
->   "minor": "10",
->   "fix": "6"
+>   "version": "24.04.1",
+>   "major": "24",
+>   "minor": "04",
+>   "fix": "1"
 > }
 >
 > ![image](../assets/api/postman-collection-variables.png)

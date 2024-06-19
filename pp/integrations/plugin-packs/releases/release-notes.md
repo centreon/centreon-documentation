@@ -8,6 +8,122 @@ import TabItem from '@theme/TabItem';
 
 ## 2024
 
+### June
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Eclipse Mosquitto MQTT**](../procedures/applications-eclipse-mosquitto-mqtt.md)  - Initial release of Eclipse Mosquitto MQTT.
+- [**Loggly Rest API**](../procedures/applications-monitoring-loggly-restapi.md) - Initial release of Loggly Rest API.
+- [**Windows Telegraf Agent**](../procedures/operatingsystems-windows-telegraf-agent.md) - Initial release of Windows Telegraf Agent.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**HashiCorp Vault Rest API**](../procedures/applications-hashicorp-vault-restapi.md) - Added an option `auth-path` to handle variable path for hashicorp vault authentication ([Community contribution](https://github.com/centreon/centreon-plugins/pull/4764)). This option will be available for the monitoring connectors of the current release and those to come. 
+- [**HTTP Server**](../procedures/applications-protocol-http.md) - Added possibility for collection mode to use the `full_url` and `functions` attributes ([Community contribution](https://github.com/centreon/centreon-plugins/pull/4915)). 
+- [**TrendMicro Iwsva**](../procedures/applications-trendmicro-iwsva-snmp.md) - Added disk partition discovery rule.
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Kadiska Rest API**](../procedures/applications-monitoring-kadiska-restapi.md) - Will no longer be supported and will be deprecated.
+- [**TrendMicro Iwsva**](../procedures/applications-trendmicro-iwsva-snmp.md) - Fixed packaging and change thresholds macro naming.
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Datacore SANsymphony RESTAPI**](../procedures/hardware-storage-datacore-api.md) - Fixed API path in pools check and added verbosity in monitoring Datacore “monitors” objects.
+- [**HTTP Server**](../procedures/applications-protocol-http.md) - Fixed in collection mode an infinite looping if the `parse` attribute was not defined and of another anomaly resulting in an “Unknown” error ([Community contribution](https://github.com/centreon/centreon-plugins/pull/4915)). 
+- [**Windows SNMP**](../procedures/operatingsystems-windows-snmp.md) - Fixed an issue with windows services containing parenthesis blocking discovery exportation. This parenthesis will automatically be replaced by square brackets to avoid this issue.
+
+</TabItem>
+</Tabs>
+
+### May
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Camera Avigilon SNMP**](../procedures/hardware-devices-camera-avigilon-snmp.md) - Initial release of Avigilon SNMP.
+- [**Quanta Rest API**](../procedures/applications-monitoring-quanta-restapi.md) - Initial release of Quanta RESTAPI.
+- [**RRDcached**](../procedures/applications-rrdcached.md) - Initial release of RRDCached.
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Citrix Netscaler**](../procedures/network-loadbalancers-netscaler-snmp.md) - Fixed status mapping on Citrix PSU ([Community contribution](https://github.com/centreon/centreon-plugins/pull/4722))
+- [**FTP Server**](../procedures/applications-protocol-ftp.md) - Fixed file processing when both --filter-file and --max-depth options were used.
+- [**HTTP Server**](../procedures/applications-protocol-http.md) - Fixed the package version of perl-JSON-Path and added missing perl-Exporter-Easy package.
+- [**Protocol CIFS**](../procedures/applications-protocol-cifs.md) - Fixed file processing when both --filter-file and --max-depth options were used.
+- [**Protocol SFTP**](../procedures/applications-protocol-sftp.md) - Fixed file processing when both --filter-file and --max-depth options were used.
+- [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - Fixed the OS-Windows-WSMAN-Services-Macro command and its discovery rule.
+
+</TabItem>
+</Tabs>
+
+### April
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Azure Database for PostgreSQL**](../procedures/cloud-azure-database-postgresql.md) - First release of Azure PostgreSQL.
+- [**Infor ION Grid**](../procedures/applications-infor-ion-grid-restapi.md) - First release of Infor Ion Grid RESTAPI. 
+- [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - First release of Veeam WSMAN.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Dell S-series**](../procedures/network-dell-sseries-snmp.md) - New filtering option supported for the SNMP IDs of the interfaces.
+- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - Enhanced the functionality provided by the '--convert-custom-values' option of the 'string-value' mode.
+- [**Windows SNMP**](../procedures/operatingsystems-windows-snmp.md) - The 'services' mode can now filter using non-ASCII characters.
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Active Directory**](../procedures/infrastructure-active-directory-nrpe.md) - Changed the default NRPE plugin and options for Active Directory.
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Azure SQL Database**](../procedures/cloud-azure-database-sqldatabase.md) - Fixed the Cloud-Azure-Database-SqlDatabase-Api-Cpu command.
+- [**Elasticsearch**](../procedures/applications-databases-elasticsearch.md) - Removed two useless macros from the App-DB-Elasticsearch-Indice-Statistics-custom service template.
+- [**Linux NRPE4**](../procedures/operatingsystems-linux-nrpe4.md) - The 'storage' mode now takes the reserved space of the file systems into account.
+- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - The 'storage' mode now takes the reserved space of the file systems into account.
+
+</TabItem>
+</Tabs>
+
+### March
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Linux NRPE4**](../procedures/operatingsystems-linux-nrpe4.md) - First release of Linux NRPE4.
+- [**Datacore Sansymphony RESTAPI**](../procedures/hardware-storage-datacore-api.md) - First release of Datacore.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Centreon Central**](../procedures/applications-monitoring-centreon-central.md) - Updated host template logo.
+- [**Centreon Database**](../procedures/applications-monitoring-centreon-database.md) - Updated host template logo.
+- [**Centreon MBI**](../procedures/applications-monitoring-centreon-mbi.md) - Updated host template logo.
+- [**Centreon Poller**](../procedures/applications-monitoring-centreon-poller.md) - Updated host template logo.
+- [**Centreon SQL Metrics**](../procedures/applications-monitoring-centreon-sql-metrics.md) - Updated host template logo.
+- [**Centreon-HA**](../procedures/applications-monitoring-centreon-ha.md) - Updated host template logo.
+- [**Linux NRPE3**](../procedures/operatingsystems-linux-nrpe3.md) - Added Open-Files, Pending-Updates and Systemd-Journal service templates. This monitoring connector is now deprecated. For a more standard deployment, monitor your Linux servers using **[Linux NRPE4](../procedures/operatingsystems-linux-nrpe4.md)**.
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**APC Sensor SNMP**](../procedures/hardware-sensors-apc-snmp.md) - Fixed an issue causing Perl warnings for 'use of uninitialized value'.
+- [**Bluemind SSH**](../procedures/applications-bluemind-ssh.md) - On Webserver service template, use storable as cache method to fix an issue.
+- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - Fixed the App-Protocol-SNMP-Host command and a random behaviour on SNMP-Collection.
+- [**Socomec Net Vision UPS SNMP**](../procedures/hardware-ups-socomec-netvision-snmp.md) - Fixed the Netvision version detection in the plugin.
+
+</TabItem>
+</Tabs>
+
 ### February
 
 <Tabs groupId="sync">
@@ -20,6 +136,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Enhancements" label="Enhancements">
 
 - [**Azure Kubernetes Service**](../procedures/cloud-azure-compute-aks.md) - Added Memory, Node-State, Pod-State and Unschedulable-Pods service templates to Azure AKS.
+- [**Rubrik Rest API**](../procedures/applications-rubrik-restapi.md) - Enhanced jobs and cache modes.
 
 </TabItem>
 <TabItem value="Fix" label="Fix">
@@ -57,7 +174,7 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
 
-- [**Linux SNMP v3**](../procedures/operatingsystems-linux-snmpv3.md) [EXPERIMENTAL] - Initial release of Linux SNMP v3. This experimental plugin contains a host template with native v3 custom macros. Once wee'll have gathered some feedback, we'll integrate this template into the [**Linux SNMP**](../procedures/operatingsystems-linux-snmp.md) connector.
+- [**Linux SNMP v3**](../procedures/operatingsystems-linux-snmpv3.md) [EXPERIMENTAL] - Initial release of Linux SNMP v3. This experimental plugin contains a host template with native v3 custom macros. Once we'll have gathered some feedback, we'll integrate this template into the [**Linux SNMP**](../procedures/operatingsystems-linux-snmp.md) connector.
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
@@ -818,7 +935,7 @@ import TabItem from '@theme/TabItem';
 - [**Microsoft IIS NSClient 0.5**](../procedures/applications-webservers-iis-nsclient-05-restapi.md) - Align pack status with documentation (deprecated).
 - [**Microsoft IIS NRPE**](../procedures/applications-webservers-iis-nrpe.md) - Align pack status with documentation (deprecated).
 - [**Azure Virtual Machine Scale Sets**](../procedures/cloud-azure-compute-vmscalesets.md) - Fix discovery provider description.
-- [**Symbol WiNG SNMP**](../procedures/network-switchs-symbol-wing-snmp.md) - Fix Systems command.
+- [**Symbol WiNG SNMP**](../procedures/network-symbol-wing-snmp.md) - Fix Systems command.
 - [**IBM Softlayer**](../procedures/cloud-ibm-softlayer-api.md) - Fix commands options.
 
 </TabItem>
@@ -844,7 +961,7 @@ import TabItem from '@theme/TabItem';
 
 - [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - Add new cache system.
 - [**Veeam**](../procedures/applications-veeam-nrpe.md) - Add vsb-jobs service.
-- [**HP Procurve**](../procedures/network-switchs-symbol-wing-snmp.md) - Add service virtual-chassis.
+- [**HP Procurve**](../procedures/network-switchs-hp-procurve-snmp.md) - Add service virtual-chassis.
 - [**Raritan PDU**](../procedures/hardware-pdu-raritan-snmp.md) - Add service inlet-sensors.
 - [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - Add a variable to autodiscovery attributes.
 - [**Office 365**](../procedures/cloud-microsoft-office365-management.md) - Add service app-credentials.
@@ -880,7 +997,7 @@ import TabItem from '@theme/TabItem';
 - [**Redis Sentinel**](../procedures/applications-redis-sentinel.md) - Initial release.
 - [**Amazon FSx**](../procedures/cloud-aws-fsx.md) - add Amazon FSx discovery and monitoring.
 - [**Microsens G6 SNMP**](../procedures/network-microsens-g6-snmp.md) - Initial release.
-- [**Symbol WiNG SNMP**](../procedures/network-switchs-symbol-wing-snmp.md) - Initial release.
+- [**Symbol WiNG SNMP**](../procedures/network-symbol-wing-snmp.md) - Initial release.
 - [**Dynamics NSClient**](../procedures/applications-dynamics-ax-nsclient-05-nrpe.md) - Initial release.
 - **Dynamics AX Database** - Initial release.
 - [**Dynamics 365**](../procedures/applications-dynamics-365-nsclient-05-nrpe.md) - Initial release.

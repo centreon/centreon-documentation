@@ -5,47 +5,47 @@ title: TCP Protocol
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Pack Assets
+## Pack assets
 
 ### Templates
 
 The Monitoring Connector **Protocol TCP** brings 2 host templates:
 
-* App-Protocol-Tcp
-* App-Protocol-Tcp-Only
+* **App-Protocol-Tcp-custom**
+* **App-Protocol-Tcp-Only-custom**
 
-The connector brings the following service templates (sorted by host template):
+The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="App-Protocol-Tcp" label="App-Protocol-Tcp">
+<TabItem value="App-Protocol-Tcp-custom" label="App-Protocol-Tcp-custom">
 
-| Service Alias | Service Template  | Service Description |
-|:--------------|:------------------|:--------------------|
-| N/A           | N/A               | N/A                 |
+No service template is linked to this host template.
 
-</TabItem>
-<TabItem value="App-Protocol-Tcp-Only" label="App-Protocol-Tcp-Only">
-
-| Service Alias | Service Template  | Service Description |
-|:--------------|:------------------|:--------------------|
-| N/A           | N/A               | N/A                 |
+> The services listed above are created automatically when the **App-Protocol-Tcp-custom** host template is used.
 
 </TabItem>
-<TabItem value="No host template" label="No host template">
+<TabItem value="App-Protocol-Tcp-Only-custom" label="App-Protocol-Tcp-Only-custom">
 
-| Service Alias     | Service Template                   | Service Description          |
-|:------------------|:-----------------------------------|:-----------------------------|
-| Connection-Status | App-Protocol-Tcp-Connection-Status | Check TCP connection status  |
-| Response-Time     | App-Protocol-Tcp-Response-Time     | Check TCP port response time |
+No service template is linked to this host template.
 
-> These services are not automatically created when the host template is applied.
+> The services listed above are created automatically when the **App-Protocol-Tcp-Only-custom** host template is used.
+
+</TabItem>
+<TabItem value="Not attached to a host template" label="Not attached to a host template">
+
+| Service Alias     | Service Template                          | Service Description          |
+|:------------------|:------------------------------------------|:-----------------------------|
+| Connection-Status | App-Protocol-Tcp-Connection-Status-custom | Check TCP connection status  |
+| Response-Time     | App-Protocol-Tcp-Response-Time-custom     | Check TCP port response time |
+
+> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
 </TabItem>
 </Tabs>
 
-
-
 ### Collected metrics & status
+
+Here is the list of services for this connector, detailing all metrics linked to each service.
 
 <Tabs groupId="sync">
 <TabItem value="Connection-Status" label="Connection-Status">
@@ -68,12 +68,12 @@ The connector brings the following service templates (sorted by host template):
 </TabItem>
 </Tabs>
 
-## Setup
+## Installing the monitoring connector
 
-### Monitoring Pack
+### Pack
 
-If the platform uses an *online* license, you can skip the package installation
-instruction below as it is not required to have the pack displayed within the
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
 **Configuration > Monitoring Connector Manager** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
@@ -109,7 +109,7 @@ yum install centreon-pack-applications-protocol-tcp
 </TabItem>
 </Tabs>
 
-Whatever the license type (*online* or *offline*), install the **Protocol TCP** Pack through
+2. Whatever the license type (*online* or *offline*), install the **Protocol TCP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
@@ -126,6 +126,13 @@ You still have to manually install the plugin on the poller(s) when:
 Use the commands below according to your operating system's package manager:
 
 <Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Applications-Protocol-Tcp
+```
+
+</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
@@ -133,10 +140,10 @@ dnf install centreon-plugin-Applications-Protocol-Tcp
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-dnf install centreon-plugin-Applications-Protocol-Tcp
+apt install centreon-plugin-applications-protocol-tcp
 ```
 
 </TabItem>
@@ -147,101 +154,102 @@ yum install centreon-plugin-Applications-Protocol-Tcp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```bash
-apt install centreon-plugin-applications-protocol-tcp
-```
-
-</TabItem>
 </Tabs>
 
-## Configuration
+## Using the monitoring connector
 
-### Host
+### Using a host template provided by the connector
 
 <Tabs groupId="sync">
-<TabItem value="App-Protocol-Tcp" label="App-Protocol-Tcp">
+<TabItem value="App-Protocol-Tcp-custom" label="App-Protocol-Tcp-custom">
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
-2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
-3. Apply the **App-Protocol-Tcp-custom** template to the host.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **App-Protocol-Tcp-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 
-| Mandatory   | Macro                | Description | Default |
-|:------------|:---------------------|:------------|:--------|
-|             | TCPPACKETLOSSPERCENT |             | 50      |
-|             | TCPPACKETS           |             | 1       |
-|             | TCPPORT              |             | 80      |
-|             | TCPTIMEOUT           |             | 3       |
+| Macro                | Description | Default value     | Mandatory   |
+|:---------------------|:------------|:------------------|:-----------:|
+| TCPPORT              | Port used            | 80                |             |
+| TCPPACKETLOSSPERCENT | Percentage of lost TCP packets            | 50                |             |
+| TCPPACKETS           | Number of packets to send            | 1                 |             |
+| TCPTIMEOUT           | Connection timeout in seconds            | 3                 |             |
+
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
 </TabItem>
-<TabItem value="App-Protocol-Tcp-Only" label="App-Protocol-Tcp-Only">
+<TabItem value="App-Protocol-Tcp-Only-custom" label="App-Protocol-Tcp-Only-custom">
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
-2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
-3. Apply the **App-Protocol-Tcp-Only-custom** template to the host.
-4. Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **App-Protocol-Tcp-Only-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
 
-| Mandatory   | Macro                | Description | Default |
-|:------------|:---------------------|:------------|:--------|
-|             | TCPPACKETLOSSPERCENT |             | 50      |
-|             | TCPPACKETS           |             | 1       |
-|             | TCPPORT              |             | 80      |
-|             | TCPTIMEOUT           |             | 3       |
+| Macro                | Description | Default value     | Mandatory   |
+|:---------------------|:------------|:------------------|:-----------:|
+| TCPPORT              | Port used            | 80                |             |
+| TCPPACKETLOSSPERCENT | Percentage of lost TCP packets            | 50                |             |
+| TCPPACKETS           | Number of packets to send            | 1                 |             |
+| TCPTIMEOUT           | Connection timeout in seconds            | 3                 |             |
+
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
 </TabItem>
 </Tabs>
 
+### Using a service template provided by the connector
 
-### Service 
-
-Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
 <TabItem value="Connection-Status" label="Connection-Status">
 
-| Mandatory   | Macro        | Description                                                                     | Default |
-|:------------|:-------------|:--------------------------------------------------------------------------------|:--------|
-|             | TIMEOUT      | Connection timeout in seconds (Default: 3)                                      | 5       |
-|             | PORT         | Port used                                                                       |         |
-|             | WARNING      |                                                                                 |         |
-|             | CRITICAL     |                                                                                 |         |
-|             | EXTRAOPTIONS | Any extra option you may want to add to the command line (eg. a --verbose flag) |         |
+| Macro        | Description                                                                                        | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEOUT      | Connection timeout in seconds                                                         | 5                 |             |
+| PORT         | Port used                                                                                          |                   | X           |
+| WARNING      | Warning threshold                                                                                                   |                   |             |
+| CRITICAL     | Critical threshold                                                                                                   |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Response-Time" label="Response-Time">
 
-| Mandatory   | Macro         | Description                                                                     | Default |
-|:------------|:--------------|:--------------------------------------------------------------------------------|:--------|
-|             | PACKETS       | Number of packets to send (Default: 5)                                          | 5       |
-|             | TIMEOUT       | Set timeout in seconds (Default: 5)                                             | 5       |
-|             | PORT          | Port used                                                                       |         |
-|             | WARNINGPL     | Packets lost threshold warning in %                                             |         |
-|             | CRITICALPL    | Packets lost threshold critical in %                                            |         |
-|             | WARNINGRTA    | Response time threshold warning in milliseconds                                 |         |
-|             | CRITICALRTA   | Response time threshold critical in milliseconds                                |         |
-|             | WARNINGRTMAX  |                                                                                 |         |
-|             | CRITICALRTMAX |                                                                                 |         |
-|             | WARNINGRTMIN  |                                                                                 |         |
-|             | CRITICALRTMIN |                                                                                 |         |
-|             | EXTRAOPTIONS  | Any extra option you may want to add to the command line (eg. a --verbose flag) |         |
+| Macro         | Description                                                                                        | Default value     | Mandatory   |
+|:--------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PACKETS       | Number of packets to send                                                            | 5                 |             |
+| TIMEOUT       | Set timeout in seconds                                                                 | 5                 |             |
+| PORT          | Port used                                                                                          |                   | X           |
+| WARNINGPL     | Packets lost threshold warning in %                                                                |                   |             |
+| CRITICALPL    | Packets lost threshold critical in %                                                               |                   |             |
+| WARNINGRTA    | Response time threshold warning in milliseconds                                                    |                   |             |
+| CRITICALRTA   | Response time threshold critical in milliseconds                                                   |                   |             |
+| WARNINGRTMAX  | Warning maximum response time threshold                                                                                                   |                   |             |
+| CRITICALRTMAX | Critical maximum response time threshold
+                                                                                                   |                   |             |
+| WARNINGRTMIN  | Warning minimum response time threshold                                                                                                   |                   |             |
+| CRITICALRTMIN | Critical minimum response time threshold                                                                                                   |                   |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 </Tabs>
 
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
 Once the plugin is installed, log into your Centreon poller's CLI using the
-**centreon-engine** user account (`su - centreon-engine`) and test the plugin by
-running the following command:
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector
+is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
-/usr/lib/centreon/plugins//centreon_protocol_tcp.pl \
+/usr/lib/centreon/plugins/centreon_protocol_tcp.pl \
 	--plugin=apps::protocols::tcp::plugin \
 	--mode=response-time  \
 	--hostname='10.0.0.1' \
-	--port='80' \
-	--timeout='' \
+	--port='' \
+	--packets='5' \
+	--timeout='5' \
 	--warning-rta='' \
 	--critical-rta='' \
 	--warning-rtmax='' \
@@ -249,104 +257,113 @@ running the following command:
 	--warning-rtmin='' \
 	--critical-rtmin='' \
 	--warning-pl='' \
-	--critical-pl='' \
-	
+	--critical-pl=''
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: TCP '10.0.0.1' port 80 rta 0.633ms, lost 0% | 'tcp.roundtrip.time.average.milliseconds'=0.633ms;;;0; 'tcp.roundtrip.time.maximum.milliseconds'=2.145ms;;;0; 'tcp.roundtrip.time.minimum.milliseconds'=0.193ms;;;0; 'tcp.packets.loss.percentage'=0%;;;0;100
+OK: rta 95ms   lost 40% | 'tcp.roundtrip.time.average.milliseconds'=95ms;;;0;'tcp.roundtrip.time.maximum.milliseconds'=31ms;;;0;'tcp.roundtrip.time.minimum.milliseconds'=38ms;;;0;'tcp.packets.loss.percentage'=40%;;;0;100
 ```
 
+### Troubleshooting
+
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
+for Centreon Plugins typical issues.
+
 ### Available modes
+
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the
+connector in your terminal.
 
 All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_protocol_tcp.pl \
+/usr/lib/centreon/plugins/centreon_protocol_tcp.pl \
 	--plugin=apps::protocols::tcp::plugin \
-    --list-mode
+	--list-mode
 ```
 
 The plugin brings the following modes:
 
-| Mode              | Linked service template            |
-|:------------------|:-----------------------------------|
-| connection-status | App-Protocol-Tcp-Connection-Status |
-| response-time     | App-Protocol-Tcp-Response-Time     |
-
-
+| Mode                                                                                                                                  | Linked service template                   |
+|:--------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------|
+| connection-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/protocols/tcp/mode/connectionstatus.pm)] | App-Protocol-Tcp-Connection-Status-custom |
+| response-time [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/protocols/tcp/mode/responsetime.pm)]         | App-Protocol-Tcp-Response-Time-custom     |
 
 ### Available options
 
-| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Type   |
-|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------|
-| --mode                                     | Choose a mode.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Global |
-| --dyn-mode                                 | Specify a mode with the path (separated by '::').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Global |
-| --list-mode                                | List available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Global |
-| --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Global |
-| --version                                  | Display plugin version.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Global |
-| --pass-manager                             | Use a password manager.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Global |
-| --verbose                                  | Display long output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Output |
-| --debug                                    | Display also debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Output |
-| --filter-perfdata                          | Filter perfdata that match the regexp.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Output |
-| --filter-perfdata-adv                      | Advanced perfdata filter.  Eg: --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Output |
-| --explode-perfdata-max                     | Put max perfdata (if it exist) in a specific perfdata (without values: same with '\_max' suffix) (Multiple options)                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Output |
-| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Change storage free perfdata in used:     --change-perfdata=free,used,invert()      Change storage free perfdata in used:     --change-perfdata=used,free,invert()      Scale traffic values automaticaly:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()   | Output |
-| --extend-perfdata-group                    | Extend perfdata from multiple perfdatas (methods in target are: min, max, average, sum) Syntax: --extend-perfdata-group=searchlabel,newlabel,target\[,\[newuom\],\[m in\],\[max\]\]  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'                                               | Output |
-| --change-short-output --change-long-output | Change short/long output display: --change-short-output=pattern~replace~modifier                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Output |
-| --change-exit                              | Change exit code: --change-exit=unknown=critical                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Output |
-| --range-perfdata                           | Change perfdata range thresholds display: 1 = start value equals to '0' is removed, 2 = threshold range is not display.                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Output |
-| --filter-uom                               | Filter UOM that match the regexp.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Output |
-| --opt-exit                                 | Optional exit code for an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc) (Default: unknown).                                                                                                                                                                                                                                                                                                                                                                                                                                           | Output |
-| --output-ignore-perfdata                   | Remove perfdata from output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Output |
-| --output-ignore-label                      | Remove label status from output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Output |
-| --output-xml                               | Display output in XML format.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Output |
-| --output-json                              | Display output in JSON format.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Output |
-| --output-openmetrics                       | Display metrics in OpenMetrics format.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Output |
-| --output-file                              | Write output in file (can be used with json and xml options)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Output |
-| --disco-format                             | Display discovery arguments (if the mode manages it).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Output |
-| --disco-show                               | Display discovery values (if the mode manages it).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Output |
-| --float-precision                          | Set the float precision for thresholds (Default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Output |
-| --source-encoding                          | Set encoding of monitoring sources (In some case. Default: 'UTF-8').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Output |
+#### Generic options
 
+All generic options are listed here:
 
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     | Define the mode in which you want the plugin to be executed (see--list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale(Mbps),mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                                |
+| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-ignore-perfdata                   | Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-ignore-label                      | Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --output-file                              | Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
 #### Modes options
 
-All  modes specific options are listed here:
+All available options for each service template are listed below:
 
 <Tabs groupId="sync">
 <TabItem value="Connection-Status" label="Connection-Status">
 
-| Option            | Description                                                                                                                                    | Type |
-|:------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|:-----|
-| --hostname        | IP Addr/FQDN of the host                                                                                                                       | Mode |
-| --port            | Port used                                                                                                                                      | Mode |
-| --ssl             | Use SSL connection. (no attempt is made to check the certificatevalidity by default).                                                          | Mode |
-| --timeout         | Connection timeout in seconds (Default: 3)                                                                                                     | Mode |
-| --unknown-status  | Set unknown threshold for status. Can used special variables like: %{status}, %{port}, %{error\_message}                                       | Mode |
-| --warning-status  | Set warning threshold for status. Can used special variables like: %{status}, %{port}, %{error\_message}                                       | Mode |
-| --critical-status | Set critical threshold for status (Default: '%{status} eq "failed"'). Can used special variables like: %{status}, %{port}, %{error\_message}   | Mode |
-| --warning-time    | Threshold warning in seconds                                                                                                                   | Mode |
-| --critical-time   | Threshold critical in seconds                                                                                                                  | Mode |
+| Option            | Description                                                                                                                                                                   |
+|:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --hostname        | IP Addr/FQDN of the host                                                                                                                                                      |
+| --port            | Port used                                                                                                                                                                     |
+| --ssl             | Use SSL connection. (no attempt is made to check the certificatevalidity by default).                                                                                         |
+| --timeout         | Connection timeout in seconds (default: 3)                                                                                                                                    |
+| --unknown-status  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{port}, %{error\_message}                                       |
+| --warning-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{port}, %{error\_message}                                       |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} eq "failed"'). You can use the following variables: %{status}, %{port}, %{error\_message}   |
+| --warning-time    | Warning threshold in seconds                                                                                                                                                  |
+| --critical-time   | Critical threshold in seconds                                                                                                                                                 |
 
 </TabItem>
 <TabItem value="Response-Time" label="Response-Time">
 
-| Option            | Description                                                                          | Type |
-|:------------------|:-------------------------------------------------------------------------------------|:-----|
-| --filter-counters | Only display some counters (regexp can be used). Example : --filter-counters='rta'   | Mode |
-| --hostname        | IP Addr/FQDN of the host                                                             | Mode |
-| --port            | Port used                                                                            | Mode |
-| --timeout         | Set timeout in seconds (Default: 5).                                                 | Mode |
-| --packets         | Number of packets to send (Default: 5).                                              | Mode |
-| --warning-rta     | Response time threshold warning in milliseconds                                      | Mode |
-| --critical-rta    | Response time threshold critical in milliseconds                                     | Mode |
-| --warning-pl      | Packets lost threshold warning in %                                                  | Mode |
-| --critical-pl     | Packets lost threshold critical in %                                                 | Mode |
+| Option            | Description                                                                          |
+|:------------------|:-------------------------------------------------------------------------------------|
+| --filter-counters | Only display some counters (regexp can be used). Example : --filter-counters='rta'   |
+| --hostname        | IP Addr/FQDN of the host                                                             |
+| --port            | Port used                                                                            |
+| --timeout         | Set timeout in seconds (default: 5).                                                 |
+| --packets         | Number of packets to send (default: 5).                                              |
+| --warning-rta     | Response time threshold warning in milliseconds                                      |
+| --critical-rta    | Response time threshold critical in milliseconds                                     |
+| --warning-pl      | Packets lost threshold warning in %                                                  |
+| --critical-pl     | Packets lost threshold critical in %                                                 |
 
 </TabItem>
 </Tabs>
@@ -355,13 +372,8 @@ All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-/usr/lib/centreon/plugins//centreon_protocol_tcp.pl \
+/usr/lib/centreon/plugins/centreon_protocol_tcp.pl \
 	--plugin=apps::protocols::tcp::plugin \
-	--mode=connection-status  \
-    --help
+	--mode=response-time  \
+	--help
 ```
-
-### Troubleshooting
-
-Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
-for Centreon Plugins typical issues.

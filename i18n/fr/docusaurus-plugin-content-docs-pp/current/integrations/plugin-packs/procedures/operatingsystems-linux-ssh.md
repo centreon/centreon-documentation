@@ -379,7 +379,7 @@ dnf install centreon-pack-operatingsystems-linux-ssh
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-operatingsystems-linux-ssh
@@ -424,7 +424,7 @@ dnf install centreon-plugin-Operatingsystems-Linux-Ssh
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-operatingsystems-linux-ssh

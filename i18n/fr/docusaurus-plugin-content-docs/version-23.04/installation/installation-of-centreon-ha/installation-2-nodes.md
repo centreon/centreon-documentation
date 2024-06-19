@@ -13,6 +13,8 @@ Avant de suivre cette procédure, il est recommandé d'avoir un niveau de connai
 
 > **AVERTISSEMENT :** Toute personne mettant en application cette procédure doit être consciente qu'elle prend ses responsabilités en cas de dysfonctionnement. En aucun cas la société Centreon ne saurait être tenue pour responsable d'une quelconque détérioration ou perte de données.
 
+> EL9 n'est pas supporté pour les installations HA sur Centreon 23.04.
+
 ### Flux réseaux
 
 En plus des flux réseaux nécessaires décrits dans le chapitre [prérequis](../architectures.md#Tableaux_des_flux_réseau)
@@ -1224,15 +1226,12 @@ pcs constraint colocation add master "ms_mysql-clone" with "centreon"
 
 Après cette étape, toutes les ressources doivent être actives au même endroit, et la plateforme fonctionnelle et redondée. Dans le cas contraire, se référer au guide de troubleshooting du paragraphe suivant.
 
-### Lancement du Cluster et contrôle de l'état des ressources
-
-#### Activer les ressources
+### Activation des ressources
 
 ```bash
 pcs resource enable php-clone
 pcs resource enable cbd_rrd-clone
 pcs resource meta vip target-role="started"
-pcs resource meta vip_mysql target-role="started"
 pcs resource meta centreontrapd target-role="started"
 pcs resource meta snmptrapd target-role="started"
 pcs resource meta centengine target-role="started"

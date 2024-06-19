@@ -16,193 +16,278 @@ Vous trouverez dans ce chapitre tout ce qui concerne **Centreon Open Source**.
 Pour faire des demandes d'évolutions ou signaler des bugs sur les extensions commerciales, vous pouvez vous rendre sur
 notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
-> Retrouvez plus de détails sur la version 23.10 dans notre [post de blog](https://www.centreon.com/fr/centreon-23-10-decouvrez-les-dernieres-nouveautes/).
+> Retrouvez plus de détails sur la version 24.04 dans notre [post de blog](https://www.centreon.com/fr/centreon-annonce-la-sortie-de-sa-derniere-version-logicielle-centreon-24-04/).
 
 <ExpandCollapseAll />
 
 ## Centreon Web
 
-### 23.10.0
+### 24.04.2
 
-Release date: `October 30, 2023`
+Release date: `May 28, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed access control for some v2 API endpoints.
+- [CEIP] Fixed an error on Dashboard telemetry.
+- [Unattended] The unattended.sh script now allows new options (Debian12, MariaDB versioning, MySQL 8).
+- [Unattended] Bug fixes on various unattended.sh issues (httpd services not restarting, it-edition-extensions installation, script run issue on Oracle Linux distributions).
+- [Unattended] The installation and the activation of Centreon IT Edition Extensions is now available
+- [UX] Fixed an issue where the top counter pop-up was not closed when users clicked outside of it.
+- [UX] Removed autocomplete for credentials fields in administration pages.
+
+</details>
+
+### 24.04.1
+
+Release date: `May 16, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Fixed an issue where centreontrapd.pm and conf.pm were replaced by default files.
+
+</details>
+
+### 24.04.0
+
+Release date: `April 30, 2024`
 
 <details open>
-<summary>New features</summary>
+  <summary>New features</summary>
 
-- **Dashboards Beta**: with Dashboards, you can effortlessly create and share intuitive dashboards for real-time monitoring of metrics, host/service statuses, and much more.
-- **Resources Status**:
-   - In addition to the current view (**All** view), you can now access to two new views to see only the services (**By Services** view), as well as a view to see the hosts and all their attached services (**By Hosts** view).
-  These two new views have been designed based on what was done in deprecated pages.
-   - We have also completely redesigned filters, making it easier to select resources.
+**Dashboards GA**
 
-   > Deprecated pages will be removed in the next major version.
+Dashboards are now in Global Availability (GA) and fully supported by Centreon.
+Many features have been added in this version.
 
+- **Playlists feature:** You can now create dashboard playlists. Selected dashboards will be displayed sequentially without any interaction, allowing you to broadcast them on TVs in public spaces.
+- **New widgets**
+  - The "Status Chart" widget displays the distribution of current statuses on selected resources, as a chart.
+  - The "Group Monitoring" widget displays the distribution of current statuses on selected groups of resources, as a table.
+- **Resource Status**: Widgets now include a link to the Resource Status page. When you access this link, Resources Status will be filtered according to the criteria used in the widget.
+- **User Experience**
+  - You can now search for a dashboard by its name.
+  - You can now navigate more easily with the pagination.
+  - You can now duplicate a dashboard.
+  - You can now access widgets more easily thanks to pictograms representing each type of widget.
+  - You can now display dashboards as a list, with the **View as list** button.
+  - A modal now appears when deleting widgets, dashboards or playlists.
+  - A warning modal is now preventing users from leaving the dashboard without saving it first.
+  
 </details>
 
 <details open>
   <summary>Enhancements</summary>
 
-- [ACL] You can now manage API tokens with an action & menu access.
-- [API] API restrictions (ro/rw) are now applied while deleting a host or a service using the API.
-- [API] CLAPI now ignores empty lines and lines starting with the `#` character.
-- [API] The field "notify" has been added to the monitoring/services GET route.
-- [API] The field "is_activated" has been removed from host template and service template routes.
-- [API] Added service search in hostGroups/serviceGroups endpoints.
-- [API] Added telemetry and statistics to the token management API.
-- [API] Added a route to create a service template.
-- [API] Added a route to delete a service template.
-- [API] Added a route to list service templates.
-- [API] Added a route to create a host template.
-- [API] Added a route to delete a host template.
-- [API] Added a route to list commands.
-- [API] Added a route to handle templates of a host template (PATCH).
-- [API] Added a route to update a host category of a host template (PATCH).
-- [API] Added a route to link a service template to host templates (PATCH).
-- [API] Added a route to update a host category of a host template (POST).
-- [API] Added a route to update macros of a host template (PATCH).
-- [API] Added a route to handle templates of a host template (POST).
-- [API] Added a route to list host templates.
-- [API] Added a route to update/find host severity.
-- [API] Added a route to get a host category.
-- [API] Added a route to update a host category.
-- [API] Added a route to update one host group (PUT).
-- [API] Added a route to retrieve one host group (PUT).
-- [API] Added routes to create and delete hosts.
-- [API] Added routes to create, delete and list services.
-- [API] Added routes to create, delete and list tokens.
-- [API] Updated the service template creation route to handle relations with service groups.
-- [API] Updated the service template partial update route to handle relations with service groups.
-- [API] Updated the service template create route to handle macros.
-- [API] Updated the service template partial update route to handle macros.
-- [API] Updated the service template partial update route to handle all properties.
-- [API] Updated the service template create route to handle all properties.
-- [API] Updated the service template partial update route to link a service template to service categories.
-- [API] Updated the host template create route to handle all properties.
-- [API] Updated the service template partial update route to link a service template to host templates.
-- [API] Updated the AddHostTemplate route to handle macros (POST).
-- [API] Updated the host create API route to handle host groups.
-- [Authentication] Added user attributes received from IdP in Centreon login file if debug is enabled.
-- [Authentication] Removed password fields if contact is not local type.
-- [CEIP] Added a debug option to display CEIP telemetry data sent to Centreon.
-- [Configuration] Added the support of BBDO 3.0.1 for Centreon Broker configuration.
-- [Core] Implemented a simple feature flag system.
-- [Monitoring] The breadcrumb for monitoring legacy pages now states that we will remove these pages in the next major version.
-- [Resources Status] Added a tooltip to understand how to use filters.
+**Dashboards GA**
 
-</details>
+- **Improvements made on global Dashboard behavior**
+  - When sharing a dashboard, only contacts and contact groups that have access to the dashboard are displayed.
+  - Optimized the rendering of widgets.
+  - Optimized legend and thickened curves on graphs.
+  - Moved the parameter used for hiding widgets' descriptions.
+  - Updated the dashboard global refresh icon.
+  - Widgets can now be edited quickly and easily by using an "Edit widget" shortcut that opens widget edition mode.
+  - Made the dashboard library's "view as list" the default view.
+  - Reorganized rich text options for widget descriptions.
 
-<details>
-<summary>Bug fixes</summary>
+- **Improvements made to specific widgets**
+  - [MAP widget] Added an information message displayed when editing the widget.
+  - [Metrics Graph widget] Added a warning message indicating that thresholds have been hidden when selecting two different metric units.
+  - [Metrics Graph widget] Added an information tooltip when hovering over an element on the graph.
+  - [Single Metric widget] Simplified metric selection.
+  - [Single Metric widget] Simplified dataset selection by forcing a "host + service" pair.
+  - [Status Grid widget] Added an "unhandled" state property.
+  - [Status Grid widget] Added a new "condensed" view.
 
-- [API] Fixed an issue where values for contact additive inheritance were not updated with new endpoints.
-- [API] Fixed issues on duplicate display, encoding and add_inherited_contact in host and host template endpoints.
-- [API] Fixed access to list of groups of resources regarding ACL definition.
-- [CLAPI] Fixed a bug that duplicated the host template / service template relations.
-- [CLAPI] Removed the possibility to link a regular resource with a template.
-- [CLAPI] Added the missing parameters to handle new Broker logging options (thanks to a [community member's contribution](https://github.com/centreon/centreon/pull/885)). 
-- [CLAPI] Fixed the export of severities to be able to reimport them.
-- [CLAPI] Fixed a PHP warning that was displayed when using getparam on a service.
+> BREAKING CHANGE: The way metrics are handled has been changed to allow for more flexibility (e.g., you now have the possibiliyy to exclude metrics). If you used the metrics graph widget, you may have to select your metrics again.
 
-</details>
+**User Experience**
 
-<details open>
-  <summary>Breaking changes</summary>
+- Added full screen mode for the entire application.
 
-- All acknowledgements are not persistent. We removed the **Persistent** option from the acknowledgement window so that it cannot be unchecked. This is because an acknowledgement must persist even when Centreon engine is restarted.
-- [CLAPI] Macros are now displayed identically for hosts, host templates and service templates.
+**API**
+
+- **Dashboards**
+  - Added new endpoints to manage [playlists](centreon-commercial-extensions.mdx#centreon-it-edition-extensions).
+  - Added a new endpoint to duplicate dashboards.
+  - Updated endpoints to handle the Status Grid "condensed" view.
+
+- **Configuration**
+  - Added an endpoint to update a service severity.
+  - Added an endpoint to create Broker outputs.
+  - Added an endpoint to list all installed connectors.
+  - Added an endpoint to list graph templates.
+  - Added an endpoint to list and delete Business Activities.
+  - Added an endpoint to update a service.
+  - Added an endpoint to update a host partially.
+  - Added an endpoint to handle the file format associated with a Stream Connector.
+
+- **Monitoring**
+  - Added an endpoint to list all metrics of a given service.
+  - Metrics linked to a resource are now retrieved by the endpoint that lists resources.
+
+- **Administration**:
+  - Added endpoints to upload and list media.
+
+**Installation**
+
+- Added support for the Debian 12 operating system.
+- Added compatibility with MySQL 8.0.
+- Updated the MariaDB version to its latest LTS, 10.11.
+- Improved the unattended.sh script to offer the possibility to select which DBMS will be installed.
 
 </details>
 
 ## Centreon Collect
 
-### 23.10.0
+### 24.04.2
 
-Release date: `October 30, 2023`
+Release date: `June 17, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Engine] Added a new centengine parameter (`send_recovery_notifications_anyways`) to force sending a recovery notification even when the resource is outside of its notification period. This aims at keeping third-party tools up-to-date at any time when they are fed notifications.
+- [Engine] The whitelist works with all the commands executed by Engine.
+- [Engine] Engine can now handle extra configuration files to complement/overload the centengine.cfg file. This enhancement allows you to keep a custom configuration unchanged when exporting the configuration.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed an issue where incomplete BAM queries resulted in unnecessary error messages.
+- [Broker] Fixed an issue where grpc layers crashed if a channel was deleted by a grpc thread.
+- [Broker] Fixed a stability issue that could occur when an LVM snapshot was launched to backup the database.
+
+</details>
+
+### 24.04.1
+
+Release date: `May 28, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Fixed an issue with permissions on Engine and Broker files.
+
+</details>
+
+### 24.04.0
+
+Release date: `April 30, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed some incorrect statuses in Broker's statistics retrieved by the `broker-stats.json` file.
+- [Packaging] Added symbolic link from /usr/lib64/nagios/plugins to /usr/lib/nagios/plugins.
+- Semicolons are no longer considered as the beginning of a comment in Engine's configuration files. This is because comments were not useful in these files, and they prevented the use of semicolons in macros (e.g., passwords).
+
+</details>
 
 #### Centreon Engine
 
 <details>
   <summary>Compatibility</summary>
 
-- Compatibility with other 23.10 components.
+- Compatibility with other 24.04 components.
 
 </details>
 
 #### Centreon Broker
 
-<details open>
-  <summary>New features</summary>
-
-- An **experimental** output type has been added to send internal performance data to OpenTelemetry receivers. This cannot be used from the WUI at the moment.
-- An **experimental** output type has been added to send the monitored metrics to VictoriaMetrics time-series databases. This cannot be used from the WUI at the moment.
-
-</details>
-
-<details open>
-  <summary>Enhancements</summary>
-
-- Broker management of SQL database connections has been improved. It now uses auto-commited bulk inserts in tables where insert is safe while using transactions for all other write operations, keeping the latter bound to the same connection. This secures the utilization of up to 3 connections to the database, improving the performance in updating the real time data.
-- The RRD files used to store status history are now rebuilt at the same time as metric files.
-- Broker now ignores incorrect filter settings if these prevent some features from functioning.
-- New performance counters have been added to the gRPC API in order to track the longest queries and statements.
-
-</details>
-
 <details>
   <summary>Compatibility</summary>
 
-- Compatibility with other 23.10 components.
+- Compatibility with other 24.04 components.
 
 </details>
 
 ## Centreon Gorgone
 
-### 23.10.0
+### 24.04.0
 
-Release date: `October 30, 2023`
+Release date: `April 30, 2024`
 
-<details>
-  <summary>Compatibility</summary>
+<details open>
+  <summary>Enhancements</summary>
 
-- Compatibility with other 23.10 components.
+- Moved gorgone whitelists to a dedicated file.
 
 </details>
 
 ## Centreon High Availability
 
-### 23.10.0
+### 24.04.0
 
-Release date: `October 30, 2023`
+Release date: `April 30, 2024`
 
 <details>
   <summary>Compatibility</summary>
 
-- Compatibility with other 23.10 components.
+- Compatibility with other 24.04 components.
 
 </details>
 
 ## Centreon DSM
 
-### 23.10.0
+### 24.04.2
 
-Release date: `October 30, 2023`
+Release date: `May 28, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- No changes for this module in this version.
+
+</details>
+
+### 24.04.1
+
+Release date: `May 16, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Fixed an issue where dsmclient.pl wasn't deployed by the centreon-dsm-client package.
+
+</details>
+
+### 24.04.1
+
+Release date: `May 16, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Fixed an issue where dsmclient.pl wasn't deployed by the centreon-dsm-client package.
+
+</details>
+
+### 24.04.0
+
+Release date: `April 30, 2024`
 
 <details>
   <summary>Compatibility</summary>
 
-- Compatibility with other 23.10 components.
+- Compatibility with other 24.04 components.
 
 </details>
 
 ## Centreon Open Tickets
 
-### 23.10.0
+### 24.04.0
 
-Release date: `October 30, 2023`
+Release date: `April 30, 2024`
 
 <details>
   <summary>Compatibility</summary>
 
-- Compatibility with other 23.10 components.
+- Compatibility with other 24.04 components.
 
 </details>

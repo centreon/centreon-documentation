@@ -13,7 +13,7 @@ Pour créer un hôte manuellement :
 
 ### Informations générales
 
-* Le champ **Nom** définit le nom d’hôte qui sera utilisé par le moteur de supervision.
+* Le champ **Nom** définit le nom d’hôte qui sera utilisé par le moteur de supervision. Les caractères suivants ne sont pas autorisés : `~!$%^&|'"<>?,()=*{}` et les espaces.
 * Le champ **Alias** indique l’alias de l’hôte.
 * Le champ **Adresse** définit l'adresse IP ou le nom DNS de l’hôte. Le bouton **Résoudre** permet de résoudre le nom de
   domaine en interrogeant le serveur DNS configuré sur le serveur central.

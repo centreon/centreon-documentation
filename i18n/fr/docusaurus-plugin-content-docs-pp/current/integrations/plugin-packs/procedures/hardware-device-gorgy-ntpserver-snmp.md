@@ -122,7 +122,7 @@ dnf install centreon-pack-hardware-device-gorgy-ntpserver-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-device-gorgy-ntpserver-snmp
@@ -167,7 +167,7 @@ dnf install centreon-plugin-Hardware-Devices-Gorgy-Ntpserver-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-devices-gorgy-ntpserver-snmp

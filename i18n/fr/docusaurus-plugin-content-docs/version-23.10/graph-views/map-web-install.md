@@ -173,6 +173,95 @@ Le serveur nécessite que la licence soit disponible et valide sur le serveur ce
 
 Notez que l'interface web de MAP a les mêmes prérequis que l'interface web Centreon. Voir les prérequis pour la compatibilité des navigateurs web [ici](../installation/prerequisites.md).
 
+## Pré-installation
+
+### Désactiver SELinux
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
+**/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
+exécutez la commande suivante :
+
+```shell
+sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
+```
+
+Redémarrez votre système d'exploitation pour prendre en compte le changement.
+
+```shell
+reboot
+```
+
+Après le redémarrage, une vérification rapide permet de confirmer le statut de
+SELinux :
+
+```shell
+$ getenforce
+```
+
+Vous devriez obtenir ce résultat :
+
+```shell
+Disabled
+```
+
+> **Notez que cette désactivation doit être temporaire.** Pour réactiver SELinux, éditez le fichier **/etc/selinux/config** et changez la valeur avec les options suivantes :
+> - ``SELINUX=enforcing`` pour que la politique de sécurité SELinux soit appliquée en mode strict.
+> - ``SELINUX=permissive`` pour que les erreurs d’accès soient enregistrées dans les logs, mais l’accès ne sera pas bloqué.
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
+**/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
+exécutez la commande suivante :
+
+```shell
+sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
+```
+
+Redémarrez votre système d'exploitation pour prendre en compte le changement.
+
+```shell
+reboot
+```
+
+Après le démarrage du système, effectuez une vérification rapide de l'état de SELinux :
+
+```shell
+getenforce
+```
+
+Vous devriez obtenir ce résultat :
+
+```shell
+Disabled
+```
+
+> **Notez que cette désactivation doit être temporaire.** Pour réactiver SELinux, éditez le fichier **/etc/selinux/config** et changez la valeur avec les options suivantes :
+> - ``SELINUX=enforcing`` pour que la politique de sécurité SELinux soit appliquée en mode strict.
+> - ``SELINUX=permissive`` pour que les erreurs d’accès soient enregistrées dans les logs, mais l’accès ne sera pas bloqué.
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+SELinux n'est pas installé sur Debian 11, continuez.
+
+</TabItem>
+</Tabs>
+
+### Configurer ou désactiver le pare-feu
+
+Si votre pare-feu système est actif, [paramétrez-le](../administration/secure-platform.md#activer-firewalld).
+Vous pouvez également le désactiver le temps de l'installation :
+
+```shell
+systemctl stop firewalld
+systemctl disable firewalld
+```
+
 ## Installation du serveur MAP Engine
 
 ### Étape 1 : définir les paramètres d'authentification

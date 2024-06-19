@@ -5,6 +5,7 @@ title: Linux NRPE3
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> **IMPORTANT**: This monitoring connector is deprecated. For a more standard deployment, monitor your Linux servers using **[Linux NRPE4](operatingsystems-linux-nrpe4.md)**.
 
 ## Overview
 
@@ -155,7 +156,7 @@ yum install centreon-nrpe3-daemon.x86_64 centreon-plugin-Operatingsystems-Linux-
 > **NB:** To avoid installing the Centreon Yum repo on all your monitored Linux servers, both `https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-plugin-Operatingsystems-Linux-Local-20230117-074217.el7.centos.noarch.rpm` and `https://yum.centreon.com/standard/22.10/el7/stable/x86_64/RPMS/centreon-nrpe3-daemon-4.0.3-0.el7.centos.x86_64.rpm` (current version at the time this document is written) can be installed directly **but this installation mode won't allow the packages to be updated with `yum update` command, so it is not recommended**.
 
 </TabItem>
-<TabItem value="Debian" label="Debian">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 # Add centreon-engine user
@@ -163,8 +164,8 @@ useradd --create-home centreon-engine
 # Install gpg
 apt install gpg
 # Add Centreon repo
-wget -qO- https://apt-key.centreon.com | gpg --dearmor > /etc/apt/trusted.gpg.d/centreon.gpg
-echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/centreon.list
+wget -qO- https://packages.centreon.com/api/security/keypair/Debian/public | gpg --dearmor > /etc/apt/trusted.gpg.d/centreon.gpg
+echo "deb https://packages.centreon.com/artifactory/apt-plugins-stable/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/centreon-plugins.list
 apt update
 # Install centreon-nrpe3-daemon
 apt install centreon-nrpe3-daemon centreon-plugin-operatingsystems-linux-local
@@ -173,7 +174,7 @@ mkdir -p /var/lib/centreon/centplugins/
 chown centreon-engine: /var/lib/centreon/centplugins/
 ```
 
-> **NB:** To avoid installing the Centreon Yum repo on all your monitored Linux servers, both `https://apt.centreon.com/repository/22.10/pool%2Fc%2Fcentreon-plugin-operatingsystems-linux-local%2Fcentreon-plugin-operatingsystems-linux-local_20221215-102705-bullseye_amd64.deb` and `https://apt.centreon.com/repository/22.10/pool%2Fc%2Fcentreon-nrpe3-daemon%2Fcentreon-nrpe3-daemon_4.0.3-1_amd64.deb` (current version at the time this document is written) can be installed directly **but this installation mode won't allow the packages to be updated with `apt update` command, so it is not recommended**.
+> **NB:** To avoid installing the Centreon Yum repo on all your monitored Linux servers, both `https://packages.centreon.com/artifactory/apt-plugins-stable/pool/nrpe/centreon-nrpe3-plugin_4.1.0-150207_amd64.deb` and `https://packages.centreon.com/artifactory/apt-plugins-stable/pool/nrpe/centreon-nrpe3-daemon_4.1.0-150207_amd64.deb` (current version at the time this document is written) can be installed directly **but this installation mode won't allow the packages to be updated with `apt update` command, so it is not recommended**.
 
 </TabItem>
 </Tabs>

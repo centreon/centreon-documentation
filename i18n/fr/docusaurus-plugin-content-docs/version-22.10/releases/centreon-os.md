@@ -18,6 +18,45 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 22.10.22
+
+Release date: `May 16, 2024`
+
+#### Bug fixes
+
+- [API] Fixed an issue affecting downtimes on services linked to a service group via a service template.
+- [Configuration] Fixed an issue where the Service Categories configuration page could appear blank.
+
+#### Security fixes
+
+- [Security] Fixed several SQLi issues.
+
+### 22.10.21
+
+Release date: `Avril 10, 2024`
+
+#### Bug fixes
+
+- [API V1] Fixed an issue that occurred when filtering Resources Status by criticality.
+
+#### Security fixes
+
+- [Security] Upgraded axios dependency.
+
+### 22.10.20
+
+Release date: `March 13, 2024`
+
+#### Bug fixes
+
+- [Authentication] Fixed issue with SSO authentication.
+- [CLAPI] Fixed a decoding issue affecting the export of HTML entities.
+- [Install] A unified unattended.sh script is now available for version 22.10.
+
+#### Security fixes
+
+- [Security] Improved allowed commands for Centreon Gorgone.
+
 ### 22.10.19
 
 Release date: `February 14, 2024`
@@ -566,6 +605,39 @@ Release date: `October 26, 2022`
 - [Code] Calls to the `atoi()` C function have been replaced by more secure functions
 
 ## Centreon Gorgone
+
+### 22.10.7
+
+Release date: `May 16, 2024`
+
+#### Bug fixes
+
+- [Gorgone] Fixed a path issue on systemctl (Gorgone whitelist).
+- [Packaging] Fixed inconsistent system permissions on /var/log/centreon-engine/centengine.log.
+
+### 22.10.6
+
+Release date: `March 28, 2024`
+
+#### Enhancements
+
+- Moved Gorgone whitelists to a dedicated file.
+
+#### Bug fixes
+
+- Fixed a regression causing one of Gorgone's modules to use 100% of one CPU core.
+
+### 22.10.5
+
+Release date: `March 13, 2024`
+
+#### Bug fixes
+
+- Added the Auto Discovery patterns to the default commands whitelist.
+
+#### Security fixes
+
+- Improved list of allowed commands for Auto Discovery.
 
 ### 22.10.4
 

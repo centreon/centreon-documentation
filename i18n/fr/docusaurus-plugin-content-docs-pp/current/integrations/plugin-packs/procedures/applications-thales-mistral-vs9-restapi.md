@@ -169,7 +169,7 @@ yum install centreon-pack-applications-thales-mistral-vs9-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-thales-mistral-vs9-restapi
@@ -207,7 +207,7 @@ yum install centreon-plugin-Applications-Thales-Mistral-Vs9-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-thales-mistral-vs9-restapi
