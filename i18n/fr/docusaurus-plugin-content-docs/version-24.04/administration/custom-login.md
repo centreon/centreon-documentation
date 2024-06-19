@@ -10,7 +10,7 @@ Vous pouvez personnaliser certains éléments de votre plateforme Centreon :
 - **Page de connexion :** vous pouvez changer l'arrière-plan et le logo, ainsi qu'ajouter un texte.
 - **Nom de la plateforme :** vous pouvez définir un nom pour votre plateforme (par exemple Test, Production). Celui-ci sera affiché dans le bandeau lorsque vous serez connecté.
 
-Pour pouvoir personnaliser votre plateforme Centreon, vous devez utiliser l'extension **Centreon IT Edition Extensions**. Celle-ci est installée par défaut sur votre plateforme.
+La personnalisation de votre plateforme Centreon utilise l'extension **Centreon IT Edition Extensions**. Celle-ci est installée par défaut sur votre plateforme.
 
 > **Centreon IT Edition Extensions** est une extension Centreon qui requiert une [licence](../administration/licenses.md) valide.
 > Pour plus d'informations, contactez [Centreon](mailto:sales@centreon.com).
