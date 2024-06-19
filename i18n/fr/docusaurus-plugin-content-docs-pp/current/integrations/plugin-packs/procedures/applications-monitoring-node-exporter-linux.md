@@ -40,7 +40,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle                                   | Description                                                             |
 |:--------------------------------------------------|:------------------------------------------------------------------------|
-| App-Monitoring-Node-Exporter-Linux-Interface-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
+| App-Monitoring-Node-Exporter-Linux-Interface-Name | Découvre les interfaces réseau et supervise leur statut et leur utilisation |
 | App-Monitoring-Node-Exporter-Linux-Storage-Name   | Découvre les partitions de disque et supervise l'occupation de l'espace de stockage               |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
@@ -133,7 +133,7 @@ dnf install centreon-pack-applications-monitoring-node-exporter-linux
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-monitoring-node-exporter-linux
@@ -178,7 +178,7 @@ dnf install centreon-plugin-Applications-Monitoring-Nodeexporter-Linux
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-monitoring-nodeexporter-linux
