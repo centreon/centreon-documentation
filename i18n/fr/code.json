@@ -410,8 +410,8 @@
     "description": "To give feedback"
   },
   "theme.common.theWatchButton": {
-    "message": "Question sur The Watch",
-    "description": "To ask question"
+    "message": "Questionner la communauté",
+    "description": "To ask a question on The Watch"
   },
   "Expand all": {
     "message": "Tout étendre",
