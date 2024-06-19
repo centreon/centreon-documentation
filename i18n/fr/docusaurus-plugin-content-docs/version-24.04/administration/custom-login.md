@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 Vous pouvez personnaliser certains éléments de votre plateforme Centreon :
 
 - **Page de connexion :** vous pouvez changer l'arrière-plan et le logo, ainsi qu'ajouter un texte.
-- **Nom de la plateforme :** vous pouvez définir un nom pour votre plateforme (par exemple Test, Production). Celui-ci sera affiché dans le bandeau lorsque vous serez connecté.
+- **Nom de la plateforme :** vous pouvez définir un nom pour votre plateforme (par exemple **Test**, **Production**). Celui-ci sera affiché dans le bandeau lorsque vous serez connecté.
 
 La personnalisation de votre plateforme Centreon utilise l'extension **Centreon IT Edition Extensions**. Celle-ci est installée par défaut sur votre plateforme.
 
@@ -19,7 +19,7 @@ La personnalisation de votre plateforme Centreon utilise l'extension **Centreon 
 
 1. Allez à la page **Administration > Personnaliser Centreon**. Les différentes options sont :
    
-   - **Nom de la plateforme** : définissez un nom pour la plateforme (par exemple Test, Production). Ce nom sera visible à la fois sur la page de connexion (à côté du logo) et dans le bandeau une fois que vous serez connecté.
+   - **Nom de la plateforme** : définissez un nom pour la plateforme (par exemple **Test**, **Production**). Ce nom sera visible à la fois sur la page de connexion (à côté du logo) et dans le bandeau une fois que vous serez connecté.
    - **Sélectionnez un logo** : remplacez le logo Centreon sur la page de connexion (mais pas dans le coin supérieur gauche, une fois connecté). Avant de pouvoir sélectionner un logo dans ce champ, vous devez ajouter le fichier aux [médias](./parameters/medias.md) de la plateforme.
    - **Sélectionnez un fond d'écran** : remplacez l'arrière-plan par défaut. Avant de pouvoir sélectionner un arrière-plan dans ce champ, vous devez ajouter le fichier aux [médias](./parameters/medias.md) de la plateforme.
    - **Insérez votre texte de présentation** : entrez un texte à afficher dans la zone de connexion.
