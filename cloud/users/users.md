@@ -28,7 +28,7 @@ There are three roles for users in Centreon Cloud, each with a specific set of r
   * view the list of pollers, export the configuration
   * install Monitoring Connectors.
 
-* **Administrator**. **Administrators** can do the same things as **Editors**, but they can also invite users using the CIAM.
+* **Administrator**. **Administrators** can do the same things as **Editors**, but they can also invite users using the CIAM, and [grant users the right to see resources](../administration/resource_access.md).
 
 ## Creating users
 
