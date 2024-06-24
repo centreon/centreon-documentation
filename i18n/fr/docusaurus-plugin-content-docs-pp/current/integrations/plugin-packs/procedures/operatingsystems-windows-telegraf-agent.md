@@ -5,17 +5,18 @@ title: Windows Telegraf Agent
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 Telegraf est un agent d'observabilité implémentant le protocole
 OpenTelemetry.
 
 > Ce connecteur de supervision est une **preuve de concept**, Centreon ne recommande
 > pas sa mise en oeuvre en production.
-> Il présente par ailleurs certaines limitations, comme :
+> Il présente par ailleurs certaines limitations, telles que :
 > - la nécessité de redémarrer l'agent pour prendre en compte des changements
 > sur la configuration.
 > - l'impossibilité de récupérer le message d'information lié au statut du
 > service ou de l'hôte (limitation liée au protocole OpenTelemetry).
+
+Vous pouvez consulter [cette page](../getting-started/how-to-guides/telegraf/) pour plus d'informations sur ce que permet l'intégration avec Telegraf.
 
 ## Contenu du pack
 
@@ -101,36 +102,42 @@ Pas de métrique pour ce service.
 
 ## Prérequis
 
-### Centreon Engine
+### Flux réseau
 
-> Pour pouvoir utiliser l'agent Telegraf, vous devez utiliser un collecteur ayant au
-minimum la version `24.04.2` de `centreon-engine`.
+Deux flux TCP doivent être ouverts depuis l'hôte supervisé vers le collecteur.
 
-L'agent Telegraf devra se configurer via une requête HTTPS adressée à Centreon Engine.
+| Source         | Destination | Protocole | Port | Objet                                     |
+|----------------|-------------|-----------|------|-------------------------------------------|
+| Hôte supervisé | Collecteur  | TCP       | 1443 | Obtention de la configuration de Telegraf. |
+| Hôte supervisé | Collecteur  | TCP       | 4317 | Envoi des données au format OpenTelemetry. |
 
-1. Pour cela il faut commencer par générer un certificat sur le collecteur :
+### Prérequis système sur le collecteur
+
+> Rappel: pour pouvoir utiliser l'agent Telegraf, vous devez utiliser un collecteur ayant au
+minimum la version `24.04.2` de `centreon-engine`. L'agent Telegraf devra se configurer via une requête HTTPS adressée à Centreon Engine.
+
+1. Pour cela il faut commencer par obtenir un certificat valide pour le collecteur, ou le générer, par exemple avec la commande ci-dessous :
+
+> Dans les prérequis suivants, remplacez `${HOSTNAME}` par le FQDN du collecteur si la valeur de cette variable ne correspond pas. 
 
 ```bash
-openssl req -new -newkey rsa:2048 -sha256 -days 3650 -nodes -x509 -keyout /etc/centreon-engine/conf-server.key -out /etc/centreon-engine/conf-server.crt
+openssl req -new -subj "/CN=${HOSTNAME}" -addext "subjectAltName = DNS:${HOSTNAME}" -newkey rsa:2048 -sha256 -days 365 -nodes -x509 -keyout /etc/centreon-engine/conf-server.key -out /etc/centreon-engine/conf-server.crt
 chown centreon-engine: /etc/centreon-engine/conf-*
 ```
 
-> **Important** : donner l'adresse IP ou le FQDN du collecteur quand l'information **Common Name** est demandée.
->
-> Par exemple :
-> ```
-> Common Name (e.g. server FQDN or YOUR name) []:172.16.5.166
-> ```
+> L'option `-days 365` limite la durée de validité du certificat à un an. Vous pouvez adapter celle-ci en fonction de vos préférences concernant la sécurité ou la maintenabilité.
 
 2. Puis indiquez à Engine les informations de connexion qu'il devra fournir aux agents Telegraf.
 
 ```bash
-host_ip=$(hostname -I)
 cat > /etc/centreon-engine/otl_server.json <<EOF
 {
     "otel_server": {
         "host": "0.0.0.0",
-        "port": 4317
+        "port": 4317,
+        "encryption": true,
+        "certificate_path": "/etc/centreon-engine/conf-server.crt",
+        "key_path": "/etc/centreon-engine/conf-server.key"
     },
     "max_length_grpc_log": 0,
     "telegraf_conf_server": {
@@ -140,16 +147,21 @@ cat > /etc/centreon-engine/otl_server.json <<EOF
             "certificate_path": "/etc/centreon-engine/conf-server.crt",
             "key_path": "/etc/centreon-engine/conf-server.key"
         },
-        "engine_otel_endpoint": "${host_ip% }:4317",
+        "engine_otel_endpoint": "${HOSTNAME}:4317",
         "check_interval":60
     }
 }
 EOF
 chown centreon-engine: /etc/centreon-engine/otl_server.json
-systemctl restart centengine
 ```
 
-### Agent Telegraf
+### Configuration de Centreon Engine
+
+1. Dans le menu **Configuration > Pollers > Engine configuration**, sous l'onglet **Data**, ajoutez une entrée dans les modules Broker à charger et inscrivez-y la directive `/usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json`. Sauvegardez le formulaire.
+
+2. Exportez la configuration du collecteur ___avec redémarrage___ de **Centreon Engine**.
+
+### Prérequis système sur l'hôte à superviser
 
 La procédure officielle d'installation de Telegraf se trouve [ici](https://docs.influxdata.com/telegraf/v1/install/?t=Windows)
 mais voici ci-dessous les étapes nécessaires.
