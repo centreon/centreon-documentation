@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-Le démon Gorgone est un gestionnaire de tâche en mode distribué (https://github.com/centreon/centreon-gorgone).
+Le démon Gorgone est un gestionnaire de tâches en mode distribué (https://github.com/centreon/centreon-gorgone).
 
 ## Contenu du pack
 
