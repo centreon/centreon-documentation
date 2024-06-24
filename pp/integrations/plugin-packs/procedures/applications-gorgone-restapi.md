@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-Gorgone daemon is a lightweight, distributed, modular tasks handler (https://github.com/centreon/centreon-gorgone).
+Gorgone daemon is a lightweight, distributed, modular task handler (https://github.com/centreon/centreon-gorgone).
 
 ## Pack assets
 
