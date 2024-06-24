@@ -25,7 +25,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias | Service Template                  | Service Description |
 |:--------------|:----------------------------------|:--------------------|
 | Events        | App-Gorgone-Events-Restapi-custom | Check events        |
-| Nodes         | App-Gorgone-Nodes-Restapi-custom  | Check nodes status  |
+| Nodes         | App-Gorgone-Nodes-Restapi-custom  | Check the status of the nodes  |
 
 > The services listed above are created automatically when the **App-Gorgone-Restapi-custom** host template is used.
 
