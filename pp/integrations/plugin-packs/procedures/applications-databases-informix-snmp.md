@@ -25,7 +25,7 @@ The connector brings the following service templates (sorted by the host templat
 | Dbspace-Usage | App-DB-Informix-Dbspace-Usage-SNMP-custom | Check dbspaces usage    |
 | Global-Cache  | App-DB-Informix-Global-Cache-SNMP-custom  | Check write/read cache |
 | Lock-Stats    | App-DB-Informix-Lock-Stats-SNMP-custom    | Check instance locks    |
-| Logfile-Usage | App-DB-Informix-Logfile-Usage-SNMP-custom | Check log files usage   |
+| Logfile-Usage | App-DB-Informix-Logfile-Usage-SNMP-custom | Check log file usage   |
 | Sessions      | App-DB-Informix-Sessions-SNMP-custom      | Check current sessions  |
 
 > The services listed above are created automatically when the **App-DB-Informix-SNMP-custom** host template is used.
