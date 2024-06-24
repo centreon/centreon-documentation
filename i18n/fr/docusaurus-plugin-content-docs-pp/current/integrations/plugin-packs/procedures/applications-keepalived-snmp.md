@@ -210,7 +210,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All VRRP instances are ok | '*vrrp*#status'=;;;;
+OK: All VRRP instances are ok | '*vrrp*#status'=1;;;;
 ```
 
 ### Diagnostic des erreurs communes
