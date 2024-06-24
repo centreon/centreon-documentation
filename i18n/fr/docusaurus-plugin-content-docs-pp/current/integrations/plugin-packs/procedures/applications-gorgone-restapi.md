@@ -60,7 +60,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration de Gorgone
 
-Assurer vous que le module Gorgone `httpserver` est correctement configuré. Au besoin, ajouter le avec la directive suivante
+Assurez-vous vous que le module Gorgone `httpserver` est correctement configuré. Au besoin, ajoutez-le avec la directive suivante :
 
 ```yaml
 modules:
