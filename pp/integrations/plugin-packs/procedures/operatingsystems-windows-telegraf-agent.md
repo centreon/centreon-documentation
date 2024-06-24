@@ -105,7 +105,7 @@ Two TCP flows must be open from the host to the poller.
 
 | Source | Destination    | Protocole | Port | Purpose |
 | ------ | -------------- | --------- | ---- | --- |
-| Hôte supervisé | Collecteur  | TCP       | 1443 | Access to Telegraf agent's configuration. |
+| Hôte supervisé | Collecteur  | TCP       | 1443 | Access to the configuration of the Telegraf agent. |
 | Hôte supervisé | Collecteur  | TCP       | 4317 | OpenTelemetry data flow. |
 
 ### System prerequisites on the poller
@@ -114,14 +114,14 @@ Two TCP flows must be open from the host to the poller.
 
 1. For this to work, you must first get a valid certificate or generate a self-signed one on the poller as detailed below.
 
-> In the next prerequisites, replace `${HOSTNAME}` with the poller's FQDN if they don't match.
+> In the command below, replace `${HOSTNAME}` with the poller's FQDN if they don't match.
 
 ```bash
 openssl req -new -subj "/CN=${HOSTNAME}" -addext "subjectAltName = DNS:${HOSTNAME}" -newkey rsa:2048 -sha256 -days 365 -nodes -x509 -keyout /etc/centreon-engine/conf-server.key -out /etc/centreon-engine/conf-server.crt
 chown centreon-engine: /etc/centreon-engine/conf-*
 ```
 
-> The `-days 365` option limits the certificate validity to one year. You may choose a longer or shorter duration according to your security/maintainance preferences.
+> The `-days 365` option limits the certificate's validity to one year. You may choose a longer or shorter duration according to your security/maintainance preferences.
 
 2. Then define Engine's configuration server for Telegraf.
 
@@ -154,9 +154,9 @@ chown centreon-engine: /etc/centreon-engine/otl_server.json
 
 ### Configuration of Centreon Engine
 
-1. In the **Configuration > Pollers > Engine configuration** menu, under the **Data** tab, add an entry to the Broker modules to load and enter the `/usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json` directive. Save the form.
+1. In the **Configuration > Pollers > Engine configuration** menu, on the **Data** tab, add an entry to the Broker modules to load and enter the `/usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json` directive. Save the form.
 
-2. Export the poller's configuration ___with a restart___ of **Centreon Engine**.
+2. Export the poller's configuration, selecting the **Restart** option.
 
 ### Telegraf agent
 
