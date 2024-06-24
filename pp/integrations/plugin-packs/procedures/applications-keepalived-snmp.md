@@ -209,7 +209,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All VRRP instances are ok | '*vrrp*#status'=;;;;
+OK: All VRRP instances are ok | '*vrrp*#status'=1;;;;
 ```
 
 ### Troubleshooting
