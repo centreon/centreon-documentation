@@ -23,7 +23,7 @@ The connector brings the following service templates (sorted by the host templat
 | Archivelevel0 | App-DB-Informix-Archivelevel0-SNMP-custom | Check last full backup  |
 | Chunk-Status  | App-DB-Informix-Chunk-Status-SNMP-custom  | Check chunk status      |
 | Dbspace-Usage | App-DB-Informix-Dbspace-Usage-SNMP-custom | Check dbspaces usage    |
-| Global-Cache  | App-DB-Informix-Global-Cache-SNMP-custom  | Check write/read cached |
+| Global-Cache  | App-DB-Informix-Global-Cache-SNMP-custom  | Check write/read cache |
 | Lock-Stats    | App-DB-Informix-Lock-Stats-SNMP-custom    | Check instance locks    |
 | Logfile-Usage | App-DB-Informix-Logfile-Usage-SNMP-custom | Check log files usage   |
 | Sessions      | App-DB-Informix-Sessions-SNMP-custom      | Check current sessions  |
