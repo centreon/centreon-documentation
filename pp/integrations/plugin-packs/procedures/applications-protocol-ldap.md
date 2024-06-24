@@ -63,7 +63,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 ## Prerequisites
 
 The remote server must have an LDAP service running and available. A user and
-password dedicated to monitoring is needed for security reasons.
+password dedicated to the monitoring are needed for security reasons.
 
 ## Installing the monitoring connector
 
