@@ -59,7 +59,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### Gorgone configuration
 
-To use this Monitoring Connector, you must enable the Gorgone `httpserver` module:
+To use this Monitoring Connector, you must enable the Gorgone httpserver module by adding the following directive to `/etc/centreon-gorgone/config.d/40-gorgoned.yaml`:
 
 ```yaml
 modules:
