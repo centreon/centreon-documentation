@@ -11,8 +11,10 @@ Telegraf is an observability tool implementing the OpenTelemetry protocol.
 > This monitoring connector is a **proof of concept**, Centreon does not recommend to use it in production.
 > It has some limitations such as:
 > - the need to restart the Telegraf service whenever the configuration is changed.
-> - the impossibility to display the informational output message of the host or service (due to 
+> - the impossibility to display the informational output message of the host or service (due to
 > limitations of the OpenTelemetry protocol).
+
+You may refer to [this page](../getting-started/how-to-guides/telegraf/) for more information about Centreon's integration with Telegraf.
 
 ## Pack assets
 
@@ -97,27 +99,31 @@ No metrics for this service.
 
 ## Prerequisites
 
-### Centreon Engine
+### Network flow
 
-> To be able to use the Telegraf agent, you must use a poller with at least version `24.04.2` of `centreon-engine`.
+Two TCP flows must be open from the host to the poller.
 
-The Telegraf agent will configure itself via a HTTPS request sent to Centreon Engine.
+| Source | Destination    | Protocole | Port | Purpose |
+| ------ | -------------- | --------- | ---- | --- |
+| Hôte supervisé | Collecteur  | TCP       | 1443 | Access to the configuration of the Telegraf agent. |
+| Hôte supervisé | Collecteur  | TCP       | 4317 | OpenTelemetry data flow. |
 
-1. For this to work, you must first generate a certificate on the poller:
+### System prerequisites on the poller
+
+> To be able to use the Telegraf agent, you must use a poller with at least version `24.04.2` of `centreon-engine`. The Telegraf agent will configure itself via a HTTPS request sent to Centreon Engine.
+
+1. For this to work, you must first get a valid certificate or generate a self-signed one on the poller as detailed below.
+
+> In the command below, replace `${HOSTNAME}` with the poller's FQDN if they don't match.
 
 ```bash
-openssl req -new -newkey rsa:2048 -sha256 -days 3650 -nodes -x509 -keyout /etc/centreon-engine/conf-server.key -out /etc/centreon-engine/conf-server.crt
+openssl req -new -subj "/CN=${HOSTNAME}" -addext "subjectAltName = DNS:${HOSTNAME}" -newkey rsa:2048 -sha256 -days 365 -nodes -x509 -keyout /etc/centreon-engine/conf-server.key -out /etc/centreon-engine/conf-server.crt
 chown centreon-engine: /etc/centreon-engine/conf-*
 ```
 
-> **Important** : give the IP address or the FQDN of the poller when the **Common Name** information is prompted.
->
-> Example:
-> ```
-> Common Name (e.g. server FQDN or YOUR name) []:172.16.5.166
-> ```
+> The `-days 365` option limits the certificate's validity to one year. You may choose a longer or shorter duration according to your security/maintainance preferences.
 
-2. Then prepare the information Engine will have to provide to the Telegraf agent.
+2. Then provide Engine with the connection information it needs to give to the Telegraf agent so that it can send information to Engine.
 
 ```bash
 host_ip=$(hostname -I)
@@ -125,7 +131,10 @@ cat > /etc/centreon-engine/otl_server.json <<EOF
 {
     "otel_server": {
         "host": "0.0.0.0",
-        "port": 4317
+        "port": 4317,
+        "encryption": true,
+        "certificate_path": "/etc/centreon-engine/conf-server.crt",
+        "key_path": "/etc/centreon-engine/conf-server.key"
     },
     "max_length_grpc_log": 0,
     "telegraf_conf_server": {
@@ -135,14 +144,19 @@ cat > /etc/centreon-engine/otl_server.json <<EOF
             "certificate_path": "/etc/centreon-engine/conf-server.crt",
             "key_path": "/etc/centreon-engine/conf-server.key"
         },
-        "engine_otel_endpoint": "${host_ip% }:4317",
+        "engine_otel_endpoint": "${HOSTNAME}:4317",
         "check_interval":60
     }
 }
 EOF
 chown centreon-engine: /etc/centreon-engine/otl_server.json
-systemctl restart centengine
 ```
+
+### Configuration of Centreon Engine
+
+1. In the **Configuration > Pollers > Engine configuration** menu, on the **Data** tab, add an entry to the Broker modules to load and enter the `/usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json` directive. Save the form.
+
+2. Export the poller's configuration, selecting the **Restart** option.
 
 ### Telegraf agent
 
@@ -163,7 +177,7 @@ Expand-Archive .\telegraf-1.30.1_windows_amd64.zip -DestinationPath 'C:\Program 
 "C:\Program Files\InfluxData\telegraf\telegraf-1.30.3\telegraf.exe" --config https://<poller_ip_address>:1443/engine?host=<windows_server_name> --service install
 ```
 
-#### Downloading centreon_plugins.exe
+#### Downloading centreon\_plugins.exe
 
 Download the **centreon_plugins.exe** from the latest release available [here](https://github.com/centreon/centreon-nsclient-build/releases)
 and copy it in the same place as the Telegraf agent (that should be `"C:\Program Files\InfluxData\telegraf\telegraf-1.30.3\"`)
