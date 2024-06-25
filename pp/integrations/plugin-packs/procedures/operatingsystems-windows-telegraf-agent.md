@@ -123,7 +123,7 @@ chown centreon-engine: /etc/centreon-engine/conf-*
 
 > The `-days 365` option limits the certificate's validity to one year. You may choose a longer or shorter duration according to your security/maintainance preferences.
 
-2. Then define Engine's configuration server for Telegraf.
+2. Then provide Engine with the connection information it needs to give to the Telegraf agent so that it can send information to Engine.
 
 ```bash
 host_ip=$(hostname -I)

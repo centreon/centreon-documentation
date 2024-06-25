@@ -127,7 +127,7 @@ chown centreon-engine: /etc/centreon-engine/conf-*
 
 > L'option `-days 365` limite la durée de validité du certificat à un an. Vous pouvez adapter celle-ci en fonction de vos préférences concernant la sécurité ou la maintenabilité.
 
-2. Puis indiquez à Engine les informations de connexion qu'il devra fournir aux agents Telegraf.
+2. Puis indiquez à Engine les informations de connexion qu'il devra fournir à l'agent Telegraf afin qu'il puisse envoyer des informations à Engine.
 
 ```bash
 cat > /etc/centreon-engine/otl_server.json <<EOF
