@@ -342,7 +342,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All instances are ok | '*global*#sessions'=;;;0;
+OK: All instances are ok | '*global*#sessions'=7;10;20;0;
 ```
 
 ### Diagnostic des erreurs communes
