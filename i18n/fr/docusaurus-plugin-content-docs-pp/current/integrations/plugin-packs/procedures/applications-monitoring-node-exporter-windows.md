@@ -208,7 +208,7 @@ yum install centreon-plugin-Applications-Monitoring-Nodeexporter-Windows
 |:------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | NODEEXPORTERPROTO | Specify https if needed (default: 'http')                                                            | http              |             |
 | NODEEXPORTERURL   | URL to scrape metrics from (default: '/metrics')                                                     | /metrics          |             |
-| NODEEXPORTERPORT  | Port used (default: 80)                                                                              | 9182              |             |
+| NODEEXPORTERPORT  | Port used                                                                             | 9182              |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
