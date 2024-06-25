@@ -338,7 +338,7 @@ chown centreon-engine: /etc/centreon-engine/conf-*
 
 > The `-days 365` option limits the certificate validity to one year. You may choose a longer or shorter duration according to your security/maintainance preferences.
 
-2. Then define Engine's configuration server for Telegraf.
+2. Then provide Engine with the connection information it needs to give to the Telegraf agent so that it can send information to Engine.
 
 ```bash
 cat > /etc/centreon-engine/otl_server.json <<EOF
@@ -479,7 +479,7 @@ echo 'deb [signed-by=/etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg] https
 apt-get update
 ```
 
-Si des erreurs concernant le dépôt **Sury** apparaissent à ce stade, lancez `apt-key adv --fetch-keys 'https://packages.sury.org/php/apt.gpg' > /dev/null 2>&1` puis `apt-get update`.
+If errors regarding the **Sury** repository appear, run `apt-key adv --fetch-keys 'https://packages.sury.org/php/apt.gpg' > /dev/null 2>&1` then `apt-get update`.
 
 ```bash
 apt-get -y install telegraf
@@ -506,13 +506,6 @@ systemctl restart telegraf
 usermod -a -G systemd-journal telegraf
 systemctl restart telegraf
 ```
-
-
-
-repere
-
-
-
 5. Add the Centreon plugins repository and install the local Linux plugin.
 
 <Tabs groupId="sync">

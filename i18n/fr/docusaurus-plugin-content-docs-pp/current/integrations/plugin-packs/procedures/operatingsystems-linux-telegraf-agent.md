@@ -510,12 +510,6 @@ usermod -a -G systemd-journal telegraf
 systemctl restart telegraf
 ```
 
-
-
-repere
-
-
-
 5. Ajoutez le dépôt des plugins Centreon et installez le plugin local pour Linux.
 
 <Tabs groupId="sync">
