@@ -40,7 +40,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle | Description                                                                                                                                                                                                                                         |
 |:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **App-DB-Informix-SNMP-custom** host template |
+| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](https://docs.centreon.com/fr/pp/integrations/plugin-packs/procedures/applications-protocol-snmp/) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **App-DB-Informix-SNMP-custom** |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -255,9 +255,9 @@ yum install centreon-plugin-Applications-Databases-Informix-Snmp
 | Macro          | Description                                                                                                                                                       | Valeur par défaut           | Obligatoire |
 |:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
 | FILTERNAME     | Filter chunk name (can be a regexp)                                                                                                                               |                             |             |
-| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN (default: ''). You can use the following variables: %{status}, %{display}                             |                             |             |
+| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{display}                             |                             |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /inconsistent/'). You can use the following variables: %{status}, %{display} | %{status} =~ /inconsistent/ |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{status}, %{display}                             |                             |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{display}                             |                             |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                | --verbose                   |             |
 
 </TabItem>
@@ -335,8 +335,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
-	--warning-sessions='' \
-	--critical-sessions=''
+	--warning-sessions='10' \
+	--critical-sessions='20'
 ```
 
 La commande devrait retourner un message de sortie similaire à :

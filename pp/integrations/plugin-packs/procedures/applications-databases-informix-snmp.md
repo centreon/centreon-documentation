@@ -256,9 +256,9 @@ yum install centreon-plugin-Applications-Databases-Informix-Snmp
 | Macro          | Description                                                                                                                                                       | Default value               | Mandatory   |
 |:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
 | FILTERNAME     | Filter chunk name (can be a regexp)                                                                                                                               |                             |             |
-| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN (default: ''). You can use the following variables: %{status}, %{display}                             |                             |             |
+| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{display}                             |                             |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /inconsistent/'). You can use the following variables: %{status}, %{display} | %{status} =~ /inconsistent/ |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{status}, %{display}                             |                             |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{display}                             |                             |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                | --verbose                   |             |
 
 </TabItem>
@@ -334,8 +334,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
-	--warning-sessions='' \
-	--critical-sessions=''
+	--warning-sessions='10' \
+	--critical-sessions='20'
 ```
 
 The expected command output is shown below:
