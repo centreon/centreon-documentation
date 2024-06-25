@@ -330,7 +330,7 @@ minimum la version `24.04.2` de `centreon-engine`. L'agent Telegraf devra se con
 
 1. Pour cela il faut commencer par obtenir un certificat valide pour le collecteur, ou le générer, par exemple avec la commande ci-dessous :
 
-> Dans les prérequis suivants, remplacez `${HOSTNAME}` par le FQDN du collecteur si la valeur de cette variable ne correspond 
+> Dans la commande suivante, remplacez `${HOSTNAME}` par le FQDN du collecteur si la valeur de cette variable ne correspond 
 > pas. Si vous paramétrez l'accès au serveur de configuration via l'adresse IP du collecteur plutôt que son FQDN,
 > Telegraf refusera le certificat.
 
@@ -371,9 +371,9 @@ chown centreon-engine: /etc/centreon-engine/otl_server.json
 
 ### Configuration de Centreon Engine
 
-1. Dans le menu **Configuration > Pollers > Engine configuration**, sous l'onglet **Data**, ajoutez une entrée dans les modules Broker à charger et inscrivez-y la directive `/usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json`. Sauvegardez le formulaire.
+1. Dans le menu **Configuration > Collecteurs > Configuration de Centreon Engine**, sous l'onglet **Données**, ajoutez une entrée dans les modules Broker à charger et inscrivez-y la directive `/usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json`. Sauvegardez le formulaire.
 
-2. Exportez la configuration du collecteur ___avec redémarrage___ de **Centreon Engine**.
+2. Exportez la configuration du collecteur, en sélectionnant l'option **Redémarrer**.
 
 ### Prérequis système sur l'hôte à superviser
 
@@ -644,7 +644,7 @@ apt-get update && apt-get -y install centreon-plugin-operatingsystems-linux-loca
 </TabItem>
 </Tabs>
 
-6. Redémarrez le service telegraf.
+6. Redémarrez le service **telegraf**.
 
 ```bash
 systemctl restart telegraf
@@ -703,7 +703,7 @@ Dans le menu **Configuration > Commandes > Connecteurs**, cliquez sur **Ajouter*
 | Nom du connecteur         | Telegraf Agent                                                                                                                                                                                                                   |
 | Description du connecteur | Telegraf Agent                                                                                                                                                                                                                   |
 | Ligne de commande         | `opentelemetry --processor=nagios_telegraf --extractor=attributes --host_path=resourceMetrics.scopeMetrics.metrics.dataPoints.attributes.host --service_path=resourceMetrics.scopeMetrics.metrics.dataPoints.attributes.service` |
-| Utilisé par la commande   | Selectionner toutes les commandes dont le nom correspond à `OS-Linux-Telegraf-Agent-*`                                                                                                                                           |
+| Utilisé par la commande   | Sélectionnez toutes les commandes dont le nom correspond à `OS-Linux-Telegraf-Agent-*`                                                                                                                                           |
 | Statut du connecteur      | Activé                                                                                                                                                                                                                           |
 
 ### Plugin

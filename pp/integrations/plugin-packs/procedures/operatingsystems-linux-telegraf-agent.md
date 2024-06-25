@@ -33,7 +33,7 @@ The connector brings the following service templates (sorted by the host templat
 | Cpu           | OS-Linux-Cpu-Telegraf-Agent-custom    | Check the rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |
 | Load          | OS-Linux-Load-Telegraf-Agent-custom   | Check the server load average                                                                                                                      |
 | Memory        | OS-Linux-Memory-Telegraf-Agent-custom | Check the rate of the utilization of memory                                                                                                        |
-| Ntp           | OS-Linux-Ntp-Telegraf-Agent-custom    | Check system time synchronization with NTP server                                                                                                  |
+| Ntp           | OS-Linux-Ntp-Telegraf-Agent-custom    | Check system time synchronization with an NTP server                                                                                                  |
 | Swap          | OS-Linux-Swap-Telegraf-Agent-custom   | Check virtual memory usage                                                                                                                         |
 | Uptime        | OS-Linux-Uptime-Telegraf-Agent-custom | Time since the server has been working and available                                                                                               |
 
@@ -316,10 +316,10 @@ The prerequisites below have to be applied to the Linux servers to be monitored.
 
 Two TCP flows must be open from the host to the poller.
 
-| Source | Destination    | Protocole | Port | Purpose |
+| Source | Destination    | Protocol | Port | Purpose |
 | ------ | -------------- | --------- | ---- | --- |
-| Hôte supervisé | Collecteur  | TCP       | 1443 | Access to Telegraf agent's configuration. |
-| Hôte supervisé | Collecteur  | TCP       | 4317 | OpenTelemetry data flow. |
+| Monitored host | Poller | TCP       | 1443 | Access to the Telegraf agent's configuration. |
+| Monitored host | Poller | TCP       | 4317 | OpenTelemetry data flow. |
 
 ### System prerequisites on the poller
 
@@ -327,8 +327,8 @@ Two TCP flows must be open from the host to the poller.
 
 1. For this to work, you must first get a valid certificate or generate a self-signed one on the poller as detailed below.
 
-> In the next prerequisites, replace `${HOSTNAME}` with the poller's FQDN if they don't match.
-> If you set the access parameters to the configuration server by IP address instead of FQDN,
+> In the command below, replace `${HOSTNAME}` with the poller's FQDN if they don't match.
+> If you set an IP address in the access parameters to the configuration server instead of an FQDN,
 > the Telegraf agent will refuse the certificate.
 
 ```bash
@@ -368,9 +368,9 @@ chown centreon-engine: /etc/centreon-engine/otl_server.json
 
 ### Configuration de Centreon Engine
 
-1. In the **Configuration > Pollers > Engine configuration** menu, under the **Data** tab, add an entry to the Broker modules to load and enter the `/usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json` directive. Save the form.
+1. In the **Configuration > Pollers > Engine configuration** menu, on the **Data** tab, add an entry to the Broker modules to load and enter the `/usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json` directive. Save the form.
 
-2. Export the poller's configuration ___with a restart___ of **Centreon Engine**.
+2. Export the poller's configuration, selecting the **Restart** option.
 
 ### System prerequisites on the monitored host
 
@@ -429,7 +429,7 @@ dnf -y install epel-release
 dnf -y config-manager --set-enabled 'powertools'
 ```
 
-This part is an exerpt from [Telegraf's official documentation](https://docs.influxdata.com/telegraf/v1/install/?t=RedHat+%26amp%3B+CentOS).
+This part is an excerpt from [Telegraf's official documentation](https://docs.influxdata.com/telegraf/v1/install/?t=RedHat+%26amp%3B+CentOS).
 
 ```bash
 cat > /etc/yum.repos.d/influxdb.repo <<'EOF'
@@ -452,7 +452,7 @@ dnf -y install epel-release
 dnf -y config-manager --set-enabled 'crb'
 ```
 
-This part is an exerpt from [Telegraf's official documentation](https://docs.influxdata.com/telegraf/v1/install/?t=RedHat+%26amp%3B+CentOS).
+This part is an excerpt from [Telegraf's official documentation](https://docs.influxdata.com/telegraf/v1/install/?t=RedHat+%26amp%3B+CentOS).
 
 ```bash
 cat > /etc/yum.repos.d/influxdb.repo <<'EOF'
@@ -470,7 +470,7 @@ yum install -y telegraf
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
-This part is an exerpt from [Telegraf's official documentation](https://docs.influxdata.com/telegraf/v1/install/).
+This part is an excerpt from [Telegraf's official documentation](https://docs.influxdata.com/telegraf/v1/install/).
 
 ```bash
 wget -q https://repos.influxdata.com/influxdata-archive_compat.key -O influxdata-archive_compat.key
@@ -488,7 +488,7 @@ apt-get -y install telegraf
 </TabItem>
 </Tabs>
 
-3. Set-up the Telegraf agent so that it retrieves its configuration from the poller.
+3. Set up the Telegraf agent so that it retrieves its configuration from the poller.
 
 ```bash
 cat > /etc/default/telegraf <<EOF
@@ -497,7 +497,7 @@ EOF
 systemctl restart telegraf
 ```
 
-> - Make sure you replaced `mypoller.local` with the poller's FQDN.
+> - Make sure you replace `mypoller.local` with the poller's FQDN.
 > - If the name of the host to monitor is different from the `$HOSTNAME` variable's content, you'll have to change it inside the `/etc/default/telegraf` file.
 
 4. To allow the Telegraf agent to run checks on **systemd-journal**, run these commands.
@@ -641,7 +641,7 @@ apt-get update && apt-get -y install centreon-plugin-operatingsystems-linux-loca
 </TabItem>
 </Tabs>
 
-6. Restart the telegraf service.
+6. Restart the **telegraf** service.
 
 ```bash
 systemctl restart telegraf
