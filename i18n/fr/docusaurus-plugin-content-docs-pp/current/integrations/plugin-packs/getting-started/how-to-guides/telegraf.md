@@ -275,7 +275,7 @@ Deux flux seront chiffrés : la configuration envoyée par le collecteur vers l'
 
 1. Créez les certificats.
 2. Copiez les certificats sur le collecteur qui recevra les données de Telegraf.
-3. Entrez le chamin des certificats dans le fichier **otl_server.json**.
+3. Entrez le chemin des certificats dans le fichier **otl_server.json**.
 
 ```json
 broker_module=/usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json
