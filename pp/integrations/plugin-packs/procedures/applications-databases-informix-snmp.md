@@ -341,7 +341,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All instances are ok | '*global*#sessions'=;;;0;
+OK: All instances are ok | '*global*#sessions'=7;10;20;0;
 ```
 
 ### Troubleshooting
