@@ -18,6 +18,20 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 22.10.23
+
+Release date: `June 26, 2024`
+
+#### Bug fixes
+
+- [Configuration] Fixed mass change on services.
+- [Unattended] Fixed unattended not working on Oracle Linux distributions.
+- [Unattended] Fixed default version used by the script. 
+
+#### Security fixes
+
+- [Security] Fixed several SQLi issues.
+
 ### 22.10.22
 
 Release date: `May 16, 2024`
@@ -605,6 +619,14 @@ Release date: `October 26, 2022`
 - [Code] Calls to the `atoi()` C function have been replaced by more secure functions
 
 ## Centreon Gorgone
+
+### 22.10.8
+
+Release date: `June 26, 2024`
+
+#### Bug fixes
+
+- Fixed gorgone whitelist for HA architecture.
 
 ### 22.10.7
 
