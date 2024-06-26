@@ -28,7 +28,7 @@ Dans Centreon Cloud, les utilisateurs peuvent avoir 3 rôles, chacun avec des dr
   * voir la liste des collecteurs et exporter la configuration
   * installer des connecteurs de supervision.
 
-* **Administrator**. Les administrateurs peuvent faire les mêmes choses que les éditeurs, mais ils peuvent également inviter des utilisateurs via le CIAM.
+* **Administrator**. Les administrateurs peuvent faire les mêmes choses que les éditeurs, mais ils peuvent également inviter des utilisateurs via le CIAM, et [leur attribuer des droits sur les ressources](../administration/resource_access.md).
 
 ## Créer des utilisateurs
 
