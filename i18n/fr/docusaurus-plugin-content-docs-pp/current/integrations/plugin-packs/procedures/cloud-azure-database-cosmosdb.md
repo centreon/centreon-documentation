@@ -7,10 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-Azure Cosmos DB est une base de données NoSQL complètement managée pour le développement d’applications modernes. Les temps de
-réponse inférieurs à dix millisecondes et la scalabilité automatique et instantanée garantissent une vitesse, quelle que soit l’échelle.
-
-Le connecteur de supervision Centreon *Azure Cosmos DB* s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
+Le connecteur de supervision Centreon **Azure Cosmos DB** s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
 Cosmos DB. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
 
 ## Contenu du pack
@@ -226,7 +223,7 @@ yum install centreon-plugin-Cloud-Azure-Database-CosmosDb-Api
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Remplissez le champ **Adresse IP/DNS** avec l'adresse **127.0.0.1**.
 3. Appliquez le modèle d'hôte **Cloud-Azure-Database-CosmosDb-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
-4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires. Par exemple, pour ce connecteur, **AZURECUSTOMMODE** (valeurs possibles : **api** ou **azcli**). En effet, il existe plusieurs modes de communication avec l'équipement supervisé : soit l'outil en ligne de commande azcli, soit une interrogation directe de l'api.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires. Par exemple, pour ce connecteur, **AZURECUSTOMMODE** (valeurs possibles : **api** ou **azcli**). En effet, il existe plusieurs modes de communication avec l'équipement supervisé : soit l'outil en ligne de commande azcli, soit une interrogation directe de l'API.
 
 <Tabs groupId="sync">
 <TabItem value="Azure Monitor API" label="Azure Monitor API">
@@ -243,7 +240,7 @@ yum install centreon-plugin-Cloud-Azure-Database-CosmosDb-Api
 | PROXYURL           | Proxy URL if any                                                                                                           |                   |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
 
-> Paramétrez les options suivantes dans la macro EXTRAOPTIONS si vous superviser des ressources Microsoft Azure géré par 21Vianet (Azure China):
+> Paramétrez les options suivantes dans la macro EXTRAOPTIONS si vous supervisez des ressources Microsoft Azure gérées par 21Vianet (Azure China):
 --management-endpoint='https://management.chinacloudapi.cn' --login-endpoint='https://login.partner.microsoftonline.cn'.
 
 </TabItem>
@@ -297,14 +294,14 @@ yum install centreon-plugin-Cloud-Azure-Database-CosmosDb-Api
 | AGGREGATION                    | Aggregate monitoring. Can apply to: 'minimum', 'maximum', 'average', and 'total'.                                                                                                   | Average           |             |
 | FILTERMETRIC                   | Filter on a specific metric.                                                                                                   |                   |             |
 | FILTERDIMENSION                | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'"                                                                                                    |                   |             |
-| WARNINGCACHEEVICTEDSIZE        | Warning threshold where '*'                                                                        |                   |             |
-| CRITICALCACHEEVICTEDSIZE       | Critical threshold where '*'                                                                       |                   |             |
-| WARNINGCACHEHITRATEPERCENTAGE  | Warning threshold where '*'                                                                        |                   |             |
-| CRITICALCACHEHITRATEPERCENTAGE | Critical threshold where '*'                                                                       |                   |             |
-| WARNINGCACHESIZE               | Warning threshold where '*'                                                                        |                   |             |
-| CRITICALCACHESIZE              | Critical threshold where '*'                                                                       |                   |             |
-| WARNINGCACHETTLEXPIRATION      | Warning threshold where '*'                                                                        |                   |             |
-| CRITICALCACHETTLEXPIRATION     | Critical threshold where '*'                                                                       |                   |             |
+| WARNINGCACHEEVICTEDSIZE        | Warning threshold                                                                          |                   |             |
+| CRITICALCACHEEVICTEDSIZE       | Critical threshold                                                                        |                   |             |
+| WARNINGCACHEHITRATEPERCENTAGE  | Warning threshold                                                                         |                   |             |
+| CRITICALCACHEHITRATEPERCENTAGE | Critical threshold                                                                        |                   |             |
+| WARNINGCACHESIZE               | Warning threshold                                                                         |                   |             |
+| CRITICALCACHESIZE              | Critical threshold                                                                        |                   |             |
+| WARNINGCACHETTLEXPIRATION      | Warning threshold                                                                         |                   |             |
+| CRITICALCACHETTLEXPIRATION     | Critical threshold                                                                        |                   |             |
 | EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -317,10 +314,10 @@ yum install centreon-plugin-Cloud-Azure-Database-CosmosDb-Api
 | AGGREGATION           | Aggregate monitoring. Can apply to: 'minimum', 'maximum', 'average', and 'total'.                                                                                                   | Total             |             |
 | FILTERMETRIC          | Filter on a specific metric.                                                                                                   |                   |             |
 | FILTERDIMENSION       | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'"                                                                                                    |                   |             |
-| WARNINGDOCUMENTCOUNT  | Warning threshold where '*'                                                                        |                   |             |
-| CRITICALDOCUMENTCOUNT | Critical threshold where '*'                                                                       |                   |             |
-| WARNINGDOCUMENTQUOTA  | Warning threshold where '*'                                                                        |                   |             |
-| CRITICALDOCUMENTQUOTA | Critical threshold where '*'                                                                       |                   |             |
+| WARNINGDOCUMENTCOUNT  | Warning threshold                                                                         |                   |             |
+| CRITICALDOCUMENTCOUNT | Critical threshold                                                                        |                   |             |
+| WARNINGDOCUMENTQUOTA  | Warning threshold                                                                         |                   |             |
+| CRITICALDOCUMENTQUOTA | Critical threshold                                                                        |                   |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -344,10 +341,10 @@ yum install centreon-plugin-Cloud-Azure-Database-CosmosDb-Api
 | AGGREGATION                | Aggregate monitoring. Can apply to: 'minimum', 'maximum', 'average', and 'total'.                                                                                                   | Average           |             |
 | FILTERMETRIC               | Filter on a specific metric.                                                                                                   |                   |             |
 | FILTERDIMENSION            | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'"                                                                                                    |                   |             |
-| WARNINGREPLICATIONLATENCY  | Warning threshold where '*'                                                                        |                   |             |
-| CRITICALREPLICATIONLATENCY | Critical threshold where '*'                                                                       |                   |             |
-| WARNINGSERVERSIDELATENCY   | Warning threshold where '*'                                                                        |                   |             |
-| CRITICALSERVERSIDELATENCY  | Critical threshold where '*'                                                                       |                   |             |
+| WARNINGREPLICATIONLATENCY  | Warning threshold                                                                         |                   |             |
+| CRITICALREPLICATIONLATENCY | Critical threshold                                                                        |                   |             |
+| WARNINGSERVERSIDELATENCY   | Warning threshold                                                                         |                   |             |
+| CRITICALSERVERSIDELATENCY  | Critical threshold                                                                        |                   |             |
 | EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -360,10 +357,10 @@ yum install centreon-plugin-Cloud-Azure-Database-CosmosDb-Api
 | AGGREGATION                    | Aggregate monitoring. Can apply to: 'minimum', 'maximum', 'average', and 'total'.                                                                                                   | Maximum           |             |
 | FILTERMETRIC                   | Filter on a specific metric.                                                                                                   |                   |             |
 | FILTERDIMENSION                | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'"                                                                                                    |                   |             |
-| WARNINGAUTOSCALEMAXTHROUGHPUT  | Warning threshold where '*'                                                                        |                   |             |
-| CRITICALAUTOSCALEMAXTHROUGHPUT | Critical threshold where '*'                                                                       |                   |             |
-| WARNINGPROVISIONEDTHROUGHPUT   | Warning threshold where '*'                                                                        |                   |             |
-| CRITICALPROVISIONEDTHROUGHPUT  | Critical threshold where '*'                                                                       |                   |             |
+| WARNINGAUTOSCALEMAXTHROUGHPUT  | Warning threshold                                                                         |                   |             |
+| CRITICALAUTOSCALEMAXTHROUGHPUT | Critical threshold                                                                        |                   |             |
+| WARNINGPROVISIONEDTHROUGHPUT   | Warning threshold                                                                         |                   |             |
+| CRITICALPROVISIONEDTHROUGHPUT  | Critical threshold                                                                        |                   |             |
 | EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -390,10 +387,10 @@ yum install centreon-plugin-Cloud-Azure-Database-CosmosDb-Api
 | AGGREGATION        | Aggregate monitoring. Can apply to: 'minimum', 'maximum', 'average', and 'total'.                                                                                                   | Total             |             |
 | FILTERMETRIC       | Filter on a specific metric.                                                                                                   |                   |             |
 | FILTERDIMENSION    | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'"                                                                                                    |                   |             |
-| WARNINGDATAUSAGE   | Warning threshold where '*'                                                                        |                   |             |
-| CRITICALDATAUSAGE  | Critical threshold where '*'                                                                       |                   |             |
-| WARNINGINDEXUSAGE  | Warning threshold where '*'                                                                        |                   |             |
-| CRITICALINDEXUSAGE | Critical threshold where '*'                                                                       |                   |             |
+| WARNINGDATAUSAGE   | Warning threshold                                                                         |                   |             |
+| CRITICALDATAUSAGE  | Critical threshold                                                                        |                   |             |
+| WARNINGINDEXUSAGE  | Warning threshold                                                                         |                   |             |
+| CRITICALINDEXUSAGE | Critical threshold                                                                        |                   |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
