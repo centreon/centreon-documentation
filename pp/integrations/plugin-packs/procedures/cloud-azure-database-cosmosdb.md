@@ -7,9 +7,6 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-Azure Cosmos DB is a fully managed NoSQL database for modern app development. Single-digit millisecond response times, and
-automatic and instant scalability, guarantee speed at any scale.
-
 The Centreon Monitoring Connector *Azure Cosmos DB* can rely on Azure API or Azure CLI to collect the metrics related to the
 Cosmos DB service.
 
