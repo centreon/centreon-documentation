@@ -1,6 +1,6 @@
 ---
 id: dashboards
-title: Dashboards Beta
+title: Dashboards
 ---
 
 Get started with creating dashboards and adding widgets specially designed to optimize your user experience. Then benefit from data visualization options to display and monitor your resources in real time.
@@ -11,7 +11,7 @@ Get started with creating dashboards and adding widgets specially designed to op
 
 > You must be logged into Centreon with administrator or creator rights.
 
-1. Go to **Home > Dashboards Beta**.
+1. Go to **Home > Dashboards**.
 2. In the **Dashboard library** page, click the **Create a dashboard** button. This opens the **Create dashboard** modal.
 3. Name the dashboard and enter a description if needed.
 4. Click **Create** to confirm the creation.
@@ -37,7 +37,7 @@ Most of the widgets usually follow these steps:
 
 ### More actions
 
-Click the **three vertical dots** menu at the top right of the widget to edit it or to access more actions:
+Click the **three dots** menu at the top right of the widget to edit it or to access more actions:
 - Refresh
 - Duplicate
 - Delete widget
@@ -50,35 +50,41 @@ From the dashboard, you can click a screen pictogram at the top right of a widge
 
 ## Managing dashboards
 
-> You must be in the **Dashboard library** page to get an overview of your dashboards.
+> You must be in the **Dashboards** page to get an overview of your dashboards.
 
-### Edit a dashboard
+> The location of action buttons differs slightly depending on whether you are in the **View as cards** or **View as list** mode.
 
-#### Update properties
+### Update properties
 
-Click the **gear** button at the bottom right of the dashboard to update its name and description.
+From the **More actions** button, click **Edit properties** to update the dashboard's name and description.
 
-#### Edit dashboard widgets 
+### Duplicate a dashboard
+
+From the **More actions** button, click **Duplicate** to make a copy of the dashboard.
+
+### Delete a dashboard
+
+From the **More actions** button, click **Delete** and confirm the deletion of the dashboard.
+
+### Edit dashboard widgets 
 
 1. Click the dashboard to open it in view mode.
 2. Click **Edit dashboard** to access and manage widgets in edition mode.
 
-### Delete a dashboard
+## Sharing dashboards
 
-Click the **trash** button at the bottom left of the dashboard to delete it. Then confirm the deletion.
+You can share dashboards using the **Manage access rights** interface.
 
-### Share a dashboard
+- Click the **Share with contacts button** from the dashboard to share.
 
-> You can share dashboards using the **Manage access rights** interface.
-
-#### About access rights
+### About access rights
 
 You are using the Dashboards feature with a **viewer** or an **editor** profile:
 
 - **Viewers:** can only view dashboards you share with them.
-- **Editors:** can view and edit dashboards you share with them.
+- **Editors:** can view, edit and share dashboards.
 
-#### Manage access rights
+### Manage access rights
 
 1. Click the **share** button at the bottom right of the dashboard.
 2. In the **Add contact** dropdown list, select the user to add.
@@ -140,6 +146,7 @@ The three dots action menu at the end of a playlist row allows you to edit prope
 
 | Widget                   | Description                                                                                                                                                                                                                                                                                                    |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Business Activity Diagram           | Displays graphically a business activity hierarchy of KPIs and lets you navigate through it.   |
 | Generic text           | Allows you to add free text to your dashboards (section titles, information, etc.).   |
 | Group monitoring	|  Displays the distribution of current statuses on selected groups of resources, as a table.   |
 | MAP - Display a view            |  Allows you to select and visualize a map created from the MAP module.  |

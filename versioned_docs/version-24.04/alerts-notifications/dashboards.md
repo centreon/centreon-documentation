@@ -83,7 +83,6 @@ From the dashboard, you can click a screen pictogram at the top right of a widge
 
 ### Edit a dashboard
 
-
 #### Update properties
 
 Click the **gear** button at the bottom right of the dashboard to update its name and description.
