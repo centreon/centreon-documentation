@@ -36,7 +36,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Nom de la règle | Description                                                                                                                                                                                                                                            |
 |:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **App-Microsoft-Dhcp-SNMP-custom** host template |
+| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](https://docs.centreon.com/fr/pp/integrations/plugin-packs/procedures/applications-protocol-snmp/) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **App-Microsoft-Dhcp-SNMP-custom** |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
