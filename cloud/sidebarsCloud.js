@@ -556,8 +556,12 @@ module.exports = {
       "items": [
         {
           "type": "doc",
-          "id": "resources/glossary"
+          "id": "resources/known-issues"
         },
+        {
+          "type": "doc",
+          "id": "resources/glossary"
+        }
       ]
     }
   ]
