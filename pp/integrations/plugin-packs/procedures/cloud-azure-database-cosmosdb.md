@@ -156,7 +156,7 @@ dnf install centreon-pack-cloud-azure-database-cosmosdb
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-cloud-azure-database-cosmosdb
@@ -203,7 +203,7 @@ dnf install centreon-plugin-Cloud-Azure-Database-CosmosDb-Api
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-cloud-azure-database-cosmosdb-api
