@@ -2,7 +2,7 @@
 id: cloud-release-notes
 title: Centreon Cloud - notes de release
 ---
-## June XX, 2024
+## June 26, 2024
 
 ### Resource Access Management
 
