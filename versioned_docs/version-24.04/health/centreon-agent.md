@@ -1,24 +1,25 @@
 ---
 id: centreon-agent
-title: Installing the Centreon Agent
+title: Installing Centreon Helios
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> This documentation concerns only MSP customers.
 
 ## Overview
 
-The Centreon Agent is a light piece of software that monitors its host machine and the services that run on it.
+Centreon Helios is a light piece of software that monitors its host machine and the services that run on it.
 
-The Agent can be used to monitor servers that operate an On-Premise Centreon service (Central, Remote Server, Poller, Map, etc.). The Agent is available on Alma/RHEL/Oracle Linux 8 and 9.
+Helios can be used to monitor servers that operate an On-Premise Centreon service (Central, Remote Server, Poller, Map, etc.). Helios is available on Alma/RHEL/Oracle Linux 8 and 9.
 
 The data is sent to the Centreon Cloud Platform. No personal data is collected.
 
->Although the following procedure and the Agent configuration files in general allow for some customization, we strongly advise you to leave the filenames etc. as shown here.
+> Although the following procedure and the Helios configuration files in general allow for some customization, we strongly advise you to leave the filenames etc. as shown here.
 
 ## Requirements
 
-- In order for the metrics to reach the Centreon Cloud Platform (where the monitoring of the monitoring is done), a Centreon Agent must be able to access our public endpoint at the following URL:
+- In order for the metrics to reach the Centreon Cloud Platform (where the monitoring of the monitoring is done), Centreon Helios must be able to access our public endpoint at the following URL:
 
     ```https://api.a.prod.mycentreon.com/v1/observability``` (port 443)
 
@@ -50,7 +51,7 @@ The data is sent to the Centreon Cloud Platform. No personal data is collected.
 
     If you receive a different answer or no answer, your machine cannot reach our endpoint, probably because of your network rules (firewall, proxy, etc.).
 
-    >If a proxy access is configured on the host machine, you need to copy the address and port of the proxy to the Agent’s configuration file (see section [Network](#network)).
+    > If a proxy access is configured on the host machine, you need to copy the address and port of the proxy to Helios’s configuration file (see section [Network](#network)).
 
 - If a host machine does not have direct access to the outside, two options that complement each other are provided: [proxy configuration](#proxy-configuration) and [gateway configuration](#gateway-configuration).
 
@@ -81,21 +82,21 @@ dnf update
 
 - You must be in possession of your unique token that allows you to send data to our platform. This token is provided to you by our Support team.
 
-## Installing the Agent
+## Installing Helios
 
-All Centreon components you wish to monitor (Central, Poller, Remote Server, Database, etc.) must each have an Agent installed on their host machine.
+All Centreon components you wish to monitor (Central, Poller, Remote Server, Database, etc.) must each have Helios installed on their host machine.
 
 ### On a Centreon Central Server
 
-1. Install the Agent:
+1. Install Helios:
 
     ```
     dnf install centreon-agent
     ```
 
-2. If this is the first time you are installing the Agent on the server, generate the yaml configuration file with the following Shell command:
+2. If this is the first time you are installing Helios on the server, generate the yaml configuration file with the following Shell command:
 
-    >You need to carry out this step only if the Agent has not been previously configured; otherwise you will overwrite your previous configuration.
+    >You need to carry out this step only if Helios has not been previously configured; otherwise you will overwrite your previous configuration.
 
     ```yaml
     /usr/sbin/centreon-agent config \
@@ -136,9 +137,9 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
             storage_dsn: admin:UzG2b5wcMf8EqM2b@tcp(172.28.2.60)/centreon_storage
         ```
 
-        This example is correct only if the database is on the same machine as the central server. If you have a remote database, see [Remote database](#remote-database). 
+        This example is correct only if the database is on the same machine as the central server. If you have a remote database, see [Remote database](#remote-database).
 
-        >The Topology function uses the `centreon-agent.yml` file to gather the information it needs: this is hard-coded. If you change the name of this YAML file, the function will fail.
+        > The Topology function uses the `centreon-agent.yml` file to gather the information it needs: this is hard-coded. If you change the name of this YAML file, the function will fail.
 
 3. Add an **environment** [tag](#tags):
 
@@ -159,7 +160,7 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
 
     If you have multiple environments of the same kind, you can suffix your type of environment (for instance: "production_client1").
 
-4. Enable the **centreon-agent** Service:
+4. Enable the **centreon-agent** service:
 
     ```
     systemctl enable centreon-agent.service
@@ -178,19 +179,19 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
    systemctl restart gorgoned
    ```
 
-7. You can now [configure your Agent](#configuring-the-agent) (gateway, proxy etc.) and then [test](#testing-the-agent) your overall configuration.
+7. You can now [configure Helios](#configuring-helios) (gateway, proxy etc.) and then [test](#testing-helios) your overall configuration.
 
 ### On other host machines (Remote Server, Poller, MAP, etc.)
 
-1. Install the Agent:
+1. Install Helios:
 
     ```
     dnf install centreon-agent
     ```
 
-2. If this is the first time you are installing the Agent on the machine, configure the `centreon-agent.yml` file:
+2. If this is the first time you are installing Helios on the machine, configure the `centreon-agent.yml` file:
 
-    >You need to carry out this step only if the Agent has not been previously configured; otherwise you will overwrite your previous configuration.
+    >You need to carry out this step only if Helios has not been previously configured; otherwise you will overwrite your previous configuration.
 
     ```yaml
     /usr/sbin/centreon-agent config \
@@ -228,7 +229,7 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
 
     If you have multiple environments of the same kind, you can suffix your type of environment, for instance: "production_client1".
 
-4. Enable the **centreon-agent** Service:
+4. Enable the **centreon-agent** service:
 
     ```
     systemctl enable centreon-agent.service
@@ -240,23 +241,23 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
     systemctl start centreon-agent.service
     ```
 
-7. You can now [configure your Agent](#configuring-the-agent) (Gateway, proxy etc.) and then [test](#testing-the-agent) your overall configuration.
+7. You can now [configure Helios](#configuring-helios) (Gateway, proxy etc.) and then [test](#testing-helios) your overall configuration.
 
-## Configuring the Agent
+## Configuring Helios
 
 ### Network
 
-If an Agent does not have direct access to the outside, two options allow you to circumvent this: access through an HTTP proxy and/or access through the Gateway mode. For Gateway mode, the Agent that needs access (called “Gateway Client”) can get through another Agent (called “Gateway Server”) that does have access to the outside.
+If Helios does not have direct access to the outside, two options allow you to circumvent this: access through an HTTP proxy and/or access through the Gateway mode. For Gateway mode, a Helios that needs access (called “Gateway Client”) can get through another Helios instance (called “Gateway Server”) that does have access to the outside.
 
 **Example**
 
-Your infrastructure is protected within a closed system and you have a proxy Server to manage all outgoing traffic. The Agent installed on the machine hosting the Centreon Central Server is the only one you want to grant access to the outside. In this case, you could configure your network as such:
+Your infrastructure is protected within a closed system and you have a proxy Server to manage all outgoing traffic. The Helios installed on the machine hosting the Centreon Central Server is the only one you want to grant access to the outside. In this case, you could configure your network as such:
 
-- Configure the proxy option on the Central Agent to grant it access to the outside
+- Configure the proxy option on the Central Helios to grant it access to the outside
 
-- Configure this same Agent as a Gateway Server
+- Configure this same Helios as a Gateway Server
 
-- Configure all other Agents (installed next to Pollers, Remote Servers, MAP, etc.) as Gateway Clients
+- Configure all other Helios instances (installed next to Pollers, Remote Servers, MAP, etc.) as Gateway Clients.
 
 #### Proxy Configuration
 
@@ -278,7 +279,7 @@ output:
   proxy_ssl_insecure: false
 ```
 
-You then need to restart the Agent:
+You then need to restart Helios:
 
 ```
 systemctl restart centreon-agent.service
@@ -286,7 +287,7 @@ systemctl restart centreon-agent.service
 
 #### Gateway Configuration
 
-- Gateway Server: copy the following code to the `/etc/centreon-agent/centreon-agent.yml` file of the Agent that will act as a Gateway server. To strengthen the security of communications between the gateway client and the gateway server, you can define an authentication token (`auth-token`), i.e. the character string you want (this is not the same token as the one you used to configure the `centreon-agent.yml` file).
+- Gateway Server: copy the following code to the `/etc/centreon-agent/centreon-agent.yml` file of the Helios that will act as a Gateway server. To strengthen the security of communications between the gateway client and the gateway server, you can define an authentication token (`auth-token`), i.e. the character string you want (this is not the same token as the one you used to configure the `centreon-agent.yml` file).
 
     ```yaml
     gateway:
@@ -304,7 +305,7 @@ systemctl restart centreon-agent.service
       auth_token: azerty1234
     ```
 
-    You then need to restart the Agent
+    You then need to restart Helios:
 
     ```
     systemctl restart centreon-agent.service
@@ -314,7 +315,7 @@ systemctl restart centreon-agent.service
 
     In a Gateway configuration, the Gateway Client delegates the configuration of its main token to the Gateway Server (since only the latter communicates with our platform).
     As a consequence, the `token` line needs to be commented with the yaml comment operator “#”.
-    If you have defined an authentication token (`auth_token`) on the gateway server, you need to add it to the configuration of the gateway client also. 
+    If you have defined an authentication token (`auth_token`) on the gateway server, you need to add it to the configuration of the gateway client also.
 
     ```yaml
     output:
@@ -334,7 +335,7 @@ systemctl restart centreon-agent.service
         auth_token: azerty1234
     ```
 
-    You then need to restart the Agent
+    You then need to restart Helios:
 
     ```
     systemctl restart centreon-agent.service
@@ -342,7 +343,7 @@ systemctl restart centreon-agent.service
 
 ### Enabling the Collection of Centreon Logs
 
-Starting from version 2 and up of the **centreon-agent**, logs generated by the monitored Centreon component can be collected. 
+Starting from version 2 and up of Helios, logs generated by the monitored Centreon component can be collected.
 
 To define which logs should be collected, you need to create yml configuration files in the following folder: `/etc/centreon-agent/conf.d`.
 To collect a specific log, the configuration file must contain the following arguments: path, type and pattern of the target log file. Example:
@@ -353,7 +354,7 @@ To collect a specific log, the configuration file must contain the following arg
   type: file
 ```
 
-You can have several configuration files. Each file is parsed and its target log files are added to the collection. 
+You can have several configuration files. Each file is parsed and its target log files are added to the collection.
 
 #### Using the Templates
 
@@ -369,16 +370,16 @@ Based on your monitored Centreon component, you can simply copy/paste the corres
 
 #### Finalize template configuration
 
->For a Centreon poller, log files are prefixed with the poller’s name, so you need to adapt the poller template:
-> Open the poller template and replace all `POLLERNAME` placeholders in the “path” section with the actual poller’s name.
+> For a Centreon poller, log files are prefixed with the poller’s name, so you need to adapt the poller template:
+> open the poller template and replace all `POLLERNAME` placeholders in the “path” section with the actual poller’s name.
 
 The templates provided will work out of the box with a standard Centreon installation. In case of doubt, you can locate the actual targeted log file and compare its path to the one written in your “path” section of the template.
 
-In case of errors, you will find detailed explanations of what happened within **centreon-agent**'s own logs in `/var/log/centreon-agent/centreon-agent.log`.
+In case of errors, you will find detailed explanations of what happened within Helios's own logs in `/var/log/centreon-agent/centreon-agent.log`.
 
 #### Start log collection
 
-Once your log collection is properly configured, you need to restart the agent with the following command:
+Once your log collection is properly configured, you need to restart Helios with the following command:
 
 ```
 systemctl restart centreon-agent.service
@@ -386,7 +387,7 @@ systemctl restart centreon-agent.service
 
 ### Tags
 
-The Agent can contextualize data collection with your own custom tags to define the perimeter in which it operates. This is used later on to aggregate the monitoring data around your tags and create dashboards or reports in relevant contexts.
+Helios can contextualize data collection with your own custom tags to define the perimeter in which it operates. This is used later on to aggregate the monitoring data around your tags and create dashboards or reports in relevant contexts.
 
 > We strongly advise you to define the “environment” tag before any others, so that we can establish a common baseline between all users.
 
@@ -409,14 +410,15 @@ collect:
     City: Paris   
 ```
 
-You then need to restart the Agent:
+You then need to restart Helios:
 
 ```
 systemctl restart centreon-agent.service
 ```
 
 ### Remote Database
-If the Centreon component monitored by the Agent is configured with a specific or remote database, you can configure the Agent to access the database in the YAML `/etc/centreon-agent/centreon-agent.yml` file generated at installation.
+
+If the Centreon component monitored by Helios is configured with a specific or remote database, you can configure Helios to access the database in the YAML `/etc/centreon-agent/centreon-agent.yml` file generated at installation.
 
 ```yaml
 collect:
@@ -435,14 +437,15 @@ collect:
 
 ```
 
-You then need to restart the Agent
+You then need to restart Helios:
 
 ```
 systemctl restart centreon-agent.service
 ```
 
 ### Log rotation
-The Agent logs all activity (nominal as well as erroneous) in the `/var/log/centreon-agent/centreon-agent.log` file.
+
+Helios logs all activity (nominal as well as erroneous) in the `/var/log/centreon-agent/centreon-agent.log` file.
 
 A default `/etc/logrotate.d/centreon-agent` file was created at installation and configured as follows:
 
@@ -463,11 +466,11 @@ Use the following command to apply the changes immediately:
 logrotate /etc/logrotate.d/centreon-agent
 ```
 
-## Testing the Agent
+## Testing Helios
 
-### Testing the centreon-agent Service
+### Testing the centreon-agent service
 
-At this stage, the **centreon-agent** Service should be running and set to launch at system start.
+At this stage, the **centreon-agent** service should be running and set to launch at system start.
 The following command checks that the service has been correctly configured:
 
 ```
@@ -486,7 +489,7 @@ systemctl status centreon-agent
            └─22331 /usr/sbin/centreon-agent run
 ```
 
-### Testing Data Collection
+### Testing data collection
 
 Once installation and configuration are done, the following command can be used to force a collection and return a full sample of collected data:
 
@@ -509,19 +512,19 @@ In case of errors while testing the collection, the logs in the `/var/log/centre
 
 ### Testing that you can access the Centreon Cloud Platform
 
-Once installation and configuration are done, the following command can be used to test the connection between the Agent and the Centreon Cloud Platform:
+Once installation and configuration are done, the following command can be used to test the connection between Helios and the Centreon Cloud Platform:
 
 ```
 centreon-agent ping --config [path to your centreon-agent.yml file]
 ```
 
-The Agent will then return one of the following:
+Helios will then return one of the following:
 
 - **Unable to reach the Centreon Cloud Platform, check your network configuration**
 
 - **Centreon Cloud Platform reached successfully but your token is not recognized**
 
-- **Centreon Cloud Platform reached successfully and authentication was successful**: the Agent is properly connected to our platform.
+- **Centreon Cloud Platform reached successfully and authentication was successful**: Helios is properly connected to our platform.
 
 ### Help
 
@@ -531,9 +534,9 @@ If you want to know more about `usr/sbin/centreon-agent`, enter:
 centreon-agent --help
 ```
 
-## Updating the Agent
+## Updating Helios
 
-To update the Agent, enter:
+To update Helios, enter:
 
 ```
 dnf clean all --enablerepo=*
