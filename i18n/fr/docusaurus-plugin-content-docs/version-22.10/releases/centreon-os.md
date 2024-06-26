@@ -25,7 +25,7 @@ Release date: `June 26, 2024`
 #### Bug fixes
 
 - [Configuration] Fixed mass change on services.
-- [Unattended] Fixed unattended not working on Oracle Linux distributions.
+- [Unattended] The unattended script now works on Oracle Linux distributions.
 - [Unattended] Fixed default version used by the script. 
 
 #### Security fixes
