@@ -1,23 +1,25 @@
 ---
 id: centreon-agent
-title: Installer l'Agent Centreon
+title: Installer Centreon Helios
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Cette documentation ne concerne que les clients MSP.
+
 ## Introduction
 
-L'Agent Centreon est un logiciel qui supervise sa machine hôte et les services qui y tournent.
+Helios est un logiciel qui supervise sa machine hôte et les services qui y tournent.
 
-L'Agent peut être utilisé pour superviser des serveurs qui exploitent un service Centreon On-Premise (central, serveur distant, collecteur, Map, etc.). L'Agent est disponible sur Alma/RHEL/Oracle Linux 8 et 9.
+Helios peut être utilisé pour superviser des serveurs qui exploitent un service Centreon On-Premise (central, serveur distant, collecteur, Map, etc.).
 
-Les données sont envoyées vers la Plateforme Centreon Cloud. Aucune donnée personnelle n'est collectée.
+Les données sont envoyées vers la plateforme Centreon Cloud. Aucune donnée personnelle n'est collectée.
 
-> Bien que la procédure suivante et que les fichiers de configuration de l'Agent en général permettent les personnalisations, nous vous recommandons vivement de laisser les noms de fichiers, etc. tels quels.
+> Bien que la procédure suivante et que les fichiers de configuration d'Helios en général permettent les personnalisations, nous vous recommandons vivement de laisser les noms de fichiers, etc. tels quels.
 
 ## Prérequis
 
-- Pour que les métriques parviennent à la Plateforme Centreon Cloud (où la supervision de la supervision est effectuée), l'Agent Centreon doit pouvoir accéder à notre endpoint public à l'adresse suivante :
+- Pour que les métriques parviennent à la plateforme Centreon Cloud (où la supervision de la supervision est effectuée), Helios doit pouvoir accéder à notre endpoint public à l'adresse suivante :
 
     ```https://api.a.prod.mycentreon.com/v1/observability``` (port 443)
 
@@ -50,7 +52,7 @@ Les données sont envoyées vers la Plateforme Centreon Cloud. Aucune donnée pe
 
   Si vous recevez une réponse différente ou pas de réponse du tout, c'est que votre machine ne peut pas accéder à notre endpoint, probablement à cause de vos paramètres réseau (pare-feu, proxy, etc.).
 
-  >Si un proxy est configuré sur la machine hôte, vous devez copier l'adresse et le port du proxy dans le fichier de configuration de l'Agent (voir la section [Réseau](#réseau)).
+  > Si un proxy est configuré sur la machine hôte, vous devez copier l'adresse et le port du proxy dans le fichier de configuration d'Helios (voir la section [Réseau](#réseau)).
 
 - Si une machine hôte n'a pas d'accès direct à l'extérieur, deux options complémentaires l'une de l'autre se présentent : la [configuration proxy](#configuration-proxy) et la [configuration passerelle](#configuration-en-mode-passerelle).
 
@@ -82,21 +84,21 @@ dnf update
 
 - Vous devez être en possession de votre jeton unique vous permettant d'envoyer des données vers notre plateforme. Ce jeton vous est fourni par notre équipe support.
 
-## Installer l'Agent
+## Installer Helios
 
-Tous les composants Centreon que vous voulez superviser (central, collecteur, serveur distant, etc.) doivent chacun avoir un Agent installé sur leur machine hôte.
+Tous les composants Centreon que vous voulez superviser (central, collecteur, serveur distant, etc.) doivent chacun avoir un Helios installé sur leur machine hôte.
 
 ### Sur un serveur central Centreon
 
-1. Installez l'Agent :
+1. Installez Helios :
 
     ```
     dnf install centreon-agent
     ```
 
-2. Si vous installez l'Agent pour la première fois sur ce serveur, générez le fichier yaml de configuration à l'aide de la commande Shell suivante :
+2. Si vous installez Helios pour la première fois sur ce serveur, générez le fichier yaml de configuration à l'aide de la commande Shell suivante :
 
-    >Ne réalisez cette étape que si l'Agent n'a jamais été configuré. Dans le cas contraire, vous écraseriez votre configuration précédente.
+    > Ne réalisez cette étape que si Helios n'a jamais été configuré. Dans le cas contraire, vous écraseriez votre configuration précédente.
 
     ```yaml
     /usr/sbin/centreon-agent config \
@@ -138,7 +140,7 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
             storage_dsn: admin:UzG2b5wcMf8EqM2b@tcp(172.28.2.60)/centreon_storage
         ```
         
-        >La fonction Topologie se base sur le fichier `centreon-agent.yml` pour collecter les informations dont il a besoin : ce comportement est codé en dur. Si vous changez le nom de ce fichier YAML, la collecte échouera.
+        > La fonction Topologie se base sur le fichier `centreon-agent.yml` pour collecter les informations dont il a besoin : ce comportement est codé en dur. Si vous changez le nom de ce fichier YAML, la collecte échouera.
 
 3. Ajoutez un [tag](#tags) **environment** :
 
@@ -178,19 +180,19 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
    systemctl restart gorgoned
    ```
 
-7. Vous pouvez maintenant [configurer votre Agent](#configurer-lagent) (passerelle, proxy etc.), puis [tester](#tester-lagent) votre configuration générale.
+7. Vous pouvez maintenant [configurer Helios](#configurer-helios) (passerelle, proxy etc.), puis [tester](#tester-helios) votre configuration générale.
 
 ### Sur d'autres machines hôtes (serveur distant, collecteur, MAP, etc.)
 
-1. Installez l'Agent:
+1. Installez Helios :
 
     ```
     dnf install centreon-agent
     ```
 
-2. Si vous installez l'Agent pour la première fois sur ce serveur, configurez le fichier `centreon-agent.yml` :
+2. Si vous installez Helios pour la première fois sur ce serveur, configurez le fichier `centreon-agent.yml` :
 
-    >Ne réalisez cette étape que si l'Agent n'a jamais été configuré. Dans le cas contraire, vous écraseriez votre configuration précédente.
+    > Ne réalisez cette étape que si Helios n'a jamais été configuré. Dans le cas contraire, vous écraseriez votre configuration précédente.
 
     ```yaml
     /usr/sbin/centreon-agent config \
@@ -226,7 +228,7 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
         environment: production
     ```
 
-    Si vous avez plusieurs environnements du même type, vous pouvez ajouter un _suffixe à votre type d'environnement (par exemple : "production_client1").
+    Si vous avez plusieurs environnements du même type, vous pouvez ajouter un suffixe à votre type d'environnement (par exemple : "production_client1").
 
 4. Activez le service **centreon-agent** :
 
@@ -240,23 +242,23 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
     systemctl start centreon-agent.service
     ```
 
-7. Vous pouvez maintenant [configurer votre Agent](#configurer-lagent) (passerelle, proxy etc.), puis [tester](#tester-lagent) votre configuration générale.
+7. Vous pouvez maintenant [configurer Helios](#configurer-helios) (passerelle, proxy etc.), puis [tester](#tester-helios) votre configuration générale.
 
-## Configurer l'Agent
+## Configurer Helios
 
 ### Réseau
 
-Si un Agent n'a pas d'accès direct à l'extérieur, deux options vous permettent de résoudre le problème : l'accès via un proxy HTTP et/ou l'accès en mode passerelle. Dans ce dernier, l'Agent qui a besoin d'accéder à l'extérieur (appelé "Passerelle cliente") peut passer par un autre Agent pouvant accéder à l'extérieur (appelé "Passerelle serveur").
+Si Helios n'a pas d'accès direct à l'extérieur, deux options vous permettent de résoudre le problème : l'accès via un proxy HTTP et/ou l'accès en mode passerelle. Dans ce dernier, l'instance d'Helios qui a besoin d'accéder à l'extérieur (appelée "Passerelle cliente") peut passer par un autre Helios pouvant accéder à l'extérieur (appelé "Passerelle serveur").
 
-**Exemple** 
+**Exemple**
 
-Votre infrastructure est protégée (en milieu fermé) et un serveur proxy gère tout le trafic sortant. Vous voulez donner accès à l'extérieur uniquement à l'Agent installé sur la machine hôte du serveur central Centreon. Dans ce cas, vous pourriez configurer votre réseau de la manière suivante :
+Votre infrastructure est protégée (en milieu fermé) et un serveur proxy gère tout le trafic sortant. Vous voulez donner accès à l'extérieur uniquement à l'instance d'Helios installée sur la machine hôte du serveur central Centreon. Dans ce cas, vous pourriez configurer votre réseau de la manière suivante :
 
-- Configurez le proxy sur l'Agent du serveur central pour lui permettre d'accéder à l'extérieur
+- Configurez le proxy sur l'Helios du serveur central pour lui permettre d'accéder à l'extérieur
 
-- Configurez cet Agent en tant que passerelle serveur
+- Configurez cet Helios en tant que passerelle serveur
 
-- Configurez tous les autres Agents (installés sur les collecteurs, serveurs distants, MAP, etc.) en tant que passerelles clientes
+- Configurez tous les autres Helios (installés sur les collecteurs, serveurs distants, MAP, etc.) en tant que passerelles clientes
 
 #### Configuration proxy
 
@@ -278,7 +280,7 @@ output:
   proxy_ssl_insecure: false
 ```
 
-Redémarrez ensuite l'Agent:
+Redémarrez ensuite Helios :
 
 ```
 systemctl restart centreon-agent.service
@@ -286,7 +288,7 @@ systemctl restart centreon-agent.service
 
 #### Configuration en mode passerelle
 
-- Passerelle Serveur: copiez le code suivant dans le fichier `/etc/centreon-agent/centreon-agent.yml` de l'Agent qui tiendra le rôle de passerelle serveur. Pour renforcer la sécurité des échanges entre la passerelle client et la passerelle serveur, vous pouvez définir un jeton d'authentification `auth-token`, c'est-à-dire la chaîne de caractères de votre choix (différente du jeton que vous avez entré pour configurer le fichier `centreon-agent.yml`).
+- Passerelle Serveur: copiez le code suivant dans le fichier `/etc/centreon-agent/centreon-agent.yml` de l'Helios qui tiendra le rôle de passerelle serveur. Pour renforcer la sécurité des échanges entre la passerelle client et la passerelle serveur, vous pouvez définir un jeton d'authentification `auth-token`, c'est-à-dire la chaîne de caractères de votre choix (différente du jeton que vous avez entré pour configurer le fichier `centreon-agent.yml`).
 
     ```yaml
     gateway:
@@ -304,7 +306,7 @@ systemctl restart centreon-agent.service
       auth_token: azerty1234
     ```
 
-    Redémarrez ensuite l'Agent :
+    Redémarrez ensuite Helios :
 
     ```
     systemctl restart centreon-agent.service
@@ -313,7 +315,7 @@ systemctl restart centreon-agent.service
 - Passerelle cliente
 
     En mode passerelle, la passerelle cliente délègue la configuration de son jeton principal à la passerelle serveur (puisque seule celle-ci communique avec la Plateforme Centreon Cloud). En conséquence, commentez la ligne `token` à l'aide de l'opérateur yaml “#”.
-    Si vous avez défini un jeton d'authentification (`auth_token`) sur la passerelle serveur, vous devez également l'ajouter à la configuration de la passerelle cliente. 
+    Si vous avez défini un jeton d'authentification (`auth_token`) sur la passerelle serveur, vous devez également l'ajouter à la configuration de la passerelle cliente.
 
     ```yaml
     output:
@@ -333,7 +335,7 @@ systemctl restart centreon-agent.service
         auth_token: azerty1234
     ```
 
-    Redémarrez ensuite l'Agent :
+    Redémarrez ensuite Helios :
 
     ```
     systemctl restart centreon-agent.service
@@ -341,7 +343,7 @@ systemctl restart centreon-agent.service
 
 ### Activer la collecte de logs Centreon
 
-À partir de la version 2 de **centreon-agent**, il est possible de récupérer les logs générés par le composant Centreon supervisé. 
+À partir de la version 2 d'Helios, il est possible de récupérer les logs générés par le composant Centreon supervisé.
 
 Pour définir quels logs doivent être récupérés, vous devez créer des fichiers yml de configuration dans le dossier suivant : `/etc/centreon-agent/conf.d`.
 Pour récupérer un log précis, le fichier de configuration doit contenir les arguments suivants : `path`, `type` et `pattern` du log choisi. Exemple :
@@ -368,16 +370,16 @@ Suivant le composant Centreon supervisé, vous pouvez simplement copier-coller l
 
 #### Finaliser la configuration des modèles
 
->Pour les collecteurs Centreon, les fichiers de log sont préfixés du nom du collecteur. Vous devez donc adapter le modèle.
->Ouvrez le modèle `poller` et remplacez tous les noms génériques `POLLERNAME` dans la section `path` par le vrai nom du collecteur.
+> Pour les collecteurs Centreon, les fichiers de log sont préfixés du nom du collecteur. Vous devez donc adapter le modèle.
+> Ouvrez le modèle `poller` et remplacez tous les noms génériques `POLLERNAME` dans la section `path` par le vrai nom du collecteur.
 
 Les modèles fournis fonctionneront directement avec une installation Centreon standard. En cas de doute, vous pouvez localiser le fichier de log désiré et comparer son chemin avec celui indiqué dans la section `path` du modèle.
 
-En cas d'erreurs, vous trouverez des explications détaillées du problème dans les logs de **centreon-agent** dans `/var/log/centreon-agent/centreon-agent.log`.
+En cas d'erreurs, vous trouverez des explications détaillées du problème dans les logs d'Helios, dans `/var/log/centreon-agent/centreon-agent.log`.
 
 #### Démarrer la collecte des logs
 
-Une fois la collecte de vos logs configurée, redémarrez l'agent en utilisant la commande suivante :
+Une fois la collecte de vos logs configurée, redémarrez Helios en utilisant la commande suivante :
 
 ```
 systemctl restart centreon-agent.service
@@ -385,9 +387,9 @@ systemctl restart centreon-agent.service
 
 ### Tags
 
-L'Agent peut contextualizer la collecte de données avec vos propres tags personnalisés afin de définir son périmètre d'action. Ces tags seront utilisés par la suite pour agréger les données de supervision et créer des tableaux de bord ou des rapports dans des contextes pertinents.
+Helios peut contextualiser la collecte de données avec vos propres tags personnalisés afin de définir son périmètre d'action. Ces tags seront utilisés par la suite pour agréger les données de supervision et créer des tableaux de bord ou des rapports dans des contextes pertinents.
 
->Nous recommandons fortement que le premier tag que vous définissiez soit “environment” afin de disposer d'une référence commune à tous les utilisateurs.
+> Nous recommandons fortement que le premier tag que vous définissiez soit “environment” afin de disposer d'une référence commune à tous les utilisateurs.
 
 Les tags peuvent être configurés dans le fichier YAML `/etc/centreon-agent/centreon-agent.yml` généré à l'installation. Les tags sont sensibles à la casse (`production` et `Production` sont considérés comme deux tags différents).
 
@@ -406,7 +408,7 @@ collect:
     City: Paris   
 ```
 
-Redémarrez ensuite l'Agent :
+Redémarrez ensuite Helios :
 
 ```
 systemctl restart centreon-agent.service
@@ -414,7 +416,7 @@ systemctl restart centreon-agent.service
 
 ### Base de données déportée
 
-Si le composant Centreon supervisé par l'Agent est configuré avec une base de donnée spécifique ou déportée, vous pouvez spécifier l'accès à la base de données dans le fichier YAML `/etc/centreon-agent/centreon-agent.yml` généré à l'installation.
+Si le composant Centreon supervisé par Helios est configuré avec une base de donnée spécifique ou déportée, vous pouvez spécifier l'accès à la base de données dans le fichier YAML `/etc/centreon-agent/centreon-agent.yml` généré à l'installation.
 
 ```yaml
 collect:
@@ -433,7 +435,7 @@ collect:
 
 ```
 
-Redémarrez ensuite l'Agent :
+Redémarrez ensuite Helios :
 
 ```
 systemctl restart centreon-agent.service
@@ -441,7 +443,7 @@ systemctl restart centreon-agent.service
 
 ### Rotation des logs
 
-L'Agent enregistre toute activité (nominale ou en erreur) dans le fichier `/var/log/centreon-agent/centreon-agent.log`.
+Helios enregistre toute activité (nominale ou en erreur) dans le fichier `/var/log/centreon-agent/centreon-agent.log`.
 
 Par défaut, un fichier `/etc/logrotate.d/centreon-agent` a été créé à l'installation et configuré de la manière suivante :
 
@@ -456,7 +458,7 @@ Par défaut, un fichier `/etc/logrotate.d/centreon-agent` a été créé à l'in
 
 Vous pouvez le laisser ainsi ou bien ajuster la politique de rotation des logs pour mieux correspondre à vos besoins en utilisant les paramètres de [logrotate](https://www.unix.com/man-page/redhat/8/LOGROTATE/).
 
-## Tester l'Agent
+## Tester Helios
 
 ### Tester le service centreon-agent
 
@@ -500,25 +502,25 @@ Le résultat devrait ressembler à ça :
 
 Si vous obtenez des erreurs en testant la collecte, les logs du fichier `/var/log/centreon-agent/centreon-agent.log` peuvent vous aider à résoudre le problème.
 
-### Tester l'accès à la Plateforme Centreon Cloud
+### Tester l'accès à la plateforme Centreon Cloud
 
-Une fois l'installation et la configuration terminées, utilisez la commande suivante pour tester la connexion entre l'Agent et la Plateforme Centreon Cloud :
+Une fois l'installation et la configuration terminées, utilisez la commande suivante pour tester la connexion entre Helios et la plateforme Centreon Cloud :
 
 ```
 centreon-agent ping --config [chemin vers votre fichier centreon-agent.yml]
 ```
 
-L'Agent retournera l'un des messages suivants :
+Helios retournera l'un des messages suivants :
 
 - **Unable to reach the Centreon Cloud Platform, check your network configuration** : vérifiez votre configuration réseau (proxy etc.)
 
 - **Centreon Cloud Platform reached successfully but your token is not recognized** : votre jeton n'est pas reconnu
 
-- **Centreon Cloud Platform reached successfully and authentication was successful** : l'Agent est bien connecté à notre plateforme.
+- **Centreon Cloud Platform reached successfully and authentication was successful** : Helios est bien connecté à notre plateforme.
 
-## Mettre à jour l'Agent
+## Mettre à jour Helios
 
-Pour mettre à jour l'Agent, entrez :
+Pour mettre à jour Helios, entrez :
 
 ```
 dnf clean all --enablerepo=*

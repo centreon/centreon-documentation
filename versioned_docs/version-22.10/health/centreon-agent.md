@@ -1,6 +1,6 @@
 ---
 id: centreon-agent
-title: Installing Helios
+title: Installing Centreon Helios
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-Helios is a light piece of software that monitors its host machine and the services that run on it.
+Centreon Helios is a light piece of software that monitors its host machine and the services that run on it.
 
 Helios can be used to monitor servers that operate an On-Premise Centreon service (Central, Remote Server, Poller, Map, etc.).
 

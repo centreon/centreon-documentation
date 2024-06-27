@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 Centreon Helios is a light piece of software that monitors its host machine and the services that run on it.
 
-Helios can be used to monitor servers that operate an On-Premise Centreon service (Central, Remote Server, Poller, Map, etc.). Helios is available on Alma/RHEL/Oracle Linux 8 and 9.
+Helios can be used to monitor servers that operate an On-Premise Centreon service (Central, Remote Server, Poller, Map, etc.).
 
 The data is sent to the Centreon Cloud Platform. No personal data is collected.
 
