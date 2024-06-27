@@ -13,13 +13,13 @@ Centreon Helios is a light piece of software that monitors its host machine and 
 
 Helios can be used to monitor servers that operate an On-Premise Centreon service (Central, Remote Server, Poller, Map, etc.).
 
-The data is sent to the Centreon Cloud Platform. No personal data is collected.
+The data is sent to the Centreon SaaS platform. No personal data is collected.
 
 > Although the following procedure and the Helios configuration files in general allow for some customization, we strongly advise you to leave the filenames etc. as shown here.
 
 ## Requirements
 
-- In order for the metrics to reach the Centreon Cloud Platform (where the monitoring of the monitoring is done), Helios must be able to access our public endpoint at the following URL:
+- In order for the metrics to reach the Centreon SaaS platform (where the monitoring of the monitoring is done), Helios must be able to access our public endpoint at the following URL:
 
     ```https://api.a.prod.mycentreon.com/v1/observability``` (port 443)
 
@@ -513,9 +513,9 @@ The output should look like this:
 
 In case of errors while testing the collection, the logs in the `/var/log/centreon-agent/centreon-agent.log` file can give you further information for troubleshooting purposes.
 
-### Testing that you can access the Centreon Cloud Platform
+### Testing that you can access the Centreon SaaS platform
 
-Once installation and configuration are done, the following command can be used to test the connection between Helios and the Centreon Cloud Platform:
+Once installation and configuration are done, the following command can be used to test the connection between Helios and the Centreon SaaS platform:
 
 ```
 centreon-agent ping --config [path to your centreon-agent.yml file]

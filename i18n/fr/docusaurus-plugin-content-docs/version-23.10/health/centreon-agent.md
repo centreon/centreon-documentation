@@ -13,13 +13,13 @@ Centreon Helios est un logiciel qui supervise sa machine hôte et les services q
 
 Helios peut être utilisé pour superviser des serveurs qui exploitent un service Centreon On-Premise (central, serveur distant, collecteur, Map, etc.).
 
-Les données sont envoyées vers la plateforme Centreon Cloud. Aucune donnée personnelle n'est collectée.
+Les données sont envoyées vers la plateforme Centreon SaaS. Aucune donnée personnelle n'est collectée.
 
 > Bien que la procédure suivante et que les fichiers de configuration d'Helios en général permettent les personnalisations, nous vous recommandons vivement de laisser les noms de fichiers, etc. tels quels.
 
 ## Prérequis
 
-- Pour que les métriques parviennent à la plateforme Centreon Cloud (où la supervision de la supervision est effectuée), Helios doit pouvoir accéder à notre endpoint public à l'adresse suivante :
+- Pour que les métriques parviennent à la plateforme Centreon SaaS (où la supervision de la supervision est effectuée), Helios doit pouvoir accéder à notre endpoint public à l'adresse suivante :
 
     ```https://api.a.prod.mycentreon.com/v1/observability``` (port 443)
 
@@ -314,7 +314,7 @@ systemctl restart centreon-agent.service
 
 - Passerelle cliente
 
-    En mode passerelle, la passerelle cliente délègue la configuration de son jeton principal à la passerelle serveur (puisque seule celle-ci communique avec la Plateforme Centreon Cloud). En conséquence, commentez la ligne `token` à l'aide de l'opérateur yaml “#”.
+    En mode passerelle, la passerelle cliente délègue la configuration de son jeton principal à la passerelle serveur (puisque seule celle-ci communique avec la Plateforme Centreon SaaS). En conséquence, commentez la ligne `token` à l'aide de l'opérateur yaml “#”.
     Si vous avez défini un jeton d'authentification (`auth_token`) sur la passerelle serveur, vous devez également l'ajouter à la configuration de la passerelle cliente.
 
     ```yaml
@@ -502,9 +502,9 @@ Le résultat devrait ressembler à ça :
 
 Si vous obtenez des erreurs en testant la collecte, les logs du fichier `/var/log/centreon-agent/centreon-agent.log` peuvent vous aider à résoudre le problème.
 
-### Tester l'accès à la Plateforme Centreon Cloud
+### Tester l'accès à la plateforme Centreon SaaS
 
-Une fois l'installation et la configuration terminées, utilisez la commande suivante pour tester la connexion entre Helios et la Plateforme Centreon Cloud :
+Une fois l'installation et la configuration terminées, utilisez la commande suivante pour tester la connexion entre Helios et la plateforme Centreon SaaS :
 
 ```
 centreon-agent ping --config [chemin vers votre fichier centreon-agent.yml]
