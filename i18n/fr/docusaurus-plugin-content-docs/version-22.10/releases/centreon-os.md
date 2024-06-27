@@ -439,7 +439,7 @@ Release date: `October 26, 2022`
 
 ### 22.10.10
 
-Release date: `June 17, 2024`
+Release date: `June 27, 2024`
 
 #### Centreon Broker
 
