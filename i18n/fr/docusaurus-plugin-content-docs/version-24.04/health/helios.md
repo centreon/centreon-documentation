@@ -1,6 +1,6 @@
 ---
 id: helios
-title: Installer Helios
+title: Installer Centreon Helios
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
