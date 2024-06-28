@@ -68,7 +68,9 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-To control your Microsoft DHCP software, the SNMP must be configured.
+### SNMP Configuration
+
+The SNMP service must be configured and activated on the host. Please refer to the official documentation from the constructor/editor.
 
 ## Installing the monitoring connector
 
@@ -229,7 +231,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All subnets are ok | '*subnets*#subnet.addresses.usage.count'=;;;0;total'*subnets*#subnet.addresses.free.count'=;;;0;total'*subnets*#subnet.addresses.usage.percentage'=%;;;0;100'*subnets*#subnet.pending.offers.count'=;;;0;
+OK: All subnets are ok | '*subnets*#subnet.addresses.usage.count'=36;;0;50;total'*subnets*#subnet.addresses.free.count'=15;;0;50;total'*subnets*#subnet.addresses.usage.percentage'=70.00%;0:80;0:90;0;100'*subnets*#subnet.pending.offers.count'=0;;;0;
 ```
 
 ### Troubleshooting
