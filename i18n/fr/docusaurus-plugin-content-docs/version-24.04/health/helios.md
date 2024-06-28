@@ -1,6 +1,6 @@
 ---
-id: centreon-agent
-title: Installer Centreon Helios
+id: helios
+title: Installer Helios
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,9 +9,9 @@ import TabItem from '@theme/TabItem';
 
 ## Introduction
 
-Centreon Helios est un logiciel qui supervise sa machine hôte et les services qui y tournent.
+Helios est un logiciel qui supervise sa machine hôte et les services qui y tournent.
 
-Helios peut être utilisé pour superviser des serveurs qui exploitent un service Centreon On-Premise (central, serveur distant, collecteur, Map, etc.).
+Helios peut être utilisé pour superviser des serveurs qui exploitent un service Centreon On-Premise (central, serveur distant, collecteur, Map, etc.). Helios est disponible sur Alma/RHEL/Oracle Linux 8 et 9.
 
 Les données sont envoyées vers la plateforme Centreon SaaS. Aucune donnée personnelle n'est collectée.
 
@@ -63,7 +63,7 @@ Les données sont envoyées vers la plateforme Centreon SaaS. Aucune donnée per
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -74,7 +74,7 @@ dnf update
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el9/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el9/centreon-24.04.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -98,7 +98,7 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
 
 2. Si vous installez Helios pour la première fois sur ce serveur, générez le fichier yaml de configuration à l'aide de la commande Shell suivante :
 
-    >Ne réalisez cette étape que si Helios n'a jamais été configuré. Dans le cas contraire, vous écraseriez votre configuration précédente.
+    > Ne réalisez cette étape que si Helios n'a jamais été configuré. Dans le cas contraire, vous écraseriez votre configuration précédente.
 
     ```yaml
     /usr/sbin/centreon-agent config \
@@ -139,8 +139,8 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
             config_dsn: admin:UzG2b5wcMf8EqM2b@tcp(172.28.2.60)/centreon
             storage_dsn: admin:UzG2b5wcMf8EqM2b@tcp(172.28.2.60)/centreon_storage
         ```
-        
-        > La fonction Topologie se base sur le fichier `centreon-agent.yml` pour collecter les informations dont il a besoin : ce comportement est codé en dur. Si vous changez le nom de ce fichier YAML, la collecte échouera.
+
+        >La fonction Topologie se base sur le fichier `centreon-agent.yml` pour collecter les informations dont il a besoin : ce comportement est codé en dur. Si vous changez le nom de ce fichier YAML, la collecte échouera.
 
 3. Ajoutez un [tag](#tags) **environment** :
 
@@ -242,7 +242,7 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
     systemctl start centreon-agent.service
     ```
 
-6. Vous pouvez maintenant [configurer Helios](#configurer-helios) (passerelle, proxy etc.), puis [tester](#tester-helios) votre configuration générale.
+7. Vous pouvez maintenant [configurer Helios](#configurer-helios) (passerelle, proxy etc.), puis [tester](#tester-helios) votre configuration générale.
 
 ## Configurer Helios
 
@@ -343,7 +343,7 @@ systemctl restart centreon-agent.service
 
 ### Activer la collecte de logs Centreon
 
-À partir de la version 2 d'Helios, il est possible de récupérer les logs générés par le composant Centreon supervisé.
+À partir de la version 2 d'Helios, il est possible de récupérer les logs générés par le composant Centreon supervisé. 
 
 Pour définir quels logs doivent être récupérés, vous devez créer des fichiers yml de configuration dans le dossier suivant : `/etc/centreon-agent/conf.d`.
 Pour récupérer un log précis, le fichier de configuration doit contenir les arguments suivants : `path`, `type` et `pattern` du log choisi. Exemple :

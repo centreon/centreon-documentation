@@ -1,5 +1,5 @@
 ---
-id: centreon-agent
+id: helios
 title: Installing Centreon Helios
 ---
 import Tabs from '@theme/Tabs';
@@ -19,7 +19,7 @@ The data is sent to the Centreon SaaS platform. No personal data is collected.
 
 ## Requirements
 
-- In order for the metrics to reach the Centreon SaaS platform (where the monitoring of the monitoring is done), Helios must be able to access our public endpoint at the following URL:
+- In order for the metrics to reach the Centreon SaaS platform (where the monitoring of the monitoring is done), Centreon Helios must be able to access our public endpoint at the following URL:
 
     ```https://api.a.prod.mycentreon.com/v1/observability``` (port 443)
 
@@ -62,7 +62,7 @@ The data is sent to the Centreon SaaS platform. No personal data is collected.
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -72,7 +72,7 @@ dnf update
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el9/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el9/centreon-24.04.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -96,7 +96,7 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
 
 2. If this is the first time you are installing Helios on the server, generate the yaml configuration file with the following Shell command:
 
-    > You need to carry out this step only if Helios has not been previously configured; otherwise you will overwrite your previous configuration.
+    >You need to carry out this step only if Helios has not been previously configured; otherwise you will overwrite your previous configuration.
 
     ```yaml
     /usr/sbin/centreon-agent config \
@@ -257,7 +257,7 @@ Your infrastructure is protected within a closed system and you have a proxy Ser
 
 - Configure this same Helios as a Gateway Server
 
-- Configure all other Helios instances (installed next to Pollers, Remote Servers, MAP, etc.) as Gateway Clients
+- Configure all other Helios instances (installed next to Pollers, Remote Servers, MAP, etc.) as Gateway Clients.
 
 #### Proxy Configuration
 

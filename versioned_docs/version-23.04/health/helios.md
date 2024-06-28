@@ -1,5 +1,5 @@
 ---
-id: centreon-agent
+id: helios
 title: Installing Centreon Helios
 ---
 import Tabs from '@theme/Tabs';
@@ -62,15 +62,20 @@ The data is sent to the Centreon SaaS platform. No personal data is collected.
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el8/centreon-22.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
+dnf clean all --enablerepo=*
+dnf update
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
 
 ```shell
-yum install -y yum-utils
-yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el7/centreon-22.10.repo
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
+dnf clean all --enablerepo=*
+dnf update
 ```
 
 </TabItem>
@@ -87,16 +92,12 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
 1. Install Helios:
 
     ```
-    yum install centreon-helios
-    ```
-
-    ```
-    yum install centreon-agent
+    dnf install centreon-agent
     ```
 
 2. If this is the first time you are installing Helios on the server, generate the yaml configuration file with the following Shell command:
 
-    > You need to carry out this step only if Helios has not been previously configured, otherwise you will overwrite your previous configuration.
+    >You need to carry out this step only if Helios has not been previously configured, otherwise you will overwrite your previous configuration.
 
     ```yaml
     /usr/sbin/centreon-agent config \
@@ -172,15 +173,12 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
     systemctl start centreon-agent.service
     ```
 
-6.  Enable the topology scheduling: edit the cron file **/etc/cron.d/centreon-helios** and uncomment the following line (i.e. delete the **#** character):
+6. Execute the following commands:
 
-    ```
-    0 0 * * * centreon /usr/sbin/centreon-helios.phar
-    ```
-
-    > If you already have a previous version of Helios installed, your file may contain a different line to uncomment, in which case you need to replace said line with the one provided above.
-
-    > The Topology function uses the **centreon-agent.yml** file to correctly gather needed pieces of information: this is hard coded. If you change the name of this YAML file, the function will fail.
+   ```shell
+   mv /etc/centreon-gorgone/config.d/cron.d/43-centreon-helios.yaml.disabled /etc/centreon-gorgone/config.d/cron.d/43-centreon-helios.yaml
+   systemctl restart gorgoned
+   ```
 
 7. You can now [configure Helios](#configuring-helios) (gateway, proxy etc.) and then [test](#testing-helios) your overall configuration.
 
@@ -189,7 +187,7 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
 1. Install Helios:
 
     ```
-    yum install centreon-agent
+    dnf install centreon-agent
     ```
 
 2. If this is the first time you are installing Helios on the machine, configure the `centreon-agent.yml` file:
@@ -392,7 +390,7 @@ systemctl restart centreon-agent.service
 
 Helios can contextualize data collection with your own custom tags to define the perimeter in which it is in action. This is used later on to aggregate the monitoring data around your tags and create dashboards or reports in relevant contexts.
 
->We strongly advise the first tag you define to be “environment” in order for us to be able to establish a common baseline between all users.
+> We strongly advise the first tag you define to be “environment” in order for us to be able to establish a common baseline between all users.
 
 Tags can be configured in the YAML `/etc/centreon-agent/centreon-agent.yml` file generated at installation. Tags are case-sensitive (`production` and `Production` are seen as two different tags).
 
@@ -484,7 +482,7 @@ If all went well, the command will return results similar to the following examp
 
 ```
 systemctl status centreon-agent
-● centreon-agent.service - Helios collect metrics and send them to Centreon SaaS Platform
+● centreon-agent.service - The Centreon Agent collect metrics and send them to Centreon SaaS Platform
    Loaded: loaded (/etc/systemd/system/centreon-agent.service; enabled; vendor preset: disabled)
    Active: active (running) since ven. 2019-11-08 14:52:26 CET; 5 days ago
  Main PID: 22331 (centreon-agent)
@@ -542,9 +540,9 @@ centreon-agent --help
 To update Helios, enter:
 
 ```
-yum clean all --enablerepo=*
+dnf clean all --enablerepo=*
 ```
 
 ```
-yum update centreon-agent
+dnf update centreon-agent
 ```

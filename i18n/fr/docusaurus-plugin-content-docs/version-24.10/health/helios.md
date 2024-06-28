@@ -1,6 +1,6 @@
 ---
-id: centreon-agent
-title: Installer Helios
+id: helios
+title: Installer Centreon Helios
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 Helios est un logiciel qui supervise sa machine hôte et les services qui y tournent.
 
-Helios peut être utilisé pour superviser des serveurs qui exploitent un service Centreon On-Premise (central, serveur distant, collecteur, Map, etc.). Helios est disponible sur Alma/RHEL/Oracle Linux 8 et 9.
+Helios peut être utilisé pour superviser des serveurs qui exploitent un service Centreon On-Premise (central, serveur distant, collecteur, Map, etc.).
 
 Les données sont envoyées vers la plateforme Centreon SaaS. Aucune donnée personnelle n'est collectée.
 
@@ -139,8 +139,8 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
             config_dsn: admin:UzG2b5wcMf8EqM2b@tcp(172.28.2.60)/centreon
             storage_dsn: admin:UzG2b5wcMf8EqM2b@tcp(172.28.2.60)/centreon_storage
         ```
-
-        >La fonction Topologie se base sur le fichier `centreon-agent.yml` pour collecter les informations dont il a besoin : ce comportement est codé en dur. Si vous changez le nom de ce fichier YAML, la collecte échouera.
+        
+        > La fonction Topologie se base sur le fichier `centreon-agent.yml` pour collecter les informations dont il a besoin : ce comportement est codé en dur. Si vous changez le nom de ce fichier YAML, la collecte échouera.
 
 3. Ajoutez un [tag](#tags) **environment** :
 
@@ -343,7 +343,7 @@ systemctl restart centreon-agent.service
 
 ### Activer la collecte de logs Centreon
 
-À partir de la version 2 d'Helios, il est possible de récupérer les logs générés par le composant Centreon supervisé. 
+À partir de la version 2 d'Helios, il est possible de récupérer les logs générés par le composant Centreon supervisé.
 
 Pour définir quels logs doivent être récupérés, vous devez créer des fichiers yml de configuration dans le dossier suivant : `/etc/centreon-agent/conf.d`.
 Pour récupérer un log précis, le fichier de configuration doit contenir les arguments suivants : `path`, `type` et `pattern` du log choisi. Exemple :
@@ -375,7 +375,7 @@ Suivant le composant Centreon supervisé, vous pouvez simplement copier-coller l
 
 Les modèles fournis fonctionneront directement avec une installation Centreon standard. En cas de doute, vous pouvez localiser le fichier de log désiré et comparer son chemin avec celui indiqué dans la section `path` du modèle.
 
-En cas d'erreurs, vous trouverez des explications détaillées du problème dans les logs d'Helios dans `/var/log/centreon-agent/centreon-agent.log`.
+En cas d'erreurs, vous trouverez des explications détaillées du problème dans les logs d'Helios, dans `/var/log/centreon-agent/centreon-agent.log`.
 
 #### Démarrer la collecte des logs
 

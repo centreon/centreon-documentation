@@ -1,5 +1,5 @@
 ---
-id: centreon-agent
+id: helios
 title: Installing Centreon Helios
 ---
 import Tabs from '@theme/Tabs';
@@ -49,7 +49,7 @@ The data is sent to the Centreon SaaS platform. No personal data is collected.
     "Missing Authentication Token"
     ```
 
-    If you receive a different answer or no answer, your machine cannot reach our endpoint, likely due to your network rules (firewall, proxy, etc.).
+    If you receive a different answer or no answer, your machine cannot reach our endpoint, probably because of your network rules (firewall, proxy, etc.).
 
     > If a proxy access is configured on the host machine, you need to copy the address and port of the proxy to Helios’s configuration file (see section [Network](#network)).
 
@@ -62,7 +62,7 @@ The data is sent to the Centreon SaaS platform. No personal data is collected.
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -70,10 +70,9 @@ dnf update
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el9/centreon-23.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -97,7 +96,7 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
 
 2. If this is the first time you are installing Helios on the server, generate the yaml configuration file with the following Shell command:
 
-    >You need to carry out this step only if Helios has not been previously configured, otherwise you will overwrite your previous configuration.
+    > You need to carry out this step only if Helios has not been previously configured; otherwise you will overwrite your previous configuration.
 
     ```yaml
     /usr/sbin/centreon-agent config \
@@ -116,11 +115,11 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
 
     Some settings have default values. Edit the file `/etc/centreon-agent/centreon-agent.yml` and check the following values:
 
-    - centreonengine_stats_file : are the name of the file and its path correct (i.e. have you customized them on your platform)?
+    - centreonengine_stats_file: are the name of the file and its path correct (i.e. have you customized them on your platform)?
 
-    - centreonbroker_stats_files : are the name of the file and its path correct (i.e. have you customized them on your platform)?
+    - centreonbroker_stats_files: are the name of the file and its path correct (i.e. have you customized them on your platform)?
 
-    - centreonweb : are the database settings ok? This is the correct format:
+    - centreonweb: are the database settings ok? This is the correct format:
 
         ```yaml
         collect:
@@ -138,7 +137,7 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
             storage_dsn: admin:UzG2b5wcMf8EqM2b@tcp(172.28.2.60)/centreon_storage
         ```
 
-        This example is correct only if the database is on the same machine as the central server. If you have a deported database, see [Remote database](#remote-database).
+        This example is correct only if the database is on the same machine as the central server. If you have a remote database, see [Remote database](#remote-database).
 
         > The Topology function uses the `centreon-agent.yml` file to gather the information it needs: this is hard-coded. If you change the name of this YAML file, the function will fail.
 
@@ -192,7 +191,7 @@ All Centreon components you wish to monitor (Central, Poller, Remote Server, Dat
 
 2. If this is the first time you are installing Helios on the machine, configure the `centreon-agent.yml` file:
 
-    > You need to carry out this step only if Helios has not been previously configured, otherwise you will overwrite your previous configuration.
+    >You need to carry out this step only if Helios has not been previously configured; otherwise you will overwrite your previous configuration.
 
     ```yaml
     /usr/sbin/centreon-agent config \
@@ -316,7 +315,7 @@ systemctl restart centreon-agent.service
 
     In a Gateway configuration, the Gateway Client delegates the configuration of its main token to the Gateway Server (since only the latter communicates with our platform).
     As a consequence, the `token` line needs to be commented with the yaml comment operator “#”.
-    If you have defined an authentication token (`auth_token`) on the gateway server, you need to add it to the configuration of the gateway client too.
+    If you have defined an authentication token (`auth_token`) on the gateway server, you need to add it to the configuration of the gateway client also.
 
     ```yaml
     output:
@@ -346,7 +345,7 @@ systemctl restart centreon-agent.service
 
 Starting from version 2 and up of Helios, logs generated by the monitored Centreon component can be collected.
 
-To define which logs must be collected, you need to create yml configuration files in the following folder: `/etc/centreon-agent/conf.d`.
+To define which logs should be collected, you need to create yml configuration files in the following folder: `/etc/centreon-agent/conf.d`.
 To collect a specific log, the configuration file must contain the following arguments: path, type and pattern of the target log file. Example:
 
 ```
@@ -355,7 +354,7 @@ To collect a specific log, the configuration file must contain the following arg
   type: file
 ```
 
-You can have several configuration files - each file is parsed and its target log files are added to the collection.
+You can have several configuration files. Each file is parsed and its target log files are added to the collection.
 
 #### Using the Templates
 
@@ -367,18 +366,18 @@ Templates are located in the following folder:
 /usr/share/centreon-agent/examples
 ```
 
-Based on your monitored Centreon component you can simply copy/paste the corresponding template to your `/etc/centreon-agent/conf.d` folder.
+Based on your monitored Centreon component, you can simply copy/paste the corresponding template to your `/etc/centreon-agent/conf.d` folder.
 
-#### Finalize Templates Configuration
+#### Finalize template configuration
 
-> For a Centreon Poller, log files are prefixed with the Poller’s name so you need to adapt the Poller template:
-> open the Poller template and replace all `POLLERNAME` placeholders within the “path” section with the actual Poller’s name.
+> For a Centreon poller, log files are prefixed with the poller’s name, so you need to adapt the poller template:
+> open the poller template and replace all `POLLERNAME` placeholders in the “path” section with the actual poller’s name.
 
-The provided templates will work out of the box with a standard Centreon installation. In case of doubt, you can locate the actual targeted log file and compare its path to the one written in your “path” section of the template.
+The templates provided will work out of the box with a standard Centreon installation. In case of doubt, you can locate the actual targeted log file and compare its path to the one written in your “path” section of the template.
 
 In case of errors, you will find detailed explanations of what happened within Helios's own logs in `/var/log/centreon-agent/centreon-agent.log`.
 
-#### Start Logs Collection
+#### Start log collection
 
 Once your log collection is properly configured, you need to restart Helios with the following command:
 
@@ -388,9 +387,9 @@ systemctl restart centreon-agent.service
 
 ### Tags
 
-Helios can contextualize data collection with your own custom tags to define the perimeter in which it is in action. This is used later on to aggregate the monitoring data around your tags and create dashboards or reports in relevant contexts.
+Helios can contextualize data collection with your own custom tags to define the perimeter in which it operates. This is used later on to aggregate the monitoring data around your tags and create dashboards or reports in relevant contexts.
 
-> We strongly advise the first tag you define to be “environment” in order for us to be able to establish a common baseline between all users.
+> We strongly advise you to define the “environment” tag before any others, so that we can establish a common baseline between all users.
 
 Tags can be configured in the YAML `/etc/centreon-agent/centreon-agent.yml` file generated at installation. Tags are case-sensitive (`production` and `Production` are seen as two different tags).
 
@@ -444,11 +443,11 @@ You then need to restart Helios:
 systemctl restart centreon-agent.service
 ```
 
-### Logs Rotation
+### Log rotation
 
 Helios logs all activity (nominal as well as erroneous) in the `/var/log/centreon-agent/centreon-agent.log` file.
 
-A default `/etc/logrotate.d/centreon-agent` file has been created at installation and configured as follows:
+A default `/etc/logrotate.d/centreon-agent` file was created at installation and configured as follows:
 
 ```
 /var/log/centreon-agent/centreon-agent.log {

@@ -1,5 +1,5 @@
 ---
-id: centreon-agent
+id: helios
 title: Installer Centreon Helios
 ---
 import Tabs from '@theme/Tabs';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ## Introduction
 
-Helios est un logiciel qui supervise sa machine hôte et les services qui y tournent.
+Centreon Helios est un logiciel qui supervise sa machine hôte et les services qui y tournent.
 
 Helios peut être utilisé pour superviser des serveurs qui exploitent un service Centreon On-Premise (central, serveur distant, collecteur, Map, etc.).
 
@@ -63,7 +63,7 @@ Les données sont envoyées vers la plateforme Centreon SaaS. Aucune donnée per
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -74,7 +74,7 @@ dnf update
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el9/centreon-24.04.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el9/centreon-23.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -98,7 +98,7 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
 
 2. Si vous installez Helios pour la première fois sur ce serveur, générez le fichier yaml de configuration à l'aide de la commande Shell suivante :
 
-    > Ne réalisez cette étape que si Helios n'a jamais été configuré. Dans le cas contraire, vous écraseriez votre configuration précédente.
+    >Ne réalisez cette étape que si Helios n'a jamais été configuré. Dans le cas contraire, vous écraseriez votre configuration précédente.
 
     ```yaml
     /usr/sbin/centreon-agent config \
@@ -242,7 +242,7 @@ Tous les composants Centreon que vous voulez superviser (central, collecteur, se
     systemctl start centreon-agent.service
     ```
 
-7. Vous pouvez maintenant [configurer Helios](#configurer-helios) (passerelle, proxy etc.), puis [tester](#tester-helios) votre configuration générale.
+6. Vous pouvez maintenant [configurer Helios](#configurer-helios) (passerelle, proxy etc.), puis [tester](#tester-helios) votre configuration générale.
 
 ## Configurer Helios
 
@@ -375,7 +375,7 @@ Suivant le composant Centreon supervisé, vous pouvez simplement copier-coller l
 
 Les modèles fournis fonctionneront directement avec une installation Centreon standard. En cas de doute, vous pouvez localiser le fichier de log désiré et comparer son chemin avec celui indiqué dans la section `path` du modèle.
 
-En cas d'erreurs, vous trouverez des explications détaillées du problème dans les logs d'Helios, dans `/var/log/centreon-agent/centreon-agent.log`.
+En cas d'erreurs, vous trouverez des explications détaillées du problème dans les logs d'Helios dans `/var/log/centreon-agent/centreon-agent.log`.
 
 #### Démarrer la collecte des logs
 
