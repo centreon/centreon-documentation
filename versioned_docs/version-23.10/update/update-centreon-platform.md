@@ -253,7 +253,7 @@ You can perform an unattended update of your platform using the **unattended.sh*
 1. Download the script using the following command:
 
 ```shell
-curl -L https://raw.githubusercontent.com/centreon/centreon/23.10.x/centreon/unattended.sh -O /tmp/unattended
+curl -L https://download.centreon.com/23.10/unattended.sh -O /tmp/unattended
 ```
 
 2. Run the script:

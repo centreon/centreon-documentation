@@ -258,7 +258,7 @@ Vous pouvez réaliser une mise à jour silencieuse de votre plateforme en utilis
 1. Téléchargez le script avec la commande suivante :
 
 ```shell
-curl -L https://raw.githubusercontent.com/centreon/centreon/24.04.x/centreon/unattended.sh -O /tmp/unattended
+curl -L https://download.centreon.com/24.04/unattended.sh -O /tmp/unattended
 ```
 
 2. Lancez le script :
