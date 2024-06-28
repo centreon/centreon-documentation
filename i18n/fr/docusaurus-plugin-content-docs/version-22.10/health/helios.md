@@ -1,5 +1,5 @@
 ---
-id: centreon-agent
+id: helios
 title: Installer Centreon Helios
 ---
 import Tabs from '@theme/Tabs';
