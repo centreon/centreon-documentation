@@ -246,7 +246,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All servers are ok | *servers*#status='Ready';;;
+OK: All servers are ok | Server 'SQLServer1' State 'Ready' [FQDN: sqlserver1.database.windows.net];
 ```
 
 ### Diagnostic des erreurs communes
