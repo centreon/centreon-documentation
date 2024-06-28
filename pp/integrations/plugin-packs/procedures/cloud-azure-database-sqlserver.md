@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                                        | Service Description     |
 |:--------------|:--------------------------------------------------------|:------------------------|
-| Server-Status | Cloud-Azure-Database-SqlServer-Server-Status-Api-custom | Check SQL server status |
+| Server-Status | Cloud-Azure-Database-SqlServer-Server-Status-Api-custom | Check the status of the SQL server |
 
 > The services listed above are created automatically when the **Cloud-Azure-Database-SqlServer-custom** host template is used.
 
@@ -173,8 +173,8 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlServer-Api
 | PROXYURL           | Proxy URL if any                                                                                                           |                   |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                       |                   |             |
 
-> Set the following options in the EXTRAOPTIONS macro if you are monitoring resource from Microsoft Azure operated by 21Vianet (Azure China):
---management-endpoint='https://management.chinacloudapi.cn' --login-endpoint='https://login.partner.microsoftonline.cn'.
+> Set the following options in the EXTRAOPTIONS macro if you are monitoring Microsoft Azure resources operated by 21Vianet (Azure China):
+`--management-endpoint='https://management.chinacloudapi.cn' --login-endpoint='https://login.partner.microsoftonline.cn'.`
 
 </TabItem>
 <TabItem value="Azure AZ CLI" label="Azure AZ CLI">
