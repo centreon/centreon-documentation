@@ -244,7 +244,7 @@ is able to monitor an Azure Instance using a command like this one (replace the 
 The expected command output is shown below:
 
 ```bash
-OK: All servers are ok | *servers*#status='Ready';;;
+OK: All servers are ok | Server 'SQLServer1' State 'Ready' [FQDN: sqlserver1.database.windows.net]
 ```
 
 ### Troubleshooting
