@@ -141,6 +141,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'users/user_groups',
+        },
+        {
+          type: 'doc',
           id: 'administration/ram',
         },
       ],
