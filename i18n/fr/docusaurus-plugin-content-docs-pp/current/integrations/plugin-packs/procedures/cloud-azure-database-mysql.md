@@ -456,7 +456,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Network Out: 66 B Network In: 83 B | 'azmysql.traffic.out.bytes'=66B;;;0;'azmysql.traffic.in.bytes'=83B;;;0;
+OK: Network Out: 66 B Network In: 83 B | 'azmysql.traffic.out.bytes'=66B;;;0; 'azmysql.traffic.in.bytes'=83B;;;0;
 ```
 
 ### Diagnostic des erreurs communes
