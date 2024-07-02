@@ -72,6 +72,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 The SNMP service must be configured and activated on the host. Please refer to the official documentation from the constructor/editor.
 
+### Network flow
+
+The target resource must be reachable from the Centreon poller on the UDP/161 SNMP port.
+
 ## Installing the monitoring connector
 
 ### Pack
@@ -231,7 +235,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All subnets are ok | '*subnets*#subnet.addresses.usage.count'=36;;0;50;total'*subnets*#subnet.addresses.free.count'=15;;0;50;total'*subnets*#subnet.addresses.usage.percentage'=70.00%;0:80;0:90;0;100'*subnets*#subnet.pending.offers.count'=0;;;0;
+OK: All subnets are ok | '*subnets*#subnet.addresses.usage.count'=36;;0;50; '*subnets*#subnet.addresses.free.count'=15;;0;50; '*subnets*#subnet.addresses.usage.percentage'=70.00%;0:80;0:90;0;100 '*subnets*#subnet.pending.offers.count'=0;;;0;
 ```
 
 ### Troubleshooting

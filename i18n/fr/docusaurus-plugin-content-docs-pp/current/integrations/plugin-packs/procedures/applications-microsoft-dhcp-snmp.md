@@ -73,6 +73,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 Le service SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
 
+### Flux réseau
+
+La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers la ressource supervisée.
+
 ## Installer le connecteur de supervision
 
 ### Pack
@@ -232,7 +236,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All subnets are ok | '*subnets*#subnet.addresses.usage.count'=36;;0;50;total'*subnets*#subnet.addresses.free.count'=15;;0;50;total'*subnets*#subnet.addresses.usage.percentage'=70.00%;0:80;0:90;0;100'*subnets*#subnet.pending.offers.count'=0;;;0;
+OK: All subnets are ok | '*subnets*#subnet.addresses.usage.count'=36;;0;50; '*subnets*#subnet.addresses.free.count'=15;;0;50; '*subnets*#subnet.addresses.usage.percentage'=70.00%;0:80;0:90;0;100 '*subnets*#subnet.pending.offers.count'=0;;;0;
 ```
 
 ### Diagnostic des erreurs communes
