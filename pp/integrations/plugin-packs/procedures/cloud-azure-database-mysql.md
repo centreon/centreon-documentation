@@ -25,9 +25,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias  | Service Template                                     | Service Description                                   |
 |:---------------|:-----------------------------------------------------|:------------------------------------------------------|
-| Connections    | Cloud-Azure-Database-MySQL-Connections-Api-custom    | Check Azure Database for MySQL connections statistics |
+| Connections    | Cloud-Azure-Database-MySQL-Connections-Api-custom    | Check Azure Database for MySQL connection statistics |
 | Cpu            | Cloud-Azure-Database-MySQL-Cpu-Api-custom            | Check Azure Database for MySQL CPU usage              |
-| IO-Consumption | Cloud-Azure-Database-MySQL-IO-Consumption-Api-custom | Check Azure Database for MySQL IO usage               |
+| IO-Consumption | Cloud-Azure-Database-MySQL-IO-Consumption-Api-custom | Check Azure Database for MySQL I/O usage               |
 | Memory         | Cloud-Azure-Database-MySQL-Memory-Api-custom         | Check Azure Database for MySQL memory usage           |
 | Replication    | Cloud-Azure-Database-MySQL-Replication-Api-custom    | Check Azure Database for MySQL replication status     |
 | Storage        | Cloud-Azure-Database-MySQL-Storage-Api-custom        | Check Azure Database for MySQL storage statistics     |
@@ -40,7 +40,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                              | Service Description                          |
 |:--------------|:----------------------------------------------|:---------------------------------------------|
-| Queries       | Cloud-Azure-Database-MySQL-Queries-Api-custom | Check Azure Database for MySQL queries count |
+| Queries       | Cloud-Azure-Database-MySQL-Queries-Api-custom | Check the number of queries to Azure Database for MySQL |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -251,7 +251,7 @@ yum install centreon-plugin-Cloud-Azure-Database-MySQL-Api
 | PROXYURL           | Proxy URL if any                                                                                                           |                   |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                       |                   |             |
 
-> Set the following options in the EXTRAOPTIONS macro if you are monitoring resource from Microsoft Azure operated by 21Vianet (Azure China):
+> Set the following options in the EXTRAOPTIONS macro if you are monitoring resources from Microsoft Azure operated by 21Vianet (Azure China):
 --management-endpoint='https://management.chinacloudapi.cn' --login-endpoint='https://login.partner.microsoftonline.cn'.
 
 </TabItem>

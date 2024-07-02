@@ -26,9 +26,9 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias          | Modèle de service                                    | Description                                                                    |
 |:---------------|:-----------------------------------------------------|:-------------------------------------------------------------------------------|
-| Connections    | Cloud-Azure-Database-MySQL-Connections-Api-custom    | Contrôle les statistiques de connexions de l'instance Azure Database for MySQL |
+| Connections    | Cloud-Azure-Database-MySQL-Connections-Api-custom    | Contrôle les statistiques de connexion à l'instance Azure Database for MySQL |
 | Cpu            | Cloud-Azure-Database-MySQL-Cpu-Api-custom            | Contrôle le CPU de l'instance Azure Database for MySQL                         |
-| IO-Consumption | Cloud-Azure-Database-MySQL-IO-Consumption-Api-custom | Contrôle les écritures/lectures de l'instance Azure Database for MySQL         |
+| IO-Consumption | Cloud-Azure-Database-MySQL-IO-Consumption-Api-custom | Contrôle les I/O de l'instance Azure Database for MySQL         |
 | Memory         | Cloud-Azure-Database-MySQL-Memory-Api-custom         | Contrôle l'utilisation de la mémoire de l'instance Azure Database for MySQL    |
 | Replication    | Cloud-Azure-Database-MySQL-Replication-Api-custom    | Contrôle la réplication de l'instance Azure Database for MySQL                 |
 | Storage        | Cloud-Azure-Database-MySQL-Storage-Api-custom        | Contrôle les statistiques de stockage de l'instance Azure Database for MySQL   |
@@ -41,7 +41,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias   | Modèle de service                             | Description                                                           |
 |:--------|:----------------------------------------------|:----------------------------------------------------------------------|
-| Queries | Cloud-Azure-Database-MySQL-Queries-Api-custom | Contrôle le nombre de requêtes de l'instance Azure Database for MySQL |
+| Queries | Cloud-Azure-Database-MySQL-Queries-Api-custom | Contrôle le nombre de requêtes vers l'instance Azure Database for MySQL |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -251,7 +251,7 @@ yum install centreon-plugin-Cloud-Azure-Database-MySQL-Api
 | PROXYURL           | Proxy URL if any                                                                                                           |                   |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
 
-> Paramétrez les options suivantes dans la macro EXTRAOPTIONS si vous superviser des ressources Microsoft Azure géré par 21Vianet (Azure China):
+> Paramétrez les options suivantes dans la macro EXTRAOPTIONS si vous supervisez des ressources Microsoft Azure gérées par 21Vianet (Azure China):
 --management-endpoint='https://management.chinacloudapi.cn' --login-endpoint='https://login.partner.microsoftonline.cn'.
 
 </TabItem>
