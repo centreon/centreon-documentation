@@ -454,7 +454,7 @@ is able to monitor an Azure Instance using a command like this one (replace the 
 The expected command output is shown below:
 
 ```bash
-OK: Network Out: 66 B Network In: 83 B | 'azmysql.traffic.out.bytes'=66B;;;0;'azmysql.traffic.in.bytes'=83B;;;0;
+OK: Network Out: 66 B Network In: 83 B | 'azmysql.traffic.out.bytes'=66B;;;0; 'azmysql.traffic.in.bytes'=83B;;;0;
 ```
 
 ### Troubleshooting
