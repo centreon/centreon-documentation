@@ -29,7 +29,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                | Service Description           |
 |:--------------|:--------------------------------|:------------------------------|
-| LDAP-Search   | App-Protocol-LDAP-Search-custom | Check search to a LDAP server |
+| LDAP-Search   | App-Protocol-LDAP-Search-custom | Performs a search in a LDAP server ans check that the results are consistent |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
