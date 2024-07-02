@@ -5,6 +5,12 @@ title: Centreon Cloud known issues
 
 The following paragraphs detail issues which are known to Centreon and will be fixed in coming releases.
 
+## User groups
+
+* You cannot search for a specific user in the user group creation/edition form.
+
+   **Workaround**: Scroll in the list until you find the user you want.
+
 ## Resource Access Management
 
 * You cannot scroll in the dropdown lists in the Resource Access Management creation/edition form.

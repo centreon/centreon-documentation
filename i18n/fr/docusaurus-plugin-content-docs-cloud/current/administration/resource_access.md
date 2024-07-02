@@ -30,9 +30,7 @@ Voici la marche à suivre si vous ne souhaitez pas que tous les utilisateurs pui
    > Vous pouvez également sélectionner **All resources** : les utilisateurs pourront voir toutes les ressources existantes ainsi que toutes celles crées par la suite.
    > Si vous sélectionnez un groupe de ressources (hôtes, services, BVs), les utilisateurs pourront voir toutes les ressources existantes ainsi que toutes celles ajoutées au groupe par la suite.
 
-4. Dans la section **Contacts/Groupes de contacts**, définissez quels utilisateurs verront ces ressources. Si vous sélectionnez **Tous les contacts**, la règle s'appliquera à tous les contacts existants, mais aussi à tout contact créé dans le futur. Attention, les utilisateurs sont gérés via la [CIAM](../ciam/ciam.md).
-
-   > Les groupes de contacts seront implémentés bientôt.
+4. Dans la section **Contacts/Groupes de contacts**, définissez quels utilisateurs verront ces ressources. Si vous sélectionnez **Tous les contacts/Tous les groupes de contact**, la règle s'appliquera à tous les contacts/groupes de contacts existants, mais aussi à tout contact créé dans le futur. Attention, les utilisateurs et groupes d'utilisateurs sont gérés via le [CIAM](../ciam/ciam.md).
 
 5. Cliquez sur **Enregistrer**. La nouvelle règle apparaît dans la liste. Celle-ci peut mettre une minute à être appliquée.
 

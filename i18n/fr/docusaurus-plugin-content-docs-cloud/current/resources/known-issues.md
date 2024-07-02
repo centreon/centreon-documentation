@@ -5,6 +5,12 @@ title: Problèmes connus sur Centreon Cloud
 
 Les paragraphes ci-après détaillent les problèmes connus de Centreon. Ceux-ci seront corrigés dans une prochaine release.
 
+## Groupes d'utilisateurs
+
+* Il n'est pas possible de rechercher un utilisateur spécifique dans le formulaire de création/édition de groupes d'utilisateurs.
+
+   **Contournement**: Scrollez dans la liste jusqu'à trouver l'utilisateur désiré.
+
 ## Gestion de l'accès aux ressources
 
 * Il n'est pas possible de scroller dans les listes déroulantes dans le formulaire de création/édition de règles d'accès aux ressources.

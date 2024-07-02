@@ -30,9 +30,7 @@ If you don't want all users to see all resources, you need to:
    > You can also select **All resources**: users will see all existing resources, as well as be able to see any resources created afterwards automatically.
    > If you select a group of resources (hosts, services, BVs), users will see all existing resources in the group, as well as see any resources added to the group afterwards automatically.
 
-4. In the **Contacts/contact groups** section, define which users will be able to see these resources. If you select **All contacts**, the rule will apply to all existing contacts, and also to any contacts created in the future. Bear in mind that users are managed using the [CIAM](../ciam/ciam.md).
-
-   > Contact groups will be implemented soon.
+4. In the **Contacts/contact groups** section, define which users will be able to see these resources. If you select **All contacts/All contact groups**, the rule will apply to all existing contacts/contact groups, and also to any contacts/contact groups created in the future. Bear in mind that users and user groups are managed using the [CIAM](../ciam/ciam.md).
 
 5. Click **Save**. The new rule appears in the list. It can take up to one minute to be applied.
 
