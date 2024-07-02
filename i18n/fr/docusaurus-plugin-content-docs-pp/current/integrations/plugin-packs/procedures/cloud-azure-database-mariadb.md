@@ -21,7 +21,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias          | Modèle de service                                      | Description                                                                      |
 |:---------------|:-------------------------------------------------------|:---------------------------------------------------------------------------------|
-| Connections    | Cloud-Azure-Database-MariaDB-Connections-Api-custom    | Contrôle les statistiques de connexions de l'instance Azure Database for MariaDB |
+| Connections    | Cloud-Azure-Database-MariaDB-Connections-Api-custom    | Contrôle les statistiques des connexions à l'instance Azure Database for MariaDB |
 | Cpu            | Cloud-Azure-Database-MariaDB-Cpu-Api-custom            | Contrôle le CPU de l'instance Azure Database for MariaDB                         |
 | IO-Consumption | Cloud-Azure-Database-MariaDB-IO-Consumption-Api-custom | Contrôle les écritures/lectures de l'instance Azure Database for MariaDB         |
 | Memory         | Cloud-Azure-Database-MariaDB-Memory-Api-custom         | Contrôle l'utilisation de la mémoire de l'instance Azure Database for MariaDB    |
@@ -409,7 +409,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Network Out: 31 B Network In: 56 B | 'azmariadb.traffic.out.bytes'=31B;;;0;'azmariadb.traffic.in.bytes'=56B;;;0;
+OK: Network Out: 31 B Network In: 56 B | 'azmariadb.traffic.out.bytes'=31B;;;0; 'azmariadb.traffic.in.bytes'=56B;;;0;
 ```
 
 ### Diagnostic des erreurs communes

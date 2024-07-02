@@ -20,9 +20,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias  | Service Template                                       | Service Description                                     |
 |:---------------|:-------------------------------------------------------|:--------------------------------------------------------|
-| Connections    | Cloud-Azure-Database-MariaDB-Connections-Api-custom    | Check Azure Database for MariaDB connections statistics |
+| Connections    | Cloud-Azure-Database-MariaDB-Connections-Api-custom    | Check Azure Database for MariaDB connection statistics |
 | Cpu            | Cloud-Azure-Database-MariaDB-Cpu-Api-custom            | Check Azure Database for MariaDB CPU usage              |
-| IO-Consumption | Cloud-Azure-Database-MariaDB-IO-Consumption-Api-custom | Check Azure Database for MariaDB IO usage               |
+| IO-Consumption | Cloud-Azure-Database-MariaDB-IO-Consumption-Api-custom | Check Azure Database for MariaDB I/O usage               |
 | Memory         | Cloud-Azure-Database-MariaDB-Memory-Api-custom         | Check Azure Database for MariaDB memory usage           |
 | Replication    | Cloud-Azure-Database-MariaDB-Replication-Api-custom    | Check Azure Database for MariaDB replication status     |
 | Storage        | Cloud-Azure-Database-MariaDB-Storage-Api-custom        | Check Azure Database for MariaDB storage statistics     |
@@ -407,7 +407,7 @@ is able to monitor an Azure Instance using a command like this one (replace the 
 The expected command output is shown below:
 
 ```bash
-OK: Network Out: 31 B Network In: 56 B | 'azmariadb.traffic.out.bytes'=31B;;;0;'azmariadb.traffic.in.bytes'=56B;;;0;
+OK: Network Out: 31 B Network In: 56 B | 'azmariadb.traffic.out.bytes'=31B;;;0; 'azmariadb.traffic.in.bytes'=56B;;;0;
 ```
 
 ### Troubleshooting
