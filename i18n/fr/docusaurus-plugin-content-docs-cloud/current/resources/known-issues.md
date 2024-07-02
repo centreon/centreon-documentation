@@ -9,7 +9,7 @@ Les paragraphes ci-après détaillent les problèmes connus de Centreon. Ceux-ci
 
 * Il n'est pas possible de rechercher un utilisateur spécifique dans le formulaire de création/édition de groupes d'utilisateurs.
 
-   **Contournement**: Entrez le nom de l'utilisateur désiré, puis sélectionnez-le dans la liste.
+   **Contournement**: Scrollez dans la liste jusqu'à trouver l'utilisateur désiré.
 
 ## Gestion de l'accès aux ressources
 

@@ -12,7 +12,7 @@ In Centreon Cloud, users/contacts can:
   * Change the user interface language.
   * Display the page in full screen mode (F).
 
-All users can access their own account to change their password (by clicking the profile icon in the top right corner of the screen). Users can see resources monitored by the platform according to the [rights granted by their administrator](../administration/resource_access.md). All users receive [notifications](../alerts-notifications/notif-configuration.md).
+All users can access their own account to change their password (by clicking the profile icon in the top right corner of the screen). Users can see resources monitored by the platform according to the [rights granted by their administrator](../administration/resource_access.md).
 
 ## User roles
 
@@ -38,6 +38,6 @@ Once created, users can be sorted into user groups to accelerate the creation of
 
 ## Removing a user from an organization
 
-You can remove users from an organization: although they will still exist in the CIAM and will be able to connect to it, they will no longer be able to see this organization, or to access any of this organization's applications.
+You can remove users from an organization: although they will still exist in the CIAM and will be able to connect to it, they will no longer be able to see this organization, or to access any of this organization's applications, including their Centreon platforms.
 
 To remove a user from an organization, go to this organization's user list (**Users > User list**), then click **Remove user** in the **Action** column.

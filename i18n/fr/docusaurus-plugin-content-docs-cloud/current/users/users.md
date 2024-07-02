@@ -12,7 +12,7 @@ Dans Centreon Cloud, les utilisateurs/contacts peuvent :
   * Changer la langue de l'interface utilisateur.
   * Afficher la page en mode plein écran (F).
 
-Tous les utilisateurs peuvent accéder à leur compte afin de changer leur mot de passe (en cliquant sur l'icône de profil en haut à droite de la fenêtre). Les utilisateurs peuvent voir les ressources supervisées par la plateforme selon les [droits attribués par leur administrateur](../administration/resource_access.md). Tous les utilisateurs reçoivent des [notifications](../alerts-notifications/notif-configuration.md).
+Tous les utilisateurs peuvent accéder à leur compte afin de changer leur mot de passe (en cliquant sur l'icône de profil en haut à droite de la fenêtre). Les utilisateurs peuvent voir les ressources supervisées par la plateforme selon les [droits attribués par leur administrateur](../administration/resource_access.md).
 
 ## Rôles des utilisateurs
 
@@ -38,6 +38,6 @@ Une fois créés, les utilisateurs peuvent être placés dans des groupes d'util
 
 ## Supprimer un utilisateur d'une organisation
 
-Vous pouvez supprimer des utilisateurs d'une organisation : bien qu'ils continueront à exister dans le CIAM et pourront toujours s'y connecter, ils ne pourront plus accéder à cette organisation, ni accéder à aucune des applications de cette organisation.
+Vous pouvez supprimer des utilisateurs d'une organisation : bien qu'ils continueront à exister dans le CIAM et pourront toujours s'y connecter, ils ne pourront plus accéder à cette organisation, ni accéder à aucune des applications de cette organisation, notamment leurs plateformes Centreon.
 
 Pour supprimer un utilisateur d'une organisation, allez à la page **Users > User list** pour cette organisation, puis cliquez sur **Remove user** dans la colonne **Action**.

@@ -9,7 +9,7 @@ The following paragraphs detail issues which are known to Centreon and will be f
 
 * You cannot search for a specific user in the user group creation/edition form.
 
-   **Workaround**: Type the name of the user you want, then select it from the list.
+   **Workaround**: Scroll in the list until you find the user you want.
 
 ## Resource Access Management
 

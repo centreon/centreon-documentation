@@ -4,7 +4,7 @@ title: Les groupes d'utilisateurs dans Centreon Cloud
 ---
 
 Dans Centreon Cloud, vous pouvez utiliser les groupes d'utilisateurs afin d'[attribuer des droits sur les ressources](../administration/resource_access.md) plus facilement.
-Les utilisateurs et groupes d'utilisateurs sont gérés dans [Centreon CIAM](../ciam/ciam.md). Seuls les administrateurs CIAM peuvent créer des groupes d'utilisateurs.
+Les utilisateurs et groupes d'utilisateurs sont gérés dans [Centreon CIAM](../ciam/ciam.md). Seuls les administrateurs CIAM peuvent créer et gérer des groupes d'utilisateurs.
 
 Un utilisateur peut appartenir à plusieurs groupes.
 
