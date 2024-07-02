@@ -30,7 +30,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias       | Modèle de service               | Description                                 |
 |:------------|:--------------------------------|:--------------------------------------------|
-| LDAP-Search | App-Protocol-LDAP-Search-custom | Contrôle une recherche vers un serveur LDAP |
+| LDAP-Search | App-Protocol-LDAP-Search-custom | Effectue une recherche dans un annuaire LDAP et contrôle la cohérence des résultats |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
