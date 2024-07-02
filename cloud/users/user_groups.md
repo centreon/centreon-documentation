@@ -13,7 +13,7 @@ A user can belong to several user groups.
 1. In Centreon CIAM, go to **Users > User groups**.
 2. Click **Add group**. A popup window appears.
 3. Enter a name and a description for your user group, then select the names of the users you want to be in the group.
-4. Click **Save**. The new user group appears in the list. You will be able to see it in your Centreon Cloud platform shortly.
+4. Click **Save**. The new user group appears in the list. You will be able to see it in your Centreon Cloud platform shortly. If a user that was added to the group was already logged in to Centreon, they may need to log out and back in to see the resources that have been authorized via this group by a [resource access rule](../administration/resource_access.md).
 
 ## Managing user groups
 
