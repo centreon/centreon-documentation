@@ -17,7 +17,7 @@ Your HA must be installed by Centreon Professional Services.
 
 ## Do I need a licence for Centreon HA?
 
-Extensions need specific license files to work on both nodes smoothly. If you have an IT or Business subscription, please get in touch with your Centreon sales representative or Technical Account Manager.
+Extensions need specific license files to work on both central nodes smoothly. If you have an IT or Business subscription, please get in touch with your Centreon sales representative or Technical Account Manager.
 
 ## What is supported, and what isn't?
 

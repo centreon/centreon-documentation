@@ -127,7 +127,7 @@ Ticket Constraints:
 
 We notice that the centreon group is not authorized to start on any node.
 
-To free the resource group from its constraints, run the following command:
+To free the resource group from its constraints, run the following command (EL8 and Debian):
 
 ```bash
 pcs resource clear centreon
