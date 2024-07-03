@@ -1853,10 +1853,9 @@ pcs resource meta centreon_central_sync target-role="started"
 pcs resource meta http target-role="started"
 ```
 
-At this stage, you can connect to the interface of the active node using the VIP's address. [avec la base déportée j'ai plus rien parce que mon utilisateur autorisé pointait vers l'adresse directe de la base et pas vers une vip]
+At this stage, you can connect to the interface of the active node using the VIP's address.
 
-étape proxy de l'interface
-qu'est-ce qui me dit dans la ui où est la base? In Configuration > Pollers > Broker configuration, Open “central-broker-master” and in the “Output” tab, you have to change the “DB host” -> ça m'avait mis la base 2 au lieu de la base 1
+If the **Resource Status** page is empty, check that the central points to the database VIP and not to one database in particular. In **Configuration > Pollers > Broker configuration**, open **central-broker-master** and in the **Output** tab, update the **DB host**.
 
 ### Check the state of the cluster
 
