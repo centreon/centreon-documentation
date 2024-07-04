@@ -21,6 +21,22 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+### 23.10.11
+
+Release date: `June 10, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Viewer] Fixed an issue that made breadcrumb not right when selecting a Centreon resource.
+- [Viewer] Fixed an issue causing label not to be aligned for resources in geometric mode.
+- [Viewer] Fixed an issue that caused image opacity parameter not to be applied.
+- [Viewer] Fix container label not being correctly centered in geometric style.
+- [Viewer] Fixed the position of links anchor points for geometric shapes.
+- [UI] Fixed a translation issue in the bulk mode and Output status.
+
+</details>
+
 ### 23.10.10
 
 Release date: `June 10, 2024`
@@ -257,6 +273,17 @@ Release date: `November 22, 2023`
 
 ## Centreon BAM
 
+### 23.10.8
+
+Release date: `July 4, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [BAM] The name of a KPI whose type is Business Activity is now correctly displayed in the details of its parent BA.
+
+</details>
+
 ### 23.10.7
 
 Release date: `April 16, 2024`
@@ -339,6 +366,17 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon MBI
+
+### 23.10.6
+
+Release date: `July 4, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Fixed issues with Report Design functionality on Debian.
+
+</details>
 
 ### 23.10.5
 
@@ -526,6 +564,22 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon Anomaly Detection
+
+### 23.10.4
+
+Release date: `July 4, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Anomaly Detection] Fixed an issue which caused Anomaly Detection not to send real time data to SAAS.
+- [Anomaly Detection] Fixed an issue with the creation of a Centreon Broker configuration output, that occurred when adding an AIOps token.
+- [Anomaly Detection] Improved ergonomics by displaying the entire window with a default screen resolution, making all buttons visible.
+- [Packaging] Added missing dependencies on anomaly detection.
+- [Packaging] Anomaly_detection perl script is now correctly deployed on Debian.
+- [Packaging] Various anomaly detection perl installation scripts are now deployed on /usr/share/perl5/centreon/anomalydetection instead of /%{perl_vendorlib}/centreon.
+
+</details>
 
 ### 23.10.3
 
