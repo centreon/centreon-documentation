@@ -440,6 +440,14 @@ Release date: `October 26, 2022`
 
 ## Centreon MBI
 
+### 22.10.10
+
+Release date: `July 4, 2024`
+
+#### Bug fixes
+
+- [Packaging] Fixed an issue with the report design functionality on Debian.
+
 ### 22.10.9
 
 Release date: `April 17, 2024`
@@ -599,6 +607,15 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon Anomaly Detection
+
+### 22.10.6
+
+Release date: `July 4, 2024`
+
+#### Bug fixes
+
+- [Packaging] Added missing dependencies on anomaly detection.
+- [Packaging] Various anomaly detection perl installation scripts are now deployed on **/usr/share/perl5/centreon/anomalydetection** instead of **/%{perl_vendorlib}/centreon**.
 
 ### 22.10.5
 
