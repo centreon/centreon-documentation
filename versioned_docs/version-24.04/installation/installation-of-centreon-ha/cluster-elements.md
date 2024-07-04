@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ## What are the elements of Centreon HA?
 
-Centreon HA consists of a set of clustering tools on top of twin Centreon central servers that manage pollers (in a [distributed architecture](../../installation/architectures.md#distributed-architecture)), with remote twin databases. The HA tools manage the processes that would normally be managed by the central servers or the databases themselves. In this HA context, these processes are called "resources".
+Centreon HA consists of a set of clustering tools on top of twin Centreon central servers that manage pollers (in a [distributed architecture](https://docs.centreon.com/docs/installation/architectures/#distributed-architecture)), with remote twin databases. The HA tools manage the processes that would normally be managed by the central servers or the databases themselves. In this HA context, these processes are called "resources".
 
 * There are 5 members in a Centreon HA cluster:
 

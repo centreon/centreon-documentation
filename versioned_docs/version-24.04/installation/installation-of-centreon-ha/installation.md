@@ -660,7 +660,7 @@ First log in to MariaDB as `root` on both database servers (using the password y
 mysql -p
 ```
 
-Then, on both database servers, paste the following SQL commands to the MariaDB prompt to create and/or configure the account that the central servers will use to connect to the databases (to display the interface, to insert data into the databases, etc). You may have created this account at [step 6 of the web installation](../web-and-post-installation.md#step-6-database-information). The default name for this account is `centreon`. Replace the macros first:
+Then, on both database servers, paste the following SQL commands to the MariaDB prompt to create and/or configure the account that the central servers will use to connect to the databases (to display the interface, to insert data into the databases, etc). You may have created this account at [step 6 of the web installation](https://docs.centreon.com/docs/installation/web-and-post-installation/#step-6-database-information). The default name for this account is `centreon`. Replace the macros first:
 
 ```sql
 CREATE USER '@DB_CENTREON_USER@'@'@DATABASE_PASSIVE_IPADDR@' IDENTIFIED BY '@DB_CENTREON_PASSWD@';
