@@ -56,7 +56,7 @@ More information about discovering hosts automatically is available on the [dedi
 
 | Rule name                          | Description                                                   |
 |:-----------------------------------|:--------------------------------------------------------------|
-| Net-Nokia-Isam-SNMP-Hub-Sap-Name   |                                                               |
+| Net-Nokia-Isam-SNMP-Hub-Sap-Name   | Discover the Service Access Points (SAP) |
 | Net-Nokia-Isam-SNMP-Interface-Name | Discover network interfaces and monitor bandwidth utilization |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
@@ -259,7 +259,7 @@ yum install centreon-plugin-Network-Nokia-Isam-Snmp
 | Macro        | Description                                                                                        | Default value     | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | COMPONENT    | Define which component to check (default: '.*'). Can be: 'cardtemperature', 'sfp'                  | .*                |             |
-| NOCOMPONENT  | Define the expected status if no components are found (default: critical)                          |                   |             |
+| NOCOMPONENT  | Define the expected status if no components are found                           | critical |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
@@ -267,7 +267,7 @@ yum install centreon-plugin-Network-Nokia-Isam-Snmp
 
 | Macro                   | Description                                                                                                                                                                             | Default value                               | Mandatory   |
 |:------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------|:-----------:|
-| DISPLAYNAME             | Define the name to display (default: '%{SvcDescription}.%{IfName}.%{SapEncapName}'). Other available macros: %{SapDescription}, %{SapPortId}                                            | %{SvcDescription}.%{IfName}.%{SapEncapName} |             |
+| DISPLAYNAME             | Define the name to display. Available macros: %{SvcDescription}, %{IfName}, %{SapEncapName}, %{SapDescription}, %{SapPortId}.                                            | %{SvcDescription}.%{IfName}.%{SapEncapName} |             |
 | FILTERNAME              | Filter by Service Access Point (SAP) name (can be a regexp)                                                                                                                             |                                             |             |
 | WARNINGINTRAFFIC        | Warning thresholds for: 'total-in-traffic', 'total-out-traffic', 'in-traffic', 'out-traffic'                                                                                            |                                             |             |
 | CRITICALINTRAFFIC       | Critical thresholds for: 'total-in-traffic', 'total-out-traffic', 'in-traffic', 'out-traffic'                                                                                           |                                             |             |
