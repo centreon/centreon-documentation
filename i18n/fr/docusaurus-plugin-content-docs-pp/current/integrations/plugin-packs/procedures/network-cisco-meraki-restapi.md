@@ -157,7 +157,7 @@ Ce modèle de service ne comprend pas de métriques.
 | *devices*~*device_ports*#device.port.traffic.out.bitspersecond | b/s   |
 
 </TabItem>
-<TabItem value="Network & Networks" label="Network & Networks">
+<TabItem value="Network, Networks" label="Network, Networks">
 
 | Métrique                                     | Unité |
 |:---------------------------------------------|:------|
