@@ -23,7 +23,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias        | Modèle de service                                            | Description                            |
 |:-------------|:-------------------------------------------------------------|:---------------------------------------|
-| Api-Requests | Net-Cisco-Meraki-Cloudcontroller-Api-Requests-Restapi-custom | Contrôle l'utilisation de l'API meraki |
+| Api-Requests | Net-Cisco-Meraki-Cloudcontroller-Api-Requests-Restapi-custom | Contrôle l'utilisation de l'API Meraki |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Cisco-Meraki-Cloudcontroller-Restapi-custom** est utilisé.
 
@@ -100,7 +100,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Cache" label="Cache">
 
-Coming soon
+Ce modèle de service ne comprend pas de métriques.
 
 </TabItem>
 <TabItem value="Device" label="Device">
@@ -299,7 +299,7 @@ yum install centreon-plugin-Network-Cisco-Meraki-Restapi
 |:----------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | MERAKIAPIHOSTNAME     | Meraki API hostname                                                                                  | api.meraki.com    | X           |
 | MERAKIAPITOKEN        | Meraki API token                                                                                     |                   | X           |
-| MERAKIAPIPROTO        | Define the protocol to reach the API                                                                 | https             |             |
+| MERAKIAPIPROTO        | Define the protocol to use to reach the API                                                                 | https             |             |
 | MERAKIAPIPORT         | Define the TCP port to use to reach the API                                                          | 443               |             |
 | PROXYURL              | Proxy URL. Example: http://my.proxy:3128                                                             |                   |             |
 | MERAKIAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
@@ -318,7 +318,7 @@ yum install centreon-plugin-Network-Cisco-Meraki-Restapi
 |:----------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | MERAKIAPIHOSTNAME     | Meraki API hostname                                                                                  | api.meraki.com    | X           |
 | MERAKIAPITOKEN        | Meraki API token                                                                                     |                   | X           |
-| MERAKIAPIPROTO        | Define the protocol to reach the API                                                                 | https             |             |
+| MERAKIAPIPROTO        | Define the protocol to use to reach the API                                                                 | https             |             |
 | MERAKIAPIPORT         | Define the TCP port to use to reach the API                                                          | 443               |             |
 | MERAKIDEVICENAME      | Filter devices by name (can be a regexp)                                                             |                   |             |
 | PROXYURL              | Proxy URL. Example: http://my.proxy:3128                                                             |                   |             |
@@ -338,7 +338,7 @@ yum install centreon-plugin-Network-Cisco-Meraki-Restapi
 |:----------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | MERAKIAPIHOSTNAME     | Meraki API hostname                                                                                  | api.meraki.com    | X           |
 | MERAKIAPITOKEN        | Meraki API token                                                                                     |                   | X           |
-| MERAKIAPIPROTO        | Define the protocol to reach the API                                                                 | https             |             |
+| MERAKIAPIPROTO        | Define the protocol to use to reach the API                                                                 | https             |             |
 | MERAKIAPIPORT         | Define the TCP port to use to reach the API                                                          | 443               |             |
 | MERAKINETWORKNAME     | Filter network name (can be a regexp)                                                                |                   |             |
 | PROXYURL              | Proxy URL. Example: http://my.proxy:3128                                                             |                   |             |
