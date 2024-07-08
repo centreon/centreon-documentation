@@ -183,3 +183,23 @@ rta=0,984ms;200,000;400,000;0; pl=0%;20;50;0;100 rtmax=4,721ms;;;; rtmin=0,032ms
 ```text
 'load1'=0.30;0:4;0:6;0; 'load5'=0.16;0:3;0:5;0; 'load15'=0.29;0:2;0:4;0;
 ```
+
+### Service Chronyd
+
+**Commande**
+
+```text
+/usr/lib/centreon/plugins/centreon_linux_snmp.pl
+--plugin os::linux::snmp::plugin
+--hostname 127.0.0.1
+--snmp-community public
+--mode processcount
+--process-name chronyd
+--critical 2:2
+```
+
+**Sortie de la commande**
+
+```text
+CRITICAL: Number of current processes running: 1 | 'nbproc'=1;;2:2;0;
+```
