@@ -11,13 +11,13 @@ Les métriques permettent d’obtenir des graphiques et de positionner des seuil
 
 ### Statut des métriques et statut du service
 
-Lorsqu’un service comprend plusieurs métriques, le statut du service est celui de la plus mauvaise métrique. L'ordre de priorité est le suivant : OK, INCONNU, ALERTE, CRITIQUE.
+Lorsqu’un service comprend plusieurs métriques, le statut du service est le plus mauvais parmi les statuts de toutes les métriques. L'ordre de priorité est le suivant : OK, INCONNU, ALERTE, CRITIQUE.
 
 Si une métrique n'est pas récupérée, son statut est considéré comme INCONNU et impactera le statut du service associé.
 
 ### Services sans métriques
 
-Certains services n'ont aucune métrique associée : il s'agit de services retournant des statuts et non des valeurs numériques. Typiquement, des contrôles sur des équipements matériels. Le statut que prend le service est directement défini dans le code de chaque plugin, en fonction du code retour de l'équipement.
+Certains services n'ont aucune métrique associée : il s'agit de services contrôlant des états et non des valeurs numériques. Typiquement, des contrôles sur des équipements matériels. Le statut que prend le service est directement défini dans le code de chaque plugin, en fonction de la réponse de l'équipement.
 
 ## Où voir les métriques d'un service dans Centreon ?
 
@@ -37,25 +37,25 @@ Vous pouvez également :
 Dans tous les cas, le format des métriques telles que retournées par les plugins est le suivant :
 
 ```text
-'nom_de_la_métrique'= valeur&unité;alerte;critique;min;max
+'nom_de_la_métrique'= valeur[unité];alerte;critique;min;max
 ```
 
 * **valeur** : la valeur affichée dans le panneau de détails est celle retournée par le dernier contrôle effectué.
 
 * **alerte/critique**: [seuils](#syntaxe-des-seuils-des-métriques) pour lesquels le statut de la métrique sera ALERTE ou CRITIQUE. Si aucun seuil n'est défini, le statut de la métrique sera toujours OK. La valeur de ces seuils est définie [dans une macro spécifique au service, ou bien dans la macro EXTRAOPTIONS du service](#comment-définir-des-seuils-pour-des-métriques-spécifiques).
 
-   > Il est possible de ne définir qu'un seuil CRITIQUE, sans passer par le stade ALERTE.
+   > Il est possible de ne définir qu'un seuil CRITIQUE, sans passer par le stade ALERTE (et vice-versa).
 
-* **min/max** : Il ne s'agit pas de la valeur minimale/maximale constatée dans les données de performance, mais de la valeur minimale/maximale possible que peut prendre la métrique. Par exemple, le maximum d'une utilisation CPU sera toujours 100%. Ces valeurs sont définies [dans la macro EXTRAOPTIONS](#comment-définir-des-seuils-pour-des-métriques-spécifiques).
+* **min/max** : Il ne s'agit pas de la valeur minimale/maximale constatée dans les données de performance, mais de la valeur minimale/maximale possible que peut prendre la métrique. Par exemple, le maximum d'une utilisation CPU sera toujours 100%. Pour certains plugins ou modes, ces valeurs peuvent être redéfinies [dans la macro EXTRAOPTIONS](#comment-définir-des-seuils-pour-des-métriques-spécifiques).
 
-   * Les valeurs min/max servent à rendre l'affichage des graphes le plus pertinent possible : le min et le max seront les valeurs minimales/maximales sur l'axe des Y ou des X du graphique. Si aucun min et max ne sont définis, le graphique s'adaptera en hauteur en fonction de la plus petite et la plus grande valeur constatées. Si un graphique rassemble plusieurs métriques, définir le même min et max permet de toutes les représenter à la même échelle.
-   * Elles servent également à corriger certaines valeurs par défaut. Par exemple, si on contrôle le trafic réseau sur une interface, l'interface fournit son débit maximum théorique au plugin, mais celle-ci peut être changée à la main si le débit réel est limité par le fait d'être connecté à un autre équipement. Cela a notamment un impact sur les chiffres exploités dans les rapports de capacité dans [MBI](../reporting/introduction.md).
+   * Le min et le max seront les valeurs minimales/maximales sur l'axe des Y du graphique. Si aucun min et max ne sont définis, le graphique s'adaptera en hauteur en fonction de la plus petite et la plus grande valeur constatées. Redéfinir les valeurs min/max permettre de rendre l'affichage des graphes le plus pertinent possible : si plusieurs graphiques représentant le même service pour plusieurs hôtes sont affichés ensemble, définir le même min et max permet de représenter toutes les métriques à la même échelle.
+   * Elles servent également à évaluer le niveau d'utilisation d'une ressource par rapport à sa capacité, d'où l'intérêt de pouvoir les redéfinir dans certains cas. Par exemple, si on contrôle le trafic réseau sur une interface, l'interface fournit son débit maximum théorique au plugin, mais celui-ci peut être changé à la main si le débit réel est limité par le fait d'être connecté à un autre équipement. Cela a notamment un impact sur les chiffres exploités dans les rapports de capacité dans [MBI](../reporting/introduction.md).
    * Les valeurs min et max peuvent également servir à représenter les données sous forme de jauge dans [MAP](../graph-views/introduction.md).
 
 ### Syntaxe des seuils des métriques
 
-Il est possible de définir des plages de données pour les seuils :
-
+* **x** : on alerte si la valeur de la métrique est strictement supérieure à **x** (**80** signifie donc qu'on alerte si la valeur est supérieure à 80).
+* **x:** : on alerte si la valeur de la métrique est strictement inférieure à **x** (**50:** signifie donc qu'on alerte si la valeur est inférieure à 50).
 * **x:y** : on alerte si la valeur de la métrique est située en-dehors de cette fourchette (**0:10** signifie donc en-dessous de 0 et au-dessus de 10). Par exemple, on peut déterminer que la température dans un datacenter sera critique si elle est inférieure à 18 et supérieure à 24 : on entrera **18:24**.
 * **@x:y** : on alerte si la valeur de la métrique est située dans la plage (**@0:10** signifie donc qu'on alerte si la valeur de la métrique est située entre 0 et 10).
 * **x:x** : la valeur de la métrique doit être égale à la valeur **x** pour que son statut soit OK.
@@ -126,6 +126,15 @@ Donc dans la macro EXTRAOPTIONS du service, on entrera :
 ```
 
 ### Service Ping
+
+**Commande**
+
+```text
+/usr/lib64/nagios/plugins/check_icmp
+-H xxx.xxx.xxx.xxx
+-w 200.000,20%
+-c 400.000,50% -p 1
+```
 
 **Métriques retournées**
 

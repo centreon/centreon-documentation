@@ -11,13 +11,13 @@ Metrics allow you to display graphs and to define thresholds according to which 
 
 ### Status of a metric and status of a service
 
-When a service has several metrics, the status of the service is the status of the worst metric. The order of priority is as follows: OK, UNKNOWN, WARNING, CRITICAL.
+When a service has several metrics, the status of the service is the worst among all metric status. The order of priority is as follows: OK, UNKNOWN, WARNING, CRITICAL.
 
 If a metric cannot be retrieved, its status is considered as UNKNOWN and will impact the associated service.
 
 ### Services without metrics
 
-Some services have no associated metrics: they return statuses rather than numerical values. Typically, checks on hardware. The status the service takes is directly defined in the plugin's code, according to the return code of the device.
+Some services have no associated metrics: they check statuses rather than metrics with numerical values. Typically, checks on hardware. The status the service takes is directly defined in the plugin's code, according to the device's response.
 
 ## Where can I see the metrics for a service in Centreon?
 
@@ -37,25 +37,25 @@ You can also:
 In all cases, the format of the metrics as returned by the plugins is as follows:
 
 ```text
-'name_of_the_metric'= value&unit;warning;critical;min;max
+'name_of_the_metric'= value[unit];warning;critical;min;max
 ```
 
 * **value**: the value that is displayed in the details panel of the service is the value returned by the last performed check.
 
 * **warning/critical**: [thresholds](#syntax-of-metric-thresholds) for which the status of the metric will be WARNING or CRITICAL. If no threshold is defined, the status of the metrics will always be OK. The value of these thresholds is defined [in a macro specific to the service, or in its EXTRAOPTIONS macro](#how-do-i-define-a-threshold-for-a-specific-metric).
 
-   > You can choose to define only a CRITICAL threshold and no WARNING threshold.
+   > You can choose to define only a CRITICAL threshold and no WARNING threshold, and vice versa.
 
-* **min/max**: This is not the minimum/maximum value seen in the data, but the minimum/maximum possible value that the metric can have. For instance, the maximum CPU usage will always be 100%. These values are defined using the [EXTRAOPTIONS macro](#how-do-i-define-a-threshold-for-a-specific-metric).
+* **min/max**: This is not the minimum/maximum value seen in the data, but the minimum/maximum possible value that the metric can have. For instance, the maximum CPU usage will always be 100%. For some plugins or modes, these values can be redefined [EXTRAOPTIONS macro](#how-do-i-define-a-threshold-for-a-specific-metric).
 
-   * The min/max values make graphs as relevant as possible: the min and max values will be the minimum/maximum values on the Y or X axis of the graph. If no min or max are defined, the graph will adapt its height to the smallest and biggest seen value. If a graph gathers several metrics, definin the same min and max for all allows you to display them with the same scale.
-   * The min/max values can also be used to correct some default values. For instance, if you are checking the network traffic on an interface, this interface provides its theoretical minimum speed to the plugin, but you can change it manually if the actual speed is limited by another device. This impacts the data exploited by capacity reports in [MBI](../reporting/introduction.md).
+   * The min and max values will be the minimum/maximum values on the Y axis of the graph. If no min or max are defined, the graph will adapt its height to the smallest and biggest seen value. Redefining the min/max values help make graphs as relevant as possible: if several graphs that represent the same service for several hosts are displayed together, defining the same min and max for all metrics allows you to display them with the same scale.
+   * The min/max values also make it possible to assess the usage of a resource compared to its capacity: redefining them may be relevant in certain cases. For instance, if you are checking the network traffic on an interface, this interface provides its theoretical minimum speed to the plugin, but you can change it manually if the actual speed is limited by another device. This impacts the data exploited by capacity reports in [MBI](../reporting/introduction.md).
    * Min/max values can also be used to display data as a gauge in [MAP](../graph-views/introduction.md).
 
 ### Syntax of metric thresholds
 
-You can define ranges of data as thresholds:
-
+* **x** : we are alerted if the value of the metric is strictly higher than **x** (**80** means higher than 80).
+* **x:** : we are alerted if the value of the metric is strictly lower than **x** (**50:** means lower than 50).
 * **x:y**: we are alerted if the value of the metric is outside this range (**0:10** means below 0 and above 10). For example, we can determine that the temperature of a datacenter will be CRITICAL if it is below 18 or higher than 24: we will input **18:24**.
 * **@x:y**: we are alerted if the value of the metric is inside the range (**@0:10** means that we are alerted if the value of the metric is between 0 and 10).
 * **x:x**: the value of the metric must be equal to **x** for its status to be OK.
@@ -126,6 +126,15 @@ In the EXTRAOPTIONS macro of the service, we will input:
 ```
 
 ### Ping service
+
+**Command**
+
+```text
+/usr/lib64/nagios/plugins/check_icmp
+-H xxx.xxx.xxx.xxx
+-w 200.000,20%
+-c 400.000,50% -p 1
+```
 
 **Returned metrics**
 
