@@ -556,37 +556,31 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_cisco_meraki_restapi.pl \
-	--plugin=network::cisco::meraki::cloudcontroller::restapi::plugin \
-	--mode=networks \
-	--hostname='' \
-	--api-token='' \
-	--port='' \
-	--proto='' \
-	--proxyurl=''  \
-	--filter-network-name='' \
-	--filter-organization-name='' \
-	--filter-organization-id='' \
-	--warning-connections-success='' \
-	--critical-connections-success='' \
-	--warning-connections-auth='' \
-	--critical-connections-auth='' \
-	--warning-connections-assoc='' \
-	--critical-connections-assoc='' \
-	--warning-connections-dhcp='' \
-	--critical-connections-dhcp='' \
-	--warning-connections-dns='' \
-	--critical-connections-dns='' \
-	--warning-traffic-in='' \
-	--critical-traffic-in='' \
-	--warning-traffic-out='' \
-	--critical-traffic-out='' \
-	--verbose
+  --plugin='network::cisco::meraki::cloudcontroller::restapi::plugin' \
+  --mode='devices' \
+  --hostname='api.meraki.com' \
+  --api-token='12345abcd6789efgh0123abcd4567efgh8901abcd' \
+  --proxyurl='http://proxy.mycompany:8080' \
+  --filter-device-name='centreon-par-training-ap' \
+  --critical-status='%{status} =~ /alerting/i' \
+  --critical-link-status='%{link_status} =~ /failed/i' \
+  --verbose
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All networks are ok | '*networks*#network.connections.success.count'=12;;;0;'*networks*#network.connections.auth.count'=10;;;0;'*networks*#network.connections.assoc.count'=5;;;0;'*networks*#network.connections.dhcp.count'=;;;0;'*networks*#network.connections.dns.count'=8;;;0;'*networks*#network.traffic.in.bitspersecond'=15643b/s;;;0;'*networks*#network.traffic.out.bitspersecond'=98745b/s;;;0;
+OK: Device 'centreon-par-training-ap' status: online - connection success: 0 - traffic in: 51.66 b/s, out: 515.86 b/s - link 'WAN 1' status: active | 
+'devices.total.online.count'=0;;;0;1 'devices.total.offline.count'=0;;;0;1 'devices.total.alerting.count'=0;;;0;1 
+'centreon-par-training-ap#device.connections.success.count'=0;;;0; 'centreon-par-training-ap#device.connections.auth.count'=0;;;0; 
+'centreon-par-training-ap#device.connections.assoc.count'=0;;;0; 'centreon-par-training-ap#device.connections.dhcp.count'=0;;;0; 
+'centreon-par-training-ap#device.connections.dns.count'=0;;;0; 'centreon-par-training-ap#device.traffic.in.bitspersecond'=51.6626907073509b/s;;;0; 
+'centreon-par-training-ap#device.traffic.out.bitspersecond'=515.864632454924b/s;;;0;
+checking device 'centreon-par-training-ap'
+    status: online
+    connection success: 0
+    traffic in: 51.66 b/s, out: 515.86 b/s
+    link 'WAN 1' status: active
 ```
 
 ### Diagnostic des erreurs communes
