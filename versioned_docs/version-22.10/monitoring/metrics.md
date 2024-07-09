@@ -27,10 +27,7 @@ Example: We are monitoring a Centreon poller (for this service, via the [Linux S
 
 ![image](../assets/monitoring/metrics.png)
 
-You can also:
-
-* See the evolution of all the metrics for a service in the **Graph** tab of the details panel for the service.
-* Display the last value for a metric in a [dashboard](../alerts-notifications/dashboards.md), using the **Single metric** widget.
+You can also see the evolution of all the metrics for a service in the **Graph** tab of the details panel for the service.
 
 ## What is the format of a metric?
 

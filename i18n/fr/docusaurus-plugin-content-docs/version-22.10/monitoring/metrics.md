@@ -27,10 +27,7 @@ Exemple : Nous supervisons un collecteur Centreon (pour ce service, via le conne
 
 ![image](../assets/monitoring/metrics.png)
 
-Vous pouvez également :
-
-* Voir l'évolution de toutes les métriques d'un service dans l'onglet **Graphique** du panneau de détails du service.
-* Représenter le dernière valeur d'une métrique dans un [tableau de bord](../alerts-notifications/dashboards.md), grâce au widget **Métrique unique**.
+Vous pouvez également voir l'évolution de toutes les métriques d'un service dans l'onglet **Graphique** du panneau de détails du service.
 
 ## Quel est le format d'une métrique ?
 
