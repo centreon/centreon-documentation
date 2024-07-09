@@ -50,7 +50,7 @@ Dans tous les cas, le format des métriques telles que retournées par les plugi
 
    * Le min et le max seront les valeurs minimales/maximales sur l'axe des Y du graphique. Si aucun min et max ne sont définis, le graphique s'adaptera en hauteur en fonction de la plus petite et la plus grande valeur constatées. Redéfinir les valeurs min/max permet de rendre l'affichage des graphes le plus pertinent possible : si plusieurs graphiques représentant le même service pour plusieurs hôtes sont affichés ensemble, définir le même min et max permet de représenter toutes les métriques à la même échelle.
    * Elles servent également à évaluer le niveau d'utilisation d'une ressource par rapport à sa capacité, d'où l'intérêt de pouvoir les redéfinir dans certains cas. Par exemple, si on contrôle le trafic réseau sur une interface, l'interface fournit son débit maximum théorique au plugin, mais celui-ci peut être changé à la main si le débit réel est limité par le fait d'être connecté à un autre équipement.
-   * Les valeurs min et max peuvent également servir à représenter les données sous forme de jauge dans [MAP](../graph-views/introduction.md).
+   * Les valeurs min et max peuvent également servir à représenter les données sous forme de jauge dans [MAP](../graph-views/introduction-map.md).
 
 ### Syntaxe des seuils des métriques
 
