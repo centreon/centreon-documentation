@@ -1478,6 +1478,10 @@
         },
         {
           "type": "doc",
+          "id": "version-24.04/installation/installation-of-centreon-ha/cluster-elements"
+        },
+        {
+          "type": "doc",
           "id": "version-24.04/installation/installation-of-centreon-ha/overview"
         },
         {
@@ -1508,10 +1512,6 @@
             "type": "generated-index"
           },
           "items": [
-            {
-              "type": "doc",
-              "id": "version-24.04/administration/centreon-ha/acceptance-guide"
-            },
             {
               "type": "doc",
               "id": "version-24.04/administration/centreon-ha/operating-guide"
