@@ -222,7 +222,7 @@ yum install centreon-plugin-Cloud-Azure-Database-Elasticpool-Api
 | AZURECLIENTID      | Set Azure client ID                                                                                                        |                   | X           |
 | AZURECLIENTSECRET  | Set Azure client secret                                                                                                    |                   | X           |
 | AZURECUSTOMMODE    | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               |             |
-| AZURERESOURCE      | Set resource name or ID (required)                                                                                         |                   |             |
+| AZURERESOURCE      | Set resource name or ID (required)                                                                                         |                   |      X      |
 | AZURERESOURCEGROUP | Set resource group (required if resource's name is used)                                                                   |                   | X           |
 | AZURESUBSCRIPTION  | Set Azure subscription (required if logged to several subscriptions)                                                       |                   | X           |
 | AZURETENANT        | Set Azure tenant ID                                                                                                        |                   | X           |
@@ -238,7 +238,7 @@ yum install centreon-plugin-Cloud-Azure-Database-Elasticpool-Api
 | Macro              | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:-------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | AZURECUSTOMMODE    | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               |             |
-| AZURERESOURCE      | Set resource name or ID (required)                                                                                         |                   |             |
+| AZURERESOURCE      | Set resource name or ID (required)                                                                                         |                   |      X      |
 | AZURERESOURCEGROUP | Set resource group (required if resource's name is used)                                                                   |                   | X           |
 | AZURESUBSCRIPTION  | Set Azure subscription (required if logged to several subscriptions)                                                       |                   | X           |
 | PROXYURL           | Proxy URL if any                                                                                                           |                   |             |
