@@ -40,7 +40,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                                | Service Description                       |
 |:--------------|:------------------------------------------------|:------------------------------------------|
-| Cpu           | Cloud-Azure-Database-Elasticpool-Cpu-Api-custom | Check Azure vCore Elastic Pools CPU usage |
+| Cpu           | Cloud-Azure-Database-Elasticpool-Cpu-Api-custom | Check Azure Elastic Pools CPU usage |
 | Dtu           | Cloud-Azure-Database-Elasticpool-Dtu-Api-custom | Check Azure Elastic Pools DTU usage       |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
