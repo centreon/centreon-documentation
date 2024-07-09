@@ -86,6 +86,22 @@ Deux méthodes de connexion SSH sont possibles :
 * soit en échangeant la clé SSH publique de l'utilisateur `centreon-engine` du collecteur Centreon
 * soit en définissant votre utilisateur et votre mot de passe directement dans les macros d'hôtes.
 
+### Privilèges de l'utilisateur local
+
+L'utilisateur local de l'hôte supervisé doit être ajouté au groupe `haclient` s'il n'en fait pas déjà partie (c'est le cas si on utilise un autre utilisateur que `hacluster`). Par exemple, si l'utilisateur local est `centreon-engine`, lancez :
+
+```bash
+usermod -a -G haclient centreon-engine
+```
+
+Il vous faudra alors vous authentifier auprès du cluster :
+
+```bash
+pcs client local-auth
+```
+
+Entrez alors `hacluster` comme login et le mot de passe correspondant.
+
 ## Installer le connecteur de supervision
 
 ### Pack
