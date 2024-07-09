@@ -7,9 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-Cisco Unified Computing System (UCS) est un ensemble de ressources pour Datacenter comprenant du matériel hardware, un support système de virtualisation, une matrice de commutation et un logiciel de gestion.
-
-Le connecteur de supervision *Cisco UCS* utilise le protocole SNMP pour se connecter, récupérer des informations et les métriques relatives aux ressources du serveur UCS.
+Le connecteur de supervision **Cisco UCS** utilise le protocole SNMP pour se connecter, récupérer des informations et les métriques relatives aux ressources du serveur UCS.
 
 ## Contenu du pack
 
@@ -52,7 +50,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle | Description                                                                                                                                                                                                                                             |
 |:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **HW-Server-Cisco-Ucs-SNMP-custom** host template |
+| SNMP Agents     | Découverte d'hôte en scannant des réseaux via SNMP. Installer le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte puis créer un job avec un modificateur de modèle associé au modèle **HW-Server-Cisco-Ucs-SNMP-custom**. |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
