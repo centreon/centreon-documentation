@@ -248,6 +248,10 @@
             },
             {
               "type": "doc",
+              "id": "version-23.10/monitoring/metrics"
+            },
+            {
+              "type": "doc",
               "id": "version-23.10/monitoring/pluginpacks"
             },
             {
