@@ -20,9 +20,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                    | Service Description                                  |
 |:--------------|:------------------------------------|:-----------------------------------------------------|
-| Cpu           | Net-Nokia-Isam-Cpu-SNMP-custom      | Check the utilization rate of CPU                    |
+| Cpu           | Net-Nokia-Isam-Cpu-SNMP-custom      | Check the utilization rate of the CPU                    |
 | Hardware      | Net-Nokia-Isam-Hardware-SNMP-custom | Check hardware                                       |
-| Memory        | Net-Nokia-Isam-Memory-SNMP-custom   | Check the rate of the utilization of memory          |
+| Memory        | Net-Nokia-Isam-Memory-SNMP-custom   | Check the utilization rate of the memory          |
 | Uptime        | Net-Nokia-Isam-Uptime-SNMP-custom   | Time since the device has been working and available |
 
 > The services listed above are created automatically when the **Net-Nokia-Isam-SNMP-custom** host template is used.
@@ -331,8 +331,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
-	--warning-usage='80'  \
-	--critical-usage='90' \
+	--warning-usage=''  \
+	--critical-usage='' \
 	--use-new-perfdata
 ```
 

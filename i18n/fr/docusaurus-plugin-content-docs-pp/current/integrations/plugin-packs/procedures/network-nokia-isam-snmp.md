@@ -49,7 +49,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle | Description                                                                                                                                                                                                                                        |
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Nokia-Isam-SNMP-custom** host template |
+| SNMP Agents     | Découverte d'hôte en scannant des réseaux via SNMP. Installer le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte puis créer un job avec un modificateur de modèle associé au modèle **Net-Nokia-Isam-SNMP-custom**. |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -58,7 +58,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 | Nom de la règle                    | Description                                                             |
 |:-----------------------------------|:------------------------------------------------------------------------|
 | Net-Nokia-Isam-SNMP-Hub-Sap-Name   | Découvre les Service Access Points (SAP) |
-| Net-Nokia-Isam-SNMP-Interface-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
+| Net-Nokia-Isam-SNMP-Interface-Name | Découvre les interfaces réseau et supervise le statut et l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -332,8 +332,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
-	--warning-usage='80'  \
-	--critical-usage='90' \
+	--warning-usage=''  \
+	--critical-usage='' \
 	--use-new-perfdata
 ```
 
