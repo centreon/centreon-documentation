@@ -81,6 +81,21 @@ privileges. There are two possible ways to log in through SSH, either by
 exchanging the SSH key from **centreon-engine** user to the target resource, or by
 setting your unique user and password directly in the host macros.
 
+### Local user privileges
+
+The local user on the monitored host must be part of the `haclient` group if it is not already in it (i.e. any other user than `hacluster`). For example if the local user is `centreon-engine`, run:
+
+```bash
+usermod -a -G haclient centreon-engine
+```
+You will then need to authenticate to the cluster:
+
+```bash
+pcs client local-auth
+```
+
+Then type `hacluster` as login and the appropriate password.
+
 ## Installing the monitoring connector
 
 ### Pack
