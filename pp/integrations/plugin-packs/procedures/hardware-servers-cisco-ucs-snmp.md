@@ -7,9 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-Cisco Unified Computing System (UCS) is a system of servers, a network, storage and a storage network in a single platform.
-
-The Centreon Monitoring Connector *Cisco UCS* relies on the SNMP protocol to query and collect status and metrics of the UCS server.
+The Centreon Monitoring Connector **Cisco UCS** relies on the SNMP protocol to query and collect statuses and metrics from the UCS server.
 
 ## Pack assets
 
