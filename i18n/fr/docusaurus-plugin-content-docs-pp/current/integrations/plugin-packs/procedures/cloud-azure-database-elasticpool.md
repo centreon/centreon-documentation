@@ -30,7 +30,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias     | Modèle de service                                    | Description                                                           |
 |:----------|:-----------------------------------------------------|:----------------------------------------------------------------------|
-| Log-Usage | Cloud-Azure-Database-Elasticpool-Log-Api-custom      | Contrôle l'utilisation des fichiers et bases logs Elastic Pools Azure |
+| Log-Usage | Cloud-Azure-Database-Elasticpool-Log-Api-custom      | Contrôle le fichier journal des pools élastiques Azure ainsi que l'utilisation des bases de données |
 | Sessions  | Cloud-Azure-Database-Elasticpool-Sessions-Api-custom | Contrôle les sessions et workers actifs des Elastic Pools Azure       |
 | Storage   | Cloud-Azure-Database-Elasticpool-Storage-Api-custom  | Contrôle les statistiques de stockage des Elastic Pools Azure         |
 
@@ -41,7 +41,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias | Modèle de service                               | Description                                              |
 |:------|:------------------------------------------------|:---------------------------------------------------------|
-| Cpu   | Cloud-Azure-Database-Elasticpool-Cpu-Api-custom | Contrôle l'utilisation CPU des Elastic Pools vCore Azure |
+| Cpu   | Cloud-Azure-Database-Elasticpool-Cpu-Api-custom | Contrôle l'utilisation CPU des Elastic Pools Azure |
 | Dtu   | Cloud-Azure-Database-Elasticpool-Dtu-Api-custom | Contrôle l'utilisation DTU des Elastic Pools Azure       |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
@@ -229,7 +229,7 @@ yum install centreon-plugin-Cloud-Azure-Database-Elasticpool-Api
 | PROXYURL           | Proxy URL if any                                                                                                           |                   |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
 
-> Paramétrez les options suivantes dans la macro EXTRAOPTIONS si vous superviser des ressources Microsoft Azure géré par 21Vianet (Azure China):
+> Paramétrez les options suivantes dans la macro EXTRAOPTIONS si vous supervisez des ressources Microsoft Azure gérées par 21Vianet (Azure China):
 --management-endpoint='https://management.chinacloudapi.cn' --login-endpoint='https://login.partner.microsoftonline.cn'.
 
 </TabItem>
