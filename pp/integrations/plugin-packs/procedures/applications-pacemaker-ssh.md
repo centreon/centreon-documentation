@@ -83,11 +83,12 @@ setting your unique user and password directly in the host macros.
 
 ### Local user privileges
 
-The local user on the monitored host must be part of the `haclient` group if it is not already in it (i.e. any other user than `hacluster`). For example if the local user is `centreon-engine`, run:
+The local user on the monitored host must be added to the `haclient` group if it is not already part of it (i.e. any other user than `hacluster`). For example if the local user is `centreon-engine`, run:
 
 ```bash
 usermod -a -G haclient centreon-engine
 ```
+
 You will then need to authenticate to the cluster:
 
 ```bash
