@@ -21,7 +21,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias | Service Template                     | Service Description                                             |
 |:--------------|:-------------------------------------|:----------------------------------------------------------------|
 | CRM           | App-Pacemaker-CRM-SSH-custom         | Check cluster state with crm_mon command                        |
-| Clustat       | App-Pacemaker-Clustat-SSH-custom     | Check cluster state with clustat command                        |
+| Clustat       | App-Pacemaker-Clustat-SSH-custom     | [Deprecated] Check cluster state with clustat command                        |
 | Constraints   | App-Pacemaker-Constraints-SSH-custom | Check if there are any constraints applied to a cluster resource |
 
 > The services listed above are created automatically when the **App-Pacemaker-SSH-custom** host template is used.
@@ -54,12 +54,13 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Clustat" label="Clustat">
 
+> This service template is deprecated and is no longer provided with the latest versions of the connector since `clustat` is no longer part of Pacemaker's command-line tools since RHEL7.
+
 | Metric name    | Unit  |
 |:---------------|:------|
 | *nodes*#node   | N/A   |
 | *groups*#group | N/A   |
 
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="Constraints" label="Constraints">
@@ -181,6 +182,7 @@ yum install centreon-plugin-Applications-Pacemaker-Ssh
 |:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SSHUSERNAME     | Define the user name to log in to the host                                                                                                                          |                   |             |
 | SSHPASSWORD     | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead |                   |             |
+| SSHPRIVKEY     | Define the path to the private key file for user authentication. | `/var/lib/centreon-engine/.ssh/id_ed25519` |             |
 | SSHPORT         | Define the TCP port on which SSH is listening                                                                                                                       |                   |             |
 | SSHBACKEND      | Define the backend you want to use. It can be: sshcli (default), plink and libssh                                                                                   | libssh            |             |
 | SSHEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                                                                |                   |             |
@@ -226,6 +228,8 @@ yum install centreon-plugin-Applications-Pacemaker-Ssh
 
 </TabItem>
 <TabItem value="Clustat" label="Clustat">
+
+> This service template is deprecated and is no longer provided with the latest versions of the connector since `clustat` is no longer part of Pacemaker's command-line tools since RHEL7.
 
 | Macro        | Description                                                                                        | Default value     | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
