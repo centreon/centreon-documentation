@@ -137,7 +137,7 @@ Un hôte peut avoir les [statuts](#statut) suivants : DISPONIBLE, INDISPONIBLE e
 
 **Voir aussi** : [Mettre un hôte en supervision](../monitoring/basic-objects/hosts-create.md) et les autres topics de cette section.
 
-## LVM 
+## LVM
 
 LVM (logical volume manager) : Centreon recommande d'utiliser ce système de partitionnement lors de l'installation du système hôte. Il vous permettra d'ajuster la taille des partitions à chaud et de mettre en œuvre les snapshots LVM pour la sauvegarde.
 
@@ -154,6 +154,8 @@ Une métrique ou donnée de performance est rattachée à un [service](#service)
 Lorsqu’un service comprend plusieurs métriques, le statut du service est celui de la plus mauvaise métrique.
 
 Vous pouvez voir les métriques associées à un service dans le panneau de détails de celui-ci.
+
+**Voir aussi** : [Comprendre les métriques](../monitoring/metrics.md).
 
 ## Mode flux Broker inversé
 
