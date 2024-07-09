@@ -171,9 +171,11 @@ rta=0,984ms;200,000;400,000;0; pl=0%;20;50;0;100 rtmax=4,721ms;;;; rtmin=0,032ms
 --hostname=xxx.xxx.xxx.xxx
 --snmp-version='2c'
 --snmp-community='public'
---warning='4,3,2'  // 1 minute, 5 minutes, 15 minutes glissantes
+--warning='4,3,2'
 --critical='6,5,4'
 ```
+
+Ici, les seuils alerte et critique sont définis pour des périodes glissantes de 1, 5 et 15 minutes.
 
 **Métriques retournées**
 
