@@ -7,11 +7,6 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-Azure SQL Managed Instance est un service facilitant la migration d'applications
-locales vers un environnement sécurisé cloud PaaS avec les avantages
-correspondants à savoir les correctifs et mises à jour de versions automatiques,
-les sauvegardes automatisées et un service de haute disponibilité.
-
 Le connecteur de supervision Centreon **Azure SQL Managed Instance** s'appuie sur les API Azure Monitor
 afin de récupérer les métriques relatives au service
 SQL Managed Instance. Il est possible d'utiliser les 2 modes proposés par
