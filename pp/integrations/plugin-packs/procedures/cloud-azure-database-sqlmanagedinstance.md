@@ -7,12 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-Azure SQL Managed Instance is a service designed to facilitate the migration of
-apps from on-premises to a fully managed and secured PaaS cloud environment
-with automatic patching and version updates, automated backups and high
-availability.
-
-The Centreon Monitoring Connector **Azure SQL Managed Instance** can rely on Azure API or Azure CLI
+The Centreon Monitoring Connector **Azure SQL Managed Instance** can rely on the Azure API or Azure CLI
 to collect the metrics related to the SQL Managed Instance service.
 
 ## Pack assets
@@ -210,7 +205,7 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlManagedInstance-Api
 | PROXYURL           | Proxy URL if any                                                                                                           |                   |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                       |                   |             |
 
-> Set the following options in the EXTRAOPTIONS macro if you are monitoring resource from Microsoft Azure operated by 21Vianet (Azure China):
+> Set the following options in the EXTRAOPTIONS macro if you are monitoring resources from Microsoft Azure operated by 21Vianet (Azure China):
 --management-endpoint='https://management.chinacloudapi.cn' --login-endpoint='https://login.partner.microsoftonline.cn'.
 
 </TabItem>
