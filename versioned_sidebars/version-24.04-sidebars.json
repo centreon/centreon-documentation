@@ -1486,15 +1486,12 @@
         },
         {
           "type": "category",
-          "label": "Installing Centreon HA",
+          "label": "Completing your Centreon HA setup",
           "link": {
-            "type": "generated-index"
+            "type": "generated-index",
+            "description": "Your HA platform has been installed by Centreon Professional Services. What can you do next?"
           },
           "items": [
-            {
-              "type": "doc",
-              "id": "version-24.04/installation/installation-of-centreon-ha/installation"
-            },
             {
               "type": "doc",
               "id": "version-24.04/installation/installation-of-centreon-ha/integrating-pollers"
