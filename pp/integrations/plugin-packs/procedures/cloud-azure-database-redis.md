@@ -7,11 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-Azure Cache for Redis provides an in-memory data store based on the Redis software. Redis improves the performance and scalability of an application
-that uses backend data stores heavily. It's able to process large volumes of application requests by keeping frequently accessed data in the server
-memory, which can be written to and read from quickly. Redis brings a critical low-latency and high-throughput data storage solution to modern applications.
-
-The Centreon Monitoring Connector *Azure Cache for Redis* can rely on Azure API or Azure CLI to collect the metrics related to the Redis service.
+The Centreon Monitoring Connector **Azure Cache for Redis** can rely on Azure API or Azure CLI to collect the metrics related to the Redis service.
 
 ## Pack assets
 
