@@ -7,13 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-Azure Cache pour Redis fournit un magasin de données en mémoire basé sur le logiciel Redis. Redis améliore les performances et l’extensibilité d’une
-application qui utilise abondamment les magasins de données principaux. Il peut traiter des volumes conséquents de demandes d’applications en conservant
-les données fréquemment utilisées dans la mémoire du serveur, qui peut être écrite et lue rapidement. Redis constitue une solution de stockage de
-données à faible latence et à haut débit critique pour les applications modernes.
-
-Le connecteur de supervision Centreon **Azure Cache for Redis** s'appuie sur les API Azure Monitor afin de récuperer les métriques relatives au service
-Cosmos DB. Il est possible d'utiliser les 2 modes proposés par Microsoft: RestAPI ou Azure CLI.
+Le connecteur de supervision Centreon **Azure Cache for Redis** peut se baser sur l'API Azure ou Azure CLI pour collecter les métriques liées au service Redis.
 
 ## Contenu du pack
 
