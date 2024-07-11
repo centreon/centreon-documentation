@@ -25,7 +25,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
 
-- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - Changed the way fragmentation is calculated.
+- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - The way fragmentation is calculated has changed to avoid getting values ​​above 100.
 - [**Pacemaker**](../procedures/applications-pacemaker-ssh.md) - The Clustat service template and its associated command are deprecated and have been removed.
 
 </TabItem>
