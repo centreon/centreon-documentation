@@ -13,7 +13,7 @@ Telegraf is an observability tool implementing the OpenTelemetry protocol.
 > - the impossibility to display the informational output message of the host or service (due to
 > limitations of the OpenTelemetry protocol).
 
-You may refer to [this page](../getting-started/how-to-guides/telegraf/) for more information about Centreon's integration with Telegraf.
+You may refer to [this page](../getting-started/how-to-guides/telegraf.md) for more information about Centreon's integration with Telegraf.
 
 ## Pack assets
 
