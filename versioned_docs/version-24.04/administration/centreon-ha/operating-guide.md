@@ -9,8 +9,6 @@ title: Operating guide
 
 You access the interface of the active node via the IP address of the central VIP. This means that you always use the same URL to access the interface, whether the interface is that of central node 1 or of central node 2.
 
-<!-->> In this page, we will refer to characteristics that are bound to change from one platform to another (such as IP addresses and host names) by the [macros defined here](../../installation/installation-of-centreon-ha/installation.md#convention-for-names-and-ip-addresses).-->
-
 ## How do I know the state of the cluster?
 
 ### Using crm_mon and pcs status
