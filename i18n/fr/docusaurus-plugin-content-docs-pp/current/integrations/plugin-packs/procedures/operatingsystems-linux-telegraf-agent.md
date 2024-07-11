@@ -16,7 +16,7 @@ OpenTelemetry.
 > - l'impossibilité de récupérer le message d'information lié au statut du
 > service ou de l'hôte (limitation liée au protocole OpenTelemetry).
 
-Vous pouvez consulter [cette page](../getting-started/how-to-guides/telegraf/) pour plus d'informations sur ce que permet l'intégration avec Telegraf.
+Vous pouvez consulter [cette page](../getting-started/how-to-guides/telegraf.md) pour plus d'informations sur ce que permet l'intégration avec Telegraf.
 
 ## Contenu du pack
 
