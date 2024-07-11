@@ -256,7 +256,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Protocol-Telegraf-Agent" label="Protocol-Telegraf-Agent">
 
-Pas de métrique pour ce service.
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
