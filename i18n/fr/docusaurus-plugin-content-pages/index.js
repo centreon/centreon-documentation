@@ -78,7 +78,7 @@ const cards = [
 
 const versionInfo = {
   version: '24.04',
-  link: 'https://www.centreon.com/fr/centreon-annonce-la-sortie-de-sa-derniere-version-logicielle-centreon-24-04/',
+  link: 'https://www.centreon.com/fr/nouvelle-cadence-de-sortie-de-version-et-nouveau-cycle-de-vie-des-versions-de-centreon/',
   target: '_blank'
  }
 
@@ -100,8 +100,8 @@ function BannerBlock() {
     <div className={clsx(styles.bannerContainer)}>
       <div className={clsx(styles.mainContainer)}>
         <div className={clsx(styles.bannerWrapper)}>
-          <span className={clsx(styles.badge)}>CENTREON {versionInfo.version}</span>
-          <p>Nouvelle version logicielle disponible</p>
+          {/* <span className={clsx(styles.badge)}>CENTREON {versionInfo.version}</span> */}
+          <p>Bientôt un nouveau cycle de vie logiciel !</p>
           <Button href={versionInfo.link} target={versionInfo.target} label="En savoir plus" dark="true"/>
         </div>
       </div>

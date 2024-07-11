@@ -59,7 +59,7 @@ apt update && apt upgrade
 2. Téléchargez le script à l'aide de la commande suivante :
 
 ```shell
-curl -L https://raw.githubusercontent.com/centreon/centreon/23.04.x/centreon/unattended.sh --output /tmp/unattended.sh
+curl -L https://download.centreon.com/23.04/unattended.sh --output /tmp/unattended.sh
 ```
 
 3. Exécutez la commande suivante en **root** :

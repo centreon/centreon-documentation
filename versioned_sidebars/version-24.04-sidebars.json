@@ -1515,7 +1515,7 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-24.04/health/centreon-agent"
+          "id": "version-24.04/health/helios"
         }
       ]
     },

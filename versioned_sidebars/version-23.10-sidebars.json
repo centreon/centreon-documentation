@@ -1582,7 +1582,7 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-23.10/health/centreon-agent"
+          "id": "version-23.10/health/helios"
         }
       ]
     },

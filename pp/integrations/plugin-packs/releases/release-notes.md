@@ -958,7 +958,7 @@ import TabItem from '@theme/TabItem';
 - [**Microsoft IIS NSClient 0.5**](../procedures/applications-webservers-iis-nsclient-05-restapi.md) - Align pack status with documentation (deprecated).
 - [**Microsoft IIS NRPE**](../procedures/applications-webservers-iis-nrpe.md) - Align pack status with documentation (deprecated).
 - [**Azure Virtual Machine Scale Sets**](../procedures/cloud-azure-compute-vmscalesets.md) - Fix discovery provider description.
-- [**Symbol WiNG SNMP**](../procedures/network-switchs-symbol-wing-snmp.md) - Fix Systems command.
+- [**Symbol WiNG SNMP**](../procedures/network-symbol-wing-snmp.md) - Fix Systems command.
 - [**IBM Softlayer**](../procedures/cloud-ibm-softlayer-api.md) - Fix commands options.
 
 </TabItem>
@@ -984,7 +984,7 @@ import TabItem from '@theme/TabItem';
 
 - [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - Add new cache system.
 - [**Veeam**](../procedures/applications-veeam-nrpe.md) - Add vsb-jobs service.
-- [**HP Procurve**](../procedures/network-switchs-symbol-wing-snmp.md) - Add service virtual-chassis.
+- [**HP Procurve**](../procedures/network-switchs-hp-procurve-snmp.md) - Add service virtual-chassis.
 - [**Raritan PDU**](../procedures/hardware-pdu-raritan-snmp.md) - Add service inlet-sensors.
 - [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - Add a variable to autodiscovery attributes.
 - [**Office 365**](../procedures/cloud-microsoft-office365-management.md) - Add service app-credentials.
@@ -1020,7 +1020,7 @@ import TabItem from '@theme/TabItem';
 - [**Redis Sentinel**](../procedures/applications-redis-sentinel.md) - Initial release.
 - [**Amazon FSx**](../procedures/cloud-aws-fsx.md) - add Amazon FSx discovery and monitoring.
 - [**Microsens G6 SNMP**](../procedures/network-microsens-g6-snmp.md) - Initial release.
-- [**Symbol WiNG SNMP**](../procedures/network-switchs-symbol-wing-snmp.md) - Initial release.
+- [**Symbol WiNG SNMP**](../procedures/network-symbol-wing-snmp.md) - Initial release.
 - [**Dynamics NSClient**](../procedures/applications-dynamics-ax-nsclient-05-nrpe.md) - Initial release.
 - **Dynamics AX Database** - Initial release.
 - [**Dynamics 365**](../procedures/applications-dynamics-365-nsclient-05-nrpe.md) - Initial release.

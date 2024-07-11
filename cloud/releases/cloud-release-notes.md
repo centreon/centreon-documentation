@@ -3,6 +3,27 @@ id: cloud-release-notes
 title: Centreon Cloud release notes
 ---
 
+## June 26, 2024
+
+### Resource Access Management
+
+Resource Access Management allows administrators to assign specific access permissions to each user or user group. This enables control over which users can access particular monitored resources. An intuitive interface helps manage these permissions, while audit logs provide a record of access activities. This feature supports organizations in maintaining security and efficiency by allowing tailored access control.
+
+### Centreon Dashboards
+
+Centreon Dashboards is now Generally Available!
+In addition to our stabilization work through the beta, we have added several features like dashboard duplication, or a new mechanism to prevent exiting edition mode with unsaved changes.
+We have also improved the look and feel of existing widgets, in particular graph legends and tooltips, and enriched our widget library with two new widgets: Status Chart and Business Activity Diagram.
+
+### Stream Connectors
+
+It is now possible to forward data collected by Centreon to third-party systems using our Stream Connector library. Please contact your Customer Success Manager if you need to set up such an integration.
+
+### Pollers
+
+You can now choose amongst all operating systems supported by Centreon to install your poller. This includes Alma, RHEL, and Oracle Linux version 8 and 9, and Debian version 11 and 12 (from poller version 24.04).
+
+
 ## April 11, 2024
 
 ### Custom check command definition

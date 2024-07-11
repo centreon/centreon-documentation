@@ -5,14 +5,14 @@ title: À partir d'une VM
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sur sa [page de téléchargement](https://download.centreon.com), Centreon fournit une machine virtuelle prête à l’emploi. Cette machine virtuelle est disponible au format OVA pour les environnements
-VMware et OVF pour l'outil Oracle VirtualBox.
-Elle est basée sur le système d'exploitation **Alma Linux 8** et inclut
+Sur sa [page de téléchargement](https://download.centreon.com), Centreon fournit des machines virtuelles prêtes à l’emploi. Ces machines virtuelles sont disponibles pour les environnements
+VMware et pour l'outil Oracle VirtualBox.
+Elles sont basées sur les systèmes d'exploitation **Alma Linux 8** et **Debian 11** et incluent
 une installation de Centreon permettant de démarrer en toute simplicité votre première supervision.
 
 > L'installation par machine virtuelle n'est adaptée que pour utiliser IT-100, ou à des fins de test.
 
-La VM est configurée en **Thin Provision** pour économiser autant d'espace libre que possible sur le disque (meilleure pratique).
+Les VMs sont configurées en **Thin Provision** pour économiser autant d'espace libre que possible sur le disque (meilleure pratique).
 
 ## Prérequis
 
@@ -118,8 +118,11 @@ cliquez sur **Download**.
 
 4. À votre première connexion au serveur, des instructions s’affichent pour vous aider à terminer la
 configuration.
- 
-   Définissez les paramètres suivants :
+
+<Tabs groupId="sync">
+<TabItem value="Alma 8" label="Alma 8">
+  
+Définissez les paramètres suivants :
 
 - Le fuseau horaire (timezone) du serveur Centreon. Par défaut, celui-ci est UTC. Cela définira l'heure des différents logs de Centreon.
 
@@ -142,19 +145,74 @@ configuration.
     ```
 
 - Le fuseau horaire du serveur PHP. Pour éviter les erreurs, celui-ci doit être identique au fuseau horaire du serveur. Par défaut, le fuseau horaire PHP est Europe/London.
+    
     1. Ouvrez le fichier suivant :
 
-        ```shell
-        /etc/php.d/50-centreon.ini
-        ```
+   ```shell
+   /etc/php.d/50-centreon.ini
+   ```
 
-    2. Après date.timezone, entrez le fuseau horaire désiré.
+  2. Après date.timezone, entrez le fuseau horaire désiré.
 
-    3. Redémarrez le serveur PHP :
+  3. Redémarrez le serveur PHP :
 
-        ```shell
-        systemctl restart php-fpm
-        ```
+   ```shell
+   systemctl restart php-fpm
+   ```
+
+- Le hostname de votre serveur (facultatif). Le nom par défaut du serveur est centreon-central. Pour le
+changer, utilisez la commande suivante :
+
+  ```shell
+  hostnamectl set-hostname votre-hostname
+  ```
+
+  Par exemple, si vous voulez renommer la machine `supervision`, entrez:
+
+  ```shell
+  hostnamectl set-hostname supervision
+  ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Définissez les paramètres suivants :
+
+- Le fuseau horaire (timezone) du serveur Centreon. Par défaut, celui-ci est UTC. Cela définira l'heure des différents logs de Centreon.
+
+    Utilisez la commande suivante :
+    
+    ```shell
+    timedatectl set-timezone votre_timezone
+    ```
+
+    Par exemple, pour définir le fuseau horaire Europe/London, tapez :
+
+    ```shell
+    timedatectl set-timezone Europe/London
+    ```
+
+    Vous pouvez obtenir une liste de tous les fuseaux horaires possibles en utilisant la commande suivante :
+
+    ```shell
+    timedatectl list-timezones
+    ```
+
+- Le fuseau horaire du serveur PHP. Pour éviter les erreurs, celui-ci doit être identique au fuseau horaire du serveur. Par défaut, le fuseau horaire PHP est Europe/London.
+    
+    1. Ouvrez le fichier suivant :
+      
+   ```shell
+   /etc/php/8.1/mods-available/centreon.ini
+   ```
+   
+   2. Après date.timezone, entrez le fuseau horaire désiré.
+
+   3. Redémarrez le serveur PHP :
+
+   ```shell
+   systemctl restart php8.1-fpm.service
+   ```
 
 - Le hostname de votre serveur (facultatif). Le nom par défaut du serveur est centreon-central. Pour le
 changer, utilisez la commande suivante :
@@ -170,6 +228,9 @@ entrez:
   ```shell
   hostnamectl set-hostname supervision
   ```
+
+</TabItem>
+</Tabs>
 
 5. Ajoutez une partition pour la table MariaDB : cette étape est obligatoire. Votre serveur ne
 fonctionnera pas si vous ne l’exécutez pas.

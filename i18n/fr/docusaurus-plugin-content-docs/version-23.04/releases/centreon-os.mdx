@@ -22,6 +22,28 @@ Retrouvez plus de détails sur la version 23.04 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 23.04.19
+
+Release date: `June 26, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed API access control for monitoring endpoints.
+- [Authentication] Fixed a random disconnection issue occurring with SAML authentication.
+- [Configuration] Exporting the configuration no longer fails when a host severity and a service severity have the same name.
+- [Configuration] Fixed mass change on services.
+- [Unattended] Fixed default version used by the script.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed several SQLi issues.
+
+</details>
+
 ### 23.04.18
 
 Release date: `May 27, 2024`
@@ -431,6 +453,18 @@ Release date: `April 26, 2023`
 
 ## Centreon Collect
 
+### 23.04.13
+
+Release date: `June 20, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Engine] Added a new centengine parameter (`send_recovery_notifications_anyways`) to force sending a recovery notification even when the resource is outside of its notification period. This aims at keeping third-party tools up-to-date at any time when they are fed notifications.
+- [Engine] Engine can now handle extra configuration files to complement/overload the centengine.cfg file. This enhancement allows you to keep a custom configuration unchanged when exporting the configuration.
+
+</details>
+
 ### 23.04.12
 
 Release date: `May 27, 2024`
@@ -662,6 +696,17 @@ Compatibility with other 23.04 components.
 </details>
 
 ## Centreon Gorgone
+
+### 23.04.15
+
+Release date: `June 26, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed gorgone whitelist for HA architecture.
+
+</details>
 
 ### 23.04.14
 

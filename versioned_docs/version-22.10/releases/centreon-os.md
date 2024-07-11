@@ -19,6 +19,20 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon Web
 
+### 22.10.23
+
+Release date: `June 26, 2024`
+
+#### Bug fixes
+
+- [Configuration] Fixed mass change on services.
+- [Unattended] The unattended script now works on Oracle Linux distributions.
+- [Unattended] Fixed default version used by the script. 
+
+#### Security fixes
+
+- [Security] Fixed several SQLi issues.
+  
 ### 22.10.22
 
 Release date: `May 16, 2024`
@@ -438,6 +452,17 @@ Release date: `October 26, 2022`
 
 ## Centreon Collect
 
+### 22.10.10
+
+Release date: `June 27, 2024`
+
+#### Centreon Broker
+
+##### Enhancements
+
+- [Engine] Added a new centengine parameter (`send_recovery_notifications_anyways`) to force sending a recovery notification even when the resource is outside of its notification period. This aims at keeping third-party tools up-to-date at any time when they are fed notifications.
+- [Engine] Engine can now handle extra configuration files to complement/overload the centengine.cfg file. This enhancement allows you to keep a custom configuration unchanged when exporting the configuration.
+
 ### 22.10.9
 
 Release date: `March 6, 2024`
@@ -606,6 +631,14 @@ Release date: `October 26, 2022`
 - [Code] Calls to the `atoi()` C function have been replaced by more secure functions
 
 ## Centreon Gorgone
+
+### 22.10.8
+
+Release date: `June 26, 2024`
+
+#### Bug fixes
+
+- Fixed gorgone whitelist for HA architecture.
 
 ### 22.10.7
 

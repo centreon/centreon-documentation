@@ -139,6 +139,14 @@ module.exports = {
           type: 'doc',
           id: 'users/users',
         },
+        {
+          type: 'doc',
+          id: 'users/user_groups',
+        },
+        {
+          type: 'doc',
+          id: 'administration/ram',
+        },
       ],
     },
     {
@@ -556,8 +564,12 @@ module.exports = {
       "items": [
         {
           "type": "doc",
-          "id": "resources/glossary"
+          "id": "resources/known-issues"
         },
+        {
+          "type": "doc",
+          "id": "resources/glossary"
+        }
       ]
     }
   ]
