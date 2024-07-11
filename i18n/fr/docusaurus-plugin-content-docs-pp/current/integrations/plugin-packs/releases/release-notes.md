@@ -8,6 +8,29 @@ import TabItem from '@theme/TabItem';
 
 ## 2024
 
+### Juillet
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Linux Telegraf Agent**](../procedures/operatingsystems-linux-telegraf-agent.md) - Initial release of Linux Telegraf Agent.
+- [**Nokia Isam SNMP**](../procedures/network-nokia-isam-snmp.md) - Initial release of Nokia formerly Alcatel Isam SNMP.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - Added new mode to monitor VPN tunnels and its associated discovery rule using their network name.
+- [**Pacemaker**](../procedures/applications-pacemaker-ssh.md) - Added an `SSHPRIVKEY` host macro allowing to define the path to the private key file for user authentication.
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - The way fragmentation is calculated has changed to avoid getting values ​​above 100.
+- [**Pacemaker**](../procedures/applications-pacemaker-ssh.md) - The Clustat service template and its associated command are deprecated and have been removed.
+
+</TabItem>
+</Tabs>
+
 ### Juin
 
 <Tabs groupId="sync">
