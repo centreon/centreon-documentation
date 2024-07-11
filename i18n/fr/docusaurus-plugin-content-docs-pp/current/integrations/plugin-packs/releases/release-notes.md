@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
-- [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - Added new mode to monitor VPN tunnels.
+- [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - Added new mode to monitor VPN tunnels and its associated discovery rule.
 - [**Pacemaker**](../procedures/applications-pacemaker-ssh.md) - Added an `SSHPRIVKEY` to host macro.
 
 </TabItem>
