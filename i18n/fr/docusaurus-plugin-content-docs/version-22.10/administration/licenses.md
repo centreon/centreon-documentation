@@ -101,7 +101,7 @@ La licence IT-100 est une licence en ligne. Voir le chapitre [Mettre en place sa
 
 ## Dépanner les erreurs sur les licences
 
-### No valid file uploaded
+### "No valid file uploaded"
 
 ![image](../assets/administration/license_not_valid.png)
 
@@ -117,7 +117,7 @@ chown apache:apache /etc/centreon/license.d/*
 chmod 640 /etc/centreon/license.d/*
 ```
 
-### Your EPP license is not valid
+### "Your EPP license is not valid"
 
 * Vérifiez que l'empreinte du serveur central (récupérable à la page **Administration > Extensions > Gestionnaire**) correspond à celui renseigné dans la licence.
 
@@ -125,12 +125,7 @@ chmod 640 /etc/centreon/license.d/*
     less /etc/centreon/license.d/epp.license
     ```
 
-* Vérifiez que le nombre d'hôtes enregistrés est inférieur à celui prévu par votre licence. 
-Pour connaître le nombre d'hôtes supervisés, à la page **Configuration > Hôtes > Hôtes**, utilisez la liste déroulante en haut à droite de la liste :
-
-  ![image](../assets/administration/number-of-hosts.png)
-
-  Vous pouvez également utiliser la commande suivante :
+* Vérifiez que le nombre d'hôtes enregistrés est inférieur à celui prévu par votre licence. Utilisez la commande suivante :
 
   ```sql
   SELECT COUNT(*) FROM centreon.host WHERE host_register='1';
