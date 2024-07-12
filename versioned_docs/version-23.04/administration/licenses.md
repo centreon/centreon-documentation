@@ -101,7 +101,7 @@ See chapter [Set up your free IT-100 solution](../getting-started/it100.md).
 
 ## Troubleshooting licenses
 
-### No valid file uploaded
+### "No valid file uploaded"
 
 ![image](../assets/administration/license_not_valid.png)
 
@@ -118,7 +118,7 @@ chown apache:apache /etc/centreon/license.d/*
 chmod 640 /etc/centreon/license.d/*
 ```
 
-### Your EPP license is not valid
+### "Your EPP license is not valid"
 
 * Check that the fingerprint of the central server (on page **Administration > Extensions > Manager**) matches the fingerprint in the license.
 
@@ -126,11 +126,7 @@ chmod 640 /etc/centreon/license.d/*
     less /etc/centreon/license.d/epp.license
     ```
 
-* Check that you do not have more hosts than your license allows. To know the total number of hosts you are supervising, go to **Configuration > Hosts > Hosts**, and then use the dropdown list to the right above the list of hosts:
-
-    ![image](../assets/administration/number-of-hosts.png)
-
-    You can also use the following command:
+* Check that you do not have more hosts than your license allows. Use the following command:
 
     ```sql
     SELECT COUNT(*) FROM centreon.host WHERE host_register='1';
