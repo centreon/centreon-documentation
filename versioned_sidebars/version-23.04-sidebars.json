@@ -1380,10 +1380,6 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-23.04/developer/developer-module"
-        },
-        {
-          "type": "doc",
           "id": "version-23.04/developer/developer-stream-connector"
         },
         {
