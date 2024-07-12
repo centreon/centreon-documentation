@@ -58,7 +58,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                    | Description                                                             |
 |:-----------------------------------|:------------------------------------------------------------------------|
-| Net-Teldat-SNMP-Cells-Radio-IMEI   |  Découvre les modules radio cellulaires en filtrant sur leur IMEI |
+| Net-Teldat-SNMP-Cells-Radio-IMEI   | Découvre les modules radio cellulaires en filtrant sur leur IMEI |
 | Net-Teldat-SNMP-Cells-Radio-Module | Découvre les modules radio cellulaires en filtrant sur leur Module |
 | Net-Teldat-SNMP-Interface-Name     | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
 
