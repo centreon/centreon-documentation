@@ -49,7 +49,7 @@ Le connecteur apporte les modèles de service suivants
 #### Découverte d'hôtes
 
 | Nom de la règle | Description                                                                                                                                                                                                                                    |
-|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créer un modèle mapper pour le modèle d'hôte **Net-Teldat-SNMP-custom** |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
@@ -233,7 +233,7 @@ yum install centreon-plugin-Network-Teldat-Snmp
 > Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
 
 | Macro            | Description                                                                                          | Valeur par défaut | Obligatoire |
-|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+|:-----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SNMPEXTRAOPTIONS | N'importe quelle option que vous souhaiteriez ajouter à toutes les commandes (une option --verbose par exemple). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -271,20 +271,20 @@ yum install centreon-plugin-Network-Teldat-Snmp
 <TabItem value="Cpu" label="Cpu">
 
 | Macro                    | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNINGCPUUTILIZATION1M  | Thresholds on cpu utilization 1 min ago                                                                                                 |                   |             |
 | CRITICALCPUUTILIZATION1M | Thresholds on cpu utilization 1 min ago                                                                                                 |                   |             |
 | WARNINGCPUUTILIZATION5M  | Thresholds on cpu utilization 5 min ago                                                                                                 |                   |             |
 | CRITICALCPUUTILIZATION5M | Thresholds on cpu utilization 5 min ago                                                                                                 |                   |             |
 | WARNINGCPUUTILIZATION5S  | Thresholds on cpu utilization 5 sec ago                                                                                                 |                   |             |
 | CRITICALCPUUTILIZATION5S | Thresholds on cpu utilization 5 sec ago                                                                                                 |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |   
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                    |             |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
 | Macro              | Description                                                                                        | Valeur par défaut                                     | Obligatoire |
-|:-------------------|:---------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
+|:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:-----------:|
 | OIDFILTER          | Choose OID used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                  | ifname                                               |             |
 | OIDDISPLAY         | Choose OID used to display interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                 | ifname                                               |             |
 | INTERFACENAME      | Define which interfaces to monitor (number expected). Example: 1,2... (empty means 'check all interfaces').                                                              |                                                      |             |
@@ -308,24 +308,22 @@ yum install centreon-plugin-Network-Teldat-Snmp
 <TabItem value="Memory" label="Memory">
 
 | Macro             | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 |  WARNINGUSAGE      | Thresholds on memory usage                                                                                                                                   |                   |             |
 | CRITICALUSAGE     | Thresholds on memory usage                                                                                                                                   |                   |             |
 | WARNINGUSAGEFREE  | Thresholds on free memory usage                                                                                                                              |                   |             |
 | CRITICALUSAGEFREE | Thresholds on free memory usage                                                                                                                              |                   |             |
 | WARNINGUSAGEPRCT  | Thresholds on memory percent usage                                                                                                                           |                   |             |
 | CRITICALUSAGEPRCT | Thresholds on memory percent usage                                                                                                                           |                   |             
-
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
 | Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNING      | Threshold warning                                                                                                                                |                   |             |
 | CRITICAL     | Threshold critical                                                                                                                               |                   |             |
-
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --check-overload  |             |
 
 </TabItem>
@@ -386,7 +384,7 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 Le plugin apporte les modes suivants :
 
 | Mode                                                                                                                                | Modèle de service associé          |
-|:------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------|
+|:-----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------|
 | cells-radio [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/teldat/snmp/mode/cellsradio.pm)]          | Net-Teldat-Cells-Radio-SNMP-custom |
 | cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/teldat/snmp/mode/cpu.pm)]                         | Net-Teldat-Cpu-SNMP-custom         |
 | interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/teldat/snmp/mode/interfaces.pm)]           | Net-Teldat-Interfaces-SNMP-custom  |
@@ -530,7 +528,6 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --display-transform-src  | Modify the interface name displayed by using a regular expression. Example: adding --display-transform-src='eth' --display-transform-dst='ens'  will replace all occurrences of 'eth' with 'ens'                                                                                                                                                                                                                                                      |
 | --display-transform-dst  | Modify the interface name displayed by using a regular expression. Example: adding --display-transform-src='eth' --display-transform-dst='ens'  will replace all occurrences of 'eth' with 'ens'                                                                                                                                                                                                                                                       |
 | --show-cache             | Display cache interface data.                                                                                                                                                                                                                                                             |
-
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
