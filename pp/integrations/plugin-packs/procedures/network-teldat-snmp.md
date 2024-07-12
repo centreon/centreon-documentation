@@ -267,12 +267,11 @@ yum install centreon-plugin-Network-Teldat-Snmp
 | WARNINGSTATUS                    | Define the conditions to match for the status to be WARNING. You can use the following variables: %{simStatus}, %{interfaceState}, %{cellId}, %{simIcc}, %{operator}, %{imsi}   | '%{interfaceState} =~ /disconnect/'                       |               |
 | CRITICALSTATUS                   | Define the conditions to match for the status to be CRITICAL.  You can use the following variables: %{simStatus}, %{interfaceState}, %{cellId}, %{simIcc}, %{operator}, %{imsi} | '%{simStatus} =~ /LOCKED/ or %{simStatus} =~ /DETECTING/' |               |
 | EXTRAOPTIONS                     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                                                               |             |
-
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
 | Macro                    | Description                                                                                        | Default value     | Mandatory   |
-|:-------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNINGCPUUTILIZATION1M  | Thresholds on cpu utilization 1 min ago                                                                                                 |                   |             |
 | CRITICALCPUUTILIZATION1M | Thresholds on cpu utilization 1 min ago                                                                                                 |                   |             |
 | WARNINGCPUUTILIZATION5M  | Thresholds on cpu utilization 5 min ago                                                                                                 |                   |             |
@@ -285,7 +284,7 @@ yum install centreon-plugin-Network-Teldat-Snmp
 <TabItem value="Interfaces" label="Interfaces">
 
 | Macro              | Description                                                                                        | Default value                                         | Mandatory   |
-|:-------------------|:---------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
+|:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------|:-----------:|
 | OIDFILTER          | Choose OID used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                  | ifname                                               |             |
 | OIDDISPLAY         | Choose OID used to display interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                 | ifname                                               |             |
 | INTERFACENAME      | Define which interfaces to monitor (number expected). Example: 1,2... (empty means 'check all interfaces').                                                              |                                                      |             |
@@ -303,14 +302,13 @@ yum install centreon-plugin-Network-Teldat-Snmp
 | CRITICALOUTTRAFFIC | Thresholds                                                                                                                                       |                                                      |             |
 | CRITICALSTATUS     | Set critical threshold for status. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                   | %{admstatus} eq "up" and %{opstatus} !~ /up\dormant/ |             |
 | WARNINGSTATUS      | Set warning threshold for status. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}                    |                                                      |             |
-
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                                             |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
 | Macro             | Description                                                                                        | Default value     | Mandatory   |
-|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 |  WARNINGUSAGE      | Thresholds on memory usage                                                                                                                                   |                   |             |
 | CRITICALUSAGE     | Thresholds on memory usage                                                                                                                                   |                   |             |
 | WARNINGUSAGEFREE  | Thresholds on free memory usage                                                                                                                              |                   |             |
@@ -385,7 +383,7 @@ the command:
 The plugin brings the following modes:
 
 | Mode                                                                                                                                | Linked service template            |
-|:------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------|
+|:-----------------------------------------------------------------------------------------------------------------------------|:-----------------------------------|
 | cells-radio [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/teldat/snmp/mode/cellsradio.pm)]          | Net-Teldat-Cells-Radio-SNMP-custom |
 | cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/teldat/snmp/mode/cpu.pm)]                         | Net-Teldat-Cpu-SNMP-custom         |
 | interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/teldat/snmp/mode/interfaces.pm)]           | Net-Teldat-Interfaces-SNMP-custom  |
@@ -485,7 +483,7 @@ All available options for each service template are listed below:
 <TabItem value="Interfaces" label="Interfaces">
 
 | Option | Description |
-|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --memcached              | Memcached server to use (only one server).                                                                                                                                                                                                                                                 |
 | --redis-server           | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                            |
 | --redis-attribute        | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                    |
