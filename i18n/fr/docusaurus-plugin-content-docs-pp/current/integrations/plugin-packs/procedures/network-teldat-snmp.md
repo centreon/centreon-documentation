@@ -50,7 +50,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle | Description                                                                                                                                                                                                                                    |
 |:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Teldat-SNMP-custom** host template |
+| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créer un modèle mapper pour le modèle d'hôte **Net-Teldat-SNMP-custom** |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -58,8 +58,8 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                    | Description                                                             |
 |:-----------------------------------|:------------------------------------------------------------------------|
-| Net-Teldat-SNMP-Cells-Radio-IMEI   |                                                                         |
-| Net-Teldat-SNMP-Cells-Radio-Module |                                                                         |
+| Net-Teldat-SNMP-Cells-Radio-IMEI   |  Découvre les modules radio cellulaires en filtrant sur leur IMEI |
+| Net-Teldat-SNMP-Cells-Radio-Module | Découvre les modules radio cellulaires en filtrant sur leur Module |
 | Net-Teldat-SNMP-Interface-Name     | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
@@ -76,11 +76,11 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 |:----------------------------------|:------|
 | modules.cellradio.detected.count  | count |
 | *cells*~status                    | N/A   |
-| *cells*~module.cellradio.rsrp.dbm | N/A   |
-| *cells*~module.cellradio.rsrq.dbm | N/A   |
-| *cells*~module.cellradio.snr.db   | N/A   |
-| *cells*~module.cellradio.rscp.dbm | N/A   |
-| *cells*~module.cellradio.csq.dbm  | N/A   |
+| *cells*~module.cellradio.rsrp.dbm | dBm   |
+| *cells*~module.cellradio.rsrq.dbm | dBm   |
+| *cells*~module.cellradio.snr.db   | dB    |
+| *cells*~module.cellradio.rscp.dbm | dBm   |
+| *cells*~module.cellradio.csq.dbm  | dBm   |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
@@ -160,7 +160,7 @@ dnf install centreon-pack-network-teldat-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-network-teldat-snmp
@@ -205,7 +205,7 @@ dnf install centreon-plugin-Network-Teldat-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-network-teldat-snmp
@@ -234,7 +234,7 @@ yum install centreon-plugin-Network-Teldat-Snmp
 
 | Macro            | Description                                                                                          | Valeur par défaut | Obligatoire |
 |:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| SNMPEXTRAOPTIONS | N'importe quelle option que vous souhaiteriez ajouter à toutes les commandes (une option --verbose par exemple). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -248,37 +248,37 @@ yum install centreon-plugin-Network-Teldat-Snmp
 
 | Macro                            | Description                                                                                        | Valeur par défaut                                                       | Obligatoire |
 |:---------------------------------|:---------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------|:-----------:|
-| FILTERMODULE                     |                                                                                                    |                                                                         |             |
-| FILTERIMEI                       |                                                                                                    |                                                                         |             |
-| FILTERINTERFACETYPE              |                                                                                                    |                                                                         |             |
-| WARNINGMODULECELLRADIOCSQ        |                                                                                                    |                                                                         |             |
-| CRITICALMODULECELLRADIOCSQ       |                                                                                                    |                                                                         |             |
-| WARNINGMODULECELLRADIORSCP       |                                                                                                    |                                                                         |             |
-| CRITICALMODULECELLRADIORSCP      |                                                                                                    |                                                                         |             |
-| WARNINGMODULECELLRADIORSRP       |                                                                                                    |                                                                         |             |
-| CRITICALMODULECELLRADIORSRP      |                                                                                                    |                                                                         |             |
-| WARNINGMODULECELLRADIORSRQ       |                                                                                                    |                                                                         |             |
-| CRITICALMODULECELLRADIORSRQ      |                                                                                                    |                                                                         |             |
-| WARNINGMODULECELLRADIOSNR        |                                                                                                    |                                                                         |             |
-| CRITICALMODULECELLRADIOSNR       |                                                                                                    |                                                                         |             |
-| WARNINGMODULESCELLRADIODETECTED  |                                                                                                    |                                                                         |             |
-| CRITICALMODULESCELLRADIODETECTED |                                                                                                    |                                                                         |             |
-| WARNINGSTATUS                    |                                                                                                    | %{interfaceState} =~ /disconnect/ && %{interfaceType} =~ /data primary/ |             |
-| CRITICALSTATUS                   |                                                                                                    |                                                                         |             |
-| EXTRAOPTIONS                     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                                                               |             |
+| FILTERMODULE                     | Filter cellular radio interfaces by module. |                                                                         |             |
+| FILTERIMEI                       | Filter cellular radio interfaces by IMEI. |                                                                         |             |
+| FILTERINTERFACETYPE              | Filter cellular radio interfaces by type. |                                                                         |             |
+| WARNINGMODULECELLRADIOCSQ        | Thresholds on cellular mobile reception signal quality (+CSQ).                                                                                                                  |                                                           |               |
+| CRITICALMODULECELLRADIOCSQ       | Thresholds on cellular mobile reception signal quality (+CSQ).                                                                                                                  |                                                           |               |
+| WARNINGMODULECELLRADIORSCP       | Thresholds on cellular mobile received signal code power (RSCP).                                                                                                                |                                                           |               |
+| CRITICALMODULECELLRADIORSCP      | Thresholds on cellular mobile received signal code power (RSCP).                                                                                                                |                                                           |               |
+| WARNINGMODULECELLRADIORSRP       | Thresholds on cellular mobile reference symbol received power (RSRP).                                                                                                           |                                                           |               |
+| CRITICALMODULECELLRADIORSRP      | Thresholds on cellular mobile reference symbol received power (RSRP).                                                                                                           |                                                           |               |
+| WARNINGMODULECELLRADIORSRQ       | Thresholds on cellular mobile reference signal received quality (RSRQ).                                                                                                         |                                                           |               |
+| CRITICALMODULECELLRADIORSRQ      | Thresholds on cellular mobile reference signal received quality (RSRQ).                                                                                                         |                                                           |               |
+| WARNINGMODULECELLRADIOSNR        | Thresholds on cellular mobile signal versus noise ratio (SINR).                                                                                                                 |                                                           |               |
+| CRITICALMODULECELLRADIOSNR       | Thresholds on cellular mobile signal versus noise ratio (SINR).                                                                                                                 |                                                           |               |
+| WARNINGMODULESCELLRADIODETECTED  | Thresholds on detected cellular mobile(s)                                                                                                                                       |                                                           |               |
+| CRITICALMODULESCELLRADIODETECTED | Thresholds on detected cellular mobile(s)                                                                                                                                       |                                                           |               |
+| WARNINGSTATUS                    | Define the conditions to match for the status to be WARNING. You can use the following variables: %{simStatus}, %{interfaceState}, %{cellId}, %{simIcc}, %{operator}, %{imsi}   | '%{interfaceState} =~ /disconnect/'                       |               |
+| CRITICALSTATUS                   | Define the conditions to match for the status to be CRITICAL.  You can use the following variables: %{simStatus}, %{interfaceState}, %{cellId}, %{simIcc}, %{operator}, %{imsi} | '%{simStatus} =~ /LOCKED/ or %{simStatus} =~ /DETECTING/' |               |
+| EXTRAOPTIONS                     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                | --verbose                                                 |               |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
 | Macro                    | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGCPUUTILIZATION1M  |                                                                                                    |                   |             |
-| CRITICALCPUUTILIZATION1M |                                                                                                    |                   |             |
-| WARNINGCPUUTILIZATION5M  |                                                                                                    |                   |             |
-| CRITICALCPUUTILIZATION5M |                                                                                                    |                   |             |
-| WARNINGCPUUTILIZATION5S  |                                                                                                    |                   |             |
-| CRITICALCPUUTILIZATION5S |                                                                                                    |                   |             |
-| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| WARNINGCPUUTILIZATION1M  | Thresholds on cpu utilization 1 min ago                                                                                                 |                   |             |
+| CRITICALCPUUTILIZATION1M | Thresholds on cpu utilization 1 min ago                                                                                                 |                   |             |
+| WARNINGCPUUTILIZATION5M  | Thresholds on cpu utilization 5 min ago                                                                                                 |                   |             |
+| CRITICALCPUUTILIZATION5M | Thresholds on cpu utilization 5 min ago                                                                                                 |                   |             |
+| WARNINGCPUUTILIZATION5S  | Thresholds on cpu utilization 5 sec ago                                                                                                 |                   |             |
+| CRITICALCPUUTILIZATION5S | Thresholds on cpu utilization 5 sec ago                                                                                                 |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |   
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
