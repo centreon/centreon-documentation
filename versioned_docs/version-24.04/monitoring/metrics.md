@@ -56,7 +56,7 @@ In all cases, the format of the metrics as returned by the plugins is as follows
 
 * **x** : we are alerted if the value of the metric is strictly higher than **x** (**80** means higher than 80).
 * **x:** : we are alerted if the value of the metric is strictly lower than **x** (**50:** means lower than 50).
-* **x:y**: we are alerted if the value of the metric is outside this range (**0:10** means below 0 and above 10). For example, we can determine that the temperature of a datacenter will be CRITICAL if it is below 18 or higher than 24: we will input **18:24**.
+* **x:y**: we are alerted if the value of the metric is outside this range (**0:10** means below 0 or above 10). For example, we can determine that the temperature of a datacenter will be CRITICAL if it is below 18 or above 24: we will input **18:24**.
 * **@x:y**: we are alerted if the value of the metric is inside the range (**@0:10** means that we are alerted if the value of the metric is between 0 and 10).
 * **x:x**: the value of the metric must be equal to **x** for its status to be OK.
 
@@ -85,15 +85,15 @@ In the EXTRAOPTIONS macro of the service, we will input:
 
 **Command**
 
-```text
-/usr/lib/centreon/plugins//centreon_protocol_http.pl
---plugin=apps::protocols::http::plugin
---mode=response
---hostname=xxx.xxx.xxx.xxx
---proto='http'
---port='80'
---urlpath='/'
---warning=''
+```bash
+/usr/lib/centreon/plugins//centreon_protocol_http.pl \
+--plugin=apps::protocols::http::plugin \
+--mode=response \
+--hostname=xxx.xxx.xxx.xxx \
+--proto='http' \
+--port='80' \
+--urlpath='/' \
+--warning='' \
 --critical=''
 ```
 
@@ -107,15 +107,15 @@ In the EXTRAOPTIONS macro of the service, we will input:
 
 **Command**
 
-```text
-/usr/lib/centreon/plugins//centreon_linux_snmp.pl
---plugin=os::linux::snmp::plugin
---mode=cpu
---hostname=xxx.xxx.xxx.xxx
---snmp-version='2c'
---snmp-community='public'
---warning-average='80'
---critical-average='90'
+```bash
+/usr/lib/centreon/plugins//centreon_linux_snmp.pl \
+--plugin=os::linux::snmp::plugin \
+--mode=cpu \
+--hostname=xxx.xxx.xxx.xxx \
+--snmp-version='2c' \
+--snmp-community='public' \
+--warning-average='80' \
+--critical-average='90' \
 --critical-core='85'
 ```
 
@@ -129,10 +129,10 @@ In the EXTRAOPTIONS macro of the service, we will input:
 
 **Command**
 
-```text
-/usr/lib64/nagios/plugins/check_icmp
--H xxx.xxx.xxx.xxx
--w 200.000,20%
+```bash
+/usr/lib64/nagios/plugins/check_icmp \
+-H xxx.xxx.xxx.xxx \
+-w 200.000,20% \
 -c 400.000,50% -p 1
 ```
 
@@ -146,14 +146,14 @@ rta=0,984ms;200,000;400,000;0; pl=0%;20;50;0;100 rtmax=4,721ms;;;; rtmin=0,032ms
 
 **Command**
 
-```text
-/usr/lib/centreon/plugins//centreon_linux_snmp.pl
---plugin=os::linux::snmp::plugin
---mode=swap
---hostname=xxx.xxx.xxx.xxx
---snmp-version='2c'
---snmp-community='public'
---warning-usage-prct='10'
+```bash
+/usr/lib/centreon/plugins//centreon_linux_snmp.pl \
+--plugin=os::linux::snmp::plugin \
+--mode=swap \
+--hostname=xxx.xxx.xxx.xxx \
+--snmp-version='2c' \
+--snmp-community='public'  \
+--warning-usage-prct='10' \
 --critical-usage-prct='30'
 ```
 
@@ -167,14 +167,14 @@ rta=0,984ms;200,000;400,000;0; pl=0%;20;50;0;100 rtmax=4,721ms;;;; rtmin=0,032ms
 
 **Command**
 
-```text
-/usr/lib/centreon/plugins//centreon_linux_snmp.pl
---plugin=os::linux::snmp::plugin
---mode=load
---hostname=xxx.xxx.xxx.xxx
---snmp-version='2c'
---snmp-community='public'
---warning='4,3,2'
+```bash
+/usr/lib/centreon/plugins//centreon_linux_snmp.pl \
+--plugin=os::linux::snmp::plugin \
+--mode=load \
+--hostname=xxx.xxx.xxx.xxx \
+--snmp-version='2c' \
+--snmp-community='public' \
+--warning='4,3,2' \
 --critical='6,5,4'
 ```
 
@@ -190,13 +190,13 @@ Here, warning and critical thresholds are defined for rolling periods of 1, 5 an
 
 **Command**
 
-```text
-/usr/lib/centreon/plugins/centreon_linux_snmp.pl
---plugin os::linux::snmp::plugin
---hostname 127.0.0.1
---snmp-community public
---mode processcount
---process-name chronyd
+```bash
+/usr/lib/centreon/plugins/centreon_linux_snmp.pl \
+--plugin os::linux::snmp::plugin \
+--hostname 127.0.0.1 \
+--snmp-community public \
+--mode processcount \
+--process-name chronyd \
 --critical 2:2
 ```
 
