@@ -530,6 +530,11 @@ module.exports = {
       ]
     },
     {
+      "type": "link",
+      "href": "https://docs-api.centreon.com/api/centreon-web/cloud/",
+      "label": "Cloud API"
+    },
+    {
       "type": "category",
       "label": "Security",
       "link": {
