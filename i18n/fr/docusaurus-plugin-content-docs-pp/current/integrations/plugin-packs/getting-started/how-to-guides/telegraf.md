@@ -23,32 +23,198 @@ Les limitations suivantes sont dues à des contraintes côté Telegraf ou côté
 * Les connexions réseau sont unidirectionnelles : les données vont de l'agent au collecteur. Cela signifie qu'un hôte situé dans une DMZ devra communiquer avec un collecteur situé dans la même DMZ.
 * Lorsqu'une amélioration ou une correction sont publiées, le plugin Centreon doit être redéployé sur les hôtes supervisés (il n'y a pas de mise à jour automatique).
 
-## Étape 1 : Installer l'agent et les plugins Centreon sur l'hôte
+## Étape 1: Configurez Centreon
+
+### Installez le connecteur de supervision
+
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+
+1. Sur votre serveur central, allez à la page **Configuration > Gestionnaire de connecteurs de supervision**.
+2. [Installez](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) le connecteur de supervision **Linux Telegraf Agent**.
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+1. Sur votre serveur central, allez à la page **Configuration > Gestionnaire de connecteurs de supervision**.
+2. [Installez](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) le connecteur de supervision **Windows Telegraf Agent**.
+
+</TabItem>
+</Tabs>
+
+### Créez le connecteur Telegraf
+
+Installez le processeur Open Telemetry pour Telegraf sur votre serveur central :
+
+1. Allez à la page **Configuration > Commandes > Connecteurs**.
+2. Créez un nouveau connecteur avec les données suivantes :
+
+| Paramètre                  | Valeur                                                                                                                                                                                                                           |
+|----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Nom du connecteur          | Telegraf                                                                                                                                                                                                                         |
+| Description du connecteurn | Telegraf                                                                                                                                                                                                                         |
+| Ligne de commande          | `opentelemetry --processor=nagios_telegraf --extractor=attributes --host_path=resource_metrics.scope_metrics.data.data_points.attributes.host --service_path=resource_metrics.scope_metrics.data.data_points.attributes.service` |
+| Utilisé par la commande    | Entrez `Telegraf-Agent` et cliquez sur **Sélectionner tout**                                                                                                                                                                     |
+| Statut du connecteur       | Activé                                                                                                                                                                                                                           |
+
+### Configurez Engine
+
+1. Sur le collecteur qui recevra les données de l'agent, créez le fichier suivant :
+
+   ```shell
+   touch /etc/centreon-engine/otl_server.json
+   ```
+
+2. Entrez le contenu suivant. Cela permettra au collecteur de recevoir les données en provenance de l'agent.
+
+```json
+{
+ "otel_server": {
+   "host": "0.0.0.0",
+   "port": 4317,
+   "encryption": false
+ },
+ "max_length_grpc_log": 0,
+ "telegraf_conf_server": {
+   "http_server": {
+     "port": 1080,
+     "encryption": false
+   },
+   "telegraf_conf": {
+     "interval": "60s",
+     "service_address": "xxx.xxx.xxx.xxx:4317"
+   }
+ }
+}
+```
+
+* Entrez l'adresse IP du collecteur dans le champ **service_address**.
+* Le champ **interval** correspond à la fréquence des contrôles effectués par Telegraf, et doit valoir 60 secondes, car il s'agit de la fréquence des contrôles Engine.
+
+> Pour des raisons de simplicité, cette page ne couvre que la configuration de Telegraf **en mode non sécurisé**, mais vous
+> trouverez la procédure pour chiffrer les communications à [cette page](../../procedures/operatingsystems-linux-telegraf-agent.md) et [cette page](../../procedures/operatingsystems-windows-telegraf-agent.md).
+
+### Ajoutez un nouveau module Broker
+
+1. Allez à la page **Configuration > Collecteurs > Configuration du moteur de collecte**, puis cliquez sur le collecteur qui supervisera les ressources.
+2. Dans l'onglet **Données**, dans la section **Commande de lancement du module**, dans le paramètre **Multiple Broker Module**, cliquez sur **Ajouter une nouvelle entrée**.
+3. Ajoutez l'entrée suivante :
+
+   ```bash
+   /usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json
+   ```
+
+4. Exportez la configuration
+5. Redémarrez le moteur de collecte
+
+   ```bash
+   systemctl restart centengine
+   ```
+
+L'agent Telegraf est maintenant capable de communiquer avec Centreon. Vous pouvez mettre vos hôtes en supervision.
+
+## Étape 2 : Préparez l'hôte
 
 ### Téléchargez et installez l'agent sur l'hôte
+
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf -y install epel-release
+dnf -y config-manager --set-enabled 'powertools'
+```
+
+La partie qui suit est extraite de la [documentation officielle de Telegraf](https://docs.influxdata.com/telegraf/v1/install/?t=RedHat+%26amp%3B+CentOS).
+
+```bash
+cat > /etc/yum.repos.d/influxdb.repo <<'EOF'
+[influxdb]
+name = InfluxData Repository - Stable
+baseurl = https://repos.influxdata.com/stable/$basearch/main
+enabled = 1
+gpgcheck = 1
+gpgkey = https://repos.influxdata.com/influxdata-archive_compat.key
+EOF
+```
+
+```bash
+dnf install -y telegraf
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf -y install epel-release
+dnf -y config-manager --set-enabled 'crb'
+```
+
+La partie qui suit est extraite de la [documentation officielle de Telegraf](https://docs.influxdata.com/telegraf/v1/install/?t=RedHat+%26amp%3B+CentOS).
+
+```bash
+cat > /etc/yum.repos.d/influxdb.repo <<'EOF'
+[influxdb]
+name = InfluxData Repository - Stable
+baseurl = https://repos.influxdata.com/stable/$basearch/main
+enabled = 1
+gpgcheck = 1
+gpgkey = https://repos.influxdata.com/influxdata-archive_compat.key
+EOF
+```
+
+```bash
+dnf install -y telegraf
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+La partie qui suit est extraite de la [documentation officielle de Telegraf](https://docs.influxdata.com/telegraf/v1/install/).
+
+```bash
+wget -q https://repos.influxdata.com/influxdata-archive_compat.key -O influxdata-archive_compat.key
+echo '393e8779c89ac8d958f81f942f9ad7fb82a25e133faddaf92e15b16e6ac9ce4c influxdata-archive_compat.key' | sha256sum -c && cat influxdata-archive_compat.key | gpg --dearmor | tee /etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg > /dev/null
+echo 'deb [signed-by=/etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg] https://repos.influxdata.com/debian stable main' | sudo tee /etc/apt/sources.list.d/influxdata.list
+apt-get update
+```
+
+```bash
+apt-get -y install telegraf
+```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
 
 1. [Téléchargez l'agent](https://docs.influxdata.com/telegraf/v1/install/) sur tous les serveurs que vous voulez superviser.
 
 2. Installez l'agent sur les serveurs à l'aide de la commande suivante (remplacez les paramètres d'exemple par vos propres valeurs) :
 
 ```shell
-.\telegraf.exe --service install --config "http(s)://<ip_poller>:<port poller>/engine?host=<host_to_monitor>"
+.\telegraf.exe --service install --config "http://<ip_poller>:<port poller>/engine?host=<host_to_monitor>"
 ```
 
 Les arguments de cette commande permettront à Telegraf de savoir où aller chercher la configuration des resources qu'il doit superviser (c'est-à-dire sur le collecteur ou sur le central suivant l'IP définie dans la commande). Le paramètre `<host_to_monitor>` est le nom de l'hôte tel qu'entré dans le champ **Nom** de sa configuration.
+
+</TabItem>
+</Tabs>
 
 ### Déployer le plugin Centreon sur l'hôte
 
 Le plugin Centreon exécutera les contrôles sur l'hôte.
 
-<!--
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
-##### Enable our plugins repository and install plugin
+##### Activez les dépôts Centreon et installez le plugin
 
-This repository will provide you our packaged plugins as well as **the dependencies that are not available in the
-standard distribution repositories**.
+Ce dépôt permettra d'installer les plugins Centreon ainsi que **les dépendances qui ne peuvent pas être satisfaites par les dépôts standards des distributions**.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -103,10 +269,9 @@ gpgcheck=1
 gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 module_hotfixes=1
 EOF
-
 ```
 
-Install the plugin :
+Installez le plugin :
 
 ```bash
 dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
@@ -167,7 +332,7 @@ module_hotfixes=1
 EOF
 ```
 
-Install the plugin :
+Installez le plugin :
 
 ```bash
 dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
@@ -182,7 +347,7 @@ echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) m
 apt-get update
 ```
 
-Install the plugin :
+Installez le plugin :
 
 ```bash
 apt -y install centreon-plugin-operatingsystems-linux-local
@@ -193,143 +358,48 @@ apt -y install centreon-plugin-operatingsystems-linux-local
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
--->
 
-Sur les hôtes que vous voulez superviser, téléchargez et exécutez le [package pour Windows](https://github.com/centreon/centreon-nsclient-build/releases/download/20240325/centreon_plugins.exe).
-
-<!--
-
-</TabItem>
-<Tabs>
--->
-
-## Étape 2: Configurer Centreon
-
-### Installer le connecteur de supervision qui recevra les données de Telegraf
-
-1. Sur votre serveur central, allez à la page **Configuration > Gestionnaire de connecteurs de supervision**.
-2. [Installez](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) le connecteur de supervision **Windows Telegraf Agent**.
-<!-- For Linux hosts : Linux Telegraf AGENT-->
-
-### Créer un connecteur Telegraf
-
-Installez le processeur Open Telemetry pour Telegraf sur votre serveur central :
-
-1. Allez à la page **Configuration > Commandes > Connecteurs**.
-2. Créez un nouveau connecteur avec les données suivantes :
-
-| Paramètre | Valeur|
-| --------- | ---- |
-| Nom du connecteur | Telegraf |
-| Description du connecteurn | Telegraf |
-| Ligne de commande |```opentelemetry --processor=nagios_telegraf --extractor=attributes --host_path=resource_metrics.scope_metrics.data.data_points.attributes.host --service_path=resource_metrics.scope_metrics.data.data_points.attributes.service``` |
-| Utilisé par la commande |<ul><li>OS-Windows-Telegraf-Agent-Certificates</li><li>OS-Windows-Telegraf-Agent-Ntp</li><li>OS-Windows-Telegraf-Agent-Pending-Reboot</li><li>OS-Windows-Telegraf-Agent-Sessions</li><li>OS-Windows-Telegraf-Agent-Updates</li></ul>|
-| Statut du connecteur | Activé |
-
-### Configurer Engine
-
-1. Sur le collecteur qui recevra les données de l'agent, créez le fichier suivant :
-
-   ```shell
-   touch /etc/centreon-engine/otl_server.json
-   ```
-
-2. Entrez le contenu suivant. Cela permettra au collecteur de recevoir les données en provenance de l'agent.
-
-<Tabs groupId="sync">
-<TabItem value="Flux non chiffrés" label="Flux non chiffrés">
-
-* Entrez l'adresse IP du collecteur dans le champ **service_address**.
-* Le champ **interval** correspond à la fréquence des contrôles effectués par Telegraf, et doit valoir 60 secondes, car il s'agit de la fréquence des contrôles Engine.
-
-```json
-broker_module=/usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json
-
-{
- "otel_server": {
-   "host": "0.0.0.0",
-   "port": 4317,
-   "encryption": false
- },
- "max_length_grpc_log": 0,
- "telegraf_conf_server": {
-   "http_server": {
-     "port": 80,
-     "encryption": false
-   },
-   "telegraf_conf": {
-     "interval": "60s",
-     "service_address": "xxx.xxx.xxx.xxx:4317"
-   }
- }
-}
-```
-
-</TabItem>
-<TabItem value="Flux chiffrés" label="Flux chiffrés">
-
-* Entrez l'adresse IP du collecteur dans le champ **service_address**.
-* Le champ **interval** correspond à la fréquence des contrôles effectués par Telegraf, et doit valoir 60 secondes, car il s'agit de la fréquence des contrôles Engine.
-
-Deux flux seront chiffrés : la configuration envoyée par le collecteur vers l'agent, et les métriques envoyées par l'agent vers le collecteur.
-
-1. Créez les certificats.
-2. Copiez les certificats sur le collecteur qui recevra les données de Telegraf.
-3. Entrez le chemin des certificats dans le fichier **otl_server.json**.
-
-```json
-broker_module=/usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json
-
-{
- "otel_server": {
-   "host": "0.0.0.0",
-   "port": 4317,
-   "encryption": true,
-   "certificate_path": "/tmp/otel/server.crt",
-   "key_path": "/tmp/otel/server.key"
- },
- "max_length_grpc_log": 0,
- "telegraf_conf_server": {
-   "http_server": {
-     "port": 1443,
-     "encryption": true,
-     "certificate_path": "/tmp/otel/server.crt",
-     "key_path": "/tmp/otel/server.key"
-   },
-   "telegraf_conf": {
-     "interval": "60s",
-     "service_address": "127.0.0.1:4317"
-   }
- }
-}
-```
+Sur les hôtes que vous voulez superviser, téléchargez et exécutez le [plugin pour Windows](https://github.com/centreon/centreon-nsclient-build/releases/download/20240711/centreon_plugins.exe).
+Nous vous suggérons de le déposer au même emplacement que l'agent Telegraf, par exemple `C:\Program Files\InfluxData\telegraf\telegraf-1.30.3`.
 
 </TabItem>
 </Tabs>
 
-### Ajouter un nouveau module Broker
+## Étape 3 : Mettez l'hôte en supervision
 
-1. Allez à la page **Configuration > Collecteurs > Configuration du moteur de collecte**, puis cliquez sur le collecteur qui supervisera les ressources.
-2. Dans l'onglet **Données**, dans la section **Commande de lancement du module**, dans le paramètre **Multiple Broker Module**, cliquez sur **Ajouter une nouvelle entrée**.
-3. Ajoutez l'entrée suivante :
+### Créez l'hôte en utilisant le bon modèle
 
-   ```shell
-   /usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json
-   ```
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
 
-L'agent Telegraf est maintenant capable de communiquer avec Centreon. Vous pouvez mettre vos hôtes en supervision.
+Sur le serveur central, [créez l'hôte](/docs/monitoring/basic-objects/hosts) et appliquez-leur le modèle d'hôtes **OS-Linux-Telegraf-Agent-custom**.
 
-## Étape 3 : Mettre un hôte en supervision avec l'agent Telegraf
+</TabItem>
+<TabItem value="Windows" label="Windows">
 
-### Créez des hôtes en utilisant des modèles
+Sur le serveur central, [créez l'hôte](/docs/monitoring/basic-objects/hosts) et appliquez-leur le modèle d'hôtes **OS-Windows-Telegraf-Agent-custom**.
 
-Sur le serveur central, [créez les hôtes](/docs/monitoring/basic-objects/hosts) et appliquez-leur des modèles fournis par le connecteur de supervision **Windows Telegraf AGENT**.
+</TabItem>
+</Tabs>
 
 ### Redémarrez l'agent
 
-Pour que l'agent connaisse les hôtes nouvellement créés et puisse les superviser, exécutez la commande suivante sur l'hôte :
+Pour que l'agent connaisse les services nouvellement créés et puisse les superviser, exécutez la commande suivante sur l'hôte :
 
-   ```shell
-   telegraf.exe --service start
-   telegraf.exe --service stop
-   ```
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+
+```bash
+systemctl restart telegraf 
+```
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+```bash
+telegraf.exe --service stop
+telegraf.exe --service start
+```
+
+</TabItem>
+</Tabs>
