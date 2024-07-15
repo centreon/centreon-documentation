@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 L'agent Telegraf collecte des métriques et calcule des statuts sur les serveurs qu'il supervise, et les envoie à Centreon. Le processeur OpenTelemetry de Centreon lui permet d'interpréter les données envoyées au format OpenTelemetry.
 
-Développé par InfluxDB, l'agent Telegraf peut être installé sur des serveurs Windows. Centreon Engine envoie la configuration des ressources supervisées à l'agent (hôtes existants, seuils...), afin que l'agent exécute des contrôles et calcule les statuts de ces ressources.
+Développé par InfluxDB, l'agent Telegraf peut être installé sur des serveurs Windows ou Linux. Centreon Engine envoie la configuration des ressources supervisées à l'agent (hôtes existants, seuils...), afin que l'agent exécute des contrôles et calcule les statuts de ces ressources.
 
 Étant basés sur Nagios, les plugins Centreon comme les plugins personnalisés sont compatibles avec l'agent. Ceci est dû au fait que l'intégration de Centreon avec Telegraf est basée sur le [format natif Nagios de données d'entrée](https://docs.influxdata.com/telegraf/v1/data_formats/input/nagios/).
 
