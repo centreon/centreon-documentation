@@ -62,7 +62,10 @@ Le connecteur apporte les modèles de service suivants
 #### Découverte d'hôtes
 
 | Nom de la règle | Description |
-|:----------------|:------------|
+|----------------------------|------------------------------------------------------------------------------------|
+| Kubernetes Nodes (RestAPI) | Découvrez les noeuds Kubernetes en interrogeant l'API Rest Kubernetes              |
+| Kubernetes Nodes (Kubectl) | Découvrez les noeuds Kubernetes en interrogeant le cluster Kubernetes avec kubectl |
+
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -70,16 +73,16 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                                    | Description |
 |:---------------------------------------------------|:------------|
-| Cloud-Kubernetes-Api-CronJobs-Status               |             |
-| Cloud-Kubernetes-Api-Daemonsets-Status             |             |
-| Cloud-Kubernetes-Api-Deployments-Status            |             |
-| Cloud-Kubernetes-Api-Nodes-Status                  |             |
-| Cloud-Kubernetes-Api-Nodes-Usage                   |             |
-| Cloud-Kubernetes-Api-PersistentVolumes-Status      |             |
-| Cloud-Kubernetes-Api-Pods-Status                   |             |
-| Cloud-Kubernetes-Api-ReplicaSets-Status            |             |
-| Cloud-Kubernetes-Api-ReplicationControllers-Status |             |
-| Cloud-Kubernetes-Api-StatefulSets-Status           |             |
+| Cloud-Kubernetes-Api-CronJobs-Status               | Découvrez les CronJobs Kubernetes pour superviser leur statut               |
+| Cloud-Kubernetes-Api-Daemonsets-Status             | Découvrez les DaemonSets Kubernetes pour superviser leur statut             |
+| Cloud-Kubernetes-Api-Deployments-Status            | Découvrez les Deployments Kubernetes pour superviser leur statut            |
+| Cloud-Kubernetes-Api-Nodes-Status                  | Découvrez les Nodes Kubernetes pour superviser leur statut                  |
+| Cloud-Kubernetes-Api-Nodes-Usage                   | Découvrez les Nodes Kubernetes pour superviser leur utilisation             |
+| Cloud-Kubernetes-Api-PersistentVolumes-Status      | Découvrez les PersistentVolumes Kubernetes pour superviser leur statut      |
+| Cloud-Kubernetes-Api-Pods-Status                   | Découvrez les Pods Kubernetes pour superviser leur statut                   |
+| Cloud-Kubernetes-Api-ReplicaSets-Status            | Découvrez les ReplicaSets Kubernetes pour superviser leur statut            |
+| Cloud-Kubernetes-Api-ReplicationControllers-Status | Découvrez les ReplicationControllers Kubernetes pour superviser leur statut |
+| Cloud-Kubernetes-Api-StatefulSets-Status           | Découvrez les StatefulSets Kubernetes pour superviser leur statut           |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
