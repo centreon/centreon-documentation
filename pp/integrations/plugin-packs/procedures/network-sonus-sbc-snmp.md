@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Sonus SBC ** brings a host template:
+The Monitoring Connector **Sonus SBC** brings a host template:
 
 * **Net-Sonus-Sbc-SNMP-custom**
 
