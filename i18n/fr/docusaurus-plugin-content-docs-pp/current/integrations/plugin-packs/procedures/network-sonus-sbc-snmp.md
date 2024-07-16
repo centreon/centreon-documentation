@@ -249,7 +249,7 @@ dnf install centreon-pack-network-sonus-sbc-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-network-sonus-sbc-snmp
@@ -294,7 +294,7 @@ dnf install centreon-plugin-Network-Sonus-SBC-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-network-sonus-sbc-snmp
