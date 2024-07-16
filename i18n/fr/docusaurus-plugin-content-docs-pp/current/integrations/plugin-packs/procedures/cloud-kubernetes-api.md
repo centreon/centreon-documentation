@@ -7,6 +7,20 @@ import TabItem from '@theme/TabItem';
 
 ## Contenu du pack
 
+### Préambule
+
+Ce Pack vise à superviser à la fois la couche d'infrastructure (noeuds) et les services du cluster (deployments, daemonsets, etc). Le Pack Kubernetes API offre plusieurs choix concernant la façon dont vous pouvez organiser la supervision du cluster. Il existe principalement trois façons :
+- Rassemblez toutes les métriques sur un seul hôte Centreon avec un service
+  par unité Kubernetes (i.e. deployments, daemonsets, etc) - voir [utiliser un modèle d'hôte issu du connecteur](#utiliser-un-modèle-dhôte-issu-du-connecteur),
+- Rassemblez toutes les métriques sur un seul hôte Centreon avec un service
+  pour chaque instances de chaque unité Kubernetes - voir [utiliser un modèle d'hôte issu du connecteur](#utiliser-un-modèle-dhôte-issu-du-connecteur et
+  [utiliser un modèle de service issu du connecteur](##utiliser-un-modèle-de-service-issu-du-connecteur),
+- Collectez les métriques d'infrastructure (noeuds maître et noeuds de travail)
+  avec un hôte Centreon par noeud Kubernetes et conserver les métriques
+  d'orchestration / d'application sur un hôte unique (en utilisant l'un des 2
+  scénarii précédents) - voir
+  [découverte d'hôte](/docs/monitoring/discovery/hosts-discovery).
+
 ### Modèles
 
 Le connecteur de supervision **Kubernetes API** apporte 2 modèles d'hôte :
@@ -26,10 +40,10 @@ Le connecteur apporte les modèles de service suivants
 | CronJob-Status               | Cloud-Kubernetes-CronJob-Status-Api-custom               | Contrôle le status des CronJobs                          | X          |
 | Daemonset-Status             | Cloud-Kubernetes-Daemonset-Status-Api-custom             | Contrôle le status des DaemonSets                        | X          |
 | Deployment-Status            | Cloud-Kubernetes-Deployment-Status-Api-custom            | Contrôle le status des Deployments                       | X          |
-| Node-Status                  | Cloud-Kubernetes-Node-Status-Api-custom                  | Contrôle le status des Nodes                             | X          |
-| Node-Status                  | Cloud-Kubernetes-Node-Status-Name-Api-custom             | Contrôle le status d'un Node                             |            |
-| Node-Usage                   | Cloud-Kubernetes-Node-Usage-Api-custom                   | Contrôle l'utilisation des noeuds                        | X          |
-| Node-Usage                   | Cloud-Kubernetes-Node-Usage-Name-Api-custom              | Contrôle l'utilisation des noeuds                        |            |
+| Node-Status                  | Cloud-Kubernetes-Node-Status-Api-custom                  | Contrôle le status des Nodes                             |            |
+| Node-Status                  | Cloud-Kubernetes-Node-Status-Name-Api-custom             | Contrôle le status d'un Node identifié par son nom (par exemple à l'issue de la règle de découverte associée) | X          |
+| Node-Usage                   | Cloud-Kubernetes-Node-Usage-Api-custom                   | Contrôle l'utilisation des noeuds                        |            |
+| Node-Usage                   | Cloud-Kubernetes-Node-Usage-Name-Api-custom              | Contrôle l'utilisation d'un noeud identifié par son nom (par exemple à l'issue de la règle de découverte associée) | X          |
 | PersistentVolume-Status      | Cloud-Kubernetes-PersistentVolume-Status-Api-custom      | Contrôle le status des PersistentVolumes                 | X          |
 | Pod-Status                   | Cloud-Kubernetes-Pod-Status-Api-custom                   | Contrôle le status des pods et des containers            | X          |
 | ReplicaSet-Status            | Cloud-Kubernetes-ReplicaSet-Status-Api-custom            | Contrôle le status des ReplicaSets                       | X          |
