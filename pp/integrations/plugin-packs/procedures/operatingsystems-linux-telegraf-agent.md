@@ -366,7 +366,7 @@ EOF
 chown centreon-engine: /etc/centreon-engine/otl_server.json
 ```
 
-### Configuration de Centreon Engine
+### Configure Engine
 
 1. In the **Configuration > Pollers > Engine configuration** menu, on the **Data** tab, add an entry to the Broker modules to load and enter the `/usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json` directive. Save the form.
 
@@ -441,7 +441,7 @@ gpgcheck = 1
 gpgkey = https://repos.influxdata.com/influxdata-archive_compat.key
 EOF
 
-yum install -y telegraf
+dnf install -y telegraf
 ```
 
 </TabItem>
@@ -464,7 +464,7 @@ gpgcheck = 1
 gpgkey = https://repos.influxdata.com/influxdata-archive_compat.key
 EOF
 
-yum install -y telegraf
+dnf install -y telegraf
 ```
 
 </TabItem>
