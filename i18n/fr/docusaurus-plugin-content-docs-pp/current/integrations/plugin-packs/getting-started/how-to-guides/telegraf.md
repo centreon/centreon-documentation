@@ -92,7 +92,7 @@ Installez le processeur Open Telemetry pour Telegraf sur votre serveur central :
 * Le champ **interval** correspond à la fréquence des contrôles effectués par Telegraf, et doit valoir 60 secondes, car il s'agit de la fréquence des contrôles Engine.
 
 > Pour des raisons de simplicité, cette page ne couvre que la configuration de Telegraf **en mode non sécurisé**, mais vous
-> trouverez la procédure pour chiffrer les communications à [cette page](../../procedures/operatingsystems-linux-telegraf-agent.md) et [cette page](../../procedures/operatingsystems-windows-telegraf-agent.md).
+> trouverez la procédure pour chiffrer les communications dans la documentation du [connecteur Linux Telegraf Agent](../../procedures/operatingsystems-linux-telegraf-agent.md) ou celle du  [connecteur Windows Telegraf Agent](../../procedures/operatingsystems-windows-telegraf-agent.md).
 
 ### Ajoutez un nouveau module Broker
 

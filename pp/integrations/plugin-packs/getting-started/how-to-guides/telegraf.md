@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 The Telegraf agent collects metrics and computes statuses on the servers it monitors, and sends them to Centreon.
 Centreon's OpenTelemetry processor allows it to understand data sent in OpenTelemetry format.
 
-Developed by InfluxDB, the Telegraf agent can be installed on Windows servers. Centreon Engine is able to send the configuration of monitored resources to the agent (existing hosts, thresholds...), so that the agent can execute checks and compute the statuses of these resources.
+Developed by InfluxDB, the Telegraf agent can be installed on Windows or Linux servers. Centreon Engine is able to send the configuration of monitored resources to the agent (existing hosts, thresholds...), so that the agent can execute checks and compute the statuses of these resources.
 
 As they are Nagios-based, both Centreon and custom plugins are compatible with the agent. This is because Centreon's Telegraf integration is based on the native [Nagios input data format](https://docs.influxdata.com/telegraf/v1/data_formats/input/nagios/).
 
@@ -92,7 +92,7 @@ Install the Open Telemetry processor for Telegraf on your central server:
 * Enter the IP address of the poller in the **service_address** field.
 * The **interval** field is the frequency of checks performed by Telegraf, and should be set to 60 seconds as it is the frequency of Engine checks.
 
-> For the sake of simplicity, this page only covers the configuration of Telegraf **without encryption**. You may find how to secure the communications [here](../../procedures/operatingsystems-linux-telegraf-agent.md) and [here](../../procedures/operatingsystems-windows-telegraf-agent.md).
+> For the sake of simplicity, this page only covers the configuration of Telegraf **without encryption**. You may find how to secure the communications in the [Linux Telegraf Agent](../../procedures/operatingsystems-linux-telegraf-agent.md) and [Windows Telegraf Agent](../../procedures/operatingsystems-windows-telegraf-agent.md) pages.
 
 ### Add a new Broker module
 
