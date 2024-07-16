@@ -502,7 +502,7 @@ Migration Summary:
 
 #### Go back to the nominal situation
 
-To check the various iptables rules configured on the active node, run the following command:
+To check the various iptables rules configured on the central node 1, run the following command:
 
 ```bash
 iptables -L
