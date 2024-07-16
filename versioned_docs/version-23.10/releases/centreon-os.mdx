@@ -432,6 +432,23 @@ Release date: `October 30, 2023`
 
 ## Centreon Collect
 
+### 23.10.9
+
+Release date: `July 17, 2024`
+
+<details open>
+  <summary>Bug fixes</summary>
+
+- [Broker] If a metric can't be inserted in the database, the metric is dropped with an error log but Broker continues to work, and others metrics are still inserted.
+- [Broker] Fixed an issue while trying to Connect to MySQL 8.0.35.]
+- [Broker] There was two errors concerning the gnutls version check:
+1. We wanted that the gnutls library on the computer is at least the same as the one used to compile broker.
+2. The packaging required a very old version of gnutls 3.3.29
+
+Now, we expect that the version of the gnutls library is at least 3.6.0. And in the packaging, broker will be installed only if a such gnutls library can be installed.
+
+</details>
+
 ### 23.10.8
 
 Release date: `June 17, 2024`
