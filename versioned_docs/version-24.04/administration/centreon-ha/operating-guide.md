@@ -69,6 +69,20 @@ The Resource Status page gives you the following information:
 * On both central nodes, the **PCS-Status** service gives you the detailed state of the cluster. The output of the service in the details panel is the output of the `pcs status` command.
 * You can know which central node is the active node by looking at which node is carrying the cluster resources in the output of the **PCS-Status** service on each central.
 
+## Remove an error displayed in the cluster status
+
+Once the cause of the error has been identified and fixed (see the [troubleshooting guide](troubleshooting-guide.md)), you must delete the error message manually:
+
+```bash
+pcs resource cleanup
+```
+
+Or, if you want to remove only the errors linked to one resource:
+
+```bash
+pcs resource cleanup <resource_name>
+```
+
 ## Check the constraints
 
 If a failover has occurred at some point, there may be some leftover location constraints. Run the following command to display the current constraints:
@@ -123,14 +137,14 @@ To check that the database synchronization is working, run the following command
 
 The command should return the following information:
 
-```bash
+```text
 Connection MASTER Status '@DATABASE_NODE1_NAME@' [OK]
 Connection SLAVE Status '@DATABASE_NODE2_NAME@' [OK]
 Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-> If the synchronization shows `KO`, you must fix it with the help of the [operating guide](operating-guide.md).
+<!-- If the synchronization shows `KO`, you must fix it.-->
 
 ## View the cluster's configuration
 
@@ -158,7 +172,7 @@ pcs resource move centreon
 
 In another terminal, you can also use the `crm_mon -fr` command to watch the failover as it happens. It will be necessary to use Ctrl+c to exit the command.
 
-> Warning: The `pcs resource move centreon` command sets an `-INFINITY` constraint on node 1. This means that the resource is no longer allowed to be running on that node.
+> Warning: The `pcs resource move centreon` command sets an `-INFINITY` constraint on node 1. This means that the resource is no longer allowed to be running on that node. (You will clear this constraint at step 3.)
 
 2. The resources move to node 2. To check that the resources have indeed moved, run the following command:
 
@@ -224,7 +238,7 @@ This will remove the constraints established during the failover.
 
 > If you move a single resource from the centreon resource group from one node to the other, all the other resources in the group will switch too.
 
-If you want to return to the nominal situation (i.e. central node 1 is the active central node and central node 2 is the passive central node), you must perform a second resource failover.
+If you want to return to the nominal situation (i.e. central node 1 is the active central node and central node 2 is the passive central node), you must perform a second resource failover (and clear the constraints afterwards).
 
 ### How to simulate the loss of the passive central node
 
@@ -704,23 +718,9 @@ Full List of Resources:
 Migration Summary:
 ```
 
-## Remove an error displayed in the cluster status
-
-Once the cause of the error has been identified and fixed (see the [troubleshooting guide](troubleshooting-guide.md)), you must manually delete the error message:
-
-```bash
-pcs resource cleanup
-```
-
-Or, if you want to remove only the errors linked to one resource:
-
-```bash
-pcs resource cleanup <resource_name>
-```
-
 ## View cluster logs
 
-The cluster logs are located in `/var/log/cluster/corosync.log`:
+The cluster logs are located in `/var/log/cluster/corosync.log`. To display them, use the following command:
 
 ```bash
 tail -f /var/log/cluster/corosync.log
@@ -736,44 +736,6 @@ To change the verbosity level of the cluster logs, edit the following files:
 * `/etc/rsyslog.d/centreon-cluster.conf`
 
 ## Advanced commands
-
-### Save & import the configuration of the cluster
-
-#### Export/import in XML format
-
-To save the cluster configuration in XML format, run this command:
-
-```bash
-cibadmin --query > /tmp/cluster_configuration.xml
-```
-
-> The following commands perform important modifications to the cluster's configuration and might break it. Use them wisely.
-
-After modifying the XML configuration file, reimport it:
-
-```bash
-cibadmin --replace --xml-file /tmp/cluster_configuration.xml
-```
-
-To completely reset your cluster's configuration, run this command:
-
-```bash
-cibadmin --force --erase
-```
-
-#### Export/import in binary format
-
-The cluster's configuration can be backed up to a binary file:
-
-```bash
-pcs config backup export
-```
-
-This backup can then be re-imported:
-
-```bash
-pcs config restore export.tar.bz2
-```
 
 ### Delete a Pacemaker resource group
 

@@ -9,7 +9,7 @@ This procedure is intended to be used to perform minor updates of Centreon when 
 
 ## Suspend cluster resource management
 
-In order to avoid a failover of the cluster during the update, it is necessary to unmanage all Centreon resources, as well as MariaDB.
+In order to avoid a failover of the cluster during the update, it is necessary to unmanage all Centreon resources, as well as the database.
 
 ```bash
 pcs property set maintenance-mode=true
