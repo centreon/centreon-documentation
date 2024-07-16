@@ -59,10 +59,10 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias       | Modèle de service                            | Description                       | Découverte |
 |:------------|:---------------------------------------------|:----------------------------------|:----------:|
-| Node-Status | Cloud-Kubernetes-Node-Status-Api-custom      | Contrôle le status des Nodes      | X          |
-| Node-Status | Cloud-Kubernetes-Node-Status-Name-Api-custom | Contrôle le status d'un Node      |            |
-| Node-Usage  | Cloud-Kubernetes-Node-Usage-Api-custom       | Contrôle l'utilisation des noeuds | X          |
-| Node-Usage  | Cloud-Kubernetes-Node-Usage-Name-Api-custom  | Contrôle l'utilisation des noeuds |            |
+| Node-Status | Cloud-Kubernetes-Node-Status-Api-custom      | Contrôle le status des Nodes      |            |
+| Node-Status | Cloud-Kubernetes-Node-Status-Name-Api-custom | Contrôle le status d'un Node identifié par son nom (par exemple à l'issue de la règle de découverte associée) | X          |
+| Node-Usage  | Cloud-Kubernetes-Node-Usage-Api-custom       | Contrôle l'utilisation des noeuds |            |
+| Node-Usage  | Cloud-Kubernetes-Node-Usage-Name-Api-custom  | Contrôle l'utilisation d'un noeud identifié par son nom (par exemple à l'issue de la règle de découverte associée) | X          |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Kubernetes-Node-Api-custom** est utilisé.
 
