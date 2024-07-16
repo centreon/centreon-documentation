@@ -250,7 +250,7 @@ To simulate a network failure that would isolate the passive central node, you c
 
 We're assuming that node 1 is the active node and node 2 is the passive node ([check the state of the cluster](#how-do-i-know-the-state-of-the-cluster) if you need to).
 
-To perform this test, run the `iptables` commands on the **passive central node**. Thanks to these rules, all traffic coming from the active central node and the quorum device will be ignored by the passive central node:
+To perform this test, run the `iptables` commands on the **passive central node**. Thanks to these rules, all traffic coming from the active central node, the databases and the quorum device will be ignored by the passive central node:
 
 ```bash
 iptables -A INPUT -s @CENTRAL_NODE1_IPADDR@ -j DROP
@@ -436,7 +436,7 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-### How to simulate the loss of the active node
+### How to simulate the loss of the active central node
 
 This test checks that the resources are switched to the passive node if the active node is unavailable, allowing for continuity of service.
 
@@ -444,7 +444,7 @@ This test checks that the resources are switched to the passive node if the acti
 
 We're assuming that central node 1 is the active central node and central node 2 is the passive central node ([check the state of the cluster](#how-do-i-know-the-state-of-the-cluster) if you need to).
 
-To perform this test, run the commands on the **active central node**:
+To perform this test, run the following commands on the **active central node**. Thanks to these rules, all traffic coming from the passive central node, the databases and the quorum device will be ignored by the active central node:
 
 ```bash
 iptables -A INPUT -s @CENTRAL_NODE2_IPADDR@ -j DROP
@@ -548,7 +548,7 @@ iptables -D INPUT @RULE_NUMBER@;
 iptables -D OUTPUT @RULE_NUMBER@
 ```
 
-If you run the `crm_mon` command on node 2, you can see that node 1 is still the passive node:
+If you run the `crm_mon` command on central node 2, you can see that central node 1 is still the passive node:
 
 ```text
 Cluster Summary:
@@ -556,8 +556,8 @@ Cluster Summary:
   * Current DC: @CENTRAL_NODE1_NAME@ (version 2.1.2-4.el8_6.3-ada5c3b36e2) - partition with quorum
   * Last updated: Tue Nov 8 17:27:28 2022
   * Last change:  Tue Nov  8 17:23:19 2022 by root via crm_attribute on @CENTRAL_NODE2_NAME@
-  * 2 nodes configured
-  * 12 resource instances configured
+  * 4 nodes configured
+  * 21 resource instances configured
 Node List:
   * Online: [ @CENTRAL_NODE1_NAME@ @CENTRAL_NODE2_NAME@ ]
 Full List of Resources:
@@ -588,7 +588,7 @@ ariaDB slave io has failed (1236): Got fatal error 1236 from master when reading
 log: 'Error: connecting slave', last-rc-change='Tue Nov  8 17:27:21 2022', queued=0ms, exec=4060ms
 ```
 
-If you want to switch to the active node, you must do a failover.
+If you want central node 1 to be the active node again, you must do a failover.
 So, **before you do this, you must check the cluster and database replication status**.
 
 First, check the constraints:
@@ -601,11 +601,29 @@ The command should return this:
 
 ```text
 Location Constraints:
+  Resource: cbd_rrd-clone
+    Disabled on:
+      Node: db1 (score:-INFINITY)
+      Node: db2 (score:-INFINITY)
+  Resource: centreon
+    Disabled on:
+      Node: db1 (score:-INFINITY)
+      Node: db2 (score:-INFINITY)
+      Node: central2 (score:-INFINITY) (role:Started)
+  Resource: ms_mysql-clone
+    Disabled on:
+      Node: central1 (score:-INFINITY)
+      Node: central2 (score:-INFINITY)
+  Resource: php-clone
+    Disabled on:
+      Node: db1 (score:-INFINITY)
+      Node: db2 (score:-INFINITY)
 Ordering Constraints:
 Colocation Constraints:
-  centreon with ms_mysql-clone (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
-  ms_mysql-clone with centreon (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
+  vip_mysql with ms_mysql-clone (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
+  ms_mysql-clone with vip_mysql (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
+
 ```
 
 then check the database replication
