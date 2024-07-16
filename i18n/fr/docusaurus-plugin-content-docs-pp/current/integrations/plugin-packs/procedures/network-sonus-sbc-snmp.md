@@ -511,39 +511,60 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_sonus_sbc_snmp.pl \
-	--plugin network::sonus::sbc::snmp::plugin \
-	--mode=interfaces \
-	--hostname='10.0.0.1' \
+	--plugin=network::sonus::sbc::snmp::plugin \
+	--mode=channels \
+	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
-	--interface='' \
-	--name \
-	--add-status \
-	--add-traffic \
-	--add-errors \
-	--warning-status='' \
-	--critical-status='%{admstatus} eq "up" and %{opstatus} !~ /up|dormant/' \
-	--warning-in-traffic='' \
-	--critical-in-traffic='' \
-	--warning-out-traffic='' \
-	--critical-out-traffic='' \
-	--warning-in-discard='' \
-	--critical-in-discard='' \
-	--warning-out-discard='' \
-	--critical-out-discard='' \
-	--warning-in-error='' \
-	--critical-in-error='' \
-	--warning-out-error='' \
-	--critical-out-error='' \
-	--oid-filter='ifname' \
-	--oid-display='ifname' \
+	--filter-shelf-id=1 \
+	--filter-port-id=1 \
 	--verbose
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All interfaces are ok | '*interface_name*#status'=;;;;'*interface_name*#interface.traffic.in.bitspersecond'=b/s;;;;'*interface_name*#interface.traffic.out.bitspersecond'=b/s;;;;'*interface_name*#interface.packets.in.discard.percentage'=%;;;;100'*interface_name*#interface.packets.in.error.percentage'=%;;;;100'*interface_name*#interface.packets.out.discard.percentage'=%;;;;100'*interface_name*#interface.packets.out.error.percentage'=%;;;;100
+OK: All channels are ok | 'channels.total.count'=40;;;0; 'channels.outofservice.count'=0;;;0; 'channels.idle.count'=40;;;0; 'channels.pending.count'=0;;;0; 'channels.waiting_for_route.count'=0;;;0; 'channels.action_list.count'=0;;;0; 'channels.waiting_for_digits.count'=0;;;0; 'channels.remote_setup.count'=0;;;0; 'channels.peer_setup.count'=0;;;0; 'channels.alerting.count'=0;;;0; 'channels.inband_info.count'=0;;;0; 'channels.connected.count'=0;;;0; 'channels.tone_generation.count'=0;;;0; 'channels.releasing.count'=0;;;0; 'channels.aborting.count'=0;;;0; 'channels.resetting.count'=0;;;0; 'channels.up.count'=0;;;0; 'channels.down.count'=0;;;0; 'shelf1~slot0~port1~channel1#channel.lifetime.seconds'=371s;;;0; 'shelf1~slot0~port1~channel10#channel.lifetime.seconds'=856s;;;0; 'shelf1~slot0~port1~channel11#channel.lifetime.seconds'=961s;;;0; 'shelf1~slot0~port1~channel12#channel.lifetime.seconds'=461s;;;0; 'shelf1~slot0~port1~channel13#channel.lifetime.seconds'=667s;;;0; 'shelf1~slot0~port1~channel14#channel.lifetime.seconds'=330s;;;0; 'shelf1~slot0~port1~channel15#channel.lifetime.seconds'=489s;;;0; 'shelf1~slot0~port1~channel16#channel.lifetime.seconds'=797s;;;0; 'shelf1~slot0~port1~channel17#channel.lifetime.seconds'=1436s;;;0; 'shelf1~slot0~port1~channel18#channel.lifetime.seconds'=1029s;;;0; 'shelf1~slot0~port1~channel19#channel.lifetime.seconds'=405s;;;0; 'shelf1~slot0~port1~channel2#channel.lifetime.seconds'=1559s;;;0; 'shelf1~slot0~port1~channel20#channel.lifetime.seconds'=618s;;;0; 'shelf1~slot0~port1~channel21#channel.lifetime.seconds'=929s;;;0; 'shelf1~slot0~port1~channel22#channel.lifetime.seconds'=807s;;;0; 'shelf1~slot0~port1~channel23#channel.lifetime.seconds'=748s;;;0; 'shelf1~slot0~port1~channel24#channel.lifetime.seconds'=767s;;;0; 'shelf1~slot0~port1~channel25#channel.lifetime.seconds'=783s;;;0; 'shelf1~slot0~port1~channel26#channel.lifetime.seconds'=703s;;;0; 'shelf1~slot0~port1~channel27#channel.lifetime.seconds'=1293s;;;0; 'shelf1~slot0~port1~channel28#channel.lifetime.seconds'=2405s;;;0; 'shelf1~slot0~port1~channel29#channel.lifetime.seconds'=1371s;;;0; 'shelf1~slot0~port1~channel3#channel.lifetime.seconds'=1701s;;;0; 'shelf1~slot0~port1~channel30#channel.lifetime.seconds'=653s;;;0; 'shelf1~slot0~port1~channel31#channel.lifetime.seconds'=400s;;;0; 'shelf1~slot0~port1~channel32#channel.lifetime.seconds'=876s;;;0; 'shelf1~slot0~port1~channel33#channel.lifetime.seconds'=780s;;;0; 'shelf1~slot0~port1~channel34#channel.lifetime.seconds'=2461s;;;0; 'shelf1~slot0~port1~channel35#channel.lifetime.seconds'=1382s;;;0; 'shelf1~slot0~port1~channel36#channel.lifetime.seconds'=1595s;;;0; 'shelf1~slot0~port1~channel37#channel.lifetime.seconds'=2531s;;;0; 'shelf1~slot0~port1~channel38#channel.lifetime.seconds'=1604s;;;0; 'shelf1~slot0~port1~channel39#channel.lifetime.seconds'=2160s;;;0; 'shelf1~slot0~port1~channel4#channel.lifetime.seconds'=340s;;;0; 'shelf1~slot0~port1~channel40#channel.lifetime.seconds'=1487s;;;0; 'shelf1~slot0~port1~channel5#channel.lifetime.seconds'=1130s;;;0; 'shelf1~slot0~port1~channel6#channel.lifetime.seconds'=2739s;;;0; 'shelf1~slot0~port1~channel7#channel.lifetime.seconds'=1688s;;;0; 'shelf1~slot0~port1~channel8#channel.lifetime.seconds'=1909s;;;0; 'shelf1~slot0~port1~channel9#channel.lifetime.seconds'=336s;;;0;
+channel '1/0/1/1' oper status: idle, lifetime: 371 seconds
+channel '1/0/1/10' oper status: idle, lifetime: 856 seconds
+channel '1/0/1/11' oper status: idle, lifetime: 961 seconds
+channel '1/0/1/12' oper status: idle, lifetime: 461 seconds
+channel '1/0/1/13' oper status: idle, lifetime: 667 seconds
+channel '1/0/1/14' oper status: idle, lifetime: 330 seconds
+channel '1/0/1/15' oper status: idle, lifetime: 489 seconds
+channel '1/0/1/16' oper status: idle, lifetime: 797 seconds
+channel '1/0/1/17' oper status: idle, lifetime: 1436 seconds
+channel '1/0/1/18' oper status: idle, lifetime: 1029 seconds
+channel '1/0/1/19' oper status: idle, lifetime: 405 seconds
+channel '1/0/1/2' oper status: idle, lifetime: 1559 seconds
+channel '1/0/1/20' oper status: idle, lifetime: 618 seconds
+channel '1/0/1/21' oper status: idle, lifetime: 929 seconds
+channel '1/0/1/22' oper status: idle, lifetime: 807 seconds
+channel '1/0/1/23' oper status: idle, lifetime: 748 seconds
+channel '1/0/1/24' oper status: idle, lifetime: 767 seconds
+channel '1/0/1/25' oper status: idle, lifetime: 783 seconds
+channel '1/0/1/26' oper status: idle, lifetime: 703 seconds
+channel '1/0/1/27' oper status: idle, lifetime: 1293 seconds
+channel '1/0/1/28' oper status: idle, lifetime: 2405 seconds
+channel '1/0/1/29' oper status: idle, lifetime: 1371 seconds
+channel '1/0/1/3' oper status: idle, lifetime: 1701 seconds
+channel '1/0/1/30' oper status: idle, lifetime: 653 seconds
+channel '1/0/1/31' oper status: idle, lifetime: 400 seconds
+channel '1/0/1/32' oper status: idle, lifetime: 876 seconds
+channel '1/0/1/33' oper status: idle, lifetime: 780 seconds
+channel '1/0/1/34' oper status: idle, lifetime: 2461 seconds
+channel '1/0/1/35' oper status: idle, lifetime: 1382 seconds
+channel '1/0/1/36' oper status: idle, lifetime: 1595 seconds
+channel '1/0/1/37' oper status: idle, lifetime: 2531 seconds
+channel '1/0/1/38' oper status: idle, lifetime: 1604 seconds
+channel '1/0/1/39' oper status: idle, lifetime: 2160 seconds
+channel '1/0/1/4' oper status: idle, lifetime: 340 seconds
+channel '1/0/1/40' oper status: idle, lifetime: 1487 seconds
+channel '1/0/1/5' oper status: idle, lifetime: 1130 seconds
+channel '1/0/1/6' oper status: idle, lifetime: 2739 seconds
+channel '1/0/1/7' oper status: idle, lifetime: 1688 seconds
+channel '1/0/1/8' oper status: idle, lifetime: 1909 seconds
+channel '1/0/1/9' oper status: idle, lifetime: 336 seconds
 ```
 
 ### Diagnostic des erreurs communes
