@@ -31,4 +31,4 @@ You need to take action and fix the problem so that the central node that failed
 
 * Central node 1 is still the passive node: the cluster does **not** switch back automatically.
 * If you are using EL8 or Debian, you need to clear manually the constraint created by the failover (using `pcs resource clear centreon`).
-* In a production context, you do not **have** to go back to central node 1 being the active node - but you can do it if you want to (e.g. if central node 2 has limited performance), by [performing a failover](../../administration/centreon-ha/acceptance-guide.md#perform-a-failover) on central node 2.
+* In a production context, you do not **have** to go back to central node 1 being the active node - but you can do it if you want to (e.g. if central node 2 has limited performance), by [performing a failover](../../administration/centreon-ha/operating-guide.md#how-to-perform-a-manual-failover) on central node 2.

@@ -250,7 +250,7 @@ To simulate a network failure that would isolate the passive central node, you c
 
 We're assuming that node 1 is the active node and node 2 is the passive node ([check the state of the cluster](#how-do-i-know-the-state-of-the-cluster) if you need to).
 
-To perform this test, run the `iptables` commands on the **active central node**:
+To perform this test, run the `iptables` commands on the **passive central node**. Thanks to these rules, all traffic coming from the active central node and the quorum device will be ignored by the passive central node:
 
 ```bash
 iptables -A INPUT -s @CENTRAL_NODE1_IPADDR@ -j DROP
@@ -267,44 +267,44 @@ The passive central node is now excluded from the cluster.
 
 If you run `pcs status` on the active central node:
 
-* The resources and the cluster are still working.
+* The resources and the cluster are still working (the output shows that the noe still sees the quorum device).
 * The passive central node is seen `offline` on the active node:
 
 ```text
 Cluster name: centreon_cluster
 Stack: corosync
-Current DC: @CENTRAL_MASTER_NAME@ (version 1.1.23-1.el8_9.1-9acf116022) - partition with quorum
+Current DC: @CENTRAL_NODE1_NAME@ (version 1.1.23-1.el8_9.1-9acf116022) - partition with quorum
 Last updated: Thu May  5 10:34:05 2022
-Last change: Thu May  5 09:09:50 2022 by root via crm_resource on @CENTRAL_MASTER_NAME@
+Last change: Thu May  5 09:09:50 2022 by root via crm_resource on @CENTRAL_NODE1_NAME@
 
 4 nodes configured
 21 resource instances configured
 
-Online: [ @DATABASE_MASTER_NAME@ @CENTRAL_MASTER_NAME@ @DATABASE_SLAVE_NAME@ ]
-OFFLINE: [ @CENTRAL_SLAVE_NAME@ ]
+Online: [ @DATABASE_NODE1_NAME@ @CENTRAL_NODE1_NAME@ @DATABASE_NODE2_NAME@ ]
+OFFLINE: [ @CENTRAL_NODE2_NAME@ ]
 
 Full list of resources:
 
  Master/Slave Set: ms_mysql-clone [ms_mysql]
-     Masters: [ @DATABASE_MASTER_NAME@ ]
-     Slaves: [ @DATABASE_SLAVE_NAME@ ]
-     Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
- vip_mysql      (ocf::heartbeat:IPaddr2):       Started @DATABASE_MASTER_NAME@
+     Masters: [ @DATABASE_NODE1_NAME@ ]
+     Slaves: [ @DATABASE_NODE2_NAME@ ]
+     Stopped: [ @CENTRAL_NODE1_NAME@ @CENTRAL_NODE2_NAME@ ]
+ vip_mysql      (ocf::heartbeat:IPaddr2):       Started @DATABASE_NODE1_NAME@
  Clone Set: php-clone [php]
-     Started: [ @CENTRAL_MASTER_NAME@ ]
-     Stopped: [ @DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@ @CENTRAL_SLAVE_NAME@ ]
+     Started: [ @CENTRAL_NODE1_NAME@ ]
+     Stopped: [ @DATABASE_NODE1_NAME@ @DATABASE_NODE2_NAME@ @CENTRAL_NODE2_NAME@ ]
  Clone Set: cbd_rrd-clone [cbd_rrd]
-     Started: [ @CENTRAL_MASTER_NAME@ ]
-     Stopped: [ @DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@ @CENTRAL_SLAVE_NAME@ ]
+     Started: [ @CENTRAL_NODE1_NAME@ ]
+     Stopped: [ @DATABASE_NODE1_NAME@ @DATABASE_NODE2_NAME@ @CENTRAL_NODE2_NAME@ ]
  Resource Group: centreon
-     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_MASTER_NAME@
-     http       (systemd:httpd24-httpd):        Started @CENTRAL_MASTER_NAME@
-     gorgone    (systemd:gorgoned):     Started @CENTRAL_MASTER_NAME@
-     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_MASTER_NAME@
-     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_MASTER_NAME@
-     centengine (systemd:centengine):   Started @CENTRAL_MASTER_NAME@
-     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_MASTER_NAME@
-     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_MASTER_NAME@
+     vip        (ocf::heartbeat:IPaddr2):       Started @CENTRAL_NODE1_NAME@
+     http       (systemd:httpd24-httpd):        Started @CENTRAL_NODE1_NAME@
+     gorgone    (systemd:gorgoned):     Started @CENTRAL_NODE1_NAME@
+     centreon_central_sync      (systemd:centreon-central-sync):        Started @CENTRAL_NODE1_NAME@
+     cbd_central_broker (systemd:cbd-sql):      Started @CENTRAL_NODE1_NAME@
+     centengine (systemd:centengine):   Started @CENTRAL_NODE1_NAME@
+     centreontrapd      (systemd:centreontrapd):        Started @CENTRAL_NODE1_NAME@
+     snmptrapd  (systemd:snmptrapd):    Started @CENTRAL_NODE1_NAME@
 
 Daemon Status:
   corosync: active/enabled
@@ -314,7 +314,7 @@ Daemon Status:
 
 If you run `pcs status` on the passive node:
 
-* All resources appear stopped on the passive node
+* All resources appear stopped on the passive node (this is because the passive node does not see the quorum device anymore, as "partition WITHOUT quorum" indicates below. The resources are stopped.)
 * The active node is seen as `offline` (as the passive node is cut off from the rest of the cluster):
 
 ```text
@@ -444,7 +444,7 @@ This test checks that the resources are switched to the passive node if the acti
 
 We're assuming that central node 1 is the active central node and central node 2 is the passive central node ([check the state of the cluster](#how-do-i-know-the-state-of-the-cluster) if you need to).
 
-To perform this test, run the commands on the active central node:
+To perform this test, run the commands on the **active central node**:
 
 ```bash
 iptables -A INPUT -s @CENTRAL_NODE2_IPADDR@ -j DROP
