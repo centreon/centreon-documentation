@@ -17,32 +17,63 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
 
 ## Update the package
 
-1. In order to update the Centreon MAP module using an RPM package, execute the
+> If you use MAP Legacy, an additional action is required on the MAP server at the end of the procedure, to apply any customization.
+
+1. Stop the **centreon-map-engine** service by running this command on the machine hosting the Centreon MAP service:
+ 
+  ```shell
+  sudo systemctl stop centreon-map-engine
+  ```
+
+2. In order to update the Centreon MAP module using an RPM package, execute the
 following command:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-``` shell
-sudo dnf update centreon-map-engine centreon-map-web-client
-```
+ - On the central server:
+ 
+ ``` shell
+ sudo dnf update centreon-map-web-client
+ ```
+ 
+ - On the MAP server:
+ ``` shell
+ sudo dnf update centreon-map-engine
+ ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-``` shell
-sudo yum update centreon-map-engine centreon-map-web-client
-```
+ - On the central server:
+ 
+ ``` shell
+ sudo yum update centreon-map-web-client
+ ```
+ 
+ - On the MAP server:
+ 
+ ``` shell
+ sudo yum update centreon-map-engine
+ ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
  - If MAP only is installed:
  
+ On the central server:
+
  ``` shell
- sudo apt install --only-upgrade centreon-map-engine centreon-map-web-client
+ sudo apt install --only-upgrade centreon-map-web-client
  ```
   
+ On the MAP server:
+ 
+ ``` shell
+ sudo apt install --only-upgrade centreon-map-engine
+ ```
+
  - If MAP and MAP Legacy are installed on the same server:
    
    - Make a backup of the **map.cnf** file:
@@ -72,11 +103,22 @@ sudo yum update centreon-map-engine centreon-map-web-client
 </TabItem>
 </Tabs>
 
-2. Make sure you are using the correct version of MariaDB and update it if needed. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).
+3. Clear your browser cache.
 
-## Update through the interface
+4. Finalize the update of the module and the widget in the Centreon interface **Administration > Extensions > Manager**.
 
-Log on to the Centreon web interface and go to `Administration > Extension >
-Manager`.
+ > An orange update button is visible, indicating that an update is available. Click on it to update the module, and do the same for the widget.
 
-Click on the orange button to update the module, do the same for the widget.
+5. Restart the **centreon-map-engine** service using the following command:
+ 
+  ```shell
+  sudo systemctl start centreon-map-engine
+  ```
+
+6. If you are using MAP Legacy, enter this command on the MAP server to apply any customization.
+
+ ```shell
+ diff -u /etc/centreon-studio/centreon-map.conf /etc/centreon-studio/centreon-map.conf.rpmsave
+ ```
+
+7. Make sure you are using the correct version of MariaDB and update it if needed. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).

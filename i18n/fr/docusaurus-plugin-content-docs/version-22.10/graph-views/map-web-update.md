@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 Suivez cette procédure pour mettre à jour la version de MAP :
 
+> Si vous utilisez MAP Legacy, une action supplémentaire est à prévoir sur le serveur MAP en fin de procédure, pour reporter une éventuelle personnalisation.
+
 1. Arrêtez le service **centreon-map-engine** en exécutant la commande suivante sur la machine hébergeant le service Centreon MAP :
  
   ```shell
@@ -18,24 +20,48 @@ Suivez cette procédure pour mettre à jour la version de MAP :
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-``` shell
-sudo dnf update centreon-map-engine centreon-map-web-client
-```
+ - Sur le serveur central :
+ 
+ ``` shell
+ sudo dnf update centreon-map-web-client
+ ```
+ 
+ - Sur le serveur MAP :
+ 
+ ``` shell
+ sudo dnf update centreon-map-engine
+ ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
-``` shell
-sudo yum update centreon-map-engine centreon-map-web-client
-```
+ - Sur le serveur central :
+ 
+ ``` shell
+ sudo yum update centreon-map-web-client
+ ```
+ 
+ - Sur le serveur MAP :
+ 
+ ``` shell
+ sudo yum update centreon-map-engine
+ ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
  - Si MAP seul est installé :
  
+ Sur le serveur central :
+
  ``` shell
- sudo apt install centreon-map-engine centreon-map-web-client
+ sudo apt install centreon-map-web-client
+ ```
+
+ Sur le serveur MAP :
+
+ ``` shell
+ sudo apt install centreon-map-engine
  ```
   
  - Si MAP et MAP Legacy sont installés sur le même serveur :
@@ -69,8 +95,16 @@ sudo yum update centreon-map-engine centreon-map-web-client
 
 3. Videz le cache de votre navigateur.
 
-4. Redémarrez le service **centreon-map-engine** en exécutant la commande suivante :
+4. Finalisez la mise à jour du module et du widget dans l'interface Centreon **Administration > Extensions > Gestionnaire**.
+
+5. Redémarrez le service **centreon-map-engine** en exécutant la commande suivante :
  
   ```shell
   sudo systemctl start centreon-map-engine
   ```
+
+6. Si vous utilisez MAP Legacy, entrez cette commande sur le serveur MAP pour reporter une éventuelle personnalisation.
+
+ ```shell
+ diff -u /etc/centreon-studio/centreon-map.conf /etc/centreon-studio/centreon-map.conf.rpmsave
+ ```
