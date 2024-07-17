@@ -191,6 +191,22 @@ Many features have been added in this version.
 
 ## Centreon Collect
 
+### 24.04.3
+
+Release date: `July 17, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed an issue that occurred when inserting too large metrics into the database, which resulted in an error log.
+- [Broker] There were two errors concerning the gnutls version check:
+1. The gnutls library on Centreon had to be at least the same version as the one used to compile Broker. Now, Broker checks that the version of the gnutls library is at least 3.6.0.
+2. The packaging required a very old version of gnutls.
+Now, when Broker is installed we check that the version of gnutls is at least 3.6.0. If the version is older, it will be updated.
+- [Broker] Added support for the default connection method to MySQL 8.0.35.
+
+</details>
+
 ### 24.04.2
 
 Release date: `June 17, 2024`
