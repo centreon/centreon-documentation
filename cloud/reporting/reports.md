@@ -50,8 +50,6 @@ Your report is now created and available to be displayed.
 2. Click on the card corresponding to the report you want to display. It opens a new tab and displays your report in the Grafana interface.
 > Authentication to Grafana and data processing are managed by the [CCIAM](../ciam/ciam.md#what-is-centreon-ciam).
 
-*[Add a screenshot of a beautiful report in Grafana]*
-
 ## Delete a report
 
 You can delete a report from the **Report list** page.
