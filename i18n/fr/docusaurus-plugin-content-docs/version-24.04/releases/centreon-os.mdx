@@ -200,7 +200,7 @@ Release date: `July 17, 2024`
 
 - [Broker] Fixed an issue that occurred when inserting too large metrics into the database, which resulted in an error log.
 - [Broker] There were two errors concerning the gnutls version check:
-1. It was required that the gnutls library on Centreon was at least the same as the one used to compile Broker.
+1. The gnutls library on Centreon had to be at least the same version as the one used to compile Broker.
 2. The packaging required a very old version of gnutls.
 
 Now, Broker checks that the version of the gnutls library is at least 3.6.0. In the packaging, when Broker is installed we check that the version of gnutls is at least 3.6.0. If the version is older, it will be updated.
