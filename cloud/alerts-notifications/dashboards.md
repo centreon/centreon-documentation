@@ -42,8 +42,8 @@ At the top right of the widget:
 - Click the **refresh data** icon to manually update data in real time. You also have the time of the update.
 
 - Click the **three dots** menu to edit it or to access more actions:
-  - **Duplicate** the widget
-  - **Delete widget**
+  - Duplicate
+  - Delete widget
 
 > In edition mode, you can easily organize your widgets by moving or resizing them. Make sure to save your changes.
 

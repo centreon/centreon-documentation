@@ -40,8 +40,8 @@ En haut à droite du widget :
 - Cliquez sur l'icône **rafraîchir les données** pour actualiser manuellement les données en temps réel. Vous avez également l'heure de la mise à jour.
 
 - Cliquez sur le menu avec les **trois points** pour le modifier ou pour accéder à d'autres actions :
-  - **Dupliquer** le widget
-  - **Supprimer le widget**
+  - Dupliquer
+  - Supprimer le widget
 
 > En mode édition, vous pouvez facilement organiser vos widgets en les déplaçant ou en les redimensionnant. N'oubliez pas de sauvegarder vos modifications.
 
