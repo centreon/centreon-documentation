@@ -15,15 +15,13 @@ Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centre
 
 ## Mise à jour du paquet
 
-> Si vous utilisez MAP Legacy, une action supplémentaire est à prévoir sur le serveur MAP en fin de procédure, pour reporter une éventuelle personnalisation.
-
 1. Arrêtez le service **centreon-map-engine** en entrant cette commande sur la machine où se trouve le serveur MAP :
 
  ```shell
  sudo systemctl stop centreon-map-engine
  ```
   
-2. Pour mettre à jour le module Centreon MAP à l'aide des paquets RPM, exécutez la commande suivante :
+2. Pour mettre à jour le module Centreon MAP, exécutez les commandes suivantes :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -115,10 +113,4 @@ de même pour le widget.
   sudo systemctl start centreon-map-engine
   ```
 
-6. Si vous utilisez MAP Legacy, entrez cette commande sur le serveur MAP pour reporter une éventuelle personnalisation.
-
- ```shell
- diff -u /etc/centreon-studio/centreon-map.conf /etc/centreon-studio/centreon-map.conf.rpmsave
- ```
-
-7. Assurez-vous d'utiliser la bonne version de MariaDB et mettez-la à jour si besoin. Voir [Mettre à jour MariaDB](../upgrade/upgrade-mariadb.md).
+6. Assurez-vous d'utiliser la bonne version de MariaDB et mettez-la à jour si besoin. Voir [Mettre à jour MariaDB](../upgrade/upgrade-mariadb.md).

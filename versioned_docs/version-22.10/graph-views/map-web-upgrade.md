@@ -17,16 +17,14 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
 
 ## Update the package
 
-> If you use MAP Legacy, an additional action is required on the MAP server at the end of the procedure, to apply any customization.
-
 1. Stop the **centreon-map-engine** service by running this command on the machine hosting the Centreon MAP service:
  
   ```shell
   sudo systemctl stop centreon-map-engine
   ```
 
-2. In order to update the Centreon MAP module using an RPM package, execute the
-following command:
+2. In order to update the Centreon MAP module, execute the
+following commands:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -115,10 +113,4 @@ following command:
   sudo systemctl start centreon-map-engine
   ```
 
-6. If you are using MAP Legacy, enter this command on the MAP server to apply any customization.
-
- ```shell
- diff -u /etc/centreon-studio/centreon-map.conf /etc/centreon-studio/centreon-map.conf.rpmsave
- ```
-
-7. Make sure you are using the correct version of MariaDB and update it if needed. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).
+6. Make sure you are using the correct version of MariaDB and update it if needed. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).

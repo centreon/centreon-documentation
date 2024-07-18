@@ -7,8 +7,6 @@ import TabItem from '@theme/TabItem';
 
 Suivez cette procédure pour mettre à jour la version de MAP :
 
-> Si vous utilisez MAP Legacy, une action supplémentaire est à prévoir sur le serveur MAP en fin de procédure, pour reporter une éventuelle personnalisation.
-
 1. Arrêtez le service **centreon-map-engine** en exécutant la commande suivante sur la machine hébergeant le service Centreon MAP :
  
   ```shell
@@ -102,9 +100,3 @@ Suivez cette procédure pour mettre à jour la version de MAP :
   ```shell
   sudo systemctl start centreon-map-engine
   ```
-
-6. Si vous utilisez MAP Legacy, entrez cette commande sur le serveur MAP pour reporter une éventuelle personnalisation.
-
- ```shell
- diff -u /etc/centreon-studio/centreon-map.conf /etc/centreon-studio/centreon-map.conf.rpmsave
- ```
