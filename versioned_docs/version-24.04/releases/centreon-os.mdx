@@ -24,6 +24,27 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 24.04.5
+
+Release date: `July 18, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Fixed access control for hosts configuration endpoints.
+- [centreon-web] Fixed selinux dependencies for centreon-common-selinux
+- [Dashboard] Empty legend in Metrics Graph widget when user locale is different from en_US
+- [Dashboards] Displayed statuses of parent hosts when only services are selected in status chart and status grid widgets.
+- [Dashboards] Fixed error when renaming a dashboard that has an empty description
+- [Dashboards] Fixed inconsistent values between top counter and status widgets
+- [Dashboards] Fixed service search that was limited to 30 items
+- [Gorgone] Fixed an issue where a host category was not present in MBI if it was applied on a host template instead of directly on the host.
+- [Gorgone] fixed gorgone api configuration erased on rpm upgrades
+- [Menu] Updated url of helper button in web interface.
+- Fixed endpoints that list Dashboard contacts to correctly compute Admin rights
+
+</details>
+
 ### 24.04.4
 
 Release date: `July 3, 2024`
