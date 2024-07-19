@@ -71,11 +71,19 @@ Suivez cette procédure pour mettre à jour la version de MAP :
     ```
 
    - Mettez les paquets de **centreon-map-engine** à jour :
-   
-    ``` shell
-    sudo apt install -o Dpkg::Options::="--force-overwrite" centreon-map-engine centreon-map-web-client
-    ```
 
+   Sur le serveur central :
+   
+   ``` shell
+   sudo apt install -o Dpkg::Options::="--force-overwrite" centreon-map-web-client
+   ```
+   
+   Sur le serveur MAP :
+   
+   ``` shell
+   sudo apt install -o Dpkg::Options::="--force-overwrite" centreon-map-engine
+   ```
+  
    - Récupérez la sauvegarde du fichier de configuration :
    
     ```shell

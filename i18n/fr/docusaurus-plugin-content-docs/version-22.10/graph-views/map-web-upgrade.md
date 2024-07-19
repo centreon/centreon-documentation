@@ -79,11 +79,19 @@ Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centre
     ```
 
    - Mettez les paquets de **centreon-map-engine** à jour :
-   
-    ``` shell
-    sudo apt install --only-upgrade -o Dpkg::Options::="--force-overwrite" centreon-map-engine centreon-map-web-client
-    ```
 
+   Sur le serveur central :
+   
+   ``` shell
+   sudo apt install -o Dpkg::Options::="--force-overwrite" centreon-map-web-client
+   ```
+   
+   Sur le serveur MAP :
+   
+   ``` shell
+   sudo apt install -o Dpkg::Options::="--force-overwrite" centreon-map-engine
+   ```
+  
    - Récupérez la sauvegarde du fichier de configuration :
    
     ```shell

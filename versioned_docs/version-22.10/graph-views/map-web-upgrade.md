@@ -81,11 +81,19 @@ following commands:
     ```
 
    - Update the centreon-map-engine package
-   
+    
+    On the central server:
+    
     ``` shell
-    sudo apt install --only-upgrade -o Dpkg::Options::="--force-overwrite" centreon-map-engine centreon-map-web-client
+    sudo apt install -o Dpkg::Options::="--force-overwrite" centreon-map-web-client
     ```
-
+    
+    On the MAP server:
+    
+    ``` shell
+    sudo apt install -o Dpkg::Options::="--force-overwrite" centreon-map-engine
+    ```
+    
    - Retrieve the configuration file backup:
    
     ```shell
