@@ -22,6 +22,25 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 24.04.5
+
+Release date: `July 18, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Fixed access control for host configuration endpoints.
+- [centreon-web] Fixed SELinux dependencies for centreon-common-selinux.
+- [Dashboard] Fixed an issue where the legend of the Metrics Graph widget was empty when the user locale was different from en_US.
+status charts and the status grid widget now display the status of a service's parent host when only services are selected instead of a "no host found" error.
+- [Dashboards] Fixed an error that occurred when renaming a dashboard that had an empty description.
+- [Dashboards] Fixed inconsistent values between top counter and status widgets.
+- [Dashboards] Search results for services are no longer limited to 30 items.
+- [Menu] Updated the URLs of help buttons in the web interface.
+- Fixed incorrect user rights computations for Dashboard admins.
+
+</details>
+
 ### 24.04.4
 
 Release date: `July 3, 2024`
@@ -272,6 +291,18 @@ Release date: `April 30, 2024`
 </details>
 
 ## Centreon Gorgone
+
+### 24.04.2
+
+Release date: `July 18, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Fixed an issue where a host category was not present in MBI if it was applied on a host template instead of directly on the host.
+- [Gorgone] Fixed an issue with the Gorgone API at upgrade, that caused the Autodiscovery feature to not work.
+
+</details>
 
 ### 24.04.1
 
