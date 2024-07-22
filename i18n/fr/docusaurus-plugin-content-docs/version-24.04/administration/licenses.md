@@ -26,7 +26,7 @@ Les modules suivants doivent être installés séparément et nécessitent une l
 - [Auto Discovery](../monitoring/discovery/installation.md)
 - [Anomaly Detection](../monitoring/anomaly-detection.md)
 - [Service mapping (BAM)](../service-mapping/install.md)
-- [Vues graphiques (MAP)](../graph-views/install.md)
+- [Vues graphiques (MAP)](../graph-views/introduction-map.md)
 - [Reporting (MBI)](../reporting/installation.md)
 
 ## Voir les modules soumis à licence
