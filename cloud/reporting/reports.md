@@ -12,46 +12,46 @@ Centreon Reports is a reporting solution available as a beta feature for Cloud u
 2. Click **Create a Report** to display the creation form.
 
 3. Select a **Report template**:
-   - SLA_Template
-   - Metric_Template
 
-### Set the report properties
+   - **SLA_Template**: the report shows calculations based on the status of the resources (MTTR, MTRS, number of status changes...)
+   - A report based on metrics will be released shortly.
+   <!--- Metric_Template: le rapport présente des données agrégées relatives à des métriques (moyenne, max etc pendant une période donnée)-->
 
-1. In the **Report properties section**, fill in the **Name** field. You can also add a description.
+4. In the **Report properties** section, fill in the **Name** field. You can also add a description, which will be displayed in the card for this report in the list of reports.
 
-2. Set the **Calculations based on time period**:
-   - 24x7
+5. Select **24x7** from the **Calculations based on time period** list. This means that all of the data (availability, number of events...) will be taken into account in the calculations.
 
-3. Set the **Aggregation period**:
-   - Hourly
-   - Daily
+<!--ça filtre les données utilisées pour faire les calculs (exemple si tu veux faire un calcul de taux de dispo sur working hours, les max les min, etc tout sera basé sur cette time period)-->
 
-### Set the report scope
+6. Select an **Aggregation period** (**Hourly** or **Daily**). This is the time unit that one data point in a graph will represent (**Hourly**: one data point represents an hour, **Daily**: one data point represents a day).
 
-1. In the **Report scope** section, select a type of resource and refine your filter by selecting one or several resources.
-2. Select the **Metrics** you want to display (only for the **Metric_Tempalte** template).
+7. In the **Report scope** section:
 
-  > The **Resources preview** displays the resources you have selected. This is not a preview of your report.
+   - Select a type of resource and refine your filter by selecting one or several resources. Click **Add filter** to refine your filter. If you select for instance a hostgroup, when you refine your filter, only the host categories that are included in this host group will be available.
 
-3. Once the configuration is done, click **Create**.
+   > The first resource type you select defines the type of status the report will display. If you select a host group, only the status of the hosts will be taken into account. If you want to display the status of services, select a service-related type of resource directly.
+   <!-- For the **Metric_Template** template, select the **Metrics** you want to display.-->
 
-  > If the **Create** button is not available, this means you have not configured your report correctly.
+   The **Resources preview** section displays a list of the resources you have selected. This is **not** a preview of your report.
 
-4. Your report appears in the **Report list** in a new card, with the status **In progress**.
+8. Check your settings carefully: in Reports Beta, reports cannot be edited.
 
-  > The report takes a few minutes to generate. If it takes too long, refresh the page.
+   > If the **Create** button is not available, check that you have defined all mandatory options.
 
-Your report is now created and available to be displayed.
+9. Once the configuration is done, click **Create**. Your report appears in the **Report list** in a new card, with the status **In progress**.
+
+   > The report takes a few minutes to generate. If it takes too long, refresh the page.
+
+   Your report is now created and available to be displayed.
 
 ## Viewing reports in Grafana
 
 1. Go to the **Report list** page that displays all the reports that have been created.
 
-2. Click on the card corresponding to the report you want to display. It opens a new tab and displays your report in the Grafana interface.
-> Authentication to Grafana and data processing are managed by the [CCIAM](../ciam/ciam.md#what-is-centreon-ciam).
+2. Click on the card corresponding to the report you want to display. It opens a new tab and displays your report in the Grafana interface. You may need to log in to Grafana using your [CIAM account](../ciam/ciam.md#what-is-centreon-ciam).
 
-## Delete a report
+   You can define the time range of the report or its refresh rate by using the menus at the top right of the window.
 
-You can delete a report from the **Report list** page.
+## Deleting a report
 
-- Click the **trash** button at the bottom left of the card, then confirm the deletion.
+You can delete a report from the **Report list** page: click the **trash** button at the bottom left of the card, then confirm the deletion. Deleting a report cannot be undone.
