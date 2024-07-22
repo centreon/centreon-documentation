@@ -228,7 +228,7 @@ This procedure is the same as to update a Centreon central server.
 2. Then upgrade all the components with the following command:
 
   ```shell
-  apt upgrade centreon\* --exclude=centreon-plugin*
+  apt-get update && apt-mark hold centreon-pack* && apt-mark hold centreon-plugin* && apt-get install --only-upgrade 'centreon*' 
   ```
 
 </TabItem>
@@ -244,6 +244,12 @@ and choose the **Restart** method for the Engine process.
 
   ```shell
   systemctl restart centengine gorgoned
+  ```
+
+5. For Debian systems, run the following command:
+
+  ```shell
+  apt-mark unhold centreon-pack*
   ```
 
 ## Unattended update
