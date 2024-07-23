@@ -57,8 +57,8 @@ More information about discovering hosts automatically is available on the [dedi
 
 | Rule name                          | Description                                                   |
 |:-----------------------------------|:--------------------------------------------------------------|
-| Net-Teldat-SNMP-Cells-Radio-IMEI   | Discover cellular radio modules filtering in the IMEI |
-| Net-Teldat-SNMP-Cells-Radio-Module | Discover cellular radio modules filtering in the Module |
+| Net-Teldat-SNMP-Cells-Radio-IMEI   | Discover cellular radio modules filtering by IMEI |
+| Net-Teldat-SNMP-Cells-Radio-Module | Discover cellular radio modules filtering by Module |
 | Net-Teldat-SNMP-Interface-Name     | Discover network interfaces and monitor bandwidth utilization |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
@@ -521,7 +521,7 @@ All available options for each service template are listed below:
 | --force-counters32       | Force to use 32-bit counters (even in snmp v2c and v3). Should be used when 64-bit counters are buggy.                                                                                                                                                                                   |
 | --reload-cache-time      | Time in minutes before reloading cache file (default: 180).                                                                                                                                                                                                                                |
 | --oid-filter             | Choose OID used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                                           |
-| --oid-display            | Choose OID used to display interface (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                                          |
+| --oid-display            | Choose OID used to display interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                                          |
 | --oid-extra-display      | Add an OID to display.                                                                                                                                                                                                                                                                     |
 | --display-transform-src  | Modify the interface name displayed by using a regular expression. Example: adding --display-transform-src='eth' --display-transform-dst='ens'  will replace all occurrences of 'eth' with 'ens'                                                                                                                                                                                                                                                      |
 | --display-transform-dst  | Modify the interface name displayed by using a regular expression. Example: adding --display-transform-src='eth' --display-transform-dst='ens'  will replace all occurrences of 'eth' with 'ens'                                                                                                                                                                                                                                                       |
