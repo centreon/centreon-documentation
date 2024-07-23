@@ -543,10 +543,10 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 
 | Macro                   | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| KUBERNETESAPIHOSTNAME   | Kubernetes API hostname                                                                                                    |                   | X           |
+| KUBERNETESAPIHOSTNAME   | Hostname or address of the Kubernetes API service                                                                                                    |                   | X           |
 | KUBERNETESAPITOKEN      |  Token retrieved from service account                                                                                                                          |                   | X           |
-| KUBERNETESAPIPROTO      | Specify https if needed (default: 'https')                                                                                 | https             |             |
-| KUBERNETESAPIPORT       | API port (default: 443)                                                                                                    | 443               |             |
+| KUBERNETESAPIPROTO      | Specify https if needed                                                                                  | https             |             |
+| KUBERNETESAPIPORT       | API port                                                                                                    | 443               |             |
 | KUBECTLCONFIGFILE       | Kubernetes configuration file path (default: '~/.kube/config'). (example: --config-file='/root/.kube/config'). Mandatory only if using kubectl as `KUBERNETESAPICUSTOMMODE`              |                   | X           |
 | KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               |             |
 | KUBERNETESAPINAMESPACE  | Set namespace to get informations                                                                                          |                   |             |
@@ -571,16 +571,16 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 
 | Macro                   | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| KUBERNETESAPIHOSTNAME   | Kubernetes API hostname                                                                                                    |                   | X           |
+| KUBERNETESAPIHOSTNAME   | Hostname or address of the Kubernetes API service                                                                                                   |                   | X           |
 | KUBERNETESAPITOKEN      | Token retrieved from service account                                                                                                                           |                   | X           |
-| KUBERNETESAPIPROTO      | Specify https if needed (default: 'https')                                                                                 | https             |             |
-| KUBERNETESAPIPORT       | API port (default: 443)                                                                                                    | 443               |             |
+| KUBERNETESAPIPROTO      | Specify https if needed                                                                                  | https             |             |
+| KUBERNETESAPIPORT       | API port                                                                                                     | 443               |             |
 | KUBECTLCONFIGFILE       | Kubernetes configuration file path (default: '~/.kube/config'). (example: --config-file='/root/.kube/config'). Mandatory only if using kubectl as `KUBERNETESAPICUSTOMMODE`              |                   | X           |
 | KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               |             |
 | KUBERNETESAPINAMESPACE  | Set namespace to get informations                                                                                          |                   |             |
 | KUBERNETESNODENAME      | Filter node name (can be a regexp)                                                                                         |                   |             |
 | PROXYURL                | Proxy URL if any                                                                                                           |                   |             |
-| TIMEOUT                 | Set timeout in seconds (default: 10)                                                                                       | 10                |             |
+| TIMEOUT                 | Set timeout in seconds                                                                                        | 10                |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -673,7 +673,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | Macro                  | Description                                                                                                                                                                 | Valeur par défaut                         | Obligatoire |
 |:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------|:-----------:|
 | FILTERPERSISTENTVOLUME | Filter persistent volume name (can be a regexp)                                                                                                                             | .*                                        |             |
-| FILTERNAMESPACE        |                                                                                                                                                                             | .*                                        |             |
+| FILTERNAMESPACE        | Filter persistent volume name (can be a regexp).                                                                                                                                                                            | .*                                        |             |
 | CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL (default: '%{phase} !~ /Bound\|Available\|Released/i'). You can use the following variables: %{name}, %{phase} | %{phase} !~ /Bound\|Available\|Released/i |             |
 | WARNINGSTATUS          | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %{name}, %{phase}                                            |                                           |             |
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                          | --verbose                                 |             |
