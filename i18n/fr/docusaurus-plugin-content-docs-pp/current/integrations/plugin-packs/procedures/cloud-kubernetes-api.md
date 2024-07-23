@@ -910,7 +910,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
-> Pour la découverte d'hôte
+> Pour la découverte d'hôte :
 > - Si vous utilisez l'API Rest: définissez le jeton [récupérer plus tôt](#recuperer-le-jeton-du-compte-de-service) à partir du compte de service,
 > - Si vous utilisez kubectl: définissez le chemin vers le [fichier de configuration créé](#creer-une-configuration-kubectl) (préférez utiliser le chemin relatif pour le faire fonctionner à la fois pour la découverte et la supervision, c'est-à-dire `~/.kube/config`).
 
@@ -938,7 +938,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
-> Pour la découverte d'hôte
+> Pour la découverte d'hôte :
 > - Si vous utilisez l'API Rest: définissez le jeton [récupérer plus tôt](#recuperer-le-jeton-du-compte-de-service) à partir du compte de service,
 > - Si vous utilisez kubectl: définissez le chemin vers le [fichier de configuration créé](#creer-une-configuration-kubectl) (préférez utiliser le chemin relatif pour le faire fonctionner à la fois pour la découverte et la supervision, c'est-à-dire `~/.kube/config`).
 
