@@ -221,6 +221,206 @@ noms `kube-system` pour accéder à l'API:
 
 ```shell
 kubectl create serviceaccount centreon-service-account --namespace kube-system
+```
+
+Créez un rôle de cluster `api-access` avec les privilèges nécessaires pour le
+Plugin et liez-le au compte de service nouvellement créé :
+
+```shell
+cat <<EOF | kubectl create -f -
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: api-access
+rules:
+  - apiGroups:
+      - ""
+      - apps
+      - batch
+    resources:
+      - cronjobs
+      - daemonsets
+      - deployments
+      - events
+      - namespaces
+      - nodes
+      - persistentvolumes
+      - pods
+      - replicasets
+      - replicationcontrollers
+      - statefulsets
+    verbs:
+      - get
+      - list
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: api-access
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: api-access
+subjects:
+- kind: ServiceAccount
+  name: centreon-service-account
+  namespace: kube-system
+EOF
+```
+
+Se référer à la documentation officielle pour la
+[création de compte de service](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#service-account-tokens)
+ou pour des informations sur le
+[concept de secret](https://kubernetes.io/docs/concepts/configuration/secret/).
+
+#### Utilisation de l'API Rest
+
+Si vous avez choisi de communiquer avec l'API Rest de votre plate-forme
+Kubernetes, les conditions préalables suivantes doivent être remplies :
+
+- Exposez l'API avec TLS,
+- Récupérez le jeton du compte de service.
+
+##### Exposez l'API
+
+Comme l'API utilise HTTPS, vous aurez besoin d'un certificat.
+
+Vous pouvez créer un couple clé / certificat signé automatiquement avec la
+commande suivante :
+
+```shell
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/kubernetesapi.key -out /etc/ssl/certs/kubernetesapi.crt
+```
+Puis chargez-le en tant que `api-certificate` dans le cluster, à partir du
+noeud maître :
+```shell
+kubectl create secret tls api-certificate --key /etc/ssl/private/kubernetesapi.key --cert /etc/ssl/certs/kubernetesapi.crt
+```
+L'entrée peut maintenant être créée :
+```shell
+cat <<EOF | kubectl create -f -
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: kubernetesapi-ingress
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+spec:
+  tls:
+    - hosts:
+      - kubernetesapi.local.domain
+      secretName: api-certificate
+  rules:
+  - host: kubernetesapi.local.domain
+    http:
+      paths:
+      - backend:
+          serviceName: kubernetes
+          servicePort: 443
+        path: /
+EOF
+```
+Adaptez les entrées *host* à vos besoins.
+
+Se référer à la documentation officielle pour la
+[gestion des ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/).
+
+##### Récupérer le jeton du compte de service
+Récupérez le *secret* du compte de service précédemment créé :
+
+```shell
+kubectl get serviceaccount centreon-service-account --namespace kube-system --output jsonpath='{.secrets[].name}'
+```
+Récupérez ensuite le jeton du *secret* du compte de service :
+```shell
+kubectl get secrets centreon-service-account-token-xqw7m --namespace kube-system --output jsonpath='{.data.token}' | base64 --decode
+```
+Ce jeton sera utilisé ultérieurement pour la configuration de l'hôte Centreon.
+#### Utilisation de kubectl
+
+Si vous avez choisi de communiquer avec le *control plane* du cluster avec
+kubectl, les conditions préalables suivantes doivent être remplies:
+
+- Installez l'outil kubectl,
+- Créez une configuration kubectl.
+Ces actions sont nécessaires sur tous les Pollers qui effectueront la
+surveillance de Kubernetes.
+
+##### Installer kubectl
+Téléchargez la dernière version avec la commande suivante :
+```shell
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+```
+> Assurez-vous de télécharger une version avec une différence d'au maximum
+> une version mineure de votre cluster. Pour télécharger une version
+> spécifique, changez le *curl* intégrée par la version comme `v1.20.0`.
+Installez l'outil dans le répertoire des binaires :
+```shell
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+```
+Référez vous à la
+[documentation officielle](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
+pour plus de détails.
+
+##### Créer une configuration kubectl
+
+Pour accéder au cluster, kubectl a besoin d'un fichier de configuration
+contenant toutes les informations nécessaires.
+
+Voici un exemple de création de fichier de configuration basé sur un compte
+de service (créé au [chapitre précédent](#creer-un-compte-de-service)).
+Vous devrez remplir les informations suivantes et exécuter les commandes
+sur le noeud maître:
+
+```shell
+ip=<master node ip>
+port=<api port>
+account=centreon-service-account
+namespace=kube-system
+clustername=my-kube-cluster
+context=my-kube-cluster
+secret=$(kubectl get serviceaccount $account --namespace $namespace --output jsonpath='{.secrets[].name}')
+ca=$(kubectl get secret $secret --namespace $namespace --output jsonpath='{.data.ca\.crt}')
+token=$(kubectl get secret $secret --namespace $namespace --output jsonpath='{.data.token}' | base64 --decode)
+```
+> Le nom du compte et l'espace de noms doivent correspondre au compte créé
+> précédemment. Toutes les autres informations doivent être adaptées.
+Exécutez ensuite cette commande pour générer le fichier de configuration :
+
+```shell
+cat <<EOF >> config
+apiVersion: v1
+kind: Config
+clusters:
+- name: ${clustername}
+  cluster:
+    certificate-authority-data: ${ca}
+    server: https://${ip}:${port}
+contexts:
+- name: ${context}
+  context:
+    cluster: ${clustername}
+    namespace: ${namespace}
+    user: ${account}
+current-context: ${context}
+users:
+- name: ${account}
+  user: ${token}
+EOF
+```
+Cela créera un fichier `config`. Ce fichier doit être copié dans le répertoire
+racine de l'utilisateur de l'Engine du Poller, généralement dans un répertoire
+`.kube` (c'est-à-dire `/var/lib/centreon-engine/.kube/config`).
+
+Ce chemin sera utilisé ultérieurement dans la configuration de l'hôte Centreon.
+
+> Vous pouvez également copier la configuration dans le répertoire de
+> l'utilisateur Gorgone si vous utilisez Host Discovery.
+Référez vous à la
+[documentation officielle](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/)
+pour plus de détails.
 
 ## Installer le connecteur de supervision
 
