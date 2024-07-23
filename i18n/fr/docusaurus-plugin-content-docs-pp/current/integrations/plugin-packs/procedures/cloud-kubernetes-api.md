@@ -13,7 +13,7 @@ Ce Pack vise à superviser à la fois la couche d'infrastructure (noeuds) et les
 - Rassemblez toutes les métriques sur un seul hôte Centreon avec un service
   par unité Kubernetes (i.e. deployments, daemonsets, etc) - voir [utiliser un modèle d'hôte issu du connecteur](#utiliser-un-modèle-dhôte-issu-du-connecteur),
 - Rassemblez toutes les métriques sur un seul hôte Centreon avec un service
-  pour chaque instances de chaque unité Kubernetes - voir [utiliser un modèle d'hôte issu du connecteur](#utiliser-un-modèle-dhôte-issu-du-connecteur et
+  pour chaque instances de chaque unité Kubernetes - voir [utiliser un modèle d'hôte issu du connecteur](#utiliser-un-modèle-dhôte-issu-du-connecteur) et
   [utiliser un modèle de service issu du connecteur](#utiliser-un-modèle-de-service-issu-du-connecteur),
 - Collectez les métriques d'infrastructure (noeuds maître et noeuds de travail)
   avec un hôte Centreon par noeud Kubernetes et conserver les métriques
