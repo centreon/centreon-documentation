@@ -7,6 +7,24 @@ import TabItem from '@theme/TabItem';
 
 ## Pack assets
 
+### Preamble
+
+This Pack aims to monitor both infrastructure layer (nodes) and cluster
+services (deployments, daemonsets, etc). The Kubernetes API Pack gives 
+multiple choices regarding the way you can arrange a cluster monitoring. 
+There is mainly three ways:
+
+- Gather all metrics on only one Centreon host with a service per Kubernetes
+  unit (i.e. deployments, daemonsets, etc) - apply
+  [manual creation](#using-a-host-template-provided-by-the-connector) procedure,
+- Gather all metrics on only one Centreon host with a service for each
+  instances of each Kubernetes units - apply [manual creation](#using-a-host-template-provided-by-the-connector)
+  and [service discovery](#using-a-service-template-provided-by-the-connector) procedures,
+- Collect infrastructural metrics (master and worker nodes) with a Centreon
+  host per Kubernetes node, and keep orchestration/application metrics
+  on a unique host (using one of the 2 previous scenarii) - apply
+  [host discovery](/docs/monitoring/discovery/hosts-discovery) procedure.
+
 ### Templates
 
 The Monitoring Connector **Kubernetes API** brings 2 host templates:
@@ -19,21 +37,21 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="Cloud-Kubernetes-Api-custom" label="Cloud-Kubernetes-Api-custom">
 
-| Service Alias                | Service Template                                         | Service Description                                 | Discovery  |
-|:-----------------------------|:---------------------------------------------------------|:----------------------------------------------------|:----------:|
-| Cluster-Events               | Cloud-Kubernetes-Cluster-Events-Api-custom               | Check the number of events occurring on the cluster |            |
-| CronJob-Status               | Cloud-Kubernetes-CronJob-Status-Api-custom               | Check CronJobs status                               | X          |
-| Daemonset-Status             | Cloud-Kubernetes-Daemonset-Status-Api-custom             | Check DaemonSets status                             | X          |
-| Deployment-Status            | Cloud-Kubernetes-Deployment-Status-Api-custom            | Check Deployments status                            | X          |
-| Node-Status                  | Cloud-Kubernetes-Node-Status-Api-custom                  | Check Nodes status                                  | X          |
-| Node-Status                  | Cloud-Kubernetes-Node-Status-Name-Api-custom             | Check a Node status                                 |            |
-| Node-Usage                   | Cloud-Kubernetes-Node-Usage-Api-custom                   | Check nodes usage                                   | X          |
-| Node-Usage                   | Cloud-Kubernetes-Node-Usage-Name-Api-custom              | Check nodes usage                                   |            |
-| PersistentVolume-Status      | Cloud-Kubernetes-PersistentVolume-Status-Api-custom      | Check PersistentVolumes status                      | X          |
-| Pod-Status                   | Cloud-Kubernetes-Pod-Status-Api-custom                   | Check pods and containers status                    | X          |
-| ReplicaSet-Status            | Cloud-Kubernetes-ReplicaSet-Status-Api-custom            | Check ReplicaSets status                            | X          |
-| ReplicationController-Status | Cloud-Kubernetes-ReplicationController-Status-Api-custom | Check ReplicationControllers status                 | X          |
-| StatefulSet-Status           | Cloud-Kubernetes-StatefulSet-Status-Api-custom           | Check StatefulSets status                           | X          |
+| Service Alias                | Service Template                                         | Service Description                                                                                        | Discovery  |
+|:-----------------------------|:---------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------|:----------:|
+| Cluster-Events               | Cloud-Kubernetes-Cluster-Events-Api-custom               | Check the number of events occurring on the cluster                                                        |            |
+| CronJob-Status               | Cloud-Kubernetes-CronJob-Status-Api-custom               | Check CronJobs status                                                                                      | X          |
+| Daemonset-Status             | Cloud-Kubernetes-Daemonset-Status-Api-custom             | Check DaemonSets status                                                                                    | X          |
+| Deployment-Status            | Cloud-Kubernetes-Deployment-Status-Api-custom            | Check Deployments status                                                                                   | X          |
+| Node-Status                  | Cloud-Kubernetes-Node-Status-Api-custom                  | Check Nodes status                                                                                         |            |
+| Node-Status                  | Cloud-Kubernetes-Node-Status-Name-Api-custom             | Checks status of a node identified by its name (for example at the end of the associated discovery rule)   | X          |
+| Node-Usage                   | Cloud-Kubernetes-Node-Usage-Api-custom                   | Check nodes usage                                                                                          |            |
+| Node-Usage                   | Cloud-Kubernetes-Node-Usage-Name-Api-custom              | Check the usage of a node identified by its name (for example at the end of the associated discovery rule) | X          |
+| PersistentVolume-Status      | Cloud-Kubernetes-PersistentVolume-Status-Api-custom      | Check PersistentVolumes status                                                                             | X          |
+| Pod-Status                   | Cloud-Kubernetes-Pod-Status-Api-custom                   | Check pods and containers status                                                                           | X          |
+| ReplicaSet-Status            | Cloud-Kubernetes-ReplicaSet-Status-Api-custom            | Check ReplicaSets status                                                                                   | X          |
+| ReplicationController-Status | Cloud-Kubernetes-ReplicationController-Status-Api-custom | Check ReplicationControllers status                                                                        | X          |
+| StatefulSet-Status           | Cloud-Kubernetes-StatefulSet-Status-Api-custom           | Check StatefulSets status                                                                                  | X          |
 
 > The services listed above are created automatically when the **Cloud-Kubernetes-Api-custom** host template is used.
 
@@ -42,12 +60,12 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Cloud-Kubernetes-Node-Api-custom" label="Cloud-Kubernetes-Node-Api-custom">
 
-| Service Alias | Service Template                             | Service Description | Discovery  |
-|:--------------|:---------------------------------------------|:--------------------|:----------:|
-| Node-Status   | Cloud-Kubernetes-Node-Status-Api-custom      | Check Nodes status  | X          |
-| Node-Status   | Cloud-Kubernetes-Node-Status-Name-Api-custom | Check a Node status |            |
-| Node-Usage    | Cloud-Kubernetes-Node-Usage-Api-custom       | Check nodes usage   | X          |
-| Node-Usage    | Cloud-Kubernetes-Node-Usage-Name-Api-custom  | Check nodes usage   |            |
+| Service Alias | Service Template                             | Service Description                                                                                        | Discovery  |
+|:--------------|:---------------------------------------------|:-----------------------------------------------------------------------------------------------------------|:----------:|
+| Node-Status   | Cloud-Kubernetes-Node-Status-Api-custom      | Check Nodes status                                                                                         |            |
+| Node-Status   | Cloud-Kubernetes-Node-Status-Name-Api-custom | Checks status of a node identified by its name (for example at the end of the associated discovery rule)   | X          |
+| Node-Usage    | Cloud-Kubernetes-Node-Usage-Api-custom       | Check nodes usage                                                                                          |            |
+| Node-Usage    | Cloud-Kubernetes-Node-Usage-Name-Api-custom  | Check the usage of a node identified by its name (for example at the end of the associated discovery rule) | X          |
 
 > The services listed above are created automatically when the **Cloud-Kubernetes-Node-Api-custom** host template is used.
 
@@ -60,25 +78,27 @@ The connector brings the following service templates (sorted by the host templat
 
 #### Host discovery
 
-| Rule name       | Description |
-|:----------------|:------------|
+| Rule name                  | Description                                                              |
+|----------------------------|--------------------------------------------------------------------------|
+| Kubernetes Nodes (RestAPI) | Discover Kubernetes nodes by requesting Kubernetes RestAPI               |
+| Kubernetes Nodes (Kubectl) | Discover Kubernetes nodes by requesting Kubernetes cluster using kubectl |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
 #### Service discovery
 
-| Rule name                                          | Description |
-|:---------------------------------------------------|:------------|
-| Cloud-Kubernetes-Api-CronJobs-Status               |             |
-| Cloud-Kubernetes-Api-Daemonsets-Status             |             |
-| Cloud-Kubernetes-Api-Deployments-Status            |             |
-| Cloud-Kubernetes-Api-Nodes-Status                  |             |
-| Cloud-Kubernetes-Api-Nodes-Usage                   |             |
-| Cloud-Kubernetes-Api-PersistentVolumes-Status      |             |
-| Cloud-Kubernetes-Api-Pods-Status                   |             |
-| Cloud-Kubernetes-Api-ReplicaSets-Status            |             |
-| Cloud-Kubernetes-Api-ReplicationControllers-Status |             |
-| Cloud-Kubernetes-Api-StatefulSets-Status           |             |
+| Rule name                                          | Description                                                        |
+|:---------------------------------------------------|:-------------------------------------------------------------------|
+| Cloud-Kubernetes-Api-CronJobs-Status               | Discover Kubernetes CronJobs to monitor their status               |
+| Cloud-Kubernetes-Api-Daemonsets-Status             | Discover Kubernetes DaemonSets to monitor their status             |
+| Cloud-Kubernetes-Api-Deployments-Status            | Discover Kubernetes Deployments to monitor their status            |
+| Cloud-Kubernetes-Api-Nodes-Status                  | Discover Kubernetes Nodes to monitor their status                  |
+| Cloud-Kubernetes-Api-Nodes-Usage                   | Discover Kubernetes Nodes to monitor their usage                   |
+| Cloud-Kubernetes-Api-PersistentVolumes-Status      | Discover Kubernetes PersistentVolumes to monitor their status      |
+| Cloud-Kubernetes-Api-Pods-Status                   | Discover Kubernetes Pods to monitor their status                   |
+| Cloud-Kubernetes-Api-ReplicaSets-Status            | Discover Kubernetes ReplicaSets to monitor their status            |
+| Cloud-Kubernetes-Api-ReplicationControllers-Status | Discover Kubernetes ReplicationControllers to monitor their status |
+| Cloud-Kubernetes-Api-StatefulSets-Status           | Discover Kubernetes StatefulSets to monitor their status           |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -181,11 +201,594 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 </Tabs>
 
+### Additional information on metrics and services
+
+<Tabs groupId="sync">
+<TabItem value="Cluster-Events" label="Cluster-Events">
+
+This indicator allows to watch the number of events occurring on the cluster,
+like the `kubectl get events` can provide:
+
+```text
+NAMESPACE   LAST SEEN   TYPE      REASON      OBJECT           MESSAGE
+graphite    26m         Warning   Unhealthy   pod/graphite-0   Liveness probe failed: Get "http://10.244.2.10:8080/": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+```
+
+The resulting output in Centreon could look like:
+
+```text
+Event 'Warning' for object 'Pod/graphite-0' with message 'Liveness probe failed: Get "http://10.244.2.10:8080/": context deadline exceeded (Client.Timeout exceeded while awaiting headers)', Count: 1, First seen: 26m 21s ago (2021-03-11T12:26:23Z), Last seen: 26m 21s ago (2021-03-11T12:26:23Z)
+```
+
+</TabItem>
+<TabItem value="CronJob-Status" label="CronJob-Status">
+
+This indicator allows to check that CronJobs are executed as they should,
+like the `kubectl get cronjobs` can provide:
+
+```text
+NAME    SCHEDULE      SUSPEND   ACTIVE   LAST SCHEDULE   AGE
+hello   */1 * * * *   False     1        6s              2d1h
+```
+
+The resulting output in Centreon could look like:
+
+```text
+CronJob 'hello' Jobs Active: 1, Last schedule time: 6s ago (2021-03-11T12:31:00Z)
+```
+
+If the service collects metrics of several CronJobs (depending on the
+chosen scenario), CronJob's name will be appended to the metric name:
+
+| Metric                            |
+|-----------------------------------|
+| `hello#cronjob.jobs.active.count` |
+
+</TabItem>
+<TabItem value="Daemonset-Status" label="Daemonset-Status">
+
+This indicator will ensure that DaemonSets are within defined bounds by
+looking at the number of available and/or up-to-date pods compared to
+the desired count, like the `kubectl get daemonsets` can provide:
+
+```text
+NAMESPACE     NAME                    DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR                   AGE
+kube-system   kube-flannel-ds-amd64   3         3         3       3            3           beta.kubernetes.io/arch=amd64   624d
+kube-system   kube-proxy              3         3         3       3            3           kubernetes.io/os=linux          624d
+```
+
+The resulting output in Centreon could look like:
+
+```text
+Daemonset 'kube-flannel-ds-amd64' Pods Desired: 3, Current: 3, Available: 3, Up-to-date: 3, Ready: 3, Misscheduled: 0
+Daemonset 'kube-proxy' Pods Desired: 3, Current: 3, Available: 3, Up-to-date: 3, Ready: 3, Misscheduled: 0
+```
+
+If the service collects metrics of several DaemonSets (depending on the
+chosen scenario), DaemonSet's name will be appended to the metric name:
+
+| Metric                                    |
+|-------------------------------------------|
+| `kube-proxy#daemonset.pods.desired.count` |
+
+</TabItem>
+<TabItem value="Deployment-Status" label="Deployment-Status">
+
+This indicator will ensure that Deployments are within defined bounds by
+looking at the number of available and/or up-to-date replicas compared to
+the desired count, like the `kubectl get deployments` can provide:
+
+```text
+NAMESPACE              NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
+kube-system            coredns                     2/2     2            2           624d
+kube-system            tiller-deploy               1/1     1            1           624d
+kubernetes-dashboard   dashboard-metrics-scraper   1/1     1            1           37d
+kubernetes-dashboard   kubernetes-dashboard        1/1     1            1           37d
+```
+
+The resulting output in Centreon could look like:
+
+```text
+Deployment 'coredns' Replicas Desired: 2, Current: 2, Available: 2, Ready: 2, Up-to-date: 2
+Deployment 'tiller-deploy' Replicas Desired: 1, Current: 1, Available: 1, Ready: 1, Up-to-date: 1
+Deployment 'dashboard-metrics-scraper' Replicas Desired: 1, Current: 1, Available: 1, Ready: 1, Up-to-date: 1
+Deployment 'kubernetes-dashboard' Replicas Desired: 1, Current: 1, Available: 1, Ready: 1, Up-to-date: 1
+```
+
+If the service collects metrics of several Deployments (depending on the
+chosen scenario), Deployment's name will be appended to the metric name:
+
+| Metric                                            |
+|---------------------------------------------------|
+| `tiller-deploy#deployment.replicas.desired.count` |
+
+</TabItem>
+<TabItem value="Node-Status*" label="Node-Status*">
+
+This indicator will ensure that Nodes are running well by looking at the
+conditions statuses, like the `kubectl describe nodes` can list:
+
+```text
+Conditions:
+  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----             ------  -----------------                 ------------------                ------                       -------
+  MemoryPressure   False   Thu, 11 Mar 2021 14:20:25 +0100   Tue, 26 Jan 2021 09:38:11 +0100   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Thu, 11 Mar 2021 14:20:25 +0100   Wed, 17 Feb 2021 09:37:40 +0100   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure      False   Thu, 11 Mar 2021 14:20:25 +0100   Tue, 26 Jan 2021 09:38:11 +0100   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready            True    Thu, 11 Mar 2021 14:20:25 +0100   Tue, 26 Jan 2021 17:26:36 +0100   KubeletReady                 kubelet is posting ready status
+```
+
+The resulting output in Centreon could look like:
+
+```text
+Condition 'DiskPressure' Status is 'False', Reason: 'KubeletHasNoDiskPressure', Message: 'kubelet has no disk pressure'
+Condition 'MemoryPressure' Status is 'False', Reason: 'KubeletHasSufficientMemory', Message: 'kubelet has sufficient memory available'
+Condition 'PIDPressure' Status is 'False', Reason: 'KubeletHasSufficientPID', Message: 'kubelet has sufficient PID available'
+Condition 'Ready' Status is 'True', Reason: 'KubeletReady', Message: 'kubelet is posting ready status'
+```
+
+</TabItem>
+<TabItem value="Node-Usage*" label="Node-Usage*">
+
+This indicator will gather metrics about Nodes usage like pods allocation,
+requests for CPU and memory made by those pods, and limits for CPU and
+memory allowed to those same pods.
+
+Using Kubernetes command line tool, it could look like the following:
+
+- Nodes capacity:
+
+    ```shell
+    kubectl get nodes -o=custom-columns="NODE:.metadata.name,PODS ALLOCATABLE:.status.allocatable.pods,CPU ALLOCATABLE:.status.allocatable.cpu,MEMORY ALLOCATABLE:.status.allocatable.memory"
+    NODE          PODS ALLOCATABLE   CPU ALLOCATABLE   MEMORY ALLOCATABLE
+    master-node   110                2                 3778172Ki
+    worker-node   110                2                 3778184Ki
+    ```
+
+- Running pods:
+
+    ```shell
+    kubectl get pods -o=custom-columns="NODE:.spec.nodeName,POD:.metadata.name,CPU REQUESTS:.spec.containers[*].resources.requests.cpu,CPU LIMITS:.spec.containers[*].resources.limits.cpu,MEMORY REQUESTS:.spec.containers[*].resources.requests.memory,MEMORY LIMITS:.spec.containers[*].resources.limits.memory"
+    NODE          POD                                     CPU REQUESTS   CPU LIMITS   MEMORY REQUESTS   MEMORY LIMITS
+    worker-node   coredns-74ff55c5b-g4hmt                 100m           <none>       70Mi              170Mi
+    master-node   etcd-master-node                        100m           <none>       100Mi             <none>
+    master-node   kube-apiserver-master-node              250m           <none>       <none>            <none>
+    master-node   kube-controller-manager-master-node     200m           <none>       <none>            <none>
+    master-node   kube-flannel-ds-amd64-fk59g             100m           100m         50Mi              50Mi
+    worker-node   kube-flannel-ds-amd64-jwzms             100m           100m         50Mi              50Mi
+    master-node   kube-proxy-kkwmb                        <none>         <none>       <none>            <none>
+    worker-node   kube-proxy-vprs8                        <none>         <none>       <none>            <none>
+    master-node   kube-scheduler-master-node              100m           <none>       <none>            <none>
+    master-node   kubernetes-dashboard-7d75c474bb-7zc5j   <none>         <none>       <none>            <none>
+    ```
+
+From the Kubernetes dashboard, the metrics can be found in the
+`Cluser > Nodes` menu:
+
+- Listing from `Cluser > Nodes`:
+
+    ![Cluster nodes listing](../../../assets/integrations/plugin-packs/procedures/cloud-kubernetes-api-cluster-nodes-listing.png)
+
+- Allocation detail for a node:
+
+    ![Node allocation detail](../../../assets/integrations/plugin-packs/procedures/cloud-kubernetes-api-cluster-nodes-detail.png)
+
+The resulting output in Centreon could look like:
+
+```text
+Node 'master-node' CPU requests: 37.50% (0.75/2), CPU limits: 5.00% (0.1/2), Memory requests: 3.96% (150.00MB/3.70GB), Memory limits: 1.32% (50.00MB/3.70GB), Pods allocation: 7.27% (8/110)
+Node 'worker-node' CPU requests: 35.00% (0.7/2), CPU limits: 115.00% (2.3/2), Memory requests: 31.51% (1.17GB/3.70GB), Memory limits: 115.21% (4.26GB/3.70GB), Pods allocation: 9.09% (10/110)
+```
+
+If the service collects metrics of several Nodes (depending on the
+chosen scenario), Node's name will be appended to the metric name:
+
+| Metric                                   |
+|------------------------------------------|
+| `worker-node#pods.allocation.percentage` |
+
+> Applies to the following service templates: Node-Status, Node-Status
+
+</TabItem>
+<TabItem value="PersistentVolume-Status" label="PersistentVolume-Status">
+
+This indicator will ensure that PersistentVolumes are operating correctly by
+looking at the phase they are in, like the `kubectl get pv` can provide:
+
+```text
+NAME                     CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM                   STORAGECLASS   REASON   AGE
+pv-nfs-kubestorage-001   5Gi        RWO            Retain           Available                                                   630d
+pv-nfs-kubestorage-002   5Gi        RWO            Retain           Bound       tick/data-influxdb                              630d
+pv-nfs-kubestorage-003   5Gi        RWO            Retain           Released    graphite/graphite-pvc                           630d
+```
+
+The resulting output in Centreon could look like:
+
+```text
+Persistent Volume 'pv-nfs-kubestorage-001' Phase is 'Available'
+Persistent Volume 'pv-nfs-kubestorage-002' Phase is 'Bound'
+Persistent Volume 'pv-nfs-kubestorage-003' Phase is 'Released'
+```
+
+</TabItem>
+<TabItem value="Pod-Status" label="Pod-Status">
+
+This indicator will ensure that Pods and their containers are within defined
+bounds by looking at the number of ready containers compared to
+the desired count, like the `kubectl get pods` can provide:
+
+```text
+NAMESPACE              NAME                                                     READY   STATUS        RESTARTS   AGE
+kube-system            kube-proxy-65zhn                                         1/1     Running       0          37d
+kube-system            kube-proxy-kkwmb                                         1/1     Running       0          37d
+kube-system            kube-proxy-vprs8                                         1/1     Running       0          37d
+kube-system            tiller-deploy-7bf78cdbf7-z5n24                           1/1     Running       5          550d
+kubernetes-dashboard   dashboard-metrics-scraper-79c5968bdc-vncxc               1/1     Running       0          37d
+kubernetes-dashboard   kubernetes-dashboard-7448ffc97b-42rps                    1/1     Running       0          37d
+```
+
+The resulting output in Centreon could look like:
+
+```text
+Checking pod 'kube-proxy-65zhn'
+    Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
+    Container 'kube-proxy' Status is 'running', State is 'ready', Restarts: 0
+Checking pod 'kube-proxy-kkwmb'
+    Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
+    Container 'kube-proxy' Status is 'running', State is 'ready', Restarts: 0
+Checking pod 'kube-proxy-vprs8'
+    Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
+    Container 'kube-proxy' Status is 'running', State is 'ready', Restarts: 0
+Checking pod 'tiller-deploy-7bf78cdbf7-z5n24'
+    Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 5
+    Container 'tiller' Status is 'running', State is 'ready', Restarts: 5
+Checking pod 'dashboard-metrics-scraper-79c5968bdc-vncxc'
+    Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
+    Container 'dashboard-metrics-scraper' Status is 'running', State is 'ready', Restarts: 0
+Checking pod 'kubernetes-dashboard-7448ffc97b-42rps'
+    Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
+    Container 'kubernetes-dashboard' Status is 'running', State is 'ready', Restarts: 0
+```
+
+If the service collects metrics of several Pods (depending on the
+chosen scenario), Pod's name and container's name will be appended to the
+metric name:
+
+| Metric                                                      |
+|-------------------------------------------------------------|
+| `coredns-74ff55c5b-g4hmt#containers.ready.count`            |
+| `coredns-74ff55c5b-g4hmt#restarts.total.count`              |
+| `coredns-74ff55c5b-g4hmt_coredns#containers.restarts.count` |
+
+</TabItem>
+<TabItem value="ReplicaSet-Status" label="ReplicaSet-Status">
+
+This indicator will ensure that ReplicaSets are within defined bounds by
+looking at the number of ready replicas compared to the desired count,
+like the `kubectl get replicasets` can provide:
+
+```text
+NAMESPACE              NAME                                   DESIRED   CURRENT   READY   AGE
+kube-system            coredns-74ff55c5b                      2         2         2       44d
+kube-system            tiller-deploy-7bf78cdbf7               1         1         1       630d
+kubernetes-dashboard   dashboard-metrics-scraper-79c5968bdc   1         1         1       44d
+kubernetes-dashboard   kubernetes-dashboard-7448ffc97b        1         1         1       44d
+```
+
+The resulting output in Centreon could look like:
+
+```text
+ReplicaSet 'coredns-74ff55c5b' Replicas Desired: 2, Current: 2, Ready: 2
+ReplicaSet 'tiller-deploy-7bf78cdbf7' Replicas Desired: 1, Current: 1, Ready: 1
+ReplicaSet 'dashboard-metrics-scraper-79c5968bdc' Replicas Desired: 1, Current: 1, Ready: 1
+ReplicaSet 'kubernetes-dashboard-7448ffc97b' Replicas Desired: 1, Current: 1, Ready: 1
+```
+
+If the service collects metrics of several ReplicaSets (depending on the
+chosen scenario), ReplicaSet's name will be appended to the metric name:
+
+| Metric                                                       |
+|--------------------------------------------------------------|
+| `tiller-deploy-7bf78cdbf7#replicaset.replicas.desired.count` |
+
+</TabItem>
+<TabItem value="ReplicationController-Status" label="ReplicationController-Status">
+
+This indicator will ensure that ReplicationControllers are within defined
+bounds by looking at the number of ready replicas compared to the desired
+count, like the `kubectl get rc` can provide:
+
+```text
+NAMESPACE   NAME    DESIRED   CURRENT   READY   AGE
+elk         nginx   3         3         3       2d19h
+```
+
+The resulting output in Centreon could look like:
+
+```text
+ReplicationController 'nginx' Replicas Desired: 3, Current: 3, Ready: 3
+```
+
+If the service collects metrics of several ReplicationControllers (depending
+on the chosen scenario), ReplicationController's name will be appended to
+the metric name:
+
+| Metric                                               |
+|------------------------------------------------------|
+| `nginx#replicationcontroller.replicas.desired.count` |
+
+</TabItem>
+<TabItem value="StatefulSet-Status" label="StatefulSet-Status">
+
+This indicator will ensure that StatefulSets are within defined bounds by
+looking at the number of ready/up-to-date replicas compared to the desired
+count, like the `kubectl get statefulsets` can provide:
+
+```text
+NAMESPACE    NAME                                        READY   AGE
+elk          elasticsearch-master                        2/2     44d
+graphite     graphite                                    1/1     3d
+prometheus   prometheus-prometheus-operator-prometheus   1/1     619d
+```
+
+The resulting output in Centreon could look like:
+
+```text
+StatefulSet 'elasticsearch-master' Replicas Desired: 2, Current: 2, Up-to-date: 2, Ready: 2
+StatefulSet 'graphite' Replicas Desired: 1, Current: 1, Up-to-date: 1, Ready: 1
+StatefulSet 'prometheus-prometheus-operator-prometheus' Replicas Desired: 1, Current: 1, Up-to-date: 1, Ready: 1
+```
+
+If the service collects metrics of several StatefulSets (depending on the
+chosen scenario), StatefulSet's name will be appended to the metric name:
+
+| Metric                                        |
+|-----------------------------------------------|
+| `graphite#statefulset.replicas.desired.count` |
+
+</TabItem>
+</Tabs>
+
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+As mentioned in the introduction, two ways of communication are available:
+
+- the RestAPI exposed by the Kubernetes cluster,
+- the CLI tool kubectl to communicate with the cluster's control plane.
+
+For better performances, we recommend to use the RestAPI.
+
+#### Create a service account
+
+Both flavors can use a service account with sufficient rights to access
+Kubernetes API.
+
+Create a dedicated service account `centreon-service-account` in the
+`kube-system` namespace to access the API:
+
+```shell
+kubectl create serviceaccount centreon-service-account --namespace kube-system
+```
+
+Create a cluster role `api-access` with needed privileges for the Plugin,
+and bind it to the newly created service account:
+
+```shell
+cat <<EOF | kubectl create -f -
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: api-access
+rules:
+  - apiGroups:
+      - ""
+      - apps
+      - batch
+    resources:
+      - cronjobs
+      - daemonsets
+      - deployments
+      - events
+      - namespaces
+      - nodes
+      - persistentvolumes
+      - pods
+      - replicasets
+      - replicationcontrollers
+      - statefulsets
+    verbs:
+      - get
+      - list
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: api-access
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: api-access
+subjects:
+- kind: ServiceAccount
+  name: centreon-service-account
+  namespace: kube-system
+EOF
+```
+
+Refer to the official documentation for
+[service account creation](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#service-account-tokens)
+or information about
+[secret concept](https://kubernetes.io/docs/concepts/configuration/secret/).
+
+#### Using RestAPI
+
+If you chose to communicate with your Kubernetes platform's RestAPI, the
+following prerequisites need to be matched:
+
+- Expose the API with TLS,
+- Retrieve token from service account.
+
+##### Expose the API
+
+As the API is using HTTPS, you will need a certificate.
+
+You can make an auto-signed key/certificate couple with the following
+command:
+
+```shell
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/kubernetesapi.key -out /etc/ssl/certs/kubernetesapi.crt
+```
+
+Then load it as `api-certificate` into the cluster, from the master node:
+
+```shell
+kubectl create secret tls api-certificate --key /etc/ssl/private/kubernetesapi.key --cert /etc/ssl/certs/kubernetesapi.crt
+```
+
+The ingress can now be created:
+
+```shell
+cat <<EOF | kubectl create -f -
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kubernetesapi-ingress
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+spec:
+  tls:
+    - hosts:
+	@@ -671,10 +671,13 @@ spec:
+  - host: kubernetesapi.local.domain
+    http:
+      paths:
+      - path: /
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: kubernetes
+            port:
+              number: 443
+EOF
+```
+
+Adapt the host entry to your needs.
+
+Refer to the official documentation for
+[ingresses management](https://kubernetes.io/docs/concepts/services-networking/ingress/).
+
+##### Retrieve token from service account
+
+Retrieve the secret name from the previously created service account:
+
+```shell
+kubectl get serviceaccount centreon-service-account --namespace kube-system --output jsonpath='{.secrets[].name}'
+```
+
+Then retrieve the token from the service account secret:
+
+```shell
+kubectl get secrets centreon-service-account-token-xqw7m --namespace kube-system --output jsonpath='{.data.token}' | base64 --decode
+```
+
+This token will be used later for Centreon host configuration.
+
+#### Using kubectl
+
+If you chose to communicate with the cluster's control plane with kubectl, the
+following prerequisites need to be matched:
+
+- Install the kubectl tool,
+- Create a kubectl configuration.
+
+Those actions are needed on all Pollers that will do Kubernetes monitoring.
+
+##### Install kubectl
+
+Download the latest release with the following command:
+
+```shell
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+```
+
+> Be sure to download a version within one minor version difference of
+> your cluster. To download a specific version, change the embedded curl by
+> the version like `v1.20.0`.
+
+Install the tool in the binaries directory:
+
+```shell
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+```
+
+Refer to the
+[official documentation](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
+for more details.
+
+##### Create a kubectl configuration
+
+To access the cluster, kubectl needs a configuration file with all needed
+information.
+
+Here is an example of a configuration file creation based on a service
+account (created in [previous chapter](#create-a-service-account)).
+
+You will need to fill the following information and execute the commands
+on the master node:
+
+```shell
+ip=<master node ip>
+port=<api port>
+account=centreon-service-account
+namespace=kube-system
+clustername=my-kube-cluster
+context=my-kube-cluster
+secret=$(kubectl get serviceaccount $account --namespace $namespace --output jsonpath='{.secrets[].name}')
+ca=$(kubectl get secret $secret --namespace $namespace --output jsonpath='{.data.ca\.crt}')
+token=$(kubectl get secret $secret --namespace $namespace --output jsonpath='{.data.token}' | base64 --decode)
+```
+
+> The account name and namespace must match with the account created earlier.
+> All others need to be adapted.
+
+Then execute this command to generate the config file :
+
+```shell
+cat <<EOF >> config
+apiVersion: v1
+kind: Config
+clusters:
+- name: ${clustername}
+  cluster:
+    certificate-authority-data: ${ca}
+    server: https://${ip}:${port}
+contexts:
+- name: ${context}
+  context:
+    cluster: ${clustername}
+    namespace: ${namespace}
+    user: ${account}
+current-context: ${context}
+users:
+- name: ${account}
+  user: ${token}
+EOF
+```
+
+This will create a `config` file. This file must be copied to the Pollers
+Engine user's home, usually in a `.kube` directory (i.e.
+`/var/lib/centreon-engine/.kube/config`).
+
+This path will be used later in Centreon host configuration.
+
+> You may also want to copy the configuration to Gorgone user's home
+> if using Host Discovery.
+
+Refer to the
+[official documentation](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/)
+for more details.
 
 ## Installing the monitoring connector
 
@@ -289,19 +892,22 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 
 | Macro                   | Description                                                                                                                | Default value     | Mandatory   |
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| KUBERNETESAPIHOSTNAME   | Kubernetes API hostname                                                                                                    |                   | X           |
-| KUBERNETESAPITOKEN      |                                                                                                                            |                   | X           |
-| KUBERNETESAPIPROTO      | Specify https if needed (default: 'https')                                                                                 | https             |             |
-| KUBERNETESAPIPORT       | API port (default: 443)                                                                                                    | 443               |             |
-| KUBECTLCONFIGFILE       | Kubernetes configuration file path (default: '~/.kube/config'). (example: --config-file='/root/.kube/config')              |                   | X           |
+| KUBERNETESAPIHOSTNAME   | Hostname or address of the Kubernetes API service                                                                          |                   | X           |
+| KUBERNETESAPITOKEN      | Token retrieved from service account                                                                                       |                   | X           |
+| KUBERNETESAPIPROTO      | Specify https if needed                                                                                                    | https             |             |
+| KUBERNETESAPIPORT       | API port                                                                                                                   | 443               |             |
+| KUBECTLCONFIGFILE       | Kubernetes configuration file path (default: '~/.kube/config'). (example: --config-file='/root/.kube/config'). Mandatory only if using kubectl as `KUBERNETESAPICUSTOMMODE`              |                   | X           |
 | KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               |             |
 | KUBERNETESAPINAMESPACE  | Set namespace to get informations                                                                                          |                   |             |
 | KUBERNETESNODENAME      | Filter StatefulSet name (can be a regexp)                                                                                  |                   |             |
 | PROXYURL                | Proxy URL if any                                                                                                           |                   |             |
-| TIMEOUT                 | Set timeout in seconds (default: 10)                                                                                       | 10                |             |
+| TIMEOUT                 | Set timeout in seconds                                                                                                     | 10                |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                       |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+> For the host discovery:
+> - If using RestAPI: set the token [retrieved ealier](#retrieve-token-from-service-account) from the service account,
+> - If using kubectl: set the path to the [created configuration file](#create-a-kubectl-configuration) (prefer using relative path to make it work for both discovery and monitoring, i.e. `~/.kube/config`).
 
 </TabItem>
 <TabItem value="Cloud-Kubernetes-Node-Api-custom" label="Cloud-Kubernetes-Node-Api-custom">
@@ -313,19 +919,22 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 
 | Macro                   | Description                                                                                                                | Default value     | Mandatory   |
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| KUBERNETESAPIHOSTNAME   | Kubernetes API hostname                                                                                                    |                   | X           |
-| KUBERNETESAPITOKEN      |                                                                                                                            |                   | X           |
-| KUBERNETESAPIPROTO      | Specify https if needed (default: 'https')                                                                                 | https             |             |
-| KUBERNETESAPIPORT       | API port (default: 443)                                                                                                    | 443               |             |
-| KUBECTLCONFIGFILE       | Kubernetes configuration file path (default: '~/.kube/config'). (example: --config-file='/root/.kube/config')              |                   | X           |
+| KUBERNETESAPIHOSTNAME   | Hostname or address of the Kubernetes API service                                                                          |                   | X           |
+| KUBERNETESAPITOKEN      | Token retrieved from service account                                                                                       |                   | X           |
+| KUBERNETESAPIPROTO      | Specify https if needed                                                                                                    | https             |             |
+| KUBERNETESAPIPORT       | API port                                                                                                                   | 443               |             |
+| KUBECTLCONFIGFILE       | Kubernetes configuration file path (default: '~/.kube/config'). (example: --config-file='/root/.kube/config'). Mandatory only if using kubectl as `KUBERNETESAPICUSTOMMODE`              |                   | X           |
 | KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               |             |
 | KUBERNETESAPINAMESPACE  | Set namespace to get informations                                                                                          |                   |             |
 | KUBERNETESNODENAME      | Filter node name (can be a regexp)                                                                                         |                   |             |
 | PROXYURL                | Proxy URL if any                                                                                                           |                   |             |
-| TIMEOUT                 | Set timeout in seconds (default: 10)                                                                                       | 10                |             |
+| TIMEOUT                 | Set timeout in seconds                                                                                                     | 10                |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                       |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+> For the host discovery:
+> - If using RestAPI: set the token [retrieved ealier](#retrieve-token-from-service-account) from the service account,
+> - If using kubectl: set the path to the [created configuration file](#create-a-kubectl-configuration) (prefer using relative path to make it work for both discovery and monitoring, i.e. `~/.kube/config`).
 
 </TabItem>
 </Tabs>
@@ -411,7 +1020,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | Macro                  | Description                                                                                                                                                                 | Default value                             | Mandatory   |
 |:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------|:-----------:|
 | FILTERPERSISTENTVOLUME | Filter persistent volume name (can be a regexp)                                                                                                                             | .*                                        |             |
-| FILTERNAMESPACE        |                                                                                                                                                                             | .*                                        |             |
+| FILTERNAMESPACE        | Filter persistent volume name (can be a regexp).                                                                                                                            | .*                                        |             |
 | CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL (default: '%{phase} !~ /Bound\|Available\|Released/i'). You can use the following variables: %{name}, %{phase} | %{phase} !~ /Bound\|Available\|Released/i |             |
 | WARNINGSTATUS          | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %{name}, %{phase}                                            |                                           |             |
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                          | --verbose                                 |             |
@@ -508,7 +1117,20 @@ OK: All StatefulSets status are ok |
 
 ### Troubleshooting
 
-Please find the troubleshooting documentation for the API-based plugins in
+Here are some common errors and their description. You will often want to use
+the `--debug` option to get the root error.
+
+| Error                                                                                                  | Description                                                                                                                                                                                                                                                                                               |
+|--------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `UNKNOWN: Cannot decode json response: Can't connect to <hostname>:<port> (certificate verify failed)` | This error may appear if the TLS cetificate in self-signed. Use the option `--ssl-opt="SSL_verify_mode => SSL_VERIFY_NONE"` to omit the certificate validity.                                                                                                                                             |
+| `UNKNOWN: API return error code '401' (add --debug option for detailed message)`                       | If adding `--debug` option, API response message says `Unauthorized`. It generally means that the provided token is not valid.                                                                                                                                                                            |
+| `UNKNOWN: API return error code '403' (add --debug option for detailed message)`                       | If adding `--debug` option, API response message says `nodes is forbidden: User "system:serviceaccount:<namespace>:<account>" cannot list resource "nodes" in API group "" at the cluster scope`. It means that the cluster role RBAC bound to the service account does not have the necessary privileges |
+| `UNKNOWN: CLI return error code '1' (add --debug option for detailed message)`                         | If adding `--debug` option, CLI response message says `error: stat ~/.kube/config:: no such file or directory`. The provided configuration file cannot be found.                                                                                                                                          |
+| `UNKNOWN: CLI return error code '1' (add --debug option for detailed message)`                         | If adding `--debug` option, CLI response message says `error: error loading config file "/root/.kube/config": open /root/.kube/config: permission denied`. The provided configuration file cannot be read by current user.                                                                                |
+| `UNKNOWN: CLI return error code '1' (add --debug option for detailed message)`                         | If adding `--debug` option, CLI response message says `error: error loading config file "/root/.kube/config": v1.Config.AuthInfos: []v1.NamedAuthInfo: v1.NamedAuthInfo.AuthInfo: v1.AuthInfo.ClientKeyData: decode base64: illegal base64...`. The provided configuration file is not valid.             |
+| `UNKNOWN: CLI return error code '1' (add --debug option for detailed message)`                         | If adding `--debug` option, CLI response message says `The connection to the server <hostname>:<port> was refused - did you specify the right host or port?`. The provided configuration file is not valid.             |
+
+For more cases, please find the troubleshooting documentation for the API-based plugins in
 this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
 
 ### Available modes
@@ -631,7 +1253,7 @@ All **custom modes** specific options are listed here:
 | --timeout         | Set HTTP timeout                                                                                                                                                                                                                            |
 | --limit           | Number of responses to return for each list calls. See https://kubernetes.io/docs/reference/kubernetes-api/common-param eters/common-parameters/#limit                                                                                      |
 | --namespace       | Set namespace to get information.                                                                                                                                                                                                           |
-| --legacy-api-beta | If this option is set the legacy API path are set for this API calls: kubernetes\_list\_cronjobs will use this path: /apis/batch/v1beta1/namespaces/ kubernetes\_list\_ingresses will use this path: /apis/extensions/v1beta1/namespaces/   |
+| --legacy-api-beta | If this option is set the legacy API path are set for this API calls: kubernetes\_list\_cronjobs will use this path: /apis/batch/v1beta1/namespaces/ and kubernetes\_list\_ingresses will use this path: /apis/extensions/v1beta1/namespaces/ . This ways are no longer served since K8S 1.22 see https://kubernetes.io/docs/reference/using-api/deprecation-guide/#ingress-v122 |
 | --http-peer-addr  | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                         |
 | --proxyurl        | Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                    |
 | --proxypac        | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                              |
@@ -644,7 +1266,16 @@ All **custom modes** specific options are listed here:
 <TabItem value="kubectl" label="kubectl">
 
 | Option | Description |
-|:-------|:------------|
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --config-file        | Kubernetes configuration file path (default: '~/.kube/config'). (example: --config-file='/root/.kube/config').                                                                                                                                                                                                                    |
+| --context        | Context to use in configuration file.                                                                                                                                                                                                                    |
+| --namespace        | Set namespace to get informations.                                                                                                                                                                                                                    |
+| --timeout        | Set timeout in seconds (default: 10).                                                                                                                                                                                                                    |
+| --sudo        | Use 'sudo' to execute the command.                                                                                                                                                                                                                    |
+| --command        | Command to get information (default: 'kubectl'). Can be changed if you have output in a file.                                                                                                                                                                                                                    |
+| --command-path        | Command path (default: none).                                                                                                                                                                                                                    |
+| --command-options        | Command options (default: none).                                                                                                                                                                                                                    |
+| --proxyurl        | Proxy URL if any                                                                                                                                                                                                                   |
 
 </TabItem>
 </Tabs>
