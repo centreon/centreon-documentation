@@ -654,14 +654,14 @@ L'entrée peut maintenant être créée :
 
 ```shell
 cat <<EOF | kubectl create -f -
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: kubernetesapi-ingress
   namespace: default
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   tls:
     - hosts:
@@ -671,10 +671,13 @@ spec:
   - host: kubernetesapi.local.domain
     http:
       paths:
-      - backend:
-          serviceName: kubernetes
-          servicePort: 443
-        path: /
+      - path: /
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: kubernetes
+            port:
+              number: 443
 EOF
 ```
 
