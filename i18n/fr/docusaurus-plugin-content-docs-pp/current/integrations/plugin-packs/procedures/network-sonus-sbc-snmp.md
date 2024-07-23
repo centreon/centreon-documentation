@@ -21,11 +21,11 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias           | Modèle de service                         | Description                                                                                                                                                                  |
 |:----------------|:------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Call-Statistics | Net-Sonus-Sbc-Call-Statistics-SNMP-custom | Contrôle les statistiques liés aux appels passés au travers de l'équipement                                                                                                  |
+| Call-Statistics | Net-Sonus-Sbc-Call-Statistics-SNMP-custom | Contrôle les statistiques liées aux appels passés via l'équipement                                                                                                  |
 | Channels        | Net-Sonus-Sbc-Channels-SNMP-custom        | Contrôle l'état et le statut des channels configurés sur l'équipement                                                                                                        |
 | Cpu             | Net-Sonus-Sbc-Cpu-SNMP-custom             | Contrôle du taux d'utilisation du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |
 | Disks           | Net-Sonus-Sbc-Disks-SNMP-custom           | Contrôle du taux d'utilisation du stockage                                                                                                                                   |
-| Dsp-Statistics  | Net-Sonus-Sbc-Dsp-Statistics-SNMP-custom  | Contrôle les statistiques liés au traitement du signal effectué par la SBC Sonus                                                                                             |
+| Dsp-Statistics  | Net-Sonus-Sbc-Dsp-Statistics-SNMP-custom  | Contrôle les statistiques liées au traitement du signal effectué par la SBC Sonus                                                                                             |
 | Load            | Net-Sonus-Sbc-Load-SNMP-custom            | Contrôle la charge actuelle de l'équipement                                                                                                                                  |
 | Memory          | Net-Sonus-Sbc-Memory-SNMP-custom          | Contrôle l'utilisation mémoire sur l'équipement Sonus SBC                                                                                                                    |
 | Swap            | Net-Sonus-Sbc-Swap-SNMP-custom            | Contrôle du taux d'utilisation de la SWAP du Sonus                                                                                                                           |
@@ -37,7 +37,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias        | Modèle de service                      | Description                                                                                                                 | Découverte |
 |:-------------|:---------------------------------------|:----------------------------------------------------------------------------------------------------------------------------|:----------:|
-| Cpu-Detailed | Net-Sonus-Sbc-Cpu-Detailed-SNMP-custom | Contrôle du taux d'utilisation du CPU de la machine. Ce contrôle pourra remonter d'avantage de détails sur son utilisation  |            |
+| Cpu-Detailed | Net-Sonus-Sbc-Cpu-Detailed-SNMP-custom | Contrôle du taux d'utilisation du CPU de la machine. Ce contrôle pourra remonter davantage de détails sur son utilisation  |            |
 | Interfaces   | Net-Sonus-Sbc-Interfaces-SNMP-custom   | Contrôle les interfaces                                                                                                     | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
@@ -61,7 +61,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                   | Description                                                             |
 |:----------------------------------|:------------------------------------------------------------------------|
-| Net-Sonus-Sbc-SNMP-Interface-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
+| Net-Sonus-Sbc-SNMP-Interface-Name | Découvre les interfaces réseau et supervise le statut et l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).

@@ -20,14 +20,14 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias   | Service Template                          | Service Description                                                                                                                                |
 |:----------------|:------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|
-| Call-Statistics | Net-Sonus-Sbc-Call-Statistics-SNMP-custom | Check statistics of calls managed through this equipement                                                                                          |
-| Channels        | Net-Sonus-Sbc-Channels-SNMP-custom        | Check state and status of channels configured on the equipment                                                                                     |
-| Cpu             | Net-Sonus-Sbc-Cpu-SNMP-custom             | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |
+| Call-Statistics | Net-Sonus-Sbc-Call-Statistics-SNMP-custom | Check statistics of calls managed through the device                                                                                          |
+| Channels        | Net-Sonus-Sbc-Channels-SNMP-custom        | Check state and status of channels configured on the device |
+| Cpu             | Net-Sonus-Sbc-Cpu-SNMP-custom             | Check the rate of utilization of the CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |
 | Disks           | Net-Sonus-Sbc-Disks-SNMP-custom           | Check storage usage                                                                                                                                |
 | Dsp-Statistics  | Net-Sonus-Sbc-Dsp-Statistics-SNMP-custom  | Check the statistics related to the digital signal processing module of the SBC Sonus                                                              |
 | Load            | Net-Sonus-Sbc-Load-SNMP-custom            | Check the load average of the equipment                                                                                                            |
 | Memory          | Net-Sonus-Sbc-Memory-SNMP-custom          | Check the memory usage on the Sonus SBC equipment                                                                                                  |
-| Swap            | Net-Sonus-Sbc-Swap-SNMP-custom            | Check the rate of utilization of SWAP memory on the Sonus                                                                                          |
+| Swap            | Net-Sonus-Sbc-Swap-SNMP-custom            | Check the rate of utilization of the SWAP memory on the Sonus                                                                                          |
 
 > The services listed above are created automatically when the **Net-Sonus-Sbc-SNMP-custom** host template is used.
 
@@ -36,7 +36,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                       | Service Description                                                                                           | Discovery  |
 |:--------------|:---------------------------------------|:--------------------------------------------------------------------------------------------------------------|:----------:|
-| Cpu-Detailed  | Net-Sonus-Sbc-Cpu-Detailed-SNMP-custom | Check the rate of utilization of CPU for the machine. This check can give further details on its utilization  |            |
+| Cpu-Detailed  | Net-Sonus-Sbc-Cpu-Detailed-SNMP-custom | Check the rate of CPU utilization for the machine. This check can give further details on its utilization  |            |
 | Interfaces    | Net-Sonus-Sbc-Interfaces-SNMP-custom   | Check interfaces                                                                                              | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
