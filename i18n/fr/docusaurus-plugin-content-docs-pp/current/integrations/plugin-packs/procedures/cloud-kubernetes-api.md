@@ -201,9 +201,26 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+### Kubernetes
+
+Comme mentionné dans l'introduction, deux modes de communication sont
+disponibles:
+
+- l'API Rest exposée par le cluster Kubernetes,
+- l'outil CLI kubectl pour communiquer avec le *control plane* du cluster.
+
+Pour de meilleures performances, nous vous recommandons d'utiliser l'API Rest.
+
+#### Créer un compte de service
+
+Les deux versions peuvent utiliser un compte de service avec des droits
+suffisants pour accéder à l'API Kubernetes.
+
+Créez un compte de service dédié `centreon-service-account` dans l'espace de
+noms `kube-system` pour accéder à l'API:
+
+```shell
+kubectl create serviceaccount centreon-service-account --namespace kube-system
 
 ## Installer le connecteur de supervision
 
