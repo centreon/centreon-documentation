@@ -552,7 +552,6 @@ scénario choisi), le nom du StatefulSet sera ajouté au nom de la métrique :
 
 ## Prérequis
 
-### Kubernetes
 
 Comme mentionné dans l'introduction, deux modes de communication sont
 disponibles:
@@ -1139,7 +1138,7 @@ utiliser l'option `--debug` pour obtenir l'erreur exacte.
 | `UNKNOWN: CLI return error code '1' (add --debug option for detailed message)`                         | If adding `--debug` option, CLI response message says `error: error loading config file "/root/.kube/config": v1.Config.AuthInfos: []v1.NamedAuthInfo: v1.NamedAuthInfo.AuthInfo: v1.AuthInfo.ClientKeyData: decode base64: illegal base64...`. The provided configuration file is not valid.             |
 | `UNKNOWN: CLI return error code '1' (add --debug option for detailed message)`                         | If adding `--debug` option, CLI response message says `The connection to the server <hostname>:<port> was refused - did you specify the right host or port?`. The provided configuration file is not valid.             |
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+Pour plus d'informations, rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
 des plugins basés sur HTTP/API.
 
 ### Modes disponibles
