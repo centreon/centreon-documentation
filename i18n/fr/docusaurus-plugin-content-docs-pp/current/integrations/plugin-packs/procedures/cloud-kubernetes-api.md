@@ -199,6 +199,357 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 </Tabs>
 
+### Informations complémentaires sur les métriques et services
+
+Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
+
+<Tabs groupId="sync">
+<TabItem value="Cluster-Events" label="Cluster-Events">
+
+Cet indicateur permet de superviser le nombre d'événements se produisant sur
+le cluster, comme le `kubectl get events` peut fournir :
+
+```text
+NAMESPACE   LAST SEEN   TYPE      REASON      OBJECT           MESSAGE
+graphite    26m         Warning   Unhealthy   pod/graphite-0   Liveness probe failed: Get "http://10.244.2.10:8080/": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+```
+
+La sortie résultante dans Centreon pourrait ressembler à :
+
+```text
+Event 'Warning' for object 'Pod/graphite-0' with message 'Liveness probe failed: Get "http://10.244.2.10:8080/": context deadline exceeded (Client.Timeout exceeded while awaiting headers)', Count: 1, First seen: 26m 21s ago (2021-03-11T12:26:23Z), Last seen: 26m 21s ago (2021-03-11T12:26:23Z)
+```
+
+</TabItem>
+<TabItem value="CronJob-Status" label="CronJob-Status">
+
+Cet indicateur permet de vérifier que les CronJobs sont exécutés comme ils
+le devraient, comme le `kubectl get cronjobs` peut fournir :
+
+```text
+NAME    SCHEDULE      SUSPEND   ACTIVE   LAST SCHEDULE   AGE
+hello   */1 * * * *   False     1        6s              2d1h
+```
+
+La sortie résultante dans Centreon pourrait ressembler à :
+
+```text
+CronJob 'hello' Jobs Active: 1, Last schedule time: 6s ago (2021-03-11T12:31:00Z)
+```
+
+Si le service collecte des métriques de plusieurs CronJobs (selon le scénario
+choisi), le nom du CronJob sera ajouté au nom de la métrique :
+
+| Métrique                          |
+|-----------------------------------|
+| `hello#cronjob.jobs.active.count` |
+
+</TabItem>
+<TabItem value="Daemonset-Status" label="Daemonset-Status">
+
+Cet indicateur garantira que les DaemonSets sont dans des limites définies
+en regardant le nombre de Pods disponibles et/ou à jour par rapport au
+nombre souhaité, comme le `kubectl get daemonsets` peut fournir :
+
+```text
+NAMESPACE     NAME                    DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR                   AGE
+kube-system   kube-flannel-ds-amd64   3         3         3       3            3           beta.kubernetes.io/arch=amd64   624d
+kube-system   kube-proxy              3         3         3       3            3           kubernetes.io/os=linux          624d
+```
+
+La sortie résultante dans Centreon pourrait ressembler à :
+
+```text
+Daemonset 'kube-flannel-ds-amd64' Pods Desired: 3, Current: 3, Available: 3, Up-to-date: 3, Ready: 3, Misscheduled: 0
+Daemonset 'kube-proxy' Pods Desired: 3, Current: 3, Available: 3, Up-to-date: 3, Ready: 3, Misscheduled: 0
+```
+
+Si le service collecte des métriques de plusieurs DaemonSets (selon le
+scénario choisi), le nom du DaemonSet sera ajouté au nom de la métrique :
+
+| Métrique                                  |
+|-------------------------------------------|
+| `kube-proxy#daemonset.pods.desired.count` |
+
+</TabItem>
+<TabItem value="Deployment-Status" label="Deployment-Status">
+
+Cet indicateur garantira que les Deployments sont dans des limites définies
+en examinant le nombre de répliques disponibles et/ou à jour par rapport au
+nombre souhaité, comme le `kubectl get deployments` peut fournir :
+
+```text
+NAMESPACE              NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
+kube-system            coredns                     2/2     2            2           624d
+kube-system            tiller-deploy               1/1     1            1           624d
+kubernetes-dashboard   dashboard-metrics-scraper   1/1     1            1           37d
+kubernetes-dashboard   kubernetes-dashboard        1/1     1            1           37d
+```
+
+La sortie résultante dans Centreon pourrait ressembler à :
+
+```text
+Deployment 'coredns' Replicas Desired: 2, Current: 2, Available: 2, Ready: 2, Up-to-date: 2
+Deployment 'tiller-deploy' Replicas Desired: 1, Current: 1, Available: 1, Ready: 1, Up-to-date: 1
+Deployment 'dashboard-metrics-scraper' Replicas Desired: 1, Current: 1, Available: 1, Ready: 1, Up-to-date: 1
+Deployment 'kubernetes-dashboard' Replicas Desired: 1, Current: 1, Available: 1, Ready: 1, Up-to-date: 1
+```
+
+Si le service collecte des métriques de plusieurs Deployments (selon le
+scénario choisi), le nom du Deployment sera ajouté au nom de la métrique :
+
+| Métrique                                          |
+|---------------------------------------------------|
+| `tiller-deploy#deployment.replicas.desired.count` |
+
+</TabItem>
+<TabItem value="Node-Status*" label="Node-Status*">
+
+Cet indicateur garantira que les noeuds fonctionnent bien en regardant
+les statuts des conditions, comme le `kubectl describe nodes` peut lister :
+
+```text
+Conditions:
+  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----             ------  -----------------                 ------------------                ------                       -------
+  MemoryPressure   False   Thu, 11 Mar 2021 14:20:25 +0100   Tue, 26 Jan 2021 09:38:11 +0100   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Thu, 11 Mar 2021 14:20:25 +0100   Wed, 17 Feb 2021 09:37:40 +0100   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure      False   Thu, 11 Mar 2021 14:20:25 +0100   Tue, 26 Jan 2021 09:38:11 +0100   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready            True    Thu, 11 Mar 2021 14:20:25 +0100   Tue, 26 Jan 2021 17:26:36 +0100   KubeletReady                 kubelet is posting ready status
+```
+
+La sortie résultante dans Centreon pourrait ressembler à :
+
+```text
+Condition 'DiskPressure' Status is 'False', Reason: 'KubeletHasNoDiskPressure', Message: 'kubelet has no disk pressure'
+Condition 'MemoryPressure' Status is 'False', Reason: 'KubeletHasSufficientMemory', Message: 'kubelet has sufficient memory available'
+Condition 'PIDPressure' Status is 'False', Reason: 'KubeletHasSufficientPID', Message: 'kubelet has sufficient PID available'
+Condition 'Ready' Status is 'True', Reason: 'KubeletReady', Message: 'kubelet is posting ready status'
+```
+
+</TabItem>
+<TabItem value="Node-Usage*" label="Node-Usage*">
+
+Cet indicateur rassemblera des métriques sur l'utilisation des noeuds comme
+l'allocation des Pods, les demandes de CPU et de mémoire faites par ces Pods,
+et les limites de CPU et de mémoire autorisées pour ces mêmes Pods.
+
+En utilisant l'outil de ligne de commande Kubernetes, cela pourrait ressembler
+à ce qui suit :
+
+- Capacité des noeuds :
+
+    ```shell
+    kubectl get nodes -o=custom-columns="NODE:.metadata.name,PODS ALLOCATABLE:.status.allocatable.pods,CPU ALLOCATABLE:.status.allocatable.cpu,MEMORY ALLOCATABLE:.status.allocatable.memory"
+    NODE          PODS ALLOCATABLE   CPU ALLOCATABLE   MEMORY ALLOCATABLE
+    master-node   110                2                 3778172Ki
+    worker-node   110                2                 3778184Ki
+    ```
+
+- Pods en cours d'exécution :
+
+    ```shell
+    kubectl get pods -o=custom-columns="NODE:.spec.nodeName,POD:.metadata.name,CPU REQUESTS:.spec.containers[*].resources.requests.cpu,CPU LIMITS:.spec.containers[*].resources.limits.cpu,MEMORY REQUESTS:.spec.containers[*].resources.requests.memory,MEMORY LIMITS:.spec.containers[*].resources.limits.memory"
+    NODE          POD                                     CPU REQUESTS   CPU LIMITS   MEMORY REQUESTS   MEMORY LIMITS
+    worker-node   coredns-74ff55c5b-g4hmt                 100m           <none>       70Mi              170Mi
+    master-node   etcd-master-node                        100m           <none>       100Mi             <none>
+    master-node   kube-apiserver-master-node              250m           <none>       <none>            <none>
+    master-node   kube-controller-manager-master-node     200m           <none>       <none>            <none>
+    master-node   kube-flannel-ds-amd64-fk59g             100m           100m         50Mi              50Mi
+    worker-node   kube-flannel-ds-amd64-jwzms             100m           100m         50Mi              50Mi
+    master-node   kube-proxy-kkwmb                        <none>         <none>       <none>            <none>
+    worker-node   kube-proxy-vprs8                        <none>         <none>       <none>            <none>
+    master-node   kube-scheduler-master-node              100m           <none>       <none>            <none>
+    master-node   kubernetes-dashboard-7d75c474bb-7zc5j   <none>         <none>       <none>            <none>
+    ```
+
+Depuis le tableau de bord Kubernetes, les métriques se trouvent dans le
+menu `Cluster > Nodes`:
+
+- Liste depuis `Cluser > Nodes`:
+
+    ![Cluster nodes listing](../../../assets/integrations/plugin-packs/procedures/cloud-kubernetes-api-cluster-nodes-listing.png)
+
+- Détail de l'allocation pour un noeud :
+
+    ![Node allocation detail](../../../assets/integrations/plugin-packs/procedures/cloud-kubernetes-api-cluster-nodes-detail.png)
+
+La sortie résultante dans Centreon pourrait ressembler à :
+
+```text
+Node 'master-node' CPU requests: 37.50% (0.75/2), CPU limits: 5.00% (0.1/2), Memory requests: 3.96% (150.00MB/3.70GB), Memory limits: 1.32% (50.00MB/3.70GB), Pods allocation: 7.27% (8/110)
+Node 'worker-node' CPU requests: 35.00% (0.7/2), CPU limits: 115.00% (2.3/2), Memory requests: 31.51% (1.17GB/3.70GB), Memory limits: 115.21% (4.26GB/3.70GB), Pods allocation: 9.09% (10/110)
+```
+
+Si le service collecte des métriques de plusieurs Nodes (selon le scénario
+choisi), le nom du Node sera ajouté au nom de la métrique:
+
+| Métrique                                 |
+|------------------------------------------|
+| `worker-node#pods.allocation.percentage` |
+
+</TabItem>
+<TabItem value="PersistentVolume-Status" label="PersistentVolume-Status">
+
+Cet indicateur garantira que les PersistentVolumes fonctionnent correctement
+en regardant la phase dans laquelle ils se trouvent, comme le
+`kubectl get pv` peut fournir :
+
+```text
+NAME                     CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM                   STORAGECLASS   REASON   AGE
+pv-nfs-kubestorage-001   5Gi        RWO            Retain           Available                                                   630d
+pv-nfs-kubestorage-002   5Gi        RWO            Retain           Bound       tick/data-influxdb                              630d
+pv-nfs-kubestorage-003   5Gi        RWO            Retain           Released    graphite/graphite-pvc                           630d
+```
+
+La sortie résultante dans Centreon pourrait ressembler à :
+
+```text
+Persistent Volume 'pv-nfs-kubestorage-001' Phase is 'Available'
+Persistent Volume 'pv-nfs-kubestorage-002' Phase is 'Bound'
+Persistent Volume 'pv-nfs-kubestorage-003' Phase is 'Released'
+```
+
+</TabItem>
+<TabItem value="Pod-Status" label="Pod-Status">
+
+Cet indicateur garantira que les Pods et leurs conteneurs sont dans des
+limites définies en regardant le nombre de conteneurs prêts par rapport au
+nombre souhaité, comme le `kubectl get pods` peut fournir :
+
+```text
+NAMESPACE              NAME                                                     READY   STATUS        RESTARTS   AGE
+kube-system            kube-proxy-65zhn                                         1/1     Running       0          37d
+kube-system            kube-proxy-kkwmb                                         1/1     Running       0          37d
+kube-system            kube-proxy-vprs8                                         1/1     Running       0          37d
+kube-system            tiller-deploy-7bf78cdbf7-z5n24                           1/1     Running       5          550d
+kubernetes-dashboard   dashboard-metrics-scraper-79c5968bdc-vncxc               1/1     Running       0          37d
+kubernetes-dashboard   kubernetes-dashboard-7448ffc97b-42rps                    1/1     Running       0          37d
+```
+
+La sortie résultante dans Centreon pourrait ressembler à :
+
+```text
+Checking pod 'kube-proxy-65zhn'
+    Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
+    Container 'kube-proxy' Status is 'running', State is 'ready', Restarts: 0
+Checking pod 'kube-proxy-kkwmb'
+    Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
+    Container 'kube-proxy' Status is 'running', State is 'ready', Restarts: 0
+Checking pod 'kube-proxy-vprs8'
+    Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
+    Container 'kube-proxy' Status is 'running', State is 'ready', Restarts: 0
+Checking pod 'tiller-deploy-7bf78cdbf7-z5n24'
+    Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 5
+    Container 'tiller' Status is 'running', State is 'ready', Restarts: 5
+Checking pod 'dashboard-metrics-scraper-79c5968bdc-vncxc'
+    Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
+    Container 'dashboard-metrics-scraper' Status is 'running', State is 'ready', Restarts: 0
+Checking pod 'kubernetes-dashboard-7448ffc97b-42rps'
+    Containers Ready: 1/1 (100.00%), Status is 'Running', Restarts: 0
+    Container 'kubernetes-dashboard' Status is 'running', State is 'ready', Restarts: 0
+```
+
+Si le service collecte des métriques de plusieurs Pods (en fonction du
+scénario choisi), le nom du Pod et le nom du conteneur seront ajoutés au
+nom de la métrique :
+
+| Métrique                                                    |
+|-------------------------------------------------------------|
+| `coredns-74ff55c5b-g4hmt#containers.ready.count`            |
+| `coredns-74ff55c5b-g4hmt#restarts.total.count`              |
+| `coredns-74ff55c5b-g4hmt_coredns#containers.restarts.count` |
+
+</TabItem>
+<TabItem value="ReplicaSet-Status" label="ReplicaSet-Status">
+
+Cet indicateur garantira que les ReplicaSets sont dans les limites définies
+en regardant le nombre de répliques prêtes par rapport au nombre souhaité,
+comme le `kubectl get replicasets` peut fournir :
+
+```text
+NAMESPACE              NAME                                   DESIRED   CURRENT   READY   AGE
+kube-system            coredns-74ff55c5b                      2         2         2       44d
+kube-system            tiller-deploy-7bf78cdbf7               1         1         1       630d
+kubernetes-dashboard   dashboard-metrics-scraper-79c5968bdc   1         1         1       44d
+kubernetes-dashboard   kubernetes-dashboard-7448ffc97b        1         1         1       44d
+```
+
+La sortie résultante dans Centreon pourrait ressembler à :
+
+```text
+ReplicaSet 'coredns-74ff55c5b' Replicas Desired: 2, Current: 2, Ready: 2
+ReplicaSet 'tiller-deploy-7bf78cdbf7' Replicas Desired: 1, Current: 1, Ready: 1
+ReplicaSet 'dashboard-metrics-scraper-79c5968bdc' Replicas Desired: 1, Current: 1, Ready: 1
+ReplicaSet 'kubernetes-dashboard-7448ffc97b' Replicas Desired: 1, Current: 1, Ready: 1
+```
+
+Si le service collecte des métriques de plusieurs ReplicaSets (selon le
+scénario choisi), le nom du ReplicaSet sera ajouté au nom de la métrique :
+
+| Métrique                                                     |
+|--------------------------------------------------------------|
+| `tiller-deploy-7bf78cdbf7#replicaset.replicas.desired.count` |
+
+</TabItem>
+<TabItem value="ReplicationController-Status" label="ReplicationController-Status">
+
+Cet indicateur garantira que les ReplicationControllers sont dans les limites
+définies en regardant le nombre de répliques prêtes par rapport au nombre
+souhaité, comme le `kubectl get rc` peut fournir :
+
+```text
+NAMESPACE   NAME    DESIRED   CURRENT   READY   AGE
+elk         nginx   3         3         3       2d19h
+```
+
+La sortie résultante dans Centreon pourrait ressembler à :
+
+```text
+ReplicationController 'nginx' Replicas Desired: 3, Current: 3, Ready: 3
+```
+
+Si le service collecte des métriques de plusieurs ReplicationControllers
+(selon le scénario choisi), le nom du ReplicationController sera ajouté au
+nom de la métrique :
+
+| Métrique                                             |
+|------------------------------------------------------|
+| `nginx#replicationcontroller.replicas.desired.count` |
+
+</TabItem>
+<TabItem value="StatefulSet-Status" label="StatefulSet-Status">
+
+Cet indicateur garantira que les StatefulSets sont dans des limites définies
+en regardant le nombre de répliques prêtes / à jour par rapport au nombre
+souhaité, comme le `kubectl get statefulsets` peut fournir :
+
+```text
+NAMESPACE    NAME                                        READY   AGE
+elk          elasticsearch-master                        2/2     44d
+graphite     graphite                                    1/1     3d
+prometheus   prometheus-prometheus-operator-prometheus   1/1     619d
+```
+
+La sortie résultante dans Centreon pourrait ressembler à :
+
+```text
+StatefulSet 'elasticsearch-master' Replicas Desired: 2, Current: 2, Up-to-date: 2, Ready: 2
+StatefulSet 'graphite' Replicas Desired: 1, Current: 1, Up-to-date: 1, Ready: 1
+StatefulSet 'prometheus-prometheus-operator-prometheus' Replicas Desired: 1, Current: 1, Up-to-date: 1, Ready: 1
+```
+
+Si le service collecte des métriques de plusieurs StatefulSets (selon le
+scénario choisi), le nom du StatefulSet sera ajouté au nom de la métrique :
+
+| Métrique                                      |
+|-----------------------------------------------|
+| `graphite#statefulset.replicas.desired.count` |
+
+</TabItem>
+</Tabs>
+
+
 ## Prérequis
 
 ### Kubernetes
