@@ -1274,7 +1274,16 @@ Les options spécifiques aux **custom modes** sont listées ci-dessous :
 <TabItem value="kubectl" label="kubectl">
 
 | Option | Description |
-|:-------|:------------|
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --config-file        | Kubernetes configuration file path (default: '~/.kube/config'). (example: --config-file='/root/.kube/config').                                                                                                                                                                                                                    |
+| --context        | Context to use in configuration file.                                                                                                                                                                                                                    |
+| --namespace        | Set namespace to get informations.                                                                                                                                                                                                                    |
+| --timeout        | Set timeout in seconds (default: 10).                                                                                                                                                                                                                    |
+| --sudo        | Use 'sudo' to execute the command.                                                                                                                                                                                                                    |
+| --command        | Command to get information (default: 'kubectl'). Can be changed if you have output in a file.                                                                                                                                                                                                                    |
+| --command-path        | Command path (default: none).                                                                                                                                                                                                                    |
+| --command-options        | Command options (default: none).                                                                                                                                                                                                                    |
+| --proxyurl        | Proxy URL if any                                                                                                                                                                                                                   |
 
 </TabItem>
 </Tabs>
