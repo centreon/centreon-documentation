@@ -544,10 +544,10 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | Macro                   | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | KUBERNETESAPIHOSTNAME   | Kubernetes API hostname                                                                                                    |                   | X           |
-| KUBERNETESAPITOKEN      |                                                                                                                            |                   | X           |
+| KUBERNETESAPITOKEN      |  Token retrieved from service account                                                                                                                          |                   | X           |
 | KUBERNETESAPIPROTO      | Specify https if needed (default: 'https')                                                                                 | https             |             |
 | KUBERNETESAPIPORT       | API port (default: 443)                                                                                                    | 443               |             |
-| KUBECTLCONFIGFILE       | Kubernetes configuration file path (default: '~/.kube/config'). (example: --config-file='/root/.kube/config')              |                   | X           |
+| KUBECTLCONFIGFILE       | Kubernetes configuration file path (default: '~/.kube/config'). (example: --config-file='/root/.kube/config'). Mandatory only if using kubectl as `KUBERNETESAPICUSTOMMODE`              |                   | X           |
 | KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               |             |
 | KUBERNETESAPINAMESPACE  | Set namespace to get informations                                                                                          |                   |             |
 | KUBERNETESNODENAME      | Filter StatefulSet name (can be a regexp)                                                                                  |                   |             |
@@ -556,6 +556,10 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
+
+> Pour la découverte d'hôte
+> - Si vous utilisez l'API Rest: définissez le jeton [récupérer plus tôt](#recuperer-le-jeton-du-compte-de-service) à partir du compte de service,
+> - Si vous utilisez kubectl: définissez le chemin vers le [fichier de configuration créé](#creer-une-configuration-kubectl) (préférez utiliser le chemin relatif pour le faire fonctionner à la fois pour la découverte et la supervision, c'est-à-dire `~/.kube/config`).
 
 </TabItem>
 <TabItem value="Cloud-Kubernetes-Node-Api-custom" label="Cloud-Kubernetes-Node-Api-custom">
@@ -568,10 +572,10 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | Macro                   | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | KUBERNETESAPIHOSTNAME   | Kubernetes API hostname                                                                                                    |                   | X           |
-| KUBERNETESAPITOKEN      |                                                                                                                            |                   | X           |
+| KUBERNETESAPITOKEN      | Token retrieved from service account                                                                                                                           |                   | X           |
 | KUBERNETESAPIPROTO      | Specify https if needed (default: 'https')                                                                                 | https             |             |
 | KUBERNETESAPIPORT       | API port (default: 443)                                                                                                    | 443               |             |
-| KUBECTLCONFIGFILE       | Kubernetes configuration file path (default: '~/.kube/config'). (example: --config-file='/root/.kube/config')              |                   | X           |
+| KUBECTLCONFIGFILE       | Kubernetes configuration file path (default: '~/.kube/config'). (example: --config-file='/root/.kube/config'). Mandatory only if using kubectl as `KUBERNETESAPICUSTOMMODE`              |                   | X           |
 | KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               |             |
 | KUBERNETESAPINAMESPACE  | Set namespace to get informations                                                                                          |                   |             |
 | KUBERNETESNODENAME      | Filter node name (can be a regexp)                                                                                         |                   |             |
@@ -580,6 +584,10 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
+
+> Pour la découverte d'hôte
+> - Si vous utilisez l'API Rest: définissez le jeton [récupérer plus tôt](#recuperer-le-jeton-du-compte-de-service) à partir du compte de service,
+> - Si vous utilisez kubectl: définissez le chemin vers le [fichier de configuration créé](#creer-une-configuration-kubectl) (préférez utiliser le chemin relatif pour le faire fonctionner à la fois pour la découverte et la supervision, c'est-à-dire `~/.kube/config`).
 
 </TabItem>
 </Tabs>
