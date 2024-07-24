@@ -9,16 +9,16 @@ import TabItem from '@theme/TabItem';
 
 ### Préambule
 
-Ce Pack vise à superviser à la fois la couche d'infrastructure (noeuds) et les services du cluster (deployments, daemonsets, etc). Le Pack Kubernetes API offre plusieurs choix concernant la façon dont vous pouvez organiser la supervision du cluster. Il existe principalement trois façons :
-- Rassemblez toutes les métriques sur un seul hôte Centreon avec un service
+Ce Pack vise à superviser à la fois la couche d'infrastructure (noeuds) et les services d'un cluster Kubernetes (deployments, daemonsets, etc). Le Pack Kubernetes API offre plusieurs façons d'organiser la supervision du cluster. Il en existe principalement trois :
+- Rassembler toutes les métriques sur un seul hôte Centreon avec un service
   par unité Kubernetes (i.e. deployments, daemonsets, etc) - voir [utiliser un modèle d'hôte issu du connecteur](#utiliser-un-modèle-dhôte-issu-du-connecteur),
-- Rassemblez toutes les métriques sur un seul hôte Centreon avec un service
+- Rassembler toutes les métriques sur un seul hôte Centreon avec un service
   pour chaque instances de chaque unité Kubernetes - voir [utiliser un modèle d'hôte issu du connecteur](#utiliser-un-modèle-dhôte-issu-du-connecteur) et
   [utiliser un modèle de service issu du connecteur](#utiliser-un-modèle-de-service-issu-du-connecteur),
-- Collectez les métriques d'infrastructure (noeuds maître et noeuds de travail)
+- Collecter les métriques d'infrastructure (noeuds maître et noeuds de travail)
   avec un hôte Centreon par noeud Kubernetes et conserver les métriques
   d'orchestration / d'application sur un hôte unique (en utilisant l'un des 2
-  scénarii précédents) - voir
+  scénarios précédents) - voir
   [découverte d'hôte](/docs/monitoring/discovery/hosts-discovery).
 
 ### Modèles
@@ -37,18 +37,18 @@ Le connecteur apporte les modèles de service suivants
 | Alias                        | Modèle de service                                        | Description                                              | Découverte |
 |:-----------------------------|:---------------------------------------------------------|:---------------------------------------------------------|:----------:|
 | Cluster-Events               | Cloud-Kubernetes-Cluster-Events-Api-custom               | Contrôle le nombre d'événements survenant sur le cluster |            |
-| CronJob-Status               | Cloud-Kubernetes-CronJob-Status-Api-custom               | Contrôle le status des CronJobs                          | X          |
-| Daemonset-Status             | Cloud-Kubernetes-Daemonset-Status-Api-custom             | Contrôle le status des DaemonSets                        | X          |
-| Deployment-Status            | Cloud-Kubernetes-Deployment-Status-Api-custom            | Contrôle le status des Deployments                       | X          |
-| Node-Status                  | Cloud-Kubernetes-Node-Status-Api-custom                  | Contrôle le status des Nodes                             |            |
-| Node-Status                  | Cloud-Kubernetes-Node-Status-Name-Api-custom             | Contrôle le status d'un Node identifié par son nom (par exemple à l'issue de la règle de découverte associée) | X          |
+| CronJob-Status               | Cloud-Kubernetes-CronJob-Status-Api-custom               | Contrôle le statut des CronJobs                          | X          |
+| Daemonset-Status             | Cloud-Kubernetes-Daemonset-Status-Api-custom             | Contrôle le statut des DaemonSets                        | X          |
+| Deployment-Status            | Cloud-Kubernetes-Deployment-Status-Api-custom            | Contrôle le statut des Deployments                       | X          |
+| Node-Status                  | Cloud-Kubernetes-Node-Status-Api-custom                  | Contrôle le statut des Nodes                             |            |
+| Node-Status                  | Cloud-Kubernetes-Node-Status-Name-Api-custom             | Contrôle le statut d'un Node identifié par son nom (par exemple à l'issue de la règle de découverte associée) | X          |
 | Node-Usage                   | Cloud-Kubernetes-Node-Usage-Api-custom                   | Contrôle l'utilisation des noeuds                        |            |
 | Node-Usage                   | Cloud-Kubernetes-Node-Usage-Name-Api-custom              | Contrôle l'utilisation d'un noeud identifié par son nom (par exemple à l'issue de la règle de découverte associée) | X          |
-| PersistentVolume-Status      | Cloud-Kubernetes-PersistentVolume-Status-Api-custom      | Contrôle le status des PersistentVolumes                 | X          |
-| Pod-Status                   | Cloud-Kubernetes-Pod-Status-Api-custom                   | Contrôle le status des pods et des containers            | X          |
-| ReplicaSet-Status            | Cloud-Kubernetes-ReplicaSet-Status-Api-custom            | Contrôle le status des ReplicaSets                       | X          |
-| ReplicationController-Status | Cloud-Kubernetes-ReplicationController-Status-Api-custom | Contrôle le status des ReplicationControllers            | X          |
-| StatefulSet-Status           | Cloud-Kubernetes-StatefulSet-Status-Api-custom           | Contrôle le status des StatefulSets                      | X          |
+| PersistentVolume-Status      | Cloud-Kubernetes-PersistentVolume-Status-Api-custom      | Contrôle le statut des PersistentVolumes                 | X          |
+| Pod-Status                   | Cloud-Kubernetes-Pod-Status-Api-custom                   | Contrôle le statut des pods et des containers            | X          |
+| ReplicaSet-Status            | Cloud-Kubernetes-ReplicaSet-Status-Api-custom            | Contrôle le statut des ReplicaSets                       | X          |
+| ReplicationController-Status | Cloud-Kubernetes-ReplicationController-Status-Api-custom | Contrôle le statut des ReplicationControllers            | X          |
+| StatefulSet-Status           | Cloud-Kubernetes-StatefulSet-Status-Api-custom           | Contrôle le statut des StatefulSets                      | X          |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Kubernetes-Api-custom** est utilisé.
 
@@ -59,8 +59,8 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias       | Modèle de service                            | Description                       | Découverte |
 |:------------|:---------------------------------------------|:----------------------------------|:----------:|
-| Node-Status | Cloud-Kubernetes-Node-Status-Api-custom      | Contrôle le status des Nodes      |            |
-| Node-Status | Cloud-Kubernetes-Node-Status-Name-Api-custom | Contrôle le status d'un Node identifié par son nom (par exemple à l'issue de la règle de découverte associée) | X          |
+| Node-Status | Cloud-Kubernetes-Node-Status-Api-custom      | Contrôle le statut des Nodes      |            |
+| Node-Status | Cloud-Kubernetes-Node-Status-Name-Api-custom | Contrôle le statut d'un Node identifié par son nom (par exemple à l'issue de la règle de découverte associée) | X          |
 | Node-Usage  | Cloud-Kubernetes-Node-Usage-Api-custom       | Contrôle l'utilisation des noeuds |            |
 | Node-Usage  | Cloud-Kubernetes-Node-Usage-Name-Api-custom  | Contrôle l'utilisation d'un noeud identifié par son nom (par exemple à l'issue de la règle de découverte associée) | X          |
 
