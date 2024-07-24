@@ -207,7 +207,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <TabItem value="Cluster-Events" label="Cluster-Events">
 
 Cet indicateur permet de superviser le nombre d'événements se produisant sur
-le cluster, comme le `kubectl get events` peut fournir :
+le cluster, ce en se basant sur les informations disponibles en sorties de la commande `kubectl get events` :
 
 ```text
 NAMESPACE   LAST SEEN   TYPE      REASON      OBJECT           MESSAGE
@@ -224,7 +224,7 @@ Event 'Warning' for object 'Pod/graphite-0' with message 'Liveness probe failed:
 <TabItem value="CronJob-Status" label="CronJob-Status">
 
 Cet indicateur permet de vérifier que les CronJobs sont exécutés comme ils
-le devraient, comme le `kubectl get cronjobs` peut fournir :
+le devraient, ce en se basant sur les informations disponibles en sorties de la commande `kubectl get cronjobs` :
 
 ```text
 NAME    SCHEDULE      SUSPEND   ACTIVE   LAST SCHEDULE   AGE
@@ -249,7 +249,7 @@ choisi), le nom du CronJob sera ajouté au nom de la métrique :
 
 Cet indicateur garantira que les DaemonSets sont dans des limites définies
 en regardant le nombre de Pods disponibles et/ou à jour par rapport au
-nombre souhaité, comme le `kubectl get daemonsets` peut fournir :
+nombre souhaité, ce en se basant sur les informations disponibles en sorties de la commande `kubectl get daemonsets` :
 
 ```text
 NAMESPACE     NAME                    DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR                   AGE
@@ -276,7 +276,7 @@ scénario choisi), le nom du DaemonSet sera ajouté au nom de la métrique :
 
 Cet indicateur garantira que les Deployments sont dans des limites définies
 en examinant le nombre de répliques disponibles et/ou à jour par rapport au
-nombre souhaité, comme le `kubectl get deployments` peut fournir :
+nombre souhaité, ce en se basant sur les informations disponibles en sorties de la commande `kubectl get deployments` :
 
 ```text
 NAMESPACE              NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
@@ -306,7 +306,7 @@ scénario choisi), le nom du Deployment sera ajouté au nom de la métrique :
 <TabItem value="Node-Status*" label="Node-Status*">
 
 Cet indicateur garantira que les noeuds fonctionnent bien en regardant
-les statuts des conditions, comme le `kubectl describe nodes` peut lister :
+les statuts des conditions, ce en se basant sur les informations disponibles en sorties de la commande `kubectl describe nodes` :
 
 ```text
 Conditions:
@@ -392,7 +392,7 @@ choisi), le nom du Node sera ajouté au nom de la métrique:
 <TabItem value="PersistentVolume-Status" label="PersistentVolume-Status">
 
 Cet indicateur garantira que les PersistentVolumes fonctionnent correctement
-en regardant la phase dans laquelle ils se trouvent, comme le
+en regardant la phase dans laquelle ils se trouvent, ce en se basant sur les informations disponibles en sorties de la commande
 `kubectl get pv` :
 
 ```text
@@ -415,7 +415,7 @@ Persistent Volume 'pv-nfs-kubestorage-003' Phase is 'Released'
 
 Cet indicateur garantira que les Pods et leurs conteneurs sont dans des
 limites définies en regardant le nombre de conteneurs prêts par rapport au
-nombre souhaité, comme le `kubectl get pods` peut fournir :
+nombre souhaité, ce en se basant sur les informations disponibles en sorties de la commande `kubectl get pods` :
 
 ```text
 NAMESPACE              NAME                                                     READY   STATUS        RESTARTS   AGE
@@ -465,7 +465,7 @@ nom de la métrique :
 
 Cet indicateur garantira que les ReplicaSets sont dans les limites définies
 en regardant le nombre de répliques prêtes par rapport au nombre souhaité,
-comme le `kubectl get replicasets` peut fournir :
+ce en se basant sur les informations disponibles en sorties de la commande `kubectl get replicasets` :
 
 ```text
 NAMESPACE              NAME                                   DESIRED   CURRENT   READY   AGE
@@ -496,7 +496,7 @@ scénario choisi), le nom du ReplicaSet sera ajouté au nom de la métrique :
 
 Cet indicateur garantira que les ReplicationControllers sont dans les limites
 définies en regardant le nombre de répliques prêtes par rapport au nombre
-souhaité, comme le `kubectl get rc` peut fournir :
+souhaité, ce en se basant sur les informations disponibles en sorties de la commande `kubectl get rc` :
 
 ```text
 NAMESPACE   NAME    DESIRED   CURRENT   READY   AGE
@@ -522,7 +522,7 @@ nom de la métrique :
 
 Cet indicateur garantira que les StatefulSets sont dans des limites définies
 en regardant le nombre de répliques prêtes / à jour par rapport au nombre
-souhaité, comme le `kubectl get statefulsets` peut fournir :
+souhaité, ce en se basant sur les informations disponibles en sorties de la commande `kubectl get statefulsets` :
 
 ```text
 NAMESPACE    NAME                                        READY   AGE
