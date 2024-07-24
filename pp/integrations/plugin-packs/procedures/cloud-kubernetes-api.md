@@ -714,8 +714,10 @@ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stabl
 ```
 
 > Be sure to download a version within one minor version difference of
-> your cluster. To download a specific version, change the embedded curl by
-> the version like `v1.20.0`.
+> your cluster. To download a specific version, change the embedded curl
+> in the command above by the version. For example if you want to download
+> the version `v1.20.0`:
+> `curl -LO "https://dl.k8s.io/release/v1.20.0/bin/linux/amd64/kubectl"`
 
 Install the tool in the binaries directory:
 
