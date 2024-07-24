@@ -722,7 +722,7 @@ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stabl
 
 > Assurez-vous de télécharger une version avec une différence d'au maximum une version mineure
 > de votre cluster. Pour télécharger une version spécifique, changez le contenu de la commande
-> curl imbriqué ci-dessus qui permettait de récupérer le numéro de version. Par exemple pour
+> curl incluse dans la commande ci-dessus, permettant de récupérer le numéro de version. Par exemple pour
 > télécharger la version `1.20.0` voici la commande :
 > `curl -LO "https://dl.k8s.io/release/v1.20.0/bin/linux/amd64/kubectl"`
 
