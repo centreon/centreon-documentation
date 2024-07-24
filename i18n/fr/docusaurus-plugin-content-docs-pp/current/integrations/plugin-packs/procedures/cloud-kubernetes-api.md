@@ -393,7 +393,7 @@ choisi), le nom du Node sera ajouté au nom de la métrique:
 
 Cet indicateur garantira que les PersistentVolumes fonctionnent correctement
 en regardant la phase dans laquelle ils se trouvent, comme le
-`kubectl get pv` peut fournir :
+`kubectl get pv` :
 
 ```text
 NAME                     CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM                   STORAGECLASS   REASON   AGE
