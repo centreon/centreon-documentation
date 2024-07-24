@@ -720,9 +720,11 @@ Téléchargez la dernière version avec la commande suivante :
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 ```
 
-> Assurez-vous de télécharger une version avec une différence d'au maximum
-> une version mineure de votre cluster. Pour télécharger une version
-> spécifique, changez le *curl* intégrée par la version comme `v1.20.0`.
+> Assurez-vous de télécharger une version avec une différence d'au maximum une version mineure
+> de votre cluster. Pour télécharger une version spécifique, changez le contenu de la commande
+> curl imbriqué ci-dessus qui permettait de récupérer le numéro de version. Par exemple pour
+> télécharger la version 1.20.0 voici la commande :
+> `curl -LO "https://dl.k8s.io/release/v1.20.0/bin/linux/amd64/kubectl"`
 
 Installez l'outil dans le répertoire des binaires :
 
