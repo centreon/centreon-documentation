@@ -563,7 +563,7 @@ Pour de meilleures performances, nous vous recommandons d'utiliser l'API Rest.
 
 #### Créer un compte de service
 
-Les deux versions peuvent utiliser un compte de service avec des droits
+Les deux versions doivent utiliser un compte de service avec des droits
 suffisants pour accéder à l'API Kubernetes.
 
 Créez un compte de service dédié `centreon-service-account` dans l'espace de
@@ -574,7 +574,7 @@ kubectl create serviceaccount centreon-service-account --namespace kube-system
 ```
 
 Créez un rôle de cluster `api-access` avec les privilèges nécessaires pour le
-Plugin et liez-le au compte de service nouvellement créé :
+plugin et liez-le au compte de service nouvellement créé :
 
 ```shell
 cat <<EOF | kubectl create -f -
@@ -625,7 +625,7 @@ ou pour des informations sur le
 
 #### Utilisation de l'API Rest
 
-Si vous avez choisi de communiquer avec l'API Rest de votre plate-forme
+Si vous avez choisi de communiquer avec l'API Rest de votre plateforme
 Kubernetes, les conditions préalables suivantes doivent être remplies :
 
 - Exposez l'API avec TLS,
@@ -710,7 +710,7 @@ kubectl, les conditions préalables suivantes doivent être remplies:
 - Créez une configuration kubectl.
 
 Ces actions sont nécessaires sur tous les Pollers qui effectueront la
-surveillance de Kubernetes.
+supervision de Kubernetes.
 
 ##### Installer kubectl
 
@@ -790,7 +790,7 @@ racine de l'utilisateur de l'Engine du Poller, généralement dans un répertoir
 
 Ce chemin sera utilisé ultérieurement dans la configuration de l'hôte Centreon.
 
-> Vous pouvez également copier la configuration dans le répertoire de
+> Vous devez également copier la configuration dans le répertoire de
 > l'utilisateur Gorgone si vous utilisez Host Discovery.
 
 Référez vous à la
@@ -911,8 +911,8 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
 > Pour la découverte d'hôte :
-> - Si vous utilisez l'API Rest: définissez le jeton [récupérer plus tôt](#recuperer-le-jeton-du-compte-de-service) à partir du compte de service,
-> - Si vous utilisez kubectl: définissez le chemin vers le [fichier de configuration créé](#creer-une-configuration-kubectl) (préférez utiliser le chemin relatif pour le faire fonctionner à la fois pour la découverte et la supervision, c'est-à-dire `~/.kube/config`).
+> - Si vous utilisez l'API Rest: définissez le jeton [récupéré plus tôt](#recuperer-le-jeton-du-compte-de-service) à partir du compte de service,
+> - Si vous utilisez kubectl: définissez le chemin vers le [fichier de configuration créé](#creer-une-configuration-kubectl) (utilisez le chemin relatif pour le faire fonctionner à la fois pour la découverte et la supervision, c'est-à-dire `~/.kube/config`).
 
 </TabItem>
 <TabItem value="Cloud-Kubernetes-Node-Api-custom" label="Cloud-Kubernetes-Node-Api-custom">
@@ -939,8 +939,8 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
 > Pour la découverte d'hôte :
-> - Si vous utilisez l'API Rest: définissez le jeton [récupérer plus tôt](#recuperer-le-jeton-du-compte-de-service) à partir du compte de service,
-> - Si vous utilisez kubectl: définissez le chemin vers le [fichier de configuration créé](#creer-une-configuration-kubectl) (préférez utiliser le chemin relatif pour le faire fonctionner à la fois pour la découverte et la supervision, c'est-à-dire `~/.kube/config`).
+> - Si vous utilisez l'API Rest: définissez le jeton [récupéré plus tôt](#recuperer-le-jeton-du-compte-de-service) à partir du compte de service,
+> - Si vous utilisez kubectl: définissez le chemin vers le [fichier de configuration créé](#creer-une-configuration-kubectl) (utilisez le chemin relatif pour le faire fonctionner à la fois pour la découverte et la supervision, c'est-à-dire `~/.kube/config`).
 
 </TabItem>
 </Tabs>
@@ -1125,12 +1125,12 @@ OK: All StatefulSets status are ok |
 
 ### Diagnostic des erreurs communes
 
-Voici quelques erreurs courantes et leur description. Vous voudrez souvent
+Voici quelques erreurs courantes et leur description. Vous devrez souvent
 utiliser l'option `--debug` pour obtenir l'erreur exacte.
 
 | Erreur                                                                                                 | Description                                                                                                                                                                                                                                                                                               |
 |--------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `UNKNOWN: Cannot decode json response: Can't connect to <hostname>:<port> (certificate verify failed)` | This error may appear if the TLS cetificate in self-signed. Use the option `--ssl-opt="SSL_verify_mode => SSL_VERIFY_NONE"` to omit the certificate validity.                                                                                                                                             |
+| `UNKNOWN: Cannot decode json response: Can't connect to <hostname>:<port> (certificate verify failed)` | This error may appear if the TLS certificate is self-signed. Use the option `--ssl-opt="SSL_verify_mode => SSL_VERIFY_NONE"` to omit the certificate validity.                                                                                                                                             |
 | `UNKNOWN: API return error code '401' (add --debug option for detailed message)`                       | If adding `--debug` option, API response message says `Unauthorized`. It generally means that the provided token is not valid.                                                                                                                                                                            |
 | `UNKNOWN: API return error code '403' (add --debug option for detailed message)`                       | If adding `--debug` option, API response message says `nodes is forbidden: User "system:serviceaccount:<namespace>:<account>" cannot list resource "nodes" in API group "" at the cluster scope`. It means that the cluster role RBAC bound to the service account does not have the necessary privileges |
 | `UNKNOWN: CLI return error code '1' (add --debug option for detailed message)`                         | If adding `--debug` option, CLI response message says `error: stat ~/.kube/config:: no such file or directory`. The provided configuration file cannot be found.                                                                                                                                          |
