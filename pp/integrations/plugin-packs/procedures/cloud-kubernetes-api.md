@@ -997,7 +997,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
 2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
-3. Apply the **Cloud-Kubernetes-Node-Api-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+3. Apply the **Cloud-Kubernetes-Node-Kubectl-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory, in particular the macro for defining the [custom mode](#available-custom-modes), i.e. the connection method to the resource.
 
 | Macro                   | Description                                                                                                                | Default value     | Mandatory   |
