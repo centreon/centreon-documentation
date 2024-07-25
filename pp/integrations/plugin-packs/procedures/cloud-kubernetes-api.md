@@ -937,7 +937,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | KUBERNETESAPITOKEN      | Token retrieved from service account                                                                                       |                   | X           |
 | KUBERNETESAPIPROTO      | Specify https if needed                                                                                                    | https             |             |
 | KUBERNETESAPIPORT       | API port                                                                                                                   | 443               |             |
-| KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               | X           |
+| KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               |             |
 | KUBERNETESAPINAMESPACE  | Set namespace to get informations                                                                                          |                   |             |
 | KUBERNETESNODENAME      | Filter StatefulSet name (can be a regexp)                                                                                  |                   |             |
 | PROXYURL                | Proxy URL if any                                                                                                           |                   |             |
@@ -958,10 +958,10 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | Macro                   | Description                                                                                                                | Default value     | Mandatory   |
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | KUBECTLCONFIGFILE       | Kubernetes configuration file path (default: '~/.kube/config'). (example: --config-file='/root/.kube/config').             |                   | X           |
-| KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | kubectl           | X           |
+| KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | kubectl           |             |
 | KUBERNETESNODENAME      | Filter StatefulSet name (can be a regexp)                                                                                  |                   |             |
 | PROXYURL                | Proxy URL if any                                                                                                           |                   |             |
-| TIMEOUT                 | Set timeout in seconds (default: 10)                                                                                       | 10                |             |
+| TIMEOUT                 | Set timeout in seconds                                                                                                     | 10                |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -981,7 +981,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | KUBERNETESAPITOKEN      | Token retrieved from service account                                                                                       |                   | X           |
 | KUBERNETESAPIPROTO      | Specify https if needed                                                                                                    | https             |             |
 | KUBERNETESAPIPORT       | API port                                                                                                                   | 443               |             |
-| KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               | X           |
+| KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               |             |
 | KUBERNETESAPINAMESPACE  | Set namespace to get informations                                                                                          |                   |             |
 | KUBERNETESNODENAME      | Filter node name (can be a regexp)                                                                                         |                   |             |
 | PROXYURL                | Proxy URL if any                                                                                                           |                   |             |
@@ -1003,10 +1003,10 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | Macro                   | Description                                                                                                                | Default value     | Mandatory   |
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | KUBECTLCONFIGFILE       | Kubernetes configuration file path (default: '~/.kube/config'). (example: --config-file='/root/.kube/config').             |                   | X           |
-| KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | kubectl           | X           |
+| KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | kubectl           |             |
 | KUBERNETESNODENAME      | Filter StatefulSet name (can be a regexp)                                                                                  |                   |             |
 | PROXYURL                | Proxy URL if any                                                                                                           |                   |             |
-| TIMEOUT                 | Set timeout in seconds (default: 10)                                                                                       | 10                |             |
+| TIMEOUT                 | Set timeout in seconds                                                                                                     | 10                |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
