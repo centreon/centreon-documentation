@@ -26,7 +26,9 @@ Ce Pack vise à superviser à la fois la couche d'infrastructure (noeuds) et les
 Le connecteur de supervision **Kubernetes API** apporte 2 modèles d'hôte :
 
 * **Cloud-Kubernetes-Api-custom**
+* **Cloud-Kubernetes-Kubectl-custom**
 * **Cloud-Kubernetes-Node-Api-custom**
+* **Cloud-Kubernetes-Node-Kubectl-custom**
 
 Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
@@ -54,6 +56,29 @@ Le connecteur apporte les modèles de service suivants
 
 > Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
 
+<Tabs groupId="sync">
+<TabItem value="Cloud-Kubernetes-Kubectl-custom" label="Cloud-Kubernetes-Kubectl-custom">
+
+| Alias                        | Modèle de service                                        | Description                                              | Découverte |
+|:-----------------------------|:---------------------------------------------------------|:---------------------------------------------------------|:----------:|
+| Cluster-Events               | Cloud-Kubernetes-Cluster-Events-Api-custom               | Contrôle le nombre d'événements survenant sur le cluster |            |
+| CronJob-Status               | Cloud-Kubernetes-CronJob-Status-Api-custom               | Contrôle le statut des CronJobs                          | X          |
+| Daemonset-Status             | Cloud-Kubernetes-Daemonset-Status-Api-custom             | Contrôle le statut des DaemonSets                        | X          |
+| Deployment-Status            | Cloud-Kubernetes-Deployment-Status-Api-custom            | Contrôle le statut des Deployments                       | X          |
+| Node-Status                  | Cloud-Kubernetes-Node-Status-Api-custom                  | Contrôle le statut des Nodes                             |            |
+| Node-Status                  | Cloud-Kubernetes-Node-Status-Name-Api-custom             | Contrôle le statut d'un Node identifié par son nom (par exemple à l'issue de la règle de découverte associée) | X          |
+| Node-Usage                   | Cloud-Kubernetes-Node-Usage-Api-custom                   | Contrôle l'utilisation des noeuds                        |            |
+| Node-Usage                   | Cloud-Kubernetes-Node-Usage-Name-Api-custom              | Contrôle l'utilisation d'un noeud identifié par son nom (par exemple à l'issue de la règle de découverte associée) | X          |
+| PersistentVolume-Status      | Cloud-Kubernetes-PersistentVolume-Status-Api-custom      | Contrôle le statut des PersistentVolumes                 | X          |
+| Pod-Status                   | Cloud-Kubernetes-Pod-Status-Api-custom                   | Contrôle le statut des pods et des containers            | X          |
+| ReplicaSet-Status            | Cloud-Kubernetes-ReplicaSet-Status-Api-custom            | Contrôle le statut des ReplicaSets                       | X          |
+| ReplicationController-Status | Cloud-Kubernetes-ReplicationController-Status-Api-custom | Contrôle le statut des ReplicationControllers            | X          |
+| StatefulSet-Status           | Cloud-Kubernetes-StatefulSet-Status-Api-custom           | Contrôle le statut des StatefulSets                      | X          |
+
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Kubernetes-Kubectl-custom** est utilisé.
+
+> Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
+
 </TabItem>
 <TabItem value="Cloud-Kubernetes-Node-Api-custom" label="Cloud-Kubernetes-Node-Api-custom">
 
@@ -65,6 +90,20 @@ Le connecteur apporte les modèles de service suivants
 | Node-Usage  | Cloud-Kubernetes-Node-Usage-Name-Api-custom  | Contrôle l'utilisation d'un noeud identifié par son nom (par exemple à l'issue de la règle de découverte associée) | X          |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Kubernetes-Node-Api-custom** est utilisé.
+
+> Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
+
+</TabItem>
+<TabItem value="Cloud-Kubernetes-Node-Kubectl-custom" label="Cloud-Kubernetes-Node-Kubectl-custom">
+
+| Alias       | Modèle de service                            | Description                       | Découverte |
+|:------------|:---------------------------------------------|:----------------------------------|:----------:|
+| Node-Status | Cloud-Kubernetes-Node-Status-Api-custom      | Contrôle le statut des Nodes      |            |
+| Node-Status | Cloud-Kubernetes-Node-Status-Name-Api-custom | Contrôle le statut d'un Node identifié par son nom (par exemple à l'issue de la règle de découverte associée) | X          |
+| Node-Usage  | Cloud-Kubernetes-Node-Usage-Api-custom       | Contrôle l'utilisation des noeuds |            |
+| Node-Usage  | Cloud-Kubernetes-Node-Usage-Name-Api-custom  | Contrôle l'utilisation d'un noeud identifié par son nom (par exemple à l'issue de la règle de découverte associée) | X          |
+
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Kubernetes-Node-Kubectl-custom** est utilisé.
 
 > Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
 
@@ -902,9 +941,31 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | KUBERNETESAPITOKEN      |  Token retrieved from service account                                                                                                                          |                   | X           |
 | KUBERNETESAPIPROTO      | Specify https if needed                                                                                  | https             |             |
 | KUBERNETESAPIPORT       | API port                                                                                                    | 443               |             |
-| KUBECTLCONFIGFILE       | Kubernetes configuration file path (default: '~/.kube/config'). (example: --config-file='/root/.kube/config'). Mandatory only if using kubectl as `KUBERNETESAPICUSTOMMODE`              |                   | X           |
-| KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               |             |
+| KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               | X            |
 | KUBERNETESAPINAMESPACE  | Set namespace to get informations                                                                                          |                   |             |
+| KUBERNETESNODENAME      | Filter StatefulSet name (can be a regexp)                                                                                  |                   |             |
+| PROXYURL                | Proxy URL if any                                                                                                           |                   |             |
+| TIMEOUT                 | Set timeout in seconds (default: 10)                                                                                       | 10                |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
+
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
+
+> Pour la découverte d'hôte :
+> - Si vous utilisez l'API Rest: définissez le jeton [récupéré plus tôt](#recuperer-le-jeton-du-compte-de-service) à partir du compte de service,
+> - Si vous utilisez kubectl: définissez le chemin vers le [fichier de configuration créé](#creer-une-configuration-kubectl) (utilisez le chemin relatif pour le faire fonctionner à la fois pour la découverte et la supervision, c'est-à-dire `~/.kube/config`).
+
+</TabItem>
+<TabItem value="Cloud-Kubernetes-Kubectl-custom" label="Cloud-Kubernetes-Kubectl-custom">
+
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **Cloud-Kubernetes-Kubectl-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modesdisponibles), c'est-à-dire la méthode de connexion à la ressource.
+
+| Macro                   | Description                                                                                                                | Valeur par défaut | Obligatoire |
+|:------------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| KUBECTLCONFIGFILE       | Kubernetes configuration file path (default: '~/.kube/config'). (example: --config-file='/root/.kube/config'). Mandatory only if using kubectl as `KUBERNETESAPICUSTOMMODE`              |                   | X           |
+| KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | kubectl                | X           |
 | KUBERNETESNODENAME      | Filter StatefulSet name (can be a regexp)                                                                                  |                   |             |
 | PROXYURL                | Proxy URL if any                                                                                                           |                   |             |
 | TIMEOUT                 | Set timeout in seconds (default: 10)                                                                                       | 10                |             |
@@ -930,12 +991,34 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | KUBERNETESAPITOKEN      | Token retrieved from service account                                                                                                                           |                   | X           |
 | KUBERNETESAPIPROTO      | Specify https if needed                                                                                  | https             |             |
 | KUBERNETESAPIPORT       | API port                                                                                                     | 443               |             |
-| KUBECTLCONFIGFILE       | Kubernetes configuration file path (default: '~/.kube/config'). (example: --config-file='/root/.kube/config'). Mandatory only if using kubectl as `KUBERNETESAPICUSTOMMODE`              |                   | X           |
-| KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               |             |
+| KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               | X           |
 | KUBERNETESAPINAMESPACE  | Set namespace to get informations                                                                                          |                   |             |
 | KUBERNETESNODENAME      | Filter node name (can be a regexp)                                                                                         |                   |             |
 | PROXYURL                | Proxy URL if any                                                                                                           |                   |             |
 | TIMEOUT                 | Set timeout in seconds                                                                                        | 10                |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
+
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
+
+> Pour la découverte d'hôte :
+> - Si vous utilisez l'API Rest: définissez le jeton [récupéré plus tôt](#recuperer-le-jeton-du-compte-de-service) à partir du compte de service,
+> - Si vous utilisez kubectl: définissez le chemin vers le [fichier de configuration créé](#creer-une-configuration-kubectl) (utilisez le chemin relatif pour le faire fonctionner à la fois pour la découverte et la supervision, c'est-à-dire `~/.kube/config`).
+
+</TabItem>
+<TabItem value="Cloud-Kubernetes-Node-Kubectl-custom" label="Cloud-Kubernetes-Node-Kubectl-custom">
+
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **Cloud-Kubernetes-Node-Kubectl-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modesdisponibles), c'est-à-dire la méthode de connexion à la ressource.
+
+| Macro                   | Description                                                                                                                | Valeur par défaut | Obligatoire |
+|:------------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| KUBECTLCONFIGFILE       | Kubernetes configuration file path (default: '~/.kube/config'). (example: --config-file='/root/.kube/config'). Mandatory only if using kubectl as `KUBERNETESAPICUSTOMMODE`              |                   | X           |
+| KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | kubectl                | X           |
+| KUBERNETESNODENAME      | Filter StatefulSet name (can be a regexp)                                                                                  |                   |             |
+| PROXYURL                | Proxy URL if any                                                                                                           |                   |             |
+| TIMEOUT                 | Set timeout in seconds (default: 10)                                                                                       | 10                |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
