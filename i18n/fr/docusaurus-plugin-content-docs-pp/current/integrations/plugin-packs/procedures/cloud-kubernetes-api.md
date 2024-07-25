@@ -56,7 +56,7 @@ Le connecteur apporte les modèles de service suivants
 
 > Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
 
-<Tabs groupId="sync">
+</TabItem>
 <TabItem value="Cloud-Kubernetes-Kubectl-custom" label="Cloud-Kubernetes-Kubectl-custom">
 
 | Alias                        | Modèle de service                                        | Description                                              | Découverte |
