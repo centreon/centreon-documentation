@@ -211,6 +211,24 @@ Many features have been added in this version.
 
 ## Centreon Collect
 
+### 24.04.4
+
+Release date: `July 27, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] If a service status was not 0, 1 or 2, it was written in RRD as an empty value. This raised an error in librrd. Now we send 'U' to RRD, which is a value that librrd accepts.
+- [Broker] The default log level for Broker is now error instead of info (except for the core and config logs, which are info).
+- [Engine] The default log level for Engine is now error instead of info (except for the core and config logs, which are info).
+- [Engine] fix(engine): output of external commands are sometimes truncated
+- [Engine] fix (common): anomaly config files are open in readonly mode
+- [Engine] fix (common): all logger configs are taken into account (runtime and otl)
+- [Engine] If a service contained several metrics with the same name, some of them were overwritten. Now during the parsing, a warning log explains the issue and only the first occurrence of the metric is kept.
+- [Engine] If a service contains several times the same metric name, some of them were overwritten. Now during the parsing, a warning log explains the issue and only the first occurence of the metric is kept.
+
+</details>
+
 ### 24.04.3
 
 Release date: `July 17, 2024`
