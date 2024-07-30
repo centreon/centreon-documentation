@@ -21,7 +21,7 @@ Before deploying a poller, make sure the [prerequisites](prerequisites.md) for y
 
 3. [On your central server](../getting-started/interface.md#accessing-the-central-servers-interface), click the arrow next to **Pollers** at the left of the header bar.
 
-4. In the pop-up that appears, click **Copy install command**. The command is copied to your clipboard.
+4. In the pop-up that appears, click **Copy install command**. The command is copied to your clipboard. ## doesn't exist anywhere in the new centron setup. 
 
 5. On the server that will become your poller, in your terminal, paste the install command and execute it (this should take about 10 minutes).
 
