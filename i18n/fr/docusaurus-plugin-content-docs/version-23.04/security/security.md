@@ -83,9 +83,9 @@ Si vous pensez avoir trouvé une faille de sécurité, veuillez nous la signaler
 
 Veuillez ne pas exposer les vulnérabilités de sécurité via le signalement GitHub de bogue dit « Issue ».
 
-Envoyez un email à [security@centreon.com](mailto:security@centreon.com). Si possible, chiffrez votre message avec 
+Les utilisateurs open source peuvent envoyer un email à [security@centreon.com](mailto:security@centreon.com). Si possible, chiffrez votre message avec 
 la [clé PGP](https://github.com/centreon/centreon/security/policy#pgp-information)
-fournie.
+fournie. Pour les utilisateurs des solutions commerciales, merci de faire un rapport via le [portail support](https://support.centreon.com/).
 
 Vous devriez recevoir une réponse dans les 48 heures. Si, pour une raison quelconque ce n’est pas le
 cas, n'hésitez pas à nous relancer par e-mail pour vous assurer que nous avons reçu votre message initial.
