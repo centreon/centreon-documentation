@@ -76,8 +76,8 @@ If you believe you have found a security vulnerability, please report it to us a
 
 Please do not report security vulnerabilities through public GitHub issues.
 
-Send an email to [security@centreon.com](mailto:security@centreon.com). If possible, encrypt your message with the [provided PGP
-key](https://github.com/centreon/centreon/security/policy#pgp-information).
+Open source users can send an email to [security@centreon.com](mailto:security@centreon.com). If possible, encrypt your message with the [provided PGP
+key](https://github.com/centreon/centreon/security/policy#pgp-information). Commercial edition customers should report vulnerabilities through the [support portal](https://support.centreon.com).
 
 You should receive a response within 48 hours. If for some reason you do not, please follow up via
 email to ensure we received your original message.
