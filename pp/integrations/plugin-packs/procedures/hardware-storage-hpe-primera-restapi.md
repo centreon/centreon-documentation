@@ -427,7 +427,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: Number of licenses: 76 Number of expired licenses: 81 All licenses are ok | 'licenses.total.count'=76;;;0;'licenses.expired.count'=81;;;0;total'*license_expiration*#license.expiration.seconds'=s;;;;
+CRITICAL: License 'Adaptive Flash Cache' expires: 2024-07-14. Adaptive Flash Cache license has expired. \| 'licenses.total.count'=25;;;0; 'licenses.expired.count'=1;;;0;25 'Adaptive Flash Cache#Adaptive Flash Cache#license.expiration.seconds'=0s;1296000:;86400:;0; 'Autonomic Rebalance#Autonomic Rebalance#license.expiration.seconds'=1234567890s;1296000:;86400:;0;
 ```
 
 ### Troubleshooting
