@@ -67,11 +67,7 @@ Les paragraphes ci-après détaillent les problèmes connus de Centreon. Ceux-ci
 
 ## Connexion
 
-* Un bouton **Connect with OpenID** peut apparaître brièvement sur l'écran de connexion. Attendez quelques secondes pour vous connecter.
-
-* Un contact ne peut pas être supprimé d'une organisation (et son accès à Centreon ne peut pas être révoqué) via l'interface du CIAM.
-
-   **Contournement**: Centreon peut supprimer un contact d'une organisation pour vous. [Contactez le support technique](https://support.centreon.com).
+* Un bouton **Connect with OpenID** peut apparaître brièvement sur l'écran de connexion, aisin qu'un message "URL not found". Attendez quelques secondes pour vous connecter.
 
 ## MAP
 
