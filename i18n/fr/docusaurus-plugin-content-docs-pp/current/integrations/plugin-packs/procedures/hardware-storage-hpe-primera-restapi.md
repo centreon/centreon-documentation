@@ -5,6 +5,15 @@ title: HPE Primera REST API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Compatibilité
+
+Ce connecteur devrait être compatible avec les produits suivants.
+
+| Produit     | Modèles       | Versions |
+| ----------- | ------------- | -------- |
+| HPE Primera | C650 2 noeuds | 4.5.24.7 |
+| HPE Alletra | 9000          | NA       |
+
 ## Contenu du pack
 
 ### Modèles

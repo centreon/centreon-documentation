@@ -5,6 +5,15 @@ title: HPE Primera REST API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Compatibility
+
+This connector should be compatible with the following products.
+
+| Product     | Model        | Versions |
+|-------------|--------------|----------|
+| HPE Primera | C650 2 nodes | 4.5.24.7 |
+| HPE Alletra | 9000         | NA       |
+
 ## Pack assets
 
 ### Templates
