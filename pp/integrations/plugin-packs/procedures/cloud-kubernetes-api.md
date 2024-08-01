@@ -245,15 +245,14 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Cluster-Events" label="Cluster-Events">
 
-This indicator allows you to watch the number of events occurring on the cluster,
-like the `kubectl get events` can provide:
+This indicator allows you to watch the number of events occurring on the cluster. If the `kubectl get events` command has the following output:
 
 ```text
 NAMESPACE   LAST SEEN   TYPE      REASON      OBJECT           MESSAGE
 graphite    26m         Warning   Unhealthy   pod/graphite-0   Liveness probe failed: Get "http://10.244.2.10:8080/": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
 ```
 
-The resulting output in Centreon could look like:
+Then the resulting output in Centreon could look like:
 
 ```text
 Event 'Warning' for object 'Pod/graphite-0' with message 'Liveness probe failed: Get "http://10.244.2.10:8080/": context deadline exceeded (Client.Timeout exceeded while awaiting headers)', Count: 1, First seen: 26m 21s ago (2021-03-11T12:26:23Z), Last seen: 26m 21s ago (2021-03-11T12:26:23Z)
@@ -262,22 +261,21 @@ Event 'Warning' for object 'Pod/graphite-0' with message 'Liveness probe failed:
 </TabItem>
 <TabItem value="CronJob-Status" label="CronJob-Status">
 
-This indicator allows to check that CronJobs are executed as they should,
-like the `kubectl get cronjobs` can provide:
+This indicator allows to check that CronJobs are executed as they should. If the `kubectl get cronjobs` command has the following output:
 
 ```text
 NAME    SCHEDULE      SUSPEND   ACTIVE   LAST SCHEDULE   AGE
 hello   */1 * * * *   False     1        6s              2d1h
 ```
 
-The resulting output in Centreon could look like:
+Then the resulting output in Centreon could look like:
 
 ```text
 CronJob 'hello' Jobs Active: 1, Last schedule time: 6s ago (2021-03-11T12:31:00Z)
 ```
 
-If the service collects metrics of several CronJobs (depending on the
-chosen scenario), CronJob's name will be appended to the metric name:
+If the service collects metrics for several CronJobs (depending on the
+chosen scenario), the CronJob's name will be appended to the metric's name:
 
 | Metric                            |
 |-----------------------------------|
@@ -288,7 +286,7 @@ chosen scenario), CronJob's name will be appended to the metric name:
 
 This indicator will ensure that DaemonSets are within defined bounds by
 looking at the number of available and/or up-to-date pods compared to
-the desired count, like the `kubectl get daemonsets` can provide:
+the desired count. If the `kubectl get daemonsets` command has the following output:
 
 ```text
 NAMESPACE     NAME                    DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR                   AGE
@@ -296,15 +294,15 @@ kube-system   kube-flannel-ds-amd64   3         3         3       3            3
 kube-system   kube-proxy              3         3         3       3            3           kubernetes.io/os=linux          624d
 ```
 
-The resulting output in Centreon could look like:
+Then the resulting output in Centreon could look like:
 
 ```text
 Daemonset 'kube-flannel-ds-amd64' Pods Desired: 3, Current: 3, Available: 3, Up-to-date: 3, Ready: 3, Misscheduled: 0
 Daemonset 'kube-proxy' Pods Desired: 3, Current: 3, Available: 3, Up-to-date: 3, Ready: 3, Misscheduled: 0
 ```
 
-If the service collects metrics of several DaemonSets (depending on the
-chosen scenario), DaemonSet's name will be appended to the metric name:
+If the service collects metrics for several DaemonSets (depending on the
+chosen scenario), the DaemonSet's name will be appended to the metric's name:
 
 | Metric                                    |
 |-------------------------------------------|
@@ -315,7 +313,7 @@ chosen scenario), DaemonSet's name will be appended to the metric name:
 
 This indicator will ensure that Deployments are within defined bounds by
 looking at the number of available and/or up-to-date replicas compared to
-the desired count, like the `kubectl get deployments` can provide:
+the desired count. If the `kubectl get deployments` command has the following output:
 
 ```text
 NAMESPACE              NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
@@ -325,7 +323,7 @@ kubernetes-dashboard   dashboard-metrics-scraper   1/1     1            1       
 kubernetes-dashboard   kubernetes-dashboard        1/1     1            1           37d
 ```
 
-The resulting output in Centreon could look like:
+Then the resulting output in Centreon could look like:
 
 ```text
 Deployment 'coredns' Replicas Desired: 2, Current: 2, Available: 2, Ready: 2, Up-to-date: 2
@@ -334,8 +332,8 @@ Deployment 'dashboard-metrics-scraper' Replicas Desired: 1, Current: 1, Availabl
 Deployment 'kubernetes-dashboard' Replicas Desired: 1, Current: 1, Available: 1, Ready: 1, Up-to-date: 1
 ```
 
-If the service collects metrics of several Deployments (depending on the
-chosen scenario), Deployment's name will be appended to the metric name:
+If the service collects metrics for several Deployments (depending on the
+chosen scenario), the Deployment's name will be appended to the metric's name:
 
 | Metric                                            |
 |---------------------------------------------------|
@@ -345,7 +343,7 @@ chosen scenario), Deployment's name will be appended to the metric name:
 <TabItem value="Node-Status*" label="Node-Status*">
 
 This indicator will ensure that Nodes are running well by looking at the
-conditions statuses, like the `kubectl describe nodes` can list:
+conditions statuses. If the `kubectl describe nodes` command has the following output:
 
 ```text
 Conditions:
@@ -357,7 +355,7 @@ Conditions:
   Ready            True    Thu, 11 Mar 2021 14:20:25 +0100   Tue, 26 Jan 2021 17:26:36 +0100   KubeletReady                 kubelet is posting ready status
 ```
 
-The resulting output in Centreon could look like:
+Then the resulting output in Centreon could look like:
 
 ```text
 Condition 'DiskPressure' Status is 'False', Reason: 'KubeletHasNoDiskPressure', Message: 'kubelet has no disk pressure'
@@ -419,7 +417,7 @@ Node 'master-node' CPU requests: 37.50% (0.75/2), CPU limits: 5.00% (0.1/2), Mem
 Node 'worker-node' CPU requests: 35.00% (0.7/2), CPU limits: 115.00% (2.3/2), Memory requests: 31.51% (1.17GB/3.70GB), Memory limits: 115.21% (4.26GB/3.70GB), Pods allocation: 9.09% (10/110)
 ```
 
-If the service collects metrics of several Nodes (depending on the
+If the service collects metrics for several Nodes (depending on the
 chosen scenario), Node's name will be appended to the metric name:
 
 | Metric                                   |
@@ -432,7 +430,7 @@ chosen scenario), Node's name will be appended to the metric name:
 <TabItem value="PersistentVolume-Status" label="PersistentVolume-Status">
 
 This indicator will ensure that PersistentVolumes are operating correctly by
-looking at the phase they are in, like the `kubectl get pv` can provide:
+looking at the phase they are in. If the `kubectl get pv` command has the following output:
 
 ```text
 NAME                     CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM                   STORAGECLASS   REASON   AGE
@@ -441,7 +439,7 @@ pv-nfs-kubestorage-002   5Gi        RWO            Retain           Bound       
 pv-nfs-kubestorage-003   5Gi        RWO            Retain           Released    graphite/graphite-pvc                           630d
 ```
 
-The resulting output in Centreon could look like:
+Then the resulting output in Centreon could look like:
 
 ```text
 Persistent Volume 'pv-nfs-kubestorage-001' Phase is 'Available'
@@ -454,7 +452,7 @@ Persistent Volume 'pv-nfs-kubestorage-003' Phase is 'Released'
 
 This indicator will ensure that Pods and their containers are within defined
 bounds by looking at the number of ready containers compared to
-the desired count, like the `kubectl get pods` can provide:
+the desired count. If the `kubectl get pods` command has the following output:
 
 ```text
 NAMESPACE              NAME                                                     READY   STATUS        RESTARTS   AGE
@@ -466,7 +464,7 @@ kubernetes-dashboard   dashboard-metrics-scraper-79c5968bdc-vncxc               
 kubernetes-dashboard   kubernetes-dashboard-7448ffc97b-42rps                    1/1     Running       0          37d
 ```
 
-The resulting output in Centreon could look like:
+Then the resulting output in Centreon could look like:
 
 ```text
 Checking pod 'kube-proxy-65zhn'
@@ -489,9 +487,9 @@ Checking pod 'kubernetes-dashboard-7448ffc97b-42rps'
     Container 'kubernetes-dashboard' Status is 'running', State is 'ready', Restarts: 0
 ```
 
-If the service collects metrics of several Pods (depending on the
-chosen scenario), Pod's name and container's name will be appended to the
-metric name:
+If the service collects metrics for several Pods (depending on the
+chosen scenario), the Pod's name and the container's name will be appended to the
+metric's name:
 
 | Metric                                                      |
 |-------------------------------------------------------------|
@@ -503,8 +501,7 @@ metric name:
 <TabItem value="ReplicaSet-Status" label="ReplicaSet-Status">
 
 This indicator will ensure that ReplicaSets are within defined bounds by
-looking at the number of ready replicas compared to the desired count,
-like the `kubectl get replicasets` can provide:
+looking at the number of ready replicas compared to the desired count. If the `kubectl get replicasets` command has the following output:
 
 ```text
 NAMESPACE              NAME                                   DESIRED   CURRENT   READY   AGE
@@ -514,7 +511,7 @@ kubernetes-dashboard   dashboard-metrics-scraper-79c5968bdc   1         1       
 kubernetes-dashboard   kubernetes-dashboard-7448ffc97b        1         1         1       44d
 ```
 
-The resulting output in Centreon could look like:
+Then the resulting output in Centreon could look like:
 
 ```text
 ReplicaSet 'coredns-74ff55c5b' Replicas Desired: 2, Current: 2, Ready: 2
@@ -523,8 +520,8 @@ ReplicaSet 'dashboard-metrics-scraper-79c5968bdc' Replicas Desired: 1, Current: 
 ReplicaSet 'kubernetes-dashboard-7448ffc97b' Replicas Desired: 1, Current: 1, Ready: 1
 ```
 
-If the service collects metrics of several ReplicaSets (depending on the
-chosen scenario), ReplicaSet's name will be appended to the metric name:
+If the service collects metrics for several ReplicaSets (depending on the
+chosen scenario), the ReplicaSet's name will be appended to the metric's name:
 
 | Metric                                                       |
 |--------------------------------------------------------------|
@@ -535,22 +532,22 @@ chosen scenario), ReplicaSet's name will be appended to the metric name:
 
 This indicator will ensure that ReplicationControllers are within defined
 bounds by looking at the number of ready replicas compared to the desired
-count, like the `kubectl get rc` can provide:
+count. If the `kubectl get rc` command has the following output:
 
 ```text
 NAMESPACE   NAME    DESIRED   CURRENT   READY   AGE
 elk         nginx   3         3         3       2d19h
 ```
 
-The resulting output in Centreon could look like:
+Then the resulting output in Centreon could look like:
 
 ```text
 ReplicationController 'nginx' Replicas Desired: 3, Current: 3, Ready: 3
 ```
 
-If the service collects metrics of several ReplicationControllers (depending
-on the chosen scenario), ReplicationController's name will be appended to
-the metric name:
+If the service collects metrics for several ReplicationControllers (depending
+on the chosen scenario), the ReplicationController's name will be appended to
+the metric's name:
 
 | Metric                                               |
 |------------------------------------------------------|
@@ -561,7 +558,7 @@ the metric name:
 
 This indicator will ensure that StatefulSets are within defined bounds by
 looking at the number of ready/up-to-date replicas compared to the desired
-count, like the `kubectl get statefulsets` can provide:
+count. If the `kubectl get statefulsets` command has the following output:
 
 ```text
 NAMESPACE    NAME                                        READY   AGE
@@ -570,7 +567,7 @@ graphite     graphite                                    1/1     3d
 prometheus   prometheus-prometheus-operator-prometheus   1/1     619d
 ```
 
-The resulting output in Centreon could look like:
+Then the resulting output in Centreon could look like:
 
 ```text
 StatefulSet 'elasticsearch-master' Replicas Desired: 2, Current: 2, Up-to-date: 2, Ready: 2
@@ -578,8 +575,8 @@ StatefulSet 'graphite' Replicas Desired: 1, Current: 1, Up-to-date: 1, Ready: 1
 StatefulSet 'prometheus-prometheus-operator-prometheus' Replicas Desired: 1, Current: 1, Up-to-date: 1, Ready: 1
 ```
 
-If the service collects metrics of several StatefulSets (depending on the
-chosen scenario), StatefulSet's name will be appended to the metric name:
+If the service collects metrics for several StatefulSets (depending on the
+chosen scenario), the StatefulSet's name will be appended to the metric's name:
 
 | Metric                                        |
 |-----------------------------------------------|
