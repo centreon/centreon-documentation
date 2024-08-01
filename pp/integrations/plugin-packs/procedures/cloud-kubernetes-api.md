@@ -9,20 +9,20 @@ import TabItem from '@theme/TabItem';
 
 ### Preamble
 
-This Pack aims to monitor both infrastructure layer (nodes) and cluster
-services (deployments, daemonsets, etc). The Kubernetes API Pack gives 
-multiple choices regarding the way you can arrange a cluster monitoring. 
-There is mainly three ways:
+This Pack aims to monitor both the infrastructure layer (nodes) and the cluster
+services (deployments, daemonsets, etc) of a Kubernetes cluster. The Kubernetes API pack gives 
+multiple choices regarding the way you can arrange cluster monitoring. 
+There are mainly three ways:
 
 - Gather all metrics on only one Centreon host with a service per Kubernetes
   unit (i.e. deployments, daemonsets, etc) - apply
   [manual creation](#using-a-host-template-provided-by-the-connector) procedure,
 - Gather all metrics on only one Centreon host with a service for each
-  instances of each Kubernetes units - apply [manual creation](#using-a-host-template-provided-by-the-connector)
+  instance of each Kubernetes unit - apply [manual creation](#using-a-host-template-provided-by-the-connector)
   and [service discovery](#using-a-service-template-provided-by-the-connector) procedures,
 - Collect infrastructural metrics (master and worker nodes) with a Centreon
   host per Kubernetes node, and keep orchestration/application metrics
-  on a unique host (using one of the 2 previous scenarii) - apply
+  on a unique host (using one of the 2 previous scenarios) - apply the
   [host discovery](/docs/monitoring/discovery/hosts-discovery) procedure.
 
 ### Templates
@@ -41,12 +41,12 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias                | Service Template                                         | Service Description                                                                                        | Discovery  |
 |:-----------------------------|:---------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------|:----------:|
-| Cluster-Events               | Cloud-Kubernetes-Cluster-Events-Api-custom               | Check the number of events occurring on the cluster                                                        |            |
+| Cluster-Events               | Cloud-Kubernetes-Cluster-Events-Api-custom               | Check the number of events occurring in the cluster                                                        |            |
 | CronJob-Status               | Cloud-Kubernetes-CronJob-Status-Api-custom               | Check CronJobs status                                                                                      | X          |
 | Daemonset-Status             | Cloud-Kubernetes-Daemonset-Status-Api-custom             | Check DaemonSets status                                                                                    | X          |
 | Deployment-Status            | Cloud-Kubernetes-Deployment-Status-Api-custom            | Check Deployments status                                                                                   | X          |
 | Node-Status                  | Cloud-Kubernetes-Node-Status-Api-custom                  | Check Nodes status                                                                                         |            |
-| Node-Status                  | Cloud-Kubernetes-Node-Status-Name-Api-custom             | Checks status of a node identified by its name (for example at the end of the associated discovery rule)   | X          |
+| Node-Status                  | Cloud-Kubernetes-Node-Status-Name-Api-custom             | Check status of a node identified by its name (for example at the end of the associated discovery rule)   | X          |
 | Node-Usage                   | Cloud-Kubernetes-Node-Usage-Api-custom                   | Check nodes usage                                                                                          |            |
 | Node-Usage                   | Cloud-Kubernetes-Node-Usage-Name-Api-custom              | Check the usage of a node identified by its name (for example at the end of the associated discovery rule) | X          |
 | PersistentVolume-Status      | Cloud-Kubernetes-PersistentVolume-Status-Api-custom      | Check PersistentVolumes status                                                                             | X          |
@@ -64,12 +64,12 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias                | Service Template                                         | Service Description                                                                                        | Discovery  |
 |:-----------------------------|:---------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------|:----------:|
-| Cluster-Events               | Cloud-Kubernetes-Cluster-Events-Api-custom               | Check the number of events occurring on the cluster                                                        |            |
+| Cluster-Events               | Cloud-Kubernetes-Cluster-Events-Api-custom               | Check the number of events occurring in the cluster                                                        |            |
 | CronJob-Status               | Cloud-Kubernetes-CronJob-Status-Api-custom               | Check CronJobs status                                                                                      | X          |
 | Daemonset-Status             | Cloud-Kubernetes-Daemonset-Status-Api-custom             | Check DaemonSets status                                                                                    | X          |
 | Deployment-Status            | Cloud-Kubernetes-Deployment-Status-Api-custom            | Check Deployments status                                                                                   | X          |
 | Node-Status                  | Cloud-Kubernetes-Node-Status-Api-custom                  | Check Nodes status                                                                                         |            |
-| Node-Status                  | Cloud-Kubernetes-Node-Status-Name-Api-custom             | Checks status of a node identified by its name (for example at the end of the associated discovery rule)   | X          |
+| Node-Status                  | Cloud-Kubernetes-Node-Status-Name-Api-custom             | Check the status of a node identified by its name (for example at the end of the associated discovery rule)   | X          |
 | Node-Usage                   | Cloud-Kubernetes-Node-Usage-Api-custom                   | Check nodes usage                                                                                          |            |
 | Node-Usage                   | Cloud-Kubernetes-Node-Usage-Name-Api-custom              | Check the usage of a node identified by its name (for example at the end of the associated discovery rule) | X          |
 | PersistentVolume-Status      | Cloud-Kubernetes-PersistentVolume-Status-Api-custom      | Check PersistentVolumes status                                                                             | X          |
@@ -88,7 +88,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias | Service Template                             | Service Description                                                                                        | Discovery  |
 |:--------------|:---------------------------------------------|:-----------------------------------------------------------------------------------------------------------|:----------:|
 | Node-Status   | Cloud-Kubernetes-Node-Status-Api-custom      | Check Nodes status                                                                                         |            |
-| Node-Status   | Cloud-Kubernetes-Node-Status-Name-Api-custom | Checks status of a node identified by its name (for example at the end of the associated discovery rule)   | X          |
+| Node-Status   | Cloud-Kubernetes-Node-Status-Name-Api-custom | Check the status of a node identified by its name (for example at the end of the associated discovery rule)   | X          |
 | Node-Usage    | Cloud-Kubernetes-Node-Usage-Api-custom       | Check nodes usage                                                                                          |            |
 | Node-Usage    | Cloud-Kubernetes-Node-Usage-Name-Api-custom  | Check the usage of a node identified by its name (for example at the end of the associated discovery rule) | X          |
 
@@ -102,7 +102,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias | Service Template                             | Service Description                                                                                        | Discovery  |
 |:--------------|:---------------------------------------------|:-----------------------------------------------------------------------------------------------------------|:----------:|
 | Node-Status   | Cloud-Kubernetes-Node-Status-Api-custom      | Check Nodes status                                                                                         |            |
-| Node-Status   | Cloud-Kubernetes-Node-Status-Name-Api-custom | Checks status of a node identified by its name (for example at the end of the associated discovery rule)   | X          |
+| Node-Status   | Cloud-Kubernetes-Node-Status-Name-Api-custom | Check the status of a node identified by its name (for example at the end of the associated discovery rule)   | X          |
 | Node-Usage    | Cloud-Kubernetes-Node-Usage-Api-custom       | Check nodes usage                                                                                          |            |
 | Node-Usage    | Cloud-Kubernetes-Node-Usage-Name-Api-custom  | Check the usage of a node identified by its name (for example at the end of the associated discovery rule) | X          |
 
@@ -119,8 +119,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name                  | Description                                                              |
 |----------------------------|--------------------------------------------------------------------------|
-| Kubernetes Nodes (RestAPI) | Discover Kubernetes nodes by requesting Kubernetes RestAPI               |
-| Kubernetes Nodes (Kubectl) | Discover Kubernetes nodes by requesting Kubernetes cluster using kubectl |
+| Kubernetes Nodes (RestAPI) | Discover Kubernetes nodes by requesting the Kubernetes RestAPI               |
+| Kubernetes Nodes (Kubectl) | Discover Kubernetes nodes by requesting the Kubernetes cluster using kubectl |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
@@ -245,7 +245,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Cluster-Events" label="Cluster-Events">
 
-This indicator allows to watch the number of events occurring on the cluster,
+This indicator allows you to watch the number of events occurring on the cluster,
 like the `kubectl get events` can provide:
 
 ```text
