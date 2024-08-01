@@ -246,14 +246,14 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <TabItem value="Cluster-Events" label="Cluster-Events">
 
 Cet indicateur permet de superviser le nombre d'événements se produisant sur
-le cluster, ce en se basant sur les informations disponibles en sortie de la commande `kubectl get events` :
+le cluster. Si la commande `kubectl get events` a pour sortie :
 
 ```text
 NAMESPACE   LAST SEEN   TYPE      REASON      OBJECT           MESSAGE
 graphite    26m         Warning   Unhealthy   pod/graphite-0   Liveness probe failed: Get "http://10.244.2.10:8080/": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
 ```
 
-La sortie résultante dans Centreon pourrait ressembler à :
+Alors la sortie résultante dans Centreon pourrait ressembler à :
 
 ```text
 Event 'Warning' for object 'Pod/graphite-0' with message 'Liveness probe failed: Get "http://10.244.2.10:8080/": context deadline exceeded (Client.Timeout exceeded while awaiting headers)', Count: 1, First seen: 26m 21s ago (2021-03-11T12:26:23Z), Last seen: 26m 21s ago (2021-03-11T12:26:23Z)
@@ -263,14 +263,14 @@ Event 'Warning' for object 'Pod/graphite-0' with message 'Liveness probe failed:
 <TabItem value="CronJob-Status" label="CronJob-Status">
 
 Cet indicateur permet de vérifier que les CronJobs sont exécutés comme ils
-le devraient, ce en se basant sur les informations disponibles en sortie de la commande `kubectl get cronjobs` :
+le devraient. Si la commande `kubectl get cronjobs` a pour sortie :
 
 ```text
 NAME    SCHEDULE      SUSPEND   ACTIVE   LAST SCHEDULE   AGE
 hello   */1 * * * *   False     1        6s              2d1h
 ```
 
-La sortie résultante dans Centreon pourrait ressembler à :
+Alors la sortie résultante dans Centreon pourrait ressembler à :
 
 ```text
 CronJob 'hello' Jobs Active: 1, Last schedule time: 6s ago (2021-03-11T12:31:00Z)
@@ -288,7 +288,7 @@ choisi), le nom du CronJob sera ajouté au nom de la métrique :
 
 Cet indicateur garantira que les DaemonSets sont dans des limites définies
 en regardant le nombre de Pods disponibles et/ou à jour par rapport au
-nombre souhaité, ce en se basant sur les informations disponibles en sortie de la commande `kubectl get daemonsets` :
+nombre souhaité. Si la commande `kubectl get daemonsets` a pour sortie :
 
 ```text
 NAMESPACE     NAME                    DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR                   AGE
@@ -296,7 +296,7 @@ kube-system   kube-flannel-ds-amd64   3         3         3       3            3
 kube-system   kube-proxy              3         3         3       3            3           kubernetes.io/os=linux          624d
 ```
 
-La sortie résultante dans Centreon pourrait ressembler à :
+Alors la sortie résultante dans Centreon pourrait ressembler à :
 
 ```text
 Daemonset 'kube-flannel-ds-amd64' Pods Desired: 3, Current: 3, Available: 3, Up-to-date: 3, Ready: 3, Misscheduled: 0
@@ -315,7 +315,7 @@ scénario choisi), le nom du DaemonSet sera ajouté au nom de la métrique :
 
 Cet indicateur garantira que les Deployments sont dans des limites définies
 en examinant le nombre de répliques disponibles et/ou à jour par rapport au
-nombre souhaité, ce en se basant sur les informations disponibles en sortie de la commande `kubectl get deployments` :
+nombre souhaité. Si la commande `kubectl get deployments` a pour sortie :
 
 ```text
 NAMESPACE              NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
@@ -325,7 +325,7 @@ kubernetes-dashboard   dashboard-metrics-scraper   1/1     1            1       
 kubernetes-dashboard   kubernetes-dashboard        1/1     1            1           37d
 ```
 
-La sortie résultante dans Centreon pourrait ressembler à :
+Alors la sortie résultante dans Centreon pourrait ressembler à :
 
 ```text
 Deployment 'coredns' Replicas Desired: 2, Current: 2, Available: 2, Ready: 2, Up-to-date: 2
@@ -345,7 +345,7 @@ scénario choisi), le nom du Deployment sera ajouté au nom de la métrique :
 <TabItem value="Node-Status*" label="Node-Status*">
 
 Cet indicateur garantira que les noeuds fonctionnent bien en regardant
-les statuts des conditions, ce en se basant sur les informations disponibles en sortie de la commande `kubectl describe nodes` :
+les statuts des conditions. Si la commande `kubectl describe nodes` a pour sortie :
 
 ```text
 Conditions:
@@ -357,7 +357,7 @@ Conditions:
   Ready            True    Thu, 11 Mar 2021 14:20:25 +0100   Tue, 26 Jan 2021 17:26:36 +0100   KubeletReady                 kubelet is posting ready status
 ```
 
-La sortie résultante dans Centreon pourrait ressembler à :
+Alors la sortie résultante dans Centreon pourrait ressembler à :
 
 ```text
 Condition 'DiskPressure' Status is 'False', Reason: 'KubeletHasNoDiskPressure', Message: 'kubelet has no disk pressure'
@@ -431,8 +431,8 @@ choisi), le nom du Node sera ajouté au nom de la métrique:
 <TabItem value="PersistentVolume-Status" label="PersistentVolume-Status">
 
 Cet indicateur garantira que les PersistentVolumes fonctionnent correctement
-en regardant la phase dans laquelle ils se trouvent, ce en se basant sur les informations disponibles en sortie de la commande
-`kubectl get pv` :
+en regardant la phase dans laquelle ils se trouvent. Si la commande
+`kubectl get pv` a pour sortie :
 
 ```text
 NAME                     CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM                   STORAGECLASS   REASON   AGE
@@ -441,7 +441,7 @@ pv-nfs-kubestorage-002   5Gi        RWO            Retain           Bound       
 pv-nfs-kubestorage-003   5Gi        RWO            Retain           Released    graphite/graphite-pvc                           630d
 ```
 
-La sortie résultante dans Centreon pourrait ressembler à :
+Alors la sortie résultante dans Centreon pourrait ressembler à :
 
 ```text
 Persistent Volume 'pv-nfs-kubestorage-001' Phase is 'Available'
@@ -454,7 +454,7 @@ Persistent Volume 'pv-nfs-kubestorage-003' Phase is 'Released'
 
 Cet indicateur garantira que les Pods et leurs conteneurs sont dans des
 limites définies en regardant le nombre de conteneurs prêts par rapport au
-nombre souhaité, ce en se basant sur les informations disponibles en sortie de la commande `kubectl get pods` :
+nombre souhaité. Si la commande `kubectl get pods` a pour sortie :
 
 ```text
 NAMESPACE              NAME                                                     READY   STATUS        RESTARTS   AGE
@@ -466,7 +466,7 @@ kubernetes-dashboard   dashboard-metrics-scraper-79c5968bdc-vncxc               
 kubernetes-dashboard   kubernetes-dashboard-7448ffc97b-42rps                    1/1     Running       0          37d
 ```
 
-La sortie résultante dans Centreon pourrait ressembler à :
+Alors la sortie résultante dans Centreon pourrait ressembler à :
 
 ```text
 Checking pod 'kube-proxy-65zhn'
@@ -535,14 +535,14 @@ scénario choisi), le nom du ReplicaSet sera ajouté au nom de la métrique :
 
 Cet indicateur garantira que les ReplicationControllers sont dans les limites
 définies en regardant le nombre de répliques prêtes par rapport au nombre
-souhaité, ce en se basant sur les informations disponibles en sortie de la commande `kubectl get rc` :
+souhaité. Si la commande `kubectl get rc` a pour sortie :
 
 ```text
 NAMESPACE   NAME    DESIRED   CURRENT   READY   AGE
 elk         nginx   3         3         3       2d19h
 ```
 
-La sortie résultante dans Centreon pourrait ressembler à :
+Alors la sortie résultante dans Centreon pourrait ressembler à :
 
 ```text
 ReplicationController 'nginx' Replicas Desired: 3, Current: 3, Ready: 3
@@ -561,7 +561,7 @@ nom de la métrique :
 
 Cet indicateur garantira que les StatefulSets sont dans des limites définies
 en regardant le nombre de répliques prêtes / à jour par rapport au nombre
-souhaité, ce en se basant sur les informations disponibles en sortie de la commande `kubectl get statefulsets` :
+souhaité. Si la commande `kubectl get statefulsets` a pour sortie :
 
 ```text
 NAMESPACE    NAME                                        READY   AGE
@@ -570,7 +570,7 @@ graphite     graphite                                    1/1     3d
 prometheus   prometheus-prometheus-operator-prometheus   1/1     619d
 ```
 
-La sortie résultante dans Centreon pourrait ressembler à :
+Alors la sortie résultante dans Centreon pourrait ressembler à :
 
 ```text
 StatefulSet 'elasticsearch-master' Replicas Desired: 2, Current: 2, Up-to-date: 2, Ready: 2
