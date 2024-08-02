@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Compatibility
 
-This connector should be compatible with the following products.
+This connector is designed to be compatible with the following products.
 
 | Product     | Model        | Versions |
 |-------------|--------------|----------|

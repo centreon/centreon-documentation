@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Compatibilité
 
-Ce connecteur devrait être compatible avec les produits suivants.
+Ce connecteur a été conçu pour être compatible avec les produits suivants.
 
 | Produit     | Modèles       | Versions |
 | ----------- | ------------- | -------- |
@@ -148,7 +148,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-La procédure ci-dessous est extraite de la [documentation officialle de HPE](https://support.hpe.com/hpesc/public/docDisplay?docId=a00118636en_us&page=GUID-77CF1ECF-98D5-44E1-B040-F54F17374A20.html).
+La procédure ci-dessous est extraite de la [documentation officielle de HPE](https://support.hpe.com/hpesc/public/docDisplay?docId=a00118636en_us&page=GUID-77CF1ECF-98D5-44E1-B040-F54F17374A20.html).
 
 1. Loggez-vous à la CLI en tant que `Super`, `Service`, ou tout autre rôle disposant de la permission `wsapi_set`.
 2. Démarrez le serveur WSAPI.
