@@ -249,9 +249,25 @@ en choisissant la méthode **Redémarrer** pour le processus Engine.
   ```shell
   systemctl restart centengine gorgoned
   ```
-5. Pour les systèmes Debian, exécutez la commande suivante :
+
+5. Exécutez la commande suivante :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Nothing to do.
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Nothing to do.
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
   ```shell
-  apt-mark unhold centreon-pack*
+  apt-mark unhold centreon-pack* && apt-mark unhold centreon-plugin*
   ```
-   
+
+</TabItem>
+</Tabs>
