@@ -59,12 +59,12 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name                                           | Description                                                |
 |:----------------------------------------------------|:-----------------------------------------------------------|
-| HW-Storage-HPE-Primera-RESTAPI-Disk-Status-Id       | Découvre les disques physiques et supervise le statut.     |
-| HW-Storage-HPE-Primera-RESTAPI-Disk-Status-Position | Découvre les disques physiques et supervise le statut.     |
-| HW-Storage-HPE-Primera-RESTAPI-Disk-Usage-Id        | Découvre les disques physiques et supervise l'utilisation. |
-| HW-Storage-HPE-Primera-RESTAPI-Disk-Usage-Position  | Découvre les disques physiques et supervise l'utilisation. |
-| HW-Storage-HPE-Primera-RESTAPI-Volume-Usage-Id      | Découvre les volumes et supervise l'utilisation.           |
-| HW-Storage-HPE-Primera-RESTAPI-Volume-Usage-Name    | Découvre les volumes et supervise l'utilisation.           |
+| HW-Storage-HPE-Primera-RESTAPI-Disk-Status-Id       | Discover the physical disks and monitor their status.     |
+| HW-Storage-HPE-Primera-RESTAPI-Disk-Status-Position | Discover the physical disks and monitor their status.     |
+| HW-Storage-HPE-Primera-RESTAPI-Disk-Usage-Id        | Discover the physical disks and monitor their usage. |
+| HW-Storage-HPE-Primera-RESTAPI-Disk-Usage-Position  | Discover the physical disks and monitor their usage. |
+| HW-Storage-HPE-Primera-RESTAPI-Volume-Usage-Id      | Discover the volumes and monitor their usage.           |
+| HW-Storage-HPE-Primera-RESTAPI-Volume-Usage-Name    | Discover the volumes and monitor their usage.           |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
