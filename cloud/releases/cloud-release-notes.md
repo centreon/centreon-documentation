@@ -3,6 +3,119 @@ id: cloud-release-notes
 title: Centreon Cloud release notes
 ---
 
+## Centreon web
+
+### 24.07.0
+
+Release date: `August 06 , 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Dashboards] Added last update to widgets and enabled refresh directly from widgets.
+- [Dashboards] Allowed smaller dimensions for widgets through more responsive behavior.
+- [Dashboards] Added the ability to create a public link to a playlist.
+- [Dashboards] Added a pending refresh indicator to widgets.
+- [Dashboards] Added meta-services to Resource Table widget.
+- [Metrics Graph widget] Added curve type format setting.
+- [Metrics Graph widget] Added multiple options to customize graph.
+- [Metrics Graph widget] Enabled visualization using bar chart and stacked bar chart.
+- [Metrics Graph widget] Distinguished curves for same metric name, by automatically adjusting colors.
+- [Resource Table widget] Moved display type selection into the widget.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Dataset] Removed incompatible resources when filtering using multiple resource types.
+- Whitelist errors now have a ERROR level in Gorgone logs.
+
+</details>
+
+## Centreon gorgone
+
+### 24.07.0
+
+Release date: `August 06 , 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [MBI] Fixed the perfdataStatisticsBuilder.pl script: when using the '-r --centile-only' parameters, the mod_bi_metrichourlyvalue table is no longer truncated.
+- Whitelist errors now have a ERROR level in Gorgone logs.
+
+</details>
+
+## Centreon collect
+
+### 24.07.0
+
+Release date: `August 06 , 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Engine] The customvariables configuration is now independent from the main Engine code.
+- [Engine] The whitelist now works with all the commands executed by Engine, including notifications and handlers.
+- [Engine] Engine can now handle extra configuration files to complete/overload the centengine.cfg file. This enhancement allows to keep a custom configuration unchanged by the configuration export.
+- [Engine] Added a host_down_disable_service_checks option.
+- The spdlog logger library has been mutualized for Engine and Broker, as well as the log files. This change will not impact Broker's logs, but Engine will log all its messages (including broker-module's messages) in centengine.log.
+- Whitelist errors now have a ERROR level in Gorgone logs.
+
+</details>
+
+## Centreon map
+
+### 24.07.0
+
+Release date: `August 06 , 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Editor] Added option to not display label for Containers.
+- Display a message on the MAP widget when displayed in a public page.
+- [GeoViews] Redesigned the edit modal.
+- [VIEWER] Added possibility to display status as bg color for resource in weather style.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Map list] Fixed an issue that could prevent the map list from being displayed.
+- Status of BA is not aligned with the status in Resource Status.
+
+</details>
+
+## Centreon mbi
+
+### 24.07.0
+
+Release date: `August 06 , 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- - Fixed the perfdataStatisticsBuilder.pl script: when using the '-r --centile-only' parameters, the mod_bi_metrichourlyvalue table is no longer truncated.
+
+</details>
+
+## Centreon BAM
+
+### 24.07.0
+
+Release date: `August 06 , 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [BAM] Fixed Deprecation due to Symfony Upgrade.
+
+</details>
+
+
 ## June 26, 2024
 
 ### Resource Access Management
