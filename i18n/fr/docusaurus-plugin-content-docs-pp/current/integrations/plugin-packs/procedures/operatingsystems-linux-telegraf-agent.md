@@ -16,7 +16,7 @@ OpenTelemetry.
 > - l'impossibilité de récupérer le message d'information lié au statut du
 > service ou de l'hôte (limitation liée au protocole OpenTelemetry).
 
-Vous pouvez consulter [cette page](../getting-started/how-to-guides/telegraf/) pour plus d'informations sur ce que permet l'intégration avec Telegraf.
+Vous pouvez consulter [cette page](../getting-started/how-to-guides/telegraf.md) pour plus d'informations sur ce que permet l'intégration avec Telegraf.
 
 ## Contenu du pack
 
@@ -444,7 +444,7 @@ gpgcheck = 1
 gpgkey = https://repos.influxdata.com/influxdata-archive_compat.key
 EOF
 
-yum install -y telegraf
+dnf install -y telegraf
 ```
 
 </TabItem>
@@ -455,7 +455,7 @@ dnf -y install epel-release
 dnf -y config-manager --set-enabled 'crb'
 ```
 
-Cette partie est extraite de la [documentation officielle de Telegraf](https://docs.influxdata.com/telegraf/v1/install/?t=RedHat+%26amp%3B+CentOS).
+La partie qui suit est extraite de la [documentation officielle de Telegraf](https://docs.influxdata.com/telegraf/v1/install/?t=RedHat+%26amp%3B+CentOS).
 
 ```bash
 cat > /etc/yum.repos.d/influxdb.repo <<'EOF'
@@ -467,13 +467,13 @@ gpgcheck = 1
 gpgkey = https://repos.influxdata.com/influxdata-archive_compat.key
 EOF
 
-yum install -y telegraf
+dnf install -y telegraf
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
-Cette partie est extraite de la [documentation officielle de Telegraf](https://docs.influxdata.com/telegraf/v1/install/).
+La partie qui suit est extraite de la [documentation officielle de Telegraf](https://docs.influxdata.com/telegraf/v1/install/).
 
 ```bash
 wget -q https://repos.influxdata.com/influxdata-archive_compat.key -O influxdata-archive_compat.key

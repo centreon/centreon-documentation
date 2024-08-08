@@ -138,6 +138,8 @@ Lorsqu’un service comprend plusieurs métriques, le statut du service est celu
 
 Vous pouvez voir les métriques associées à un service dans le panneau de détails de celui-ci.
 
+**Voir aussi** : [Comprendre les métriques](../monitoring/metrics.md).
+
 ## Mode flux Broker inversé
 
 Configuration avancée de Centreon [Broker](#broker), inversant le sens de connexion de la communication Broker par interversion des rôles "client" et "serveur" afin de s'adapter à des configurations réseau particulières. Ce mode est notamment utilisé par Centreon MAP pour s'abonner au flux temps réel des évènements Broker.

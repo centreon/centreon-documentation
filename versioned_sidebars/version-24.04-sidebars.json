@@ -248,6 +248,10 @@
             },
             {
               "type": "doc",
+              "id": "version-24.04/monitoring/metrics"
+            },
+            {
+              "type": "doc",
               "id": "version-24.04/monitoring/pluginpacks"
             },
             {
@@ -1399,10 +1403,6 @@
         "type": "generated-index"
       },
       "items": [
-        {
-          "type": "doc",
-          "id": "version-24.04/developer/developer-module"
-        },
         {
           "type": "doc",
           "id": "version-24.04/developer/developer-stream-connector"

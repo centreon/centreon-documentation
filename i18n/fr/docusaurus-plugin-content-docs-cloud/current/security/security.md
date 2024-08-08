@@ -134,7 +134,7 @@ Les mécanismes d’automatisation et d’orchestration en place garantissent un
 ### Signalement de vulnérabilités
 
 Centreon dispose d’un process permettant la bonne réception et le bon traitement des signalements de vulnérabilité.
-Si vous pensez avoir trouvé une faille de sécurité, veuillez nous la signaler comme décrit dans le
+Si vous pensez avoir trouvé une faille de sécurité, veuillez nous la signaler via le [portail support](https://support.centreon.com/), comme décrit dans le
 [processus de signalement](https://github.com/centreon/centreon/security/policy#reporting-a-vulnerability).
 
 ### Détection de vulnérabilités
