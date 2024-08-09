@@ -10,7 +10,7 @@ title: Centreon Cloud - notes de release
 **Open Access to Centreon APIs**
 
   It is now possible to interact with Centreon through APIs and therefore integrate Centreon with any monitoring or data processing tool you may use, automatize monitoring configuration updates and any other use case you may have in mind. Access to APIs is granted thanks to tokens linked to contacts for access right management, but completely independent in terms of lifecycle. 
-  [API documentation is available here](https://docs-api.centreon.com/api/centreon-web/).
+  [API documentation is available here](https://docs-api.centreon.com/api/centreon-web/cloud/).
 
 **Centreon Dashboards**
 
