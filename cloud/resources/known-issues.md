@@ -25,10 +25,6 @@ The following paragraphs detail issues which are known to Centreon and will be f
 
 * To grant access to services independently of their host, you can define rules only at services group or service category level.
 
-* Changes are not displayed immediately when editing a Resource Access Management rule.
-
-   **Workaround**: Refresh the page to display the correct parameters.
-
 ## Notifications
 
 * Changes are not displayed immediately when editing a notification rule.
@@ -45,9 +41,7 @@ The following paragraphs detail issues which are known to Centreon and will be f
 
 ## Configuration
 
-* It is not possible yet to create and manage groups of users.
-
-   > Default user groups should not be used as they will soon be replaced by custom groups defined by administrators.
+* After editing, a customized command disappears from the listing. Please note that the command exists and will still be used.
 
 * Users cannot yet configure Stream Connectors themselves.
 
@@ -70,7 +64,5 @@ The following paragraphs detail issues which are known to Centreon and will be f
 * A **Connect with OpenID** button might briefly show on the login screen, with a "URL not found" message. Wait for a few seconds before logging in.
 
 ## MAP
-
-* The status of Business Activities may be desynchronized in maps.
 
 * The default zoom factor and position cannot be saved.

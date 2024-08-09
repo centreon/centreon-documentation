@@ -25,10 +25,6 @@ Les paragraphes ci-après détaillent les problèmes connus de Centreon. Ceux-ci
 
 * Pour donner accès à un service indépendemment de son hôte, vous pouvez définir des règles uniquement au niveau des groupes de services ou des catégories de services.
 
-* Les changements ne sont pas affichés immédiatement lorsque vous éditez une règle d'accès aux ressources.
-
-   **Contournement**: Rafraîchissez la page afin d'afficher les paramètres corrects.
-
 ## Notifications
 
 * Les changements ne sont pas affichés immédiatement lorsque vous éditez une règle de notification.
@@ -45,9 +41,7 @@ Les paragraphes ci-après détaillent les problèmes connus de Centreon. Ceux-ci
 
 ## Configuration
 
-* Il n'est pas encore possible de créer et gérer des groupes d'utilisateurs.
-
-   > Les groupes d'utilisateurs par défaut ne doivent pas être utilisés, car ils seront bientôt remplacés par des groupes personnalisés définis par les administrateurs.
+* Après édition, une commande personnalisée disparaît de la liste. Notez que la commande existe et qu'elle sera toujours utilisée.
 
 * Les utilisateurs ne peuvent pas encore configurer des Stream Connectors eux-mêmes.
 
@@ -70,7 +64,5 @@ Les paragraphes ci-après détaillent les problèmes connus de Centreon. Ceux-ci
 * Un bouton **Connect with OpenID** peut apparaître brièvement sur l'écran de connexion, aisin qu'un message "URL not found". Attendez quelques secondes pour vous connecter.
 
 ## MAP
-
-* Le statut des Activités Métier peut être désynchronisé dans les cartes.
 
 * Le facteur de zoom et la position par défaut ne sont pas sauvegardés.
