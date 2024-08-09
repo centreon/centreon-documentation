@@ -8,6 +8,35 @@ import TabItem from '@theme/TabItem';
 
 ## 2024
 
+### August
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**HPE Primera REST API**](../procedures/hardware-storage-hpe-primera-restapi.md) - First official release.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**3CX**](../procedures/applications-voip-3cx-restapi.md) - Added support for authentication on versions higher than 18.0.5 and made the default values more explicit.
+- [**Teldat Edge Routers SNMP**](../procedures/network-teldat-snmp.md) - Enhanced the cells-radio mode.
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - Endpoint changed from beta to v1 and splitted the host templates between API and CLI to make both easier to use.
+- [**Office365 Teams**](../procedures/cloud-microsoft-office365-teams.md) - Added a new mode for notifications to face the [approaching deprecation of the webhook in favor of workflows](https://devblogs.microsoft.com/microsoft365dev/retirement-of-office-365-connectors-within-microsoft-teams/).
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Aruba CPPM SNMP**](../procedures/network-aruba-cppm-snmp.md) - Fixed the plugin's packaging.
+- [**Sonus SBC **](../procedures/network-sonus-sbc-snmp.md) - Fixed the Cpu service template.
+- [**VMware VeloCloud**](../procedures/cloud-vmware-velocloud-restapi.md) - Fixed the listing (for discovery) and monitoring of Edges.
+
+</TabItem>
+</Tabs>
+
 ### July
 
 <Tabs groupId="sync">
