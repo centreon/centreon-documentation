@@ -9,17 +9,17 @@ title: Centreon Cloud - notes de release
 
 **Open Access to Centreon APIs**
 
-  It is now possible to interact with Centreon through APIs and therefore integrate Centreon with any monitoring or data processing tool you may use, automatize monitoring configuration updates and any other use case you may have in mind. Access to APIs is granted thanks to tokens linked to contacts for access right management, but completely independent in terms of lifecycle.
-API documentation is available here (link)
+  It is now possible to interact with Centreon through APIs and therefore integrate Centreon with any monitoring or data processing tool you may use, automatize monitoring configuration updates and any other use case you may have in mind. Access to APIs is granted thanks to tokens linked to contacts for access right management, but completely independent in terms of lifecycle. 
+  [API documentation is available here](https://docs-api.centreon.com/api/centreon-web/).
 
 **Centreon Dashboards**
 
-  It is now possible to declare dashboards playlists as public. An URL is genrated and give access to the dashboard playlist without authentication. This feature is ideal to display dahboards on big screens.
+  It is now possible to declare dashboard playlists as public. A URL is generated and gives access to the dashboard playlist without authentication. This feature is ideal to display dashboards on big screens.
 Note that this feature was implemented in a completely secured way. No confidential information is carried by the URL, nor it is possible to have access to any other information or data than the one displayed.
 Note: MAP widget is not supported yet on public playlists.
 
 This version of Centreon Dashboards comes with many other improvements.
-Graph widget allows much more configuration (automatic curves color adjustement for metric of same kind, bar chart and stacked bar chart presentation, 3 different curves design, and many others).
+Graph widget allows much more configuration (automatic curves color adjustment for metric of same kind, bar chart and stacked bar chart presentation, 3 different curves design, and many others).
 Widgets are also now more compact, allowing to display more of them on a single display.
 And finally, freshness of data is now exposed and user can reload data at the widget level.
 
@@ -32,7 +32,7 @@ And finally, freshness of data is now exposed and user can reload data at the wi
 **MAP**
 
   The Geoview modal has been redesigned.
-In standard maps, it is now possible to hide containers labels and to display status as background color for resources in weather style.
+In standard maps, it is now possible to hide container labels and to display status as background color for resources in weather style.
 
 
 ## June 26, 2024
