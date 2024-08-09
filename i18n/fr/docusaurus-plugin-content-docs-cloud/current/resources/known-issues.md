@@ -61,7 +61,7 @@ Les paragraphes ci-après détaillent les problèmes connus de Centreon. Ceux-ci
 
 ## Connexion
 
-* Un bouton **Connect with OpenID** peut apparaître brièvement sur l'écran de connexion, aisin qu'un message "URL not found". Attendez quelques secondes pour vous connecter.
+* Un bouton **Connect with OpenID** peut apparaître brièvement sur l'écran de connexion. Attendez quelques secondes pour vous connecter.
 
 ## MAP
 

@@ -61,7 +61,7 @@ The following paragraphs detail issues which are known to Centreon and will be f
 
 ## Log in
 
-* A **Connect with OpenID** button might briefly show on the login screen, with a "URL not found" message. Wait for a few seconds before logging in.
+* A **Connect with OpenID** button might briefly show on the login screen. Wait for a few seconds before logging in.
 
 ## MAP
 
