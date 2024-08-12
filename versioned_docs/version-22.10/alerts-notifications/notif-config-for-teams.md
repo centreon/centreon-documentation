@@ -134,7 +134,3 @@ CONTACT;setparam;notify_teams_consulting_channel;svcnotifcmd;service-notify-by-m
 If the import is successful, you will obtain something similar to **[ajouter un exemple de comparaison]**
 
 > Depending on what you want to do, you can assign this Contact to a Group or link it with one or several resources and get notifications in your channel.
-
-### Understand how notifications work in Centreon
-
-- Go to this page to [configure notifications](../alerts-notifications/notif-configuration.md) in Centreon.
