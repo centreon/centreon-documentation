@@ -24,6 +24,24 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 24.04.5
+
+Release date: `July 18, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Fixed access control for host configuration endpoints.
+- [centreon-web] Fixed SELinux dependencies for centreon-common-selinux.
+- [Dashboard] Fixed an issue where the legend of the Metrics Graph widget was empty when the user locale was different from en_US.
+status charts and the status grid widget now display the status of a service's parent host when only services are selected instead of a "no host found" error.
+- [Dashboards] Fixed an error that occurred when renaming a dashboard that had an empty description.
+- [Dashboards] Fixed inconsistent values between top counter and status widgets.
+- [Dashboards] Search results for services are no longer limited to 30 items.
+- Fixed incorrect user rights computations for Dashboard admins.
+
+</details>
+
 ### 24.04.4
 
 Release date: `July 3, 2024`
@@ -193,6 +211,50 @@ Many features have been added in this version.
 
 ## Centreon Collect
 
+### 24.04.5
+
+Release date: `August 05, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a conflict between centreon-collect 23.04 and centreon-collect 23.10 that was occurring because of a change in the way we provide the MariaDB **caching sha2 password plugin**.
+
+</details>
+
+### 24.04.4
+
+Release date: `July 29, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] If a service status was not 0, 1 or 2, it was written in RRD as an empty value. This raised an error in librrd. Now we send 'U' to RRD, which is a value that librrd accepts.
+- [Broker] The default log level for Broker is now error instead of info (except for the core and config logs, which are info).
+- [Engine] The default log level for Engine is now error instead of info (except for the core and config logs, which are info).
+- [Engine] The output of external commands is no longer truncated after a backslash.
+- [Engine] Configuration files for Anomaly Detection are now opened in read-only mode.
+- [Engine] All log file configurations are now taken into account (including runtime and otl).
+- [Engine] If a service contained several metrics with the same name, some of them were overwritten. Now during the parsing, a warning log explains the issue and only the first occurrence of the metric is kept.
+
+</details>
+
+### 24.04.3
+
+Release date: `July 17, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed an issue that occurred when inserting too large metrics into the database, which resulted in an error log.
+- [Broker] There were two errors concerning the gnutls version check:
+1. The gnutls library on Centreon had to be at least the same version as the one used to compile Broker. Now, Broker checks that the version of the gnutls library is at least 3.6.0.
+2. The packaging required a very old version of gnutls.
+Now, when Broker is installed we check that the version of gnutls is at least 3.6.0. If the version is older, it will be updated.
+- [Broker] Added support for the default connection method to MySQL 8.0.35.
+
+</details>
+
 ### 24.04.2
 
 Release date: `June 17, 2024`
@@ -258,6 +320,18 @@ Release date: `April 30, 2024`
 </details>
 
 ## Centreon Gorgone
+
+### 24.04.2
+
+Release date: `July 18, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Fixed an issue where a host category was not present in MBI if it was applied on a host template instead of directly on the host.
+- [Gorgone] Fixed an issue with the Gorgone API at upgrade, that caused the Autodiscovery feature to not work.
+
+</details>
 
 ### 24.04.1
 

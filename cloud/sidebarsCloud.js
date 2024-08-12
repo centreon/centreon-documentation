@@ -190,6 +190,10 @@ module.exports = {
           "items": [
             {
               "type": "doc",
+              "id": "monitoring/metrics"
+            },
+            {
+              "type": "doc",
               "id": "monitoring/pluginpacks"
             },
             {

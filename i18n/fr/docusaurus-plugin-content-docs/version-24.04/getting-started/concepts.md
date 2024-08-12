@@ -8,7 +8,7 @@ title: Bases de la supervision
 Centreon vous permet de superviser des ressources. Les ressources peuvent être des hôtes ou des services :
 
 * Un **hôte** est tout équipement qui possède une adresse IP et que l'on souhaite superviser : un serveur physique, une machine virtuelle, une sonde de température, une caméra IP, une imprimante ou un espace de stockage, par exemple. L’hôte peut avoir un ou plusieurs services associés.
-* Un **service** est un point de contrôle, ou indicateur, à superviser sur un hôte. Cela peut être le taux d'utilisation du CPU, la température, la détection de mouvement, le taux d'utilisation de la bande passante, les I/O disque, etc. Un service peut avoir une ou plusieurs métriques associées.
+* Un **service** est un point de contrôle, ou indicateur, à superviser sur un hôte. Cela peut être le taux d'utilisation du CPU, la température, la détection de mouvement, le taux d'utilisation de la bande passante, les I/O disque, etc. Un service peut avoir une ou plusieurs [métriques](../monitoring/metrics.md) associées.
 
 ## Comment fonctionne la supervision?
 

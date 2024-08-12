@@ -107,7 +107,7 @@ Equipment that has an IP address or an FQDN, and that you want to monitor. Examp
 
 A host can have one of the following [statuses](#status): OK, DOWN and UNREACHABLE.
 
-See also: [Monitoring a host](../monitoring/basic-objects/hosts-create.md) and the other topics in this section.
+**See also**: [Monitoring a host](../monitoring/basic-objects/hosts-create.md) and the other topics in this section.
 
 ## LVM
 
@@ -126,6 +126,8 @@ A metric (or performance data) is part of a [service](#service). This piece of d
 When a service has several metrics, the status of the service is the status of the worst metric.
 
 You can see all metrics attached to a service in the details panel of the service.
+
+**See also**: [Understanding metrics](../monitoring/metrics.md).
 
 ## Monitoring action
 

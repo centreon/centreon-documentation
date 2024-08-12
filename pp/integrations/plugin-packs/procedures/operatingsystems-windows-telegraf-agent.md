@@ -152,13 +152,13 @@ EOF
 chown centreon-engine: /etc/centreon-engine/otl_server.json
 ```
 
-### Configuration of Centreon Engine
+### Configure Engine
 
 1. In the **Configuration > Pollers > Engine configuration** menu, on the **Data** tab, add an entry to the Broker modules to load and enter the `/usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json` directive. Save the form.
 
 2. Export the poller's configuration, selecting the **Restart** option.
 
-### Telegraf agent
+### System prerequisites on the monitored host
 
 The official installation procedure is [here](https://docs.influxdata.com/telegraf/v1/install/?t=Windows) but you'll find the main steps below.
 
@@ -177,13 +177,13 @@ Expand-Archive .\telegraf-1.30.1_windows_amd64.zip -DestinationPath 'C:\Program 
 "C:\Program Files\InfluxData\telegraf\telegraf-1.30.3\telegraf.exe" --config https://<poller_ip_address>:1443/engine?host=<windows_server_name> --service install
 ```
 
-#### Downloading centreon\_plugins.exe
+#### Download centreon\_plugins.exe
 
 Download the **centreon_plugins.exe** from the latest release available [here](https://github.com/centreon/centreon-nsclient-build/releases)
 and copy it in the same place as the Telegraf agent (that should be `"C:\Program Files\InfluxData\telegraf\telegraf-1.30.3\"`)
 if you followed the procedure to the letter. 
 
-#### Import du certificat du poller
+#### Import the poller's certificate
 
 1. Open the Edge web browser.
 2. Browse to `https://<poller_ip_address>:1443`.

@@ -294,6 +294,10 @@
             },
             {
               "type": "doc",
+              "id": "version-22.10/monitoring/metrics"
+            },
+            {
+              "type": "doc",
               "id": "version-22.10/monitoring/pluginpacks"
             },
             {
@@ -1474,10 +1478,6 @@
         {
           "type": "doc",
           "id": "version-22.10/developer/about-developer-resources"
-        },
-        {
-          "type": "doc",
-          "id": "version-22.10/developer/developer-module"
         },
         {
           "type": "doc",

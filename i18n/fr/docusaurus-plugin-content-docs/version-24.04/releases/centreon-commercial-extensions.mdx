@@ -21,6 +21,33 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+### 24.04.4
+
+Release date: `August 8, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [SELinux] Packaged SELinux rules for EL distributions.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+-	[ACL] Fixed an issue which caused user without creator role to be able to duplicate maps.
+-	[BA] Fixed an issue causing the MAP server to crash at startup due to orphan KPIs.
+- [Editor] Fixed an issue causing link labels not to be displayed in the editor.
+- [Map list] Fixed an issue that could prevent the map list from being displayed.
+- [Server] Fixed an issue causing an error when trying to save maps.
+- [Server] Fixed an issue in the connection between Centreon Central and the MAP server initialization causing issues in real time updates.
+- [Server] Fixed an issue preventing the diagnostic script from running when the password contained the '#' character.
+- [Server] Fixed concurrent access leading to inconsistencies in maps.
+- [Server] Fixed the diagnostic when MAP was configured in HTTPS.
+- [Viewer] Fixed the interpretation of HTML tags when using carriage returns.
+
+</details>
+
 ### 24.04.3
 
 Release date: `July 4, 2024`
@@ -81,6 +108,17 @@ Release date: `April 30, 2024`
 
 ## Centreon BAM
 
+### 24.04.3
+
+Release date: `August 8, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [BAM] Fixed a deprecation issue due to Symfony upgrade.
+
+</details>
+
 ### 24.04.2
 
 Release date: `July 4, 2024`
@@ -110,6 +148,17 @@ Release date: `April 30, 2024`
 </details>
 
 ## Centreon MBI
+
+### 24.04.2
+
+Release date: `August 8, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [SELinux] Packaged SELinux rules for EL distributions.
+
+</details>
 
 ### 24.04.1
 
@@ -184,6 +233,17 @@ Release date: `April 30, 2024`
 </details>
 
 ## Centreon Anomaly Detection
+
+### 24.04.3
+
+Release date: `August 8, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Anomaly Detection] Fixed wrong package name for Lua curl Debian dependency for anomaly-detection.
+
+</details>
 
 ### 24.04.2
 
