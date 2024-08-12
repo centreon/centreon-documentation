@@ -193,7 +193,7 @@ dnf install centreon-pack-network-hp-standard-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-network-hp-standard-snmp
@@ -240,7 +240,7 @@ dnf install centreon-plugin-Network-Hp-Standard-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-network-hp-standard-snmp

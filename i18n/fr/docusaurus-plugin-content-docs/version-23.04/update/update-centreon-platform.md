@@ -58,7 +58,7 @@ Mettez à jour l'ensemble des composants :
 Videz le cache :
 
   ```shell
-  apt clean all
+  apt clean
   apt update
   ```
 
@@ -226,14 +226,14 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
 1. Videz le cache :
 
   ```shell
-  apt clean all
+  apt clean
   apt update
   ```
 
 2. Mettez à jour l'ensemble des composants :
 
   ```shell
-  apt upgrade centreon\*  --exclude=centreon-plugin*
+  apt-get update && apt-mark hold centreon-pack* && apt-mark hold centreon-plugin* && apt-get install --only-upgrade 'centreon*' 
   ```
 
 </TabItem>
@@ -250,3 +250,25 @@ en choisissant la méthode **Redémarrer** pour le processus Engine.
   ```shell
   systemctl restart centengine gorgoned
   ```
+
+5. Exécutez la commande suivante :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Nothing to do.
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Nothing to do.
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+  ```shell
+  apt-mark unhold centreon-pack* && apt-mark unhold centreon-plugin*
+  ```
+
+</TabItem>
+</Tabs>

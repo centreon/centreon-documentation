@@ -126,9 +126,10 @@ formulaire ci-dessous apparaît :
 ![image](../assets/service-mapping/guide/business-activity-add.png)
 
 La création de l'activité métier se fait directement dans le panneau qui
-s'ouvre. Après avoir donner un nom (obligatoire & unique) à votre
+s'ouvre. Après avoir donné un nom (obligatoire & unique) à votre
 activité métier, vous devrez configurer plusieurs sections. La section
 **Indicateur** est la plus importante.
+Les caractères suivants ne sont pas autorisés dans le nom d'une BA : `~!$%^&|'"<>?,()=*{}` et les espaces.
 
 #### Indicateurs
 
@@ -225,6 +226,8 @@ Cet écran n'est pas actif actuellement. Dans Centreon Cloud, les BA utilisent [
     peut être utilisé comme un seuil de SLA "warning".
 -   Plages de reporting additionnelles: permet de calculer les
     statistiques de l'activité métier sur d'autres plages horaire
+
+> Dans les champs **Période de rapport par défaut** et **Plages de reporting additionnelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab) : les exceptions ne seront pas prises en compte.
 
 #### Gestionnaire d'évènements
 

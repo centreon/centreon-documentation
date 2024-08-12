@@ -131,6 +131,7 @@ need to configure multiple sections to have an aggregated indicator. The
 name is the only mandatory parameter, but to have a BA that works, **you
 must at least configure some indicators and define the
 calculation methods**. This can be done in the "Indicator" section.
+The following characters are not authorized in the name of a BA: `~!$%^&|'"<>?,()=*{}` and spaces.
 
 #### Indicators
 
@@ -240,6 +241,8 @@ to the BA.
     warning” threshold..
 -   Extra reporting time periods: Additional time period you may want
     to use in widget and reports
+
+> In the **Default reporting time period** and **Extra reporting time periods** fields, do not use time periods that include [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab), as the exceptions will not not be taken into account.
 
 #### Event handler
 

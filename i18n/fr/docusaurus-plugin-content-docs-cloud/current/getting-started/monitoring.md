@@ -3,6 +3,10 @@ id: monitoring
 title: Comment mettre une ressource en supervision ?
 ---
 
+Assurez-vous d'avoir lu la page [Bases de la supervision](concepts.md) avant de mettre votre première ressource en supervision.
+
+## Mettre une ressource en supervision
+
 Pour mettre une ressource en supervision dans Centreon Cloud :
 
 1. Créez la ressource.
@@ -10,13 +14,9 @@ Pour mettre une ressource en supervision dans Centreon Cloud :
 3. Liez la ressource au modèle fourni par le [connecteur de supervision](../monitoring/pluginpacks.md) correspondant.
 4. [Exportez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md). La ressource apparaît à la page **Statut des ressources** : vous pouvez y suivre tout changement de statut.
 
-Voici quelques tutoriels pour vous aidez à mettre en place votre supervision :
+## Voir aussi
 
-* [Superviser votre premier serveur Linux](monitor-linux-server-with-snmp.md)
-* [Superviser votre premier serveur Windows](monitor-windows-server-with-snmp.md)
-* [Superviser votre premier routeur Cisco](monitor-cisco-router-with-snmp.md)
-* [Superviser une base de données MySQL ou MariaDB](mysql_tuto.md)
-* [Découvrir des instances AWS EC2 avec autodiscovery](autodisco-aws.md)
+Consultez nos [tutoriels](tutorials.md) pour vous aider à mettre en place votre supervision.
 
 Les articles suivants peuvent également être intéressants (en anglais sur notre plateforme communautaire **The Watch**):
 

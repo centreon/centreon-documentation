@@ -69,7 +69,7 @@ dnf install centreon-pack-hardware-servers-hp-ilo-xmlapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-servers-hp-ilo-xmlapi
@@ -114,7 +114,7 @@ dnf install centreon-plugin-Hardware-Servers-Hp-Ilo-Xmlapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-servers-hp-ilo-xmlapi

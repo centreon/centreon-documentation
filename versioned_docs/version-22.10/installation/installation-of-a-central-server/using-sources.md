@@ -1144,6 +1144,10 @@ SELINUX=disabled
 
 After saving the file, please reboot your operating system to apply the changes.
 
+> **Note that this deactivation should be temporary.** To enable SELinux again, edit the **/etc/selinux/config** file and change the value with the following options:
+> - ``SELINUX=enforcing`` to make SELinux security policy enforced.
+> - ``SELINUX=permissive`` to make SELinux print warnings instead of enforce security policy.
+
 Timezone and mandatory PHP parameters have to be set: go to `/etc/php/7.2/cli/conf.d` or `/etc/php/7.2/apache2/conf.d`
 directory and create a file named `centreon.ini` which contains the following lines:
 

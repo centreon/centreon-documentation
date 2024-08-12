@@ -17,6 +17,30 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon MAP
 
+### 22.10.16
+
+Release date: `April 17, 2024`
+
+#### Enhancements
+
+- [Packaging] Correct rights are now set for Centreon MAP configuration files.
+
+#### Security fixes
+
+- [Security] Updated dependencies.
+
+### 22.10.15
+
+Release date: `February 19, 2024`
+
+#### Bug fixes
+
+- [Editor] Fixed the label font size in the editor mode.
+- [Viewer] Fixed an issue in the container status color.
+- [Viewer] Made resource labels contained in shapes (no overflow).
+- [Viewer] Fixed an issue that converted breadcrumb elements to lowercase.
+- [Widget] Fixed an issue preventing non admin users from saving the position and the zooming of a map.
+
 ### 22.10.14
 
 Release date: `December 21, 2023`
@@ -352,6 +376,14 @@ Release date: `October 26, 2022`
 
 ## Centreon BAM
 
+### 22.10.6
+
+Release date: `April 17, 2024`
+
+#### Security fixes
+
+- Upgraded svg-sanitize dependency.
+  
 ### 22.10.5
 
 Release date: `November 22, 2023`
@@ -407,6 +439,22 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon MBI
+
+### 22.10.10
+
+Release date: `July 4, 2024`
+
+#### Bug fixes
+
+- [Packaging] Fixed an issue with the report design functionality on Debian.
+
+### 22.10.9
+
+Release date: `April 17, 2024`
+
+#### Enhancements
+
+- [Packaging] Correct rights are now set for Centreon MBI configuration files.
 
 ### 22.10.8
 
@@ -528,6 +576,14 @@ Release date: `October 26, 2022`
 
 ## Centreon Plugin Packs Manager
 
+### 22.10.1
+
+Release date: `April 17, 2024`
+
+#### Bug fixes
+
+- Fixed the absence of error displayed when the deletion of a Monitoring Connector is not possible.
+
 ### 22.10.0
 
 Release date: `October 26, 2022`
@@ -551,6 +607,15 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon Anomaly Detection
+
+### 22.10.6
+
+Release date: `July 4, 2024`
+
+#### Bug fixes
+
+- [Packaging] Added missing dependencies on anomaly detection.
+- [Packaging] Various anomaly detection perl installation scripts are now deployed on **/usr/share/perl5/centreon/anomalydetection** instead of **/%{perl_vendorlib}/centreon**.
 
 ### 22.10.5
 

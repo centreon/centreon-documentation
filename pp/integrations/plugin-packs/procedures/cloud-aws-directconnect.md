@@ -129,7 +129,7 @@ yum install centreon-pack-cloud-aws-directconnect
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-cloud-aws-directconnect
@@ -176,7 +176,7 @@ yum install centreon-plugin-Cloud-Aws-Directconnect-Api
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-cloud-aws-directconnect-api

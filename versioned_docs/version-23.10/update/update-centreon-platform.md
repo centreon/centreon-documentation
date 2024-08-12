@@ -57,7 +57,7 @@ Then upgrade all the components with the following command:
 Clean the cache:
 
   ```shell
-  apt clean all
+  apt clean
   apt update
   ```
 
@@ -221,14 +221,14 @@ This procedure is the same as to update a Centreon central server.
 1. Clean the cache:
 
   ```shell
-  apt clean all
+  apt clean
   apt update
   ```
 
 2. Then upgrade all the components with the following command:
 
   ```shell
-  apt upgrade centreon\* --exclude=centreon-plugin*
+  apt-get update && apt-mark hold centreon-pack* && apt-mark hold centreon-plugin* && apt-get install --only-upgrade 'centreon*' 
   ```
 
 </TabItem>
@@ -246,6 +246,28 @@ and choose the **Restart** method for the Engine process.
   systemctl restart centengine gorgoned
   ```
 
+5. Run the following command:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Nothing to do.
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Nothing to do.
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+  ```shell
+  apt-mark unhold centreon-pack* && apt-mark unhold centreon-plugin*
+  ```
+
+</TabItem>
+</Tabs>
+
 ## Unattended update
 
 You can perform an unattended update of your platform using the **unattended.sh** script.
@@ -253,7 +275,7 @@ You can perform an unattended update of your platform using the **unattended.sh*
 1. Download the script using the following command:
 
 ```shell
-curl -L https://raw.githubusercontent.com/centreon/centreon/23.10.x/centreon/unattended.sh -O /tmp/unattended
+curl -L https://download.centreon.com/23.10/unattended.sh -O /tmp/unattended
 ```
 
 2. Run the script:

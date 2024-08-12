@@ -2,15 +2,18 @@ module.exports = {
   pp: [
     {
       type: 'category',
-      label: 'Getting started',
+      label: 'Getting started with Monitoring Connectors',
+      link: {
+        type: 'doc',
+        id: 'integrations/plugin-packs/getting-started/introduction'
+      },
       items: [
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/getting-started/introduction'
-        },
         {
           type: 'category',
           label: 'How-to guides',
+          link: {
+            type: 'generated-index'
+          },
           items: [
             {
               type: 'doc',
@@ -19,6 +22,10 @@ module.exports = {
             {
               type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/centreon-nsclient-tutorial'
+            },
+			{
+              type: 'doc',
+              id: 'integrations/plugin-packs/getting-started/how-to-guides/telegraf'
             },
             {
               type: 'doc',
@@ -41,6 +48,9 @@ module.exports = {
         {
           type: 'category',
           label: 'Developers Center',
+          link: {
+            type: 'generated-index'
+          },
           items: [
             {
               type: 'doc',
@@ -156,7 +166,15 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-dynamics-ax-mssql'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-monitoring-dynatrace-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-eclipse-mosquitto-mqtt'
         },
         {
           type: 'doc',
@@ -185,6 +203,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-gorgone-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-grafana-api'
         },
         {
           type: 'doc',
@@ -221,6 +243,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-ibm-tsamp-ssh'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-infor-ion-grid-restapi'
         },
         {
           type: 'doc',
@@ -269,6 +295,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-keepalived-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-loggly-restapi'
         },
         {
           type: 'doc',
@@ -452,6 +482,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-quanta-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-rabbitmq-restapi'
         },
         {
@@ -469,6 +503,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-redis-sentinel'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-rrdcached'
         },
         {
           type: 'doc',
@@ -584,6 +622,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-veeam-wsman'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-backupexec-nscp-restapi'
         },
         {
@@ -653,6 +695,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-monitoring-centreon-map-jmx'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-centreon-map-engine-actuator'
         },
         {
           type: 'doc',
@@ -839,6 +885,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-azure-database-mysql'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-azure-database-postgresql'
         },
         {
           type: 'doc',
@@ -1179,6 +1229,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-devices-barco-cs-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-devices-camera-avigilon-snmp'
         },
         {
           type: 'doc',
@@ -1828,6 +1882,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-nokia-isam-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-nokia-timos-snmp'
         },
         {
@@ -1928,6 +1986,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-securactive-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-silverpeak-snmp'
         },
         {
@@ -1956,8 +2018,9 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-switchs-symbol-wing-snmp'
+          id: 'integrations/plugin-packs/procedures/network-symbol-wing-snmp'
         },
+
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-teldat-snmp'
@@ -2058,6 +2121,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/operatingsystems-linux-nrpe4'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/operatingsystems-linux-snmp'
         },
         {
@@ -2067,6 +2134,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/operatingsystems-linux-ssh'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/operatingsystems-linux-telegraf-agent'
         },
         {
           type: 'doc',
@@ -2095,6 +2166,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/operatingsystems-windows-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/operatingsystems-windows-telegraf-agent'
         },
         {
           type: 'doc',
@@ -2298,6 +2373,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-datacore-api'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-dell-compellent-snmp'
         },
         {
@@ -2431,6 +2510,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-hp-storeonce-ssh'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-hpe-primera-restapi'
         },
         {
           type: 'doc',
@@ -2699,6 +2782,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-ups-hp-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-ups-inmatics-sputnik-snmp'
         },
         {
           type: 'doc',

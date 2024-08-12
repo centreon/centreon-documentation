@@ -512,6 +512,10 @@ module.exports = {
         {
           "type": "doc",
           "id": "administration/media"
+        },
+        {
+          "type": "doc",
+          "id": "administration/api-tokens"
         }
       ]
     },
@@ -533,19 +537,6 @@ module.exports = {
         }
       ]
     },
-    {
-      "type": "category",
-      "label": "API",
-      "link": {
-        "type": "generated-index",
-      },
-      "items": [
-        {
-          "type": "doc",
-          "id": "API/api-tokens"
-        }
-      ],
-},
     {
       "type": "category",
       "label": "Security",

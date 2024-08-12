@@ -8,7 +8,7 @@ Here are a few basic Centreon concepts:
 * A [**host**](basic-objects/hosts-create.md) is any device that has an IP address and that one wishes to monitor. For example, a physical server, a
   virtual machine, a temperature probe, an IP camera, a printer or a storage space.
 * A [**service**](basic-objects/services-create.md) is a check point, or indicator, to be monitored on a host. This can be the CPU usage rate, temperature,
-  motion detection, bandwidth usage rate, disk I/O, and so on.
+  motion detection, bandwidth usage rate, disk I/O, and so on. A service can consist of one or several [metrics](metrics.md).
 * In order to collect each indicator value, monitoring **plugins** are used which are periodically executed by a
   collection engine called **Centreon Engine**.
 * To be executed, a plugin needs a set of arguments that define, for example, which host to connect to or through which protocol.

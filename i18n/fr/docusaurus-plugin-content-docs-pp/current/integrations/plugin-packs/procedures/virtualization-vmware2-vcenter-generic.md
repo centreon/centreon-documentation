@@ -11,6 +11,8 @@ Le connecteur de supervision Centreon s'appuie sur le SDK VMWare pour requêter 
 
 Avec le connecteur, Centreon peut superviser les VMs, Datastores, ESXs, Clusters, etc.
 
+> Ce connecteur de supervision fonctionne avec les versions 6 et 7 de l'API VMware.
+
 ## Contenu du pack
 
 ### Modèles
@@ -666,7 +668,7 @@ dnf install centreon-pack-virtualization-vmware2-vcenter-generic
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-virtualization-vmware2-vcenter-generic
@@ -711,7 +713,7 @@ dnf install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-virtualization-vmware2-connector-plugin

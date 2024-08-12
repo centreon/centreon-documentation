@@ -739,4 +739,4 @@ Si vous installez le tableau de bord [Grafana](https://grafana.com/), vous pouve
 
 Centreon fournit un dépôt Github pour héberger les scripts Lua développés par Centreon et la communauté. Rendez-vous sur le [Github dédié](http://github.com/centreon/centreon-stream-connector-scripts).
 
-Vous avez besoin d'aide pour développer votre Stream Connector ? Vous voulez partager votre expérience avec la communauté ? Rejoignez le [canal Slack de la communauté Centreon](https://centreon.github.io/).
+Vous avez besoin d'aide pour développer votre Stream Connector ? Vous voulez partager votre expérience avec la communauté ? Rejoignez notre [plateforme communautaire The Watch](https://thewatch.centreon.com/).

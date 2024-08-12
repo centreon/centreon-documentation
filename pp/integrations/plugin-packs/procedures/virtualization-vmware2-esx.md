@@ -11,6 +11,8 @@ The Centreon Plugins and Monitoring Connectors rely on the Centreon VMWare Conne
 
 With this connector, Centreon can monitor VMs, Datastores, ESXs, Clusters, etc.
 
+> This Monitoring Connector can be used with either version 6 or 7 of the VMware API.
+
 ## Pack assets
 
 ### Templates
@@ -450,7 +452,7 @@ dnf install centreon-pack-virtualization-vmware2-esx
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-virtualization-vmware2-esx
@@ -497,7 +499,7 @@ dnf install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-virtualization-vmware2-connector-plugin

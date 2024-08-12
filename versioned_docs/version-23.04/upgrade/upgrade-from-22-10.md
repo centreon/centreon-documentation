@@ -34,7 +34,7 @@ servers:
 
 1. Update your Centreon 22.10 to the latest minor version.
 
-2. Remove the **centreon.repo** file:
+2. Remove the **centreon-22.10.repo** file:
 
    ```shell
    rm /etc/yum.repos.d/centreon-22.10.repo
@@ -106,7 +106,7 @@ dnf clean all --enablerepo=*
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt clean all
+apt clean
 apt update
 ```
 
@@ -126,7 +126,7 @@ dnf update centreon\* php-pecl-gnupg
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt upgrade centreon
+apt install --only-upgrade centreon
 ```
 
 </TabItem>
@@ -218,13 +218,7 @@ The expected result is the following:
 Syntax OK
 ```
 
-Restart the Apache and PHP processes to take in account the new configuration:
-
-```shell
-systemctl restart php8.0-fpm apache2
-```
-
-Then check its status:
+Check the status of Apache:
 
 ```shell
 systemctl status apache2
@@ -482,7 +476,7 @@ dnf clean all --enablerepo=*
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt clean all
+apt clean
 apt update
 ```
 
@@ -502,7 +496,7 @@ dnf update centreon\*
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt upgrade centreon-poller
+apt install --only-upgrade centreon-poller
 ```
 
 </TabItem>

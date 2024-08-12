@@ -10,10 +10,10 @@ Avec Centreon Cloud, votre serveur central est déjà prêt à l'emploi. Il ne v
 
 Avant de déployer un collecteur, assurez-vous que votre machine hôte répond aux [prérequis](prerequisites.md).
 
-## Étape 1 : Exécuter le script
+## Étape 1 : Exécuter le script d'installation du collecteur
 
 1. Connectez-vous en SSH au serveur qui deviendra un collecteur Centreon.
-2. Désactivez SELinux (ceci est recommandé afin d'obtenir une installation fluide. Des utilisateurs avancés peuvent activer SELinux en fonction de leur expertise de SELinux ou de leurs contraintes de sécurité, mais attention aux effects secondaires de ce paramétrage.)
+2. Désactivez SELinux (ceci est recommandé afin d'obtenir une installation fluide. Des utilisateurs avancés peuvent activer SELinux en fonction de leur expertise de SELinux ou de leurs contraintes de sécurité, mais attention aux effets secondaires de ce paramétrage.)
    
    1. Éditez le fichier de configuration **/etc/sysconfig/selinux**.
    2. Donnez au paramètre SELINUX la valeur "disabled" (**SELINUX=disabled**).

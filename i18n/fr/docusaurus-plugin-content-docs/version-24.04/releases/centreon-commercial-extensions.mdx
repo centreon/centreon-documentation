@@ -15,126 +15,311 @@ Vous trouverez dans ce chapitre tout ce qui concerne les **extensions commercial
 
 Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions commerciales, veuillez contacter le support.
 
-> Retrouvez plus de détails sur la version 23.10 dans notre [post de blog](https://www.centreon.com/fr/centreon-23-10-decouvrez-les-dernieres-nouveautes/).
+> Retrouvez plus de détails sur la version 24.04 dans notre [post de blog](https://www.centreon.com/centreon-announces-its-latest-software-release-centreon-24-04/).
 
 <ExpandCollapseAll />
 
 ## Centreon MAP
 
-### 23.10.0
+### 24.04.4
 
-Release date: `October 30, 2023`
+Release date: `August 8, 2024`
 
 <details open>
   <summary>Enhancements</summary>
 
-- [Editor] Improved the layout of the output widget edition window.
-- [Editor] You can now add Centreon resources to a map by searching their names.
-- [UI] You can now use the MAP module in French.
-- [UI] You can now use a button to save zoom and position in editor and viewer.
-- [UI] You can now hide the label of a resource.
-- [UI] Made the labels in the metric link window more explicit by replacing "metric 1" and "metric 2" by "metric in" and "metric out".
-- [UX] You can now duplicate maps.
-- [Server] Made link anchors consistent between viewer and editor.
-- [Server] You can now save maps that contain elements not associated with a Centreon resource.
-- [Viewer] Made resource status unique for hosts (include host status in inherited status computation).
-- [Viewer] You can now define a label for a URL shape.
+- [SELinux] Packaged SELinux rules for EL distributions.
 
 </details>
 
 <details>
-  <summary>Compatibility</summary>
+  <summary>Bug fixes</summary>
 
-- Compatibility with other 23.10 components.
+-	[ACL] Fixed an issue which caused user without creator role to be able to duplicate maps.
+-	[BA] Fixed an issue causing the MAP server to crash at startup due to orphan KPIs.
+- [Editor] Fixed an issue causing link labels not to be displayed in the editor.
+- [Map list] Fixed an issue that could prevent the map list from being displayed.
+- [Server] Fixed an issue causing an error when trying to save maps.
+- [Server] Fixed an issue in the connection between Centreon Central and the MAP server initialization causing issues in real time updates.
+- [Server] Fixed an issue preventing the diagnostic script from running when the password contained the '#' character.
+- [Server] Fixed concurrent access leading to inconsistencies in maps.
+- [Server] Fixed the diagnostic when MAP was configured in HTTPS.
+- [Viewer] Fixed the interpretation of HTML tags when using carriage returns.
+
+</details>
+
+### 24.04.3
+
+Release date: `July 4, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Protobuf] Implemented the *pb_instance_configuration* event.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Server] Fixed an issue causing properties to be overwritten.
+- [Viewer] Fixed an issue that made the breadcrumb not correct when selecting a Centreon resource.
+- [Viewer] Fixed an issue with the alignment of the label for resources in geometric mode.
+- [Viewer] Fixed an issue with the image opacity parameter that was not applied.
+- [Viewer] Fixed an issue for the container label that was not correctly centered in geometric style.
+- [UI] Fixed a translation issue in the bulk mode and Output status.
+
+</details>
+
+### 24.04.2
+
+Release date: `June 21, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Server] Fixed an issue causing properties to be overwritten in MAP configuration files.
+
+</details>
+
+### 24.04.1
+
+Release date: `June 12, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed access control for some v2 API endpoints.
+- [Viewer] Fixed an issue that made metric links disappear when the status of a resource was Unknown.
+- [Viewer] Fixed an issue that caused the status of disabled resources to be used in inherited status computations.
+
+</details>
+
+### 24.04.0
+
+Release date: `April 30, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- To facilitate a smooth transition from MAP Legacy to MAP, we have made sure that features and enhancements already available in previous versions are fully compatible.
 
 </details>
 
 ## Centreon BAM
 
-### 23.10.0
+### 24.04.3
 
-Release date: `October 30, 2023`
+Release date: `August 8, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [BAM] Fixed a deprecation issue due to Symfony upgrade.
+
+</details>
+
+### 24.04.2
+
+Release date: `July 4, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an issue with the name of a KPI whose type was Business Activity. It is now correctly displayed in the details of its parent BA.
+
+</details>
+
+### 24.04.1
+
+Release date: `June 12, 2024`
+
+- No changes for this module in this version.
+
+### 24.04.0
+
+Release date: `April 30, 2024`
 
 <details open>
   <summary>Enhancements</summary>
 
-- The output message for business activities has been modified to give more understandable information about the reason for the BA's status. This will particularly affect the clarity of the notifications.
-
-</details>
-
-<details>
-  <summary>Compatibility</summary>
-
-- Compatibility with other 23.10 components.
+- [API] Added an endpoint to GET Business Activities.
 
 </details>
 
 ## Centreon MBI
 
-### 23.10.0
+### 24.04.2
 
-Release date: `October 30, 2023`
+Release date: `August 8, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [SELinux] Packaged SELinux rules for EL distributions.
+
+</details>
+
+### 24.04.1
+
+Release date: `June 12, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [MBI] Fixed the Hostgroup-Storage-Capacity-2 report, which displayed double the total disk size in specific cases.
+
+</details>
+
+### 24.04.0
+
+Release date: `April 30, 2024`
 
 <details>
   <summary>Compatibility</summary>
 
-- Compatibility with other 23.10 components.
+- Compatibility with other 24.04 components.
 
 </details>
 
 ## Centreon Auto Discovery
 
-### 23.10.0
+### 24.04.0
 
-Release date: `October 30, 2023`
+Release date: `April 30, 2024`
 
 <details>
   <summary>Compatibility</summary>
 
-- Compatibility with other 23.10 components.
+- Compatibility with other 24.04 components.
 
 </details>
 
-## Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager)
+## Centreon Monitoring Connectors Manager
 
-### 23.10.0
+### 24.04.0
 
-Release date: `October 30, 2023`
+Release date: `April 30, 2024`
 
 <details>
   <summary>Compatibility</summary>
 
-- Compatibility with other 23.10 components.
+- Compatibility with other 24.04 components.
 
 </details>
 
 ## Centreon License Manager
 
-### 23.10.0
+### 24.04.1
 
-Release date: `October 30, 2023`
+Release date: `June 12, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Helios] Fixed Centreon Helios cron.
+
+</details>
+
+### 24.04.0
+
+Release date: `April 30, 2024`
 
 <details>
   <summary>Compatibility</summary>
 
-- Compatibility with other 23.10 components.
+- Compatibility with other 24.04 components.
 
 </details>
 
 ## Centreon Anomaly Detection
 
-### 23.10.0
+### 24.04.3
 
-Release date: `October 30, 2023`
+Release date: `August 8, 2024`
 
 <details>
-  <summary>Compatibility</summary>
+  <summary>Bug fixes</summary>
 
-- Compatibility with other 23.10 components.
+- [Anomaly Detection] Fixed wrong package name for Lua curl Debian dependency for anomaly-detection.
+
+</details>
+
+### 24.04.2
+
+Release date: `July 4, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Anomaly Detection] Fixed an error that occurred after filling the creation form. 
+
+</details>
+
+### 24.04.1
+
+Release date: `July 1, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Anomaly Detection] Fixed an issue that prevented Anomaly Detection from sending real time data to the SaaS application.
+- [Anomaly Detection] Fixed an issue with the creation of a Centreon Broker configuration output, that occurred when adding an AIOps token.
+
+</details>
+
+### 24.04.0
+
+Release date: `April 30, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added an endpoint to UPDATE Cloud tokens.
+
+</details>
+
+## Centreon IT Edition Extensions
+
+### 24.04.1
+
+Release date: `June 12, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [IT Extension] Added dependency to centreon-license-manager to validate licenses.
+- [Unattended] Fixed the activation of Centreon IT Edition Extensions that was not enabled by default.
+
+</details>
+
+### 24.04.0
+
+Release date: `April 30, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+New playlist feature: dashboard playlists allow you to display several dashboards sequentially without any interaction. Ideal for broadcast on a TV screen. 
+
+You can now:
+- create dashboard playlists.
+- display the list of dashboard playlists.
+- share playlists.
+- display the list of playlist shares.
+- revoke the sharing of a playlist to a contact group.
 
 </details>
 
 ## Centreon IT & Business Extensions
 
-### 23.10.0
+### 24.04.0
 
+Release date: `April 30, 2024`
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 24.04 components.
+
+</details>

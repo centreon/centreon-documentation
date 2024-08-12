@@ -12,13 +12,15 @@ Cette procédure ne s'applique que dans les conditions suivantes :
 - Vous souhaitez migrer d'un OS de type EL 64-bits vers un autre OS de type EL 64-bits supporté. Par exemple, vous souhaitez migrer d'un CentOS 7 à un Alma 8 ou 9.
 - Votre version de Centreon est 18.10 ou plus récente.
 
+Tous les serveurs de votre architecture (serveur central, serveurs distants et collecteurs) doivent avoir la même version majeure de Centreon. Il est également recommandé d'avoir la même version mineure.
+
 > En cas de migration d'une plateforme disposant du système de redondance
 > Centreon, il est nécessaire de contacter le
 > [support Centreon](https://support.centreon.com).
 
-## Migrer un serveur central
+## Migrer une plateforme
 
-### Étape 1 : Installer le nouveau serveur
+### Étape 1 : Installer le nouveau serveur central
 
 1. Installez votre nouvel OS: voir la liste des [OS supportés](../installation/compatibility.md#système-dexploitation).
 
@@ -222,9 +224,23 @@ Si vous utilisez vos propres plugins personnalisés, synchronisez les répertoir
    pour plus d'information.
    - L'empreinte de votre plateforme a également changé : [contactez Centreon](mailto:support@centreon.com) pour obtenir une nouvelle licence.
 
-6. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) de tous vos serveurs de supervision (y compris celle du central).
+6. Les informations de connexion de l'utilisateur **centreon-gorgone** nouvellement créé doivent être les mêmes que celles de l'utilisateur **centreon-gorgone** sur l'ancien serveur. Éditez le fichier `etc/centreon-gorgone/config.d/31-centreon-api.yaml` et entrez les information de connexion de l'ancien utilisateur. Exemple :
 
-7. Redémarrez les processus suivants :
+   ```shell
+   gorgone:
+     tpapi:
+       - name: centreonv2
+         base_url: "http://127.0.0.1/centreon/api/latest/"
+         username: "@GORGONE_USER@"
+         password: "@GORGONE_PASSWORD@"
+       - name: clapi
+         username: "@GORGONE_USER@"
+         password: "@GORGONE_PASSWORD@"
+   ```
+
+7. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) de tous vos serveurs de supervision (y compris celle du central).
+
+8. Redémarrez les processus suivants :
 
    ```shell
    systemctl restart cbd centengine
@@ -233,9 +249,9 @@ Si vous utilisez vos propres plugins personnalisés, synchronisez les répertoir
    systemctl start snmpd
    ```
 
-8. Si vous supervisiez votre ancienne machine Centreon, et que vous avez changé le nom d'utilisateur/mot de passe de la base pendant la migration, mettez à jour la configuration des ressources concernées (hôte, services dépendant de cet hôte).
+9. Si vous supervisiez votre ancienne machine Centreon, et que vous avez changé le nom d'utilisateur/mot de passe de la base pendant la migration, mettez à jour la configuration des ressources concernées (hôte, services dépendant de cet hôte).
 
-9. Allez à la page **Configuration > Gestionnaire de connecteurs de supervision**, puis [mettez à jour tous les connecteurs de supervision](../monitoring/pluginpacks.md#mettre-à-jour-un-ou-plusieurs-packs).
+10. Allez à la page **Configuration > Gestionnaire de connecteurs de supervision**, puis [mettez à jour tous les connecteurs de supervision](../monitoring/pluginpacks.md#mettre-à-jour-un-ou-plusieurs-packs).
 
 ### Étape 6 (anciennes versions uniquement): Migrer vers Gorgone
 
@@ -249,18 +265,21 @@ Si vous avez un serveur MAP ou MBI, suivez les procédures de migration correspo
 - Procédure de migration pour [MAP](../graph-views/migrate.md),
 - Procédure de migration pour [MBI](../reporting/migrate.md).
 
-## Migrer un serveur distant
+### Étape 8: Migrer vos autres serveurs (architecture distribuée)
+
+#### Migrer un serveur distant
 
 Pour migrer un serveur distant :
 
 1. Suivez la même procédure que pour un serveur central.
 2. [Rattachez le nouveau serveur distant](../monitoring/monitoring-servers/add-a-remote-server-to-configuration.md) à votre serveur central.
 
-## Migrer un collecteur
+#### Migrer un collecteur
 
 Pour migrer un collecteur :
 
-1. Effectuez les étapes 1 et 4 de la procédure de migration d'un serveur central (c'est-à-dire [installer le nouveau serveur](#étape-1--installer-le-nouveau-serveur) et [synchronisez les plugins](#étape-4--synchroniser-les-plugins)).
-2. Sur le serveur central, allez à la page **Configuration > Collecteurs**. Sélectionnez le collecteur migré et mettez à jour son adresse IP (si celle-ci a changé).
-3. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
-4. Si votre collecteur rencontre des problèmes suite à la migration (impossible de déployer la configuration, d'effectuer des actions de supervision...), mettez à jour l'empreinte du collecteur comme décrit dans [cet article de base de connaissances](https://thewatch.centreon.com/troubleshooting-41/poller-does-not-work-after-migration-or-reinstallation-fingerprint-changed-for-target-1177).
+1. [Installez un nouveau collecteur](../installation/installation-of-a-poller/using-packages.md).
+2. Synchronisez les plugins, comme décrit à [l'étape 4 de la procédure de migration pour un serveur central](#étape-4--synchroniser-les-plugins).
+3. Sur le serveur central, allez à la page **Configuration > Collecteurs**. Sélectionnez le collecteur migré et mettez à jour son adresse IP (si celle-ci a changé).
+4. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+5. Si votre collecteur rencontre des problèmes suite à la migration (impossible de déployer la configuration, d'effectuer des actions de supervision...), mettez à jour l'empreinte du collecteur comme décrit dans [cet article de base de connaissances](https://thewatch.centreon.com/troubleshooting-41/poller-does-not-work-after-migration-or-reinstallation-fingerprint-changed-for-target-1177).

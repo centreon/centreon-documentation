@@ -17,7 +17,7 @@ Une vue ouverte est une vue qu'au moins **un** utilisateur regarde (en utilisant
 Vous trouverez ci-dessous quelques bonnes pratiques utiles pour vous aider à concevoir des vues optimisées :
 
 - Nous recommandons **vivement** d'activer l'optimisation ACL (*gate.useResourcesAccess=false*).
-- Lorsque vous souhaitez visualiser les statuts des applications, nous vous recommandons vivement de les modéliser à l'aide des [Activités Métier](https://documentation.centreon.com/docs/centreon-bam/en/latest/).
+- Lorsque vous souhaitez visualiser les statuts des applications, nous vous recommandons vivement de les modéliser à l'aide des [Activités Métier](../service-mapping/introduction.md).
   Cela vous aidera à limiter le nombre d'éléments que vous devez ajouter à une vue. 
   L'ajout d'une Activité Métier à une vue signifie qu'un seul élément est ajouté au lieu de tous les hôtes et services que vous auriez ajoutés dans la vue pour modéliser l'application autrement.
 - Évitez de dupliquer les mêmes ressources (groupes d'hôtes, groupes de services, hôtes, services) dans la même vue ou dans plusieurs vues.

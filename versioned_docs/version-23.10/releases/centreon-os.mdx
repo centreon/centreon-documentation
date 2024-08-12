@@ -23,6 +23,198 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 23.10.15
+
+Release date: `August 06, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Resource Status] Fixed a bug that occurred when users accessed the Graph panel for a resource.
+
+</details>
+
+### 23.10.14
+
+Release date: `July 18, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Unattended] Backported recent bug fixes on the Unattended script (http services not restarting, it-edition-extensions installation, unattended issue on Oracle Linux distributions).
+
+</details>
+
+### 23.10.13
+
+Release date: `June 26, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed API access control for monitoring endpoints.
+- [Authentication] Fixed a random disconnection issue occurring with SAML authentication.
+- [Configuration] Fixed mass change on services.
+- [Configuration] Exporting the configuration no longer fails when a host severity and a service severity have the same name.
+- [Resource Status] Filters can now be deselected in the search window.
+- [Resource Status] Fixed redirection to "Performance > Graphs" menu in graph panel for meta-services.
+- [Resource Status] In the filter window, you can now filter by resource type.
+- [Resource Status] The passive check icon is now displayed next to the correct resources.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed several SLQi issues.
+
+</details>
+
+### 23.10.12
+
+Release date: `May 29, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed an issue affecting downtimes on services linked to a service group via a service template.
+- [API] Fixed an issue with is_password when using Service and Service Template POST endpoint.
+- [API] Fixed access control for some v2 API endpoints.
+- [Auto Discovery] Fixed rights for temporary files created during the generation of the configuration.
+- [Configuration] Fixed an issue where the Service Categories configuration page could appear blank.
+- [Packaging] Fixed symbolic link between /usr/lib/nagios/plugins and /usr/lib64/nagios/plugins.
+- [Resource Status] Fixed access to "View report" icon in the resource details panel.
+- [Resource Status] Disabled pollers can no longer be selected in filters.
+- [UX] Fixed an issue where the top counter pop-up was not closed when users clicked outside of it.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed several SQLi issues.
+- [Security] Fixed XSS in a configuration page.
+
+</details>
+
+### 23.10.11
+
+Release date: `April 9, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Dashboard lists can now be ordered by creator, creation date and update date.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed an issue where categories did not appear in service and service template creation responses.
+- [API V1] Fixed an issue that occurred when filtering Resources Status by criticality.
+- [Resource Status] Fixed a bug occurring when users cleared the search bar.
+- [Dashboards] Fixed an error that occurred while granting viewer rights as an administrator from the admin dashboard.
+- [Update] Fixed chmod warning on configuration export after a system update.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Upgraded axios dependency.
+
+</details>
+
+### 23.10.10
+
+Release date: `March 13, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Resource Status] Improved the update of filters by removing an unnecessary dialog box.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Authentication] Fixed issue with SSO authentication.
+- [API] Fixed a visibility issue with the UserFilter endpoint.
+- [API] Fixed an issue where an error 500 was returned when a host had no alias.
+- [CLAPI] Fixed a decoding issue affecting the export of HTML entities.
+- [CLAPI] Duplicates are no longer generated when exporting services and hosts.
+- [Dashboards - Map widget] Fixed an issue where Maps, Geoviews and perspectives couldn't be saved.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Improved allowed commands for Centreon Gorgone.
+
+</details>
+
+### 23.10.9
+
+Release date: `February 22, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Install] Fixed an issue that prevented the Dashboard module from being updated from 23.10.2 to 23.10.3.
+
+</details>
+
+### 23.10.8
+
+Release date: `February 14, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+#### Dashboards Beta
+
+- [API] Added "name" and "parent_name" parameters to metrics/performances and metrics/top endpoints.
+- [API] Added an endpoint to manage dashboard shares in batch.
+- [API] Retrieved only users with dashboard ACLs in contact listing.
+- [Breaking change] Simplified metric selection by displaying corresponding service names.
+- [UI] Added pictograms to represent each widget type.
+- [UI] Moved the parameter used for hiding widget's description.
+- [UX] Added links to Resources Status page on widgets.
+- [UX] Added a new way to display dashboards, as a list.
+- [UX] Added a search functionality.
+- [UX] Added pagination.
+- [UX] Handled the new shares system on Dashboards.
+- [UX] Retrieved correctly contact and contactgroup shares for non admin users.
+- [Widget] Added the new "Resource Table" widget.
+- [Widget] Added default message when no resource has been selected yet.
+- [Widget] Metrics Graph: added a warning message indicating that thresholds have been hidden when selecting two different metric units.
+- [Widget] Single Metric: simplified dataset selection by forcing a host + service pair.
+- [Widget] Status Grid: added "unhandled" state property.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+#### Dashboards Beta
+
+- [ACLs] Fixed an issue that was retrieving all contactgroups despite Dashboard ACLs.
+- [API] Fixed a security issue on category and severity displaying.
+- [Dataset] Fixed an issue that allowed to select a resource type more than once.
+- [MySQL] Fixed an issue preventing to search a host in a widget.
+- [Widget] Status Grid: fixed tiles ordering by status.
+- [Widget] Status Grid: fixed an issue preventing the user from deleting the value for the number of tiles to display.
+- [Widget] Status Grid: fixed the "Metric not found" message that was not supposed to appear.
+
+#### Web
+
+- [UI] Fixed the display of inappropriate 404 error page when loading MAP homepage.
+
+</details>
+
 ### 23.10.7
 
 Release date: `January 24, 2024`
@@ -64,10 +256,10 @@ Release date: `January 15, 2024`
 
 Release date: `January 2, 2024`
 
-<details open>
+<details>
   <summary>Security fixes</summary>
 
-- [Security] Fixed an SQLi vulnerability.
+- [Security] Fixed an SQLi vulnerability (CVE-2024-0637, CVE-2024-23115, CVE-2024-23116, CVE-2024-23117, CVE-2024-23118, CVE-2024-23119).
 
 </details>
 
@@ -104,7 +296,7 @@ Release date: `December 21, 2023`
 
 </details>
 
-<details open>
+<details>
   <summary>Security fixes</summary>
 
 - [Security] Prevented a command injection.
@@ -162,10 +354,10 @@ Release date: `November 17, 2023`
 
 </details>
 
-<details open>
+<details>
   <summary>Security fixes</summary>
 
-- Fixed potential XSS vulnerability in the list of discovered hosts.
+- Fixed potential XSS vulnerability in the list of discovered hosts (CVE-2023-51633).
 
 </details>
 
@@ -262,6 +454,130 @@ Release date: `October 30, 2023`
 
 ## Centreon Collect
 
+### 23.10.10
+
+Release date: `August 05, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a conflict between centreon-collect 23.04 and centreon-collect 23.10 that was occurring because of a change in the way we provide the MariaDB **caching sha2 password plugin**.
+
+</details>
+
+### 23.10.9
+
+Release date: `July 17, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed an issue that occurred when inserting too large metrics into the database, which resulted in an error log.
+- [Broker] There were two errors concerning the gnutls version check:
+1. The gnutls library on Centreon had to be at least the same version as the one used to compile Broker. Now, Broker checks that the version of the gnutls library is at least 3.6.0.
+2. The packaging required a very old version of gnutls.
+Now, when Broker is installed we check that the version of gnutls is at least 3.6.0. If the version is older, it will be updated.
+- [Broker] Added support for the default connection method to MySQL 8.0.35.
+
+</details>
+
+### 23.10.8
+
+Release date: `June 17, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Engine] Added a new centengine parameter (`send_recovery_notifications_anyways`) to force sending a recovery notification even when the resource is outside of its notification period. This aims at keeping third-party tools up-to-date at any time when they are fed notifications.
+- [Engine] Engine can now handle extra configuration files to complement/overload the centengine.cfg file. This enhancement allows you to keep a custom configuration unchanged when exporting the configuration.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Engine] Fixed an issue with GRPC communications where coredumps could occur when Broker or Engine were stopped.
+
+</details>
+
+### 23.10.7
+
+Release date: `May 28, 2024`
+
+<details>
+  <summary>Bug Fixes</summary>
+
+- [Broker] Fixed a stability issue that could occur when an LVM snapshot was launched to backup the database.
+- [Broker] Fixed an issue where incomplete BAM queries resulted in unnecessary error messages.
+- [Broker] Fixed an issue that caused MySQL errors in Broker logs, due to attempts to insert relations between BAs and disabled time periods.
+- [Packaging] Added symbolic link from **/usr/lib64/nagios/plugins** to **/usr/lib/nagios/plugins**.
+
+</details>
+
+### 23.10.6
+
+Release date: `April 08, 2024`
+
+<details>
+  <summary>Bug Fixes</summary>
+
+- [Broker] BA initialization could result in KPIs having incoherent statuses. This was breaking the statuses of the BAs.
+- [Broker] Fixed an issue that caused Broker to crash if an event was dispatched at the same time the process was reloaded.
+- [Collect] Removed the unnecessary check of Anomaly Detection configuration files during the configuration test before deployment.
+- [Collect] To limit dependencies, perl-interpretor is now used instead of perl in the centreon-connector-perl package (rpm).
+- [Collect] To limit dependencies, perl-base is now used instead of perl in the centreon-connector-perl package (deb).
+
+</details>
+
+### 23.10.5
+
+Release date: `March 19, 2024`
+
+#### Centreon Broker
+
+<details>
+  <summary>Bug Fixes</summary>
+
+- [Broker] Fixed an issue causing hostgroups to fail to appear if they had been used before and emptied of their hosts and then populated again.
+
+</details>
+
+### 23.10.4
+
+Release date: `March 12, 2024`
+
+#### Centreon Broker
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Broker] When Broker is restarted or reloaded, BAM creates a cache with the BA states to be able to restore them when reloaded.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed the permissions of the RRD files produced by the rebuild mechanism when RRDcached is used.
+- [Broker] Fixed a memory leak that occurred when using stream connectors with Broker's v2 API.
+- [Broker] Fixed some incorrect statuses in Broker's statistics retrieved by the `broker-stats.json` file.
+- [Broker] Semicolons are no longer considered as the beginning of a comment in Engine's configuration files. This is because comments were not useful in these files, and they prevented the use of semicolons in macros (e.g., passwords).
+
+</details>
+
+### 23.10.3
+
+Release date: `February 14, 2024`
+
+#### Centreon Broker
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed an issue in the installation process that emptied the `retention.dat` file, causing the temporary loss of all resources' statuses and the permanent loss of current acknowledgements and downtimes.
+
+</details>
+
 ### 23.10.2
 
 Release date: `January 11, 2024`
@@ -338,6 +654,86 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon Gorgone
+
+### 23.10.9 
+
+Release date: `July 18, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Fixed an issue where a host category was not present in MBI if it was applied on a host template instead of directly on the host.
+
+</details>
+
+### 23.10.8
+
+Release date: `June 26, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed gorgone whitelist for HA architecture.
+
+</details>
+
+### 23.10.7
+
+Release date: `May 29, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Fixed a path issue on systemctl (Gorgone whitelist).
+- [Gorgone] Fixed an issue where unnecessary error messages were displayed.
+- [Packaging] Fixed inconsistent system permissions on /var/log/centreon-engine/centengine.log.
+
+</details>
+
+### 23.10.6
+
+Release date: `April 9, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a bug affecting service auto discovery, where only half of the host was correctly discovered.
+
+</details>
+
+### 23.10.5
+
+Release date: `March 28, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Moved Gorgone whitelists to a dedicated file.
+
+</details>
+
+### 23.10.4
+
+Release date: `March 13, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Added the Auto Discovery patterns to the default commands whitelist.
+- Improved list of allowed commands for Auto Discovery.
+- [Packaging] Fixed missing perl dependency for centreon-web installation on Debian 11.
+
+</details>
+
+### 23.10.3
+
+Release date: `February 14, 2024`
+
+<details>
+  <summary>Security fixes</summary>
+[Security] Enabled whitelist of Centreon Gorgone commands by default to manage Centreon Engine and Broker processes in order to limit escalations of potential future vulnerabilities.
+
+</details>
 
 ### 23.10.2
 

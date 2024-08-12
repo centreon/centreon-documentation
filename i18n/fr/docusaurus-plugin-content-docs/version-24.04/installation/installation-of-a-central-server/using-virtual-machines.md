@@ -5,14 +5,16 @@ title: À partir d'une VM
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Sur sa [page de téléchargement](https://download.centreon.com), Centreon fournit une machine virtuelle prête à l’emploi. Cette machine virtuelle est disponible au format OVA pour les environnements
-VMware et OVF pour l'outil Oracle VirtualBox.
-Elle est basée sur le système d'exploitation **Alma Linux 8** et inclut
+Sur sa [page de téléchargement](https://download.centreon.com), Centreon fournit des machines virtuelles prêtes à l’emploi. Ces machines virtuelles sont disponibles pour les environnements
+VMware et pour l'outil Oracle VirtualBox.
+Elles sont basées sur les systèmes d'exploitation **Alma Linux 8** et **Debian 11** et incluent
 une installation de Centreon permettant de démarrer en toute simplicité votre première supervision.
 
-La VM est configurée en **Thin Provision** pour économiser autant d'espace libre que possible sur le disque (meilleure pratique).
+> L'installation par machine virtuelle n'est adaptée que pour utiliser IT-100, ou à des fins de test.
 
-**Prérequis**
+Les VMs sont configurées en **Thin Provision** pour économiser autant d'espace libre que possible sur le disque (meilleure pratique).
+
+## Prérequis
 
 La machine hôte doit avoir les caractéristiques suivantes :
 
@@ -28,23 +30,42 @@ La machine hôte doit avoir les caractéristiques suivantes :
 
 1. Vérifiez que votre solution de virtualisation (VirtualBox ou VMWare) est installée sur votre machine et à jour.
 
-2. Allez sur la [page de téléchargement](https://download.centreon.com) de Centreon. Dans la section 1, **Appliances** est sélectionné par défaut.
+2. Selon le type de licence que vous souhaitez utiliser, allez à l'une des pages suivantes :
 
-3. Dans la section 2, sélectionnez la version de Centreon désirée.
+<Tabs groupId="sync">
+<TabItem value="Page de téléchargement (tous types de licence)" label="Page de téléchargement (tous types de licence)">
 
-4. Dans la section 3, **Download your image**, cliquez sur le bouton **Download** à côté de la machine virtuelle désirée. Une nouvelle page apparaît.
+1. Allez sur la [page de téléchargement](https://download.centreon.com) de Centreon. Dans la section 1, **Appliances** est sélectionné par défaut.
+
+2. Dans la section 2, sélectionnez la version de Centreon désirée.
+
+3. Dans la section 3, **Download your image**, cliquez sur le bouton **Download** à côté de la machine virtuelle désirée. Une nouvelle page apparaît.
 
    * Si vous souhaitez être contacté par Centreon, entrez vos informations de contact, puis
 cliquez sur **Download**.
 
    * Dans le cas contraire, cliquez sur **Direct download**.
 
-5. Le fichier téléchargé est une archive compressée : extrayez son contenu dans le répertoire désiré.
+4. Le fichier téléchargé est une archive compressée : extrayez son contenu dans le répertoire désiré.
+
+</TabItem>
+<TabItem value="Page d'essai gratuit IT-100" label="Page d'essai gratuit IT-100">
+
+1. Allez à la page [Essai gratuit IT-100](https://www.centreon.com/fr/essai-gratuit/).
+
+2. Remplissez le formulaire afin d'obtenir votre jeton IT-100 gratuit, puis suivez les instructions reçues par email.
+
+3. Plus bas dans la page, dans la section **Téléchargez Centreon**, téléchargez l'image correcte pour le type de VM désiré (attention à ne pas confondre les images pour VMWare et pour VirtualBox).
+
+4. Le fichier téléchargé est une archive compressée : extrayez son contenu dans le répertoire désiré.
+
+</TabItem>
+</Tabs>
 
 ## Étape 2 : Installer la machine virtuelle
 
 <Tabs groupId="sync">
-<TabItem value="Environnement VMware" label="Environnement VMware">
+<TabItem value="VMware" label="VMware">
 
 1. Importez le fichier **centreon-central.ova** dans VMWare. Un terminal s’ouvre : attendez que le serveur démarre. Lorsque celui-ci est prêt, le terminal affiche le message suivant :
     
@@ -97,8 +118,11 @@ cliquez sur **Download**.
 
 4. À votre première connexion au serveur, des instructions s’affichent pour vous aider à terminer la
 configuration.
- 
-   Définissez les paramètres suivants :
+
+<Tabs groupId="sync">
+<TabItem value="Alma 8" label="Alma 8">
+  
+Définissez les paramètres suivants :
 
 - Le fuseau horaire (timezone) du serveur Centreon. Par défaut, celui-ci est UTC. Cela définira l'heure des différents logs de Centreon.
 
@@ -120,20 +144,75 @@ configuration.
     timedatectl list-timezones
     ```
 
-- Le fuseau horaire du serveur php. Pour éviter les erreurs, celui-ci doit être identique au fuseau horaire du serveur. Par défaut, le fuseau horaire php est Europe/London.
+- Le fuseau horaire du serveur PHP. Pour éviter les erreurs, celui-ci doit être identique au fuseau horaire du serveur. Par défaut, le fuseau horaire PHP est Europe/London.
+    
     1. Ouvrez le fichier suivant :
 
-        ```shell
-        /etc/php.d/50-centreon.ini
-        ```
+   ```shell
+   /etc/php.d/50-centreon.ini
+   ```
 
-    2. Après date.timezone, entrez le fuseau horaire désiré.
+  2. Après date.timezone, entrez le fuseau horaire désiré.
 
-    3. Redémarrez le serveur php :
+  3. Redémarrez le serveur PHP :
 
-        ```shell
-        systemctl restart php-fpm
-        ```
+   ```shell
+   systemctl restart php-fpm
+   ```
+
+- Le hostname de votre serveur (facultatif). Le nom par défaut du serveur est centreon-central. Pour le
+changer, utilisez la commande suivante :
+
+  ```shell
+  hostnamectl set-hostname votre-hostname
+  ```
+
+  Par exemple, si vous voulez renommer la machine `supervision`, entrez:
+
+  ```shell
+  hostnamectl set-hostname supervision
+  ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+Définissez les paramètres suivants :
+
+- Le fuseau horaire (timezone) du serveur Centreon. Par défaut, celui-ci est UTC. Cela définira l'heure des différents logs de Centreon.
+
+    Utilisez la commande suivante :
+    
+    ```shell
+    timedatectl set-timezone votre_timezone
+    ```
+
+    Par exemple, pour définir le fuseau horaire Europe/London, tapez :
+
+    ```shell
+    timedatectl set-timezone Europe/London
+    ```
+
+    Vous pouvez obtenir une liste de tous les fuseaux horaires possibles en utilisant la commande suivante :
+
+    ```shell
+    timedatectl list-timezones
+    ```
+
+- Le fuseau horaire du serveur PHP. Pour éviter les erreurs, celui-ci doit être identique au fuseau horaire du serveur. Par défaut, le fuseau horaire PHP est Europe/London.
+    
+    1. Ouvrez le fichier suivant :
+      
+   ```shell
+   /etc/php/8.1/mods-available/centreon.ini
+   ```
+   
+   2. Après date.timezone, entrez le fuseau horaire désiré.
+
+   3. Redémarrez le serveur PHP :
+
+   ```shell
+   systemctl restart php8.1-fpm.service
+   ```
 
 - Le hostname de votre serveur (facultatif). Le nom par défaut du serveur est centreon-central. Pour le
 changer, utilisez la commande suivante :
@@ -149,6 +228,9 @@ entrez:
   ```shell
   hostnamectl set-hostname supervision
   ```
+
+</TabItem>
+</Tabs>
 
 5. Ajoutez une partition pour la table MariaDB : cette étape est obligatoire. Votre serveur ne
 fonctionnera pas si vous ne l’exécutez pas.
@@ -193,13 +275,15 @@ fonctionnera pas si vous ne l’exécutez pas.
 
 7. Connectez-vous en utilisant les informations suivantes : Login: `admin`, password: `Centreon!123`. Par défaut, votre serveur offre une configuration prédéfinie qui permet de le superviser lui-même.
 
-8. Selon votre édition de Centreon, vous pouvez avoir à [ajouter une licence](../../administration/licenses.md).
+8. Selon votre édition de Centreon, vous pouvez avoir à [ajouter une licence](../../administration/licenses.md#ajouter-une-licence) (par exemple, un jeton gratuit IT-100 : allez à la page **Administration > Extensions > Gestionnaire**, puis cliquez sur **Ajouter Token**).
 
 9. [Mettez à jour](../../update/update-centreon-platform.md) votre plateforme Centreon.
 
-10. [Sécurisez votre serveur](../../administration/secure-platform.md). Il est notamment recommandé de changer les mots de passe des comptes `root` et `admin`. Il est obligatoire de définir un mot de passe pour la base MariaDB.
+10. Changez les mots de passe des comptes `root` et `admin`. Ceci est obligatoire, car les mots de passe par défaut sont disponibles publiquement dans cette documentation. Il est également obligatoire de définir un mot de passe pour la base MariaDB.
 
-11. Vous pouvez maintenant [superviser votre premier hôte](../../getting-started/first-supervision.md).
+11. [Sécurisez votre serveur](../../administration/secure-platform.md).
+
+12. Vous pouvez maintenant [superviser votre premier hôte](../../getting-started/first-supervision.md).
 
 ## Identifiants par défaut
 
@@ -207,5 +291,8 @@ fonctionnera pas si vous ne l’exécutez pas.
 - Le compte d'administration du serveur (via SSH) est: `root`/`centreon`.
 - Le mot de passe root du SGBD n'est pas initialisé.
 
-> Pour des raisons de sécurité, nous vous recommandons fortement de modifier ces mots de passe après l'installation.
+> Pour des raisons de sécurité, changez ces mots de passe après l'installation.
 
+## Dépannage
+
+Si votre VM ne démarre pas, vérifiez que vous avez utilisé l'image correcte pour votre outil de virtualisation (format OVA pour VMware et format OVF pour Oracle VirtualBox). Vous pouvez égaement vous rendre sur notre plateforme communautaire [The Watch](https://thewatch.centreon.com/).

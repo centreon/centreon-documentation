@@ -117,6 +117,8 @@ soit bien définie dans la configuration des activités métier en tant que
 plage horaire par défaut ou supplémentaire. Dans le cas contraire, les
 activités métier n'apparaîtront pas dans le rapport*
 
+> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab) : les exceptions ne seront pas prises en compte.
+
 #### Pré-requis
 
 - Superviser au moins une activité métier et la lier à une vue business.
@@ -178,6 +180,8 @@ soit bien définie dans les paramètres de l'application métier dans
 Configuration > Business Activiy > XXXXX | onglet "Information
 étendues" en plage horaire par défaut ou supplémentaire*
 
+> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab) : les exceptions ne seront pas prises en compte.
+
 #### Pre-requis
 
 - Superviser au moins une activité métier et la lier à une vue business.
@@ -195,7 +199,7 @@ applications métier sous forme de listing.
 
 Les icônes météo changent en fonction des SLA définis au niveau de
 chaque activité métier en pourcentage. Si aucune SLA n'est paramétrée,
-une disponibiilité de 100% sera représentée par un soleil, et une
+une disponibilité de 100% sera représentée par un soleil, et une
 disponibilité inférieure à 100% sera représentée par un nuage.
 
 L'évolution est calculée par rapport à la période précedente:
@@ -229,6 +233,8 @@ Les paramètres attendus dans ce rapport :
 soit bien définie dans la configuration des activités métier en tant que
 plage horaire par défaut ou supplémentaire. Dans le cas contraire, elle
 n'apparaîtront pas dans le rapport*
+
+> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab) : les exceptions ne seront pas prises en compte.
 
 #### Pre-requis
 
@@ -267,6 +273,8 @@ Les paramètres attendus dans ce rapport :
 soit bien définie dans les paramètres de l'application métier dans
 Configuration > Business Activiy > XXXXX | onglet "Information
 étendues" en plage horaire par défaut ou supplémentaire*
+
+> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab) : les exceptions ne seront pas prises en compte.
 
 #### Pre-requis
 
@@ -314,6 +322,8 @@ soit bien définie dans les paramètres de l'application métier dans
 Configuration > Business Activiy > XXXXX | onglet "Information
 étendues" en plage horaire par défaut ou supplémentaire. Dans le cas
 contraire seule les données temps réelles seront affichées.*
+
+> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab) : les exceptions ne seront pas prises en compte.
 
 #### Pre-requis
 
@@ -382,6 +392,8 @@ Les paramètres attendus dans ce rapport :
 soit bien définie dans la configuration des activités métier en tant que
 plage horaire par défaut ou supplémentaire. Dans le cas contraire, elle
 n'apparaîtront pas dans le rapport*
+
+> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab) : les exceptions ne seront pas prises en compte.
 
 ![image](../assets/reporting/guide/available-reports/bv-ba-calendar-legende.png)
 

@@ -109,8 +109,6 @@ In the event of a cluster switch, you will expect the newly elected master centr
 | Name               | centreon-broker-master-rrd |
 | Connection port    | 5670                       |
 | Host to connect to | `@CENTRAL_MASTER_IPADDR@`  |
-| Buffering timeout  | 0                          |
-| Retry interval     | 60                         |
 
 * Add another "IPv4" output, similar to the first one, named "centreon-broker-slave-rrd" for example, directed toward `@CENTRAL_SLAVE_IPADDR@`.
 
@@ -119,8 +117,6 @@ In the event of a cluster switch, you will expect the newly elected master centr
 | Name               | centreon-broker-slave-rrd |
 | Connection port    | 5670                      |
 | Host to connect to | `@CENTRAL_SLAVE_IPADDR@`  |
-| Buffering timeout  | 0                         |
-| Retry interval     | 60                        |
 
 #### Export the configuration
 
@@ -474,7 +470,7 @@ max_allowed_packet=64M
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-For both optimization and cluster reliability purposes, you need to add these tuning options to the MariaDB configuration in the `/etc/my.cnf.d/mariadb-server.cnf` file. By default, the `[server]` section of this file is empty. Paste the following lines (some need to be modified) into this section:
+For both optimization and cluster reliability purposes, you need to add these tuning options to the MariaDB configuration in the `/etc/my.cnf.d/server.cnf` file. By default, the `[server]` section of this file is empty. Paste the following lines (some need to be modified) into this section:
 
 ```ini
 [server]
@@ -520,6 +516,14 @@ datadir=/var/lib/mysql
 socket=/var/lib/mysql/mysql.sock
 log-error=/var/log/mariadb/mariadb.log
 pid-file=/var/lib/mysql/mysql.pid
+```
+
+then create the directory and corresponding log file:
+
+```shell
+mkdir /var/log/mariadb
+touch /var/log/mariadb/mariadb.log
+chown -R mysql: /var/log/mariadb
 ```
 
 </TabItem>
@@ -728,7 +732,7 @@ systemctl restart mysql
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Now that everything is well configured, enable the `read_only` on both database servers by uncommenting (*i.e.* removing the `#` at the beginning of the line) this instruction in the `/etc/my.cnf.d/mariadb-server.cnf` file:
+Now that everything is well configured, enable the `read_only` on both database servers by uncommenting (*i.e.* removing the `#` at the beginning of the line) this instruction in the `/etc/my.cnf.d/server.cnf` file:
 
 * Primary node:
 
@@ -1312,7 +1316,7 @@ pcs resource create "ms_mysql" \
 ```bash
 pcs resource create "ms_mysql" \
     ocf:heartbeat:mariadb-centreon \
-    config="/etc/my.cnf.d/mariadb-server.cnf" \
+    config="/etc/my.cnf.d/server.cnf" \
     pid="/var/lib/mysql/mysql.pid" \
     datadir="/var/lib/mysql" \
     socket="/var/lib/mysql/mysql.sock" \
@@ -1673,9 +1677,7 @@ pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABA
 </TabItem>
 </Tabs>
 
-### Activate the cluster and check the operating state of the resources
-
-#### Enable resources 
+### Enable resources 
 
 ```bash
 pcs resource enable php-clone
