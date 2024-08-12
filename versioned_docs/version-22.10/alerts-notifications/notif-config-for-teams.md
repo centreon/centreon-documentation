@@ -137,4 +137,4 @@ If the import is successful, you will obtain something similar to **[ajouter un 
 
 ### Understand how notifications work in Centreon
 
-- Go to this page to [configure notifications](./notif-configuration.md) in Centreon.
+- Go to this page to [configure notifications](../alerts-notifications/notif-configuration.md) in Centreon.
