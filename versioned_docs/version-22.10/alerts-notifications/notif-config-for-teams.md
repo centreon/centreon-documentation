@@ -23,9 +23,9 @@ To allow Centreon to send an alert in a Teams channel, you must configure an **I
  
  > The **Incoming Webhook** connector enables external services to notify you about activities that you want to track.
 
-1. In your Teams workspace, click the **...** (three dots) button and search for **Incoming Webhook** in the search bar.
-It opens the Incoming Webhook configuration.
-You can also access it from the **...** (three dots) shortcut on the left of the interface.
+1. In your Teams workspace, click the **...** (three dots) button and search for **Incoming Webhook** in the search bar. It opens the Incoming Webhook configuration.
+
+ You can also access it from the **...** (three dots) shortcut on the left of the interface.
 
 2. Click **Add to a team** to associate your application with a team.
 
