@@ -546,7 +546,7 @@ module.exports = {
       "items": [
         {
           "type": "doc",
-          "id": "api/api-tokens"
+          "id": "administration/api-tokens"
         }
       ],
 },
