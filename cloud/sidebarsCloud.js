@@ -513,11 +513,7 @@ module.exports = {
           "type": "doc",
           "id": "administration/media"
         },
-        {
-          "type": "doc",
-          "id": "administration/api-tokens"
-        }
-      ]
+              ]
     },
     {
       "type": "link",
