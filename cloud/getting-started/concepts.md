@@ -3,20 +3,13 @@ id: concepts
 title: Centreon basics
 ---
 
-## How do I get my monitoring platform up and running?
-
-Centreon provides you with a ready-to-use [central server](architecture.md). Before you can [start monitoring resources](monitoring.md), all you have to do is to:
-
-1. [Install your pollers](../installation/deploy-poller.md) (following the [prerequisites](../installation/prerequisites.md)). They will monitor your resources.
-2. Install the [Monitoring Connectors](../monitoring/pluginpacks.md) you will need to monitor your resources.
-
 ## What does Centreon monitor?
 
 Centreon allows you to monitor resources. Resources can be hosts or services:
 
 * A **host** is any device that has an IP address and that one wishes to monitor.
 For example, it could be a physical server, a virtual machine, a temperature probe, an IP camera, a printer or a storage space.
-* A **service** is a check point to be monitored on a host. A service consists of one or several check commands that collect metrics concerning a specific aspect of a host (CPU usage rate, temperature, motion detection, bandwidth usage rate, disk I/O, and so on). For instance, a service called **Memory** has the following metrics: **buffer**, **cached**, **usage**, **free**, **shared** and **used_prct**.
+* A **service** is a check point to be monitored on a host. A service consists of a check command that collects [metrics](../monitoring/metrics.md) concerning a specific aspect of a host (CPU usage rate, temperature, motion detection, bandwidth usage rate, disk I/O, and so on). For instance, a service called **Memory** has the following metrics: **buffer**, **cached**, **usage**, **free**, **shared** and **used_prct**.
 
 ## How does the monitoring work?
 

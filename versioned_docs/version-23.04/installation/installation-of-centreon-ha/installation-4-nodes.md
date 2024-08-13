@@ -13,6 +13,8 @@ Before applying this procedure, you should have a good knowledge of Linux OS, of
 
 > **WARNING**: Anyone following this procedure does so at their own risk. Under no circumstances shall Centreon be liable for any breakdown or data loss.
 
+> EL9 is not supported for HA installations using Centreon 23.04.
+
 ### Network Flows
 
 In addition of necessary flows describe on the [official documentation](../architectures.md#tables-of-network-flows),
@@ -108,8 +110,6 @@ In the event of a cluster switch, you will expect the newly elected master centr
 | Name               | centreon-broker-master-rrd |
 | Connection port    | 5670                       |
 | Host to connect to | `@CENTRAL_MASTER_IPADDR@`  |
-| Buffering timeout  | 0                          |
-| Retry interval     | 60                         |
 
 * Add another "IPv4" output, similar to the first one, named "centreon-broker-slave-rrd" for example, directed towards `@CENTRAL_SLAVE_IPADDR@`.
 
@@ -118,8 +118,6 @@ In the event of a cluster switch, you will expect the newly elected master centr
 | Name               | centreon-broker-slave-rrd |
 | Connection port    | 5670                      |
 | Host to connect to | `@CENTRAL_SLAVE_IPADDR@`  |
-| Buffering timeout  | 0                         |
-| Retry interval     | 60                        |
 
 #### Export the configuration
 
@@ -1078,7 +1076,7 @@ pcs resource create "ms_mysql" \
     datadir="/var/lib/mysql" \
     socket="/run/mysqld/mysqld.sock" \
     binary="/usr/bin/mysqld_safe" \
-    node_list="@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@" \
+    node_list="@DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@" \
     replication_user="@MARIADB_REPL_USER@" \
     replication_passwd='@MARIADB_REPL_PASSWD@' \
     test_user="@MARIADB_REPL_USER@" \
@@ -1144,6 +1142,7 @@ Some resources must be running on one only node at a time (`centengine`, `gorgon
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```bash
 pcs resource create "php" \
     systemd:php-fpm \
@@ -1357,9 +1356,7 @@ pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABA
 </TabItem>
 </Tabs>
 
-### Activate the Cluster and check Resources operating state
-
-#### Enable resources 
+### Enable resources 
 
 ```bash
 pcs resource enable php-clone

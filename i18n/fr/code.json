@@ -140,7 +140,7 @@
     "description": "The label used to tell the user that he's browsing an unreleased doc version"
   },
   "theme.docs.versions.unmaintainedVersionLabel": {
-    "message": "Ceci est la documentation de {siteTitle} {versionLabel}. Cette version n'est plus supportée, et sa documentation n'est plus maintenue.",
+    "message": "Ceci est la documentation de Centreon {versionLabel}. Cette version n'est plus supportée, et sa documentation n'est plus maintenue.",
     "description": "The label used to tell the user that he's browsing an unmaintained doc version"
   },
   "theme.docs.versions.latestVersionSuggestionLabel": {
@@ -409,6 +409,10 @@
     "message": "Envoyer du feedback sur cette page",
     "description": "To give feedback"
   },
+  "theme.common.theWatchButton": {
+    "message": "Questionner la communauté",
+    "description": "To ask a question on The Watch"
+  },
   "Expand all": {
     "message": "Tout étendre",
     "description": "The label for the expand all button"
@@ -416,5 +420,9 @@
   "Collapse all": {
     "message": "Tout réduire",
     "description": "The label for the collpase all button"
+  },
+  "Monitoring Connectors": {
+    "message": "Connecteurs de supervision",
+    "description": "The label for the monitoring connectors"
   }
 }

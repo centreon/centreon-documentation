@@ -5,14 +5,14 @@ title: Créer une vue géographique
 
 Cette page explique comment créer des vues géographiques à partir de l'interface Centreon MAP.
 
-L'affichage du bouton **Add a new Geographic view** signifie que vous êtes autorisé à créer une carte et que vous appartenez à un groupe d'accès auquel est attribué le rôle de créateur.
+L'affichage du bouton **Ajouter une vue géographique** signifie que vous êtes autorisé à créer une carte et que vous appartenez à un groupe d'accès auquel est attribué le rôle de créateur.
 
 - Cartes standard : pour visualiser des représentations graphiques de votre infrastructure supervisée.
 - Vues géographiques : pour afficher les ressources de votre infrastructure sur une zone géographique définie.
 
 > Les options disponibles dans l'interface MAP dépendent des permissions qui vous ont été attribuées par votre administrateur. Voir la page [Gérer les droits d'accès dans MAP](map-web-access.md) pour plus d'informations sur les privilèges et permissions.
 
-L'affichage du bouton **Add a Map** signifie que vous êtes autorisé à créer une carte et que vous appartenez à un groupe d'accès auquel est attribué le rôle de créateur.
+L'affichage du bouton **Ajouter une carte** signifie que vous êtes autorisé à créer une carte et que vous appartenez à un groupe d'accès auquel est attribué le rôle de créateur.
 
 ## Prérequis
 
@@ -26,22 +26,15 @@ Par exemple, pour renseigner les coordonnées géographiques de l'hôte **Centra
 
 ## Créer une vue géographique
 
-1. Dans la page **Supervision > Map**, cliquez sur le bouton **Add a new Geographic view** situé dans la section **Geographic views**.
+1. Dans la page **Supervision > Map**, cliquez sur le bouton **Ajouter une vue géographique** situé dans la section **Vues géographiques**.
 
 2. Définissez les propriétés de la nouvelle vue géographique :
    - Nom : nommez la vue géographique.
 
 3. Cliquez sur **Ajouter** pour confirmer la création de la vue.
-La nouvelle vue s'affiche dans la liste des **Geographic views**.
+La nouvelle vue s'affiche dans la liste des **Vues géographiques**.
 
-4. Cliquez sur la vue pour l'ouvrir, puis sur le bouton **Éditer**. Complétez les paramètres suivants :
-
-   - Groupe d'hôtes
-   - Hosts belonging to the following Host Group(s)
-   - Activités Métiers
-   - Latitude
-   - Longitude
-   - Zoom
+4. Cliquez sur la vue pour l'ouvrir, puis sur le bouton **Éditer** pour compléter les paramètres.
 
 5. Cliquez sur **Éditer** pour confirmer les paramètres.
 

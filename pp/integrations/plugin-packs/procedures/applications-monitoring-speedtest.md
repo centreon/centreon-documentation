@@ -77,7 +77,7 @@ dnf install centreon-pack-applications-monitoring-speedtest
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-monitoring-speedtest
@@ -124,7 +124,7 @@ dnf install centreon-plugin-Applications-Monitoring-Speedtest
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-monitoring-speedtest

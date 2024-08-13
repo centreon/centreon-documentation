@@ -10,7 +10,7 @@ Centreon allows you to monitor resources. Resources can be hosts or services:
 * A **host** is any device that has an IP address and that one wishes to monitor.
 For example, a physical server, a virtual machine, a temperature probe, an IP camera, a printer or a storage space. A host can have one or more associated services.
 * A **service** is a check point, or indicator, to be monitored on a host.
-This can be the CPU usage rate, temperature, motion detection, bandwidth usage rate, disk I/O, and so on. A service can consist of one or several metrics.
+This can be the CPU usage rate, temperature, motion detection, bandwidth usage rate, disk I/O, and so on. A service can consist of one or several [metrics](../monitoring/metrics.md).
 
 ## How does the monitoring work?
 

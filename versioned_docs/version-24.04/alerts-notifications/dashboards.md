@@ -1,9 +1,7 @@
 ---
 id: dashboards
-title: Dashboards Beta
+title: Dashboards
 ---
-
-> Centreon Dashboards is available as a beta feature from **Centreon version 23.10**.
 
 Get started with creating dashboards and adding widgets specially designed to optimize your user experience. Then benefit from data visualization options to display and monitor your resources in real time.
 
@@ -37,7 +35,7 @@ Access to the Dashboards feature is not managed at the user level, but through a
 > You must have a user account with ACL rights to the Dashboards feature.
 
 1. Log into Centreon.
-2. You should see in the **Home** menu, the **Dashboards Beta** entry.
+2. You should see in the **Home** menu, the **Dashboards** entry.
 
 ## Creating your first dashboard
 
@@ -75,12 +73,15 @@ Click the **three vertical dots** menu at the top right of the widget to edit it
 
 > In edition mode, you can easily organize your widgets by moving or resizing them. Make sure to save your changes.
 
+### Link to Resources Status page
+
+From the dashboard, you can click a screen pictogram at the top right of a widget: this button allows you to **See more on the Resources Status page**. It opens a new tab on the Resources Status page, with detailed information regarding the specific widget.
+
 ## Managing dashboards
 
 > You must be in the **Dashboard library** page to get an overview of your dashboards.
 
 ### Edit a dashboard
-
 
 #### Update properties
 
@@ -118,3 +119,64 @@ You are using the Dashboards feature with a **viewer** or an **editor** profile:
 The users you have just added now have access to your dashboard sharing, according to the profile you have set for them.
 
 > Use the **Copy link** feature to share the dashboard URL directly with users who have access to your platform.
+
+## Managing playlists
+
+Playlists are lists of selected dashboards to be broadcast in the order of your choice. This feature is useful for instance when you want to display your dashboards on a full-screen TV in public spaces.
+
+> This feature requires a valid [license](../administration/licenses.md) key. To purchase one and retrieve the necessary repositories, contact [Centreon](mailto:sales@centreon.com).
+
+### Create a playlist
+
+> Before creating a playlist, make sure the dashboards you want to include have been created.
+
+1. Click the **Playlists** link to access the playlists interface.
+2. Click the **Create a playlist** button (or the **Add** button if it is not your first playlist).
+3. Fill in the properties:
+   - **Name**
+   - **Description** 
+   - Add your dashboards from the **Select dashboards** drop-down list.
+   - In the **Define the order of dashboards** section, drag and drop the dashboards as you want.
+   - Define the rotation time in seconds.
+4. Click **Save**.
+Your playlist is now added to the list of playlist.
+
+### Display the playlist
+
+- From the **Playlists** interface, click the row for your playlist.
+Your playlist is now displayed and a control banner appears when you hover over the bottom of the interface.
+
+> Get a better visualization by displaying the page in full screen mode (F).
+
+The control banner allows you to:
+- Play/Pause the broadcast.
+- Go to the previous or next dashboard.
+- Go directly to a specific dashboard by clicking its name.
+
+### Share the playlist
+
+> You can only share your playlist with contacts who have access to your Centreon platform and are authorized Dashboards viewers.
+
+- Click the **Share with contacts** button from the line of your playlist.
+The **Playlist access rights** modal is displayed.
+- You can now add contacts or contact groups and define their rights as viewer or editor in the **Share with** section.
+- Use the **trash** button in the **User rights** section to remove a contact or contact group.
+- Use the **Copy link** button to share the playlist URL directly with users who have access to your platform.
+
+### Edit/Delete a playlist
+
+The three dots action menu at the end of a playlist row allows you to edit properties or delete the playlist.
+
+## List of widgets
+
+| Widget                   | Description                                                                                                                                                                                                                                                                                                    |
+|--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Generic text           | Allows you to add free text to your dashboards (section titles, information, etc.).   |
+| Group monitoring           | Displays the distribution of current statuses on selected groups of resources, as a table.   |
+| MAP - Display a view            |  Allows you to select and visualize a map created from the MAP module.  |
+| Metrics graph         | Displays metrics for a given time period.                                                                                |
+| Resource table                 | Displays data on resource status and events, centralized in a table.
+| Single metric          | Displays the value of a single metric as a text, a gauge or a bar chart.   |
+| Status chart     | Displays the distribution of current statuses on selected resources, as a chart.      |
+| Status grid     | Displays the current status of selected resources, as a grid.      |
+| Top/bottom              | Displays the top or bottom x hosts, for a selected metric.   |

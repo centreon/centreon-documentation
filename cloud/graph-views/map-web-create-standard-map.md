@@ -18,7 +18,18 @@ The display of the **Add a Map** button in the **Map** page means that you are a
 3. Click **Add** to confirm the map's creation.
 
 The new map opens directly in the editor interface.
-Now you can customize your map using the MAP editor features.
+
+## Create a map from an existing container
+
+You can create a view directly from a [container](#container). This is useful when you want to share the sublevel of a view to a different profile without duplicating its contents or assigning full access to the main view.
+
+1. Right-click the container and click **Create map from container**.
+2. Name the container.
+3. Click Add.
+
+Your map has been created. You can find it in the MAP homepage.
+
+> Now you can customize your map using the MAP editor features.
 
 ## Use the MAP editor
 
@@ -69,7 +80,7 @@ Use **Widget** elements to display graphical data about the resources you monito
 #### Media elements
 
 Use **Media** elements to add:
-- **Url:** allows you to add an access to a specified link.
+- **URL:** allows you to add an access to a specified link.
 - **Image:** allows you to customize your diagram by adding images.  
 
 1. Drag and drop the element into the drawing canvas.
@@ -92,8 +103,11 @@ Use **Link** elements to make connections between items (with anchor points):
   - Service group
   - Meta service
 
-- **MAP** elements:
-  - Container
+- **MAP** element:
+  - ### Container
+  Use containers when you want to create multiple levels of your map. Each level is represented by a container.
+    - In the view mode, each container becomes a map with its own status.
+    - In the editor mode, each level becomes a tab. Then you can navigate between containers using the different tabs.
 
 - **BAM** elements:
   - Business activity

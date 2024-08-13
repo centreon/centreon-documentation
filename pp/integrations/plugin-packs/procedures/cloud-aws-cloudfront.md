@@ -68,6 +68,7 @@ Configure a service account (access/secret key combo) for which the following pr
 | AWS Privilege                  | Description                                                     |
 | :----------------------------- | :-------------------------------------------------------------- |
 | cloudwatch:getMetricStatistics | Get metrics from the AWS/EC2 namespace on Cloudwatch.           |
+| cloudfront:ListDistributions | Grants permission to list the distributions associated with your AWS account. |
 
 ### Plugin dependencies
 
@@ -119,7 +120,7 @@ yum install centreon-pack-cloud-aws-cloudfront
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-cloud-aws-cloudfront
@@ -159,7 +160,7 @@ yum install centreon-plugin-Cloud-Aws-Cloudfront-Api
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-cloud-aws-cloudfront-api

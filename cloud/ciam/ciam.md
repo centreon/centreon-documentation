@@ -8,7 +8,7 @@ title: Using Centreon CIAM
 Centreon CIAM (Customer Identity and Access Management) is a module that:
 
 - allows you to access all your Centreon applications
-- allows your administrator to manage your organizations, manage all Centreon user accounts for an organization, and manage the way users will log in to Centreon.
+- allows your administrator to manage your organizations, manage all Centreon [user accounts](../users/users.md) and user groups for an organization, and manage the way users will log in to Centreon.
 
 An organization covers a scope of resources you want to monitor. For instance, you may want to have an organization called Europe and an organization called Asia. Organizations are independent from each other. According to your needs, you may have one or several organizations. Each organization has its own applications, including its own Centreon Cloud platform.
 

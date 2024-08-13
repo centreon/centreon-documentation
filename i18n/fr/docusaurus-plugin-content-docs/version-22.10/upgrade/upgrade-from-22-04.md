@@ -178,7 +178,7 @@ yum clean all --enablerepo=*
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt clean all
+apt clean
 apt update
 ```
 
@@ -205,7 +205,7 @@ yum update centreon\* php-pecl-gnupg
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt upgrade centreon
+apt install --only-upgrade centreon
 ```
 
 </TabItem>
@@ -626,7 +626,7 @@ yum clean all --enablerepo=*
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt clean all
+apt clean
 apt update
 ```
 
@@ -654,7 +654,7 @@ yum update centreon\*
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt upgrade centreon-poller
+apt install --only-upgrade centreon-poller
 ```
 
 </TabItem>

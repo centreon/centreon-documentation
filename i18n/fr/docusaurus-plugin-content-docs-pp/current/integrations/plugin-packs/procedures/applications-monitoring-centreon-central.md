@@ -7,7 +7,6 @@ import TabItem from '@theme/TabItem';
 
 ## Contenu du pack
 
-
 Le connecteur de supervision Centreon Central permet de faciliter la mise en place de la supervision pour le serveur central.
 
 > Nous recommandons fortement que le serveur central soit supervisé par un collecteur, si votre architecture en dispose d'un. Dans le cas contraire, vous devrez ajouter l'option `--hostname=''` à la macro `EXTRAOPTIONS` de l'hôte pour éviter d'avoir des erreurs de vérification de la clef de l'hôte.
@@ -209,11 +208,9 @@ ssh-keygen -t ed25519 -a 100
 ssh-copy-id -i ~/.ssh/id_ed25519.pub centreon@<IP_CENTRAL>
 ```
 
-Il faudra ensuite spécifier dans la configuration du service **Broker-Stats** que la vérification se fera à distance. Pour ce faire, après avoir appliqué le modèle d'hôte, vous devrez paramétrer la macro EXTRAOPTIONS sur le service **Broker-Stats** :
+### Serveur central auto-supervisé
 
-| Macro name          | Value                                           |
-|:--------------------|:------------------------------------------------|
-| EXTRAOPTIONS        | --verbose --remote --ssh-option='-l=centreon'   |
+Si votre serveur central se supervise lui-même, vous devrez ajouter l'option `--hostname=''` à la macro `EXTRAOPTIONS` de l'hôte pour éviter d'avoir des erreurs de vérification de la clef de l'hôte. (La meilleure pratique consiste cependant à superviser son central avec un collecteur.)
 
 ## Installer le connecteur de supervision
 
@@ -240,7 +237,7 @@ dnf install centreon-pack-applications-monitoring-centreon-central
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-monitoring-centreon-central
@@ -285,7 +282,7 @@ dnf install centreon-plugin-Applications-Monitoring-Centreon-Central
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-monitoring-centreon-central

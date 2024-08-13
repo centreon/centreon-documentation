@@ -34,7 +34,7 @@ yum update centreon-bi-server
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt clean all
+apt clean
 apt --only-upgrade install centreon-bi\*
 ```
 
@@ -75,7 +75,7 @@ yum update centreon-bi\*
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt clean all
+apt clean
 apt --only-upgrade install centreon-bi\*
 ```
 

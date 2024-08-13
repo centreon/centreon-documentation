@@ -27,13 +27,7 @@ For example, to fill in geographic coordinates for the **Central** host:
 3. Click **Add**.
 The new view is added to the **Geographic views** section. Click on it to complete its configuration.
 
-4. Click the **Edit** button and fill in the following **Edit view parameters**:
-  - Hosts 
-  - Hosts belonging to hostgroup(s)
-  - Business Activity belonging to Business View(s)
-  - Latitude
-  - Longitude
-  - Zoom
+4. Click the **Edit** button and fill in the **Edit view parameters**.
 
 5. Click **Edit** to confirm the parameters.
 

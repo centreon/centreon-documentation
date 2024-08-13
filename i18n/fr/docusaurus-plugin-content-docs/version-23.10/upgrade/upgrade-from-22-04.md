@@ -34,7 +34,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 1. Mettez à jour votre Centreon 22.04 jusqu'à la dernière version mineure.
 
-2. Supprimez le fichier **centreon.repo** :
+2. Supprimez le fichier **centreon-22.04.repo** :
 
    ```shell
    rm /etc/yum.repos.d/centreon-22.04.repo
@@ -148,7 +148,7 @@ dnf clean all --enablerepo=*
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt clean all
+apt clean
 apt update
 ```
 
@@ -168,7 +168,7 @@ dnf update centreon\* php-pecl-gnupg
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt upgrade centreon
+apt install --only-upgrade centreon
 ```
 
 </TabItem>
@@ -525,7 +525,7 @@ dnf clean all --enablerepo=*
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt clean all
+apt clean
 apt update
 ```
 
@@ -546,7 +546,7 @@ dnf update centreon\*
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt upgrade centreon-poller
+apt install --only-upgrade centreon-poller
 ```
 
 </TabItem>
