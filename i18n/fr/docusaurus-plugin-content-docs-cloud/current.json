@@ -122,5 +122,9 @@
   "sidebar.cloud.category.Managing pollers": {
     "message": "Gérer les collecteurs",
     "description": "The label for category Managing pollers in sidebar cloud"
+  },
+  "sidebar.cloud.category.API": {
+    "message": "API",
+    "description": "The label for category API in sidebar cloud"
   }
 }
