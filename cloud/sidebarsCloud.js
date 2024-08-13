@@ -539,6 +539,19 @@ module.exports = {
     },
     {
       "type": "category",
+      "label": "API",
+      "link": {
+        "type": "generated-index",
+      },
+      "items": [
+        {
+          "type": "doc",
+          "id": "api/api-tokens"
+        }
+      ],
+},
+    {
+      "type": "category",
       "label": "Security",
       "link": {
         "type": "generated-index",

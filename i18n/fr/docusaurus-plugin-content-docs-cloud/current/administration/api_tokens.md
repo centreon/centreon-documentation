@@ -1,6 +1,6 @@
 ---
 id: api-tokens
-title: API tokens
+title: Jetons d'API
 ---
 
 Avec un jeton d'application, une application tierce peut faire des appels à l'API Centreon afin de réaliser des actions dans Centreon (webhooks).
