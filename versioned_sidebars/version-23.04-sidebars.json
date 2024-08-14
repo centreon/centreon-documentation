@@ -523,6 +523,10 @@
             },
             {
               "type": "doc",
+              "id": "version-23.04/alerts-notifications/notif-config-for-teams"
+            },
+            {
+              "type": "doc",
               "id": "version-23.04/alerts-notifications/notif-dependencies"
             },
             {
