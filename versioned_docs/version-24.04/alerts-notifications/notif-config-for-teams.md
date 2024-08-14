@@ -41,14 +41,14 @@ You need to Install the Teams notification plugin with the package manager on ea
  ```
  
  </TabItem>
- <TabItem value="CentOS 7" label="CentOS 7">
+ <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
  
  ``` shell
- yum install centreon-plugin-Notification-Teams
+ dnf install centreon-plugin-Notification-Teams
  ```
  
  </TabItem>
- <TabItem value="Debian 11" label="Debian 11">
+ <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
  
  ``` shell
  apt install centreon-plugin-notification-teams
