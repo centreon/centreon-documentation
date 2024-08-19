@@ -52,7 +52,7 @@ yum update
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt update && apt upgrade
+apt update && apt install --only-upgrade
 ```
 
 </TabItem>
