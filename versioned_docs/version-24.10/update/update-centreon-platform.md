@@ -251,12 +251,12 @@ and choose the **Restart** method for the Engine process.
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Nothing to do.
+Nothing to do for this OS.
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Nothing to do.
+Nothing to do for this OS.
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
