@@ -32,7 +32,7 @@ complete the installation process by connecting to the Centreon web interface.
 3. Perform software and system updates:
 
    ```shell
-   apt update && apt install --only-upgrade
+   apt update && apt upgrade
    ```
 
 ### Step 2 : Synchronize the data
