@@ -50,7 +50,7 @@ yum update centreon-pp-manager
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt upgrade centreon-pp-manager
+apt install --only-upgrade centreon-pp-manager
 ```
 
 </TabItem>
@@ -125,7 +125,7 @@ apt install centreon-pack-*
 ou :
 
 ```shell
-apt upgrade centreon-pack-\*
+apt install --only-upgrade centreon-pack-\*
 ```
 
 </TabItem>

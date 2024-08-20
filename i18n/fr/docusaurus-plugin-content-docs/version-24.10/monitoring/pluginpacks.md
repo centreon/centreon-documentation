@@ -52,7 +52,7 @@ dnf update centreon-pp-manager
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
-apt upgrade centreon-pp-manager
+apt install --only-upgrade centreon-pp-manager
 ```
 
 </TabItem>
@@ -127,7 +127,7 @@ apt install centreon-pack-*
 ou :
 
 ```shell
-apt upgrade centreon-pack-\*
+apt install --only-upgrade centreon-pack-\*
 ```
 
 </TabItem>
