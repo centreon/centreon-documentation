@@ -91,27 +91,26 @@ apt update
 
 ### Upgrade the Centreon solution
 
-> Make sure all users are logged out from the Centreon web interface
-> before starting the upgrade procedure.
+1. Make sure all users are logged out from the Centreon web interface before starting the upgrade procedure.
 
-If you have installed Business extensions, update the Business repository to version 24.04.
+2. If you have installed Business extensions, update the Business repository to version 24.04.
 Visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
 
-If your OS is Debian 11 and you have a customized Apache configuration, perform a backup of your configuration file (**/etc/apache2/sites-available/centreon.conf**).
+3. If your OS is Debian 11 and you have a customized Apache configuration, perform a backup of your configuration file (**/etc/apache2/sites-available/centreon.conf**).
 
-Stop the Centreon Broker process:
+4. Stop the Centreon Broker process:
 
 ```shell
 systemctl stop cbd
 ```
 
-Delete existing retention files:
+5. Delete existing retention files:
 
 ```shell
 rm /var/lib/centreon-broker/* -f
 ```
 
-Clean the cache:
+6. Clean the cache:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -138,7 +137,7 @@ apt update
 </TabItem>
 </Tabs>
 
-Then upgrade all the components with the following command:
+7. Then upgrade all the components with the following command:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -417,7 +416,7 @@ page:
 
   ![image](../assets/upgrade/web_update_5.png)
 
-  > If the Centreon BAM module is installed, refer to the [update procedure](../service-mapping/update.md).
+  > If the Centreon BAM module is installed, [upgrade it](../service-mapping/update.md) before connecting to the interface.
 
 6. Deploy the central's configuration from the Centreon web UI by following [this
 procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
@@ -514,9 +513,6 @@ usermod -a -G www-data centreon-broker
 
 </TabItem>
 </Tabs>
-
-If the Centreon BAM module is installed, refer to the
-[upgrade procedure](../service-mapping/upgrade.md).
 
 ### Post-upgrade actions
 
