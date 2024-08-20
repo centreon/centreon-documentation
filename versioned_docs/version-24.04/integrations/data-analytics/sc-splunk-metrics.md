@@ -19,7 +19,7 @@ If you want to retrieve only metrics, use the Splunk Metrics stream connector. I
 
 Perform the installation on the server that will send data to Splunk (central server, remote server, poller).
 
-1. Login as `root` on the Centreon central server using your favorite SSH client.
+1. Login as `root` using your favorite SSH client.
 
 2. Run the following command:
 
