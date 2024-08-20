@@ -49,7 +49,7 @@ dnf update centreon-it-edition-extensions
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
-apt update && apt upgrade centreon-it-edition-extensions
+apt update && apt install --only-upgrade centreon-it-edition-extensions
 ```
 
 </TabItem>
