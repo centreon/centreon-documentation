@@ -143,7 +143,7 @@
     "description": "The label used to tell the user that he's browsing an unreleased doc version"
   },
   "theme.docs.versions.unmaintainedVersionLabel": {
-    "message": "This is the documentation for {siteTitle} {versionLabel}. It is no longer maintained, as this version is no longer supported.",
+    "message": "This is the documentation for Centreon {versionLabel}. It is no longer maintained, as this version is no longer supported.",
     "description": "The label used to tell the user that he's browsing an unmaintained doc version"
   },
   "theme.docs.versions.latestVersionSuggestionLabel": {
@@ -157,6 +157,10 @@
   "theme.common.editThisPage": {
     "message": "Edit this page",
     "description": "The link label to edit the current page"
+  },
+  "theme.common.theWatchButton": {
+    "message": "Ask the community",
+    "description": "The link label to ask a question on the watch"
   },
   "theme.common.headingLinkTitle": {
     "message": "Direct link to heading",

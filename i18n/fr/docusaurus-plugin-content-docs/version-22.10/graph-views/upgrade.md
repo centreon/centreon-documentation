@@ -105,7 +105,7 @@ echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) m
 2. Mettez à jour le serveur Centreon MAP (Legacy) :
 
     ```shell
-    apt update && apt upgrade centreon-map-server
+    apt install --only-upgrade centreon-map-server
     ```
 
 </TabItem>
@@ -152,7 +152,7 @@ yum update centreon-map-web-client
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt update && apt upgrade centreon-map-web-client
+apt install --only-upgrade centreon-map-web-client
 ```
 
 </TabItem>
@@ -186,7 +186,7 @@ Dans les fichiers **/etc/centreon-studio/centreon-database.properties** et **/et
     systemctl stop centreon-map
     ```
 
-2. Voir [Mettre à jour MariaDB](../upgrade/upgrade-mariadb.md).
+2. Assurez-vous d'utiliser la bonne version de MariaDB et mettez-la à jour si besoin. Voir [Mettre à jour MariaDB](../upgrade/upgrade-mariadb.md).
 
 3. Si vous avez mis à niveau votre plateforme Centreon vers la version 22.10, le nouveau protocole BBDO v3 est activé.
 Vous devez modifier le fichier suivant pour permettre à MAP de fonctionner correctement : `/etc/centreon-studio/studio-config.properties`.

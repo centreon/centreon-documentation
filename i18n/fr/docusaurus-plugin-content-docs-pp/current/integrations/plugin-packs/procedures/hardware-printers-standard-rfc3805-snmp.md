@@ -142,7 +142,7 @@ dnf install centreon-pack-hardware-printers-standard-rfc3805-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-printers-standard-rfc3805-snmp
@@ -187,7 +187,7 @@ dnf install centreon-plugin-Hardware-Printers-Generic-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-printers-generic-snmp

@@ -23,6 +23,100 @@ Read more about version 23.04 in our [blog post](https://www.centreon.com/centre
 
 ## Centreon Web
 
+### 23.04.20
+
+Release date: `July 18, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Unattended] Backported recent bug fixes on the Unattended script (http services not restarting, it-edition-extensions installation, unattended issue on Oracle Linux distributions).
+
+</details>
+
+### 23.04.19
+
+Release date: `June 26, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed API access control for monitoring endpoints.
+- [Authentication] Fixed a random disconnection issue occurring with SAML authentication.
+- [Configuration] Exporting the configuration no longer fails when a host severity and a service severity have the same name.
+- [Configuration] Fixed mass change on services.
+- [Unattended] Fixed default version used by the script.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed several SQLi issues.
+
+</details>
+
+### 23.04.18
+
+Release date: `May 27, 2024`
+
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed an issue affecting downtimes on services linked to a service group via a service template.
+- [Configuration] Fixed an issue where the Service Categories configuration page could appear blank.
+- [Packaging] Fixed symbolic link between **/usr/lib/nagios/plugins** and **/usr/lib64/nagios/plugins**.
+- [UX] Fixed an issue where the top counter pop-up was not closed when users clicked outside of it.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed several SQLi issues.
+- [Security] Fixed XSS in a configuration page.
+
+</details>
+
+### 23.04.17
+
+Release date: `April 10, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API V1] Fixed an issue that occurred when filtering Resources Status by criticality.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Upgraded axios dependency.
+
+</details>
+
+### 23.04.16
+
+Release date: `March 13, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [CLAPI] Fixed a decoding issue affecting the export of HTML entities.
+- [Authentication] Fixed issue with SSO authentication.
+- [CLAPI] Duplicates are no longer generated when exporting services and hosts.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Improved allowed commands for Centreon Gorgone.
+
+</details>
+
 ### 23.04.15
 
 Release date: `February 14, 2024`
@@ -58,7 +152,7 @@ Release date: `January 15, 2024`
 
 Release date: `January 2, 2024`
 
-<details open>
+<details>
   <summary>Security fixes</summary>
 
 - [Security] Fixed an SQLi vulnerability (CVE-2024-0637, CVE-2024-23115, CVE-2024-23116, CVE-2024-23117, CVE-2024-23118, CVE-2024-23119).
@@ -121,7 +215,7 @@ Release date: `November 17, 2023`
 
 </details>
 
-<details open>
+<details>
   <summary>Security fixes</summary>
 
 - [Security] Fixed SQLi in a method.
@@ -279,7 +373,7 @@ Release date: `June 20, 2023`
 
 Release date: `June 19, 2023`
 
-<details open>
+<details>
   <summary>Security fixes</summary>
 
 - [Security] Fixed the base URI change detection mechanism.
@@ -372,6 +466,87 @@ Release date: `April 26, 2023`
 
 ## Centreon Collect
 
+### 23.04.14
+
+Release date: `July 17, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed an issue that occurred when inserting too large metrics into the database, which resulted in an error log.
+- [Broker] Added support for the default connection method to MySQL 8.0.35.
+
+</details>
+
+### 23.04.13
+
+Release date: `June 20, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Engine] Added a new centengine parameter (`send_recovery_notifications_anyways`) to force sending a recovery notification even when the resource is outside of its notification period. This aims at keeping third-party tools up-to-date at any time when they are fed notifications.
+- [Engine] Engine can now handle extra configuration files to complement/overload the centengine.cfg file. This enhancement allows you to keep a custom configuration unchanged when exporting the configuration.
+
+</details>
+
+### 23.04.12
+
+Release date: `May 27, 2024`
+
+<details>
+  <summary>Bug Fixes</summary>
+
+- [Broker] Fixed an issue that caused MySQL errors in Broker logs, due to attempts to insert relations between BAs and disabled time periods.
+- [Packaging] Added symbolic link from **/usr/lib64/nagios/plugins** to **/usr/lib/nagios/plugins**.
+
+</details>
+
+### 23.04.11
+
+Release date: `April 08, 2024`
+
+<details>
+  <summary>Bug Fixes</summary>
+
+- [Collect] To limit dependencies, perl-interpretor is now used instead of perl in the centreon-connector-perl package (rpm).
+- [Collect] To limit dependencies, perl-base is now used instead of perl in the centreon-connector-perl package (deb).
+
+</details>
+
+### 23.04.10
+
+Release date: `March 19, 2024`
+
+#### Centreon Broker
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] BA initialization could result in KPIs having incoherent statuses. This was breaking the statuses of the BAs.
+
+</details>
+
+### 23.04.9
+
+Release date: `March 6, 2024`
+
+#### Centreon Broker
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Broker] When Broker is restarted or reloaded, BAM creates a cache with the BA states to be able to restore them when reloaded.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Engine] Removed the unnecessary check of Anomaly Detection configuration files during the configuration test before deployment.
+
+</details>
+
 ### 23.04.8
 
 Release date: `February 14, 2024`
@@ -388,7 +563,7 @@ Release date: `February 14, 2024`
 <details>
   <summary>Bug fixes</summary>
 
-- [Broker] Fixed an issue causing hostgroups failing to appear if they had been used before and emptied of their hosts and then populated again.
+- [Broker] Fixed an issue causing hostgroups to fail to appear if they had been used before and emptied of their hosts and then populated again.
 - [Broker] Fixed the permissions of the RRD files produced by the rebuild mechanism when RRDcached is used.
 - [Broker] Fixed some incorrect statuses in Broker's statistics retrieved by the `broker-stats.json` file.
 - [Broker] Semicolons are no longer considered as the beginning of a comment in Engine's configuration files. This is because comments were not useful in these files, and they prevented the use of semicolons in macros (e.g., passwords).
@@ -546,6 +721,67 @@ Compatibility with other 23.04 components.
 </details>
 
 ## Centreon Gorgone
+
+### 23.04.15
+
+Release date: `June 26, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed gorgone whitelist for HA architecture.
+
+</details>
+
+### 23.04.14
+
+Release date: `May 27, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a path issue on systemctl (Gorgone whitelist).
+- Fixed a minor issue where unnecessary error messages were displayed.
+- [Packaging] Fixed inconsistent system permissions on **/var/log/centreon-engine/centengine.log**.
+
+</details>
+
+### 23.04.13
+
+Release date: `April 10, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+Fixed a bug affecting service auto discovery, where only half of the host was correctly discovered.
+
+</details>
+
+### 23.04.12
+
+Release date: `March 28, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Moved Gorgone whitelists to a dedicated file.
+
+</details>
+
+### 23.04.11
+
+Release date: `March 13, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Added the Auto Discovery patterns to the default commands whitelist.
+- Improved list of allowed commands for Auto Discovery.
+- Fixed a missing dependency.
+
+[Security] Improved Centreon Gorgone allowed commands.
+
+</details>
 
 ### 23.04.10
 

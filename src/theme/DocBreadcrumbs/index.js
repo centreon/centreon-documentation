@@ -8,6 +8,7 @@ import {
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { useActiveDocContext } from '@docusaurus/plugin-content-docs/client';
 import { translate } from '@docusaurus/Translate';
 import { useLocation } from '@docusaurus/router';
 import HomeBreadcrumbItem from '@theme/DocBreadcrumbs/Items/Home';
@@ -62,6 +63,7 @@ export default function DocBreadcrumbs() {
   }
 
   const { siteConfig: { baseUrl } } = useDocusaurusContext();
+  const { activeVersion } = useActiveDocContext();
   const location = useLocation();
   const splittedPathname = location.pathname.replace(baseUrl, '').split("/");
   const docSection = splittedPathname[0];
@@ -69,11 +71,8 @@ export default function DocBreadcrumbs() {
   // Hack: Swizzle component to use baseUrl until https://github.com/facebook/docusaurus/issues/6953
   let homePath = '/docs/getting-started/welcome';
   let homeLabel = 'Centreon OnPrem';
-  if (docSection === 'docs' && splittedPathname[1].match(/\d+\.\d+/)) {
-    const defaultPageId = splittedPathname[1].match(/(21\.10|22\.04)/)
-      ? 'getting-started/installation-first-steps'
-      : 'getting-started/welcome';
-    homePath = `/docs/${splittedPathname[1]}/${defaultPageId}`;
+  if (docSection === 'docs' && activeVersion) {
+    homePath = `${activeVersion.path}/${activeVersion.mainDocId}`;
   } else if (docSection === 'pp') {
     homePath = '/pp/integrations/plugin-packs/getting-started/introduction';
     homeLabel = 'Monitoring Connectors';

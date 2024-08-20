@@ -110,7 +110,7 @@ dnf install centreon-pack-cloud-aws-cloudtrail
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-cloud-aws-cloudtrail
@@ -157,7 +157,7 @@ dnf install centreon-plugin-Cloud-Aws-Cloudtrail-Api
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-cloud-aws-cloudtrail-api

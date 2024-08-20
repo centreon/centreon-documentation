@@ -50,7 +50,7 @@ dnf update centreon-bam-server
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt update && apt upgrade centreon-bam-server
+apt install --only-upgrade centreon-bam-server
 ```
 
 </TabItem>

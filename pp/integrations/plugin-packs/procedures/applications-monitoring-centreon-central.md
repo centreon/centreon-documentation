@@ -7,8 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Pack assets
 
-
-The Centreon Central Monitoring Connector will help you set up monitoring for your Centreon Central server. 
+The Centreon Central Monitoring Connector will help you set up monitoring for your Centreon Central server.
 
 > The best practice is to have the central server monitored by a poller if you have one. If not, you will need to add the `--hostname=''` option to the host's `EXTRAOPTIONS` macro to avoid host key verification issues.
 
@@ -208,6 +207,10 @@ ssh-keygen -t ed25519 -a 100
 ssh-copy-id -i ~/.ssh/id_ed25519.pub centreon@<IP_CENTRAL>
 ```
 
+### Self-monitored central server
+
+If your central server is monitoring itself, you will need to add the `--hostname=''` option to the host's `EXTRAOPTIONS` macro to avoid host key verification issues. (It is however best practice that a central server is monitored by a poller.)
+
 ## Installing the monitoring connector
 
 ### Pack
@@ -233,7 +236,7 @@ dnf install centreon-pack-applications-monitoring-centreon-central
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-monitoring-centreon-central
@@ -280,7 +283,7 @@ dnf install centreon-plugin-Applications-Monitoring-Centreon-Central
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-monitoring-centreon-central

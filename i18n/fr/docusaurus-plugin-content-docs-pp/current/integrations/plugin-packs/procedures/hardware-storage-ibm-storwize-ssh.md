@@ -127,7 +127,7 @@ dnf install centreon-pack-hardware-storage-ibm-storwize-ssh
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-storage-ibm-storwize-ssh
@@ -172,7 +172,7 @@ dnf install centreon-plugin-Hardware-Storage-Ibm-Storwize-Ssh
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-storage-ibm-storwize-ssh

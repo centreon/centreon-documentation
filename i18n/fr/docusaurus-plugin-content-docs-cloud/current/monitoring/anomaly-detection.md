@@ -66,7 +66,7 @@ cliquez sur le bouton **Create manually**.
 
 2. Remplissez les champs suivants :
 
-    - **Description** : nom du service.
+    - **Description** : nom du service. Les caractères suivants ne sont pas autorisés : `~!$%^&|'"<>?,()=*{}` et les espaces.
     - **Statut** : permet d'activer ou désactiver le service. Si vous désactivez un service, après avoir déployé la configuration, celui-ci ne sera plus supervisé (notamment, il n'apparaîtra plus à la page **Statut des ressources**).
     - **Select host - service** : définir le couple hôte/service sur lequel le service Anomaly Detection se basera.
     - **Select metric** : sélectionnez la métrique sur laquelle appliquer la détection d'anomalie.
@@ -114,7 +114,7 @@ stable, vous pouvez activer les changements de statut. Une fois cette option act
 
 ### Étape 4 : Activer le processus de notification
 
-Les notifications sur les services de détection d'anomalies sont paramétrées de la même façon que les [notifications concernant les services standard](../alerts-notifications/notif-configuration.md). Les options de notification dans le formulaire **Anomaly Detection** ne sont actuellement pas activées.
+Les notifications sur les services de détection d'anomalies sont paramétrées de la même façon que les [notifications concernant les services standard](../alerts-notifications/notif-configuration.md).
 
 ## Utiliser l'assistant de création
 

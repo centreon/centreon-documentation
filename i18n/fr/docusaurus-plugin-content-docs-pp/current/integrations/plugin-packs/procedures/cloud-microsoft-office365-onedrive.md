@@ -107,7 +107,7 @@ yum install centreon-pack-cloud-microsoft-office365-onedrive
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-cloud-microsoft-office365-onedrive
@@ -145,7 +145,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Onedrive-Api
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-cloud-microsoft-office365-onedrive-api

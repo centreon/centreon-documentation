@@ -128,7 +128,7 @@ dnf install centreon-pack-applications-protocol-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-protocol-snmp
@@ -173,7 +173,7 @@ dnf install centreon-plugin-Applications-Protocol-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-protocol-snmp
@@ -239,7 +239,7 @@ yum install centreon-plugin-Applications-Protocol-Snmp
 |:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
 | FORMATOK       | Output format according to the threshold. : '%{filter\_rows} value(s)'), 'warning' (default: 'value(s): %{details\_warning}'), 'critical' (default: 'value(s): %{details\_critical}'), 'unknown' (default: 'value(s): %{details\_unknown}'). You can use the following variables: %{rows}, %{filter\_rows}, %{details\_warning}, %{details\_ok}, %{details\_critical}, %{details\_unknown} | %{filter\_rows} value(s)       |             |
 | FORMATUNKNOWN  | Output format according to the threshold. : '%{filter\_rows} value(s)'), 'warning' (default: 'value(s): %{details\_warning}'), 'critical' (default: 'value(s): %{details\_critical}'), 'unknown' (default: 'value(s): %{details\_unknown}'). You can use the following variables: %{rows}, %{filter\_rows}, %{details\_warning}, %{details\_ok}, %{details\_critical}, %{details\_unknown} | value(s): %{details\_unknown}  |             |
-| OID            |                                                                                                                                                                                                                                                                                                                                                                                            |                                |             |
+| OID            | OID value to check (numeric format only)                                                                                                                                                                                                                                                                                                                                                                                           |                                |             |
 | WARNING        | Return Warning if an oid value match the regexp                                                                                                                                                                                                                                                                                                                                            |                                |             |
 | CRITICAL       | Return Critical if an oid value match the regexp                                                                                                                                                                                                                                                                                                                                           |                                |             |
 | FORMATWARNING  | Output format according to the threshold. : '%{filter\_rows} value(s)'), 'warning' (default: 'value(s): %{details\_warning}'), 'critical' (default: 'value(s): %{details\_critical}'), 'unknown' (default: 'value(s): %{details\_unknown}'). You can use the following variables: %{rows}, %{filter\_rows}, %{details\_warning}, %{details\_ok}, %{details\_critical}, %{details\_unknown} | value(s): %{details\_warning}  |             |

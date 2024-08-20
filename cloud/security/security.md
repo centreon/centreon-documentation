@@ -128,7 +128,7 @@ Automation and orchestration mechanisms guarantee a quick restoration of the ser
 ### Reporting vulnerabilities
 
 Centreon has a process that allows for effective receipt and processing of vulnerability reports.
-If you believe you have found a security vulnerability, please report it to us as described in the [reporting process](https://github.com/centreon/centreon/security/policy#reporting-a-vulnerability).
+If you believe you have found a security vulnerability, please report it to us through the [support portal](https://support.centreon.com), as described in the [reporting process](https://github.com/centreon/centreon/security/policy#reporting-a-vulnerability).
 
 ### Vulnerability detection
 

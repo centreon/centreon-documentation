@@ -21,6 +21,118 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 
 ## Centreon MAP
 
+### 23.10.12
+
+Release date: `August 8, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [SELinux] Packaged SELinux rules for EL distributions.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [ACL] Fixed an issue which caused user without creator role to be able to duplicate maps.
+- [Editor] Fixed an issue causing link labels not to be displayed in the editor.
+- [Map list] Fixed an issue that could prevent the map list from being displayed.
+- [Server] Fixed an issue causing an error when trying to save maps.
+- [Server] Fixed an issue in the connection between Centreon Central and the MAP server initialization causing issues in real time updates.	
+- [Server] Fixed an issue preventing the diagnostic script from running when the password contained the '#' character.
+- [Server] Fixed concurrent access leading to inconsistencies in maps.
+- [Server] Fixed the diagnostic when MAP was configured in HTTPS.
+
+</details>
+
+### 23.10.11
+
+Release date: `July 4, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Viewer] Fixed an issue that made the breadcrumb not correct when selecting a Centreon resource.
+- [Viewer] Fixed an issue with the alignment of the label for resources in geometric mode.
+- [Viewer] Fixed an issue with the image opacity parameter that was not applied.
+- [Viewer] Fixed an issue for the container label that was not correctly centered in geometric style.
+- [Viewer] Fixed the position of link anchor points for geometric shapes.
+- [UI] Fixed a translation issue in the bulk mode and Output status.
+
+</details>
+
+### 23.10.10
+
+Release date: `June 10, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed access control for some v2 API endpoints.
+- [BA] Fixed an issue causing the MAP server to crash at startup due to orphan KPIs.
+- [Map list] Fixed an issue that could prevent the map list from being displayed.
+- [Viewer] Fixed an issue that caused the status of disabled resources to be used in inherited status computations.
+- [Viewer] Fixed the interpretation of HTML tags when using carriage returns.
+- [Viewer] Fixed an issue that prevented widget values from being updated in real time.
+- [Viewer] Fixed an issue that made metric links disappear when the status of a resource was Unknown.
+
+</details>
+
+### 23.10.9
+
+Release date: `April 16, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Editor] Removed the possibility to edit link color for status link and metric link.
+- [Packaging] Correct rights are now set for Centreon MAP configuration files.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Editor] Fixed the minimal size of Centreon resources.
+- [Geoviews] Fixed an issue that prevented the selection of more than 10 Business Activities.
+- [Geoviews] Fixed the display of tooltip when infrastructure view is defined.
+- [UI] Fixed an issue that caused the display of label check box not to work for Business Activities.
+- [Viewer] Fixed icon opacity on containers.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Updated dependencies.
+
+</details>
+
+### 23.10.8
+
+Release date: `March 18, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Homepage] The loading page has been improved.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Geoviews] Fixed the resource name displayed in the tooltip.
+- [Geoviews] Fixed an issue that prevented the selection of more than 10 host groups.
+- [Install] Fixed an issue with the installation of extensions.
+- [Viewer] Fixed widget values and resource status updates when compression is activated.
+- [Viewer] Inverted IN and OUT metric values, for more clarity.
+- [Viewer] Fixed the Business Activity name displayed in the tooltip.
+- [Viewer] Added "acknowledged" and "in downtime" icons to the list of host services.
+
+</details>
+
 ### 23.10.7
 
 Release date: `February 14, 2024`
@@ -186,6 +298,39 @@ Release date: `November 22, 2023`
 
 ## Centreon BAM
 
+### 23.10.8
+
+Release date: `July 4, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [BAM] Fixed an issue with the name of a KPI whose type was Business Activity. It is now correctly displayed in the details of its parent BA.
+
+</details>
+
+### 23.10.7
+
+Release date: `April 16, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [BAM] Fixed an ACL issue while displaying indicators in BA configuration.
+
+</details>
+
+### 23.10.6
+
+Release date: `March 18, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Install] Fixed an issue with the installation of extensions.
+
+</details>
+
 ### 23.10.5
 
 Release date: `February 14, 2024`
@@ -247,6 +392,62 @@ Release date: `October 30, 2023`
 
 ## Centreon MBI
 
+### 23.10.7
+
+Release date: `August 8, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [SELinux] Packaged SELinux rules for EL distributions.
+
+</details>
+
+### 23.10.6
+
+Release date: `July 4, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Fixed an issue with the report design functionality on Debian.
+
+</details>
+
+### 23.10.5
+
+Release date: `June 10, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [MBI] Fixed a calculation issue for the VMWare-Cluster-Performances report with multiple datastores monitored by one service.
+- [MBI] Fixed the Hostgroup-Storage-Capacity-2 report, which displayed double the total disk size in specific cases.
+
+</details>
+
+### 23.10.4
+
+Release date: `April 16, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Packaging] Correct rights are now set for Centreon MBI configuration files.
+
+</details>
+
+### 23.10.3
+
+Release date: `March 18, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Install] Fixed an issue with the installation of extensions.
+
+</details>
+
 ### 23.10.2
 
 Release date: `January 18, 2024`
@@ -283,6 +484,29 @@ Release date: `October 30, 2023`
 
 ## Centreon Auto Discovery
 
+### 23.10.3
+
+Release date: `June 10, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed access control for some v2 API endpoints.
+- [Discovery] Fixed Add and Update host buttons in Autodiscovery job results.
+
+</details>
+
+### 23.10.2
+
+Release date: `March 18, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Install] Fixed an issue with the installation of extensions.
+
+</details>
+
 ### 23.10.1
 
 Release date: `November 22, 2023`
@@ -307,6 +531,28 @@ Release date: `October 30, 2023`
 
 ## Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager)
 
+### 23.10.2
+
+Release date: `April 16, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed the absence of error displayed when the deletion of a Monitoring Connector is not possible.
+
+</details>
+
+### 23.10.1
+
+Release date: `March 18, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Install] Fixed an issue with the installation of extensions.
+
+</details>
+
 ### 23.10.0
 
 Release date: `October 30, 2023`
@@ -320,12 +566,23 @@ Release date: `October 30, 2023`
 
 ## Centreon License Manager
 
+### 23.10.2
+
+Release date: `June 10, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Helios] Fixed Centreon Helios cron.
+
+</details>
+
 ### 23.10.1
 
 Release date: `December 21, 2023`
 
 <details>
-  <summary>bug fixes</summary>
+  <summary>Bug fixes</summary>
 
 - [Install] Fixed rights on /etc/centreon/license.d.
 
@@ -343,6 +600,44 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon Anomaly Detection
+
+### 23.10.4
+
+Release date: `July 4, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Anomaly Detection] Fixed an issue that prevented Anomaly Detection from sending real time data to the SaaS application.
+- [Anomaly Detection] Fixed an issue with the creation of a Centreon Broker configuration output, that occurred when adding an AIOps token.
+- [Anomaly Detection] Improved ergonomics by displaying the entire window with a default screen resolution, making all buttons visible.
+- [Packaging] Added missing dependencies on anomaly detection.
+- [Packaging] Anomaly_detection perl script is now correctly deployed on Debian.
+- [Packaging] Various anomaly detection perl installation scripts are now deployed on **/usr/share/perl5/centreon/anomalydetection** instead of **/%{perl_vendorlib}/centreon**.
+
+</details>
+
+### 23.10.3
+
+Release date: `June 10, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Resource status] Fixed the access to reports when clicking the View report button in the resource detail panel.
+
+</details>
+
+### 23.10.2
+
+Release date: `March 18, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Install] Fixed an issue with the installation of extensions.
+
+</details>
 
 ### 23.10.1
 
@@ -381,6 +676,17 @@ Release date: `November 10, 2023`
 ### 23.10.0
 
 ## Centreon Cloud Extensions
+
+### 23.10.6
+
+Release date: `March 18, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Install] Fixed an issue with the installation of extensions.
+
+</details>
 
 ### 23.10.5
 
@@ -430,6 +736,29 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon IT Edition Extensions
+
+### 23.10.4
+
+Release date: `June 10, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [IT Extension] Added dependency to centreon-license-manager to validate licenses.
+
+</details>
+
+### 23.10.3 
+
+Release date: `March 18, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Install] Fixed an issue with the installation of extensions.
+- [Licensing] Removed the error that was displayed when a license was missing or invalid.
+
+</details>
 
 ### 23.10.2
 

@@ -3,6 +3,50 @@ id: cloud-release-notes
 title: Centreon Cloud release notes
 ---
 
+## June 26, 2024
+
+### Resource Access Management
+
+Resource Access Management allows administrators to assign specific access permissions to each user or user group. This enables control over which users can access particular monitored resources. An intuitive interface helps manage these permissions, while audit logs provide a record of access activities. This feature supports organizations in maintaining security and efficiency by allowing tailored access control.
+
+### Centreon Dashboards
+
+Centreon Dashboards is now Generally Available!
+In addition to our stabilization work through the beta, we have added several features like dashboard duplication, or a new mechanism to prevent exiting edition mode with unsaved changes.
+We have also improved the look and feel of existing widgets, in particular graph legends and tooltips, and enriched our widget library with two new widgets: Status Chart and Business Activity Diagram.
+
+### Stream Connectors
+
+It is now possible to forward data collected by Centreon to third-party systems using our Stream Connector library. Please contact your Customer Success Manager if you need to set up such an integration.
+
+### Pollers
+
+You can now choose amongst all operating systems supported by Centreon to install your poller. This includes Alma, RHEL, and Oracle Linux version 8 and 9, and Debian version 11 and 12 (from poller version 24.04).
+
+
+## April 11, 2024
+
+### Custom check command definition
+
+You now have the ability to define your own check commands, allowing for customized monitoring configurations.
+To maintain system integrity, this feature is secured by a whitelist mechanism, ensuring only authorized commands are executed.
+As an important note, whether or not you plan to use this feature, it may introduce a security vulnerability if you do not update your poller by following [this procedure](../installation/poller-update-upgrade.md).
+
+### Dashboards Beta
+
+As usual, lots of improvements to the dashboard feature with this release:
+- Navigation in dashboards has been enhanced with a new search feature, a listing presentation and a better responsiveness.
+- Existing widgets have been improved, based on feedback from beta testers. It is now more intuitive to select metrics or to select the widget you need.
+- A new widget named “Resource Table” is available, allowing you to visualize the status of a set of selected resources.
+- It is now possible to create dashboards playlists. Selected dashboards will be displayed sequentially without any interaction allowing to broadcast them on TV set on public spaces.
+
+**Important note**: this is the last time Centreon Dashboards is delivered as a beta version. In the next version, Centreon Dashboards will be generally available.
+
+### Miscellaneous improvements
+
+- You can now display any page in Centreon, and in particular dashboards, in full screen mode.
+- It is now possible to use semicolons in command macros (and in particular in passwords).
+
 ## February 26, 2024
 
 ### Centreon IT Edition

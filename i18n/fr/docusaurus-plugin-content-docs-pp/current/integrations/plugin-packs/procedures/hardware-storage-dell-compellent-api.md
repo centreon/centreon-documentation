@@ -10,8 +10,7 @@ This Monitoring Connector requires the use of:
   - the Dell Storage Enterprise Manager provided
     [here](http://www.dell.com/support/home/us/en/19/Drivers/DriversDetails?driverId=7KXTW)
   - NSClient++ package provided by Centreon, installed and configured on your
-    target server as described on
-    [documentation](http://documentation.centreon.com)
+    target server as described [here](../getting-started/how-to-guides/centreon-nsclient-tutorial.md).
 
 Note: Powershell and `DellStorage.ApiCommandSet.dll` have to be installed on
 Windows Server. You'll need to add the file `powershell.exe.config` in directory

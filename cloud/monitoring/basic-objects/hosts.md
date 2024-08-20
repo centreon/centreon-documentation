@@ -13,7 +13,7 @@ To create a host manually:
 
 ### General information
 
-* The **Name** field defines the host name that will be used by the Monitoring Engine.
+* The **Name** field defines the host name that will be used by the Monitoring Engine. The following characters are not authorized: `~!$%^&|'"<>?,()=*{}` and spaces.
 * The **Alias** field shows the alias of the host.
 * The **Address** field defines the IP address or DNS name of the host. The **Resolve** button enables us to
   resolve the domain name by questioning the DNS server configured on the central server.
@@ -46,7 +46,7 @@ defined in the host templates below.
 
   To change the order of the macros, click ![image](../../assets/configuration/common/move.png#thumbnail1)
 
-* The **Check Period** field defines the time period during which the scheduler checks the status of the object.
+* The **Check Period** field defines the [time period](../basic-objects/timeperiods.md) during which the scheduler checks the status of the object.
 * The **Timezone** field indicates the location of the monitored hosts. The check period for this host will be based on this timezone.
 
 ### Scheduling options

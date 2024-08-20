@@ -5,6 +5,8 @@ title: Kadiska Rest API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> This Monitoring Connector is no longer maintained.
+
 ## Pack assets
 
 ### Templates
@@ -271,7 +273,7 @@ dnf install centreon-pack-applications-monitoring-kadiska-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-monitoring-kadiska-restapi
@@ -318,7 +320,7 @@ dnf install centreon-plugin-Applications-Monitoring-Kadiska-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-monitoring-kadiska-restapi
@@ -582,7 +584,7 @@ yum install centreon-plugin-Applications-Monitoring-Kadiska-Restapi
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
 Once the plugin is installed, log into your Centreon poller's CLI using the
-**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector
 is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
@@ -669,13 +671,13 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--warning-watcher-pages='' \
 	--critical-watcher-pages='' \
 	--warning-watcher-srt-spent='' \
-	--critical-watcher-srt-spent='' 
+	--critical-watcher-srt-spent=''
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: DTT spent: 39 ms Errors: 83% Full time network spent: 96 ms Sessions: 58 SRT spent: 61 ms Requests: 73 Redirect time avg: 97 ms Loading page duration: 71 ms Loaded pages: 76 API Processing duration: 17 ms Connected users: 76 Waiting time avg: 31 ms DTT spent: 12 ms Errors: 2% Full time network spent: 72 ms Sessions: 0 SRT spent: 87 ms Requests: 31 Redirect time avg: 20 ms Loading page duration: 88 ms Loaded pages: 26 API Processing duration: 9 ms Connected users: 7 Waiting time avg: 76 ms DTT spent: 68 ms Errors: 41% Full network time spent: 62 ms Loading page duration: 30 ms Loaded pages: 11 API Processing duration: 93 ms Redirect time avg: 23 ms Requests: 56 Sessions: 90 SRT spent: 20 ms Connected users: 63 | 'watcher.dtt.spent.time.milliseconds'=39ms;;;0; 'watcher.errors.percentage'=83%;;;0;100 'watcher.network.spent.time.milliseconds'=96ms;;;0; 'watcher.sessions.count'=58;;;0; 'watcher.srt.spent.time.milliseconds'=61ms;;;0; 'watcher.requests.count'=73;;;0; 'watcher.redirect.time.milliseconds'=97ms;;;0; 'watchers.loading.page.duration.milliseconds'=71ms;;;0; 'watchers.pages.count'=76;;;0; 'watchers.processing.duration.milliseconds'=17ms;;;0; 'watchers.users.count'=76;;;0; 'watchers.waiting.time.milliseconds'=31ms;;;0; 'isp.dtt.spent.time.milliseconds'=12ms;;;0; 'isp.errors.percentage'=2%;;;0;100 'isp.network.spent.time.milliseconds'=72ms;;;0; 'isp.sessions.count'=0;;;0; 'isp.srt.spent.time.milliseconds'=87ms;;;0; 'isp.requests.count'=31;;;0; 'isp.redirect.time.milliseconds'=20ms;;;0; 'isp.loading.page.duration.milliseconds'=88ms;;;0; 'isp.pages.count'=26;;;0; 'isp.processing.duration.milliseconds'=9ms;;;0; 'isp.users.count'=7;;;0; 'isp.waiting.time.milliseconds'=76ms;;;0; 'watcher.dtt.spent.time.milliseconds'=68ms;;;; 'watcher.errors.percentage'=41%;;;; 'watcher.network.spent.time.milliseconds'=62ms;;;; 'watcher.loading.page.duration.milliseconds'=30ms;;;; 'watcher.pages.count'=11;;;; 'watcher.processing.duration.milliseconds'=93ms;;;; 'watcher.redirect.time.milliseconds'=23ms;;;; 'watcher.requests.count'=56;;;; 'watcher.sessions.count'=90;;;; 'watcher.srt.spent.time.milliseconds'=20ms;;;; 'watcher.users.count'=63;;;; 
+OK: DTT spent: 39 ms Errors: 83% Full time network spent: 96 ms Sessions: 58 SRT spent: 61 ms Requests: 73 Redirect time avg: 97 ms Loading page duration: 71 ms Loaded pages: 76 API Processing duration: 17 ms Connected users: 76 Waiting time avg: 31 ms DTT spent: 12 ms Errors: 2% Full time network spent: 72 ms Sessions: 0 SRT spent: 87 ms Requests: 31 Redirect time avg: 20 ms Loading page duration: 88 ms Loaded pages: 26 API Processing duration: 9 ms Connected users: 7 Waiting time avg: 76 ms DTT spent: 68 ms Errors: 41% Full network time spent: 62 ms Loading page duration: 30 ms Loaded pages: 11 API Processing duration: 93 ms Redirect time avg: 23 ms Requests: 56 Sessions: 90 SRT spent: 20 ms Connected users: 63 | 'watcher.dtt.spent.time.milliseconds'=39ms;;;0; 'watcher.errors.percentage'=83%;;;0;100 'watcher.network.spent.time.milliseconds'=96ms;;;0; 'watcher.sessions.count'=58;;;0; 'watcher.srt.spent.time.milliseconds'=61ms;;;0; 'watcher.requests.count'=73;;;0; 'watcher.redirect.time.milliseconds'=97ms;;;0; 'watchers.loading.page.duration.milliseconds'=71ms;;;0; 'watchers.pages.count'=76;;;0; 'watchers.processing.duration.milliseconds'=17ms;;;0; 'watchers.users.count'=76;;;0; 'watchers.waiting.time.milliseconds'=31ms;;;0; 'isp.dtt.spent.time.milliseconds'=12ms;;;0; 'isp.errors.percentage'=2%;;;0;100 'isp.network.spent.time.milliseconds'=72ms;;;0; 'isp.sessions.count'=0;;;0; 'isp.srt.spent.time.milliseconds'=87ms;;;0; 'isp.requests.count'=31;;;0; 'isp.redirect.time.milliseconds'=20ms;;;0; 'isp.loading.page.duration.milliseconds'=88ms;;;0; 'isp.pages.count'=26;;;0; 'isp.processing.duration.milliseconds'=9ms;;;0; 'isp.users.count'=7;;;0; 'isp.waiting.time.milliseconds'=76ms;;;0; 'watcher.dtt.spent.time.milliseconds'=68ms;;;; 'watcher.errors.percentage'=41%;;;; 'watcher.network.spent.time.milliseconds'=62ms;;;; 'watcher.loading.page.duration.milliseconds'=30ms;;;; 'watcher.pages.count'=11;;;; 'watcher.processing.duration.milliseconds'=93ms;;;; 'watcher.redirect.time.milliseconds'=23ms;;;; 'watcher.requests.count'=56;;;; 'watcher.sessions.count'=90;;;; 'watcher.srt.spent.time.milliseconds'=20ms;;;; 'watcher.users.count'=63;;;;
 ```
 
 ### Troubleshooting
@@ -687,7 +689,7 @@ this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-
 
 In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
 In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
-However, you will need to specify the correct mode for the template if you want to test the execution command for the 
+However, you will need to specify the correct mode for the template if you want to test the execution command for the
 connector in your terminal.
 
 All available modes can be displayed by adding the `--list-mode` parameter to
