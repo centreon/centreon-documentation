@@ -67,19 +67,20 @@ To benefit from the plugin's capabilities, you need to create the following Cent
  
  > Before loading the file, replace these values with yours:
    - **<SET_CENTREON_URL>** with the URL you use to access Centreon web UI.
-   - **<SET_TEAMSWEBHOOK_URL>** with the Teams Webhook URL obtained previously.
+   - **<SET_TEAMSWORKFLOW_URL>** with the Teams workflow URL obtained previously.
+   - **<SET_CONTACT_PASSWORD>** with the password you want for the new contact.
  
  ``` shell
- CMD;ADD;bam-notify-by-microsoft-teams;1;$CENTREONPLUGINS$/centreon_notification_teams.pl --plugin=notification::microsoft::office365::teams::plugin --mode=alert --custommode=workflowapi --teams-webhook='$CONTACTPAGER$' --bam --service-description='$SERVICEDISPLAYNAME$' --service-state='$SERVICESTATE$' --service-output='$SERVICEOUTPUT$' --date='$DATE$ $TIME$' --centreonurl='$CONTACTADDRESS1$'
+ CMD;ADD;bam-notify-by-microsoft-teams;1;$CENTREONPLUGINS$/centreon_notification_teams.pl --plugin=notification::microsoft::office365::teams::plugin --mode=alert --custommode=workflowapi --teams-workflow='$CONTACTPAGER$' --bam --service-description='$SERVICEDISPLAYNAME$' --service-state='$SERVICESTATE$' --service-output='$SERVICEOUTPUT$' --date='$DATE$ $TIME$' --centreonurl='$CONTACTADDRESS1$'
 CMD;setparam;bam-notify-by-microsoft-teams;enable_shell;0
 CMD;setparam;bam-notify-by-microsoft-teams;command_activate;1
 CMD;setparam;bam-notify-by-microsoft-teams;command_locked;0
-CMD;ADD;host-notify-by-microsoft-teams;1;$CENTREONPLUGINS$/centreon_notification_teams.pl --plugin=notification::microsoft::office365::teams::plugin --mode=alert --custommode=workflowapi --teams-webhook='$CONTACTPAGER$' --notification-type='$NOTIFICATIONTYPE$' --host-name='$HOSTNAME$' --host-state='$HOSTSTATE$' --host-output='$HOSTOUTPUT$' --date='$DATE$ $TIME$' --action-links --centreon-url='$CONTACTADDRESS1$' --extra-info='$NOTIFICATIONAUTHOR$//$NOTIFICATIONCOMMENT$'
+CMD;ADD;host-notify-by-microsoft-teams;1;$CENTREONPLUGINS$/centreon_notification_teams.pl --plugin=notification::microsoft::office365::teams::plugin --mode=alert --custommode=workflowapi --teams-workflow='$CONTACTPAGER$' --notification-type='$NOTIFICATIONTYPE$' --host-name='$HOSTNAME$' --host-state='$HOSTSTATE$' --host-output='$HOSTOUTPUT$' --date='$DATE$ $TIME$' --action-links --centreon-url='$CONTACTADDRESS1$' --extra-info='$NOTIFICATIONAUTHOR$//$NOTIFICATIONCOMMENT$'
 CMD;setparam;host-notify-by-microsoft-teams;enable_shell;0
 CMD;setparam;host-notify-by-microsoft-teams;command_activate;1
 CMD;setparam;host-notify-by-microsoft-teams;command_locked;0
 CMD;ADD;host-notify-by-microsoft-teams;1;
-CMD;ADD;service-notify-by-microsoft-teams;1;$CENTREONPLUGINS$/centreon_notification_teams.pl --plugin=notification::microsoft::office365::teams::plugin --mode=alert --custommode=workflowapi --teams-webhook='$CONTACTPAGER$' --notification-type='$NOTIFICATIONTYPE$' --host-name='$HOSTNAME$' --service-description='$SERVICEDESC$' --service-state='$SERVICESTATE$' --service-output='$SERVICEOUTPUT$' --date='$DATE$ $TIME$' --action-links --centreon-url='$CONTACTADDRESS1$' --extra-info='$NOTIFICATIONAUTHOR$//$NOTIFICATIONCOMMENT$'
+CMD;ADD;service-notify-by-microsoft-teams;1;$CENTREONPLUGINS$/centreon_notification_teams.pl --plugin=notification::microsoft::office365::teams::plugin --mode=alert --custommode=workflowapi --teams-workflow='$CONTACTPAGER$' --notification-type='$NOTIFICATIONTYPE$' --host-name='$HOSTNAME$' --service-description='$SERVICEDESC$' --service-state='$SERVICESTATE$' --service-output='$SERVICEOUTPUT$' --date='$DATE$ $TIME$' --action-links --centreon-url='$CONTACTADDRESS1$' --extra-info='$NOTIFICATIONAUTHOR$//$NOTIFICATIONCOMMENT$'
 CMD;setparam;service-notify-by-microsoft-teams;enable_shell;0
 CMD;setparam;service-notify-by-microsoft-teams;command_activate;1
 CMD;setparam;service-notify-by-microsoft-teams;command_locked;0
@@ -88,7 +89,7 @@ CONTACT;setparam;notify_teams_consulting_channel;hostnotifperiod;24x7
 CONTACT;setparam;notify_teams_consulting_channel;svcnotifperiod;24x7
 CONTACT;setparam;notify_teams_consulting_channel;hostnotifopt;d,u
 CONTACT;setparam;notify_teams_consulting_channel;servicenotifopt;w,u,c
-CONTACT;setparam;notify_teams_consulting_channel;contact_pager;<SET_TEAMSWEBHOOK_URL>
+CONTACT;setparam;notify_teams_consulting_channel;contact_pager;<SET_TEAMSWORKFLOW_URL>
 CONTACT;setparam;notify_teams_consulting_channel;contact_address1;<SET_CENTREON_URL>
 CONTACT;setparam;notify_teams_consulting_channel;contact_js_effects;0
 CONTACT;setparam;notify_teams_consulting_channel;reach_api;0
@@ -102,7 +103,7 @@ CONTACT;setparam;notify_teams_consulting_channel;hostnotifcmd;host-notify-by-mic
 CONTACT;setparam;notify_teams_consulting_channel;svcnotifcmd;service-notify-by-microsoft-teams
  ```
 
-2. If your Teams webhook URL is longer than 200 characters, extend the size of the **contact_pager** row in the Centreon configuration database, using the following query:
+2. If your Teams workflow URL is longer than 200 characters, extend the size of the **contact_pager** row in the Centreon configuration database, using the following query:
  ``` shell
  ALTER TABLE centreon.contact MODIFY contact_pager VARCHAR(255);
  ```
@@ -112,4 +113,4 @@ CONTACT;setparam;notify_teams_consulting_channel;svcnotifcmd;service-notify-by-m
  centreon -u ‘<adminuser>’ -p ‘<password>’ -i /tmp/clapi-teams.import
  ```
 
-> Depending on what you want to do, you can assign this Contact to a Group or link it with one or several resources and get notifications in your channel.
+4. The file will create the **Microsoft-Teams-Consulting-Channel** contact. Use this contact at the [Configuring notifications](../alerts-notifications/notif-configuration.md) step so that you can receive notifications in your Teams channel.
