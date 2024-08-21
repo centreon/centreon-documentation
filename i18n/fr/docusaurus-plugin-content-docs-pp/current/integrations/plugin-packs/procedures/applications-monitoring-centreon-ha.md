@@ -19,25 +19,25 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="App-Monitoring-Centreon-HA-Cluster-Node-custom" label="App-Monitoring-Centreon-HA-Cluster-Node-custom">
 
-| Alias                          | Modèle de service                                                | Description |
-|:-------------------------------|:-----------------------------------------------------------------|:------------|
-| PCS-Constraint-cbd_rrd         | App-Monitoring-Centreon-HA-PCS-Constraint-cbd_rrd-custom         |             |
-| PCS-Constraint-centreon        | App-Monitoring-Centreon-HA-PCS-Constraint-centreon-custom        |             |
-| PCS-Constraint-ms_mysql-master | App-Monitoring-Centreon-HA-PCS-Constraint-ms_mysql-master-custom |             |
-| PCS-Constraint-php7            | App-Monitoring-Centreon-HA-PCS-Constraint-php7-custom            |             |
-| PCS-Status                     | App-Monitoring-Centreon-HA-PCS-Status-custom                     |             |
-| proc-corosync                  | App-Monitoring-Centreon-HA-Process-corosync-custom               |             |
-| proc-pacemakerd                | App-Monitoring-Centreon-HA-Process-pacemakerd-custom             |             |
-| proc-pcsd                      | App-Monitoring-Centreon-HA-Process-pcsd-custom                   |             |
+| Alias                          | Modèle de service                                                | Description                                                                                                                                     |
+|:-------------------------------|:-----------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------|
+| PCS-Constraint-cbd_rrd         | App-Monitoring-Centreon-HA-PCS-Constraint-cbd_rrd-custom         | Vérifie que cbd_rrd respecte les contraintes du cluster Pacemaker via SSH                                                                       |
+| PCS-Constraint-centreon        | App-Monitoring-Centreon-HA-PCS-Constraint-centreon-custom        | Supervision des contraintes spécifiques appliquées à la ressource centreon dans un cluster Pacemaker via SSH                                    |
+| PCS-Constraint-ms_mysql-master | App-Monitoring-Centreon-HA-PCS-Constraint-ms_mysql-master-custom | Supervision des contraintes spécifiques appliquées à la ressource ms_mysql-master dans un cluster Pacemaker via SSH                             |
+| PCS-Constraint-php7            | App-Monitoring-Centreon-HA-PCS-Constraint-php7-custom            | Supervision des contraintes spécifiques appliquées à la ressource php7 dans un cluster Pacemaker via SSH                                        |
+| PCS-Status                     | App-Monitoring-Centreon-HA-PCS-Status-custom                     | Supervision de l'état du cluster Pacemaker en utilisant la commande pcs status via SSH                                                          |
+| proc-corosync                  | App-Monitoring-Centreon-HA-Process-corosync-custom               | Supervision du service corosync pour assurer la haute disponibilité des clusters via SNMP                                                       |
+| proc-pacemakerd                | App-Monitoring-Centreon-HA-Process-pacemakerd-custom             | Supervision du service pacemakerd pour assurer la haute disponibilité des clusters Pacemaker via SNMP                                           |
+| proc-pcsd                      | App-Monitoring-Centreon-HA-Process-pcsd-custom                   | Contrôle permettant de surveiller le fonctionnement du service Pacemaker Configuration and Synchronization Daemon sur un serveur Linux via SNMP |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Monitoring-Centreon-HA-Cluster-Node-custom** est utilisé.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias               | Modèle de service                                        | Description |
-|:--------------------|:---------------------------------------------------------|:------------|
-| proc-corosync-qnetd | App-Monitoring-Centreon-HA-Process-corosync-qnetd-custom |             |
+| Alias               | Modèle de service                                        | Description                                                                                     |
+|:--------------------|:---------------------------------------------------------|:------------------------------------------------------------------------------------------------|
+| proc-corosync-qnetd | App-Monitoring-Centreon-HA-Process-corosync-qnetd-custom | Supervision du service corosync-qnetd pour assurer la haute disponibilité des clusters via SNMP |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -51,22 +51,30 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="PCS-Constraint-cbd_rrd" label="PCS-Constraint-cbd_rrd">
 
-Coming soon
+| Métrique   | Unité |
+|:-----------|:------|
+| status | N/A   |
 
 </TabItem>
 <TabItem value="PCS-Constraint-centreon" label="PCS-Constraint-centreon">
 
-Coming soon
+| Métrique   | Unité |
+|:-----------|:------|
+| status | N/A   |
 
 </TabItem>
 <TabItem value="PCS-Constraint-ms_mysql-master" label="PCS-Constraint-ms_mysql-master">
 
-Coming soon
+| Métrique   | Unité |
+|:-----------|:------|
+| status | N/A   |
 
 </TabItem>
 <TabItem value="PCS-Constraint-php7" label="PCS-Constraint-php7">
 
-Coming soon
+| Métrique   | Unité |
+|:-----------|:------|
+| status | N/A   |
 
 </TabItem>
 <TabItem value="PCS-Status" label="PCS-Status">
@@ -131,7 +139,58 @@ Coming soon
 
 ## Prérequis
 
-{PREREQUISITES_TEMPLATE}
+### Configuration SNMP de l'équipement
+
+La configuration de SNMP sur un serveur Linux est expliquée dans [la page de documentation du connecteur de supervision Linux SNMP](integrations/plugin-packs/procedures/operatingsystems-linux-snmp.md#configuration-du-serveur-snmp).
+
+### Configuration de la connexion SSH sans mot de passe
+
+> NB : Il est très fortement recommandé de surveiller le cluster à partir d'un poller plutôt qu'à partir du cluster.
+
+Ouvrir une session en ligne de commande sur :
+
+* le poller qui sera chargé de superviser le cluster
+* chaque nœud de ce cluster
+
+Une fois ces sessions ouvertes, lancer cette commande :
+
+```bash
+su - centreon-engine
+```
+
+À présent nous sommes dans l'environnement `bash` de `centreon-engine`. Lancer ensuite cette commande :
+
+```bash
+ssh-keygen -t ed25519 -a 100
+```
+
+Nous avons généré une paire de clés sur chaque serveur, ainsi que le répertoire `~/.ssh`. 
+
+Sur le poller lancer cette commande pour afficher la clé publique créée :
+
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+
+Après avoir lancé cette commande, copier le contenu du fichier qui s'est affiché sous la commande `cat` et le coller à la fin du fichier (probablement à créer) `~/.ssh/authorized_keys` des nœuds centraux, puis appliquer les bons droits sur le fichier (toujours en tant que `centreon-engine`) :
+
+```bash
+chmod 600 ~/.ssh/authorized_keys
+```
+
+Une fois cette étape effectuée sur chaque nœud central, il ne reste plus qu'à initialiser une première connexion depuis le poller vers chacun des nœuds :
+
+```bash
+ssh <cluster-node-ip-address>
+```
+
+L'utilisateur `centreon-engine` du poller est alors capable d'ouvrir une session SSH sur les deux nœuds centraux. 
+
+Il ne reste plus qu'à l'intégrer au groupe `haclient` pour lui permettre d'exécuter les commandes nécessaires à la surveillance du cluster :
+
+```bash
+usermod -a -G haclient centreon-engine
+```
 
 ## Installer le connecteur de supervision
 
@@ -158,7 +217,7 @@ dnf install centreon-pack-applications-monitoring-centreon-ha
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-monitoring-centreon-ha
@@ -203,7 +262,7 @@ dnf install
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install 
@@ -230,11 +289,6 @@ yum install
 
 | Macro           | Description                                                                                                                                                         | Valeur par défaut | Obligatoire |
 |:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SSHUSERNAME     | Define the user name to log in to the host                                                                                                                          |                   |             |
-| SSHPASSWORD     | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead |                   |             |
-| SSHPORT         | Define the TCP port on which SSH is listening                                                                                                                       |                   |             |
-| SSHBACKEND      | Define the backend you want to use. It can be: sshcli (default), plink and libssh                                                                                   |                   |             |
-| SSHPRIVKEY      | Define the private key file to use for user authentication                                                                                                          |                   |             |
 | SSHEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -279,34 +333,34 @@ yum install
 </TabItem>
 <TabItem value="PCS-Status" label="PCS-Status">
 
-| Macro                                | Description                                                                                                                                                                                                                  | Valeur par défaut                                           | Obligatoire |
-|:-------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------|:-----------:|
-| FILTERRESOURCENAME                   | Filter resource (also clone resource) by name (can be a regexp)                                                                                                                                                              |                                                             |             |
-| WARNINGCLONERESOURCEACTIONSFAILED    | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| CRITICALCLONERESOURCEACTIONSFAILED   | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| WARNINGCLONERESOURCEMIGRATIONFAILED  | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| CRITICALCLONERESOURCEMIGRATIONFAILED | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| WARNINGCLONERESOURCESTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %{name}, %{status}, %{masters\_nodes\_name}, %{slaves\_nodes\_name}, %{is\_unmanaged}                                      |                                                             |             |
-| CRITICALCLONERESOURCESTATUS          | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /failed/i'). You can use the following variables: %{name}, %{status}, %{masters\_nodes\_name}, %{slaves\_nodes\_name}, %{is\_unmanaged} |                                                             |             |
-| WARNINGCLUSTERACTIONSFAILED          | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| CRITICALCLUSTERACTIONSFAILED         | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| WARNINGCONNECTIONSTATUS              | Define the conditions to match for the status to be WARNING. You can use the following variables: %{connection\_status}, %{connection\_error}                                                                                |                                                             |             |
-| CRITICALCONNECTIONSTATUS             | Define the conditions to match for the status to be CRITICAL (default: '%{connection\_status} =~ /failed/i'). You can use the following variables: %{connection\_status}, %{connection\_error}                               |                                                             |             |
-| WARNINGNODESOFFLINE                  | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| CRITICALNODESOFFLINE                 | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| WARNINGNODESONLINE                   | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| CRITICALNODESONLINE                  | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| WARNINGNODESSTANDBY                  | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| CRITICALNODESSTANDBY                 | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| WARNINGQUORUMSTATUS                  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{quorum\_status}                                                                                                          |                                                             |             |
-| CRITICALQUORUMSTATUS                 | Define the conditions to match for the status to be CRITICAL (default: '%{quorum\_status} =~ /noQuorum/i'). You can use the following variables: %{quorum\_status}                                                           |                                                             |             |
-| WARNINGRESOURCEACTIONSFAILED         | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| CRITICALRESOURCEACTIONSFAILED        | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| WARNINGRESOURCEMIGRATIONFAILED       | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| CRITICALRESOURCEMIGRATIONFAILED      | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| WARNINGRESOURCESTATUS                | Define the conditions to match for the status to be WARNING. You can use the following variables: %{name}, %{status}, %{node}, %{is\_unmanaged}                                                                              |                                                             |             |
-| CRITICALRESOURCESTATUS               | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /stopped\|failed/i'). You can use the following variables: %{name}, %{status}, %{node}, %{is\_unmanaged}                                |                                                             |             |
-| EXTRAOPTIONS                         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                           | --command='pcs' --command-options='status --full' --verbose |             |
+| Macro                                | Description                                                                                                                                                                              | Valeur par défaut                                            | Obligatoire |
+|:-------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------|:-----------:|
+| FILTERRESOURCENAME                   | Filter resource (also clone resource) by name (can be a regexp)                                                                                                                          |                                                              |             |
+| WARNINGCLONERESOURCEACTIONSFAILED    | Warning threshold                                                                                                                                                                        |                                                              |             |
+| CRITICALCLONERESOURCEACTIONSFAILED   | Critical threshold                                                                                                                                                                       |                                                              |             |
+| WARNINGCLONERESOURCEMIGRATIONFAILED  | Warning threshold                                                                                                                                                                        |                                                              |             |
+| CRITICALCLONERESOURCEMIGRATIONFAILED | Critical threshold                                                                                                                                                                       |                                                              |             |
+| WARNINGCLONERESOURCESTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %{name}, %{status}, %{masters\_nodes\_name}, %{slaves\_nodes\_name}, %{is\_unmanaged}  |                                                              |             |
+| CRITICALCLONERESOURCESTATUS          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{name}, %{status}, %{masters\_nodes\_name}, %{slaves\_nodes\_name}, %{is\_unmanaged} | %{status} =~ /failed/i                                       |             |
+| WARNINGCLUSTERACTIONSFAILED          | Warning threshold                                                                                                                                                                        |                                                              |             |
+| CRITICALCLUSTERACTIONSFAILED         | Critical threshold                                                                                                                                                                       | 0                                                            |             |
+| WARNINGCONNECTIONSTATUS              | Define the conditions to match for the status to be WARNING. You can use the following variables: %{connection\_status}, %{connection\_error}                                            |                                                              |             |
+| CRITICALCONNECTIONSTATUS             | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{connection\_status}, %{connection\_error}                                           | %{connection_status} =~ /failed/i                            |             |
+| WARNINGNODESOFFLINE                  | Warning threshold                                                                                                                                                                        |                                                              |             |
+| CRITICALNODESOFFLINE                 | Critical threshold                                                                                                                                                                       |                                                              |             |
+| WARNINGNODESONLINE                   | Warning threshold                                                                                                                                                                        |                                                              |             |
+| CRITICALNODESONLINE                  | Critical threshold                                                                                                                                                                       | 0                                                            |             |
+| WARNINGNODESSTANDBY                  | Warning threshold                                                                                                                                                                        |                                                              |             |
+| CRITICALNODESSTANDBY                 | Critical threshold                                                                                                                                                                       |                                                              |             |
+| WARNINGQUORUMSTATUS                  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{quorum\_status}                                                                      |                                                              |             |
+| CRITICALQUORUMSTATUS                 | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{quorum\_status}                                                                     | %{quorum_status} =~ /noQuorum/i                              |             |
+| WARNINGRESOURCEACTIONSFAILED         | Warning threshold                                                                                                                                                                        |                                                              |             |
+| CRITICALRESOURCEACTIONSFAILED        | Critical threshold                                                                                                                                                                       |                                                              |             |
+| WARNINGRESOURCEMIGRATIONFAILED       | Warning threshold                                                                                                                                                                        |                                                              |             |
+| CRITICALRESOURCEMIGRATIONFAILED      | Critical threshold                                                                                                                                                                       | 0                                                            |             |
+| WARNINGRESOURCESTATUS                | Define the conditions to match for the status to be WARNING. You can use the following variables: %{name}, %{status}, %{node}, %{is\_unmanaged} failed/i').                              |                                                              |             |
+| CRITICALRESOURCESTATUS               | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{name}, %{status}, %{node}, %{is\_unmanaged} failed/i').                             | %{status} =~ /stopped                                        |             |                                                             |             |
+| EXTRAOPTIONS                         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                         | --command='pcs' --command-options='status --full' --verbose  |             |
 
 </TabItem>
 <TabItem value="proc-corosync" label="proc-corosync">
@@ -317,7 +371,7 @@ yum install
 | PROCESSPATH  | Filter process path                                                                                |                   |             |
 | PROCESSARGS  | Filter process arguments                                                                           |                   |             |
 | WARNING      | Warning threshold of matching processes count                                                      |                   |             |
-| CRITICAL     | Critical threshold of matching processes count                                                     |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                     | 1:                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -329,7 +383,7 @@ yum install
 | PROCESSPATH  | Filter process path                                                                                |                   |             |
 | PROCESSARGS  | Filter process arguments                                                                           |                   |             |
 | WARNING      | Warning threshold of matching processes count                                                      |                   |             |
-| CRITICAL     | Critical threshold of matching processes count                                                     |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                     | 1:                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -341,7 +395,7 @@ yum install
 | PROCESSPATH  | Filter process path                                                                                |                   |             |
 | PROCESSARGS  | Filter process arguments                                                                           |                   |             |
 | WARNING      | Warning threshold of matching processes count                                                      |                   |             |
-| CRITICAL     | Critical threshold of matching processes count                                                     |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                     | 1:                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -353,7 +407,7 @@ yum install
 | PROCESSPATH  | Filter process path                                                                                |                   |             |
 | PROCESSARGS  | Filter process arguments                                                                           |                   |             |
 | WARNING      | Warning threshold of matching processes count                                                      |                   |             |
-| CRITICAL     | Critical threshold of matching processes count                                                     |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                     | 1:                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -524,152 +578,152 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 <Tabs groupId="sync">
 <TabItem value="PCS-Constraint-cbd_rrd" label="PCS-Constraint-cbd_rrd">
 
-| Option                  | Description                                                                                                                                                            |
-|:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --custommode            | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                            |
-| --list-custommode       | List all available custom modes.                                                                                                                                       |
-| --multiple              | Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                  |
-| --timeout               | Timeout in seconds for the command (default: 45). Default value can be override by the mode.                                                                           |
-| --command               | Command to get information. Used it you have output in a file.                                                                                                         |
-| --command-path          | Command path.                                                                                                                                                          |
-| --command-options       | Command options.                                                                                                                                                       |
-| --sudo  sudo command    | .                                                                                                                                                                      |
-| --ssh-backend           | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                     |
-| --ssh-username          | Define the user name to log in to the host.                                                                                                                            |
-| --ssh-password          | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.   |
-| --ssh-port              | Define the TCP port on which SSH is listening.                                                                                                                         |
-| --ssh-priv-key          | Define the private key file to use for user authentication.                                                                                                            |
-| --sshcli-command        | ssh command (default: 'ssh').                                                                                                                                          |
-| --sshcli-path           | ssh command path (default: none)                                                                                                                                       |
-| --sshcli-option         | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no').                                                                                      |
-| --plink-command         | plink command (default: 'plink').                                                                                                                                      |
-| --plink-path            | plink command path (default: none)                                                                                                                                     |
-| --plink-option          | Specify plink options (example: --plink-option='-T').                                                                                                                  |
-| --libssh-strict-connect | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                    |
-| --resource              | Set the resource name you want to check                                                                                                                                |
-| --warning               | Return a warning instead of a critical                                                                                                                                 |
+| Option                  | Description                                                                                                                                                                        |
+|:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --custommode            | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                        |
+| --list-custommode       | List all available custom modes.                                                                                                                                                   |
+| --multiple              | Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                              |
+| --timeout               | Timeout in seconds for the command (default: 45). Default value can be override by the mode.                                                                                       |
+| --command               | Command to get information. Used it you have output in a file.                                                                                                                     |
+| --command-path          | Command path.                                                                                                                                                                      |
+| --command-options       | Command options.                                                                                                                                                                   |
+| --sudo                  | sudo command.                                                                                                                                                                      |
+| --ssh-backend           | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                                 |
+| --ssh-username          | Define the user name to log in to the host.                                                                                                                                        |
+| --ssh-password          | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.               |
+| --ssh-port              | Define the TCP port on which SSH is listening.                                                                                                                                     |
+| --ssh-priv-key          | Define the private key file to use for user authentication.                                                                                                                        |
+| --sshcli-command        | ssh command (default: 'ssh').                                                                                                                                                      |
+| --sshcli-path           | ssh command path (default: none)                                                                                                                                                   |
+| --sshcli-option         | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no').                                                                                                  |
+| --plink-command         | plink command (default: 'plink').                                                                                                                                                  |
+| --plink-path            | plink command path (default: none)                                                                                                                                                 |
+| --plink-option          | Specify plink options (example: --plink-option='-T').                                                                                                                              |
+| --libssh-strict-connect | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                                |
+| --resource              | Set the resource name you want to check                                                                                                                                            |
+| --warning               | Return a warning instead of a critical                                                                                                                                             |
 
 </TabItem>
 <TabItem value="PCS-Constraint-centreon" label="PCS-Constraint-centreon">
 
-| Option                  | Description                                                                                                                                                            |
-|:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --custommode            | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                            |
-| --list-custommode       | List all available custom modes.                                                                                                                                       |
-| --multiple              | Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                  |
-| --timeout               | Timeout in seconds for the command (default: 45). Default value can be override by the mode.                                                                           |
-| --command               | Command to get information. Used it you have output in a file.                                                                                                         |
-| --command-path          | Command path.                                                                                                                                                          |
-| --command-options       | Command options.                                                                                                                                                       |
-| --sudo  sudo command    | .                                                                                                                                                                      |
-| --ssh-backend           | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                     |
-| --ssh-username          | Define the user name to log in to the host.                                                                                                                            |
-| --ssh-password          | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.   |
-| --ssh-port              | Define the TCP port on which SSH is listening.                                                                                                                         |
-| --ssh-priv-key          | Define the private key file to use for user authentication.                                                                                                            |
-| --sshcli-command        | ssh command (default: 'ssh').                                                                                                                                          |
-| --sshcli-path           | ssh command path (default: none)                                                                                                                                       |
-| --sshcli-option         | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no').                                                                                      |
-| --plink-command         | plink command (default: 'plink').                                                                                                                                      |
-| --plink-path            | plink command path (default: none)                                                                                                                                     |
-| --plink-option          | Specify plink options (example: --plink-option='-T').                                                                                                                  |
-| --libssh-strict-connect | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                    |
-| --resource              | Set the resource name you want to check                                                                                                                                |
-| --warning               | Return a warning instead of a critical                                                                                                                                 |
+| Option                  | Description                                                                                                                                                           |
+|:------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --custommode            | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                           |
+| --list-custommode       | List all available custom modes.                                                                                                                                      |
+| --multiple              | Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                 |
+| --timeout               | Timeout in seconds for the command (default: 45). Default value can be override by the mode.                                                                          |
+| --command               | Command to get information. Used it you have output in a file.                                                                                                        |
+| --command-path          | Command path.                                                                                                                                                         |
+| --command-options       | Command options.                                                                                                                                                      |
+| --sudo                  | sudo command.                                                                                                                                                                      |
+| --ssh-backend           | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                    |
+| --ssh-username          | Define the user name to log in to the host.                                                                                                                           |
+| --ssh-password          | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.  |
+| --ssh-port              | Define the TCP port on which SSH is listening.                                                                                                                        |
+| --ssh-priv-key          | Define the private key file to use for user authentication.                                                                                                           |
+| --sshcli-command        | ssh command (default: 'ssh').                                                                                                                                         |
+| --sshcli-path           | ssh command path (default: none)                                                                                                                                      |
+| --sshcli-option         | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no').                                                                                     |
+| --plink-command         | plink command (default: 'plink').                                                                                                                                     |
+| --plink-path            | plink command path (default: none)                                                                                                                                    |
+| --plink-option          | Specify plink options (example: --plink-option='-T').                                                                                                                 |
+| --libssh-strict-connect | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                   |
+| --resource              | Set the resource name you want to check                                                                                                                               |
+| --warning               | Return a warning instead of a critical                                                                                                                                |
 
 </TabItem>
 <TabItem value="PCS-Constraint-ms_mysql-master" label="PCS-Constraint-ms_mysql-master">
 
-| Option                  | Description                                                                                                                                                            |
-|:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --custommode            | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                            |
-| --list-custommode       | List all available custom modes.                                                                                                                                       |
-| --multiple              | Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                  |
-| --timeout               | Timeout in seconds for the command (default: 45). Default value can be override by the mode.                                                                           |
-| --command               | Command to get information. Used it you have output in a file.                                                                                                         |
-| --command-path          | Command path.                                                                                                                                                          |
-| --command-options       | Command options.                                                                                                                                                       |
-| --sudo  sudo command    | .                                                                                                                                                                      |
-| --ssh-backend           | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                     |
-| --ssh-username          | Define the user name to log in to the host.                                                                                                                            |
-| --ssh-password          | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.   |
-| --ssh-port              | Define the TCP port on which SSH is listening.                                                                                                                         |
-| --ssh-priv-key          | Define the private key file to use for user authentication.                                                                                                            |
-| --sshcli-command        | ssh command (default: 'ssh').                                                                                                                                          |
-| --sshcli-path           | ssh command path (default: none)                                                                                                                                       |
-| --sshcli-option         | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no').                                                                                      |
-| --plink-command         | plink command (default: 'plink').                                                                                                                                      |
-| --plink-path            | plink command path (default: none)                                                                                                                                     |
-| --plink-option          | Specify plink options (example: --plink-option='-T').                                                                                                                  |
-| --libssh-strict-connect | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                    |
-| --resource              | Set the resource name you want to check                                                                                                                                |
-| --warning               | Return a warning instead of a critical                                                                                                                                 |
+| Option                  | Description                                                                                                                                                           |
+|:------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --custommode            | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                           |
+| --list-custommode       | List all available custom modes.                                                                                                                                      |
+| --multiple              | Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                 |
+| --timeout               | Timeout in seconds for the command (default: 45). Default value can be override by the mode.                                                                          |
+| --command               | Command to get information. Used it you have output in a file.                                                                                                        |
+| --command-path          | Command path.                                                                                                                                                         |
+| --command-options       | Command options.                                                                                                                                                      |
+| --sudo                  | sudo command.                                                                                                                                                                      |
+| --ssh-backend           | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                    |
+| --ssh-username          | Define the user name to log in to the host.                                                                                                                           |
+| --ssh-password          | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.  |
+| --ssh-port              | Define the TCP port on which SSH is listening.                                                                                                                        |
+| --ssh-priv-key          | Define the private key file to use for user authentication.                                                                                                           |
+| --sshcli-command        | ssh command (default: 'ssh').                                                                                                                                         |
+| --sshcli-path           | ssh command path (default: none)                                                                                                                                      |
+| --sshcli-option         | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no').                                                                                     |
+| --plink-command         | plink command (default: 'plink').                                                                                                                                     |
+| --plink-path            | plink command path (default: none)                                                                                                                                    |
+| --plink-option          | Specify plink options (example: --plink-option='-T').                                                                                                                 |
+| --libssh-strict-connect | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                   |
+| --resource              | Set the resource name you want to check                                                                                                                               |
+| --warning               | Return a warning instead of a critical                                                                                                                                |
 
 </TabItem>
 <TabItem value="PCS-Constraint-php7" label="PCS-Constraint-php7">
 
-| Option                  | Description                                                                                                                                                            |
-|:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --custommode            | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                            |
-| --list-custommode       | List all available custom modes.                                                                                                                                       |
-| --multiple              | Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                  |
-| --timeout               | Timeout in seconds for the command (default: 45). Default value can be override by the mode.                                                                           |
-| --command               | Command to get information. Used it you have output in a file.                                                                                                         |
-| --command-path          | Command path.                                                                                                                                                          |
-| --command-options       | Command options.                                                                                                                                                       |
-| --sudo  sudo command    | .                                                                                                                                                                      |
-| --ssh-backend           | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                     |
-| --ssh-username          | Define the user name to log in to the host.                                                                                                                            |
-| --ssh-password          | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.   |
-| --ssh-port              | Define the TCP port on which SSH is listening.                                                                                                                         |
-| --ssh-priv-key          | Define the private key file to use for user authentication.                                                                                                            |
-| --sshcli-command        | ssh command (default: 'ssh').                                                                                                                                          |
-| --sshcli-path           | ssh command path (default: none)                                                                                                                                       |
-| --sshcli-option         | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no').                                                                                      |
-| --plink-command         | plink command (default: 'plink').                                                                                                                                      |
-| --plink-path            | plink command path (default: none)                                                                                                                                     |
-| --plink-option          | Specify plink options (example: --plink-option='-T').                                                                                                                  |
-| --libssh-strict-connect | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                    |
-| --resource              | Set the resource name you want to check                                                                                                                                |
-| --warning               | Return a warning instead of a critical                                                                                                                                 |
+| Option                  | Description                                                                                                                                                           |
+|:------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --custommode            | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                           |
+| --list-custommode       | List all available custom modes.                                                                                                                                      |
+| --multiple              | Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                 |
+| --timeout               | Timeout in seconds for the command (default: 45). Default value can be override by the mode.                                                                          |
+| --command               | Command to get information. Used it you have output in a file.                                                                                                        |
+| --command-path          | Command path.                                                                                                                                                         |
+| --command-options       | Command options.                                                                                                                                                      |
+| --sudo                  | sudo command.                                                                                                                                                                      |
+| --ssh-backend           | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                    |
+| --ssh-username          | Define the user name to log in to the host.                                                                                                                           |
+| --ssh-password          | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.  |
+| --ssh-port              | Define the TCP port on which SSH is listening.                                                                                                                        |
+| --ssh-priv-key          | Define the private key file to use for user authentication.                                                                                                           |
+| --sshcli-command        | ssh command (default: 'ssh').                                                                                                                                         |
+| --sshcli-path           | ssh command path (default: none)                                                                                                                                      |
+| --sshcli-option         | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no').                                                                                     |
+| --plink-command         | plink command (default: 'plink').                                                                                                                                     |
+| --plink-path            | plink command path (default: none)                                                                                                                                    |
+| --plink-option          | Specify plink options (example: --plink-option='-T').                                                                                                                 |
+| --libssh-strict-connect | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                   |
+| --resource              | Set the resource name you want to check                                                                                                                               |
+| --warning               | Return a warning instead of a critical                                                                                                                                |
 
 </TabItem>
 <TabItem value="PCS-Status" label="PCS-Status">
 
-| Option                           | Description                                                                                                                                                                                                                    |
-|:---------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --custommode                     | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                    |
-| --list-custommode                | List all available custom modes.                                                                                                                                                                                               |
-| --multiple                       | Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                          |
-| --timeout                        | Timeout in seconds for the command (default: 45). Default value can be override by the mode.                                                                                                                                   |
-| --command                        | Command to get information. Used it you have output in a file.                                                                                                                                                                 |
-| --command-path                   | Command path.                                                                                                                                                                                                                  |
-| --command-options                | Command options.                                                                                                                                                                                                               |
-| --sudo  sudo command             | .                                                                                                                                                                                                                              |
-| --ssh-backend                    | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                                                                             |
-| --ssh-username                   | Define the user name to log in to the host.                                                                                                                                                                                    |
-| --ssh-password                   | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.                                                           |
-| --ssh-port                       | Define the TCP port on which SSH is listening.                                                                                                                                                                                 |
-| --ssh-priv-key                   | Define the private key file to use for user authentication.                                                                                                                                                                    |
-| --sshcli-command                 | ssh command (default: 'ssh').                                                                                                                                                                                                  |
-| --sshcli-path                    | ssh command path (default: none)                                                                                                                                                                                               |
-| --sshcli-option                  | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no').                                                                                                                                              |
-| --plink-command                  | plink command (default: 'plink').                                                                                                                                                                                              |
-| --plink-path                     | plink command path (default: none)                                                                                                                                                                                             |
-| --plink-option                   | Specify plink options (example: --plink-option='-T').                                                                                                                                                                          |
-| --libssh-strict-connect          | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                                                                            |
-| --filter-resource-name           | Filter resource (also clone resource) by name (can be a regexp).                                                                                                                                                               |
-| --warning-connection-status      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{connection\_status}, %{connection\_error}                                                                                  |
-| --critical-connection-status     | Define the conditions to match for the status to be CRITICAL (default: '%{connection\_status} =~ /failed/i'). You can use the following variables: %{connection\_status}, %{connection\_error}                                 |
-| --warning-quorum-status          | Define the conditions to match for the status to be WARNING. You can use the following variables: %{quorum\_status}                                                                                                            |
-| --critical-quorum-status         | Define the conditions to match for the status to be CRITICAL (default: '%{quorum\_status} =~ /noQuorum/i'). You can use the following variables: %{quorum\_status}                                                             |
-| --warning-resource-status        | Define the conditions to match for the status to be WARNING. You can use the following variables: %{name}, %{status}, %{node}, %{is\_unmanaged}                                                                                |
-| --critical-resource-status       | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /stopped\|failed/i'). You can use the following variables: %{name}, %{status}, %{node}, %{is\_unmanaged}                                  |
-| --warning-clone-resource-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{name}, %{status}, %{masters\_nodes\_name}, %{slaves\_nodes\_name}, %{is\_unmanaged}                                        |
-| --critical-clone-resource-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /failed/i'). You can use the following variables: %{name}, %{status}, %{masters\_nodes\_name}, %{slaves\_nodes\_name}, %{is\_unmanaged}   |
-| --ignore-failed-actions          | Failed actions errors (that match) are skipped.                                                                                                                                                                                |
-| --resources                      | If resources not started on the node specified, send a warning message: (format: \<rsc\_name\>:\<node\>,\<rsc\_name\>:\<node\>,...)                                                                                            |
-| --warning-* --critical-*         | Thresholds. Can be: 'cluster-actions-failed', 'clone-resource-actions-failed', 'clone-resource-migration-failed', 'nodes-online', 'nodes-offline', 'nodes-standby', 'resource-actions-failed', 'resource-migration-failed'.    |
+| Option                           | Description                                                                                                                                                                                                                   |
+|:---------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --custommode                     | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                   |
+| --list-custommode                | List all available custom modes.                                                                                                                                                                                              |
+| --multiple                       | Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                         |
+| --timeout                        | Timeout in seconds for the command (default: 45). Default value can be override by the mode.                                                                                                                                  |
+| --command                        | Command to get information. Used it you have output in a file.                                                                                                                                                                |
+| --command-path                   | Command path.                                                                                                                                                                                                                 |
+| --command-options                | Command options.                                                                                                                                                                                                              |
+| --sudo                           | sudo command.                                                                                                                                                                                                                              |
+| --ssh-backend                    | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                                                                            |
+| --ssh-username                   | Define the user name to log in to the host.                                                                                                                                                                                   |
+| --ssh-password                   | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.                                                          |
+| --ssh-port                       | Define the TCP port on which SSH is listening.                                                                                                                                                                                |
+| --ssh-priv-key                   | Define the private key file to use for user authentication.                                                                                                                                                                   |
+| --sshcli-command                 | ssh command (default: 'ssh').                                                                                                                                                                                                 |
+| --sshcli-path                    | ssh command path (default: none)                                                                                                                                                                                              |
+| --sshcli-option                  | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no').                                                                                                                                             |
+| --plink-command                  | plink command (default: 'plink').                                                                                                                                                                                             |
+| --plink-path                     | plink command path (default: none)                                                                                                                                                                                            |
+| --plink-option                   | Specify plink options (example: --plink-option='-T').                                                                                                                                                                         |
+| --libssh-strict-connect          | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                                                                           |
+| --filter-resource-name           | Filter resource (also clone resource) by name (can be a regexp).                                                                                                                                                              |
+| --warning-connection-status      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{connection\_status}, %{connection\_error}                                                                                 |
+| --critical-connection-status     | Define the conditions to match for the status to be CRITICAL (default: '%{connection\_status} =~ /failed/i'). You can use the following variables: %{connection\_status}, %{connection\_error}                                |
+| --warning-quorum-status          | Define the conditions to match for the status to be WARNING. You can use the following variables: %{quorum\_status}                                                                                                           |
+| --critical-quorum-status         | Define the conditions to match for the status to be CRITICAL (default: '%{quorum\_status} =~ /noQuorum/i'). You can use the following variables: %{quorum\_status}                                                            |
+| --warning-resource-status        | Define the conditions to match for the status to be WARNING. You can use the following variables: %{name}, %{status}, %{node}, %{is\_unmanaged}                                                                               |
+| --critical-resource-status       | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /stopped\                                                                                                                                |failed/i'). You can use the following variables: %{name}, %{status}, %{node}, %{is\_unmanaged}                                  |
+| --warning-clone-resource-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{name}, %{status}, %{masters\_nodes\_name}, %{slaves\_nodes\_name}, %{is\_unmanaged}                                       |
+| --critical-clone-resource-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /failed/i'). You can use the following variables: %{name}, %{status}, %{masters\_nodes\_name}, %{slaves\_nodes\_name}, %{is\_unmanaged}  |
+| --ignore-failed-actions          | Failed actions errors (that match) are skipped.                                                                                                                                                                               |
+| --resources                      | If resources not started on the node specified, send a warning message: (format: \<rsc\_name\>:\<node\>,\<rsc\_name\>:\<node\>,...)                                                                                           |
+| --warning-* --critical-*         | Thresholds. Can be: 'cluster-actions-failed', 'clone-resource-actions-failed', 'clone-resource-migration-failed', 'nodes-online', 'nodes-offline', 'nodes-standby', 'resource-actions-failed', 'resource-migration-failed'.   |
 
 </TabItem>
 <TabItem value="proc-corosync" label="proc-corosync">

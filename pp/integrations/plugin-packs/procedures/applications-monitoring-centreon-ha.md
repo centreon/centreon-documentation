@@ -18,25 +18,25 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="App-Monitoring-Centreon-HA-Cluster-Node-custom" label="App-Monitoring-Centreon-HA-Cluster-Node-custom">
 
-| Service Alias                  | Service Template                                                 | Service Description |
-|:-------------------------------|:-----------------------------------------------------------------|:--------------------|
-| PCS-Constraint-cbd_rrd         | App-Monitoring-Centreon-HA-PCS-Constraint-cbd_rrd-custom         |                     |
-| PCS-Constraint-centreon        | App-Monitoring-Centreon-HA-PCS-Constraint-centreon-custom        |                     |
-| PCS-Constraint-ms_mysql-master | App-Monitoring-Centreon-HA-PCS-Constraint-ms_mysql-master-custom |                     |
-| PCS-Constraint-php7            | App-Monitoring-Centreon-HA-PCS-Constraint-php7-custom            |                     |
-| PCS-Status                     | App-Monitoring-Centreon-HA-PCS-Status-custom                     |                     |
-| proc-corosync                  | App-Monitoring-Centreon-HA-Process-corosync-custom               |                     |
-| proc-pacemakerd                | App-Monitoring-Centreon-HA-Process-pacemakerd-custom             |                     |
-| proc-pcsd                      | App-Monitoring-Centreon-HA-Process-pcsd-custom                   |                     |
+| Service Alias                  | Service Template                                                 | Service Description                                                                                    |
+|:-------------------------------|:-----------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------|
+| PCS-Constraint-cbd_rrd         | App-Monitoring-Centreon-HA-PCS-Constraint-cbd_rrd-custom         | Ensures cbd_rrd adheres to Pacemaker cluster constraints via SSH                                       |
+| PCS-Constraint-centreon        | App-Monitoring-Centreon-HA-PCS-Constraint-centreon-custom        | Monitoring specific constraints applied to the centreon resource in a Pacemaker cluster via SSH        |
+| PCS-Constraint-ms_mysql-master | App-Monitoring-Centreon-HA-PCS-Constraint-ms_mysql-master-custom | Monitoring specific constraints applied to the ms_mysql-master resource in a Pacemaker cluster via SSH |
+| PCS-Constraint-php7            | App-Monitoring-Centreon-HA-PCS-Constraint-php7-custom            | Monitoring specific constraints applied to the php7 resource in a Pacemaker cluster via SSH            |
+| PCS-Status                     | App-Monitoring-Centreon-HA-PCS-Status-custom                     | Monitoring the Pacemaker cluster status using the pcs status command via SSH                           |
+| proc-corosync                  | App-Monitoring-Centreon-HA-Process-corosync-custom               | Monitoring the corosync service to ensure high availability for clusters via SNMP                      |
+| proc-pacemakerd                | App-Monitoring-Centreon-HA-Process-pacemakerd-custom             | Monitoring the pacemakerd service to ensure high availability for Pacemaker clusters via SNMP          |
+| proc-pcsd                      | App-Monitoring-Centreon-HA-Process-pcsd-custom                   | Check the Pacemaker Configuration and Synchronization Daemon service on a Linux server via SNMP        |
 
 > The services listed above are created automatically when the **App-Monitoring-Centreon-HA-Cluster-Node-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias       | Service Template                                         | Service Description |
-|:--------------------|:---------------------------------------------------------|:--------------------|
-| proc-corosync-qnetd | App-Monitoring-Centreon-HA-Process-corosync-qnetd-custom |                     |
+| Service Alias       | Service Template                                         | Service Description                                                                     |
+|:--------------------|:---------------------------------------------------------|:----------------------------------------------------------------------------------------|
+| proc-corosync-qnetd | App-Monitoring-Centreon-HA-Process-corosync-qnetd-custom | Monitoring the corosync-qnetd service to ensure high availability for clusters via SNMP |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -50,22 +50,30 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="PCS-Constraint-cbd_rrd" label="PCS-Constraint-cbd_rrd">
 
-Coming soon
+| Métrique   | Unité |
+|:-----------|:------|
+| status | N/A   |
 
 </TabItem>
 <TabItem value="PCS-Constraint-centreon" label="PCS-Constraint-centreon">
 
-Coming soon
+| Métrique   | Unité |
+|:-----------|:------|
+| status | N/A   |
 
 </TabItem>
 <TabItem value="PCS-Constraint-ms_mysql-master" label="PCS-Constraint-ms_mysql-master">
 
-Coming soon
+| Métrique   | Unité |
+|:-----------|:------|
+| status | N/A   |
 
 </TabItem>
 <TabItem value="PCS-Constraint-php7" label="PCS-Constraint-php7">
 
-Coming soon
+| Métrique   | Unité |
+|:-----------|:------|
+| status | N/A   |
 
 </TabItem>
 <TabItem value="PCS-Status" label="PCS-Status">
@@ -130,7 +138,64 @@ Coming soon
 
 ## Prerequisites
 
-{PREREQUISITES_TEMPLATE}
+### Device Configuration
+
+The configuration of SNMP on a Linux server is detailed in [the *Linux SNMP* Monitoring Connector's documentation page](operatingsystems-linux-snmp.md#net-snmp-server-configuration).
+
+### Network flows
+
+The Centreon Poller must be able to reach UDP/161 (SNMP) and TCP/22 (SSH) ports of the central nodes.
+
+### SSH keys exchange
+
+> NB : It is strongly recommended to monitor the cluster from an external poller rather than from the cluster's active node.
+
+Open a `root` command-line session on:
+
+* the poller that will monitor the cluster
+* both of the cluster nodes
+
+Then switch to `centreon-engine`'s bash environment on both nodes:
+
+```
+su - centreon-engine
+```
+
+Then run these commands on both nodes:
+
+```bash
+ssh-keygen -t ed25519 -a 100
+```
+
+We have generated a pair of keys on each server, and the `~/.ssh` directory. 
+
+Run this command on the poller to display the user's public key:
+
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+
+Once done, copy the content of the public key file displayed by `cat` and paste it to `~/.ssh/authorized_keys` (must be created) on both of the cluster's nodes and apply the correct file permissions (still as the `centreon-engine` user):
+
+```
+chmod 600 ~/.ssh/authorized_keys
+```
+
+The keys exchange must be validated by an initial connection from each node to the other in order to accept and register the peer node's SSH fingerprint (still as `centreon-engine` user):
+
+```
+ssh <cluster-node-ip-address>
+```
+
+Then exit the `centreon-engine` session typing `exit` or `Ctrl-D`.
+
+The `centreon-engine` user is now able to log in *via* SSH to both central nodes.
+
+Now add the `centreon-engine` user to the `haclient` group to entitle it to run the cluster management commands.
+
+```bash
+usermod -a -G haclient centreon-engine
+```
 
 ## Installing the monitoring connector
 
@@ -157,7 +222,7 @@ dnf install centreon-pack-applications-monitoring-centreon-ha
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-monitoring-centreon-ha
@@ -204,7 +269,7 @@ dnf install
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install 
@@ -231,11 +296,6 @@ yum install
 
 | Macro           | Description                                                                                                                                                         | Default value     | Mandatory   |
 |:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SSHUSERNAME     | Define the user name to log in to the host                                                                                                                          |                   |             |
-| SSHPASSWORD     | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead |                   |             |
-| SSHPORT         | Define the TCP port on which SSH is listening                                                                                                                       |                   |             |
-| SSHBACKEND      | Define the backend you want to use. It can be: sshcli (default), plink and libssh                                                                                   |                   |             |
-| SSHPRIVKEY      | Define the private key file to use for user authentication                                                                                                          |                   |             |
 | SSHEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                                                                |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -280,46 +340,46 @@ yum install
 </TabItem>
 <TabItem value="PCS-Status" label="PCS-Status">
 
-| Macro                                | Description                                                                                                                                                                                                                  | Default value                                               | Mandatory   |
-|:-------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------|:-----------:|
-| FILTERRESOURCENAME                   | Filter resource (also clone resource) by name (can be a regexp)                                                                                                                                                              |                                                             |             |
-| WARNINGCLONERESOURCEACTIONSFAILED    | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| CRITICALCLONERESOURCEACTIONSFAILED   | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| WARNINGCLONERESOURCEMIGRATIONFAILED  | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| CRITICALCLONERESOURCEMIGRATIONFAILED | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| WARNINGCLONERESOURCESTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %{name}, %{status}, %{masters\_nodes\_name}, %{slaves\_nodes\_name}, %{is\_unmanaged}                                      |                                                             |             |
-| CRITICALCLONERESOURCESTATUS          | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /failed/i'). You can use the following variables: %{name}, %{status}, %{masters\_nodes\_name}, %{slaves\_nodes\_name}, %{is\_unmanaged} |                                                             |             |
-| WARNINGCLUSTERACTIONSFAILED          | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| CRITICALCLUSTERACTIONSFAILED         | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| WARNINGCONNECTIONSTATUS              | Define the conditions to match for the status to be WARNING. You can use the following variables: %{connection\_status}, %{connection\_error}                                                                                |                                                             |             |
-| CRITICALCONNECTIONSTATUS             | Define the conditions to match for the status to be CRITICAL (default: '%{connection\_status} =~ /failed/i'). You can use the following variables: %{connection\_status}, %{connection\_error}                               |                                                             |             |
-| WARNINGNODESOFFLINE                  | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| CRITICALNODESOFFLINE                 | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| WARNINGNODESONLINE                   | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| CRITICALNODESONLINE                  | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| WARNINGNODESSTANDBY                  | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| CRITICALNODESSTANDBY                 | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| WARNINGQUORUMSTATUS                  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{quorum\_status}                                                                                                          |                                                             |             |
-| CRITICALQUORUMSTATUS                 | Define the conditions to match for the status to be CRITICAL (default: '%{quorum\_status} =~ /noQuorum/i'). You can use the following variables: %{quorum\_status}                                                           |                                                             |             |
-| WARNINGRESOURCEACTIONSFAILED         | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| CRITICALRESOURCEACTIONSFAILED        | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| WARNINGRESOURCEMIGRATIONFAILED       | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| CRITICALRESOURCEMIGRATIONFAILED      | Thresholds                                                                                                                                                                                                                   |                                                             |             |
-| WARNINGRESOURCESTATUS                | Define the conditions to match for the status to be WARNING. You can use the following variables: %{name}, %{status}, %{node}, %{is\_unmanaged}                                                                              |                                                             |             |
-| CRITICALRESOURCESTATUS               | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /stopped\|failed/i'). You can use the following variables: %{name}, %{status}, %{node}, %{is\_unmanaged}                                |                                                             |             |
-| EXTRAOPTIONS                         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                           | --command='pcs' --command-options='status --full' --verbose |             |
+| Macro                                | Description                                                                                                                                                                              | Valeur par défaut                                            | Obligatoire |
+|:-------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------|:-----------:|
+| FILTERRESOURCENAME                   | Filter resource (also clone resource) by name (can be a regexp)                                                                                                                          |                                                              |             |
+| WARNINGCLONERESOURCEACTIONSFAILED    | Warning threshold                                                                                                                                                                        |                                                              |             |
+| CRITICALCLONERESOURCEACTIONSFAILED   | Critical threshold                                                                                                                                                                       |                                                              |             |
+| WARNINGCLONERESOURCEMIGRATIONFAILED  | Warning threshold                                                                                                                                                                        |                                                              |             |
+| CRITICALCLONERESOURCEMIGRATIONFAILED | Critical threshold                                                                                                                                                                       |                                                              |             |
+| WARNINGCLONERESOURCESTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %{name}, %{status}, %{masters\_nodes\_name}, %{slaves\_nodes\_name}, %{is\_unmanaged}  |                                                              |             |
+| CRITICALCLONERESOURCESTATUS          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{name}, %{status}, %{masters\_nodes\_name}, %{slaves\_nodes\_name}, %{is\_unmanaged} | %{status} =~ /failed/i                                       |             |
+| WARNINGCLUSTERACTIONSFAILED          | Warning threshold                                                                                                                                                                        |                                                              |             |
+| CRITICALCLUSTERACTIONSFAILED         | Critical threshold                                                                                                                                                                       | 0                                                            |             |
+| WARNINGCONNECTIONSTATUS              | Define the conditions to match for the status to be WARNING. You can use the following variables: %{connection\_status}, %{connection\_error}                                            |                                                              |             |
+| CRITICALCONNECTIONSTATUS             | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{connection\_status}, %{connection\_error}                                           | %{connection_status} =~ /failed/i                            |             |
+| WARNINGNODESOFFLINE                  | Warning threshold                                                                                                                                                                        |                                                              |             |
+| CRITICALNODESOFFLINE                 | Critical threshold                                                                                                                                                                       |                                                              |             |
+| WARNINGNODESONLINE                   | Warning threshold                                                                                                                                                                        |                                                              |             |
+| CRITICALNODESONLINE                  | Critical threshold                                                                                                                                                                       | 0                                                            |             |
+| WARNINGNODESSTANDBY                  | Warning threshold                                                                                                                                                                        |                                                              |             |
+| CRITICALNODESSTANDBY                 | Critical threshold                                                                                                                                                                       |                                                              |             |
+| WARNINGQUORUMSTATUS                  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{quorum\_status}                                                                      |                                                              |             |
+| CRITICALQUORUMSTATUS                 | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{quorum\_status}                                                                     | %{quorum_status} =~ /noQuorum/i                              |             |
+| WARNINGRESOURCEACTIONSFAILED         | Warning threshold                                                                                                                                                                        |                                                              |             |
+| CRITICALRESOURCEACTIONSFAILED        | Critical threshold                                                                                                                                                                       |                                                              |             |
+| WARNINGRESOURCEMIGRATIONFAILED       | Warning threshold                                                                                                                                                                        |                                                              |             |
+| CRITICALRESOURCEMIGRATIONFAILED      | Critical threshold                                                                                                                                                                       | 0                                                            |             |
+| WARNINGRESOURCESTATUS                | Define the conditions to match for the status to be WARNING. You can use the following variables: %{name}, %{status}, %{node}, %{is\_unmanaged} failed/i').                              |                                                              |             |
+| CRITICALRESOURCESTATUS               | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{name}, %{status}, %{node}, %{is\_unmanaged} failed/i').                             | %{status} =~ /stopped                                        |             |                                                             |             |
+| EXTRAOPTIONS                         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                         | --command='pcs' --command-options='status --full' --verbose  |             |
 
 </TabItem>
 <TabItem value="proc-corosync" label="proc-corosync">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PROCESSNAME  | Filter process name                                                                                | corosync          |             |
-| PROCESSPATH  | Filter process path                                                                                |                   |             |
-| PROCESSARGS  | Filter process arguments                                                                           |                   |             |
-| WARNING      | Warning threshold of matching processes count                                                      |                   |             |
-| CRITICAL     | Critical threshold of matching processes count                                                     |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro        | Description                                                                                        | Default value       | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------|:--------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                | corosync            |             |
+| PROCESSPATH  | Filter process path                                                                                |                     |             |
+| PROCESSARGS  | Filter process arguments                                                                           |                     |             |
+| WARNING      | Warning threshold of matching processes count                                                      |                     |             |
+| CRITICAL     | Critical threshold of matching processes count                                                     | 1:                  |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                     |             |
 
 </TabItem>
 <TabItem value="proc-corosync-qnetd" label="proc-corosync-qnetd">
@@ -330,32 +390,32 @@ yum install
 | PROCESSPATH  | Filter process path                                                                                |                   |             |
 | PROCESSARGS  | Filter process arguments                                                                           |                   |             |
 | WARNING      | Warning threshold of matching processes count                                                      |                   |             |
-| CRITICAL     | Critical threshold of matching processes count                                                     |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                     | 1:                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="proc-pacemakerd" label="proc-pacemakerd">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PROCESSNAME  | Filter process name                                                                                | pacemakerd        |             |
-| PROCESSPATH  | Filter process path                                                                                |                   |             |
-| PROCESSARGS  | Filter process arguments                                                                           |                   |             |
-| WARNING      | Warning threshold of matching processes count                                                      |                   |             |
-| CRITICAL     | Critical threshold of matching processes count                                                     |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro        | Description                                                                                        | Default value | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------|:--------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                | pacemakerd    |             |
+| PROCESSPATH  | Filter process path                                                                                |               |             |
+| PROCESSARGS  | Filter process arguments                                                                           |               |             |
+| WARNING      | Warning threshold of matching processes count                                                      |               |             |
+| CRITICAL     | Critical threshold of matching processes count                                                     | 1:            |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |             |
 
 </TabItem>
 <TabItem value="proc-pcsd" label="proc-pcsd">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PROCESSNAME  | Filter process name                                                                                | pcsd              |             |
-| PROCESSPATH  | Filter process path                                                                                |                   |             |
-| PROCESSARGS  | Filter process arguments                                                                           |                   |             |
-| WARNING      | Warning threshold of matching processes count                                                      |                   |             |
-| CRITICAL     | Critical threshold of matching processes count                                                     |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro        | Description                                                                                        | Default value | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------|:--------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                | pcsd          |             |
+| PROCESSPATH  | Filter process path                                                                                |               |             |
+| PROCESSARGS  | Filter process arguments                                                                           |               |             |
+| WARNING      | Warning threshold of matching processes count                                                      |               |             |
+| CRITICAL     | Critical threshold of matching processes count                                                     | 1:            |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |             |
 
 </TabItem>
 </Tabs>
@@ -532,7 +592,7 @@ All available options for each service template are listed below:
 | --command               | Command to get information. Used it you have output in a file.                                                                                                         |
 | --command-path          | Command path.                                                                                                                                                          |
 | --command-options       | Command options.                                                                                                                                                       |
-| --sudo  sudo command    | .                                                                                                                                                                      |
+| --sudo                  | sudo command.                                                                                                                                                                      |
 | --ssh-backend           | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                     |
 | --ssh-username          | Define the user name to log in to the host.                                                                                                                            |
 | --ssh-password          | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.   |
@@ -560,7 +620,7 @@ All available options for each service template are listed below:
 | --command               | Command to get information. Used it you have output in a file.                                                                                                         |
 | --command-path          | Command path.                                                                                                                                                          |
 | --command-options       | Command options.                                                                                                                                                       |
-| --sudo  sudo command    | .                                                                                                                                                                      |
+| --sudo                  | sudo command.                                                                                                                                                                      |
 | --ssh-backend           | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                     |
 | --ssh-username          | Define the user name to log in to the host.                                                                                                                            |
 | --ssh-password          | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.   |
@@ -588,7 +648,7 @@ All available options for each service template are listed below:
 | --command               | Command to get information. Used it you have output in a file.                                                                                                         |
 | --command-path          | Command path.                                                                                                                                                          |
 | --command-options       | Command options.                                                                                                                                                       |
-| --sudo  sudo command    | .                                                                                                                                                                      |
+| --sudo                  | sudo command.                                                                                                                                                                      |
 | --ssh-backend           | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                     |
 | --ssh-username          | Define the user name to log in to the host.                                                                                                                            |
 | --ssh-password          | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.   |
@@ -616,7 +676,7 @@ All available options for each service template are listed below:
 | --command               | Command to get information. Used it you have output in a file.                                                                                                         |
 | --command-path          | Command path.                                                                                                                                                          |
 | --command-options       | Command options.                                                                                                                                                       |
-| --sudo  sudo command    | .                                                                                                                                                                      |
+| --sudo                  | sudo command.                                                                                                                                                                      |
 | --ssh-backend           | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                     |
 | --ssh-username          | Define the user name to log in to the host.                                                                                                                            |
 | --ssh-password          | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.   |
@@ -644,7 +704,7 @@ All available options for each service template are listed below:
 | --command                        | Command to get information. Used it you have output in a file.                                                                                                                                                                 |
 | --command-path                   | Command path.                                                                                                                                                                                                                  |
 | --command-options                | Command options.                                                                                                                                                                                                               |
-| --sudo  sudo command             | .                                                                                                                                                                                                                              |
+| --sudo                           | sudo command.                                                                                                                                                                                                                              |
 | --ssh-backend                    | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                                                                             |
 | --ssh-username                   | Define the user name to log in to the host.                                                                                                                                                                                    |
 | --ssh-password                   | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.                                                           |
