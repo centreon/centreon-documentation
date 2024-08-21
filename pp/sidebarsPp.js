@@ -23,7 +23,7 @@ module.exports = {
               type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/centreon-nsclient-tutorial'
             },
-			{
+            {
               type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/telegraf'
             },
@@ -159,6 +159,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-controlm-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-docker-restapi'
         },
         {
           type: 'doc',
@@ -2020,7 +2024,6 @@ module.exports = {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-symbol-wing-snmp'
         },
-
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-teldat-snmp'
