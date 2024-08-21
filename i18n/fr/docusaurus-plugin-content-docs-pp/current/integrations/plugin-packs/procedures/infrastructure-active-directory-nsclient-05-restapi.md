@@ -90,7 +90,7 @@ dnf install centreon-pack-infrastructure-active-directory-nsclient-05-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-infrastructure-active-directory-nsclient-05-restapi
@@ -128,7 +128,7 @@ dnf install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-operatingsystems-windows-restapi
@@ -155,10 +155,10 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 
 | Macro                     | Description                                                                                          | Valeur par défaut | Obligatoire |
 |:--------------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| NSCPRESTAPILEGACYPASSWORD |                                                                                                      | PASSWORD          |             |
-| NSCPRESTAPIPROTO          |                                                                                                      | https             |             |
-| NSCPRESTAPIPORT           |                                                                                                      | 8443              |             |
-| NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| NSCPRESTAPILEGACYPASSWORD | Password used (configured in the prerequisites section)                                                                                   | PASSWORD          |             |
+| NSCPRESTAPIPROTO          | Protocol used                                                                                                                             | https             |             |
+| NSCPRESTAPIPORT           | Port use by the REST API NSClient++                                                                                                       | 8443              |             |
+| NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).  |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -170,22 +170,22 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 <Tabs groupId="sync">
 <TabItem value="Ad-Domain-Controller" label="Ad-Domain-Controller">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| LANGUAGE     |                                                                                                    | en                |             |
-| CONFIGFILE   |                                                                                                    |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| Macro        | Description                                                                                                                                           | Valeur par défaut | Obligatoire |
+|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| LANGUAGE     | Set the language used in config file                                                                                                                  | en                |             |
+| CONFIGFILE   | The command can be localized by using a configuration file. This parameter can be used to specify an alternative location for the configuration file. |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).      |                   |             |
 
 </TabItem>
 <TabItem value="Dfsr-Backlog" label="Dfsr-Backlog">
 
-| Macro            | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SENDINGMEMBER    | Name of the member that is sending the replication data. (mandatory)                               |                   | X           |
-| REPLICATIONGROUP | Name for the replication group. (mandatory)                                                        |                   | X           |
-| REPLICATEDFOLDER | Name name for the replicated folder. (mandatory)                                                   |                   | X           |
-| WARNINGBACKLOG   | Warning threshold                                                                                  |                   |             |
-| CRITICALBACKLOG  | Critical threshold                                                                                 |                   |             |
+| Macro            | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SENDINGMEMBER    | Name of the member that is sending the replication data.                                                                                         |                   | X           |
+| REPLICATIONGROUP | Name for the replication group.                                                                                                                  |                   | X           |
+| REPLICATEDFOLDER | Name name for the replicated folder.                                                                                                             |                   | X           |
+| WARNINGBACKLOG   | Warning threshold                                                                                                                                |                   |             |
+| CRITICALBACKLOG  | Critical threshold                                                                                                                               |                   |             |
 | EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -261,8 +261,14 @@ Le plugin apporte les modes suivants :
 
 Les options génériques sont listées ci-dessous :
 
-| Option | Description |
-|:-------|:------------|
+| Option          | Description                                                                                                                   |
+|:----------------|:------------------------------------------------------------------------------------------------------------------------------|
+| --mode          | Define the mode in which you want the plugin to be executed (see--list-mode).                                                 |
+| --dyn-mode      | Specify a mode with the module's path (advanced).                                                                             |
+| --list-mode     | List all available modes.                                                                                                     |
+| --mode-version  | Check minimal version of mode. If not, unknown error.                                                                         |
+| --version       | Return the version of the plugin.                                                                                             |
+| --pass-manager  | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass. |
 
 #### Options des modes
 
@@ -271,8 +277,14 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 <Tabs groupId="sync">
 <TabItem value="Ad-Domain-Controller" label="Ad-Domain-Controller">
 
-| Option | Description |
-|:-------|:------------|
+| Option             | Description                                                                                                                                           |
+|:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --config           | The command can be localized by using a configuration file. This parameter can be used to specify an alternative location for the configuration file. |
+| --language         | Set the language used in config file (default: 'en').                                                                                                 |
+| --dfsr             | Specifies that SysVol replication uses DFS instead of FRS (Windows 2008 or later)                                                                     |
+| --noeventlog       | Don't run the dc tests kccevent, frsevent and dfsrevent.                                                                                              |
+| --nomachineaccount | Don't run the dc tests machineaccount.                                                                                                                |
+| --timeout          | Set timeout time for command execution (default: 30 sec).                                                                                             |
 
 </TabItem>
 <TabItem value="Dfsr-Backlog" label="Dfsr-Backlog">
