@@ -779,7 +779,7 @@ Install the Centreon Business repository. You can find this on the
 
 ### Step 2: Install the MAP module
 
-1. From your terminal, run the following command on the Central server:
+1. From your terminal, run the following command on the central server:
 
   <Tabs groupId="sync">
   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
