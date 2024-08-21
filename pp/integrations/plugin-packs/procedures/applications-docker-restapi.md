@@ -42,9 +42,9 @@ The connector brings the following service templates (sorted by the host templat
 
 #### Service discovery
 
-| Rule name                     | Description |
-|:------------------------------|:------------|
-| App-Docker-Restapi-Containers |             |
+| Rule name                     | Description                           |
+|:------------------------------|:--------------------------------------|
+| App-Docker-Restapi-Containers | Discover Docker containers using RestAPI |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -127,7 +127,7 @@ dnf install centreon-pack-applications-docker-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12"" label="Debian 11 & 12"">
 
 ```bash
 apt install centreon-pack-applications-docker-restapi
@@ -174,7 +174,7 @@ dnf install centreon-plugin-Applications-Docker-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12"" label="Debian 11 & 12"">
 
 ```bash
 apt install centreon-plugin-applications-docker-restapi
@@ -214,26 +214,26 @@ yum install centreon-plugin-Applications-Docker-Restapi
 <Tabs groupId="sync">
 <TabItem value="Container-Usage" label="Container-Usage">
 
-| Macro                   | Description                                                                                                                     | Default value     | Mandatory   |
-|:------------------------|:--------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CONTAINERID             | Exact container ID                                                                                                              |                   |             |
-| CONTAINERNAME           | Exact container name (if multiple names: names separated by ':')                                                                |                   |             |
-| FILTERNAME              | Filter by container name (can be a regexp)                                                                                      |                   |             |
-| WARNINGCONTAINERSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{name}, %{state}, %{health}  |                   |             |
-| CRITICALCONTAINERSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{name}, %{state}, %{health} |                   |             |
-| WARNINGCPU              | Thresholds                                                                                                                      |                   |             |
-| CRITICALCPU             | Thresholds                                                                                                                      |                   |             |
-| WARNINGMEMORY           | Thresholds                                                                                                                      |                   |             |
-| CRITICALMEMORY          | Thresholds                                                                                                                      |                   |             |
-| WARNINGREADIOPS         | Thresholds                                                                                                                      |                   |             |
-| CRITICALREADIOPS        | Thresholds                                                                                                                      |                   |             |
-| WARNINGTRAFFICIN        | Thresholds                                                                                                                      |                   |             |
-| CRITICALTRAFFICIN       | Thresholds                                                                                                                      |                   |             |
-| WARNINGTRAFFICOUT       | Thresholds                                                                                                                      |                   |             |
-| CRITICALTRAFFICOUT      | Thresholds                                                                                                                      |                   |             |
-| WARNINGWRITEIOPS        | Thresholds                                                                                                                      |                   |             |
-| CRITICALWRITEIOPS       | Thresholds                                                                                                                      |                   |             |
-| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                              | --verbose         |             |
+| Macro                   | Description                                                                                                                                            | Default value     | Mandatory   |
+|:------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| CONTAINERID             | Exact container ID                                                                                                                                     |                   |             |
+| CONTAINERNAME           | Exact container name (if multiple names: names separated by ':')                                                                                       |                   |             |
+| FILTERNAME              | Filter by container name (can be a regexp)                                                                                                             |                   |             |
+| WARNINGCONTAINERSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{name}, %{state}, %{health}                         |                   |             |
+| CRITICALCONTAINERSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{name}, %{state}, %{health}                        |                   |             |
+| WARNINGCPU              | Warning threshold                                                                                                                                      |                   |             |
+| CRITICALCPU             | Critical threshold                                                                                                                                     |                   |             |
+| WARNINGMEMORY           | Warning threshold                                                                                                                                      |                   |             |
+| CRITICALMEMORY          | Critical threshold                                                                                                                                     |                   |             |
+| WARNINGREADIOPS         | Warning threshold                                                                                                                                      |                   |             |
+| CRITICALREADIOPS        | Critical threshold                                                                                                                                     |                   |             |
+| WARNINGTRAFFICIN        | Warning threshold                                                                                                                                      |                   |             |
+| CRITICALTRAFFICIN       | Critical threshold                                                                                                                                     |                   |             |
+| WARNINGTRAFFICOUT       | Warning threshold                                                                                                                                      |                   |             |
+| CRITICALTRAFFICOUT      | Critical threshold                                                                                                                                     |                   |             |
+| WARNINGWRITEIOPS        | Warning threshold                                                                                                                                      |                   |             |
+| CRITICALWRITEIOPS       | Critical threshold                                                                                                                                     |                   |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).       | --verbose         |             |
 
 </TabItem>
 <TabItem value="Node-Status" label="Node-Status">
