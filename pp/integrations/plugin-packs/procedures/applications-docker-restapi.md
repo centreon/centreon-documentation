@@ -127,7 +127,7 @@ dnf install centreon-pack-applications-docker-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12"" label="Debian 11 & 12"">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-docker-restapi
@@ -174,7 +174,7 @@ dnf install centreon-plugin-Applications-Docker-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12"" label="Debian 11 & 12"">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-docker-restapi
