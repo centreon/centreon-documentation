@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 Avec Centreon Cloud, votre serveur central est déjà prêt à l'emploi. Il ne vous reste qu'à installer un ou des collecteurs dans votre infrastructure, ce qui est très facile : exécutez un script, exportez la configuration et le collecteur est prêt.
 
-Avant de déployer un collecteur, assurez-vous que votre machine hôte répond aux [prérequis](prerequisites.md).
+Avant de déployer un collecteur, assurez-vous que votre machine hôte répond aux [prérequis](prerequisites.md). Seuls les utilisateurs ayant les [rôles](../users/users.md#user-roles) **Administrator** ou **Editor** ont accès à la commande d'installation de collecteurs.
 
 ## Étape 1 : Exécuter le script d'installation du collecteur
 
