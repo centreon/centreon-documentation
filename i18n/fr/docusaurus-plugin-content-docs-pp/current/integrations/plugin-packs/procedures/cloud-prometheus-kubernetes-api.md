@@ -113,7 +113,7 @@ dnf install centreon-pack-cloud-prometheus-kubernetes-api
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-cloud-prometheus-kubernetes-api
@@ -158,7 +158,7 @@ dnf install centreon-plugin-Cloud-Prometheus-Kubernetes-Api
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-cloud-prometheus-kubernetes-api
