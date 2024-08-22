@@ -512,8 +512,8 @@ module.exports = {
         {
           "type": "doc",
           "id": "administration/media"
-        }
-      ]
+        },
+              ]
     },
     {
       "type": "link",
@@ -543,8 +543,12 @@ module.exports = {
     {
       "type": "link",
       "href": "https://docs-api.centreon.com/api/centreon-web/cloud/",
-      "label": "Cloud API"
+      "label": "Centreon Cloud API"
     },
+    {
+          "type": "doc",
+          "id": "administration/api-tokens"
+        }
       ],
 },
     {
