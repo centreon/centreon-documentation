@@ -184,7 +184,7 @@ dnf install centreon-pack-hardware-storage-hpe-primera-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-storage-hpe-primera-restapi
@@ -231,7 +231,7 @@ dnf install centreon-plugin-Hardware-Storage-Hpe-Primera-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-storage-hpe-primera-restapi

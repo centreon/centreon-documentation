@@ -540,7 +540,12 @@ module.exports = {
         "type": "generated-index",
       },
       "items": [
-        {
+    {
+      "type": "link",
+      "href": "https://docs-api.centreon.com/api/centreon-web/cloud/",
+      "label": "Centreon Cloud API"
+    },
+    {
           "type": "doc",
           "id": "administration/api-tokens"
         }

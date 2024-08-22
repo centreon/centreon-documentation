@@ -65,7 +65,7 @@ Videz le cache :
 Mettez à jour l'ensemble des composants :
 
   ```shell
-  apt upgrade centreon
+  apt install --only-upgrade centreon
   ```
 
 </TabItem>
@@ -255,12 +255,12 @@ en choisissant la méthode **Redémarrer** pour le processus Engine.
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Nothing to do.
+Rien à faire pour cet OS.
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Nothing to do.
+Rien à faire pour cet OS.
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">

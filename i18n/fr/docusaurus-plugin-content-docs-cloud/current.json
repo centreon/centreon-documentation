@@ -126,5 +126,9 @@
   "sidebar.cloud.category.API": {
     "message": "API",
     "description": "The label for category API in sidebar cloud"
+  },
+  "sidebar.cloud.link.Centreon Cloud API": {
+    "message": "API Centreon Cloud",
+    "description": "The label for link Cloud API in sidebar cloud, linking to the Cloud API doc"
   }
 }

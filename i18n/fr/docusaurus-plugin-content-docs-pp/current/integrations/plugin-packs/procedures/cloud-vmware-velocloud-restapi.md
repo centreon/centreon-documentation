@@ -168,7 +168,7 @@ dnf install centreon-pack-cloud-vmware-velocloud-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-cloud-vmware-velocloud-restapi
@@ -213,7 +213,7 @@ dnf install centreon-plugin-Cloud-Vmware-Velocloud-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-cloud-vmware-velocloud-restapi
