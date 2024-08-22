@@ -190,7 +190,7 @@ sudo apt-get install mariadb-server galera-4 mariadb-client libmariadb3 mariadb-
 If an error message informs you that one or several MariaDB packages are missing, you will need to specify the missing packages in the command, like in the following example:
 
 ```shell
-sudo apt-get install mariadb-server galera-4 mariadb-client libmariadb3 mariadb-backup mariadb-common PAQUET-MANQUANT_A PAQUET-MANQUANT_B
+sudo apt-get install mariadb-server galera-4 mariadb-client libmariadb3 mariadb-backup mariadb-common MISSING-PACKAGE_A MISSING-PACKAGE_B
 ```
 
 </TabItem>
