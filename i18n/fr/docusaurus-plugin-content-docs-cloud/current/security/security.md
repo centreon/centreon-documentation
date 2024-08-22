@@ -59,9 +59,12 @@ Par ailleurs, Centreon Cloud a passé avec succès les évaluations [Foundationa
 
 Les services de Centreon Cloud sont intégralement hébergés et opérés depuis l’Union Européenne :
 
-| Service | Hébergement | Infogérance |
-| --- | --- | --- |
-| Centreon Cloud | AWS EU Ireland Region (eu-west-1) | France |
+| Service   | Hosting   |
+|---------|-----------|
+| Centreon Cloud   | AWS EU Ireland (eu-west-1) |
+| Centreon Cloud   | AWS US East N. Virginia (us-east-1) |
+| Fournisseur d'identité   |  Auth0 Europe |
+| Plateforme d'engagement produit   |  Pendo Europe |
 
 Plus d’informations sur les pratiques de sécurité et de conformité d’AWS sont disponibles [ici](https://d1.awsstatic.com/whitepapers/compliance/AWS_Compliance_Quick_Reference.pdf).
 
