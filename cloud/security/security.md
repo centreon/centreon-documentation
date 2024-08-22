@@ -57,10 +57,10 @@ This is where Centreon Cloud services are hosted:
 
 | Service   | Hosting   |
 |---------|-----------|
-| Centreon Cloud   | AWS EU Ireland Region (eu-west-1) |
-| Centreon Cloud   | AWS US East N. Virginia, (us-east-1) |
-| Global Identity Provider   |  Auth0 Europe |
-| Global Product Engagement Platform   |  Pendo Europe |
+| Centreon Cloud   | AWS EU Ireland (eu-west-1) |
+| Centreon Cloud   | AWS US East N. Virginia (us-east-1) |
+| Identity Provider   |  Auth0 Europe |
+| Product Engagement Platform   |  Pendo Europe |
 
 More information on AWS's security and compliance practices [here](https://d1.awsstatic.com/whitepapers/compliance/AWS_Compliance_Quick_Reference.pdf).
 
