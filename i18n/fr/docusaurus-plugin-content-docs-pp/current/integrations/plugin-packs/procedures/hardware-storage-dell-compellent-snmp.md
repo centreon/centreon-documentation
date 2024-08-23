@@ -32,7 +32,8 @@ Le connecteur apporte les modèles de service suivants
 |:---------------------|:------------------------------------------------------------|:----------------------------------------------------------|:----------:|
 | Traffic-Generic-Id   | HW-Storage-Dell-Compellent-Traffic-Generic-Id-SNMP-custom   | Contrôle le traffic réseau d'une interface réseau         |            |
 | Traffic-Generic-Name | HW-Storage-Dell-Compellent-Traffic-Generic-Name-SNMP-custom | Contrôle le traffic réseau d'une interface réseau         |            |
-| Traffic-Global       | HW-Storage-Dell-Compellent-Traffic-Global-SNMP-custom       | Contrôle le traffic réseau de plusieurs interfaces réseau | X          |
+| Traffic-Global       | HW-Storage-Dell-Compellent-Traffic-Global-SNMP-custom       | Contrôle le traffic réseau de plusieurs interfaces réseau |     X      |
+
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -53,9 +54,9 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 #### Découverte de services
 
-| Nom de la règle                              | Description                                               |
-|:---------------------------------------------|:----------------------------------------------------------|
-| HW-Storage-Dell-Compellent-SNMP-Traffic-Name | Discover the disk partitions and monitor space occupation |
+| Nom de la règle                              | Description                                                            |
+|:---------------------------------------------|:-----------------------------------------------------------------------|
+| HW-Storage-Dell-Compellent-SNMP-Traffic-Name | Découvre la partition du disque et supervise l'occupation de l'espace  |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -230,37 +231,37 @@ yum install centreon-plugin-Hardware-Storage-Dell-Compellent-Snmp
 </TabItem>
 <TabItem value="Traffic-Generic-Id" label="Traffic-Generic-Id">
 
-| Macro        | Description                                                                                                                                           | Valeur par défaut                            | Obligatoire |
-|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------|:-----------:|
-| INTERFACEID  | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |                                              |             |
-| CRITICALIN   | Thresholds                                                                                                                                            | 90                                           |             |
-| WARNINGIN    | Thresholds                                                                                                                                            | 80                                           |             |
-| CRITICALOUT  | Thresholds                                                                                                                                            | 90                                           |             |
-| WARNINGOUT   | Thresholds                                                                                                                                            | 80                                           |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).      | --oid-display='ifdesc' --oid-filter='ifdesc' |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut                            | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------|:-----------:|
+| INTERFACEID  | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored.                                     |                                              |             |
+| CRITICALIN   | Critical thresholds                                                                                                                              | 90                                           |             |
+| WARNINGIN    | Warning thresholds                                                                                                                               | 80                                           |             |
+| CRITICALOUT  | Critical thresholds                                                                                                                              | 90                                           |             |
+| WARNINGOUT   | Warning thresholds                                                                                                                               | 80                                           |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --oid-display='ifdesc' --oid-filter='ifdesc' |             |
 
 </TabItem>
 <TabItem value="Traffic-Generic-Name" label="Traffic-Generic-Name">
 
-| Macro         | Description                                                                                                                                           | Valeur par défaut                            | Obligatoire |
-|:--------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------|:-----------:|
-| INTERFACENAME | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |                                              |             |
-| CRITICALIN    | Thresholds                                                                                                                                            | 90                                           |             |
-| WARNINGIN     | Thresholds                                                                                                                                            | 80                                           |             |
-| CRITICALOUT   | Thresholds                                                                                                                                            | 90                                           |             |
-| WARNINGOUT    | Thresholds                                                                                                                                            | 80                                           |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).      | --oid-display='ifdesc' --oid-filter='ifdesc' |             |
+| Macro         | Description                                                                                                                                      | Valeur par défaut                            | Obligatoire |
+|:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------|:-----------:|
+| INTERFACENAME | Define the interface filter on name. If empty, all interfaces will be monitored.                                                                 |                                              |             |
+| CRITICALIN    | Critical thresholds                                                                                                                              | 90                                           |             |
+| WARNINGIN     | Warning thresholds                                                                                                                               | 80                                           |             |
+| CRITICALOUT   | Critical thresholds                                                                                                                              | 90                                           |             |
+| WARNINGOUT    | Warning thresholds                                                                                                                               | 80                                           |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --oid-display='ifdesc' --oid-filter='ifdesc' |             |
 
 </TabItem>
 <TabItem value="Traffic-Global" label="Traffic-Global">
 
 | Macro          | Description                                                                                                                                                                                                         | Valeur par défaut                                  | Obligatoire |
 |:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------|:-----------:|
-| FILTER         | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name                                                               | .*                                                 |             |
-| CRITICALIN     | Thresholds                                                                                                                                                                                                          | 90                                                 |             |
-| WARNINGIN      | Thresholds                                                                                                                                                                                                          | 80                                                 |             |
-| CRITICALOUT    | Thresholds                                                                                                                                                                                                          | 90                                                 |             |
-| WARNINGOUT     | Thresholds                                                                                                                                                                                                          | 80                                                 |             |
+| FILTER         | Define the interface filter on name. If empty, all interfaces will be monitored.                                                                                                                                    | .*                                                 |             |
+| CRITICALIN     | Critical thresholds                                                                                                                                                                                                 | 90                                                 |             |
+| WARNINGIN      | Warning thresholds                                                                                                                                                                                                  | 80                                                 |             |
+| CRITICALOUT    | Critical thresholds                                                                                                                                                                                                 | 90                                                 |             |
+| WARNINGOUT     | Warning thresholds                                                                                                                                                                                                  | 80                                                 |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} |                                                    |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                    | --verbose --oid-display=ifdesc --oid-filter=ifdesc |             |
 
@@ -301,7 +302,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All interfaces are ok | '*interface_name*#status'=;;;;'*interface_name*#interface.traffic.in.bitspersecond'=b/s;;;;'*interface_name*#interface.traffic.out.bitspersecond'=b/s;;;;
+OK: All interfaces are ok | '*interface_name*#status'='up';;;;'*interface_name*#interface.traffic.in.bitspersecond'=20b/s;;;;'*interface_name*#interface.traffic.out.bitspersecond'=20b/s;;;;
 ```
 
 ### Diagnostic des erreurs communes

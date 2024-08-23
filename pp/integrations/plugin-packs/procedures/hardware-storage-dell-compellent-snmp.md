@@ -231,39 +231,39 @@ yum install centreon-plugin-Hardware-Storage-Dell-Compellent-Snmp
 </TabItem>
 <TabItem value="Traffic-Generic-Id" label="Traffic-Generic-Id">
 
-| Macro        | Description                                                                                                                                           | Default value                                | Mandatory   |
-|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------|:-----------:|
-| INTERFACEID  | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |                                              |             |
-| CRITICALIN   | Thresholds                                                                                                                                            | 90                                           |             |
-| WARNINGIN    | Thresholds                                                                                                                                            | 80                                           |             |
-| CRITICALOUT  | Thresholds                                                                                                                                            | 90                                           |             |
-| WARNINGOUT   | Thresholds                                                                                                                                            | 80                                           |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                | --oid-display='ifdesc' --oid-filter='ifdesc' |             |
+| Macro        | Description                                                                                                                                        | Default value                                | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------|:-----------:|
+| INTERFACEID  | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored.                                       |                                              |             |
+| CRITICALIN   | Critical thresholds                                                                                                                                | 90                                           |             |
+| WARNINGIN    | Warning thresholds                                                                                                                                 | 80                                           |             |
+| CRITICALOUT  | Critical thresholds                                                                                                                                | 90                                           |             |
+| WARNINGOUT   | Warning thresholds                                                                                                                                 | 80                                           |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).   | --oid-display='ifdesc' --oid-filter='ifdesc' |             |
 
 </TabItem>
 <TabItem value="Traffic-Generic-Name" label="Traffic-Generic-Name">
 
-| Macro         | Description                                                                                                                                           | Default value                                | Mandatory   |
-|:--------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------|:-----------:|
-| INTERFACENAME | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |                                              |             |
-| CRITICALIN    | Thresholds                                                                                                                                            | 90                                           |             |
-| WARNINGIN     | Thresholds                                                                                                                                            | 80                                           |             |
-| CRITICALOUT   | Thresholds                                                                                                                                            | 90                                           |             |
-| WARNINGOUT    | Thresholds                                                                                                                                            | 80                                           |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                | --oid-display='ifdesc' --oid-filter='ifdesc' |             |
+| Macro         | Description                                                                                                                                      | Default value                                | Mandatory   |
+|:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------|:-----------:|
+| INTERFACENAME | Define the interface filter on name. If empty, all interfaces will be monitored.                                                                 |                                              |             |
+| CRITICALIN    | Critical thresholds                                                                                                                              | 90                                           |             |
+| WARNINGIN     | Warning thresholds                                                                                                                               | 80                                           |             |
+| CRITICALOUT   | Critical thresholds                                                                                                                              | 90                                           |             |
+| WARNINGOUT    | Warning thresholds                                                                                                                               | 80                                           |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --oid-display='ifdesc' --oid-filter='ifdesc' |             |
 
 </TabItem>
 <TabItem value="Traffic-Global" label="Traffic-Global">
 
-| Macro          | Description                                                                                                                                                                                                         | Default value                                      | Mandatory   |
+| Macro          | Description                                                                                                                                                                                                         | Valeur par défaut                                  | Obligatoire |
 |:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------|:-----------:|
-| FILTER         | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name                                                               | .*                                                 |             |
-| CRITICALIN     | Thresholds                                                                                                                                                                                                          | 90                                                 |             |
-| WARNINGIN      | Thresholds                                                                                                                                                                                                          | 80                                                 |             |
-| CRITICALOUT    | Thresholds                                                                                                                                                                                                          | 90                                                 |             |
-| WARNINGOUT     | Thresholds                                                                                                                                                                                                          | 80                                                 |             |
+| FILTER         | Define the interface filter on name. If empty, all interfaces will be monitored.                                                                                                                                    | .*                                                 |             |
+| CRITICALIN     | Critical thresholds                                                                                                                                                                                                 | 90                                                 |             |
+| WARNINGIN      | Warning thresholds                                                                                                                                                                                                  | 80                                                 |             |
+| CRITICALOUT    | Critical thresholds                                                                                                                                                                                                 | 90                                                 |             |
+| WARNINGOUT     | Warning thresholds                                                                                                                                                                                                  | 80                                                 |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} |                                                    |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                              | --verbose --oid-display=ifdesc --oid-filter=ifdesc |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                    | --verbose --oid-display=ifdesc --oid-filter=ifdesc |             |
 
 </TabItem>
 </Tabs>
@@ -300,7 +300,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All interfaces are ok | '*interface_name*#status'=;;;;'*interface_name*#interface.traffic.in.bitspersecond'=b/s;;;;'*interface_name*#interface.traffic.out.bitspersecond'=b/s;;;;
+OK: All interfaces are ok | '*interface_name*#status'='up';;;;'*interface_name*#interface.traffic.in.bitspersecond'=20b/s;;;;'*interface_name*#interface.traffic.out.bitspersecond'=20b/s;;;;
 ```
 
 ### Troubleshooting
