@@ -34,7 +34,6 @@ Le connecteur apporte les modèles de service suivants
 | Traffic-Generic-Name | HW-Storage-Dell-Compellent-Traffic-Generic-Name-SNMP-custom | Contrôle le traffic réseau d'une interface réseau         |            |
 | Traffic-Global       | HW-Storage-Dell-Compellent-Traffic-Global-SNMP-custom       | Contrôle le traffic réseau de plusieurs interfaces réseau |     X      |
 
-
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
 > Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
