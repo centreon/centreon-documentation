@@ -32,9 +32,9 @@ Le connecteur apporte le modèle de service suivant
 
 #### Découverte d'hôtes
 
-| Nom de la règle | Description                                                                                                                                                                                                                                              |
-|:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **HW-Storage-Adic-Tape-SNMP-custom** host template |
+| Nom de la règle | Description                                                                                                                                                                                                                                            |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](https://docs.centreon.com/fr/pp/integrations/plugin-packs/procedures/applications-protocol-snmp/) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **HW-Storage-Adic-Tape-SNMP-custom** |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -45,7 +45,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-Coming soon
+| Metric name           | Description               | Unit  |
+| :-------------------- | :------------------------ | :---- |
+| status                | Components global status  |       |
 
 </TabItem>
 </Tabs>
@@ -86,7 +88,7 @@ dnf install centreon-pack-hardware-storage-adic-tape-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-storage-adic-tape-snmp
@@ -131,7 +133,7 @@ dnf install centreon-plugin-Hardware-Storage-Adic-Tape-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-storage-adic-tape-snmp
@@ -172,10 +174,10 @@ yum install centreon-plugin-Hardware-Storage-Adic-Tape-Snmp
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Macro        | Description                                                                                                                 | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'global', 'physicaldrive', 'subsystem', 'component', 'temperature', 'fan' | .*                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                          | --verbose         |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'global', 'physicaldrive', 'subsystem', 'component', 'temperature', 'fan'                      | .*                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 </Tabs>
@@ -204,7 +206,23 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: | 
+OK: All 3 components are ok [1/1 global, 2/2 physical drives]. | 'count_global'=1;;;; 'count_physicaldrive'=2;;;;
+Checking global
+library global status is good [instance: 0].
+Checking physical drives
+physical drive '206' status is good [instance: 206, model: XXXX, serial: 206].
+physical drive '207' status is good [instance: 207, model: XXXX, serial: 207].
+Checking subsystems
+skipping cooling status: no value.
+skipping drive status: no value.
+skipping robotics status: no value.
+skipping media status: no value.
+skipping connectivity status: no value.
+skipping power status: no value.
+skipping control status: no value.
+Checking components
+Checking temperatures
+Checking fans
 ```
 
 ### Diagnostic des erreurs communes

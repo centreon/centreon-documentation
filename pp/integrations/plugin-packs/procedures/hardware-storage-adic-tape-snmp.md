@@ -44,7 +44,9 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-Coming soon
+| Metric name           | Description               | Unit  |
+| :-------------------- | :------------------------ | :---- |
+| status                | Components global status  |       |
 
 </TabItem>
 </Tabs>
@@ -85,7 +87,7 @@ dnf install centreon-pack-hardware-storage-adic-tape-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-storage-adic-tape-snmp
@@ -132,7 +134,7 @@ dnf install centreon-plugin-Hardware-Storage-Adic-Tape-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-storage-adic-tape-snmp
@@ -173,10 +175,10 @@ yum install centreon-plugin-Hardware-Storage-Adic-Tape-Snmp
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Macro        | Description                                                                                                                 | Default value     | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'global', 'physicaldrive', 'subsystem', 'component', 'temperature', 'fan' | .*                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                          | --verbose         |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'global', 'physicaldrive', 'subsystem', 'component', 'temperature', 'fan'            | .*                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
 </Tabs>
@@ -203,7 +205,23 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: | 
+OK: All 3 components are ok [1/1 global, 2/2 physical drives]. | 'count_global'=1;;;; 'count_physicaldrive'=2;;;;
+Checking global
+library global status is good [instance: 0].
+Checking physical drives
+physical drive '206' status is good [instance: 206, model: XXXX, serial: 206].
+physical drive '207' status is good [instance: 207, model: XXXX, serial: 207].
+Checking subsystems
+skipping cooling status: no value.
+skipping drive status: no value.
+skipping robotics status: no value.
+skipping media status: no value.
+skipping connectivity status: no value.
+skipping power status: no value.
+skipping control status: no value.
+Checking components
+Checking temperatures
+Checking fans
 ```
 
 ### Troubleshooting
