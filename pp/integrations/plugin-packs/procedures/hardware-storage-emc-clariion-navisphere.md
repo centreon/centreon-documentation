@@ -93,31 +93,45 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Faults" label="Faults">
 
-Coming soon
+| Metric name  | Unit  |
+|:-------------|:------|
+| array.status | N/A   |
 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-Coming soon
+| Metric name     | Unit  |
+|:----------------|:------|
+| fan.status      | N/A   |
+| lcc.status      | N/A   |
+| psu.status      | N/A   |
+| battery.status  | N/A   |
+| memory.status   | N/A   |
+| cpu.status      | N/A   |
+| iomodule.status | N/A   |
+| cable.status    | N/A   |
 
 </TabItem>
 <TabItem value="Hba-State" label="Hba-State">
 
-Coming soon
+| Metric name      | Unit  |
+|:-----------------|:------|
+| hba.state.status | N/A   |
 
 </TabItem>
 <TabItem value="Port-State" label="Port-State">
 
-Coming soon
+| Metric name      | Unit  |
+|:-----------------|:------|
+| hba.state.status | N/A   |
 
 </TabItem>
 </Tabs>
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+The plugin need the installation of Navisphere client (ask to your EMC Support).
+The plugin uses by default the path `/opt/Navisphere/bin`.
 
 ## Installing the monitoring connector
 
@@ -144,7 +158,7 @@ dnf install centreon-pack-hardware-storage-emc-clariion-navisphere
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-storage-emc-clariion-navisphere
@@ -191,7 +205,7 @@ dnf install centreon-plugin-Hardware-Storage-Emc-Clariion-Navisphere
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-storage-emc-clariion-navisphere
@@ -216,8 +230,8 @@ yum install centreon-plugin-Hardware-Storage-Emc-Clariion-Navisphere
 3. Apply the **HW-Storage-EMC-Clariion-Navisphere-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                  | Description                                                                                          | Default value     | Mandatory   |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| Macro                  | Description                                                                                                                              | Default value     | Mandatory   |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | NAVISPHEREEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -230,64 +244,64 @@ yum install centreon-plugin-Hardware-Storage-Emc-Clariion-Navisphere
 <Tabs groupId="sync">
 <TabItem value="Cache" label="Cache">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold in percent (for dirty cache)                                                     |                   |             |
-| CRITICAL     | Critical threshold in percent (for dirty cache)                                                    |                   |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold in percent (for dirty cache)                                                                                         |                   |             |
+| CRITICAL     | Critical threshold in percent (for dirty cache)                                                                                        |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Controller" label="Controller">
 
-| Macro             | Description                                                                                        | Default value     | Mandatory   |
-|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGBUSY       | Warning threshold                                                                                  |                   |             |
-| CRITICALBUSY      | Critical threshold                                                                                 |                   |             |
-| WARNINGREADIOPS   | Warning threshold                                                                                  |                   |             |
-| CRITICALREADIOPS  | Critical threshold                                                                                 |                   |             |
-| WARNINGWRITEIOPS  | Warning threshold                                                                                  |                   |             |
-| CRITICALWRITEIOPS | Critical threshold                                                                                 |                   |             |
+| Macro             | Description                                                                                                                            | Default value     | Mandatory   |
+|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGBUSY       | Warning threshold                                                                                                                      |                   |             |
+| CRITICALBUSY      | Critical threshold                                                                                                                     |                   |             |
+| WARNINGREADIOPS   | Warning threshold                                                                                                                      |                   |             |
+| CRITICALREADIOPS  | Critical threshold                                                                                                                     |                   |             |
+| WARNINGWRITEIOPS  | Warning threshold                                                                                                                      |                   |             |
+| CRITICALWRITEIOPS | Critical threshold                                                                                                                     |                   |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Disks" label="Disks">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Faults" label="Faults">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Macro        | Description                                                                                                            | Default value     | Mandatory   |
-|:-------------|:-----------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'fan', 'lcc', 'psu', 'battery', 'memory', 'cpu', 'iomodule', 'cable' | .*                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                     | --verbose         |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'fan', 'lcc', 'psu', 'battery', 'memory', 'cpu', 'iomodule', 'cable'                 | .*                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Hba-State" label="Hba-State">
 
-| Macro        | Description                                                                                                                                                                                                       | Default value     | Mandatory   |
-|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERSERVER | Set server to check (not set, means 'all')                                                                                                                                                                        |                   |             |
-| FILTERUID    | Set hba uid to check (not set, means 'all')                                                                                                                                                                       |                   |             |
-| PATHSTATUS   | Set how many paths must be connected (can be defined multiple times). Syntax: \[WARNING\],\[CRITICAL\],filter\_uid,filter\_server Example: ,@0:1,.*,.* - Means all servers must have at least two paths connected |                   | X           |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                |                   |             |
+| Macro        | Description                                                                                                                                                                                                        | Default value     | Mandatory   |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERSERVER | Set server to check (not set, means 'all')                                                                                                                                                                         |                   |             |
+| FILTERUID    | Set hba uid to check (not set, means 'all')                                                                                                                                                                        |                   |             |
+| PATHSTATUS   | Set how many paths must be connected (can be defined multiple times). Syntax: \[WARNING\],\[CRITICAL\],filter\_uid,filter\_server Example: ,@0:1,.*,.* - Means all servers must have at least two paths connected  |                   | X           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                             |                   |             |
 
 </TabItem>
 <TabItem value="Port-State" label="Port-State">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNAME   | Set SP Name to check (not set, means 'all')                                                        |                   |             |
-| FILTERID     | Set SP port ID to check (not set, means 'all')                                                     |                   |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERNAME   | Set SP Name to check (not set, means 'all')                                                                                            |                   |             |
+| FILTERID     | Set SP port ID to check (not set, means 'all')                                                                                         |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>

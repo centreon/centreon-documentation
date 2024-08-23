@@ -48,9 +48,9 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte de services
 
-| Nom de la règle                         | Description                                               |
-|:----------------------------------------|:----------------------------------------------------------|
-| HW-Storage-EMC-Clariion-Navisphere-Luns | Discover the disk partitions and monitor space occupation |
+| Nom de la règle                         | Description                                                    |
+|:----------------------------------------|:---------------------------------------------------------------|
+| HW-Storage-EMC-Clariion-Navisphere-Luns | Découvre les partitions de disque et supervise l'espace occupé |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -94,31 +94,44 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Faults" label="Faults">
 
-Coming soon
+| Métrique     | Unité |
+|:-------------|:------|
+| array.status | N/A   |
 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-Coming soon
+| Métrique        | Unité |
+|:----------------|:------|
+| fan.status      | N/A   |
+| lcc.status      | N/A   |
+| psu.status      | N/A   |
+| battery.status  | N/A   |
+| memory.status   | N/A   |
+| cpu.status      | N/A   |
+| iomodule.status | N/A   |
+| cable.status    | N/A   |
 
 </TabItem>
 <TabItem value="Hba-State" label="Hba-State">
 
-Coming soon
+| Métrique         | Unité |
+|:-----------------|:------|
+| hba.state.status | N/A   |
 
 </TabItem>
 <TabItem value="Port-State" label="Port-State">
 
-Coming soon
-
+| Métrique         | Unité |
+|:-----------------|:------|
+| hba.state.status | N/A   |
 </TabItem>
 </Tabs>
 
 ## Prérequis
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+Le plugin nécessite l'installation du client Navisphere (demandez à votre support EMC).
+Le plugin utilise par défaut le chemin `/opt/Navisphere/bin`.
 
 ## Installer le connecteur de supervision
 
@@ -145,7 +158,7 @@ dnf install centreon-pack-hardware-storage-emc-clariion-navisphere
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-storage-emc-clariion-navisphere
@@ -190,7 +203,7 @@ dnf install centreon-plugin-Hardware-Storage-Emc-Clariion-Navisphere
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-storage-emc-clariion-navisphere
@@ -215,8 +228,8 @@ yum install centreon-plugin-Hardware-Storage-Emc-Clariion-Navisphere
 3. Appliquez le modèle d'hôte **HW-Storage-EMC-Clariion-Navisphere-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro                  | Description                                                                                          | Valeur par défaut | Obligatoire |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| Macro                  | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | NAVISPHEREEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -229,46 +242,46 @@ yum install centreon-plugin-Hardware-Storage-Emc-Clariion-Navisphere
 <Tabs groupId="sync">
 <TabItem value="Cache" label="Cache">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold in percent (for dirty cache)                                                     |                   |             |
-| CRITICAL     | Critical threshold in percent (for dirty cache)                                                    |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold in percent (for dirty cache)                                                                                                   |                   |             |
+| CRITICAL     | Critical threshold in percent (for dirty cache)                                                                                                  |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Controller" label="Controller">
 
-| Macro             | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGBUSY       | Warning threshold                                                                                  |                   |             |
-| CRITICALBUSY      | Critical threshold                                                                                 |                   |             |
-| WARNINGREADIOPS   | Warning threshold                                                                                  |                   |             |
-| CRITICALREADIOPS  | Critical threshold                                                                                 |                   |             |
-| WARNINGWRITEIOPS  | Warning threshold                                                                                  |                   |             |
-| CRITICALWRITEIOPS | Critical threshold                                                                                 |                   |             |
+| Macro             | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGBUSY       | Warning threshold                                                                                                                                |                   |             |
+| CRITICALBUSY      | Critical threshold                                                                                                                               |                   |             |
+| WARNINGREADIOPS   | Warning threshold                                                                                                                                |                   |             |
+| CRITICALREADIOPS  | Critical threshold                                                                                                                               |                   |             |
+| WARNINGWRITEIOPS  | Warning threshold                                                                                                                                |                   |             |
+| CRITICALWRITEIOPS | Critical threshold                                                                                                                               |                   |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Disks" label="Disks">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Faults" label="Faults">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Macro        | Description                                                                                                            | Valeur par défaut | Obligatoire |
-|:-------------|:-----------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'fan', 'lcc', 'psu', 'battery', 'memory', 'cpu', 'iomodule', 'cable' | .*                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                     | --verbose         |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'fan', 'lcc', 'psu', 'battery', 'memory', 'cpu', 'iomodule', 'cable'                           | .*                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Hba-State" label="Hba-State">
@@ -278,15 +291,15 @@ yum install centreon-plugin-Hardware-Storage-Emc-Clariion-Navisphere
 | FILTERSERVER | Set server to check (not set, means 'all')                                                                                                                                                                        |                   |             |
 | FILTERUID    | Set hba uid to check (not set, means 'all')                                                                                                                                                                       |                   |             |
 | PATHSTATUS   | Set how many paths must be connected (can be defined multiple times). Syntax: \[WARNING\],\[CRITICAL\],filter\_uid,filter\_server Example: ,@0:1,.*,.* - Means all servers must have at least two paths connected |                   | X           |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                  |                   |             |
 
 </TabItem>
 <TabItem value="Port-State" label="Port-State">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNAME   | Set SP Name to check (not set, means 'all')                                                        |                   |             |
-| FILTERID     | Set SP port ID to check (not set, means 'all')                                                     |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERNAME   | Set SP Name to check (not set, means 'all')                                                                                                      |                   |             |
+| FILTERID     | Set SP port ID to check (not set, means 'all')                                                                                                   |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
