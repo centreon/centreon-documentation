@@ -45,9 +45,9 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte d'hôtes
 
-| Nom de la règle | Description                                                                                                                                                                                                                                                    |
-|:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **HW-Storage-Dell-Compellent-SNMP-custom** host template |
+| Nom de la règle | Description                                                                                                                                                                                                                                            |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **HW-Storage-Dell-Compellent-SNMP-custom** |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -67,7 +67,24 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-Coming soon
+| Métrique           | Unité |
+|:-------------------|:------|
+| ctrl.status        | N/A   |
+| disk.status        | N/A   |
+| diskfolder.status  | N/A   |
+| encl.status        | N/A   |
+| ctrlfan.status     | N/A   |
+| ctrlpower.status   | N/A   |
+| ctrlvoltage.status | N/A   |
+| ctrltemp.status    | N/A   |
+| enclfan.status     | N/A   |
+| enclpower.status   | N/A   |
+| encliomod.status   | N/A   |
+| encltemp.status    | N/A   |
+| volume.status      | N/A   |
+| cache.status       | N/A   |
+| server.status      | N/A   |
+| sc.status          | N/A   |
 
 </TabItem>
 <TabItem value="Traffic-*" label="Traffic-*">
@@ -119,7 +136,7 @@ dnf install centreon-pack-hardware-storage-dell-compellent-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-storage-dell-compellent-snmp
@@ -164,7 +181,7 @@ dnf install centreon-plugin-Hardware-Storage-Dell-Compellent-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-storage-dell-compellent-snmp
@@ -191,8 +208,8 @@ yum install centreon-plugin-Hardware-Storage-Dell-Compellent-Snmp
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
 > Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
 
-| Macro            | Description                                                                                          | Valeur par défaut | Obligatoire |
-|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| Macro            | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -205,10 +222,10 @@ yum install centreon-plugin-Hardware-Storage-Dell-Compellent-Snmp
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Macro        | Description                                                                                                                                                                                                                   | Valeur par défaut | Obligatoire |
-|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'ctrl', 'disk', 'diskfolder', 'encl', 'ctrlfan', 'ctrlpower', 'ctrlvoltage', 'ctrltemp', 'enclfan', 'enclpower', 'encliomod', 'encltemp', 'volume', 'cache', 'server', 'sc' | .*                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                            | --verbose         |             |
+| Macro        | Description                                                                                                                                                                                                                    | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'ctrl', 'disk', 'diskfolder', 'encl', 'ctrlfan', 'ctrlpower', 'ctrlvoltage', 'ctrltemp', 'enclfan', 'enclpower', 'encliomod', 'encltemp', 'volume', 'cache', 'server', 'sc'  | .*                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                               | --verbose         |             |
 
 </TabItem>
 <TabItem value="Traffic-Generic-Id" label="Traffic-Generic-Id">
@@ -220,7 +237,7 @@ yum install centreon-plugin-Hardware-Storage-Dell-Compellent-Snmp
 | WARNINGIN    | Thresholds                                                                                                                                            | 80                                           |             |
 | CRITICALOUT  | Thresholds                                                                                                                                            | 90                                           |             |
 | WARNINGOUT   | Thresholds                                                                                                                                            | 80                                           |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                    | --oid-display='ifdesc' --oid-filter='ifdesc' |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).      | --oid-display='ifdesc' --oid-filter='ifdesc' |             |
 
 </TabItem>
 <TabItem value="Traffic-Generic-Name" label="Traffic-Generic-Name">
@@ -232,7 +249,7 @@ yum install centreon-plugin-Hardware-Storage-Dell-Compellent-Snmp
 | WARNINGIN     | Thresholds                                                                                                                                            | 80                                           |             |
 | CRITICALOUT   | Thresholds                                                                                                                                            | 90                                           |             |
 | WARNINGOUT    | Thresholds                                                                                                                                            | 80                                           |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                    | --oid-display='ifdesc' --oid-filter='ifdesc' |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).      | --oid-display='ifdesc' --oid-filter='ifdesc' |             |
 
 </TabItem>
 <TabItem value="Traffic-Global" label="Traffic-Global">
@@ -245,7 +262,7 @@ yum install centreon-plugin-Hardware-Storage-Dell-Compellent-Snmp
 | CRITICALOUT    | Thresholds                                                                                                                                                                                                          | 90                                                 |             |
 | WARNINGOUT     | Thresholds                                                                                                                                                                                                          | 80                                                 |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} |                                                    |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                  | --verbose --oid-display=ifdesc --oid-filter=ifdesc |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                    | --verbose --oid-display=ifdesc --oid-filter=ifdesc |             |
 
 </TabItem>
 </Tabs>
