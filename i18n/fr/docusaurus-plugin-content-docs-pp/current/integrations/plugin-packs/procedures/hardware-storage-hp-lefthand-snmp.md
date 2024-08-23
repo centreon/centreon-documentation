@@ -19,10 +19,10 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="HW-Storage-Hp-Lefthand-SNMP-custom" label="HW-Storage-Hp-Lefthand-SNMP-custom">
 
-| Alias               | Modèle de service                                      | Description                       |
-|:--------------------|:-------------------------------------------------------|:----------------------------------|
-| Hardware-Global     | HW-Storage-Hp-Lefthand-Hardware-Global-SNMP-custom     | Contrôle l'ensemble du matériel   |
-| Volume-Usage-Global | HW-Storage-Hp-Lefthand-Volume-Usage-Global-SNMP-custom | Contrôle l'utilisation des volume |
+| Alias               | Modèle de service                                      | Description                        |
+|:--------------------|:-------------------------------------------------------|:-----------------------------------|
+| Hardware-Global     | HW-Storage-Hp-Lefthand-Hardware-Global-SNMP-custom     | Contrôle l'ensemble du matériel    |
+| Volume-Usage-Global | HW-Storage-Hp-Lefthand-Volume-Usage-Global-SNMP-custom | Contrôle l'utilisation des volumes |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-Hp-Lefthand-SNMP-custom** est utilisé.
 
@@ -33,9 +33,9 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte d'hôtes
 
-| Nom de la règle | Description                                                                                                                                                                                                                                                |
-|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **HW-Storage-Hp-Lefthand-SNMP-custom** host template |
+| Nom de la règle | Description                                                                                                                                                                                                                                        |
+|:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **HW-Storage-Hp-Lefthand-SNMP-custom** |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -46,7 +46,15 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-Coming soon
+| Métrique           | Unité |
+|:-------------------|:------|
+| fan.status         | N/A   |
+| rcc.status         | N/A   |
+| temperature.status | N/A   |
+| psu.status         | N/A   |
+| voltage.status     | N/A   |
+| rc.status          | N/A   |
+| ro.status          | N/A   |
 
 </TabItem>
 <TabItem value="Volume-Usage-Global" label="Volume-Usage-Global">
@@ -103,7 +111,7 @@ dnf install centreon-pack-hardware-storage-hp-lefthand-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-storage-hp-lefthand-snmp
@@ -148,7 +156,7 @@ dnf install centreon-plugin-Hardware-Storage-Hp-Lefthand-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-storage-hp-lefthand-snmp
@@ -175,8 +183,8 @@ yum install centreon-plugin-Hardware-Storage-Hp-Lefthand-Snmp
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
 > Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
 
-| Macro            | Description                                                                                          | Valeur par défaut | Obligatoire |
-|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| Macro            | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -189,35 +197,35 @@ yum install centreon-plugin-Hardware-Storage-Hp-Lefthand-Snmp
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Macro        | Description                                                                                                           | Valeur par défaut              | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'fan', 'rcc', 'temperature', 'psu', 'voltage', 'device', 'rc', 'ro' | .*                             |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                    | --verbose --snmp-force-getnext |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut              | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'fan', 'rcc', 'temperature', 'psu', 'voltage', 'device', 'rc', 'ro'                            | .*                             |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose --snmp-force-getnext |             |
 
 </TabItem>
 <TabItem value="Volume-Usage-Global" label="Volume-Usage-Global">
 
-| Macro                     | Description                                                                                                                                                  | Valeur par défaut      | Obligatoire |
-|:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
-| FILTERNAME                | Filter volume name (can be a regexp)                                                                                                                         | .*                     |             |
-| FILTERCOUNTERS            | Only display some counters (regexp can be used). Example: --filter-counters='^read\|write$'                                                                  |                        |             |
-| WARNINGREAD               | Warning threshold                                                                                                                                            |                        |             |
-| CRITICALREAD              | Critical threshold                                                                                                                                           |                        |             |
-| WARNINGREADIOPS           | Warning threshold                                                                                                                                            |                        |             |
-| CRITICALREADIOPS          | Critical threshold                                                                                                                                           |                        |             |
-| WARNINGREADLATENCY        | Warning threshold                                                                                                                                            |                        |             |
-| CRITICALREADLATENCY       | Critical threshold                                                                                                                                           |                        |             |
-| CRITICALREPLICATIONSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /normal/i'). You can use the following variables: %{status}, %{display} | %{status} !~ /normal/i |             |
-| WARNINGREPLICATIONSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{display}                                      |                        |             |
-| WARNINGUSAGE              | Warning threshold                                                                                                                                            |                        |             |
-| CRITICALUSAGE             | Critical threshold                                                                                                                                           |                        |             |
-| WARNINGWRITE              | Warning threshold                                                                                                                                            |                        |             |
-| CRITICALWRITE             | Critical threshold                                                                                                                                           |                        |             |
-| WARNINGWRITEIOPS          | Warning threshold                                                                                                                                            |                        |             |
-| CRITICALWRITEIOPS         | Critical threshold                                                                                                                                           |                        |             |
-| WARNINGWRITELATENCY       | Warning threshold                                                                                                                                            |                        |             |
-| CRITICALWRITELATENCY      | Critical threshold                                                                                                                                           |                        |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                           | --verbose              |             |
+| Macro                     | Description                                                                                                                                      | Valeur par défaut                                                               | Obligatoire |
+|:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------|:-----------:|
+| FILTERNAME                | Filter volume name (can be a regexp)                                                                                                             | .*                                                                              |             |
+| FILTERCOUNTERS            | Only display some counters (regexp can be used). Example: --filter-counters='^read\| write$                                                      |                                                                                 |             |
+| WARNINGREAD               | Warning threshold                                                                                                                                |                                                                                 |             |
+| CRITICALREAD              | Critical threshold                                                                                                                               |                                                                                 |             |
+| WARNINGREADIOPS           | Warning threshold                                                                                                                                |                                                                                 |             |
+| CRITICALREADIOPS          | Critical threshold                                                                                                                               |                                                                                 |             |
+| WARNINGREADLATENCY        | Warning threshold                                                                                                                                |                                                                                 |             |
+| CRITICALREADLATENCY       | Critical threshold                                                                                                                               |                                                                                 |             |
+| CRITICALREPLICATIONSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{display}                         | %{status} !~ /normal/i                                                          |             |
+| WARNINGREPLICATIONSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{display}                          |                                                                                 |             |
+| WARNINGUSAGE              | Warning threshold                                                                                                                                |                                                                                 |             |
+| CRITICALUSAGE             | Critical threshold                                                                                                                               |                                                                                 |             |
+| WARNINGWRITE              | Warning threshold                                                                                                                                |                                                                                 |             |
+| CRITICALWRITE             | Critical threshold                                                                                                                               |                                                                                 |             |
+| WARNINGWRITEIOPS          | Warning threshold                                                                                                                                |                                                                                 |             |
+| CRITICALWRITEIOPS         | Critical threshold                                                                                                                               |                                                                                 |             |
+| WARNINGWRITELATENCY       | Warning threshold                                                                                                                                |                                                                                 |             |
+| CRITICALWRITELATENCY      | Critical threshold                                                                                                                               |                                                                                 |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                                                                       |             |
 
 </TabItem>
 </Tabs>
@@ -263,8 +271,10 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All volumes are ok | '*volume*#used'=B;;;;'*volume*#read'=B/s;;;0;'*volume*#write'=B/s;;;0;'*volume*#read-iops'=iops;;;0;'*volume*#write-iops'=iops;;;0;'*volume*#read-latency'=ms;;;0;'*volume*#write-latency'=ms;;;0;'*volume*#replication-status'=;;;;
+OK: Volume 'Volume_1' Usage Total: 5.72 GB Used: 58.59 MB (1.00%) Free: 5.66 GB (99.00%), Read I/O : 0.00 B/s, Write I/O : 0.00 B/s, Read IOPs : 0.00, Write IOPs : 0.00, Read Latency : 0.00 ms, Write Latency : 0.00 ms, replication status : normal | 'used'=61440000B;;;0;6144000000 'read'=0B/s;;;0; 'write'=0B/s;;;0; 'read_iops'=0.00iops;;;0; 'write_iops'=0.00iops;;;0; 'read_latency'=0.00ms;;;0; 'write_latency'=0.00ms;;;0;
+Volume 'Volume_1' Usage Total: 5.72 GB Used: 58.59 MB (1.00%) Free: 5.66 GB (99.00%), Read I/O : 0.00 B/s, Write I/O : 0.00 B/s, Read IOPs : 0.00, Write IOPs : 0.00, Read Latency : 0.00 ms, Write Latency : 0.00 ms, replication status : normal
 ```
+
 
 ### Diagnostic des erreurs communes
 

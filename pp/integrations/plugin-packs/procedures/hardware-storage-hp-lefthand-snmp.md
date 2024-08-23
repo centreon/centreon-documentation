@@ -45,7 +45,15 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-Coming soon
+| Metric name        | Unit  |
+|:-------------------|:------|
+| fan.status         | N/A   |
+| rcc.status         | N/A   |
+| temperature.status | N/A   |
+| psu.status         | N/A   |
+| voltage.status     | N/A   |
+| rc.status          | N/A   |
+| ro.status          | N/A   |
 
 </TabItem>
 <TabItem value="Volume-Usage-Global" label="Volume-Usage-Global">
@@ -102,7 +110,7 @@ dnf install centreon-pack-hardware-storage-hp-lefthand-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-storage-hp-lefthand-snmp
@@ -149,7 +157,7 @@ dnf install centreon-plugin-Hardware-Storage-Hp-Lefthand-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-storage-hp-lefthand-snmp
@@ -176,8 +184,8 @@ yum install centreon-plugin-Hardware-Storage-Hp-Lefthand-Snmp
 > When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
-| Macro            | Description                                                                                          | Default value     | Mandatory   |
-|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| Macro            | Description                                                                                                                              | Default value     | Mandatory   |
+|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -190,35 +198,35 @@ yum install centreon-plugin-Hardware-Storage-Hp-Lefthand-Snmp
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Macro        | Description                                                                                                           | Default value                  | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'fan', 'rcc', 'temperature', 'psu', 'voltage', 'device', 'rc', 'ro' | .*                             |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                    | --verbose --snmp-force-getnext |             |
+| Macro        | Description                                                                                                                            | Default value                  | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'fan', 'rcc', 'temperature', 'psu', 'voltage', 'device', 'rc', 'ro'                  | .*                             |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose --snmp-force-getnext |             |
 
 </TabItem>
 <TabItem value="Volume-Usage-Global" label="Volume-Usage-Global">
 
-| Macro                     | Description                                                                                                                                                  | Default value          | Mandatory   |
-|:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
-| FILTERNAME                | Filter volume name (can be a regexp)                                                                                                                         | .*                     |             |
-| FILTERCOUNTERS            | Only display some counters (regexp can be used). Example: --filter-counters='^read\|write$'                                                                  |                        |             |
-| WARNINGREAD               | Warning threshold                                                                                                                                            |                        |             |
-| CRITICALREAD              | Critical threshold                                                                                                                                           |                        |             |
-| WARNINGREADIOPS           | Warning threshold                                                                                                                                            |                        |             |
-| CRITICALREADIOPS          | Critical threshold                                                                                                                                           |                        |             |
-| WARNINGREADLATENCY        | Warning threshold                                                                                                                                            |                        |             |
-| CRITICALREADLATENCY       | Critical threshold                                                                                                                                           |                        |             |
-| CRITICALREPLICATIONSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /normal/i'). You can use the following variables: %{status}, %{display} | %{status} !~ /normal/i |             |
-| WARNINGREPLICATIONSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{display}                                      |                        |             |
-| WARNINGUSAGE              | Warning threshold                                                                                                                                            |                        |             |
-| CRITICALUSAGE             | Critical threshold                                                                                                                                           |                        |             |
-| WARNINGWRITE              | Warning threshold                                                                                                                                            |                        |             |
-| CRITICALWRITE             | Critical threshold                                                                                                                                           |                        |             |
-| WARNINGWRITEIOPS          | Warning threshold                                                                                                                                            |                        |             |
-| CRITICALWRITEIOPS         | Critical threshold                                                                                                                                           |                        |             |
-| WARNINGWRITELATENCY       | Warning threshold                                                                                                                                            |                        |             |
-| CRITICALWRITELATENCY      | Critical threshold                                                                                                                                           |                        |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                           | --verbose              |             |
+| Macro                     | Description                                                                                                                                      | Default value          | Mandatory |
+|:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:---------:|
+| FILTERNAME                | Filter volume name (can be a regexp)                                                                                                             | .*                     |           |
+| FILTERCOUNTERS            | Only display some counters (regexp can be used). Example: --filter-counters='^read\| write$                                                      |                        |           |
+| WARNINGREAD               | Warning threshold                                                                                                                                |                        |           |
+| CRITICALREAD              | Critical threshold                                                                                                                               |                        |           |
+| WARNINGREADIOPS           | Warning threshold                                                                                                                                |                        |           |
+| CRITICALREADIOPS          | Critical threshold                                                                                                                               |                        |           |
+| WARNINGREADLATENCY        | Warning threshold                                                                                                                                |                        |           |
+| CRITICALREADLATENCY       | Critical threshold                                                                                                                               |                        |           |
+| CRITICALREPLICATIONSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{display}                         | %{status} !~ /normal/i |           |
+| WARNINGREPLICATIONSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{display}                          |                        |           |
+| WARNINGUSAGE              | Warning threshold                                                                                                                                |                        |           |
+| CRITICALUSAGE             | Critical threshold                                                                                                                               |                        |           |
+| WARNINGWRITE              | Warning threshold                                                                                                                                |                        |           |
+| CRITICALWRITE             | Critical threshold                                                                                                                               |                        |           |
+| WARNINGWRITEIOPS          | Warning threshold                                                                                                                                |                        |           |
+| CRITICALWRITEIOPS         | Critical threshold                                                                                                                               |                        |           |
+| WARNINGWRITELATENCY       | Warning threshold                                                                                                                                |                        |           |
+| CRITICALWRITELATENCY      | Critical threshold                                                                                                                               |                        |           |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose              |           |
 
 </TabItem>
 </Tabs>
@@ -262,7 +270,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All volumes are ok | '*volume*#used'=B;;;;'*volume*#read'=B/s;;;0;'*volume*#write'=B/s;;;0;'*volume*#read-iops'=iops;;;0;'*volume*#write-iops'=iops;;;0;'*volume*#read-latency'=ms;;;0;'*volume*#write-latency'=ms;;;0;'*volume*#replication-status'=;;;;
+OK: Volume 'Volume_1' Usage Total: 5.72 GB Used: 58.59 MB (1.00%) Free: 5.66 GB (99.00%), Read I/O : 0.00 B/s, Write I/O : 0.00 B/s, Read IOPs : 0.00, Write IOPs : 0.00, Read Latency : 0.00 ms, Write Latency : 0.00 ms, replication status : normal | 'used'=61440000B;;;0;6144000000 'read'=0B/s;;;0; 'write'=0B/s;;;0; 'read_iops'=0.00iops;;;0; 'write_iops'=0.00iops;;;0; 'read_latency'=0.00ms;;;0; 'write_latency'=0.00ms;;;0;
+Volume 'Volume_1' Usage Total: 5.72 GB Used: 58.59 MB (1.00%) Free: 5.66 GB (99.00%), Read I/O : 0.00 B/s, Write I/O : 0.00 B/s, Read IOPs : 0.00, Write IOPs : 0.00, Read Latency : 0.00 ms, Write Latency : 0.00 ms, replication status : normal
 ```
 
 ### Troubleshooting
