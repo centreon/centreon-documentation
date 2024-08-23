@@ -36,6 +36,7 @@ L'agent peut être déployé sur les OS suivants :
 * Debian 11
 * Debian 12
 * Ubuntu 22.04 LTS
+</TabItem>
 </Tabs>
 
 ## Étape 1: Configurez Centreon
@@ -46,13 +47,13 @@ L'agent peut être déployé sur les OS suivants :
 <TabItem value="Linux" label="Linux">
 
 1. Sur votre serveur central, allez à la page **Configuration > Gestionnaire de connecteurs de supervision**.
-2. [Installez](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) le connecteur de supervision **<TO BE DEFINED>**.
+2. [Installez](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) le connecteur de supervision **TO BE DEFINED**.
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
 1. Sur votre serveur central, allez à la page **Configuration > Gestionnaire de connecteurs de supervision**.
-2. [Installez](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) le connecteur de supervision **<TO BE DEFINED>**.
+2. [Installez](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) le connecteur de supervision **TO BE DEFINED**.
 
 </TabItem>
 </Tabs>
@@ -69,7 +70,7 @@ Sur votre serveur central :
 | Nom du connecteur          | Centreon Monitoring Agent                                                                                                                                                                                                                          |
 | Description du connecteurn | Centreon Monitoring Agent                                                                                                                                                                                                                         |
 | Ligne de commande          | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |
-| Utilisé par la commande    | Entrez `<TO BE DEFINED>` et cliquez sur **Sélectionner tout**                                                                                                                                                                     |
+| Utilisé par la commande    | Entrez `TO BE DEFINED` et cliquez sur **Sélectionner tout**                                                                                                                                                                     |
 | Statut du connecteur       | Activé                                                                                                                                                                                                                           |
 
 ### Configurez Engine
@@ -131,7 +132,7 @@ chown centreon-engine: /etc/centreon-engine/otl_server.json
 * Le champ **check_interval** correspond à la fréquence des contrôles effectués par l'Agent de supervision Centreon.
 
 > Pour des raisons de simplicité, cette page ne couvre que la configuration de CMA **en mode non sécurisé**, mais vous
-> trouverez la procédure pour chiffrer les communications dans la documentation du [connecteur Windows Centreon Monitoring Agent](../../procedures/<TODO>) ou celle du  [connecteur Linux Centreon Monitoring Agent](../../procedures/<TODO>).
+> trouverez la procédure pour chiffrer les communications dans la documentation du [connecteur Windows Centreon Monitoring Agent](../../procedures/TODO) ou celle du  [connecteur Linux Centreon Monitoring Agent](../../procedures/TODO).
 
 (NOTE POUR TEAM DOC : ci-dessous le mode chiffré en normal et reverse, à décaler sur autre page ?)
 
@@ -279,11 +280,6 @@ Note : un installeur sera disponible en version définitive, afin de faciliter l
 
 </TabItem>
 </Tabs>
-
-
-
-<Tabs groupId="sync">
-<TabItem value="Linux" label="Linux">
 
 
 
@@ -438,13 +434,12 @@ apt -y install centreon-plugin-operatingsystems-linux-local
 
 </TabItem>
 </Tabs>
-
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
 Sur les hôtes que vous voulez superviser, téléchargez et exécutez le [plugin pour Windows](https://github.com/centreon/centreon-nsclient-build/releases/download/20240711/centreon_plugins.exe).
 
-TODO JC  : chemin où déposer les plugins ? 
+TODO JC  chemin où déposer les plugins
 </TabItem>
 </Tabs>
 
@@ -455,12 +450,12 @@ TODO JC  : chemin où déposer les plugins ?
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
-Sur le serveur central, [créez l'hôte](/docs/monitoring/basic-objects/hosts) et appliquez-leur le modèle d'hôtes **OS-Linux-<TO CONFIRM>-Agent-custom**.
+Sur le serveur central, [créez l'hôte](/docs/monitoring/basic-objects/hosts) et appliquez-leur le modèle d'hôtes **OS-Linux-TO CONFIRM-Agent-custom**.
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-Sur le serveur central, [créez l'hôte](/docs/monitoring/basic-objects/hosts) et appliquez-leur le modèle d'hôtes **OS-Windows-<TO CONFIRM>-Agent-custom**.
+Sur le serveur central, [créez l'hôte](/docs/monitoring/basic-objects/hosts) et appliquez-leur le modèle d'hôtes **OS-Windows-TO CONFIRM-Agent-custom**.
 
 </TabItem>
 </Tabs>
@@ -488,5 +483,7 @@ Redémarrer centagent.exe
 
 ## Mise à jour de l'Agent
 
-A discuter JC : mécanisme cible pour GA afin que l'agent se mettre à jour tout seul si nouvelle version dispo en central ? 
+```bash
+A discuter JC mécanisme cible pour GA afin que agent se mettre à jour tout seul si nouvelle version dispo en central
 Zabbix le fait
+```
