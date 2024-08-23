@@ -32,9 +32,9 @@ Le connecteur apporte le modèle de service suivant
 
 #### Découverte d'hôtes
 
-| Nom de la règle | Description                                                                                                                                                                                                                                                     |
-|:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **HW-Storage-Hitachi-Standard-SNMP-custom** host template |
+| Nom de la règle | Description                                                                                                                                                                                                                                             |
+|:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **HW-Storage-Hitachi-Standard-SNMP-custom** |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -45,7 +45,11 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-Coming soon
+| Métrique         | Unité |
+|:-----------------|:------|
+| component.status | N/A   |
+| dkc.status       | N/A   |
+| dku.status       | N/A   |
 
 </TabItem>
 </Tabs>
@@ -86,7 +90,7 @@ dnf install centreon-pack-hardware-storage-hitachi-standard-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-storage-hitachi-standard-snmp
@@ -131,7 +135,7 @@ dnf install centreon-plugin-Hardware-Storage-Hitachi-Standard-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-storage-hitachi-standard-snmp
@@ -158,8 +162,8 @@ yum install centreon-plugin-Hardware-Storage-Hitachi-Standard-Snmp
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
 > Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
 
-| Macro            | Description                                                                                          | Valeur par défaut | Obligatoire |
-|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| Macro            | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -172,9 +176,9 @@ yum install centreon-plugin-Hardware-Storage-Hitachi-Standard-Snmp
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'component', 'dkc', 'dku'                        | .*                |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'component', 'dkc', 'dku'                                                                      | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
@@ -204,7 +208,53 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: | 
+OK: All 33 components are ok [31/31 components, 1/1 dkc, 1/1 dku]. | 'count_component'=31;;;; 'count_dkc'=1;;;; 'count_dku'=1;;;;
+Checking components
+component 'drive' status is 'ok' [instance: drive].
+component 'spare drive' status is 'ok' [instance: spare drive].
+component 'path' status is 'ok' [instance: path].
+component 'NAS Server' status is 'ok' [instance: NAS Server].
+component 'NAS Path' status is 'ok' [instance: NAS Path].
+component 'NAS UPS' status is 'ok' [instance: NAS UPS].
+component 'notUsed' status is 'ok' [instance: notUsed].
+component 'notUsed' status is 'ok' [instance: notUsed].
+component 'battery' status is 'ok' [instance: battery].
+component 'power supply' status is 'ok' [instance: power supply].
+component 'AC' status is 'ok' [instance: AC].
+component 'BK' status is 'ok' [instance: BK].
+component 'data drive' status is 'ok' [instance: data drive].
+component 'fan' status is 'ok' [instance: fan].
+component 'notUsed' status is 'ok' [instance: notUsed].
+component 'notUsed' status is 'ok' [instance: notUsed].
+component 'notUsed' status is 'ok' [instance: notUsed].
+component 'cache memory' status is 'ok' [instance: cache memory].
+component 'SATA spare disk' status is 'ok' [instance: SATA spare disk].
+component 'SATA data drive' status is 'ok' [instance: SATA data drive].
+component 'SENC status' status is 'ok' [instance: SENC status].
+component 'HostConnector' status is 'ok' [instance: HostConnector].
+component 'notUsed' status is 'ok' [instance: notUsed].
+component 'ENC' status is 'ok' [instance: ENC].
+component 'notUsed' status is 'ok' [instance: notUsed].
+component 'notUsed' status is 'ok' [instance: notUsed].
+component 'notUsed' status is 'ok' [instance: notUsed].
+component 'warning' status is 'ok' [instance: warning].
+component 'Other controller' status is 'ok' [instance: Other controller].
+component 'UPS' status is 'ok' [instance: UPS].
+component 'loop' status is 'ok' [instance: loop].
+Checking controller chassis
+dkc '0' battery status is 'noError' [instance: 0.battery].
+dkc '0' bus status is 'noError' [instance: 0.bus].
+dkc '0' environment status is 'noError' [instance: 0.environment].
+dkc '0' fan status is 'noError' [instance: 0.fan].
+dkc '0' psu status is 'noError' [instance: 0.psu].
+dkc '0' memory status is 'noError' [instance: 0.memory].
+dkc '0' cache status is 'noError' [instance: 0.cache].
+dkc '0' processor status is 'noError' [instance: 0.processor].
+Checking drive chassis
+dku '0' fan status is 'noError' [instance: 0.fan].
+dku '0' environment status is 'noError' [instance: 0.environment].
+dku '0' drive status is 'noError' [instance: 0.drive].
+dku '0' psu status is 'noError' [instance: 0.psu].
 ```
 
 ### Diagnostic des erreurs communes
