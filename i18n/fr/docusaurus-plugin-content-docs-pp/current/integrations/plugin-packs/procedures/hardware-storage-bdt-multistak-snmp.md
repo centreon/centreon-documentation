@@ -45,9 +45,10 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Metric name           | Description               | Unit  |
-| :-------------------- | :------------------------ | :---- |
-| status                | Components global status  |       |
+| Métrique      | Unité |
+|:--------------|:------|
+| module.status | N/A   |
+| device.status | N/A   |
 
 </TabItem>
 </Tabs>

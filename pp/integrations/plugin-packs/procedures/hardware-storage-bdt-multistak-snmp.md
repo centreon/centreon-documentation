@@ -44,9 +44,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Metric name           | Description               | Unit  |
-| :-------------------- | :------------------------ | :---- |
-| status                | Components global status  |       |
+| Metric name   | Unit |
+|:--------------|:-----|
+| module.status | N/A  |
+| device.status | N/A  |
 
 </TabItem>
 </Tabs>
