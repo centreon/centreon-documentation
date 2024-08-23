@@ -53,11 +53,14 @@ AWS's hosting services meet the compliance requirements of the world's most high
 
 In addition, Centreon Cloud has passed the [Foundational Technical Review](https://aws.amazon.com/partners/foundational-technical-review/) (FTR) and [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) (WAR) reviews. These reviews have allowed Centreon to join the AWS Partner Network, and guarantee that our customers will enjoy a service that is in compliance with the best practices with regard to architecture, account management, logging, disaster recovery and business continuity, and continuous improvement.
 
-Centreon Cloud services are all hosted and run from the European Union:
+This is where Centreon Cloud services are hosted:
 
-| Service   | Hosting   | IT outsourcing |
-|---------|-----------|----------------|
-| Centreon Cloud   | AWS EU Ireland Region (eu-west-1) | France |
+| Service   | Hosting   |
+|---------|-----------|
+| Centreon Cloud (Europe)  | AWS EU Ireland (eu-west-1) |
+| Centreon Cloud (Americas)  | AWS US East N. Virginia (us-east-1) |
+| Identity Provider (Global)  |  Auth0 Europe |
+| Product Engagement Platform (Global)  |  Pendo Europe |
 
 More information on AWS's security and compliance practices [here](https://d1.awsstatic.com/whitepapers/compliance/AWS_Compliance_Quick_Reference.pdf).
 
