@@ -61,10 +61,10 @@ Les services de Centreon Cloud sont intégralement hébergés et opérés depuis
 
 | Service   | Hosting   |
 |---------|-----------|
-| Centreon Cloud   | AWS EU Ireland (eu-west-1) |
-| Centreon Cloud   | AWS US East N. Virginia (us-east-1) |
-| Fournisseur d'identité   |  Auth0 Europe |
-| Plateforme d'engagement produit   |  Pendo Europe |
+| Centreon Cloud (Europe) | AWS EU Ireland (eu-west-1) |
+| Centreon Cloud (Amérique)  | AWS US East N. Virginia (us-east-1) |
+| Fournisseur d'identité (Global)  |  Auth0 Europe |
+| Plateforme d'engagement produit (Global) |  Pendo Europe |
 
 Plus d’informations sur les pratiques de sécurité et de conformité d’AWS sont disponibles [ici](https://d1.awsstatic.com/whitepapers/compliance/AWS_Compliance_Quick_Reference.pdf).
 
