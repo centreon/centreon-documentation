@@ -44,9 +44,14 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Metric name           | Description               | Unit  |
-| :-------------------- | :------------------------ | :---- |
-| status                | Components global status  |       |
+| Metric name           | Unit |
+|:----------------------|:-----|
+| global.status         | N/A  |
+| physicaldrive.status  | N/A  |
+| subsystem.status      | N/A  |
+| component.status      | N/A  |
+| temperature.status    | N/A  |
+| fan.status            | N/A  |
 
 </TabItem>
 </Tabs>
