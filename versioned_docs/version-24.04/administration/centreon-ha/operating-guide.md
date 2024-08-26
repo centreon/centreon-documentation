@@ -267,7 +267,7 @@ The passive central node is now excluded from the cluster.
 
 If you run `pcs status` on the active central node:
 
-* The resources and the cluster are still working (the output shows that the noe still sees the quorum device).
+* The resources and the cluster are still working (the output shows that the node still sees the quorum device).
 * The passive central node is seen `offline` on the active node:
 
 ```text
