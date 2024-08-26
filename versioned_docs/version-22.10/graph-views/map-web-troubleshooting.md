@@ -15,7 +15,7 @@ When connecting to Centreon MAP service, an "authentication failed" error occurs
 
 #### Problem
 
-The credentials for the dedicated user to MAP are no longer valid because they have been changed, probably due to a password expiration.
+The credentials to connect to the MAP module are no longer valid because they have been changed, probably due to a password expiration.
 
 #### Solution
 
