@@ -172,7 +172,6 @@ Now that the update is finished, the resources can be managed again:
 
 ```bash
 pcs property set maintenance-mode=false
-pcs resource cleanup ms_mysql
 ```
 
 ## Verifying platform stability
