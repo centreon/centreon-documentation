@@ -7,6 +7,20 @@ import TabItem from '@theme/TabItem';
 
 This chapter shows some guidelines on how to troubleshoot your MAP installation.
 
+## "Could not authenticate using admin (error 500)"
+
+#### Symptom
+
+When connecting to Centreon MAP service, an "authentication failed" error occurs.
+
+#### Problem
+
+The credentials for the dedicated user to MAP are no longer valid because they have been changed, probably due to a password expiration.
+
+#### Solution
+
+You can update the password by accessing this file: **/etc/centreon-map/map-config.properties**.
+
 ## MAP configuration is not working in HTTPS
 
 #### Symptom
