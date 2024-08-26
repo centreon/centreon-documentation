@@ -144,7 +144,48 @@ Slave Thread Status [OK]
 Position Status [OK]
 ```
 
-<!-- If the synchronization shows `KO`, you must fix it.-->
+If the synchronization shows `KO`, you must fix it. The procedure below explains how to manually re-enable MariaDB replication.
+
+### Restore MariaDB master-slave replication
+
+> This procedure should be applied in the event of a breakdown in the MariaDB databases' replication thread or a server crash if it cannot be recovered by running `pcs resource cleanup ms_mysql` or `pcs resource restart ms_mysql`.
+
+Prevent the cluster from managing the MariaDB resource during the operation (to be run from any node):
+
+```bash
+pcs resource unmanage ms_mysql
+```
+
+Connect to the MariaDB slave server and shut down the MariaDB service:
+
+```bash
+mysqladmin -p shutdown
+```
+
+Connect to the MariaDB master server and run the following command to overwrite the slave's data with the master's:
+
+```bash
+/usr/share/centreon-ha/bin/mysql-sync-bigdb.sh
+```
+
+Re-enable the cluster to manage the MariaDB resource:
+
+```bash
+pcs resource manage ms_mysql
+```
+
+Run the following command on one of the database servers to make sure that the replication has been successfully restored:
+
+```bash
+/usr/share/centreon-ha/bin/mysql-check-status.sh
+```
+
+```text
+Connection Status '@CENTRAL_MASTER_NAME@' [OK]
+Connection Status '@CENTRAL_SLAVE_NAME@' [OK]
+Slave Thread Status [OK]
+Position Status [OK]
+```
 
 ## View the cluster's configuration
 
