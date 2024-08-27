@@ -20,10 +20,10 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template           | Service Description                                                                                                                                |
 |:--------------|:---------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu           | OS-Mac-Cpu-SNMP-custom     | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |
-| Disk-IO       | OS-Mac-Disk-IO-SNMP-custom | Check access disk of the disk. For each check the name of the disk will appear "label" rather than the letter assigned                             |
+| Cpu           | OS-Mac-Cpu-SNMP-custom     | Check the rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |
+| Disk-IO       | OS-Mac-Disk-IO-SNMP-custom | Check disk access. For each check the name of the disk will appear as a "label" rather than the letter assigned                             |
 | Load          | OS-Mac-Load-SNMP-custom    | Check the server load average                                                                                                                      |
-| Memory        | OS-Mac-Memory-SNMP-custom  | Check the rate of the utilization of memory                                                                                                        |
+| Memory        | OS-Mac-Memory-SNMP-custom  | Check the rate of memory usage |
 | Swap          | OS-Mac-Swap-SNMP-custom    | Check virtual memory usage                                                                                                                         |
 
 > The services listed above are created automatically when the **OS-Mac-SNMP-custom** host template is used.
@@ -33,7 +33,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                        | Service Description                                                                               | Discovery  |
 |:---------------------|:----------------------------------------|:--------------------------------------------------------------------------------------------------|:----------:|
-| Disk-Generic-Id      | OS-Mac-Disk-Generic-Id-SNMP-custom      | Check the rate of free space on the disk. For each checks the name of the disk will appear        |            |
+| Disk-Generic-Id      | OS-Mac-Disk-Generic-Id-SNMP-custom      | Check the rate of free space on the disk. For each check the name of the disk will appear        |            |
 | Disk-Generic-Name    | OS-Mac-Disk-Generic-Name-SNMP-custom    | Check the rate of free space on the disk. For each checks the mount pont of the disk will appear  | X          |
 | Disk-Global          | OS-Mac-Disk-Global-SNMP-custom          | Check the rate of free space on disks. For each checks the mount point of disks will appear       |            |
 | Inodes-Global        | OS-Mac-Inodes-Global-SNMP-custom        | Check Inodes space usage on partitions                                                            |            |
