@@ -34,8 +34,8 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias        | Service Template                        | Service Description                                                                               | Discovery  |
 |:---------------------|:----------------------------------------|:--------------------------------------------------------------------------------------------------|:----------:|
 | Disk-Generic-Id      | OS-Mac-Disk-Generic-Id-SNMP-custom      | Check the rate of free space on the disk. For each check the name of the disk will appear        |            |
-| Disk-Generic-Name    | OS-Mac-Disk-Generic-Name-SNMP-custom    | Check the rate of free space on the disk. For each checks the mount pont of the disk will appear  |            |
-| Disk-Global          | OS-Mac-Disk-Global-SNMP-custom          | Check the rate of free space on disks. For each checks the mount point of disks will appear       | X          |
+| Disk-Generic-Name    | OS-Mac-Disk-Generic-Name-SNMP-custom    | Check the rate of free space on the disk. For each check the mount point of the disk will appear  |            |
+| Disk-Global          | OS-Mac-Disk-Global-SNMP-custom          | Check the rate of free space on disks. For each check the mount point of disks will appear       | X          |
 | Inodes-Global        | OS-Mac-Inodes-Global-SNMP-custom        | Check Inodes space usage on partitions                                                            |            |
 | Process-Generic      | OS-Mac-Process-Generic-SNMP-custom      | Check Unix process/service is working                                                             |            |
 | Traffic-Generic-Id   | OS-Mac-Traffic-Generic-Id-SNMP-custom   | Check the bandwidth of the interface. For each checks the name of the interface will appear       |            |
