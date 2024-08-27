@@ -34,13 +34,13 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias        | Service Template                        | Service Description                                                                               | Discovery  |
 |:---------------------|:----------------------------------------|:--------------------------------------------------------------------------------------------------|:----------:|
 | Disk-Generic-Id      | OS-Mac-Disk-Generic-Id-SNMP-custom      | Check the rate of free space on the disk. For each check the name of the disk will appear        |            |
-| Disk-Generic-Name    | OS-Mac-Disk-Generic-Name-SNMP-custom    | Check the rate of free space on the disk. For each checks the mount pont of the disk will appear  | X          |
-| Disk-Global          | OS-Mac-Disk-Global-SNMP-custom          | Check the rate of free space on disks. For each checks the mount point of disks will appear       |            |
+| Disk-Generic-Name    | OS-Mac-Disk-Generic-Name-SNMP-custom    | Check the rate of free space on the disk. For each checks the mount pont of the disk will appear  |            |
+| Disk-Global          | OS-Mac-Disk-Global-SNMP-custom          | Check the rate of free space on disks. For each checks the mount point of disks will appear       | X          |
 | Inodes-Global        | OS-Mac-Inodes-Global-SNMP-custom        | Check Inodes space usage on partitions                                                            |            |
 | Process-Generic      | OS-Mac-Process-Generic-SNMP-custom      | Check Unix process/service is working                                                             |            |
 | Traffic-Generic-Id   | OS-Mac-Traffic-Generic-Id-SNMP-custom   | Check the bandwidth of the interface. For each checks the name of the interface will appear       |            |
-| Traffic-Generic-Name | OS-Mac-Traffic-Generic-Name-SNMP-custom | Check the bandwidth of the interface. For each checks the name of the interface will appear       | X          |
-| Traffic-Global       | OS-Mac-Traffic-Global-SNMP-custom       | Check the bandwidth of interfaces. For each checks the name of the interface will appear          |            |
+| Traffic-Generic-Name | OS-Mac-Traffic-Generic-Name-SNMP-custom | Check the bandwidth of the interface. For each checks the name of the interface will appear       |            |
+| Traffic-Global       | OS-Mac-Traffic-Global-SNMP-custom       | Check the bandwidth of interfaces. For each checks the name of the interface will appear          |  X         |
 | Uptime               | OS-Mac-Uptime-SNMP-custom               | Time since the server has been working and available                                              |            |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
