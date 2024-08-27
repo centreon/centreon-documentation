@@ -52,9 +52,9 @@ More information about discovering hosts automatically is available on the [dedi
 
 #### Service discovery
 
-| Rule name                          | Description                                               |
-|:-----------------------------------|:----------------------------------------------------------|
-| HW-Storage-Hp-Msa2000-Traffic-Name | Discover the disk partitions and monitor space occupation |
+| Rule name                          | Description                                                   |
+|:-----------------------------------|:--------------------------------------------------------------|
+| HW-Storage-Hp-Msa2000-Traffic-Name | Discover network interfaces and monitor bandwidth utilization |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -66,7 +66,11 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Hardware" label="Hardware">
 
-Coming soon
+| Metric name    | Unit |
+|:---------------|:-----|
+| unit.status    | N/A  |
+| sensors.status | N/A  |
+| port.status    | N/A  |
 
 </TabItem>
 <TabItem value="Traffic-*" label="Traffic-*">
@@ -118,7 +122,7 @@ dnf install centreon-pack-hardware-storage-hp-msa2000-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-storage-hp-msa2000-snmp
@@ -165,7 +169,7 @@ dnf install centreon-plugin-Hardware-Storage-Hp-Msa2000-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-storage-hp-msa2000-snmp
@@ -192,8 +196,8 @@ yum install centreon-plugin-Hardware-Storage-Hp-Msa2000-Snmp
 > When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
-| Macro            | Description                                                                                          | Default value     | Mandatory   |
-|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| Macro            | Description                                                                                                                              | Default value     | Mandatory   |
+|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -206,34 +210,34 @@ yum install centreon-plugin-Hardware-Storage-Hp-Msa2000-Snmp
 <Tabs groupId="sync">
 <TabItem value="Hardware" label="Hardware">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'unit', 'sensors', 'port'                        | .*                |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'unit', 'sensors', 'port'                                                            | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Traffic-Generic-Id" label="Traffic-Generic-Id">
 
-| Macro        | Description                                                                                                                                           | Default value     | Mandatory   |
-|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACEID  | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |                   |             |
-| CRITICALIN   | Thresholds                                                                                                                                            | 90                |             |
-| WARNINGIN    | Thresholds                                                                                                                                            | 80                |             |
-| CRITICALOUT  | Thresholds                                                                                                                                            | 90                |             |
-| WARNINGOUT   | Thresholds                                                                                                                                            | 80                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                    |                   |             |
+| Macro        | Description                                                                                                                                      | Default value     | Mandatory   |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| INTERFACEID  | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored                                      |                   |             |
+| CRITICALIN   | Critical threshold                                                                                                                               | 90                |             |
+| WARNINGIN    | Warning threshold                                                                                                                                | 80                |             |
+| CRITICALOUT  | Critical threshold                                                                                                                               | 90                |             |
+| WARNINGOUT   | Warning threshold                                                                                                                                | 80                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Traffic-Generic-Name" label="Traffic-Generic-Name">
 
-| Macro         | Description                                                                                                                                           | Default value     | Mandatory   |
-|:--------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACENAME | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |                   |             |
-| CRITICALIN    | Thresholds                                                                                                                                            | 90                |             |
-| WARNINGIN     | Thresholds                                                                                                                                            | 80                |             |
-| CRITICALOUT   | Thresholds                                                                                                                                            | 90                |             |
-| WARNINGOUT    | Thresholds                                                                                                                                            | 80                |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                    |                   |             |
+| Macro         | Description                                                                                                                                      | Default value     | Mandatory   |
+|:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| INTERFACENAME | Define the interface filter on interfaces name. If empty, all interfaces will be monitored                                                       |                   |             |
+| CRITICALIN    | Critical threshold                                                                                                                               | 90                |             |
+| WARNINGIN     | Warning threshold                                                                                                                                | 80                |             |
+| CRITICALOUT   | Critical threshold                                                                                                                               | 90                |             |
+| WARNINGOUT    | Warning threshold                                                                                                                                | 80                |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Traffic-Global" label="Traffic-Global">
@@ -241,12 +245,12 @@ yum install centreon-plugin-Hardware-Storage-Hp-Msa2000-Snmp
 | Macro          | Description                                                                                                                                                                                                         | Default value     | Mandatory   |
 |:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTER         | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name                                                               | .*                |             |
-| CRITICALIN     | Thresholds                                                                                                                                                                                                          | 90                |             |
-| WARNINGIN      | Thresholds                                                                                                                                                                                                          | 80                |             |
-| CRITICALOUT    | Thresholds                                                                                                                                                                                                          | 90                |             |
-| WARNINGOUT     | Thresholds                                                                                                                                                                                                          | 80                |             |
+| CRITICALIN     | Critical threshold                                                                                                                                                                                                  | 90                |             |
+| WARNINGIN      | Warning threshold                                                                                                                                                                                                   | 80                |             |
+| CRITICALOUT    | Critical threshold                                                                                                                                                                                                  | 90                |             |
+| WARNINGOUT     | Warning threshold                                                                                                                                                                                                   | 80                |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                  | --verbose         |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                    | --verbose         |             |
 
 </TabItem>
 </Tabs>
@@ -281,7 +285,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All interfaces are ok | '*interface_name*#status'=;;;;'*interface_name*#interface.traffic.in.bitspersecond'=b/s;;;;'*interface_name*#interface.traffic.out.bitspersecond'=b/s;;;;
+OK: All interfaces are ok | '*interface_name*#status'='up';;;;'*interface_name*#interface.traffic.in.bitspersecond'=20b/s;;;;'*interface_name*#interface.traffic.out.bitspersecond'=20b/s;;;;
 ```
 
 ### Troubleshooting
