@@ -29,8 +29,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                                            | Service Description                          | Discovery  |
 |:---------------------|:------------------------------------------------------------|:---------------------------------------------|:----------:|
-| Traffic-Generic-Id   | HW-Storage-Dell-Compellent-Traffic-Generic-Id-SNMP-custom   | Check traffic of an network interface        |            |
-| Traffic-Generic-Name | HW-Storage-Dell-Compellent-Traffic-Generic-Name-SNMP-custom | Check traffic of an network interface        |            |
+| Traffic-Generic-Id   | HW-Storage-Dell-Compellent-Traffic-Generic-Id-SNMP-custom   | Check traffic of a network interface        |            |
+| Traffic-Generic-Name | HW-Storage-Dell-Compellent-Traffic-Generic-Name-SNMP-custom | Check traffic of a network interface        |            |
 | Traffic-Global       | HW-Storage-Dell-Compellent-Traffic-Global-SNMP-custom       | Check traffic of multiple network interfaces | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
