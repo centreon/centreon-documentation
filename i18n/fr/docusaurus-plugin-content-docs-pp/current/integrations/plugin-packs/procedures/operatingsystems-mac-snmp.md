@@ -21,8 +21,8 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias   | Modèle de service          | Description                                                                                                                                                                  |
 |:--------|:---------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu     | OS-Mac-Cpu-SNMP-custom     | Contrôle du taux d'utilisation du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |
-| Disk-IO | OS-Mac-Disk-IO-SNMP-custom | Contrôle les accès disques du disque. Pour chaque contrôle apparaîtra le nom du disque                                                                                       |
+| Cpu     | OS-Mac-Cpu-SNMP-custom     | Contrôle du taux d'utilisation du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPUs ainsi que le taux par CPU pour les CPUs multi-coeur |
+| Disk-IO | OS-Mac-Disk-IO-SNMP-custom | Contrôle les accès disque du disque. Pour chaque contrôle apparaîtra le nom du disque                                                                                       |
 | Load    | OS-Mac-Load-SNMP-custom    | Contrôle de la charge serveur                                                                                                                                                |
 | Memory  | OS-Mac-Memory-SNMP-custom  | Contrôle du taux d'utilisation de la mémoire vive                                                                                                                            |
 | Swap    | OS-Mac-Swap-SNMP-custom    | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                       |
