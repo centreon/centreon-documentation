@@ -121,7 +121,7 @@ dnf install centreon-pack-cloud-microsoft-office365-exchange
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-cloud-microsoft-office365-exchange
@@ -168,7 +168,7 @@ dnf install centreon-plugin-Cloud-Microsoft-Office365-Exchange-Api
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-cloud-microsoft-office365-exchange-api
@@ -193,11 +193,11 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Exchange-Api
 3. Apply the **Cloud-Microsoft-Office365-Exchange-Api-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                 | Description                                                                                          | Default value     | Mandatory   |
-|:----------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| OFFICE365CLIENTID     | Set Office 365 client ID                                                                             |                   | X           |
-| OFFICE365CLIENTSECRET | Set Office 365 client secret                                                                         |                   | X           |
-| OFFICE365TENANT       | Set Office 365 tenant ID                                                                             |                   | X           |
+| Macro                 | Description                                                                                                                              | Default value     | Mandatory   |
+|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| OFFICE365CLIENTID     | Set Office 365 client ID                                                                                                                 |                   | X           |
+| OFFICE365CLIENTSECRET | Set Office 365 client secret                                                                                                             |                   | X           |
+| OFFICE365TENANT       | Set Office 365 tenant ID                                                                                                                 |                   | X           |
 | OFFICE365EXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -210,46 +210,45 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Exchange-Api
 <Tabs groupId="sync">
 <TabItem value="Email-Activity" label="Email-Activity">
 
-| Macro                     | Description                                                                                                                                      | Default value     | Mandatory   |
-|:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| UNITS                     | Unit of thresholds (default: '%') ('%', 'count')                                                                                                 | %                 |             |
-| FILTERCOUNTERS            | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='active\|total' (default: 'active\|total') | active\|total     |             |
-| FILTERUSER                | Filter users                                                                                                                                     |                   |             |
-| WARNINGACTIVEUSERS        | Warning threshold                                                                                                                                |                   |             |
-| CRITICALACTIVEUSERS       | Critical threshold                                                                                                                               |                   |             |
-| WARNINGREADCOUNT          | Warning threshold                                                                                                                                |                   |             |
-| CRITICALREADCOUNT         | Critical threshold                                                                                                                               |                   |             |
-| WARNINGRECEIVECOUNT       | Warning threshold                                                                                                                                |                   |             |
-| CRITICALRECEIVECOUNT      | Critical threshold                                                                                                                               |                   |             |
-| WARNINGSENDCOUNT          | Warning threshold                                                                                                                                |                   |             |
-| CRITICALSENDCOUNT         | Critical threshold                                                                                                                               |                   |             |
-| WARNINGTOTALREADCOUNT     | Warning threshold                                                                                                                                |                   |             |
-| CRITICALTOTALREADCOUNT    | Critical threshold                                                                                                                               |                   |             |
-| WARNINGTOTALRECEIVECOUNT  | Warning threshold                                                                                                                                |                   |             |
-| CRITICALTOTALRECEIVECOUNT | Critical threshold                                                                                                                               |                   |             |
-| WARNINGTOTALSENDCOUNT     | Warning threshold                                                                                                                                |                   |             |
-| CRITICALTOTALSENDCOUNT    | Critical threshold                                                                                                                               |                   |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                               |                   |             |
-
+| Macro                     | Description                                                                                                                                      | Default value                    | Mandatory   |
+|:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------|:-----------:|
+| UNITS                     | Unit of thresholds ('%', 'count')                                                                                                                | %                                |             |
+| FILTERCOUNTERS            | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='active\ | total'                          | active\|total                    |             |
+| FILTERUSER                | Filter users                                                                                                                                     |                                  |             |
+| WARNINGACTIVEUSERS        | Warning threshold                                                                                                                                |                                  |             |
+| CRITICALACTIVEUSERS       | Critical threshold                                                                                                                               |                                  |             |
+| WARNINGREADCOUNT          | Warning threshold                                                                                                                                |                                  |             |
+| CRITICALREADCOUNT         | Critical threshold                                                                                                                               |                                  |             |
+| WARNINGRECEIVECOUNT       | Warning threshold                                                                                                                                |                                  |             |
+| CRITICALRECEIVECOUNT      | Critical threshold                                                                                                                               |                                  |             |
+| WARNINGSENDCOUNT          | Warning threshold                                                                                                                                |                                  |             |
+| CRITICALSENDCOUNT         | Critical threshold                                                                                                                               |                                  |             |
+| WARNINGTOTALREADCOUNT     | Warning threshold                                                                                                                                |                                  |             |
+| CRITICALTOTALREADCOUNT    | Critical threshold                                                                                                                               |                                  |             |
+| WARNINGTOTALRECEIVECOUNT  | Warning threshold                                                                                                                                |                                  |             |
+| CRITICALTOTALRECEIVECOUNT | Critical threshold                                                                                                                               |                                  |             |
+| WARNINGTOTALSENDCOUNT     | Warning threshold                                                                                                                                |                                  |             |
+| CRITICALTOTALSENDCOUNT    | Critical threshold                                                                                                                               |                                  |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                                  |             |
 </TabItem>
 <TabItem value="Users-Activity" label="Users-Activity">
 
-| Macro                      | Description                                                                                                                                                                                                                                        | Default value                       | Mandatory   |
-|:---------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|:-----------:|
-| UNITS                      | Unit of thresholds (default: '%') ('%', 'count')                                                                                                                                                                                                   | %                                   |             |
-| FILTERCOUNTERS             | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='active\|total' (default: 'active\|total')                                                                                                   | active\|total                       |             |
-| FILTERMAILBOX              | Filter mailboxes                                                                                                                                                                                                                                   |                                     |             |
-| WARNINGACTIVEMAILBOXES     | Warning threshold                                                                                                                                                                                                                                  |                                     |             |
-| CRITICALACTIVEMAILBOXES    | Critical threshold                                                                                                                                                                                                                                 |                                     |             |
-| WARNINGITEMS               |                                                                                                                                                                                                                                                    |                                     |             |
-| CRITICALITEMS              |                                                                                                                                                                                                                                                    |                                     |             |
-| WARNINGSTATUS              | Define the conditions to match for the status to be WARNING (default: '%{used} \> %{issue\_warning\_quota}'). You can use the following variables: %{used}, %{issue\_warning\_quota}, %{prohibit\_send\_quota}, %{prohibit\_send\_receive\_quota}  | %{used} \> %{issue\_warning\_quota} |             |
-| CRITICALSTATUS             | Define the conditions to match for the status to be CRITICAL (default: '%{used} \> %{prohibit\_send\_quota}'). You can use the following variables: %{used}, %{issue\_warning\_quota}, %{prohibit\_send\_quota}, %{prohibit\_send\_receive\_quota} | %{used} \> %{prohibit\_send\_quota} |             |
-| WARNINGTOTALUSAGEACTIVE    | Warning threshold                                                                                                                                                                                                                                  |                                     |             |
-| CRITICALTOTALUSAGEACTIVE   | Critical threshold                                                                                                                                                                                                                                 |                                     |             |
-| WARNINGTOTALUSAGEINACTIVE  | Warning threshold                                                                                                                                                                                                                                  |                                     |             |
-| CRITICALTOTALUSAGEINACTIVE | Critical threshold                                                                                                                                                                                                                                 |                                     |             |
-| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                                                 |                                     |             |
+| Macro                      | Description                                                                                                                                                                                        | Default value                       | Mandatory |
+|:---------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|:---------:|
+| UNITS                      | Unit of thresholds ('%', 'count')                                                                                                                                                                  | %                                   |           |
+| FILTERCOUNTERS             | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='active\| total'                                                                             |  active\  |total                    |           |
+| FILTERMAILBOX              | Filter mailboxes                                                                                                                                                                                   |                                     |           |
+| WARNINGACTIVEMAILBOXES     | Warning threshold                                                                                                                                                                                  |                                     |           |
+| CRITICALACTIVEMAILBOXES    | Critical threshold                                                                                                                                                                                 |                                     |           |
+| WARNINGITEMS               | Warning threshold                                                                                                                                                                                  |                                     |           |
+| CRITICALITEMS              | Critical threshold                                                                                                                                                                                 |                                     |           |
+| WARNINGSTATUS              | Define the conditions to match for the status to be WARNING. You can use the following variables: %{used}, %{issue\_warning\_quota}, %{prohibit\_send\_quota}, %{prohibit\_send\_receive\_quota}   | %{used} \> %{issue\_warning\_quota} |           |
+| CRITICALSTATUS             | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{used}, %{issue\_warning\_quota}, %{prohibit\_send\_quota}, %{prohibit\_send\_receive\_quota}  | %{used} \> %{prohibit\_send\_quota} |           |
+| WARNINGTOTALUSAGEACTIVE    | Warning threshold                                                                                                                                                                                  |                                     |           |
+| CRITICALTOTALUSAGEACTIVE   | Critical threshold                                                                                                                                                                                 |                                     |           |
+| WARNINGTOTALUSAGEINACTIVE  | Warning threshold                                                                                                                                                                                  |                                     |           |
+| CRITICALTOTALUSAGEINACTIVE | Critical threshold                                                                                                                                                                                 |                                     |           |
+| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                             |                                     |           |
 
 </TabItem>
 </Tabs>
