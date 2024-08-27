@@ -21,7 +21,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Alias        | Modèle de service                              | Description                             |
 |:-------------|:-----------------------------------------------|:----------------------------------------|
-| GlobalStatus | HW-Storage-IBM-TS3100-GlobalStatus-SNMP-custom | Contrôle l'état globale de l'équipement |
+| GlobalStatus | HW-Storage-IBM-TS3100-GlobalStatus-SNMP-custom | Contrôle l'état global de l'équipement |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-IBM-TS3100-SNMP-custom** est utilisé.
 
