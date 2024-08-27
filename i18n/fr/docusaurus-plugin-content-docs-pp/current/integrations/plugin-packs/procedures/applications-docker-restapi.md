@@ -276,8 +276,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Node '192.168.0.50' Containers Running : 7, Containers Stopped : 2, Containers Paused : 0 | 'containers_running'=7;;;0; 'containers_stopped'=2;;;0; 'containers_paused'=0;;;0;
-Node '192.168.0.50' Containers Running : 7, Containers Stopped : 2, Containers Paused : 0
+OK: Node '10.0.0.1' Containers Running : 7, Containers Stopped : 2, Containers Paused : 0 | 'containers_running'=7;;;0; 'containers_stopped'=2;;;0; 'containers_paused'=0;;;0;
+Node '10.0.0.1' Containers Running : 7, Containers Stopped : 2, Containers Paused : 0
 ```
 
 ### Diagnostic des erreurs communes
