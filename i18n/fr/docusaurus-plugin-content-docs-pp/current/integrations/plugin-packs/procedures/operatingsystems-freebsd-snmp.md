@@ -21,7 +21,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias  | Modèle de service             | Description                                                                                                                                                                  |
 |:-------|:------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu    | OS-FreeBSD-Cpu-SNMP-custom    | Contrôle du taux d'utilisation du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |
+| Cpu    | OS-FreeBSD-Cpu-SNMP-custom    | Contrôle du taux d'utilisation du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPUs ainsi que le taux par CPU pour les CPUs multi-coeur |
 | Load   | OS-FreeBSD-Load-SNMP-custom   | Contrôle de la charge serveur                                                                                                                                                |
 | Memory | OS-FreeBSD-Memory-SNMP-custom | Contrôle du taux d'utilisation de la mémoire vive                                                                                                                            |
 | Swap   | OS-FreeBSD-Swap-SNMP-custom   | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                       |
@@ -36,7 +36,7 @@ Le connecteur apporte les modèles de service suivants
 | Disk-Generic-Id      | OS-FreeBSD-Disk-Generic-Id-SNMP-custom      | Contrôle du taux d'espace libre disponible du disque. Pour chaque contrôle apparaîtra le nom du disque                   |            |
 | Disk-Generic-Name    | OS-FreeBSD-Disk-Generic-Name-SNMP-custom    | Contrôle du taux d'espace libre disponible du disque. Pour chaque contrôle apparaîtra le point de montage du disque      |            |
 | Disk-Global          | OS-FreeBSD-Disk-Global-SNMP-custom          | Contrôle du taux d'espace libre disponible des disques. Pour chaque contrôle apparaîtra le point de montage des disques  |     X      |
-| Disk-IO              | OS-FreeBSD-Disk-IO-SNMP-custom              | Contrôle les accès disques du disque. Pour chaque contrôle apparaîtra le nom du disque                                   |            |
+| Disk-IO              | OS-FreeBSD-Disk-IO-SNMP-custom              | Contrôle les accès disque du disque. Pour chaque contrôle apparaîtra le nom du disque                                   |            |
 | Inodes-Global        | OS-Freebsd-Inodes-Global-SNMP-custom        | Contrôle l'utilisation des inodes                                                                                        |            |
 | Process-Generic      | OS-FreeBSD-Process-Generic-SNMP-custom      | Contrôle permettant de vérifier le fonctionnement d'un processus/service Unix                                            |            |
 | Traffic-Generic-Id   | OS-FreeBSD-Traffic-Generic-Id-SNMP-custom   | Contrôle de la bande passante de l'interface. Pour chaque contrôle apparaîtra le nom de l'interface                      |            |
@@ -67,7 +67,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 |:-----------------------------|:----------------------------------------------------------------------------------------------------------|
 | OS-FreeBSD-SNMP-Disk-Name    | Utilise le nom du disque pour découvrir les partitions du disque et supervise l'occupation de l'espace    |
 | OS-FreeBSD-SNMP-Disk-Path    | Utilise le chemin du disque pour découvrir les partitions du disque et supervise l'occupation de l'espace |
-| OS-FreeBSD-SNMP-Traffic-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation                                   |
+| OS-FreeBSD-SNMP-Traffic-Name | Découvre les interfaces réseau et supervise le statut et l'utilisation                                   |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -315,8 +315,8 @@ yum install centreon-plugin-Operatingsystems-Freebsd-Snmp
 
 | Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold average CPU utilization                                                                                                        | 80                |             |
-| CRITICAL     | Critical threshold average CPU utilization                                                                                                       | 90                |             |
+| WARNING      | Warning threshold for average CPU utilization                                                                                                        | 80                |             |
+| CRITICAL     | Critical threshold for average CPU utilization                                                                                                       | 90                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
