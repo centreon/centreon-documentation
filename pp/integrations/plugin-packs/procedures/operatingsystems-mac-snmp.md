@@ -54,9 +54,9 @@ The connector brings the following service templates (sorted by the host templat
 
 #### Host discovery
 
-| Rule name       | Description                                                                                                                                                      |
-|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule |
+| Rule name       | Description                                                                                                                                                                                                   |
+|:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule for the **OS-Mac-SNMP-custom** host template |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
@@ -225,7 +225,7 @@ dnf install centreon-pack-operatingsystems-mac-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-operatingsystems-mac-snmp
@@ -272,7 +272,7 @@ dnf install centreon-plugin-Operatingsystems-Mac-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-operatingsystems-mac-snmp
@@ -299,8 +299,8 @@ yum install centreon-plugin-Operatingsystems-Mac-Snmp
 > When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
-| Macro            | Description                                                                                          | Default value     | Mandatory   |
-|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| Macro            | Description                                                                                                                              | Default value     | Mandatory   |
+|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -313,10 +313,10 @@ yum install centreon-plugin-Operatingsystems-Mac-Snmp
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold average CPU utilization                                                          | 80                |             |
-| CRITICAL     | Critical threshold average CPU utilization                                                         | 90                |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold average CPU utilization                                                                                              | 80                |             |
+| CRITICAL     | Critical threshold average CPU utilization                                                                                             | 90                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
@@ -329,7 +329,7 @@ yum install centreon-plugin-Operatingsystems-Mac-Snmp
 | TRANSFORMSRC | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run' will replace all occurrences of 'dev' with 'run' |                   |             |
 | CRITICAL     | Critical threshold                                                                                                                                                                             | 90                |             |
 | WARNING      | Warning threshold                                                                                                                                                                              | 80                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                             |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                         |                   |             |
 
 </TabItem>
 <TabItem value="Disk-Generic-Name" label="Disk-Generic-Name">
@@ -337,109 +337,109 @@ yum install centreon-plugin-Operatingsystems-Mac-Snmp
 | Macro        | Description                                                                                                                                                                                    | Default value     | Mandatory   |
 |:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | TRANSFORMSRC | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run' will replace all occurrences of 'dev' with 'run' |                   |             |
-| DISKNAME     | Set the storage (number expected) example: 1, 2,... (empty means 'check all storage')                                                                                                          |                   |             |
+| DISKNAME     | Set the storage name (empty means 'check all storage')                                                                                                                                         |                   |             |
 | TRANSFORMDST | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run' will replace all occurrences of 'dev' with 'run' |                   |             |
 | WARNING      | Warning threshold                                                                                                                                                                              | 80                |             |
 | CRITICAL     | Critical threshold                                                                                                                                                                             | 90                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                             |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                         |                   |             |
 
 </TabItem>
 <TabItem value="Disk-Global" label="Disk-Global">
 
 | Macro        | Description                                                                                                                                                                                    | Default value     | Mandatory   |
 |:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER       | Set the storage (number expected) example: 1, 2,... (empty means 'check all storage')                                                                                                          | .*                |             |
+| FILTER       | Set the storage name, it can be a regex (empty means 'check all storage')                                                                                                                      | .*                |             |
 | TRANSFORMDST | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run' will replace all occurrences of 'dev' with 'run' |                   |             |
 | TRANSFORMSRC | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run' will replace all occurrences of 'dev' with 'run' |                   |             |
 | CRITICAL     | Critical threshold                                                                                                                                                                             | 90                |             |
 | WARNING      | Warning threshold                                                                                                                                                                              | 80                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                             | --verbose         |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                         | --verbose         |             |
 
 </TabItem>
 <TabItem value="Disk-IO" label="Disk-IO">
 
-| Macro         | Description                                                                                        | Default value     | Mandatory   |
-|:--------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| DISKNAME      | Set the device (number expected) example: 1, 2,... (empty means 'check all devices')               |                   |             |
-| CRITICALREAD  | Critical threshold                                                                                 |                   |             |
-| WARNINGREAD   | Warning threshold                                                                                  |                   |             |
-| CRITICALWRITE | Critical threshold                                                                                 |                   |             |
-| WARNINGWRITE  | Warning threshold                                                                                  |                   |             |
+| Macro         | Description                                                                                                                            | Default value     | Mandatory   |
+|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| DISKNAME      | Set the device name (empty means 'check all devices')                                                                                  |                   |             |
+| CRITICALREAD  | Critical threshold                                                                                                                     |                   |             |
+| WARNINGREAD   | Warning threshold                                                                                                                      |                   |             |
+| CRITICALWRITE | Critical threshold                                                                                                                     |                   |             |
+| WARNINGWRITE  | Warning threshold                                                                                                                      |                   |             |
 | EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Inodes-Global" label="Inodes-Global">
 
-| Macro        | Description                                                                                        | Default value                                            | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:---------------------------------------------------------|:-----------:|
-| FILTER       | Set the disk path (number expected) example: 1, 2,... (empty means 'check all disks path')         | .*                                                       |             |
-| FILTERDEVICE | Filter devices by name (regexp)                                                                    | ^(?!(tmpfs\|devpts\|none\|proc\|sysfs\|sunrpc\|\/\/.*)$) |             |
-| WARNING      | Warning threshold in percent                                                                       | 80                                                       |             |
-| CRITICAL     | Critical threshold in percent                                                                      | 90                                                       |             |
+| Macro        | Description                                                                                                                            | Default value                                            | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------|:-----------:|
+| FILTER       | Set the disk path (number expected) example: 1, 2,... (empty means 'check all disks path')                                             | .*                                                       |             |
+| FILTERDEVICE | Filter devices by name (regexp)                                                                                                        | ^(?!(tmpfs\|devpts\|none\|proc\|sysfs\|sunrpc\|\/\/.*)$) |             |
+| WARNING      | Warning threshold in percent                                                                                                           | 80                                                       |             |
+| CRITICAL     | Critical threshold in percent                                                                                                          | 90                                                       |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                                                |             |
 
 </TabItem>
 <TabItem value="Load" label="Load">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CRITICAL     | Critical threshold (1min,5min,15min)                                                               | 6,5,4             |             |
-| WARNING      | Warning threshold (1min,5min,15min)                                                                | 4,3,2             |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| CRITICAL     | Critical threshold (1min,5min,15min)                                                                                                   | 6,5,4             |             |
+| WARNING      | Warning threshold (1min,5min,15min)                                                                                                    | 4,3,2             |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CRITICAL     | Critical threshold in percent                                                                      | 90                |             |
-| WARNING      | Warning threshold in percent                                                                       | 80                |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| CRITICAL     | Critical threshold in percent                                                                                                          | 90                |             |
+| WARNING      | Warning threshold in percent                                                                                                           | 80                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Process-Generic" label="Process-Generic">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PROCESSARGS  | Filter process arguments                                                                           |                   |             |
-| PROCESSNAME  | Filter process name                                                                                |                   |             |
-| PROCESSPATH  | Filter process path                                                                                |                   |             |
-| CRITICAL     | Critical threshold of matching processes count                                                     |                   |             |
-| WARNING      | Warning threshold of matching processes count                                                      |                   |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSARGS  | Filter process arguments                                                                                                               |                   |             |
+| PROCESSNAME  | Filter process name                                                                                                                    |                   |             |
+| PROCESSPATH  | Filter process path                                                                                                                    |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                         |                   |             |
+| WARNING      | Warning threshold of matching processes count                                                                                          |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CRITICAL     | Thresholds                                                                                         | 30                |             |
-| WARNING      | Thresholds                                                                                         | 10                |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| CRITICAL     | Critical threshold                                                                                                                     | 30                |             |
+| WARNING      | Warning threshold                                                                                                                      | 10                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Traffic-Generic-Id" label="Traffic-Generic-Id">
 
-| Macro        | Description                                                                                                                                           | Default value     | Mandatory   |
-|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACEID  | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |                   |             |
-| CRITICALIN   | Thresholds                                                                                                                                            | 90                |             |
-| WARNINGIN    | Thresholds                                                                                                                                            | 80                |             |
-| CRITICALOUT  | Thresholds                                                                                                                                            | 90                |             |
-| WARNINGOUT   | Thresholds                                                                                                                                            | 80                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                    |                   |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| INTERFACEID  | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored.                           |                   |             |
+| CRITICALIN   | TCritical threshold                                                                                                                    | 90                |             |
+| WARNINGIN    | Warning threshold                                                                                                                      | 80                |             |
+| CRITICALOUT  | Critical threshold                                                                                                                     | 90                |             |
+| WARNINGOUT   | Warning threshold                                                                                                                      | 80                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Traffic-Generic-Name" label="Traffic-Generic-Name">
 
-| Macro         | Description                                                                                                                                           | Default value     | Mandatory   |
-|:--------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACENAME | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |                   |             |
-| CRITICALIN    | Thresholds                                                                                                                                            | 90                |             |
-| WARNINGIN     | Thresholds                                                                                                                                            | 80                |             |
-| CRITICALOUT   | Thresholds                                                                                                                                            | 90                |             |
-| WARNINGOUT    | Thresholds                                                                                                                                            | 80                |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                    |                   |             |
+| Macro         | Description                                                                                                                            | Default value     | Mandatory   |
+|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| INTERFACENAME | Define the interface filter on interfaces name. If empty, all interfaces will be monitored                                             |                   |             |
+| CRITICALIN    | Critical threshold                                                                                                                     | 90                |             |
+| WARNINGIN     | Warning threshold                                                                                                                      | 80                |             |
+| CRITICALOUT   | Critical threshold                                                                                                                     | 90                |             |
+| WARNINGOUT    | Warning threshold                                                                                                                      | 80                |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Traffic-Global" label="Traffic-Global">
@@ -447,20 +447,20 @@ yum install centreon-plugin-Operatingsystems-Mac-Snmp
 | Macro          | Description                                                                                                                                                                                                         | Default value     | Mandatory   |
 |:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTER         | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name                                                               | .*                |             |
-| CRITICALIN     | Thresholds                                                                                                                                                                                                          | 90                |             |
-| WARNINGIN      | Thresholds                                                                                                                                                                                                          | 80                |             |
-| CRITICALOUT    | Thresholds                                                                                                                                                                                                          | 90                |             |
-| WARNINGOUT     | Thresholds                                                                                                                                                                                                          | 80                |             |
+| CRITICALIN     | Critical threshold                                                                                                                                                                                                  | 90                |             |
+| WARNINGIN      | Warning threshold                                                                                                                                                                                                   | 80                |             |
+| CRITICALOUT    | Critical threshold                                                                                                                                                                                                  | 90                |             |
+| WARNINGOUT     | TWarning threshold                                                                                                                                                                                                  | 80                |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                  | --verbose         |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                              | --verbose         |             |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold                                                                                  |                   |             |
-| CRITICAL     | Critical threshold                                                                                 |                   |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold                                                                                                                      |                   |             |
+| CRITICAL     | Critical threshold                                                                                                                     |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
@@ -496,7 +496,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All interfaces are ok | '*interface_name*#status'=;;;;'*interface_name*#interface.traffic.in.bitspersecond'=b/s;;;;'*interface_name*#interface.traffic.out.bitspersecond'=b/s;;;;
+OK: All interfaces are ok | '*interface_name*#status'='up';;;;'*interface_name*#interface.traffic.in.bitspersecond'=20b/s;;;;'*interface_name*#interface.traffic.out.bitspersecond'=20b/s;;;;
 ```
 
 ### Troubleshooting
