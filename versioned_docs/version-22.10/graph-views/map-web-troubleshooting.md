@@ -7,15 +7,15 @@ import TabItem from '@theme/TabItem';
 
 This chapter shows some guidelines on how to troubleshoot your MAP installation.
 
-## "Could not authenticate using admin (error 500)"
+## "Failed to authenticate" error when connecting to the MAP homepage
 
 #### Symptom
 
-When connecting to Centreon MAP service, an "authentication failed" error occurs.
+A "Failed to authenticate" error occurs in the MAP homepage when trying to connect to the Centreon MAP service.
 
 #### Problem
 
-The credentials to connect to the MAP module are no longer valid because they have been changed, probably due to a password expiration.
+The credentials used by the **Web interface** user (defined during the installation) to connect to the MAP module are no longer valid because they have been changed, probably due to a password expiration.
 
 #### Solution
 
