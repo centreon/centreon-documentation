@@ -30,9 +30,9 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                | Modèle de service                                 | Description                                               | Découverte |
 |:---------------------|:--------------------------------------------------|:----------------------------------------------------------|:----------:|
-| Traffic-Generic-Id   | HW-Storage-Hp-Msa2000-Traffic-Generic-Id-custom   | Contrôle le traffic réseau d'une interface réseau         |            |
-| Traffic-Generic-Name | HW-Storage-Hp-Msa2000-Traffic-Generic-Name-custom | Contrôle le traffic réseau d'une interface réseau         |            |
-| Traffic-Global       | HW-Storage-Hp-Msa2000-Traffic-Global-custom       | Contrôle le traffic réseau de plusieurs interfaces réseau | X          |
+| Traffic-Generic-Id   | HW-Storage-Hp-Msa2000-Traffic-Generic-Id-custom   | Contrôle le trafic réseau d'une interface réseau         |            |
+| Traffic-Generic-Name | HW-Storage-Hp-Msa2000-Traffic-Generic-Name-custom | Contrôle le trafic réseau d'une interface réseau         |            |
+| Traffic-Global       | HW-Storage-Hp-Msa2000-Traffic-Global-custom       | Contrôle le trafic réseau de plusieurs interfaces réseau | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 

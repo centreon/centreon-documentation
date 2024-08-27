@@ -29,8 +29,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                                  | Service Description                          | Discovery  |
 |:---------------------|:--------------------------------------------------|:---------------------------------------------|:----------:|
-| Traffic-Generic-Id   | HW-Storage-Hp-Msa2000-Traffic-Generic-Id-custom   | Check traffic of an network interface        |            |
-| Traffic-Generic-Name | HW-Storage-Hp-Msa2000-Traffic-Generic-Name-custom | Check traffic of an network interface        |            |
+| Traffic-Generic-Id   | HW-Storage-Hp-Msa2000-Traffic-Generic-Id-custom   | Check traffic of a network interface        |            |
+| Traffic-Generic-Name | HW-Storage-Hp-Msa2000-Traffic-Generic-Name-custom | Check traffic of a network interface        |            |
 | Traffic-Global       | HW-Storage-Hp-Msa2000-Traffic-Global-custom       | Check traffic of multiple network interfaces | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
@@ -225,7 +225,7 @@ yum install centreon-plugin-Hardware-Storage-Hp-Msa2000-Snmp
 | WARNINGIN    | Warning threshold                                                                                                                                | 80                |             |
 | CRITICALOUT  | Critical threshold                                                                                                                               | 90                |             |
 | WARNINGOUT   | Warning threshold                                                                                                                                | 80                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Traffic-Generic-Name" label="Traffic-Generic-Name">
@@ -237,7 +237,7 @@ yum install centreon-plugin-Hardware-Storage-Hp-Msa2000-Snmp
 | WARNINGIN     | Warning threshold                                                                                                                                | 80                |             |
 | CRITICALOUT   | Critical threshold                                                                                                                               | 90                |             |
 | WARNINGOUT    | Warning threshold                                                                                                                                | 80                |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Traffic-Global" label="Traffic-Global">
@@ -250,7 +250,7 @@ yum install centreon-plugin-Hardware-Storage-Hp-Msa2000-Snmp
 | CRITICALOUT    | Critical threshold                                                                                                                                                                                                  | 90                |             |
 | WARNINGOUT     | Warning threshold                                                                                                                                                                                                   | 80                |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                    | --verbose         |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                  | --verbose         |             |
 
 </TabItem>
 </Tabs>
