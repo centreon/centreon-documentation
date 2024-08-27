@@ -130,7 +130,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-The plugin need the installation of Navisphere client (ask to your EMC Support).
+The plugin needs the Navisphere client to be installed (ask your EMC Support).
  By default , the plugin uses the following path: `/opt/Navisphere/bin`.
 
 ## Installing the monitoring connector
