@@ -265,7 +265,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 ```bash
 /usr/lib/centreon/plugins/centreon_docker_restapi.pl \
 	--plugin=cloud::docker::restapi::plugin \
-	--mode=mode=node-status \
+	--mode=node-status \
 	--hostname='10.0.0.1' \
 	--port=''   \
 	--warning-node-status='' \
