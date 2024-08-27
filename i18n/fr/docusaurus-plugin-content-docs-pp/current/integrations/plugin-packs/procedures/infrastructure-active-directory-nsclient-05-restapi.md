@@ -30,7 +30,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias        | Modèle de service                                            | Description                         |
 |:-------------|:-------------------------------------------------------------|:------------------------------------|
-| Dfsr-Backlog | Infra-ActiveDirectory-Dfsr-Backlog-NSClient05-Restapi-custom | Contrôle permettant le backlog dfsr |
+| Dfsr-Backlog | Infra-ActiveDirectory-Dfsr-Backlog-NSClient05-Restapi-custom | Contrôle le backlog dfsr |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -62,7 +62,7 @@ Coming soon
 
 ### Centreon NSClient++
 
-Pour surveiller une ressource via NSClient++ API, installez la version Centreon de l'agent NSClient++.
+Pour superviser une ressource via NSClient++ API, installez la version Centreon de l'agent NSClient++.
 Veuillez suivre notre [documentation officielle](../getting-started/how-to-guides/centreon-nsclient-tutorial.md) et assurez-vous que la configuration du **serveur Web / RestAPI** est correcte.
 
 ## Installer le connecteur de supervision
@@ -157,7 +157,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 |:--------------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | NSCPRESTAPILEGACYPASSWORD | Password used (configured in the prerequisites section)                                                                                   | PASSWORD          |             |
 | NSCPRESTAPIPROTO          | Protocol used                                                                                                                             | https             |             |
-| NSCPRESTAPIPORT           | Port use by the REST API NSClient++                                                                                                       | 8443              |             |
+| NSCPRESTAPIPORT           | Port used by the REST API NSClient++                                                                                                       | 8443              |             |
 | NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).  |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -183,7 +183,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 |:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SENDINGMEMBER    | Name of the member that is sending the replication data.                                                                                         |                   | X           |
 | REPLICATIONGROUP | Name for the replication group.                                                                                                                  |                   | X           |
-| REPLICATEDFOLDER | Name name for the replicated folder.                                                                                                             |                   | X           |
+| REPLICATEDFOLDER | Name for the replicated folder.                                                                                                             |                   | X           |
 | WARNINGBACKLOG   | Warning threshold                                                                                                                                |                   |             |
 | CRITICALBACKLOG  | Critical threshold                                                                                                                               |                   |             |
 | EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |

@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                                                  | Service Description                                                                   |
 |:---------------------|:------------------------------------------------------------------|:--------------------------------------------------------------------------------------|
-| Ad-Domain-Controller | Infra-ActiveDirectory-Domain-Controller-NSClient05-Restapi-custom | This check makes to diagnose the domain controller. It executes the command "dcdiag"  |
+| Ad-Domain-Controller | Infra-ActiveDirectory-Domain-Controller-NSClient05-Restapi-custom | This check runs diagnostics on the domain controller. It executes the "dcdiag" command  |
 
 > The services listed above are created automatically when the **Infra-ActiveDirectory-NSClient-05-Restapi-custom** host template is used.
 
@@ -29,7 +29,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                                             | Service Description |
 |:--------------|:-------------------------------------------------------------|:--------------------|
-| Dfsr-Backlog  | Infra-ActiveDirectory-Dfsr-Backlog-NSClient05-Restapi-custom | Check dfsr backlog  |
+| Dfsr-Backlog  | Infra-ActiveDirectory-Dfsr-Backlog-NSClient05-Restapi-custom | Checks the dfsr backlog  |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -157,7 +157,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 |:--------------------------|:------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | NSCPRESTAPILEGACYPASSWORD | Password used (configured in the prerequisites section)                                                                                   | PASSWORD          |             |
 | NSCPRESTAPIPROTO          | Protocol used                                                                                                                             | https             |             |
-| NSCPRESTAPIPORT           | Port use by the REST API NSClient++                                                                                                       | 8443              |             |
+| NSCPRESTAPIPORT           | Port used by the REST API NSClient++                                                                                                       | 8443              |             |
 | NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).  |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -183,7 +183,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 |:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SENDINGMEMBER    | Name of the member that is sending the replication data.                                                                               |                   | X           |
 | REPLICATIONGROUP | Name for the replication group.                                                                                                        |                   | X           |
-| REPLICATEDFOLDER | Name name for the replicated folder.                                                                                                   |                   | X           |
+| REPLICATEDFOLDER | Name for the replicated folder.                                                                                                   |                   | X           |
 | WARNINGBACKLOG   | Warning threshold                                                                                                                      |                   |             |
 | CRITICALBACKLOG  | Critical threshold                                                                                                                     |                   |             |
 | EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
