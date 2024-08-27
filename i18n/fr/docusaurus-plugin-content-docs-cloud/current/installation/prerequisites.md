@@ -55,7 +55,7 @@ Procédez au partitionnement en suivant les recommandations suivantes :
 | Serveurs Centreon  | Équipements à superviser     | 80/443 TCP         | API                        |
 | Serveurs Centreon  | Base de données à superviser | 3306/1521/1433 TCP | MySQL/Oracle/MSSQL         |
 
-## Autoriser le tafic vers ou en provenance des plages d'IP AWS
+## Autoriser le trafic vers ou en provenance des plages d'IP AWS
 
 Si vous faites du filtrage sur les adresses IP, autorisez les plages d'IP AWS avec lesquelles votre collecteur a besoin d'interagir.
 
