@@ -275,7 +275,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-ok: Node '192.168.0.50' Containers Running : 7, Containers Stopped : 2, Containers Paused : 0 | 'containers_running'=7;;;0; 'containers_stopped'=2;;;0; 'containers_paused'=0;;;0;Node '192.168.0.50' Containers Running : 7, Containers Stopped : 2, Containers Paused : 0
+OK: Node '10.0.0.1' Containers Running : 7, Containers Stopped : 2, Containers Paused : 0 | 'containers_running'=7;;;0; 'containers_stopped'=2;;;0; 'containers_paused'=0;;;0;
+Node '10.0.0.1' Containers Running : 7, Containers Stopped : 2, Containers Paused : 0
 ```
 
 ### Troubleshooting
