@@ -30,7 +30,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias          | Modèle de service                                    | Description                                               | Découverte |
 |:---------------|:-----------------------------------------------------|:----------------------------------------------------------|:----------:|
-| Traffic-Global | HW-Storage-Lenovo-Sseries-Traffic-Global-SNMP-custom | Contrôle le traffic réseau de plusieurs interfaces réseau | X          |
+| Traffic-Global | HW-Storage-Lenovo-Sseries-Traffic-Global-SNMP-custom | Contrôle le trafic réseau de plusieurs interfaces réseau | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -53,7 +53,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                             | Description                                                            |
 |:--------------------------------------------|:-----------------------------------------------------------------------|
-| HW-Storage-Lenovo-Sseries-SNMP-Traffic-Name | Découvre les interfaces réseau et supervise le statut et l'utilisation |
+| HW-Storage-Lenovo-Sseries-SNMP-Traffic-Name | Découvre les interfaces réseau et en supervise le statut et l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
