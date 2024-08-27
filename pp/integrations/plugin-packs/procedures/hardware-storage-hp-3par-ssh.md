@@ -94,7 +94,16 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Components" label="Components">
 
-Coming soon
+| Metric name    | Unit |
+|:---------------|:-----|
+| battery.status | N/A  |
+| cim.status     | N/A  |
+| port.status    | N/A  |
+| node.status    | N/A  |
+| disk.status    | N/A  |
+| psu.status     | N/A  |
+| sensor.status  | N/A  |
+| wsapi.status   | N/A  |
 
 </TabItem>
 <TabItem value="Disk-Usage" label="Disk-Usage">
@@ -128,7 +137,9 @@ Coming soon
 </TabItem>
 <TabItem value="Time" label="Time">
 
-Coming soon
+| Metric name              | Unit  |
+|:-------------------------|:------|
+| node.time.offset.seconds | s     |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
@@ -183,7 +194,7 @@ dnf install centreon-pack-hardware-storage-hp-3par-ssh
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-storage-hp-3par-ssh
@@ -230,7 +241,7 @@ dnf install centreon-plugin-Hardware-Storage-Hp-3par-Ssh
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-storage-hp-3par-ssh
@@ -255,13 +266,13 @@ yum install centreon-plugin-Hardware-Storage-Hp-3par-Ssh
 3. Apply the **HW-Storage-HP-3par-SSH-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro           | Description                                                                                                                                                         | Default value     | Mandatory   |
-|:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SSHUSERNAME     | Define the user name to log in to the host                                                                                                                          |                   |             |
-| SSHPASSWORD     | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead |                   |             |
-| SSHPORT         | Define the TCP port on which SSH is listening                                                                                                                       |                   |             |
-| SSHBACKEND      | Define the backend you want to use. It can be: sshcli (default), plink and libssh                                                                                   | sshcli            |             |
-| SSHEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                                                                |                   |             |
+| Macro           | Description                                                                                                                                                          | Default value     | Mandatory   |
+|:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SSHUSERNAME     | Define the user name to log in to the host                                                                                                                           |                   |             |
+| SSHPASSWORD     | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead  |                   |             |
+| SSHPORT         | Define the TCP port on which SSH is listening                                                                                                                        |                   |             |
+| SSHBACKEND      | Define the backend you want to use. It can be: sshcli (default), plink and libssh                                                                                    | sshcli            |             |
+| SSHEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                             |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -273,154 +284,154 @@ yum install centreon-plugin-Hardware-Storage-Hp-3par-Ssh
 <Tabs groupId="sync">
 <TabItem value="Afc" label="Afc">
 
-| Macro                            | Description                                                                                                                                                                                 | Default value          | Mandatory   |
-|:---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
-| FILTERNODEID                     | Filter nodes by ID (can be a regexp)                                                                                                                                                        |                        |             |
-| FILTERVOLUMENAME                 | Filter volumes by name (can be a regexp)                                                                                                                                                    |                        |             |
-| WARNINGFLASHCACHENODEREADHITS    | Define the WARNING thresholds for the following components: 'flashcache-usage', 'flashcache-usage-free', 'flashcache-usage-prct', 'flashcache-node-readhits', 'flashcache-volume-readhits'  |                        |             |
-| CRITICALFLASHCACHENODEREADHITS   | Define the CRITICAL thresholds for the following components: 'flashcache-usage', 'flashcache-usage-free', 'flashcache-usage-prct', 'flashcache-node-readhits', 'flashcache-volume-readhits' |                        |             |
-| WARNINGFLASHCACHEUSAGE           | Define the WARNING thresholds for the following components: 'flashcache-usage', 'flashcache-usage-free', 'flashcache-usage-prct', 'flashcache-node-readhits', 'flashcache-volume-readhits'  |                        |             |
-| CRITICALFLASHCACHEUSAGE          | Define the CRITICAL thresholds for the following components: 'flashcache-usage', 'flashcache-usage-free', 'flashcache-usage-prct', 'flashcache-node-readhits', 'flashcache-volume-readhits' |                        |             |
-| WARNINGFLASHCACHEUSAGEFREE       | Define the WARNING thresholds for the following components: 'flashcache-usage', 'flashcache-usage-free', 'flashcache-usage-prct', 'flashcache-node-readhits', 'flashcache-volume-readhits'  |                        |             |
-| CRITICALFLASHCACHEUSAGEFREE      | Define the CRITICAL thresholds for the following components: 'flashcache-usage', 'flashcache-usage-free', 'flashcache-usage-prct', 'flashcache-node-readhits', 'flashcache-volume-readhits' |                        |             |
-| WARNINGFLASHCACHEUSAGEPRCT       | Define the WARNING thresholds for the following components: 'flashcache-usage', 'flashcache-usage-free', 'flashcache-usage-prct', 'flashcache-node-readhits', 'flashcache-volume-readhits'  |                        |             |
-| CRITICALFLASHCACHEUSAGEPRCT      | Define the CRITICAL thresholds for the following components: 'flashcache-usage', 'flashcache-usage-free', 'flashcache-usage-prct', 'flashcache-node-readhits', 'flashcache-volume-readhits' |                        |             |
-| WARNINGFLASHCACHEVOLUMEREADHITS  | Define the WARNING thresholds for the following components: 'flashcache-usage', 'flashcache-usage-free', 'flashcache-usage-prct', 'flashcache-node-readhits', 'flashcache-volume-readhits'  |                        |             |
-| CRITICALFLASHCACHEVOLUMEREADHITS | Define the CRITICAL thresholds for the following components: 'flashcache-usage', 'flashcache-usage-free', 'flashcache-usage-prct', 'flashcache-node-readhits', 'flashcache-volume-readhits' |                        |             |
-| CRITICALSTATUS                   | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /normal/i') You can use the following variables: %{status}, %{node\_id}                                | %{status} !~ /normal/i |             |
-| WARNINGSTATUS                    | Define the conditions to match for the status to be WARNING                                                                                                                                 |                        |             |
-| EXTRAOPTIONS                     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                          | --verbose              |             |
+| Macro                            | Description                                                                                                                            | Default value          | Mandatory   |
+|:---------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
+| FILTERNODEID                     | Filter nodes by ID (can be a regexp)                                                                                                   |                        |             |
+| FILTERVOLUMENAME                 | Filter volumes by name (can be a regexp)                                                                                               |                        |             |
+| WARNINGFLASHCACHENODEREADHITS    | Define the WARNING threshold for the following component: 'flashcache-node-readhits'                                                  |                        |             |
+| CRITICALFLASHCACHENODEREADHITS   | Define the CRITICAL threshold for the following component: 'flashcache-node-readhits'                                                 |                        |             |
+| WARNINGFLASHCACHEUSAGE           | Define the WARNING threshold for the following component: 'flashcache-usage'                                                          |                        |             |
+| CRITICALFLASHCACHEUSAGE          | Define the CRITICAL threshold for the following component: 'flashcache-usage'                                                         |                        |             |
+| WARNINGFLASHCACHEUSAGEFREE       | Define the WARNING threshold for the following component: 'flashcache-usage-free'                                                     |                        |             |
+| CRITICALFLASHCACHEUSAGEFREE      | Define the CRITICAL threshold for the following component: 'flashcache-usage-free'                                                    |                        |             |
+| WARNINGFLASHCACHEUSAGEPRCT       | Define the WARNING threshold for the following components: 'flashcache-usage-prct'                                                    |                        |             |
+| CRITICALFLASHCACHEUSAGEPRCT      | Define the CRITICAL threshold for the following component: 'flashcache-usage-prct'                                                    |                        |             |
+| WARNINGFLASHCACHEVOLUMEREADHITS  | Define the WARNING threshold for the following component: 'flashcache-volume-readhits'                                                |                        |             |
+| CRITICALFLASHCACHEVOLUMEREADHITS | Define the CRITICAL threshold for the following component: 'flashcache-volume-readhits'                                               |                        |             |
+| CRITICALSTATUS                   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{node\_id}              | %{status} !~ /normal/i |             |
+| WARNINGSTATUS                    | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{node\_id}               |                        |             |
+| EXTRAOPTIONS                     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose              |             |
 
 </TabItem>
 <TabItem value="Cages" label="Cages">
 
 | Macro                       | Description                                                                                                                                                                 | Default value           | Mandatory   |
 |:----------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------|:-----------:|
-| FILTERCAGEID                | Filter cages by ID (can be a regexp)                                                                                                                                        |                         |             |
-| CRITICALBOARDFIRMWARESTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /Current/i') You can use the following variables: %{status}, %{cage\_id}, %{board\_id} | %{status} !~ /Current/i |             |
-| WARNINGBOARDFIRMWARESTATUS  | Define the conditions to match for the status to be WARNING                                                                                                                 |                         |             |
-| CRITICALBOARDPARTNERSTATUS  |                                                                                                                                                                             | %{status} !~ /ok/i      |             |
-| WARNINGBOARDPARTNERSTATUS   |                                                                                                                                                                             |                         |             |
-| CRITICALBOARDSELFSTATUS     |                                                                                                                                                                             | %{status} !~ /ok/i      |             |
-| WARNINGBOARDSELFSTATUS      |                                                                                                                                                                             |                         |             |
-| CRITICALDRIVEPORTASTATUS    |                                                                                                                                                                             | %{status} !~ /ok/i      |             |
-| WARNINGDRIVEPORTASTATUS     |                                                                                                                                                                             |                         |             |
-| CRITICALDRIVEPORTBSTATUS    |                                                                                                                                                                             | %{status} !~ /ok/i      |             |
-| WARNINGDRIVEPORTBSTATUS     |                                                                                                                                                                             |                         |             |
-| WARNINGDRIVESTATUS          | Define the conditions to match for the status to be WARNING                                                                                                                 |                         |             |
-| CRITICALDRIVESTATUS         | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /normal/i') You can use the following variables: %{status}, %{cage\_id}, %{drive\_id}  |                         |             |
-| WARNINGDRIVETEMPERATURE     | Define WARNING threshold for the temperature of the drives                                                                                                                  |                         |             |
-| CRITICALDRIVETEMPERATURE    | Define CRITICAL threshold for the temperature of the drives                                                                                                                 |                         |             |
-| CRITICALPSUACSTATUS         |                                                                                                                                                                             | %{status} !~ /ok/i      |             |
-| WARNINGPSUACSTATUS          |                                                                                                                                                                             |                         |             |
-| CRITICALPSUDCSTATUS         |                                                                                                                                                                             | %{status} !~ /ok/i      |             |
-| WARNINGPSUDCSTATUS          |                                                                                                                                                                             |                         |             |
-| CRITICALPSUFANSTATUS        |                                                                                                                                                                             | %{status} !~ /ok/i      |             |
-| WARNINGPSUFANSTATUS         |                                                                                                                                                                             |                         |             |
-| CRITICALPSUSTATUS           | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /ok/i') You can use the following variables: %{status}, %{cage\_id}, %{psu\_id}        | %{status} !~ /ok/i      |             |
-| WARNINGPSUSTATUS            | Define the conditions to match for the status to be WARNING                                                                                                                 |                         |             |
-| CRITICALSTATUS              | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /Normal/i') You can use the following variables: %{status}, %{cage\_id}                | %{status} !~ /Normal/i  |             |
-| WARNINGSTATUS               | Define the conditions to match for the status to be WARNING                                                                                                                 |                         |             |
-| EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                          | --verbose               |             |
+| FILTERCAGEID                | Filter cages by ID (can be a regexp)                                                                                                                                       |                         |             |
+| CRITICALBOARDFIRMWARESTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{cage\_id}, %{board\_id}                                    | %{status} !~ /Current/i |             |
+| WARNINGBOARDFIRMWARESTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{cage\_id}, %{board\_id}                                     |                         |             |
+| CRITICALBOARDPARTNERSTATUS  | Define the conditions on partner to match for the status to be CRITICAL                                                                                                    | %{status} !~ /ok/i      |             |
+| WARNINGBOARDPARTNERSTATUS   | Define the conditions on partner to match for the status to be WARNING                                                                                                     |                         |             |
+| CRITICALBOARDSELFSTATUS     | Define the conditions on self to match for the status to be CRITICAL                                                                                                       | %{status} !~ /ok/i      |             |
+| WARNINGBOARDSELFSTATUS      | Define the conditions on self to match for the status to be WARNING                                                                                                        |                         |             |
+| CRITICALDRIVEPORTASTATUS    | Define the conditions on port A to match for the status to be CRITICAL                                                                                                     | %{status} !~ /ok/i      |             |
+| WARNINGDRIVEPORTASTATUS     | Define the conditions on port A to match for the status to be WARNING                                                                                                      |                         |             |
+| CRITICALDRIVEPORTBSTATUS    | Define the conditions on port B to match for the status to be CRITICAL                                                                                                     | %{status} !~ /ok/i      |             |
+| WARNINGDRIVEPORTBSTATUS     | Define the conditions on port B to match for the status to be WARNING                                                                                                      |                         |             |
+| WARNINGDRIVESTATUS          | Define the conditions to match for the status to be WARNING (default: '%{status} !~ /normal/i') You can use the following variables: %{status}, %{cage\_id}, %{drive\_id}  |                         |             |
+| CRITICALDRIVESTATUS         | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /normal/i') You can use the following variables: %{status}, %{cage\_id}, %{drive\_id} |                         |             |
+| WARNINGDRIVETEMPERATURE     | Define WARNING threshold for the temperature of the drives                                                                                                                 |                         |             |
+| CRITICALDRIVETEMPERATURE    | Define CRITICAL threshold for the temperature of the drives                                                                                                                |                         |             |
+| CRITICALPSUACSTATUS         | Define the conditions on psu ac to match for the status to be CRITICAL                                                                                                     | %{status} !~ /ok/i      |             |
+| WARNINGPSUACSTATUS          | Define the conditions on psu ac to match for the status to be WARNING                                                                                                      |                         |             |
+| CRITICALPSUDCSTATUS         | Define the conditions on psu dc to match for the status to be CRITICAL                                                                                                     | %{status} !~ /ok/i      |             |
+| WARNINGPSUDCSTATUS          | Define the conditions on psu dc to match for the status to be WARNING                                                                                                      |                         |             |
+| CRITICALPSUFANSTATUS        | Define the conditions on psu fan to match for the status to be CRITICAL                                                                                                    | %{status} !~ /ok/i      |             |
+| WARNINGPSUFANSTATUS         | Define the conditions on psu fan to match for the status to be WARNING                                                                                                     |                         |             |
+| CRITICALPSUSTATUS           | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{cage\_id}, %{psu\_id}                                      | %{status} !~ /ok/i      |             |
+| WARNINGPSUSTATUS            | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{cage\_id}, %{psu\_id}                                                                                                                  |                         |             |
+| CRITICALSTATUS              | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{cage\_id}                                                  | %{status} !~ /Normal/i  |             |
+| WARNINGSTATUS               | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{cage\_id}                                                                                                                 |                         |             |
+| EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                           | --verbose               |             |
 
 </TabItem>
 <TabItem value="Capacity" label="Capacity">
 
-| Macro                    | Description                                                                                        | Default value     | Mandatory   |
-|:-------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERTYPE               | Filter storages by type (can be a regexp)                                                          |                   |             |
-| WARNINGCOMPACTION        | Thresholds                                                                                         |                   |             |
-| CRITICALCOMPACTION       | Thresholds                                                                                         |                   |             |
-| WARNINGCOMPRESSION       | Thresholds                                                                                         |                   |             |
-| CRITICALCOMPRESSION      | Thresholds                                                                                         |                   |             |
-| WARNINGDATAREDUCTION     | Thresholds                                                                                         |                   |             |
-| CRITICALDATAREDUCTION    | Thresholds                                                                                         |                   |             |
-| WARNINGDEDUP             | Thresholds                                                                                         |                   |             |
-| CRITICALDEDUP            | Thresholds                                                                                         |                   |             |
-| WARNINGOVERPROVISIONING  | Thresholds                                                                                         |                   |             |
-| CRITICALOVERPROVISIONING | Thresholds                                                                                         |                   |             |
-| WARNINGSPACEFAILED       | Thresholds                                                                                         |                   |             |
-| CRITICALSPACEFAILED      | Thresholds                                                                                         |                   |             |
-| WARNINGSPACEUNAVAILABLE  | Thresholds                                                                                         |                   |             |
-| CRITICALSPACEUNAVAILABLE | Thresholds                                                                                         |                   |             |
-| WARNINGSPACEUSAGE        | Thresholds                                                                                         |                   |             |
-| CRITICALSPACEUSAGE       | Thresholds                                                                                         |                   |             |
-| WARNINGSPACEUSAGEFREE    | Thresholds                                                                                         |                   |             |
-| CRITICALSPACEUSAGEFREE   | Thresholds                                                                                         |                   |             |
-| WARNINGSPACEUSAGEPRCT    | Thresholds                                                                                         |                   |             |
-| CRITICALSPACEUSAGEPRCT   | Thresholds                                                                                         |                   |             |
+| Macro                    | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERTYPE               | Filter storages by type (can be a regexp)                                                                                              |                   |             |
+| WARNINGCOMPACTION        | WARNING threshold                                                                                                                      |                   |             |
+| CRITICALCOMPACTION       | CRITICAL threshold                                                                                                                     |                   |             |
+| WARNINGCOMPRESSION       | WARNING threshold                                                                                                                      |                   |             |
+| CRITICALCOMPRESSION      | CRITICAL threshold                                                                                                                     |                   |             |
+| WARNINGDATAREDUCTION     | WARNING threshold                                                                                                                      |                   |             |
+| CRITICALDATAREDUCTION    | CRITICAL threshold                                                                                                                     |                   |             |
+| WARNINGDEDUP             | WARNING threshold                                                                                                                      |                   |             |
+| CRITICALDEDUP            | CRITICAL threshold                                                                                                                     |                   |             |
+| WARNINGOVERPROVISIONING  | WARNING threshold                                                                                                                      |                   |             |
+| CRITICALOVERPROVISIONING | CRITICAL threshold                                                                                                                     |                   |             |
+| WARNINGSPACEFAILED       | WARNING threshold                                                                                                                      |                   |             |
+| CRITICALSPACEFAILED      | CRITICAL threshold                                                                                                                     |                   |             |
+| WARNINGSPACEUNAVAILABLE  | WARNING threshold                                                                                                                      |                   |             |
+| CRITICALSPACEUNAVAILABLE | CRITICAL threshold                                                                                                                     |                   |             |
+| WARNINGSPACEUSAGE        | WARNING threshold                                                                                                                      |                   |             |
+| CRITICALSPACEUSAGE       | CRITICAL threshold                                                                                                                     |                   |             |
+| WARNINGSPACEUSAGEFREE    | WARNING threshold                                                                                                                      |                   |             |
+| CRITICALSPACEUSAGEFREE   | CRITICAL threshold                                                                                                                     |                   |             |
+| WARNINGSPACEUSAGEPRCT    | WARNING threshold                                                                                                                      |                   |             |
+| CRITICALSPACEUSAGEPRCT   | CRITICAL threshold                                                                                                                     |                   |             |
 | EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Components" label="Components">
 
-| Macro        | Description                                                                                                          | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'battery', 'cim', 'port', 'node', 'disk', 'psu', 'sensor', 'wsapi' | .*                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                   | --verbose         |             |
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'battery', 'cim', 'port', 'node', 'disk', 'psu', 'sensor', 'wsapi'                   | .*                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Disk-Usage" label="Disk-Usage">
 
-| Macro             | Description                                                                                                                                                  | Default value          | Mandatory   |
-|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
-| FILTERNAME        | Filter disk name (can be a regexp)                                                                                                                           |                        |             |
-| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /normal/i'). You can use the following variables: %{status}, %{display} | %{status} !~ /normal/i |             |
-| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{status}, %{display}                        |                        |             |
-| WARNINGUSAGE      | Warning threshold                                                                                                                                            |                        |             |
-| CRITICALUSAGE     | Warning threshold                                                                                                                                            |                        |             |
-| WARNINGUSAGEFREE  | Warning threshold                                                                                                                                            |                        |             |
-| CRITICALUSAGEFREE | Warning threshold                                                                                                                                            |                        |             |
-| WARNINGUSAGEPRCT  | Warning threshold                                                                                                                                            |                        |             |
-| CRITICALUSAGEPRCT | Warning threshold                                                                                                                                            |                        |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                           | --verbose              |             |
+| Macro             | Description                                                                                                                            | Default value          | Mandatory   |
+|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
+| FILTERNAME        | Filter disk name (can be a regexp)                                                                                                     |                        |             |
+| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{display}               | %{status} !~ /normal/i |             |
+| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{status}, %{display}  |                        |             |
+| WARNINGUSAGE      | Warning threshold                                                                                                                      |                        |             |
+| CRITICALUSAGE     | Warning threshold                                                                                                                      |                        |             |
+| WARNINGUSAGEFREE  | Warning threshold                                                                                                                      |                        |             |
+| CRITICALUSAGEFREE | Warning threshold                                                                                                                      |                        |             |
+| WARNINGUSAGEPRCT  | Warning threshold                                                                                                                      |                        |             |
+| CRITICALUSAGEPRCT | Warning threshold                                                                                                                      |                        |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose              |             |
 
 </TabItem>
 <TabItem value="Nodes" label="Nodes">
 
-| Macro                  | Description                                                                                                                                               | Default value      | Mandatory   |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|:-----------:|
-| FILTERNODEID           | Filter nodes by ID (can be a regexp)                                                                                                                      |                    |             |
-| WARNINGCPUUTILIZATION  | Thresholds                                                                                                                                                |                    |             |
-| CRITICALCPUUTILIZATION | Thresholds                                                                                                                                                |                    |             |
-| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /ok/i'). You can use the following variables: %{status}, %{node\_id} | %{status} !~ /ok/i |             |
-| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{node\_id}                                  |                    |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                        | --verbose          |             |
+| Macro                  | Description                                                                                                                                              | Default value      | Mandatory   |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|:-----------:|
+| FILTERNODEID           | Filter nodes by ID (can be a regexp)                                                                                                                     |                    |             |
+| WARNINGCPUUTILIZATION  | Warning threshold                                                                                                                                        |                    |             |
+| CRITICALCPUUTILIZATION | Critical threshold                                                                                                                                       |                    |             |
+| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{node\_id}                                | %{status} !~ /ok/i |             |
+| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{node\_id}                                 |                    |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                   | --verbose          |             |
 
 </TabItem>
 <TabItem value="Psu" label="Psu">
 
-| Macro                          | Description                                                                                                                                                           | Default value      | Mandatory   |
-|:-------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|:-----------:|
-| FILTERNODEID                   | Filter nodes by ID (can be a regexp)                                                                                                                                  |                    |             |
-| FILTERPSUID                    | Filter power supplies by ID (can be a regexp)                                                                                                                         |                    |             |
-| CRITICALACSTATUS               | Set critical threshold for AC status (default: '%{status} !~ /ok/i'). You can use the following variables: %{status}, %{node\_id}, %{psu\_id}                         | %{status} !~ /ok/i |             |
-| WARNINGACSTATUS                | Set warning threshold for AC status. You can use the following variables: %{status}, %{node\_id}, %{psu\_id}                                                          |                    |             |
-| CRITICALBATTERYSTATUS          | Set critical threshold for battery status (default: '%{status} !~ /ok/i'). You can use the following variables: %{status}, %{node\_id}, %{psu\_id}                    | %{status} !~ /ok/i |             |
-| WARNINGBATTERYSTATUS           | Set warning threshold for battery status. You can use the following variables: %{status}, %{node\_id}, %{psu\_id}                                                     |                    |             |
-| WARNINGCHARGEREMAINING         | Thresholds                                                                                                                                                            |                    |             |
-| CRITICALCHARGEREMAINING        | Thresholds                                                                                                                                                            |                    |             |
-| WARNINGCHARGEREMAININGMINUTES  |                                                                                                                                                                       |                    |             |
-| CRITICALCHARGEREMAININGMINUTES |                                                                                                                                                                       |                    |             |
-| CRITICALDCSTATUS               | Set critical threshold for DC status (default: '%{status} !~ /ok/i'). You can use the following variables: %{status}, %{node\_id}, %{psu\_id}                         | %{status} !~ /ok/i |             |
-| WARNINGDCSTATUS                | Set warning threshold for DC status. You can use the following variables: %{status}, %{node\_id}, %{psu\_id}                                                          |                    |             |
-| CRITICALFANSTATUS              | Set critical threshold for fan status (default: '%{status} !~ /ok/i'). You can use the following variables: %{status}, %{node\_id}, %{psu\_id}                        | %{status} !~ /ok/i |             |
-| WARNINGFANSTATUS               | Set warning threshold for fan status. You can use the following variables: %{status}, %{node\_id}, %{psu\_id}                                                         |                    |             |
-| CRITICALSTATUS                 | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /ok/i'). You can use the following variables: %{status}, %{node\_id}, %{psu\_id} | %{status} !~ /ok/i |             |
-| WARNINGSTATUS                  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{node\_id}, %{psu\_id}                                  |                    |             |
-| EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                    | --verbose          |             |
+| Macro                          | Description                                                                                                                                      | Default value      | Mandatory   |
+|:-------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|:-----------:|
+| FILTERNODEID                   | Filter nodes by ID (can be a regexp)                                                                                                             |                    |             |
+| FILTERPSUID                    | Filter power supplies by ID (can be a regexp)                                                                                                    |                    |             |
+| CRITICALACSTATUS               | Set critical threshold for AC status. You can use the following variables: %{status}, %{node\_id}, %{psu\_id}                                    | %{status} !~ /ok/i |             |
+| WARNINGACSTATUS                | Set warning threshold for AC status. You can use the following variables: %{status}, %{node\_id}, %{psu\_id}                                     |                    |             |
+| CRITICALBATTERYSTATUS          | Set critical threshold for battery status. You can use the following variables: %{status}, %{node\_id}, %{psu\_id}                               | %{status} !~ /ok/i |             |
+| WARNINGBATTERYSTATUS           | Set warning threshold for battery status. You can use the following variables: %{status}, %{node\_id}, %{psu\_id}                                |                    |             |
+| WARNINGCHARGEREMAINING         | Warning threshold                                                                                                                                |                    |             |
+| CRITICALCHARGEREMAINING        | Critical threshold                                                                                                                               |                    |             |
+| WARNINGCHARGEREMAININGMINUTES  | Warning threshold                                                                                                                                |                    |             |
+| CRITICALCHARGEREMAININGMINUTES | Critical threshold                                                                                                                               |                    |             |
+| CRITICALDCSTATUS               | Set critical threshold for DC status. You can use the following variables: %{status}, %{node\_id}, %{psu\_id}                                    | %{status} !~ /ok/i |             |
+| WARNINGDCSTATUS                | Set warning threshold for DC status. You can use the following variables: %{status}, %{node\_id}, %{psu\_id}                                     |                    |             |
+| CRITICALFANSTATUS              | Set critical threshold for fan status . You can use the following variables: %{status}, %{node\_id}, %{psu\_id}                                  | %{status} !~ /ok/i |             |
+| WARNINGFANSTATUS               | Set warning threshold for fan status. You can use the following variables: %{status}, %{node\_id}, %{psu\_id}                                    |                    |             |
+| CRITICALSTATUS                 | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{node\_id}, %{psu\_id}            | %{status} !~ /ok/i |             |
+| WARNINGSTATUS                  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{node\_id}, %{psu\_id}             |                    |             |
+| EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose          |             |
 
 </TabItem>
 <TabItem value="Time" label="Time">
 
-| Macro          | Description                                                                                        | Default value     | Mandatory   |
-|:---------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNODEID   | Filter nodes by ID (can be a regexp)                                                               |                   |             |
-| NTPHOSTNAME    | Set the ntp hostname (if not set, localtime is used)                                               |                   |             |
-| NTPPORT        | Set the ntp port (default: 123)                                                                    |                   |             |
-| TIMEZONE       | Set the timezone for displaying the date (default: UTC)                                            |                   |             |
-| WARNINGOFFSET  | Time offset warning threshold (in seconds)                                                         |                   |             |
-| CRITICALOFFSET | Time offset critical Threshold (in seconds)                                                        |                   |             |
+| Macro          | Description                                                                                                                            | Default value     | Mandatory   |
+|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERNODEID   | Filter nodes by ID (can be a regexp)                                                                                                   |                   |             |
+| NTPHOSTNAME    | Set the ntp hostname (if not set, localtime is used)                                                                                   |                   |             |
+| NTPPORT        | Set the ntp port (default: 123)                                                                                                        |                   |             |
+| TIMEZONE       | Set the timezone for displaying the date (default: UTC)                                                                                |                   |             |
+| WARNINGOFFSET  | Time offset warning threshold (in seconds)                                                                                             |                   |             |
+| CRITICALOFFSET | Time offset critical Threshold (in seconds)                                                                                            |                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
@@ -431,22 +442,22 @@ yum install centreon-plugin-Hardware-Storage-Hp-3par-Ssh
 | FILTERNODEID   | Filter nodes by ID (can be a regexp)                                                                                                                                 |                   |             |
 | UNIT           | Select the time unit for the performance data and thresholds.May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds |                   |             |
 | TIMEZONE       | Timezone options. Default is 'UTC'                                                                                                                                   |                   |             |
-| WARNINGUPTIME  | Thresholds                                                                                                                                                           |                   |             |
-| CRITICALUPTIME | Thresholds                                                                                                                                                           |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                   | --verbose         |             |
+| WARNINGUPTIME  | Warning threshold                                                                                                                                                    |                   |             |
+| CRITICALUPTIME | Critical threshold                                                                                                                                                   |                   |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                               | --verbose         |             |
 
 </TabItem>
 <TabItem value="Volume-Usage" label="Volume-Usage">
 
-| Macro             | Description                                                                                        | Default value     | Mandatory   |
-|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNAME        | Filter volume name (can be a regexp)                                                               |                   |             |
-| WARNINGUSAGE      | Thresholds                                                                                         |                   |             |
-| CRITICALUSAGE     | Thresholds                                                                                         |                   |             |
-| WARNINGUSAGEFREE  | Thresholds                                                                                         |                   |             |
-| CRITICALUSAGEFREE | Thresholds                                                                                         |                   |             |
-| WARNINGUSAGEPRCT  | Thresholds                                                                                         |                   |             |
-| CRITICALUSAGEPRCT | Thresholds                                                                                         |                   |             |
+| Macro             | Description                                                                                                                            | Default value     | Mandatory   |
+|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERNAME        | Filter volume name (can be a regexp)                                                                                                   |                   |             |
+| WARNINGUSAGE      | Warning threshold                                                                                                                      |                   |             |
+| CRITICALUSAGE     | Critical threshold                                                                                                                     |                   |             |
+| WARNINGUSAGEFREE  | Warning threshold                                                                                                                      |                   |             |
+| CRITICALUSAGEFREE | Critical threshold                                                                                                                     |                   |             |
+| WARNINGUSAGEPRCT  | Warning threshold                                                                                                                      |                   |             |
+| CRITICALUSAGEPRCT | Critical threshold                                                                                                                     |                   |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
@@ -482,7 +493,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All volumes are ok | '*volume*#volume.space.usage.bytes'=B;;;0;total'*volume*#volume.space.free.bytes'=B;;;0;total'*volume*#volume.space.usage.percentage'=%;;;0;100
+OK: All volumes are ok | '*volume*#volume.space.usage.bytes'=3147727000000B;;;0;total'*volume*#volume.space.free.bytes'=1460273000000B;;;0;total'*volume*#volume.space.usage.percentage'=68,31%;;;0;100
 ```
 
 ### Troubleshooting
