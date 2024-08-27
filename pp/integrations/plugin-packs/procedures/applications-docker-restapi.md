@@ -264,33 +264,18 @@ is able to monitor a resource using a command like this one (replace the sample 
 ```bash
 /usr/lib/centreon/plugins/centreon_docker_restapi.pl \
 	--plugin=cloud::docker::restapi::plugin \
-	--mode=container-usage \
+	--mode=node-status \
 	--hostname='10.0.0.1' \
 	--port=''   \
-	--container-id='' \
-	--container-name='' \
-	--filter-name='' \
-	--warning-container-status='' \
-	--critical-container-status='' \
-	--warning-read-iops='' \
-	--critical-read-iops='' \
-	--warning-write-iops='' \
-	--critical-write-iops='' \
-	--warning-cpu='' \
-	--critical-cpu='' \
-	--warning-memory='' \
-	--critical-memory='' \
-	--warning-traffic-in='' \
-	--critical-traffic-in='' \
-	--warning-traffic-out='' \
-	--critical-traffic-out='' \
+	--warning-node-status='' \
+	--critical-node-status='%{status} !~ /ready/ || %{manager_status} !~ /reachable|-/' \
 	--verbose
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: All containers are ok All container traffics are ok | '*containers*#container.cpu.utilization.percentage'=%;;;0;100'*containers*#container.memory.usage.bytes'=B;;;;'*containers*#container.disk.io.read.usage.iops'=iops;;;0;'*containers*#container.disk.io.write.usage.iops'=iops;;;0;'*containers_traffic*#container.traffic.in.bitspersecond'=b/s;;;0;'*containers_traffic*#container.traffic.out.bitspersecond'=b/s;;;0;
+ok: Node '192.168.0.50' Containers Running : 7, Containers Stopped : 2, Containers Paused : 0 | 'containers_running'=7;;;0; 'containers_stopped'=2;;;0; 'containers_paused'=0;;;0;Node '192.168.0.50' Containers Running : 7, Containers Stopped : 2, Containers Paused : 0
 ```
 
 ### Troubleshooting
