@@ -19,9 +19,9 @@ Le connecteur apporte le modèle de service suivant
 <Tabs groupId="sync">
 <TabItem value="Cloud-Microsoft-Office365-Onedrive-Api-custom" label="Cloud-Microsoft-Office365-Onedrive-Api-custom">
 
-| Alias      | Modèle de service                                   | Description |
-|:-----------|:----------------------------------------------------|:------------|
-| Site-Usage | Cloud-Microsoft-Office365-Onedrive-Usage-Api-custom | ContrÃ      |
+| Alias      | Modèle de service                                   | Description                               |
+|:-----------|:----------------------------------------------------|:------------------------------------------|
+| Site-Usage | Cloud-Microsoft-Office365-Onedrive-Usage-Api-custom | Contrôle l'utilisation des sites OneDrive |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Microsoft-Office365-Onedrive-Api-custom** est utilisé.
 
@@ -111,7 +111,7 @@ dnf install centreon-pack-cloud-microsoft-office365-onedrive
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-cloud-microsoft-office365-onedrive
@@ -156,7 +156,7 @@ dnf install centreon-plugin-Cloud-Microsoft-Office365-Onedrive-Api
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-cloud-microsoft-office365-onedrive-api
@@ -181,11 +181,11 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Onedrive-Api
 3. Appliquez le modèle d'hôte **Cloud-Microsoft-Office365-Onedrive-Api-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro                 | Description                                                                                          | Valeur par défaut | Obligatoire |
-|:----------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| OFFICE365CLIENTID     | Set Office 365 client ID                                                                             |                   | X           |
-| OFFICE365CLIENTSECRET | Set Office 365 client secret                                                                         |                   | X           |
-| OFFICE365TENANT       | Set Office 365 tenant ID                                                                             |                   | X           |
+| Macro                 | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| OFFICE365CLIENTID     | Set Office 365 client ID                                                                                                                           |                   | X           |
+| OFFICE365CLIENTSECRET | Set Office 365 client secret                                                                                                                       |                   | X           |
+| OFFICE365TENANT       | Set Office 365 tenant ID                                                                                                                           |                   | X           |
 | OFFICE365EXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -198,31 +198,31 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Onedrive-Api
 <Tabs groupId="sync">
 <TabItem value="Site-Usage" label="Site-Usage">
 
-| Macro                          | Description                                                                                                                                                  | Valeur par défaut   | Obligatoire |
-|:-------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------|:-----------:|
-| UNITS                          | Unit of thresholds (default: '%') ('%', 'count')                                                                                                             | %                   |             |
-| FILTERCOUNTERS                 | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='active-sites\|total' (default: 'active-sites\|total') | active-sites\|total |             |
-| FILTERURL                      | Filter sites                                                                                                                                                 |                     |             |
-| FILTEROWNER                    | Filter sites                                                                                                                                                 |                     |             |
-| WARNINGACTIVEFILECOUNT         | Warning threshold                                                                                                                                            |                     |             |
-| CRITICALACTIVEFILECOUNT        | Critical threshold                                                                                                                                           |                     |             |
-| WARNINGACTIVESITES             | Warning threshold                                                                                                                                            |                     |             |
-| CRITICALACTIVESITES            | Critical threshold                                                                                                                                           |                     |             |
-| WARNINGFILECOUNT               | Warning threshold                                                                                                                                            |                     |             |
-| CRITICALFILECOUNT              | Critical threshold                                                                                                                                           |                     |             |
-| WARNINGTOTALACTIVEFILECOUNT    | Warning threshold                                                                                                                                            |                     |             |
-| CRITICALTOTALACTIVEFILECOUNT   | Critical threshold                                                                                                                                           |                     |             |
-| WARNINGTOTALFILECOUNTACTIVE    | Warning threshold                                                                                                                                            |                     |             |
-| CRITICALTOTALFILECOUNTACTIVE   | Critical threshold                                                                                                                                           |                     |             |
-| WARNINGTOTALFILECOUNTINACTIVE  | Warning threshold                                                                                                                                            |                     |             |
-| CRITICALTOTALFILECOUNTINACTIVE | Critical threshold                                                                                                                                           |                     |             |
-| WARNINGTOTALUSAGEACTIVE        | Warning threshold                                                                                                                                            |                     |             |
-| CRITICALTOTALUSAGEACTIVE       | Critical threshold                                                                                                                                           |                     |             |
-| WARNINGTOTALUSAGEINACTIVE      | Warning threshold                                                                                                                                            |                     |             |
-| CRITICALTOTALUSAGEINACTIVE     | Critical threshold                                                                                                                                           |                     |             |
-| WARNINGUSAGE                   | Warning threshold                                                                                                                                            |                     |             |
-| CRITICALUSAGE                  | Critical threshold                                                                                                                                           |                     |             |
-| EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                           |                     |             |
+| Macro                          | Description                                                                                                                                      | Valeur par défaut   | Obligatoire |
+|:-------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------|:-----------:|
+| UNITS                          | Unit of thresholds ('%', 'count')                                                                                                                | %                   |             |
+| FILTERCOUNTERS                 | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='active-sites\|total'                      | active-sites\|total |             |
+| FILTERURL                      | Filter sites using url                                                                                                                           |                     |             |
+| FILTEROWNER                    | Filter sites using owner                                                                                                                         |                     |             |
+| WARNINGACTIVEFILECOUNT         | Warning threshold                                                                                                                                |                     |             |
+| CRITICALACTIVEFILECOUNT        | Critical threshold                                                                                                                               |                     |             |
+| WARNINGACTIVESITES             | Warning threshold                                                                                                                                |                     |             |
+| CRITICALACTIVESITES            | Critical threshold                                                                                                                               |                     |             |
+| WARNINGFILECOUNT               | Warning threshold                                                                                                                                |                     |             |
+| CRITICALFILECOUNT              | Critical threshold                                                                                                                               |                     |             |
+| WARNINGTOTALACTIVEFILECOUNT    | Warning threshold                                                                                                                                |                     |             |
+| CRITICALTOTALACTIVEFILECOUNT   | Critical threshold                                                                                                                               |                     |             |
+| WARNINGTOTALFILECOUNTACTIVE    | Warning threshold                                                                                                                                |                     |             |
+| CRITICALTOTALFILECOUNTACTIVE   | Critical threshold                                                                                                                               |                     |             |
+| WARNINGTOTALFILECOUNTINACTIVE  | Warning threshold                                                                                                                                |                     |             |
+| CRITICALTOTALFILECOUNTINACTIVE | Critical threshold                                                                                                                               |                     |             |
+| WARNINGTOTALUSAGEACTIVE        | Warning threshold                                                                                                                                |                     |             |
+| CRITICALTOTALUSAGEACTIVE       | Critical threshold                                                                                                                               |                     |             |
+| WARNINGTOTALUSAGEINACTIVE      | Warning threshold                                                                                                                                |                     |             |
+| CRITICALTOTALUSAGEINACTIVE     | Critical threshold                                                                                                                               |                     |             |
+| WARNINGUSAGE                   | Warning threshold                                                                                                                                |                     |             |
+| CRITICALUSAGE                  | Critical threshold                                                                                                                               |                     |             |
+| EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                     |             |
 
 </TabItem>
 </Tabs>
