@@ -21,8 +21,8 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias   | Service Template                                          | Service Description                 | Discovery  |
 |:----------------|:----------------------------------------------------------|:------------------------------------|:----------:|
 | Cache           | HW-Storage-EMC-Clariion-Cache-Navisphere-custom           | Check cache state                   |            |
-| Controller      | HW-Storage-EMC-Clariion-Controller-Navisphere-custom      | Check global controller             |            |
-| Disks           | HW-Storage-EMC-Clariion-Disks-Navisphere-custom           | Check disks status and performances | X          |
+| Controller      | HW-Storage-EMC-Clariion-Controller-Navisphere-custom      | Check the global Navisphere controller             |            |
+| Disks           | HW-Storage-EMC-Clariion-Disks-Navisphere-custom           | Check disk status and performance | X          |
 | Hardware-Global | HW-Storage-EMC-Clariion-Hardware-Global-Navisphere-custom | Check all hardware status           |            |
 
 > The services listed above are created automatically when the **HW-Storage-EMC-Clariion-Navisphere-custom** host template is used.
@@ -131,7 +131,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 ## Prerequisites
 
 The plugin need the installation of Navisphere client (ask to your EMC Support).
-The plugin uses by default the path `/opt/Navisphere/bin`.
+ By default , the plugin uses the following path: `/opt/Navisphere/bin`.
 
 ## Installing the monitoring connector
 

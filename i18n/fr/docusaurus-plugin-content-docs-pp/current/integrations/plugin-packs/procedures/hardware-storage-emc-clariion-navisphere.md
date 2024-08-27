@@ -22,7 +22,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias           | Modèle de service                                         | Description                                     | Découverte |
 |:----------------|:----------------------------------------------------------|:------------------------------------------------|:----------:|
 | Cache           | HW-Storage-EMC-Clariion-Cache-Navisphere-custom           | Contrôle l'état du cache                        |            |
-| Controller      | HW-Storage-EMC-Clariion-Controller-Navisphere-custom      | Contrôle le contrôleur                          |            |
+| Controller      | HW-Storage-EMC-Clariion-Controller-Navisphere-custom      | Contrôle le contrôleur Navisphere                          |            |
 | Disks           | HW-Storage-EMC-Clariion-Disks-Navisphere-custom           | Contrôle l'état et les performances des disques | X          |
 | Hardware-Global | HW-Storage-EMC-Clariion-Hardware-Global-Navisphere-custom | Contrôle l'ensemble du matériel                 |            |
 
