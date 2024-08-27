@@ -730,7 +730,7 @@ Installez le dépôt de Centreon Business : vous pouvez le trouver sur le [porta
 
 ### Étape 2 : installer le module MAP
 
-1. Depuis votre terminal, entrez la commande suivante :
+1. Depuis votre terminal, entrez la commande suivante sur le serveur central :
 
   <Tabs groupId="sync">
   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
