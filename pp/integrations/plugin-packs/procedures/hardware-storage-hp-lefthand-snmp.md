@@ -21,7 +21,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias       | Service Template                                       | Service Description |
 |:--------------------|:-------------------------------------------------------|:--------------------|
 | Hardware-Global     | HW-Storage-Hp-Lefthand-Hardware-Global-SNMP-custom     | Check all hardware  |
-| Volume-Usage-Global | HW-Storage-Hp-Lefthand-Volume-Usage-Global-SNMP-custom | Check volume usages |
+| Volume-Usage-Global | HW-Storage-Hp-Lefthand-Volume-Usage-Global-SNMP-custom | Check volume usage |
 
 > The services listed above are created automatically when the **HW-Storage-Hp-Lefthand-SNMP-custom** host template is used.
 
