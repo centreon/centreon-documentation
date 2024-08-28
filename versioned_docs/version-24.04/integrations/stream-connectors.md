@@ -23,7 +23,7 @@ Stream connectors transfer in real time the flow of monitoring data coming from 
 <TabItem value="Enhancement" label="Enhancement">
 
 - [**Centreon library: sc_params**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_params.lua) - Added a new **enable_bam_host** parameter to send BAM "services".
-- [**Centreon library: sc_flush**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_flush.lua) - Enhance error report when using **send_data** method in stream connector log files.
+- [**Centreon library: sc_flush**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_flush.lua) - Enhanced error report when using **send_data** method in stream connector log files.
 
 </TabItem>
 </Tabs>
