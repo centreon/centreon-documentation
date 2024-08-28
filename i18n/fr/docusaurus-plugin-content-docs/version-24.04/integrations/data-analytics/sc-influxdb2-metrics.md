@@ -1,25 +1,25 @@
 ---
 id: sc-influxdb2-metrics
-title: - InfluxdDB 2 Metrics
+title: - InfluxDB 2 Metrics
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Le stream connector InfluxdDB 2 Metrics vous permet d'envoyer des données depuis Centreon vers des instances InfluxdDB 2.
+Le stream connector InfluxDB 2 Metrics vous permet d'envoyer des données depuis Centreon vers des instances InfluxDB 2.
 
 ## Avant de commencer
 
 - Dans la plupart des cas, vous enverrez les données depuis le serveur central. Il est également possible de les envoyer 
 depuis un serveur distant ou un collecteur (par exemple si vous voulez éviter que le serveur central ne représente un point 
 de défaillance unique, ou bien si vous êtes un MSP et vous installez le stream connector sur un collecteur ou un serveur distant dans l'infratructure de votre client).
-- Par défaut, le stream connector InfluxdDB 2 Metrics envoie des métriques des évènements Broker [**host_status**](../../developer/developer-broker-mapping.md#host-status) 
+- Par défaut, le stream connector InfluxDB 2 Metrics envoie des métriques des évènements Broker [**host_status**](../../developer/developer-broker-mapping.md#host-status) 
 et [**service_status**](../../developer/developer-broker-mapping.md#service-status). Ces métriques sont contenues dans le champ **perf_data** des évènements. 
 Le format des évènements est décrit **[ici](#format-des-évènements)**.
 - Ces évènements sont envoyés à chaque contrôle sur l'hôte ou le service. Des paramètres dédiés vous permettent de [ne pas envoyer certains évènements](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-influxdb2).
 
 ## Installation
 
-Faites l'installation sur le serveur qui enverra les données à InfluxdDB 2 (serveur central, serveur distant, collecteur).
+Faites l'installation sur le serveur qui enverra les données à InfluxDB 2 (serveur central, serveur distant, collecteur).
 
 1. Connectez-vous en tant que `root` en utilisant votre client SSH préféré.
 
@@ -51,10 +51,10 @@ apt install centreon-stream-connector-influxdb
 </TabItem>
 </Tabs>
 
-## Configurer votre équipement InfluxdDB 2
+## Configurer votre équipement InfluxDB 2
 
-Vous devrez paramétrer votre équipement InfluxdDB 2 pour qu'il puisse recevoir des données de la part de Centreon. Reportez-vous à la documentation InfluxdDB 2.
-Assurez-vous que InfluxdDB 2 puisse recevoir les données envoyées par Centreon : les flux ne doivent pas être bloqués par la configuration de InfluxdDB 2 ou par un équipement de sécurité.
+Vous devrez paramétrer votre équipement InfluxDB 2 pour qu'il puisse recevoir des données de la part de Centreon. Reportez-vous à la documentation InfluxDB 2.
+Assurez-vous que InfluxDB 2 puisse recevoir les données envoyées par Centreon : les flux ne doivent pas être bloqués par la configuration de InfluxDB 2 ou par un équipement de sécurité.
 
 ## Configurer le stream connector dans Centreon
 
@@ -65,18 +65,18 @@ Assurez-vous que InfluxdDB 2 puisse recevoir les données envoyées par Centreon
 
 | Champ           | Valeur                                                     |
 | --------------- |------------------------------------------------------------|
-| Name            | InfluxdDB 2 metrics                                          |
+| Name            | InfluxDB 2 metrics                                          |
 | Path            | /usr/share/centreon-broker/lua/influxdb2-metrics-apiv2.lua |
 | Filter category | Neb                                                        |
 
-5. Pour permettre à Centreon de se connecter à votre équipement InfluxdDB 2, remplissez les paramètres obligatoires suivants. La première entrée existe déjà. Cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category** pour en ajouter un autre.
+5. Pour permettre à Centreon de se connecter à votre équipement InfluxDB 2, remplissez les paramètres obligatoires suivants. La première entrée existe déjà. Cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category** pour en ajouter un autre.
 
 | Type   | Nom             | Explication                                   | Exemple de valeur                                                                       |
 | ------ |-----------------|-----------------------------------------------|-----------------------------------------------------------------------------------------|
 | string | bucket_id       | The bucket ID where metrics will be sent      | `65f5f748e28c92f0`                                                                      |
 | string | bucket_api_key  | The API key used to send data to the bucket   | `OGwOM8nse3FHjxyGw5ODLWWXS1oEpcPsjLcRl09zmCEbBE0TKgAiJiKOyKOBUZxoo76qe6-PTPq-70ECCwA==` |
-| string | org_name        | The name of the InfluxdDB organization         | `centreon`                                                                              |
-| string | http_server_url | The InfluxdDB address with the port at the end | `https://myinfluxdb2.local:8086`                                                        |
+| string | org_name        | The name of the InfluxDB organization         | `centreon`                                                                              |
+| string | http_server_url | The InfluxDB address with the port at the end | `https://myinfluxdb2.local:8086`                                                        |
 
 6. Renseignez les paramètres optionnels désirés (en utilisant le lien **+Add a new entry**) :
 
@@ -85,7 +85,7 @@ Assurez-vous que InfluxdDB 2 puisse recevoir les données envoyées par Centreon
 | string | logfile     | The file in which logs are written          | /var/log/centreon-broker/influxdb2-metrics.log |
 | number | log_level   | Logging level from 1 (errors) to 3 (debug)  | 1                                              |
 
-7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les données que vous voulez que Centreon envoie à InfluxdDB 2](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-influxdb2).
+7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les données que vous voulez que Centreon envoie à InfluxDB 2](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-influxdb2).
 
 8. [Déployez la configuration](../../monitoring/monitoring-servers/deploying-a-configuration.md).
 
@@ -95,11 +95,11 @@ Assurez-vous que InfluxdDB 2 puisse recevoir les données envoyées par Centreon
    systemctl restart centengine
    ```
 
-   InfluxdDB 2 reçoit maintenant des données de Centreon. Pour tester le bon fonctionnement de l'intégration, voir [Commandes curl : tester le stream connector](#commandes-curl--tester-le-stream-connector).
+   InfluxDB 2 reçoit maintenant des données de Centreon. Pour tester le bon fonctionnement de l'intégration, voir [Commandes curl : tester le stream connector](#commandes-curl--tester-le-stream-connector).
 
-### Filtrer ou adapter les données que vous voulez envoyer à InfluxdDB 2
+### Filtrer ou adapter les données que vous voulez envoyer à InfluxDB 2
 
-Tous les stream connectors ont un jeu de [paramètres optionnels](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters) qui vous permettent de filtrer les données que vous enverrez à votre équipement InfluxdDB 2, de reformater les données, de définir un proxy...
+Tous les stream connectors ont un jeu de [paramètres optionnels](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters) qui vous permettent de filtrer les données que vous enverrez à votre équipement InfluxDB 2, de reformater les données, de définir un proxy...
 
 Chaque paramètre optionnel a une valeur par défaut, qui est indiquée dans la documentation correspondante.
 
@@ -111,7 +111,7 @@ Chaque paramètre optionnel a une valeur par défaut, qui est indiquée dans la 
    value = poller-1
    ```
 
-* Pour le stream connector InfluxdDB 2 Metrics, les données suivantes surchargent toujours les valeurs par défaut (il n'est pas nécessaire de les redéfinir dans l'interface).
+* Pour le stream connector InfluxDB 2 Metrics, les données suivantes surchargent toujours les valeurs par défaut (il n'est pas nécessaire de les redéfinir dans l'interface).
 
 | Type   | Nom                          | Valeur par défaut pour le stream connector |
 | ------ |------------------------------|--------------------------------------------|
@@ -166,9 +166,9 @@ Ce stream connector n'est pas compatible avec le format d'événements personnal
 
 ### Envoyer des évènements
 
-Si vous voulez tester que les évènements sont envoyés correctement à InfluxdDB 2 :
+Si vous voulez tester que les évènements sont envoyés correctement à InfluxDB 2 :
 
-1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à InfluxdDB 2 (le serveur central, un serveur distant ou un collecteur)
+1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à InfluxDB 2 (le serveur central, un serveur distant ou un collecteur)
 2. Exécutez la commande suivante :
 
    ```shell
@@ -177,4 +177,4 @@ Si vous voulez tester que les évènements sont envoyés correctement à Influxd
 
    > Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par la valeur correcte. Par exemple, *<bucket_id>* pourra être remplacé par *65f5f748e28c92f0*.
 
-3. Vérifiez que l'évènement a bien été reçu par InfluxdDB 2.
+3. Vérifiez que l'évènement a bien été reçu par InfluxDB 2.
