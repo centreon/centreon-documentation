@@ -73,7 +73,7 @@ Assurez-vous que InfluxDB 2 puisse recevoir les données envoyées par Centreon 
 
 | Type   | Nom             | Explication                                   | Exemple de valeur                                                                       |
 | ------ |-----------------|-----------------------------------------------|-----------------------------------------------------------------------------------------|
-| string | bucket_id       | The bucket ID where metrics will be sent      | `65f5f748e28c92f0`                                                                      |
+| string | bucket_id       | The ID of the bucket where metrics will be sent      | `65f5f748e28c92f0`                                                                      |
 | string | bucket_api_key  | The API key used to send data to the bucket   | `OGwOM8nse3FHjxyGw5ODLWWXS1oEpcPsjLcRl09zmCEbBE0TKgAiJiKOyKOBUZxoo76qe6-PTPq-70ECCwA==` |
 | string | org_name        | The name of the InfluxDB organization         | `centreon`                                                                              |
 | string | http_server_url | The InfluxDB address with the port at the end | `https://myinfluxdb2.local:8086`                                                        |
