@@ -10,7 +10,7 @@ Les stream connectors ont pour but de transmettre en temps réel le flux des don
 ## 2024
 
 ### August
- 
+
 <Tabs groupId="sync">
 <TabItem value="Fix" label="Fix">
 
@@ -27,7 +27,7 @@ Les stream connectors ont pour but de transmettre en temps réel le flux des don
 
 </TabItem>
 </Tabs>
- 
+
 ### May
 
 <Tabs groupId="sync">

@@ -10,7 +10,7 @@ Stream connectors transfer in real time the flow of monitoring data coming from 
 ## 2024
 
 ### August
- 
+
 <Tabs groupId="sync">
 <TabItem value="Fix" label="Fix">
 
@@ -27,7 +27,7 @@ Stream connectors transfer in real time the flow of monitoring data coming from 
 
 </TabItem>
 </Tabs>
- 
+
 ### May
 
 <Tabs groupId="sync">
