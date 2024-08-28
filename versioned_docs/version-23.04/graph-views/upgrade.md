@@ -176,6 +176,8 @@ automatically upgraded to the latest version that corresponds to the server.
 Alternatively, the client can be downloaded through the menu `Monitoring >
 Map` and **Desktop client** button.
 
+> Please follow these recommendations to [avoid the MAP desktop client running slowly](./troubleshooter.md#my-desktop-client-is-slow-and-i-often-get-disconnected) after its upgrade.
+
 ## Step 4: Update dialects in .properties files
 
 In the **/etc/centreon-studio/centreon-database.properties** and the **/etc/centreon-studio/studio-database.properties** files, replace **MySQL5Dialect** with **MariaDB10Dialect**.

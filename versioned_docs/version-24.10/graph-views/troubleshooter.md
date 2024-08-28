@@ -345,35 +345,51 @@ opening your task manager (Ctrl + Maj + Esc) and checking the memory
 consumption. If it increases and seems to reach a limit while your CPU
 is working hard, your desktop client requires more memory.
 
-To increase memory, edit the .ini file:
+#### Increase the memory
 
-<Tabs groupId="sync">
-<TabItem value="Windows" label="Windows">
+1. To increase memory, edit the .ini file:
 
-```shell
-C:\Users\<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
-```
+ <Tabs groupId="sync">
+ <TabItem value="Windows" label="Windows">
+ 
+ ```shell
+ C:\Users\<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
+ ```
+ 
+ </TabItem>
+ <TabItem value="Linux" label="Linux">
+ 
+ ```shell
+ /opt/centreon-map4-desktop-client/Centreon-Map4.ini
+ ```
+ 
+ </TabItem>
+ </Tabs>
 
-</TabItem>
-<TabItem value="Linux" label="Linux">
+2. Add the following line at the end of the file, on a new line:
 
-```shell
-/opt/centreon-map4-desktop-client/Centreon-Map4.ini
-```
+ ```shell
+ -Xmx4g
+ ```
 
-</TabItem>
-</Tabs>
+ > The "4g" means 4 GB (by default it can only use 2 GB). You can change this
+number depending on your hardware (e.g. by setting "3g").
 
-And add the following line at the end of the file, on a new line:
+#### Change the status synchronization interval
 
-```text
--Xmx4g
-```
+If you have a Centreon platform with many hosts and services, the desktop client may spend a lot of time getting the latest status of each resource.
 
-The "4g" means 4 GB (by default it can only use 2 GB). You can change this
-number depending on your hardware (e.g., by setting "3g").
+1. Edit the same file as in the previous step and add this line to increase the interval of status synchronization:
 
-Then restart your desktop client.
+ ```shell
+ -Dsync.delay=14400000
+ ```
+
+ > Dsync-relay is in milliseconds, so 14400000 means the desktop client will refresh the status every 4 hours.
+
+2. Then restart your desktop client.
+
+At the launch, it can take time to synchronize the status, but you will be able to edit your map after this operation.
 
 ### I get the error "Cannot authenticate user" on the login page
 

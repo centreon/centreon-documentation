@@ -102,7 +102,7 @@ iptables: Firewall is not running.
 
 Si vous avez ce message...
 
-``` shell
+```shell
 Table: filter
 Chain INPUT (policy ACCEPT)
 num  target     prot opt source               destination
@@ -218,12 +218,12 @@ Ensuite, faites un clic droit sur ce dossier et sélectionnez **Importer**.
 
 #### Je ne vois pas le "menu d'importation MAP 3".
 
-Vous souhaitez importer des vues de MAP 3 vers Centreon MAP \>= 4.x mais le menu correspondant est absent.
+Vous souhaitez importer des vues de MAP 3 vers Centreon MAP >= 4.x mais le menu correspondant est absent.
 
 Veuillez vérifier les prérequis suivants :
 
 - Votre licence MAP 3 est toujours valide.
-- La version de votre client lourd Centreon est au moins v4.0.8 (vous pouvez la vérifier directement à partir de l'interface de votre client lourd, dans le menu Help \> About).
+- La version de votre client lourd Centreon est au moins v4.0.8 (vous pouvez la vérifier directement à partir de l'interface de votre client lourd, dans le menu Help > About).
 - S'il existe un proxy entre votre ordinateur et votre interface web Centreon, vous devez le définir dans le menu **Configurer**.
 
    > Le proxy doit être configuré avec la case à cocher **Utiliser pour internet**.
@@ -296,40 +296,56 @@ utf8\_general\_ci/
 # systemctl start centreon-map
 ```
 
-### Mon client lourd est lent et je suis souvent déconnecté.
+### Mon client lourd est lent et je suis souvent déconnecté
 
 Selon le périmètre de supervision de votre serveur Centreon (le nombre de services en cours d'exécution) et la configuration matérielle de l'ordinateur, votre client lourd peut avoir besoin de plus de RAM qu'il n'en utilise par défaut.
 Il peut commencer à se figer et essayer de libérer plus de mémoire. Vous pouvez vérifier ce comportement en ouvrant votre gestionnaire de tâches (Ctrl + Maj + Esc) et en contrôlant la consommation de mémoire.
-Si elle augmente et semble atteindre une limite alors que votre CPU travaille dur, votre client lourd a besoin de plus de mémoire.
+Si elle augmente et semble atteindre une limite alors que votre CPU travaille fortement, votre client lourd a besoin de plus de mémoire.
 
-Pour augmenter la mémoire, modifiez le fichier .ini :
+#### Augmenter la mémoire
 
-<Tabs groupId="sync">
-<TabItem value="Windows" label="Windows">
+1. Pour augmenter la mémoire, modifiez le fichier .ini :
 
-```shell
-C:\Users\<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
-```
+  <Tabs groupId="sync">
+  <TabItem value="Windows" label="Windows">
+  
+  ```shell
+  C:\Users\<YOUR_USERNAME>\AppData\Local\Centreon-Map4\Centreon-Map4.ini
+  ```
+  
+  </TabItem>
+  <TabItem value="Linux" label="Linux">
+  
+  ```shell
+  /opt/centreon-map4-desktop-client/Centreon-Map4.ini
+  ```
+  
+  </TabItem>
+  </Tabs>
 
-</TabItem>
-<TabItem value="Linux" label="Linux">
+2. Et ajoutez la ligne suivante à la fin du fichier, sur une nouvelle ligne :
 
-```shell
-/opt/centreon-map4-desktop-client/Centreon-Map4.ini
-```
+  ```shell
+  -Xmx4g
+  ```
+  
+ > Le "4g" signifie 4 Go (par défaut, il ne peut utiliser que 2 Go). Vous pouvez modifier ce nombre en fonction de votre matériel (par exemple, en définissant "3g").
 
-</TabItem>
-</Tabs>
+#### Modifier l'intervalle de synchronisation du statut
 
-Et ajoutez la ligne suivante à la fin du fichier, sur une nouvelle ligne :
+Si vous avez une plateforme Centreon avec de nombreux hôtes et services, le client lourd peut passer beaucoup de temps à obtenir le dernier statut de chaque ressource.
 
-```text
--Xmx4g
-```
+1. Editez le même fichier que dans l'étape précédente et ajoutez la ligne suivante pour augmenter l'intervalle de synchronisation du statut :
 
-Le "4g" signifie 4 Go (par défaut, il ne peut utiliser que 2 Go). Vous pouvez modifier ce nombre en fonction de votre matériel (par exemple, en définissant "3g").
+ ```shell
+ -Dsync.delay=14400000
+ ```
 
-Redémarrez ensuite votre client lourd.
+ > Dsync-relay est en millisecondes, donc 14400000 signifie que le client lourd rafraîchira le statut toutes les 4 heures.
+
+2. Redémarrez ensuite le client lourd.
+
+Au démarrage, la synchronisation du statut peut prendre du temps, mais vous pourrez éditer votre carte après cette opération.
 
 ### J'obtiens l'erreur "Cannot authenticate user" sur la page de connexion
 

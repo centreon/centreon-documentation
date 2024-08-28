@@ -170,6 +170,8 @@ Si l'ordinateur de l'utilisateur dispose d'une connexion internet, le client lou
 
 Sinon, le client peut être téléchargé via le menu **Supervision > MAP** et le bouton **client lourd**.
 
+> Veuillez suivre ces recommandations pour [éviter des lenteurs de fonctionnement du client lourd MAP](./troubleshooter.md#mon-client-lourd-est-lent-et-je-suis-souvent-déconnecté) après sa mise à jour.
+
 ## Étape 4 : mise à jour des dialectes dans les fichiers .properties
 
 Dans les fichiers **/etc/centreon-studio/centreon-database.properties** et **/etc/centreon-studio/studio-database.properties**, remplacez  **MySQL5Dialect** par **MariaDB10Dialect**.
