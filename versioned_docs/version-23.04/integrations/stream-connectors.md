@@ -9,6 +9,8 @@ Stream connectors transfer in real time the flow of monitoring data coming from 
 
 ## 2024
 
+### August
+
 ### May
 
 <Tabs groupId="sync">
