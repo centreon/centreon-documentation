@@ -16,7 +16,7 @@ Les stream connectors ont pour but de transmettre en temps réel le flux des don
 
 - [**Splunk Metrics**](data-analytics/sc-splunk-metrics.md) - Fixed an issue with **max_buffer_size** parameter in Splunk stream connector.
 - [**Clickhouse**](data-analytics/sc-clickhouse.md) - Added a protection on metric names containing spaces.
-- [**Influxdb2 Metrics**](data-analytics/sc-influxdb2-metrics.md) - Added a protection on metric names containing spaces.
+- [**InfluxdDB Metrics**] - Added a protection on metric names containing spaces.
 - [**Centreon library: sc_macro**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_macro.lua) - Fixed an issue with **_scshort flag** leading to the macro name of an event being displayed instead of its value.
 
 </TabItem>
