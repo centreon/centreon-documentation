@@ -29,7 +29,7 @@ Faites l'installation sur le serveur qui enverra les données à Influxdb 2 (ser
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install centreon-stream-connector-influxdb2
+dnf install centreon-stream-connector-influxdb
 ```
 
 </TabItem>
@@ -37,7 +37,7 @@ dnf install centreon-stream-connector-influxdb2
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf install centreon-stream-connector-influxdb2
+dnf install centreon-stream-connector-influxdb
 ```
 
 </TabItem>
@@ -45,7 +45,7 @@ dnf install centreon-stream-connector-influxdb2
 <TabItem value="Debian 11 & 12" label="Debian_11_&_12">
 
 ```shell
-apt install centreon-stream-connector-influxdb2
+apt install centreon-stream-connector-influxdb
 ```
 
 </TabItem>
