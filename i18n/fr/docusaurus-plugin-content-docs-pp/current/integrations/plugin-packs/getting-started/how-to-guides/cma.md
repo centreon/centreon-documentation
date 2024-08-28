@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Introduction
 
-L'Agent de supervision Centreon (CMA) collecte des métriques et calcule des statuts sur les serveurs qu'il supervise, et les envoie à Centreon. 
+L'Agent de supervision Centreon (Centreon Monitoring Agent, CMA) collecte des métriques et calcule des statuts sur les serveurs qu'il supervise, et les envoie à Centreon. 
 Les plugins Centreon comme les plugins personnalisés basés sur Nagios sont compatibles avec l'agent. 
 
 
@@ -15,27 +15,32 @@ Les plugins Centreon comme les plugins personnalisés basés sur Nagios sont com
 
 L'Agent de supervision Centreon est en phase Beta. Les limitations suivantes s'appliquent : 
 
-* Le périmètre de supervision supporté est limité, de nouveaux contrôles (natifs) seront apportées dans la version définitive
-* Une configuration manuelle est à réaliser. Celle-ci sera possible via l'interface utilisateur, et largement automarisée, dans la version définitive
+* Le périmètre de supervision supporté est limité, de nouveaux contrôles (natifs) seront apportés dans la version définitive.
+* Une configuration manuelle est à réaliser. Dans la version définitive, celle-ci sera possible via l'interface utilisateur, et largement automatisée. 
 
 
 ### OS supportés
 
-L'agent peut être déployé sur les OS suivants : 
+L'agent peut être déployé sur les OS suivants :
+
 <Tabs groupId="sync">
 <TabItem value="Windows" label="Windows">
+
 * Windows 10
 * Windows 11
 * Windows Server 2016
 * Windows Server 2019
 * Windows Server 2022
+
 </TabItem>
 <TabItem value="Linux" label="Linux">
+
 * Alma 8
 * Alma 9
 * Debian 11
 * Debian 12
 * Ubuntu 22.04 LTS
+
 </TabItem>
 </Tabs>
 
@@ -68,7 +73,7 @@ Sur votre serveur central :
 | Paramètre                  | Valeur                                                                                                                                                                                                                           |
 |----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Nom du connecteur          | Centreon Monitoring Agent                                                                                                                                                                                                                          |
-| Description du connecteurn | Centreon Monitoring Agent                                                                                                                                                                                                                         |
+| Description du connecteur | Centreon Monitoring Agent                                                                                                                                                                                                                         |
 | Ligne de commande          | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |
 | Utilisé par la commande    | Entrez `TO BE DEFINED` et cliquez sur **Sélectionner tout**                                                                                                                                                                     |
 | Statut du connecteur       | Activé                                                                                                                                                                                                                           |
@@ -83,7 +88,7 @@ Sur votre serveur central :
 
 2. Entrez le contenu suivant. Cela permettra au collecteur de recevoir les données en provenance de l'agent.
 
-#### usage normal (flux entrant et sortant)
+#### Usage normal (flux entrant et sortant)
 
 ```json
 {
@@ -103,9 +108,9 @@ Sur votre serveur central :
 chown centreon-engine: /etc/centreon-engine/otl_server.json
 ```
 
-#### usage Reverse (flux sortant uniquement)
+#### Usage "reverse" (flux sortant uniquement)
 
-Cette configuration est à utiliser lorsque tout flux entrant vers le Host est proscrit, pour des raisons de sécurité (ex : DMZ).
+Cette configuration est à utiliser lorsque tout flux entrant vers l'hôte est proscrit, pour des raisons de sécurité (ex : DMZ).
 Dans ce mode, c'est l'Agent de supervision Centreon qui va demander sa configuration au Collecteur, et les flux sont uniquement sortants.
 
 ```json
@@ -128,11 +133,11 @@ Dans ce mode, c'est l'Agent de supervision Centreon qui va demander sa configura
 chown centreon-engine: /etc/centreon-engine/otl_server.json
 ```
 
-* Entrez l'adresse IP du collecteur dans les champs **host** et **port**. Cette adresse doit être accessible depuis le Host, et sera utilisée par l'Agent pour aller chercher sa configuration.
+* Entrez l'adresse IP du collecteur dans les champs **host** et **port**. Cette adresse doit être accessible depuis l'hôte, et sera utilisée par l'Agent pour aller chercher sa configuration.
 * Le champ **check_interval** correspond à la fréquence des contrôles effectués par l'Agent de supervision Centreon.
 
-> Pour des raisons de simplicité, cette page ne couvre que la configuration de CMA **en mode non sécurisé**, mais vous
-> trouverez la procédure pour chiffrer les communications dans la documentation du [connecteur Windows Centreon Monitoring Agent](../../procedures/TODO) ou celle du  [connecteur Linux Centreon Monitoring Agent](../../procedures/TODO).
+> Pour des raisons de simplicité, cette page ne couvre que la configuration de l'Agent **en mode non sécurisé**, mais vous
+> trouverez la procédure pour chiffrer les communications dans la documentation du [connecteur Windows Centreon Monitoring Agent] ou celle du [connecteur Linux Centreon Monitoring Agent].
 
 (NOTE POUR TEAM DOC : ci-dessous le mode chiffré en normal et reverse, à décaler sur autre page ?)
 
@@ -183,8 +188,8 @@ chown centreon-engine: /etc/centreon-engine/otl_server.json
    /usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json
    ```
 
-4. Exportez la configuration
-5. Redémarrez le moteur de collecte
+4. Exportez la configuration.
+5. Redémarrez le moteur de collecte.
 
    ```bash
    systemctl restart centengine
@@ -195,7 +200,6 @@ L'Agent de supervision Centreon est maintenant capable de communiquer avec Centr
 ## Étape 2 : Préparez l'hôte
 
 ### Téléchargez et installez l'agent sur l'hôte
-
 
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
