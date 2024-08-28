@@ -73,7 +73,7 @@ Assurez-vous que InfluxdDB 2 puisse recevoir les données envoyées par Centreon
 
 | Type   | Nom             | Explication                                   | Exemple de valeur                                                                       |
 | ------ |-----------------|-----------------------------------------------|-----------------------------------------------------------------------------------------|
-| string | bucket_id       | The bucket id where metrics will be sent      | `65f5f748e28c92f0`                                                                      |
+| string | bucket_id       | The bucket ID where metrics will be sent      | `65f5f748e28c92f0`                                                                      |
 | string | bucket_api_key  | The API key used to send data to the bucket   | `OGwOM8nse3FHjxyGw5ODLWWXS1oEpcPsjLcRl09zmCEbBE0TKgAiJiKOyKOBUZxoo76qe6-PTPq-70ECCwA==` |
 | string | org_name        | The name of the InfluxdDB organization         | `centreon`                                                                              |
 | string | http_server_url | The influxdb address with the port at the end | `https://myinfluxdb2.local:8086`                                                        |
@@ -138,7 +138,7 @@ Pour utiliser cette fonctionnalité, vous devez ajouter le paramètre suivant à
 | ------ | --------------- | --------------- |
 | number | max_buffer_size | `more than one` |
 
-> Conformément aux [best practices](https://docs.influxdata.com/influxdb/cloud/write-data/best-practices/optimize-writes/#batch-writes) `max_buffer_size` est définie par défaut à 5000. Mais vous devriez réduire sa valeurs à quelques centaines si vous avez moins de 10 000 services.
+> Conformément aux [best practices](https://docs.influxdata.com/influxdb/cloud/write-data/best-practices/optimize-writes/#batch-writes), `max_buffer_size` est défini par défaut à 5000. Mais vous devriez réduire sa valeur à quelques centaines si vous avez moins de 10 000 services.
 
 ## Format des évènements
 
@@ -160,7 +160,7 @@ pl,type=host,host.name=central,poller=Central,metric.unit=% value=0.0 1694370951
 
 ### Format d'évènement personnalisé
 
-Ce stream connector n'est pas compatible avec le formatage d'événements personnalisés.
+Ce stream connector n'est pas compatible avec le format d'événements personnalisé.
 
 ## Commandes Curl : tester le stream connector
 
