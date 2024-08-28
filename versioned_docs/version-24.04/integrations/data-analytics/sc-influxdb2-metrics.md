@@ -1,6 +1,6 @@
 ---
 id: sc-influxdb2-metrics
-title: Influxdb 2 Metrics
+title: InfluxdDB 2 Metrics
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -65,7 +65,7 @@ Make sure Influxdb 2 is able to receive data sent by Centreon: flows must not be
 
 | Field           | Value                                                      |
 | --------------- |------------------------------------------------------------|
-| Name            | Influxdb2 metrics                                          |
+| Name            | InfluxdDB 2 metrics                                          |
 | Path            | /usr/share/centreon-broker/lua/influxdb2-metrics-apiv2.lua |
 | Filter category | Neb                                                        |
 
