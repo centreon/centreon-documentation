@@ -19,7 +19,6 @@ Stream connectors transfer in real time the flow of monitoring data coming from 
 - [**Influxdb2 Metrics**](data-analytics/sc-influxdb2-metrics.md) - Added a protection on metric names if it contains spaces.
 - [**Centreon library: sc_macro**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_macro.lua) - Fixed an issue with **_scshort flag** leading to macro name of an event instead of its value.
 
-
 </TabItem>
 <TabItem value="Enhancement" label="Enhancement">
 
