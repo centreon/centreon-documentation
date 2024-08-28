@@ -139,7 +139,7 @@ To use this feature you must add the following parameter in your stream connecto
 | ------ | --------------- | --------------- |
 | number | max_buffer_size | `more than one` |
 
-> According to [best practice](https://docs.influxdata.com/influxdb/cloud/write-data/best-practices/optimize-writes/#batch-writes) `max_buffer_size` is set at 5000 lines by default. But you should lower this value to a few hundred if you have less than 10 000 services.
+> According to [best practice](https://docs.influxdata.com/influxdb/cloud/write-data/best-practices/optimize-writes/#batch-writes), `max_buffer_size` is set at 5000 lines by default. But you should lower this value to a few hundred if you have less than 10 000 services.
 
 ## Event format
 
