@@ -43,7 +43,7 @@ Access to the Dashboards feature is not managed at the user level, but through a
 
 > You must be logged into Centreon with administrator or creator rights.
 
-1. In the **Dashboard library** page, click the **Create a dashboard** button. This opens the **Create dashboard** modal.
+1. In the **Dashboard library** page, click the **Create a dashboard** button. This opens the **Create dashboard** window.
 2. Name the dashboard and enter a description if needed.
 3. Click **Create** to confirm the creation.
 

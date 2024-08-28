@@ -41,7 +41,7 @@ Access to the Dashboards feature is not managed at the user level, but through a
 
 > You must be logged into Centreon with administrator or creator rights.
 
-1. In the **Dashboard library** page, click the **Create a dashboard** button. This opens the **Create dashboard** modal.
+1. In the **Dashboard library** page, click the **Create a dashboard** button. This opens the **Create dashboard** window.
 2. Name the dashboard and enter a description if needed.
 3. Click **Create** to confirm the creation.
 
@@ -159,7 +159,7 @@ The control banner allows you to:
 > You can only share your playlist with contacts who have access to your Centreon platform and are authorized Dashboards viewers.
 
 - Click the **Share with contacts** button from the line of your playlist.
-The **Playlist access rights** modal is displayed.
+The **Playlist access rights** window is displayed.
 - You can now add contacts or contact groups and define their rights as viewer or editor in the **Share with** section.
 - Use the **trash** button in the **User rights** section to remove a contact or contact group.
 - Use the **Copy link** button to share the playlist URL directly with users who have access to your platform.
