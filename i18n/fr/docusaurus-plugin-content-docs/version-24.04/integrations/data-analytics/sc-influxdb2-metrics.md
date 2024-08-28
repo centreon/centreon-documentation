@@ -1,6 +1,6 @@
 ---
 id: sc-influxdb2-metrics
-title: - InfluxDB 2 Metrics
+title: InfluxDB 2 Metrics
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
