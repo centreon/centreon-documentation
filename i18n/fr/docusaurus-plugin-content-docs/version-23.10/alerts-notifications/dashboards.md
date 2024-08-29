@@ -44,7 +44,7 @@ L'accès à la fonctionnalité Tableaux de bord n'est pas géré au niveau de l'
 
 > Vous devez être connecté à Centreon avec des droits d'administrateur ou de créateur.
 
-1. Dans la page **Bibliothèque de tableaux de bord**, cliquez sur le bouton **Créer un tableau de bord**. Cela ouvre la modale **Créer un tableau de bord**.
+1. Dans la page **Bibliothèque de tableaux de bord**, cliquez sur le bouton **Créer un tableau de bord**. Cela ouvre la fenêtre **Créer un tableau de bord**.
 2. Nommez le tableau de bord et renseignez une description si nécessaire.
 3. Cliquez sur **Créer** pour confirmer la création.
 
