@@ -9,7 +9,7 @@ Centreon Cloud is the Centreon monitoring platform installed in our Cloud infras
 
 ## What is the SLA for Centreon Cloud?
 
-Centreon Cloud is committed to a high service quality with the following guarantees:
+Centreon Cloud is committed to a high quality of service with the following guarantees:
 
 * The SLA for Centreon Cloud is 99.5%. More information in our [Terms and Conditions](https://www.centreon.com/legal/en/Cloud-Services-terms-ROW).
 
@@ -32,7 +32,7 @@ For a comprehensive overview of our security practices, visit our [Centreon Clou
 
 ## Fair use policy
 
-Read our [Fair Use Policy](https://www.centreon.com/legal/en/centreon-cloud-service-fair-use-policy).
+To understand our limitations in terms of resource use, read our [Fair Use Policy](https://www.centreon.com/legal/en/centreon-cloud-service-fair-use-policy).
 
 ## Maintenance updates and upgrades
 
