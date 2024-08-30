@@ -1,0 +1,68 @@
+.pngContainer {
+  position: fixed;
+  bottom: 80px;
+  right: 22px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.pngImage {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  z-index: 1;
+  margin-top: 10px;
+}
+
+.footerButtons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 10px;
+  z-index: 2;
+  position: relative;
+}
+
+.footerButtons a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  background-color: #00bfa5;
+  color: white;
+  padding: 7px;
+  margin-top: 10px;
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 40px;
+  transition: width 0.4s ease-in-out;
+  right: 6px;
+}
+
+.footerButtons a:hover {
+  width: auto;
+  background-color: #008f7a;
+}
+
+.footerButtons a svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  flex-shrink: 0;
+  margin-left:3.7px;
+}
+
+.buttonText {
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  margin-left: 0;
+  text-align: left;
+  flex-grow: 1;
+}
+
+.footerButtons a:hover .buttonText {
+  opacity: 1;
+}
