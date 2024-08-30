@@ -5,9 +5,11 @@ title: À propos de Centreon Cloud
 
 ## Qu'est-ce que Centreon Cloud ?
 
-Centreon Cloud est notre plateforme de supervision Centreon installée dans notre infrastructure Cloud : lisez notre [description produit](https://www.centreon.com/fr/centreon-cloud/).
+Centreon Cloud est notre plateforme de supervision Centreon installée dans notre infrastructure Cloud. Pour plus d'informations, consultez notre [page de description du produit](https://www.centreon.com/fr/centreon-cloud/).
 
 ## Quel SLA pour Centreon Cloud ?
+
+Centreon Cloud s'engage à offrir un service de haute qualité avec les garanties suivantes :
 
 * Le SLA pour Centreon Cloud est de 99.5%. Plus d'information dans notre document [Terms and Conditions](https://www.centreon.com/legal/en/Cloud-Services-terms-ROW).
 
@@ -26,11 +28,11 @@ Toutes les autres données (par exemple la configuration) sont gardées jusqu'à
 
 ## Quelles mesures de sécurité Centreon prend-il ?
 
-Tout est expliqué dans notre page [Centreon Cloud - Management de la sécurité](../security/security.md).
+Pour une vue d'ensemble complète de nos mesures de sécurité, visitez notre page dédiée à la [gestion de la sécurité de Centreon Cloud](../security/security.md).
 
 ## Accord d'usage non abusif (Fair Use Policy)
 
-Consultez l'[accord d'usage non-abusif](https://www.centreon.com/legal/en/centreon-cloud-service-fair-use-policy).
+Pour comprendre nos limitations en matière d'utilisation des ressources, consultez notre [accord d'usage non-abusif](https://www.centreon.com/legal/en/centreon-cloud-service-fair-use-policy).
 
 ## Maintenance : mises à jour et montées de version
 

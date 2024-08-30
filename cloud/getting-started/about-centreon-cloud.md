@@ -5,9 +5,11 @@ title: About Centreon Cloud
 
 ## What is Centreon Cloud?
 
-Centreon Cloud is the Centreon monitoring platform installed in our Cloud infrastructure: read our [product description](https://www.centreon.com/centreon-cloud/).
+Centreon Cloud is the Centreon monitoring platform installed in our Cloud infrastructure. For detailed product information, visit our [product description page](https://www.centreon.com/centreon-cloud/).
 
 ## What is the SLA for Centreon Cloud?
+
+Centreon Cloud is committed to a high service quality with the following guarantees:
 
 * The SLA for Centreon Cloud is 99.5%. More information in our [Terms and Conditions](https://www.centreon.com/legal/en/Cloud-Services-terms-ROW).
 
@@ -26,7 +28,7 @@ All other data (e.g. your configuration) is kept until the end of your subscript
 
 ## What security measures does Centreon take?
 
-Everything is explained in our [Centreon Cloud security management](../security/security.md) page.
+For a comprehensive overview of our security practices, visit our [Centreon Cloud security management page](../security/security.md).
 
 ## Fair use policy
 
@@ -34,5 +36,5 @@ Read our [Fair Use Policy](https://www.centreon.com/legal/en/centreon-cloud-serv
 
 ## Maintenance updates and upgrades
 
-* Your central server is updated and upgraded by Centreon, you have nothing to do.
+* Your central server is fully managed and updated by Centreon. No action is required on your part.
 * Your pollers are in your infrastructure: it is your responsibility to [update or upgrade them](../installation/poller-update-upgrade.md).
