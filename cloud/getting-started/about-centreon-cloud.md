@@ -21,7 +21,7 @@ Centreon uses [several hosting providers](../security/security.md#hosting-securi
 
 ## How long is my data kept for?
 
-Real-time data is kept for 13 months: performance data (metrics), downtimes, acknowledgements, comments, logs...
+Monitoring data is kept for 13 months: performance data (metrics), downtimes, acknowledgements, comments, logs...
 All other data (e.g. your configuration) is kept until the end of your subscription.
 
 ## What security measures does Centreon take?
