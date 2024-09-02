@@ -5,7 +5,7 @@ import { useLocation } from '@docusaurus/router';
 import { useDoc } from '@docusaurus/theme-common/internal';
 import styles from './styles.module.css';
 import Translate from '@docusaurus/Translate';
-import imagePath from '/src/theme/TOC/image.png'; 
+import imagePath from './image.png';
 
 export default function TOC(props) {
   const [showFooterButtons, setShowFooterButtons] = useState(false);
