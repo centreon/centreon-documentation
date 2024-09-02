@@ -66,12 +66,12 @@ Here is the list of services for this connector, detailing all metrics linked to
 ## Prerequisites
 
 Refer to the official documentation of Office365 Management or follow the link 
-in the 'More information' section to create an Office365 account and get help 
+in the [More information section](#more-information) to create an Office365 account and get help 
 about the management features.
 
 ### Register an application
 
-The Office365 Management API use Azure AD to authenticate against Office365.
+The Office365 Management API uses Azure AD to authenticate against Office365.
 To access the Office365 Management API, you need to register your application 
 in Azure AD. *Application* is here used by Microsoft as a conceptual term,
 referring not only to the application software, but also to the Azure AD
@@ -81,7 +81,7 @@ registration and role in authentication/authorization "conversations" at runtime
 ### Office365 Management API authorization
 
 To collect data from Exchange Online, you need to specify the following
-authorization:
+authorizations:
 
 * Microsoft Graph :
     * Reports.Read.All (Type : Application)
