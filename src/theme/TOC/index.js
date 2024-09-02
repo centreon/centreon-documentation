@@ -5,6 +5,7 @@ import { useLocation } from '@docusaurus/router';
 import { useDoc } from '@docusaurus/theme-common/internal';
 import styles from './styles.module.css';
 import Translate from '@docusaurus/Translate';
+import imagePath from '/src/theme/TOC/image.png'; 
 
 export default function TOC(props) {
   const [showFooterButtons, setShowFooterButtons] = useState(false);
@@ -149,7 +150,7 @@ export default function TOC(props) {
           </div>
         )}
         <img
-          src={require('/src/theme/TOC/image.png').default}
+          src={imagePath}
           alt="help button"
           className={styles.pngImage}
           onClick={handleToggleButtons}
