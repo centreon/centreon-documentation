@@ -9,7 +9,7 @@ import Translate from '@docusaurus/Translate';
 export default function TOC(props) {
   const [showFooterButtons, setShowFooterButtons] = useState(false);
   const location = useLocation();
-  const { metadata } = useDoc();  
+  const { metadata } = useDoc();
 
   const editUrl = metadata?.editUrl || '';
 
@@ -149,7 +149,7 @@ export default function TOC(props) {
           </div>
         )}
         <img
-          src={require('./image.png').default}
+          src={require('/src/theme/TOC/image.png').default}
           alt="help button"
           className={styles.pngImage}
           onClick={handleToggleButtons}
