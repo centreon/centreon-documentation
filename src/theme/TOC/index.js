@@ -11,7 +11,7 @@ export default function TOC(props) {
   const [showFooterButtons, setShowFooterButtons] = useState(false);
   const location = useLocation();
   const { metadata } = useDoc();
-  const imagePath = './img/image.png';
+  const imagePath = useBaseUrl('/img/image.png');
 
 
   const editUrl = metadata?.editUrl || '';
