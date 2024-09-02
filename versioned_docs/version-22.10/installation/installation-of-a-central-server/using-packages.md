@@ -92,7 +92,9 @@ You should have this result:
 Disabled
 ```
 
-> **Note that this deactivation should be temporary.** To enable SELinux again, edit the **/etc/selinux/config** file and change the value with the following options:
+> **Note that this deactivation should be temporary for security reasons.** SELinux should be [reenabled after installation](../../administration/secure-platform.md#audit-logs-and-enable-selinux).
+
+> To enable SELinux again, edit the **/etc/selinux/config** file and change the value with the following options:
 > - ``SELINUX=enforcing`` to make SELinux security policy enforced.
 > - ``SELINUX=permissive`` to make SELinux print warnings instead of enforce security policy.
 
@@ -124,7 +126,9 @@ You should have this result:
 Disabled
 ```
 
-> **Note that this deactivation should be temporary.** To enable SELinux again, edit the **/etc/selinux/config** file and change the value with the following options:
+> **Note that this deactivation should be temporary for security reasons.** SELinux should be [reenabled after installation](../../administration/secure-platform.md#audit-logs-and-enable-selinux).
+
+> To enable SELinux again, edit the **/etc/selinux/config** file and change the value with the following options:
 > - ``SELINUX=enforcing`` to make SELinux security policy enforced.
 > - ``SELINUX=permissive`` to make SELinux print warnings instead of enforce security policy.
 

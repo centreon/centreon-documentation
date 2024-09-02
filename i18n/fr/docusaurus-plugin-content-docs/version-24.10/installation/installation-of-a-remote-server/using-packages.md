@@ -113,7 +113,9 @@ $ getenforce
 Disabled
 ```
 
-> **Notez que cette désactivation doit être temporaire.** Pour réactiver SELinux, éditez le fichier **/etc/selinux/config** et changez la valeur avec les options suivantes :
+> **Notez que cette désactivation doit être temporaire pour des raisons de sécurité.** SELinux doit être [réactivé après l'installation](../../administration/secure-platform.md#auditer-les-journaux-et-activer-selinux).
+
+> Pour réactiver SELinux, éditez le fichier **/etc/selinux/config** et changez la valeur avec les options suivantes :
 > - ``SELINUX=enforcing`` pour que la politique de sécurité SELinux soit appliquée en mode strict.
 > - ``SELINUX=permissive`` pour que les erreurs d’accès soient enregistrées dans les logs, mais l’accès ne sera pas bloqué.
 
@@ -142,7 +144,9 @@ $ getenforce
 Disabled
 ```
 
-> **Notez que cette désactivation doit être temporaire.** Pour réactiver SELinux, éditez le fichier **/etc/selinux/config** et changez la valeur avec les options suivantes :
+> **Notez que cette désactivation doit être temporaire pour des raisons de sécurité.** SELinux doit être [réactivé après l'installation](../../administration/secure-platform.md#auditer-les-journaux-et-activer-selinux).
+
+> Pour réactiver SELinux, éditez le fichier **/etc/selinux/config** et changez la valeur avec les options suivantes :
 > - ``SELINUX=enforcing`` pour que la politique de sécurité SELinux soit appliquée en mode strict.
 > - ``SELINUX=permissive`` pour que les erreurs d’accès soient enregistrées dans les logs, mais l’accès ne sera pas bloqué.
 

@@ -73,24 +73,13 @@ interagir entre eux et avec les différentes ressources système. Par défaut, l
 
 Pour plus d'informations à propos de SELinux, visitez la [documentation Red Hat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/using_selinux/getting-started-with-selinux_using-selinux)
 
-### Activer SELinux en mode permissif
+### Activer SELinux
 
-Par défaut, SELinux est désactivé lors du processus d'installation de Centreon. Pour activer SELinux en mode permissif,
-vous devez modifier le fichier `/etc/selinux/config` comme tel :
+Par défaut, SELinux est désactivé lors du processus d'installation de Centreon pour des raisons de sécurité.
 
-```shell
-# This file controls the state of SELinux on the system.
-# SELINUX= can take one of these three values:
-#     enforcing - SELinux security policy is enforced.
-#     permissive - SELinux prints warnings instead of enforcing.
-#     disabled - No SELinux policy is loaded.
-SELINUX=permissive
-# SELINUXTYPE= can take one of three two values:
-#     targeted - Targeted processes are protected,
-#     minimum - Modification of targeted policy. Only selected processes are protected.
-#     mls - Multi Level Security protection.
-SELINUXTYPE=targeted
-```
+Pour réactiver SELinux, éditez le fichier **/etc/selinux/config** et changez la valeur avec les options suivantes :
+- ``SELINUX=enforcing`` pour que la politique de sécurité SELinux soit appliquée en mode strict.
+- ``SELINUX=permissive`` pour que les erreurs d’accès soient enregistrées dans les logs, mais l’accès ne sera pas bloqué.
 
 Puis redémarrez votre serveur :
 
@@ -174,7 +163,7 @@ audit2allow -a
 Exécutez ensuite les règles proposées.
 
 Si après un certain temps, aucune erreur n'est présente, vous pouvez activer SELinux en mode renforcé en suivant cette
-[procédure](#activer-selinux-en-mode-permissif) avec le mode **enforcing**.
+[procédure](#activer-selinux) avec le mode **enforcing**.
 
 > N'hésitez pas à nous faire part de vos retours sur [Github](https://github.com/centreon/centreon).
 
