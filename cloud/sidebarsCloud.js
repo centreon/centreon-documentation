@@ -8,7 +8,10 @@ module.exports = {
         id: "getting-started/welcome"
       },
       items: [
-
+        {
+          type: 'doc',
+          id: 'getting-started/about-centreon-cloud',
+        },
         {
           "collapsed": true,
           "type": "category",
