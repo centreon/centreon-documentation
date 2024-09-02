@@ -7,83 +7,88 @@ import TabItem from '@theme/TabItem';
 
 ## Introduction
 
-L'Agent de supervision Centreon (CMA) collecte des métriques et calcule des statuts sur les serveurs qu'il supervise, et les envoie à Centreon. 
-Les plugins Centreon comme les plugins personnalisés basés sur Nagios sont compatibles avec l'agent. 
+Centreon Monitoring Agent (CMA) collects metrics and computes statuses on the servers it monitors, and sends them to Centreon
+Les plugins Centreon plugins as user's plugins Nagios compatible can be used with this agent. 
 
 
 ### Limitations
 
-L'Agent de supervision Centreon est en phase Beta. Les limitations suivantes s'appliquent : 
+Centreon Monitoring Agent is in Beta Phase. The following limitations need to be considered : 
 
-* Le périmètre de supervision supporté est limité, de nouveaux contrôles (natifs) seront apportées dans la version définitive
-* Une configuration manuelle est à réaliser. Celle-ci sera possible via l'interface utilisateur, et largement automarisée, dans la version définitive
+* The scope of supervision supported is limited, new (native) controls will be introduced in the final version.
+* Manual configuration is required. In the final version, this will be possible via the user interface and largely automated.
 
 
 ### OS supportés
 
-L'agent peut être déployé sur les OS suivants : 
+CMA can be installed on the following OS :
+
 <Tabs groupId="sync">
 <TabItem value="Windows" label="Windows">
+
 * Windows 10
 * Windows 11
 * Windows Server 2016
 * Windows Server 2019
 * Windows Server 2022
+
 </TabItem>
 <TabItem value="Linux" label="Linux">
+
 * Alma 8
 * Alma 9
 * Debian 11
 * Debian 12
 * Ubuntu 22.04 LTS
+
 </TabItem>
 </Tabs>
 
-## Étape 1: Configurez Centreon
+## Étape 1: Configure Centreon
 
-### Installez le connecteur de supervision
+### Install the Monitoring Connector
 
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
-1. Sur votre serveur central, allez à la page **Configuration > Gestionnaire de connecteurs de supervision**.
-2. [Installez](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) le connecteur de supervision **TO BE DEFINED**.
+1. On your central server, go to **Configuration > Monitoring Connector Manager**.
+2. [Install](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) the "Windows Centreon Monitoring Agent" monitoring connector.
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-1. Sur votre serveur central, allez à la page **Configuration > Gestionnaire de connecteurs de supervision**.
-2. [Installez](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) le connecteur de supervision **TO BE DEFINED**.
+1. On your central server, go to **Configuration > Monitoring Connector Manager**.
+2. [Install](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) the "Linux Centreon Monitoring Agent" monitoring connector.
 
 </TabItem>
 </Tabs>
 
-### Créez le connecteur Centreon Monitoring Agent
+### Create the CMA connector
 
-Sur votre serveur central :
+Install the Open Telemetry processor for Telegraf on your central server:
 
-1. Allez à la page **Configuration > Commandes > Connecteurs**.
-2. Créez un nouveau connecteur avec les données suivantes :
+1. Go to **Configuration > Commands > Connectors**.
+2. Create a new connector with the following values:
 
-| Paramètre                  | Valeur                                                                                                                                                                                                                           |
-|----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Nom du connecteur          | Centreon Monitoring Agent                                                                                                                                                                                                                          |
-| Description du connecteurn | Centreon Monitoring Agent                                                                                                                                                                                                                         |
-| Ligne de commande          | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |
-| Utilisé par la commande    | Entrez `TO BE DEFINED` et cliquez sur **Sélectionner tout**                                                                                                                                                                     |
-| Statut du connecteur       | Activé                                                                                                                                                                                                                           |
+| Parameter             | Value                                                                                                                                                                                         |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Connector Name        | Centreon Monitoring Agent                                                                                                                                                                     |
+| Connector Description | Centreon Monitoring Agent                                                                                                                                                                     |
+| Command Line          | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |
+| Used by command       | Type `TO BE DEFINED` and click **Select all**                                                                                                                                                 |
+| Connector Status      | Enabled                                                                                                                                                                                       |
 
-### Configurez Engine
+### Configure Engine
 
-1. Sur le collecteur qui recevra les données de l'agent, créez le fichier suivant :
+1. On the poller that will receive the data from the agent, create the following file:
 
    ```shell
    touch /etc/centreon-engine/otl_server.json
    ```
 
-2. Entrez le contenu suivant. Cela permettra au collecteur de recevoir les données en provenance de l'agent.
+2. Enter the following contents. This will allow the poller to receive the data that the agent will send.
 
-#### usage normal (flux entrant et sortant)
+#### Normal usage (CMA connects to poller)
 
 ```json
 {
@@ -103,10 +108,11 @@ Sur votre serveur central :
 chown centreon-engine: /etc/centreon-engine/otl_server.json
 ```
 
-#### usage Reverse (flux sortant uniquement)
+#### reverse usage (poller connects to CMA)
 
-Cette configuration est à utiliser lorsque tout flux entrant vers le Host est proscrit, pour des raisons de sécurité (ex : DMZ).
-Dans ce mode, c'est l'Agent de supervision Centreon qui va demander sa configuration au Collecteur, et les flux sont uniquement sortants.
+You have to use such a configuration when agent is not allowed to connect to agent, for security reasons for example (ex : DMZ).
+In this mode, poller connects to CMA.
+Le poller permet de fonctionner dans les deux modes simultanément (certains agents se connectent au poller alors que le poller se connecte à d'autres agents).
 
 ```json
 {
@@ -116,7 +122,7 @@ Dans ce mode, c'est l'Agent de supervision Centreon qui va demander sa configura
       "export_period":15,
       "reverse_connections":[
          {
-            "host":"<POLLER ADDRESS>",
+            "host":"<HOST ADDRESS>",
             "port":<PORT>
          }
       ]
@@ -128,11 +134,11 @@ Dans ce mode, c'est l'Agent de supervision Centreon qui va demander sa configura
 chown centreon-engine: /etc/centreon-engine/otl_server.json
 ```
 
-* Entrez l'adresse IP du collecteur dans les champs **host** et **port**. Cette adresse doit être accessible depuis le Host, et sera utilisée par l'Agent pour aller chercher sa configuration.
-* Le champ **check_interval** correspond à la fréquence des contrôles effectués par l'Agent de supervision Centreon.
+* Enter IP  address of CMA host in the fields **host** and port **port**. This IP must be joinable by the poller.
+* **check_interval** field is the period between two checks for the same service.
 
-> Pour des raisons de simplicité, cette page ne couvre que la configuration de CMA **en mode non sécurisé**, mais vous
-> trouverez la procédure pour chiffrer les communications dans la documentation du [connecteur Windows Centreon Monitoring Agent](../../procedures/TODO) ou celle du  [connecteur Linux Centreon Monitoring Agent](../../procedures/TODO).
+> For simplicity, this page only covers the configuration of the Agent **in unencrypted mode**, but you
+> can find the procedure to encrypt communications in the [Windows Centreon Monitoring Agent connector] or [Linux Centreon Monitoring Agent connector] documentation.
 
 (NOTE POUR TEAM DOC : ci-dessous le mode chiffré en normal et reverse, à décaler sur autre page ?)
 
@@ -173,88 +179,86 @@ chown centreon-engine: /etc/centreon-engine/otl_server.json
 ```
 
 
-### Ajoutez un nouveau module Broker
+#### Add a new Broker module
 
-1. Allez à la page **Configuration > Collecteurs > Configuration du moteur de collecte**, puis cliquez sur le collecteur qui supervisera les ressources.
-2. Dans l'onglet **Données**, dans la section **Commande de lancement du module**, dans le paramètre **Multiple Broker Module**, cliquez sur **Ajouter une nouvelle entrée**.
-3. Ajoutez l'entrée suivante :
+1. Go to **Configuration > Pollers > Engine configuration**, then click on the poller you want to monitor your resources.
+2. On the **Data** tab, in the **Broker module** section, in the **Multiple Broker Module** parameter, click on **Add a new entry**.
+3. Add the following entry :
 
    ```bash
    /usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json
    ```
 
-4. Exportez la configuration
-5. Redémarrez le moteur de collecte
+4. Export the configuration
+5. Restart the monitoring engine
 
    ```bash
    systemctl restart centengine
    ```
 
-L'Agent de supervision Centreon est maintenant capable de communiquer avec Centreon. Vous pouvez mettre vos hôtes en supervision.
+CMA can now communicate with Centreon. You can set up the monitoring of your hosts.
 
-## Étape 2 : Préparez l'hôte
+## Step 2: Prepare the host
 
-### Téléchargez et installez l'agent sur l'hôte
-
+### Download and install the agent
 
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
-* TODO JC : étapes d'installation de l'agent sous Linux
-* Valider quelles variables JSON sont à modifier et leur signification
+* Install centreon-monitoring-agent package
 
-1. Modifier le cma.json local (4 cas) 
+1. Modify /etc/centreon-monitoring-agent/centagent.json local (4 cases) 
 
 
-Non chiffré, sans Reverse
+No encryption, no reverse mode
 
 
 ```json
 {
     "log_level":"trace",
-    "endpoint":"localhost:4317",
+    "endpoint":"<IP POLLER>:4317",
     "host":"host_1",
     "log_type":"file",
-    "log_file":"/tmp/var/log/centreon-engine/centreon-agent.log" 
+    "log_file":"/var/log/centreon-monitoring-agent/centagent.log" 
 }
 ```
 
-Chiffré, sans Reverse
+Encryption, no reverse mode
 
 ```json
 {
     "log_level":"trace",
-    "endpoint":"localhost:4317",
+    "endpoint":"<IP POLLER>:4317",
     "host":"host_1",
     "log_type":"file",
-    "log_file":"/tmp/var/log/centreon-engine/centreon-agent.log" ,
+    "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
   "encryption":true,
   "ca_certificate":"/tmp/ca_1234.crt"
 }
 ```
 
-Non chiffré, avec Reverse
+No encryption, reverse mode
 
 ```json
 {
     "log_level":"trace",
-    "endpoint":"localhost:4317",
+    "endpoint":"0.0.0.0:4317",
     "host":"host_1",
     "log_type":"file",
-    "log_file":"/tmp/var/log/centreon-engine/centreon-agent.log" ,
+    "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
   "reverse_connection":true
 }
 ```
 
-Chiffré, avec Reverse
+Encryption, no reverse mode
 
 ```json
 {
     "log_level":"trace",
-    "endpoint":"localhost:4317",
+    "endpoint":"0.0.0.0:4317",
     "host":"host_1",
     "log_type":"file",
-    "log_file":"/tmp/var/log/centreon-engine/centreon-agent.log" ,
+    "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
   "reverse_connection":true,
   "encryption":true,
   "private_key":"/tmp/server_1234.key",
@@ -264,36 +268,132 @@ Chiffré, avec Reverse
 
 ```
 
+#### Log configuration
+You can configure two kinds of log output:
+* file: CMA logs into a file, path is configured in log_file
+* stdout: we use standard output
+
+If you choose to log into a file, log rotate can be parameterized with keys log_max_file_size and log_max_files
+
+Log levels allowed are: trace, debug, info, warning, error, critical and off
+
+2. Restart CMA: systemctl restart centagent
+
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-1. [Téléchargez l'agent](TODO JC : lien vers binaire ?) sur tous les serveurs que vous voulez superviser.
+1. [Download CMA from this URL https://github.com/centreon/centreon-collect/releases ] on every server you want to monitor
 
-2. Exécutez le .reg
+2. Load file centagent.reg in hte registry
 
-3. Modifiez la configuration de l'Agent en base de registre
+3. Modify configuration in the registry
 
-TODO JC : mode reverse et normal, encrypted ou non (4 cas possibles, équivalent du cma.json)
+No encryption, no reverse mode
 
-Note : un installeur sera disponible en version définitive, afin de faciliter la configuration et le déploiement massif.
+```
+[HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent]
+"log_file"="toto.log"
+"log_level"="trace"
+"log_type"="stdout"
+"log_max_file_size"=dword:0000000a
+"log_max_files"=dword:00000003
+"endpoint"="10.0.2.15:4317"
+"encryption"=dword:00000000
+"certificate"=""
+"private_key"=""
+"ca_certificate"=""
+"ca_name"=""
+"host"="host_1"
+"reverse_connection"=dword:00000000
+```
+
+Encryption, no reverse mode
+
+```
+[HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent]
+"log_file"="toto.log"
+"log_level"="trace"
+"log_type"="stdout"
+"log_max_file_size"=dword:0000000a
+"log_max_files"=dword:00000003
+"endpoint"="10.0.2.15:4317"
+"encryption"=dword:00000000
+"certificate"=""
+"private_key"=""
+"ca_certificate"=""
+"ca_name"="c:\temp\ca_1234.crt"
+"host"="host_1"
+"reverse_connection"=dword:00000000
+```
+
+
+No encryption, reverse mode
+
+```
+[HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent]
+"log_file"="toto.log"
+"log_level"="trace"
+"log_type"="stdout"
+"log_max_file_size"=dword:0000000a
+"log_max_files"=dword:00000003
+"endpoint"="0.0.0.0:4317"
+"encryption"=dword:00000000
+"certificate"=""
+"private_key"=""
+"ca_certificate"=""
+"ca_name"=""
+"host"="host_1"
+"reverse_connection"=dword:00000001
+```
+
+Encryption, reverse mode
+
+```
+[HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent]
+"log_file"="toto.log"
+"log_level"="trace"
+"log_type"="stdout"
+"log_max_file_size"=dword:0000000a
+"log_max_files"=dword:00000003
+"endpoint"="0.0.0.0:4317"
+"encryption"=dword:00000000
+"certificate"="C:\temp\server_1234.crt"
+"private_key"="C:\temp\server_1234.key"
+"ca_certificate"="C:\temp\server_1234.key"
+"ca_name"=""
+"host"="host_1"
+"reverse_connection"=dword:00000001
+```
+
+
+#### Log configuration
+You can configure two kinds of log output:
+* file: CMA logs into a file, path is configured in log_file
+* event: CMA logs in event viewer
+* stdout: we use standard output
+
+If you choose to log into a file, log rotate can be parameterized with keys log_max_file_size and log_max_files
+
+Log levels allowed are: trace, debug, info, warning, error, critical and off
+
+Note: an installer will be available in the final version, to facilitate configuration and massive deployment. In this beta version, you will have to run the agent yourself.
 
 </TabItem>
 </Tabs>
 
 
+### Deploy the Centreon plugin
 
-
-### Déployer les plugins Centreon sur l'hôte
-
-Les plugin Centreon exécuteront les contrôles sur l'hôte.
+The Centreon plugin will execute the checks on the host.
 
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
-##### Activez les dépôts Centreon et installez le plugin
+##### Enable our plugins repository and install the plugin
 
-Ce dépôt permettra d'installer les plugins Centreon ainsi que **les dépendances qui ne peuvent pas être satisfaites par les dépôts standards des distributions**.
+This repository will provide you our packaged plugins as well as **the dependencies that are not available in the
+standard distribution repositories**.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -350,7 +450,7 @@ module_hotfixes=1
 EOF
 ```
 
-Installez le plugin :
+Install the plugin:
 
 ```bash
 dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
@@ -411,7 +511,7 @@ module_hotfixes=1
 EOF
 ```
 
-Installez le plugin :
+Install the plugin:
 
 ```bash
 dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
@@ -426,7 +526,7 @@ echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) m
 apt-get update
 ```
 
-Installez le plugin :
+Install the plugin:
 
 ```bash
 apt -y install centreon-plugin-operatingsystems-linux-local
@@ -437,49 +537,27 @@ apt -y install centreon-plugin-operatingsystems-linux-local
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-Sur les hôtes que vous voulez superviser, téléchargez et exécutez le [plugin pour Windows](https://github.com/centreon/centreon-nsclient-build/releases/download/20240711/centreon_plugins.exe).
+On the hosts you want to monitor, download and execute the corresponding [package for Windows](https://github.com/centreon/centreon-nsclient-build/releases/download/20240711/centreon_plugins.exe).
 
-TODO JC  chemin où déposer les plugins
 </TabItem>
 </Tabs>
 
-## Étape 3 : Mettez l'hôte en supervision
+## Step 3: Monitoring a host with the CMA
 
-### Créez l'hôte en utilisant le bon modèle
+### Create hosts using templates
 
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
-Sur le serveur central, [créez l'hôte](/docs/monitoring/basic-objects/hosts) et appliquez-leur le modèle d'hôtes **OS-Linux-TO CONFIRM-Agent-custom**.
+On the central server, [create hosts](/docs/monitoring/basic-objects/hosts) and apply to them the **OS-Linux-Centreon-Monitoring-Agent-custom** template.
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-Sur le serveur central, [créez l'hôte](/docs/monitoring/basic-objects/hosts) et appliquez-leur le modèle d'hôtes **OS-Windows-TO CONFIRM-Agent-custom**.
+On the central server, [create hosts](/docs/monitoring/basic-objects/hosts) and apply to them the **OS-Windows-Centreon-Monitoring-Agent-custom** template.
 
 </TabItem>
 </Tabs>
-
-### Redémarrez l'agent
-
-Pour que l'agent connaisse les services nouvellement créés et puisse les superviser, exécutez la commande suivante sur l'hôte :
-
-<Tabs groupId="sync">
-<TabItem value="Linux" label="Linux">
-
-```bash
-systemctl restart centagent
-```
-
-</TabItem>
-<TabItem value="Windows" label="Windows">
-
-Redémarrer centagent.exe 
-
-</TabItem>
-</Tabs>
-
-
 
 ## Mise à jour de l'Agent
 
