@@ -68,7 +68,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 Si vous n'avez pas encore créé votre compte sous Office 365, reportez-vous à la 
 documentation d'Office 365 Management ou suivez le lien dans la partie 
-'Aide supplémentaire'.
+[Aide supplémentaire](#aide-supplementaire).
 
 ### Enregistrez une application
 
@@ -83,8 +83,7 @@ lors des « dialogues » d’authentification/autorisation au moment de l’exé
 ### Spécifiez les autorisations dont votre application a besoin pour accéder aux API de gestion Office 365
 
 Afin de récupérer les données d'Exchange Online, vous devez spécifier les
-autorisations que votre application requiert: 
-dans le Portail de gestion Azure :
+autorisations que votre application requiert. Dans le portail de gestion Azure :
 
 * Microsoft Graph :
     * Reports.Read.All (Type : Application)
