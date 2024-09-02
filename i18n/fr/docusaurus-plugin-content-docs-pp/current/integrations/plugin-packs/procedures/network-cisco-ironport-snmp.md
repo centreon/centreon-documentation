@@ -401,10 +401,7 @@ La commande devrait retourner un message de sortie similaire à :
 
 ```bash
 OK: All interfaces are ok | '*interface_name*#status'='up';;;;'*interface_name*#interface.traffic.in.bitspersecond'=20b/s;80;90;;'*interface_name*#interface.traffic.out.bitspersecond'=20b/s;80;90;;
-<<<<<<< HEAD
 ```
-=======
->>>>>>> 4391caf8fab2db38799dee409af4102500ceaaf6
 
 ### Diagnostic des erreurs communes
 
