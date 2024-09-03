@@ -6,7 +6,7 @@ title: Known issues
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Below is a list of know issues and/or bugs you may encounter.
+Below is a list of known issues and/or bugs you may encounter.
 We try to provide workarounds. We apply fixes when
 necessary and are forever improving our software in order to solve any
 issues for future releases.
@@ -84,6 +84,28 @@ Autologin is currently not supported on the following pages :
 There is currently no workaround.
 
 ## Centreon MBI
+
+### You get some errors during daily import and statistic calculation
+
+#### Description
+
+After updating MBI, you get an error similar to the following during the statistic calculation.
+
+```shell
+[FATAL] Program terminated with errors
+```
+
+This is due to a column update issue in the database.
+
+#### Workaround
+
+1. You need to execute a script to update database columns, by entering this command on the central server:
+
+  ```shell
+  php /usr/share/centreon/www/modules/centreon-bi-server/tools/updateColumnsToBigint.php
+  ```
+
+2. Then follow this procedure to [rebuild missing reporting data](../reporting/concepts.md#how-to-rebuild-missing-reporting-data).
 
 ### MBI does not work if databases have custom names
 

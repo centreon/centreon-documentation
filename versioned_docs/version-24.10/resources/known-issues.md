@@ -82,6 +82,28 @@ There is currently no workaround.
 
 ## Centreon MBI
 
+### You get some errors during daily import and statistic calculation
+
+#### Description
+
+After updating MBI, you get an error similar to the following during the statistic calculation.
+
+```shell
+[FATAL] Program terminated with errors
+```
+
+This is due to a column update issue in the database.
+
+#### Workaround
+
+1. You need to execute a script to update database columns, by entering this command on the central server:
+
+  ```shell
+  php /usr/share/centreon/www/modules/centreon-bi-server/tools/updateColumnsToBigint.php
+  ```
+
+2. Then follow this procedure to [rebuild missing reporting data](../reporting/concepts.md#how-to-rebuild-missing-reporting-data).
+
 ### MBI does not work if databases have custom names
 
 #### Workaround
