@@ -1572,7 +1572,7 @@ By default, ZMQ communications are secured; both external communications (with t
 
 However, the gorgone HTTP API is unsecured by default. Only localhost can talk with gorgone, but the communication does not take place using SSL.
 
-You can [configure SSL](https://github.com/centreon/centreon/blob/develop/centreon-gorgone/docs/modules/core/httpserver.md) in the **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** file.
+You can [configure SSL](https://github.com/centreon/centreon-collect/blob/develop/gorgone/docs/modules/core/httpserver.md) in the **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** file.
 
 Then you must configure gorgone using the **Administration > Parameters > Gorgone** page.
 

@@ -7,6 +7,20 @@ import TabItem from '@theme/TabItem';
 
 Cette page présente quelques recommandations pour résoudre des incidents lors de l'installation de MAP.
 
+## Erreur « Echec d'authentification » lors de la connexion à la page d'accueil MAP
+
+#### Symptôme
+
+Une erreur « Echec d'authentification » se produit à la page d'accueil de MAP lors de la tentative de connexion au service Centreon MAP.
+
+#### Problème
+
+Les informations d'identification utilisées par l'utilisateur **Web interface** (définies lors de l'installation) pour se connecter au module MAP ne sont plus valides car elles ont été modifiées, probablement suite à l'expiration du mot de passe.
+
+#### Solution
+
+Vous pouvez mettre à jour le mot de passe en accédant à ce fichier : **/etc/centreon-map/map-config.properties**.
+
 ## La configuration MAP ne fonctionne pas en HTTPS
 
 #### Symptôme

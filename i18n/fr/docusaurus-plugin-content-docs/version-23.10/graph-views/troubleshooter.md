@@ -181,7 +181,7 @@ centreon.url=http://<CENTRAL_IP_ADDRESS>
 Attendez quelques minutes pour que le serveur Centreon MAP synchronise les ressources Centreon web.
 Les images de Centreon web devraient alors apparaître sur votre client lourd, dans le dossier **Centreon**.
 
-## client lourd Centreon MAP
+## Client lourd Centreon MAP
 
 ### Le client lourd ne peut pas démarrer : "Java was started but returned exit code = 13".
 
@@ -368,6 +368,20 @@ Allez à la page **Advance > Display** et sélectionnez "Highest quality (32bit)
 > Cette erreur peut se produire si vous utilisez le thème "Windows server" sur votre ordinateur. Allez dans vos paramètres Windows et modifiez les paramètres de couleur pour utiliser des couleurs 32 bits.
 
 ## Interface web Centreon MAP
+
+### Erreur « Echec d'authentification » lors de la connexion à la page d'accueil MAP
+
+#### Symptôme
+
+Une erreur « Echec d'authentification » se produit à la page d'accueil de MAP lors de la tentative de connexion au service Centreon MAP Legacy.
+
+#### Problème
+
+Les informations d'identification utilisées par l'utilisateur **Web interface** (définies lors de l'installation) pour se connecter au module MAP Legacy ne sont plus valides car elles ont été modifiées, probablement suite à l'expiration du mot de passe.
+
+#### Solution
+
+Vous pouvez mettre à jour le mot de passe en accédant à ce fichier : **/etc/centreon-studio/studio-config.properties**.
 
 ### Les graphiques sont tous déplacés vers la droite après la mise à niveau de Centreon MAP 4.4 à Centreon MAP 18.10
 

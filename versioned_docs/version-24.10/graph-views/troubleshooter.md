@@ -423,6 +423,20 @@ occur.
 
 ## Centreon MAP web interface
 
+### "Failed to authenticate" error when connecting to the MAP homepage
+
+#### Symptom
+
+A "Failed to authenticate" error occurs in the MAP homepage when trying to connect to the Centreon MAP Legacy service.
+
+#### Problem
+
+The credentials used by the **Web interface** user (defined during the installation) to connect to the MAP Legacy module are no longer valid because they have been changed, probably due to a password expiration.
+
+#### Solution
+
+You can update the password by accessing this file: **/etc/centreon-studio/studio-config.properties**.
+
 ### Graphs are all shifted to the right after upgrading from Centreon MAP 4.4 to Centreon MAP 18.10
 
 A bug affecting the web interface was shifting all the graphs to the left
