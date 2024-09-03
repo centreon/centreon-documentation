@@ -75,7 +75,7 @@ Pour plus d'informations à propos de SELinux, visitez la [documentation Red Hat
 
 ### Activer SELinux
 
-Par défaut, SELinux est désactivé lors du processus d'installation de Centreon pour des raisons de sécurité.
+Par défaut, SELinux est désactivé lors du processus d'installation de Centreon et doit être réactivé par la suite pour des raisons de sécurité.
 
 Pour réactiver SELinux, éditez le fichier **/etc/selinux/config** et changez la valeur avec les options suivantes :
 - ``SELINUX=enforcing`` pour que la politique de sécurité SELinux soit appliquée en mode strict.

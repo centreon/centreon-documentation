@@ -74,7 +74,7 @@ For more information about SELinux please see [Red Hat documentation](https://ac
 
 ### Activate SELinux
 
-By default, SELinux is disabled during the Centreon installation process for security reasons.
+By default, SELinux is disabled during the Centreon installation process and must be reenabled after it for security reasons.
 
 To enable SELinux again, edit the **/etc/selinux/config** file and change the value with the following options:
 - ``SELINUX=enforcing`` to make SELinux security policy enforced.
