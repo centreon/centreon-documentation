@@ -21,7 +21,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias          | Modèle de service                                            | Description                             |
 |:---------------|:-------------------------------------------------------------|:----------------------------------------|
-| Email-Activity | Cloud-Microsoft-Office365-Exchange-Email-Activity-Api-custom | Contrôle l'activité sur les boites mail |
+| Email-Activity | Cloud-Microsoft-Office365-Exchange-Email-Activity-Api-custom | Contrôle l'activité sur les boîtes mail |
 | Users-Activity | Cloud-Microsoft-Office365-Exchange-Mailbox-Usage-Api-custom  | Contrôle l'utilisation des boites mail  |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Microsoft-Office365-Exchange-Api-custom** est utilisé.
