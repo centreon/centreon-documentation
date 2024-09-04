@@ -93,7 +93,7 @@ dnf install centreon-pack-hardware-storage-purestorage-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-storage-purestorage-snmp
@@ -140,7 +140,7 @@ dnf install centreon-plugin-Hardware-Storage-Purestorage-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-storage-purestorage-snmp
@@ -167,8 +167,8 @@ yum install centreon-plugin-Hardware-Storage-Purestorage-Snmp
 > When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
-| Macro            | Description                                                                                          | Default value     | Mandatory   |
-|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| Macro            | Description                                                                                                                              | Default value     | Mandatory   |
+|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -181,21 +181,21 @@ yum install centreon-plugin-Hardware-Storage-Purestorage-Snmp
 <Tabs groupId="sync">
 <TabItem value="Stats" label="Stats">
 
-| Macro                  | Description                                                                                        | Default value     | Mandatory   |
-|:-----------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERCOUNTER          | Only display some counters (regexp can be used). Example: --filter-counters='bandwidth'            | .*                |             |
-| WARNINGREADBANDWIDTH   | Warning threshold                                                                                  |                   |             |
-| CRITICALREADBANDWIDTH  | Critical threshold                                                                                 |                   |             |
-| WARNINGREADIOPS        | Warning threshold                                                                                  |                   |             |
-| CRITICALREADIOPS       | Critical threshold                                                                                 |                   |             |
-| WARNINGREADLATENCY     | Warning threshold                                                                                  |                   |             |
-| CRITICALREADLATENCY    | Critical threshold                                                                                 |                   |             |
-| WARNINGWRITEBANDWIDTH  | Warning threshold                                                                                  |                   |             |
-| CRITICALWRITEBANDWIDTH | Critical threshold                                                                                 |                   |             |
-| WARNINGWRITEIOPS       | Warning threshold                                                                                  |                   |             |
-| CRITICALWRITEIOPS      | Critical threshold                                                                                 |                   |             |
-| WARNINGWRITELATENCY    | Warning threshold                                                                                  |                   |             |
-| CRITICALWRITELATENCY   | Critical threshold                                                                                 |                   |             |
+| Macro                  | Description                                                                                                                            | Default value     | Mandatory   |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERCOUNTER          | Only display some counters (regexp can be used). Example: --filter-counters='bandwidth'                                                | .*                |             |
+| WARNINGREADBANDWIDTH   | Warning threshold                                                                                                                      |                   |             |
+| CRITICALREADBANDWIDTH  | Critical threshold                                                                                                                     |                   |             |
+| WARNINGREADIOPS        | Warning threshold                                                                                                                      |                   |             |
+| CRITICALREADIOPS       | Critical threshold                                                                                                                     |                   |             |
+| WARNINGREADLATENCY     | Warning threshold                                                                                                                      |                   |             |
+| CRITICALREADLATENCY    | Critical threshold                                                                                                                     |                   |             |
+| WARNINGWRITEBANDWIDTH  | Warning threshold                                                                                                                      |                   |             |
+| CRITICALWRITEBANDWIDTH | Critical threshold                                                                                                                     |                   |             |
+| WARNINGWRITEIOPS       | Warning threshold                                                                                                                      |                   |             |
+| CRITICALWRITEIOPS      | Critical threshold                                                                                                                     |                   |             |
+| WARNINGWRITELATENCY    | Warning threshold                                                                                                                      |                   |             |
+| CRITICALWRITELATENCY   | Critical threshold                                                                                                                     |                   |             |
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
