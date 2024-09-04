@@ -234,13 +234,16 @@ yum install centreon-plugin-Applications-Rubrik-Restapi
 3. Apply the **App-Rubrik-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                 | Description                                                                                          | Default value     | Mandatory   |
-|:----------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| RUBRIKAPIUSERNAME     | API username                                                                                         |                   | X           |
-| RUBRIKAPIPASSWORD     | API password                                                                                         |                   | X           |
-| RUBRIKAPIPROTO        | Specify https if needed (default: 'https')                                                           | https             |             |
-| RUBRIKAPIPORT         | Port used (default: 443)                                                                             | 443               |             |
-| RUBRIKAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro                 | Description                                                                                                                               | Default value     | Mandatory   |
+|:----------------------|:------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| RUBRIKAPIUSERNAME       | API username (Mandatory with API password for the first authentication way)                                                               |                   | X           |
+| RUBRIKAPIPASSWORD       | API password (Mandatory with API username for the first authentication way)                                                               |                   | X           |
+| RUBRIKAPISERVICEACCOUNT | Service account ID (Mandatory with API service account secret for the second authentication way)                                          |                   | X           |
+| RUBRIKAPISECRET         | Service account secret (Mandatory with API service account ID for the second authentication way)                                          |                   | X           |
+| RUBRIKAPITOKEN          | Use token authentication (the third way to authenticate). If option is empty, token is created.                                           |                   | X           |
+| RUBRIKAPIPROTO          | Specify https if needed (default: 'https')                                                                                                | https             |             |
+| RUBRIKAPIPORT           | Port used (default: 443)                                                                                                                  | 443               |             |
+| RUBRIKAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).  |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
