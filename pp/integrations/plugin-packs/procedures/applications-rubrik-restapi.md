@@ -241,8 +241,8 @@ yum install centreon-plugin-Applications-Rubrik-Restapi
 | RUBRIKAPISERVICEACCOUNT | Service account ID (Mandatory with API service account secret for the second authentication way)                                          |                   | X           |
 | RUBRIKAPISECRET         | Service account secret (Mandatory with API service account ID for the second authentication way)                                          |                   | X           |
 | RUBRIKAPITOKEN          | Use token authentication (the third way to authenticate). If option is empty, token is created.                                           |                   | X           |
-| RUBRIKAPIPROTO          | Specify https if needed (default: 'https')                                                                                                | https             |             |
-| RUBRIKAPIPORT           | Port used (default: 443)                                                                                                                  | 443               |             |
+| RUBRIKAPIPROTO          | Specify https if needed                                                                                                | https             |             |
+| RUBRIKAPIPORT           | Port used                                                                                                                  | 443               |             |
 | RUBRIKAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).  |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
