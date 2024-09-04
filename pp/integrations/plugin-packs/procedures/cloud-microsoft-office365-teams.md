@@ -125,7 +125,7 @@ dnf install centreon-pack-cloud-microsoft-office365-teams
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-cloud-microsoft-office365-teams
@@ -172,7 +172,7 @@ dnf install centreon-plugin-Cloud-Microsoft-Office365-Teams-Api
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-cloud-microsoft-office365-teams-api
@@ -197,11 +197,11 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Teams-Api
 3. Apply the **Cloud-Microsoft-Office365-Teams-Api-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                 | Description                                                                                          | Default value     | Mandatory   |
-|:----------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| OFFICE365CLIENTID     | Set Office 365 client ID                                                                             |                   | X           |
-| OFFICE365CLIENTSECRET | Set Office 365 client secret                                                                         |                   | X           |
-| OFFICE365TENANT       | Set Office 365 tenant ID                                                                             |                   | X           |
+| Macro                 | Description                                                                                                                              | Default value     | Mandatory   |
+|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| OFFICE365CLIENTID     | Set Office 365 client ID                                                                                                                 |                   | X           |
+| OFFICE365CLIENTSECRET | Set Office 365 client secret                                                                                                             |                   | X           |
+| OFFICE365TENANT       | Set Office 365 tenant ID                                                                                                                 |                   | X           |
 | OFFICE365EXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -214,53 +214,53 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Teams-Api
 <Tabs groupId="sync">
 <TabItem value="Devices-Usage" label="Devices-Usage">
 
-| Macro                 | Description                                                                                                     | Default value     | Mandatory   |
-|:----------------------|:----------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| UNITS                 | Unit of thresholds (default: '%') ('%', 'count')                                                                | %                 |             |
-| FILTERUSER            | Filter users                                                                                                    |                   |             |
-| FILTERCOUNTERS        | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='windows' |                   |             |
-| WARNINGACTIVEDEVICES  | Warning threshold                                                                                               |                   |             |
-| CRITICALACTIVEDEVICES | Critical threshold                                                                                              |                   |             |
-| WARNINGANDROIDPHONE   | Warning threshold                                                                                               |                   |             |
-| CRITICALANDROIDPHONE  | Critical threshold                                                                                              |                   |             |
-| WARNINGIOS            | Warning threshold                                                                                               |                   |             |
-| CRITICALIOS           | Critical threshold                                                                                              |                   |             |
-| WARNINGMAC            | Warning threshold                                                                                               |                   |             |
-| CRITICALMAC           | Critical threshold                                                                                              |                   |             |
-| WARNINGWEB            | Warning threshold                                                                                               |                   |             |
-| CRITICALWEB           | Critical threshold                                                                                              |                   |             |
-| WARNINGWINDOWS        | Warning threshold                                                                                               |                   |             |
-| CRITICALWINDOWS       | Critical threshold                                                                                              |                   |             |
-| WARNINGWINDOWSPHONE   | Warning threshold                                                                                               |                   |             |
-| CRITICALWINDOWSPHONE  | Critical threshold                                                                                              |                   |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).              |                   |             |
+| Macro                 | Description                                                                                                                                        | Default value     | Mandatory   |
+|:----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| UNITS                 | Unit of thresholds ('%', 'count')                                                                                                                  | %                 |             |
+| FILTERUSER            | Filter users                                                                                                                                       |                   |             |
+| FILTERCOUNTERS        | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='windows'                                    |                   |             |
+| WARNINGACTIVEDEVICES  | Warning threshold                                                                                                                                  |                   |             |
+| CRITICALACTIVEDEVICES | Critical threshold                                                                                                                                 |                   |             |
+| WARNINGANDROIDPHONE   | Warning threshold                                                                                                                                  |                   |             |
+| CRITICALANDROIDPHONE  | Critical threshold                                                                                                                                 |                   |             |
+| WARNINGIOS            | Warning threshold                                                                                                                                  |                   |             |
+| CRITICALIOS           | Critical threshold                                                                                                                                 |                   |             |
+| WARNINGMAC            | Warning threshold                                                                                                                                  |                   |             |
+| CRITICALMAC           | Critical threshold                                                                                                                                 |                   |             |
+| WARNINGWEB            | Warning threshold                                                                                                                                  |                   |             |
+| CRITICALWEB           | Critical threshold                                                                                                                                 |                   |             |
+| WARNINGWINDOWS        | Warning threshold                                                                                                                                  |                   |             |
+| CRITICALWINDOWS       | Critical threshold                                                                                                                                 |                   |             |
+| WARNINGWINDOWSPHONE   | Warning threshold                                                                                                                                  |                   |             |
+| CRITICALWINDOWSPHONE  | Critical threshold                                                                                                                                 |                   |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).             |                   |             |
 
 </TabItem>
 <TabItem value="Users-Activity" label="Users-Activity">
 
 | Macro                    | Description                                                                                                                              | Default value     | Mandatory   |
 |:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| UNITS                    | Unit of thresholds (default: '%') ('%', 'count')                                                                                         | %                 |             |
-| FILTERCOUNTERS           | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='total' (default: 'active\|total') | active\|total     |             |
-| FILTERUSER               | Filter users                                                                                                                             |                   |             |
-| WARNINGACTIVEUSERS       | Warning threshold                                                                                                                        |                   |             |
-| CRITICALACTIVEUSERS      | Critical threshold                                                                                                                       |                   |             |
-| WARNINGCALL              | Warning threshold                                                                                                                        |                   |             |
-| CRITICALCALL             | Critical threshold                                                                                                                       |                   |             |
-| WARNINGMEETING           | Warning threshold                                                                                                                        |                   |             |
-| CRITICALMEETING          | Critical threshold                                                                                                                       |                   |             |
-| WARNINGPRIVATECHAT       | Warning threshold                                                                                                                        |                   |             |
-| CRITICALPRIVATECHAT      | Critical threshold                                                                                                                       |                   |             |
-| WARNINGTEAMCHAT          | Warning threshold                                                                                                                        |                   |             |
-| CRITICALTEAMCHAT         | Critical threshold                                                                                                                       |                   |             |
-| WARNINGTOTALCALL         | Warning threshold                                                                                                                        |                   |             |
-| CRITICALTOTALCALL        | Critical threshold                                                                                                                       |                   |             |
-| WARNINGTOTALMEETING      | Warning threshold                                                                                                                        |                   |             |
-| CRITICALTOTALMEETING     | Critical threshold                                                                                                                       |                   |             |
-| WARNINGTOTALPRIVATECHAT  | Warning threshold                                                                                                                        |                   |             |
-| CRITICALTOTALPRIVATECHAT | Critical threshold                                                                                                                       |                   |             |
-| WARNINGTOTALTEAMCHAT     | Warning threshold                                                                                                                        |                   |             |
-| CRITICALTOTALTEAMCHAT    | Critical threshold                                                                                                                       |                   |             |
+| UNITS                    | Unit of thresholds ('%', 'count')                                                                                                                | %                 |             |
+| FILTERCOUNTERS           | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='total' (default: 'active\|total')         | active\|total     |             |
+| FILTERUSER               | Filter users                                                                                                                                     |                   |             |
+| WARNINGACTIVEUSERS       | Warning threshold                                                                                                                                |                   |             |
+| CRITICALACTIVEUSERS      | Critical threshold                                                                                                                               |                   |             |
+| WARNINGCALL              | Warning threshold                                                                                                                                |                   |             |
+| CRITICALCALL             | Critical threshold                                                                                                                               |                   |             |
+| WARNINGMEETING           | Warning threshold                                                                                                                                |                   |             |
+| CRITICALMEETING          | Critical threshold                                                                                                                               |                   |             |
+| WARNINGPRIVATECHAT       | Warning threshold                                                                                                                                |                   |             |
+| CRITICALPRIVATECHAT      | Critical threshold                                                                                                                               |                   |             |
+| WARNINGTEAMCHAT          | Warning threshold                                                                                                                                |                   |             |
+| CRITICALTEAMCHAT         | Critical threshold                                                                                                                               |                   |             |
+| WARNINGTOTALCALL         | Warning threshold                                                                                                                                |                   |             |
+| CRITICALTOTALCALL        | Critical threshold                                                                                                                               |                   |             |
+| WARNINGTOTALMEETING      | Warning threshold                                                                                                                                |                   |             |
+| CRITICALTOTALMEETING     | Critical threshold                                                                                                                               |                   |             |
+| WARNINGTOTALPRIVATECHAT  | Warning threshold                                                                                                                                |                   |             |
+| CRITICALTOTALPRIVATECHAT | Critical threshold                                                                                                                               |                   |             |
+| WARNINGTOTALTEAMCHAT     | Warning threshold                                                                                                                                |                   |             |
+| CRITICALTOTALTEAMCHAT    | Critical threshold                                                                                                                               |                   |             |
 | EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                       |                   |             |
 
 </TabItem>
