@@ -124,7 +124,7 @@ dnf install centreon-pack-cloud-microsoft-office365-skype
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-cloud-microsoft-office365-skype
@@ -171,7 +171,7 @@ dnf install centreon-plugin-Cloud-Microsoft-Office365-Skype-Api
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-cloud-microsoft-office365-skype-api
@@ -213,47 +213,47 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Skype-Api
 <Tabs groupId="sync">
 <TabItem value="Devices-Usage" label="Devices-Usage">
 
-| Macro                 | Description                                                                                                     | Default value     | Mandatory   |
-|:----------------------|:----------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| UNITS                 | Unit of thresholds (default: '%') ('%', 'count')                                                                | %                 |             |
-| FILTERUSER            | Filter users                                                                                                    |                   |             |
-| FILTERCOUNTERS        | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='windows' |                   |             |
-| WARNINGACTIVEDEVICES  | Warning threshold                                                                                               |                   |             |
-| CRITICALACTIVEDEVICES | Critical threshold                                                                                              |                   |             |
-| WARNINGANDROIDPHONE   | Warning threshold                                                                                               |                   |             |
-| CRITICALANDROIDPHONE  | Critical threshold                                                                                              |                   |             |
-| WARNINGIPAD           | Warning threshold                                                                                               |                   |             |
-| CRITICALIPAD          | Critical threshold                                                                                              |                   |             |
-| WARNINGIPHONE         | Warning threshold                                                                                               |                   |             |
-| CRITICALIPHONE        | Critical threshold                                                                                              |                   |             |
-| WARNINGWINDOWS        | Warning threshold                                                                                               |                   |             |
-| CRITICALWINDOWS       | Critical threshold                                                                                              |                   |             |
-| WARNINGWINDOWSPHONE   | Warning threshold                                                                                               |                   |             |
-| CRITICALWINDOWSPHONE  | Critical threshold                                                                                              |                   |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).              |                   |             |
+| Macro                 | Description                                                                                                                                        | Default value     | Mandatory   |
+|:----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| UNITS                 | Unit of thresholds ('%', 'count')                                                                                                                  | %                 |             |
+| FILTERUSER            | Filter users                                                                                                                                       |                   |             |
+| FILTERCOUNTERS        | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='windows'                                    |                   |             |
+| WARNINGACTIVEDEVICES  | Warning threshold                                                                                                                                  |                   |             |
+| CRITICALACTIVEDEVICES | Critical threshold                                                                                                                                 |                   |             |
+| WARNINGANDROIDPHONE   | Warning threshold                                                                                                                                  |                   |             |
+| CRITICALANDROIDPHONE  | Critical threshold                                                                                                                                 |                   |             |
+| WARNINGIPAD           | Warning threshold                                                                                                                                  |                   |             |
+| CRITICALIPAD          | Critical threshold                                                                                                                                 |                   |             |
+| WARNINGIPHONE         | Warning threshold                                                                                                                                  |                   |             |
+| CRITICALIPHONE        | Critical threshold                                                                                                                                 |                   |             |
+| WARNINGWINDOWS        | Warning threshold                                                                                                                                  |                   |             |
+| CRITICALWINDOWS       | Critical threshold                                                                                                                                 |                   |             |
+| WARNINGWINDOWSPHONE   | Warning threshold                                                                                                                                  |                   |             |
+| CRITICALWINDOWSPHONE  | Critical threshold                                                                                                                                 |                   |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).             |                   |             |
 
 </TabItem>
 <TabItem value="Users-Activity" label="Users-Activity">
 
 | Macro                               | Description                                                                                                                              | Default value     | Mandatory   |
 |:------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| UNITS                               | Unit of thresholds (default: '%') ('%', 'count')                                                                                         | %                 |             |
-| FILTERCOUNTERS                      | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='total' (default: 'active\|total') | active\|total     |             |
-| FILTERUSER                          | Filter users                                                                                                                             |                   |             |
-| WARNINGACTIVEUSERS                  | Warning threshold                                                                                                                        |                   |             |
-| CRITICALACTIVEUSERS                 | Critical threshold                                                                                                                       |                   |             |
-| WARNINGORGANIZEDCONFERENCE          | Warning threshold                                                                                                                        |                   |             |
-| CRITICALORGANIZEDCONFERENCE         | Critical threshold                                                                                                                       |                   |             |
-| WARNINGPARTICIPATEDCONFERENCE       | Warning threshold                                                                                                                        |                   |             |
-| CRITICALPARTICIPATEDCONFERENCE      | Critical threshold                                                                                                                       |                   |             |
-| WARNINGPEERTOPEERSESSIONS           | Warning threshold                                                                                                                        |                   |             |
-| CRITICALPEERTOPEERSESSIONS          | Critical threshold                                                                                                                       |                   |             |
-| WARNINGTOTALORGANIZEDCONFERENCE     | Warning threshold                                                                                                                        |                   |             |
-| CRITICALTOTALORGANIZEDCONFERENCE    | Critical threshold                                                                                                                       |                   |             |
-| WARNINGTOTALPARTICIPATEDCONFERENCE  | Warning threshold                                                                                                                        |                   |             |
-| CRITICALTOTALPARTICIPATEDCONFERENCE | Critical threshold                                                                                                                       |                   |             |
-| WARNINGTOTALPEERTOPEERSESSIONS      | Warning threshold                                                                                                                        |                   |             |
-| CRITICALTOTALPEERTOPEERSESSIONS     | Critical threshold                                                                                                                       |                   |             |
+| UNITS                               | Unit of thresholds  ('%', 'count')                                                                                                               | %                 |             |
+| FILTERCOUNTERS                      | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='total' (default: 'active\|total')         | active\|total     |             |
+| FILTERUSER                          | Filter users                                                                                                                                     |                   |             |
+| WARNINGACTIVEUSERS                  | Warning threshold                                                                                                                                |                   |             |
+| CRITICALACTIVEUSERS                 | Critical threshold                                                                                                                               |                   |             |
+| WARNINGORGANIZEDCONFERENCE          | Warning threshold                                                                                                                                |                   |             |
+| CRITICALORGANIZEDCONFERENCE         | Critical threshold                                                                                                                               |                   |             |
+| WARNINGPARTICIPATEDCONFERENCE       | Warning threshold                                                                                                                                |                   |             |
+| CRITICALPARTICIPATEDCONFERENCE      | Critical threshold                                                                                                                               |                   |             |
+| WARNINGPEERTOPEERSESSIONS           | Warning threshold                                                                                                                                |                   |             |
+| CRITICALPEERTOPEERSESSIONS          | Critical threshold                                                                                                                               |                   |             |
+| WARNINGTOTALORGANIZEDCONFERENCE     | Warning threshold                                                                                                                                |                   |             |
+| CRITICALTOTALORGANIZEDCONFERENCE    | Critical threshold                                                                                                                               |                   |             |
+| WARNINGTOTALPARTICIPATEDCONFERENCE  | Warning threshold                                                                                                                                |                   |             |
+| CRITICALTOTALPARTICIPATEDCONFERENCE | Critical threshold                                                                                                                               |                   |             |
+| WARNINGTOTALPEERTOPEERSESSIONS      | Warning threshold                                                                                                                                |                   |             |
+| CRITICALTOTALPEERTOPEERSESSIONS     | Critical threshold                                                                                                                               |                   |             |
 | EXTRAOPTIONS                        | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                       |                   |             |
 
 </TabItem>
