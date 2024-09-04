@@ -21,7 +21,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias          | Modèle de service                                         | Description                                            |
 |:---------------|:----------------------------------------------------------|:-------------------------------------------------------|
-| Devices-Usage  | Cloud-Microsoft-Office365-Skype-Devices-Usage-Api-custom  | Contrôle le nombre d'utilisateur par type d'équipement |
+| Devices-Usage  | Cloud-Microsoft-Office365-Skype-Devices-Usage-Api-custom  | Contrôle le nombre d'utilisateur par type d'appareil |
 | Users-Activity | Cloud-Microsoft-Office365-Skype-Users-Activity-Api-custom | Contrôle les activités des utilisateurs                |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Microsoft-Office365-Skype-Api-custom** est utilisé.
