@@ -152,7 +152,7 @@ dnf install centreon-pack-virtualization-hyperv-2012-nrpe
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-virtualization-hyperv-2012-nrpe
@@ -190,7 +190,7 @@ dnf install centreon-nrpe3-plugin
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-nrpe3-plugin
@@ -218,12 +218,12 @@ yum install centreon-nrpe3-plugin
 3. Apply the **Virt-Hyperv-2012-Node-NRPE-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro            | Description                                                                                          | Default value         | Mandatory   |
-|:-----------------|:-----------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
-| NRPEPORT         |                                                                                                      | 5666                  |             |
-| NRPECLIENT       |                                                                                                      | check\_centreon\_nrpe |             |
-| NRPETIMEOUT      |                                                                                                      | 55                    |             |
-| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                       |             |
+| Macro            | Description                                                                                                                              | Default value         | Mandatory   |
+|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
+| NRPEPORT         | NRPE Port of the target server                                                                                                           | 5666                  |             |
+| NRPECLIENT       | NRPE Plugin binary to use                                                                                                                | check\_centreon\_nrpe |             |
+| NRPETIMEOUT      | Timeout value                                                                                                                            | 55                    |             |
+| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). | -u -m 8192            |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -235,13 +235,13 @@ yum install centreon-nrpe3-plugin
 3. Apply the **Virt-Hyperv-2012-Scvmm-NRPE-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro            | Description                                                                                          | Default value         | Mandatory   |
-|:-----------------|:-----------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
-| NRPEPORT         |                                                                                                      | 5666                  |             |
-| SCVMMPORT        |                                                                                                      | 8100                  |             |
-| NRPECLIENT       |                                                                                                      | check\_centreon\_nrpe |             |
-| NRPETIMEOUT      |                                                                                                      | 55                    |             |
-| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                       |             |
+| Macro            | Description                                                                                                                              | Default value         | Mandatory   |
+|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
+| NRPEPORT         | NRPE Port of the target server                                                                                                           | 5666                  |             |
+| SCVMMPORT        | SCVMM port used                                                                                                                          | 8100                  |             |
+| NRPECLIENT       | NRPE Plugin binary to use                                                                                                                | check\_centreon\_nrpe |             |
+| NRPETIMEOUT      | Timeout value                                                                                                                            | 55                    |             |
+| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). | -u -m 8192            |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -256,39 +256,39 @@ yum install centreon-nrpe3-plugin
 <Tabs groupId="sync">
 <TabItem value="Node-Integration-Service" label="Node-Integration-Service">
 
-| Macro                 | Description                                                                                                                                                                                                                                           | Default value                                        | Mandatory   |
-|:----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:-----------:|
-| FILTERSTATUS          | Filter virtual machine status (can be a regexp) (default: 'running')                                                                                                                                                                                  | Running                                              |             |
-| FILTERVM              | Filter virtual machines (can be a regexp)                                                                                                                                                                                                             |                                                      |             |
-| FILTERNOTE            | Filter by VM notes (can be a regexp)                                                                                                                                                                                                                  |                                                      |             |
-| WARNINGGLOBALSTATUS   | Define the conditions to match for the status to be WARNING (default: '%{integration\_service\_state} =~ /Update required/i'). You can use the following variables: %{vm}, %{integration\_service\_state}, %{integration\_service\_version}, %{state} | %{integration\_service\_state} =~ /Update required/i |             |
-| CRITICALGLOBALSTATUS  | Define the conditions to match for the status to be CRITICAL (default: ''). You can use the following variables: %{vm}, %{integration\_service\_state}, %{integration\_service\_version}, %{state}                                                    |                                                      |             |
-| CRITICALSERVICESTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{primary\_status} !~ /Ok/i'). You can use the following variables: %{vm}, %{service}, %{primary\_status}, %{secondary\_status}, %{enabled}                                   | not %{primary\_status} =~ /Ok/i                      |             |
-| WARNINGSERVICESTATUS  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{vm}, %{service}, %{primary\_status}, %{secondary\_status}, %{enabled}                                                               |                                                      |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                                                    | --verbose                                            |             |
+| Macro                 | Description                                                                                                                                                                          | Default value                                        | Mandatory   |
+|:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:-----------:|
+| FILTERSTATUS          | Filter virtual machine status (can be a regexp)                                                                                                                                      | Running                                              |             |
+| FILTERVM              | Filter virtual machines (can be a regexp)                                                                                                                                            |                                                      |             |
+| FILTERNOTE            | Filter by VM notes (can be a regexp)                                                                                                                                                 |                                                      |             |
+| WARNINGGLOBALSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %{vm}, %{integration\_service\_state}, %{integration\_service\_version}, %{state}  | %{integration\_service\_state} =~ /Update required/i |             |
+| CRITICALGLOBALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{vm}, %{integration\_service\_state}, %{integration\_service\_version}, %{state} |                                                      |             |
+| CRITICALSERVICESTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{vm}, %{service}, %{primary\_status}, %{secondary\_status}, %{enabled}           | not %{primary\_status} =~ /Ok/i                      |             |
+| WARNINGSERVICESTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{vm}, %{service}, %{primary\_status}, %{secondary\_status}, %{enabled}            |                                                      |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                               | --verbose                                            |             |
 
 </TabItem>
 <TabItem value="Node-Replication" label="Node-Replication">
 
-| Macro          | Description                                                                                                                                                         | Default value            | Mandatory   |
-|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:-----------:|
-| FILTERVM       | Filter virtual machines (can be a regexp)                                                                                                                           |                          |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: '%{health} =~ /Warning/i'). You can use the following variables: %{vm}, %{state}, %{health}   | %{health} =~ /Warning/i  |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{health} =~ /Critical/i'). You can use the following variables: %{vm}, %{state}, %{health} | %{health} =~ /Critical/i |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                  | --verbose                |             |
+| Macro          | Description                                                                                                                            | Default value            | Mandatory   |
+|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:-----------:|
+| FILTERVM       | Filter virtual machines (can be a regexp)                                                                                              |                          |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{vm}, %{state}, %{health}           | %{health} =~ /Warning/i  |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{vm}, %{state}, %{health}          | %{health} =~ /Critical/i |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                |             |
 
 </TabItem>
 <TabItem value="Node-Snapshot" label="Node-Snapshot">
 
-| Macro            | Description                                                                                        | Default value     | Mandatory   |
-|:-----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERSTATUS     | Filter virtual machine status (can be a regexp) (default: 'running')                               | running           |             |
-| FILTERVM         | Filter virtual machines (can be a regexp)                                                          |                   |             |
-| FILTERNOTE       | Filter by VM notes (can be a regexp)                                                               |                   |             |
-| WARNINGBACKING   | Warning threshold                                                                                  |                   |             |
-| CRITICALBACKING  | Critical threshold                                                                                 |                   |             |
-| WARNINGSNAPSHOT  | Warning threshold                                                                                  |                   |             |
-| CRITICALSNAPSHOT | Critical threshold                                                                                 |                   |             |
+| Macro            | Description                                                                                                                            | Default value     | Mandatory   |
+|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERSTATUS     | Filter virtual machine status (can be a regexp)                                                                                        | running           |             |
+| FILTERVM         | Filter virtual machines (can be a regexp)                                                                                              |                   |             |
+| FILTERNOTE       | Filter by VM notes (can be a regexp)                                                                                                   |                   |             |
+| WARNINGBACKING   | Warning threshold                                                                                                                      |                   |             |
+| CRITICALBACKING  | Critical threshold                                                                                                                     |                   |             |
+| WARNINGSNAPSHOT  | Warning threshold                                                                                                                      |                   |             |
+| CRITICALSNAPSHOT | Critical threshold                                                                                                                     |                   |             |
 | EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
@@ -296,49 +296,49 @@ yum install centreon-nrpe3-plugin
 
 | Macro          | Description                                                                                                                                                                                     | Default value                          | Mandatory   |
 |:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------|:-----------:|
-| FILTERVM       | Filter virtual machines (can be a regexp)                                                                                                                                                       |                                        |             |
-| FILTERNOTE     | Filter by VM notes (can be a regexp)                                                                                                                                                            |                                        |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /Operating normally/i'). You can use the following variables: %{vm}, %{state}, %{status}, %{is\_clustered} | not %{status} =~ /Operating normally/i |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{vm}, %{state}, %{status}, %{is\_clustered}                                    |                                        |             |
+| FILTERVM       | Filter virtual machines (can be a regexp)                                                                                                        |                                        |             |
+| FILTERNOTE     | Filter by VM notes (can be a regexp)                                                                                                             |                                        |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{vm}, %{state}, %{status}, %{is\_clustered}  | not %{status} =~ /Operating normally/i |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{vm}, %{state}, %{status}, %{is\_clustered}   |                                        |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                              | --verbose                              |             |
 
 </TabItem>
 <TabItem value="Scvmm-Integration-Service" label="Scvmm-Integration-Service">
 
-| Macro             | Description                                                                                                                                                                      | Default value                    | Mandatory   |
-|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------|:-----------:|
-| FILTERSTATUS      | Filter virtual machine status (can be a regexp)                                                                                                                                  | Running                          |             |
-| FILTERVM          | Filter virtual machines (can be a regexp)                                                                                                                                        |                                  |             |
-| FILTERDESCRIPTION | Filter by description (can be a regexp)                                                                                                                                          |                                  |             |
-| FILTERHOSTGROUP   | Filter hostgroup (can be a regexp)                                                                                                                                               |                                  |             |
-| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%{vmaddition} =~ /not detected/i'). You can use the following variables: %{vm}, %{vmaddition}, %{status} | %{vmaddition} =~ /not detected/i |             |
-| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{vm}, %{vmaddition}, %{status}                                  |                                  |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                               | --verbose                        |             |
+| Macro             | Description                                                                                                                            | Default value                    | Mandatory   |
+|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------|:-----------:|
+| FILTERSTATUS      | Filter virtual machine status (can be a regexp)                                                                                        | Running                          |             |
+| FILTERVM          | Filter virtual machines (can be a regexp)                                                                                              |                                  |             |
+| FILTERDESCRIPTION | Filter by description (can be a regexp)                                                                                                |                                  |             |
+| FILTERHOSTGROUP   | Filter hostgroup (can be a regexp)                                                                                                     |                                  |             |
+| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{vm}, %{vmaddition}, %{status}     | %{vmaddition} =~ /not detected/i |             |
+| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING . You can use the following variables: %{vm}, %{vmaddition}, %{status}     |                                  |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                        |             |
 
 </TabItem>
 <TabItem value="Scvmm-Snapshot" label="Scvmm-Snapshot">
 
-| Macro             | Description                                                                                        | Default value     | Mandatory   |
-|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERSTATUS      | Filter virtual machine status (can be a regexp) (default: 'running')                               | running           |             |
-| FILTERVM          | Filter virtual machines (can be a regexp)                                                          |                   |             |
-| FILTERDESCRIPTION | Filter by description (can be a regexp)                                                            |                   |             |
-| FILTERHOSTGROUP   | Filter hostgroup (can be a regexp)                                                                 |                   |             |
-| WARNINGSNAPSHOT   | Warning threshold                                                                                  |                   |             |
-| CRITICALSNAPSHOT  | Critical threshold                                                                                 |                   |             |
+| Macro             | Description                                                                                                                            | Default value     | Mandatory   |
+|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERSTATUS      | Filter virtual machine status (can be a regexp)                                                                                        | running           |             |
+| FILTERVM          | Filter virtual machines (can be a regexp)                                                                                              |                   |             |
+| FILTERDESCRIPTION | Filter by description (can be a regexp)                                                                                                |                   |             |
+| FILTERHOSTGROUP   | Filter hostgroup (can be a regexp)                                                                                                     |                   |             |
+| WARNINGSNAPSHOT   | Warning threshold                                                                                                                      |                   |             |
+| CRITICALSNAPSHOT  | Critical threshold                                                                                                                     |                   |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Scvmm-Vm-Status" label="Scvmm-Vm-Status">
 
-| Macro             | Description                                                                                                                                                                     | Default value                        | Mandatory   |
-|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------|:-----------:|
-| FILTERVM          | Filter virtual machines (can be a regexp)                                                                                                                                       |                                      |             |
-| FILTERDESCRIPTION | Filter by description (can be a regexp)                                                                                                                                         |                                      |             |
-| FILTERHOSTGROUP   | Filter hostgroup (can be a regexp)                                                                                                                                              |                                      |             |
-| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /Running\|Stopped/i'). You can use the following variables: %{vm}, %{status}, %{hostgroup} | not %{status} =~ /Running\|Stopped/i |             |
-| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{vm}, %{status}, %{hostgroup}                                  |                                      |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                              | --verbose                            |             |
+| Macro             | Description                                                                                                                            | Default value                        | Mandatory   |
+|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------|:-----------:|
+| FILTERVM          | Filter virtual machines (can be a regexp)                                                                                              |                                      |             |
+| FILTERDESCRIPTION | Filter by description (can be a regexp)                                                                                                |                                      |             |
+| FILTERHOSTGROUP   | Filter hostgroup (can be a regexp)                                                                                                     |                                      |             |
+| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{vm}, %{status}, %{hostgroup}      | not %{status} =~ /Running\|Stopped/i |             |
+| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING . You can use the following variables: %{vm}, %{status}, %{hostgroup}      |                                      |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                            |             |
 
 </TabItem>
 </Tabs>
@@ -368,7 +368,10 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All virtual machines are ok | 
+OK: All virtual machines are ok 
+VM 'vm1' status: Operating normally (state: Running, is clustered: 1)
+VM 'vm2' status: Operating normally (state: Running, is clustered: 0)
+VM 'vm3' status: Operating normally (state: Running, is clustered: 1)
 ```
 
 ### Troubleshooting
