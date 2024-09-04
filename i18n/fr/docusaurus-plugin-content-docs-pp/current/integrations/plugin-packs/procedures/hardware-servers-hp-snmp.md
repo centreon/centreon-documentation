@@ -47,9 +47,9 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte d'hôtes
 
-| Nom de la règle | Description                                                                                                                                                                                                                                             |
-|:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **HW-Server-Hp-Server-SNMP-custom** host template |
+| Nom de la règle | Description                                                                                                                                                                                                                                                                                                                        |
+|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **HW-Server-Hp-Server-SNMP-custom** pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -62,14 +62,14 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique    | Description | Unité |
 |:------------|:------------|:------|
-| status      | CPU status  |       |
+| status      | CPU status  | N/A   |
 
 </TabItem>
 <TabItem value="Hardware-Fan" label="Hardware-Fan">
 
 | Métrique               | Description | Unité |
 |:-----------------------|:------------|:------|
-| status                 | Fan status  |       |
+| status                 | Fan status  | N/A      |
 | hardware.fan.speed.rpm | Fan speed   | Rpm   |
 
 </TabItem>
@@ -77,28 +77,28 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique    | Description              | Unité |
 |:------------|:-------------------------|:------|
-| status      | Components global status |       |
+| status      | Components global status | N/A   |
 
 </TabItem>
 <TabItem value="Hardware-Network" label="Hardware-Network">
 
 | Métrique    | Description | Unité |
 |:------------|:------------|:------|
-| status      | NIC status  |       |
+| status      | NIC status  | N/A      |
 
 </TabItem>
 <TabItem value="Hardware-Pc" label="Hardware-Pc">
 
 | Métrique    | Description            | Unité |
 |:------------|:-----------------------|:------|
-| status      | Power Converter status |       |
+| status      | Power Converter status | N/A      |
 
 </TabItem>
 <TabItem value="Hardware-Psu" label="Hardware-Psu">
 
 | Métrique                          | Description                     | Unité |
 |:----------------------------------|:--------------------------------|:------|
-| status                            | Power supply status             |       |
+| status                            | Power supply status             | N/A      |
 | hardware.powersupply.power.watt   | Power supply watt capacity used | W     |
 | hardware.powersupply.voltage.volt | Power supply voltage            | V     |
 
@@ -107,14 +107,14 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique    | Description    | Unité |
 |:------------|:---------------|:------|
-| status      | Storage status |       |
+| status      | Storage status | N/A   |
 
 </TabItem>
 <TabItem value="Hardware-Temperature" label="Hardware-Temperature">
 
 | Métrique                     | Description             | Unité |
 |:-----------------------------|:------------------------|:------|
-| status                       | Temperature status      |       |
+| status                       | Temperature status      | N/A      |
 | hardware.temperature.celsius | Temperature  in celsius | C     |
 
 </TabItem>
@@ -188,7 +188,7 @@ dnf install centreon-pack-hardware-servers-hp-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-servers-hp-snmp
@@ -233,7 +233,7 @@ dnf install centreon-plugin-Hardware-Servers-Hp-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-servers-hp-snmp
@@ -260,8 +260,8 @@ yum install centreon-plugin-Hardware-Servers-Hp-Snmp
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
 > Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
 
-| Macro            | Description                                                                                          | Valeur par défaut | Obligatoire |
-|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| Macro            | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -274,66 +274,66 @@ yum install centreon-plugin-Hardware-Servers-Hp-Snmp
 <Tabs groupId="sync">
 <TabItem value="Hardware-Cpu" label="Hardware-Cpu">
 
-| Macro        | Description                                                                                                                                                          | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'cpu', 'psu', 'pc', 'fan', 'temperature', 'lnic', 'pnic',... There are some magic words like: 'network', 'storage' | cpu               |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                   | --verbose         |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check.                                                                                                                        | cpu               |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Hardware-Fan" label="Hardware-Fan">
 
-| Macro        | Description                                                                                                                                                          | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'cpu', 'psu', 'pc', 'fan', 'temperature', 'lnic', 'pnic',... There are some magic words like: 'network', 'storage' | fan               |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                   | --verbose         |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check.                                                                                                                        | fan               |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Macro        | Description                                                                                                                                                          | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'cpu', 'psu', 'pc', 'fan', 'temperature', 'lnic', 'pnic',... There are some magic words like: 'network', 'storage' | .*                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                   | --verbose         |             |
+| Macro        | Description                                                                                                                                          | Valeur par défaut | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check. Can be: 'cpu', 'psu', 'pc', 'fan', 'temperature', 'lnic', 'pnic',... There are some magic words like: 'network', 'storage' | .*                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).     | --verbose         |             |
 
 </TabItem>
 <TabItem value="Hardware-Network" label="Hardware-Network">
 
-| Macro        | Description                                                                                                                                                          | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'cpu', 'psu', 'pc', 'fan', 'temperature', 'lnic', 'pnic',... There are some magic words like: 'network', 'storage' | network           |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                   | --verbose         |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check.                                                                                                                        | network           |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Hardware-Pc" label="Hardware-Pc">
 
-| Macro        | Description                                                                                                                                                          | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'cpu', 'psu', 'pc', 'fan', 'temperature', 'lnic', 'pnic',... There are some magic words like: 'network', 'storage' | pc                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                   | --verbose         |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check                                                                                                                         | pc                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Hardware-Psu" label="Hardware-Psu">
 
-| Macro        | Description                                                                                                                                                          | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'cpu', 'psu', 'pc', 'fan', 'temperature', 'lnic', 'pnic',... There are some magic words like: 'network', 'storage' | psu               |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                   | --verbose         |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check                                                                                                                         | psu               |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Hardware-Storage" label="Hardware-Storage">
 
-| Macro        | Description                                                                                                                                                          | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'cpu', 'psu', 'pc', 'fan', 'temperature', 'lnic', 'pnic',... There are some magic words like: 'network', 'storage' | storage           |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                   | --verbose         |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check                                                                                                                         | storage           |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Hardware-Temperature" label="Hardware-Temperature">
 
-| Macro        | Description                                                                                                                                                          | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'cpu', 'psu', 'pc', 'fan', 'temperature', 'lnic', 'pnic',... There are some magic words like: 'network', 'storage' | temperature       |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                   | --verbose         |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check                                                                                                                         | temperature       |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 </Tabs>
