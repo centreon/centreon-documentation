@@ -79,7 +79,7 @@ dnf install centreon-pack-applications-antivirus-clamav-ssh
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-antivirus-clamav-ssh
@@ -126,7 +126,7 @@ dnf install centreon-plugin-Applications-Clamav-Ssh
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-clamav-ssh
@@ -169,15 +169,15 @@ yum install centreon-plugin-Applications-Clamav-Ssh
 <Tabs groupId="sync">
 <TabItem value="Update-Status" label="Update-Status">
 
-| Macro                 | Description                                                                                                                                                                                                                                                                                                   | Default value                                                                                          | Mandatory   |
-|:----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------|:-----------:|
-| CRITICALDAILYDBSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{last\_dailydb\_version} ne %{current\_dailydb\_version} \|\| %{current\_dailydb\_timediff} \> 432000'). You can use the following variables: %{last\_dailydb\_version}, %{current\_dailydb\_version}, %{current\_dailydb\_timediff} | %{last\_dailydb\_version} ne %{current\_dailydb\_version} \|\| %{current\_dailydb\_timediff} \> 432000 |             |
-| WARNINGDAILYDBSTATUS  | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %{last\_dailydb\_version}, %{current\_dailydb\_version}, %{current\_dailydb\_timediff}                                                                                                         |                                                                                                        |             |
-| WARNINGENGINESTATUS   | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %{last\_engine\_version}, %{current\_engine\_version}                                                                                                                                          |                                                                                                        |             |
-| CRITICALENGINESTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%{last\_engine\_version} ne %{current\_engine\_version}'). You can use the following variables: %{last\_engine\_version}, %{current\_engine\_version}                                                                                 |                                                                                                        |             |
-| CRITICALMAINDBSTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%{last\_maindb\_version} ne %{current\_maindb\_version}'). You can use the following variables: %{last\_maindb\_version}, %{current\_maindb\_version}, %{current\_maindb\_timediff}                                                   | %{last\_maindb\_version} ne %{current\_maindb\_version}                                                |             |
-| WARNINGMAINDBSTATUS   | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %{last\_maindb\_version}, %{current\_maindb\_version}, %{current\_maindb\_timediff}                                                                                                            |                                                                                                        |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                                                                                                            |                                                                                                        |             |
+| Macro                 | Description                                                                                                                                                                                                                   | Default value                                                                                          | Mandatory   |
+|:----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------|:-----------:|
+| CRITICALDAILYDBSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{last\_dailydb\_version}, %{current\_dailydb\_version}, %{current\_dailydb\_timediff}                                     | %{last\_dailydb\_version} ne %{current\_dailydb\_version} \|\| %{current\_dailydb\_timediff} \> 432000 |             |
+| WARNINGDAILYDBSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{last\_dailydb\_version}, %{current\_dailydb\_version}, %{current\_dailydb\_timediff}                                      |                                                                                                        |             |
+| WARNINGENGINESTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %{last\_engine\_version}, %{current\_engine\_version}                                                                       |                                                                                                        |             |
+| CRITICALENGINESTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%{last\_engine\_version} ne %{current\_engine\_version}'). You can use the following variables: %{last\_engine\_version}, %{current\_engine\_version} |                                                                                                        |             |
+| CRITICALMAINDBSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{last\_maindb\_version}, %{current\_maindb\_version}, %{current\_maindb\_timediff}                                        | %{last\_maindb\_version} ne %{current\_maindb\_version}                                                |             |
+| WARNINGMAINDBSTATUS   | Define the conditions to match for the status to be WARNING.You can use the following variables: %{last\_maindb\_version}, %{current\_maindb\_version}, %{current\_maindb\_timediff}                                          |                                                                                                        |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                        |                                                                                                        |             |
 
 </TabItem>
 </Tabs>
@@ -210,7 +210,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: | 
+OK : clamav engine version '0.103.2/0.103.2' main.cvd version '60/60', last update 1d 3h 46m 40s daily.cvd version '25839/25839', last update 1d 3h 46m 40s | 
 ```
 
 ### Troubleshooting

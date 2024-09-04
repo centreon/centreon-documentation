@@ -19,9 +19,9 @@ Le connecteur apporte le modèle de service suivant
 <Tabs groupId="sync">
 <TabItem value="App-Antivirus-Clamav-SSH-custom" label="App-Antivirus-Clamav-SSH-custom">
 
-| Alias         | Modèle de service                             | Description                   |
-|:--------------|:----------------------------------------------|:------------------------------|
-| Update-Status | App-Antivirus-Clamav-Update-Status-SSH-custom | Contrôle si l'antivirus est Ã |
+| Alias         | Modèle de service                             | Description                                        |
+|:--------------|:----------------------------------------------|:---------------------------------------------------|
+| Update-Status | App-Antivirus-Clamav-Update-Status-SSH-custom | Contrôle le statut des mises à jour de l'antivirus |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Antivirus-Clamav-SSH-custom** est utilisé.
 
@@ -84,7 +84,7 @@ dnf install centreon-pack-applications-antivirus-clamav-ssh
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-antivirus-clamav-ssh
@@ -129,7 +129,7 @@ dnf install centreon-plugin-Applications-Clamav-Ssh
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-clamav-ssh
@@ -160,7 +160,7 @@ yum install centreon-plugin-Applications-Clamav-Ssh
 | SSHPASSWORD     | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead |                   |             |
 | SSHPORT         | Define the TCP port on which SSH is listening                                                                                                                       |                   |             |
 | SSHBACKEND      | Define the backend you want to use. It can be: sshcli (default), plink and libssh                                                                                   | libssh            |             |
-| SSHEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                |                   |             |
+| SSHEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                  |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -174,12 +174,12 @@ yum install centreon-plugin-Applications-Clamav-Ssh
 
 | Macro                 | Description                                                                                                                                                                                                                                                                                                   | Valeur par défaut                                                                                      | Obligatoire |
 |:----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------|:-----------:|
-| CRITICALDAILYDBSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{last\_dailydb\_version} ne %{current\_dailydb\_version} \|\| %{current\_dailydb\_timediff} \> 432000'). You can use the following variables: %{last\_dailydb\_version}, %{current\_dailydb\_version}, %{current\_dailydb\_timediff} | %{last\_dailydb\_version} ne %{current\_dailydb\_version} \|\| %{current\_dailydb\_timediff} \> 432000 |             |
-| WARNINGDAILYDBSTATUS  | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %{last\_dailydb\_version}, %{current\_dailydb\_version}, %{current\_dailydb\_timediff}                                                                                                         |                                                                                                        |             |
-| WARNINGENGINESTATUS   | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %{last\_engine\_version}, %{current\_engine\_version}                                                                                                                                          |                                                                                                        |             |
-| CRITICALENGINESTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%{last\_engine\_version} ne %{current\_engine\_version}'). You can use the following variables: %{last\_engine\_version}, %{current\_engine\_version}                                                                                 |                                                                                                        |             |
-| CRITICALMAINDBSTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%{last\_maindb\_version} ne %{current\_maindb\_version}'). You can use the following variables: %{last\_maindb\_version}, %{current\_maindb\_version}, %{current\_maindb\_timediff}                                                   | %{last\_maindb\_version} ne %{current\_maindb\_version}                                                |             |
-| WARNINGMAINDBSTATUS   | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %{last\_maindb\_version}, %{current\_maindb\_version}, %{current\_maindb\_timediff}                                                                                                            |                                                                                                        |             |
+| CRITICALDAILYDBSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{last\_dailydb\_version}, %{current\_dailydb\_version}, %{current\_dailydb\_timediff}                                     | %{last\_dailydb\_version} ne %{current\_dailydb\_version} \|\| %{current\_dailydb\_timediff} \> 432000 |             |
+| WARNINGDAILYDBSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{last\_dailydb\_version}, %{current\_dailydb\_version}, %{current\_dailydb\_timediff}                                      |                                                                                                        |             |
+| WARNINGENGINESTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %{last\_engine\_version}, %{current\_engine\_version}                                                                       |                                                                                                        |             |
+| CRITICALENGINESTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%{last\_engine\_version} ne %{current\_engine\_version}'). You can use the following variables: %{last\_engine\_version}, %{current\_engine\_version} |                                                                                                        |             |
+| CRITICALMAINDBSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{last\_maindb\_version}, %{current\_maindb\_version}, %{current\_maindb\_timediff}                                        | %{last\_maindb\_version} ne %{current\_maindb\_version}                                                |             |
+| WARNINGMAINDBSTATUS   | Define the conditions to match for the status to be WARNING.You can use the following variables: %{last\_maindb\_version}, %{current\_maindb\_version}, %{current\_maindb\_timediff}                                          |                                                                                                        |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                                                                                            |                                                                                                        |             |
 
 </TabItem>
@@ -215,7 +215,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: | 
+OK : clamav engine version '0.103.2/0.103.2' main.cvd version '60/60', last update 1d 3h 46m 40s daily.cvd version '25839/25839', last update 1d 3h 46m 40s | 
 ```
 
 ### Diagnostic des erreurs communes
