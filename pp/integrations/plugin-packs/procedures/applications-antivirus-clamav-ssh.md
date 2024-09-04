@@ -5,119 +5,321 @@ title: Antivirus ClamAV
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Pack assets
 
-### Monitored objects
+### Templates
 
-* Engine version
-* main.cvd version
-* daily.cvd version
+The Monitoring Connector **Antivirus ClamAV** brings a host template:
+
+* **App-Antivirus-Clamav-SSH-custom**
+
+The connector brings the following service templates (sorted by the host template they are attached to):
+
+<Tabs groupId="sync">
+<TabItem value="App-Antivirus-Clamav-SSH-custom" label="App-Antivirus-Clamav-SSH-custom">
+
+| Service Alias | Service Template                              | Service Description           |
+|:--------------|:----------------------------------------------|:------------------------------|
+| Update-Status | App-Antivirus-Clamav-Update-Status-SSH-custom | Check antivirus update status |
+
+> The services listed above are created automatically when the **App-Antivirus-Clamav-SSH-custom** host template is used.
+
+</TabItem>
+</Tabs>
+
+### Collected metrics & status
+
+Here is the list of services for this connector, detailing all metrics linked to each service.
+
+<Tabs groupId="sync">
+<TabItem value="Update-Status" label="Update-Status">
+
+| Metric name    | Unit  |
+|:---------------|:------|
+| engine-status  | N/A   |
+| maindb-status  | N/A   |
+| dailydb-status | N/A   |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
 ### SSH configuration
 
-A user is required to query the ClamAV server by SSH. There is no need for root 
-or sudo privileges. There are two possible ways to perform SSH check, either by 
-exchanging the SSH key from `centreon-engine` user to the target server, 
-or by setting your unique user and password directly in the Host Macros.
+A user is required to query the resource by SSH. There is no need for root or sudo
+privileges. There are two possible ways to log in through SSH, either by
+exchanging the SSH key from **centreon-engine** user to the target resource, or by
+setting your unique user and password directly in the host macros.
 
-## Setup
+## Installing the monitoring connector
+
+### Pack
+
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Monitoring Connector Manager** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Install the Centreon package on every Centreon poller expected to monitor *ClamAV* ressources:
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Applications-Clamav-Ssh
+dnf install centreon-pack-applications-antivirus-clamav-ssh
 ```
-
-2. On the Centreon Web interface, install the *Antivirus ClamAV* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Install the Centreon package on every Centreon poller expected to monitor *ClamAV* ressources:
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Applications-Clamav-Ssh
+dnf install centreon-pack-applications-antivirus-clamav-ssh
 ```
 
-2. Install the *Antivirus ClamAV* Centreon Monitoring Connector RPM on the Centreon Central server:
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-pack-applications-antivirus-clamav-ssh
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-applications-antivirus-clamav-ssh
 ```
 
-3. On the Centreon Web interface, install the *Antivirus ClamAV* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
+</TabItem>
+</Tabs>
+
+2. Whatever the license type (*online* or *offline*), install the **Antivirus ClamAV** connector through
+the **Configuration > Monitoring Connector Manager** menu.
+
+### Plugin
+
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
+
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Applications-Clamav-Ssh
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Applications-Clamav-Ssh
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-plugin-applications-clamav-ssh
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Applications-Clamav-Ssh
+```
 
 </TabItem>
 </Tabs>
 
-## Configuration
+## Using the monitoring connector
 
-### Host
+### Using a host template provided by the connector
 
-* Log into Centreon and add a new Host through **Configuration > Hosts**.
-* Fill the "Name", "Alias" & "IP Address / DNS" fields according to your *Antivirus ClamAV* Server settings
-* Select the *Applications-Antivirus-Clamav-Ssh-custom* template to apply to the Host
-* Once the template applied, some Macros marked as 'Mandatory' hereafter have to be configured.
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **App-Antivirus-Clamav-SSH-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
 
-| Mandatory | Name         | Description                                                                        |
-|:----------|:-------------|:-----------------------------------------------------------------------------------|
-|           | EXTRAOPTIONS | Any extra option you may want to add to every command\_line (eg. a --verbose flag) |
+| Macro           | Description                                                                                                                                                         | Default value     | Mandatory   |
+|:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SSHUSERNAME     | Define the user name to log in to the host                                                                                                                          |                   |             |
+| SSHPASSWORD     | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead |                   |             |
+| SSHPORT         | Define the TCP port on which SSH is listening                                                                                                                       |                   |             |
+| SSHBACKEND      | Define the backend you want to use. It can be: sshcli (default), plink and libssh                                                                                   | libssh            |             |
+| SSHEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                                                                |                   |             |
 
-## How to check in the CLI that the configuration is OK and what are the main options for ? 
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
-Once the plugin installed, log into your Centreon Poller CLI using the 
-*centreon-engine* user account and test the Plugin by running the following 
-command:
+### Using a service template provided by the connector
+
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+
+<Tabs groupId="sync">
+<TabItem value="Update-Status" label="Update-Status">
+
+| Macro                 | Description                                                                                                                                                                                                                                                                                                   | Default value                                                                                          | Mandatory   |
+|:----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------|:-----------:|
+| CRITICALDAILYDBSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{last\_dailydb\_version} ne %{current\_dailydb\_version} \|\| %{current\_dailydb\_timediff} \> 432000'). You can use the following variables: %{last\_dailydb\_version}, %{current\_dailydb\_version}, %{current\_dailydb\_timediff} | %{last\_dailydb\_version} ne %{current\_dailydb\_version} \|\| %{current\_dailydb\_timediff} \> 432000 |             |
+| WARNINGDAILYDBSTATUS  | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %{last\_dailydb\_version}, %{current\_dailydb\_version}, %{current\_dailydb\_timediff}                                                                                                         |                                                                                                        |             |
+| WARNINGENGINESTATUS   | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %{last\_engine\_version}, %{current\_engine\_version}                                                                                                                                          |                                                                                                        |             |
+| CRITICALENGINESTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%{last\_engine\_version} ne %{current\_engine\_version}'). You can use the following variables: %{last\_engine\_version}, %{current\_engine\_version}                                                                                 |                                                                                                        |             |
+| CRITICALMAINDBSTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%{last\_maindb\_version} ne %{current\_maindb\_version}'). You can use the following variables: %{last\_maindb\_version}, %{current\_maindb\_version}, %{current\_maindb\_timediff}                                                   | %{last\_maindb\_version} ne %{current\_maindb\_version}                                                |             |
+| WARNINGMAINDBSTATUS   | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %{last\_maindb\_version}, %{current\_maindb\_version}, %{current\_maindb\_timediff}                                                                                                            |                                                                                                        |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                                                                                                            |                                                                                                        |             |
+
+</TabItem>
+</Tabs>
+
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+
+## How to check in the CLI that the configuration is OK and what are the main options for?
+
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
+is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
- /usr/lib/centreon/plugins//centreon_clamav_ssh.pl \
-    --plugin=apps::antivirus::clamav::local::plugin \
-    --mode=update-status \
-    --hostname=10.0.0.1 \
-    --remote \
-    --critical-maindb-status='%{last_maindb_version} ne %{current_maindb_version}' \
-    --use-new-perfdata
- ```
-
- Expected command output is shown below:
-
-```bash
-OK : clamav engine version '0.103.2/0.103.2' main.cvd version '60/60', last update 1d 3h 46m 40s daily.cvd version '25839/25839', last update 1d 3h 46m 40s | 
- ```
-
-This command would trigger a CRITICAL alarm if the last *maindb version* is not
-equal to the current *maindb version*
-(`-critical-maindb-status='%{last_maindb_version} ne %{current_maindb_version}'`).
-
-All available options for a given mode can be displayed by adding the 
-`--help` parameter to thecommand:
-
-```bash
-/usr/lib/centreon/plugins//centreon_clamav_ssh.pl  \
-    --plugin=apps::antivirus::clamav::local::plugin  \
-    --mode=update-status  \
-    --help
+/usr/lib/centreon/plugins/centreon_clamav_ssh.pl \
+	--plugin=apps::antivirus::clamav::local::plugin \
+	--mode=update-status \
+	--hostname='10.0.0.1' \
+	--ssh-backend='libssh' \
+	--ssh-username='' \
+	--ssh-password='' \
+	--ssh-port=''  \
+	--warning-engine-status='' \
+	--critical-engine-status='' \
+	--warning-maindb-status='' \
+	--critical-maindb-status='%{last_maindb_version} ne %{current_maindb_version}' \
+	--warning-dailydb-status='' \
+	--critical-dailydb-status='%{last_dailydb_version} ne %{current_dailydb_version} || %{current_dailydb_timediff} > 432000' 
 ```
 
-All available options for a given mode can be displayed by adding the 
-`--list-mode` parameter to thecommand:
+The expected command output is shown below:
 
 ```bash
- /usr/lib/centreon/plugins//centreon_clamav_ssh.pl  \
-    --plugin=apps::antivirus::clamav::local::plugin  \
-    --list-mode
+OK: | 
 ```
 
 ### Troubleshooting
 
-#### `UNKNOWN: Command error: Host key verification failed.`
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
+for Centreon Plugins typical issues.
 
-is error may come out whenever the `ssh` or the `plink` backends are used in the
-command. In this case, it is necessary to manually initiate a first SSH
-connection to the target server in order to validate the SSH fingerprint.
+### Available modes
+
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the 
+connector in your terminal.
+
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_clamav_ssh.pl \
+	--plugin=apps::antivirus::clamav::local::plugin \
+	--list-mode
+```
+
+The plugin brings the following modes:
+
+| Mode                                                                                                                                   | Linked service template                       |
+|:---------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|
+| update-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/antivirus/clamav/local/mode/updatestatus.pm)] | App-Antivirus-Clamav-Update-Status-SSH-custom |
+
+### Available options
+
+#### Modes options
+
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<TabItem value="Update-Status" label="Update-Status">
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     | Define the mode in which you want the plugin to be executed (see--list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --custommode                               | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --list-custommode                          | List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --multiple                                 | Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale(Mbps),mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                                |
+| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-ignore-perfdata                   | Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-ignore-label                      | Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --output-file                              | Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --hostname                                 | Hostname to query in ssh.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --timeout                                  | Timeout in seconds for the command (default: 45). Default value can be override by the mode.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --command                                  | Command to get information. Used it you have output in a file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --command-path                             | Command path.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --command-options                          | Command options.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --sudo  sudo command                       | .                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --ssh-backend                              | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --ssh-username                             | Define the user name to log in to the host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --ssh-password                             | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --ssh-port                                 | Define the TCP port on which SSH is listening.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --ssh-priv-key                             | Define the private key file to use for user authentication.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --sshcli-command                           | ssh command (default: 'ssh').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --sshcli-path                              | ssh command path (default: none)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --sshcli-option                            | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --plink-command                            | plink command (default: 'plink').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --plink-path                               | plink command path (default: none)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --plink-option                             | Specify plink options (example: --plink-option='-T').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --libssh-strict-connect                    | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --info                                     | %(maindb-file)'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --nameservers                              | Set nameserver to query (can be multiple). The system configuration is used by default.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --maindb-file                              | Antivirus main.cvd file (default: '/var/lib/clamav/main.cvd').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --dailydb-file                             | Antivirus daily.cvd file (default: '/var/lib/clamav/daily.cvd').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --warning-engine-status                    | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %{last\_engine\_version}, %{current\_engine\_version}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --critical-engine-status                   | Define the conditions to match for the status to be CRITICAL (default: '%{last\_engine\_version} ne %{current\_engine\_version}'). You can use the following variables: %{last\_engine\_version}, %{current\_engine\_version}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --warning-maindb-status                    | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %{last\_maindb\_version}, %{current\_maindb\_version}, %{current\_maindb\_timediff}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --critical-maindb-status                   | Define the conditions to match for the status to be CRITICAL (default: '%{last\_maindb\_version} ne %{current\_maindb\_version}'). You can use the following variables: %{last\_maindb\_version}, %{current\_maindb\_version}, %{current\_maindb\_timediff}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --warning-dailydb-status                   | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %{last\_dailydb\_version}, %{current\_dailydb\_version}, %{current\_dailydb\_timediff}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --critical-dailydb-status                  | Define the conditions to match for the status to be CRITICAL (default: '%{last\_dailydb\_version} ne %{current\_dailydb\_version} \|\| %{current\_dailydb\_timediff} \> 432000'). You can use the following variables: %{last\_dailydb\_version}, %{current\_dailydb\_version}, %{current\_dailydb\_timediff}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+
+</TabItem>
+</Tabs>
+
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_clamav_ssh.pl \
+	--plugin=apps::antivirus::clamav::local::plugin \
+	--mode=update-status \
+	--help
+```
