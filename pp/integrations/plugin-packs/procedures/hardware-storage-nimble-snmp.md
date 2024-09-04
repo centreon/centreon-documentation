@@ -100,7 +100,7 @@ dnf install centreon-pack-hardware-storage-nimble-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-storage-nimble-snmp
@@ -147,7 +147,7 @@ dnf install centreon-plugin-Hardware-Storage-Nimble-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-storage-nimble-snmp
@@ -174,8 +174,8 @@ yum install centreon-plugin-Hardware-Storage-Nimble-Snmp
 > When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
-| Macro            | Description                                                                                          | Default value     | Mandatory   |
-|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| Macro            | Description                                                                                                                              | Default value     | Mandatory   |
+|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -188,30 +188,30 @@ yum install centreon-plugin-Hardware-Storage-Nimble-Snmp
 <Tabs groupId="sync">
 <TabItem value="Global-Stats" label="Global-Stats">
 
-| Macro             | Description                                                                                        | Default value     | Mandatory   |
-|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGREAD       | Warning threshold                                                                                  |                   |             |
-| CRITICALREAD      | Critical threshold                                                                                 |                   |             |
-| WARNINGREADIOPS   | Warning threshold                                                                                  |                   |             |
-| CRITICALREADIOPS  | Critical threshold                                                                                 |                   |             |
-| WARNINGREADTIME   | Warning threshold                                                                                  |                   |             |
-| CRITICALREADTIME  | Critical threshold                                                                                 |                   |             |
-| WARNINGWRITE      | Warning threshold                                                                                  |                   |             |
-| CRITICALWRITE     | Critical threshold                                                                                 |                   |             |
-| WARNINGWRITEIOPS  | Warning threshold                                                                                  |                   |             |
-| CRITICALWRITEIOPS | Critical threshold                                                                                 |                   |             |
-| WARNINGWRITETIME  | Warning threshold                                                                                  |                   |             |
-| CRITICALWRITETIME | Critical threshold                                                                                 |                   |             |
+| Macro             | Description                                                                                                                            | Default value     | Mandatory   |
+|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGREAD       | Warning threshold                                                                                                                      |                   |             |
+| CRITICALREAD      | Critical threshold                                                                                                                     |                   |             |
+| WARNINGREADIOPS   | Warning threshold                                                                                                                      |                   |             |
+| CRITICALREADIOPS  | Critical threshold                                                                                                                     |                   |             |
+| WARNINGREADTIME   | Warning threshold                                                                                                                      |                   |             |
+| CRITICALREADTIME  | Critical threshold                                                                                                                     |                   |             |
+| WARNINGWRITE      | Warning threshold                                                                                                                      |                   |             |
+| CRITICALWRITE     | Critical threshold                                                                                                                     |                   |             |
+| WARNINGWRITEIOPS  | Warning threshold                                                                                                                      |                   |             |
+| CRITICALWRITEIOPS | Critical threshold                                                                                                                     |                   |             |
+| WARNINGWRITETIME  | Warning threshold                                                                                                                      |                   |             |
+| CRITICALWRITETIME | Critical threshold                                                                                                                     |                   |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Volume-Usage-Global" label="Volume-Usage-Global">
 
-| Macro         | Description                                                                                        | Default value     | Mandatory   |
-|:--------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNAME    | Filter by name (regexp can be used)                                                                | .*                |             |
-| WARNINGUSAGE  | Warning threshold (in percent)                                                                     | 80                |             |
-| CRITICALUSAGE | Critical threshold (in percent)                                                                    | 90                |             |
+| Macro         | Description                                                                                                                            | Default value     | Mandatory   |
+|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERNAME    | Filter by name (regexp can be used)                                                                                                    | .*                |             |
+| WARNINGUSAGE  | Warning threshold (in percent)                                                                                                         | 80                |             |
+| CRITICALUSAGE | Critical threshold (in percent)                                                                                                        | 90                |             |
 | EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
@@ -241,7 +241,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All volumes are ok | '*volume*#volume.space.usage.bytes'=B;;;;
+OK: Volume 'Volume-A' Total: 40960.00 TB Used: 20480.00 TB (50.00%) Free: 20480.00 TB (50.00%) | 'used'=22517998138949632B;0:36028797019802832;0:40532396647278184;0;45035996274753536
+Volume 'Volume-A' Total: 40960.00 TB Used: 20480.00 TB (50.00%) Free: 20480.00 TB (50.00%)
 ```
 
 ### Troubleshooting
