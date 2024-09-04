@@ -89,7 +89,8 @@ There is currently no workaround.
 After updating MBI, you get an error similar to the following during the statistic calculation.
 
 ```shell
-[FATAL] Program terminated with errors
+[Tue Jun 1 18:28:26 2021] [FATAL] mod_bi_hgservicemonthavailability insertion execute error : Out of range value for column 'mtbf' at row 1
+[Tue Jun 1 18:28:26 2021] [FATAL] Program terminated with errors
 ```
 
 This is due to a column update issue in the database.

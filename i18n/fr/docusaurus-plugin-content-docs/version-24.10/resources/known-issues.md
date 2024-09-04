@@ -88,7 +88,8 @@ Il n'existe actuellement pas de contournement.
 Après la mise à jour de MBI, vous obtenez une erreur similaire à la suivante pendant le calcul des statistiques.
 
 ```shell
-[FATAL] Program terminated with errors
+[Tue Jun 1 18:28:26 2021] [FATAL] mod_bi_hgservicemonthavailability insertion execute error : Out of range value for column 'mtbf' at row 1
+[Tue Jun 1 18:28:26 2021] [FATAL] Program terminated with errors
 ```
 
 Cette erreur est due à un problème de mise à jour des colonnes dans la base de données.
