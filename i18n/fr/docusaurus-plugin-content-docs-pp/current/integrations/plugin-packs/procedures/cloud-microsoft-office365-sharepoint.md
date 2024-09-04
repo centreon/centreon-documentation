@@ -19,10 +19,10 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="Cloud-Microsoft-Office365-Sharepoint-Api-custom" label="Cloud-Microsoft-Office365-Sharepoint-Api-custom">
 
-| Alias          | Modèle de service                                              | Description |
-|:---------------|:---------------------------------------------------------------|:------------|
-| Site-Usage     | Cloud-Microsoft-Office365-Sharepoint-Site-Usage-Api-custom     | ContrÃ      |
-| Users-Activity | Cloud-Microsoft-Office365-Sharepoint-Users-Activity-Api-custom | ContrÃ      |
+| Alias          | Modèle de service                                              | Description                           |
+|:---------------|:---------------------------------------------------------------|:--------------------------------------|
+| Site-Usage     | Cloud-Microsoft-Office365-Sharepoint-Site-Usage-Api-custom     | Contrôle l'usage des sites SharePoint |
+| Users-Activity | Cloud-Microsoft-Office365-Sharepoint-Users-Activity-Api-custom | Contrôle l'activité des utilisateurs  |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Microsoft-Office365-Sharepoint-Api-custom** est utilisé.
 
@@ -135,7 +135,7 @@ dnf install centreon-pack-cloud-microsoft-office365-sharepoint
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-cloud-microsoft-office365-sharepoint
@@ -180,7 +180,7 @@ dnf install centreon-plugin-Cloud-Microsoft-Office365-Sharepoint-Api
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-cloud-microsoft-office365-sharepoint-api
@@ -205,11 +205,11 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Sharepoint-Api
 3. Appliquez le modèle d'hôte **Cloud-Microsoft-Office365-Sharepoint-Api-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro                 | Description                                                                                          | Valeur par défaut | Obligatoire |
-|:----------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| OFFICE365CLIENTID     | Set Office 365 client ID                                                                             |                   | X           |
-| OFFICE365CLIENTSECRET | Set Office 365 client secret                                                                         |                   | X           |
-| OFFICE365TENANT       | Set Office 365 tenant ID                                                                             |                   | X           |
+| Macro                 | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| OFFICE365CLIENTID     | Set Office 365 client ID                                                                                                                           |                   | X           |
+| OFFICE365CLIENTSECRET | Set Office 365 client secret                                                                                                                       |                   | X           |
+| OFFICE365TENANT       | Set Office 365 tenant ID                                                                                                                           |                   | X           |
 | OFFICE365EXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -222,47 +222,47 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Sharepoint-Api
 <Tabs groupId="sync">
 <TabItem value="Site-Usage" label="Site-Usage">
 
-| Macro                          | Description                                                                                                                                                  | Valeur par défaut   | Obligatoire |
-|:-------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------|:-----------:|
-| UNITS                          | Unit of thresholds (default: '%') ('%', 'count')                                                                                                             | %                   |             |
-| FILTERCOUNTERS                 | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='active-sites\|total' (default: 'active-sites\|total') | active-sites\|total |             |
-| FILTERURL                      | Filter sites                                                                                                                                                 |                     |             |
-| FILTERID                       | Filter sites                                                                                                                                                 |                     |             |
-| WARNINGACTIVEFILECOUNT         | Thresholds                                                                                                                                                   |                     |             |
-| CRITICALACTIVEFILECOUNT        | Thresholds                                                                                                                                                   |                     |             |
-| WARNINGACTIVESITES             | Thresholds                                                                                                                                                   |                     |             |
-| CRITICALACTIVESITES            | Thresholds                                                                                                                                                   |                     |             |
-| WARNINGFILECOUNT               | Thresholds                                                                                                                                                   |                     |             |
-| CRITICALFILECOUNT              | Thresholds                                                                                                                                                   |                     |             |
-| WARNINGPAGEVIEWCOUNT           | Thresholds                                                                                                                                                   |                     |             |
-| CRITICALPAGEVIEWCOUNT          | Thresholds                                                                                                                                                   |                     |             |
-| WARNINGTOTALACTIVEFILECOUNT    | Thresholds                                                                                                                                                   |                     |             |
-| CRITICALTOTALACTIVEFILECOUNT   | Thresholds                                                                                                                                                   |                     |             |
-| WARNINGTOTALFILECOUNTACTIVE    | Thresholds                                                                                                                                                   |                     |             |
-| CRITICALTOTALFILECOUNTACTIVE   | Thresholds                                                                                                                                                   |                     |             |
-| WARNINGTOTALFILECOUNTINACTIVE  | Thresholds                                                                                                                                                   |                     |             |
-| CRITICALTOTALFILECOUNTINACTIVE | Thresholds                                                                                                                                                   |                     |             |
-| WARNINGTOTALPAGEVIEWCOUNT      | Thresholds                                                                                                                                                   |                     |             |
-| CRITICALTOTALPAGEVIEWCOUNT     | Thresholds                                                                                                                                                   |                     |             |
-| WARNINGTOTALUSAGEACTIVE        | Thresholds                                                                                                                                                   |                     |             |
-| CRITICALTOTALUSAGEACTIVE       | Thresholds                                                                                                                                                   |                     |             |
-| WARNINGTOTALUSAGEINACTIVE      | Thresholds                                                                                                                                                   |                     |             |
-| CRITICALTOTALUSAGEINACTIVE     | Thresholds                                                                                                                                                   |                     |             |
-| WARNINGTOTALVISITEDPAGECOUNT   | Thresholds                                                                                                                                                   |                     |             |
-| CRITICALTOTALVISITEDPAGECOUNT  | Thresholds                                                                                                                                                   |                     |             |
-| WARNINGUSAGE                   | Thresholds                                                                                                                                                   |                     |             |
-| CRITICALUSAGE                  | Thresholds                                                                                                                                                   |                     |             |
-| WARNINGVISITEDPAGECOUNT        | Thresholds                                                                                                                                                   |                     |             |
-| CRITICALVISITEDPAGECOUNT       | Thresholds                                                                                                                                                   |                     |             |
-| EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                           |                     |             |
+| Macro                          | Description                                                                                                                                      | Valeur par défaut          | Obligatoire |
+|:-------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:-----------:|
+| UNITS                          | Unit of thresholds ('%', 'count')                                                                                                                | %                          |             |
+| FILTERCOUNTERS                 | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='active-sites\| total'                     | active-sites\|total        |             |
+| FILTERURL                      | Filter sites                                                                                                                                     |                            |             |
+| FILTERID                       | Filter sites                                                                                                                                     |                            |             |
+| WARNINGACTIVEFILECOUNT         | Thresholds                                                                                                                                       |                            |             |
+| CRITICALACTIVEFILECOUNT        | Thresholds                                                                                                                                       |                            |             |
+| WARNINGACTIVESITES             | Thresholds                                                                                                                                       |                            |             |
+| CRITICALACTIVESITES            | Thresholds                                                                                                                                       |                            |             |
+| WARNINGFILECOUNT               | Thresholds                                                                                                                                       |                            |             |
+| CRITICALFILECOUNT              | Thresholds                                                                                                                                       |                            |             |
+| WARNINGPAGEVIEWCOUNT           | Thresholds                                                                                                                                       |                            |             |
+| CRITICALPAGEVIEWCOUNT          | Thresholds                                                                                                                                       |                            |             |
+| WARNINGTOTALACTIVEFILECOUNT    | Thresholds                                                                                                                                       |                            |             |
+| CRITICALTOTALACTIVEFILECOUNT   | Thresholds                                                                                                                                       |                            |             |
+| WARNINGTOTALFILECOUNTACTIVE    | Thresholds                                                                                                                                       |                            |             |
+| CRITICALTOTALFILECOUNTACTIVE   | Thresholds                                                                                                                                       |                            |             |
+| WARNINGTOTALFILECOUNTINACTIVE  | Thresholds                                                                                                                                       |                            |             |
+| CRITICALTOTALFILECOUNTINACTIVE | Thresholds                                                                                                                                       |                            |             |
+| WARNINGTOTALPAGEVIEWCOUNT      | Thresholds                                                                                                                                       |                            |             |
+| CRITICALTOTALPAGEVIEWCOUNT     | Thresholds                                                                                                                                       |                            |             |
+| WARNINGTOTALUSAGEACTIVE        | Thresholds                                                                                                                                       |                            |             |
+| CRITICALTOTALUSAGEACTIVE       | Thresholds                                                                                                                                       |                            |             |
+| WARNINGTOTALUSAGEINACTIVE      | Thresholds                                                                                                                                       |                            |             |
+| CRITICALTOTALUSAGEINACTIVE     | Thresholds                                                                                                                                       |                            |             |
+| WARNINGTOTALVISITEDPAGECOUNT   | Thresholds                                                                                                                                       |                            |             |
+| CRITICALTOTALVISITEDPAGECOUNT  | Thresholds                                                                                                                                       |                            |             |
+| WARNINGUSAGE                   | Thresholds                                                                                                                                       |                            |             |
+| CRITICALUSAGE                  | Thresholds                                                                                                                                       |                            |             |
+| WARNINGVISITEDPAGECOUNT        | Thresholds                                                                                                                                       |                            |             |
+| CRITICALVISITEDPAGECOUNT       | Thresholds                                                                                                                                       |                            |             |
+| EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                            |             |
 
 </TabItem>
 <TabItem value="Users-Activity" label="Users-Activity">
 
 | Macro                              | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-----------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| UNITS                              | Unit of thresholds (default: '%') ('%', 'count')                                                                                                 | %                 |             |
-| FILTERCOUNTERS                     | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='active\|total' (default: 'active\|total') | active\|total     |             |
+| UNITS                              | Unit of thresholds ('%', 'count')                                                                                                                | %                 |             |
+| FILTERCOUNTERS                     | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='active\| total'                           | active\|total     |             |
 | FILTERUSER                         | Filter users                                                                                                                                     |                   |             |
 | WARNINGACTIVEUSERS                 | Warning threshold                                                                                                                                |                   |             |
 | CRITICALACTIVEUSERS                | Critical threshold                                                                                                                               |                   |             |
@@ -286,7 +286,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Sharepoint-Api
 | CRITICALVIEWEDEDITEDFILECOUNT      | Critical threshold                                                                                                                               |                   |             |
 | WARNINGVISITEDPAGECOUNT            | Warning threshold                                                                                                                                |                   |             |
 | CRITICALVISITEDPAGECOUNT           | Critical threshold                                                                                                                               |                   |             |
-| EXTRAOPTIONS                       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                               |                   |             |
+| EXTRAOPTIONS                       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 </Tabs>

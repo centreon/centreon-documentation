@@ -133,7 +133,7 @@ dnf install centreon-pack-cloud-microsoft-office365-sharepoint
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-cloud-microsoft-office365-sharepoint
@@ -180,7 +180,7 @@ dnf install centreon-plugin-Cloud-Microsoft-Office365-Sharepoint-Api
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-cloud-microsoft-office365-sharepoint-api
@@ -224,36 +224,36 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Sharepoint-Api
 
 | Macro                          | Description                                                                                                                                                  | Default value       | Mandatory   |
 |:-------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------|:-----------:|
-| UNITS                          | Unit of thresholds (default: '%') ('%', 'count')                                                                                                             | %                   |             |
-| FILTERCOUNTERS                 | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='active-sites\|total' (default: 'active-sites\|total') | active-sites\|total |             |
-| FILTERURL                      | Filter sites                                                                                                                                                 |                     |             |
-| FILTERID                       | Filter sites                                                                                                                                                 |                     |             |
-| WARNINGACTIVEFILECOUNT         | Thresholds                                                                                                                                                   |                     |             |
-| CRITICALACTIVEFILECOUNT        | Thresholds                                                                                                                                                   |                     |             |
-| WARNINGACTIVESITES             | Thresholds                                                                                                                                                   |                     |             |
-| CRITICALACTIVESITES            | Thresholds                                                                                                                                                   |                     |             |
-| WARNINGFILECOUNT               | Thresholds                                                                                                                                                   |                     |             |
-| CRITICALFILECOUNT              | Thresholds                                                                                                                                                   |                     |             |
-| WARNINGPAGEVIEWCOUNT           | Thresholds                                                                                                                                                   |                     |             |
-| CRITICALPAGEVIEWCOUNT          | Thresholds                                                                                                                                                   |                     |             |
-| WARNINGTOTALACTIVEFILECOUNT    | Thresholds                                                                                                                                                   |                     |             |
-| CRITICALTOTALACTIVEFILECOUNT   | Thresholds                                                                                                                                                   |                     |             |
-| WARNINGTOTALFILECOUNTACTIVE    | Thresholds                                                                                                                                                   |                     |             |
-| CRITICALTOTALFILECOUNTACTIVE   | Thresholds                                                                                                                                                   |                     |             |
-| WARNINGTOTALFILECOUNTINACTIVE  | Thresholds                                                                                                                                                   |                     |             |
-| CRITICALTOTALFILECOUNTINACTIVE | Thresholds                                                                                                                                                   |                     |             |
-| WARNINGTOTALPAGEVIEWCOUNT      | Thresholds                                                                                                                                                   |                     |             |
-| CRITICALTOTALPAGEVIEWCOUNT     | Thresholds                                                                                                                                                   |                     |             |
-| WARNINGTOTALUSAGEACTIVE        | Thresholds                                                                                                                                                   |                     |             |
-| CRITICALTOTALUSAGEACTIVE       | Thresholds                                                                                                                                                   |                     |             |
-| WARNINGTOTALUSAGEINACTIVE      | Thresholds                                                                                                                                                   |                     |             |
-| CRITICALTOTALUSAGEINACTIVE     | Thresholds                                                                                                                                                   |                     |             |
-| WARNINGTOTALVISITEDPAGECOUNT   | Thresholds                                                                                                                                                   |                     |             |
-| CRITICALTOTALVISITEDPAGECOUNT  | Thresholds                                                                                                                                                   |                     |             |
-| WARNINGUSAGE                   | Thresholds                                                                                                                                                   |                     |             |
-| CRITICALUSAGE                  | Thresholds                                                                                                                                                   |                     |             |
-| WARNINGVISITEDPAGECOUNT        | Thresholds                                                                                                                                                   |                     |             |
-| CRITICALVISITEDPAGECOUNT       | Thresholds                                                                                                                                                   |                     |             |
+| UNITS                          | Unit of thresholds ('%', 'count')                                                                                                                | %                          |             |
+| FILTERCOUNTERS                 | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='active-sites\| total'                     | active-sites\|total        |             |
+| FILTERURL                      | Filter sites                                                                                                                                     |                            |             |
+| FILTERID                       | Filter sites                                                                                                                                     |                            |             |
+| WARNINGACTIVEFILECOUNT         | Thresholds                                                                                                                                       |                            |             |
+| CRITICALACTIVEFILECOUNT        | Thresholds                                                                                                                                       |                            |             |
+| WARNINGACTIVESITES             | Thresholds                                                                                                                                       |                            |             |
+| CRITICALACTIVESITES            | Thresholds                                                                                                                                       |                            |             |
+| WARNINGFILECOUNT               | Thresholds                                                                                                                                       |                            |             |
+| CRITICALFILECOUNT              | Thresholds                                                                                                                                       |                            |             |
+| WARNINGPAGEVIEWCOUNT           | Thresholds                                                                                                                                       |                            |             |
+| CRITICALPAGEVIEWCOUNT          | Thresholds                                                                                                                                       |                            |             |
+| WARNINGTOTALACTIVEFILECOUNT    | Thresholds                                                                                                                                       |                            |             |
+| CRITICALTOTALACTIVEFILECOUNT   | Thresholds                                                                                                                                       |                            |             |
+| WARNINGTOTALFILECOUNTACTIVE    | Thresholds                                                                                                                                       |                            |             |
+| CRITICALTOTALFILECOUNTACTIVE   | Thresholds                                                                                                                                       |                            |             |
+| WARNINGTOTALFILECOUNTINACTIVE  | Thresholds                                                                                                                                       |                            |             |
+| CRITICALTOTALFILECOUNTINACTIVE | Thresholds                                                                                                                                       |                            |             |
+| WARNINGTOTALPAGEVIEWCOUNT      | Thresholds                                                                                                                                       |                            |             |
+| CRITICALTOTALPAGEVIEWCOUNT     | Thresholds                                                                                                                                       |                            |             |
+| WARNINGTOTALUSAGEACTIVE        | Thresholds                                                                                                                                       |                            |             |
+| CRITICALTOTALUSAGEACTIVE       | Thresholds                                                                                                                                       |                            |             |
+| WARNINGTOTALUSAGEINACTIVE      | Thresholds                                                                                                                                       |                            |             |
+| CRITICALTOTALUSAGEINACTIVE     | Thresholds                                                                                                                                       |                            |             |
+| WARNINGTOTALVISITEDPAGECOUNT   | Thresholds                                                                                                                                       |                            |             |
+| CRITICALTOTALVISITEDPAGECOUNT  | Thresholds                                                                                                                                       |                            |             |
+| WARNINGUSAGE                   | Thresholds                                                                                                                                       |                            |             |
+| CRITICALUSAGE                  | Thresholds                                                                                                                                       |                            |             |
+| WARNINGVISITEDPAGECOUNT        | Thresholds                                                                                                                                       |                            |             |
+| CRITICALVISITEDPAGECOUNT       | Thresholds                                                                                                                                       |                            |             |
 | EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                           |                     |             |
 
 </TabItem>
@@ -261,8 +261,8 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Sharepoint-Api
 
 | Macro                              | Description                                                                                                                                      | Default value     | Mandatory   |
 |:-----------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| UNITS                              | Unit of thresholds (default: '%') ('%', 'count')                                                                                                 | %                 |             |
-| FILTERCOUNTERS                     | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='active\|total' (default: 'active\|total') | active\|total     |             |
+| UNITS                              | Unit of thresholds ('%', 'count')                                                                                                                | %                 |             |
+| FILTERCOUNTERS                     | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='active\| total'                           | active\|total     |             |
 | FILTERUSER                         | Filter users                                                                                                                                     |                   |             |
 | WARNINGACTIVEUSERS                 | Warning threshold                                                                                                                                |                   |             |
 | CRITICALACTIVEUSERS                | Critical threshold                                                                                                                               |                   |             |
