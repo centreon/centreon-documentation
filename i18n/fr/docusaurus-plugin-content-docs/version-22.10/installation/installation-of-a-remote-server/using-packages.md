@@ -5,6 +5,8 @@ title: À partir des paquets
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Cette version de Centreon est ancienne, et ne sera bientôt plus supportée. Nous vous recommandons d'installer la dernière version.
+
 Centreon fournit des RPM pour ses produits au travers de la solution
 Centreon Open Source disponible gratuitement sur notre dépôt.
 
