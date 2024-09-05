@@ -470,17 +470,9 @@
             {
               "type": "doc",
               "id": "version-23.10/alerts-notifications/event-log"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.10/alerts-notifications/custom-views"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.10/alerts-notifications/dashboards"
-            }
-          ]
-        },
+                    }
+                  ]
+                },
         {
           "type": "category",
           "label": "Managing alerts",
@@ -595,36 +587,7 @@
         }
       ]
     },
-    {
-      "type": "category",
-      "label": "Performance graphs",
-      "link": {
-        "type": "generated-index"
-      },
-      "items": [
         {
-          "type": "doc",
-          "id": "version-23.10/metrology/chart-management"
-        },
-        {
-          "type": "doc",
-          "id": "version-23.10/metrology/chart-template"
-        },
-        {
-          "type": "doc",
-          "id": "version-23.10/metrology/chart-curves"
-        },
-        {
-          "type": "doc",
-          "id": "version-23.10/metrology/chart-virtual-metrics"
-        },
-        {
-          "type": "doc",
-          "id": "version-23.10/metrology/grafana"
-        }
-      ]
-    },
-    {
       "type": "category",
       "label": "Service Mapping",
       "link": {
@@ -697,7 +660,47 @@
     },
     {
       "type": "category",
-      "label": "Graphical views",
+      "label": "Data Visualization",
+      "link": {
+        "type": "generated-index"
+      },
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-23.10/alerts-notifications/dashboards"
+        },
+        {
+          "type": "category",
+          "label": "Performance graphs",
+          "link": {
+            "type": "generated-index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-23.10/metrology/chart-management"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/metrology/chart-template"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/metrology/chart-curves"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/metrology/chart-virtual-metrics"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/metrology/grafana"
+            }
+          ]
+        },
+    {
+      "type": "category",
+      "label": "Graphical views (maps)",
       "link": {
         "type": "generated-index",
         "description": "The graphical view capabilities in Centreon relies on the Centreon MAP module."
@@ -838,6 +841,12 @@
         }
       ]
     },
+    {
+      "type": "doc",
+      "id": "version-23.10/alerts-notifications/custom-views"
+    }
+  ]
+  },
     {
       "type": "category",
       "label": "Reporting",
