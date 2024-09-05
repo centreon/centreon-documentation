@@ -42,6 +42,4 @@ La fonctionnalité d'Autologin vous permet de donner accès à la plateforme via
     ```
     http://10.29.11.2/centreon/main.php?p=103&autologin=1&useralias=admin&token=3sWymDJk
     ```
-
-    Pour afficher Centreon en plein écran, sans les menus ni l'en-tête, ajoutez **&min=1** à la fin de l'URL.
  	 
