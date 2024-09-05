@@ -62,9 +62,9 @@ All these resources are described in the table below.
 | `centreon`              | group                | Centreon "primitive services" group                  |
 | `vip`                   | primitive service    | VIP address for the central cluster                  |
 | `http`                  | primitive service    | Apache service (`httpd24-httpd`)                     |
+| `cbd_central_broker`    | primitive service    | Central Broker service (`cbd-sql`)                   |
 | `gorgone`               | primitive service    | Gorgone service (`gorgoned`)                         |
 | `centreon_central_sync` | primitive service    | File synchronization service                         |
-| `cbd_central_broker`    | primitive service    | Central Broker service (`cbd-sql`)                   |
 | `centengine`            | primitive service    | Centreon-Engine service (`centengine`)               |
 | `centreontrapd`         | primitive service    | SNMP Traps management service (`centreontrapd`)      |
 | `snmptrapd`             | primitive service    | SNMP Traps listening service (`snmptrapd`)           |
