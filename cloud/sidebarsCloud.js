@@ -516,10 +516,20 @@ module.exports = {
 },
     {
       "type": "category",
-      "label": "Administration",
+      "label": "Reporting",
       "link": {
         "type": "generated-index",
       },
+      "items": [
+        {
+          "type": "doc",
+          "id": "reporting/reports"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Administration",
       "items": [
         {
           "type": "doc",
