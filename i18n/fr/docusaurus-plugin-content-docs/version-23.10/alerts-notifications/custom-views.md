@@ -1,6 +1,6 @@
 ---
 id: custom-views
-title: Vues personnalisées (legacy)
+title: Vues personnalisées
 ---
 
 Les vues personnalisées sont des tableaux de bord, créés à l'aide de widgets. Vous pouvez partager des vues avec les autres utilisateurs. Voir aussi notre [tutoriel](../getting-started/create-custom-view.md) sur les vues personnalisées.
