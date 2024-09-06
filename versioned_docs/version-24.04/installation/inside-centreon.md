@@ -23,7 +23,7 @@ In this example, we have a central server (without any Business modules installe
 
 ### Engine
 
-* **Engine**, (the monitoring engine, i.e. the centengine process) is the heart of Centreon: it plans checks, executes them, and [notifies users](../alerts-notifications/notif-concept.md) if an incident occurs.
+* **Engine**, (the monitoring engine, i.e. the centengine process) is the heart of Centreon: it plans checks, executes them, and [notifies users](https://docs.centreon.com/docs/alerts-notifications/notif-concept.md) if an incident occurs.
 * Checks and notifications are done according to the configuration made by users.
 * Centreon Engine is present on each server in your [architecture](../installation/architectures.md): [pollers, remote servers and the central server](../getting-started/platform.md).
 * To configure Engine, go to **Configuration > Pollers > Engine configuration**. This is for advanced users only.
