@@ -44,7 +44,7 @@ In this example, we have a central server (without any Business modules installe
 * The data is sent in BBDO format.
 * Each Broker has inputs and outputs that you can configure. By default, Broker is installed with mostly IPv4 inputs and outputs (in fact, an IPv4 output to the RRD database and a Unified SQL output to the MariaDB/MySQL database). However, it is recommended to set up a BBDO client and server between Engine and the master Broker, as they are easier to configure.
 * To configure a Broker, use the **Configuration > Pollers > Broker configuration** page.
-* If you decide that your master Broker is going to [receive data in HTTPS](../monitoring-servers/advanced-configuration.md#centreon-broker-flow-authentication), then you need to configure each Engine that talks to it in HTTPS too.
+* If you decide that your master Broker is going to [receive data in HTTPS](../monitoring/monitoring-servers/advanced-configuration.md#centreon-broker-flow-authentication), then you need to configure each Engine that talks to it in HTTPS too.
 
 See also:
 
