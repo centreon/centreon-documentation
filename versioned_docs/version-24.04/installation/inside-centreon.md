@@ -69,7 +69,7 @@ The MariaDB or MySQL database can be included in your central server, or [remote
 ### A RRD database/RRD files
 
 The RRD files contain performance data (metrics) and statuses, and are used to generate the graphs you can see on the Resource status page.
-Metrics and statuses stored there are a copy of those stored in **centreon_storage**, used for performance reasons. If for some reason you have lost your graphs, you can [rebuild your RRD database](../administration/backup/#graphs-rebuild) from the **centreon_storage** database.
+Metrics and statuses stored there are a copy of those stored in **centreon_storage**, used for performance reasons. If for some reason you have lost your graphs, you can [rebuild your RRD database](../administration/backup.md#graphs-rebuild) from the **centreon_storage** database.
 
 ### A web server
 
