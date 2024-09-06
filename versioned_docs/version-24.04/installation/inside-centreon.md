@@ -5,7 +5,7 @@ title: Inside Centreon
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Here are the bricks that make Centreon work. To find out on which port each brick communicates, see the [Tables of network flows](../installation/technical.md#tables-of-network-flows).
+Here are the bricks that make Centreon work. To find out on which port each brick communicates, see the [Tables of network flows](https://docs.centreon.com/docs/installation/technical/#tables-of-network-flows).
 
 ## Schema of a central server
 
@@ -77,5 +77,9 @@ The web server (**httpd** process) serves the graphical interface to users. It s
 
 ## Example : what happens when a host is created?
 
-1. A user creates a host in the interface (using the **Configuration > Hosts > Host**s page).
-2. **httpd** sends the configuration of the host to the **centreon** database (inside MariaDB or MySQL).
+1. A user creates a host in the interface of the central server (using the **Configuration > Hosts > Host**s page).
+2. The configuration is written in 2 places:
+   * **httpd** sends the configuration of the host to the **centreon** database (inside MariaDB or MySQL).
+   * Gorgone??
+3. The user [deploys the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md):
+   * Gorgone takes the files that are generated and copies them to all the engines of the pollers and remote servers, and reloads these.
