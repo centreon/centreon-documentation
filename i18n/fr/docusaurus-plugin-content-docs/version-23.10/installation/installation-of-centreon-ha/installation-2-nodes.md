@@ -1407,6 +1407,18 @@ pcs resource create http \
 </TabItem>
 </Tabs>
 
+##### Broker SQL
+
+```bash
+pcs resource create cbd_central_broker \
+    systemd:cbd-sql \
+    meta target-role="started" \
+    op start interval="0s" timeout="90s" \
+    stop interval="0s" timeout="90s" \
+    monitor interval="5s" timeout="30s" \
+    --group centreon
+```
+
 ##### Service Gorgone
 
 ```bash
@@ -1430,18 +1442,6 @@ pcs resource create centreon_central_sync \
     op start interval="0s" timeout="90s" \
     stop interval="0s" timeout="90s" \
     monitor interval="5s" timeout="20s" \
-    --group centreon
-```
-
-##### Broker SQL
-
-```bash
-pcs resource create cbd_central_broker \
-    systemd:cbd-sql \
-    meta target-role="started" \
-    op start interval="0s" timeout="90s" \
-    stop interval="0s" timeout="90s" \
-    monitor interval="5s" timeout="30s" \
     --group centreon
 ```
 
@@ -1558,9 +1558,9 @@ Full List of Resources:
   * Resource Group: centreon:
     * vip       (ocf::heartbeat:IPaddr2):        Started @CENTRAL_MASTER_NAME@
     * http      (systemd:httpd):         Started @CENTRAL_MASTER_NAME@
+    * cbd_central_broker        (systemd:cbd-sql):       Started @CENTRAL_MASTER_NAME@
     * gorgone   (systemd:gorgoned):      Started @CENTRAL_MASTER_NAME@
     * centreon_central_sync     (systemd:centreon-central-sync):         Started @CENTRAL_MASTER_NAME@
-    * cbd_central_broker        (systemd:cbd-sql):       Started @CENTRAL_MASTER_NAME@
     * centengine        (systemd:centengine):    Started @CENTRAL_MASTER_NAME@
     * centreontrapd     (systemd:centreontrapd):         Started @CENTRAL_MASTER_NAME@
     * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@
@@ -1590,9 +1590,9 @@ Full List of Resources:
   * Resource Group: centreon:
     * vip       (ocf::heartbeat:IPaddr2):        Started @CENTRAL_MASTER_NAME@
     * http      (systemd:httpd):         Started @CENTRAL_MASTER_NAME@
+    * cbd_central_broker        (systemd:cbd-sql):       Started @CENTRAL_MASTER_NAME@
     * gorgone   (systemd:gorgoned):      Started @CENTRAL_MASTER_NAME@
     * centreon_central_sync     (systemd:centreon-central-sync):         Started @CENTRAL_MASTER_NAME@
-    * cbd_central_broker        (systemd:cbd-sql):       Started @CENTRAL_MASTER_NAME@
     * centengine        (systemd:centengine):    Started @CENTRAL_MASTER_NAME@
     * centreontrapd     (systemd:centreontrapd):         Started @CENTRAL_MASTER_NAME@
     * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@
@@ -1622,9 +1622,9 @@ Full List of Resources:
   * Resource Group: centreon:
     * vip       (ocf::heartbeat:IPaddr2):        Started @CENTRAL_MASTER_NAME@
     * http      (systemd:httpd):         Started @CENTRAL_MASTER_NAME@
+    * cbd_central_broker        (systemd:cbd-sql):       Started @CENTRAL_MASTER_NAME@
     * gorgone   (systemd:gorgoned):      Started @CENTRAL_MASTER_NAME@
     * centreon_central_sync     (systemd:centreon-central-sync):         Started @CENTRAL_MASTER_NAME@
-    * cbd_central_broker        (systemd:cbd-sql):       Started @CENTRAL_MASTER_NAME@
     * centengine        (systemd:centengine):    Started @CENTRAL_MASTER_NAME@
     * centreontrapd     (systemd:centreontrapd):         Started @CENTRAL_MASTER_NAME@
     * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@

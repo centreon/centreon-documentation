@@ -131,12 +131,8 @@
             {
               "type": "doc",
               "id": "version-23.04/installation/installation-of-a-central-server/using-virtual-machines"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/installation/installation-of-a-central-server/using-sources"
             }
-          ]
+                      ]
         },
         {
           "type": "doc",
@@ -520,6 +516,10 @@
             {
               "type": "doc",
               "id": "version-23.04/alerts-notifications/notif-configuration"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.04/alerts-notifications/notif-config-for-teams"
             },
             {
               "type": "doc",

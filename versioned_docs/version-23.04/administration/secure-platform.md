@@ -72,24 +72,13 @@ the various system resources. By default, the policy does not allow any interact
 
 For more information about SELinux please see [Red Hat documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/using_selinux/getting-started-with-selinux_using-selinux)
 
-### Activate SELinux in permissive mode
+### Activate SELinux
 
-By default, SELinux is disabled during the Centreon installation process. To enable SELinux in permissive mode, you need to
-modify the `/etc/selinux/config` file as:
+By default, SELinux is disabled during the Centreon installation process and must be reenabled after it for security reasons.
 
-```shell
-# This file controls the state of SELinux on the system.
-# SELINUX= can take one of these three values:
-#     enforcing - SELinux security policy is enforced.
-#     permissive - SELinux prints warnings instead of enforcing.
-#     disabled - No SELinux policy is loaded.
-SELINUX=permissive
-# SELINUXTYPE= can take one of three two values:
-#     targeted - Targeted processes are protected,
-#     minimum - Modification of targeted policy. Only selected processes are protected.
-#     mls - Multi Level Security protection.
-SELINUXTYPE=targeted
-```
+To enable SELinux again, edit the **/etc/selinux/config** file and change the value with the following options:
+- ``SELINUX=enforcing`` to make SELinux security policy enforced.
+- ``SELINUX=permissive`` to make SELinux print warnings instead of enforce security policy.
 
 Then reboot your server:
 
@@ -269,7 +258,7 @@ audit2allow -a
 Then execute the proposed rules.
 
 If after a while, no error is present, you can activate SELinux in full mode by
-following this [procedure](#activate-selinux-in-permissive-mode) using **enforcing** mode.
+following this [procedure](#activate-selinux) using **enforcing** mode.
 
 > Do not hesitate to give us your feedback on [Github](https://github.com/centreon/centreon).
 
@@ -1583,7 +1572,7 @@ By default, ZMQ communications are secured, both external (with the poller) and 
 
 However, the gorgone HTTP API is unsecured by default. Only localhost can talk with gorgone but the communication is not done using SSL.
 
-You can [configure SSL](https://github.com/centreon/centreon/blob/develop/centreon-gorgone/docs/modules/core/httpserver.md) in the **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** file.
+You can [configure SSL](https://github.com/centreon/centreon-collect/blob/develop/gorgone/docs/modules/core/httpserver.md) in the **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** file.
 
 Then you must configure gorgone using the **Administration > Parameters > Gorgone** page.
 

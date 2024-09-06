@@ -426,13 +426,13 @@ enabled=0
 gpgcheck=1 
 gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES 
 module_hotfixes=1 
-EOF 
+EOF
 ```
 
 8. Install the plugin :
 
 ```bash
-dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch https://packages.centreon.com/artifactory/rpm-standard/23.04/el8/stable/noarch/RPMS/perl-cpan-libraries/perl-JSON-Path-0.5-2.el8.noarch.rpm
+dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
 
 </TabItem>
@@ -533,7 +533,7 @@ EOF
 7. Install the plugin :
 
 ```bash
-dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch https://packages.centreon.com/artifactory/rpm-standard/23.04/el9/stable/noarch/RPMS/perl-cpan-libraries/perl-JSON-Path-0.5-1.el9.noarch.rpm
+dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
 
 </TabItem>
