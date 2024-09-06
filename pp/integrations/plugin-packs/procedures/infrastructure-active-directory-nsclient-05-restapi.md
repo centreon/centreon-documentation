@@ -29,7 +29,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                                             | Service Description |
 |:--------------|:-------------------------------------------------------------|:--------------------|
-| Dfsr-Backlog  | Infra-ActiveDirectory-Dfsr-Backlog-NSClient05-Restapi-custom | Checks the dfsr backlog  |
+| Dfsr-Backlog  | Infra-ActiveDirectory-Dfsr-Backlog-NSClient05-Restapi-custom | Check the Distributed File Systems Replication backlog  |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -43,7 +43,9 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Ad-Domain-Controller" label="Ad-Domain-Controller">
 
-Coming soon
+| Metric name        | Unit  |
+|:-------------------|:------|
+| domain controller status | N/A |
 
 </TabItem>
 <TabItem value="Dfsr-Backlog" label="Dfsr-Backlog">

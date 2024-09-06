@@ -30,7 +30,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias        | Modèle de service                                            | Description                         |
 |:-------------|:-------------------------------------------------------------|:------------------------------------|
-| Dfsr-Backlog | Infra-ActiveDirectory-Dfsr-Backlog-NSClient05-Restapi-custom | Contrôle le backlog dfsr |
+| Dfsr-Backlog | Infra-ActiveDirectory-Dfsr-Backlog-NSClient05-Restapi-custom | Contrôle du backlog de réplication des Distributed File Systems |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -44,7 +44,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Ad-Domain-Controller" label="Ad-Domain-Controller">
 
-Coming soon
+| Métrique           | Unité |
+|:-------------------|:------|
+| domain controller status | N/A |
 
 </TabItem>
 <TabItem value="Dfsr-Backlog" label="Dfsr-Backlog">
