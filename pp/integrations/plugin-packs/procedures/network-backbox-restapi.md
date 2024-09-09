@@ -17,20 +17,20 @@ The following monitoring connectors will be installed when you install the **Bac
 
 The Monitoring Connector **Backbox** brings a host template:
 
-* **NW-Backbox-RESTAPI-custom**
+* **Net-Backbox-RESTAPI-custom**
 
 The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="NW-Backbox-RESTAPI-custom" label="NW-Backbox-RESTAPI-custom">
+<TabItem value="Net-Backbox-RESTAPI-custom" label="Net-Backbox-RESTAPI-custom">
 
 | Service Alias | Service Template                       | Service Description                 |
 |:--------------|:---------------------------------------|:------------------------------------|
-| Backup        | NW-BackBox-Backup-RESTAPI-custom       | Check the status of ongoing backups |
-| Configstatus  | NW-BackBox-Configstatus-RESTAPI-custom | Check the status of configurations  |
-| Intellicheck  | NW-BackBox-Intellicheck-RESTAPI-custom | Check the status of intellichecks   |
+| Backup        | Net-BackBox-Backup-RESTAPI-custom       | Check the status of ongoing backups |
+| Configstatus  | Net-BackBox-Configstatus-RESTAPI-custom | Check the status of configurations  |
+| Intellicheck  | Net-BackBox-Intellicheck-RESTAPI-custom | Check the status of intellichecks   |
 
-> The services listed above are created automatically when the **NW-Backbox-RESTAPI-custom** host template is used.
+> The services listed above are created automatically when the **Net-Backbox-RESTAPI-custom** host template is used.
 
 </TabItem>
 </Tabs>
@@ -171,7 +171,7 @@ yum install centreon-plugin-Network-Backbox-Restapi
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
 2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
-3. Apply the **NW-Backbox-RESTAPI-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+3. Apply the **Net-Backbox-RESTAPI-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
 | Macro           | Description                                                                                          | Default value     | Mandatory   |
@@ -299,9 +299,9 @@ The plugin brings the following modes:
 
 | Mode                                                                                                                           | Linked service template                |
 |:-------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------|
-| backup [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/backbox/rest/mode/backup.pm)]             | NW-BackBox-Backup-RESTAPI-custom       |
-| configstatus [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/backbox/rest/mode/configstatus.pm)] | NW-BackBox-Configstatus-RESTAPI-custom |
-| intellicheck [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/backbox/rest/mode/intellicheck.pm)] | NW-BackBox-Intellicheck-RESTAPI-custom |
+| backup [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/backbox/rest/mode/backup.pm)]             | Net-BackBox-Backup-RESTAPI-custom       |
+| configstatus [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/backbox/rest/mode/configstatus.pm)] | Net-BackBox-Configstatus-RESTAPI-custom |
+| intellicheck [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/backbox/rest/mode/intellicheck.pm)] | Net-BackBox-Intellicheck-RESTAPI-custom |
 
 ### Available options
 
