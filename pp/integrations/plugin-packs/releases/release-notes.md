@@ -18,8 +18,8 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
-- [**Active Directory API**](../procedures/infrastructure-active-directory-nsclient-05-restapi.md) - Added italian and german language support from community contributions ([PR 5073](https://github.com/centreon/centreon-plugins/pull/5073),[PR 5072](https://github.com/centreon/centreon-plugins/pull/5072),[PR 5070](https://github.com/centreon/centreon-plugins/pull/5070)]).
-- [**Active Directory**](../procedures/infrastructure-active-directory-nrpe.md) - Added italian and german language support from community contributions ([PR 5073](https://github.com/centreon/centreon-plugins/pull/5073),[PR 5072](https://github.com/centreon/centreon-plugins/pull/5072),[PR 5070](https://github.com/centreon/centreon-plugins/pull/5070)]).
+- [**Active Directory API**](../procedures/infrastructure-active-directory-nsclient-05-restapi.md) - Added italian and german language support from community contributions ([PR 5073](https://github.com/centreon/centreon-plugins/pull/5073), [PR 5072](https://github.com/centreon/centreon-plugins/pull/5072) and [PR 5070](https://github.com/centreon/centreon-plugins/pull/5070)]).
+- [**Active Directory**](../procedures/infrastructure-active-directory-nrpe.md) - Added italian and german language support from community contributions ([PR 5073](https://github.com/centreon/centreon-plugins/pull/5073), [PR 5072](https://github.com/centreon/centreon-plugins/pull/5072) and [PR 5070](https://github.com/centreon/centreon-plugins/pull/5070)]).
 - [**IP Fabric API**](../procedures/applications-ipfabric-api.md) - Added the missing SNMP community in host discovery.
 
 </TabItem>
