@@ -196,12 +196,12 @@ yum install centreon-plugin-Network-Backbox-Restapi
 | FILTERTYPE      | Filter backups by type                                                                             |                   | X           |
 | WARNINGFAILURE  | Set warning threshold for 'failure'                                                                |                   |             |
 | CRITICALFAILURE | Set critical threshold for 'failure'                                                               |                   |             |
-| WARNINGSUCCESS  |                                                                                                    |                   |             |
-| CRITICALSUCCESS |                                                                                                    |                   |             |
+| WARNINGSUCCESS  | Set warning threshold for 'succes'                                                                                                   |                   |             |
+| CRITICALSUCCESS | Set critical threshold for 'succes'                                                                                                     |                   |             |
 | WARNINGSUSPECT  | Set warning threshold for 'suspect'                                                                |                   |             |
 | CRITICALSUSPECT | Set critical threshold for 'suspect'                                                               |                   |             |
-| WARNINGTOTAL    |                                                                                                    |                   |             |
-| CRITICALTOTAL   |                                                                                                    |                   |             |
+| WARNINGTOTAL    | Set warning threshold for 'total'                                                                                                     |                   |             |
+| CRITICALTOTAL   | Set warning threshold for 'total'                                                                                                     |                   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
@@ -227,12 +227,12 @@ yum install centreon-plugin-Network-Backbox-Restapi
 | REPORTID        | Specify report id                                                                                  |                   |             |
 | WARNINGFAILURE  | Set warning threshold for 'failure'                                                                |                   |             |
 | CRITICALFAILURE | Set critical threshold for 'failure'                                                               |                   |             |
-| WARNINGSUCCESS  |                                                                                                    |                   |             |
-| CRITICALSUCCESS |                                                                                                    |                   |             |
+| WARNINGSUCCESS  | Set warning threshold for 'succes'                                                                                                   |                   |             |
+| CRITICALSUCCESS | Set critical threshold for 'succes'                                                                                                     |                   |             |
 | WARNINGSUSPECT  | Set warning threshold for 'suspect'                                                                |                   |             |
 | CRITICALSUSPECT | Set critical threshold for 'suspect'                                                               |                   |             |
-| WARNINGTOTAL    |                                                                                                    |                   |             |
-| CRITICALTOTAL   |                                                                                                    |                   |             |
+| WARNINGTOTAL    | Set warning threshold for 'total'                                                                                                     |                   |             |
+| CRITICALTOTAL   | Set warning threshold for 'total'                                                                                                     |                   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
