@@ -115,9 +115,9 @@
     "message": "Administrer",
     "description": "The label for category Administrate in sidebar docs"
   },
-  "sidebar.docs.category.Graphical views": {
-    "message": "Vues graphiques",
-    "description": "The label for category Graphical views in sidebar docs"
+  "sidebar.docs.category.Graphical views (maps)": {
+    "message": "Vues graphiques (cartes)",
+    "description": "The label for category Graphical views (maps) in sidebar docs"
   },
   "sidebar.docs.category.Reporting": {
     "message": "Reporting",

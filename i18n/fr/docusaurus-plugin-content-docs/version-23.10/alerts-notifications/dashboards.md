@@ -44,7 +44,7 @@ L'accès à la fonctionnalité Tableaux de bord n'est pas géré au niveau de l'
 
 > Vous devez être connecté à Centreon avec des droits d'administrateur ou de créateur.
 
-1. Dans la page **Bibliothèque de tableaux de bord**, cliquez sur le bouton **Créer un tableau de bord**. Cela ouvre la modale **Créer un tableau de bord**.
+1. Dans la page **Bibliothèque de tableaux de bord**, cliquez sur le bouton **Créer un tableau de bord**. Cela ouvre la fenêtre **Créer un tableau de bord**.
 2. Nommez le tableau de bord et renseignez une description si nécessaire.
 3. Cliquez sur **Créer** pour confirmer la création.
 
@@ -128,7 +128,6 @@ Les utilisateurs que vous venez d'ajouter ont maintenant accès au partage de vo
 | Widget                   | Description                                                                                                                                                                                                                                                                                                    |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Texte générique           | Permet d'ajouter du texte libre à vos tableaux de bord (titres de sections, informations, etc.).   |
-| MAP - Afficher une vue           |  Permet de sélectionner et de visualiser une carte créée à partir du module MAP.  |
 | Graphe de métriques         | Affiche les métriques pour une période donnée.                                  |
 | Tableau des ressources                 | Affiche des données sur le statut des ressources et les événements, centralisées dans un tableau.|
 | Métrique unique        | Affiche la valeur d'une seule métrique sous forme de texte, de jauge ou de diagramme à barres.  |

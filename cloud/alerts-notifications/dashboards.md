@@ -12,7 +12,7 @@ Get started with creating dashboards and adding widgets specially designed to op
 > You must be logged into Centreon with administrator or creator rights.
 
 1. Go to **Home > Dashboards**.
-2. In the **Dashboard library** page, click the **Create a dashboard** button. This opens the **Create dashboard** modal.
+2. In the **Dashboard library** page, click the **Create a dashboard** button. This opens the **Create dashboard** window.
 3. Name the dashboard and enter a description if needed.
 4. Click **Create** to confirm the creation.
 
@@ -37,10 +37,13 @@ Most of the widgets usually follow these steps:
 
 ### More actions
 
-Click the **three dots** menu at the top right of the widget to edit it or to access more actions:
-- Refresh
-- Duplicate
-- Delete widget
+At the top right of the widget:
+
+- Click the **refresh data** icon to manually update data in real time. You also have the time of the update.
+
+- Click the **three dots** menu to edit it or to access more actions:
+  - Duplicate
+  - Delete widget
 
 > In edition mode, you can easily organize your widgets by moving or resizing them. Make sure to save your changes.
 
@@ -128,15 +131,25 @@ The control banner allows you to:
 - Go to the previous or next dashboard.
 - Go directly to a specific dashboard by clicking its name.
 
-### Share the playlist
+### Share the playlist with users of your platform
 
-> You can only share your playlist with contacts who have access to your Centreon platform and are authorized Dashboards viewers.
+You can share your playlist with contacts who have access to your Centreon platform.
 
 - Click the **Share with contacts** button from the line of your playlist.
-The **Playlist access rights** modal is displayed.
-- You can now add contacts or contact groups and define their rights as viewer or editor in the **Share with** section.
+The **Playlist access rights** window is displayed.
+- In the **Share with** section, add contacts or contact groups and define their rights as viewer or editor.
 - Use the **trash** button in the **User rights** section to remove a contact or contact group.
-- Use the **Copy link** button to share the playlist URL directly with users who have access to your platform.
+- Then **Save** your changes.
+
+### Share the playlist with a public link
+
+You can send a public link to non-Centreon users, giving them access to a full-screen view of their IT infrastructure.
+
+> The link you share will display the playlist content based on access rights. Anyone with this link can view the playlist. Be cautious when you share it.
+
+- In the **Playlist access rights** window, click the **Activated** button in the **Public link** section.
+- You can now copy the URL link to the playlist.
+- You can also resize and copy the embedded code of the playlist view.
 
 ### Edit/Delete a playlist
 

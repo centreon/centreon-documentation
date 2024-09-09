@@ -5,130 +5,64 @@ title: Splunk Events
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+The Splunk Events stream connector allows you to send data from Centreon to Splunk instances.
 
 ## Before starting
 
-- You can send events from a central server, a remote server or a poller.
-- By default, this stream connector sends **host_status** and **service_status** events. The event format is shown **[there](#event-format)**.
-- Aformentioned events are fired each time a host or a service is checked. Various parameters let you filter out events.
+If you want to retrieve all the data for the events, use the Splunk Events stream connector. If you want to retrieve only metrics, use the Splunk Metrics stream connector.
+
+- In most cases, you will want to send data from the central server. It is also possible to send it from a remote server or a poller (e.g. if you want to avoid the central server being a SPOF, or if you are an MSP and you install the stream connector on a poller or a remote server within your customer's infrastructure).
+
+- By default, the Splunk Events stream connector sends data from [**host_status**](../../developer/developer-broker-mapping.md#host-status) and [**service_status**](../../developer/developer-broker-mapping.md#service-status) Broker events. The event format is shown **[here](#event-format)**.
+- These events are sent each time a host or a service is checked. Various parameters let you [filter out events](#filtering-or-adapting-the-data-you-want-to-send-to-splunk).
 
 ## Installation
 
-### Dependencies
+Perform the installation on the server that will send data to Splunk (central server, remote server, poller).
+
+1. Login as `root` using your favorite SSH client.
+
+2. Run the following command:
 
 <Tabs groupId="sync">
-<TabItem value="CentOS 7/Redhat 7" label="CentOS 7/Redhat 7">
-
-Install **Epel** repository.
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-yum -y install epel-release
-```
-
-Install dependencies.
-
-```shell
-yum install luarocks make gcc lua-curl lua-devel
+dnf install centreon-stream-connector-splunk
 ```
 
 </TabItem>
-<TabItem value="CentOS 8" label="CentOS 8">
 
-Install dnf plugins package.
-
-```shell
-dnf -y install dnf-plugins-core
-```
-
-Install **Powertools** repository.
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf config-manager --set-enabled powertools
-```
-
-Install **Epel** repository.
-
-```shell
-dnf -y install epel-release
-```
-
-Install dependencies.
-
-```shell
-dnf install make gcc libcurl-devel lua-devel luarocks
+dnf install centreon-stream-connector-splunk
 ```
 
 </TabItem>
-<TabItem value="RedHat 8" label="RedHat 8">
 
-Install dnf plugins package.
-
-```shell
-dnf -y install dnf-plugins-core
-```
-
-Install **Epel** repository.
+<TabItem value="Debian 11" label="Debian_11">
 
 ```shell
-dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-```
-
-Enable **Codeready** repository.
-
-```shell
-subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
-```
-
-Install dependencies.
-
-```shell
-dnf install make gcc libcurl-devel lua-devel luarocks
+apt install centreon-stream-connector-splunk
 ```
 
 </TabItem>
 </Tabs>
 
-### Lua modules
+## Configuring your Splunk equipment
 
-<Tabs groupId="sync">
-<TabItem value="CentOS/Redhat 7" label="CentOS/Redhat 7">
+You may need to configure your Splunk equipment so that it can receive data from Centreon. Please refer to Splunk's documentation.
+Make sure Splunk is able to receive data sent by Centreon: flows must not be blocked by Splunk's configuration or by a security equipment.
 
-Install Centreon lua modules.
+The correct sourcetype for the stream connector is "_json". Other useful information may be for example "source": "http:my_index", "index": "my_index", "host": "Central". You can also add this information to your stream connector's configuration if you need to.
 
-```shell
-luarocks install centreon-stream-connectors-lib
-```
+## Configuring the stream connector in Centreon
 
-</TabItem>
-<TabItem value="CentOS/Redhat 8" label="CentOS/Redhat 8">
-
-Install **lua-curl**.
-
-```shell
-luarocks install Lua-cURL
-```
-
-Install Centreon lua modules.
-
-```shell
-luarocks install centreon-stream-connectors-lib
-```
-
-</TabItem>
-</Tabs>
-
-### Download Splunk events stream connector
-
-```shell
-wget -O /usr/share/centreon-broker/lua/splunk-events-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/centreon-certified/splunk/splunk-events-apiv2.lua
-chmod 644 /usr/share/centreon-broker/lua/splunk-events-apiv2.lua
-```
-
-## Configuration
-
-To configure your stream connector, you must **head over** the **Configuration --> Poller --> Broker configuration** menu. **Select** the **central-broker-master** configuration (or the appropriate broker configuration if it is a poller or a remote server that will send events) and **click** the **Output tab** when the broker form is displayed.
-
-**Add** a new **generic - stream connector** output and **set** the following fields as follow:
+1. On your central server, go to **Configuration > Pollers > Broker configuration**.
+2. Click on **central-broker-master** (or the appropriate broker configuration if it is a poller or a remote server that will send events).
+3. On the **Output** tab, select **Generic - Stream connector** from the list and then click **Add**. A new output appears in the list.
+4. Fill in the fields as follows:
 
 | Field           | Value                                                  |
 | --------------- | ------------------------------------------------------ |
@@ -136,33 +70,47 @@ To configure your stream connector, you must **head over** the **Configuration -
 | Path            | /usr/share/centreon-broker/lua/splunk-events-apiv2.lua |
 | Filter category | Neb                                                    |
 
-### Add Splunk mandatory parameters
-
-Each stream connector has a set of mandatory parameters. To add them you must **click** on the **+Add a new entry** button located **below** the **filter category** input.
+5. To enable Centreon to connect to your Splunk equipment, fill in the following mandatory parameters. The fields for the first entry are already present. Click on the **+Add a new entry** link located below the **Filter category** table to add another one.
 
 | Type   | Name            | Value explanation                       | Value exemple                                           |
 | ------ | --------------- | --------------------------------------- | ------------------------------------------------------- |
-| string | http_server_url | the url of the Splunk service collector | `https://mysplunk.centreon.com:8088/services/collector` |
+| string | http_server_url | the URL of the Splunk service collector | `https://mysplunk.centreon.com:8088/services/collector` |
 | string | splunk_token    | Token to use the event collector api    |                                                         |
 
-### Add Splunk optional parameters
-
-Some stream connectors have a set of optional parameters dedicated to the Software that they are associated with. To add them you must **click** on the **+Add a new entry** button located **below** the **filter category** input.
+6. Fill in any optional parameters you want (using the **+Add a new entry** link):
 
 | Type   | Name              | Value explanation                                               | default value                              |
 | ------ | ----------------- | --------------------------------------------------------------- | ------------------------------------------ |
-| string | splunk_sourcetype | Identifies the data structure of the event                      | _json                                      |
-| string | splunk_host       | Name or address of the server that generated the event          | Central                                    |
-| string | splunk_index      | Index where the events are stored                               |                                            |
-| string | splunk_source     | source of the http event collector. like `http:<name_of_index>` |                                            |
 | string | logfile           | the file in which logs are written                              | /var/log/centreon-broker/splunk-events.log |
 | number | log_level         | logging level from 1 (errors) to 3 (debug)                      | 1                                          |
 
-### Standard parameters
+7. Use the stream connector's optional parameters to [filter or adapt the data you want Centreon to send to Splunk](#filtering-or-adapting-the-data-you-want-to-send-to-splunk).
 
-All stream connectors can use a set of optional parameters that are made available through Centreon stream connectors lua modules.
+8. [Deploy the configuration](../../monitoring/monitoring-servers/deploying-a-configuration.md).
 
-All those parameters are documented **[here](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters)**.
+9. Restart **centengine** on all pollers:
+
+   ```shell
+   systemctl restart centengine
+   ```
+
+   Splunk should now receive data from Centreon. To test if it is working, see [Curl commands: testing the stream connector](#curl-commands-testing-the-stream-connector).
+
+### Filtering or adapting the data you want to send to Splunk
+
+All stream connectors have a set of [optional parameters](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters), that allow you to filter the data you will send to your Splunk equipment, to reformat the data, to define a proxy...
+
+Each optional parameter has a default value, that is indicated in the corresponding documentation.
+
+* To override the default value of a parameter, click on the **+Add a new entry** link located below the **Filter category** table to add a custom parameter. For example, if you want to only send to Splunk the events handled by a poller named "poller-1", enter:
+
+   ```text
+   type = string
+   name = accepted_pollers
+   value = poller-1
+   ```
+
+* For the Splunk Events stream connector, the following values always override the default values, you do not need to define them in the interface.
 
 Some of them are overridden by this stream connector.
 
@@ -226,7 +174,7 @@ This stream connector will send event with the following format.
 
 ### Custom event format
 
-This stream connector allows you to change the format of the event to suit your needs. Only the **event** part of the json is customisable. It also allows you to handle events type that are not handled by default such as **ba_status events**.
+This stream connector allows you to change the format of the event to suit your needs. Only the **event** part of the json is customisable. It also allows you to handle event types that are not handled by default such as **ba_status events**.
 
 In order to use this feature you need to configure a json event format file and add a new stream connector parameter.
 
@@ -234,18 +182,23 @@ In order to use this feature you need to configure a json event format file and 
 | ------ | ----------- | ---------------------------------------------- |
 | string | format_file | /etc/centreon-broker/splunk-events-format.json |
 
-> The event format configuration file must be readable by the centreon-broker user
+> The event format configuration file must be readable by the centreon-broker user.
 
-To learn more about custom event format and templating file, head over the following **[documentation](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
+To learn more about custom event formats and templating files, visit **[this page](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
 
-## Curl commands
+## Curl commands: testing the stream connector
 
-Here is the list of all the curl commands that are used by the stream connector.
+### Sending events
 
-### Send events
+If you want to test that events are sent to Splunk correctly:
+
+1. Log in to the server that you configured to send events to Splunk (your central server, a remote server or a poller).
+2. Run the following command:
 
 ```shell
 curl -X POST -H "content-type: application/json" -H "authorization: Splunk <splunk_token>" '<http_server_url>' -d '{"sourcetype": "<splunk_sourcetype>","source": "<splunk_source>","index": "<splunk_index>","host": "<splunk_host>","time": <epoch_timestamp>,"event": {"event_type": "host","state": 1,"state_type": 1,"hostname":"my_host","output": "Critical: it is on fire"}}'
 ```
 
-You must replace all the *`<xxxx>`* inside the above command with their appropriate value. *<splunk_sourcetype>* may become *_json*.
+   > You must replace all the *`<xxxx>`* inside the above command with their appropriate value. *<splunk_sourcetype>* may become *_json*.
+
+3. Check that the event has been received by Splunk.

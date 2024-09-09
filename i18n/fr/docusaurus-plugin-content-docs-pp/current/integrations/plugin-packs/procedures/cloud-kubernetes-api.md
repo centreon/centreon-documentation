@@ -862,7 +862,7 @@ dnf install centreon-pack-cloud-kubernetes-api
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-cloud-kubernetes-api
@@ -907,7 +907,7 @@ dnf install centreon-plugin-Cloud-Kubernetes-Api
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-cloud-kubernetes-api

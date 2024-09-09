@@ -5,6 +5,8 @@ title: Using a virtual machine (VM)
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> This is an older version of Centreon. We recommend you install the latest version.
+
 On its [download page](https://download.centreon.com), Centreon provides a ready-to-use virtual machine. This virtual machine is available in OVA format for VMware environments and in OVF format for Oracle VirtualBox. It is based on the **Alma Linux 8** operating system and includes a Centreon installation that allows you to easily start your first monitoring.
 
 > The virtual machine is only suitable to use Centreon IT-100 or to test the solution.

@@ -5,6 +5,8 @@ title: À partir des paquets
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Cette version de Centreon est ancienne, et ne sera bientôt plus supportée. Nous vous recommandons d'installer la dernière version.
+
 Centreon fournit des paquets RPM pour ses produits via la version Centreon Open Source disponible gratuitement dans notre dépôt.
 
 Ces paquets peuvent être installés sur CentOS 7, sur Alma/RHEL/Oracle Linux 8 et sur Debian 11.
@@ -93,9 +95,7 @@ Vous devriez obtenir ce résultat :
 Disabled
 ```
 
-> **Notez que cette désactivation doit être temporaire.** Pour réactiver SELinux, éditez le fichier **/etc/selinux/config** et changez la valeur avec les options suivantes :
-> - ``SELINUX=enforcing`` pour que la politique de sécurité SELinux soit appliquée en mode strict.
-> - ``SELINUX=permissive`` pour que les erreurs d’accès soient enregistrées dans les logs, mais l’accès ne sera pas bloqué.
+> **Notez que cette désactivation doit être temporaire.** SELinux doit être [réactivé après l'installation](../../administration/secure-platform.md#activer-selinux-1) pour des raisons de sécurité.
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
@@ -120,9 +120,7 @@ Vous devriez obtenir ce résultat :
 Disabled
 ```
 
-> **Notez que cette désactivation doit être temporaire.** Pour réactiver SELinux, éditez le fichier **/etc/selinux/config** et changez la valeur avec les options suivantes :
-> - ``SELINUX=enforcing`` pour que la politique de sécurité SELinux soit appliquée en mode strict.
-> - ``SELINUX=permissive`` pour que les erreurs d’accès soient enregistrées dans les logs, mais l’accès ne sera pas bloqué.
+> **Notez que cette désactivation doit être temporaire.** SELinux doit être [réactivé après l'installation](../../administration/secure-platform.md#activer-selinux-1) pour des raisons de sécurité.
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
