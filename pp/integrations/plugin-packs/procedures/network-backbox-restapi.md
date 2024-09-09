@@ -248,7 +248,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 
 ```bash
 /usr/lib/centreon/plugins/centreon_backbox_restapi.pl \
-	--plugin=network::backbox::rest::plugin \
+	--plugin=network::backbox::restapi::plugin \
 	--custommode=api \
 	--mode=intellicheck \
 	--hostname='10.0.0.1' \
@@ -291,17 +291,17 @@ the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_backbox_restapi.pl \
-	--plugin=network::backbox::rest::plugin \
+	--plugin=network::backbox::restapi::plugin \
 	--list-mode
 ```
 
 The plugin brings the following modes:
 
-| Mode                                                                                                                           | Linked service template                |
-|:-------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------|
-| backup [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/backbox/rest/mode/backup.pm)]             | Net-BackBox-Backup-RESTAPI-custom       |
-| configstatus [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/backbox/rest/mode/configstatus.pm)] | Net-BackBox-Configstatus-RESTAPI-custom |
-| intellicheck [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/backbox/rest/mode/intellicheck.pm)] | Net-BackBox-Intellicheck-RESTAPI-custom |
+| Mode                                                                                                                              | Linked service template                 |
+|:----------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------|
+| backup [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/backbox/restapi/mode/backup.pm)]             | Net-BackBox-Backup-RESTAPI-custom       |
+| configstatus [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/backbox/restapi/mode/configstatus.pm)] | Net-BackBox-Configstatus-RESTAPI-custom |
+| intellicheck [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/backbox/restapi/mode/intellicheck.pm)] | Net-BackBox-Intellicheck-RESTAPI-custom |
 
 ### Available options
 
@@ -407,7 +407,7 @@ All available options for a given mode can be displayed by adding the
 
 ```bash
 /usr/lib/centreon/plugins/centreon_backbox_restapi.pl \
-	--plugin=network::backbox::rest::plugin \
+	--plugin=network::backbox::restapi::plugin \
 	--custommode=api \
 	--help
 ```
