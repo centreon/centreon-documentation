@@ -48,7 +48,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name        | Description                                       |
 |:-----------------|:--------------------------------------------------|
-| Hyper-V SCVMM VM | Discover virtual machines by requesting the SCVMM |
+| Hyper-V SCVMM VM | Discover virtual machines by querying the SCVMM |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
