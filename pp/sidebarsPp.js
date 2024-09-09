@@ -1486,7 +1486,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-backbox-rest'
+          id: 'integrations/plugin-packs/procedures/network-backbox-restapi'
         },
         {
           type: 'doc',
