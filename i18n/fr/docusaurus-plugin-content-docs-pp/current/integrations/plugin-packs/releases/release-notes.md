@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
 
-- [**Backbox**](../procedures/network-backbox-restapi.md) - Initial release of Backbox.
+- [**Backbox REST API**](../procedures/network-backbox-restapi.md) - Initial release of Backbox REST API.
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
