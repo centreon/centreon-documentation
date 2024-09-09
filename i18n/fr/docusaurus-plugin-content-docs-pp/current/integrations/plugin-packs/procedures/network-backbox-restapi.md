@@ -74,7 +74,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Pour utiliser le connecteur **Backbox**, vous devez generer un jeton API : rendez-vous sur votre tableau de bord Backbox puis sur la page Administrative / Authentication / API Tokens.
+Pour utiliser le connecteur **Backbox**, vous devez générer un jeton d'API : rendez-vous sur votre tableau de bord Backbox puis sur la page **Administrative > Authentication > API Tokens**.
 Le jeton API est associé à un compte utilisateur. Il est recommandé de créer un compte utilisateur dédié à la supervision.
 
 ## Installer le connecteur de supervision
