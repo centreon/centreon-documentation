@@ -559,9 +559,3 @@ On the central server, [create hosts](/docs/monitoring/basic-objects/hosts) and 
 </TabItem>
 </Tabs>
 
-## Mise à jour de l'Agent
-
-```bash
-A discuter JC mécanisme cible pour GA afin que agent se mettre à jour tout seul si nouvelle version dispo en central
-Zabbix le fait
-```
