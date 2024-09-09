@@ -17,21 +17,21 @@ depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs 
 
 Le connecteur de supervision **Backbox** apporte un modèle d'hôte :
 
-* **NW-Backbox-RESTAPI-custom**
+* **Net-Backbox-RESTAPI-custom**
 
 Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="NW-Backbox-RESTAPI-custom" label="NW-Backbox-RESTAPI-custom">
+<TabItem value="Net-Backbox-RESTAPI-custom" label="Net-Backbox-RESTAPI-custom">
 
 | Alias        | Modèle de service                      | Description                                |
 |:-------------|:---------------------------------------|:-------------------------------------------|
-| Backup       | NW-BackBox-Backup-RESTAPI-custom       | Vérifie le statut des sauvegardes en cours |
-| Configstatus | NW-BackBox-Configstatus-RESTAPI-custom | Vérifie le statut des configurations       |
-| Intellicheck | NW-BackBox-Intellicheck-RESTAPI-custom | Vérifie le statut des intellichecks        |
+| Backup       | Net-BackBox-Backup-RESTAPI-custom       | Vérifie le statut des sauvegardes en cours |
+| Configstatus | Net-BackBox-Configstatus-RESTAPI-custom | Vérifie le statut des configurations       |
+| Intellicheck | Net-BackBox-Intellicheck-RESTAPI-custom | Vérifie le statut des intellichecks        |
 
-> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **NW-Backbox-RESTAPI-custom** est utilisé.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Backbox-RESTAPI-custom** est utilisé.
 
 </TabItem>
 </Tabs>
@@ -170,7 +170,7 @@ yum install centreon-plugin-Network-Backbox-Restapi
 
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
-3. Appliquez le modèle d'hôte **NW-Backbox-RESTAPI-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+3. Appliquez le modèle d'hôte **Net-Backbox-RESTAPI-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
 | Macro           | Description                                                                                          | Valeur par défaut | Obligatoire |
@@ -300,9 +300,9 @@ Le plugin apporte les modes suivants :
 
 | Mode                                                                                                                           | Modèle de service associé              |
 |:-------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------|
-| backup [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/backbox/rest/mode/backup.pm)]             | NW-BackBox-Backup-RESTAPI-custom       |
-| configstatus [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/backbox/rest/mode/configstatus.pm)] | NW-BackBox-Configstatus-RESTAPI-custom |
-| intellicheck [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/backbox/rest/mode/intellicheck.pm)] | NW-BackBox-Intellicheck-RESTAPI-custom |
+| backup [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/backbox/rest/mode/backup.pm)]             | Net-BackBox-Backup-RESTAPI-custom       |
+| configstatus [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/backbox/rest/mode/configstatus.pm)] | Net-BackBox-Configstatus-RESTAPI-custom |
+| intellicheck [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/backbox/rest/mode/intellicheck.pm)] | Net-BackBox-Intellicheck-RESTAPI-custom |
 
 ### Options disponibles
 
