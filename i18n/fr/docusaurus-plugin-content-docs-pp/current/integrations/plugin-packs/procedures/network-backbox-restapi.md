@@ -1,48 +1,49 @@
 ---
-id: network-backbox-rest
+id: network-backbox-restapi
 title: Backbox
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Connector Dependencies
+## Dépendances du Connecteur de supervision
 
-The following monitoring connectors will be installed when you install the **Backbox** connector through the
-**Configuration > Monitoring Connector Manager** menu:
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Backbox** 
+depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
-## Pack assets
+## Contenu du pack
 
-### Templates
+### Modèles
 
-The Monitoring Connector **Backbox** brings a host template:
+Le connecteur de supervision **Backbox** apporte un modèle d'hôte :
 
-* **NW-Backbox-REST-custom**
+* **NW-Backbox-RESTAPI-custom**
 
-The connector brings the following service templates (sorted by the host template they are attached to):
+Le connecteur apporte les modèles de service suivants
+(classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="NW-Backbox-REST-custom" label="NW-Backbox-REST-custom">
+<TabItem value="NW-Backbox-RESTAPI-custom" label="NW-Backbox-RESTAPI-custom">
 
-| Service Alias | Service Template                       | Service Description                 |
-|:--------------|:---------------------------------------|:------------------------------------|
-| Backup        | NW-BackBox-Backup-RESTAPI-custom       | Check the status of ongoing backups |
-| Configstatus  | NW-BackBox-Configstatus-RESTAPI-custom | Check the status of configurations  |
-| Intellicheck  | NW-BackBox-Intellicheck-RESTAPI-custom | Check the status of intellichecks   |
+| Alias        | Modèle de service                      | Description                                |
+|:-------------|:---------------------------------------|:-------------------------------------------|
+| Backup       | NW-BackBox-Backup-RESTAPI-custom       | Vérifie le statut des sauvegardes en cours |
+| Configstatus | NW-BackBox-Configstatus-RESTAPI-custom | Vérifie le statut des configurations       |
+| Intellicheck | NW-BackBox-Intellicheck-RESTAPI-custom | Vérifie le statut des intellichecks        |
 
-> The services listed above are created automatically when the **NW-Backbox-REST-custom** host template is used.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **NW-Backbox-RESTAPI-custom** est utilisé.
 
 </TabItem>
 </Tabs>
 
-### Collected metrics & status
+### Métriques & statuts collectés
 
-Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
+Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachées à chaque service.
 
 <Tabs groupId="sync">
 <TabItem value="Backup" label="Backup">
 
-| Name                            | Unit  |
+| Nom                             | Unité |
 |:--------------------------------|:------|
 | *backups*#backups.total.count   | count |
 | *backups*#backups.success.count | count |
@@ -52,7 +53,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Configstatus" label="Configstatus">
 
-| Name                   | Unit  |
+| Nom                    | Unité |
 |:-----------------------|:------|
 | config.identical.count | count |
 | config.changed.count   | count |
@@ -61,141 +62,135 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Intellicheck" label="Intellicheck">
 
-| Name                                        | Unit  |
-|:--------------------------------------------|:------|
-| *intellichecks1*#intellicheck.total.count   | count |
-| *intellichecks2*#intellicheck.total.count   | count |
-| *intellichecks1*#intellicheck.success.count | count |
-| *intellichecks2*#intellicheck.success.count | count |
-| *intellichecks1*#intellicheck.suspect.count | count |
-| *intellichecks2*#intellicheck.suspect.count | count |
-| *intellichecks1*#intellicheck.failure.count | count |
-| *intellichecks2*#intellicheck.failure.count | count |
+| Nom                                        | Unité |
+|:-------------------------------------------|:------|
+| *intellichecks*#intellicheck.total.count   | count |
+| *intellichecks*#intellicheck.success.count | count |
+| *intellichecks*#intellicheck.suspect.count | count |
+| *intellichecks*#intellicheck.failure.count | count |
 
 </TabItem>
 </Tabs>
 
-## Prerequisites
+## Prérequis
 
 *Specify prerequisites that are relevant. You may want to just provide a link\n\
 to the manufacturer official documentation BUT you should try to be as complete\n\
 as possible here as it will save time to everybody.*
 
-## Installing the monitoring connector
+## Installer le connecteur de supervision
 
 ### Pack
 
-1. If the platform uses an *online* license, you can skip the package installation
-instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
-If the platform uses an *offline* license, install the package on the **central server**
-with the command corresponding to the operating system's package manager:
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-network-backbox-rest
+dnf install centreon-pack-network-backbox-restapi
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-network-backbox-rest
+dnf install centreon-pack-network-backbox-restapi
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-pack-network-backbox-rest
+apt install centreon-pack-network-backbox-restapi
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-network-backbox-rest
+yum install centreon-pack-network-backbox-restapi
 ```
 
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Backbox** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Backbox**
+depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
 
-Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
-When this feature is enabled, you can skip the installation part below.
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
 
-You still have to manually install the plugin on the poller(s) when:
-- Automatic plugin installation is turned off
-- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
 
-> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
-
-Use the commands below according to your operating system's package manager:
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-Network-Backbox-Rest
+dnf install centreon-plugin-Network-Backbox-Restapi
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-Network-Backbox-Rest
+dnf install centreon-plugin-Network-Backbox-Restapi
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-plugin-network-backbox-rest
+apt install centreon-plugin-network-backbox-restapi
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-plugin-Network-Backbox-Rest
+yum install centreon-plugin-Network-Backbox-Restapi
 ```
 
 </TabItem>
 </Tabs>
 
-## Using the monitoring connector
+## Utiliser le connecteur de supervision
 
-### Using a host template provided by the connector
+### Utiliser un modèle d'hôte issu du connecteur
 
-1. Log into Centreon and add a new host through **Configuration > Hosts**.
-2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
-3. Apply the **NW-Backbox-REST-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
-4. Fill in the macros you want. Some macros are mandatory.
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **NW-Backbox-RESTAPI-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro           | Description                                                                                          | Default value     | Mandatory   |
+| Macro           | Description                                                                                          | Valeur par défaut | Obligatoire |
 |:----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | APITOKEN        | Set API token                                                                                        |                   | X           |
 | APIPROTO        | Specify https if needed (default: 'https')                                                           |  https            |             |
 | APIPORT         | API port (default: 443)                                                                              |  443              |             |
-| APIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| APIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
-5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
-### Using a service template provided by the connector
+### Utiliser un modèle de service issu du connecteur
 
-1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
-2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
 <TabItem value="Backup" label="Backup">
 
-| Macro           | Description                                                                                        | Default value     | Mandatory   |
+| Macro           | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTERTYPE      | Filter backups by type                                                                             |                   | X           |
 | WARNINGFAILURE  | Set warning threshold for 'failure'                                                                |                   |             |
@@ -206,12 +201,12 @@ yum install centreon-plugin-Network-Backbox-Rest
 | CRITICALSUSPECT | Set critical threshold for 'suspect'                                                               |                   |             |
 | WARNINGTOTAL    |                                                                                                    |                   |             |
 | CRITICALTOTAL   |                                                                                                    |                   |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Configstatus" label="Configstatus">
 
-| Macro             | Description                                                                                        | Default value     | Mandatory   |
+| Macro             | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTERTYPE        | Filter configs by type                                                                             |                   | X           |
 | WARNINGCHANGED    | Set warning threshold for 'changed'                                                                |                   |             |
@@ -220,12 +215,12 @@ yum install centreon-plugin-Network-Backbox-Rest
 | CRITICALIDENTICAL | Set critical threshold for 'identical'                                                             |                   |             |
 | WARNINGNA         | Set warning threshold for 'n/a'                                                                    |                   |             |
 | CRITICALNA        | Set critical threshold for 'n/a'                                                                   |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Intellicheck" label="Intellicheck">
 
-| Macro           | Description                                                                                        | Default value     | Mandatory   |
+| Macro           | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTERTYPE      | Filter backups by type                                                                             |                   | X           |
 | REPORTID        | Specify report id                                                                                  |                   |             |
@@ -237,23 +232,25 @@ yum install centreon-plugin-Network-Backbox-Rest
 | CRITICALSUSPECT | Set critical threshold for 'suspect'                                                               |                   |             |
 | WARNINGTOTAL    |                                                                                                    |                   |             |
 | CRITICALTOTAL   |                                                                                                    |                   |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 </Tabs>
 
-3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
 
-## How to check in the CLI that the configuration is OK and what are the main options for?
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
 
-Once the plugin is installed, log into your Centreon poller's CLI using the
-**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
-is able to monitor a resource using a command like this one (replace the sample values by yours):
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
+que le connecteur arrive bien à superviser une ressource en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_backbox_rest.pl \
+/usr/lib/centreon/plugins/centreon_backbox_restapi.pl \
 	--plugin=network::backbox::rest::plugin \
-	--custom-mode=api \
+	--custommode=api \
 	--mode=intellicheck \
 	--hostname='10.0.0.1' \
 	--api-token=' ' \
@@ -271,46 +268,47 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--critical-failure='' 
 ```
 
-The expected command output is shown below:
+La commande devrait retourner un message de sortie similaire à :
 
 ```bash
 OK: All intellichecks are ok | 'intellichecks1#intellicheck.total.count'=48339;;;0; | 'intellichecks2#intellicheck.total.count'=3883;;;0; | 'intellichecks1#intellicheck.success.count'=56018;;;0;total | 'intellichecks2#intellicheck.success.count'=70852;;;0;total | 'intellichecks1#intellicheck.suspect.count'=20080;;;0;total | 'intellichecks2#intellicheck.suspect.count'=14405;;;0;total | 'intellichecks1#intellicheck.failure.count'=16677;;;0;total | 'intellichecks2#intellicheck.failure.count'=19201;;;0;total 
+
 ```
 
-### Troubleshooting
+### Diagnostic des erreurs communes
 
-Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
-for Centreon Plugins typical issues.
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+des plugins basés sur HTTP/API.
 
-### Available modes
+### Modes disponibles
 
-In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
-In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
-However, you will need to specify the correct mode for the template if you want to test the execution command for the 
-connector in your terminal.
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution 
+du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
+implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
+modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
 
-All available modes can be displayed by adding the `--list-mode` parameter to
-the command:
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_backbox_rest.pl \
+/usr/lib/centreon/plugins/centreon_backbox_restapi.pl \
 	--plugin=network::backbox::rest::plugin \
 	--list-mode
 ```
 
-The plugin brings the following modes:
+Le plugin apporte les modes suivants :
 
-| Mode                                                                                                                           | Linked service template                |
+| Mode                                                                                                                           | Modèle de service associé              |
 |:-------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------|
 | backup [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/backbox/rest/mode/backup.pm)]             | NW-BackBox-Backup-RESTAPI-custom       |
 | configstatus [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/backbox/rest/mode/configstatus.pm)] | NW-BackBox-Configstatus-RESTAPI-custom |
 | intellicheck [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/backbox/rest/mode/intellicheck.pm)] | NW-BackBox-Intellicheck-RESTAPI-custom |
 
-### Available options
+### Options disponibles
 
-#### Generic options
+#### Options génériques
 
-All generic options are listed here:
+Les options génériques sont listées ci-dessous :
 
 | Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 |:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -362,9 +360,9 @@ All generic options are listed here:
 | --api-token                                |   Set API token                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | --timeout                                  |   Set HTTP timeout                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
-#### Modes options
+#### Options des modes
 
-All available options for each service template are listed below:
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
 
 <Tabs groupId="sync">
 <TabItem value="Backup" label="Backup">
@@ -405,12 +403,12 @@ All available options for each service template are listed below:
 </TabItem>
 </Tabs>
 
-All available options for a given mode can be displayed by adding the
-`--help` parameter to the command:
+Pour un mode, la liste de toutes les options disponibles et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_backbox_rest.pl \
+/usr/lib/centreon/plugins/centreon_backbox_restapi.pl \
 	--plugin=network::backbox::rest::plugin \
-	--custom-mode=api \
+	--custommode=api \
 	--help
 ```
