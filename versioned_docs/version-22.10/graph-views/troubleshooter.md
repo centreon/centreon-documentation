@@ -14,6 +14,24 @@ We will continue to update this section based on your feedback.
 
 ## General
 
+### centreon-map-server and all its dependencies cannot get installed on Alma Linux 8
+
+#### Symptom
+
+You get a GPG error during the installation of OpenJDK 17 preventing centreon-map-server and all its dependencies from being installed.
+
+#### Problem
+
+You are not importing the right repository.
+
+#### Solution
+
+Run the following command to import the right repository:
+
+```shell
+rpm --import https://repo.almalinux.org/almalinux/RPM-GPG-KEY-AlmaLinux
+```
+
 ### How can I check if my Centreon MAP server is running correctly?
 
 Their are two main ways to check if your Centreon MAP server is up and
