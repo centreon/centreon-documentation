@@ -5,7 +5,7 @@ title: Backbox
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Connector Dependencies
+## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Backbox** connector through the
 **Configuration > Monitoring Connector Manager** menu:
