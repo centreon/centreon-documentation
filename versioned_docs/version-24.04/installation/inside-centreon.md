@@ -40,7 +40,7 @@ In this example, we have a central server (without any Business modules installe
 * Only central servers and remote servers contain Brokers.
 * Engine sends data to the master Broker:
    * The master Broker writes the data in the [MariaDB/MySQL databases](#a-mariadbmysql-database).
-   * It sends a copy of [metrics](https://docs.centreon.com/docs/monitoring/metrics.md) and [statuses](https://docs.centreon.com/docs/alerts-notifications/concepts.md) to the RRD Broker so that it can write them to the [RRD database](#a-rrd-databaserrd-files).
+   * The master Broker sends a copy of [metrics](https://docs.centreon.com/docs/monitoring/metrics.md) and [statuses](https://docs.centreon.com/docs/alerts-notifications/concepts.md) to the RRD Broker so that it can write them to the [RRD database](#a-rrd-databaserrd-files).
 * The data is sent in BBDO format.
 * Each Broker has inputs and outputs that you can configure. By default, Broker is installed with mostly IPv4 inputs and outputs (in fact, an IPv4 output to the RRD database and a Unified SQL output to the MariaDB/MySQL database). However, it is recommended to set up a BBDO client and server between Engine and the master Broker, as they are easier to configure.
 * To configure a Broker, use the **Configuration > Pollers > Broker configuration** page.
