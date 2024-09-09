@@ -73,7 +73,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-To monitor a **Backbox** resource, you need to generate an API token: go to your Backbox dashboard and then on Administrative / Authentication / API Tokens page.
+To monitor a **Backbox** resource, you need to generate an API token: go to your Backbox dashboard and then to the **Administrative > Authentication > API Tokens** page.
 The API token is associated with a user account. It is recommended to create a dedicated user account for the monitoring.
 
 ## Installing the monitoring connector
