@@ -46,7 +46,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | Nom                             | Unité |
 |:--------------------------------|:------|
 | *backups*#backups.total.count   | count |
-| *backups*#backups.success.count | count |
+| *backups*#backups.s.count | count |
 | *backups*#backups.suspect.count | count |
 | *backups*#backups.failure.count | count |
 
@@ -65,7 +65,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | Nom                                        | Unité |
 |:-------------------------------------------|:------|
 | *intellichecks*#intellicheck.total.count   | count |
-| *intellichecks*#intellicheck.success.count | count |
+| *intellichecks*#intellicheck.s.count | count |
 | *intellichecks*#intellicheck.suspect.count | count |
 | *intellichecks*#intellicheck.failure.count | count |
 
@@ -172,11 +172,11 @@ yum install centreon-plugin-Network-Backbox-Restapi
 3. Appliquez le modèle d'hôte **Net-Backbox-RESTAPI-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro           | Description                                                                                          | Valeur par défaut | Obligatoire |
-|:----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| APITOKEN        | Set API token                                                                                        |                   | X           |
-| APIPROTO        | Specify https if needed (default: 'https')                                                           |  https            |             |
-| APIPORT         | API port (default: 443)                                                                              |  443              |             |
+| Macro           | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| APITOKEN        | Set API token                                                                                                                                      |                   | X           |
+| APIPROTO        | Specify https if needed (default: 'https')                                                                                                         |  https            |             |
+| APIPORT         | API port (default: 443)                                                                                                                            |  443              |             |
 | APIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -189,48 +189,48 @@ yum install centreon-plugin-Network-Backbox-Restapi
 <Tabs groupId="sync">
 <TabItem value="Backup" label="Backup">
 
-| Macro           | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERTYPE      | Filter backups by type                                                                             |                   | X           |
-| WARNINGFAILURE  | Set warning threshold for 'failure'                                                                |                   |             |
-| CRITICALFAILURE | Set critical threshold for 'failure'                                                               |                   |             |
-| WARNINGSUCCESS  | Set warning threshold for 'succes'                                                                                                   |                   |             |
-| CRITICALSUCCESS | Set critical threshold for 'succes'                                                                                                     |                   |             |
-| WARNINGSUSPECT  | Set warning threshold for 'suspect'                                                                |                   |             |
-| CRITICALSUSPECT | Set critical threshold for 'suspect'                                                               |                   |             |
-| WARNINGTOTAL    | Set warning threshold for 'total'                                                                                                     |                   |             |
-| CRITICALTOTAL   | Set warning threshold for 'total'                                                                                                     |                   |             |
+| Macro           | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERTYPE      | Filter backups by type                                                                                                                           |                   | X           |
+| WARNINGFAILURE  | Set warning threshold for 'failure'                                                                                                              |                   |             |
+| CRITICALFAILURE | Set critical threshold for 'failure'                                                                                                             |                   |             |
+| WARNINGSUCCESS  | Set warning threshold for 'success'                                                                                                               |                   |             |
+| CRITICALSUCCESS | Set critical threshold for 'success'                                                                                                              |                   |             |
+| WARNINGSUSPECT  | Set warning threshold for 'suspect'                                                                                                              |                   |             |
+| CRITICALSUSPECT | Set critical threshold for 'suspect'                                                                                                             |                   |             |
+| WARNINGTOTAL    | Set warning threshold for 'total'                                                                                                                |                   |             |
+| CRITICALTOTAL   | Set warning threshold for 'total'                                                                                                                |                   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Configstatus" label="Configstatus">
 
-| Macro             | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERTYPE        | Filter configs by type                                                                             |                   | X           |
-| WARNINGCHANGED    | Set warning threshold for 'changed'                                                                |                   |             |
-| CRITICALCHANGED   | Set critical threshold for 'changed'                                                               |                   |             |
-| WARNINGIDENTICAL  | Set warning threshold for 'identical'                                                              |                   |             |
-| CRITICALIDENTICAL | Set critical threshold for 'identical'                                                             |                   |             |
-| WARNINGNA         | Set warning threshold for 'n/a'                                                                    |                   |             |
-| CRITICALNA        | Set critical threshold for 'n/a'                                                                   |                   |             |
+| Macro             | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERTYPE        | Filter configs by type                                                                                                                           |                   | X           |
+| WARNINGCHANGED    | Set warning threshold for 'changed'                                                                                                              |                   |             |
+| CRITICALCHANGED   | Set critical threshold for 'changed'                                                                                                             |                   |             |
+| WARNINGIDENTICAL  | Set warning threshold for 'identical'                                                                                                            |                   |             |
+| CRITICALIDENTICAL | Set critical threshold for 'identical'                                                                                                           |                   |             |
+| WARNINGNA         | Set warning threshold for 'n/a'                                                                                                                  |                   |             |
+| CRITICALNA        | Set critical threshold for 'n/a'                                                                                                                 |                   |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Intellicheck" label="Intellicheck">
 
-| Macro           | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERTYPE      | Filter backups by type                                                                             |                   | X           |
-| REPORTID        | Specify report id                                                                                  |                   |             |
-| WARNINGFAILURE  | Set warning threshold for 'failure'                                                                |                   |             |
-| CRITICALFAILURE | Set critical threshold for 'failure'                                                               |                   |             |
-| WARNINGSUCCESS  | Set warning threshold for 'succes'                                                                                                   |                   |             |
-| CRITICALSUCCESS | Set critical threshold for 'succes'                                                                                                     |                   |             |
-| WARNINGSUSPECT  | Set warning threshold for 'suspect'                                                                |                   |             |
-| CRITICALSUSPECT | Set critical threshold for 'suspect'                                                               |                   |             |
-| WARNINGTOTAL    | Set warning threshold for 'total'                                                                                                     |                   |             |
-| CRITICALTOTAL   | Set warning threshold for 'total'                                                                                                     |                   |             |
+| Macro           | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERTYPE      | Filter backups by type                                                                                                                           |                   | X           |
+| REPORTID        | Specify report id                                                                                                                                |                   | X           |
+| WARNINGFAILURE  | Set warning threshold for 'failure'                                                                                                              |                   |             |
+| CRITICALFAILURE | Set critical threshold for 'failure'                                                                                                             |                   |             |
+| WARNINGSUCCESS  | Set warning threshold for 'success'                                                                                                               |                   |             |
+| CRITICALSUCCESS | Set critical threshold for 'success'                                                                                                              |                   |             |
+| WARNINGSUSPECT  | Set warning threshold for 'suspect'                                                                                                              |                   |             |
+| CRITICALSUSPECT | Set critical threshold for 'suspect'                                                                                                             |                   |             |
+| WARNINGTOTAL    | Set warning threshold for 'total'                                                                                                                |                   |             |
+| CRITICALTOTAL   | Set warning threshold for 'total'                                                                                                                |                   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
