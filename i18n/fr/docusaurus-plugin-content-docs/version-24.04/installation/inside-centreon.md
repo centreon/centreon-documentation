@@ -85,4 +85,4 @@ Le serveur web (processus **httpd**) présente l'interface graphique aux utilisa
    * **httpd** envoie la configuration de l'hôte à la base **centreon** (dans MariaDB ou MySQL).
    * Gorgone??
 3. L'utilisateur [déploie la configuration](https://docs.centreon.com/fr/docs/monitoring/monitoring-servers/deploying-a-configuration):
-   * Gorgone prend les fichiers générés et les copie sur tous les engines de tous les collecteurs et des serviers distants, et relance ceux-ci.
+   * Gorgone prend les fichiers générés et les copie sur tous les engines de tous les collecteurs et des serveurs distants, et relance ceux-ci.
