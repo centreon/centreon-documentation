@@ -5,6 +5,8 @@ title: Installation silencieuse d'un serveur distant
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Cette version de Centreon est ancienne. Nous vous recommandons d'installer la dernière version.
+
 Pour installer un serveur distant plus rapidement, vous pouvez utiliser un script. Le script exécutera les étapes d'installation proprement dites. Vous devrez ensuite enregistrer le serveur distant et le rattacher au serveur central.
 
 ## Procédure d'installation

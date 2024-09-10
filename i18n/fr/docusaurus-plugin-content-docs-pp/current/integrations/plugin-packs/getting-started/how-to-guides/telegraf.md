@@ -145,6 +145,38 @@ EOF
 dnf install -y telegraf
 ```
 
+Puis :
+
+1. Arrêtez le service Telegraf : 
+
+```shell
+systemctl stop telegraf
+```
+
+2. Éditez le fichier **telegraf.service**.
+
+```shell
+vi /etc/systemd/system/telegraf.service
+```
+
+3. Remplacez :
+
+```shell
+/usr/bin/telegraf -config /etc/telegraf/telegraf.conf -config-directory /etc/telegraf/telegraf.d $TELEGRAF_OPTS
+```
+
+Par (remplacez les exemples par vos propres valeurs) :
+
+```shell
+/usr/bin/telegraf -config http(s)://<ip poller>:<port poller>/engine?host=<host to monitor>
+```
+
+4. Démarrez le service Telegraf :
+
+```shell
+systemctl start telegraf
+```
+
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
@@ -170,6 +202,38 @@ EOF
 dnf install -y telegraf
 ```
 
+Puis :
+
+1. Arrêtez le service Telegraf : 
+
+```shell
+systemctl stop telegraf
+```
+
+2. Éditez le fichier **telegraf.service**.
+
+```shell
+vi /etc/systemd/system/telegraf.service
+```
+
+3. Remplacez :
+
+```shell
+/usr/bin/telegraf -config /etc/telegraf/telegraf.conf -config-directory /etc/telegraf/telegraf.d $TELEGRAF_OPTS
+```
+
+Par (remplacez les exemples par vos propres valeurs) :
+
+```shell
+/usr/bin/telegraf -config http(s)://<ip poller>:<port poller>/engine?host=<host to monitor>
+```
+
+4. Démarrez le service Telegraf :
+
+```shell
+systemctl start telegraf
+```
+
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
@@ -184,6 +248,38 @@ apt-get update
 
 ```bash
 apt-get -y install telegraf
+```
+
+Puis :
+
+1. Arrêtez le service Telegraf : 
+
+```shell
+systemctl stop telegraf
+```
+
+2. Éditez le fichier **telegraf.service**.
+
+```shell
+vi /etc/systemd/system/telegraf.service
+```
+
+3. Remplacez :
+
+```shell
+/usr/bin/telegraf -config /etc/telegraf/telegraf.conf -config-directory /etc/telegraf/telegraf.d $TELEGRAF_OPTS
+```
+
+Par (remplacez les exemples par vos propres valeurs) :
+
+```shell
+/usr/bin/telegraf -config http(s)://<ip poller>:<port poller>/engine?host=<host to monitor>
+```
+
+4. Démarrez le service Telegraf :
+
+```shell
+systemctl start telegraf
 ```
 
 </TabItem>

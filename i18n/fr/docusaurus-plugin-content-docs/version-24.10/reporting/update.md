@@ -86,3 +86,5 @@ Enfin, redémarrer le service d'ordonnancement:
 ```shell
 systemctl start cbis
 ```
+
+> Suivez cette procédure si [vous obtenez une erreur due à un problème de mise à jour de colonne](../resources/known-issues.md#vous-obtenez-des-erreurs-lors-de-limport-journalier-et-calcul-des-statistiques) dans la base de données.

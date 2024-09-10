@@ -8,6 +8,30 @@ import TabItem from '@theme/TabItem';
 
 ## 2024
 
+### September
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Backbox REST API**](../procedures/network-backbox-restapi.md) - Initial release of Backbox REST API.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Active Directory API**](../procedures/infrastructure-active-directory-nsclient-05-restapi.md) - Added Italian and German language support from community contributions ([PR 5073](https://github.com/centreon/centreon-plugins/pull/5073), [PR 5072](https://github.com/centreon/centreon-plugins/pull/5072) and [PR 5070](https://github.com/centreon/centreon-plugins/pull/5070)).
+- [**Active Directory**](../procedures/infrastructure-active-directory-nrpe.md) - Added Italian and German language support from community contributions ([PR 5073](https://github.com/centreon/centreon-plugins/pull/5073), [PR 5072](https://github.com/centreon/centreon-plugins/pull/5072) and [PR 5070](https://github.com/centreon/centreon-plugins/pull/5070)).
+- [**IP Fabric API**](../procedures/applications-ipfabric-api.md) - Added the missing SNMP community in host discovery.
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Azure SQL Database**](../procedures/cloud-azure-database-sqldatabase.md) - Added the missing `--server` option in some checks.
+- [**Hyper-V 2012**](../procedures/virtualization-hyperv-2012-nrpe.md) - Fixed the default `--filter-status` value on VM status.
+- [**Hyper-V NSCP API**](../procedures/virtualization-hyperv-nscp-restapi.md) - Fixed the default filter on VM status.
+
+</TabItem>
+</Tabs>
+
 ### August
 
 <Tabs groupId="sync">

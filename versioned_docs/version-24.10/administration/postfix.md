@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 For your Centreon to be able to send notification emails, you need to configure a local SMTP server. If your operating system is RHEL or Oracle Linux, Postfix is already installed. 
 
-This page gives you an example of a possible configuration. Refer to the [official Postfix documentation](http://www.postfix.org/BASIC_CONFIGURATION_README) for more information.
+This page gives you an example of a possible configuration. Refer to the [official Postfix documentation](https://www.postfix.org/BASIC_CONFIGURATION_README.html) for more information.
 
 Notification commands are executed by the poller that monitors the resource, so you need to configure the mail relay on all pollers.
 
