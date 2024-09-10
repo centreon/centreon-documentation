@@ -72,7 +72,7 @@ La base de données MariaDB ou MySQL peut être intégrée à votre serveur cent
 ### Une base de données RRD (fichiers RRD)
 
 Les fichiers RRD contiennent les données de performance (métriques) et les statuts, et servent à générer les graphiques que vous voyez à la page **Statut des ressources**.
-Les métriques et les statuts stockés ici sont une copie de ceux stockés dans la base **centreon_storage** (les RRD sont utilisés pour des raisons de performances). Si vous avez perdu vos graphes pour un raison ou pour une autre, vous pouvez [reconstruire votre base RRD](https://docs.centreon.com/fr/docs/administration/backup/#reconstruction-des-graphiques) depuis la base **centreon_storage**.
+Les métriques et les statuts stockés ici sont une copie de ceux stockés dans la base **centreon_storage** (les RRD sont utilisés pour des raisons de performances). Si vous avez perdu vos graphes pour une raison ou pour une autre, vous pouvez [reconstruire votre base RRD](https://docs.centreon.com/fr/docs/administration/backup/#reconstruction-des-graphiques) depuis la base **centreon_storage**.
 
 ### Un serveur web
 
