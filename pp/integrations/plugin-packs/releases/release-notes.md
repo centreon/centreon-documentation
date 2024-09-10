@@ -27,7 +27,7 @@ import TabItem from '@theme/TabItem';
 
 - [**Azure SQL Database**](../procedures/cloud-azure-database-sqldatabase.md) - Added the missing `--server` option in some checks.
 - [**Hyper-V 2012**](../procedures/virtualization-hyperv-2012-nrpe.md) - Fixed the default `--filter-status` value on VM status.
-- [**Hyper-V NSCP API**](../procedures/virtualization-hyperv-nscp-restapi.md) - Fixed the default filter on VM status.
+- [**Hyper-V NSCP API**](../procedures/virtualization-hyperv-nscp-restapi.md) - FFixed the default `--filter-status` value on VM status.
 
 </TabItem>
 </Tabs>
