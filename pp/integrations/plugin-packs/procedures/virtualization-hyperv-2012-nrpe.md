@@ -354,9 +354,9 @@ is able to monitor a resource using a command like this one (replace the sample 
 ```bash
 /usr/lib64/nagios/plugins// -H 10.0.0.1 -p  -t   -c check_centreon_plugins -a 'apps::microsoft::hyperv::2012::local::plugin' 'scvmm-vm-status'  '  \
 	--scvmm-hostname="" \
-	--scvmm-username="" \
-	--scvmm-password="" \
-	--scvmm-port="" \
+	--scvmm-username="XXXX" \
+	--scvmm-password="XXXX" \
+	--scvmm-port="8100" \
 	--filter-vm=""  \
 	--filter-description="" \
 	--filter-hostgroup="" \
@@ -392,7 +392,7 @@ the command:
 ```bash
 /usr/lib64/nagios/plugins// -H 10.0.0.1 -p  -t   -c check_centreon_plugins -a 'apps::microsoft::hyperv::2012::local::plugin' 'scvmm-vm-status'  '  \
 	--scvmm-hostname="" \
-	--list-mode
+	--list-mode'
 ```
 
 The plugin brings the following modes:
