@@ -42,9 +42,9 @@ Dans cet exemple, nous avons un serveur central (sans modules Business installé
    * Le master Broker écrit les données dans les [bases MariaDB/MySQL](#a-mariadbmysql-database).
    * Le master Broker envoie une copie des [métriques](https://docs.centreon.com/fr/docs/monitoring/metrics) et des [statuts](https://docs.centreon.com/fr/docs/alerts-notifications/concepts) au Broker RRD afin qu'il les écrive dans la [base de données RRD](#a-rrd-databaserrd-files).
 * Les données sont envoyées au [format BBDO](https://docs.centreon.com/fr/docs/developer/developer-broker-bbdo/).
-* Chaque Broker a des entrées (inputs) et des sorties (outputs) que vous pouvez configurer. Par défaut, Broker est principlamenet installé avec des entrées et sorties IPv4 (en réalité, une sortie IPv4 vers la base RRD et une sortie Unified SQL vers la base de données MariaDB/MySQL). Cependant, il est recommandé de configurer un client et un serveur BBDO entre Engine et le master Broker, car cette configuration est plus simple.
+* Chaque Broker a des entrées (inputs) et des sorties (outputs) que vous pouvez configurer. Par défaut, Broker est principalement installé avec des entrées et sorties IPv4 (en réalité, une sortie IPv4 vers la base RRD et une sortie Unified SQL vers la base de données MariaDB/MySQL). Cependant, il est recommandé de configurer un client et un serveur BBDO entre Engine et le master Broker, car cette configuration est plus simple.
 * Pour configurer un Broker, utlisez la page **Configuration > Collecteurs > Configuration de Centreon Broker**.
-* SI vous décidez que votre master Broker doit [recevoir les données en HTTPS](https://docs.centreon.com/fr/docs/monitoring/monitoring-servers/advanced-configuration/#authentification-avec-centreon-broker), alors vous devez configurer également en HTTPS chaque Engine qui communique avec ce Broker.
+* Si vous décidez que votre master Broker doit [recevoir les données en HTTPS](https://docs.centreon.com/fr/docs/monitoring/monitoring-servers/advanced-configuration/#authentification-avec-centreon-broker), alors vous devez configurer également en HTTPS chaque Engine qui communique avec ce Broker.
 
 Voir aussi :
 
@@ -56,7 +56,7 @@ Voir aussi :
 * **Gorgone** est présent sur le serveur central, sur vos serveurs distants et sur vos collecteurs.
 * Gorgone permet à l'interface de parler à l'Engine du serveur central, et de parler aux Engines de vos serveurs distants et de vos collecteurs, synchronisant les données entre eux.
 * Les données de configuration sont transférées depuis le central vers les engines des collecteurs et des serveurs distants au format ZMQ.
-* Quand vous [déployez la configuration](https://docs.centreon.com/fr/docs/monitoring/monitoring-servers/deploying-a-configuration), Gorgone prend les fichiers générés et les copie sur tous les engines des collecteurs et des serveurs distants, et les redémarre.
+* Quand vous [déployez la configuration](https://docs.centreon.com/fr/docs/monitoring/monitoring-servers/deploying-a-configuration), Gorgone prend les fichiers générés et les copie sur tous les engines des collecteurs et des serveurs distants, et redémarre ceux-ci.
 
 Voir aussi : [Centreon Gorgone dans la section Ressources développeur](https://docs.centreon.com/fr/docs/developer/developer-centreon-gorgone).
 
@@ -72,7 +72,7 @@ La base de données MariaDB ou MySQL peut être intégrée à votre serveur cent
 ### Une base de données RRD (fichiers RRD)
 
 Les fichiers RRD contiennent les données de performance (métriques) et les statuts, et servent à générer les graphiques que vous voyez à la page **Statut des ressources**.
-Les métriques et les statuts stockés ici sont une copie de ceux stockés dans la base **centreon_storage** (il sont utilisés pour des raisons de performances). Si vous avez perdu vos graphes pour un raison ou pour une autre, vous pouvez [reconstruire votre base RRD](https://docs.centreon.com/fr/docs/administration/backup/#reconstruction-des-graphiques) depuis la base **centreon_storage**.
+Les métriques et les statuts stockés ici sont une copie de ceux stockés dans la base **centreon_storage** (les RRD sont utilisés pour des raisons de performances). Si vous avez perdu vos graphes pour un raison ou pour une autre, vous pouvez [reconstruire votre base RRD](https://docs.centreon.com/fr/docs/administration/backup/#reconstruction-des-graphiques) depuis la base **centreon_storage**.
 
 ### Un serveur web
 
