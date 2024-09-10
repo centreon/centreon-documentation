@@ -46,7 +46,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | Nom                             | Unité |
 |:--------------------------------|:------|
 | *backups*#backups.total.count   | count |
-| *backups*#backups.success.count | count |
+| *backups*#backups.s.count | count |
 | *backups*#backups.suspect.count | count |
 | *backups*#backups.failure.count | count |
 
@@ -65,7 +65,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | Nom                                        | Unité |
 |:-------------------------------------------|:------|
 | *intellichecks*#intellicheck.total.count   | count |
-| *intellichecks*#intellicheck.success.count | count |
+| *intellichecks*#intellicheck.s.count | count |
 | *intellichecks*#intellicheck.suspect.count | count |
 | *intellichecks*#intellicheck.failure.count | count |
 
@@ -194,8 +194,8 @@ yum install centreon-plugin-Network-Backbox-Restapi
 | FILTERTYPE      | Filter backups by type                                                                                                                           |                   | X           |
 | WARNINGFAILURE  | Set warning threshold for 'failure'                                                                                                              |                   |             |
 | CRITICALFAILURE | Set critical threshold for 'failure'                                                                                                             |                   |             |
-| WARNINGSUCCESS  | Set warning threshold for 'succes'                                                                                                               |                   |             |
-| CRITICALSUCCESS | Set critical threshold for 'succes'                                                                                                              |                   |             |
+| WARNINGSUCCESS  | Set warning threshold for 'success'                                                                                                               |                   |             |
+| CRITICALSUCCESS | Set critical threshold for 'success'                                                                                                              |                   |             |
 | WARNINGSUSPECT  | Set warning threshold for 'suspect'                                                                                                              |                   |             |
 | CRITICALSUSPECT | Set critical threshold for 'suspect'                                                                                                             |                   |             |
 | WARNINGTOTAL    | Set warning threshold for 'total'                                                                                                                |                   |             |
@@ -225,8 +225,8 @@ yum install centreon-plugin-Network-Backbox-Restapi
 | REPORTID        | Specify report id                                                                                                                                |                   | X           |
 | WARNINGFAILURE  | Set warning threshold for 'failure'                                                                                                              |                   |             |
 | CRITICALFAILURE | Set critical threshold for 'failure'                                                                                                             |                   |             |
-| WARNINGSUCCESS  | Set warning threshold for 'succes'                                                                                                               |                   |             |
-| CRITICALSUCCESS | Set critical threshold for 'succes'                                                                                                              |                   |             |
+| WARNINGSUCCESS  | Set warning threshold for 'success'                                                                                                               |                   |             |
+| CRITICALSUCCESS | Set critical threshold for 'success'                                                                                                              |                   |             |
 | WARNINGSUSPECT  | Set warning threshold for 'suspect'                                                                                                              |                   |             |
 | CRITICALSUSPECT | Set critical threshold for 'suspect'                                                                                                             |                   |             |
 | WARNINGTOTAL    | Set warning threshold for 'total'                                                                                                                |                   |             |
