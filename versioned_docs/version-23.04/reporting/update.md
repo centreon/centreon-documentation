@@ -89,3 +89,5 @@ systemctl start cbis
 ```
 
 MBI is now updated.
+
+> Follow this procedure if [you get an error due to a column update issue](../resources/known-issues.md#you-get-some-errors-during-daily-import-and-statistic-calculation) in the database.
