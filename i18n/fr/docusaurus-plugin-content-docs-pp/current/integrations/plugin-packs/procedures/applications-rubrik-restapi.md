@@ -390,8 +390,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=apps::backup::rubrik::restapi::plugin \
 	--mode=jobs \
 	--hostname='10.0.0.1' \
-	--api-username='' \
-	--api-password='' \
+	--api-username='username' \
+	--api-password='password' \
 	--port='443' \
 	--proto='https'  \
 	--filter-job-id='' \
