@@ -458,7 +458,7 @@ A default `/etc/logrotate.d/centreon-agent` file was created at installation and
 }
 ```
 
-You can leave it as such or further adjust the log rotation policy to best fit your needs using the parameters of [logrotate](https://www.unix.com/man-page/redhat/8/LOGROTATE/).
+You can leave it as such or further adjust the log rotation policy to best fit your needs using the parameters of [logrotate](https://linux.die.net/man/8/logrotate).
 
 Use the following command to apply the changes immediately:
 
