@@ -7,9 +7,9 @@ title: Centreon Cloud release notes
 
 ### Centreon IT Edition
 
-**SNMP community**
+**Security**
 
-As we keep improving the security of our software, the SNMP community is now considered as a password. As such, it is now obfuscated in host and host template forms. There is no way to retrieve the SNMP community from Centreon, and Centreon cannot check it for you. Users can still edit the SNMP community. Please note that exporting the monitoring configuration is required to enforce changes.
+As we keep improving the security of our software, the SNMP community is now considered as a password. As such, it is now obfuscated in host and host template forms. There is no way to copy or read the SNMP community from the configuration form. Users can still edit the SNMP community. Please note that exporting the monitoring configuration is required to enforce changes.
 
 **Open Access to Centreon APIs**
 
