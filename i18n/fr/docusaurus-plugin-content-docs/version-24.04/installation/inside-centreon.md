@@ -25,7 +25,7 @@ Dans cet exemple, nous avons un serveur central (sans modules Business installé
 
 * **Engine**, (le moteur de supervision, c'est-à-dire le processus **centengine**) est le cœur de Centreon: il planifie les contrôles, les exécute, et [envoie des notifications aux utilisateurs](https://docs.centreon.com/fr/docs/alerts-notifications/notif-concept) lorsqu'un incident se produit.
 * Les contrôles et les notifications sont effectués suivant la configuration faite par les utilisateurs.
-* Centreon Engine est présent sur cheque serveur dans votre [architecture](https://docs.centreon.com/fr/docs/installation/architectures): [collecteurs, serveurs distants, ainsi que le serveur central](https://docs.centreon.com/fr/docs/platform).
+* Centreon Engine est présent sur chaque serveur dans votre [architecture](https://docs.centreon.com/fr/docs/installation/architectures): [collecteurs, serveurs distants, ainsi que le serveur central](https://docs.centreon.com/fr/docs/platform).
 * Pour configurer Engine, allez à la page **Configuration > Collecteurs > Configuration de Centreon Engine**. Cette page est réservée aux utilisateurs aguerris.
 
 ### cbmod
