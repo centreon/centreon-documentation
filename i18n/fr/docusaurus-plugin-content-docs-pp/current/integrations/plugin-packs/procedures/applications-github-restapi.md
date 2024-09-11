@@ -87,9 +87,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+Vérifiez que vous pouvez interoger l'API Github en vous référant à la [documentation officielle](https://docs.github.com/fr/rest/quickstart?apiVersion=2022-11-28&tool=curl).
 
 ## Installer le connecteur de supervision
 
@@ -285,17 +283,14 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--hostname='api.github.com' \
 	--port='443' \
 	--proto='https' \
-	--owner='' \
-	--repository='' \
-	--credentials \
-	--username='' \
-	--password=''  
+	--owner='centreon' \
+	--repository='centreon-plugins' \
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: | 'forks'=6;;;0;'watchers'=90;;;0;'stars'=82;;;0;
+OK: 273 forks - 60 watchers - 310 stars | 'forks'=273;;;0; 'watchers'=60;;;0; 'stars'=310;;;0;
 ```
 
 ### Diagnostic des erreurs communes

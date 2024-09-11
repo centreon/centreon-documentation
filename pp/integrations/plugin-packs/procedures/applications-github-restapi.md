@@ -86,9 +86,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+Check that you can use the Github API by referring to the [official documentation](https://docs.github.com/fr/rest/quickstart?apiVersion=2022-11-28&tool=curl).
 
 ## Installing the monitoring connector
 
@@ -284,17 +282,15 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--hostname='api.github.com' \
 	--port='443' \
 	--proto='https' \
-	--owner='' \
-	--repository='' \
-	--credentials \
-	--username='' \
-	--password=''  
+	--owner='centreon' \
+	--repository='centreon-plugins' \
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: | 'forks'=6;;;0;'watchers'=90;;;0;'stars'=82;;;0;
+OK: 273 forks - 60 watchers - 310 stars | 'forks'=273;;;0; 'watchers'=60;;;0; 'stars'=310;;;0;
+
 ```
 
 ### Troubleshooting
