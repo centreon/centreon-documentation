@@ -103,6 +103,10 @@
         },
         {
           "type": "doc",
+          "id": "version-24.10/installation/inside-centreon"
+        },
+        {
+          "type": "doc",
           "id": "version-24.10/installation/prerequisites"
         },
         {
@@ -1433,7 +1437,8 @@
           "type": "category",
           "label": "Centreon Broker",
           "link": {
-            "type": "generated-index"
+            "type": "doc",
+            "id": "developer/centreon-broker"
           },
           "items": [
             {
@@ -1454,7 +1459,8 @@
           "type": "category",
           "label": "Centreon Gorgone",
           "link": {
-            "type": "generated-index"
+            "type": "doc",
+            "id": "developer/centreon-gorgone"
           },
           "items": [
             {
