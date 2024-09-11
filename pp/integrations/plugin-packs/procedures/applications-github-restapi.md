@@ -290,7 +290,6 @@ The expected command output is shown below:
 
 ```bash
 OK: 273 forks - 60 watchers - 310 stars | 'forks'=273;;;0; 'watchers'=60;;;0; 'stars'=310;;;0;
-
 ```
 
 ### Troubleshooting
