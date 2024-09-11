@@ -20,12 +20,12 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="App-Github-Repository-Restapi-custom" label="App-Github-Repository-Restapi-custom">
 
-| Alias         | Modèle de service                                   | Description                                             |
-|:--------------|:----------------------------------------------------|:--------------------------------------------------------|
-| Commits       | App-Github-Repository-Commits-Restapi-custom        | Trace le nombre de commit réalisés sur un dépôt github  |
-| Issues        | App-Github-Repository-Issues-Restapi-custom         | Trace le nombre d'issue                                 |
-| Pull-Requests | App-Github-Repository-Pull-Resquests-Restapi-custom | Trace le nombre de PR ouvertes sur un dépôt github      |
-| Statistics    | App-Github-Repository-Statistics-Restapi-custom     | Requête et trace les statistiques d'un dépôt            |
+| Alias         | Modèle de service                                   | Description                                            |
+|:--------------|:----------------------------------------------------|:-------------------------------------------------------|
+| Commits       | App-Github-Repository-Commits-Restapi-custom        | Trace le nombre de commit réalisés sur un dépôt github |
+| Issues        | App-Github-Repository-Issues-Restapi-custom         | Trace le nombre d'issue ouvertes sur un dépôt github   |
+| Pull-Requests | App-Github-Repository-Pull-Resquests-Restapi-custom | Trace le nombre de PR ouvertes sur un dépôt github     |
+| Statistics    | App-Github-Repository-Statistics-Restapi-custom     | Requête et trace les statistiques d'un dépôt           |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Github-Repository-Restapi-custom** est utilisé.
 
@@ -55,7 +55,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Github-Status" label="Github-Status">
 
-Coming soon
+| Métrique | Unité |
+|:---------|:------|
+| status   | N/A   |
 
 </TabItem>
 <TabItem value="Issues" label="Issues">
@@ -114,7 +116,7 @@ dnf install centreon-pack-applications-github-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-github-restapi
@@ -159,7 +161,7 @@ dnf install centreon-plugin-Applications-Github-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-github-restapi
@@ -187,15 +189,13 @@ yum install centreon-plugin-Applications-Github-Restapi
 3. Appliquez le modèle d'hôte **App-Github-Repository-Restapi-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro             | Description                                                                                          | Valeur par défaut | Obligatoire |
-|:------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| GITHUBAPIHOSTNAME |                                                                                                      | api.github.com    |             |
-| GITHUBUSERNAME    |                                                                                                      |                   |             |
-| GITHUBPASSWORD    |                                                                                                      |                   |             |
-| GITHUBAPIPROTO    |                                                                                                      | https             |             |
-| GITHUBAPIPORT     |                                                                                                      | 443               |             |
-| GITHUBOWNER       |                                                                                                      |                   | X           |
-| GITHUBREPOSITORY  |                                                                                                      |                   | X           |
+| Macro             | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| GITHUBAPIHOSTNAME | IP Addr/FQDN of the GitHub's API                                                                                                                   | api.github.com    |             |
+| GITHUBAPIPROTO    | Protocol used by GitHub's API                                                                                                                      | https             |             |
+| GITHUBAPIPORT     | Port used by GitHub's API                                                                                                                          | 443               |             |
+| GITHUBOWNER       | Specify GitHub's owner                                                                                                                             |                   | X           |
+| GITHUBREPOSITORY  | Specify GitHub's repository                                                                                                                        |                   | X           |
 | EXTRAOPTIONS      | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -208,12 +208,12 @@ yum install centreon-plugin-Applications-Github-Restapi
 3. Appliquez le modèle d'hôte **App-Github-Restapi-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro                | Description                                                                                          | Valeur par défaut      | Obligatoire |
-|:---------------------|:-----------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
-| GITHUBSTATUSHOSTNAME |                                                                                                      | status.github.com      |             |
-| GITHUBSTATUSPROTO    |                                                                                                      | 443                    |             |
-| GITHUBSTATUSPORT     |                                                                                                      | https                  |             |
-| GITHUBSTATUSURLPATH  |                                                                                                      | /api/last-message.json |             |
+| Macro                | Description                                                                                                                                        | Valeur par défaut      | Obligatoire |
+|:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
+| GITHUBSTATUSHOSTNAME | IP Address or FQDN of the GitHub's status website                                                                                                  | status.github.com      |             |
+| GITHUBSTATUSPROTO    | Protocol used by GitHub's API                                                                                                                      | 443                    |             |
+| GITHUBSTATUSPORT     | Port used by GitHub's API                                                                                                                          | https                  |             |
+| GITHUBSTATUSURLPATH  | Set path to get GitHub's status information                                                                                                        | /api/last-message.json |             |
 | EXTRAOPTIONS         | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                        |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -229,40 +229,40 @@ yum install centreon-plugin-Applications-Github-Restapi
 <Tabs groupId="sync">
 <TabItem value="Commits" label="Commits">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Github-Status" label="Github-Status">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Issues" label="Issues">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      |                                                                                                    |                   |             |
-| CRITICAL     |                                                                                                    |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold on issues count                                                                                                                |                   |             |
+| CRITICAL     | Critical threshold on issues count                                                                                                               |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Pull-Requests" label="Pull-Requests">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      |                                                                                                    |                   |             |
-| CRITICAL     |                                                                                                    |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold on pull request count                                                                                                          |                   |             |
+| CRITICAL     | Critical threshold on pull request count                                                                                                         |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Statistics" label="Statistics">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
