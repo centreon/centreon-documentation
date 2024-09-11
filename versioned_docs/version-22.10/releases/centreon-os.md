@@ -25,7 +25,7 @@ Release date: `September 11, 2024`
 
 #### Security fixes
 
-- [Authorization] Fixed an issue on ACLs reloading.
+- [Authorization] Fixed an issue on ACL reloading.
 - [Security] Fixed SQLi in contacts form (CVE-2024-39843).
 - [Security] Updated jQuery & jQuery-UI dependencies (CVE-2022-31160).
 
