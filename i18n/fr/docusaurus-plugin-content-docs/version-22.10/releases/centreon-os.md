@@ -18,6 +18,16 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 22.10.24
+
+Release date: `September 11, 2024`
+
+#### Security fixes
+
+- [Authorization] Fixed an issue on ACL reloading.
+- [Security] Fixed SQLi in contacts form (CVE-2024-39843).
+- [Security] Updated jQuery & jQuery-UI dependencies (CVE-2022-31160).
+
 ### 22.10.23
 
 Release date: `June 26, 2024`
