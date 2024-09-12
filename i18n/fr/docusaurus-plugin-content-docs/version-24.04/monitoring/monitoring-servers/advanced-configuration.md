@@ -583,7 +583,7 @@ BBDO Server outputs forward events to a remote endpoint. They listen on a given 
 
   - Authorization token
     Only used with the gRPC transport protocol. This can be used to filter the BBDO flow.
-    A BBDO client will be able to send data to this server only if their authorization token match.
+    A BBDO client will be able to send data to this server only if their authorization tokens match.
     
   - Enable TLS encryption  
     Enables the encryption of the flow. For the encryption to work, the private
@@ -621,7 +621,7 @@ BBDO Client outputs forward events to a remote endpoint. They establish a connec
 
   - Authorization token
     Only used with the gRPC transport protocol. This can be used to filter the BBDO flow.
-    A BBDO client will be able to send data to this server only if their authorization token match.
+    A BBDO client will be able to send data to this server only if their authorization tokens match.
     
   - Enable TLS encryption  
     Enables the encryption of the flow. For the encryption to work, the private
