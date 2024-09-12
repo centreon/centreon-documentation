@@ -250,8 +250,9 @@ apt-get update
 apt-get -y install telegraf
 ```
 
-You must then configure the telegraf opentelemetry output.
-You must uncomment this paragraph or recreate a configuration file with just these lines:
+You must then configure the Telegraf OpenTelemetry output.
+You must uncomment this paragraph or recreate a configuration file with just the following lines:
+
 ```
 # [[outputs.opentelemetry]]
 #   ## Override the default (localhost:4317) OpenTelemetry gRPC service
@@ -275,16 +276,18 @@ You must uncomment this paragraph or recreate a configuration file with just the
 #   # tls_server_name = "foo.example.com"
 ```
 
-If the communication between telegraf and poller is not encrypted, you just have to enter service_address with the ip and port of the poller (port entered in otel_server field in the poller’s conf). If not, you will also need to provide at least tls_ca.
+If the communication between Telegraf and the poller is not encrypted, you just have to enter the IP address and port of the poller in the **service_address** option (port entered in the **otel_server** field in the poller’s configuration). If not, you will also need to provide a value for at least **tls_ca**.
 
-Now you need to add the telegraf configuration server provided by the poller.
-You must create the/etc/default/telegraf file and add the following line:
+Now you need to add the Telegraf configuration server provided by the poller.
+You must create the ***/etc/default/telegraf file** and add the following line:
+
 `
 TELEGRAF_OPTS=-config https://<ip poller>:<http_server port>/engine? host=<host_to_monitor>
 `
-The arguments of this command will allow Telegraf to know where to get the configuration of the resources it must supervise (that is to say on the collector or on the central following the IP defined in the command). The parameter `<host_to_monitor>` is the name of the host as entered in the **Name** field of its configuration.
 
-You now have to restart telegraf
+The arguments of this command will allow Telegraf to know where to get the configuration of the resources it must monitor (that is to say on the poller or on the central server following the IP address defined in the command). The parameter `<host_to_monitor>` is the name of the host as entered in the **Name** field of its configuration.
+
+You now have to restart Telegraf:
 
 systemctl restart telegraf
 
