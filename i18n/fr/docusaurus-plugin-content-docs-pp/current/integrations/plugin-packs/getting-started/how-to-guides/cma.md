@@ -383,7 +383,6 @@ Note : un installeur sera disponible en version définitive, afin de faciliter l
 </TabItem>
 </Tabs>
 
-
 ### Déployer les plugins Centreon sur l'hôte
 
 Les plugins Centreon exécuteront les contrôles sur l'hôte.
