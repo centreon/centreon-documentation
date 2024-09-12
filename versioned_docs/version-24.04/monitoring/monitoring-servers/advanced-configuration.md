@@ -86,18 +86,6 @@ with the following parameters:
 Regenerate the configuration of the affected pollers (`Configuration >
 Pollers > Pollers`) and the authentication will be complete.
 
-## Centreontrapd Configuration
-
-### Poller
-
-You must edit the Centreontrapd configuration file to be able to use the local
-SQLite database. Refer to the chapter
-[Passive Monitoring](../passive-monitoring/enable-snmp-traps.md).
-
-### Remote Server
-
-Configuring the Centreontrapd process is the same as on the Central Server.
-
 ## Advanced configuration of Centreon Broker
 
 This section will help you understand how Centreon Broker works and how it
