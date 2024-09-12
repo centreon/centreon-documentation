@@ -266,6 +266,9 @@ The CMA can now communicate with Centreon. You can set up the monitoring of your
 
 ```
 
+</TabItem>
+</Tabs>
+
 #### Log configuration
 
 You can configure two kinds of log output:
