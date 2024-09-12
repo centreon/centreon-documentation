@@ -108,11 +108,11 @@ On your central server:
 chown centreon-engine: /etc/centreon-engine/otl_server.json
 ```
 
-#### reverse usage (poller connects to CMA)
+#### Reverse usage (the poller connects to the CMA)
 
-You have to use such a configuration when agent is not allowed to connect to agent, for security reasons for example (ex : DMZ).
-In this mode, poller connects to CMA.
-Le poller permet de fonctionner dans les deux modes simultanément (certains agents se connectent au poller alors que le poller se connecte à d'autres agents).
+Use this configuration when the agent is not allowed to connect to the poller for security reasons (e.g. when the poller is in a DMZ).
+In this mode, poller connects to the CMA.
+The poller can work in both modes simultaneously (some agents connect to the poller, while the poller connects to some other agents).
 
 ```json
 {
@@ -134,10 +134,10 @@ Le poller permet de fonctionner dans les deux modes simultanément (certains age
 chown centreon-engine: /etc/centreon-engine/otl_server.json
 ```
 
-* Enter IP  address of CMA host in the fields **host** and port **port**. This IP must be joinable by the poller.
-* **check_interval** field is the period between two checks for the same service.
+* Enter the IP address of the CMA host in the **host** and **port** fields. This IP address must be reachable by the poller.
+* The **check_interval** field is the period between two checks for the same service.
 
-> For simplicity, this page only covers the configuration of the Agent **in unencrypted mode**, but you
+> For the sake of simplicity, this page only covers the configuration of the Agent **in unencrypted mode**, but you
 > can find the procedure to encrypt communications in the [Windows Centreon Monitoring Agent connector] or [Linux Centreon Monitoring Agent connector] documentation.
 
 (NOTE POUR TEAM DOC : ci-dessous le mode chiffré en normal et reverse, à décaler sur autre page ?)
@@ -178,7 +178,6 @@ chown centreon-engine: /etc/centreon-engine/otl_server.json
 }
 ```
 
-
 #### Add a new Broker module
 
 1. Go to **Configuration > Pollers > Engine configuration**, then click on the poller you want to monitor your resources.
@@ -189,14 +188,14 @@ chown centreon-engine: /etc/centreon-engine/otl_server.json
    /usr/lib64/centreon-engine/libopentelemetry.so /etc/centreon-engine/otl_server.json
    ```
 
-4. Export the configuration
-5. Restart the monitoring engine
+4. Deploy the configuration.
+5. Restart the monitoring engine:
 
    ```bash
    systemctl restart centengine
    ```
 
-CMA can now communicate with Centreon. You can set up the monitoring of your hosts.
+The CMA can now communicate with Centreon. You can set up the monitoring of your hosts.
 
 ## Step 2: Prepare the host
 
@@ -205,9 +204,9 @@ CMA can now communicate with Centreon. You can set up the monitoring of your hos
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
-* Install centreon-monitoring-agent package
+* Install the **centreon-monitoring-agent** package.
 
-1. Modify /etc/centreon-monitoring-agent/centagent.json local (4 cases) 
+1. Modify the **/etc/centreon-monitoring-agent/centagent.json** file (4 cases):
 
 
 No encryption, no reverse mode
@@ -269,25 +268,29 @@ Encryption, no reverse mode
 ```
 
 #### Log configuration
+
 You can configure two kinds of log output:
-* file: CMA logs into a file, path is configured in log_file
-* stdout: we use standard output
+* file: the CMA logs into a file, the path is configured in the **log_file** option.
+* stdout: standard output is used.
 
-If you choose to log into a file, log rotate can be parameterized with keys log_max_file_size and log_max_files
+If you choose to log into a file, log rotation can be customized using the **log_max_file_size** and **log_max_files** options.
 
-Log levels allowed are: trace, debug, info, warning, error, critical and off
+Allowed log levels are: trace, debug, info, warning, error, critical and off.
 
-2. Restart CMA: systemctl restart centagent
+2. Restart the CMA:
+
+```shell
+systemctl restart centagent
 
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-1. [Download CMA from this URL https://github.com/centreon/centreon-collect/releases ] on every server you want to monitor
+1. [Download the CMA](https://github.com/centreon/centreon-collect/releases) on every server you want to monitor.
 
-2. Load file centagent.reg in hte registry
+2. Load the **centagent.reg** file in the registry.
 
-3. Modify configuration in the registry
+3. Modify the configuration in the registry:
 
 No encryption, no reverse mode
 
@@ -368,20 +371,20 @@ Encryption, reverse mode
 
 
 #### Log configuration
+
 You can configure two kinds of log output:
-* file: CMA logs into a file, path is configured in log_file
-* event: CMA logs in event viewer
-* stdout: we use standard output
+* file: the CMA logs into a file, the path is configured in the **log_file** option
+* event: the CMA logs in the event viewer
+* stdout: standard output is used.
 
-If you choose to log into a file, log rotate can be parameterized with keys log_max_file_size and log_max_files
+If you choose to log into a file, log rotation can be customized using the **log_max_file_size** and **log_max_files** options.
 
-Log levels allowed are: trace, debug, info, warning, error, critical and off
+Allowed log levels are: trace, debug, info, warning, error, critical and off.
 
 Note: an installer will be available in the final version, to facilitate configuration and massive deployment. In this beta version, you will have to run the agent yourself.
 
 </TabItem>
 </Tabs>
-
 
 ### Deploy the Centreon plugin
 
