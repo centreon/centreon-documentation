@@ -63,7 +63,9 @@ The host machine must have the following characteristics:
 
 1. Import the **centreon-central.ova** file into VMWare. A terminal window opens: wait for the server to start. When it is ready, the terminal shows the following message:
 
-    ![image](../../assets/installation/VMW1.png)
+  ```shell
+  centreon-central login: _ 
+  ```
 
 2. According to how your network is set up, in the configuration of your virtual machine, add a network adapter and select the network through which the virtual machine can communicate with the resources it will monitor. Here is an example of configuration in VSphere 6:
 
