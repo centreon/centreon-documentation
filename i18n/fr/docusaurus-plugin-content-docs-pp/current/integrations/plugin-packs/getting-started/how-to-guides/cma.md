@@ -18,7 +18,6 @@ L'Agent de supervision Centreon est en phase Beta. Les limitations suivantes s'a
 * Le périmètre de supervision supporté est limité, de nouveaux contrôles (natifs) seront apportés dans la version définitive.
 * Une configuration manuelle est à réaliser. Dans la version définitive, celle-ci sera possible via l'interface utilisateur, et largement automatisée. 
 
-
 ### OS supportés
 
 L'agent peut être installé sur et superviser les OS suivants :
