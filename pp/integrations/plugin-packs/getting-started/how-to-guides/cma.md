@@ -204,8 +204,8 @@ The CMA can now communicate with Centreon. You can set up the monitoring of your
 
 1. Modify the **/etc/centreon-monitoring-agent/centagent.json** file (4 cases):
 
-
-No encryption, no reverse mode
+<Tabs groupId="sync">
+<TabItem value="No encryption, no reverse mode" label="No encryption, no reverse mode">
 
 
 ```json
@@ -218,7 +218,8 @@ No encryption, no reverse mode
 }
 ```
 
-Encryption, no reverse mode
+</TabItem>
+<TabItem value="Encryption, no reverse mode" label="Encryption, no reverse mode">
 
 ```json
 {
@@ -232,7 +233,8 @@ Encryption, no reverse mode
 }
 ```
 
-No encryption, reverse mode
+</TabItem>
+<TabItem value="No encryption, reverse mode" label="No encryption, reverse mode">
 
 ```json
 {
@@ -245,7 +247,8 @@ No encryption, reverse mode
 }
 ```
 
-Encryption, no reverse mode
+</TabItem>
+<TabItem value="Encryption, reverse mode" label="Encryption, reverse mode">
 
 ```json
 {
@@ -288,7 +291,8 @@ systemctl restart centagent
 
 3. Modify the configuration in the registry:
 
-No encryption, no reverse mode
+<Tabs groupId="sync">
+<TabItem value="No encryption, no reverse mode" label="No encryption, no reverse mode">
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent]
@@ -307,7 +311,8 @@ No encryption, no reverse mode
 "reverse_connection"=dword:00000000
 ```
 
-Encryption, no reverse mode
+</TabItem>
+<TabItem value="Encryption, no reverse mode" label="Encryption, no reverse mode">
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent]
@@ -326,8 +331,8 @@ Encryption, no reverse mode
 "reverse_connection"=dword:00000000
 ```
 
-
-No encryption, reverse mode
+</TabItem>
+<TabItem value="No encryption, reverse mode" label="No encryption, reverse mode">
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent]
@@ -346,7 +351,8 @@ No encryption, reverse mode
 "reverse_connection"=dword:00000001
 ```
 
-Encryption, reverse mode
+</TabItem>
+<TabItem value="Encryption, reverse mode" label="Encryption, reverse mode">
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent]
@@ -365,6 +371,8 @@ Encryption, reverse mode
 "reverse_connection"=dword:00000001
 ```
 
+</TabItem>
+</Tabs>
 
 #### Log configuration
 
