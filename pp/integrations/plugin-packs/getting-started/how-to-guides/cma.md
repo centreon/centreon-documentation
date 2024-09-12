@@ -140,7 +140,6 @@ chown centreon-engine: /etc/centreon-engine/otl_server.json
 > For the sake of simplicity, this page only covers the configuration of the Agent **in unencrypted mode**, but you
 > can find the procedure to encrypt communications in the [Windows Centreon Monitoring Agent connector] or [Linux Centreon Monitoring Agent connector] documentation.
 
-(NOTE POUR TEAM DOC : ci-dessous le mode chiffré en normal et reverse, à décaler sur autre page ?)
 
 ```json
 {
