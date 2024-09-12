@@ -267,7 +267,7 @@ Chiffré, avec Reverse
 
 #### Options de log
 
-Deux type de log sont disponibles:
+Deux types de log sont disponibles :
 
 * file: l'agent loggue dans le fichier dont le path est donné par **log_file**.
 * stdout: l'agent loggue vers la sortie standard de l'exe
