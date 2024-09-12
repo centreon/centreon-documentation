@@ -20,7 +20,7 @@ The Centreon Monitoring Agent is in Beta Phase. The following limitations need t
 
 ### OS supportés
 
-CMA can be installed on the following OS :
+The CMA can be installed on and monitor the following OSs:
 The CMA can be installed on and monitor the following OSs:
 
 <Tabs groupId="sync">
