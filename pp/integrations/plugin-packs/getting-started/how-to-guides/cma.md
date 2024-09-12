@@ -7,14 +7,13 @@ import TabItem from '@theme/TabItem';
 
 ## Introduction
 
-Centreon Monitoring Agent (CMA) collects metrics and computes statuses on the servers it monitors, and sends them to Centreon
-Les plugins Centreon plugins as user's plugins Nagios compatible can be used with this agent. 
-
+The Centreon Monitoring Agent (CMA) collects metrics and computes statuses on the servers it monitors, and sends them to Centreon.
+Centreon plugins as well as Nagios-compatible plugins can be used with this agent. 
 
 ### Limitations
 
 Centreon Monitoring Agent is in Beta Phase. The following limitations need to be considered : 
-
+The Centreon Monitoring Agent is in Beta Phase. The following limitations need to be considered : 
 * The scope of supervision supported is limited, new (native) controls will be introduced in the final version.
 * Manual configuration is required. In the final version, this will be possible via the user interface and largely automated.
 
@@ -22,6 +21,7 @@ Centreon Monitoring Agent is in Beta Phase. The following limitations need to be
 ### OS supportés
 
 CMA can be installed on the following OS :
+The CMA can be installed on and monitor the following OSs:
 
 <Tabs groupId="sync">
 <TabItem value="Windows" label="Windows">
@@ -65,7 +65,7 @@ CMA can be installed on the following OS :
 
 ### Create the CMA connector
 
-Install the Open Telemetry processor for Telegraf on your central server:
+On your central server:
 
 1. Go to **Configuration > Commands > Connectors**.
 2. Create a new connector with the following values:
@@ -75,7 +75,7 @@ Install the Open Telemetry processor for Telegraf on your central server:
 | Connector Name        | Centreon Monitoring Agent                                                                                                                                                                     |
 | Connector Description | Centreon Monitoring Agent                                                                                                                                                                     |
 | Command Line          | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |
-| Used by command       | Type `TO BE DEFINED` and click **Select all**                                                                                                                                                 |
+| Used by command       | Type `Centreon-Monitoring-Agent` and click **Select all**                                                                                                                                     |
 | Connector Status      | Enabled                                                                                                                                                                                       |
 
 ### Configure Engine

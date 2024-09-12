@@ -21,7 +21,7 @@ L'Agent de supervision Centreon est en phase Beta. Les limitations suivantes s'a
 
 ### OS supportés
 
-L'agent peut être déployé sur les OS suivants :
+L'agent peut être installé sur et superviser les OS suivants :
 
 <Tabs groupId="sync">
 <TabItem value="Windows" label="Windows">
@@ -88,7 +88,7 @@ Sur votre serveur central :
 
 2. Entrez le contenu suivant. Cela permettra au collecteur de recevoir les données en provenance de l'agent.
 
-#### Usage normal (L'agent se connecte au poller)
+#### Usage normal (l'agent se connecte au collecteur)
 
 ```json
 {
@@ -108,11 +108,11 @@ Sur votre serveur central :
 chown centreon-engine: /etc/centreon-engine/otl_server.json
 ```
 
-#### Usage "reverse" (Le poller se connecte à l'agent)
+#### Usage "reverse" (le collecteur se connecte à l'agent)
 
-Cette configuration est à utiliser lorsque l'agent ne peut passe connecter au poller, pour des raisons de sécurité (ex : DMZ).
-Dans ce mode, le poller se connecte à l'agent.
-Le poller permet de fonctionner dans les deux modes simultanément (certains agents se connectent au poller alors que le poller se connecte à d'autres agents).
+Cette configuration est à utiliser lorsque l'agent ne peut pas se connecter au collecteur, pour des raisons de sécurité (ex : agent situé dans une DMZ).
+Dans ce mode, le collecteur se connecte à l'agent.
+Le collecteur permet de fonctionner dans les deux modes simultanément (certains agents se connectent au collecteur alors que le collecteur se connecte à d'autres agents).
 
 ```json
 {
@@ -134,13 +134,12 @@ Le poller permet de fonctionner dans les deux modes simultanément (certains age
 chown centreon-engine: /etc/centreon-engine/otl_server.json
 ```
 
-* Entrez l'adresse IP de l'hôte sur lequel est installé l'agent dans les champs **host** et **port**. Cette adresse doit être accessible depuis le poller.
+* Entrez l'adresse IP de l'hôte sur lequel est installé l'agent dans les champs **host** et **port**. Cette adresse doit être accessible depuis le collecteur.
 * Le champ **check_interval** correspond à la fréquence des contrôles effectués par l'Agent de supervision Centreon.
 
 > Pour des raisons de simplicité, cette page ne couvre que la configuration de l'Agent **en mode non sécurisé**, mais vous
 > trouverez la procédure pour chiffrer les communications dans la documentation du [connecteur Windows Centreon Monitoring Agent] ou celle du [connecteur Linux Centreon Monitoring Agent].
 
-(NOTE POUR TEAM DOC : ci-dessous le mode chiffré en normal et reverse, à décaler sur autre page ?)
 
 ```json
 {
@@ -205,10 +204,8 @@ L'Agent de supervision Centreon est maintenant capable de communiquer avec Centr
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
-* Installer le package centreon-monitoring-agent
-
-1. Modifier le fichier /etc/centreon-monitoring-agent/centagent.json local (4 cas) 
-
+* Installez le paquet **centreon-monitoring-agent**.
+1. Modifiez le fichier **/etc/centreon-monitoring-agent/centagent.json** local (4 cas) :
 
 Non chiffré, sans Reverse
 
@@ -269,25 +266,29 @@ Chiffré, avec Reverse
 ```
 
 #### Options de log
+
 Deux type de log sont disponibles:
-* file: l'agent loggue dans le fichier dont le path est donné par log_file
+
+* file: l'agent loggue dans le fichier dont le path est donné par **log_file**.
 * stdout: l'agent loggue vers la sortie standard de l'exe
 
-Dans le cas de logging vers un fichier, une rotation peut être paramétrée avec les clés log_max_file_size et log_max_files
+Dans le cas de logging vers un fichier, une rotation peut être paramétrée avec les clés **log_max_file_size** et **log_max_files**.
 
-Les niveaux de logs possibles sont: trace, debug, info, warning, error, critical et off
+Les niveaux de logs possibles sont: trace, debug, info, warning, error, critical et off.
 
-2. Redémarrer l'agent systemctl restart centagent
-
+2. Redémarrer l'agent : 
+   ```shell
+   systemctl restart centagent
+   ```
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-1. [Téléchargez l'agent à l'url https://github.com/centreon/centreon-collect/releases ] sur tous les serveurs que vous voulez superviser.
+1. [Téléchargez l'agent] (https://github.com/centreon/centreon-collect/releases) sur tous les serveurs que vous voulez superviser.
 
-2. chargez le fichier centagent.reg dans la base de registre
+2. chargez le fichier **centagent.reg** dans la base de registre.
 
-3. Modifiez la configuration de l'Agent en base de registre
+3. Modifiez la configuration de l'Agent en base de registre :
 
 Non chiffré
 
@@ -366,16 +367,17 @@ Chiffré, avec Reverse
 "reverse_connection"=dword:00000001
 ```
 
-
 #### Options de log
-Trois type de log sont dispos:
-* file: l'agent loggue dans le fichier dont le path est donné par log_file
-* event: l'agent loggue dans l'event viewer
-* stdout: l'agent loggue vers la sortie standard de l'exe
 
-Dans le cas de logging vers un fichier, une rotation peut être paramétrée avec les clés log_max_file_size et log_max_files
+Trois types de log sont disponibles :
 
-Les niveaux de logs possibles sont: trace, debug, info, warning, error, critical et off
+* file: l'agent loggue dans le fichier dont le chemin est donné par l'option **log_file**.
+* event: l'agent loggue dans l'event viewer.
+* stdout: l'agent loggue vers la sortie standard de l'exe.
+
+Dans le cas de logging vers un fichier, une rotation peut être paramétrée avec les clés **log_max_file_size** et **log_max_files**.
+
+Les niveaux de logs possibles sont: trace, debug, info, warning, error, critical et off.
 
 Note : un installeur sera disponible en version définitive, afin de faciliter la configuration et le déploiement massif. Dans cette version Beta, vous devrez lancer vous même l'agent.
 
@@ -385,14 +387,14 @@ Note : un installeur sera disponible en version définitive, afin de faciliter l
 
 ### Déployer les plugins Centreon sur l'hôte
 
-Les plugin Centreon exécuteront les contrôles sur l'hôte.
+Les plugins Centreon exécuteront les contrôles sur l'hôte.
 
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
 ##### Activez les dépôts Centreon et installez le plugin
 
-Ce dépôt permettra d'installer les plugins Centreon ainsi que **les dépendances qui ne peuvent pas être satisfaites par les dépôts standards des distributions**.
+Ce dépôt permettra d'installer les plugins Centreon ainsi que **les dépendances qui ne peuvent pas être satisfaites par les dépôts standard des distributions**.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -548,12 +550,12 @@ Sur les hôtes que vous voulez superviser, téléchargez et exécutez le [plugin
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
-Sur le serveur central, [créez l'hôte](/docs/monitoring/basic-objects/hosts) et appliquez-leur le modèle d'hôtes **OS-Linux-Centreon-Monitoring-Agent-custom**.
+Sur le serveur central, [créez l'hôte](/docs/monitoring/basic-objects/hosts) et appliquez-lui le modèle d'hôte **OS-Linux-Centreon-Monitoring-Agent-custom**.
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-Sur le serveur central, [créez l'hôte](/docs/monitoring/basic-objects/hosts) et appliquez-leur le modèle d'hôtes **OS-Windows-Centreon-Monitoring-Agent-custom**.
+Sur le serveur central, [créez l'hôte](/docs/monitoring/basic-objects/hosts) et appliquez-lui le modèle d'hôte **OS-Windows-Centreon-Monitoring-Agent-custom**.
 
 </TabItem>
 </Tabs>

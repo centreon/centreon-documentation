@@ -248,8 +248,9 @@ apt-get update
 apt-get -y install telegraf
 ```
 
-Vous devez alors configurer la sortie opentelemetry de telegraf.
-Vous devez décommenter ce paragraphe ou bien recréer un fichier de configuration avec juste ces lignes:
+Vous devez alors configurer la sortie OpenTelemetry de Telegraf.
+Vous devez décommenter ce paragraphe ou bien recréer un fichier de configuration avec juste les lignes suivantes :
+
 ```
 # [[outputs.opentelemetry]]
 #   ## Override the default (localhost:4317) OpenTelemetry gRPC service
@@ -272,18 +273,20 @@ Vous devez décommenter ce paragraphe ou bien recréer un fichier de configurati
 #   ## Send the specified TLS server name via SNI.
 #   # tls_server_name = "foo.example.com"
 ```
+Si la communication entre Telegraf et le collecteur n'est pas chiffrée, il vous suffit de renseigner **service_address** avec l'adresse IP et le port du collecteur (port renseigné dans le champ **otel_server** dans la configuration du collecteur). Sinon, il vous faudra aussi renseigner au moins l'option **tls_ca**.
 
-Si la communication entre telegraf et le poller n'est pas cryptée, il vous suffit de renseigner service_address avec l'ip et le port du poller (port renseigné dans le champs otel_server dans la conf du poller). Sinon, il vous faudra aussi renseigner au moins tls_ca.
-
-Maintenant, il vous faut ajouter le serveur de configuration de telegraf fourni par le poller.
-Vous devez créer le fichier /etc/default/telegraf et y ajouter la ligne suivante:
+Maintenant, il vous faut ajouter le serveur de configuration de Telegraf fourni par le collecteur.
+Vous devez créer le fichier **/etc/default/telegraf** et y ajouter la ligne suivante:
 ```
 TELEGRAF_OPTS=-config https://<ip poller>:<http_server port>/engine?host=<host_to_monitor>
 ```
-es arguments de cette commande permettront à Telegraf de savoir où aller chercher la configuration des resources qu'il doit superviser (c'est-à-dire sur le collecteur ou sur le central suivant l'IP définie dans la commande). Le paramètre `<host_to_monitor>` est le nom de l'hôte tel qu'entré dans le champ **Nom** de sa configuration.
 
-Il vous reste maintenant à redémarrer telegraf
+Les arguments de cette commande permettront à Telegraf de savoir où aller chercher la configuration des ressources qu'il doit superviser (c'est-à-dire sur le collecteur ou sur le central suivant l'IP définie dans la commande). Le paramètre `<host_to_monitor>` est le nom de l'hôte tel qu'entré dans le champ **Nom** de sa configuration.
+
+Il vous reste maintenant à redémarrer Telegraf :
+```shell
 systemctl restart telegraf
+```
 
 </TabItem>
 </Tabs>
@@ -293,8 +296,8 @@ systemctl restart telegraf
 
 1. [Téléchargez l'agent](https://docs.influxdata.com/telegraf/v1/install/) sur tous les serveurs que vous voulez superviser.
 
-2. Vous devez alors configurer la sortie opentelemetry de telegraf.
-Vous devez décommenter ce paragraphe ou bien recréer un fichier de configuration avec juste ces lignes:
+2. Vous devez alors configurer la sortie OpenTelemetry de Telegraf.
+Vous devez décommenter ce paragraphe ou bien recréer un fichier de configuration avec juste les lignes suivantes :
 ```
 # [[outputs.opentelemetry]]
 #   ## Override the default (localhost:4317) OpenTelemetry gRPC service
