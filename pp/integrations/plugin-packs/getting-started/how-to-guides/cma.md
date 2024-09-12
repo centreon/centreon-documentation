@@ -12,15 +12,12 @@ Centreon plugins as well as Nagios-compatible plugins can be used with this agen
 
 ### Limitations
 
-Centreon Monitoring Agent is in Beta Phase. The following limitations need to be considered : 
 The Centreon Monitoring Agent is in Beta Phase. The following limitations need to be considered : 
 * The scope of supervision supported is limited, new (native) controls will be introduced in the final version.
 * Manual configuration is required. In the final version, this will be possible via the user interface and largely automated.
 
-
 ### OS supportés
 
-The CMA can be installed on and monitor the following OSs:
 The CMA can be installed on and monitor the following OSs:
 
 <Tabs groupId="sync">
