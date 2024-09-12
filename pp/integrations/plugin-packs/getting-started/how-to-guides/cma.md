@@ -85,7 +85,7 @@ On your central server:
 
 2. Enter the following contents. This will allow the poller to receive the data that the agent will send.
 
-#### Normal usage (CMA connects to poller)
+#### Normal usage (the CMA connects to the poller)
 
 ```json
 {
