@@ -104,73 +104,69 @@ This section will help you understand how Centreon Broker works and how it
 should be configured according to Centreon's best practices. The various options
 used by Centreon Broker are described.
 
-### Overview
+### General Overview
 
-The Centreon Broker's core is a simple multiplexing engine that takes *inputs*
-(events) and sends them to various *outputs*. Inputs are typically other Centreon
-Broker events received via TCP/IP, while outputs can be an SQL database,
+Centreon Broker is at its core a simple multiplexing engine. It takes events from
+*Inputs* and send them to various *Outputs*. *Inputs* are typically other
+instances of Centreon Broker over TCP/IP, while *Outputs* can be a SQL database,
 other brokers, a BI/BAM engine, Centreon Map, etc.
 
-Each input or output has a *type* that describes what it does plus several
-parameters, some mandatory and others optional. Additionally, an output can have
-a *failover* that will start when the output is in an error state in order to
-ensure data retention.
+Each *Input* or *Output* has a *type* that describe what it does and several
+parameters, some of them mandatory and other optional. Additionally, an *Output*
+can have a *Failover* that will start when the *Output* is in an error state to
+allow retention of data.
 
-An important distinction should be made between a standalone Centreon Broker and
-a Centreon Broker installed as a Centreon Engine module. Both have the same
-capabilities and support the same inputs and outputs. The difference is that the
-Centreon Broker configured as a module is automatically started when Centreon
-Engine starts. This broker automatically generates the events associated with
-the Centreon Engine. Broker modules often only have one output to a Centreon
-Broker instance acting as a concentrator.
+An important distinction to make is the standalone Centreon Broker versus a
+Centreon Broker installed as Centreon Engine's module. Both have the exact same
+capabilities and support the same *Inputs* and *Outputs*. The difference is that
+Centreon Broker configured as a module will be automatically started when
+Centreon Engine starts and automatically generates the events associated to this
+Centreon Engine. Often, those modules only have one *Output* to an instance of
+Centreon Broker acting as a concentrator.
 
-### Main configuration page
+### Main Configuration Page
 
-This section lists all the Centreon Broker instances configured in your
-infrastructure, either in standalone or module mode. Each instance has a name,
-is associated with a poller, has a number of inputs, outputs\*, and *loggers*,
-and can be *enabled* or *disabled*.
+This section lists all the instances of Centreon Broker configured in your park,
+either in standalone or module mode. Each instance has a name, is associated
+with a poller, has a number of *Inputs*, *Outputs*, and *Loggers*, and can be
+'enabled' or 'disabled'.
 
-A *central*-type poller will have three Centreon Broker instances by default:
+A poller of type 'Central' will have three instances of Centreon Broker by
+default. One Centreon Broker installed as a module for Centreon Engine (here
+called *central-module-master*), one Centreon Broker acting as a stand-alone
+concentrator (here called *central-broker-master*) and one Centreon Broker
+specialized in generating the RRD data used by the graphs (here called
+*central-rrd-master*). A best practice is to always use a separate instance of
+Centreon Broker to generate RRD data. This way, an issue in the RRD stack will
+not cause any issue in your main monitoring.
 
-  - one Centreon Broker installed as a module for a Centreon Engine (called a
-    *central-module-master*)
-  - one Centreon Broker acting as a stand-alone concentrator (called a
-    *central-broker-master*)
-  - one Centreon Broker that specializes in generating the RRD data used by graphs
-    (called *central-rrd-master*).
+As expected, *central-module-master* has only one *Output* and zero *Input*.
+Configured as a module to Centreon Engine, it generates events on its own and
+forward them to the standalone instance of Centreon Broker.
 
-The best practice is to always use a separate Centreon Broker instance to
-generate RRD data. This way, an issue occurring in the RRD stack will not have
-any impact on your main monitoring.
+A poller generally only have an instance of Centreon Broker, configured as a
+module for Centreon Engine.
 
-As expected, the *central-module-master* has only one output and zero inputs.
-Configured as a Centreon Engine module, it generates events on its own and
-forwards them to the standalone Centreon Broker instance.
+### Broker General Configuration Page
 
-A poller generally has only one Centreon Broker instance configured as a
-Centreon Engine module.
-
-### Broker general configuration page
-
-This section lists all the general options associated with a Centreon Broker
-instance.
+This section lists all the general options associated with an instance of
+Centreon Broker.
 
 Main options:
 
   - Poller  
-    The poller containing the instance.
+    The poller where this instance lives.
 
   - Name  
-    The name of the instance.
+    The name of this instance.
 
   - Config file name  
     The name of the configuration file used by this instance.
 
   - Retention path  
-    When an output is in an error state, a failover is launched. Failovers save
-    data in files called *retention files*. These in turn are saved in the
-    directory specified here. The best practice is **/var/lib/centreon-broker/**.
+    When an *Output* is in an error state, a *Failover* is launched. *Failovers*
+    save data in files called retention files. Those in turn are saved in the
+    directory specified here. Best practice is **/var/lib/centreon-broker/**
     For security reasons, you can use these directories:
 
       - **/var/lib/centreon-broker/**
@@ -178,7 +174,7 @@ Main options:
       - **/var/cache/centreon/**
 
   - Status  
-    Used to enable or disable the instance.
+    This is used to enable or disable this instance.
 
 Log options:
 
@@ -188,7 +184,7 @@ Log options:
   - Log filename	
     Name of the log file. Default is `<name of this broker configuration entry>`.log
     
-  - Maximum file size (in bytes)
+  - Maximum files size (in bytes)
     A value different from zero will cause the creation of a new numbered log
     file as soon as the maximum size is reached. Recommended value is `0`.
     
@@ -201,39 +197,39 @@ Log options:
     
   - sql
     Log level for `sql` log messages.
-    Useful for troubleshooting database query issues.
+    Useful to troubleshoot database queries issues.
     
   - processing
-    Log level for `processing` log messages. You should not change this unless 
+    Log level for `processing` log messages. You shouldn't change it unless 
     you know what you are looking for.
     
   - perfdata
     Log level for `perfdata` log messages.
-    Useful for troubleshooting performance data processing issues.
+    Useful to troubleshoot performance data processing issues.
     
   - bbdo
     Log level for `bbdo` log messages.
-    Useful for troubleshooting [broker binary data objects](../../developer/developer-broker-bbdo.md) issues.
+    Useful to troubleshoot [broker binary data objects](../../developer/developer-broker-bbdo.md) issues.
     
   - tcp
     Log level for `tcp` log messages.
-    Useful for troubleshooting network-related issues.
+    Useful to troubleshoot network related issues.
     
   - tls
     Log level for `tls` log messages.
-    Useful for troubleshooting TLS encryption issues.
+    Useful to troubleshoot TLS encryption issues.
     
   - lua
     Log level for `lua` log messages.
-    Useful for troubleshooting [Lua Stream Connectors](../../developer/developer-broker-stream-connector.md) issues.
+    Useful to troubleshoot [Lua Stream Connectors](../../developer/developer-broker-stream-connector.md) issues.
     
   - bam
     Log level for `bam` log messages.
-    Useful for troubleshooting [Business Activity Monitoring](../../service-mapping/introduction.md) issues.
+    Useful to troubleshoot [Business Activity Monitoring](../../service-mapping/introduction.md) issues.
 
-  - Write timestamp (applies to the [deprecated logger options](#broker-logger-configuration-page-deprecated))
+  - Write timestamp (applies to the [deprecated loggger options](#broker-logger-configuration-page-deprecated))
     If activated, each log entry is preceded by the timestamp of the time it was
-    written. This is useful to know when an error has occurred. Best practice is
+    written. This is useful to know when an error has occured. Best practice is
     *Yes*.
 
   - Write thread id  
@@ -270,45 +266,47 @@ file in */var/lib/centreon-broker/name.stats*.
 This section lists all the inputs activated for this instance of Centreon
 Broker. Centreon Broker can have as many inputs as needed.
 
-Inputs read events from a TCP connection. All inputs have the following
+#### TCP - IPV4
+
+This type of input is deprecated. Inputs read events from a TCP connection. All inputs have the following
 parameters:
 
   - Name  
     The name of the input. Must be unique.
 
   - Serialization protocol  
-    The protocol that was used to serialize the data. Can be either *BBDO* or
-    *NDO*. NDO is a legacy textual protocol with inferior performance, data
-    density and security. BBDO is a next-generation binary protocol that is
-    effective and secure. NDO is deprecated. It should never be used for a new
-    software installation. Best practice is *BBDO*.
+    The protocol that was used to serialize the data. Can be either 'BBDO' or
+    'NDO'. NDO is an old textual protocol that suffers from very poor
+    performance, poor density of data, and poor security. BBDO is a next-gen
+    binary protocol that is performant and secure. NDO is deprecated. It should
+    never be used in new installation. Best practice is 'BBDO'.
 
   - Compression  
-    If compression is used to serialize the data, the options are: *auto*,
-    *yes*, or *no*. If left on *auto*, the Centreon Broker will detect whether
-    compression was used during a TCP handshake (or assume that no compression
-    was used for files). Default is *auto* for TCP, *no* for files.
+    If compression was used to serialize the data. Can be 'auto', 'yes', or
+    'no'. If left on 'auto' Centreon Broker will detect if compression was used
+    while doing a TCP handshake (or assume no compression was used for files).
+    Default to 'auto' for TCP, 'no' for files.
 
   - Filter category  
-    The categories of events accepted by this input. If empty, no restriction on
-    events accepted. If filled, only events of the given type will be processed.
-    Inputs that accept data from the Centreon Engine Broker module should be set
-    to only accept *Neb* events.
+    The categories of events accepted by this *Input*. If empty, no restriction
+    on events accepted. If filled, only events of the given type will be
+    processed. *Input* that accept data from Centreon Engines' Broker module
+    should be set to accept only 'Neb' events.
 
   - Connection Port  
-    The port that will be used for the connection. Mandatory.
+    Which port will be used for the connection. Mandatory.
 
   - Host to connect to  
-    This important parameter decides whether the input will listen or attempt to
-    initiate a connection. If left empty, the input will listen on its given
-    port. If specified, it will attempt to initiate a connection to the given
+    This important parameter will decide if this input will listen or attempt to
+    initiate a connection. Left empty, this input will listen on its given port.
+    If filled, this input will attempt to initiate a connection to the given
     host/port.
 
   - Enable TLS encryption  
-    Enables the encryption of the flow. For the encryption to work, the private
-    key file, the *Public certificate* and the *Trusted CA's certificate* need
-    to be set on both ends. Default is *auto*, i.e., *no* unless TCP negotiation
-    has been activated and the remote endpoint has activated encryption.
+    Enable the encryption of the flux. For the encryption to work, the private
+    key file, the public certificate and the trusted CA's certificate need to be
+    set on both end. Default to 'auto', i.e 'no' unless TCP negociation has been
+    activated and the remote endpoint has activated encryption.
 
   - Private Key File  
     The private key file used for the encryption.
@@ -317,49 +315,119 @@ parameters:
     The public certificate used for the encryption.
 
   - Trusted CA's certificate  
-    The trusted CA certificate used for the encryption.
+    The trused CA certificate used for the encryption.
 
-  - Enable negotiation  
-    If set to *yes*, this input will try to negotiate encryption and compression
-    with the remote endpoint.
+  - Enable negociation  
+    Enable negociation. If 'yes', this *Intput* will try to negociate encryption
+    and compression with the remote endpoint.
 
   - One peer retention mode  
     By default, a listening input will accept any number of incoming
-    connections. In *one peer retention* mode, only one connection at a time is
-    accepted, on a first-come first-serve basis. Default is *no*.
+    connections. In 'one peer retention' mode only one connection is accepted at
+    the same time, on a first-come first-serve basis. Default to 'no'.
 
-TCP *input* can either listen on a given port or can attempt to initiate a
-connection if a host is given. This allows flexible network topology.
+To reiterate, TCP *Input* can either listen on a given port or can attempt to
+initiate a connection if a host is given. This allow flexible network topology.
 
-### Broker output configuration page
+#### BBDO Server
 
-This section lists all the outputs activated for this Centreon Broker instance.
-Centreon Broker can have as many outputs as needed.
+BBDO Server inputs receive events from a remote endpoint. They listen on a given port for a connection by a BBDO Client.
 
-For each output, the parameters are:
+*BBDO Server*-type inputs have the following parameters:
+
+  - Listening address
+    Only with TCP transport protocol, if empty or if 0.0.0.0 the server listens for every connection.
+    Otherwise, the server only listens on the interface behind the given address.
+
+  - Listening port
+    Port used for the connection. Mandatory.
+
+  - Transport protocol
+    Two choices are available: gRPC (based on http2) or TCP (a little faster).
+
+  - Authorization token
+    Only used with the gRPC transport protocol. This can be used to filter the BBDO flow.
+    A BBDO client will be able to send data to this server only if their authorization tokens match.
+    
+  - Enable TLS encryption  
+    Enables the encryption of the flow. For the encryption to work, the private
+    key file, *Public certificate* and *Trusted CA's certificate* need to be set
+    on both ends. Default is *auto*, i.e., *no* unless TCP negotiation has been
+    activated and the remote endpoint has activated encryption.
+
+  - Private key path  
+    The private key file used for the encryption.
+
+  - Certificate path
+    The public certificate used for the encryption.
+
+#### BBDO Client
+
+BBDO Client inputs receive events from a remote endpoint. They establish a connection on a given port to a BBDO Server.
+
+*BBDO Client*-type inputs have the following parameters:
+
+  - Server address
+    The address to connect to.
+
+  - Server port  
+    The server port.
+
+  - Retry interval
+    On failure, the client waits for this value (given in seconds) before retrying to connect.
+    
+  - Transport protocol
+    Two choices are available: gRPC (based on http2) or TCP (a little faster).
+
+  - Authorization token
+    Only used with the gRPC transport protocol. This can be used to filter the BBDO flow.
+    A BBDO client will be able to send data to this server only if their authorization tokens match.
+    
+  - Enable TLS encryption  
+    Enables the encryption of the flow. For the encryption to work, the private
+    key file, *Public certificate* and *Trusted CA's certificate* need to be set
+    on both ends. Default is *auto*, i.e., *no* unless TCP negotiation has been
+    activated and the remote endpoint has activated encryption.
+
+  - Trusted CA's certificate path
+    The Trusted CA's certificate file.
+
+  - Certificate Common Name
+    The certificate Common Name.
+
+### Broker Output Configuration Page
+
+This section lists all the *Outputs* activated for this instance of Centreon
+Broker. Centreon Broker can have as many *Outputs* as needed.
+
+For each *Outputs*, the parameters are:
 
   - Type
-    There are several types of output managed by the Centreon Broker:
+    There are several types of outputs managed by the Centreon Broker:
 
     1.  **TCP - IPV4** and **TCP - IPV6**: This output forwards data to another
-        server, another Centreon Broker or Centreon Map.
-    2.  **File**: Writes data into a file.
-    3.  **RRD**: Generates RRD data from performance data.
-    4.  **Storage**: Writes metrics into the database and generates performance
+        server, another Centreon Broker or Centreon Map. Currently, it doesn't work
+        with IPV6. This output is also deprecated because we now have two outputs to
+        replace it that are **BBDO Server** and **BBDO Client**.
+    2.  **BBDO Server**: This output forwards data to a BBDO client, another Centreon Broker or Centreon Map.
+    3.  **BBDO Client**: This output forwards data to a BBDO server, another Centreon Broker or Centreon Map.
+    4.  **File**: Writes data into a file. This output is deprecated.
+    5.  **RRD**: Generates RRD data from performance data.
+    6.  **Storage**: Writes metrics into the database and generates performance
         data (deprecated).
-    5.  **SQL**: Writes the real-time status into Centreon's database
+    7.  **SQL**: Writes the real-time status into Centreon's database
         (deprecated).
-    6.  **unified-sql**: Writes the real-time status into Centreon's database.
+    8.  **unified-sql**: Writes the real-time status into Centreon's database.
         One such output replaces **Storage** and **SQL** outputs at the same
         time.
-    7.  **Dumper Reader**: Reads from a database when Broker is asked to synchronize
-        databases.
-    8.  **Dumper Writer**: Writes into a database when Broker is asked to
-        synchronize databases.
-    9.  **BAM Monitoring**: Generates BAM data from raw events and updates real-time
+    9.  **Dumper Reader**: Reads from a database when Broker is asked to synchronize
+        databases (obsolete).
+    10.  **Dumper Writer**: Writes into a database when Broker is asked to
+        synchronize databases (obsolete).
+    11.  **BAM Monitoring**: Generates BAM data from raw events and updates real-time
         BAM status.
-    10. **BAM Reporting**: Writes long-term BAM logs that can then be used by BI.
-    11. **Generic - Stream connector**: This is a generic output. You need to
+    12. **BAM Reporting**: Writes long-term BAM logs that can then be used by MBI.
+    13. **Generic - Stream connector**: This is a generic output. You need to
         write a Lua script to explain what you want.
 
   - Failover
@@ -379,14 +447,14 @@ For each output, the parameters are:
   - Buffering timeout  
     When this output is in an error state, Centreon Broker will wait a specified
     time before launching the failover. This is mainly useful if Centreon Broker
-    should wait for another program to initialize before activating its
+    should wait for another software to initialize before activating its
     failover. In all other cases, this parameter should not be used. Default is
     0 seconds.
 
   - Filter category
     The categories of events accepted by this output. If left empty, no
     restriction on events accepted. If filled, only events of the given type
-    will be processed. The exact best practices are output-specific:
+    will be processed. The exact best practices are output specific:
 
     1.  *BAM Reporting* should only accept *BAM* events.
     2.  *Dump Writer* should only accept *dumper* events.
@@ -401,7 +469,7 @@ output consumes data from a storage output, a *dumper writer* output consumes
 data from a *dumper reader*, and a *BAM reporting* output consumes data from a
 *BAM monitoring* output.
 
-Centreon Web needs at least an active output *SQL* output to activate its
+Centreon Web needs at least an active output *SQL* ouput to activate its
 real-time monitoring capabilities. The storage and RRD outputs are needed to
 activate Centreon Web metric plotting. The BAM monitoring output is needed for
 real-time BAM data and the BAM reporting output for BI reports.
@@ -411,8 +479,8 @@ outputs can be located on logically or physically different instances as long as
 they are connected to each other.
 
 **Important**: Centreon Web 2.x features two databases, the configuration
-database and the real-time database. Those are called *centreon*
-and *centreon-storage*, respectively. Different outputs expect different databases in
+database and the real-time database. Those are respectively called *centreon*
+and *centreon-storage*. Different outputs expect may different databases in
 their configuration.
 
 | Output Type    | Expected database |
@@ -435,7 +503,7 @@ parameter is given. This allows for flexible network topology.
 
   - Serialization protocol  
     The protocol used to serialize the data. Can be either *BBDO* or *NDO*. NDO
-    is a legacy textual protocol with inferior performance, data density and
+    is an legacy textual protocol with inferior performance, data density and
     security. BBDO is a next-generation binary protocol that is effective and
     secure. NDO is deprecated. It should never be used for new installations.
     Best practice is *BBDO*.
@@ -470,24 +538,97 @@ parameter is given. This allows for flexible network topology.
 
   - One peer retention mode  
     By default, a listening input will accept any number of incoming
-    connections. In *one peer retention* mode, only one connection at a time is
+    connections. In *one peer retention* mode only one connection at a time is
     accepted, on a first-come first-serve basis. Default is *no*.
 
   - Compression  
     If compression should be used to serialize the data. Can be *auto*, *yes*,
-    or *no*. If left on *auto*, Centreon Broker will detect if compression is
+    or *no*. If left on *auto* Centreon Broker will detect if compression is
     supported by the endpoint during a TCP negotiation. Default is *auto* for
     TCP.
 
   - Compression Level  
     The level of compression that should be used, from 1 to 9. Default (or if
-    not filled) is 6. The higher the compression level, the higher the
+    not filled) is 6. The higher the compression level is, the higher the
     compression will be at the expense of processing power.
 
   - Compression Buffer  
     The size of the compression buffer that should be used. Best practice is *0*
     or nothing.
 
+#### BBDO Server
+
+BBDO Server outputs forward events to a remote endpoint. They listen on a given port for a connection by a BBDO Client.
+
+*BBDO Server*-type outputs have the following parameters:
+
+  - Listening address
+    Only with TCP transport protocol, if empty or if 0.0.0.0 the server listens for every connection.
+    Otherwise, the server only listens on the interface behind the given address.
+
+  - Listening port  
+    Port used for the connection. Mandatory.
+
+  - Transport protocol
+    Two choices are available: gRPC (based on http2) or TCP (a little faster).
+
+  - Authorization token
+    Only used with the gRPC transport protocol. This can be used to filter the BBDO flow.
+    A BBDO client will be able to send data to this server only if their authorization tokens match.
+    
+  - Enable TLS encryption  
+    Enables the encryption of the flow. For the encryption to work, the private
+    key file, *Public certificate* and *Trusted CA's certificate* need to be set
+    on both ends. Default is *auto*, i.e., *no* unless TCP negotiation has been
+    activated and the remote endpoint has activated encryption.
+
+  - Private key path  
+    The private key file used for the encryption.
+
+  - Certificate path
+    The public certificate used for the encryption.
+
+  - Compression  
+    With this option, data is compressed.
+    
+  - Enable retention
+    With this option, data cannot be lost. If the peer doesn't read sent data, the data is stacked until the peer succeeds to read it.
+
+BBDO Client outputs forward events to a remote endpoint. They establish a connection on a given port to a BBDO Server.
+
+*BBDO Client*-type outputs have the following parameters:
+
+  - Server address
+    The address to connect to.
+
+  - Server port  
+    The server port.
+
+  - Retry interval
+    On failure, the client waits for this value (given in seconds) before retrying to connect.
+    
+  - Transport protocol
+    Two choices are available: gRPC (based on http2) or TCP (a little faster).
+
+  - Authorization token
+    Only used with the gRPC transport protocol. This can be used to filter the BBDO flow.
+    A BBDO client will be able to send data to this server only if their authorization tokens match.
+    
+  - Enable TLS encryption  
+    Enables the encryption of the flow. For the encryption to work, the private
+    key file, *Public certificate* and *Trusted CA's certificate* need to be set
+    on both ends. Default is *auto*, i.e., *no* unless TCP negotiation has been
+    activated and the remote endpoint has activated encryption.
+
+  - Trusted CA's certificate path
+    The Trusted CA's certificate file.
+
+  - Certificate Common Name
+    The certificate Common Name.
+
+  - Compression
+    With this option, data is compressed.
+    
 #### File outputs
 
 File *outputs* send events into a file on the disk. Additionally, they have the
@@ -512,7 +653,7 @@ file outputs will be used as failovers.
 
   - Compression Level  
     The level of compression to be used, from 1 to 9. Default (or if not filled)
-    is 6. The higher the compression level, the higher the compression will
+    is 6. The higher the compression level is, the higher the compression will
     be at the expense of processing power.
 
   - Compression Buffer  
@@ -553,7 +694,7 @@ stack will not have any impact on the main Centreon Broker instance.
 
 Perfdata storage outputs save metric data into a database and generate RRD data
 used by the RRD output. This output usually generates multiple queries and is
-very performance-intensive. If Centreon Broker is slow, try adjusting the
+very performance intensive. If Centreon Broker is slow, try adjusting the
 *maximum queries per transaction* parameter to optimize processing speed.
 
 This output can be tasked to rebuild RRD data from a database of stored metric
@@ -568,9 +709,8 @@ process new metric data at a reduced speed.
   - DB Port  
     The port of the database being accessed.
 
-  - DB User
+  - DB User  
     The user account for connecting to this database.
-    
 
   - DB Name  
     The name of the database. In Centreon terms, this is the database containing
@@ -618,7 +758,7 @@ Web.
 
 Moreover, this output has a *garbage collector* that will clean old data from
 the database occasionally. This is an optional process, as old data is marked
-*disabled*, and can actually be useful to keep for debugging purposes.
+*disabled*, and can actually be useful to keep for debugging purpose.
 
 *SQL*-type outputs have the following parameters:
 
@@ -670,7 +810,7 @@ Unified SQL outputs are the union of **Storage** outputs and **SQL** outputs.
 They save metric data into a database and generate RRD data used by the RRD
 output.
 
-This output usually generates multiple queries and is very performance-intensive.
+This output usually generates multiple queries and is very performance intensive.
 If Centreon Broker is slow, try adjusting the
 **maximum queries per transaction** parameter to optimize processing speed.
 
@@ -688,7 +828,7 @@ the database occasionally. This is an optional process, as old data is marked
 
 Since **bbdo 3**, this output is the preferred one instead of the **storage** and
 **sql** outputs. That way, you just need one output to the database,
-configurations have to be entered once, and there are fewer conflicts between
+configurations have to be filled once and there are less conflicts between
 outputs.
 
 **unified-sql**-type outputs have the following parameters:
@@ -782,15 +922,15 @@ Lua script should reside on your server.
 
 #### Dumper reader/writer
 
-A *dumper reader/writer* pair is used to synchronize part of a database between
-two instances of Centreon Broker. In the future we will provide an extensive
-synchronization mechanism, but today this system is mainly used to synchronize
-BAs for the BAM Poller Display mechanism.
+A Dumper Reader/Writer pair is used to synchronize part of a database between
+two instances of Centreon Broker. In the future there will be an extensive
+synchronization mechanism, but today it is mainly used to synchronize BA for the
+BAM Poller Display mechanism.
 
 The BAM Poller Display configuration documentation explains how to properly
-configure these outputs.
+configure those *Outputs*.
 
-*Dumper Reader*-type and *Dumper Writer*-type outputs have the following
+*Outputs* of type 'Dumper Reader' and 'Dumper Writer' have the following
 parameters:
 
   - DB Type  
@@ -800,11 +940,11 @@ parameters:
     The port of the database being accessed.
 
   - DB User  
-    The user account for connecting to this database.
+    The user used by this *Output* to connect to this database.
 
   - DB Name  
-    The name of the database. In Centreon terms, this is the database containing
-    the real-time monitoring data, generally called *centreon-storage*.
+    The name of this database. In Centreon term, this is the database containing
+    the configuration data, generally called 'centreon'.
 
   - DB Password  
-    The password used by the output to connect to this database.
+    The password used by this *Output* to connect to this database.

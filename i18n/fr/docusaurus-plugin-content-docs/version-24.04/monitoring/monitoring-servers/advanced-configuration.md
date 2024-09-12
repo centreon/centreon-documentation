@@ -115,7 +115,7 @@ various options used by Centreon Broker.
 
 ### General Overview
 
-Centreon Broker is at is core a simple multiplexing engine. It takes events from
+Centreon Broker is at its core a simple multiplexing engine. It takes events from
 *Inputs* and send them to various *Outputs*. *Inputs* are typically other
 instances of Centreon Broker over TCP/IP, while *Outputs* can be a SQL database,
 other brokers, a BI/BAM engine, Centreon Map, etc.
