@@ -352,11 +352,11 @@ BBDO Server inputs receive events from a remote endpoint. They listen on a given
     Port used for the connection. Mandatory.
 
   - Transport protocol
-    Two choices are available gRPC (based on http2) or TCP (a little faster).
+    Two choices are available: gRPC (based on http2) or TCP (a little faster).
 
   - Authorization token
-    Only used with gRPC transport protocol. This can be used to filter BBDO flow.
-    A BBDO client will be able to send data to this server only if their authorization token match.
+    Only used with the gRPC transport protocol. This can be used to filter the BBDO flow.
+    A BBDO client will be able to send data to this server only if their authorization tokens match.
     
   - Enable TLS encryption  
     Enables the encryption of the flow. For the encryption to work, the private
@@ -370,7 +370,9 @@ BBDO Server inputs receive events from a remote endpoint. They listen on a given
   - Certificate path
     The public certificate used for the encryption.
 
-#### BBDO Client inputs receive events from a remote endpoint. They establish a connection on a given port to a BBDO Server.
+#### BBDO Client
+
+BBDO Client inputs receive events from a remote endpoint. They establish a connection on a given port to a BBDO Server.
 
 *BBDO Client*-type inputs have the following parameters:
 
@@ -381,14 +383,14 @@ BBDO Server inputs receive events from a remote endpoint. They listen on a given
     The server port.
 
   - Retry interval
-    On failure, the client wait for this value (given in seconds) before retrying to connect.
+    On failure, the client waits for this value (given in seconds) before retrying to connect.
     
   - Transport protocol
-    Two choices are available gRPC (based on http2) or TCP (a little faster).
+    Two choices are available: gRPC (based on http2) or TCP (a little faster).
 
   - Authorization token
-    Only used with gRPC transport protocol. This can be used to filter BBDO flow.
-    A BBDO client will be able to send data to this server only if their authorization token match.
+    Only used with the gRPC transport protocol. This can be used to filter the BBDO flow.
+    A BBDO client will be able to send data to this server only if their authorization tokens match.
     
   - Enable TLS encryption  
     Enables the encryption of the flow. For the encryption to work, the private
@@ -418,14 +420,14 @@ For each *Outputs*, the parameters are:
         replace it that are **BBDO Server** and **BBDO Client**.
     2.  **BBDO Server**: This output forwards data to a BBDO client, another Centreon Broker or Centreon Map.
     3.  **BBDO Client**: This output forwards data to a BBDO server, another Centreon Broker or Centreon Map.
-    4.  **File**: Writes data into a file. This output is deprecated and we should need to use it anymore.
+    4.  **File**: Writes data into a file. This output is deprecated.
     5.  **RRD**: Generates RRD data from performance data.
     6.  **Storage**: Writes metrics into the database and generates performance
         data (deprecated).
     7.  **SQL**: Writes the real-time status into Centreon's database
         (deprecated).
     8.  **unified-sql**: Writes the real-time status into Centreon's database.
-        One such output replaces **Storage** and **SQL** outputs in the same
+        One such output replaces **Storage** and **SQL** outputs at the same
         time.
     9.  **Dumper Reader**: Reads from a database when Broker is asked to synchronize
         databases (obsolete).
@@ -433,7 +435,7 @@ For each *Outputs*, the parameters are:
         synchronize databases (obsolete).
     11.  **BAM Monitoring**: Generates BAM data from raw events and updates real-time
         BAM status.
-    12. **BAM Reporting**: Writes long-term BAM logs that can then be used by BI.
+    12. **BAM Reporting**: Writes long-term BAM logs that can then be used by MBI.
     13. **Generic - Stream connector**: This is a generic output. You need to
         write a Lua script to explain what you want.
 
@@ -577,10 +579,10 @@ BBDO Server outputs forward events to a remote endpoint. They listen on a given 
     Port used for the connection. Mandatory.
 
   - Transport protocol
-    Two choices are available gRPC (based on http2) or TCP (a little faster).
+    Two choices are available: gRPC (based on http2) or TCP (a little faster).
 
   - Authorization token
-    Only used with gRPC transport protocol. This can be used to filter BBDO flow.
+    Only used with the gRPC transport protocol. This can be used to filter the BBDO flow.
     A BBDO client will be able to send data to this server only if their authorization token match.
     
   - Enable TLS encryption  
@@ -596,10 +598,10 @@ BBDO Server outputs forward events to a remote endpoint. They listen on a given 
     The public certificate used for the encryption.
 
   - Compression  
-    With this option, data are compressed.
+    With this option, data is compressed.
     
   - Enable retention
-    With this option, data cannot be lost. If the peer doesn't read sent data, they are stacked until the peer succeeds to read them.
+    With this option, data cannot be lost. If the peer doesn't read sent data, the data is stacked until the peer succeeds to read it.
 
 BBDO Client outputs forward events to a remote endpoint. They establish a connection on a given port to a BBDO Server.
 
@@ -612,13 +614,13 @@ BBDO Client outputs forward events to a remote endpoint. They establish a connec
     The server port.
 
   - Retry interval
-    On failure, the client wait for this value (given in seconds) before retrying to connect.
+    On failure, the client waits for this value (given in seconds) before retrying to connect.
     
   - Transport protocol
-    Two choices are available gRPC (based on http2) or TCP (a little faster).
+    Two choices are available: gRPC (based on http2) or TCP (a little faster).
 
   - Authorization token
-    Only used with gRPC transport protocol. This can be used to filter BBDO flow.
+    Only used with the gRPC transport protocol. This can be used to filter the BBDO flow.
     A BBDO client will be able to send data to this server only if their authorization token match.
     
   - Enable TLS encryption  
@@ -634,7 +636,7 @@ BBDO Client outputs forward events to a remote endpoint. They establish a connec
     The certificate Common Name.
 
   - Compression
-    With this option, data are compressed.
+    With this option, data is compressed.
     
 #### File outputs
 
