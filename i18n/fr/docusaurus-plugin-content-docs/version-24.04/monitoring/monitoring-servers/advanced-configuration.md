@@ -92,19 +92,6 @@ Régénérez la configuration des pollers affectés par ces changements
 (**Configuration > Pollers > Pollers**) et la mise en place de l'authentification est
 terminée.
 
-## Centreontrapd Configuration
-
-### Collecteur
-
-Il est nécessaire de modifier la configuration du processus Centreontrapd afin
-d'utiliser la base de données locale SQLite. Référez-vous au chapitre
-[Supervision Passive](../passive-monitoring/enable-snmp-traps.md)..
-
-### Remote Server
-
-La configuration du processus Centreontrapd est identique à celle d'un serveur
-Centreon Central.
-
 ## Pour aller plus loin avec Centreon Broker
 
 > Cette section est uniquement disponible en langue anglaise.
