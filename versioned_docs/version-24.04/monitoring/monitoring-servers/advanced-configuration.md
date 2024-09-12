@@ -943,7 +943,7 @@ parameters:
     The user used by this *Output* to connect to this database.
 
   - DB Name  
-    The name of this database. In Centreon term, this is the database containing
+    The name of this database. In Centreon terms, this is the database containing
     the configuration data, generally called 'centreon'.
 
   - DB Password  
