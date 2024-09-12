@@ -108,7 +108,7 @@ chown centreon-engine: /etc/centreon-engine/otl_server.json
 #### Reverse usage (the poller connects to the CMA)
 
 Use this configuration when the agent is not allowed to connect to the poller for security reasons (e.g. when the poller is in a DMZ).
-In this mode, poller connects to the CMA.
+In this mode, the poller connects to the CMA.
 The poller can work in both modes simultaneously (some agents connect to the poller, while the poller connects to some other agents).
 
 ```json
