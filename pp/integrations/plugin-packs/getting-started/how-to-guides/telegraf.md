@@ -281,15 +281,17 @@ If the communication between Telegraf and the poller is not encrypted, you just 
 Now you need to add the Telegraf configuration server provided by the poller.
 You must create the ***/etc/default/telegraf file** and add the following line:
 
-`
+```
 TELEGRAF_OPTS=-config https://<ip poller>:<http_server port>/engine? host=<host_to_monitor>
-`
+```
 
 The arguments of this command will allow Telegraf to know where to get the configuration of the resources it must monitor (that is to say on the poller or on the central server following the IP address defined in the command). The parameter `<host_to_monitor>` is the name of the host as entered in the **Name** field of its configuration.
 
 You now have to restart Telegraf:
 
+```
 systemctl restart telegraf
+```
 
 </TabItem>
 </Tabs>
@@ -299,8 +301,9 @@ systemctl restart telegraf
 
 1. [Download the agent](https://docs.influxdata.com/telegraf/v1/install/) on all the servers you want to monitor.
 
-2. You must then configure the telegraf opentelemetry output.
-You must uncomment this paragraph or recreate a configuration file with just these lines:
+2. You must then configure the Telegraf OpenTelemetry output.
+You must uncomment this paragraph or recreate a configuration file with just the following lines:
+
 ```
 # [[outputs.opentelemetry]]
 #   ## Override the default (localhost:4317) OpenTelemetry gRPC service
