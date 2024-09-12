@@ -277,7 +277,7 @@ Allowed log levels are: trace, debug, info, warning, error, critical and off.
 
 ```shell
 systemctl restart centagent
-
+```
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
