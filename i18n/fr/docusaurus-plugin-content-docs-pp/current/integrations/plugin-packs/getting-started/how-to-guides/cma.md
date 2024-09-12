@@ -176,7 +176,6 @@ chown centreon-engine: /etc/centreon-engine/otl_server.json
 }
 ```
 
-
 ### Ajoutez un nouveau module Broker
 
 1. Allez à la page **Configuration > Collecteurs > Configuration du moteur de collecte**, puis cliquez sur le collecteur qui supervisera les ressources.
@@ -206,8 +205,8 @@ L'Agent de supervision Centreon est maintenant capable de communiquer avec Centr
 * Installez le paquet **centreon-monitoring-agent**.
 1. Modifiez le fichier **/etc/centreon-monitoring-agent/centagent.json** local (4 cas) :
 
-Non chiffré, sans Reverse
-
+<Tabs groupId="sync">
+<TabItem value="Non chiffré, sans Reverse" label="Non chiffré, sans Reverse">
 
 ```json
 {
@@ -219,7 +218,8 @@ Non chiffré, sans Reverse
 }
 ```
 
-Chiffré, sans Reverse
+</TabItem>
+<TabItem value="Chiffré, sans Reverse" label="Chiffré, sans Reverse">
 
 ```json
 {
@@ -233,7 +233,8 @@ Chiffré, sans Reverse
 }
 ```
 
-Non chiffré, avec Reverse
+</TabItem>
+<TabItem value="Non chiffré, avec Reverse" label="Non chiffré, avec Reverse">
 
 ```json
 {
@@ -245,8 +246,8 @@ Non chiffré, avec Reverse
   "reverse_connection":true
 }
 ```
-
-Chiffré, avec Reverse
+</TabItem>
+<TabItem value="Chiffré, avec Reverse label="Chiffré, avec Reverse">
 
 ```json
 {
@@ -261,8 +262,10 @@ Chiffré, avec Reverse
   "public_cert":"/tmp/server_1234.crt",
   "ca_certificate":"/tmp/ca_1234.crt"
 }
-
 ```
+
+</TabItem>
+</Tabs>
 
 #### Options de log
 
@@ -289,7 +292,8 @@ Les niveaux de logs possibles sont: trace, debug, info, warning, error, critical
 
 3. Modifiez la configuration de l'Agent en base de registre :
 
-Non chiffré
+<Tabs groupId="sync">
+<TabItem value="Non chiffré, sans Reverse" label="Non chiffré, sans Reverse">
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent]
@@ -308,7 +312,8 @@ Non chiffré
 "reverse_connection"=dword:00000000
 ```
 
-Chiffré
+</TabItem>
+<TabItem value="Chiffré, sans Reverse" label="Chiffré, sans Reverse">
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent]
@@ -327,8 +332,8 @@ Chiffré
 "reverse_connection"=dword:00000000
 ```
 
-
-Non chiffré, avec reverse
+</TabItem>
+<TabItem value="Non chiffré, avec Reverse" label="Non chiffré, avec Reverse">
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent]
@@ -347,7 +352,8 @@ Non chiffré, avec reverse
 "reverse_connection"=dword:00000001
 ```
 
-Chiffré, avec Reverse
+</TabItem>
+<TabItem value="Chiffré, avec Reverse" label="Chiffré, avec Reverse">
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent]
@@ -365,6 +371,9 @@ Chiffré, avec Reverse
 "host"="host_1"
 "reverse_connection"=dword:00000001
 ```
+
+</TabItem>
+</Tabs>
 
 #### Options de log
 
