@@ -247,7 +247,7 @@ L'Agent de supervision Centreon est maintenant capable de communiquer avec Centr
 }
 ```
 </TabItem>
-<TabItem value="Chiffré, avec Reverse label="Chiffré, avec Reverse">
+<TabItem value="Chiffré, avec Reverse" label="Chiffré, avec Reverse">
 
 ```json
 {
