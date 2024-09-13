@@ -470,7 +470,7 @@ Release date: `September 16, 2024`
 
 ##### Bug fixes
 
-- [Broker] Fixed an issue while trying to Connect to MySQL 8.0.35.
+- [Broker] Fixed an issue where Broker could not connect to MySQL 8.0.35.
 
 ### 22.10.10
 
