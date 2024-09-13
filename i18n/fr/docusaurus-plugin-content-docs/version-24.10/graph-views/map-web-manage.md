@@ -11,8 +11,6 @@ Cette page décrit comment créer et gérer les cartes à partir de l'interface 
 
 L'affichage du bouton **Ajouter une carte** et du bouton **Ajouter une vue géographique** signifie que vous êtes autorisé à créer une carte et que vous appartenez à un groupe d'accès auquel est attribué le rôle de créateur.
 
-Le contrôle d'accès aux cartes n'est appliqué qu'au niveau de la carte. Lorsque vous disposez du privilège « Viewer », vous pouvez visualiser une carte et toutes les ressources qu'elle contient, même si vous ne disposez pas de la liste de contrôle d'accès (ACL en Anglais) correspondante. Lorsque vous modifiez une carte, vous ne pouvez ajouter des ressources que si vous disposez de l'ACL correspondante.
-
 ## Information sur le statut d'une carte
 
 La page d'accueil affiche la liste des cartes existantes et vous pouvez visualiser pour chaque carte, le statut le plus défavorable de toutes les ressources ou conteneurs inclus dans la carte.

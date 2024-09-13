@@ -7,8 +7,6 @@ Cette page décrit comment créer des cartes standards et comment les personnali
 
 L'affichage du bouton **Ajouter une carte** signifie que vous êtes autorisé à créer une carte et que vous appartenez à un groupe d'accès auquel est attribué le rôle de créateur.
 
-Le contrôle d'accès aux cartes n'est appliqué qu'au niveau de la carte. Lorsque vous disposez du privilège « Viewer », vous pouvez visualiser une carte et toutes les ressources qu'elle contient, même si vous ne disposez pas de la liste de contrôle d'accès (ACL en Anglais) correspondante. Lorsque vous modifiez une carte, vous ne pouvez ajouter des ressources que si vous disposez de l'ACL correspondante.
-
 ## Créer une map standard
 
 1. Dans la page **Supervision > Map**, cliquez sur le bouton **Ajouter une carte** situé dans la section **Cartes standard**.

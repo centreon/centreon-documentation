@@ -12,8 +12,6 @@ This topic provides information about how to perform actions on your maps from t
 
 The display of the **Add a Map** button or **Add a Geographic view** button means that you are allowed to create a map and that you belong to an access group that is granted the creator role.
 
-Access control to maps is only enforced at the map level. When you have the “Viewer” privilege, you can view a map and all its included resources, even if you do not have the corresponding ACL. When editing a map, you can only add resources if you have the corresponding ACL.
-
 ## Map status information
 
 The homepage displays the list of existing maps and you can visualize for each map, the worst status of all resources or containers included in the map.
