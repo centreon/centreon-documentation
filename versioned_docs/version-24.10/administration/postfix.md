@@ -158,9 +158,26 @@ apt install postfix bsd-mailx
 
 - If the user has not received the message, check the following log file:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
     ```shell
     tail -f /var/log/maillog
     ```
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+    ```shell
+    tail -f /var/log/maillog
+    ```
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+    ```shell
+    tail -f /var/log/mail.log
+    ```
+</TabItem>
+</Tabs>
 
 - To check that your Postfix service is running, enter:
 
