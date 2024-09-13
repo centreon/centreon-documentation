@@ -59,13 +59,13 @@ apt update && apt upgrade
 2. Téléchargez le script à l'aide de la commande suivante :
 
 ```shell
-curl -L https://download.centreon.com/24.04/unattended.sh --output /tmp/unattended.sh
+curl -L https://download.centreon.com/24.10/unattended.sh --output /tmp/unattended.sh
 ```
 
 3. Exécutez la commande suivante en **root** :
 
 ```shell
-bash /tmp/unattended.sh install -t poller -v 24.04 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+bash /tmp/unattended.sh install -t poller -v 24.10 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```
 
   Vous obtiendrez un fichier de log complet avec toutes les erreurs dans votre répertoire **tmp**, fichier nommé **unattended(date).log**.

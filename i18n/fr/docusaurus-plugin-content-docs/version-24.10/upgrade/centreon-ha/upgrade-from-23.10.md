@@ -5,7 +5,7 @@ title: Montée de version de Centreon HA depuis Centreon 23.10
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 23.10 vers la version 24.04.
+Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 23.10 vers la version 24.10.
 
 ## Prérequis
 

@@ -94,7 +94,7 @@ rsync -avz /usr/share/centreon/www/img/media root@<IP_NEW_CENTREON>:/usr/share/c
      service mysqld stop
     ```
 
-3. Export the dumps to the new Centreon 24.04 database server (make sure you
+3. Export the dumps to the new Centreon 24.10 database server (make sure you
 have enough space for large databases dumps):
 
   ```shell
@@ -102,7 +102,7 @@ have enough space for large databases dumps):
   rsync -avz /tmp/centreon_storage.sql root@<IP_NEW_CENTREON>:/tmp/
   ```
 
-4. On the Centreon 24.04 database server, drop the original databases and
+4. On the Centreon 24.10 database server, drop the original databases and
 create them again:
 
   ```shell
@@ -160,7 +160,7 @@ installation. The main directories to synchronize are:
 > To run the plugins, you must first install the required dependencies.
 
 > If you still have remote Centreon Engine 1.8.1 Pollers whose
-> upgrade to 24.04 you want to postpone, be aware that Centreon Web 24.04 resource
+> upgrade to 24.10 you want to postpone, be aware that Centreon Web 24.10 resource
 > $USER1$ now points to /usr/lib64/nagios/plugins
 >
 > This is how to mitigate the issue on the 1.8.1 Pollers:
@@ -193,18 +193,18 @@ The credentials of the newly created **centreon-gorgone** user need to be update
          password: "@GORGONE_PASSWORD@"
    ```
 
-You can now push the poller's configuration from Centreon 24.04 whether the remote
-Poller is Centreon Engine 24.04 or 1.8.1.
+You can now push the poller's configuration from Centreon 24.10 whether the remote
+Poller is Centreon Engine 24.10 or 1.8.1.
 
 ### Upgrade Centreon
 
 On the new server, force the update by moving the contents of the
-**/var/lib/centreon/installs/install-24.04.0-YYYYMMDD\_HHMMSS** directory to
+**/var/lib/centreon/installs/install-24.10.0-YYYYMMDD\_HHMMSS** directory to
 the **/usr/share/centreon/www/install** directory:
 
 ```shell
 cd /var/lib/centreon/installs/
-mv install-24.04.0-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
+mv install-24.10.0-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
 ```
 
 > If you use the same IP address or same DNS name for the old Centreon webserver
@@ -234,7 +234,7 @@ configuration of all your pollers and export it.
 ### Upgrade the modules
 
 Please refer to the documentation of each module to verify compatibility with
-Centreon 24.04 and perform the upgrade.
+Centreon 24.10 and perform the upgrade.
 
 ### Migrate your other servers
 

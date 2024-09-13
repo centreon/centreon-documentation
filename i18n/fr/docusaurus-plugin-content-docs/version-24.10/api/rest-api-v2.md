@@ -3,7 +3,7 @@ id: rest-api-v2
 title: Utiliser l'API v2 avec Postman
 ---
 
-Cette page décrit comment utiliser [l'API v2](https://docs-api.centreon.com/api/centreon-web/24.04/) de Centreon Web avec Postman
+Cette page décrit comment utiliser [l'API v2](https://docs-api.centreon.com/api/centreon-web/24.10/) de Centreon Web avec Postman
 
 ## Créer une collection Postman depuis la définition OpenAPI
 
@@ -64,7 +64,7 @@ environnements.
 > ![image](../assets/api/postman-collection-edit.png)
 >
 > Dans l'onglet **Variables**, changer la valeur de *version* soit par
-> "latest", soit par votre numéro de version `v<majeure>.<mineure>`, par exemple "v24.04".
+> "latest", soit par votre numéro de version `v<majeure>.<mineure>`, par exemple "v24.10".
 >
 > Vous pouvez obtenir votre numéro de version "majeure.mineure" à l'aide de la commmande suivante :
 > `curl -s http://127.0.0.1:80/centreon/api/latest/platform/versions | jq '.web '`
@@ -72,9 +72,9 @@ environnements.
 > Voici un exemple de résultat :
 >
 > {
->   "version": "24.04.0",
+>   "version": "24.10.0",
 >   "major": "24",
->   "minor": "04",
+>   "minor": "10",
 >   "fix": "0"
 > }
 >
