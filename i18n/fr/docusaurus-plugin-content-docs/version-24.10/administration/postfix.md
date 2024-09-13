@@ -158,9 +158,27 @@ apt install postfix bsd-mailx
 
 - Si le destinataire n'a pas reçu l'email, vérifiez le fichier de log suivant :
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
     ```shell
     tail -f /var/log/maillog
     ```
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+    ```shell
+    tail -f /var/log/maillog
+    ```
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+    ```shell
+    tail -f /var/log/mail.log
+    ```
+</TabItem>
+</Tabs>
+
 
 - Pour vérifier si votre service Postfix tourne, entrez:
 
