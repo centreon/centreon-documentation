@@ -93,12 +93,39 @@ apt update
 
 1. Make sure all users are logged out from the Centreon web interface before starting the upgrade procedure.
 
-2. If you have installed Business extensions, update the Business repository to version 24.04.
-Visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
+2. If you have installed Business extensions, delete the configuration of repository 23.10 : 
 
-3. If your OS is Debian 11 and you have a customized Apache configuration, perform a backup of your configuration file (**/etc/apache2/sites-available/centreon.conf**).
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-4. Stop the Centreon Broker process:
+```shell
+rm /etc/yum.repos.d/centreon-business-23.10.repo
+```
+
+</TabItem>
+
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+rm /etc/yum.repos.d/centreon-business-23.10.repo
+```
+
+</TabItem>
+
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+rm /etc/apt/sources.list.d/centreon-business.list
+```
+
+</TabItem>
+</Tabs>
+
+3. Install the 24.04 Business repository: visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
+
+4. If your OS is Debian 11 and you have a customized Apache configuration, perform a backup of your configuration file (**/etc/apache2/sites-available/centreon.conf**).
+
+5. Stop the Centreon Broker process:
 
 ```shell
 systemctl stop cbd
