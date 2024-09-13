@@ -7,6 +7,8 @@ This topic describes how to create standard maps and how to customize them using
 
 The display of the **Add a Map** button in the **Map** page means that you are allowed to create a map and that you belong to an access group that is granted the creator role.
 
+Access control to maps is only enforced at the map level. When you have the “Viewer” privilege, you can view a map and all its included resources, even if you do not have the corresponding ACL. When editing a map, you can only add resources if you have the corresponding ACL.
+
 ## Create a standard map
 
 1. In the **Monitoring > Map** page, click the **Add a Map** button located in the **Standard maps** section.
