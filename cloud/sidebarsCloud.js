@@ -181,6 +181,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'installation/poller-troubleshoot',
+        },
+        {
+          type: 'doc',
           id: 'installation/poller-migrate',
         },
         {
