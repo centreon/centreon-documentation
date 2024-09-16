@@ -9,6 +9,16 @@ Les stream connectors ont pour but de transmettre en temps réel le flux des don
 
 ## 2024
 
+### September
+
+<Tabs groupId="sync">
+<TabItem value="Fix" label="Fix">
+
+- [**Centreon library: sc_flush**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_flush.lua) - fixed return code when payload is empty.
+
+</TabItem>
+</Tabs>
+
 ### August
 
 <Tabs groupId="sync">
