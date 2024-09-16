@@ -462,6 +462,16 @@ Release date: `October 26, 2022`
 
 ## Centreon Collect
 
+### 22.10.11
+
+Release date: `September 16, 2024`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- [Broker] Fixed an issue where Broker could not connect to MySQL 8.0.35.
+
 ### 22.10.10
 
 Release date: `June 27, 2024`
@@ -641,6 +651,14 @@ Release date: `October 26, 2022`
 - [Code] Calls to the `atoi()` C function have been replaced by more secure functions
 
 ## Centreon Gorgone
+
+### 22.10.9
+
+Release date: `September 16, 2024`
+
+#### Bug fixes
+
+- [MBI] The password of an MBI database user can now include special characters.
 
 ### 22.10.8
 
