@@ -171,7 +171,7 @@ dnf install centreon-pack-network-cisco-firepower-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-network-cisco-firepower-snmp
@@ -218,7 +218,7 @@ dnf install centreon-plugin-Network-Cisco-Firepower-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-network-cisco-firepower-snmp
@@ -369,7 +369,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All memory usages are ok | '*memory*#memory.usage.bytes'=B;;;0;total'*memory*#memory.free.bytes'=B;;;0;total'*memory*#memory.usage.percentage'=%;;;0;100
+OK: Security module 'Disk 1' memory total: 476.84 GB used: 95.37 GB (20.00%) free: 381.47 GB (80.00%) | 'Disk 1#memory.usage.bytes'=102400000000B;;;0;512000000000 'Disk 1#memory.free.bytes'=409600000000B;;;0;512000000000 'Disk 1#memory.usage.percentage'=20.00%;;;0;100
 ```
 
 ### Troubleshooting
