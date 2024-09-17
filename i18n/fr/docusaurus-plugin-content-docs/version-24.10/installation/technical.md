@@ -118,7 +118,7 @@ Description des logiciels et utilisateurs liés :
 | Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 | Software          | Service          | User             | Comment         |
 | ----------------- | ---------------- | ---------------- | --------------- |

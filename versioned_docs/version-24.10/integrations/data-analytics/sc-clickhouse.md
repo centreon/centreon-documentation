@@ -115,7 +115,7 @@ chmod 644 /usr/share/centreon-broker/lua/clickhouse-metrics-apiv2.lua
 
 </TabItem>
 
-<TabItem value="Debian 11" label="Debian_11">
+<TabItem value="Debian 12" label="Debian 12">
 
 1. Login as `root` using your favorite SSH client.
 

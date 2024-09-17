@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 Centreon provides RPM and DEB packages for its products through the Centreon Open
 Source version available free of charge in our repository.
 
-These packages can be installed on Alma/RHEL/Oracle Linux 8 and 9 and on Debian 11.
+These packages can be installed on Alma/RHEL/Oracle Linux 8 and 9 and on Debian 12.
 
 You must run the installation procedure as a privileged user.
 
@@ -68,7 +68,7 @@ locale -a
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt update && apt upgrade
@@ -145,9 +145,9 @@ Disabled
 > **Note that this deactivation should be temporary.** SELinux should be [reenabled after installation](../../administration/secure-platform.md#activate-selinux) for security reasons.
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
-SELinux is not installed on Debian 11 and 12, continue.
+SELinux is not installed on Debian 12, continue.
 
 </TabItem>
 </Tabs>
@@ -276,7 +276,7 @@ dnf install -y epel-release
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 Install the following dependencies:
 
@@ -314,7 +314,7 @@ dnf update
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 To install the Centreon repository, execute the following command line:
 
@@ -352,7 +352,7 @@ dnf install -y centreon-poller
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt install -y --no-install-recommends centreon-poller

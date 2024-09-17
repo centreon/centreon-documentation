@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 Centreon fournit des paquets RPM et DEB pour ses produits au travers de la solution
 Centreon Open Sources disponible gratuitement sur notre dépôt.
 
-Les paquets peuvent être installés sur Alma/RHEL/Oracle Linux 8 et 9 ou Debian 11 et 12.
+Les paquets peuvent être installés sur Alma/RHEL/Oracle Linux 8 et 9 ou Debian 12.
 
 L'ensemble de la procédure d'installation doit être faite en tant qu'utilisateur privilégié.
 
@@ -68,7 +68,7 @@ locale -a
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt update && apt upgrade
@@ -139,9 +139,9 @@ Disabled
 > **Notez que cette désactivation doit être temporaire.** SELinux doit être [réactivé après l'installation](../../administration/secure-platform.md#activer-selinux-1) pour des raisons de sécurité.
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
-SELinux n'est pas installé sur Debian 11 et 12, continuez.
+SELinux n'est pas installé sur Debian 12, continuez.
 
 </TabItem>
 </Tabs>
@@ -261,7 +261,7 @@ dnf config-manager --set-enabled ol9_codeready_builder
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 Installez les dépendances suivantes :
 
@@ -301,7 +301,7 @@ dnf update
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 Pour installer le dépôt Centreon, exécutez la commande suivante :
 
@@ -339,7 +339,7 @@ dnf install -y centreon-poller
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt install -y --no-install-recommends centreon-poller

@@ -72,7 +72,7 @@ MariaDB-compat-10.5.8-1.el9.centos.x86_64
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 dpkg -l |grep MariaDB
@@ -122,7 +122,7 @@ rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared Mari
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 Lors de l'étape **[Connaître la version de MariaDB](#connaître-la-version-de-mariadb)**, la commande **grep** vous a renvoyé la version précise de votre MariaDB.
 
@@ -170,7 +170,7 @@ dnf install MariaDB-server-10.11\* MariaDB-client-10.11\* MariaDB-shared-10.11\*
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.11"
@@ -291,7 +291,7 @@ dnf update MariaDB-*
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt update MariaDB-*

@@ -53,7 +53,7 @@ Mettez à jour l'ensemble des composants :
   ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 Videz le cache :
 
@@ -221,7 +221,7 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
   ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 1. Videz le cache :
 
@@ -264,7 +264,7 @@ Rien à faire pour cet OS.
 Rien à faire pour cet OS.
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
   ```shell
   apt-mark unhold centreon-pack* && apt-mark unhold centreon-plugin*

@@ -115,7 +115,7 @@ considerations.
 | apache (existing)    | centreonBI                 |
   
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 - Centreon Web 24.10
 - Check that `date.timezone` is correctly configured in the `/etc/php/8.1/mods-available/centreon.ini` file
@@ -316,7 +316,7 @@ dnf install centreon-bi-server
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt update && apt install centreon-bi-server
@@ -386,7 +386,7 @@ GRANT ALL PRIVILEGES ON centreon_storage.* TO 'centreonbi'@'$BI_ENGINE_IP$';
 If you use MariaDB replication for your **monitoring databases**, some views
 are created during the installation of Centreon MBI.
 You must exclude them from replication by adding the following line to the **my.cnf**
-file of the slave server or mariadb.cnf on Debian 11.
+file of the slave server or mariadb.cnf on Debian 12.
 
 ```shell
 replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
@@ -402,7 +402,7 @@ Then, create the views manually on the slave server:
 mysql centreon < /tmp/view_creation.sql
 ```
 
-#### Debian 11 specific configuration
+#### Debian 12 specific configuration
 
 MariaDB must listen on all interfaces instead of listening on localhost/127.0.0.1 (default value). Edit the following file:
 
@@ -484,7 +484,7 @@ dnf update
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 To install the Centreon repository, execute the following command:
 
@@ -535,13 +535,6 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 
 ```shell
 curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=9 --mariadb-server-version="mariadb-10.11"
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.11"
 ```
 
 </TabItem>
@@ -731,7 +724,7 @@ wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 Install the Centreon repository:
 
@@ -856,7 +849,7 @@ socket=$PATH_TO_SOCKET$
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 Make sure that the optimized configuration [file](../assets/reporting/installation/centreon.cnf)
 provided in the requirements is present in `/etc/mysql/mariadb.conf.d/`.
@@ -1080,7 +1073,7 @@ systemctl restart crond
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 Restart the cron service:
 
@@ -1138,7 +1131,7 @@ systemctl restart crond
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 Restart the cron service on the reporting server:
 

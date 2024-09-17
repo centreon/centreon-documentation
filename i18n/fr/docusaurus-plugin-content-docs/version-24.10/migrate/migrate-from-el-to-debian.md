@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 Cette procédure ne s'applique que dans les conditions suivantes :
 
-- Vous souhaitez migrer d'un OS de type EL 64-bits vers Debian. Par exemple, vous souhaitez migrer d'un CentOS 7 à Debian 11.
+- Vous souhaitez migrer d'un OS de type EL 64-bits vers Debian. Par exemple, vous souhaitez migrer d'un CentOS 7 à Debian 12.
 - Votre version de Centreon est 18.10 ou plus récente, et vous souhaitez passer à la dernière version de Centreon. Si vous souhaitez migrer depuis une plus ancienne version, [contactez l'équipe support Centreon](https://support.centreon.com).
 
 Tous les serveurs de votre architecture (serveur central, serveurs distants et collecteurs) doivent avoir la même version majeure de Centreon. Il est également recommandé d'avoir la même version mineure.

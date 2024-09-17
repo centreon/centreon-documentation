@@ -245,9 +245,9 @@ Disabled
 > - ``SELINUX=permissive`` pour que les erreurs d’accès soient enregistrées dans les logs, mais l’accès ne sera pas bloqué.
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
-SELinux n'est pas installé sur Debian 11 & 12, continuez.
+SELinux n'est pas installé sur Debian 12, continuez.
 
 </TabItem>
 </Tabs>
@@ -349,7 +349,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/e
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 Installez les dépendances suivantes :
 
@@ -412,13 +412,6 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.11"
-```
-
-</TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
@@ -445,7 +438,7 @@ dnf install mariadb-server
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt update && apt install mariadb-server
@@ -510,7 +503,7 @@ dnf install centreon-map-engine
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt update && apt install centreon-map-engine
@@ -546,7 +539,7 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
    ```
    
    </TabItem>
-   <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+   <TabItem value="Debian 12" label="Debian 12">
    
    ```shell
    cp /etc/mysql/map.cnf /etc/mysql/map.cnf.bk
@@ -572,7 +565,7 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
    ```
    
    </TabItem>
-   <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+   <TabItem value="Debian 12" label="Debian 12">
    
    ```shell
    apt update && apt-get -o Dpkg::Options::="--force-overwrite" install centreon-map-engine
@@ -598,7 +591,7 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
    ```
    
    </TabItem>
-   <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+   <TabItem value="Debian 12" label="Debian 12">
    
    ```shell
    cp /etc/mysql/map.cnf.bk /etc/mysql/map.cnf
@@ -818,7 +811,7 @@ Installez le dépôt de Centreon Business : vous pouvez le trouver sur le [porta
   ```
 
   </TabItem>
-  <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+  <TabItem value="Debian 12" label="Debian 12">
 
   ```shell
   sudo apt install centreon-map-web-client

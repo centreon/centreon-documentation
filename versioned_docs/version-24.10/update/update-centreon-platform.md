@@ -52,7 +52,7 @@ Then upgrade all the components with the following command:
   ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 Clean the cache:
 
@@ -216,7 +216,7 @@ This procedure is the same as to update a Centreon central server.
   ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 1. Clean the cache:
 
@@ -259,7 +259,7 @@ Nothing to do for this OS.
 Nothing to do for this OS.
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
   ```shell
   apt-mark unhold centreon-pack* && apt-mark unhold centreon-plugin*
