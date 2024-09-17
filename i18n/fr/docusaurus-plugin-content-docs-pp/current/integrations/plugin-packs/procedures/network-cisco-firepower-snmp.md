@@ -46,18 +46,18 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte d'hôtes
 
-| Nom de la règle | Description                                                                                                                                                                                                                                             |
-|:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Cisco-Firepower-SNMP-custom** host template |
+| Nom de la règle | Description                                                                                                                                                                                                                                     |
+|:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **Net-Cisco-Firepower-SNMP-custom** |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
 #### Découverte de services
 
-| Nom de la règle                             | Description                                                             |
-|:--------------------------------------------|:------------------------------------------------------------------------|
-| Net-Cisco-Firepower-SNMP-Packet-Errors-Name | Discover network interfaces and monitor errored and discarded packets   |
-| Net-Cisco-Firepower-SNMP-Traffic-Name       | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
+| Nom de la règle                             | Description                                                                  |
+|:--------------------------------------------|:-----------------------------------------------------------------------------|
+| Net-Cisco-Firepower-SNMP-Packet-Errors-Name | Découvrir les interfaces réseaux et supervise les paquets erronés et rejetés |
+| Net-Cisco-Firepower-SNMP-Traffic-Name       | Découvre les interfaces réseaux et supervise le statut et l'utilisation      |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -134,7 +134,18 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-Afin de contrôler vos équipements Cisco Firepower, le SNMP doit être configuré (cf: https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/213971-configure-snmp-on-firepower-ngfw-applian)
+### Configuration SNMP
+
+Pour utiliser ce connecteur de supervision, le service SNMP doit démarré et configuré sur le serveur **HP Proliant**.
+
+### Flux réseau
+
+La communication doit être possible sur le port UDP 161 depuis le collecteur
+Centreon vers le serveur supervisé.
+
+### Configuration de l'équipement Cisco Firepower
+
+Afin de contrôler vos équipements Cisco Firepower, le SNMP doit être configuré (voir la documentation officielle : https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/213971-configure-snmp-on-firepower-ngfw-applian).
 
 ## Installer le connecteur de supervision
 
@@ -233,8 +244,8 @@ yum install centreon-plugin-Network-Cisco-Firepower-Snmp
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
 > Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
 
-| Macro            | Description                                                                                          | Valeur par défaut | Obligatoire |
-|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| Macro            | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -247,82 +258,82 @@ yum install centreon-plugin-Network-Cisco-Firepower-Snmp
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Macro                | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:---------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERSECURITYMODULE |                                                                                                    |                   |             |
-| WARNINGAVERAGE15M    |                                                                                                    |                   |             |
-| CRITICALAVERAGE15M   |                                                                                                    |                   |             |
-| WARNINGAVERAGE1M     |                                                                                                    |                   |             |
-| CRITICALAVERAGE1M    |                                                                                                    |                   |             |
-| WARNINGAVERAGE5M     |                                                                                                    |                   |             |
-| CRITICALAVERAGE5M    |                                                                                                    |                   |             |
+| Macro                | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERSECURITYMODULE | Filter security module name                                                                                                                      |                   |             |
+| WARNINGAVERAGE15M    | Warning threshold for 'average-15m' (%)                                                                                                          |                   |             |
+| CRITICALAVERAGE15M   | Critical threshold for 'average-15m' (%)                                                                                                         |                   |             |
+| WARNINGAVERAGE1M     | Warning threshold for 'average-1m' (%)                                                                                                           |                   |             |
+| CRITICALAVERAGE1M    | Critical threshold for 'average-1m' (%)                                                                                                          |                   |             |
+| WARNINGAVERAGE5M     | Warning threshold for 'average-5m' (%)                                                                                                           |                   |             |
+| CRITICALAVERAGE5M    | Critical threshold for 'average-5m' (%)                                                                                                          |                   |             |
 | EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Faults" label="Faults">
 
-| Macro                  | Description                                                                                        | Valeur par défaut                | Obligatoire |
-|:-----------------------|:---------------------------------------------------------------------------------------------------|:---------------------------------|:-----------:|
-| WARNINGFAULTSCRITICAL  |                                                                                                    |                                  |             |
-| CRITICALFAULTSCRITICAL |                                                                                                    |                                  |             |
-| WARNINGFAULTSWARNING   |                                                                                                    |                                  |             |
-| CRITICALFAULTSWARNING  |                                                                                                    |                                  |             |
-| WARNINGFAULTSINFO      |                                                                                                    |                                  |             |
-| CRITICALFAULTSINFO     |                                                                                                    |                                  |             |
-| WARNINGFAULTSMAJOR     |                                                                                                    |                                  |             |
-| CRITICALFAULTSMAJOR    |                                                                                                    |                                  |             |
-| WARNINGFAULTSMINOR     |                                                                                                    |                                  |             |
-| CRITICALFAULTSMINOR    |                                                                                                    |                                  |             |
-| WARNINGFAULTSTOTAL     |                                                                                                    |                                  |             |
-| CRITICALFAULTSTOTAL    |                                                                                                    |                                  |             |
-| WARNINGSTATUS          |                                                                                                    | %{severity} =~ /minor\|warning/  |             |
-| CRITICALSTATUS         |                                                                                                    | %{severity} =~ /major\|critical/ |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                        |             |
+| Macro                  | Description                                                                                                                                                                  | Valeur par défaut                | Obligatoire |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------|:-----------:|
+| WARNINGFAULTSCRITICAL  | Warning threshold for 'faults-critical'                                                                                                                                      |                                  |             |
+| CRITICALFAULTSCRITICAL | Critical threshold for 'faults-critical'                                                                                                                                     |                                  |             |
+| WARNINGFAULTSWARNING   | Warning threshold for 'faults-warning'                                                                                                                                       |                                  |             |
+| CRITICALFAULTSWARNING  | Critical threshold for 'faults-warning'                                                                                                                                      |                                  |             |
+| WARNINGFAULTSINFO      | Warning threshold for 'faults-info'                                                                                                                                          |                                  |             |
+| CRITICALFAULTSINFO     | Critical threshold for 'faults-info'                                                                                                                                         |                                  |             |
+| WARNINGFAULTSMAJOR     | Warning threshold for 'faults-major'                                                                                                                                         |                                  |             |
+| CRITICALFAULTSMAJOR    | Critical threshold for 'faults-major'                                                                                                                                        |                                  |             |
+| WARNINGFAULTSMINOR     | Warning threshold for 'faults-info'                                                                                                                                          |                                  |             |
+| CRITICALFAULTSMINOR    | Critical threshold for 'faults-info'                                                                                                                                         |                                  |             |
+| WARNINGFAULTSTOTAL     | Warning threshold for 'faults-total'                                                                                                                                         |                                  |             |
+| CRITICALFAULTSTOTAL    | Critical threshold for 'faults-total'                                                                                                                                        |                                  |             |
+| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %{description}, %{object}, %{severity}, %{type}, %{acknowledged}, %{since} | %{severity} =~ /minor\|warning/  |             |
+| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{description}, %{object}, %{severity}, %{type}, %{since}                 | %{severity} =~ /major\|critical/ |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                             | --verbose                        |             |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    |                                                                                                    | .*                |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    |                                                                                                                                                  | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-| Macro              | Description                                                                                        | Valeur par défaut                                     | Obligatoire |
-|:-------------------|:---------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
-| OIDFILTER          |                                                                                                    | ifname                                                |             |
-| OIDDISPLAY         |                                                                                                    | ifname                                                |             |
-| INTERFACENAME      |                                                                                                    |                                                       |             |
-| WARNINGINDISCARD   |                                                                                                    |                                                       |             |
-| CRITICALINDISCARD  |                                                                                                    |                                                       |             |
-| WARNINGINERROR     |                                                                                                    |                                                       |             |
-| CRITICALINERROR    |                                                                                                    |                                                       |             |
-| WARNINGINTRAFFIC   |                                                                                                    |                                                       |             |
-| CRITICALINTRAFFIC  |                                                                                                    |                                                       |             |
-| WARNINGOUTDISCARD  |                                                                                                    |                                                       |             |
-| CRITICALOUTDISCARD |                                                                                                    |                                                       |             |
-| WARNINGOUTERROR    |                                                                                                    |                                                       |             |
-| CRITICALOUTERROR   |                                                                                                    |                                                       |             |
-| WARNINGOUTTRAFFIC  |                                                                                                    |                                                       |             |
-| CRITICALOUTTRAFFIC |                                                                                                    |                                                       |             |
-| CRITICALSTATUS     |                                                                                                    | %{admstatus} eq "up" and %{opstatus} !~ /up\|dormant/ |             |
-| WARNINGSTATUS      |                                                                                                    |                                                       |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose --no-skipped-counters                       |             |
+| Macro              | Description                                                                                                                                               | Valeur par défaut                                     | Obligatoire |
+|:-------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
+| OIDFILTER          | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                               | ifname                                                |             |
+| OIDDISPLAY         | Define the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                      | ifname                                                |             |
+| INTERFACENAME      | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored                                               |                                                       |             |
+| WARNINGINDISCARD   | Warning threshold for 'faults-total'                                                                                                                      |                                                       |             |
+| CRITICALINDISCARD  | Critical threshold for 'faults-total'                                                                                                                     |                                                       |             |
+| WARNINGINERROR     | Warning threshold for 'in-error'                                                                                                                          |                                                       |             |
+| CRITICALINERROR    | Critical threshold for 'in-error'                                                                                                                         |                                                       |             |
+| WARNINGINTRAFFIC   | Warning threshold for 'in-traffic'                                                                                                                        |                                                       |             |
+| CRITICALINTRAFFIC  | Critical threshold for 'in-traffic'                                                                                                                       |                                                       |             |
+| WARNINGOUTDISCARD  | Warning threshold for 'in-traffic'                                                                                                                        |                                                       |             |
+| CRITICALOUTDISCARD | Critical threshold for 'in-traffic'                                                                                                                       |                                                       |             |
+| WARNINGOUTERROR    | Warning threshold for 'out-error'                                                                                                                         |                                                       |             |
+| CRITICALOUTERROR   | Critical threshold for 'out-error'                                                                                                                        |                                                       |             |
+| WARNINGOUTTRAFFIC  | Warning threshold for 'out-traffic'                                                                                                                       |                                                       |             |
+| CRITICALOUTTRAFFIC | Critical threshold for 'out-traffic'                                                                                                                      |                                                       |             |
+| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} | %{admstatus} eq "up" and %{opstatus} !~ /up\|dormant/ |             |
+| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display}  |                                                       |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).          | --verbose --no-skipped-counters                       |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro                | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:---------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERSECURITYMODULE |                                                                                                    |                   |             |
-| WARNINGUSAGE         |                                                                                                    |                   |             |
-| CRITICALUSAGE        |                                                                                                    |                   |             |
-| WARNINGUSAGEFREE     |                                                                                                    |                   |             |
-| CRITICALUSAGEFREE    |                                                                                                    |                   |             |
-| WARNINGUSAGEPRCT     |                                                                                                    |                   |             |
-| CRITICALUSAGEPRCT    |                                                                                                    |                   |             |
+| Macro                | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERSECURITYMODULE | Filter switch number.                                                                                                                            |                   |             |
+| WARNINGUSAGE         | Warning threshold for 'usage' (B)                                                                                                                |                   |             |
+| CRITICALUSAGE        | Critical threshold for 'usage' (B)                                                                                                               |                   |             |
+| WARNINGUSAGEFREE     | Warning threshold for 'usage-free' (B)                                                                                                           |                   |             |
+| CRITICALUSAGEFREE    | Critical threshold for 'usage-free' (B)                                                                                                          |                   |             |
+| WARNINGUSAGEPRCT     | Warning threshold for 'usage-free' (B)                                                                                                           |                   |             |
+| CRITICALUSAGEPRCT    | Critical threshold for 'usage-free' (B)                                                                                                          |                   |             |
 | EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
