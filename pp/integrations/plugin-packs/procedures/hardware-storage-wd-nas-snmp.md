@@ -5,49 +5,79 @@ title: WD NAS SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Pack Assets
+## Pack assets
 
 ### Templates
 
-The Centreon Pack **WD NAS SNMP** brings a host template:
+The Monitoring Connector **WD NAS SNMP** brings a host template:
 
-* HW-Storage-Wd-Nas-SNMP-custom
+* **HW-Storage-Wd-Nas-SNMP-custom**
 
-It brings the following service templates:
+The connector brings the following service templates (sorted by the host template they are attached to):
 
-| Service Alias | Service Template                | Service Description | Default | Discovery |
-|:--------------|:--------------------------------|:--------------------|:--------|:----------|
-| Hardware      | HW-Storage-Wd-Nas-Hardware-SNMP | Check hardware      | X       |           |
-| Volumes       | HW-Storage-Wd-Nas-Volumes-SNMP  | Check volumes       |         | X         |
+<Tabs groupId="sync">
+<TabItem value="HW-Storage-Wd-Nas-SNMP-custom" label="HW-Storage-Wd-Nas-SNMP-custom">
+
+| Service Alias | Service Template                       | Service Description |
+|:--------------|:---------------------------------------|:--------------------|
+| Hardware      | HW-Storage-Wd-Nas-Hardware-SNMP-custom | Check hardware      |
+
+> The services listed above are created automatically when the **HW-Storage-Wd-Nas-SNMP-custom** host template is used.
+
+</TabItem>
+<TabItem value="Not attached to a host template" label="Not attached to a host template">
+
+| Service Alias | Service Template                      | Service Description | Discovery  |
+|:--------------|:--------------------------------------|:--------------------|:----------:|
+| Volumes       | HW-Storage-Wd-Nas-Volumes-SNMP-custom | Check volumes       | X          |
+
+> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
+
+> If **Discovery** is checked, it means a service discovery rule exists for this service template.
+
+</TabItem>
+</Tabs>
 
 ### Discovery rules
 
-| Rule Name                          | Description                                   |
-|:-----------------------------------|:----------------------------------------------|
-| HW-Storage-Wd-Nas-SNMP-Volume-Name | Discover volumes and monitor space occupation |
+#### Host discovery
+
+| Rule name       | Description                                                                                                                                                                                                                                           |
+|:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **HW-Storage-Wd-Nas-SNMP-custom** host template |
+
+More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
+
+#### Service discovery
+
+| Rule name                          | Description                                               |
+|:-----------------------------------|:----------------------------------------------------------|
+| HW-Storage-Wd-Nas-SNMP-Volume-Name | Discover the disk partitions and monitor space occupation |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
 
 ### Collected metrics & status
 
+Here is the list of services for this connector, detailing all metrics linked to each service.
+
 <Tabs groupId="sync">
 <TabItem value="Hardware" label="Hardware">
 
-| Metric Name                               | Unit  |
-|:------------------------------------------|:------|
-| system#hardware.temperature.celsius       | C     |
-| fan status                                |       |
-| *drive_name*#hardware.temperature.celsius | C     |
+| Metric name                           | Unit  |
+|:--------------------------------------|:------|
+| hardware.temperature.celsius          | C     |
+| *fans*#fan-status                     | N/A   |
+| *drives*#hardware.temperature.celsius | C     |
 
 </TabItem>
 <TabItem value="Volumes" label="Volumes">
 
-| Metric Name                                 | Unit  |
-|:--------------------------------------------|:------|
-| *volume_name*#volume.space.usage.bytes      | B     |
-| *volume_name*#volume.space.free.bytes       | B     |
-| *volume_name*#volume.space.usage.percentage | %     |
+| Metric name                             | Unit  |
+|:----------------------------------------|:------|
+| *volumes*#volume.space.usage.bytes      | B     |
+| *volumes*#volume.space.free.bytes       | B     |
+| *volumes*#volume.space.usage.percentage | %     |
 
 </TabItem>
 </Tabs>
@@ -63,12 +93,12 @@ To use this pack, the SNMP service must be properly configured on your **WD NAS*
 The target server must be reachable from the Centreon poller on the UDP/161
 SNMP port.
 
-## Setup
+## Installing the monitoring connector
 
-### Monitoring Pack
+### Pack
 
-If the platform uses an *online* license, you can skip the package installation
-instruction below as it is not required to have the pack displayed within the
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
 **Configuration > Monitoring Connector Manager** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
@@ -81,6 +111,20 @@ dnf install centreon-pack-hardware-storage-wd-nas-snmp
 ```
 
 </TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-pack-hardware-storage-wd-nas-snmp
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-pack-hardware-storage-wd-nas-snmp
+```
+
+</TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
@@ -88,16 +132,9 @@ yum install centreon-pack-hardware-storage-wd-nas-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
-
-```bash
-apt install centreon-pack-hardware-storage-wd-nas-snmp
-```
-
-</TabItem>
 </Tabs>
 
-Whatever the license type (*online* or *offline*), install the **WD NAS SNMP** Pack through
+2. Whatever the license type (*online* or *offline*), install the **WD NAS SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
@@ -121,6 +158,20 @@ dnf install centreon-plugin-Hardware-Storage-Wd-Nas-Snmp
 ```
 
 </TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Hardware-Storage-Wd-Nas-Snmp
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-plugin-hardware-storage-wd-nas-snmp
+```
+
+</TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
@@ -128,73 +179,154 @@ yum install centreon-plugin-Hardware-Storage-Wd-Nas-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+</Tabs>
 
-```bash
-apt install centreon-plugin-hardware-storage-wd-nas-snmp
-```
+## Using the monitoring connector
+
+### Using a host template provided by the connector
+
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **HW-Storage-Wd-Nas-SNMP-custom** template to the host. 
+
+> When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
+> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
+
+| Macro            | Description                                                                                          | Default value     | Mandatory   |
+|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
+### Using a service template provided by the connector
+
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+
+<Tabs groupId="sync">
+<TabItem value="Hardware" label="Hardware">
+
+| Macro                     | Description                                                                                        | Default value     | Mandatory   |
+|:--------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGDRIVETEMPERATURE   |                                                                                                    |                   |             |
+| CRITICALDRIVETEMPERATURE  |                                                                                                    |                   |             |
+| WARNINGFANSTATUS          |                                                                                                    |                   |             |
+| CRITICALFANSTATUS         |                                                                                                    |                   |             |
+| WARNINGSYSTEMTEMPERATURE  |                                                                                                    |                   |             |
+| CRITICALSYSTEMTEMPERATURE |                                                                                                    |                   |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+
+</TabItem>
+<TabItem value="Volumes" label="Volumes">
+
+| Macro                  | Description                                                                                        | Default value     | Mandatory   |
+|:-----------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERNAME             |                                                                                                    |                   |             |
+| WARNINGSPACEUSAGE      |                                                                                                    |                   |             |
+| CRITICALSPACEUSAGE     |                                                                                                    |                   |             |
+| WARNINGSPACEUSAGEFREE  |                                                                                                    |                   |             |
+| CRITICALSPACEUSAGEFREE |                                                                                                    |                   |             |
+| WARNINGSPACEUSAGEPRCT  |                                                                                                    |                   |             |
+| CRITICALSPACEUSAGEPRCT |                                                                                                    |                   |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
 </Tabs>
 
-## Configuration
-
-### Host
-
-* Log into Centreon and add a new host through **Configuration > Hosts**.
-* Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your **WD NAS** server settings.
-* Apply the **HW-Storage-Wd-Nas-SNMP-custom** template to the host.
-
-If you are using SNMP Version 3, use the **SNMPEXTRAOPTIONS** macro to configure
-> When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters.
-> More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
-
-| Mandatory   | Macro            | Description                                  |
-|:------------|:-----------------|:---------------------------------------------|
-|             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo  |
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
 Once the plugin is installed, log into your Centreon poller's CLI using the
-**centreon-engine** user account (`su - centreon-engine`) and test the plugin by
-running the following command:
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
+is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
 /usr/lib/centreon/plugins/centreon_wd_nas_snmp.pl \
-    --plugin=storage::wd::nas::snmp::plugin \
-    --mode=volumes \
-    --hostname=10.0.0.1 \
-    --snmp-version='2c' \
-    --snmp-community='my-snmp-community' \
-    --verbose
+	--plugin=storage::wd::nas::snmp::plugin \
+	--mode=volumes \
+	--hostname=10.0.0.1 \
+	--snmp-version='2c' \
+	--snmp-community='my-snmp-community'  \
+	--filter-name='' \
+	--warning-space-usage='' \
+	--critical-space-usage='' \
+	--warning-space-usage-free='' \
+	--critical-space-usage-free='' \
+	--warning-space-usage-prct='' \
+	--critical-space-usage-prct='' \
+	--verbose
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: volume 'Volume_1' space usage total: 7.20 TB used: 5.60 TB (77.78%) free: 1.60 TB (22.22%) | 'Volume_1#volume.space.usage.bytes'=6157265115545B;;;0;7916483719987.2 'Volume_1#volume.space.free.bytes'=1759218604441B;;;0;7916483719987.2 'Volume_1#volume.space.usage.percentage'=77.78%;;;0;100
-```
-
-All available options for a given mode can be displayed by adding the
-`--help` parameter to the command:
-
-```bash
-/usr/lib/centreon/plugins/centreon_wd_nas_snmp.pl \
-    --plugin=storage::wd::nas::snmp::plugin \
-    --mode=volumes \
-    --help
-```
-
-All available modes can be displayed by adding the `--list-mode` parameter to
-the command:
-
-```bash
-/usr/lib/centreon/plugins/centreon_wd_nas_snmp.pl \
-    --plugin=storage::wd::nas::snmp::plugin \
-    --list-mode
+OK: All volumes are ok | '*volumes*#volume.space.usage.bytes'=B;;;0;total'*volumes*#volume.space.free.bytes'=B;;;0;total'*volumes*#volume.space.usage.percentage'=%;;;0;100
 ```
 
 ### Troubleshooting
 
 Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
 for Centreon Plugins typical issues.
+
+### Available modes
+
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the 
+connector in your terminal.
+
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_wd_nas_snmp.pl \
+	--plugin=storage::wd::nas::snmp::plugin \
+	--list-mode
+```
+
+The plugin brings the following modes:
+
+| Mode                                                                                                                         | Linked service template                |
+|:-----------------------------------------------------------------------------------------------------------------------------|:---------------------------------------|
+| hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/wd/nas/snmp/mode/hardware.pm)]        | HW-Storage-Wd-Nas-Hardware-SNMP-custom |
+| list-volumes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/wd/nas/snmp/mode/listvolumes.pm)] | Used for service discovery             |
+| volumes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/wd/nas/snmp/mode/volumes.pm)]          | HW-Storage-Wd-Nas-Volumes-SNMP-custom  |
+
+### Available options
+
+#### Generic options
+
+All generic options are listed here:
+
+| Option | Description |
+|:-------|:------------|
+
+#### Modes options
+
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<TabItem value="Hardware" label="Hardware">
+
+| Option | Description |
+|:-------|:------------|
+
+</TabItem>
+<TabItem value="Volumes" label="Volumes">
+
+| Option | Description |
+|:-------|:------------|
+
+</TabItem>
+</Tabs>
+
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_wd_nas_snmp.pl \
+	--plugin=storage::wd::nas::snmp::plugin \
+	--mode=volumes \
+	--help
+```
