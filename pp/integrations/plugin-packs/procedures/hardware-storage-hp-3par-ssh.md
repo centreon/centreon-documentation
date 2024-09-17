@@ -164,7 +164,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SSH configuration
 
-A user is required to query the resource by SSH. There is no need for root or sudo
+Using this connector requires a user to be created on the monitored resource, which will be used by the Centreon poller to authenticate and execute the SSH requests. There is no need for root or sudo
 privileges. There are two possible ways to log in through SSH, either by
 exchanging the SSH key of the **centreon-engine** user to the target resource, or by
 setting your unique user and password directly in the host macros.
