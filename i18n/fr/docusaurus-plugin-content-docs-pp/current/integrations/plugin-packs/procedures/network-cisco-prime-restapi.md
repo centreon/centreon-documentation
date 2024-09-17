@@ -35,16 +35,19 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Ap-Usage-Global" label="Ap-Usage-Global">
 
-Coming soon
+| Métrique        | Description   | Unité |
+|:----------------|:--------------|:------|
+| ap-status       | AP status     | N/A   |
+| ap-clients      | Clients count | Count |
+| ap-uptime       | AP uptime     | s     |
+| ap-lwappuptime  | lwapp uptime  | s     |
 
 </TabItem>
 </Tabs>
 
 ## Prérequis
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+Le plugin a besoin d'un compte pour se connecter à l'API Rest.
 
 ## Installer le connecteur de supervision
 
@@ -71,7 +74,7 @@ dnf install centreon-pack-network-cisco-prime-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-network-cisco-prime-restapi
@@ -116,7 +119,7 @@ dnf install centreon-plugin-Network-Cisco-Prime-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-network-cisco-prime-restapi
@@ -141,11 +144,11 @@ yum install centreon-plugin-Network-Cisco-Prime-Restapi
 3. Appliquez le modèle d'hôte **Net-Cisco-Prime-Restapi-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro                  | Description                                                                                          | Valeur par défaut | Obligatoire |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CISCOPRIMEUSERNAME     | Cisco Prime username                                                                                 |                   |             |
-| CISCOPRIMEPASSWORD     | Cisco Prime password                                                                                 |                   |             |
-| CISCOPRIMEADDRESS      | Cisco Prime hostname                                                                                 |                   | X           |
+| Macro                  | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| CISCOPRIMEUSERNAME     | Cisco Prime username                                                                                                                               |                   |             |
+| CISCOPRIMEPASSWORD     | Cisco Prime password                                                                                                                               |                   |             |
+| CISCOPRIMEADDRESS      | Cisco Prime hostname                                                                                                                               |                   | X           |
 | CISCOPRIMEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -158,21 +161,21 @@ yum install centreon-plugin-Network-Cisco-Prime-Restapi
 <Tabs groupId="sync">
 <TabItem value="Ap-Usage-Global" label="Ap-Usage-Global">
 
-| Macro                 | Description                                                                                                                                                                                                                          | Valeur par défaut                                                | Obligatoire |
-|:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|:-----------:|
-| FILTERAP              | Filter ap name (can be a regexp)                                                                                                                                                                                                     | .*                                                               |             |
-| FILTERCONTROLLER      | Filter controller name (can be a regexp)                                                                                                                                                                                             | .*                                                               |             |
-| WARNINGAPCLIENTS      | Warning threshold                                                                                                                                                                                                                    |                                                                  |             |
-| CRITICALAPCLIENTS     | Critical threshold                                                                                                                                                                                                                   |                                                                  |             |
-| WARNINGAPLWAPPUPTIME  | Warning threshold                                                                                                                                                                                                                    |                                                                  |             |
-| CRITICALAPLWAPPUPTIME | Critical threshold                                                                                                                                                                                                                   |                                                                  |             |
-| WARNINGAPSTATUS       | Define the conditions to match for the status to be WARNING (default: '%{admin\_status} =~ /enable/i && %{status} =~ /minor\|warning/i') You can use the following variables: %{name}, %{status}, %{controller}, %{admin\_status}    | %{admin\_status} =~ /enable/i && %{status} =~ /minor\|warning/i  |             |
-| CRITICALAPSTATUS      | Define the conditions to match for the status to be CRITICAL (default: '%{admin\_status} =~ /enable/i && %{status} =~ /major\|critical/i'). You can use the following variables: %{name}, %{status}, %{controller}, %{admin\_status} | %{admin\_status} =~ /enable/i && %{status} =~ /major\|critical/i |             |
-| WARNINGAPUPTIME       | Warning threshold                                                                                                                                                                                                                    |                                                                  |             |
-| CRITICALAPUPTIME      | Critical threshold                                                                                                                                                                                                                   |                                                                  |             |
-| WARNINGCTRLAPCOUNT    | Warning threshold                                                                                                                                                                                                                    |                                                                  |             |
-| CRITICALCTRLAPCOUNT   | Critical threshold                                                                                                                                                                                                                   |                                                                  |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                   | --verbose                                                        |             |
+| Macro                 | Description                                                                                                                                            | Valeur par défaut                                                | Obligatoire |
+|:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|:-----------:|
+| FILTERAP              | Filter ap name (can be a regexp)                                                                                                                       | .*                                                               |             |
+| FILTERCONTROLLER      | Filter controller name (can be a regexp)                                                                                                               | .*                                                               |             |
+| WARNINGAPCLIENTS      | Warning threshold                                                                                                                                      |                                                                  |             |
+| CRITICALAPCLIENTS     | Critical threshold                                                                                                                                     |                                                                  |             |
+| WARNINGAPLWAPPUPTIME  | Warning threshold                                                                                                                                      |                                                                  |             |
+| CRITICALAPLWAPPUPTIME | Critical threshold                                                                                                                                     |                                                                  |             |
+| WARNINGAPSTATUS       | Define the conditions to match for the status to be WARNING. You can use the following variables: %{name}, %{status}, %{controller}, %{admin\_status}  | %{admin\_status} =~ /enable/i && %{status} =~ /minor\|warning/i  |             |
+| CRITICALAPSTATUS      | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{name}, %{status}, %{controller}, %{admin\_status} | %{admin\_status} =~ /enable/i && %{status} =~ /major\|critical/i |             |
+| WARNINGAPUPTIME       | Warning threshold                                                                                                                                      |                                                                  |             |
+| CRITICALAPUPTIME      | Critical threshold                                                                                                                                     |                                                                  |             |
+| WARNINGCTRLAPCOUNT    | Warning threshold                                                                                                                                      |                                                                  |             |
+| CRITICALCTRLAPCOUNT   | Critical threshold                                                                                                                                     |                                                                  |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).       | --verbose                                                        |             |
 
 </TabItem>
 </Tabs>
@@ -212,7 +215,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: | 
+OK: Access point 'AP_1' status : CLEARED (admin: ENABLE), Clients : 10, uptime started since : 8h 20m, lwapp uptime started since : 6h 56m 40s | 'ap_clients'=10;;;0; 'ap_uptime'=30000s;;;0; 'ap_lwappuptime'=25000s;;;0;
 ```
 
 ### Diagnostic des erreurs communes
