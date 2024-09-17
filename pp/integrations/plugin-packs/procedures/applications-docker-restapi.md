@@ -97,6 +97,8 @@ Open your favorite ssh client and configure your API to allow connections from t
 ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock -H=tcp://0.0.0.0:2375
 ```
 
+> WARNING: This isn't safe because someone could gain root access to the host where the daemon is running. We recommend that you configure the local firewall to accept traffic only from the poller on this port.
+
 * Save the changes
 * Apply the changes made at the systemd level : ```systemctl daemon-reload```
 * Restart the Docker engine: ```systemctl restart docker``` 
