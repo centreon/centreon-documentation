@@ -19,49 +19,29 @@ You will found all the information on the [overview](../installation/installatio
 
 Before applying this procedure, you should have a good knowledge of Linux OS, of Centreon, and of Pacemaker clustering tools in order to have a correct understanding of what is being done.
 
-<<<<<<< HEAD
 > **Warning:** anyone following this procedure is doing it at his own risk. Under no circumstances shall the Centreon company be liable for any breakdown or data loss.
-=======
-> **WARNING:** anyone following this procedure is doing it at his own risk. Under no circumstances shall the Centreon company be liable for any breakdown or data loss.
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 
 ### Network flows
 
 In addition of necessary flows describe on the [official documentation](map-web-install.md#architecture), you will need to open the following flows:
 
 <Tabs groupId="sync">
-<<<<<<< HEAD
 <TabItem value="2 nodes" label="2 nodes">
 
 | From                  | Destination           | Protocol | Port     | Application                                                               |
 | :-------------------- | :-------------------- | :------- | :------- | :------------------------------------------------------------------------ |
 | Active node           | Passive node          | MariaDB    | TCP 3306 | MariaDB synchronization (must be also open from passive to the active node) |
-=======
-<TabItem value="2 Nodes" label="2 Nodes">
-
-| From                  | Destination           | Protocol | Port     | Application                                                               |
-| :-------------------- | :-------------------- | :------- | :------- | :------------------------------------------------------------------------ |
-| Active Node           | Passive Node          | MySQL    | TCP 3306 | MySQL synchronization (Must be also open from passive to the active node) |
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 | Map Servers + QDevice | Map Servers + QDevice | Corosync | UDP 5404 | Communication inside the cluster (Multicast)                              |
 | Map Servers + QDevice | Map Servers + QDevice | Corosync | UDP 5405 | Communication inside the cluster (Unicast)                                |
 | Map Servers + QDevice | Map Servers + QDevice | PCS      | TCP 2224 | Communication inside the cluster                                          |
 | Map Servers + QDevice | Map Servers + QDevice | Corosync | TCP 5403 | Communication with the QDevice                                            |
 
 </TabItem>
-<<<<<<< HEAD
 <TabItem value="4 nodes" label="4 nodes">
 
 | From                       | Destination                | Protocol | Port     | Application                                                               |
 | :------------------------- | :------------------------- | :------- | :------- | :------------------------------------------------------------------------ |
 | Database Active Node       | Database Passive Node      | MariaDB    | TCP 3306 | MariaDB synchronization (must be also open from passive to the active node) |
-=======
-<TabItem value="4 Nodes" label="4 Nodes">
-
-| From                       | Destination                | Protocol | Port     | Application                                                               |
-| :------------------------- | :------------------------- | :------- | :------- | :------------------------------------------------------------------------ |
-| Database Active Node       | Database Passive Node      | MySQL    | TCP 3306 | MySQL synchronization (Must be also open from passive to the active node) |
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 | Map Servers + DB + QDevice | Map Servers + DB + QDevice | Corosync | UDP 5404 | Communication inside the cluster (Multicast)                              |
 | Map Servers + DB + QDevice | Map Servers + DB + QDevice | Corosync | UDP 5405 | Communication inside the cluster (Unicast)                                |
 | Map Servers + DB + QDevice | Map Servers + DB + QDevice | PCS      | TCP 2224 | Communication inside the cluster                                          |
@@ -75,32 +55,18 @@ In addition of necessary flows describe on the [official documentation](map-web-
 A Centreon MAP HA cluster can only be installed on a base of an operating Centreon MAP platform.
 Before following this procedure, it is mandatory that **[this installation procedure](map-web-install.md)** has already been completed and that **about 5GB free space have been spared on the LVM volume group** that carries the MariaDB data directory (`/var/lib/mysql` mount point by default).
 
-<<<<<<< HEAD
 The output of the `vgs` command must look like (check the value under `VFree`):
-=======
-The output of the `vgs` command must look like (what must be payed attention on is the value under `VFree`):
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 
 ```bash
   VG      #PV #LV #SN Attr   VSize  VFree
   vg_data   1   1   0 wz--n- 10,99g 5,99g
   vg_root   1   2   0 wz--n-  9,00g    0 
-<<<<<<< HEAD
 
 ```
 
 The two servers Centreon MAP must be linked to the same central server.
 The script `/etc/centreon-map/diagnostic.sh` must return `[OK]` on **both** Centreon MAP server:
 
-=======
-```
-
-The 2 servers Centreon MAP must be linked to the same Central server.
-The script `/etc/centreon-map/diagnostic.sh` must return `[OK]` on **both** Centreon MAP server:
-
-`Note: the following output must be updated`
-
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 ```bash
 ########## Centreon-Map server version ##########
 
@@ -140,30 +106,17 @@ The script `/etc/centreon-map/diagnostic.sh` must return `[OK]` on **both** Cent
 
 ```
 
-<<<<<<< HEAD
 > **Warning:** if these particular prerequisites are not effective, the databases synchronization method described further will not work.
 
 ### Studio configuration
 
 All the specific options setup in `/etc/centreon-studio/studio-config.properties`
-=======
-> **WARNING:** if these particular prerequisites are not effective, the databases synchronization method described further will not work.
-
-### Map Configuration
-
-All the specific options setup in `/etc/centreon-map/map-config.properties`
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 must be the same on the 2 nodes. The options that can be enable or disable are describe
 [here](configuration.md#define-views--status-computation-parameters).
 
 ### Quorum Device
 
-<<<<<<< HEAD
 In order to keep the cluster safe from split-brain issues, a third server is mandatory to resolve the master's election in the event of a connection loss. The role of Quorum Device, can be held by a poller of the monitoring platform.
-=======
-In order to keep the cluster safe from split-brain issues, a third server is mandatory to resolve the master's election in the event of a connection loss.
-The role of Quorum Device, can be held by a poller of the monitoring platform.
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 
 ### Defining hosts' names and addresses
 
@@ -175,7 +128,6 @@ In this procedure, we will refer to characteristics that are bound to change fro
 * `@MAP_SECONDARY_NAME@`: secondary Centreon MAP Engine's name (must be identical to `hostname -s`)
 * `@QDEVICE_IPADDR@`: quorum device's IP address
 * `@QDEVICE_NAME@`: quorum device's name (must be identical to `hostname -s`)
-<<<<<<< HEAD
 * `@MARIADB_REPL_USER@`:  MariaDB replication login (by default: `centreon-repl`)
 * `@MARIADB_REPL_PASSWD@`: MariaDB replication password
 * `@MARIADB_CENTREON_USER@`: MariaDB Centreon MAP login (by default: `centreon_map`)
@@ -183,15 +135,6 @@ In this procedure, we will refer to characteristics that are bound to change fro
 * `@VIP_IPADDR@`: virtual IP address of the cluster
 * `@VIP_IFNAME@`: network device carrying the cluster's VIP
 * `@VIP_CIDR_NETMASK@`: subnet mask length in bits (e.g. 24)
-=======
-* `@MARIADB_REPL_USER@`:  MariaDB replication login (default: `centreon-repl`)
-* `@MARIADB_REPL_PASSWD@`: MariaDB replication password
-* `@MARIADB_CENTREON_USER@`: MariaDB Centreon MAP login (default: `centreon_map`)
-* `@MARIADB_CENTREON_PASSWD@`: MariaDB Centreon MAP password
-* `@VIP_IPADDR@`: virtual IP address of the cluster
-* `@VIP_IFNAME@`: network device carrying the cluster's VIP
-* `@VIP_CIDR_NETMASK@`: subnet mask length in bits (eg. 24)
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 * `@VIP_BROADCAST_IPADDR@`: cluster's VIP broadcast address
 * `@CENTREON_CLUSTER_PASSWD@` : `hacluster` user's password
 
@@ -199,15 +142,9 @@ In this procedure, we will refer to characteristics that are bound to change fro
 
 Before actually setting the cluster up, some system prerequisites have to be met.
 
-<<<<<<< HEAD
 ### Network configuration optimization
 
 In order to improve the cluster reliability, and since Centreon MAP HA only supports IPv4, we recommend to apply the following settings on all your Centreon MAP servers (including quorum device):
-=======
-### Kernel network tuning
-
-In order to improve the cluster reliability, and since *Centreon MAP HA* only supports IPv4, we recommend to apply the following kernel settings all your Centreon MAP servers (including quorum device):
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 
 ```bash
 cat >> /etc/sysctl.conf <<EOF
@@ -223,11 +160,7 @@ systemctl restart network
 
 ### Name resolution
 
-<<<<<<< HEAD
 So that the Centreon MAP HA cluster can stay in operation in the event of a DNS service breakdown, all the cluster nodes must know each other by name without DNS, using `/etc/hosts`.
-=======
-So that the *Centreon-Map HA* cluster can stay in operation in the event of a DNS service breakdown, all the cluster nodes must know each other by name without DNS, using `/etc/hosts`.
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 
 ```bash
 cat >/etc/hosts <<"EOF"
@@ -240,7 +173,6 @@ EOF
 
 From here, `@MAP_PRIMARY_NAME@` will be named the "primary server/node" and `@MAP_SECONDARY_NAME@` the "secondary server/node". This designation is arbitrary, the two nodes will of course be interchangeable once the setup is done.
 
-<<<<<<< HEAD
 ### System packages installation
 
 Centreon offers a package named `centreon-ha-common`, which provides all the needed files and dependencies required by a Centreon cluster. These packages must be installed on both Centreon MAP nodes:
@@ -250,36 +182,11 @@ Centreon offers a package named `centreon-ha-common`, which provides all the nee
 
 ```bash
 apt install centreon-ha-common pcs pacemaker corosync corosync-qdevice
-=======
-> **WARNING:** the syntax of the following commands depends on the Linux Distribution you are using. Be sure to select the good operating system when it proposed.
-
-### System packages installation
-
-Centreon offers a package named `centreon-ha-common`, which provides all the needed files and dependencies required by a Centreon cluster. These packages must be installed on **both Centreon-Map nodes**:
-
-<Tabs groupId="sync">
-<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
-
-```bash
-dnf install epel-release
-dnf install centreon-ha-common pcs pacemaker corosync corosync-qdevice
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```bash
-apt update && apt install centreon-ha-common pcs pacemaker corosync corosync-qdevice
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 ```
 
 </TabItem>
 </Tabs>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 ### SSH keys exchange
 
 SSH key-based authentication must be set so that files and commands can be sent from one node to another by UNIX accounts:
@@ -305,22 +212,14 @@ systemctl start mysql
 su - mysql
 ```
 
-<<<<<<< HEAD
 Once in `mysql`'s `bash` environment, run these commands on both nodes:
-=======
-Once in `mysql`'s `bash` envinronment, run these commands on both nodes:
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 
 ```bash
 ssh-keygen -t ed25519 -a 100
 cat ~/.ssh/id_ed25519.pub
 ```
 
-<<<<<<< HEAD
 Once done, copy the content of the public key file displayed by `cat` and paste it to `~/.ssh/authorized_keys` (that must be created) on the other node and apply the correct file permissions (still as `mysql` user):
-=======
-Once done, copy the content of the public key file displayed by `cat` and paste it to `~/.ssh/authorized_keys` (must be created) on the other node and apply the correct file permissions (still as `mysql` user):
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 
 ```bash
 chmod 600 ~/.ssh/authorized_keys
@@ -338,7 +237,6 @@ Then exit the `mysql` session typing `exit` or `Ctrl-D`.
 
 A Primary-Secondary MariaDB cluster will be setup so that everything is synchronized in real-time. 
 
-<<<<<<< HEAD
 > Unless otherwise stated, each of the following steps have to be run **on both Centreon MAP nodes**.
 
 ### Configuring MariaDB
@@ -347,13 +245,6 @@ A Primary-Secondary MariaDB cluster will be setup so that everything is synchron
 <TabItem value="Debian11" label="Debian 11">
 
 For both optimization and cluster reliability purposes, you need to add this tuning options to MariaDB configuration in the `/etc/mysql/mariadb.conf.d/50-server.cnf` file. Paste these lines (some have to be modified) into this section:
-=======
-**Note**: unless otherwise stated, each of the following steps have to be run **on both Centreon-Map nodes**.
-
-### Configuring MariaDB
-
-For both optimization and cluster reliability purposes, you need to add this tuning options to MariaDB configuration in the `/etc/my.cnf.d/server.cnf` file or in the `/etc/mysql/mariadb.conf.d/50-server.cnf` file for debian. By default, the `[server]` section of this file is empty. Paste these lines (some have to be modified) into this section:
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 
 ```ini
 [server]
@@ -369,7 +260,6 @@ datadir=/var/lib/mysql
 pid-file=/var/lib/mysql/mysql.pid
 
 ignore_db_dirs=lost+found
-<<<<<<< HEAD
 
 bind-address            = 0.0.0.0
 
@@ -388,19 +278,6 @@ innodb_log_file_size = 200M
 
 > **Important:** the value of `server-id` must be different from one server to the other. The values suggested in the comment 1 => Primary et 2 => Secondary are not mandatory by recommended.
 > `bind-address` allows you to specify which address(es) MariaDB will be listening for connections to, if for example, you have several public interfaces. `0.0.0.0` means "all interfaces".
-=======
-bind-address            = 0.0.0.0
-
-character-set-server=utf8
-collation-server=utf8_general_ci
-
-# for MAP engine
-max_allowed_packet=20M
-innodb_log_file_size=200M
-```
-
-> **Important:** the value of `server-id` must be different from one server to the other. The values suggested in the comment 1 => Primary et 2 => Secondary are not mandatory by recommended.
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 
 To apply the new configuration, you have to restart the database server:
 
@@ -414,25 +291,16 @@ Make sure that the restart went well:
 systemctl status mariadb
 ```
 
-<<<<<<< HEAD
 > **Warning:** other files in `/etc/my.cnf.d/` such as `map.cnf` will be ignored from now. Any customization will have to be added to `50-server.cnf`.
 
 ### Creating the `centreon` MariaDB account
 
 First log in as `root` on both database servers:
-=======
-> **Warning:** Other files in `/etc/my.cnf.d/` such as `map.cnf` will be ignored from now. Any customization will have to be added to `server.cnf` or `50-server.cnf` for debian.
-
-### Creating the `centreon` MariaDB account
-
-First log in as `root` on both database servers (using the newly defined password):
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 
 ```
 mysql -p
 ```
 
-<<<<<<< HEAD
 Then paste on both sides the following SQL commands to the MariaDB prompt to create the application user (by default: `centreon_map`). Of course, you will replace the macros first:
 
 ```sql
@@ -441,25 +309,11 @@ GRANT ALL PRIVILEGES ON centreon_map.* TO '@MARIADB_CENTREON_USER@'@'@MAP_SECOND
 
 CREATE USER '@MARIADB_CENTREON_USER@'@'@MAP_PRIMARY_IPADDR@' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@';
 GRANT ALL PRIVILEGES ON centreon_map.* TO '@MARIADB_CENTREON_USER@'@'@MAP_PRIMARY_IPADDR@';
-=======
-Then paste on both sides the following SQL commands to the MariaDB prompt to create the application user (default: `centreon_map`). Of course, you will replace the macros first:
-
-```sql
-CREATE USER '@MARIADB_CENTREON_USER@'@'@MAP_SECONDARY_IPADDR@' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@';
-GRANT ALL PRIVILEGES ON centreon_studio.* TO '@MARIADB_CENTREON_USER@'@'@MAP_SECONDARY_IPADDR@';
-
-CREATE USER '@MARIADB_CENTREON_USER@'@'@MAP_PRIMARY_IPADDR@' IDENTIFIED BY '@MARIADB_CENTREON_PASSWD@';
-GRANT ALL PRIVILEGES ON centreon_studio.* TO '@MARIADB_CENTREON_USER@'@'@MAP_PRIMARY_IPADDR@';
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 ```
 
 ### Creating the MariaDB replication account
 
-<<<<<<< HEAD
 Still in the same prompt, create the replication user (by default: `centreon-repl`):
-=======
-Still in the same prompt, create the replication user (default: `centreon-repl`):
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 
 ```sql
 GRANT SHUTDOWN, PROCESS, RELOAD, SUPER, SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.* 
@@ -515,11 +369,7 @@ CENTREON_STORAGE_DB='centreon_studio'
 ###############################
 ```
 
-<<<<<<< HEAD
 > **Note:** this script is normaly use for *Centreon HA* that's why we need to setup twice centreon_studio as `CENTREON_DB` and `CENTREON_STORAGE_DB`.
-=======
-> **Note:** this script is normaly use for *Centreon HA* that's why we need to setup twice centreon_map as `CENTREON_DB` and `CENTREON_STORAGE_DB`.
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 
 
 To make sure that all the previous steps have been successful, and that the correct names, logins and passwords have been entered in the configuration bash file, run this command:
@@ -545,11 +395,7 @@ What matters here is that the first two connection tests are `OK`.
 
 ### Switching to read-only mode
 
-<<<<<<< HEAD
 Now that everything is well configured, you will enable the `read_only` on both database servers by uncommenting (*ie.* removing the `#` at the beginning of the line) this instruction in the `/etc/my.cnf.d/server.cnf` file:
-=======
-Now that everything is well configured, you will enable the `read_only` on both database servers by uncommenting (*ie.* removing the `#` at the beginning of the line) this instruction in the `/etc/my.cnf.d/server.cnf` file (or `/etc/mysql/mariadb.conf.d/50-server.cnf` for debian):
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 
 * Primary node:
 
@@ -579,11 +425,6 @@ systemctl restart mariadb
 
 In the process of synchronizing the databases, you will first stop the secondary database process so that its data can be overwritten by the primary node's data. 
 
-<<<<<<< HEAD
-=======
-> This script now uses GTID and if your primary node has not made any new writes since setting up this configuration, you may encounter an error such as : **cannot get gtid current pos**. To get around this, remove the `read_only` and create a map or test view so that the primary node has some data to write to. Don't forget to switch back to `read_only` afterwards and restart mariadb.
-
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 Run this command **on the secondary node:**
 
 ```bash
@@ -653,13 +494,8 @@ Position Status [OK]
 Centreon's application services won't be launched at boot time anymore, they will be managed by the clustering tools. These services must therefore be stopped and disabled:
 
 ```bash
-<<<<<<< HEAD
 systemctl stop centreon-map mariadb
 systemctl disable centreon-map mariadb
-=======
-systemctl stop centreon-map-engine mariadb
-systemctl disable centreon-map-engine mariadb
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 ```
 
 By default, the `mariadb` service is enabled in both systemd and system V perspectives, so you'd rather make sure it is disabled:
@@ -683,12 +519,6 @@ systemctl start pcsd
 
 You can use one of your Pollers to play this role. It must be prepared with the commands below: 
 
-<<<<<<< HEAD
-=======
-<Tabs groupId="sync">
-<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
-
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 ```bash
 yum install pcs corosync-qnetd
 systemctl start pcsd.service
@@ -697,23 +527,6 @@ pcs qdevice setup model net --enable --start
 pcs qdevice status net --full
 ```
 
-<<<<<<< HEAD
-=======
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```bash
-apt install pcs corosync-qnetd
-systemctl enable pcsd.service
-pcs qdevice setup model net --enable --start
-pcs qdevice status net --full
-```
-
-</TabItem>
-</Tabs>
-
-
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 Modify the parameter `COROSYNC_QNETD_OPTIONS` in the file `/etc/sysconfig/corosync-qnetd` to make sure the service will be listening the connections just on IPv4
 
 ```bash
@@ -728,15 +541,6 @@ For the sake of simplicity, the `hacluster` user will be assigned the same passw
 passwd hacluster
 ```
 
-<<<<<<< HEAD
-=======
-> Debian already has a pre-existing default cluster configuration. Before you can authenticate your cluster members, you need to destroy the default cluster on the 2 MAP nodes:
-
-```bash
-pcs cluster destroy
-```
-
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 Now that both of the Centreon-Map nodes **and** the *quorum device* server are sharing the same password, you will run this command **only on one of the Centreon-Map nodes** in order to authenticate on all the hosts taking part in the cluster.
 
 ```bash
@@ -780,11 +584,7 @@ You can now follow the state of the cluster with the `crm_mon` command, which wi
 
 #### Creating the *Quorum Device*
 
-<<<<<<< HEAD
 Run this command on one of the Centreon-Map nodes:
-=======
-Run this command on **one of the Centreon-Map nodes**:
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 
 ```bash
 pcs quorum device add model net \
@@ -797,24 +597,15 @@ pcs quorum device add model net \
 To be run **only on one Centreon-Map node**:
 
 <Tabs groupId="sync">
-<<<<<<< HEAD
 <TabItem value="CentOS7" label="CentOS7">
 
 ```bash
 pcs resource create "ms_mysql" \
     ocf:heartbeat:mysql-centreon \
-=======
-<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
-
-```bash
-pcs resource create "ms_mysql" \
-    ocf:heartbeat:mariadb-centreon \
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
     config="/etc/my.cnf.d/server.cnf" \
     pid="/var/lib/mysql/mysql.pid" \
     datadir="/var/lib/mysql" \
     socket="/var/lib/mysql/mysql.sock" \
-<<<<<<< HEAD
     replication_user="@MARIADB_REPL_USER@" \
     replication_passwd='@MARIADB_REPL_PASSWD@' \
     max_slave_lag="15" \
@@ -844,40 +635,11 @@ pcs resource create "ms_mysql" \
     test_user="@MARIADB_REPL_USER@" \
     test_passwd="@MARIADB_REPL_PASSWD@" \
     test_table='centreon_studio.data'
-=======
-    binary="/usr/bin/mysqld_safe" \
-    node_list="@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@" \
-    replication_user="@MARIADB_REPL_USER@" \
-    replication_passwd='@MARIADB_REPL_PASSWD@' \
-    test_user="@MARIADB_REPL_USER@" \
-    test_passwd="@MARIADB_REPL_PASSWD@" \
-    test_table='centreon.host'
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```bash
-pcs resource create "ms_mysql" \
-    ocf:heartbeat:mariadb-centreon \
-    config="/etc/mysql/mariadb.conf.d/50-server.cnf" \
-    pid="/run/mysqld/mysqld.pid" \
-    datadir="/var/lib/mysql" \
-    socket="/run/mysqld/mysqld.sock" \
-    binary="/usr/bin/mysqld_safe" \
-    node_list="@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@" \
-    replication_user="@MARIADB_REPL_USER@" \
-    replication_passwd='@MARIADB_REPL_PASSWD@' \
-    test_user="@MARIADB_REPL_USER@" \
-    test_passwd="@MARIADB_REPL_PASSWD@" \
-    test_table='centreon.host'
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 ```
 
 </TabItem>
 </Tabs>
 
-<<<<<<< HEAD
 > **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
 
 <Tabs groupId="sync">
@@ -885,10 +647,6 @@ pcs resource create "ms_mysql" \
 
 ```bash
 pcs resource meta ms_mysql-master \
-=======
-```bash
-pcs resource promotable ms_mysql \
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
     master-node-max="1" \
     clone_max="2" \
     globally-unique="false" \
@@ -896,7 +654,6 @@ pcs resource promotable ms_mysql \
     notify="true"
 ```
 
-<<<<<<< HEAD
 
 </TabItem>
 <TabItem value="RHEL" label="RHEL">
@@ -913,8 +670,6 @@ pcs resource master ms_mysql \
 </TabItem>
 </Tabs>
 
-=======
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 ### Creating the *centreon_map* resource group
 
 ##### VIP address
@@ -937,13 +692,8 @@ pcs resource create vip \
 #### Centreon-Map service
 
 ```bash
-<<<<<<< HEAD
 pcs resource create centreon-map \
     systemd:centreon-map \
-=======
-pcs resource create centreon-map-engine \
-    systemd:centreon-map-engine \
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
     meta target-role="started" \
     op start interval="0s" timeout="90s" \
     stop interval="0s" timeout="90s" \
@@ -956,13 +706,8 @@ pcs resource create centreon-map-engine \
 In order to force the cluster running both `centreon_map` resource group and the MariaDB Master on the same node, you have to declare these colocation constraints:
 
 ```bash
-<<<<<<< HEAD
 pcs constraint colocation add "centreon_map" with master "ms_mysql-master"
 pcs constraint colocation add master "ms_mysql-master" with "centreon_map"
-=======
-pcs constraint colocation add "centreon_map" with master "ms_mysql-clone"
-pcs constraint colocation add master "ms_mysql-clone" with "centreon_map"
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 ```
 
 After this step, all resources should be running on the same node, the platform should be redundant and working properly.
@@ -980,7 +725,6 @@ Last updated: Thu Feb 20 13:14:17 2020
 Last change: Thu Feb 20 09:25:54 2020 by root via crm_attribute	on @MAP_PRIMARY_NAME@
 
 2 nodes configured
-<<<<<<< HEAD
 14 resources configured
 
 Online: [ @MAP_PRIMARY_NAME@ @MAP_SECONDARY_NAME@ ]
@@ -993,26 +737,6 @@ Active resources:
  Resource Group: centreon
      vip        (ocf::heartbeat:IPaddr2):	Started @MAP_PRIMARY_NAME@
      centreon-map	(systemd:centreon-map):   Started @MAP_PRIMARY_NAME@
-=======
-4 resource instances configured
-
-Online: [ @MAP_PRIMARY_NAME@ @MAP_SECONDARY_NAME@ ]
-
-Full List of Resources:
-  * Clone Set: ms_mysql-clone [ms_mysql] (promotable):
-    * Masters: [ @MAP_PRIMARY_NAME@ ]
-    * Slaves: [ @MAP_SECONDARY_NAME@ ]
-  * Resource Group: centreon_map:
-    * vip	(ocf::heartbeat:IPaddr2):	 Started @MAP_PRIMARY_NAME@
-    * centreon-map-engine	(systemd:centreon-map-engine):	 Started @MAP_PRIMARY_NAME@
-
- Master/Slave Set: ms_mysql-clone [ms_mysql]
-	 Masters: [ @MAP_PRIMARY_NAME@ ]
-	 Slaves: [ @MAP_SECONDARY_NAME@ ]
- Resource Group: centreon_map
-	 vip        (ocf::heartbeat:IPaddr2):	Started @MAP_PRIMARY_NAME@
-	 centreon-map-engine	(systemd:centreon-map-engine):   Started @MAP_PRIMARY_NAME@
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 ```
 
 #### Checking the database replication thread
@@ -1026,13 +750,8 @@ The MariaDB replication state can be monitored at any time with the `mysql-check
 The expected output is:
 
 ```bash
-<<<<<<< HEAD
 Connection Status '@MAP_PRIMARY_NAME@' [OK]
 Connection Status '@MAP_SECONDARY_NAME@' [OK]
-=======
-Connection MASTER Status '@MAP_PRIMARY_NAME@' [OK]
-Connection SLAVE Status '@MAP_SECONDARY_NAME@' [OK]
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 Slave Thread Status [OK]
 Position Status [OK]
 ```
@@ -1051,11 +770,7 @@ Normally the two colocation constraints that have been created during the setup 
 Location Constraints:
 Ordering Constraints:
 Colocation Constraints:
-<<<<<<< HEAD
   centreon_map with ms_mysql-master (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
-=======
-  centreon_map with ms_mysql-clone (score:INFINITY) (rsc-role:Started) (with-rsc-role:Master)
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
   ms_mysql-master with centreon_map (score:INFINITY) (rsc-role:Master) (with-rsc-role:Started)
 Ticket Constraints:
 ```
