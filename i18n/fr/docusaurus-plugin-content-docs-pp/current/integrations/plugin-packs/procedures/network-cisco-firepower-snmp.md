@@ -5,79 +5,129 @@ title: Cisco Firepower SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Contenu du pack
 
-## Contenu du connecteur de supervision
+### Modèles
 
-### Objets supervisés
+Le connecteur de supervision **Cisco Firepower SNMP** apporte un modèle d'hôte :
 
-Le connecteur de supervision Cisco Firepower inclue la supervision CPU, Faults, Hardware, Interfaces et Memory.
+* **Net-Cisco-Firepower-SNMP-custom**
 
-### Métriques collectées
+Le connecteur apporte les modèles de service suivants
+(classés selon le modèle d'hôte auquel ils sont rattachés) :
+
+<Tabs groupId="sync">
+<TabItem value="Net-Cisco-Firepower-SNMP-custom" label="Net-Cisco-Firepower-SNMP-custom">
+
+| Alias    | Modèle de service                        | Description                                    |
+|:---------|:-----------------------------------------|:-----------------------------------------------|
+| Cpu      | Net-Cisco-Firepower-Cpu-SNMP-custom      | Contrôle du taux d'utilisation des processeurs |
+| Faults   | Net-Cisco-Firepower-Faults-SNMP-custom   | Contrôle les messages d'erreurs                |
+| Hardware | Net-CIsco-Firepower-Hardware-SNMP-custom | Contrôle l'état du matériel                    |
+| Memory   | Net-Cisco-Firepower-Memory-SNMP-custom   | Contrôle du taux d'utilisation des mémoire     |
+
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Cisco-Firepower-SNMP-custom** est utilisé.
+
+</TabItem>
+<TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
+
+| Alias      | Modèle de service                          | Description             | Découverte |
+|:-----------|:-------------------------------------------|:------------------------|:----------:|
+| Interfaces | Net-Cisco-Firepower-Interfaces-SNMP-custom | Contrôle les interfaces | X          |
+
+> Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
+
+> Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
+
+</TabItem>
+</Tabs>
+
+### Règles de découverte
+
+#### Découverte d'hôtes
+
+| Nom de la règle | Description                                                                                                                                                                                                                                             |
+|:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Cisco-Firepower-SNMP-custom** host template |
+
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
+
+#### Découverte de services
+
+| Nom de la règle                             | Description                                                             |
+|:--------------------------------------------|:------------------------------------------------------------------------|
+| Net-Cisco-Firepower-SNMP-Packet-Errors-Name | Discover network interfaces and monitor errored and discarded packets   |
+| Net-Cisco-Firepower-SNMP-Traffic-Name       | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
+
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
+pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
+
+### Métriques & statuts collectés
+
+Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
 
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Metric name                                     | Description           | Unit |
-| :---------------------------------------------- | :-------------------- | :--- |
-| *securitymodule*#cpu.utilization.1m.percentage  | CPU utilization       | %    |
-| *securitymodule*#cpu.utilization.5m.percentage  | CPU utilization       | %    |
-| *securitymodule*#cpu.utilization.15m.percentage | CPU utilization       | %    |
+| Métrique                             | Unité |
+|:-------------------------------------|:------|
+| *cpu*#cpu.utilization.1m.percentage  | %     |
+| *cpu*#cpu.utilization.5m.percentage  | %     |
+| *cpu*#cpu.utilization.15m.percentage | %     |
 
 </TabItem>
 <TabItem value="Faults" label="Faults">
 
-| Metric name            | Description                                       | Unit |
-| :--------------------- | :------------------------------------------------ | :--- |
-| fault status           | Bank status, possible to set string-based alerts  |      |
-| faults.total.count     | Number of total faults                            |      |
-| faults.info.count      | Number of informational faults                    |      |
-| faults.minor.count     | Number of minor faults                            |      |
-| faults.warning.count   | Number of warning faults                          |      |
-| faults.major.count     | Number of major faults                            |      |
-| faults.critical.count  | Number of critical faults                         |      |
-
-</TabItem>
-<TabItem value="Interfaces" label="Interfaces">
-
-| Metric name                                              | Description                                             | Unit |
-|:-------------------------------------------------------- |:------------------------------------------------------- | :--- |
-| interface status                                         | Status of the interface                                 |      |
-| *interfacename*#interface.traffic.in.bitspersecond       | Incoming traffic going through the interface.           | b/s  |
-| *interfacename*#interface.traffic.out.bitspersecond      | Outgoing traffic going through the interface.           | b/s  |
-| *interfacename*#interface.packets.in.error.percentage    | Incoming errored packets going through the interface.   | %    |
-| *interfacename*#interface.packets.in.discard.percentage  | Incoming discarded packets going through the interface. | %    |
-| *interfacename*#interface.packets.out.error.percentage   | Outgoing errored packets going through the interface.   | %    |
-| *interfacename*#interface.packets.out.discard.percentage | Outgoing discarded packets going through the interface. | %    |
-
-It is possible to filter on the name of an interface using a REGEXP of the form [```--interface='^eth1/0/1$' --name```].
+| Métrique              | Unité |
+|:----------------------|:------|
+| faults.total.count    | count |
+| faults.critical.count | count |
+| faults.major.count    | count |
+| faults.warning.count  | count |
+| faults.minor.count    | count |
+| faults.info.count     | count |
+| status                | N/A   |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Metric name                                    | Description                     | Unit |
-| :--------------------------------------------- | :------------------------------ | :--- |
-| chassis status                                 | Status of the chassis           |      |
-| *dn*#hardware.chassis.input.power.watt         | Input power of the chassis      | W    |
-| *dn*#hardware.chassis.output.power.watt        | Output power of the chassis     | W    |
-| cpuunit status                                 | Status of the cpu unit          |      |
-| *dn*#hardware.cpuunit.temperature.celsius      | Status of the cpu unit          | C    |
-| fan status                                     | Status of the fan               |      |
-| *dn*#hardware.fan.speed.rpm                    | Speed of the fan                | rpm  |
-| fanmodule status                               | Status of the fan module        |      |
-| *dn*#hardware.fanmodule.temperature.celsius    | Temperature of the fan module   | C    |
-| memoryunit status                              | Status of the memory unit       |      |
-| *dn*#hardware.memoryunit.temperature.celsius   | Temperature of the memory unit  | C    |
-| psu status                                     | Status of the power supply      |      |
-| *dn*#hardware.powersupply.temperature.celsius  | Temperature of the power supply | C    |
+| Métrique                                      | Description                     | Unité |
+|:----------------------------------------------|:--------------------------------|:------|
+| chassis status                                | Status of the chassis           |       |
+| *dn*#hardware.chassis.input.power.watt        | Input power of the chassis      | W     |
+| *dn*#hardware.chassis.output.power.watt       | Output power of the chassis     | W     |
+| cpuunit status                                | Status of the cpu unit          |       |
+| *dn*#hardware.cpuunit.temperature.celsius     | Status of the cpu unit          | C     |
+| fan status                                    | Status of the fan               |       |
+| *dn*#hardware.fan.speed.rpm                   | Speed of the fan                | rpm   |
+| fanmodule status                              | Status of the fan module        |       |
+| *dn*#hardware.fanmodule.temperature.celsius   | Temperature of the fan module   | C     |
+| memoryunit status                             | Status of the memory unit       |       |
+| *dn*#hardware.memoryunit.temperature.celsius  | Temperature of the memory unit  | C     |
+| psu status                                    | Status of the power supply      |       |
+| *dn*#hardware.powersupply.temperature.celsius | Temperature of the power supply | C     |
+
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
+
+| Métrique                                                  | Unité |
+|:----------------------------------------------------------|:------|
+| *interface_name*#status                                   | N/A   |
+| *interface_name*#interface.traffic.in.bitspersecond       | b/s   |
+| *interface_name*#interface.traffic.out.bitspersecond      | b/s   |
+| *interface_name*#interface.packets.in.discard.percentage  | %     |
+| *interface_name*#interface.packets.in.error.percentage    | %     |
+| *interface_name*#interface.packets.out.discard.percentage | %     |
+| *interface_name*#interface.packets.out.error.percentage   | %     |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Metric name                              | Description                | Unit |
-| :--------------------------------------- | :------------------------- | :--- |
-| *securitymodule*#memory.usage.bytes      | Memory usage               | B    |
-| *securitymodule*#memory.free.bytes       | Free memory                | B    |
-| *securitymodule*#memory.usage.percentage | Memory usage in percentage | %    |
+| Métrique                         | Unité |
+|:---------------------------------|:------|
+| *memory*#memory.usage.bytes      | B     |
+| *memory*#memory.free.bytes       | B     |
+| *memory*#memory.usage.percentage | %     |
 
 </TabItem>
 </Tabs>
@@ -86,98 +136,315 @@ It is possible to filter on the name of an interface using a REGEXP of the form 
 
 Afin de contrôler vos équipements Cisco Firepower, le SNMP doit être configuré (cf: https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/213971-configure-snmp-on-firepower-ngfw-applian)
 
-## Installation
+## Installer le connecteur de supervision
+
+### Pack
+
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Installer le Plugin sur tous les Collecteurs Centreon :
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Network-Cisco-Firepower-Snmp.noarch
+dnf install centreon-pack-network-cisco-firepower-snmp
 ```
-
-2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco Firepower SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Installer le Plugin sur tous les Collecteurs Centreon :
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Network-Cisco-Firepower-Snmp.noarch
+dnf install centreon-pack-network-cisco-firepower-snmp
 ```
 
-2. Sur le serveur Central Centreon, installer le connecteur de supervision via le RPM:
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-pack-network-cisco-firepower-snmp
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-network-cisco-firepower-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Cisco Firepower SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+</TabItem>
+</Tabs>
+
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco Firepower SNMP**
+depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+
+### Plugin
+
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
+
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Network-Cisco-Firepower-Snmp
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Network-Cisco-Firepower-Snmp
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+apt install centreon-plugin-network-cisco-firepower-snmp
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Network-Cisco-Firepower-Snmp
+```
 
 </TabItem>
 </Tabs>
 
-## Configuration
+## Utiliser le connecteur de supervision
 
-Ce connecteur de supervision est conçu de manière à avoir dans Centreon un hôte par équipement Cisco Firepower.
-Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *Net-Cisco-Firepower-SNMP-custom*. 
-Il est nécessaire de remplir les valeurs des champs "SNMP Community" et "SNMP Version".
+### Utiliser un modèle d'hôte issu du connecteur
 
-> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping). 
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **Net-Cisco-Firepower-SNMP-custom**.
 
-| Mandatory   | Name                    | Description          |
-| :---------- | :---------------------- | :------------------- |
-|             | SNMPEXTRAOPTIONS        | Extra options SNMP   |
+> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
 
-## FAQ
+| Macro            | Description                                                                                          | Valeur par défaut | Obligatoire |
+|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
-### Comment faire le test en ligne de commande et que signifient les principales options ?
+4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre Collecteur Centreon avec l'utilisateur *centreon-engine* :
+### Utiliser un modèle de service issu du connecteur
+
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
+
+<Tabs groupId="sync">
+<TabItem value="Cpu" label="Cpu">
+
+| Macro                | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:---------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERSECURITYMODULE |                                                                                                    |                   |             |
+| WARNINGAVERAGE15M    |                                                                                                    |                   |             |
+| CRITICALAVERAGE15M   |                                                                                                    |                   |             |
+| WARNINGAVERAGE1M     |                                                                                                    |                   |             |
+| CRITICALAVERAGE1M    |                                                                                                    |                   |             |
+| WARNINGAVERAGE5M     |                                                                                                    |                   |             |
+| CRITICALAVERAGE5M    |                                                                                                    |                   |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+
+</TabItem>
+<TabItem value="Faults" label="Faults">
+
+| Macro                  | Description                                                                                        | Valeur par défaut                | Obligatoire |
+|:-----------------------|:---------------------------------------------------------------------------------------------------|:---------------------------------|:-----------:|
+| WARNINGFAULTSCRITICAL  |                                                                                                    |                                  |             |
+| CRITICALFAULTSCRITICAL |                                                                                                    |                                  |             |
+| WARNINGFAULTSWARNING   |                                                                                                    |                                  |             |
+| CRITICALFAULTSWARNING  |                                                                                                    |                                  |             |
+| WARNINGFAULTSINFO      |                                                                                                    |                                  |             |
+| CRITICALFAULTSINFO     |                                                                                                    |                                  |             |
+| WARNINGFAULTSMAJOR     |                                                                                                    |                                  |             |
+| CRITICALFAULTSMAJOR    |                                                                                                    |                                  |             |
+| WARNINGFAULTSMINOR     |                                                                                                    |                                  |             |
+| CRITICALFAULTSMINOR    |                                                                                                    |                                  |             |
+| WARNINGFAULTSTOTAL     |                                                                                                    |                                  |             |
+| CRITICALFAULTSTOTAL    |                                                                                                    |                                  |             |
+| WARNINGSTATUS          |                                                                                                    | %{severity} =~ /minor\|warning/  |             |
+| CRITICALSTATUS         |                                                                                                    | %{severity} =~ /major\|critical/ |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                        |             |
+
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
+
+| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    |                                                                                                    | .*                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
+
+| Macro              | Description                                                                                        | Valeur par défaut                                     | Obligatoire |
+|:-------------------|:---------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
+| OIDFILTER          |                                                                                                    | ifname                                                |             |
+| OIDDISPLAY         |                                                                                                    | ifname                                                |             |
+| INTERFACENAME      |                                                                                                    |                                                       |             |
+| WARNINGINDISCARD   |                                                                                                    |                                                       |             |
+| CRITICALINDISCARD  |                                                                                                    |                                                       |             |
+| WARNINGINERROR     |                                                                                                    |                                                       |             |
+| CRITICALINERROR    |                                                                                                    |                                                       |             |
+| WARNINGINTRAFFIC   |                                                                                                    |                                                       |             |
+| CRITICALINTRAFFIC  |                                                                                                    |                                                       |             |
+| WARNINGOUTDISCARD  |                                                                                                    |                                                       |             |
+| CRITICALOUTDISCARD |                                                                                                    |                                                       |             |
+| WARNINGOUTERROR    |                                                                                                    |                                                       |             |
+| CRITICALOUTERROR   |                                                                                                    |                                                       |             |
+| WARNINGOUTTRAFFIC  |                                                                                                    |                                                       |             |
+| CRITICALOUTTRAFFIC |                                                                                                    |                                                       |             |
+| CRITICALSTATUS     |                                                                                                    | %{admstatus} eq "up" and %{opstatus} !~ /up\|dormant/ |             |
+| WARNINGSTATUS      |                                                                                                    |                                                       |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose --no-skipped-counters                       |             |
+
+</TabItem>
+<TabItem value="Memory" label="Memory">
+
+| Macro                | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:---------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERSECURITYMODULE |                                                                                                    |                   |             |
+| WARNINGUSAGE         |                                                                                                    |                   |             |
+| CRITICALUSAGE        |                                                                                                    |                   |             |
+| WARNINGUSAGEFREE     |                                                                                                    |                   |             |
+| CRITICALUSAGEFREE    |                                                                                                    |                   |             |
+| WARNINGUSAGEPRCT     |                                                                                                    |                   |             |
+| CRITICALUSAGEPRCT    |                                                                                                    |                   |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+
+</TabItem>
+</Tabs>
+
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
+
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
+que le connecteur arrive bien à superviser une ressource en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_cisco_firepower_fxos_snmp.pl \
-    --plugin=network::cisco::firepower::fxos::snmp::plugin \
-    --mode=cpu \
-    --hostname=10.30.2.114 \
-    --snmp-version='2c' \
-    --snmp-community='cisco_ro' \
-    --warning-average-5m='60' \
-    --critical-average-5m='75' \
-    --verbose
-
-OK: Security module 'sec-svc/slot-1' CPU average usage: 42.00 % (1m), 42.00 % (5m), 42.00 % (15m) | 'sec-svc/slot-1#cpu.utilization.1m.percentage'=42.00%;;;0;100 'sec-svc/slot-1#cpu.utilization.5m.percentage'=42.00%;;;0;100 'sec-svc/slot-1#cpu.utilization.15m.percentage'=42.00%;;;0;100
-Security module 'sec-svc/slot-1' CPU average usage: 42.00 % (1m), 42.00 % (5m), 42.00 % (15m)
+	--plugin=network::cisco::firepower::fxos::snmp::plugin \
+	--mode=memory \
+	--hostname='10.0.0.1' \
+	--snmp-version='2c' \
+	--snmp-community='my-snmp-community'  \
+	--filter-security-module='' \
+	--warning-usage='' \
+	--critical-usage='' \
+	--warning-usage-free='' \
+	--critical-usage-free='' \
+	--warning-usage-prct='' \
+	--critical-usage-prct='' \
+	--verbose
 ```
 
-Cette commande contrôle l'utilisation CPU (```--mode=cpu```) d'un équipement ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
-en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *cisco_ro* (```--snmp-community='cisco_ro'```).
+La commande devrait retourner un message de sortie similaire à :
 
-Cette commande déclenchera une alarme WARNING si l'utilisation moyenne CPU sur 5 minutes est à plus de 60% (```--warning-average-5m='60'```)
-et une alarme CRITICAL si plus de 75% (```--critical-average-5m='75'```).
+```bash
+OK: All memory usages are ok | '*memory*#memory.usage.bytes'=B;;;0;total'*memory*#memory.free.bytes'=B;;;0;total'*memory*#memory.usage.percentage'=%;;;0;100
+```
 
-Des seuils peuvent être fixés sur toutes les métriques de l'appareil en utilisant la syntaxe "```--warning-*metric* --critical-*metric*```".
- 
-Toutes les options qui peuvent être utilisées avec ce plugin se trouvent sur la commande ```--help``` :
+### Diagnostic des erreurs communes
+
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des plugins Centreon.
+
+### Modes disponibles
+
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution 
+du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
+implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
+modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
+
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_cisco_firepower_fxos_snmp.pl \
-    --plugin=network::cisco::firepower::fxos::snmp::plugin \
-	--mode=cpu \
+	--plugin=network::cisco::firepower::fxos::snmp::plugin \
+	--list-mode
+```
+
+Le plugin apporte les modes suivants :
+
+| Mode                                                                                                                                | Modèle de service associé                  |
+|:------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------|
+| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/cisco/firepower/fxos/snmp/mode/cpu.pm)]           | Net-Cisco-Firepower-Cpu-SNMP-custom        |
+| faults [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/cisco/firepower/fxos/snmp/mode/faults.pm)]     | Net-Cisco-Firepower-Faults-SNMP-custom     |
+| hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/cisco/firepower/fxos/snmp/mode/hardware.pm)] | Net-CIsco-Firepower-Hardware-SNMP-custom   |
+| interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/interfaces.pm)]                 | Net-Cisco-Firepower-Interfaces-SNMP-custom |
+| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]        | Used for service discovery                 |
+| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/cisco/firepower/fxos/snmp/mode/memory.pm)]     | Net-Cisco-Firepower-Memory-SNMP-custom     |
+
+### Options disponibles
+
+#### Options génériques
+
+Les options génériques sont listées ci-dessous :
+
+| Option | Description |
+|:-------|:------------|
+
+#### Options des modes
+
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
+
+<Tabs groupId="sync">
+<TabItem value="Cpu" label="Cpu">
+
+| Option | Description |
+|:-------|:------------|
+
+</TabItem>
+<TabItem value="Faults" label="Faults">
+
+| Option | Description |
+|:-------|:------------|
+
+</TabItem>
+<TabItem value="Hardware" label="Hardware">
+
+| Option | Description |
+|:-------|:------------|
+
+</TabItem>
+<TabItem value="Interfaces" label="Interfaces">
+
+| Option | Description |
+|:-------|:------------|
+
+</TabItem>
+<TabItem value="Memory" label="Memory">
+
+| Option | Description |
+|:-------|:------------|
+
+</TabItem>
+</Tabs>
+
+Pour un mode, la liste de toutes les options disponibles et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
+
+```bash
+/usr/lib/centreon/plugins/centreon_cisco_firepower_fxos_snmp.pl \
+	--plugin=network::cisco::firepower::fxos::snmp::plugin \
+	--mode=memory \
 	--help
 ```
-
-### UNKNOWN: SNMP GET Request : Timeout
-
-Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement Cisco Firepower sur le port 161, 
-ou alors que la communauté SNMP configurée n'est pas correcte. 
-Il est également possible qu'un firewall bloque le flux.
-
-### UNKNOWN: SNMP GET Request : Cant get a single value.
-
-Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes. 
- * L'équipement Cisco Firepower ne prend pas en charge la MIB utilisée par le Plugin.
- * L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.
