@@ -55,9 +55,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+Be sure to have with you the following information:
+
+* Read-Only XML API credentials
+* IP Address of the equipment
 
 ## Installing the monitoring connector
 
@@ -84,7 +85,7 @@ dnf install centreon-pack-network-cisco-esa-xmlapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-network-cisco-esa-xmlapi
@@ -131,7 +132,7 @@ dnf install centreon-plugin-Network-Cisco-Esa-Xmlapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-network-cisco-esa-xmlapi
@@ -156,12 +157,12 @@ yum install centreon-plugin-Network-Cisco-Esa-Xmlapi
 3. Apply the **Net-Cisco-Esa-Xmlapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro              | Description                                                                                          | Default value     | Mandatory   |
-|:-------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| XMLAPIUSERNAME     |                                                                                                      |                   | X           |
-| XMLAPIPASSWORD     |                                                                                                      |                   | X           |
-| XMLAPIPROTO        |                                                                                                      |                   |             |
-| XMLAPIURLPATH      |                                                                                                      |                   |             |
+| Macro              | Description                                                                                                                              | Default value     | Mandatory   |
+|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| XMLAPIUSERNAME     | Specify the username for authentication                                                                                                  |                   | X           |
+| XMLAPIPASSWORD     | Specify the password for authentication                                                                                                  |                   | X           |
+| XMLAPIPROTO        | Protocol used http or https (default: https)                                                                                             |                   |             |
+| XMLAPIURLPATH      | Set path to get server-status page in auto mode (default: '/xml/status')                                                                 |                   |             |
 | XMLAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -174,37 +175,37 @@ yum install centreon-plugin-Network-Cisco-Esa-Xmlapi
 <Tabs groupId="sync">
 <TabItem value="System-Usage" label="System-Usage">
 
-| Macro                         | Description                                                                                        | Default value                  | Mandatory   |
-|:------------------------------|:---------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
-| UNKNOWNHTTPSTATUS             |                                                                                                    |                                |             |
-| WARNINGCONNECTIONSIN          |                                                                                                    |                                |             |
-| CRITICALCONNECTIONSIN         |                                                                                                    |                                |             |
-| WARNINGCONNECTIONSOUT         |                                                                                                    |                                |             |
-| CRITICALCONNECTIONSOUT        |                                                                                                    |                                |             |
-| WARNINGCPUTOTAL               |                                                                                                    |                                |             |
-| CRITICALCPUTOTAL              |                                                                                                    |                                |             |
-| WARNINGDISKIO                 |                                                                                                    |                                |             |
-| CRITICALDISKIO                |                                                                                                    |                                |             |
-| WARNINGHTTPSTATUS             |                                                                                                    |                                |             |
-| CRITICALHTTPSTATUS            |                                                                                                    |                                |             |
-| WARNINGLOG                    |                                                                                                    |                                |             |
-| CRITICALLOG                   |                                                                                                    |                                |             |
-| WARNINGMEMORY                 |                                                                                                    |                                |             |
-| CRITICALMEMORY                |                                                                                                    |                                |             |
-| WARNINGMESSAGESQUARANTINE     |                                                                                                    |                                |             |
-| CRITICALMESSAGESQUARANTINE    |                                                                                                    |                                |             |
-| WARNINGMESSAGESRECEIVED       |                                                                                                    |                                |             |
-| CRITICALMESSAGESRECEIVED      |                                                                                                    |                                |             |
-| WARNINGMESSAGESWORKQUEUE      |                                                                                                    |                                |             |
-| CRITICALMESSAGESWORKQUEUE     |                                                                                                    |                                |             |
-| WARNINGQUEUEACTIVERECIPIENTS  |                                                                                                    |                                |             |
-| CRITICALQUEUEACTIVERECIPIENTS |                                                                                                    |                                |             |
-| WARNINGQUEUEDISK              |                                                                                                    |                                |             |
-| CRITICALQUEUEDISK             |                                                                                                    |                                |             |
-| WARNINGRESOURCECONSERVATION   |                                                                                                    |                                |             |
-| CRITICALRESOURCECONSERVATION  |                                                                                                    |                                |             |
-| CRITICALSYSTEMSTATUS          |                                                                                                    | %{system\_status} !~ /online/i |             |
-| WARNINGSYSTEMSTATUS           |                                                                                                    |                                |             |
+| Macro                         | Description                                                                                                                            | Default value                  | Mandatory   |
+|:------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
+| UNKNOWNHTTPSTATUS             | Threshold unknown for http response code (default: '%{http_code} < 200 or %{http_code} >= 300')                                        |                                |             |
+| WARNINGCONNECTIONSIN          | Warning threshold for 'connections-in'                                                                                                 |                                |             |
+| CRITICALCONNECTIONSIN         | Critical threshold for 'connections-in'                                                                                                |                                |             |
+| WARNINGCONNECTIONSOUT         | Warning threshold for 'connections-out'                                                                                                |                                |             |
+| CRITICALCONNECTIONSOUT        | Critical threshold for 'connections-out'                                                                                               |                                |             |
+| WARNINGCPUTOTAL               | Warning threshold for 'cpu-total' (%)                                                                                                  |                                |             |
+| CRITICALCPUTOTAL              | Critical threshold for 'cpu-total' (%)                                                                                                 |                                |             |
+| WARNINGDISKIO                 | Warning threshold for 'diskio' (%)                                                                                                     |                                |             |
+| CRITICALDISKIO                | Critical threshold for 'diskio' (%)                                                                                                    |                                |             |
+| WARNINGHTTPSTATUS             | Warning threshold for http response code                                                                                               |                                |             |
+| CRITICALHTTPSTATUS            | Critical threshold for http response code                                                                                              |                                |             |
+| WARNINGLOG                    | Warning threshold for 'log' (%)                                                                                                        |                                |             |
+| CRITICALLOG                   | Critical threshold for 'log' (%)                                                                                                       |                                |             |
+| WARNINGMEMORY                 | Warning threshold for 'memory' (%)                                                                                                     |                                |             |
+| CRITICALMEMORY                | Critical threshold for 'memory' (%)                                                                                                    |                                |             |
+| WARNINGMESSAGESQUARANTINE     | Warning threshold for 'messages-quarantine'                                                                                            |                                |             |
+| CRITICALMESSAGESQUARANTINE    | Critical threshold for 'messages-quarantine'                                                                                           |                                |             |
+| WARNINGMESSAGESRECEIVED       | Warning threshold for 'messages-received'                                                                                              |                                |             |
+| CRITICALMESSAGESRECEIVED      | Critical threshold for 'messages-received'                                                                                             |                                |             |
+| WARNINGMESSAGESWORKQUEUE      | Warning threshold for 'messages-workqueue'                                                                                             |                                |             |
+| CRITICALMESSAGESWORKQUEUE     | Critical threshold for 'messages-workqueue'                                                                                            |                                |             |
+| WARNINGQUEUEACTIVERECIPIENTS  | Warning threshold for 'queue-active-recipients'                                                                                        |                                |             |
+| CRITICALQUEUEACTIVERECIPIENTS | Critical threshold for 'queue-active-recipients'                                                                                       |                                |             |
+| WARNINGQUEUEDISK              | Warning threshold for 'queuedisk' (%)                                                                                                  |                                |             |
+| CRITICALQUEUEDISK             | Critical threshold for 'queuedisk' (%)                                                                                                 |                                |             |
+| WARNINGRESOURCECONSERVATION   | Warning threshold for 'resource-conservation'                                                                                          |                                |             |
+| CRITICALRESOURCECONSERVATION  | Critical threshold for 'resource-conservation'                                                                                         |                                |             |
+| CRITICALSYSTEMSTATUS          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{system_status}                    | %{system\_status} !~ /online/i |             |
+| WARNINGSYSTEMSTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %{system_status}                     |                                |             |
 | EXTRAOPTIONS                  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                                |             |
 
 </TabItem>
@@ -300,8 +301,22 @@ All available options for each service template are listed below:
 <Tabs groupId="sync">
 <TabItem value="System-Usage" label="System-Usage">
 
-| Option | Description |
-|:-------|:------------|
+| Option                   | Description                                                                                                                                                                                                                                                     |
+|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --hostname               | IP Address or FQDN of the web server host                                                                                                                                                                                                                       |
+| --port                   | Port used.                                                                                                                                                                                                                                                      |
+| --proto                  | Protocol used http or https (default: https)                                                                                                                                                                                                                    |
+| --urlpath                | Set path to get server-status page in auto mode (default: '/xml/status')                                                                                                                                                                                        |
+| --username               | Specify the username for authentication                                                                                                                                                                                                                         |
+| --password               | Specify the password for authentication                                                                                                                                                                                                                         |
+| --timeout                | Threshold for HTTP timeout                                                                                                                                                                                                                                      |
+| --unknown-http-status    | Threshold unknown for http response code (default: '%{http_code} < 200 or %{http_code} >= 300')                                                                                                                                                                 |
+| --warning-http-status    | Warning threshold for http response code                                                                                                                                                                                                                        |
+| --critical-http-status   | Critical threshold for http response code                                                                                                                                                                                                                       |
+| --warning-system-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{system_status}                                                                                                                                |
+| --critical-system-status | Define the conditions to match for the status to be CRITICAL (default: '%{system_status} !~ /online/i'). You can use the following variables: %{system_status}                                                                                                  |
+| --warning                | Warning threshold. Can be: 'memory' (%), 'cpu-total' (%), 'diskio' (%), 'log' (%), 'resource-conservation', 'connections-in', 'connections-out', 'queue-active-recipients', 'messages-quarantine', 'messages-workqueue', 'queuedisk' (%), 'messages-received'.  |
+| --critical               | Critical threshold. Can be: 'memory' (%), 'cpu-total' (%), 'diskio' (%), 'log' (%), 'resource-conservation', 'connections-in', 'connections-out', 'queue-active-recipients', 'messages-quarantine', 'messages-workqueue', 'queuedisk' (%), 'messages-received'. |
 
 </TabItem>
 </Tabs>
