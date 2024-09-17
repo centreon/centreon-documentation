@@ -1,4 +1,8 @@
 .github/**          @centreon/owners-pipelines
+*.js                @centreon/owners-pipelines
+*.jsx               @centreon/owners-pipelines
+
+**/sidebars*.j*
 
 *.pl                @centreon/owners-perl
 *.pm                @centreon/owners-perl

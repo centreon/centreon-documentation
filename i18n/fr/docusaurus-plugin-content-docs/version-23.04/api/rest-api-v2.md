@@ -1,14 +1,9 @@
 ---
 id: rest-api-v2
-title: Rest API (v2)
+title: Utiliser l'API v2 avec Postman
 ---
 
-## Aperçu
-
-Centreon Web Rest API v2 a pour objectif de remplacer la première version.
-
-Pour commencer à l'utiliser, référez-vous à la [page
-dédiée](https://docs-api.centreon.com/api/centreon-web/23.04/).
+Cette page décrit comment utiliser [l'API v2](https://docs-api.centreon.com/api/centreon-web/23.04/) de Centreon Web avec Postman.
 
 ## Créer une collection Postman depuis la définition OpenAPI
 
