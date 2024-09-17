@@ -44,9 +44,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-To control your Cisco Firepower Management Center, the Rest API must be configured.
-
-E.g: https://www.cisco.com/c/en/us/td/docs/security/firepower/620/api/REST/Firepower_Management_Center_REST_API_Quick_Start_Guide_620.html
+To control the Cisco Firepower Management Center application, the Rest API must be configured as described in the official documentation: 
+https://www.cisco.com/c/en/us/td/docs/security/firepower/620/api/REST/Firepower_Management_Center_REST_API_Quick_Start_Guide_620.html
 
 ## Installing the monitoring connector
 
@@ -73,7 +72,7 @@ dnf install centreon-pack-network-cisco-firepower-fmc-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-network-cisco-firepower-fmc-restapi
@@ -120,7 +119,7 @@ dnf install centreon-plugin-Network-Cisco-Firepower-Fmc-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-network-cisco-firepower-fmc-restapi
@@ -145,13 +144,13 @@ yum install centreon-plugin-Network-Cisco-Firepower-Fmc-Restapi
 3. Apply the **Net-Cisco-Firepower-Fmc-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro              | Description                                                                                          | Default value     | Mandatory   |
-|:-------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FMCAPIUSERNAME     |                                                                                                      | username          | X           |
-| FMCAPIPASSWORD     |                                                                                                      | password          | X           |
-| FMCAPIPROTO        |                                                                                                      | https             |             |
-| FMCAPIPORT         |                                                                                                      | 443               |             |
-| FMCAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro              | Description                                                                                                                              | Default value                  | Mandatory   |
+|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
+| FMCAPIUSERNAME     | Set API username                                                                                                                         | username                       | X           |
+| FMCAPIPASSWORD     | Set API password                                                                                                                         | password                       | X           |
+| FMCAPIPROTO        | Specify https if needed                                                                                                                  | https                          |             |
+| FMCAPIPORT         | Port used                                                                                                                                | 443                            |             |
+| FMCAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). | --http-backend=curl --insecure |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -163,25 +162,25 @@ yum install centreon-plugin-Network-Cisco-Firepower-Fmc-Restapi
 <Tabs groupId="sync">
 <TabItem value="Devices" label="Devices">
 
-| Macro                       | Description                                                                                        | Default value              | Mandatory   |
-|:----------------------------|:---------------------------------------------------------------------------------------------------|:---------------------------|:-----------:|
-| FILTERDOMAINNAME            |                                                                                                    |                            |             |
-| FILTERDEVICENAME            |                                                                                                    |                            |             |
-| UNKNOWNDEVICESTATUS         |                                                                                                    |                            |             |
-| WARNINGDEVICESSTATUSBLACK   |                                                                                                    |                            |             |
-| CRITICALDEVICESSTATUSBLACK  |                                                                                                    |                            |             |
-| WARNINGDEVICESSTATUSBLUE    |                                                                                                    |                            |             |
-| CRITICALDEVICESSTATUSBLUE   |                                                                                                    |                            |             |
-| WARNINGDEVICESSTATUSGREEN   |                                                                                                    |                            |             |
-| CRITICALDEVICESSTATUSGREEN  |                                                                                                    |                            |             |
-| WARNINGDEVICESSTATUSRED     |                                                                                                    |                            |             |
-| CRITICALDEVICESSTATUSRED    |                                                                                                    |                            |             |
-| WARNINGDEVICESSTATUSYELLOW  |                                                                                                    |                            |             |
-| CRITICALDEVICESSTATUSYELLOW |                                                                                                    |                            |             |
-| WARNINGDEVICESTATUS         |                                                                                                    | %{status} =~ /yellow/i     |             |
-| CRITICALDEVICESTATUS        |                                                                                                    | %{status} =~ /red\|black/i |             |
-| WARNINGDEVICESTOTAL         |                                                                                                    |                            |             |
-| CRITICALDEVICESTOTAL        |                                                                                                    |                            |             |
+| Macro                       | Description                                                                                                                            | Default value              | Mandatory   |
+|:----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:-----------:|
+| FILTERDOMAINNAME            | Filter devices by domain name (can be a regexp)                                                                                        |                            |             |
+| FILTERDEVICENAME            | Filter devices by name (can be a regexp)                                                                                               |                            |             |
+| UNKNOWNDEVICESTATUS         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{name}                   |                            |             |
+| WARNINGDEVICESSTATUSBLACK   | Warning thresholds for 'devices-status-black'                                                                                          |                            |             |
+| CRITICALDEVICESSTATUSBLACK  | Critical thresholds for 'devices-status-black'                                                                                         |                            |             |
+| WARNINGDEVICESSTATUSBLUE    | Warning thresholds for 'devices-status-blue'                                                                                           |                            |             |
+| CRITICALDEVICESSTATUSBLUE   | Critical thresholds for 'devices-status-blue'                                                                                          |                            |             |
+| WARNINGDEVICESSTATUSGREEN   | Warning thresholds for 'devices-status-green'                                                                                          |                            |             |
+| CRITICALDEVICESSTATUSGREEN  | Critical thresholds for 'devices-status-green'                                                                                         |                            |             |
+| WARNINGDEVICESSTATUSRED     | Warning thresholds for 'devices-status-red'                                                                                            |                            |             |
+| CRITICALDEVICESSTATUSRED    | Critical thresholds for 'devices-status-red'                                                                                           |                            |             |
+| WARNINGDEVICESSTATUSYELLOW  | Warning thresholds for 'devices-status-yellow'                                                                                         |                            |             |
+| CRITICALDEVICESSTATUSYELLOW | Critical thresholds for 'devices-status-yellow'                                                                                        |                            |             |
+| WARNINGDEVICESTATUS         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}                   | %{status} =~ /yellow/i     |             |
+| CRITICALDEVICESTATUS        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{name}                  | %{status} =~ /red\|black/i |             |
+| WARNINGDEVICESTOTAL         | Warning thresholds for 'devices-total'                                                                                                 |                            |             |
+| CRITICALDEVICESTOTAL        | Critical thresholds for 'devices-total'                                                                                                |                            |             |
 | EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                  |             |
 
 </TabItem>
@@ -271,8 +270,15 @@ All available options for each service template are listed below:
 <Tabs groupId="sync">
 <TabItem value="Devices" label="Devices">
 
-| Option | Description |
-|:-------|:------------|
+| Option                   | Description                                                                                                                                                                                   |
+|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-domain-name     | Filter devices by domain name (can be a regexp).                                                                                                                                              |
+| --filter-device-name     | Filter devices by name (can be a regexp).                                                                                                                                                     |
+| --unknown-device-status  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{name}                                                                          |
+| --warning-device-status  | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /yellow/i'). You can use the following variables: %{status}, %{name}                                      |
+| --critical-device-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /red|black/i'). ou can use the following variables: %{status}, %{name}                                   |
+| --warning                | Thresholds. Can be: 'devices-total', 'devices-status-green', 'devices-status-black', 'devices-status-blue', 'devices-status-red', 'devices-status-yellow'.                                    |
+| --critical               | Thresholds. Can be: 'devices-total', 'devices-status-green', 'devices-status-black', 'devices-status-blue', 'devices-status-red', 'devices-status-yellow'.                                    |
 
 </TabItem>
 </Tabs>
