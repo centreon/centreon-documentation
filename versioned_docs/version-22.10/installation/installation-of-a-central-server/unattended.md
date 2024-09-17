@@ -5,6 +5,8 @@ title: Unattended installation of a central server
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> This is an older version of Centreon, and support for it is ending soon. We recommend you install the latest version.
+
 To install a central server quicker, you can use a script. This will carry out the full installation procedure, including the web installation.
 
 ## Installation procedure
@@ -59,7 +61,7 @@ apt update && apt upgrade
 2. Download the script using the following command:
 
 ```shell
-curl -L https://raw.githubusercontent.com/centreon/centreon/22.10.x/centreon/unattended.sh --output /tmp/unattended.sh
+curl -L https://download.centreon.com/22.10/unattended.sh --output /tmp/unattended.sh
 ```
 
 3. Run the following command as **root**:

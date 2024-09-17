@@ -58,14 +58,14 @@ Mettez à jour l'ensemble des composants :
 Videz le cache :
 
   ```shell
-  apt clean all
+  apt clean
   apt update
   ```
 
 Mettez à jour l'ensemble des composants :
 
   ```shell
-  apt upgrade centreon
+  apt install --only-upgrade centreon
   ```
 
 </TabItem>
@@ -226,14 +226,14 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
 1. Videz le cache :
 
   ```shell
-  apt clean all
+  apt clean
   apt update
   ```
 
 2. Mettez à jour l'ensemble des composants :
 
   ```shell
-  apt upgrade centreon\* --exclude=centreon-plugin*
+  apt-get update && apt-mark hold centreon-pack* && apt-mark hold centreon-plugin* && apt-get install --only-upgrade 'centreon*' 
   ```
 
 </TabItem>
@@ -251,6 +251,28 @@ en choisissant la méthode **Redémarrer** pour le processus Engine.
   systemctl restart centengine gorgoned
   ```
 
+5. Exécutez la commande suivante :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Rien à faire pour cet OS.
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Rien à faire pour cet OS.
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+  ```shell
+  apt-mark unhold centreon-pack* && apt-mark unhold centreon-plugin*
+  ```
+
+</TabItem>
+</Tabs>
+
 ## Mise à jour silencieuse
 
 Vous pouvez réaliser une mise à jour silencieuse de votre plateforme en utilisant le script **unattended.sh**.
@@ -258,7 +280,7 @@ Vous pouvez réaliser une mise à jour silencieuse de votre plateforme en utilis
 1. Téléchargez le script avec la commande suivante :
 
 ```shell
-curl -L https://raw.githubusercontent.com/centreon/centreon/23.10.x/centreon/unattended.sh -O /tmp/unattended
+curl -L https://download.centreon.com/23.10/unattended.sh -O /tmp/unattended
 ```
 
 2. Lancez le script :

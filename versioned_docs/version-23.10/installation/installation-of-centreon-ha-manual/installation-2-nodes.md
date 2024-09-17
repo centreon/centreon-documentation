@@ -5,6 +5,8 @@ title: 2-node manual failover installation
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Manual HA is now deprecated. Please do not perform new installations using this procedure.
+
 ## Prerequisites
 
 ### Understanding
@@ -82,8 +84,6 @@ Rather than setting up a real-time replication of RRD data files, the technical 
 | Name | centreon-broker-master-rrd |
 | Connection port | 5670 |
 | Host to connect to | `@CENTRAL_MASTER_IPADDR@` |
-| Buffering timeout | 0 |
-| Retry interval | 60 |
 
 * Add a new IPv4 output, similar to the first one and named for example "centreon-broker-slave-rrd", this time pointing to `@CENTRAL_SLAVE_IPADDR@`.
 
@@ -92,8 +92,6 @@ Rather than setting up a real-time replication of RRD data files, the technical 
 | Name | centreon-broker-slave-rrd |
 | Connection port | 5670 |
 | Host to connect to | `@CENTRAL_SLAVE_IPADDR@` |
-| Buffering timeout | 0 |
-| Retry interval | 60 |
 
 #### Export the configuration
 

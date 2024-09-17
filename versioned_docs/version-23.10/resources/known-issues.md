@@ -70,6 +70,7 @@ ALTER TABLE virtual_metrics MODIFY index_id bigint unsigned;
 
 Autologin is currently not supported on the following pages:
 
+* **Monitoring > Map (legacy excluded)**
 * **Monitoring > Resources Status**
 * **Configuration > Hosts > Discovery**
 * **Configuration > Business Activity > Business Views**
@@ -80,6 +81,29 @@ Autologin is currently not supported on the following pages:
 There is currently no workaround.
 
 ## Centreon MBI
+
+### You get some errors during daily import and statistic calculation
+
+#### Description
+
+After updating MBI, you get an error similar to the following during the statistic calculation.
+
+```shell
+[Tue Jun 1 18:28:26 2021] [FATAL] mod_bi_hgservicemonthavailability insertion execute error : Out of range value for column 'mtbf' at row 1
+[Tue Jun 1 18:28:26 2021] [FATAL] Program terminated with errors
+```
+
+This is due to a column update issue in the database.
+
+#### Workaround
+
+1. You need to execute a script to update database columns, by entering this command on the central server:
+
+  ```shell
+  php /usr/share/centreon/www/modules/centreon-bi-server/tools/updateColumnsToBigint.php
+  ```
+
+2. Then follow this procedure to [rebuild missing reporting data](../reporting/concepts.md#how-to-rebuild-missing-reporting-data).
 
 ### MBI does not work if databases have custom names
 

@@ -74,24 +74,13 @@ interagir entre eux et avec les différentes ressources système. Par défaut, l
 
 Pour plus d'informations à propos de SELinux, visitez la [documentation Red Hat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/using_selinux/getting-started-with-selinux_using-selinux)
 
-### Activer SELinux en mode permissif
+### Activer SELinux
 
-Par défaut, SELinux est désactivé lors du processus d'installation de Centreon. Pour activer SELinux en mode permissif,
-vous devez modifier le fichier `/etc/selinux/config` comme tel :
+Par défaut, SELinux est désactivé lors du processus d'installation de Centreon et doit être réactivé par la suite pour des raisons de sécurité.
 
-```shell
-# This file controls the state of SELinux on the system.
-# SELINUX= can take one of these three values:
-#     enforcing - SELinux security policy is enforced.
-#     permissive - SELinux prints warnings instead of enforcing.
-#     disabled - No SELinux policy is loaded.
-SELINUX=permissive
-# SELINUXTYPE= can take one of three two values:
-#     targeted - Targeted processes are protected,
-#     minimum - Modification of targeted policy. Only selected processes are protected.
-#     mls - Multi Level Security protection.
-SELINUXTYPE=targeted
-```
+Pour réactiver SELinux, éditez le fichier **/etc/selinux/config** et changez la valeur avec les options suivantes :
+- ``SELINUX=enforcing`` pour que la politique de sécurité SELinux soit appliquée en mode strict.
+- ``SELINUX=permissive`` pour que les erreurs d’accès soient enregistrées dans les logs, mais l’accès ne sera pas bloqué.
 
 Puis redémarrez votre serveur :
 ```shell
@@ -270,7 +259,7 @@ audit2allow -a
 Exécutez ensuite les règles proposées.
 
 Si après un certain temps, aucune erreur n'est présente, vous pouvez activer SELinux en mode renforcé en suivant cette
-[procédure](#activer-selinux-en-mode-permissif) avec le mode **enforcing**.
+[procédure](#activer-selinux) avec le mode **enforcing**.
 
 > N'hésitez pas à nous faire part de vos retours sur [Github](https://github.com/centreon/centreon).
 
@@ -1577,9 +1566,11 @@ Par défaut, les communications ZMQ sont sécurisées, à la fois celles externe
 
 Cependant, l'API gorgone HTTP n'est pas sécurisée par défaut. Seul localhost peut communiquer avec gorgone, mais il n'utilise pas SSL.
 
-Vous pouvez [configurer SSL](https://github.com/centreon/centreon/blob/develop/centreon-gorgone/docs/modules/core/httpserver.md) via le fichier **/etc/centreon-gorgone/config.d/40-gorgoned.yaml**.
+Vous pouvez [configurer SSL](https://github.com/centreon/centreon-collect/blob/develop/gorgone/docs/modules/core/httpserver.md) via le fichier **/etc/centreon-gorgone/config.d/40-gorgoned.yaml**.
 
 Puis configurez gorgone à la page **Administration > Paramètres > Gorgone**.
+
+Le fichier **/etc/centreon-gorgone/config.d/whitelist.conf.d/centreon.yaml** (sur votre serveur central, vos serveurs distants et vos collecteurs) contient les listes blanches pour Gorgone. Si vous souhaitez personnaliser les commandes autorisées, n'éditez pas ce fichier. Créez un nouveau fichier dans le même dossier, par exemple **/etc/centreon-gorgone/config.d/whitelist.conf.d/custom.yaml**.
 
 ## Gestion de l'information et des événements de sécurité (SIEM)
 

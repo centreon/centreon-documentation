@@ -43,7 +43,7 @@ Access to the Dashboards feature is not managed at the user level, but through a
 
 > You must be logged into Centreon with administrator or creator rights.
 
-1. In the **Dashboard library** page, click the **Create a dashboard** button. This opens the **Create dashboard** modal.
+1. In the **Dashboard library** page, click the **Create a dashboard** button. This opens the **Create dashboard** window.
 2. Name the dashboard and enter a description if needed.
 3. Click **Create** to confirm the creation.
 
@@ -74,6 +74,10 @@ Click the **three vertical dots** menu at the top right of the widget to edit it
 - Delete widget
 
 > In edition mode, you can easily organize your widgets by moving or resizing them. Make sure to save your changes.
+
+### Link to Resources Status page
+
+From the dashboard, you can click a screen pictogram at the top right of a widget: this button allows you to **See more on the Resources Status page**. It opens a new tab on the Resources Status page, with detailed information regarding the specific widget.
 
 ## Managing dashboards
 
@@ -118,3 +122,14 @@ You are using the Dashboards feature with a **viewer** or an **editor** profile:
 The users you have just added now have access to your dashboard sharing, according to the profile you have set for them.
 
 > Use the **Copy link** feature to share the dashboard URL directly with users who have access to your platform.
+
+## List of widgets
+
+| Widget                   | Description                                                                                                                                                                                                                                                                                                    |
+|--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Generic text           | Allows you to add free text to your dashboards (section titles, information, etc.).   |
+| Metrics graph         | Displays metrics for a given time period.                                                                                |
+| Resource table                 | Displays data on resource status and events, centralized in a table.
+| Single metric          | Displays the value of a single metric as a text, a gauge or a bar chart.   |
+| Status grid     | Displays the current status of selected resources, as a grid.      |
+| Top/bottom              | Displays the top or bottom x hosts, for a selected metric.   |

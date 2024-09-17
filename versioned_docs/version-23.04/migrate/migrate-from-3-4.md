@@ -19,6 +19,8 @@ Here are the system requirements:
 
 ## Migrate
 
+All servers (central, remote and pollers) in your architecture must have the same major version of Centreon. It is also recommended that they have the same minor version.
+
 > If your Centreon platform includes a Centreon redundancy system, please
 > contact [Centreon support](https://support.centreon.com).
 
@@ -26,7 +28,7 @@ Here are the system requirements:
 > please refer to the following [migration
 > procedure](poller-display-to-remote-server.md).
 
-### Install the new server
+### Install the new central server
 
 Perform the following actions:
 
@@ -214,6 +216,20 @@ the Centreon Central server (output IPv4). See the [Advanced
 configuration](../monitoring/monitoring-servers/advanced-configuration.md#tcp-outputs)
 chapter for more information.
 
+The credentials of the newly created **centreon-gorgone** user need to be updated to match those of the **centreon-gorgone** user on the old server. Edit `etc/centreon-gorgone/config.d/31-centreon-api.yaml` and enter the credentials of the old user. Example:
+
+   ```shell
+   gorgone:
+     tpapi:
+       - name: centreonv2
+         base_url: "http://127.0.0.1/centreon/api/latest/"
+         username: "@GORGONE_USER@"
+         password: "@GORGONE_PASSWORD@"
+       - name: clapi
+         username: "@GORGONE_USER@"
+         password: "@GORGONE_PASSWORD@"
+   ```
+
 Then [generate](../monitoring/monitoring-servers/deploying-a-configuration.md) the
 configuration of all your pollers and export it.
 
@@ -221,3 +237,7 @@ configuration of all your pollers and export it.
 
 Please refer to the documentation of each module to verify compatibility with
 Centreon 23.04 and perform the upgrade.
+
+### Migrate your other servers
+
+Make sure all servers (central, remote and pollers) in your architecture have the same major version of Centreon.

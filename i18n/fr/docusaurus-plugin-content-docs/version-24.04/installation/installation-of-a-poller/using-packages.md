@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 Centreon fournit des paquets RPM et DEB pour ses produits au travers de la solution
 Centreon Open Sources disponible gratuitement sur notre dépôt.
 
-Les paquets peuvent être installés sur Alma/RHEL/Oracle Linux 8 et 9 ou Debian 11.
+Les paquets peuvent être installés sur Alma/RHEL/Oracle Linux 8 et 9 ou Debian 11 et 12.
 
 L'ensemble de la procédure d'installation doit être faite en tant qu'utilisateur privilégié.
 
@@ -68,7 +68,7 @@ locale -a
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt update && apt upgrade
@@ -109,6 +109,8 @@ $ getenforce
 Disabled
 ```
 
+> **Notez que cette désactivation doit être temporaire.** SELinux doit être [réactivé après l'installation](../../administration/secure-platform.md#activer-selinux-1) pour des raisons de sécurité.
+
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
@@ -134,10 +136,12 @@ $ getenforce
 Disabled
 ```
 
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+> **Notez que cette désactivation doit être temporaire.** SELinux doit être [réactivé après l'installation](../../administration/secure-platform.md#activer-selinux-1) pour des raisons de sécurité.
 
-SELinux n'est pas installé sur Debian 11, continuez.
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+SELinux n'est pas installé sur Debian 11 et 12, continuez.
 
 </TabItem>
 </Tabs>
@@ -174,14 +178,18 @@ hostnamectl set-hostname poller1
 
 #### Redhat CodeReady Builder repository
 
-To install Centreon you will need to enable the official CodeReady Builder
-repository supported by Redhat.
+Pour installer Centreon, vous devez installer le dépôt **CodeReady Builder**.
 
-Enable the CodeReady Builder repository using these commands:
+Exécutez les commandes suivantes :
 
 ```shell
 dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
+
+S'il s'agit d'une instance Cloud RHEL, vous devrez exécuter la commande suivante :
+
+```shell
 dnf config-manager --set-enabled codeready-builder-for-rhel-8-rhui-rpms
 ```
 
@@ -235,6 +243,11 @@ Exécutez les commandes suivantes :
 dnf install -y dnf-plugins-core
 dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
+```
+
+S'il s'agit d'une instance Cloud RHEL, vous devrez exécuter la commande suivante :
+
+```shell
 dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
 ```
 
@@ -250,7 +263,7 @@ dnf config-manager --set-enabled ol9_codeready_builder
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Installez les dépendances suivantes :
 
@@ -274,7 +287,7 @@ suffisants :
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -284,18 +297,18 @@ dnf update
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el9/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el9/centreon-24.04.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Pour installer le dépôt Centreon, exécutez la commande suivante :
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-23.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-24.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -328,10 +341,9 @@ dnf install -y centreon-poller
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
-apt update
 apt install -y --no-install-recommends centreon-poller
 ```
 
@@ -452,7 +464,7 @@ Failed connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 23.10.
+> La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 24.04.
 
 ## Étape 4 : Ajouter le Poller à la configuration
 

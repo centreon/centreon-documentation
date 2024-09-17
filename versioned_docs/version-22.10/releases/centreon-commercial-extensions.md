@@ -18,6 +18,30 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon MAP
 
+### 22.10.16
+
+Release date: `April 17, 2024`
+
+#### Enhancements
+
+- [Packaging] Correct rights are now set for Centreon MAP configuration files.
+
+#### Security fixes
+
+- [Security] Updated dependencies.
+
+### 22.10.15
+
+Release date: `February 19, 2024`
+
+#### Bug fixes
+
+- [Editor] Fixed the label font size in the editor mode.
+- [Viewer] Fixed an issue in the container status color.
+- [Viewer] Made resource labels contained in shapes (no overflow).
+- [Viewer] Fixed an issue that converted breadcrumb elements to lowercase.
+- [Widget] Fixed an issue preventing non admin users from saving the position and the zooming of a map.
+
 ### 22.10.14
 
 Release date: `December 21, 2023`
@@ -113,6 +137,7 @@ Release date: `July 28, 2023`
 - Allowed elements to be grouped.
 - Fixed an issue making Business Activities' size different between viewer and editor.
 - Fixed an issue that caused server to crash because of duplicated Centreon modules.
+- [UI] You can now freely resize basic geometric shapes.
 
 ### 22.10.7
 
@@ -150,7 +175,7 @@ Release date: `June 5, 2023`
 
 #### Enhancements
 
-- [UI] Make metric link modal labels more explicit by replacing "metric 1" and "metric 2" by "metric in" and "metric out".
+- [UI] Make metric link window labels more explicit by replacing "metric 1" and "metric 2" by "metric in" and "metric out".
 
 #### Bug fixes
 
@@ -170,7 +195,7 @@ Release date: `April 24, 2023`
 #### Bug fixes
 
 - [API] Fixed an issue with create element in view that could break default icon.
-- [Editor] Fixed an issue in shapes edition modal that caused scrollbar to be reset when browsing images.
+- [Editor] Fixed an issue in shapes edition window that caused scrollbar to be reset when browsing images.
 - [Editor] Fixed view edition with some links having corrupted bend points.
 - [Install] Fixed an issue preventing the installation of **centreon-map-engine** on the same machine as **centreon-map-server**.
 - [Install] Fixed the **configure.sh** script to include storage event from Broker output.
@@ -353,6 +378,14 @@ Release date: `October 26, 2022`
 
 ## Centreon BAM
 
+### 22.10.6
+
+Release date: `April 17, 2024`
+
+#### Security fixes
+
+- Upgraded svg-sanitize dependency.
+
 ### 22.10.5
 
 Release date: `November 22, 2023`
@@ -408,6 +441,22 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon MBI
+
+### 22.10.10
+
+Release date: `July 4, 2024`
+
+#### Bug fixes
+
+- [Packaging] Fixed an issue with the report design functionality on Debian.
+
+### 22.10.9
+
+Release date: `April 17, 2024`
+
+#### Enhancements
+
+- [Packaging] Correct rights are now set for Centreon MBI configuration files.
 
 ### 22.10.8
 
@@ -529,6 +578,14 @@ Release date: `October 26, 2022`
 
 ## Centreon Plugin Packs Manager
 
+### 22.10.1
+
+Release date: `April 17, 2024`
+
+#### Bug fixes
+
+- Fixed the absence of error displayed when the deletion of a Monitoring Connector is not possible.
+
 ### 22.10.0
 
 Release date: `October 26, 2022`
@@ -543,7 +600,7 @@ Release date: `June 5, 2023`
 
 #### Enhancements
 
-- [UI] Improved license upload modal.
+- [UI] Improved license upload window.
 
 ### 22.10.0
 
@@ -552,6 +609,15 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon Anomaly Detection
+
+### 22.10.6
+
+Release date: `July 4, 2024`
+
+#### Bug fixes
+
+- [Packaging] Added missing dependencies on anomaly detection.
+- [Packaging] Various anomaly detection perl installation scripts are now deployed on **/usr/share/perl5/centreon/anomalydetection** instead of **/%{perl_vendorlib}/centreon**.
 
 ### 22.10.5
 

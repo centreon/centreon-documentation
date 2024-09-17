@@ -65,7 +65,7 @@ Exécutez les commandes suivantes pour mettre à niveau votre serveur Centreon M
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 ```
 
 > Installez le dépôt Centreon Business, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
@@ -81,7 +81,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/e
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el9/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el9/centreon-24.04.repo
 ```
 
 > Installez le dépôt Centreon Business, vous pouvez le trouver sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
@@ -93,10 +93,10 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/e
     ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-23.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-24.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -105,7 +105,7 @@ echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) m
 2. Mettez à jour le serveur Centreon MAP (Legacy) :
 
     ```shell
-    apt update && apt upgrade centreon-map-server
+    apt install --only-upgrade centreon-map-server
     ```
 
 </TabItem>
@@ -150,10 +150,10 @@ dnf update centreon-map-web-client
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
-apt update && apt upgrade centreon-map-web-client
+apt install --only-upgrade centreon-map-web-client
 ```
 
 </TabItem>
@@ -171,6 +171,8 @@ Si l'ordinateur de l'utilisateur dispose d'une connexion internet, le client lou
 
 Sinon, le client peut être téléchargé via le menu **Supervision > MAP** et le bouton **client lourd**.
 
+> Veuillez suivre ces recommandations pour [éviter des lenteurs de fonctionnement du client lourd MAP](./troubleshooter.md#mon-client-lourd-est-lent-et-je-suis-souvent-déconnecté) après sa mise à jour.
+
 ## Étape 4 : mise à jour des dialectes dans les fichiers .properties
 
 Dans les fichiers **/etc/centreon-studio/centreon-database.properties** et **/etc/centreon-studio/studio-database.properties**, remplacez  **MySQL5Dialect** par **MariaDB10Dialect**.
@@ -187,7 +189,7 @@ Dans les fichiers **/etc/centreon-studio/centreon-database.properties** et **/et
     systemctl stop centreon-map
     ```
 
-2. Voir [Mettre à jour MariaDB](../upgrade/upgrade-mariadb.md).
+2. Si vous faites une mise à jour vers la version 24.04 et plus, vous devez mettre à jour MariaDB en version 10.11. Voir [Mettre à jour MariaDB](../upgrade/upgrade-mariadb.md).
 
 3. Si vous avez mis à niveau votre plateforme Centreon depuis une version antérieure à 22.10, le nouveau protocole BBDO v3 est activé.
 Vous devez modifier le fichier suivant pour permettre à MAP de fonctionner correctement : `/etc/centreon-studio/studio-config.properties`.

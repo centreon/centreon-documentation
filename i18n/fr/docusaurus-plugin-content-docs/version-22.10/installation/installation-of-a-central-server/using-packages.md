@@ -5,6 +5,8 @@ title: À partir des paquets
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Cette version de Centreon est ancienne, et ne sera bientôt plus supportée. Nous vous recommandons d'installer la dernière version.
+
 Centreon fournit des paquets RPM pour ses produits via la version Centreon Open Source disponible gratuitement dans notre dépôt.
 
 Ces paquets peuvent être installés sur CentOS 7, sur Alma/RHEL/Oracle Linux 8 et sur Debian 11.
@@ -93,6 +95,8 @@ Vous devriez obtenir ce résultat :
 Disabled
 ```
 
+> **Notez que cette désactivation doit être temporaire.** SELinux doit être [réactivé après l'installation](../../administration/secure-platform.md#activer-selinux-1) pour des raisons de sécurité.
+
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
@@ -115,6 +119,8 @@ Vous devriez obtenir ce résultat :
 ```shell
 Disabled
 ```
+
+> **Notez que cette désactivation doit être temporaire.** SELinux doit être [réactivé après l'installation](../../administration/secure-platform.md#activer-selinux-1) pour des raisons de sécurité.
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
@@ -173,6 +179,11 @@ dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
+
+S'il s'agit d'une instance Cloud RHEL, vous devrez exécuter la commande suivante :
+
+```shell
 dnf config-manager --set-enabled codeready-builder-for-rhel-8-rhui-rpms
 ```
 
@@ -342,7 +353,7 @@ une base de données distante sur un serveur dédié.
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y centreon
+dnf install -y centreon-database centreon-central
 systemctl daemon-reload
 systemctl restart mariadb
 ```

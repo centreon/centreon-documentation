@@ -3,9 +3,11 @@ id: prerequisites
 title: Prerequisites
 ---
 
+> **IMPORTANT**: The poller is a component that is deployed in the customers' infrastructure. Its administration (material and virtual infrastructure, OS, security, monitoring and Centreon applicative layers, etc) is solely the responsibility of the customers, as per the [Terms and Conditions](https://www.centreon.com/legal/en/centreon-cloud-services-terms-row).
+
 ## OS
 
-The poller must be installed on a dedicated fresh Alma Linux/RHEL/Oracle Linux 8 or 9, or Debian 11 server.
+The poller must be installed on a dedicated fresh Alma Linux/RHEL/Oracle Linux 8 or 9, or Debian 11 server. Debian 12 is also supported for pollers from version 24.04. See our knowledge base article [How to install Linux to host Centreon software](https://thewatch.centreon.com/product-how-to-21/how-to-install-linux-to-host-centreon-software-3759).
 
 ## Hardware
 

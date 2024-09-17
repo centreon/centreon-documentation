@@ -8,9 +8,9 @@ import TabItem from '@theme/TabItem';
 
 With Centreon Cloud, your central server is already ready to use. All you have to do is to install pollers in your infrastructure, and that is very easy: just execute a script and then export the configuration, and there you are!
 
-Before deploying a poller, make sure the [prerequisites](prerequisites.md) for your host machine are met.
+Before deploying a poller, make sure the [prerequisites](prerequisites.md) for your host machine are met. Only users with the **Administrator** or **Editor** [roles](../users/users.md#user-roles) can access the poller installation command.
 
-## Step 1: Running the script
+## Step 1: Running the poller installation script
 
 1. Use SSH to connect to the server that will become a poller.
 2. Disable SELinux (this is recommended to obtain a seamless installation. Advanced users can enable it depending on their SELinux expertise or security constraints, but should be attentive to the side-effects of this setup.)

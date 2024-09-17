@@ -6,6 +6,8 @@ title: Introduction
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> This is an older version of Centreon, and support for it is ending soon. We recommend you install the latest version.
+
 This chapter describes how to install your Centreon monitoring platform.
 
 The monitoring platform may be installed in several ways. However, **we strongly
@@ -63,7 +65,7 @@ yum update
 2. Run the following command as **root**:
 
   ```Bash
-  curl -L https://raw.githubusercontent.com/centreon/centreon/22.10.x/centreon/unattended.sh | sh
+  curl -L https://download.centreon.com/22.10/unattended.sh | sh
   ```
 
   The script will install a central server using version 22.10, from the stable repository, with minimal output on your terminal.

@@ -208,7 +208,7 @@
     "description": "The label for category Releases in sidebar docs"
   },
   "sidebar.docs.category.Release notes by component": {
-    "message": "Release note",
+    "message": "Release notes",
     "description": "The label for category Release notes by component in sidebar docs"
   },
   "sidebar.docs.category.Security": {

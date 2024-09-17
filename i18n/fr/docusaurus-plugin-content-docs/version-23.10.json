@@ -1,6 +1,6 @@
 {
   "version.label": {
-    "message": "⭐ 23.10",
+    "message": "23.10",
     "description": "The label for version 23.10"
   },
   "sidebar.docs.category.Getting Started": {
@@ -115,9 +115,9 @@
     "message": "Administrer",
     "description": "The label for category Administrate in sidebar docs"
   },
-  "sidebar.docs.category.Graphical views": {
-    "message": "Vues graphiques",
-    "description": "The label for category Graphical views in sidebar docs"
+  "sidebar.docs.category.Graphical views (maps)": {
+    "message": "Vues graphiques (cartes)",
+    "description": "The label for category Graphical views (maps) in sidebar docs"
   },
   "sidebar.docs.category.Reporting": {
     "message": "Reporting",
@@ -208,7 +208,7 @@
     "description": "The label for category Releases in sidebar docs"
   },
   "sidebar.docs.category.Release notes by component": {
-    "message": "Release note",
+    "message": "Release notes",
     "description": "The label for category Release notes by component in sidebar docs"
   },
   "sidebar.docs.category.Security": {

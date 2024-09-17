@@ -9,70 +9,167 @@ import TabItem from '@theme/TabItem';
 ## Overview
 
 pfSense is an open source router and firewall software based on FreeBSD and
-entirely configurable throught a user-friendly web interface.
+is entirely configurable through a user-friendly web interface.
 
-The Centreon Monitoring Connector *pfSense* aims to collect the status of the interfaces 
-and the several number of packets per second using with the SNMP protocol.
+The Centreon Monitoring Connector *pfSense* aims to collect the status of the interfaces
+and the number of packets per second using with the SNMP protocol.
 
-## Monitoring Connector assets
+## Pack assets
 
-### Monitored objects
+### Templates
 
-* pfSense firewall
+The Monitoring Connector **pfSense** brings a host template:
 
-### Monitored metrics
+* **Net-FW-Pfsense-SNMP-custom**
+
+The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
+<TabItem value="Net-FW-Pfsense-SNMP-custom" label="Net-FW-Pfsense-SNMP-custom">
+
+| Service Alias                 | Service Template                                         | Service Description                                           | Discovery  |
+|:------------------------------|:---------------------------------------------------------|:--------------------------------------------------------------|:----------:|
+| Bad-Offset-Packets            | Net-FW-Pfsense-Bad-Offset-Packets-SNMP-custom            | Check number of packets with bad offset.                       |            |
+| Blocked-Packets-Per-Interface | Net-FW-Pfsense-Blocked-Packets-Per-Interface-SNMP-custom | Check count of packets blocked on multiple network interfaces. | X          |
+| Fragment-Packets              | Net-FW-Pfsense-Fragment-Packets-SNMP-custom              | Check number of fragmented packets.                            |            |
+| Match-Packets                 | Net-FW-Pfsense-Match-Packets-SNMP-custom                 | Check number of packets that match a filter rule.            |            |
+| Memory-Dropped-Packets        | Net-FW-Pfsense-Memory-Dropped-Packets-SNMP-custom        | Check number of packets dropped due to memory limitations.      |            |
+| Normalize-Packets             | Net-FW-Pfsense-Normalize-Packets-SNMP-custom             | Check number of normalized packets.                            |            |
+| Runtime                       | Net-FW-Pfsense-Runtime-SNMP-custom                       | Check how long router has been enabled.                        |            |
+| Short-Packets                 | Net-FW-Pfsense-Short-Packets-SNMP-custom                 | Check number of short packets.                                 |            |
+
+> The services listed above are created automatically when the **Net-FW-Pfsense-SNMP-custom** host template is used.
+
+> If **Discovery** is checked, it means a service discovery rule exists for this service template.
+
+</TabItem>
+</Tabs>
+
+### Discovery rules
+
+#### Host discovery
+
+| Rule name       | Description                                                                                                                                                                                                                                        |
+|:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-FW-Pfsense-SNMP-custom** host template |
+
+More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
+
+#### Service discovery
+
+| Rule name                                | Description                                                   |
+|:-----------------------------------------|:--------------------------------------------------------------|
+| Net-FW-Pfsense-Pfinterfaces-SNMP-Traffic | Discover network interfaces and monitor bandwidth utilization |
+
+More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
+and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
+
+### Collected metrics & status
+
+Here is the list of services for this connector, detailing all metrics linked to each service.
+
+<Tabs groupId="sync">
+<TabItem value="Bad-Offset-Packets" label="Bad-Offset-Packets">
+
+| Metric name                     | Unit  |
+|:--------------------------------|:------|
+| packets.matched.persecond       | /s    |
+| packets.badoffset.persecond     | /s    |
+| packets.fragmented.persecond    | /s    |
+| packets.short.persecond         | /s    |
+| packets.normalized.persecond    | /s    |
+| packets.memorydropped.persecond | /s    |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+
+</TabItem>
 <TabItem value="Blocked-Packets-Per-Interface" label="Blocked-Packets-Per-Interface">
 
-| Metric name                                 | Description       | Unit    |
-|:--------------------------------------------|:------------------|:--------|
-| pfinterface.pass.traffic.in.bitspersecond   | Traffic in Pass   | b/s     |
-| pfinterface.pass.traffic.out.bitspersecond  | Traffic out Pass  | b/s     |
-| pfinterface.block.traffic.in.bitspersecond  | Traffic in Block  | b/s     |
-| pfinterface.block.traffic.out.bitspersecond | Traffic out Block | b/s     |
+| Metric name                                         | Unit  |
+|:----------------------------------------------------|:------|
+| *pfint*#pfinterface.pass.traffic.in.bitspersecond   | b/s   |
+| *pfint*#pfinterface.pass.traffic.out.bitspersecond  | b/s   |
+| *pfint*#pfinterface.block.traffic.in.bitspersecond  | b/s   |
+| *pfint*#pfinterface.block.traffic.out.bitspersecond | b/s   |
 
-</TabItem>
-<TabItem value="Short-Packets" label="Short-Packets">
-
-| Metric name             | Description                            |
-|:------------------------|:---------------------------------------|
-| packets.short.persecond | The number of short packets per second |
-
-</TabItem>
-<TabItem value="Normalize-Packets" label="Normalize-Packets">
-
-| Metric name                  | Description                                  |
-|:-----------------------------|:---------------------------------------------|
-| packets.normalized.persecond | The number of normalized  packets per second |
-
-</TabItem>
-<TabItem value="Memory-Dropped-Packets" label="Memory-Dropped-Packets">
-
-| Metric name                     | Description                                            |
-|:--------------------------------|:-------------------------------------------------------|
-| packets.memorydropped.persecond | The number of dropped packets due to memory per second |
-
-</TabItem>
-<TabItem value="Match-Packets" label="Match-Packets">
-
-| Metric name               | Description                              |
-|:--------------------------|:-----------------------------------------|
-| packets.matched.persecond | The number of matched packets per second |
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="Fragment-Packets" label="Fragment-Packets">
 
-| Metric name                  | Description                                 |
-|:-----------------------------|:--------------------------------------------|
-| packets.fragmented.persecond | The number of fragmented packets per second |
+| Metric name                     | Unit  |
+|:--------------------------------|:------|
+| packets.matched.persecond       | /s    |
+| packets.badoffset.persecond     | /s    |
+| packets.fragmented.persecond    | /s    |
+| packets.short.persecond         | /s    |
+| packets.normalized.persecond    | /s    |
+| packets.memorydropped.persecond | /s    |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
-<TabItem value="Bad-Offset-Packets" label="Bad-Offset-Packets">
+<TabItem value="Match-Packets" label="Match-Packets">
 
-| Metric name                 | Description                                 |
-|:----------------------------|:--------------------------------------------|
-| packets.badoffset.persecond | The number of bad offset packets per second |
+| Metric name                     | Unit  |
+|:--------------------------------|:------|
+| packets.matched.persecond       | /s    |
+| packets.badoffset.persecond     | /s    |
+| packets.fragmented.persecond    | /s    |
+| packets.short.persecond         | /s    |
+| packets.normalized.persecond    | /s    |
+| packets.memorydropped.persecond | /s    |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+
+</TabItem>
+<TabItem value="Memory-Dropped-Packets" label="Memory-Dropped-Packets">
+
+| Metric name                     | Unit  |
+|:--------------------------------|:------|
+| packets.matched.persecond       | /s    |
+| packets.badoffset.persecond     | /s    |
+| packets.fragmented.persecond    | /s    |
+| packets.short.persecond         | /s    |
+| packets.normalized.persecond    | /s    |
+| packets.memorydropped.persecond | /s    |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+
+</TabItem>
+<TabItem value="Normalize-Packets" label="Normalize-Packets">
+
+| Metric name                     | Unit  |
+|:--------------------------------|:------|
+| packets.matched.persecond       | /s    |
+| packets.badoffset.persecond     | /s    |
+| packets.fragmented.persecond    | /s    |
+| packets.short.persecond         | /s    |
+| packets.normalized.persecond    | /s    |
+| packets.memorydropped.persecond | /s    |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+
+</TabItem>
+<TabItem value="Runtime" label="Runtime">
+
+| Metric name | Unit  |
+|:------------|:------|
+| runtime     | s     |
+
+</TabItem>
+<TabItem value="Short-Packets" label="Short-Packets">
+
+| Metric name                     | Unit  |
+|:--------------------------------|:------|
+| packets.matched.persecond       | /s    |
+| packets.badoffset.persecond     | /s    |
+| packets.fragmented.persecond    | /s    |
+| packets.short.persecond         | /s    |
+| packets.normalized.persecond    | /s    |
+| packets.memorydropped.persecond | /s    |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 </Tabs>
@@ -81,7 +178,7 @@ and the several number of packets per second using with the SNMP protocol.
 
 ### pfSense firewall configuration
 
-To use this pack, the SNMP service must be properly configured on your 
+To use this pack, the SNMP service must be properly configured on your
 pfSense firewall. Netgate provides an official documentation
 to achieve this: https://docs.netgate.com/pfsense/en/latest/services/snmp.html
 
@@ -90,121 +187,475 @@ to achieve this: https://docs.netgate.com/pfsense/en/latest/services/snmp.html
 The target server must be reachable from the Centreon Poller on the UDP/161 SNMP
 port.
 
-## Setup
+## Installing the monitoring connector
+
+### Pack
+
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Monitoring Connector Manager** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Install the Centreon package on every Centreon poller expected to monitor a pfSense firewall:
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Network-Firewalls-Pfsense-Snmp
+dnf install centreon-pack-network-firewalls-pfsense-snmp
 ```
-
-2. On the Centreon Web interface, install the *pfSense* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Install the Centreon package on every Centreon poller expected to monitor a pfSense firewall:
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Network-Firewalls-Pfsense-Snmp
+dnf install centreon-pack-network-firewalls-pfsense-snmp
 ```
 
-2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-network-firewalls-pfsense-snmp
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-network-firewalls-pfsense-snmp
 ```
 
-3. On the Centreon Web interface, install the *pfSense* Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page
+</TabItem>
+</Tabs>
+
+2. Whatever the license type (*online* or *offline*), install the **pfSense** connector through
+the **Configuration > Monitoring Connectors Manager** menu.
+
+### Plugin
+
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
+
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Network-Firewalls-Pfsense-Snmp
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Network-Firewalls-Pfsense-Snmp
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-network-firewalls-pfsense-snmp
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Network-Firewalls-Pfsense-Snmp
+```
 
 </TabItem>
 </Tabs>
 
-## Configuration
+## Using the monitoring connector
 
-### Host
+### Using a host template provided by the connector
 
-* Log into Centreon and add a new Host through "Configuration > Hosts".
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
+3. Apply the **Net-FW-Pfsense-SNMP-custom** template to the host.
 
-* Fill the "Name", "Alias" & "IP Address / DNS" fields according to your pfSense firewall settings
-
-* Apply the *Network-Firewalls-Pfsense-Snmp-custom* template and configure all the mandatory Macros:
-
-> When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters 
+> When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
-| Mandatory | Name             | Description                                 |
-|:----------|:-----------------|:--------------------------------------------|
-|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
+| Macro            | Description                                                                                          | Default value     | Mandatory   |
+|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
-## FAQ
+4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
-### How to check in the CLI that the configuration is OK and what are the main options for ?
+### Using a service template provided by the connector
 
-Once the plugin installed, log into your Centreon Poller CLI using the 
-*centreon-engine* user account and test the
-Plugin by running the following command:
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+
+<Tabs groupId="sync">
+<TabItem value="Bad-Offset-Packets" label="Bad-Offset-Packets">
+
+| Macro        | Description                                                                                        | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TYPE         | Only display some counters (regexp can be used). Example: --filter-counters='^match$'              | badoffset         |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+</TabItem>
+<TabItem value="Blocked-Packets-Per-Interface" label="Blocked-Packets-Per-Interface">
+
+| Macro            | Description                                                                                        | Default value     | Mandatory   |
+|:-----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERNAME       | Filter by interface name (can be a regexp)                                                         | em.*              |             |
+| WARNINGBLOCKIN   | Warning threshold                                                                                  |                   |             |
+| CRITICALBLOCKIN  | Critical threshold                                                                                 |                   |             |
+| WARNINGBLOCKOUT  | Warning threshold                                                                                  |                   |             |
+| CRITICALBLOCKOUT | Critical threshold                                                                                 |                   |             |
+| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+</TabItem>
+<TabItem value="Fragment-Packets" label="Fragment-Packets">
+
+| Macro        | Description                                                                                        | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TYPE         | Only display some counters (regexp can be used). Example: --filter-counters='^match$'              | fragment          |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+</TabItem>
+<TabItem value="Match-Packets" label="Match-Packets">
+
+| Macro        | Description                                                                                        | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TYPE         | Only display some counters (regexp can be used). Example: --filter-counters='^match$'              | match             |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+</TabItem>
+<TabItem value="Memory-Dropped-Packets" label="Memory-Dropped-Packets">
+
+| Macro        | Description                                                                                        | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TYPE         | Only display some counters (regexp can be used). Example: --filter-counters='^match$'              | memdrop           |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+</TabItem>
+<TabItem value="Normalize-Packets" label="Normalize-Packets">
+
+| Macro        | Description                                                                                        | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TYPE         | Only display some counters (regexp can be used). Example: --filter-counters='^match$'              | normalize         |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+</TabItem>
+<TabItem value="Runtime" label="Runtime">
+
+| Macro        | Description                                                                                        | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold in seconds                                                                       |                   |             |
+| CRITICAL     | Critical threshold in seconds                                                                      |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+</TabItem>
+<TabItem value="Short-Packets" label="Short-Packets">
+
+| Macro        | Description                                                                                        | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TYPE         | Only display some counters (regexp can be used). Example: --filter-counters='^match$'              | short             |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+</TabItem>
+</Tabs>
+
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+
+## How to check in the CLI that the configuration is OK and what are the main options for?
+
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector
+is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
 /usr/lib/centreon/plugins/centreon_pfsense.pl \
-    --plugin=apps::pfsense::snmp::plugin \
-    --mode=pfinterfaces \
-    --hostname='10.0.0.1' \
-    --snmp-version='2c' \
-    --snmp-community='my-snmp-community' \
-    --filter-name='em.*' \
-    --warning-traffic-in-block='80' \
-    --warning-traffic-out-block='90' \
-    --critical-traffic-in-block='80' \
-    --critical-traffic-out-block='90' \
-    --use-new-perfdata
+	--plugin=apps::pfsense::snmp::plugin \
+	--mode=packet-stats \
+	--hostname=10.0.0.1 \
+	--snmp-version='2c' \
+	--snmp-community='my-snmp-community'  \
+	--filter-counters short \
+	--warning-short='' \
+	--critical-short=''
 ```
 
-Expected command output is shown below:
+The expected command output is shown below:
 
 ```bash
-OK : All pfInterfaes are ok | 'pfinterface.pass.traffic.in.bitspersecond'=43978.08b/s;0:8000000000;0:9000000000;0;10000000000
-'pfinterface.pass.traffic.out.bitspersecond'=77012.32b/s;0:8000000000;0:9000000000;0;10000000000
-'pfinterface.block.traffic.in.bitspersecond'=33878.08b/s;0:8000000000;0:9000000000;0;10000000000
-'pfinterface.block.traffic.out.bitspersecond'=25014.32b/s;0:8000000000;0:9000000000;0;10000000000
+OK: Packets Matched Filter Rule : 6/s Bad Offset Packets : 97/s Fragmented Packets : 98/s Short Packets : 25/s Normalized Packets : 79/s Dropped Packets Due To Memory : 51/s | 'packets.matched.persecond'=6/s;;;0;'packets.badoffset.persecond'=97/s;;;0;'packets.fragmented.persecond'=98/s;;;0;'packets.short.persecond'=25/s;;;0;'packets.normalized.persecond'=79/s;;;0;'packets.memorydropped.persecond'=51/s;;;0;
 ```
 
-This command triggers a WARNING alarm in the following cases:
+### Troubleshooting
 
-* The traffic in Pass is greater than 80% (--warning-traffic-in-block='80')
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
+for Centreon Plugins typical issues.
 
-* The traffic in Block is greater than 80% (--warning-traffic-out-block='80')
+### Available modes
 
-A CRITICAL alarm is however triggered in the following cases:
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the
+connector in your terminal.
 
-* The traffic in Pass is greater than 90% (--critical-traffic-in-block='90')
-
-* The traffic in Block is greater than 90% (--critical-traffic-out-block='90')
-
-All available options for a given mode can be displayed by adding the 
-```--help``` parameter to the command:
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_pfsense.pl \
-    --plugin=apps::pfsense::snmp::plugin \
-    --mode=pfinterfaces \
-    --help
+	--plugin=apps::pfsense::snmp::plugin \
+	--list-mode
 ```
 
-All plugin modes can be listed with the following command:
+The plugin brings the following modes:
+
+| Mode                                                                                                                                 | Linked service template                                                                                                                                                                                                                                                                             |
+|:-------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| list-pfinterfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/pfsense/snmp/mode/listpfinterfaces.pm)] | Used for service discovery                                                                                                                                                                                                                                                                          |
+| packet-stats [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/pfsense/snmp/mode/packetstats.pm)]           | Net-FW-Pfsense-Bad-Offset-Packets-SNMP-custom<br />Net-FW-Pfsense-Fragment-Packets-SNMP-custom<br />Net-FW-Pfsense-Match-Packets-SNMP-custom<br />Net-FW-Pfsense-Memory-Dropped-Packets-SNMP-custom<br />Net-FW-Pfsense-Normalize-Packets-SNMP-custom<br />Net-FW-Pfsense-Short-Packets-SNMP-custom |
+| pfinterfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/pfsense/snmp/mode/pfinterfaces.pm)]          | Net-FW-Pfsense-Blocked-Packets-Per-Interface-SNMP-custom                                                                                                                                                                                                                                            |
+| runtime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/pfsense/snmp/mode/runtime.pm)]                    | Net-FW-Pfsense-Runtime-SNMP-custom                                                                                                                                                                                                                                                                  |
+| state-table [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/pfsense/snmp/mode/statetable.pm)]             | Not used in this Monitoring Connector                                                                                                                                                                                                                                                               |
+
+### Available options
+
+#### Generic options
+
+All generic options are listed here:
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     | Define the mode in which you want the plugin to be executed (see--list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata-adv                      | Filter perfdata based on an "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
+| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-ignore-perfdata                   | Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-ignore-label                      | Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --output-file                              | Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --hostname                                 | Name or address of the host to monitor (mandatory).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --snmp-community                           | SNMP community (default value: public). It is recommended to use a read-only community.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --snmp-version                             | Version of the SNMP protocol. 1 for SNMP v1 (default), 2 for SNMP v2c, 3 for SNMP v3.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --snmp-port                                | UDP port to send the SNMP request to (default: 161).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --snmp-timeout                             | Time to wait before sending the request again if no reply has been received, in seconds (default: 1). See also --snmp-retries.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --snmp-retries                             | Maximum number of retries (default: 5).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --maxrepetitions                           | Max repetitions value (default: 50) (only for SNMP v2 and v3).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --subsetleef                               | How many OID values per SNMP request (default: 50) (for get\_leef method. Be cautious when you set it. Prefer to let the default value).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --snmp-autoreduce                          | Progressively reduce the number of requested OIDs in bulk mode. Use it in case of SNMP errors (by default, the number is divided by 2).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --snmp-force-getnext                       | Use SNMP getnext function in SNMP v2c and v3. This will request one OID at a time.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --snmp-cache-file                          | Use SNMP cache file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --snmp-username                            | SNMP v3 only: User name (securityName).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --authpassphrase                           | SNMP v3 only: Pass phrase hashed using the authentication protocol defined in the --authprotocol option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --authprotocol                             | SNMP v3 only: Authentication protocol: MD5\|SHA. Since net-snmp 5.9.1: SHA224\|SHA256\|SHA384\|SHA512.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --privpassphrase                           | SNMP v3 only: Privacy pass phrase (privPassword) to encrypt messages using the protocol defined in the --privprotocol option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --privprotocol                             | SNMP v3 only: Privacy protocol (privProtocol) used to encrypt messages. Supported protocols are: DES\|AES and since net-snmp 5.9.1: AES192\|AES192C\|AES256\|AES256C.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --contextname                              | SNMP v3 only: Context name (contextName), if relevant for the monitored host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --contextengineid                          | SNMP v3 only: Context engine ID (contextEngineID), if relevant for the monitored host, given as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --securityengineid                         | SNMP v3 only: Security engine ID, given as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --snmp-errors-exit                         | Expected status in case of SNMP error or timeout. Possible values are warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --snmp-tls-transport                       | Transport protocol for TLS communication (can be: 'dtlsudp', 'tlstcp').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --snmp-tls-our-identity                    | X.509 certificate to identify ourselves. Can be the path to the certificate file or its contents.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --snmp-tls-their-identity                  | X.509 certificate to identify the remote host. Can be the path to the certificate file or its contents. This option is unnecessary if the certificate is already trusted by your system.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --snmp-tls-their-hostname                  | Common Name (CN) expected in the certificate sent by the host if it differs from the value of the --hostname parameter.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --snmp-tls-trust-cert                      | A trusted CA certificate used to verify a remote host's certificate. If you use this option, you must also define --snmp-tls-their-hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+
+#### Modes options
+
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<TabItem value="Bad-Offset-Packets" label="Bad-Offset-Packets">
+
+| Option                 | Description                                                                                                                                                                                                                                   |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --memcached            | Memcached server to use (only one server).                                                                                                                                                                                                    |
+| --redis-server         | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
+| --redis-attribute      | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
+| --redis-db             | Set Redis database index.                                                                                                                                                                                                                     |
+| --failback-file        | Failback on a local file if Redis connection fails.                                                                                                                                                                                           |
+| --memexpiration        | Time to keep data in seconds (default: 86400).                                                                                                                                                                                                |
+| --statefile-dir        | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
+| --statefile-suffix     | Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                |
+| --statefile-concat-cwd | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
+| --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
+| --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
+| --statefile-cipher     | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
+| --filter-counters      | Only display some counters (regexp can be used). Example: --filter-counters='^match$'                                                                                                                                                         |
+| --warning-*            | Warning threshold. Can be: 'match', 'badoffset', 'fragment', 'short', 'normalize', 'memdrop'.                                                                                                                                                 |
+| --critical-*           | Critical threshold. Can be: 'match', 'badoffset', 'fragment', 'short', 'normalize', 'memdrop'.                                                                                                                                                |
+
+</TabItem>
+<TabItem value="Blocked-Packets-Per-Interface" label="Blocked-Packets-Per-Interface">
+
+| Option                 | Description                                                                                                                                                                                                                                   |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --memcached            | Memcached server to use (only one server).                                                                                                                                                                                                    |
+| --redis-server         | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
+| --redis-attribute      | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
+| --redis-db             | Set Redis database index.                                                                                                                                                                                                                     |
+| --failback-file        | Failback on a local file if Redis connection fails.                                                                                                                                                                                           |
+| --memexpiration        | Time to keep data in seconds (default: 86400).                                                                                                                                                                                                |
+| --statefile-dir        | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
+| --statefile-suffix     | Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                |
+| --statefile-concat-cwd | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
+| --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
+| --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
+| --statefile-cipher     | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
+| --warning-*            | Warning threshold. Can be: 'traffic-in-pass', 'traffic-out-pass', 'traffic-in-block', 'traffic-out-block'.                                                                                                                                    |
+| --critical-*           | Critical threshold. Can be: 'traffic-in-pass', 'traffic-out-pass', 'traffic-in-block', 'traffic-out-block'.                                                                                                                                   |
+| --filter-name          | Filter by interface name (can be a regexp).                                                                                                                                                                                                   |
+
+</TabItem>
+<TabItem value="Fragment-Packets" label="Fragment-Packets">
+
+| Option                 | Description                                                                                                                                                                                                                                   |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --memcached            | Memcached server to use (only one server).                                                                                                                                                                                                    |
+| --redis-server         | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
+| --redis-attribute      | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
+| --redis-db             | Set Redis database index.                                                                                                                                                                                                                     |
+| --failback-file        | Failback on a local file if Redis connection fails.                                                                                                                                                                                           |
+| --memexpiration        | Time to keep data in seconds (default: 86400).                                                                                                                                                                                                |
+| --statefile-dir        | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
+| --statefile-suffix     | Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                |
+| --statefile-concat-cwd | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
+| --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
+| --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
+| --statefile-cipher     | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
+| --filter-counters      | Only display some counters (regexp can be used). Example: --filter-counters='^match$'                                                                                                                                                         |
+| --warning-*            | Warning threshold. Can be: 'match', 'badoffset', 'fragment', 'short', 'normalize', 'memdrop'.                                                                                                                                                 |
+| --critical-*           | Critical threshold. Can be: 'match', 'badoffset', 'fragment', 'short', 'normalize', 'memdrop'.                                                                                                                                                |
+
+</TabItem>
+<TabItem value="Match-Packets" label="Match-Packets">
+
+| Option                 | Description                                                                                                                                                                                                                                   |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --memcached            | Memcached server to use (only one server).                                                                                                                                                                                                    |
+| --redis-server         | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
+| --redis-attribute      | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
+| --redis-db             | Set Redis database index.                                                                                                                                                                                                                     |
+| --failback-file        | Failback on a local file if Redis connection fails.                                                                                                                                                                                           |
+| --memexpiration        | Time to keep data in seconds (default: 86400).                                                                                                                                                                                                |
+| --statefile-dir        | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
+| --statefile-suffix     | Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                |
+| --statefile-concat-cwd | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
+| --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
+| --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
+| --statefile-cipher     | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
+| --filter-counters      | Only display some counters (regexp can be used). Example: --filter-counters='^match$'                                                                                                                                                         |
+| --warning-*            | Warning threshold. Can be: 'match', 'badoffset', 'fragment', 'short', 'normalize', 'memdrop'.                                                                                                                                                 |
+| --critical-*           | Critical threshold. Can be: 'match', 'badoffset', 'fragment', 'short', 'normalize', 'memdrop'.                                                                                                                                                |
+
+</TabItem>
+<TabItem value="Memory-Dropped-Packets" label="Memory-Dropped-Packets">
+
+| Option                 | Description                                                                                                                                                                                                                                   |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --memcached            | Memcached server to use (only one server).                                                                                                                                                                                                    |
+| --redis-server         | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
+| --redis-attribute      | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
+| --redis-db             | Set Redis database index.                                                                                                                                                                                                                     |
+| --failback-file        | Failback on a local file if Redis connection fails.                                                                                                                                                                                           |
+| --memexpiration        | Time to keep data in seconds (default: 86400).                                                                                                                                                                                                |
+| --statefile-dir        | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
+| --statefile-suffix     | Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                |
+| --statefile-concat-cwd | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
+| --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
+| --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
+| --statefile-cipher     | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
+| --filter-counters      | Only display some counters (regexp can be used). Example: --filter-counters='^match$'                                                                                                                                                         |
+| --warning-*            | Warning threshold. Can be: 'match', 'badoffset', 'fragment', 'short', 'normalize', 'memdrop'.                                                                                                                                                 |
+| --critical-*           | Critical threshold. Can be: 'match', 'badoffset', 'fragment', 'short', 'normalize', 'memdrop'.                                                                                                                                                |
+
+</TabItem>
+<TabItem value="Normalize-Packets" label="Normalize-Packets">
+
+| Option                 | Description                                                                                                                                                                                                                                   |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --memcached            | Memcached server to use (only one server).                                                                                                                                                                                                    |
+| --redis-server         | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
+| --redis-attribute      | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
+| --redis-db             | Set Redis database index.                                                                                                                                                                                                                     |
+| --failback-file        | Failback on a local file if Redis connection fails.                                                                                                                                                                                           |
+| --memexpiration        | Time to keep data in seconds (default: 86400).                                                                                                                                                                                                |
+| --statefile-dir        | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
+| --statefile-suffix     | Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                |
+| --statefile-concat-cwd | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
+| --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
+| --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
+| --statefile-cipher     | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
+| --filter-counters      | Only display some counters (regexp can be used). Example: --filter-counters='^match$'                                                                                                                                                         |
+| --warning-*            | Warning threshold. Can be: 'match', 'badoffset', 'fragment', 'short', 'normalize', 'memdrop'.                                                                                                                                                 |
+| --critical-*           | Critical threshold. Can be: 'match', 'badoffset', 'fragment', 'short', 'normalize', 'memdrop'.                                                                                                                                                |
+
+</TabItem>
+<TabItem value="Runtime" label="Runtime">
+
+| Option     | Description                       |
+|:-----------|:----------------------------------|
+| --warning  | Warning threshold in seconds.     |
+| --critical | Critical threshold in seconds.    |
+
+</TabItem>
+<TabItem value="Short-Packets" label="Short-Packets">
+
+| Option                 | Description                                                                                                                                                                                                                                   |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --memcached            | Memcached server to use (only one server).                                                                                                                                                                                                    |
+| --redis-server         | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
+| --redis-attribute      | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
+| --redis-db             | Set Redis database index.                                                                                                                                                                                                                     |
+| --failback-file        | Failback on a local file if Redis connection fails.                                                                                                                                                                                           |
+| --memexpiration        | Time to keep data in seconds (default: 86400).                                                                                                                                                                                                |
+| --statefile-dir        | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
+| --statefile-suffix     | Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                |
+| --statefile-concat-cwd | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
+| --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
+| --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
+| --statefile-cipher     | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
+| --filter-counters      | Only display some counters (regexp can be used). Example: --filter-counters='^match$'                                                                                                                                                         |
+| --warning-*            | Warning threshold. Can be: 'match', 'badoffset', 'fragment', 'short', 'normalize', 'memdrop'.                                                                                                                                                 |
+| --critical-*           | Critical threshold. Can be: 'match', 'badoffset', 'fragment', 'short', 'normalize', 'memdrop'.                                                                                                                                                |
+
+</TabItem>
+</Tabs>
+
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_pfsense.pl \
-    --plugin=apps::pfsense::snmp::plugin \
-    --list-mode \
+	--plugin=apps::pfsense::snmp::plugin \
+	--mode=packet-stats \
+	--help
 ```
-
-### UNKNOWN: SNMP GET Request : Timeout
-
-If you get this message, you're probably facing one of theses issues:
-
-* Your SNMP server isn't started or misconfigured
-* An external device is blocking your request (firewall, ...)

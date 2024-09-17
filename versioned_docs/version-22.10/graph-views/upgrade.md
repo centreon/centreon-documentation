@@ -112,7 +112,7 @@ echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) m
 3. Update Centreon MAP (Legacy) server:
 
     ```shell
-    apt update && apt upgrade centreon-map-server
+    apt install --only-upgrade centreon-map-server
     ```
 
 </TabItem>
@@ -157,7 +157,7 @@ yum update centreon-map-web-client
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt update && apt upgrade centreon-map-web-client
+apt install --only-upgrade centreon-map-web-client
 ```
 
 </TabItem>
@@ -176,6 +176,8 @@ automatically upgraded to the latest version that corresponds to the server.
 Alternatively, the client can be downloaded through the menu `Monitoring >
 Map` and **Desktop client** button.
 
+> Please follow these recommendations to [avoid the MAP desktop client running slowly](./troubleshooter.md#my-desktop-client-is-slow-and-i-often-get-disconnected) after its upgrade.
+
 ## Step 4: Update dialects in .properties files
 
 In the **/etc/centreon-studio/centreon-database.properties** and the **/etc/centreon-studio/studio-database.properties** files, replace **MySQL5Dialect** with **MariaDB10Dialect**.
@@ -191,7 +193,7 @@ In the **/etc/centreon-studio/centreon-database.properties** and the **/etc/cent
     systemctl stop centreon-map
     ```
 
-2. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).
+2. Make sure you are using the correct version of MariaDB and update it if needed. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).
 
 3. If you have upgraded your Centreon platform to version 22.10, the new BBDO v3 protocol is enabled. You need to edit the following file to allow MAP to work properly: **/etc/centreon-studio/studio-config.properties**
 

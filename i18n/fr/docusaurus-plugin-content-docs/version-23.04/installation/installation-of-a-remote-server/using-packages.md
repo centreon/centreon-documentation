@@ -5,6 +5,8 @@ title: À partir des paquets
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Cette version de Centreon est ancienne. Nous vous recommandons d'installer la dernière version.
+
 Centreon fournit des paquets RPM et DEB pour ses produits au travers de la solution
 Centreon Open Source disponible gratuitement sur notre dépôt.
 
@@ -109,6 +111,8 @@ $ getenforce
 Disabled
 ```
 
+> **Notez que cette désactivation doit être temporaire.** SELinux doit être [réactivé après l'installation](../../administration/secure-platform.md#activer-selinux-1) pour des raisons de sécurité.
+
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
@@ -133,6 +137,8 @@ SELinux :
 $ getenforce
 Disabled
 ```
+
+> **Notez que cette désactivation doit être temporaire.** SELinux doit être [réactivé après l'installation](../../administration/secure-platform.md#activer-selinux-1) pour des raisons de sécurité.
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
@@ -194,6 +200,11 @@ dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
+
+S'il s'agit d'une instance Cloud RHEL, vous devrez exécuter la commande suivante :
+
+```shell
 dnf config-manager --set-enabled codeready-builder-for-rhel-8-rhui-rpms
 ```
 
@@ -255,6 +266,11 @@ Exécutez les commandes suivantes :
 dnf install -y dnf-plugins-core
 dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
+```
+
+S'il s'agit d'une instance Cloud RHEL, vous devrez exécuter la commande suivante :
+
+```shell
 dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
 ```
 
@@ -396,7 +412,7 @@ serveur, ou déportée sur un serveur dédié.
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y centreon
+dnf install -y centreon-database centreon-central
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -405,7 +421,7 @@ systemctl restart mariadb
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install -y centreon
+dnf install -y centreon-database centreon-central
 systemctl daemon-reload
 systemctl restart mariadb
 ```

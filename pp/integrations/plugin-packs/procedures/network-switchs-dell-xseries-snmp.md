@@ -129,7 +129,7 @@ dnf install centreon-pack-network-switchs-dell-xseries-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-network-switchs-dell-xseries-snmp
@@ -176,7 +176,7 @@ dnf install centreon-plugin-Network-Dell-Xseries-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-network-dell-xseries-snmp
@@ -312,7 +312,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All interfaces are ok | '*interface_name*#status'=;;;;'*interface_name*#interface.traffic.in.bitspersecond'=b/s;;;;'*interface_name*#interface.traffic.out.bitspersecond'=b/s;;;;'*interface_name*#interface.packets.in.discard.percentage'=%;;;;100'*interface_name*#interface.packets.in.error.percentage'=%;;;;100'*interface_name*#interface.packets.out.discard.percentage'=%;;;;100'*interface_name*#interface.packets.out.error.percentage'=%;;;;100
+OK: All interfaces are ok | '*interface_name*#status'='up';;;;'*interface_name*#interface.traffic.in.bitspersecond'=20b/s;;;;'*interface_name*#interface.traffic.out.bitspersecond'=20b/s;;;;
 ```
 
 ### Troubleshooting

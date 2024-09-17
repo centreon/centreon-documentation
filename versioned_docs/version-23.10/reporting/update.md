@@ -34,7 +34,7 @@ dnf update centreon-bi-server
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt clean all
+apt clean
 apt --only-upgrade install centreon-bi\*
 ```
 
@@ -75,7 +75,7 @@ dnf update centreon-bi\*
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt clean all
+apt clean
 apt --only-upgrade install centreon-bi\*
 ```
 
@@ -89,3 +89,5 @@ systemctl start cbis
 ```
 
 MBI is now updated.
+
+> Follow this procedure if [you get an error due to a column update issue](../resources/known-issues.md#you-get-some-errors-during-daily-import-and-statistic-calculation) in the database.

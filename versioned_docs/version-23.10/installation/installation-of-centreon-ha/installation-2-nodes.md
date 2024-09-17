@@ -97,8 +97,6 @@ In the event of a cluster switch, you will expect the newly elected master centr
 | Name               | centreon-broker-master-rrd |
 | Connection port    | 5670                       |
 | Host to connect to | `@CENTRAL_MASTER_IPADDR@`  |
-| Buffering timeout  | 0                          |
-| Retry interval     | 60                         |
 
 * Add another "IPv4" output, similar to the first one, named "centreon-broker-slave-rrd" for example, directed toward `@CENTRAL_SLAVE_IPADDR@`.
 
@@ -107,8 +105,6 @@ In the event of a cluster switch, you will expect the newly elected master centr
 | Name               | centreon-broker-slave-rrd |
 | Connection port    | 5670                      |
 | Host to connect to | `@CENTRAL_SLAVE_IPADDR@`  |
-| Buffering timeout  | 0                         |
-| Retry interval     | 60                        |
 
 #### Export the configuration
 
@@ -395,7 +391,7 @@ max_allowed_packet=128M
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-For both optimization and cluster reliability purposes, you need to add these tuning options to the MariaDB configuration in the `/etc/my.cnf.d/mariadb-server.cnf` file. By default, the `[server]` section of this file is empty. Paste the following lines (some need to be modified) into this section:
+For both optimization and cluster reliability purposes, you need to add these tuning options to the MariaDB configuration in the `/etc/my.cnf.d/server.cnf` file. By default, the `[server]` section of this file is empty. Paste the following lines (some need to be modified) into this section:
 
 ```ini
 [server]
@@ -441,6 +437,14 @@ datadir=/var/lib/mysql
 socket=/var/lib/mysql/mysql.sock
 log-error=/var/log/mariadb/mariadb.log
 pid-file=/var/lib/mysql/mysql.pid
+```
+
+then create the directory and corresponding log file:
+
+```shell
+mkdir /var/log/mariadb
+touch /var/log/mariadb/mariadb.log
+chown -R mysql: /var/log/mariadb
 ```
 
 </TabItem>
@@ -640,7 +644,7 @@ systemctl restart mariadb
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Now that everything is well configured, enable the `read_only` on both database servers by uncommenting (i.e., removing the `#` at the beginning of the line) this instruction in the `/etc/my.cnf.d/mariadb-server.cnf` file:
+Now that everything is well configured, enable the `read_only` on both database servers by uncommenting (i.e., removing the `#` at the beginning of the line) this instruction in the `/etc/my.cnf.d/server.cnf` file:
 
 * Primary node:
 
@@ -1198,7 +1202,7 @@ pcs resource create "ms_mysql" \
 ```bash
 pcs resource create "ms_mysql" \
     ocf:heartbeat:mariadb-centreon \
-    config="/etc/my.cnf.d/mariadb-server.cnf" \
+    config="/etc/my.cnf.d/server.cnf" \
     pid="/var/lib/mysql/mysql.pid" \
     datadir="/var/lib/mysql" \
     socket="/var/lib/mysql/mysql.sock" \
@@ -1402,6 +1406,18 @@ pcs resource create http \
 </TabItem>
 </Tabs>
 
+##### SQL Broker
+
+```bash
+pcs resource create cbd_central_broker \
+    systemd:cbd-sql \
+    meta target-role="started" \
+    op start interval="0s" timeout="90s" \
+    stop interval="0s" timeout="90s" \
+    monitor interval="5s" timeout="30s" \
+    --group centreon
+```
+
 ##### Gorgone service
 
 ```bash
@@ -1425,18 +1441,6 @@ pcs resource create centreon_central_sync \
     op start interval="0s" timeout="90s" \
     stop interval="0s" timeout="90s" \
     monitor interval="5s" timeout="20s" \
-    --group centreon
-```
-
-##### SQL Broker
-
-```bash
-pcs resource create cbd_central_broker \
-    systemd:cbd-sql \
-    meta target-role="started" \
-    op start interval="0s" timeout="90s" \
-    stop interval="0s" timeout="90s" \
-    monitor interval="5s" timeout="30s" \
     --group centreon
 ```
 
@@ -1508,6 +1512,21 @@ pcs constraint colocation add master "ms_mysql-clone" with "centreon"
 
 After this step, all resources should be running on the same node; the platform should be redundant and working properly.
 
+### Activating the resources
+
+```bash
+pcs resource enable php-clone
+pcs resource enable cbd_rrd-clone
+pcs resource meta vip target-role="started"
+pcs resource meta centreontrapd target-role="started"
+pcs resource meta snmptrapd target-role="started"
+pcs resource meta centengine target-role="started"
+pcs resource meta cbd_central_broker target-role="started"
+pcs resource meta gorgone target-role="started"
+pcs resource meta centreon_central_sync target-role="started"
+pcs resource meta http target-role="started"
+```
+
 ### Checking the state of the cluster
 
 #### Checking the states of the resources
@@ -1538,9 +1557,9 @@ Full List of Resources:
   * Resource Group: centreon:
     * vip       (ocf::heartbeat:IPaddr2):        Started @CENTRAL_MASTER_NAME@
     * http      (systemd:httpd):         Started @CENTRAL_MASTER_NAME@
+    * cbd_central_broker        (systemd:cbd-sql):       Started @CENTRAL_MASTER_NAME@
     * gorgone   (systemd:gorgoned):      Started @CENTRAL_MASTER_NAME@
     * centreon_central_sync     (systemd:centreon-central-sync):         Started @CENTRAL_MASTER_NAME@
-    * cbd_central_broker        (systemd:cbd-sql):       Started @CENTRAL_MASTER_NAME@
     * centengine        (systemd:centengine):    Started @CENTRAL_MASTER_NAME@
     * centreontrapd     (systemd:centreontrapd):         Started @CENTRAL_MASTER_NAME@
     * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@
@@ -1570,9 +1589,9 @@ Full List of Resources:
   * Resource Group: centreon:
     * vip       (ocf::heartbeat:IPaddr2):        Started @CENTRAL_MASTER_NAME@
     * http      (systemd:httpd):         Started @CENTRAL_MASTER_NAME@
+    * cbd_central_broker        (systemd:cbd-sql):       Started @CENTRAL_MASTER_NAME@
     * gorgone   (systemd:gorgoned):      Started @CENTRAL_MASTER_NAME@
     * centreon_central_sync     (systemd:centreon-central-sync):         Started @CENTRAL_MASTER_NAME@
-    * cbd_central_broker        (systemd:cbd-sql):       Started @CENTRAL_MASTER_NAME@
     * centengine        (systemd:centengine):    Started @CENTRAL_MASTER_NAME@
     * centreontrapd     (systemd:centreontrapd):         Started @CENTRAL_MASTER_NAME@
     * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@
@@ -1602,9 +1621,9 @@ Full List of Resources:
   * Resource Group: centreon:
     * vip       (ocf::heartbeat:IPaddr2):        Started @CENTRAL_MASTER_NAME@
     * http      (systemd:httpd):         Started @CENTRAL_MASTER_NAME@
+    * cbd_central_broker        (systemd:cbd-sql):       Started @CENTRAL_MASTER_NAME@
     * gorgone   (systemd:gorgoned):      Started @CENTRAL_MASTER_NAME@
     * centreon_central_sync     (systemd:centreon-central-sync):         Started @CENTRAL_MASTER_NAME@
-    * cbd_central_broker        (systemd:cbd-sql):       Started @CENTRAL_MASTER_NAME@
     * centengine        (systemd:centengine):    Started @CENTRAL_MASTER_NAME@
     * centreontrapd     (systemd:centreontrapd):         Started @CENTRAL_MASTER_NAME@
     * snmptrapd (systemd:snmptrapd):     Started @CENTRAL_MASTER_NAME@

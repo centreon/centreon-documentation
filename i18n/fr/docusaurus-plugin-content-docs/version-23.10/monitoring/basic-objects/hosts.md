@@ -13,7 +13,7 @@ Pour créer un hôte manuellement :
 
 ### Information de base sur l'hôte
 
-* Le champ **Nom** définit le nom d’hôte qui sera utilisé par le moteur de supervision.
+* Le champ **Nom** définit le nom d’hôte qui sera utilisé par le moteur de supervision. Les caractères suivants ne sont pas autorisés : `~!$%^&|'"<>?,()=*{}` et les espaces.
 * Le champ **Alias** indique l’alias de l’hôte.
 * Le champ **Adresse** définit l'adresse IP ou le nom DNS de l’hôte. Le bouton **Résoudre** permet de résoudre le nom de
   domaine en interrogeant le serveur DNS configuré sur le serveur central.
@@ -50,7 +50,7 @@ identiques définies dans modèles d’hôtes en dessous.
 
    Pour changer l’ordre des macros, cliquez sur ![image](../../assets/configuration/common/move.png#thumbnail2)
 
-### Options d’ordonancement
+### Options d’ordonnancement
 
 * Le champ **Période de contrôle** définit la période temporelle durant laquelle l’ordonnanceur vérifie le statut de l’objet.
 * Le champ **Nombre de contrôles avant validation de l'état** définit le nombre de contrôles à effectuer avant de valider le statut de l’hôte :

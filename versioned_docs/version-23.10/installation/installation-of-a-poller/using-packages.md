@@ -5,6 +5,8 @@ title: Using packages
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> This is an older version of Centreon. We recommend you install the latest version.
+
 Centreon provides RPM and DEB packages for its products through the Centreon Open
 Source version available free of charge in our repository.
 
@@ -111,6 +113,8 @@ You should have this result:
 Disabled
 ```
 
+> **Note that this deactivation should be temporary.** SELinux should be [reenabled after installation](../../administration/secure-platform.md#activate-selinux) for security reasons.
+
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
@@ -139,6 +143,8 @@ You should have this result:
 ```shell
 Disabled
 ```
+
+> **Note that this deactivation should be temporary.** SELinux should be [reenabled after installation](../../administration/secure-platform.md#activate-selinux) for security reasons.
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
@@ -200,6 +206,11 @@ Enable the CodeReady Builder repository using these commands:
 ```shell
 dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
+
+If your server is a Cloud RHEL instance, you will have to execute the following command:
+
+```shell
 dnf config-manager --set-enabled codeready-builder-for-rhel-8-rhui-rpms
 ```
 
@@ -244,6 +255,11 @@ Run the following commands:
 dnf install -y dnf-plugins-core
 dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
+```
+
+If your server is a Cloud RHEL instance, you will have to execute the following command:
+
+```shell
 dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
 ```
 

@@ -314,7 +314,7 @@ dnf install centreon-pack-operatingsystems-linux-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-operatingsystems-linux-snmp
@@ -361,7 +361,7 @@ dnf install centreon-plugin-Operatingsystems-Linux-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-operatingsystems-linux-snmp
@@ -664,7 +664,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All interfaces are ok | '*interface_name*#status'=;;;;'*interface_name*#interface.traffic.in.bitspersecond'=b/s;;;;'*interface_name*#interface.traffic.out.bitspersecond'=b/s;;;;
+OK: All interfaces are ok | *interface_name*#interface.traffic.in.bitspersecond'=4212b/s;;;;' *interface_name*#interface.traffic.out.bitspersecond'=1242b/s;;;;
 ```
 
 ### Troubleshooting

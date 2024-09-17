@@ -121,7 +121,7 @@ dnf install centreon-pack-applications-vmware-vcsa-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-vmware-vcsa-snmp
@@ -159,7 +159,7 @@ dnf install centreon-plugin-Applications-Vmware-Vcsa-SNMP
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-vmware-vcsa-snmp

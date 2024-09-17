@@ -3,6 +3,8 @@ id: integrating-pollers
 title: Intégrer des Pollers dans un cluster Centreon-HA manuel
 ---
 
+> La HA manuelle est maintenant dépréciée. Ne réalisez plus de nouvelles installations suivant cette procédure.
+
 ## Obtention des empreintes des nœuds centraux
 
 Le service Gorgone de chaque central devra être en mesure de se connecter à celui des collecteurs.

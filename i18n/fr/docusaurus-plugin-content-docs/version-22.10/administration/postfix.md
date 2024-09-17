@@ -5,7 +5,7 @@ title: Configurer l'envoi d'emails
 
 Pour que votre Centreon puisse envoyer des emails de notification, un serveur smtp local doit être configuré. Si votre système d'exploitation est RHEL, CentOS ou Oracle Linux, Postfix est déjà installé. 
 
-Cette page donne un exemple de configuration. Consultez la  [documentation officielle Postfix](http://www.postfix.org/BASIC_CONFIGURATION_README) pour plus d'informations.
+Cette page donne un exemple de configuration. Consultez la  [documentation officielle Postfix](https://www.postfix.org/BASIC_CONFIGURATION_README.html) pour plus d'informations.
 
 Les commandes de notifications sont exécutées par le collecteur qui supervise la ressource : il est nécessaire de configurer le relais mail sur tous les collecteurs.
 

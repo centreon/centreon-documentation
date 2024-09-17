@@ -6,6 +6,8 @@ title: Sécuriser votre collecteur
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> **IMPORTANT** : Sécuriser la machine hôte du collecteur relève de la responsabilité du client, ainsi que [mettre à jour l'OS de celle-ci](https://thewatch.centreon.com/product-how-to-21/os-updates-security-3136).
+
 ## Renforcez la sécurité des comptes utilisateurs
 
 Après l'installation de Centreon, il est nécessaire de changer les mots de passe par défaut des utilisateurs suivants:
@@ -71,24 +73,13 @@ interagir entre eux et avec les différentes ressources système. Par défaut, l
 
 Pour plus d'informations à propos de SELinux, visitez la [documentation Red Hat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/using_selinux/getting-started-with-selinux_using-selinux)
 
-### Activer SELinux en mode permissif
+### Activer SELinux
 
-Par défaut, SELinux est désactivé lors du processus d'installation de Centreon. Pour activer SELinux en mode permissif,
-vous devez modifier le fichier `/etc/selinux/config` comme tel :
+Par défaut, SELinux est désactivé lors du processus d'installation de Centreon et doit être réactivé par la suite pour des raisons de sécurité.
 
-```shell
-# This file controls the state of SELinux on the system.
-# SELINUX= can take one of these three values:
-#     enforcing - SELinux security policy is enforced.
-#     permissive - SELinux prints warnings instead of enforcing.
-#     disabled - No SELinux policy is loaded.
-SELINUX=permissive
-# SELINUXTYPE= can take one of three two values:
-#     targeted - Targeted processes are protected,
-#     minimum - Modification of targeted policy. Only selected processes are protected.
-#     mls - Multi Level Security protection.
-SELINUXTYPE=targeted
-```
+Pour réactiver SELinux, éditez le fichier **/etc/selinux/config** et changez la valeur avec les options suivantes :
+- ``SELINUX=enforcing`` pour que la politique de sécurité SELinux soit appliquée en mode strict.
+- ``SELINUX=permissive`` pour que les erreurs d’accès soient enregistrées dans les logs, mais l’accès ne sera pas bloqué.
 
 Puis redémarrez votre serveur :
 
@@ -172,7 +163,7 @@ audit2allow -a
 Exécutez ensuite les règles proposées.
 
 Si après un certain temps, aucune erreur n'est présente, vous pouvez activer SELinux en mode renforcé en suivant cette
-[procédure](#activer-selinux-en-mode-permissif) avec le mode **enforcing**.
+[procédure](#activer-selinux) avec le mode **enforcing**.
 
 > N'hésitez pas à nous faire part de vos retours sur [Github](https://github.com/centreon/centreon).
 
@@ -259,6 +250,10 @@ public (active)
   icmp-blocks:
   rich rules:
 ```
+
+### Communication Centreon Gorgone
+
+Sur chaque collecteur, le fichier **/etc/centreon-gorgone/config.d/whitelist.conf.d/centreon.yaml** contient les listes blanches pour Gorgone. Si vous souhaitez personnaliser les commandes autorisées, n'éditez pas ce fichier. Créez un nouveau fichier dans le même dossier, par exemple **/etc/centreon-gorgone/config.d/whitelist.conf.d/custom.yaml**.
 
 ## Security Information and Event Management - SIEM
 

@@ -5,6 +5,8 @@ title: À partir des paquets
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Cette version de Centreon est ancienne, et ne sera bientôt plus supportée. Nous vous recommandons d'installer la dernière version.
+
 Centreon fournit des RPM pour ses produits au travers de la solution
 Centreon Open Sources disponible gratuitement sur notre dépôt.
 
@@ -90,6 +92,8 @@ $ getenforce
 Disabled
 ```
 
+> **Notez que cette désactivation doit être temporaire.** SELinux doit être [réactivé après l'installation](../../administration/secure-platform.md#activer-selinux-1) pour des raisons de sécurité.
+
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
@@ -114,6 +118,8 @@ SELinux :
 $ getenforce
 Disabled
 ```
+
+> **Notez que cette désactivation doit être temporaire.** SELinux doit être [réactivé après l'installation](../../administration/secure-platform.md#activer-selinux-1) pour des raisons de sécurité.
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
@@ -153,16 +159,18 @@ hostnamectl set-hostname poller1
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
 
-#### Redhat CodeReady Builder repository
+#### Dépôt Redhat CodeReady Builder
 
-To install Centreon you will need to enable the official CodeReady Builder
-repository supported by Redhat.
-
-Enable the CodeReady Builder repository using these commands:
+Pour installer Centreon, vous devez installer le dépôt **CodeReady Builder**.
 
 ```shell
 dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+```
+
+S'il s'agit d'une instance Cloud RHEL, vous devrez exécuter la commande suivante :
+
+```shell
 dnf config-manager --set-enabled codeready-builder-for-rhel-8-rhui-rpms
 ```
 

@@ -3,9 +3,11 @@ id: prerequisites
 title: Prérequis
 ---
 
+> **IMPORTANT** : Le collecteur est un composant déployé dans l'infrastructure des clients. Son administration (infrastructure matérielle, virtuelle, OS, sécurité, supervision et couches applicatives Centreon etc) est ainsi à l'entière responsabilité des clients, selon les termes des [Conditions Générales d'Utilisation](https://www.centreon.com/legal/en/centreon-cloud-services-terms-row).
+
 ## OS
 
-Le collecteur doit être installé sur un serveur dédié et fraîchement installé, sous Alma Linux/RHEL/Oracle Linux 8 ou 9, ou Debian 11.
+Le collecteur doit être installé sur un serveur dédié et fraîchement installé, sous Alma Linux/RHEL/Oracle Linux 8 ou 9, ou Debian 11. Debian 12 est également supporté pour les collecteurs à partir de la version 24.04. Voir notre article de base de connaissances [How to install Linux to host Centreon software](https://thewatch.centreon.com/product-how-to-21/how-to-install-linux-to-host-centreon-software-3759).
 
 ## Hardware
 
@@ -53,7 +55,7 @@ Procédez au partitionnement en suivant les recommandations suivantes :
 | Serveurs Centreon  | Équipements à superviser     | 80/443 TCP         | API                        |
 | Serveurs Centreon  | Base de données à superviser | 3306/1521/1433 TCP | MySQL/Oracle/MSSQL         |
 
-## Autoriser le tafic vers ou en provenance des plages d'IP AWS
+## Autoriser le trafic vers ou en provenance des plages d'IP AWS
 
 Si vous faites du filtrage sur les adresses IP, autorisez les plages d'IP AWS avec lesquelles votre collecteur a besoin d'interagir.
 

@@ -131,7 +131,7 @@ dnf clean all --enablerepo=*
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt clean all
+apt clean
 apt update
 ```
 
@@ -158,7 +158,7 @@ dnf update centreon\* php-pecl-gnupg
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt upgrade centreon
+apt install --only-upgrade centreon
 ```
 
 </TabItem>
@@ -313,13 +313,7 @@ The expected result is the following:
 Syntax OK
 ```
 
-Restart the Apache and PHP processes to take the new configuration into account:
-
-```shell
-systemctl restart php8.0-fpm apache2
-```
-
-Then check its status:
+Check the status of Apache:
 
 ```shell
 systemctl status apache2
@@ -391,9 +385,6 @@ systemctl reload php-fpm httpd
 ```shell
 apt autoremove
 systemctl daemon-reload
-systemctl stop php8.0-fpm.service
-systemctl enable php8.1-fpm
-systemctl start php8.1-fpm
 systemctl restart apache2
 ```
 
@@ -607,7 +598,7 @@ dnf clean all --enablerepo=*
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt clean all
+apt clean
 apt update
 ```
 
@@ -634,7 +625,7 @@ dnf update centreon\*
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt upgrade centreon-poller
+apt install --only-upgrade centreon-poller
 ```
 
 </TabItem>

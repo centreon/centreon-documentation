@@ -5,6 +5,8 @@ title: Introduction
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Cette version de Centreon est ancienne. Nous vous recommandons d'installer la dernière version.
+
 Ce chapitre décrit les différentes étapes de mise en place d'une plateforme de
 supervision Centreon.
 
@@ -74,7 +76,7 @@ dnf update
 2. Exécutez la commande suivante en **root** :
 
 ``` shell
-curl -L https://raw.githubusercontent.com/centreon/centreon/23.04.x/centreon/unattended.sh | sh
+curl -L https://download.centreon.com/23.04/unattended.sh | sh
 ```
 
 Le script installera un serveur central avec la version 23.04, depuis le dépôt stable, avec une sortie minimale sur votre terminal.

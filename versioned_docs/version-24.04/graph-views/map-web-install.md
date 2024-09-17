@@ -24,7 +24,7 @@ The diagram below summarizes the MAP architecture.
 
 ![image](../assets/graph-views/ng/map-web-schema.png)
 
-**Table of network flow**
+**Table of network flows**
 
 | Application    | Source     | Destination               | Port      | Protocol   | Purpose                                             |
 |----------------|------------|---------------------------|-----------|------------|-----------------------------------------------------|
@@ -177,6 +177,92 @@ team](https://support.centreon.com/) to obtain and install your license key.
 
 Note that the MAP web interface has the same requirements as the Centreon web interface. See the prerequisites for the compatibility of web browsers [here](../installation/prerequisites.md).
 
+## Pre-installation
+
+### Disable SELinux
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
+**enforcing** by **disabled**. You can also run the following command:
+
+```shell
+sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
+```
+
+Reboot your operating system to apply the change.
+
+```shell
+reboot
+```
+
+After system startup, perform a quick check of the SELinux status:
+
+```shell
+getenforce
+```
+
+You should have this result:
+
+```shell
+Disabled
+```
+
+> **Note that this deactivation should be temporary.** To enable SELinux again, edit the **/etc/selinux/config** file and change the value with the following options:
+> - ``SELINUX=enforcing`` to make SELinux security policy enforced.
+> - ``SELINUX=permissive`` to make SELinux print warnings instead of enforce security policy.
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
+**enforcing** by **disabled**. You can also run the following command:
+
+```shell
+sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
+```
+
+Reboot your operating system to apply the change.
+
+```shell
+reboot
+```
+
+After system startup, perform a quick check of the SELinux status:
+
+```shell
+getenforce
+```
+
+You should have this result:
+
+```shell
+Disabled
+```
+
+> **Note that this deactivation should be temporary.** To enable SELinux again, edit the **/etc/selinux/config** file and change the value with the following options:
+> - ``SELINUX=enforcing`` to make SELinux security policy enforced.
+> - ``SELINUX=permissive`` to make SELinux print warnings instead of enforce security policy.
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+SELinux is not installed on Debian 11 & 12, continue.
+
+</TabItem>
+</Tabs>
+
+### Configure or disable the firewall
+
+If your firewall is active, add [firewall rules](../administration/secure-platform.md#enable-firewalld).
+You can also disable the firewall during installation by running the following commands:
+
+```shell
+systemctl stop firewalld
+systemctl disable firewalld
+```
+
 ## MAP Engine server installation
 
 ### Step 1: Set authentication parameters
@@ -200,8 +286,10 @@ Exclude the user from the password expiration policy on the **Administration > A
 From the central server terminal, create a user in the MySQL instance hosting 'centreon' and 'centreon_storage'
 databases:
 
+> We strongly recommend that you set a more secure password.
+
 ```sql
-CREATE USER 'centreon_map'@'<IP_SERVER_MAP>' IDENTIFIED BY 'centreon_map';
+mysql> CREATE USER 'centreon_map'@'IP_MAP_SERVER' IDENTIFIED BY 'centreon_Map2023!';
 GRANT SELECT ON centreon_storage.* TO 'centreon_map'@'<IP_SERVER_MAP>';
 GRANT SELECT, INSERT ON centreon.* TO 'centreon_map'@'<IP_SERVER_MAP>';
 ```
@@ -238,7 +326,7 @@ Then install the Centreon repository:
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el8/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
 ```
 
 </TabItem>
@@ -263,11 +351,11 @@ Then install the Centreon repository:
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.10/el9/centreon-23.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el9/centreon-24.04.repo
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 Install the following dependencies:
 
@@ -278,7 +366,7 @@ apt update && apt install lsb-release ca-certificates apt-transport-https softwa
 To install the Centreon repository, execute the following command:
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-23.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-24.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -320,21 +408,28 @@ First you need to add the MariaDB repository:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.11"
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=9 --mariadb-server-version="mariadb-10.5"
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=9 --mariadb-server-version="mariadb-10.11"
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.5"
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.11"
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=12 --mariadb-server-version="mariadb-10.11"
 ```
 
 </TabItem>
@@ -357,7 +452,7 @@ dnf install MariaDB-server
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt update && apt install mariadb-server
@@ -385,11 +480,24 @@ systemctl enable mariadb
 systemctl restart mariadb
 ```
 
-Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon. If you are using a local database, run the following command on the Map server:
+It is mandatory to secure the database's root access before installing Centreon. If you are using a local database, run the following command on the Map server:
+
+<Tabs groupId="sync">
+<TabItem value="MariaDB" label="MariaDB"> 
+
+```shell
+mariadb-secure-installation
+```
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL"> 
 
 ```shell
 mysql_secure_installation
 ```
+
+</TabItem>
+</Tabs>
 
 * Answer **yes** to all questions except "Disallow root login remotely?".
 * It is mandatory to set a password for the **root** user of the database.
@@ -413,7 +521,7 @@ dnf install centreon-map-engine
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
 apt update && apt install centreon-map-engine
@@ -448,7 +556,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
    ```
    
    </TabItem>
-   <TabItem value="Debian 11" label="Debian 11">
+   <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
    
    ```shell
    cp /etc/mysql/map.cnf /etc/mysql/map.cnf.bk
@@ -474,7 +582,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
    ```
    
    </TabItem>
-   <TabItem value="Debian 11" label="Debian 11">
+   <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
    
    ```shell
    apt update && apt-get -o Dpkg::Options::="--force-overwrite" install centreon-map-engine
@@ -500,7 +608,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
    ```
    
    </TabItem>
-   <TabItem value="Debian 11" label="Debian 11">
+   <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
    
    ```shell
    cp /etc/mysql/map.cnf.bk /etc/mysql/map.cnf
@@ -555,11 +663,24 @@ Then, restart MariaDB:
 systemctl restart mariadb
 ```
 
-Since MariaDB 10.5, it is mandatory to secure the database's root access before installing Centreon. If you are using a local database, run the following command on the central server:
+It is mandatory to secure the database's root access before installing Centreon. If you are using a local database, run the following command on the central server:
+
+<Tabs groupId="sync">
+<TabItem value="MariaDB" label="MariaDB"> 
+
+```shell
+mariadb-secure-installation
+```
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL"> 
 
 ```shell
 mysql_secure_installation
 ```
+
+</TabItem>
+</Tabs>
 
 * Answer **yes** to all questions except "Disallow root login remotely?".
 * It is mandatory to set a password for the **root** user of the database. You will need this password during the [web installation](../installation/web-and-post-installation.md).
@@ -693,7 +814,7 @@ Install the Centreon Business repository. You can find this on the
 
 ### Step 2: Install the MAP module
 
-1. From your terminal, run the following command:
+1. From your terminal, run the following command on the central server:
 
   <Tabs groupId="sync">
   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -710,7 +831,7 @@ Install the Centreon Business repository. You can find this on the
   ```
 
   </TabItem>
-  <TabItem value="Debian" label="Debian">
+  <TabItem value="Debian 11  & 12" label="Debian 11 & 12">
 
   ```shell
   sudo apt install centreon-map-web-client
