@@ -145,6 +145,39 @@ EOF
 dnf install -y telegraf
 ```
 
+Then:
+
+1. Stop the Telegraf service 
+
+```shell
+systemctl stop telegraf
+```
+
+2. Edit the **telegraf.service** file. 
+
+```shell
+vi /etc/systemd/system/telegraf.service
+```
+
+3. Replace:
+
+```shell
+/usr/bin/telegraf -config /etc/telegraf/telegraf.conf -config-directory /etc/telegraf/telegraf.d $TELEGRAF_OPTS
+```
+
+By (replace the placeholders by your values):
+
+```shell
+/usr/bin/telegraf -config http(s)://<ip poller>:<port poller>/engine?host=<host to monitor>
+```
+
+4. Start the Telegraf service:
+
+
+```shell
+systemctl start telegraf
+```
+
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
@@ -170,6 +203,39 @@ EOF
 dnf install -y telegraf
 ```
 
+Then:
+
+1. Stop the Telegraf service 
+
+```shell
+systemctl stop telegraf
+```
+
+2. Edit the **telegraf.service** file. 
+
+```shell
+vi /etc/systemd/system/telegraf.service
+```
+
+3. Replace:
+
+```shell
+/usr/bin/telegraf -config /etc/telegraf/telegraf.conf -config-directory /etc/telegraf/telegraf.d $TELEGRAF_OPTS
+```
+
+By (replace the placeholders by your values):
+
+```shell
+/usr/bin/telegraf -config http(s)://<ip poller>:<port poller>/engine?host=<host to monitor>
+```
+
+4. Start the Telegraf service:
+
+
+```shell
+systemctl start telegraf
+```
+
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
@@ -184,6 +250,39 @@ apt-get update
 
 ```bash
 apt-get -y install telegraf
+```
+
+Then:
+
+1. Stop the Telegraf service 
+
+```shell
+systemctl stop telegraf
+```
+
+2. Edit the **telegraf.service** file. 
+
+```shell
+vi /etc/systemd/system/telegraf.service
+```
+
+3. Replace:
+
+```shell
+/usr/bin/telegraf -config /etc/telegraf/telegraf.conf -config-directory /etc/telegraf/telegraf.d $TELEGRAF_OPTS
+```
+
+By (replace the placeholders by your values):
+
+```shell
+/usr/bin/telegraf -config http(s)://<ip poller>:<port poller>/engine?host=<host to monitor>
+```
+
+4. Start the Telegraf service:
+
+
+```shell
+systemctl start telegraf
 ```
 
 </TabItem>

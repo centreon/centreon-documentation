@@ -5,6 +5,8 @@ title: À partir des paquets
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Cette version de Centreon est ancienne. Nous vous recommandons d'installer la dernière version.
+
 Centreon fournit des paquets RPM et DEB pour ses produits au travers de la solution
 Centreon Open Source disponible gratuitement sur notre dépôt.
 
@@ -109,9 +111,7 @@ $ getenforce
 Disabled
 ```
 
-> **Notez que cette désactivation doit être temporaire.** Pour réactiver SELinux, éditez le fichier **/etc/selinux/config** et changez la valeur avec les options suivantes :
-> - ``SELINUX=enforcing`` pour que la politique de sécurité SELinux soit appliquée en mode strict.
-> - ``SELINUX=permissive`` pour que les erreurs d’accès soient enregistrées dans les logs, mais l’accès ne sera pas bloqué.
+> **Notez que cette désactivation doit être temporaire.** SELinux doit être [réactivé après l'installation](../../administration/secure-platform.md#activer-selinux-1) pour des raisons de sécurité.
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
@@ -138,9 +138,7 @@ $ getenforce
 Disabled
 ```
 
-> **Notez que cette désactivation doit être temporaire.** Pour réactiver SELinux, éditez le fichier **/etc/selinux/config** et changez la valeur avec les options suivantes :
-> - ``SELINUX=enforcing`` pour que la politique de sécurité SELinux soit appliquée en mode strict.
-> - ``SELINUX=permissive`` pour que les erreurs d’accès soient enregistrées dans les logs, mais l’accès ne sera pas bloqué.
+> **Notez que cette désactivation doit être temporaire.** SELinux doit être [réactivé après l'installation](../../administration/secure-platform.md#activer-selinux-1) pour des raisons de sécurité.
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">

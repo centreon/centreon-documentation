@@ -82,7 +82,7 @@ dnf install centreon-pack-applications-voip-3cx-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-voip-3cx-restapi
@@ -129,7 +129,7 @@ dnf install centreon-plugin-Applications-Voip-3cx-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-applications-voip-3cx-restapi

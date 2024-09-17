@@ -175,7 +175,7 @@ Release date: `June 5, 2023`
 
 #### Enhancements
 
-- [UI] Make metric link modal labels more explicit by replacing "metric 1" and "metric 2" by "metric in" and "metric out".
+- [UI] Make metric link window labels more explicit by replacing "metric 1" and "metric 2" by "metric in" and "metric out".
 
 #### Bug fixes
 
@@ -195,7 +195,7 @@ Release date: `April 24, 2023`
 #### Bug fixes
 
 - [API] Fixed an issue with create element in view that could break default icon.
-- [Editor] Fixed an issue in shapes edition modal that caused scrollbar to be reset when browsing images.
+- [Editor] Fixed an issue in shapes edition window that caused scrollbar to be reset when browsing images.
 - [Editor] Fixed view edition with some links having corrupted bend points.
 - [Install] Fixed an issue preventing the installation of **centreon-map-engine** on the same machine as **centreon-map-server**.
 - [Install] Fixed the **configure.sh** script to include storage event from Broker output.
@@ -600,7 +600,7 @@ Release date: `June 5, 2023`
 
 #### Enhancements
 
-- [UI] Improved license upload modal.
+- [UI] Improved license upload window.
 
 ### 22.10.0
 

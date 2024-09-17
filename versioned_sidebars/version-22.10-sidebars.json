@@ -131,12 +131,8 @@
             {
               "type": "doc",
               "id": "version-22.10/installation/installation-of-a-central-server/using-virtual-machines"
-            },
-            {
-              "type": "doc",
-              "id": "version-22.10/installation/installation-of-a-central-server/using-sources"
             }
-          ]
+                      ]
         },
         {
           "type": "doc",
@@ -1287,6 +1283,10 @@
             {
               "type": "doc",
               "id": "version-22.10/integrations/event-management/sc-hp-omi"
+            },
+            {
+              "type": "doc",
+              "id": "version-22.10/integrations/data-analytics/sc-influxdb2-metrics"
             },
             {
               "type": "doc",

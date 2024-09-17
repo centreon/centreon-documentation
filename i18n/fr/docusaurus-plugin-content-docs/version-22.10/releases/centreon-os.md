@@ -18,6 +18,16 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 22.10.24
+
+Release date: `September 11, 2024`
+
+#### Security fixes
+
+- [Authorization] Fixed an issue on ACL reloading.
+- [Security] Fixed SQLi in contacts form (CVE-2024-39843).
+- [Security] Updated jQuery & jQuery-UI dependencies (CVE-2022-31160).
+
 ### 22.10.23
 
 Release date: `June 26, 2024`
@@ -451,6 +461,16 @@ Release date: `October 26, 2022`
 
 ## Centreon Collect
 
+### 22.10.11
+
+Release date: `September 16, 2024`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- [Broker] Fixed an issue where Broker could not connect to MySQL 8.0.35.
+  
 ### 22.10.10
 
 Release date: `June 27, 2024`
@@ -630,6 +650,14 @@ Release date: `October 26, 2022`
 - [Code] Calls to the `atoi()` C function have been replaced by more secure functions
 
 ## Centreon Gorgone
+
+### 22.10.9
+
+Release date: `September 16, 2024`
+
+#### Bug fixes
+
+- [MBI] The password of an MBI database user can now include special characters.
 
 ### 22.10.8
 
