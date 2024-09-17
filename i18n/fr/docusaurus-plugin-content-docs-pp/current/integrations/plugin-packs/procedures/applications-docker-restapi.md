@@ -97,6 +97,7 @@ Ouvrez votre terminal ssh préféré :
 ```bash 
 ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock -H=tcp://0.0.0.0:2375
 ```
+> ATTENTION : Cela n'est pas le plus sécuritaire car il est possible de récupérer les accès 'root' sur l'hôte sur lequel le daemon fonctionne. Nous vous recommandons de configurer un firewall local qui n'accepte le flux que depuis le poller sur ce port.
 
 * Enregistrer les modifications
 * Recharger les services du système : ```systemctl daemon-reload```
