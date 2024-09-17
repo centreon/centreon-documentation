@@ -61,3 +61,5 @@ Ce tableau décrit les types de privilèges et les permissions associées :
 
 - Les utilisateurs disposant de privilèges de propriétaire peuvent également définir ou modifier les propriétés de la carte (nom et icône).
 - Le partage d'une carte permet au destinataire d'acquérir des privilèges sur cette carte.
+
+Le contrôle d'accès aux cartes n'est appliqué qu'au niveau de la carte. Lorsque vous disposez du privilège « Viewer », vous pouvez visualiser une carte et toutes les ressources qu'elle contient, même si vous ne disposez pas de la liste de contrôle d'accès (ACL en Anglais) correspondante. Lorsque vous modifiez une carte, vous ne pouvez ajouter des ressources que si vous disposez de l'ACL correspondante.

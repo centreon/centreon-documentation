@@ -5,6 +5,8 @@ title: Unattended installation of a central server
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> This is an older version of Centreon. We recommend you install the latest version.
+
 To install a central server quicker, you can use a script. This will carry out the full installation procedure, including the web installation.
 
 ## Installation procedure

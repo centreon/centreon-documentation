@@ -10,7 +10,7 @@ Commencez par créer des tableaux de bord et ajoutez des widgets spécialement c
 ## Créer son premier tableau de bord
 
 1. Allez dans **Accueil > Tableaux de bord**.
-2. Dans la page **Bibliothèque de tableaux de bord**, cliquez sur le bouton **Créer un tableau de bord**. Cela ouvre la modale **Créer un tableau de bord**.
+2. Dans la page **Bibliothèque de tableaux de bord**, cliquez sur le bouton **Créer un tableau de bord**. Cela ouvre la fenêtre **Créer un tableau de bord**.
 3. Nommez le tableau de bord et renseignez une description si nécessaire.
 4. Cliquez sur **Créer** pour confirmer la création.
 

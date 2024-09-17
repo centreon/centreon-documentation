@@ -12,7 +12,7 @@ Get started with creating dashboards and adding widgets specially designed to op
 > You must be logged into Centreon with administrator or creator rights.
 
 1. Go to **Home > Dashboards**.
-2. In the **Dashboard library** page, click the **Create a dashboard** button. This opens the **Create dashboard** modal.
+2. In the **Dashboard library** page, click the **Create a dashboard** button. This opens the **Create dashboard** window.
 3. Name the dashboard and enter a description if needed.
 4. Click **Create** to confirm the creation.
 

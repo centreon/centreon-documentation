@@ -5,6 +5,8 @@ title: Installation silencieuse d'un serveur central
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Cette version de Centreon est ancienne. Nous vous recommandons d'installer la dernière version.
+
 Pour installer un serveur central plus rapidement, vous pouvez utiliser un script. Le script exécutera la procédure d'installation complète, installation web incluse.
 
 ## Procédure d'installation
