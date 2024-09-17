@@ -108,7 +108,9 @@ Unit firewalld.service could not be found.
     [INFO] Centreon Central configured in Map to use https protocol.
     [OK]   Centreon Central successfully answered to HTTPS request
 
-`Note: la sortie suivante doit être mise à jour`
+```
+
+> Note: la sortie suivante doit être mise à jour`
 
 ```bash
 ########## Centreon-MAP server version ##########
@@ -217,22 +219,11 @@ EOF
 
 À partir de ce point, `@MAP_PRIMARY_NAME@` sera nommé le " serveur/nœud primaire " et `@MAP_SECONDARY_NAME@` le " serveur/nœud secondaire ". Cette désignation est arbitraire, les deux nœuds seront bien sûr interchangeables une fois la configuration terminée.
 
-<<<<<<< HEAD
 ### Installation des paquets système
 
 Centreon propose un paquet nommé `centreon-ha-common`, qui fournit tous les fichiers et dépendances nécessaires à un cluster Centreon. Ces paquets doivent être installés sur les deux nœuds de Centreon MAP :
 
-<Tabs groupId="sync">
-<TabItem value="Debian11" label="Debian 11">
-
-```bash
-apt install centreon-ha-common pcs pacemaker corosync corosync-qdevice
-
 > **ATTENTION:** la syntaxe des commandes suivantes dépend de la distribution Linux que vous utilisez. Veillez à sélectionner le bon système d'exploitation lorsqu'il est proposé.
-
-### Installation des paquets système
-
-Centreon propose un paquet nommé `centreon-ha-common`, qui fournit tous les fichiers et dépendances nécessaires à un cluster Centreon. Ces paquets doivent être installés sur les deux nœuds de Centreon-MAP :
 
 <Tabs groupId="sync">
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
@@ -246,7 +237,7 @@ dnf install centreon-ha-common pcs pacemaker corosync corosync-qdevice
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt update && apt install centreon-ha-common pcs pacemaker corosync corosync-qdevice
+apt install centreon-ha-common pcs pacemaker corosync corosync-qdevice
 ```
 
 </TabItem>
@@ -312,7 +303,6 @@ Un cluster MariaDB primaire-secondaire sera mis en place afin que tout soit sync
 Pour des raisons d'optimisation et de fiabilité du cluster, vous devez ajouter ces options de réglage à la configuration de MariaDB dans le fichier `/etc/mysql/mariadb.conf.d/50-server.cnf`. Collez ces lignes (certaines doivent être modifiées) dans cette section :
 
 Pour des raisons d'optimisation et de fiabilité du cluster, vous devez ajouter ces options de réglage à la configuration de MariaDB dans le fichier `/etc/my.cnf.d/server.cnf` ou dans le fichier `/etc/mysql/mariadb.conf.d/50-server.cnf` pour debian. Par défaut, la section `[server]` de ce fichier est vide. Collez ces lignes (certaines doivent être modifiées) dans cette section :
->>>>>>> b459d21f0a58e810999df4820a22b3a0e0c76e77
 
 ```ini
 [server]
@@ -670,43 +660,6 @@ pcs quorum device add model net \
 À exécuter **seulement sur un nœud de Centreon MAP** :
 
 <Tabs groupId="sync">
-<TabItem value="Debian11" label="Debian 11">
-
-```bash
-pcs resource create "ms_mysql" \
-	ocf:heartbeat:mariadb-centreon \
-	config="/etc/mysql/mariadb.conf.d/50-server.cnf" \
-	pid="/var/lib/mysql/mysql.pid" \
-	datadir="/var/lib/mysql" \
-	socket="/var/lib/mysql/mysql.sock" \
-	replication_user="@MARIADB_REPL_USER@" \
-	replication_passwd='@MARIADB_REPL_PASSWD@' \
-	binary="/usr/bin/mysqld_safe" \
-	test_user="@MARIADB_REPL_USER@" \
-	test_passwd="@MARIADB_REPL_PASSWD@" \
-	test_table='centreon_map.map' \
-	node_list="@MAP_PRIMARY_NAME@ @MAP_SECONDARY_NAME@"
-```
-
-</TabItem>
-<TabItem value="RHEL" label="RHEL">
-
-```bash
-pcs resource create "ms_mysql" \
-	ocf:heartbeat:mysql-centreon \
-	config="/etc/my.cnf.d/server.cnf" \
-	pid="/var/lib/mysql/mysql.pid" \
-	datadir="/var/lib/mysql" \
-	socket="/var/lib/mysql/mysql.sock" \
-	replication_user="@MARIADB_REPL_USER@" \
-	replication_passwd='@MARIADB_REPL_PASSWD@' \
-	max_slave_lag="15" \
-	evict_outdated_slaves="false" \
-	binary="/usr/bin/mysqld_safe" \
-	test_user="@MARIADB_REPL_USER@" \
-	test_passwd="@MARIADB_REPL_PASSWD@" \
-	test_table='centreon_studio.data'
-
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
 
 ```bash
@@ -750,6 +703,18 @@ pcs resource create "ms_mysql" \
 > **Avertissement :** la syntaxe de la commande suivante dépend de la distribution Linux que vous utilisez.
 
 <Tabs groupId="sync">
+<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
+
+```bash
+pcs resource master ms_mysql \
+	master-node-max="1" \
+	clone_max="2" \
+	globally-unique="false" \
+	clone-node-max="1" \
+	notify="true"
+```
+
+</TabItem>
 <TabItem value="Debian11" label="Debian 11">
 
 ```bash
@@ -759,18 +724,6 @@ pcs resource promotable ms_mysql \
     globally-unique="false" \
     clone-node-max="1" \
     notify="true"
-```
-
-</TabItem>
-<TabItem value="RHEL" label="RHEL">
-
-```bash
-pcs resource master ms_mysql \
-	master-node-max="1" \
-	clone_max="2" \
-	globally-unique="false" \
-	clone-node-max="1" \
-	notify="true"
 ```
 
 </TabItem>
