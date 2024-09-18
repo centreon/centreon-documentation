@@ -174,23 +174,6 @@ dnf install MariaDB-server-10.11\* MariaDB-client-10.11\* MariaDB-shared-10.11\*
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.11"
-```
-
-```shell
-sudo apt-get install mariadb-server galera-4 mariadb-client libmariadb3 mariadb-backup mariadb-common
-```
-
-If an error message informs you that one or several MariaDB packages are missing, you will need to specify the missing packages in the command, like in the following example:
-
-```shell
-sudo apt-get install mariadb-server galera-4 mariadb-client libmariadb3 mariadb-backup mariadb-common MISSING-PACKAGE_A MISSING-PACKAGE_B
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-```shell
 curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=12 --mariadb-server-version="mariadb-10.11"
 ```
 
