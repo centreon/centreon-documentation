@@ -147,9 +147,13 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+Ce plugin fonctionne un peu différemment des plugins plus communs. Un connecteur est requis afin de pouvoir communiquer avec les systèmes AS400/iSeries. Installez le connecteur grâce à la commande suivante :
+
+```shell
+yum install centreon-plugin-Operatingsystems-AS400-daemon
+```
+
+Un même connecteur peut servir de relais entre plusieurs hôtes et plusieurs systèmes AS400. 
 
 ## Installer le connecteur de supervision
 
