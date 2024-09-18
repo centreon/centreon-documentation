@@ -49,10 +49,10 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte de services
 
-| Nom de la règle                   | Description                                               |
-|:----------------------------------|:----------------------------------------------------------|
-| OS-AS400-Connector-Disk-Name      | Discover the disk partitions and monitor space occupation |
-| OS-AS400-Connector-SubSystem-Name |                                                           |
+| Nom de la règle                   | Description                                                                   |
+|:----------------------------------|:------------------------------------------------------------------------------|
+| OS-AS400-Connector-Disk-Name      | Découvre les paritions disque et permet ensuite de superviser l'espace occupé |
+| OS-AS400-Connector-SubSystem-Name | Découvre les sous-systèmes et permet ensuite de les superviser                |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -176,7 +176,7 @@ dnf install centreon-pack-operatingsystems-as400-connector
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-operatingsystems-as400-connector
@@ -221,7 +221,7 @@ dnf install centreon-plugin-Operatingsystems-AS400-Connector
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-operatingsystems-as400-connector
@@ -246,13 +246,13 @@ yum install centreon-plugin-Operatingsystems-AS400-Connector
 3. Appliquez le modèle d'hôte **OS-AS400-Connector-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro                  | Description                                                                                          | Valeur par défaut | Obligatoire |
-|:-----------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| AS400USERNAME          | AS/400 username (required)                                                                           |                   | X           |
-| AS400PASSWORD          | AS/400 password (required)                                                                           |                   | X           |
-| CENTREONCONNECTORPROTO | Specify https if needed (default: 'http')                                                            | http              |             |
-| CENTREONCONNECTORPORT  | Port used (default: 8091)                                                                            | 8091              |             |
-| CENTREONCONNECTORHOST  | Centreon connector hostname (default: 127.0.0.1)                                                     | localhost         | X           |
+| Macro                  | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| AS400USERNAME          | AS/400 username (required)                                                                                                                         |                   | X           |
+| AS400PASSWORD          | AS/400 password (required)                                                                                                                         |                   | X           |
+| CENTREONCONNECTORPROTO | Specify https if needed (default: 'http')                                                                                                          | http              |             |
+| CENTREONCONNECTORPORT  | Port used (default: 8091)                                                                                                                          | 8091              |             |
+| CENTREONCONNECTORHOST  | Centreon connector hostname (default: 127.0.0.1)                                                                                                   | localhost         | X           |
 | EXTRAOPTIONS           | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -265,118 +265,118 @@ yum install centreon-plugin-Operatingsystems-AS400-Connector
 <Tabs groupId="sync">
 <TabItem value="Command" label="Command">
 
-| Macro          | Description                                                                                                                                               | Valeur par défaut      | Obligatoire |
-|:---------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
-| COMMANDNAME    | Specify the command to execute (required)                                                                                                                 |                        | X           |
-| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{name}                                      |                        |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /failed/i'). You can use the following variables: %{status}, %{name} | %{status} =~ /failed/i |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}                                      |                        |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                        |                        |             |
+| Macro          | Description                                                                                                                                      | Valeur par défaut      | Obligatoire |
+|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
+| COMMANDNAME    | Specify the command to execute (required)                                                                                                        |                        | X           |
+| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{name}                             |                        |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{name}                            | %{status} =~ /failed/i |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}                             |                        |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                        |             |
 
 </TabItem>
 <TabItem value="Disks" label="Disks">
 
-| Macro             | Description                                                                                                                                                                                                                 | Valeur par défaut                                                                       | Obligatoire |
-|:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------|:-----------:|
-| UNKNOWNSTATUS     | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /unknown/i'). You can use the following variables: %{status}, %{name}                                                                   | %{status} =~ /unknown/i                                                                 |             |
-| DISKNAME          | Filter disks by name (can be a regexp)                                                                                                                                                                                      |                                                                                         |             |
-| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /noReady\|busy\|hwFailureOk\|hwFailurePerf\|Protected\|rebuilding/i') . You can use the following variables: %{status}, %{name}         | %{status} =~ /noReady\|busy\|hwFailureOk\|hwFailurePerf\|Protected\|rebuilding/i        |             |
-| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /^(noAccess\|otherDiskSubFailed\|failed\|notOperational\|noUnitContr ol)$/i'). You can use the following variables: %{status}, %{name} | %{status} =~ /^(noAccess\|otherDiskSubFailed\|failed\|notOperational\|noUnitControl)$/i |             |
-| WARNINGUSAGEPRCT  | Thresholds                                                                                                                                                                                                                  |                                                                                         |             |
-| CRITICALUSAGEPRCT | Thresholds                                                                                                                                                                                                                  |                                                                                         |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                          | --verbose                                                                               |             |
+| Macro             | Description                                                                                                                                      | Valeur par défaut                                                                       | Obligatoire |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------|:-----------:|
+| UNKNOWNSTATUS     | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{name}                             | %{status} =~ /unknown/i                                                                 |             |
+| DISKNAME          | Filter disks by name (can be a regexp)                                                                                                           |                                                                                         |             |
+| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}                             | %{status} =~ /noReady\|busy\|hwFailureOk\|hwFailurePerf\|Protected\|rebuilding/i        |             |
+| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{name}                            | %{status} =~ /^(noAccess\|otherDiskSubFailed\|failed\|notOperational\|noUnitControl)$/i |             |
+| WARNINGUSAGEPRCT  | Thresholds                                                                                                                                       |                                                                                         |             |
+| CRITICALUSAGEPRCT | Thresholds                                                                                                                                       |                                                                                         |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                                                                               |             |
 
 </TabItem>
 <TabItem value="Job-Queues" label="Job-Queues">
 
-| Macro                 | Description                                                                                                                                                         | Valeur par défaut    | Obligatoire |
-|:----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|:-----------:|
-| JOBQUEUES             |                                                                                                                                                                     |                      | X           |
-| UNKNOWNSTATUS         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{name}, %{library}                                    |                      |             |
-| WARNINGJOBSACTIVE     | Thresholds                                                                                                                                                          |                      |             |
-| CRITICALJOBSACTIVE    | Thresholds                                                                                                                                                          |                      |             |
-| WARNINGJOBSHELD       | Thresholds                                                                                                                                                          |                      |             |
-| CRITICALJOBSHELD      | Thresholds                                                                                                                                                          |                      |             |
-| WARNINGJOBSSCHEDULED  | Thresholds                                                                                                                                                          |                      |             |
-| CRITICALJOBSSCHEDULED | Thresholds                                                                                                                                                          |                      |             |
-| WARNINGJOBSTOTAL      | Thresholds                                                                                                                                                          |                      |             |
-| CRITICALJOBSTOTAL     | Thresholds                                                                                                                                                          |                      |             |
-| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /HELD/i'). You can use the following variables: %{status}, %{name}, %{library} | %{status} =~ /HELD/i |             |
-| WARNINGSTATUS         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}, %{library}                                    |                      |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                  | --verbose            |             |
+| Macro                 | Description                                                                                                                                      | Valeur par défaut    | Obligatoire |
+|:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|:-----------:|
+| JOBQUEUES             |                                                                                                                                                  |                      | X           |
+| UNKNOWNSTATUS         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{name}, %{library}                 |                      |             |
+| WARNINGJOBSACTIVE     | Thresholds                                                                                                                                       |                      |             |
+| CRITICALJOBSACTIVE    | Thresholds                                                                                                                                       |                      |             |
+| WARNINGJOBSHELD       | Thresholds                                                                                                                                       |                      |             |
+| CRITICALJOBSHELD      | Thresholds                                                                                                                                       |                      |             |
+| WARNINGJOBSSCHEDULED  | Thresholds                                                                                                                                       |                      |             |
+| CRITICALJOBSSCHEDULED | Thresholds                                                                                                                                       |                      |             |
+| WARNINGJOBSTOTAL      | Thresholds                                                                                                                                       |                      |             |
+| CRITICALJOBSTOTAL     | Thresholds                                                                                                                                       |                      |             |
+| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{name}, %{library}                | %{status} =~ /HELD/i |             |
+| WARNINGSTATUS         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}, %{library}                 |                      |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose            |             |
 
 </TabItem>
 <TabItem value="Jobs" label="Jobs">
 
-| Macro              | Description                                                                                                          | Valeur par défaut | Obligatoire |
-|:-------------------|:---------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERACTIVESTATUS | Filter jobs by ACTIVE\_JOB\_STATUS (can be a regexp). Example: --filter-active-status='MSGW' to count jobs with MSGW |                   |             |
-| FILTERNAME         | Filter jobs by name (can be a regexp)                                                                                |                   |             |
-| FILTERSUBSYSTEM    | Filter jobs by subsystem (can be a regexp)                                                                           |                   |             |
-| WARNINGTOTAL       | Thresholds                                                                                                           |                   |             |
-| CRITICALTOTAL      | Thresholds                                                                                                           |                   |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                   |                   |             |
+| Macro              | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERACTIVESTATUS | Filter jobs by ACTIVE\_JOB\_STATUS (can be a regexp). Example: --filter-active-status='MSGW' to count jobs with MSGW                             |                   |             |
+| FILTERNAME         | Filter jobs by name (can be a regexp)                                                                                                            |                   |             |
+| FILTERSUBSYSTEM    | Filter jobs by subsystem (can be a regexp)                                                                                                       |                   |             |
+| WARNINGTOTAL       | Thresholds                                                                                                                                       |                   |             |
+| CRITICALTOTAL      | Thresholds                                                                                                                                       |                   |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Message-Queue" label="Message-Queue">
 
-| Macro            | Description                                                                                        | Valeur par défaut                     | Obligatoire |
-|:-----------------|:---------------------------------------------------------------------------------------------------|:--------------------------------------|:-----------:|
-| MESSAGEQUEUEPATH | Specify the message queue (required. Example: --message-queue-path='/QSYS.LIB/QSYSOPR.MSGQ')       |                                       | X           |
-| FILTERMESSAGEID  | Filter messages by ID (can be a regexp)                                                            |                                       |             |
-| MINSEVERITY      | Filter messages with severity greater than or equal to X                                           |                                       |             |
-| MAXSEVERITY      | Filter messages with severity less than to X                                                       |                                       |             |
-| WARNINGMESSAGES  | Thresholds                                                                                         |                                       |             |
-| CRITICALMESSAGES | Thresholds                                                                                         |                                       |             |
+| Macro            | Description                                                                                                                                      | Valeur par défaut                     | Obligatoire |
+|:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|:-----------:|
+| MESSAGEQUEUEPATH | Specify the message queue (required. Example: --message-queue-path='/QSYS.LIB/QSYSOPR.MSGQ')                                                     |                                       | X           |
+| FILTERMESSAGEID  | Filter messages by ID (can be a regexp)                                                                                                          |                                       |             |
+| MINSEVERITY      | Filter messages with severity greater than or equal to X                                                                                         |                                       |             |
+| MAXSEVERITY      | Filter messages with severity less than to X                                                                                                     |                                       |             |
+| WARNINGMESSAGES  | Thresholds                                                                                                                                       |                                       |             |
+| CRITICALMESSAGES | Thresholds                                                                                                                                       |                                       |             |
 | EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --display-messages --memory --verbose |             |
 
 </TabItem>
 <TabItem value="Page-Faults" label="Page-Faults">
 
-| Macro                         | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:------------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGPAGEFAULTSDATABASE     | Thresholds                                                                                         |                   |             |
-| CRITICALPAGEFAULTSDATABASE    | Thresholds                                                                                         |                   |             |
-| WARNINGPAGEFAULTSNONDATABASE  | Thresholds                                                                                         |                   |             |
-| CRITICALPAGEFAULTSNONDATABASE | Thresholds                                                                                         |                   |             |
+| Macro                         | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGPAGEFAULTSDATABASE     | Thresholds                                                                                                                                       |                   |             |
+| CRITICALPAGEFAULTSDATABASE    | Thresholds                                                                                                                                       |                   |             |
+| WARNINGPAGEFAULTSNONDATABASE  | Thresholds                                                                                                                                       |                   |             |
+| CRITICALPAGEFAULTSNONDATABASE | Thresholds                                                                                                                                       |                   |             |
 | EXTRAOPTIONS                  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="SubSystem" label="SubSystem">
 
-| Macro              | Description                                                                                                                                                                                | Valeur par défaut                             | Obligatoire |
-|:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-----------:|
-| FILTERNAME         | Filter subsystems by name (can be a regexp)                                                                                                                                                |                                               |             |
-| FILTERLIBRARY      | Filter subsystems by library (can be a regexp)                                                                                                                                             |                                               |             |
-| UNKNOWNSTATUS      | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{name}, %{library}                                                           |                                               |             |
-| WARNINGACTIVE      | Thresholds                                                                                                                                                                                 |                                               |             |
-| CRITICALACTIVE     | Thresholds                                                                                                                                                                                 |                                               |             |
-| WARNINGENDING      | Thresholds                                                                                                                                                                                 |                                               |             |
-| CRITICALENDING     | Thresholds                                                                                                                                                                                 |                                               |             |
-| WARNINGINACTIVE    | Thresholds                                                                                                                                                                                 |                                               |             |
-| CRITICALINACTIVE   | Thresholds                                                                                                                                                                                 |                                               |             |
-| WARNINGJOBSACTIVE  | Thresholds                                                                                                                                                                                 |                                               |             |
-| CRITICALJOBSACTIVE | Thresholds                                                                                                                                                                                 |                                               |             |
-| WARNINGRESTRICTED  | Thresholds                                                                                                                                                                                 |                                               |             |
-| CRITICALRESTRICTED | Thresholds                                                                                                                                                                                 |                                               |             |
-| WARNINGSTARTING    | Thresholds                                                                                                                                                                                 |                                               |             |
-| CRITICALSTARTING   | Thresholds                                                                                                                                                                                 |                                               |             |
-| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /ending\|restricted\|starting/i'). You can use the following variables: %{status}, %{name}, %{library} | %{status} =~  /ending\|restricted\|starting/i |             |
-| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{name}, %{library}                                                          |                                               |             |
-| WARNINGTOTAL       | Thresholds                                                                                                                                                                                 |                                               |             |
-| CRITICALTOTAL      | Thresholds                                                                                                                                                                                 |                                               |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                         | --verbose                                     |             |
+| Macro              | Description                                                                                                                                      | Valeur par défaut                             | Obligatoire |
+|:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-----------:|
+| FILTERNAME         | Filter subsystems by name (can be a regexp)                                                                                                      |                                               |             |
+| FILTERLIBRARY      | Filter subsystems by library (can be a regexp)                                                                                                   |                                               |             |
+| UNKNOWNSTATUS      | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{name}, %{library}                 |                                               |             |
+| WARNINGACTIVE      | Thresholds                                                                                                                                       |                                               |             |
+| CRITICALACTIVE     | Thresholds                                                                                                                                       |                                               |             |
+| WARNINGENDING      | Thresholds                                                                                                                                       |                                               |             |
+| CRITICALENDING     | Thresholds                                                                                                                                       |                                               |             |
+| WARNINGINACTIVE    | Thresholds                                                                                                                                       |                                               |             |
+| CRITICALINACTIVE   | Thresholds                                                                                                                                       |                                               |             |
+| WARNINGJOBSACTIVE  | Thresholds                                                                                                                                       |                                               |             |
+| CRITICALJOBSACTIVE | Thresholds                                                                                                                                       |                                               |             |
+| WARNINGRESTRICTED  | Thresholds                                                                                                                                       |                                               |             |
+| CRITICALRESTRICTED | Thresholds                                                                                                                                       |                                               |             |
+| WARNINGSTARTING    | Thresholds                                                                                                                                       |                                               |             |
+| CRITICALSTARTING   | Thresholds                                                                                                                                       |                                               |             |
+| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}, %{library}                 | %{status} =~  /ending\|restricted\|starting/i |             |
+| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{name}, %{library}                |                                               |             |
+| WARNINGTOTAL       | Thresholds                                                                                                                                       |                                               |             |
+| CRITICALTOTAL      | Thresholds                                                                                                                                       |                                               |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                                     |             |
 
 </TabItem>
 <TabItem value="System" label="System">
 
-| Macro                    | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERCOUNTERS           | Only display some counters (regexp can be used). Example: --filter-counters='processing-units'     |                   |             |
-| WARNINGPROCESSUNITUSAGE  | Thresholds                                                                                         |                   |             |
-| CRITICALPROCESSUNITUSAGE | Thresholds                                                                                         |                   |             |
-| WARNINGSTORAGEPOOLSPACE  | Thresholds                                                                                         |                   |             |
-| CRITICALSTORAGEPOOLSPACE | Thresholds                                                                                         |                   |             |
+| Macro                    | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERCOUNTERS           | Only display some counters (regexp can be used). Example: --filter-counters='processing-units'                                                   |                   |             |
+| WARNINGPROCESSUNITUSAGE  | Thresholds                                                                                                                                       |                   |             |
+| CRITICALPROCESSUNITUSAGE | Thresholds                                                                                                                                       |                   |             |
+| WARNINGSTORAGEPOOLSPACE  | Thresholds                                                                                                                                       |                   |             |
+| CRITICALSTORAGEPOOLSPACE | Thresholds                                                                                                                                       |                   |             |
 | EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
