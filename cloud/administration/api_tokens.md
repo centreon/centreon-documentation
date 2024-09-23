@@ -11,7 +11,7 @@ A token is linked to one [Centreon user](../users/users.md) and is valid only fo
 
 [Users with an **Administrator** role](../users/users.md#user-roles) can access the **Administration > API tokens** page and can:
 * create tokens for themselves. 
-* see tokens created by other users
+* see tokens created by other users.
 * create tokens for other users, and can disable or delete them.
 
 ## Creating an API token
