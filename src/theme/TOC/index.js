@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { useLocation } from '@docusaurus/router';
 import { useDoc } from '@docusaurus/theme-common/internal';
 import styles from './styles.module.css';
+import 'typeface-roboto';
 import Translate from '@docusaurus/Translate';
 
 
@@ -190,7 +191,7 @@ export default function TOC(props) {
             <g transform="translate(-1678 -980)">
               <g transform="translate(1694 995)">
                 <g transform="matrix(1, 0, 0, 1, -16, -15)" filter="url(#a)">
-                  <rect width="48" height="48" rx="24" transform="translate(16 15)" fill="#37d6ae"/>
+                  <rect width="48" height="48" rx="24" transform="translate(16 15)" fill="#00bfa6"/>
                 </g>
                 <g transform="translate(6 6)">
                   <rect width="36" height="36" fill="none"/>
@@ -203,7 +204,7 @@ export default function TOC(props) {
               </g>
               <g transform="translate(1694 995)">
                 <g transform="matrix(1, 0, 0, 1, -16, -15)" filter="url(#d)">
-                  <rect width="48" height="48" rx="24" transform="translate(16 15)" fill="#37d6ae"/>
+                  <rect width="48" height="48" rx="24" transform="translate(16 15)" fill="#00bfa6"/>
                 </g>
                 <g transform="translate(6 6)">
                   <g clipPath="url(#f)">
@@ -217,7 +218,7 @@ export default function TOC(props) {
               </g>
               <g transform="translate(1694 995)">
                 <g transform="matrix(1, 0, 0, 1, -16, -15)" filter="url(#g)">
-                  <rect width="48" height="48" rx="24" transform="translate(16 15)" fill="#37d6ae"/>
+                  <rect width="48" height="48" rx="24" transform="translate(16 15)" fill="#00bfa6"/>
                 </g>
                 <g transform="translate(6 6)">
                   <rect width="36" height="36" fill="none"/>
@@ -230,7 +231,7 @@ export default function TOC(props) {
                 </g>
               </g>
             </g>
-            <circle cx="40" cy="40" r="40" fill="#36d6ae"/>
+            <circle cx="40" cy="40" r="40" fill="#00bfa6"/>
             <text transform="translate(26 60)" fill="#fff" fontSize="57" fontFamily="Roboto-Medium, Roboto" fontWeight="500">
               <tspan x="0" y="0">?</tspan>
             </text>
