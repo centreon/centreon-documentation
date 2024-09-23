@@ -86,9 +86,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+Afin de contrôler votre équipement Cisco VCS, l'API Rest doit être configurée (vous devez disposer d'un couple username/password notamment).
+Pour plus d'information voir la [documentation de l'API Rest](https://www.cisco.com/c/en/us/support/unified-communications/telepresence-video-communication-server-vcs/products-installation-and-configuration-guides-list.html)
 
 ## Installer le connecteur de supervision
 

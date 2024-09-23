@@ -85,9 +85,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+To control your Cisco VCS, the Rest API must be configured (you must have a username/password pair in particular).
+For more informations see the [Rest API documentation](https://www.cisco.com/c/en/us/support/unified-communications/telepresence-video-communication-server-vcs/products-installation-and-configuration-guides-list.html)
 
 ## Installing the monitoring connector
 
