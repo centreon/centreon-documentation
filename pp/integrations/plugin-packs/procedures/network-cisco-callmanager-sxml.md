@@ -163,7 +163,7 @@ yum install centreon-plugin-Network-Cisco-Callmanager-Sxml
 
 1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
 2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
-
+ 
 <Tabs groupId="sync">
 <TabItem value="Alerts" label="Alerts">
 
