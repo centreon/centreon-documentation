@@ -72,7 +72,7 @@ about the management features.
 
 ### Register an application
 
-The Office365 Management API use Azure AD to authenticate against Office365.
+The Office365 Management API uses Azure AD to authenticate against Office365.
 To access the Office365 Management API, you need to register your application in
 Azure AD. *Application* is here used by Microsoft as a conceptual term,
 referring not only to the application software, but also to the Azure AD
@@ -84,7 +84,7 @@ More detailed information is available [here](./cloud-microsoft-office365-manage
 ### Office365 Management API authorization
 
 To collect data from Skype Online, you need to specify the following
-authorization:
+authorizations:
 
 * Microsoft Graph :
     * Reports.Read.All (Type : Application)
@@ -95,8 +95,8 @@ authorization:
 
 ### More information
 
-You can access to the official documentation to register your application,
-get your *ID client*, *ID secret* and your *Tenant ID* by following this link:
+You can access the official documentation to register your application,
+get your **client ID**, **secret ID** and your **tenant ID** by following this link:
 https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-with-office-365-management-apis
 
 ## Installing the monitoring connector
