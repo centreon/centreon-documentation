@@ -601,7 +601,6 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 Then launch the installation:
 
 ```shell
-apt update
 apt install centreon-bi-reporting-server mariadb-server mariadb-client
 ```
 
