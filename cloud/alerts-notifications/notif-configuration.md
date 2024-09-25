@@ -17,7 +17,7 @@ For each notification rule, you define in which cases the notifications will be 
 Resources are checked according to the following parameters:
 
 * By default, checks are made 24x7 for as long as the host or service is in an OK state, every 5 minutes.
-   * The chek period can be customized using the **Check period** field of the resource.
+   * The check period can be customized using the **Check period** field of the resource.
    * The frequency of checks can be customized using the **Normal Check Interval** field of the resource.
 * When a host or service enters a non-ok status (SOFT status type, e.g. Down SOFT for a host), by default Centreon checks 3 times that the host or service is still in a non-ok state (you can define a custom number of checks using the **Max Check Attempts** field of the resource). By default, 1 minute elapses between each of these checks (you can customize this value using the **Retry Check Interval** field of the resource).
 * If, after these checks, the resource is still in a non-ok status, its status type becomes HARD. If notifications are activated for this status, a notification email is sent.
