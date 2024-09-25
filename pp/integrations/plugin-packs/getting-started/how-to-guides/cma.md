@@ -205,7 +205,7 @@ The CMA can now communicate with Centreon. You can set up the monitoring of your
 1. Modify the **/etc/centreon-monitoring-agent/centagent.json** file (4 cases):
 
 <Tabs groupId="sync">
-<TabItem value="No encryption, agent collects to poller" label="No encryption, agent collects to poller">
+<TabItem value="No encryption, agent connects to poller" label="No encryption, agent connects to poller">
 
 
 ```json
@@ -219,7 +219,7 @@ The CMA can now communicate with Centreon. You can set up the monitoring of your
 ```
 
 </TabItem>
-<TabItem value="Encryption, agent collects to poller" label="Encryption, agent collects to poller">
+<TabItem value="Encryption, agent connects to poller" label="Encryption, agent connects to poller">
 
 ```json
 {
