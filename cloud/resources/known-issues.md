@@ -37,9 +37,9 @@ The following paragraphs detail issues which are known to Centreon and will be f
 
    **Workaround**: Delete and recreate the rule.
 
-* It is not yet possible to define a time period for notifications.
-
 ## Configuration
+
+* Incremental mass changes are not possible for hosts and services.
 
 * After editing it, a customized command disappears from the listing. Please note that the command exists and will still be used.
 

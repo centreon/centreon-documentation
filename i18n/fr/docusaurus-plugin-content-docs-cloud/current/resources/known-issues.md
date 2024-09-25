@@ -37,9 +37,9 @@ Les paragraphes ci-après détaillent les problèmes connus de Centreon. Ceux-ci
 
    **Contournement**: Supprimez la règle et recréez-la.
 
-* Il n'est pas encore possible de définir une période de temps pour les notifications.
-
 ## Configuration
+
+* Les changements massifs incrémentaux ne sont pas possibles pour les hôtes et les services. 
 
 * Après édition, une commande personnalisée disparaît de la liste. Notez que la commande existe et qu'elle sera toujours utilisée.
 
