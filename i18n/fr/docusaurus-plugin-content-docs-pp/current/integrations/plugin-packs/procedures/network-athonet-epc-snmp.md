@@ -5,247 +5,759 @@ title: Athonet ePC SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Contenu du pack
 
-## Contenu du connecteur de supervision
+### Modèles
 
-### Objets supervisés
+Le connecteur de supervision **Athonet ePC SNMP** apporte un modèle d'hôte :
 
-Le connecteur de supervision Athonet ePc SNMP collecte les données pour:
-* aggregate
-* apns
-* interfaces (diameter, GA, GTPC, LTE)
-* licence
-* lte
+* **Net-Athonet-Epc-SNMP-custom**
 
-Ce tableau décrit quelles données peuvent être collectés sur les différents rôles.
-
-|                     | MME | SPGW | HSS | PCRF |
-| :------------------ | :-: | :--: | :-: | :--: |
-| aggregate           |     |  X   |  X  |      |
-| apns                |     |  X   |     |      |
-| interfaces-diameter |  X  |  X   |  X  |  X   |
-| interfaces-ga       |     |  X   |     |      |
-| interfaces-gtpc     |  X  |  X   |     |      |
-| interfaces-lte      |  X  |      |     |      |
-| license             |  X  |  X   |  X  |  X   |
-| lte                 |  X  |      |     |      |
-
-### Métriques collectées
+Le connecteur apporte les modèles de service suivants
+(classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="Aggregate" label="Aggregate">
+<TabItem value="Net-Athonet-Epc-SNMP-custom" label="Net-Athonet-Epc-SNMP-custom">
 
-| Metric name                          | Description                       | Unit  |
-| :----------------------------------- | :-------------------------------- | :---- |
-| aggregate.traffic.in.bytespersecond  | Aggregate incoming traffic        | B/s   |
-| aggregate.traffic.out.bytespersecond  Aggregate outgoing traffic         | B/s   |
-| hss.users.roaming.connected.count    | Number of roaming users connected |       |
-| hss.requests.authentication.count    | Number of authentication requests |       |
-| hss.location.updates.count           | Number of location updates        |       |
+| Alias   | Modèle de service                   | Description         |
+|:--------|:------------------------------------|:--------------------|
+| License | Net-Athonet-Epc-License-SNMP-custom | Contrôle la licence |
+
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Athonet-Epc-SNMP-custom** est utilisé.
 
 </TabItem>
-<TabItem value="Apns" label="Apns">
+<TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Metric name                                | Descritption                           | Unit  |
-| :----------------------------------------- | :------------------------------------- | :---- |
-| *apn_name*\#apn.traffic.in.bytespersecond  | Incoming traffic going through the apn | B/s   |
-| *apn_name*\#apn.traffic.out.bytespersecond | Outgoing traffic going through the apn | B/s   |
-| *apn_name*\#apn.pdp_contexts.count         | Number of pdp contexts                 |       |
+| Alias               | Modèle de service                               | Description                         | Découverte |
+|:--------------------|:------------------------------------------------|:------------------------------------|:----------:|
+| Aggregate           | Net-Athonet-Epc-Aggregate-SNMP-custom           | Contrôle les statistiques aggrégés  |            |
+| Apns                | Net-Athonet-Epc-Apns-SNMP-custom                | Contrôle les points d'accès         | X          |
+| Interfaces-Diameter | Net-Athonet-Epc-Interfaces-Diameter-SNMP-custom | Contrôle les interfaces diameter    | X          |
+| Interfaces-Ga       | Net-Athonet-Epc-Interfaces-Ga-SNMP-custom       | Contrôle les interfaces GA          | X          |
+| Interfaces-Gtpc     | Net-Athonet-Epc-Interfaces-Gtpc-SNMP-custom     | Contrôle les interfaces GTP control | X          |
+| Interfaces-Lte      | Net-Athonet-Epc-Interfaces-Lte-SNMP-custom      | Contrôle les interfaces LTE         | X          |
+| Lte                 | Net-Athonet-Epc-Lte-SNMP-custom                 | Contrôle les statistiques LTE       |            |
 
-</TabItem>
-<TabItem value="Interfaces-diameter" label="Interfaces-diameter">
+> Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
-| Metric name                     | Description                  | Unit  |
-| :------------------------------ | :--------------------------- | :---- |
-| diameter.interfaces.total.count | Number of interfaces         |       |
-| status                          | Status of the interface      |       |
-| transport status                | Status of the transport      |       |
-
-</TabItem>
-<TabItem value="Interfaces-gtpc" label="Interfaces-gtpc">
-
-| Metric name                     | Description                  | Unit  |
-| :------------------------------ | :--------------------------- | :---- |
-| gtpc.interfaces.total.count     | Number of interfaces         |       |
-| status                          | Status of the interface      |       |
-
-</TabItem>
-<TabItem value="Interfaces-ga" label="Interfaces-ga">
-
-| Metric name                     | Description                  | Unit  |
-| :------------------------------ | :--------------------------- | :---- |
-| ga.interfaces.total.count       | Number of interfaces         |       |
-| status                          | Status of the interface      |       |
-
-</TabItem>
-<TabItem value="Interfaces-lte" label="Interfaces-lte">
-
-| Metric name                                                                             | Description                                                                     | Unit  |
-| :-------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------ | :---- |
-| lte.interfaces.total.count                                                              | Number of interfaces                                                            |       |
-| status                                                                                  | Status of the interface                                                         |       |
-| *interface_name*\#lte.interface.traffic.in.bytespersecond                               | Incoming traffic going through the interface                                    | B/s   |
-| *interface_name*\#lte.interface.traffic.out.bytespersecond                              | Outgoing traffic going through the interface                                    | B/s   |
-| *interface_name*\#lte.interface.users.connected.count                                   | Number of connected users                                                       |       |
-| *interface_name*\#lte.interface.users.idle.count                                        | Number of idle users                                                            |       |
-| *interface_name*\#lte.interface.sessions.active.count                                   | Number of active sessions from users                                            |       |
-| *interface_name*\#lte.interface.requests.attach.success.count                           | Number of succesfull attach request                                             |       |
-| *interface_name*\#lte.interface.requests.attach.success.percentage                      | Percentage of succesfull attach request                                         | %     |
-| *interface_name*\#lte.interface.requests.pdn_context.activations.success.count          | Number of succesfull PDN context activation                                     |       |
-| *interface_name*\#lte.interface.requests.pdn_context.activations.success.percentage     | Percentage of succesfull PDN context activation                                 | %     |
-| *interface_name*\#lte.interface.requests.ue_context_release.total.count                 | Number of UE context request release                                            |       |
-| *interface_name*\#lte.interface.requests.ue_context_release.radio_lost.count            | Number of UE context request release with cause 'Radio Connection with UE lost' |       |
-| *interface_name*\#lte.interface.requests.pdn_context.reject.insufficent_resources.count | Number of PDN Context reject with cause 'Insufficent Resources'                 |       |
-| *interface_name*\#lte.interface.requests.pdn_context.reject.no_apn.count                | Number of PDN Context reject with cause 'Missing or unknown APN'                |       |
-| *interface_name*\#lte.interface.requests.pdn_context.reject.not_subscribed.count        | Number of PDN Context reject with cause 'Request service option not subscribed' |       |
-
-</TabItem>
-<TabItem value="License" label="License">
-
-| Metric name                              | Description                                   | Unit  |
-| :--------------------------------------- | :-------------------------------------------- | :---- |
-| status                                   | Status of the license                         |       |
-| license.expires.days                     | Expiration time                               |       |
-| license.users.active.usage.count         | Number of active users on the license         |       |
-| license.users.active.free.count          | Number of free active users on the license    |       |
-| license.users.active.usage.percentage    | Percentage of active users on the license     | %     |
-| license.sessions.active.usage.count      | Number of active sessions on the license      |       |
-| license.sessions.active.free.count       | Number of free active sessions on the license |       |
-| license.sessions.active.usage.percentage | Percentage of active sessions on the license  | %     |
-| license.usim.usage.count                 | Number of provisioned usim on the license     |       |
-| license.usim.free.count                  | Number of provisioned usim on the license     |       |
-| license.usim.usage.percentage            | Percentage of provisioned usim on the license | %     |
-
-</TabItem>
-<TabItem value="Lte" label="Lte">
-
-| Metric name                                                           | Description                                                                     | Unit  |
-| :-------------------------------------------------------------------- | :------------------------------------------------------------------------------ | :---- |
-| lte.interface.traffic.in.bytespersecond                               | Incoming traffic going through the interface                                    | B/s   |
-| lte.interface.traffic.out.bytespersecond                              | Outgoing traffic going through the interface                                    | B/s   |
-| lte.interface.users.connected.count                                   | Number of connected users                                                       |       |
-| lte.interface.users.idle.count                                        | Number of idle users                                                            |       |
-| lte.interface.sessions.active.count                                   | Number of active sessions from users                                            |       |
-| lte.interface.requests.attach.success.count                           | Number of succesfull attach request                                             |       |
-| lte.interface.requests.attach.success.percentage                      | Percentage of succesfull attach request                                         | %     |
-| lte.interface.requests.pdn_context.activations.success.count          | Number of succesfull PDN context activation                                     |       |
-| lte.interface.requests.pdn_context.activations.success.percentage     | Percentage of succesfull PDN context activation                                 | %     |
-| lte.interface.requests.ue_context_release.total.count                 | Number of UE context request release                                            |       |
-| lte.interface.requests.ue_context_release.radio_lost.count            | Number of UE context request release with cause 'Radio Connection with UE lost' |       |
-| lte.interface.requests.pdn_context.reject.insufficent_resources.count | Number of PDN Context reject with cause 'Insufficent Resources'                 |       |
-| lte.interface.requests.pdn_context.reject.no_apn.count                | Number of PDN Context reject with cause 'Missing or unknown APN'                |       |
-| lte.interface.requests.pdn_context.reject.not_subscribed.count        | Number of PDN Context reject with cause 'Request service option not subscribed' |       |
+> Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
 
 </TabItem>
 </Tabs>
 
+### Règles de découverte
+
+#### Découverte d'hôtes
+
+| Nom de la règle | Description                                                                                                                                                                                                                                 |
+|:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **Net-Athonet-Epc-SNMP-custom** |
+
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
+
+#### Découverte de services
+
+| Nom de la règle                                             | Description                                                                         |
+|:------------------------------------------------------------|:------------------------------------------------------------------------------------|
+| Net-Athonet-Epc-SNMP-Apn-Name                               | Découvre les points d'accès et les supervise                                        |
+| Net-Athonet-Epc-SNMP-Interface-Diameter-Name                | Découvre les interfaces réseaux Diameter et supervise le statut et l'utilisation    |
+| Net-Athonet-Epc-SNMP-Interface-Ga-Name                      | Découvre les interfaces réseaux GA et supervise le statut et l'utilisation          |
+| Net-Athonet-Epc-SNMP-Interface-Gtpc-Source-Destination-Type | Découvre les interfaces réseaux GTP Control et supervise le statut et l'utilisation |
+| Net-Athonet-Epc-SNMP-Interface-Lte-Name                     | Découvre les interfaces réseaux LTE et supervise le statut et l'utilisation         |
+
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
+pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
+
+### Métriques & statuts collectés
+
+Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
+
+<Tabs groupId="sync">
+<TabItem value="Aggregate" label="Aggregate">
+
+| Métrique                             | Unité |
+|:-------------------------------------|:------|
+| aggregate.traffic.in.bytespersecond  | B/s   |
+| aggregate.traffic.out.bytespersecond | B/s   |
+| hss.users.roaming.connected.count    | count |
+| hss.requests.authentication.count    | count |
+| hss.location.updates.count           | count |
+
+</TabItem>
+<TabItem value="Apns" label="Apns">
+
+| Métrique                              | Unité |
+|:--------------------------------------|:------|
+| *apns*~apn.traffic.in.bytespersecond  | B/s   |
+| *apns*~apn.traffic.out.bytespersecond | B/s   |
+| *apns*~apn.pdp_contexts.count         | count |
+
+</TabItem>
+<TabItem value="Interfaces-Diameter" label="Interfaces-Diameter">
+
+| Métrique                        | Unité |
+|:--------------------------------|:------|
+| diameter.interfaces.total.count | count |
+| *interfaces*#status             | N/A   |
+| *interfaces*#transport-status   | N/A   |
+
+</TabItem>
+<TabItem value="Interfaces-Ga" label="Interfaces-Ga">
+
+| Métrique                  | Unité |
+|:--------------------------|:------|
+| ga.interfaces.total.count | count |
+| *interfaces*#status       | N/A   |
+
+</TabItem>
+<TabItem value="Interfaces-Gtpc" label="Interfaces-Gtpc">
+
+| Métrique                    | Unité |
+|:----------------------------|:------|
+| gtpc.interfaces.total.count | count |
+| *interfaces*#status         | N/A   |
+
+</TabItem>
+<TabItem value="Interfaces-Lte" label="Interfaces-Lte">
+
+| Métrique                                                                           | Unité |
+|:-----------------------------------------------------------------------------------|:------|
+| lte.interfaces.total.count                                                         | count |
+| *interfaces*~status                                                                | N/A   |
+| *interfaces*~lte.interface.traffic.in.bytespersecond                               | B/s   |
+| *interfaces*~lte.interface.traffic.out.bytespersecond                              | B/s   |
+| *interfaces*~lte.interface.users.connected.count                                   | count |
+| *interfaces*~lte.interface.users.idle.count                                        | count |
+| *interfaces*~lte.interface.sessions.active.count                                   | count |
+| *interfaces*~lte.interface.requests.attach.success.count                           | count |
+| *interfaces*~lte.interface.requests.attach.success.percentage                      | %     |
+| *interfaces*~lte.interface.requests.pdn_context.activations.success.count          | count |
+| *interfaces*~lte.interface.requests.pdn_context.activations.success.percentage     | %     |
+| *interfaces*~lte.interface.requests.ue_context_release.total.count                 | count |
+| *interfaces*~lte.interface.requests.ue_context_release.radio_lost.count            | count |
+| *interfaces*~lte.interface.requests.pdn_context.reject.insufficent_resources.count | count |
+| *interfaces*~lte.interface.requests.pdn_context.reject.no_apn.count                | count |
+| *interfaces*~lte.interface.requests.pdn_context.reject.not_subscribed.count        | count |
+
+</TabItem>
+<TabItem value="License" label="License">
+
+| Métrique                                           | Unité |
+|:---------------------------------------------------|:------|
+| *license*~status                                   | N/A   |
+| *license*~license.expires.days                     | d     |
+| *license*~license.users.active.usage.count         | count |
+| *license*~license.users.active.free.count          | count |
+| *license*~license.users.active.usage.percentage    | %     |
+| *license*~license.sessions.active.usage.count      | count |
+| *license*~license.sessions.active.free.count       | count |
+| *license*~license.sessions.active.usage.percentage | %     |
+| *license*~license.usim.usage.count                 | count |
+| *license*~license.usim.free.count                  | count |
+| *license*~license.usim.usage.percentage            | %     |
+
+</TabItem>
+<TabItem value="Lte" label="Lte">
+
+| Métrique                                                          | Unité |
+|:------------------------------------------------------------------|:------|
+| *lte*~lte.traffic.in.bytespersecond                               | B/s   |
+| *lte*~lte.traffic.out.bytespersecond                              | B/s   |
+| *lte*~lte.users.connected.count                                   | count |
+| *lte*~lte.users.idle.count                                        | count |
+| *lte*~lte.sessions.active.count                                   | count |
+| *lte*~lte.requests.attach.success.count                           | count |
+| *lte*~lte.requests.attach.success.percentage                      | %     |
+| *lte*~lte.requests.pdn_context.activations.success.count          | count |
+| *lte*~lte.requests.pdn_context.activations.success.percentage     | %     |
+| *lte*~lte.requests.ue_context_release.total.count                 | count |
+| *lte*~lte.requests.ue_context_release.radio_lost.count            | count |
+| *lte*~lte.requests.pdn_context.reject.insufficent_resources.count | count |
+| *lte*~lte.requests.pdn_context.reject.no_apn.count                | count |
+| *lte*~lte.requests.pdn_context.reject.not_subscribed.count        | count |
+
+</TabItem>
+</Tabs>
 
 ## Prérequis
 
 Afin de contrôler vos équipement Athonet ePC, le SNMP doit être configuré. 
 
-## Installation
+## Installer le connecteur de supervision
+
+### Pack
+
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Installer le Plugin sur tous les Collecteurs Centreon :
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Network-Athonet-Epc-Snmp
+dnf install centreon-pack-network-athonet-epc-snmp
 ```
-
-2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Athonet ePC SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Installer le Plugin sur tous les Collecteurs Centreon :
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Network-Athonet-Epc-Snmp
+dnf install centreon-pack-network-athonet-epc-snmp
 ```
 
-2. Sur le serveur Central Centreon, installer le connecteur de supervision via le RPM:
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-network-athonet-epc-snmp
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-network-athonet-epc-snmp
 ```
 
-3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Athonet ePC SNMP* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+</TabItem>
+</Tabs>
+
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Athonet ePC SNMP**
+depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+
+### Plugin
+
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
+
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Network-Athonet-Epc-Snmp
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Network-Athonet-Epc-Snmp
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-network-athonet-epc-snmp
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Network-Athonet-Epc-Snmp
+```
 
 </TabItem>
 </Tabs>
 
-## Configuration
+## Utiliser le connecteur de supervision
 
-* Ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes"
-* Complétez les champs *Adresse IP/DNS*, *Communauté SNMP* et *Version SNMP*
-* Appliquez le Modèle d'Hôte *Net-Athonet-Epc-SNMP-Custom*
+### Utiliser un modèle d'hôte issu du connecteur
 
-> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping). 
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **Net-Athonet-Epc-SNMP-custom**.
 
-| Mandatory   | Name                    | Description                       |
-| :---------- | :---------------------- | :---------------------------------|
-|             | SNMPEXTRAOPTIONS        | Extra options SNMP                |
+> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
 
-## FAQ
+| Macro            | Description                                                                                          | Valeur par défaut | Obligatoire |
+|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
-### Comment puis-je tester le Plugin et que signifient les options des commandes ?
+4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande
-depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-engine*:
+### Utiliser un modèle de service issu du connecteur
+
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
+
+<Tabs groupId="sync">
+<TabItem value="Aggregate" label="Aggregate">
+
+| Macro                          | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGLOCATIONUPDATES         | Thresholds                                                                                                                                       |                   |             |
+| CRITICALLOCATIONUPDATES        | Thresholds                                                                                                                                       |                   |             |
+| WARNINGREQUESTSAUTHENTICATION  | Thresholds                                                                                                                                       |                   |             |
+| CRITICALREQUESTSAUTHENTICATION | Thresholds                                                                                                                                       |                   |             |
+| WARNINGTRAFFICIN               | Thresholds                                                                                                                                       |                   |             |
+| CRITICALTRAFFICIN              | Thresholds                                                                                                                                       |                   |             |
+| WARNINGTRAFFICOUT              | Thresholds                                                                                                                                       |                   |             |
+| CRITICALTRAFFICOUT             | Thresholds                                                                                                                                       |                   |             |
+| WARNINGUSERSROAMINGCONNECTED   | Thresholds                                                                                                                                       |                   |             |
+| CRITICALUSERSROAMINGCONNECTED  | Thresholds                                                                                                                                       |                   |             |
+| EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+</TabItem>
+<TabItem value="Apns" label="Apns">
+
+| Macro               | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:--------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERNAME          | Filter APN by name (can be a regexp)                                                                                                             |                   |             |
+| WARNINGPDPCONTEXTS  | Thresholds                                                                                                                                       |                   |             |
+| CRITICALPDPCONTEXTS | Thresholds                                                                                                                                       |                   |             |
+| WARNINGTRAFFICIN    | Thresholds                                                                                                                                       |                   |             |
+| CRITICALTRAFFICIN   | Thresholds                                                                                                                                       |                   |             |
+| WARNINGTRAFFICOUT   | Thresholds                                                                                                                                       |                   |             |
+| CRITICALTRAFFICOUT  | Thresholds                                                                                                                                       |                   |             |
+| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+
+</TabItem>
+<TabItem value="Interfaces-Diameter" label="Interfaces-Diameter">
+
+| Macro                   | Description                                                                                                                                          | Valeur par défaut               | Obligatoire |
+|:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------|:-----------:|
+| FILTERNAME              | Filter interfaces by name (can be a regexp)                                                                                                          |                                 |             |
+| FILTEROWNER             | Filter interfaces by owner (can be a regexp)                                                                                                         |                                 |             |
+| CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{name}, %{owner}                      | %{status} =~ /down/i            |             |
+| WARNINGSTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}, %{owner}                       |                                 |             |
+| WARNINGTOTAL            | Thresholds                                                                                                                                           |                                 |             |
+| CRITICALTOTAL           | Thresholds                                                                                                                                           |                                 |             |
+| CRITICALTRANSPORTSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{transport\_status}, %{transport\_type}, %{name} | %{transport\_status} =~ /down/i |             |
+| WARNINGTRANSPORTSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{transport\_status}, %{transport\_type}, %{name}  |                                 |             |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).     | --verbose                       |             |
+
+</TabItem>
+<TabItem value="Interfaces-Ga" label="Interfaces-Ga">
+
+| Macro              | Description                                                                                                                                                | Valeur par défaut    | Obligatoire |
+|:-------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|:-----------:|
+| FILTERNAME         | Filter interfaces by name (can be a regexp)                                                                                                                |                      |             |
+| FILTERLOCALADDRESS | Filter interfaces by local address (can be a regexp)                                                                                                       |                      |             |
+| FILTERPEERADDRESS  | Filter interfaces by peer address (can be a regexp)                                                                                                        |                      |             |
+| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{local\_address}, %{peer\_address}, %{name} | %{status} =~ /down/i |             |
+| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{local\_address}, %{peer\_address}, %{name}  |                      |             |
+| WARNINGTOTAL       | Thresholds                                                                                                                                                 |                      |             |
+| CRITICALTOTAL      | Thresholds                                                                                                                                                 |                      |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).           | --verbose            |             |
+
+</TabItem>
+<TabItem value="Interfaces-Gtpc" label="Interfaces-Gtpc">
+
+| Macro                    | Description                                                                                                                                                | Valeur par défaut    | Obligatoire |
+|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|:-----------:|
+| FILTESOURCEADDRESS       | Filter interfaces by source address (can be a regexp)                                                                                                      |                      |             |
+| FILTERDESTINATIONADDRESS | Filter interfaces by destination address (can be a regexp)                                                                                                 |                      |             |
+| FILTERTYPE               | Filter interfaces by type (can be a regexp)                                                                                                                |                      |             |
+| CRITICALSTATUS           | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{source\_address}, %{destination\_address}  | %{status} =~ /down/i |             |
+| WARNINGSTATUS            | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{source\_address}, %{destination\_address}   |                      |             |
+| WARNINGTOTAL             | Thresholds                                                                                                                                                 |                      |             |
+| CRITICALTOTAL            | Thresholds                                                                                                                                                 |                      |             |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).           | --verbose            |             |
+
+</TabItem>
+<TabItem value="Interfaces-Lte" label="Interfaces-Lte">
+
+| Macro                                     | Description                                                                                                                                      | Valeur par défaut                                          | Obligatoire |
+|:------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------|:-----------:|
+| FILTERNAME                                | Filter interfaces by name (can be a regexp)                                                                                                      |                                                            |             |
+| WARNINGREQUESTSATTACHSUCCESS              | Thresholds                                                                                                                                       |                                                            |             |
+| CRITICALREQUESTSATTACHSUCCESS             | Thresholds                                                                                                                                       |                                                            |             |
+| WARNINGREQUESTSATTACHSUCCESSPRCT          | Thresholds                                                                                                                                       |                                                            |             |
+| CRITICALREQUESTSATTACHSUCCESSPRCT         | Thresholds                                                                                                                                       |                                                            |             |
+| WARNINGREQUESTSPDNCONTEXTACTIVATION       | Thresholds                                                                                                                                       |                                                            |             |
+| CRITICALREQUESTSPDNCONTEXTACTIVATION      | Thresholds                                                                                                                                       |                                                            |             |
+| WARNINGREQUESTSPDNCONTEXTACTIVATIONPRCT   | Thresholds                                                                                                                                       |                                                            |             |
+| CRITICALREQUESTSPDNCONTEXTACTIVATIONPRCT  | Thresholds                                                                                                                                       |                                                            |             |
+| WARNINGREQUESTSPDNCONTEXTREJINSUFRES      | Thresholds                                                                                                                                       |                                                            |             |
+| CRITICALREQUESTSPDNCONTEXTREJINSUFRES     | Thresholds                                                                                                                                       |                                                            |             |
+| WARNINGREQUESTSPDNCONTEXTREJNOAPN         | Thresholds                                                                                                                                       |                                                            |             |
+| CRITICALREQUESTSPDNCONTEXTREJNOAPN        | Thresholds                                                                                                                                       |                                                            |             |
+| WARNINGREQUESTSPDNCONTEXTREJNOSUB         | Thresholds                                                                                                                                       |                                                            |             |
+| CRITICALREQUESTSPDNCONTEXTREJNOSUB        | Thresholds                                                                                                                                       |                                                            |             |
+| WARNINGREQUESTSUECONTEXTRELEASERADIOLOST  | Thresholds                                                                                                                                       |                                                            |             |
+| CRITICALREQUESTSUECONTEXTRELEASERADIOLOST | Thresholds                                                                                                                                       |                                                            |             |
+| WARNINGREQUESTSUECONTEXTRELEASETOTAL      | Thresholds                                                                                                                                       |                                                            |             |
+| CRITICALREQUESTSUECONTEXTRELEASETOTAL     | Thresholds                                                                                                                                       |                                                            |             |
+| WARNINGSESSIONSACTIVE                     | Thresholds                                                                                                                                       |                                                            |             |
+| CRITICALSESSIONSACTIVE                    | Thresholds                                                                                                                                       |                                                            |             |
+| CRITICALSTATUS                            | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{sctp\_status}, %{s1ap\_status}, %{name}     | %{sctp\_status} =~ /down/i \|\| %{s1ap\_status} =~ /down/i |             |
+| WARNINGSTATUS                             | Define the conditions to match for the status to be WARNING. You can use the following variables: %{sctp\_status}, %{s1ap\_status}, %{name}      |                                                            |             |
+| WARNINGTOTAL                              | Thresholds                                                                                                                                       |                                                            |             |
+| CRITICALTOTAL                             | Thresholds                                                                                                                                       |                                                            |             |
+| WARNINGTRAFFICIN                          | Thresholds                                                                                                                                       |                                                            |             |
+| CRITICALTRAFFICIN                         | Thresholds                                                                                                                                       |                                                            |             |
+| WARNINGTRAFFICOUT                         | Thresholds                                                                                                                                       |                                                            |             |
+| CRITICALTRAFFICOUT                        | Thresholds                                                                                                                                       |                                                            |             |
+| WARNINGUSERSCONNECTED                     | Thresholds                                                                                                                                       |                                                            |             |
+| CRITICALUSERSCONNECTED                    | Thresholds                                                                                                                                       |                                                            |             |
+| WARNINGUSERSIDLE                          | Thresholds                                                                                                                                       |                                                            |             |
+| CRITICALUSERSIDLE                         | Thresholds                                                                                                                                       |                                                            |             |
+| EXTRAOPTIONS                              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                                                  |             |
+
+</TabItem>
+<TabItem value="License" label="License">
+
+| Macro                            | Description                                                                                                                                            | Valeur par défaut                | Obligatoire |
+|:---------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------|:-----------:|
+| UNIT                             | Select the time unit for the expiration threshold. May be 's'for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is days |                                  |             |
+| WARNINGEXPIRES                   | Thresholds                                                                                                                                             |                                  |             |
+| CRITICALEXPIRES                  | Thresholds                                                                                                                                             |                                  |             |
+| WARNINGLICENSESESSIONSFREE       | Thresholds                                                                                                                                             |                                  |             |
+| CRITICALLICENSESESSIONSFREE      | Thresholds                                                                                                                                             |                                  |             |
+| WARNINGLICENSESESSIONSUSAGE      | Thresholds                                                                                                                                             |                                  |             |
+| CRITICALLICENSESESSIONSUSAGE     | Thresholds                                                                                                                                             |                                  |             |
+| WARNINGLICENSESESSIONSUSAGEPRCT  | Thresholds                                                                                                                                             |                                  |             |
+| CRITICALLICENSESESSIONSUSAGEPRCT | Thresholds                                                                                                                                             |                                  |             |
+| WARNINGLICENSEUSERSFREE          | Thresholds                                                                                                                                             |                                  |             |
+| CRITICALLICENSEUSERSFREE         | Thresholds                                                                                                                                             |                                  |             |
+| WARNINGLICENSEUSERSUSAGE         | Thresholds                                                                                                                                             |                                  |             |
+| CRITICALLICENSEUSERSUSAGE        | Thresholds                                                                                                                                             |                                  |             |
+| WARNINGLICENSEUSERSUSAGEPRCT     | Thresholds                                                                                                                                             |                                  |             |
+| CRITICALLICENSEUSERSUSAGEPRCT    | Thresholds                                                                                                                                             |                                  |             |
+| WARNINGLICENSEUSIMFREE           | Thresholds                                                                                                                                             |                                  |             |
+| CRITICALLICENSEUSIMFREE          | Thresholds                                                                                                                                             |                                  |             |
+| WARNINGLICENSEUSIMUSAGE          | Thresholds                                                                                                                                             |                                  |             |
+| CRITICALLICENSEUSIMUSAGE         | Thresholds                                                                                                                                             |                                  |             |
+| WARNINGLICENSEUSIMUSAGEPRCT      | Thresholds                                                                                                                                             |                                  |             |
+| CRITICALLICENSEUSIMUSAGEPRCT     | Thresholds                                                                                                                                             |                                  |             |
+| CRITICALSTATUS                   | Define the conditions to match for the status to be CRITICAL. Can use special variables like: %{status}                                                | %{status} =~ /expired\|invalid/i |             |
+| WARNINGSTATUS                    | Define the conditions to match for the status to be WARNING. Can use special variables like: %{status}                                                 |                                  |             |
+| EXTRAOPTIONS                     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).       | --verbose                        |             |
+
+</TabItem>
+<TabItem value="Lte" label="Lte">
+
+| Macro                                     | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGREQUESTSATTACHSUCCESS              | Thresholds                                                                                                                                       |                   |             |
+| CRITICALREQUESTSATTACHSUCCESS             | Thresholds                                                                                                                                       |                   |             |
+| WARNINGREQUESTSATTACHSUCCESSPRCT          | Thresholds                                                                                                                                       |                   |             |
+| CRITICALREQUESTSATTACHSUCCESSPRCT         | Thresholds                                                                                                                                       |                   |             |
+| WARNINGREQUESTSPDNCONTEXTACTIVATION       | Thresholds                                                                                                                                       |                   |             |
+| CRITICALREQUESTSPDNCONTEXTACTIVATION      | Thresholds                                                                                                                                       |                   |             |
+| WARNINGREQUESTSPDNCONTEXTACTIVATIONPRCT   | Thresholds                                                                                                                                       |                   |             |
+| CRITICALREQUESTSPDNCONTEXTACTIVATIONPRCT  | Thresholds                                                                                                                                       |                   |             |
+| WARNINGREQUESTSPDNCONTEXTREJINSUFRES      | Thresholds                                                                                                                                       |                   |             |
+| CRITICALREQUESTSPDNCONTEXTREJINSUFRES     | Thresholds                                                                                                                                       |                   |             |
+| WARNINGREQUESTSPDNCONTEXTREJNOAPN         | Thresholds                                                                                                                                       |                   |             |
+| CRITICALREQUESTSPDNCONTEXTREJNOAPN        | Thresholds                                                                                                                                       |                   |             |
+| WARNINGREQUESTSPDNCONTEXTREJNOSUB         | Thresholds                                                                                                                                       |                   |             |
+| CRITICALREQUESTSPDNCONTEXTREJNOSUB        | Thresholds                                                                                                                                       |                   |             |
+| WARNINGREQUESTSUECONTEXTRELEASERADIOLOST  | Thresholds                                                                                                                                       |                   |             |
+| CRITICALREQUESTSUECONTEXTRELEASERADIOLOST | Thresholds                                                                                                                                       |                   |             |
+| WARNINGREQUESTSUECONTEXTRELEASETOTAL      | Thresholds                                                                                                                                       |                   |             |
+| CRITICALREQUESTSUECONTEXTRELEASETOTAL     | Thresholds                                                                                                                                       |                   |             |
+| WARNINGSESSIONSACTIVE                     | Thresholds                                                                                                                                       |                   |             |
+| CRITICALSESSIONSACTIVE                    | Thresholds                                                                                                                                       |                   |             |
+| WARNINGTRAFFICIN                          | Thresholds                                                                                                                                       |                   |             |
+| CRITICALTRAFFICIN                         | Thresholds                                                                                                                                       |                   |             |
+| WARNINGTRAFFICOUT                         | Thresholds                                                                                                                                       |                   |             |
+| CRITICALTRAFFICOUT                        | Thresholds                                                                                                                                       |                   |             |
+| WARNINGUSERSCONNECTED                     | Thresholds                                                                                                                                       |                   |             |
+| CRITICALUSERSCONNECTED                    | Thresholds                                                                                                                                       |                   |             |
+| WARNINGUSERSIDLE                          | Thresholds                                                                                                                                       |                   |             |
+| CRITICALUSERSIDLE                         | Thresholds                                                                                                                                       |                   |             |
+| EXTRAOPTIONS                              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+
+</TabItem>
+</Tabs>
+
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
+
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
+que le connecteur arrive bien à superviser une ressource en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_athonet_epc_snmp.pl \
-    --plugin=network::athonet::epc::snmp::plugin \
-    --mode=lte \
-    --hostname=10.30.2.114 \
-    --snmp-version='2c' \
-    --snmp-community='athonet_ro' \
-    --warning-users-connected='100' \
-    --critical-users-connected='200' \
-    --verbose
+	--plugin=network::athonet::epc::snmp::plugin \
+	--mode=apns \
+	--hostname='10.0.0.1' \
+	--snmp-version='2c' \
+	--snmp-community='my-snmp-community'  \
+	--filter-name='' \
+	--warning-traffic-in='' \
+	--critical-traffic-in='' \
+	--warning-traffic-out='' \
+	--critical-traffic-out='' \
+	--warning-pdp-contexts='' \
+	--critical-pdp-contexts='' \
+	--verbose
 ```
 
-La commande devrait retourner un message de sortie de la forme ci-dessous:
+La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Lte traffic in: 0 B/s, traffic out: 0 B/s - connected users: 0, idle users: 0, active sessions: 0 - attach requests total: 0 success: 0 (100.00%) - pdn context activation requests total: 0 success: 0 (100.00%) - ue context release requests: 0, ue context release with radio lost requests: 0 - pdn context requests reject insufficent resources: 0, missing or unknown apn: 0, not subscribed: 0 | 'lte.traffic.in.bytespersecond'=0B/s;;;0; 'lte.traffic.out.bytespersecond'=0B/s;;;0; 'lte.users.connected.count'=0;0:100;0:200;0; 'lte.users.idle.count'=0;;;0; 'lte.sessions.active.count'=0;;;0; 'lte.requests.attach.success.count'=0;;;0;0 'lte.requests.attach.success.percentage'=100%;;;0;100 'lte.requests.pdn_context.activations.success.count'=0;;;0;0 'lte.requests.pdn_context.activations.success.percentage'=100%;;;0;100 'lte.requests.ue_context_release.total.count'=0;;;0; 'lte.requests.ue_context_release.radio_lost.count'=0;;;0; 'lte.requests.pdn_context.reject.insufficent_resources.count'=0;;;0; 'lte.requests.pdn_context.reject.no_apn.count'=0;;;0; 'lte.requests.pdn_context.reject.not_subscribed.count'=0;;;0;
-checking lte
-    traffic in: 0 B/s, traffic out: 0 B/s
-    connected users: 0, idle users: 0, active sessions: 0
-    attach requests total: 0 success: 0 (100.00%)
-    pdn context activation requests total: 0 success: 0 (100.00%)
-    ue context release requests: 0, ue context release with radio lost requests: 0
-    pdn context requests reject insufficent resources: 0, missing or unknown apn: 0, not subscribed: 0
+OK: in: 10 10/s out: 7 7/s pdp contexts: 34 | '*apns*~apn.traffic.in.bytespersecond'=10B/s;;;0;'*apns*~apn.traffic.out.bytespersecond'=7B/s;;;0;'*apns*~apn.pdp_contexts.count'=34;;;0;
 ```
 
-Cette commande contrôle les statistiques LTE (```--mode=lte```) d'un équipement Athonet ePC ayant pour adresse *10.30.2.114* (```--hostname=10.30.2.114```) 
-en version *2c* du protocol SNMP (```--snmp-version='2c'```) et avec la communauté *athonet_ro* (```--snmp-community='athonet_ro'```).
+### Diagnostic des erreurs communes
 
-Cette commande déclenchera une alarme WARNING si le nombre d'utilisateurs connectés est supérieur à 100 (```--warning-users-connected='100'```)
-et une alarme CRITICAL si supérieur à 200 (```--critical-users-connected='200'```).
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des plugins Centreon.
 
-Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée
-en ajoutant le paramètre ```--help``` à la commande:
+### Modes disponibles
+
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution 
+du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
+implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
+modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
+
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_athonet_epc_snmp.pl \
-    --plugin=network::athonet::epc::snmp::plugin \
-    --mode=lte \
-    --help
+	--plugin=network::athonet::epc::snmp::plugin \
+	--list-mode
 ```
 
-### UNKNOWN: SNMP GET Request : Timeout
+Le plugin apporte les modes suivants :
 
-Si vous obtenez ce message, cela signifie que vous ne parvenez pas à contacter l'équipement sur le port 161, 
-ou alors que la communauté SNMP configurée n'est pas correcte. 
-Il est également possible qu'un firewall bloque le flux.
+| Mode                                                                                                                                                     | Modèle de service associé                       |
+|:---------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------|
+| aggregate [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/athonet/epc/snmp/mode/aggregate.pm)]                             | Net-Athonet-Epc-Aggregate-SNMP-custom           |
+| apns [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/athonet/epc/snmp/mode/apns.pm)]                                       | Net-Athonet-Epc-Apns-SNMP-custom                |
+| interfaces-diameter [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/athonet/epc/snmp/mode/interfacesdiameter.pm)]          | Net-Athonet-Epc-Interfaces-Diameter-SNMP-custom |
+| interfaces-ga [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/athonet/epc/snmp/mode/interfacesga.pm)]                      | Net-Athonet-Epc-Interfaces-Ga-SNMP-custom       |
+| interfaces-gtpc [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/athonet/epc/snmp/mode/interfacesgtpc.pm)]                  | Net-Athonet-Epc-Interfaces-Gtpc-SNMP-custom     |
+| interfaces-lte [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/athonet/epc/snmp/mode/interfaceslte.pm)]                    | Net-Athonet-Epc-Interfaces-Lte-SNMP-custom      |
+| license [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/athonet/epc/snmp/mode/license.pm)]                                 | Net-Athonet-Epc-License-SNMP-custom             |
+| list-apns [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/athonet/epc/snmp/mode/listapns.pm)]                              | Used for service discovery                      |
+| list-interfaces-diameter [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/athonet/epc/snmp/mode/listinterfacesdiameter.pm)] | Used for service discovery                      |
+| list-interfaces-ga [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/athonet/epc/snmp/mode/listinterfacesga.pm)]             | Used for service discovery                      |
+| list-interfaces-gtpc [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/athonet/epc/snmp/mode/listinterfacesgtpc.pm)]         | Used for service discovery                      |
+| list-interfaces-lte [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/athonet/epc/snmp/mode/listinterfaceslte.pm)]           | Used for service discovery                      |
+| lte [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/athonet/epc/snmp/mode/lte.pm)]                                         | Net-Athonet-Epc-Lte-SNMP-custom                 |
 
-### UNKNOWN: SNMP GET Request : Cant get a single value.
+### Options disponibles
 
-Si vous rencontrez cette erreur, il est probable que les autorisations données à l'agent SNMP soient trop restreintes. 
- * L'équipement ne prend pas en charge la MIB utilisée par le Plugin (branche: .1.3.6.1.4.1.35805.10).
- * L'OID SNMP ciblé ne peut pas être récupéré en raison de privilèges d'équipement insuffisants.
+#### Options génériques
+
+Les options génériques sont listées ci-dessous :
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     | Define the mode in which you want the plugin to be executed (see--list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale(Mbps),mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                                |
+| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-ignore-perfdata                   | Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-ignore-label                      | Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --output-file                              | Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --hostname                                 | Name or address of the host to monitor (mandatory).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --snmp-community                           | SNMP community (default value: public). It is recommended to use a read-only community.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --snmp-version                             | Version of the SNMP protocol. 1 for SNMP v1 (default), 2 for SNMP v2c, 3 for SNMP v3.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --snmp-port                                | UDP port to send the SNMP request to (default: 161).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --snmp-timeout                             | Time to wait before sending the request again if no reply has been received, in seconds (default: 1). See also --snmp-retries.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --snmp-retries                             | Maximum number of retries (default: 5).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --maxrepetitions                           | Max repetitions value (default: 50) (only for SNMP v2 and v3).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --subsetleef                               | How many OID values per SNMP request (default: 50) (for get\_leef method. Be cautious when you set it. Prefer to let the default value).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --snmp-autoreduce                          | Progressively reduce the number of requested OIDs in bulk mode. Use it in case of SNMP errors (by default, the number is divided by 2).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --snmp-force-getnext                       | Use SNMP getnext function in SNMP v2c and v3. This will request one OID at a time.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --snmp-cache-file                          | Use SNMP cache file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --snmp-username                            | SNMP v3 only: User name (securityName).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --authpassphrase                           | SNMP v3 only: Pass phrase hashed using the authentication protocol defined in the --authprotocol option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --authprotocol                             | SNMP v3 only: Authentication protocol: MD5\|SHA. Since net-snmp 5.9.1: SHA224\|SHA256\|SHA384\|SHA512.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --privpassphrase                           | SNMP v3 only: Privacy pass phrase (privPassword) to encrypt messages using the protocol defined in the --privprotocol option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --privprotocol                             | SNMP v3 only: Privacy protocol (privProtocol) used to encrypt messages. Supported protocols are: DES\|AES and since net-snmp 5.9.1: AES192\|AES192C\|AES256\|AES256C.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --contextname                              | SNMP v3 only: Context name (contextName), if relevant for the monitored host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --contextengineid                          | SNMP v3 only: Context engine ID (contextEngineID), if relevant for the monitored host, given as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --securityengineid                         | SNMP v3 only: Security engine ID, given as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --snmp-errors-exit                         | Expected status in case of SNMP error or timeout. Possible values are warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --snmp-tls-transport                       | Transport protocol for TLS communication (can be: 'dtlsudp', 'tlstcp').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --snmp-tls-our-identity                    | X.509 certificate to identify ourselves. Can be the path to the certificate file or its contents.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --snmp-tls-their-identity                  | X.509 certificate to identify the remote host. Can be the path to the certificate file or its contents. This option is unnecessary if the certificate is already trusted by your system.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --snmp-tls-their-hostname                  | Common Name (CN) expected in the certificate sent by the host if it differs from the value of the --hostname parameter.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --snmp-tls-trust-cert                      | A trusted CA certificate used to verify a remote host's certificate. If you use this option, you must also define --snmp-tls-their-hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+
+#### Options des modes
+
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
+
+<Tabs groupId="sync">
+<TabItem value="Aggregate" label="Aggregate">
+
+| Option                   | Description                                                                                                                                                                                                                                   |
+|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --memcached              | Memcached server to use (only one server).                                                                                                                                                                                                    |
+| --redis-server           | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
+| --redis-attribute        | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
+| --redis-db               | Set Redis database index.                                                                                                                                                                                                                     |
+| --failback-file          | Failback on a local file if Redis connection fails.                                                                                                                                                                                           |
+| --memexpiration          | Time to keep data in seconds (default: 86400).                                                                                                                                                                                                |
+| --statefile-dir          | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
+| --statefile-suffix       | Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                |
+| --statefile-concat-cwd   | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
+| --statefile-format       | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
+| --statefile-key          | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
+| --statefile-cipher       | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
+| --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='roaming'                                                                                                                                                         |
+| --warning-* --critical-* | Thresholds. Can be: 'traffic-in', 'traffic-out', 'users-roaming-connected', 'requests-authentication', 'location-updates'.                                                                                                                    |
+
+</TabItem>
+<TabItem value="Apns" label="Apns">
+
+| Option                   | Description                                                                                                                                                                                                                                   |
+|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --memcached              | Memcached server to use (only one server).                                                                                                                                                                                                    |
+| --redis-server           | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
+| --redis-attribute        | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
+| --redis-db               | Set Redis database index.                                                                                                                                                                                                                     |
+| --failback-file          | Failback on a local file if Redis connection fails.                                                                                                                                                                                           |
+| --memexpiration          | Time to keep data in seconds (default: 86400).                                                                                                                                                                                                |
+| --statefile-dir          | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
+| --statefile-suffix       | Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                |
+| --statefile-concat-cwd   | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
+| --statefile-format       | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
+| --statefile-key          | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
+| --statefile-cipher       | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
+| --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='traffic'                                                                                                                                                         |
+| --filter-name            | Filter APN by name (can be a regexp).                                                                                                                                                                                                         |
+| --warning-* --critical-* | Thresholds. Can be: 'traffic-in', 'traffic-out', 'pdp-contexts'.                                                                                                                                                                              |
+
+</TabItem>
+<TabItem value="Interfaces-Diameter" label="Interfaces-Diameter">
+
+| Option                      | Description                                                                                                                                                                                         |
+|:----------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters           | Only display some counters (regexp can be used). Example: --filter-counters='transport'                                                                                                             |
+| --filter-name               | Filter interfaces by name (can be a regexp).                                                                                                                                                        |
+| --filter-owner              | Filter interfaces by owner (can be a regexp).                                                                                                                                                       |
+| --unknown-status            | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{name}, %{owner}                                                                      |
+| --warning-status            | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}, %{owner}                                                                      |
+| --critical-status           | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /down/i'). You can use the following variables: %{status}, %{name}, %{owner}                                   |
+| --unknown-transport-status  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{transport\_status}, %{transport\_type}, %{name}                                                 |
+| --warning-transport-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{transport\_status}, %{transport\_type}, %{name}                                                 |
+| --critical-transport-status | Define the conditions to match for the status to be CRITICAL (default: '%{transport\_status} =~ /down/i'). You can use the following variables: %{transport\_status}, %{transport\_type}, %{name}   |
+| --warning-* --critical-*    | Thresholds. Can be: 'total'.                                                                                                                                                                        |
+
+</TabItem>
+<TabItem value="Interfaces-Ga" label="Interfaces-Ga">
+
+| Option                   | Description                                                                                                                                                                                    |
+|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-name            | Filter interfaces by name (can be a regexp).                                                                                                                                                   |
+| --filter-local-address   | Filter interfaces by local address (can be a regexp).                                                                                                                                          |
+| --filter-peer-address    | Filter interfaces by peer address (can be a regexp).                                                                                                                                           |
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{local\_address}, %{peer\_address}, %{name}                                      |
+| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{local\_address}, %{peer\_address}, %{name}                                      |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /down/i'). You can use the following variables: %{status}, %{local\_address}, %{peer\_address}, %{name}   |
+| --warning-* --critical-* | Thresholds. Can be: 'total'.                                                                                                                                                                   |
+
+</TabItem>
+<TabItem value="Interfaces-Gtpc" label="Interfaces-Gtpc">
+
+| Option                       | Description                                                                                                                                                                                   |
+|:-----------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-source-address      | Filter interfaces by source address (can be a regexp).                                                                                                                                        |
+| --filter-destination-address | Filter interfaces by destination address (can be a regexp).                                                                                                                                   |
+| --filter-type                | Filter interfaces by type (can be a regexp).                                                                                                                                                  |
+| --unknown-status             | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{source\_address}, %{destination\_address}                                      |
+| --warning-status             | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{source\_address}, %{destination\_address}                                      |
+| --critical-status            | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /down/i'). You can use the following variables: %{status}, %{source\_address}, %{destination\_address}   |
+| --warning-* --critical-*     | Thresholds. Can be: 'total'.                                                                                                                                                                  |
+
+</TabItem>
+<TabItem value="Interfaces-Lte" label="Interfaces-Lte">
+
+| Option                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --memcached              | Memcached server to use (only one server).                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --redis-server           | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                                                                                                                                                                                |
+| --redis-attribute        | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                                                                                                                                                                        |
+| --redis-db               | Set Redis database index.                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --failback-file          | Failback on a local file if Redis connection fails.                                                                                                                                                                                                                                                                                                                                                                                            |
+| --memexpiration          | Time to keep data in seconds (default: 86400).                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --statefile-dir          | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                                                                                                                                                                         |
+| --statefile-suffix       | Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                                                                                                                                                                                                                 |
+| --statefile-concat-cwd   | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.                                                                                                                                                                                                    |
+| --statefile-format       | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                                                                                                                                                                          |
+| --statefile-key          | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --statefile-cipher       | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                                                                                                                                                                                                                             |
+| --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='users'                                                                                                                                                                                                                                                                                                                                                            |
+| --filter-name            | Filter interfaces by name (can be a regexp).                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{sctp\_status}, %{s1ap\_status}, %{name}                                                                                                                                                                                                                                                                                                    |
+| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{sctp\_status}, %{s1ap\_status}, %{name}                                                                                                                                                                                                                                                                                                    |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{sctp\_status} =~ /down/i \|\| %{s1ap\_status} =~ /down/i'). You can use the following variables: %{sctp\_status}, %{s1ap\_status}, %{name}                                                                                                                                                                                                                           |
+| --warning-* --critical-* | Thresholds. Can be: 'total', 'users-connected', 'users-idle', 'sessions-active', 'traffic-in', 'traffic-out', 'requests-ue-context-release-total', 'requests-ue-context-release-radio-lost', 'requests-attach-success', 'requests-attach-success-prct', 'requests-pdn-context-activation', 'requests-pdn-context-activation-prct', 'requests-pdn-context-rej-insufres', 'requests-pdn-context-rej-noapn', 'requests-pdn-context-rej-nosub'.    |
+
+</TabItem>
+<TabItem value="License" label="License">
+
+| Option                   | Description                                                                                                                                                                                                                                                        |
+|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='users'                                                                                                                                                                                |
+| --warning-status         | Define the conditions to match for the status to be WARNING. Can use special variables like: %{status}                                                                                                                                                             |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /expired\|invalid/i'). Can use special variables like: %{status}                                                                                                              |
+| --unit                   | Select the time unit for the expiration threshold. May be 's'for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is days.                                                                                                            |
+| --warning-* --critical-* | Thresholds. Can be: 'expires', 'license-users-usage', 'license-users-free', 'license-users-usage-prct', 'license-sessions-usage', 'license-sessions-free', 'license-sessions-usage-prct', 'license-usim-usage', 'license-usim-free', 'license-usim-usage-prct'.    |
+
+</TabItem>
+<TabItem value="Lte" label="Lte">
+
+| Option                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                           |
+|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --memcached              | Memcached server to use (only one server).                                                                                                                                                                                                                                                                                                                                                                                            |
+| --redis-server           | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                                                                                                                                                                       |
+| --redis-attribute        | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                                                                                                                                                               |
+| --redis-db               | Set Redis database index.                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --failback-file          | Failback on a local file if Redis connection fails.                                                                                                                                                                                                                                                                                                                                                                                   |
+| --memexpiration          | Time to keep data in seconds (default: 86400).                                                                                                                                                                                                                                                                                                                                                                                        |
+| --statefile-dir          | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                                                                                                                                                                |
+| --statefile-suffix       | Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                                                                                                                                                                                                        |
+| --statefile-concat-cwd   | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.                                                                                                                                                                                           |
+| --statefile-format       | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                                                                                                                                                                 |
+| --statefile-key          | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                                                                                                                                                                          |
+| --statefile-cipher       | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='users'                                                                                                                                                                                                                                                                                                                                                   |
+| --warning-* --critical-* | Thresholds. Can be: 'users-connected', 'users-idle', 'sessions-active', 'traffic-in', 'traffic-out', 'requests-ue-context-release-total', 'requests-ue-context-release-radio-lost', 'requests-attach-success', 'requests-attach-success-prct', 'requests-pdn-context-activation', 'requests-pdn-context-activation-prct', 'requests-pdn-context-rej-insufres', 'requests-pdn-context-rej-noapn', 'requests-pdn-context-rej-nosub'.    |
+
+</TabItem>
+</Tabs>
+
+Pour un mode, la liste de toutes les options disponibles et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
+
+```bash
+/usr/lib/centreon/plugins/centreon_athonet_epc_snmp.pl \
+	--plugin=network::athonet::epc::snmp::plugin \
+	--mode=apns \
+	--help
+```
