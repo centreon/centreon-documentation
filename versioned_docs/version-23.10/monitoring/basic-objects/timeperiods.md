@@ -39,6 +39,7 @@ Here are a few examples:
 
 * 24 hours a day and 7 days a week: 00:00-24:00 (to be applied to every day of the week).
 * From 8 AM to noon and from 2 PM to 6:45 PM on weekdays: 08:00-12:00,14:00-18:45 (to be applied to weekdays only).
+* To not monitor during a whole day, leave the corresponding field blank.
 
 ![image](../../assets/configuration/05timeperiod.png)
 
