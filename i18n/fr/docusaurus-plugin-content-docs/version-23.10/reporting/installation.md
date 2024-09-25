@@ -339,7 +339,7 @@ apt update
 Puis installez Centreon MBI:
 
 ```shell
-apt update && apt install centreon-bi-server
+apt install centreon-bi-server
 ```
 
 </TabItem>
