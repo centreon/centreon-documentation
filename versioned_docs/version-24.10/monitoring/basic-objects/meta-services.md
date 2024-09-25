@@ -10,7 +10,7 @@ operation. Meta-services are managed in the same way as a service, i.e. they hav
 generate a performance graph, etc.
 
 Example: It is possible to determine the total consumption of WAN traffic by adding together, within a meta-service, all
-the services supervising the WAN traffic individually.
+the services monitoring the WAN traffic individually.
 
 ### Types of computing
 

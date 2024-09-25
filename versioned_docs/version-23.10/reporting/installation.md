@@ -362,7 +362,7 @@ Use the following option:
 /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
 ```
 
-**@ROOTPWD@**: Root password of the MariaDB database of supervision.
+**@ROOTPWD@**: Root password of the MariaDB monitoring database.
 If there is no password for the "root" user, do not specify the **root-password** option.
 
 </TabItem>
@@ -975,7 +975,7 @@ You will get an error when creating the USER, because it already exists. This is
 
 Centreon MBI integrates an ETL that allows you to:
 
-- Synchronize the raw data from the supervision to the reporting server
+- Synchronize the raw data from the monitoring to the reporting server
 - Feed statistical data to the reporting server databases
 - Control the retention of data on the reporting server
 
