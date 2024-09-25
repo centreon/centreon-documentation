@@ -355,7 +355,7 @@ Release date: `September 25, 2024`
 
 - [Gorgone] Added a partition for the Gorgone MBI **mod_bi_metriccentileweeklyvalue** and **mod_bi_metriccentilemonthlyvalue** tables, which are required by the ETL to run correctly.
 - [Gorgone] Fixed an issue affecting CPU load when a poller was not responding.
-- [Gorgone] Fixed an issue where gorgone running on a central server was leaking file descriptors when pollers were disconnected.
+- [Gorgone] Fixed an issue where Gorgone running on a central server was leaking file descriptors when pollers were disconnected.
 - [Gorgone] Fixed an issue stopping the **nmap** discovery provider from working after a Gorgone whitelist was created.
 - [Gorgone] In MBI, fixed the **perfdataStatisticsBuilder.pl** script: when using the **'-r --centile-only'** parameters, the **mod_bi_metrichourlyvalue** table is no longer truncated.
 - [Gorgone] The password of an MBI database user can now include special characters.
