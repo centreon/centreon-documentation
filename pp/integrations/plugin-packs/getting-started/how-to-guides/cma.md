@@ -16,7 +16,7 @@ The Centreon Monitoring Agent is in Beta Phase. The following limitations need t
 * The scope of supervision supported is limited, new (native) controls will be introduced in the final version.
 * Manual configuration is required. In the final version, this will be possible via the user interface and largely automated.
 
-### OS supportés
+### Supported OSs
 
 The CMA can be installed on and monitor the following OSs:
 
@@ -41,7 +41,7 @@ The CMA can be installed on and monitor the following OSs:
 </TabItem>
 </Tabs>
 
-## Étape 1: Configure Centreon
+## Step 1: Configure Centreon
 
 ### Install the Monitoring Connector
 
@@ -105,7 +105,7 @@ On your central server:
 chown centreon-engine: /etc/centreon-engine/otl_server.json
 ```
 
-#### Reverse usage (the poller connects to the CMA)
+#### Poller-initated connection (the poller connects to the CMA)
 
 Use this configuration when the agent is not allowed to connect to the poller for security reasons (e.g. when the poller is in a DMZ).
 In this mode, the poller connects to the CMA.
@@ -205,7 +205,7 @@ The CMA can now communicate with Centreon. You can set up the monitoring of your
 1. Modify the **/etc/centreon-monitoring-agent/centagent.json** file (4 cases):
 
 <Tabs groupId="sync">
-<TabItem value="No encryption, no reverse mode" label="No encryption, no reverse mode">
+<TabItem value="No encryption, agent collects to poller" label="No encryption, agent collects to poller">
 
 
 ```json
@@ -219,7 +219,7 @@ The CMA can now communicate with Centreon. You can set up the monitoring of your
 ```
 
 </TabItem>
-<TabItem value="Encryption, no reverse mode" label="Encryption, no reverse mode">
+<TabItem value="Encryption, agent collects to poller" label="Encryption, agent collects to poller">
 
 ```json
 {
@@ -234,7 +234,7 @@ The CMA can now communicate with Centreon. You can set up the monitoring of your
 ```
 
 </TabItem>
-<TabItem value="No encryption, reverse mode" label="No encryption, reverse mode">
+<TabItem value="No encryption, poller connects to agent" label="No encryption, poller connects to agent">
 
 ```json
 {
@@ -248,7 +248,7 @@ The CMA can now communicate with Centreon. You can set up the monitoring of your
 ```
 
 </TabItem>
-<TabItem value="Encryption, reverse mode" label="Encryption, reverse mode">
+<TabItem value="Encryption, poller connects to agent" label="Encryption, poller connects to agent">
 
 ```json
 {
@@ -295,7 +295,7 @@ systemctl restart centagent
 3. Modify the configuration in the registry:
 
 <Tabs groupId="sync">
-<TabItem value="No encryption, no reverse mode" label="No encryption, no reverse mode">
+<TabItem value="No encryption, agent connects to poller" label="No encryption, agent connects to poller">
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent]
@@ -315,7 +315,7 @@ systemctl restart centagent
 ```
 
 </TabItem>
-<TabItem value="Encryption, no reverse mode" label="Encryption, no reverse mode">
+<TabItem value="Encryption, agent connects to poller" label="Encryption, agent connects to poller">
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent]
@@ -335,7 +335,7 @@ systemctl restart centagent
 ```
 
 </TabItem>
-<TabItem value="No encryption, reverse mode" label="No encryption, reverse mode">
+<TabItem value="No encryption, poller connects to agent" label="No encryption, poller connects to agent">
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent]
@@ -355,7 +355,7 @@ systemctl restart centagent
 ```
 
 </TabItem>
-<TabItem value="Encryption, reverse mode" label="Encryption, reverse mode">
+<TabItem value="Encryption, poller connects to agent" label="Encryption, poller connects to agent">
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent]

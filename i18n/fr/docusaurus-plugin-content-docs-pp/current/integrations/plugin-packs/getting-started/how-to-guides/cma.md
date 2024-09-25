@@ -107,7 +107,7 @@ Sur votre serveur central :
 chown centreon-engine: /etc/centreon-engine/otl_server.json
 ```
 
-#### Usage "reverse" (le collecteur se connecte à l'agent)
+#### Connexion inversée (le collecteur se connecte à l'agent)
 
 Cette configuration est à utiliser lorsque l'agent ne peut pas se connecter au collecteur, pour des raisons de sécurité (ex : agent situé dans une DMZ).
 Dans ce mode, le collecteur se connecte à l'agent.
@@ -206,7 +206,7 @@ L'Agent de supervision Centreon est maintenant capable de communiquer avec Centr
 1. Modifiez le fichier **/etc/centreon-monitoring-agent/centagent.json** local (4 cas) :
 
 <Tabs groupId="sync">
-<TabItem value="Non chiffré, sans Reverse" label="Non chiffré, sans Reverse">
+<TabItem value="Non chiffré, l'agent se connecte au collecteur" label="Non chiffré, l'agent se connecte au collecteur">
 
 ```json
 {
@@ -219,7 +219,7 @@ L'Agent de supervision Centreon est maintenant capable de communiquer avec Centr
 ```
 
 </TabItem>
-<TabItem value="Chiffré, sans Reverse" label="Chiffré, sans Reverse">
+<TabItem value="Chiffré, l'agent se connecte au collecteur" label="Chiffré, l'agent se connecte au collecteur">
 
 ```json
 {
@@ -234,7 +234,7 @@ L'Agent de supervision Centreon est maintenant capable de communiquer avec Centr
 ```
 
 </TabItem>
-<TabItem value="Non chiffré, avec Reverse" label="Non chiffré, avec Reverse">
+<TabItem value="Non chiffré, le collecteur se connecte à l'agent" label="Non chiffré, le collecteur se connecte à l'agent">
 
 ```json
 {
@@ -247,7 +247,7 @@ L'Agent de supervision Centreon est maintenant capable de communiquer avec Centr
 }
 ```
 </TabItem>
-<TabItem value="Chiffré, avec Reverse" label="Chiffré, avec Reverse">
+<TabItem value="Chiffré, le collecteur se connecte à l'agent" label="Chiffré, le collecteur se connecte à l'agent">
 
 ```json
 {
@@ -293,7 +293,7 @@ Les niveaux de logs possibles sont: trace, debug, info, warning, error, critical
 3. Modifiez la configuration de l'Agent en base de registre :
 
 <Tabs groupId="sync">
-<TabItem value="Non chiffré, sans Reverse" label="Non chiffré, sans Reverse">
+<TabItem value="Non chiffré, l'agent se connecte au collecteur" label="Non chiffré, l'agent se connecte au collecteur">
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent]
@@ -313,7 +313,7 @@ Les niveaux de logs possibles sont: trace, debug, info, warning, error, critical
 ```
 
 </TabItem>
-<TabItem value="Chiffré, sans Reverse" label="Chiffré, sans Reverse">
+<TabItem value="Chiffré, l'agent se connecte au collecteur" label="Chiffré, l'agent se connecte au collecteur">
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent]
@@ -333,7 +333,7 @@ Les niveaux de logs possibles sont: trace, debug, info, warning, error, critical
 ```
 
 </TabItem>
-<TabItem value="Non chiffré, avec Reverse" label="Non chiffré, avec Reverse">
+<TabItem value="Non chiffré, le collecteur se connecte à l'agent" label="Non chiffré, le collecteur se connecte à l'agent">
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent]
@@ -353,7 +353,7 @@ Les niveaux de logs possibles sont: trace, debug, info, warning, error, critical
 ```
 
 </TabItem>
-<TabItem value="Chiffré, avec Reverse" label="Chiffré, avec Reverse">
+<TabItem value="Chiffré, le collecteur se connecte à l'agent" label="Chiffré, le collecteur se connecte à l'agent">
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent]
