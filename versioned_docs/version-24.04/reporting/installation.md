@@ -319,7 +319,7 @@ dnf install centreon-bi-server
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
-apt update && apt install centreon-bi-server
+apt install centreon-bi-server
 ```
 
 </TabItem>
