@@ -220,6 +220,22 @@ Many features have been added in this version.
 
 ## Centreon Collect
 
+### 24.04.6
+
+Release date: `September 25, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] when no filter is configured, forbidden filter is applied to all. 
+- [Engine] Fixed an issue regarding gRPC accepted services deletion.
+- [Engine] When the Engine configuration is modified, no need to send host/service status since their configuration are already sent.
+- [Engine] When Engine was restarted, its log file wasn't reopened, so if it was moved or removed, it wasn't created again.
+
+</details>
+
+## Centreon Collect
+
 ### 24.04.5
 
 Release date: `August 05, 2024`
@@ -329,6 +345,22 @@ Release date: `April 30, 2024`
 </details>
 
 ## Centreon Gorgone
+
+### 24.04.3
+
+Release date: `September 25, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Added a partition for the Gorgone MBI mod_bi_metriccentileweeklyvalue and mod_bi_metriccentilemonthlyvalue tables, which are required by the ETL to run correctly.
+- [Gorgone] Fixed an issue on cpu load when a poller was not responding.
+- [Gorgone] Fixed an issue where Gorgone running on the central host was leaking file descriptor when poller disconnect.
+- [Gorgone] Fixed nmap discovery provider not working after whitelist creation on Gorgone.
+- [Gorgone] In MBI, fixed the perfdataStatisticsBuilder.pl script: when using the '-r --centile-only' parameters, the mod_bi_metrichourlyvalue table is no longer truncated.
+- [Gorgone] The password of an MBI database user can now include special characters.
+
+</details>
 
 ### 24.04.2
 
