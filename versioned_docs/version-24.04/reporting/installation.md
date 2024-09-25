@@ -319,19 +319,25 @@ dnf install centreon-bi-server
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
   Install **gpg**:
+  
 ```shell
 apt install gpg
 ```
+
 Import the repo key:
+
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 ```
+
 Add the following external repo (pour Java 8):
+
 ```shell
 wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
 add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
 apt update
 ```
+Then install the Centreon MBI
 
 ```shell
 apt install centreon-bi-server
