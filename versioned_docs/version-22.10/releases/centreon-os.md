@@ -19,6 +19,14 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon Web
 
+### 22.10.25
+
+Release date: `September 26, 2024`
+
+#### Bug fixes
+
+- [Packaging]: fix centreon-web broken dependency on httpd24.
+
 ### 22.10.24
 
 Release date: `September 11, 2024`
