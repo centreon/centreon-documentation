@@ -7,7 +7,7 @@ The Autologin feature allows you to give access to the Centreon platform through
 
 ## Step 1: Activate autologin
 
-1. Go to **Administration > Parameters > Centreon UI**. 
+1. Go to **Administration > Parameters > Centreon UI**.
 
 2. In the **Authentication properties** section, select the following options:
 
