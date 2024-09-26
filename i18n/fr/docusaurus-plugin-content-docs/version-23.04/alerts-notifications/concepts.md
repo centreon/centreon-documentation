@@ -1,5 +1,5 @@
 ---
-id: concepts  
+id: concepts
 title: Statuts possibles d'une ressource
 ---
 
