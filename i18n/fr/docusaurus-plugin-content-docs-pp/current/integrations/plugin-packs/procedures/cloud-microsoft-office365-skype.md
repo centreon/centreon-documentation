@@ -21,7 +21,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias          | Modèle de service                                         | Description                                            |
 |:---------------|:----------------------------------------------------------|:-------------------------------------------------------|
-| Devices-Usage  | Cloud-Microsoft-Office365-Skype-Devices-Usage-Api-custom  | Contrôle le nombre d'utilisateur par type d'appareil |
+| Devices-Usage  | Cloud-Microsoft-Office365-Skype-Devices-Usage-Api-custom  | Contrôle le nombre d'utilisateurs par type d'appareil |
 | Users-Activity | Cloud-Microsoft-Office365-Skype-Users-Activity-Api-custom | Contrôle les activités des utilisateurs                |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Microsoft-Office365-Skype-Api-custom** est utilisé.
@@ -96,7 +96,7 @@ Dans le portail de gestion Azure :
 
 ### Aide supplémentaire
 
-Suivez le guide pratique pour obtenir une explication complète sur la façon d’enregistrer une demande et d’obtenir un *ID client* et un *ID secret* :
+Suivez le guide pratique pour obtenir une explication complète sur la façon d’enregistrer une demande et d’obtenir un **client ID** et un **secret ID** :
 https://docs.microsoft.com/fr-fr/office/office-365-management-api/get-started-with-office-365-management-apis
 
 ## Installer le connecteur de supervision

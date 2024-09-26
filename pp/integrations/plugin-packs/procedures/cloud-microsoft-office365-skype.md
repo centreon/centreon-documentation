@@ -20,8 +20,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias  | Service Template                                          | Service Description                |
 |:---------------|:----------------------------------------------------------|:-----------------------------------|
-| Devices-Usage  | Cloud-Microsoft-Office365-Skype-Devices-Usage-Api-custom  | Check users count per devices type |
-| Users-Activity | Cloud-Microsoft-Office365-Skype-Users-Activity-Api-custom | Check users activity               |
+| Devices-Usage  | Cloud-Microsoft-Office365-Skype-Devices-Usage-Api-custom  | Check user count per device type |
+| Users-Activity | Cloud-Microsoft-Office365-Skype-Users-Activity-Api-custom | Check user activity               |
 
 > The services listed above are created automatically when the **Cloud-Microsoft-Office365-Skype-Api-custom** host template is used.
 
