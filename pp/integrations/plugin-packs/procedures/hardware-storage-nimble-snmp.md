@@ -21,7 +21,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias       | Service Template                                  | Service Description              |
 |:--------------------|:--------------------------------------------------|:---------------------------------|
 | Global-Stats        | HW-Storage-Nimble-Global-Stats-SNMP-custom        | Check global storage statistics  |
-| Volume-Usage-Global | HW-Storage-Nimble-Volume-Usage-Global-SNMP-custom | Check volume usages              |
+| Volume-Usage-Global | HW-Storage-Nimble-Volume-Usage-Global-SNMP-custom | Check volume usage              |
 
 > The services listed above are created automatically when the **HW-Storage-Nimble-SNMP-custom** host template is used.
 
