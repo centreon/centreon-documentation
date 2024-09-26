@@ -30,9 +30,9 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                | Modèle de service                             | Description                              |
 |:---------------------|:----------------------------------------------|:-----------------------------------------|
-| Hardware-Cpu         | HW-Hp-Server-Hardware-Cpu-SNMP-custom         | Contrôle les cpus                        |
+| Hardware-Cpu         | HW-Hp-Server-Hardware-Cpu-SNMP-custom         | Contrôle les CPUs                        |
 | Hardware-Fan         | HW-Hp-Server-Hardware-Fan-SNMP-custom         | Contrôle les ventilateurs                |
-| Hardware-Network     | HW-Hp-Server-Hardware-Network-SNMP-custom     | Contrôle les cartes réseaux              |
+| Hardware-Network     | HW-Hp-Server-Hardware-Network-SNMP-custom     | Contrôle les cartes réseau              |
 | Hardware-Pc          | HW-Hp-Server-Hardware-Pc-SNMP-custom          | Contrôle les convertisseurs de puissance |
 | Hardware-Psu         | HW-Hp-Server-Hardware-Psu-SNMP-custom         | Contrôle les alimentations               |
 | Hardware-Storage     | HW-Hp-Server-Hardware-Storage-SNMP-custom     | Contrôle le stockage                     |

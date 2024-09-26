@@ -29,13 +29,13 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                              | Service Description            |
 |:---------------------|:----------------------------------------------|:-------------------------------|
-| Hardware-Cpu         | HW-Hp-Server-Hardware-Cpu-SNMP-custom         | Check cpu hardware             |
+| Hardware-Cpu         | HW-Hp-Server-Hardware-Cpu-SNMP-custom         | Check CPU hardware             |
 | Hardware-Fan         | HW-Hp-Server-Hardware-Fan-SNMP-custom         | Check fan hardware             |
 | Hardware-Network     | HW-Hp-Server-Hardware-Network-SNMP-custom     | Check network hardware         |
 | Hardware-Pc          | HW-Hp-Server-Hardware-Pc-SNMP-custom          | Check power converter hardware |
 | Hardware-Psu         | HW-Hp-Server-Hardware-Psu-SNMP-custom         | Check power supply hardware    |
 | Hardware-Storage     | HW-Hp-Server-Hardware-Storage-SNMP-custom     | Check storage hardware         |
-| Hardware-Temperature | HW-Hp-Server-Hardware-Temperature-SNMP-custom | Check hardware temperatures    |
+| Hardware-Temperature | HW-Hp-Server-Hardware-Temperature-SNMP-custom | Check hardware temperature    |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
