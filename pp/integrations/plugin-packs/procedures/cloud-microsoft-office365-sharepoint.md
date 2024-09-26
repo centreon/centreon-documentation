@@ -21,7 +21,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias  | Service Template                                               | Service Description          |
 |:---------------|:---------------------------------------------------------------|:-----------------------------|
 | Site-Usage     | Cloud-Microsoft-Office365-Sharepoint-Site-Usage-Api-custom     | Check SharePoint sites usage |
-| Users-Activity | Cloud-Microsoft-Office365-Sharepoint-Users-Activity-Api-custom | Check users activity         |
+| Users-Activity | Cloud-Microsoft-Office365-Sharepoint-Users-Activity-Api-custom | Check user activity         |
 
 > The services listed above are created automatically when the **Cloud-Microsoft-Office365-Sharepoint-Api-custom** host template is used.
 
@@ -105,7 +105,7 @@ authorization:
 ### More information
 
 You can access to the official documentation to register your application,
-get your *ID client*, *ID secret* and your *Tenant ID* by following this link:
+get your *client ID*, *secret ID* and your *tenant ID* by following this link:
 https://docs.microsoft.com/en-us/office/office-365-management-api/get-started-with-office-365-management-apis
 
 ## Installing the monitoring connector

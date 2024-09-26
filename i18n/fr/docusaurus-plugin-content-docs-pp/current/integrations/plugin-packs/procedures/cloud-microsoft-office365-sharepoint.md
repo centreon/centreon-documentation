@@ -107,7 +107,7 @@ dans le Portail de gestion Azure :
 
 ### Aide supplémentaire
 
-Suivez le guide pratique pour obtenir une explication complète sur la façon d’enregistrer une demande et d’obtenir un *ID client* et un *ID secret* :
+Suivez le guide pratique pour obtenir une explication complète sur la façon d’enregistrer une demande et d’obtenir un *client ID * et un *secret ID* :
 https://docs.microsoft.com/fr-fr/office/office-365-management-api/get-started-with-office-365-management-apis
 
 ## Installer le connecteur de supervision
