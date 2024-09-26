@@ -32,7 +32,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias | Service Template                        | Service Description              | Discovery  |
 |:--------------|:----------------------------------------|:---------------------------------|:----------:|
 | Command       | OS-AS400-Command-Connector-custom       | Execute command and check result |            |
-| Disks         | OS-AS400-Disks-Connector-custom         | Check disks usage                | X          |
+| Disks         | OS-AS400-Disks-Connector-custom         | Check disk usage                | X          |
 | Job-Queues    | OS-AS400-Job-Queues-Connector-custom    | Check job queues                 |            |
 | Message-Queue | OS-AS400-Message-Queue-Connector-custom | Check message queue              |            |
 | SubSystem     | OS-AS400-SubSystem-Connector-custom     | Check subsystems                 | X          |

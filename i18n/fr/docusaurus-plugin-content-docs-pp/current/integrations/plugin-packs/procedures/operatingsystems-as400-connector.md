@@ -21,7 +21,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias       | Modèle de service                     | Description                       |
 |:------------|:--------------------------------------|:----------------------------------|
-| Jobs        | OS-AS400-Jobs-Connector-custom        | Contrôle des jobs                 |
+| Jobs        | OS-AS400-Jobs-Connector-custom        | Contrôle les jobs                 |
 | Page-Faults | OS-AS400-Page-Faults-Connector-custom | Contrôle des page faults          |
 | System      | OS-AS400-System-Connector-custom      | Contrôle l'utilisation du système |
 
@@ -34,9 +34,9 @@ Le connecteur apporte les modèles de service suivants
 |:--------------|:----------------------------------------|:--------------------------------------------|:----------:|
 | Command       | OS-AS400-Command-Connector-custom       | Exécute une commande et vérifie le résultat |            |
 | Disks         | OS-AS400-Disks-Connector-custom         | Contrôle l'utilisation des disques          | X          |
-| Job-Queues    | OS-AS400-Job-Queues-Connector-custom    | Contrôle job queues                         |            |
-| Message-Queue | OS-AS400-Message-Queue-Connector-custom | Contrôle message queue                      |            |
-| SubSystem     | OS-AS400-SubSystem-Connector-custom     | Contrôle des sous-systèmes                  | X          |
+| Job-Queues    | OS-AS400-Job-Queues-Connector-custom    | Contrôle les files d'attente des jobs                         |            |
+| Message-Queue | OS-AS400-Message-Queue-Connector-custom | Contrôle la file d'attente des messages |            |
+| SubSystem     | OS-AS400-SubSystem-Connector-custom     | Contrôle les sous-systèmes                  | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -51,8 +51,8 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle                   | Description                                                                   |
 |:----------------------------------|:------------------------------------------------------------------------------|
-| OS-AS400-Connector-Disk-Name      | Découvre les paritions disque et permet ensuite de superviser l'espace occupé |
-| OS-AS400-Connector-SubSystem-Name | Découvre les sous-systèmes et permet ensuite de les superviser                |
+| OS-AS400-Connector-Disk-Name      | Découvre les partitions disque et supervise l'espace occupé |
+| OS-AS400-Connector-SubSystem-Name | Découvre les sous-systèmes et les supervise                |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
