@@ -24,7 +24,7 @@ Release date: `September 26, 2024`
 
 #### Bug fixes
 
-- [Packaging]: fix centreon-web broken dependency on httpd24.
+- [Packaging]: Fix centreon-web broken dependency on httpd24.
 
 ### 22.10.24
 
