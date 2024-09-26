@@ -321,7 +321,7 @@ The NRPE protocol uses the TCP port 5666.
 
 | Source | Destination    | Protocole | Port |
 | ------ | -------------- | --------- | ---- |
-| Poller | Hôte supervisé | TCP       | 5666 |
+| Poller | Monitored host | TCP       | 5666 |
 
 ### System prerequisites
 
