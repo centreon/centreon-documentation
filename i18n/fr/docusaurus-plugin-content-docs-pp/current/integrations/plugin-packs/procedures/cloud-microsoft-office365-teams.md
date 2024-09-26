@@ -21,7 +21,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias          | Modèle de service                                         | Description                                          |
 |:---------------|:----------------------------------------------------------|:-----------------------------------------------------|
-| Devices-Usage  | Cloud-Microsoft-Office365-Teams-Devices-Usage-Api-custom  | Contrôle le nombre d'utilisateur par type d'appareil |
+| Devices-Usage  | Cloud-Microsoft-Office365-Teams-Devices-Usage-Api-custom  | Contrôle le nombre d'utilisateurs par type d'appareil |
 | Users-Activity | Cloud-Microsoft-Office365-Teams-Users-Activity-Api-custom | Contrôle l'activité des utilisateurs                 |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Microsoft-Office365-Teams-Api-custom** est utilisé.
@@ -87,7 +87,7 @@ lors des « dialogues » d’authentification/autorisation au moment de l’exé
 ### Spécifiez les autorisations dont votre application a besoin pour accéder aux API de gestion Office 365
 
 Afin de récupérer les données de Teams Online, vous devez spécifier les
-autorisations que votre application requiert dans le Portail de gestion Azure :
+autorisations que votre application requiert dans le portail de gestion Azure :
 
 * Microsoft Graph :
     * Reports.Read.All (Type : Application)
