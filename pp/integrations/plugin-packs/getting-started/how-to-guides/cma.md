@@ -177,7 +177,7 @@ In this mode, the poller connects to the CMA.
             "port":4317,
             "encryption":true,
             "ca_certificate":"/tmp/ca_1234.crt",
-            "ca_name":"CA Name"
+            "ca_name":"<CA NAME>"
          }
       ]
    }
