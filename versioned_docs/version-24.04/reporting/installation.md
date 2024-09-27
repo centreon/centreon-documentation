@@ -338,7 +338,7 @@ add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
 apt update
 ```
 
-Then install the Centreon MBI:
+Then install Centreon MBI:
 
 ```shell
 apt install centreon-bi-server
