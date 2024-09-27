@@ -147,6 +147,7 @@ export default function TOC(props) {
                 </Translate>
               </span>
             </a>
+                    </div>
           </div>
         <div
           className={styles.pngImage}
