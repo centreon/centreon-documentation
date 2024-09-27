@@ -20,7 +20,7 @@ Resources are checked according to the following parameters:
    * The check period can be customized using [the **Check period** field of the resource](../monitoring/basic-objects/hosts.md#monitoring-settings).
    * The frequency of checks can be customized using [the **Normal Check Interval** field of the resource](../monitoring/basic-objects/hosts.md#scheduling-options).
 * When a host or service enters a non-ok status (SOFT status type, e.g. Down SOFT for a host), by default Centreon checks 3 times that the host or service is still in a non-ok state (you can define a custom number of checks using [the **Max Check Attempts** field of the resource](../monitoring/basic-objects/hosts.md#scheduling-options)). By default, 1 minute elapses between each of these checks (you can customize this value using [the **Retry Check Interval** field of the resource](../monitoring/basic-objects/hosts.md#scheduling-options)).
-* If, after these checks, the resource is still in a non-ok status, its status type becomes HARD. If notifications are activated for this status, a notification email is sent.
+* If, after these checks, the resource is still in a non-ok status, its status type becomes HARD. If notifications are activated for this status and the [time period](../monitoring/basic-objects/timeperiods.md) is right, a notification email is sent.
 * When the resource goes back to an OK state, an email notification is sent if you have activated notifications in case of **Recovery**.
 * Contacts receive one notification email when the status of the resource changes (according to the statuses you have defined) - and one only. Example: if you have only selected **Critical**, no email will be sent when the service enters a **Warning** status. One email will be sent when the service becomes **Critical**, but no more.
 * If a service already had a critical status before you created a rule that activates notifications for the critical status, then no email notification will be sent.
@@ -33,6 +33,7 @@ Resources are checked according to the following parameters:
 
    - Enter a name for the rule in the **Name** field at the top of the panel.
    - Select the host groups and/or service groups and/or Business Views (Business Edition only) you want to send notifications for. For each type of resource, select the events that will trigger a notification.
+   - Select the [time period](../monitoring/basic-objects/timeperiods.md) during which notifications will be allowed for this resource. 
    - Select the users (contacts) you want to be notified in case of an event.
    - Define an email template. A default template is provided. You can modify it and use macros (variables). To insert a macro in your template, use the **Macros** button at the bottom right of the preview box.
 	
