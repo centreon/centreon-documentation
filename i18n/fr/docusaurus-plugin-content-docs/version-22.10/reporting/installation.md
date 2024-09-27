@@ -335,12 +335,12 @@ Ajoutez le dépôt externe suivant (pour Java 8):
 ```shell
 wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
 add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
-apt update
 ```
 
 Puis installez Centreon MBI:
 
 ```shell
+apt update
 apt install centreon-bi-server
 ```
 
