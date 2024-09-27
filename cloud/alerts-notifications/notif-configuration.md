@@ -33,7 +33,8 @@ Resources are checked according to the following parameters:
 
    - Enter a name for the rule in the **Name** field at the top of the panel.
    - Select the host groups and/or service groups and/or Business Views (Business Edition only) you want to send notifications for. For each type of resource, select the events that will trigger a notification.
-   - Select the [time period](../monitoring/basic-objects/timeperiods.md) during which notifications will be allowed for this resource. 
+   - Select the [time period](../monitoring/basic-objects/timeperiods.md) during which notifications will be allowed for this resource.
+      > Exceptions in time periods are ignored for notifications.
    - Select the users (contacts) you want to be notified in case of an event.
    - Define an email template. A default template is provided. You can modify it and use macros (variables). To insert a macro in your template, use the **Macros** button at the bottom right of the preview box.
 	
