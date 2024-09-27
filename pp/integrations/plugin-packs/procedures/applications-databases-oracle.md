@@ -364,6 +364,7 @@ cd DBD-Oracle-1.83
 export ORACLE_HOME=/usr/lib/oracle/21/client64
 export LD_LIBRARY_PATH=/usr/lib/oracle/21/client64/lib 
 export PATH=$ORACLE_HOME:$PATH
+export TNS_ADMIN=$ORACLE_HOME/network/admin
 perl Makefile.PL -m /usr/share/oracle/21/client64/demo/demo.mk
 ```
 
