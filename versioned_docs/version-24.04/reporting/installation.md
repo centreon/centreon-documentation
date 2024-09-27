@@ -771,7 +771,6 @@ Add the following external repository (for Java 8):
 ```shell
 wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
 add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
-apt update
 ```
 
 For an installation based on a blank distribution, install the GPG key:
