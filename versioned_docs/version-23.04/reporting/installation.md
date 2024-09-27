@@ -764,7 +764,6 @@ Add the following external repository (for Java 8):
 ```shell
 wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
 add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
-apt update
 ```
 
 In the case of an installation based on a blank distribution, install the GPG key:
@@ -776,6 +775,7 @@ wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg
 Then launch the installation:
 
 ```shell
+apt update
 apt install centreon-bi-reporting-server mariadb-server mariadb-client
 ```
 
