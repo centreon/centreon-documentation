@@ -7,16 +7,15 @@ import TabItem from '@theme/TabItem';
 
 ## Introduction
 
-L'Agent de supervision Centreon (Centreon Monitoring Agent, CMA) collecte des métriques et calcule des statuts sur les serveurs qu'il supervise, et les envoie à Centreon. 
-Les plugins Centreon comme les plugins personnalisés basés sur Nagios sont compatibles avec l'agent. 
-
+L'Agent de supervision Centreon (Centreon Monitoring Agent, CMA) collecte des métriques et calcule des statuts sur les serveurs qu'il supervise, et les envoie à Centreon.
+Les plugins Centreon comme les plugins personnalisés basés sur Nagios sont compatibles avec l'agent.
 
 ### Limitations
 
 L'Agent de supervision Centreon est en phase Beta. Les limitations suivantes s'appliquent : 
 
 * Le périmètre de supervision supporté est limité, de nouveaux contrôles (natifs) seront apportés dans la version définitive.
-* Une configuration manuelle est à réaliser. Dans la version définitive, celle-ci sera possible via l'interface utilisateur, et largement automatisée. 
+* Une configuration manuelle est à réaliser. Dans la version définitive, celle-ci sera possible via l'interface utilisateur, et largement automatisée.
 
 ### OS supportés
 
@@ -86,8 +85,10 @@ Sur votre serveur central :
    ```
 
 2. Entrez le contenu suivant. Cela permettra au collecteur de recevoir les données en provenance de l'agent.
+   > Le collecteur permet de fonctionner dans les deux modes simultanément (certains agents se connectent au collecteur alors que le collecteur se connecte à d'autres agents).
 
-#### Usage normal (l'agent se connecte au collecteur)
+<Tabs groupId="sync">
+<TabItem value="No encryption, agent connects to poller" label="No encryption, agent connects to poller">
 
 ```json
 {
@@ -107,11 +108,33 @@ Sur votre serveur central :
 chown centreon-engine: /etc/centreon-engine/otl_server.json
 ```
 
-#### Connexion inversée (le collecteur se connecte à l'agent)
+</TabItem>
+<TabItem value="Encryption, agent connects to poller" label="Encryption, agent connects to poller">
+
+```json
+{
+   "otel_server":{
+      "host":"0.0.0.0",
+      "port":4317,
+      "encryption":true,
+      "public_cert":"<CERTIFICATE PATH>",
+      "private_key":"<KEY PATH>",
+      "ca_certificate":"<CA PATH>",
+      "ca_name":"CA Name"
+   },
+   "max_length_grpc_log":0,
+   "centreon_agent":{
+      "check_interval":60,
+      "export_period":10
+   }
+}
+```
+
+</TabItem>
+<TabItem value="No encryption, poller connects to agent" label="No encryption, poller connects to agent">
 
 Cette configuration est à utiliser lorsque l'agent ne peut pas se connecter au collecteur, pour des raisons de sécurité (ex : agent situé dans une DMZ).
 Dans ce mode, le collecteur se connecte à l'agent.
-Le collecteur permet de fonctionner dans les deux modes simultanément (certains agents se connectent au collecteur alors que le collecteur se connecte à d'autres agents).
 
 ```json
 {
@@ -136,27 +159,11 @@ chown centreon-engine: /etc/centreon-engine/otl_server.json
 * Entrez l'adresse IP de l'hôte sur lequel est installé l'agent dans les champs **host** et **port**. Cette adresse doit être accessible depuis le collecteur.
 * Le champ **check_interval** correspond à la fréquence des contrôles effectués par l'Agent de supervision Centreon.
 
-> Pour des raisons de simplicité, cette page ne couvre que la configuration de l'Agent **en mode non sécurisé**, mais vous
-> trouverez la procédure pour chiffrer les communications dans la documentation du [connecteur Windows Centreon Monitoring Agent] ou celle du [connecteur Linux Centreon Monitoring Agent].
+</TabItem>
+<TabItem value="Encryption, poller connects to agent" label="Encryption, poller connects to agent">
 
-
-```json
-{
-   "otel_server":{
-      "host":"0.0.0.0",
-      "port":4317,
-      "encryption":true,
-      "public_cert":"<CERTIFICATE PATH>",
-      "private_key":"<KEY PATH>",
-      "ca_certificate":"<CA PATH>"
-   },
-   "max_length_grpc_log":0,
-   "centreon_agent":{
-      "check_interval":60,
-      "export_period":10
-   }
-}
-```
+Cette configuration est à utiliser lorsque l'agent ne peut pas se connecter au collecteur, pour des raisons de sécurité (ex : agent situé dans une DMZ).
+Dans ce mode, le collecteur se connecte à l'agent.
 
 ```json
 {
@@ -169,12 +176,19 @@ chown centreon-engine: /etc/centreon-engine/otl_server.json
             "host":"localhost",
             "port":4317,
             "encryption":true,
-            "ca_certificate":"/tmp/ca_1234.crt"
+            "ca_certificate":"/tmp/ca_1234.crt",
+            "ca_name":"CA Name"
          }
       ]
    }
 }
 ```
+
+* Entrez l'adresse IP de l'hôte sur lequel est installé l'agent dans les champs **host** et **port**. Cette adresse doit être accessible depuis le collecteur.
+* Le champ **check_interval** correspond à la fréquence des contrôles effectués par l'Agent de supervision Centreon.
+
+</TabItem>
+</Tabs>
 
 ### Ajoutez un nouveau module Broker
 

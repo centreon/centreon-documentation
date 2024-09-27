@@ -8,12 +8,12 @@ import TabItem from '@theme/TabItem';
 ## Introduction
 
 The Centreon Monitoring Agent (CMA) collects metrics and computes statuses on the servers it monitors, and sends them to Centreon.
-Centreon plugins as well as Nagios-compatible plugins can be used with this agent. 
+Centreon plugins as well as Nagios-compatible plugins can be used with this agent.
 
 ### Limitations
 
-The Centreon Monitoring Agent is in Beta Phase. The following limitations need to be considered : 
-* The scope of supervision supported is limited, new (native) controls will be introduced in the final version.
+The Centreon Monitoring Agent is in Beta Phase. The following limitations need to be considered :
+* The scope of supported monitoring is limited, new (native) controls will be introduced in the final version.
 * Manual configuration is required. In the final version, this will be possible via the user interface and largely automated.
 
 ### Supported OSs
@@ -84,8 +84,11 @@ On your central server:
    ```
 
 2. Enter the following contents. This will allow the poller to receive the data that the agent will send.
+  
+  > The poller can work in both modes simultaneously (some agents connect to the poller, while the poller connects to some other agents).
 
-#### Normal usage (the CMA connects to the poller)
+<Tabs groupId="sync">
+<TabItem value="No encryption, agent connects to poller" label="No encryption, agent connects to poller">
 
 ```json
 {
@@ -105,11 +108,33 @@ On your central server:
 chown centreon-engine: /etc/centreon-engine/otl_server.json
 ```
 
-#### Poller-initated connection (the poller connects to the CMA)
+</TabItem>
+<TabItem value="Encryption, agent connects to poller" label="Encryption, agent connects to poller">
+
+```json
+{
+   "otel_server":{
+      "host":"0.0.0.0",
+      "port":4317,
+      "encryption":true,
+      "public_cert":"<CERTIFICATE PATH>",
+      "private_key":"<KEY PATH>",
+      "ca_certificate":"<CA PATH>",
+      "ca_name":"CA Name"
+   },
+   "max_length_grpc_log":0,
+   "centreon_agent":{
+      "check_interval":60,
+      "export_period":10
+   }
+}
+```
+
+</TabItem>
+<TabItem value="No encryption, poller connects to agent" label="No encryption, poller connects to agent">
 
 Use this configuration when the agent is not allowed to connect to the poller for security reasons (e.g. when the poller is in a DMZ).
 In this mode, the poller connects to the CMA.
-The poller can work in both modes simultaneously (some agents connect to the poller, while the poller connects to some other agents).
 
 ```json
 {
@@ -134,27 +159,11 @@ chown centreon-engine: /etc/centreon-engine/otl_server.json
 * Enter the IP address of the CMA host in the **host** and **port** fields. This IP address must be reachable by the poller.
 * The **check_interval** field is the period between two checks for the same service.
 
-> For the sake of simplicity, this page only covers the configuration of the Agent **in unencrypted mode**, but you
-> can find the procedure to encrypt communications in the [Windows Centreon Monitoring Agent connector] or [Linux Centreon Monitoring Agent connector] documentation.
+</TabItem>
+<TabItem value="Encryption, poller connects to agent" label="Encryption, poller connects to agent">
 
-
-```json
-{
-   "otel_server":{
-      "host":"0.0.0.0",
-      "port":4317,
-      "encryption":true,
-      "public_cert":"<CERTIFICATE PATH>",
-      "private_key":"<KEY PATH>",
-      "ca_certificate":"<CA PATH>"
-   },
-   "max_length_grpc_log":0,
-   "centreon_agent":{
-      "check_interval":60,
-      "export_period":10
-   }
-}
-```
+Use this configuration when the agent is not allowed to connect to the poller for security reasons (e.g. when the poller is in a DMZ).
+In this mode, the poller connects to the CMA.
 
 ```json
 {
@@ -167,12 +176,19 @@ chown centreon-engine: /etc/centreon-engine/otl_server.json
             "host":"localhost",
             "port":4317,
             "encryption":true,
-            "ca_certificate":"/tmp/ca_1234.crt"
+            "ca_certificate":"/tmp/ca_1234.crt",
+            "ca_name":"CA Name"
          }
       ]
    }
 }
 ```
+
+* Enter the IP address of the CMA host in the **host** and **port** fields. This IP address must be reachable by the poller.
+* The **check_interval** field is the period between two checks for the same service.
+
+</TabItem>
+</Tabs>
 
 #### Add a new Broker module
 
