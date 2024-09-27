@@ -176,8 +176,8 @@ Dans ce mode, le collecteur se connecte à l'agent.
             "host":"localhost",
             "port":4317,
             "encryption":true,
-            "ca_certificate":"/tmp/ca_1234.crt",
-            "ca_name":"CA Name"
+            "ca_certificate":"<CERTIFICATE PATH>",
+            "ca_name":"<CA NAME>"
          }
       ]
    }
