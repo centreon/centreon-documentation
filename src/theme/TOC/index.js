@@ -24,9 +24,10 @@ export default function TOC(props) {
       <DefaultTOC {...props} />
 
       <div className={styles.pngContainer}>
-          <div className={clsx(styles.footerButtons)}>
+        {showFooterButtons && (
+          <div className={clsx(styles.footerButtons, { [styles.showButtons]: showFooterButtons })}>
             {editUrl && (
-              <a href={editUrl} className={clsx(styles.editPage, [styles.editPageOpen]: showFooterButtons)}>
+              <a href={editUrl} className={clsx(styles.buttonFilled)}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -55,7 +56,7 @@ export default function TOC(props) {
               rel="noreferrer noopener"
               href={`https://docs.google.com/forms/d/e/1FAIpQLSdeKkEHWbxn4ZweR1M4OEMzP_QoqKmjl6t4iC_yKeX2CFjzAw/viewform?usp=pp_url&entry.371845164=docs.centreon.com${location.pathname}`}
               target="_blank"
-              className={clsx(styles.giveFeedback, [styles.giveFeedbackOpen]: showFooterButtons)}
+              className={clsx(styles.buttonFilled)}
             >
               <svg
                 id="Commentaire_doc"
@@ -132,7 +133,7 @@ export default function TOC(props) {
             <a
               href="https://thewatch.centreon.com/topic/new"
               target="_blank"
-              className={clsx(styles.theWatch, [styles.theWatchOpen]: showFooterButtons)}
+              className={clsx(styles.buttonFilled, styles.theWatchButton)}
             >
               <svg id="Calque_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 388.43 400" fill="currentColor" width="24" height="24">
                 <path className="cls-1" d="M188.43,400c-43.49,0-84.84-13.72-119.59-39.67-6.67-4.99-9.86-13.46-8.14-21.6,1.54-7.26,6.53-12.99,13.31-15.52,26.72-15.15,42.43-51.2,42.59-51.56,35.21-81.5,90.49-86.19,98.22-86.44,30.64-1.84,51.85,5.66,65.43,13.61,3.19-10.32,4.24-21.02-.18-29.39-6.95-13.14-26.21-18.11-33.05-18.92l-8.1-.96-4.08-7.12c-10.8-19.2-25.72-30.96-45.6-35.98-59.18-14.92-142.46,35.07-158.55,45.25-5.9,3.73-13.41,4.08-19.63.92S.69,143.16.23,136.2l-.23-3.47,1.23-3.26C31.04,50.38,108.01-1.64,192.48.04c51.49,1.02,100.11,21.78,136.92,58.45,36.82,36.67,57.76,85.22,58.97,136.7,1.28,54.37-18.91,105.7-56.86,144.55-37.96,38.86-88.77,60.26-143.08,60.26h0ZM101.23,343.53c26.2,15.99,56.04,24.37,87.19,24.37,45.6,0,88.26-17.97,120.12-50.59,31.86-32.61,48.81-75.72,47.73-121.37-1.02-43.17-18.61-83.91-49.53-114.71-30.92-30.8-71.73-48.24-114.91-49.1-56.63-1.1-109.3,26.5-140.92,71.49,10.5-5.23,22.43-10.63,35.14-15.44,42.97-16.27,80.33-20.59,111.04-12.85,26.08,6.58,46.82,21.63,61.75,44.78,12.89,3,37.39,11.5,49.47,34.07,11.17,20.86,8.7,47.05-7.34,77.83l-12.62,24.21-14.56-22.12c-1.59-1.91-17.16-19.34-57.3-16.83l-.82.05h-.2c-3.37.14-41.91,3.37-69.4,67-.68,1.62-15.93,36.93-44.86,59.22h.02ZM80.4,338.01h.02-.02Z"/>
@@ -147,8 +148,8 @@ export default function TOC(props) {
                 </Translate>
               </span>
             </a>
-                    </div>
           </div>
+        )}
         <div
           className={styles.pngImage}
           onClick={handleToggleButtons}
