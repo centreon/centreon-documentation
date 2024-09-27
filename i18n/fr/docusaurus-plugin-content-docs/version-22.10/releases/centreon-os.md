@@ -20,7 +20,7 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ### 22.10.25
 
-Release date: `September 26, 2024`
+Release date: `September 27, 2024`
 
 #### Bug fixes
 
