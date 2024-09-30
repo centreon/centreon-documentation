@@ -475,6 +475,18 @@ Release date: `April 26, 2023`
 
 ## Centreon Collect
 
+### 23.04.15
+
+Release date: `September 30, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] If a service contains several times the same metric name, some of them were overwritten. Now during the parsing, a warning log explains the issue and only the first occurence of the metric is kept.
+- [Engine] Fixed issues on external commands output.
+
+</details>
+
 ### 23.04.14
 
 Release date: `July 17, 2024`
@@ -730,6 +742,20 @@ Compatibility with other 23.04 components.
 </details>
 
 ## Centreon Gorgone
+
+### 23.04.16
+
+Release date: `September 30, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Added a partition for the Gorgone MBI **mod_bi_metriccentileweeklyvalue** and **mod_bi_metriccentilemonthlyvalue** tables, which are required by the ETL to run correctly.
+- [Gorgone] Fixed an issue affecting CPU load when a poller was not responding.
+- [Gorgone] Fixed an issue stopping the **nmap** discovery provider from working after a Gorgone whitelist was created.
+- [Gorgone] The password of an MBI database user can now include special characters.
+
+</details>
 
 ### 23.04.15
 
