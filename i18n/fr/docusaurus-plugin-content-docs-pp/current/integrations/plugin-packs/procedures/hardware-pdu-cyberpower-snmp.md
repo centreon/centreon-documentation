@@ -5,8 +5,6 @@ title: CyberPower Systems PDU SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Les unités de distribution d'énergie (PDUs) CyberPower Basic fournissent une distribution d'énergie fiable et non-filtrée à partir d'un système UPS, d'un groupe électrogène ou d'une source d'énergie vers plusieurs appareils.
-
 ## Contenu du pack
 
 ### Modèles
@@ -37,7 +35,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle | Description                                                                                                                                                                                                                                           |
 |:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **HW-Pdu-Cyberpower-SNMP-custom** host template. |
+| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **HW-Pdu-Cyberpower-SNMP-custom** host template |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -55,6 +53,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 | *devices*~*phases*#phase-status         | N/A   |
 | *devices*~*phases*#phase.current.ampere | A     |
 | *devices*~*phases*#phase.power.watt     | W     |
+| *devices*~*phases*#phase.voltage.volt   | V     |
 
 </TabItem>
 <TabItem value="Outlets" label="Outlets">
@@ -72,7 +71,6 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 ### Configuration SNMP
 
 Le service SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur, disponible [ici](https://dl4jz3rbrsfum.cloudfront.net/documents/CyberPower_UM_IntelligentPDUUserGuide.pdf).
-
 
 ### Flux réseau
 
@@ -104,7 +102,7 @@ dnf install centreon-pack-hardware-pdu-cyberpower-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-hardware-pdu-cyberpower-snmp
@@ -149,7 +147,7 @@ dnf install centreon-plugin-Hardware-Pdu-Cyberpower-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-hardware-pdu-cyberpower-snmp
@@ -176,9 +174,9 @@ yum install centreon-plugin-Hardware-Pdu-Cyberpower-Snmp
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
 > Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
 
-| Macro            | Description                                                                                   | Valeur par défaut | Obligatoire |
-|:-----------------|:----------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro            | Description                                                                                          | Valeur par défaut | Obligatoire |
+|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -202,7 +200,7 @@ yum install centreon-plugin-Hardware-Pdu-Cyberpower-Snmp
 | CRITICALPHASEPOWER   | Thresholds                                                                                                                                                           |                                  |             |
 | WARNINGPHASESTATUS   | Define the conditions to match for the status to be WARNING (default: '%{state} =~ /low\|nearOverload/i'). You can use the following variables: %{state}, %{display} | %{state} =~ /low\|nearOverload/i |             |
 | CRITICALPHASESTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%{state} =~ /^overload/i'). You can use the following variables: %{state}, %{display}        | %{state} =~ /^overload/i         |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                          | --verbose                        |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                   | --verbose                        |             |
 
 </TabItem>
 <TabItem value="Outlets" label="Outlets">
@@ -213,7 +211,7 @@ yum install centreon-plugin-Hardware-Pdu-Cyberpower-Snmp
 | CRITICALCURRENT | Thresholds                                                                                                                                                                |                    |             |
 | CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%{state} =~ /off/'). You can use the following variables: %{state}, %{phase}, %{bank}, %{display} | %{state} =~ /off/i |             |
 | WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %{state}, %{phase}, %{bank}, %{display}                                 |                    |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                               | --verbose          |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                        | --verbose          |             |
 
 </TabItem>
 </Tabs>
@@ -245,7 +243,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Device 'PDU81005' outlets are ok | 'PDU81005~Outlet3 bank 1#outlet.current.ampere'=0.4A;;;0; 'PDU81005~Outlet7 bank 1#outlet.current.ampere'=0.4A;;;0; 'PDU81005~Outlet8 bank 1#outlet.current.ampere'=0.9A;;;0;checking device 'PDU81005'outlet 'Outlet1 bank 1' state: 'on' [phase: seqPhase1ToNeutral]outlet 'Outlet2 bank 1' state: 'on' [phase: seqPhase1ToNeutral]outlet 'Outlet3 bank 1' state: 'on' [phase: seqPhase1ToNeutral], current : 0.4 Aoutlet 'Outlet4 bank 1' state: 'on' [phase: seqPhase1ToNeutral]outlet 'Outlet5 bank 1' state: 'on' [phase: seqPhase1ToNeutral]outlet 'Outlet6 bank 1' state: 'on' [phase: seqPhase1ToNeutral]outlet 'Outlet7 bank 1' state: 'on' [phase: seqPhase1ToNeutral], current : 0.4 Aoutlet 'Outlet8 bank 1' state: 'on' [phase: seqPhase1ToNeutral], current : 0.9 A
+OK: outlets are ok | '*devices*~*outlets*#outlet.current.ampere'=A;;;0;
 ```
 
 ### Diagnostic des erreurs communes
@@ -295,7 +293,7 @@ Les options génériques sont listées ci-dessous :
 | --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
+| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale(Mbps),mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                                |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
 | --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -353,7 +351,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --unknown-phase-status   | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{state}, %{display}                                                 |
 | --warning-phase-status   | Define the conditions to match for the status to be WARNING (default: '%{state} =~ /low\|nearOverload/i'). You can use the following variables: %{state}, %{display}   |
 | --critical-phase-status  | Define the conditions to match for the status to be CRITICAL (default: '%{state} =~ /^overload/i'). You can use the following variables: %{state}, %{display}          |
-| --warning-* --critical-* | Thresholds. Can be: 'phase-current', 'phase-power', 'bank-current'.                                                                                                    |
+| --warning-* --critical-* | Thresholds. Can be: 'phase-current', 'phase-power', 'phase-voltage', 'bank-current'.                                                                                   |
 
 </TabItem>
 <TabItem value="Outlets" label="Outlets">
