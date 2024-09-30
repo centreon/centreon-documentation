@@ -220,6 +220,22 @@ Many features have been added in this version.
 
 ## Centreon Collect
 
+### 24.04.6
+
+Release date: `September 30, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] When no filter is configured on a Broker output, a default filter is applied so as to avoid Broker crashing.
+- [Engine] Engine now waits until no thread uses a gRPC service before deleting the service.
+- [Engine] When Engine's configuration is modified, already sent events are no longer sent a second time.
+- [Engine] Fixed the following issue: when Engine was restarted, its log file wasn't reopened, so if it was moved or removed, it wasn't created again.
+
+</details>
+
+## Centreon Collect
+
 ### 24.04.5
 
 Release date: `August 05, 2024`
@@ -329,6 +345,22 @@ Release date: `April 30, 2024`
 </details>
 
 ## Centreon Gorgone
+
+### 24.04.3
+
+Release date: `September 30, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Added a partition for the Gorgone MBI **mod_bi_metriccentileweeklyvalue** and **mod_bi_metriccentilemonthlyvalue** tables, which are required by the ETL to run correctly.
+- [Gorgone] Fixed an issue affecting CPU load when a poller was not responding.
+- [Gorgone] Fixed an issue where Gorgone running on a central server was leaking file descriptors when pollers were disconnected.
+- [Gorgone] Fixed an issue stopping the **nmap** discovery provider from working after a Gorgone whitelist was created.
+- [Gorgone] In MBI, fixed the **perfdataStatisticsBuilder.pl** script: when using the **'-r --centile-only'** parameters, the **mod_bi_metrichourlyvalue** table is no longer truncated.
+- [Gorgone] The password of an MBI database user can now include special characters.
+
+</details>
 
 ### 24.04.2
 
