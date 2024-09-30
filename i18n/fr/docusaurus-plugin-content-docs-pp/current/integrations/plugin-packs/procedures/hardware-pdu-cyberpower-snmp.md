@@ -5,6 +5,8 @@ title: CyberPower Systems PDU SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+Les unités de distribution d'énergie (PDUs) CyberPower Basic fournissent une distribution d'énergie fiable et non-filtrée à partir d'un système UPS, d'un groupe électrogène ou d'une source d'énergie vers plusieurs appareils.
+
 ## Contenu du pack
 
 ### Modèles
@@ -102,7 +104,7 @@ dnf install centreon-pack-hardware-pdu-cyberpower-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-pdu-cyberpower-snmp
@@ -147,7 +149,7 @@ dnf install centreon-plugin-Hardware-Pdu-Cyberpower-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-pdu-cyberpower-snmp
@@ -243,7 +245,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: outlets are ok | '*devices*~*outlets*#outlet.current.ampere'=A;;;0;
+OK: Device 'PDU81005' outlets are ok | 'PDU81005~Outlet3 bank 1#outlet.current.ampere'=0.4A;;;0; 'PDU81005~Outlet7 bank 1#outlet.current.ampere'=0.4A;;;0; 'PDU81005~Outlet8 bank 1#outlet.current.ampere'=0.9A;;;0;checking device 'PDU81005'outlet 'Outlet1 bank 1' state: 'on' [phase: seqPhase1ToNeutral]outlet 'Outlet2 bank 1' state: 'on' [phase: seqPhase1ToNeutral]outlet 'Outlet3 bank 1' state: 'on' [phase: seqPhase1ToNeutral], current : 0.4 Aoutlet 'Outlet4 bank 1' state: 'on' [phase: seqPhase1ToNeutral]outlet 'Outlet5 bank 1' state: 'on' [phase: seqPhase1ToNeutral]outlet 'Outlet6 bank 1' state: 'on' [phase: seqPhase1ToNeutral]outlet 'Outlet7 bank 1' state: 'on' [phase: seqPhase1ToNeutral], current : 0.4 Aoutlet 'Outlet8 bank 1' state: 'on' [phase: seqPhase1ToNeutral], current : 0.9 A
 ```
 
 ### Diagnostic des erreurs communes
