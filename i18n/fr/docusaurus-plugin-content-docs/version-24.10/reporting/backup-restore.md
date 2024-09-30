@@ -112,7 +112,7 @@ Trois types de sauvegarde sont exécutés dans la semaine :
 > **Important**
 > 
 > Bien s'assurer que pendant la sauvegarde du serveur de reporting, les
-> scripts ETL ne doivent pas être en cours d'exécution. De plus, aucun
+> scripts ETL ne soient pas en cours d'exécution. De plus, aucun
 > rapport ne doit être en cours de génération.
 
 #### Périodicité des sauvegardes
