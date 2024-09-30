@@ -5,6 +5,9 @@ title: CyberPower Systems PDU SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+CyberPower Basic Power Distribution Units (PDUs) provide reliable unfiltered power distribution
+ from a UPS system, generator, or utility source to multiple devices.
+
 ## Pack assets
 
 ### Templates
@@ -101,7 +104,7 @@ dnf install centreon-pack-hardware-pdu-cyberpower-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-pdu-cyberpower-snmp
@@ -148,7 +151,7 @@ dnf install centreon-plugin-Hardware-Pdu-Cyberpower-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-pdu-cyberpower-snmp
@@ -169,7 +172,7 @@ yum install centreon-plugin-Hardware-Pdu-Cyberpower-Snmp
 ### Using a host template provided by the connector
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
-2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your resource settings.
 3. Apply the **HW-Pdu-Cyberpower-SNMP-custom** template to the host. 
 
 > When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
