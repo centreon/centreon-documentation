@@ -22,6 +22,46 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
+### 23.10.17
+
+Release date: `September 30, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Authentication] Rescheduled the task of deleting expired tokens.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed access control for monitoring servers configuration endpoints.
+- [API] Fixed ACL for meta-service endpoint.
+- [Authorization] Fixed an issue on ACLs reloading.
+- [Authentication] Fixed an issue with the ‘X509, MultiFactor’ authentication method.
+- [Authentication] Fixed incorrect URL redirection issue with OpenId Connect.
+- [Configuration] Fixed an issue on mass change which enabled disabled services.
+- [Configuration] Fixed an issue on central server ID in Gorgone configuration.
+- [Configuration] The correct value for the notification activation option is now written to the Engine configuration file.
+- [CLAPI] Fixed the display of version.
+- [Dashboard] Empty legend in Metrics Graph widget when user locale is different from en_US.
+- [Graph] Fixed an error that occurred when editing curves.
+- [Graph] You can now select a metric in the curve and virtual metric configuration forms.
+- [Packaging] Fixed invalid permissions on oudated token cron.
+- [Performance] Fixed a query performance issue with some specific datas in resource status.
+- [Resource Status] Fixed an issue with "Force Active Checks" option which was ignored in some cases.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed SQLi in contacts form (CVE-2024-39843).
+- [Security] Updated jQuery & jQuery-UI dependencies (CVE-2022-31160).
+
+</details>
+
 ### 23.10.16
 
 Release date: `September 11, 2024`
