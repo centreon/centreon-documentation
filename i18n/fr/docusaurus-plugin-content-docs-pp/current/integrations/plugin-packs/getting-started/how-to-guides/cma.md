@@ -285,7 +285,7 @@ L'Agent de supervision Centreon est maintenant capable de communiquer avec Centr
 
 Deux types de log sont disponibles :
 
-* file: l'agent loggue dans le fichier dont le path est donné par **log_file**.
+* file: l'agent loggue dans le fichier dont le chemin est donné par **log_file**.
 * stdout: l'agent loggue vers la sortie standard de l'exe
 
 Dans le cas de logging vers un fichier, une rotation peut être paramétrée avec les clés **log_max_file_size** et **log_max_files**.
