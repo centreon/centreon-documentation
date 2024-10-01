@@ -259,7 +259,7 @@ The CMA can now communicate with Centreon. You can set up the monitoring of your
     "host":"host_1",
     "log_type":"file",
     "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
-  "reverse_connection":true
+  "reversed_grpc_streaming":true
 }
 ```
 
@@ -273,7 +273,7 @@ The CMA can now communicate with Centreon. You can set up the monitoring of your
     "host":"host_1",
     "log_type":"file",
     "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
-  "reverse_connection":true,
+  "reversed_grpc_streaming":true,
   "encryption":true,
   "private_key":"/tmp/server_1234.key",
   "public_cert":"/tmp/server_1234.crt",
@@ -304,107 +304,26 @@ systemctl restart centagent
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-1. [Download the CMA](https://github.com/centreon/centreon-collect/releases) on every server you want to monitor.
+1. [Download the CMA installer](https://github.com/centreon/centreon-collect/releases) on every server you want to monitor.
 
-2. Load the **centagent.reg** file in the registry.
+2. Start the installer (during configuration, you can click on (i) icons to have some help)
+   
+3. Configure endpoint and connection
+   You have to set "Host name in Centreon". This name must be the host name you will enter in Centreon UI.
+   In most case (agent connects to poller), you have to enter Poller endpoint. It must be like  "poller ip or dns name":"opentelemetry listening poller port usually 4317", for example 192.168.45.32:4317. 
+   In Poller-initiated connection (poller connects to agent), you have to choose an host interface or 0.0.0.0 and the listening port, usually 4317 on witch poller will connect.
 
-3. Modify the configuration in the registry:
-
-<Tabs groupId="sync">
-<TabItem value="No encryption, agent connects to poller" label="No encryption, agent connects to poller">
-
-```
-[HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent]
-"log_file"="toto.log"
-"log_level"="trace"
-"log_type"="stdout"
-"log_max_file_size"=dword:0000000a
-"log_max_files"=dword:00000003
-"endpoint"="10.0.2.15:4317"
-"encryption"=dword:00000000
-"certificate"=""
-"private_key"=""
-"ca_certificate"=""
-"ca_name"=""
-"host"="host_1"
-"reverse_connection"=dword:00000000
-```
-
-</TabItem>
-<TabItem value="Encryption, agent connects to poller" label="Encryption, agent connects to poller">
-
-```
-[HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent]
-"log_file"="toto.log"
-"log_level"="trace"
-"log_type"="stdout"
-"log_max_file_size"=dword:0000000a
-"log_max_files"=dword:00000003
-"endpoint"="10.0.2.15:4317"
-"encryption"=dword:00000000
-"certificate"=""
-"private_key"=""
-"ca_certificate"=""
-"ca_name"="c:\temp\ca_1234.crt"
-"host"="host_1"
-"reverse_connection"=dword:00000000
-```
-
-</TabItem>
-<TabItem value="No encryption, poller connects to agent" label="No encryption, poller connects to agent">
-
-```
-[HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent]
-"log_file"="toto.log"
-"log_level"="trace"
-"log_type"="stdout"
-"log_max_file_size"=dword:0000000a
-"log_max_files"=dword:00000003
-"endpoint"="0.0.0.0:4317"
-"encryption"=dword:00000000
-"certificate"=""
-"private_key"=""
-"ca_certificate"=""
-"ca_name"=""
-"host"="host_1"
-"reverse_connection"=dword:00000001
-```
-
-</TabItem>
-<TabItem value="Encryption, poller connects to agent" label="Encryption, poller connects to agent">
-
-```
-[HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent]
-"log_file"="toto.log"
-"log_level"="trace"
-"log_type"="stdout"
-"log_max_file_size"=dword:0000000a
-"log_max_files"=dword:00000003
-"endpoint"="0.0.0.0:4317"
-"encryption"=dword:00000000
-"certificate"="C:\temp\server_1234.crt"
-"private_key"="C:\temp\server_1234.key"
-"ca_certificate"="C:\temp\server_1234.key"
-"ca_name"=""
-"host"="host_1"
-"reverse_connection"=dword:00000001
-```
-
-</TabItem>
-</Tabs>
-
-#### Log configuration
-
+4. Configure logging options
 You can configure two kinds of log output:
-* file: the CMA logs into a file, the path is configured in the **log_file** option
-* event: the CMA logs in the event viewer
-* stdout: standard output is used.
+* File: the CMA logs into a file
+* EventLog: the CMA logs in the event viewer
 
-If you choose to log into a file, log rotation can be customized using the **log_max_file_size** and **log_max_files** options.
+If you choose to log into a file, log rotation can be customized using the "Max File Size" and "Max number of files" options.
 
 Allowed log levels are: trace, debug, info, warning, error, critical and off.
 
-Note: an installer will be available in the final version, to facilitate configuration and massive deployment. In this beta version, you will have to run the agent yourself.
+5. Configure encryption
+   Encryption is activated by default. In case of Poller-initiated connection, private key file and certificate file are mandatory
 
 </TabItem>
 </Tabs>
@@ -563,7 +482,7 @@ apt -y install centreon-plugin-operatingsystems-linux-local
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-On the hosts you want to monitor, download and execute the corresponding [package for Windows](https://github.com/centreon/centreon-nsclient-build/releases/download/20240711/centreon_plugins.exe).
+On the hosts you want to monitor, plugins is yet installed by the centreon monitoring agent installer.
 
 </TabItem>
 </Tabs>

@@ -257,7 +257,7 @@ L'Agent de supervision Centreon est maintenant capable de communiquer avec Centr
     "host":"host_1",
     "log_type":"file",
     "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
-  "reverse_connection":true
+  "reversed_grpc_streaming":true
 }
 ```
 </TabItem>
@@ -270,7 +270,7 @@ L'Agent de supervision Centreon est maintenant capable de communiquer avec Centr
     "host":"host_1",
     "log_type":"file",
     "log_file":"/var/log/centreon-monitoring-agent/centagent.log" ,
-  "reverse_connection":true,
+  "reversed_grpc_streaming":true,
   "encryption":true,
   "private_key":"/tmp/server_1234.key",
   "public_cert":"/tmp/server_1234.crt",
@@ -300,108 +300,24 @@ Les niveaux de logs possibles sont: trace, debug, info, warning, error, critical
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-1. [Téléchargez l'agent] (https://github.com/centreon/centreon-collect/releases) sur tous les serveurs que vous voulez superviser.
+1. [Téléchargez l'installer de l'agent] (https://github.com/centreon/centreon-collect/releases) sur tous les serveurs que vous voulez superviser.
 
-2. chargez le fichier **centagent.reg** dans la base de registre.
+2. Lancer l'installer (durant la configuration, vous pourrez cliquer sur les (i) pour avoir de l'aide)
 
-3. Modifiez la configuration de l'Agent en base de registre :
+3. Configuration de l'endpoint et du type de connection
+   Dans le champs "host name in Centreon", vous devez saisir le nom d'hôte saisi dans l'UI Centreon.
+   Dans le cas le plus courant (l'agent se connecte au poller), vous devez saisir l'adresse IP ou nom DNS suivi du port opentelemetry sur lequel écoute le poller sous la forme "adress ip ou nom dns":port, exemple 192.168.45.32:4317.
+   Si vous activez Poller-initiated connection (le poller se connecte à l'agent), vous devez choisir l'interface ou 0.0.0.0 et le port (généralement 4317) sur lequel l'agent va accepter les connections venant du poller.
 
-<Tabs groupId="sync">
-<TabItem value="Non chiffré, l'agent se connecte au collecteur" label="Non chiffré, l'agent se connecte au collecteur">
+4. Configurer les options de log
+   Deux types de log sont disponibles:
+* File: les logs sont dirigés vers un fichier
+* EventLog: les logs sont envoyés vers l'observateur d'évènements
+  Si vous choisissez de loggerdans un fichier, vous pouvez configurer la rotation de log en renseignant Max File Size" et "Max number of files".
+  Les niveaux de logs possibles sont: trace, debug, info, warning, error, critical et off.
 
-```
-[HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent]
-"log_file"="toto.log"
-"log_level"="trace"
-"log_type"="stdout"
-"log_max_file_size"=dword:0000000a
-"log_max_files"=dword:00000003
-"endpoint"="10.0.2.15:4317"
-"encryption"=dword:00000000
-"certificate"=""
-"private_key"=""
-"ca_certificate"=""
-"ca_name"=""
-"host"="host_1"
-"reverse_connection"=dword:00000000
-```
-
-</TabItem>
-<TabItem value="Chiffré, l'agent se connecte au collecteur" label="Chiffré, l'agent se connecte au collecteur">
-
-```
-[HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent]
-"log_file"="toto.log"
-"log_level"="trace"
-"log_type"="stdout"
-"log_max_file_size"=dword:0000000a
-"log_max_files"=dword:00000003
-"endpoint"="10.0.2.15:4317"
-"encryption"=dword:00000000
-"certificate"=""
-"private_key"=""
-"ca_certificate"=""
-"ca_name"="c:\temp\ca_1234.crt"
-"host"="host_1"
-"reverse_connection"=dword:00000000
-```
-
-</TabItem>
-<TabItem value="Non chiffré, le collecteur se connecte à l'agent" label="Non chiffré, le collecteur se connecte à l'agent">
-
-```
-[HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent]
-"log_file"="toto.log"
-"log_level"="trace"
-"log_type"="stdout"
-"log_max_file_size"=dword:0000000a
-"log_max_files"=dword:00000003
-"endpoint"="0.0.0.0:4317"
-"encryption"=dword:00000000
-"certificate"=""
-"private_key"=""
-"ca_certificate"=""
-"ca_name"=""
-"host"="host_1"
-"reverse_connection"=dword:00000001
-```
-
-</TabItem>
-<TabItem value="Chiffré, le collecteur se connecte à l'agent" label="Chiffré, le collecteur se connecte à l'agent">
-
-```
-[HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\CentreonMonitoringAgent]
-"log_file"="toto.log"
-"log_level"="trace"
-"log_type"="stdout"
-"log_max_file_size"=dword:0000000a
-"log_max_files"=dword:00000003
-"endpoint"="0.0.0.0:4317"
-"encryption"=dword:00000000
-"certificate"="C:\temp\server_1234.crt"
-"private_key"="C:\temp\server_1234.key"
-"ca_certificate"="C:\temp\server_1234.key"
-"ca_name"=""
-"host"="host_1"
-"reverse_connection"=dword:00000001
-```
-
-</TabItem>
-</Tabs>
-
-#### Options de log
-
-Trois types de log sont disponibles :
-
-* file: l'agent loggue dans le fichier dont le chemin est donné par l'option **log_file**.
-* event: l'agent loggue dans l'event viewer.
-* stdout: l'agent loggue vers la sortie standard de l'exe.
-
-Dans le cas de logging vers un fichier, une rotation peut être paramétrée avec les clés **log_max_file_size** et **log_max_files**.
-
-Les niveaux de logs possibles sont: trace, debug, info, warning, error, critical et off.
-
-Note : un installeur sera disponible en version définitive, afin de faciliter la configuration et le déploiement massif. Dans cette version Beta, vous devrez lancer vous même l'agent.
+5. Configurer les paramètres de chiffrement
+   Le chiffrement est activé par défaut. Dans le cas ou Poller-initiated connection est activé, vous devez renseigner "Max File Size" et "Max number of files"
 
 </TabItem>
 </Tabs>
@@ -559,7 +475,7 @@ apt -y install centreon-plugin-operatingsystems-linux-local
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-Sur les hôtes que vous voulez superviser, téléchargez et exécutez le [plugin pour Windows](https://github.com/centreon/centreon-nsclient-build/releases/download/20240711/centreon_plugins.exe).
+Sur les hôtes que vous voulez superviser, le plugins est déjà installé par l'installer du Centreon Monitoring Agent.
 
 </TabItem>
 </Tabs>
