@@ -66,4 +66,4 @@ The table below shows some possible examples:
 | june 6 - june 21  | 00:00-00:00             | Do not supervise all day, every day from June 6th to the 21st        |
 | june 12           | 00:00-08:00,18:00-24:00 | Supervise every June 12th, except between 08h00 and 18h00 |
 
-> Exceptions are not taken into account in [BAM](../../service-mapping/introduction.md).
+> Exceptions are not taken into account in [BAM](../../service-mapping/introduction.md) and in [notifications](../../alerts-notifications/notif-configuration.md).
