@@ -306,24 +306,23 @@ systemctl restart centagent
 
 1. [Download the CMA installer](https://github.com/centreon/centreon-collect/releases) on every server you want to monitor.
 
-2. Start the installer (during configuration, you can click on (i) icons to have some help)
+2. Start the installer (during the configuration, you can click on the (i) icons for help).
    
-3. Configure endpoint and connection
-   You have to set "Host name in Centreon". This name must be the host name you will enter in Centreon UI.
-   In most case (agent connects to poller), you have to enter Poller endpoint. It must be like  "poller ip or dns name":"opentelemetry listening poller port usually 4317", for example 192.168.45.32:4317. 
-   In Poller-initiated connection (poller connects to agent), you have to choose an host interface or 0.0.0.0 and the listening port, usually 4317 on witch poller will connect.
+3. Configure the endpoint and the connection:
+   * **Host name in Centreon**. This must be the host name you have defined in the Centreon interface.
+   * In most cases (the agent connects to the poller), you have to enter the poller's endpoint. The correct format is  <poller IP or DNS name>:port (OpenTelemetry listening port on the poller, usually 4317), for example 192.168.45.32:4317. 
+   * In case of a poller-initiated connection (the poller connects to the agent), you have to choose a host interface (0.0.0.0 for all interfaces) and the listening port on which poller will connect, usually 4317.
 
-4. Configure logging options
-You can configure two kinds of log output:
+4. Configure logging options. You can configure two kinds of log output:
 * File: the CMA logs into a file
-* EventLog: the CMA logs in the event viewer
+* EventLog: the CMA logs in the [event logs page](/docs/alerts-notifications/event-log).
 
-If you choose to log into a file, log rotation can be customized using the "Max File Size" and "Max number of files" options.
+If you choose to log into a file, log rotation can be customized using the **Max File Size** and **Max number of files** options.
 
 Allowed log levels are: trace, debug, info, warning, error, critical and off.
 
 5. Configure encryption
-   Encryption is activated by default. In case of Poller-initiated connection, private key file and certificate file are mandatory
+Encryption is activated by default. In case of a poller-initiated connection, the private key file and certificate file are mandatory.
 
 </TabItem>
 </Tabs>

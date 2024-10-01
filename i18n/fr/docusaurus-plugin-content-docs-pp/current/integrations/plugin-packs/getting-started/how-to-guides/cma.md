@@ -306,7 +306,7 @@ Les niveaux de logs possibles sont: trace, debug, info, warning, error, critical
 
 3. Configurez l'endpoint et le type de connexion :
    * Dans le champ **Host name in Centreon**, entrez le nom de l'hôte à superviser tel que vous l'avez saisi dans l'interface Centreon.
-   * Dans le cas le plus courant (l'agent se connecte au poller), saisissez l'adresse IP ou le nom DNS suivi du port OpenTelemetry sur lequel écoute le poller, sous la forme "<adresse IP ou nom DNS>:port, par exemple 192.168.45.32:4317.
+   * Dans le cas le plus courant (l'agent se connecte au poller), saisissez l'adresse IP ou le nom DNS suivi du port OpenTelemetry sur lequel écoute le poller, sous la forme <adresse IP ou nom DNS>:port, par exemple 192.168.45.32:4317.
    * Si vous activez l'option **Poller-initiated connection** (le collecteur se connecte à l'agent), vous devez choisir l'interface (toutes les interfaces : 0.0.0.0) et le port (généralement 4317) sur lequel l'agent va accepter les connections venant du collecteur.
 
 4. Configurez les options de log. Deux types de log sont disponibles :
