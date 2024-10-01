@@ -316,7 +316,7 @@ Les niveaux de logs possibles sont: trace, debug, info, warning, error, critical
   Les niveaux de logs possibles sont: trace, debug, info, warning, error, critical et off.
 
 5. Configurez les paramètres de chiffrement.
-Le chiffrement est activé par défaut. Dans le cas où **Poller-initiated connection** est activé, renseignez **Max File Size** et **Max number of files**.
+Le chiffrement est activé par défaut. Dans le cas où l'option **Poller-initiated connection** est activée, renseignez **Max File Size** et **Max number of files**.
 
 </TabItem>
 </Tabs>
