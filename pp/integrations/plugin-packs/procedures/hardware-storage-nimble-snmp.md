@@ -70,10 +70,13 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-### Nimble SNMP Configuration
+### SNMP Configuration
 
-Enable SNMP on the Nimble device following the official HPE documentation:
-https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_GUI_Administration_Guide_NOS_50x.whz/qzz1501525219979
+The SNMP service must be configured and activated on the host. Please refer to the [official documentation](https://infosight.hpe.com/InfoSight/media/cms/active/public/pubs_GUI_Administration_Guide_NOS_50x.whz/qzz1501525219979) from the manufacturer/publisher.
+
+### Network flow
+
+The target resource must be reachable from the Centreon poller on the UDP/161 SNMP port.
 
 ## Installing the monitoring connector
 
