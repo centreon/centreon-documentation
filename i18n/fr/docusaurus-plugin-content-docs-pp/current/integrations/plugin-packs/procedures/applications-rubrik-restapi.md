@@ -63,7 +63,7 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 
 ### Métriques & statuts collectés
 
-Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachées à chaque service.
+Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
 <TabItem value="Cluster" label="Cluster">
