@@ -310,7 +310,7 @@ systemctl restart centagent
    
 3. Configure the endpoint and the connection:
    * **Host name in Centreon**. This must be the host name you have defined in the Centreon interface.
-   * In most cases (the agent connects to the poller), you have to enter the poller's endpoint. The correct format is  <poller IP or DNS name>:port (OpenTelemetry listening port on the poller, usually 4317), for example 192.168.45.32:4317. 
+   * In most cases (the agent connects to the poller), you have to enter the poller's endpoint. The correct format is  \<poller IP or DNS name\>:port (OpenTelemetry listening port on the poller, usually 4317), for example 192.168.45.32:4317.
    * In case of a poller-initiated connection (the poller connects to the agent), you have to choose a host interface (0.0.0.0 for all interfaces) and the listening port on which poller will connect, usually 4317.
 
 4. Configure logging options. You can configure two kinds of log output:
