@@ -27,6 +27,8 @@ Les paragraphes ci-après détaillent les problèmes connus de Centreon. Ceux-ci
 
 ## Notifications
 
+* Les exceptions relatives aux périodes temporelles ne sont pas prises en compte pour les notifications.
+
 * Les changements ne sont pas affichés immédiatement lorsque vous éditez une règle de notification.
 
    **Contournement**:  Rafraîchissez la page afin d'afficher les paramètres corrects.
@@ -40,8 +42,6 @@ Les paragraphes ci-après détaillent les problèmes connus de Centreon. Ceux-ci
 ## Configuration
 
 * Les changements massifs incrémentaux ne sont pas possibles pour les hôtes et les services. 
-
-* Après édition, une commande personnalisée disparaît de la liste. Notez que la commande existe et qu'elle sera toujours utilisée.
 
 * Les utilisateurs ne peuvent pas encore configurer des Stream Connectors eux-mêmes.
 
