@@ -302,22 +302,21 @@ Les niveaux de logs possibles sont: trace, debug, info, warning, error, critical
 
 1. [Téléchargez l'installer de l'agent] (https://github.com/centreon/centreon-collect/releases) sur tous les serveurs que vous voulez superviser.
 
-2. Lancer l'installer (durant la configuration, vous pourrez cliquer sur les (i) pour avoir de l'aide)
+2. Lancez l'installer (durant la configuration, vous pourrez cliquer sur les (i) pour avoir de l'aide).
 
-3. Configuration de l'endpoint et du type de connection
-   Dans le champs "host name in Centreon", vous devez saisir le nom d'hôte saisi dans l'UI Centreon.
-   Dans le cas le plus courant (l'agent se connecte au poller), vous devez saisir l'adresse IP ou nom DNS suivi du port opentelemetry sur lequel écoute le poller sous la forme "adress ip ou nom dns":port, exemple 192.168.45.32:4317.
-   Si vous activez Poller-initiated connection (le poller se connecte à l'agent), vous devez choisir l'interface ou 0.0.0.0 et le port (généralement 4317) sur lequel l'agent va accepter les connections venant du poller.
+3. Configurez l'endpoint et le type de connexion :
+   * Dans le champ **Host name in Centreon**, entrez le nom de l'hôte à superviser tel que vous l'avez saisi dans l'interface Centreon.
+   * Dans le cas le plus courant (l'agent se connecte au poller), saisissez l'adresse IP ou le nom DNS suivi du port OpenTelemetry sur lequel écoute le poller, sous la forme "<adresse IP ou nom DNS>:port, par exemple 192.168.45.32:4317.
+   * Si vous activez l'option **Poller-initiated connection** (le collecteur se connecte à l'agent), vous devez choisir l'interface (toutes les interfaces : 0.0.0.0) et le port (généralement 4317) sur lequel l'agent va accepter les connections venant du collecteur.
 
-4. Configurer les options de log
-   Deux types de log sont disponibles:
-* File: les logs sont dirigés vers un fichier
-* EventLog: les logs sont envoyés vers l'observateur d'évènements
-  Si vous choisissez de loggerdans un fichier, vous pouvez configurer la rotation de log en renseignant Max File Size" et "Max number of files".
+4. Configurez les options de log. Deux types de log sont disponibles :
+   * **File** : les logs sont écrits dans un fichier
+   * **EventLog** : les logs sont envoyés vers les [journaux d'évènements](/docs/alerts-notifications/event-log).
+  Si vous choisissez de logger dans un fichier, vous pouvez configurer la rotation de logs en renseignant **Max File Size** et **Max number of files**.
   Les niveaux de logs possibles sont: trace, debug, info, warning, error, critical et off.
 
-5. Configurer les paramètres de chiffrement
-   Le chiffrement est activé par défaut. Dans le cas ou Poller-initiated connection est activé, vous devez renseigner "Max File Size" et "Max number of files"
+5. Configurez les paramètres de chiffrement.
+Le chiffrement est activé par défaut. Dans le cas où **Poller-initiated connection** est activé, renseignez **Max File Size** et **Max number of files**.
 
 </TabItem>
 </Tabs>
