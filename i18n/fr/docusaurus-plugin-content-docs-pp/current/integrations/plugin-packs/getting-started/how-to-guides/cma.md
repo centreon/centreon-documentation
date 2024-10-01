@@ -78,13 +78,15 @@ Sur votre serveur central :
 
 ### Configurez Engine
 
-1. Sur le collecteur qui recevra les données de l'agent, créez le fichier suivant :
+1. Sur le collecteur qui recevra les données de l'agent, installez le package centreon-engine-opentelemetry
+   
+2. Sur le collecteur qui recevra les données de l'agent, créez le fichier suivant :
 
    ```shell
    touch /etc/centreon-engine/otl_server.json
    ```
 
-2. Entrez le contenu suivant. Cela permettra au collecteur de recevoir les données en provenance de l'agent.
+3. Entrez le contenu suivant. Cela permettra au collecteur de recevoir les données en provenance de l'agent.
    > Le collecteur permet de fonctionner dans les deux modes simultanément (certains agents se connectent au collecteur alors que le collecteur se connecte à d'autres agents).
 
 <Tabs groupId="sync">

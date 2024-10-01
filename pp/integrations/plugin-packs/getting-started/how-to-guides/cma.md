@@ -77,13 +77,15 @@ On your central server:
 
 ### Configure Engine
 
-1. On the poller that will receive the data from the agent, create the following file:
+1. On the poller that will receive the data from the agent, install centreon-engine-opentelemetry package
+   
+2. On the poller that will receive the data from the agent, create the following file:
 
    ```shell
    touch /etc/centreon-engine/otl_server.json
    ```
 
-2. Enter the following contents. This will allow the poller to receive the data that the agent will send.
+3. Enter the following contents. This will allow the poller to receive the data that the agent will send.
   
   > The poller can work in both modes simultaneously (some agents connect to the poller, while the poller connects to some other agents).
 
