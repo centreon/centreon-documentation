@@ -217,15 +217,12 @@ la supervision, vous pouvez être amenés à utiliser de nombreux critères et
 expressions régulières. Dans ce cas, il est intéressant de sauvegarder
 le filtre afin de pouvoir facilement le réutiliser plus tard.
 
-Utilisez l'icône "Options de filtre" à côté de la barre de recherche pour :
+Utilisez l'icône "Options de filtre" à droite de la barre de recherche pour :
 
-- Sauvegarder la recherche actuelle comme un nouveau filtre
+- Enregistrer la recherche actuelle comme un nouveau filtre
 - Mettre à jour le filtre actuel avec la recherche en cours
 
-Une fois qu'un filtre est créé, il apparaîtra dans la liste des filtres
-sous la section **Mes filtres**.
-
-En cliquant sur le menu **Éditer les filtres**, il est possible de manipuler les filtres sauvegardés (en les renommant, ré-ordonnant et supprimant).
+Une fois qu'un filtre est enregistré, il apparaîtra dans la liste des filtres sous la section **Mes filtres** et vous pourrez utiliser l'icône **Éditer les filtres** pour les manipuler (les renommer, les ré-ordonner ou les supprimer).
 
 ## Panneau de détail
 
