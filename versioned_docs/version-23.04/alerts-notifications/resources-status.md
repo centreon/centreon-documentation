@@ -202,7 +202,7 @@ You may create some "complex" filters that set you in a specific
 context, using multiple criteria and even complex regular expressions.
 In that case, you may want to save this filter and re-use it later.
 
-Use the **Filter options** next to the search bar to:
+Use the **Filter options** icon next to the search bar to:
 
 - Save your current search as a new filter
 - update the current filter using the criteria currently
