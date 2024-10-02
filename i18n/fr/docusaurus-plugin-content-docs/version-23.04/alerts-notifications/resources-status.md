@@ -217,7 +217,7 @@ la supervision, vous pouvez être amenés à utiliser de nombreux critères et
 expressions régulières. Dans ce cas, il est intéressant de sauvegarder
 le filtre afin de pouvoir facilement le réutiliser plus tard.
 
-Utilisez l'icône "Options de filtre" à côté de **Recherche** pour :
+Utilisez l'icône "Options de filtre" à côté de la barre de recherche pour :
 
 - Sauvegarder la recherche actuelle comme un nouveau filtre
 - Mettre à jour le filtre actuel avec la recherche en cours
