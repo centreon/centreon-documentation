@@ -5,7 +5,7 @@ title: Dépannage de la plateforme Centreon
 
 Cette page répertorie les rubriques de dépannage disponibles dans cette documentation. Cliquez sur un élément pour accéder à un contenu plus détaillé. 
 
-* [Débogage](https://docs.centreon.com/fr/docs/administration/parameters/debug/)
+* [Débogage](../administration/parameters/debug.md)
 * [Dépanner les erreurs de plugins](/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins)
 * [Dépanner MAP](../graph-views/map-web-troubleshooting.md)
 * [Dépanner MAP Legacy](../graph-views/troubleshooter.md)
