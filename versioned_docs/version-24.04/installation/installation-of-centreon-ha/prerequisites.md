@@ -22,4 +22,4 @@ See the [general sizing infomation](https://docs.centreon.com/docs/installation/
 | Central servers + DB + QDevice | Central servers + DB + QDevice | TCP 2224 | Communication inside the cluster |
 | Central servers + DB + QDevice | Central servers + DB + QDevice | TCP 5403 | Communication with the QDevice |
 
-See also the general [tables of network flows](../technical.md#tables-of-network-flows).
+See also the general [tables of network flows](https://docs.centreon.com/docs/installation/technical/#tables-of-network-flows).
