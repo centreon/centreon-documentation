@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Sizing
 
-See the [general sizing infomation](../prerequisites.md) for a standard Centreon platform. In addition, you **must** have at least 5 Go available on the VG that contains the **/var/lib/mysql** partition, otherwise you will not be able to set up the replication.
+See the [general sizing infomation](https://docs.centreon.com/docs/installation/prerequisites/) for a standard Centreon platform. In addition, you **must** have at least 5 Go available on the VG that contains the **/var/lib/mysql** partition, otherwise you will not be able to set up the replication.
 
 ## Table of HA network flows
 
