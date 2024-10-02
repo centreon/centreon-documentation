@@ -78,7 +78,7 @@ Sur votre serveur central :
 
 ### Configurez Engine
 
-1. Sur le collecteur qui recevra les données de l'agent, installez le package centreon-engine-opentelemetry
+1. Sur le collecteur qui recevra les données de l'agent, installez le paquet **centreon-engine-opentelemetry**.
    
 2. Sur le collecteur qui recevra les données de l'agent, créez le fichier suivant :
 
