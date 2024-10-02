@@ -3,6 +3,70 @@ id: cloud-release-notes
 title: Centreon Cloud release notes
 ---
 
+## October 2, 2024
+
+### Anomaly Detection
+
+Bug fixes
+- The lua script for Anomaly Detection no longer tries to read configuration changes when there aren't any. This reduces the number of received error messages.
+
+### Bam
+
+Bug fixes
+-[BAM] Fix Deprecation due to Symfony Upgrade.
+
+### Collect
+
+Enhancements:
+- Centreon monitoring agent windows version.
+- - [CMA] Binary file for Centreon Monitoring Agent on Windows (Beta).
+
+Bug fixes
+- [Broker] The default log level for Engine and Broker is now error instead of info (except for the core and config logs, which are info).
+- [Engine] Fixed an issue with the inheritance of configuration objects in Engine.
+- [Engine] When Engine's configuration is modified, already sent events are no longer sent a second time.
+- [Packaging] Solved a conflict between centreon-collect 23.04 and centreon-collect 23.10 that was occurring because of a change in the way we provide the mariadb caching sha2 password plugin.
+
+### Gorgone
+
+Bug fixes
+- [Gorgone] Added a partition for the Gorgone MBI *mod_bi_metriccentileweeklyvalue* and *mod_bi_metriccentilemonthlyvalue* tables, which are required by the ETL to run correctly.
+- [Gorgone] Fixed an issue stopping the *nmap* discovery provider from working after a Gorgone whitelist was created.
+- [Gorgone] Fixed an error present in the log when pullwss module was used on shutdown of gorgone.
+
+### Map
+
+Enhancements
+- [Viewer] Allow to display host name for a service.
+- [Editor] Increase number of available fonts and make roboto the default one.
+  
+Bug fixes
+- Display a message on the MAP widget when displayed in a public page.
+- Fixed SFTP Connection.
+- [Map list] Fixed an issue that could prevent the map list from being displayed.
+- Status of BA is not align with the status in Resource Status
+- Upgrade spring framework.
+
+### Centreon web
+
+Enhancements
+- Added a new menu to manage Additionnal Connector Configuration.
+- [API] Added an endpoint to list Pollers.
+- [API] Added an endpoint to create Additional Connector Configuration.
+- [API] Added an endpoint to list/get one Additional Connector Configuration.
+- [API] Added an endpoint to update one Additional Connector Configuration.
+- [API] Added an endpoint to delete Additional Connector Configuration.
+- [Dashboards] Implement new "Clock / Timer" widget
+- Manage time period for notifications.
+- [Status Grid widget] Added Centreon resources pictograms
+- [Status Grid widget] Added colored banners for resources states
+- [Status Grid widget] Added the handling of Business Activities and Business Views.
+
+Bug fixes
+- [API] Fixed ACLs allowing access to a resource (hosts or services) upon its creation via the APIs for a non-administrator user.
+- [API] Fixed an issue where hosts and services remained invisible for a while after they were created with the v2 API.
+- [Packaging] Fixed invalid permissions on oudated token cron.
+
 ## August 22, 2024
 
 ### Centreon IT Edition
