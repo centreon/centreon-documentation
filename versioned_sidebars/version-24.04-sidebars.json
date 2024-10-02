@@ -1485,6 +1485,10 @@
           "id": "version-24.04/installation/installation-of-centreon-ha/overview"
         },
         {
+          "type": "doc",
+          "id": "version-24.04/installation/installation-of-centreon-ha/ha-prerequisites"
+        },
+        {
           "type": "category",
           "label": "Completing your Centreon HA setup",
           "link": {
