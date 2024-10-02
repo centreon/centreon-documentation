@@ -77,7 +77,7 @@ On your central server:
 
 ### Configure Engine
 
-1. On the poller that will receive the data from the agent, install centreon-engine-opentelemetry package
+1. On the poller that will receive the data from the agent, install the **centreon-engine-opentelemetry** package.
    
 2. On the poller that will receive the data from the agent, create the following file:
 
