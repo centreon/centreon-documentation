@@ -205,7 +205,7 @@ In that case, you may want to save this filter and re-use it later.
 Use the **Filter options** next to the search bar to:
 
 - Save your current search as a new filter
-- Save the current filter so that it is updated using the criteria currently
+- update the current filter using the criteria currently
     applied
 
 Once a filter is saved, it can be reused from the Filter dropdown list,
