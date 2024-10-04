@@ -135,9 +135,11 @@ Any action performed in the interface that acts on your monitoring in real time.
 
 ## Monitoring Connector
 
-The term "Monitoring Connector" refers to a [plugin](#plugin) and the corresponding pack.
+Connectors are the programming brick that lets Centreon communicate with the supervised equipment.
 
-A pack contains the configuration of the plugin in Centreon (command, [templates](#template), thresholds), as well as data required by the automatic discovery feature.
+Centreon offers a great variety of connectors ready to be used to control any type of equipment.
+The connector is made of a pack (preconfigured models) and a plugin (the probe that executes the checks).
+Some connectors may also have a “discovery” feature allowing them to independently find ressources of a certain type to monitor them.
 
 **See also**:
 
