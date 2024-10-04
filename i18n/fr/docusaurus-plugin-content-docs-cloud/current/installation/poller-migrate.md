@@ -13,7 +13,7 @@ Dans certains cas, vous pouvez vouloir changer l'OS de la machine hôte de votre
 2. [Déployez le collecteur](deploy-poller.md) sur la nouvelle machine.
 3. Copiez la configuration pour les éléments suivants depuis l'ancien collecteur vers le nouveau :
 
-   - Les plugins personnalisés (par exemple : plugins de la communauté, ou développements personnalisés)
+   - Les plugins personnalisés (par exemple : plugins de la communauté, ou développements personnalisés).
    - Si vous utilisez le connecteur **centreon-as400** (installation et configuration) : **/etc/centreon-as400/**.
 
 4. Déplacez toutes les ressources désirées vers le nouveau collecteur.
