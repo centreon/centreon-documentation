@@ -138,7 +138,7 @@ Any action performed in the interface that acts on your monitoring in real time.
 Connectors are the programming brick that lets Centreon communicate with the supervised equipment.
 
 Centreon offers a great variety of connectors ready to be used to control any type of equipment.
-The connector is made of a [pack](#pack) (preconfigured models) and a [plugin](#plugin) (the probe that executes the checks).
+The connector is made of a [pack](#pack) (commands, preconfigured [templates](#template)) and a [plugin](#plugin) (the probe that executes the checks).
 Some connectors may also have an automatic discovery feature allowing them to independently find ressources of a certain type to monitor them.
 
 **See also**:
