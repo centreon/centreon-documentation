@@ -78,7 +78,7 @@ Un connecteur de supervision est la brique logicielle qui permet à Centreon de 
 
 Centreon propose de nombreux connecteurs prêts à l’emploi qui permettent de contrôler tout type d’équipement.
 
-Le connecteur est constitué d’un [pack](#pack) (des commandes et [modèles](#modèles) préconfigurés) et d’un [plugin](#plugin) (la sonde qui exécute les contrôles).
+Le connecteur est constitué d’un [pack](#pack) (des commandes et [modèles](#modèle) préconfigurés) et d’un [plugin](#plugin) (la sonde qui exécute les contrôles).
 Certains connecteurs ont également une option de “découverte” qui leur permet de détecter par eux-mêmes un certain type de ressources à superviser.
 
 **Voir aussi** :
