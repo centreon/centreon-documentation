@@ -81,8 +81,6 @@ Centreon propose de nombreux connecteurs prêts à l’emploi qui permettent de 
 Le connecteur est constitué d’un [pack](#pack) (des modèles préconfigurés) et d’un [plugin](#plugin) (la sonde qui exécute les contrôles).
 Certains connecteurs ont également une option de “découverte” qui leur permet de détecter par eux-mêmes un certain type de ressources à superviser.
 
-AJOUTER LIENS POUR PACK, PLUGIN ET MODELE
-
 **Voir aussi** :
 
 - [Utiliser des connecteurs de supervision](../monitoring/pluginpacks.md),
