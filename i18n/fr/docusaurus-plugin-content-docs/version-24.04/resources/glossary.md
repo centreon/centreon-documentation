@@ -77,7 +77,7 @@ On appelle aussi “collecteur” le moteur de supervision présent dans un serv
 Un connecteur de supervision est la brique logicielle qui permet à Centreon de communiquer avec les équipements supervisés.
 
 Centreon propose de nombreux connecteurs prêts à l’emploi qui permettent de contrôler tout type d’équipement.
-Le connecteur est constitué d’un pack (des modèles préconfigurés) et d’un plugin (la sonde qui exécute les contrôles).
+Le connecteur est constitué d’un [pack](#pack) (des modèles préconfigurés) et d’un [plugin](#plugin) (la sonde qui exécute les contrôles).
 Certains connecteurs ont également une option de “découverte” qui leur permet de détecter par eux-mêmes un certain type de ressources à superviser.
 
 AJOUTER LIENS POUR PACK, PLUGIN ET MODELE
@@ -201,6 +201,10 @@ Message avertissant l’utilisateur d’un incident. Il est possible de paramét
 ## Ordonnanceur
 
 Voir [**Moteur de supervision**](#moteur-de-supervision).
+
+## Pack
+
+Le pack contient les informations relatives aux indicateurs qui seront supervisés, leurs seuils d’alertes et les commandes nécessaires pour les contrôles. Le pack permet une configuration prédéterminée pour les services mais celle-ci reste hautement personnalisable. 
 
 ## Période de rétention
 
