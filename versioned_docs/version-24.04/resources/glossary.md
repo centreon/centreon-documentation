@@ -135,7 +135,7 @@ Any action performed in the interface that acts on your monitoring in real time.
 
 ## Monitoring Connector
 
-Connectors are the programming brick that lets Centreon communicate with the supervised equipment.
+Connectors are the programming brick that lets Centreon communicate with the monitored equipment.
 
 Centreon offers a great variety of connectors ready to be used to control any type of equipment.
 The connector is made of a [pack](#pack) (commands, preconfigured [templates](#template)) and a [plugin](#plugin) (the probe that executes the checks).
