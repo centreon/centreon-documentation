@@ -202,7 +202,7 @@ Voir [**Moteur de supervision**](#moteur-de-supervision).
 
 ## Pack
 
-Un pack contient les informations relatives aux indicateurs qui seront supervisés, leurs seuils d’alerte et les commandes nécessaires pour les contrôles. Le pack apporte une configuration prédéterminée mais celle-ci reste hautement personnalisable. 
+Un pack contient les informations relatives aux indicateurs qui seront supervisés, leurs seuils d’alerte et les commandes nécessaires pour les contrôles. Le pack fournit une configuration par défaut, mais celle-ci reste hautement personnalisable.
 
 ## Période de rétention
 

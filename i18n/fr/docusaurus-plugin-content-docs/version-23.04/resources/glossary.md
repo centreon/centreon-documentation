@@ -74,7 +74,7 @@ On appelle aussi “collecteur” le moteur de supervision présent dans un serv
 
 ## Connecteur de supervision
 
-Un connecteur de supervision est la brique logicielle qui permet à Centreon de communiquer avec les équipements supervisés.
+Les connecteurs de supervision sont la brique logicielle qui permet à Centreon de communiquer avec les équipements supervisés.
 Centreon propose de nombreux connecteurs prêts à l’emploi qui permettent de contrôler tout type d’équipement.
 
 Un connecteur est constitué d’un [pack](#pack) (des commandes et [modèles](#modèle) préconfigurés) et d’un [plugin](#plugin) (la sonde qui exécute les contrôles).
@@ -202,7 +202,7 @@ Voir [**Moteur de supervision**](#moteur-de-supervision).
 
 ## Pack
 
-Un pack contient les informations relatives aux indicateurs qui seront supervisés, leurs seuils d’alerte et les commandes nécessaires pour les contrôles. Le pack apporte une configuration prédéterminée mais celle-ci reste hautement personnalisable. 
+Un pack contient les informations relatives aux indicateurs qui seront supervisés, leurs seuils d’alerte et les commandes nécessaires pour les contrôles. Le pack fournit une configuration par défaut, mais celle-ci reste hautement personnalisable. 
 
 ## Période de rétention
 
