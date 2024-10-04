@@ -23,11 +23,11 @@ Release date: `October 7, 2024`
 
 #### Enhancements
 
-- [SELinux] Packaged SELinux rules for centreon-map and centreon-mbi.
+- [SELinux] Packaged SELinux rules for centreon-map.
 
 #### Bug fixes
 
-- Fixed an issue in the diagnostic script when MAP was configured in HTTPS.
+- [Diagnostic] Fixed an issue in the diagnostic script when MAP was configured in HTTPS.
 
 ### 22.10.16
 
@@ -285,7 +285,7 @@ Release date: `October 7, 2024`
 
 #### Bug fixes
 
-- Fixed an issue in the diagnostic script when MAP was configured in HTTPS.
+- [Diagnostic] Fixed an issue in the diagnostic script when MAP was configured in HTTPS.
 
 ### 22.10.13
 
@@ -462,11 +462,11 @@ Release date: `October 26, 2022`
 
 ### 22.10.11
 
-Release date: `October 8, 2024`
+Release date: `October 7, 2024`
 
 #### Enhancements
 
-- [SELinux] Packaged SELinux rules for centreon-map and centreon-mbi.
+- [SELinux] Packaged SELinux rules for centreon-mbi.
   
 #### Bug fixes
 
