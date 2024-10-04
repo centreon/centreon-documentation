@@ -251,6 +251,6 @@ Some statistics about real-time data exported to Centreon Cloud are available in
 cat /var/lib/centreon-engine/*-module-stats.json
 ```
 
-> Node: This file is a UNIX pipe file and is only accessible when the **centengine** service is running.
+> Note: This file is a UNIX pipe file and is only accessible when the **centengine** service is running.
 
 If all troubleshooting steps have failed, contact [our support team](https://support.centreon.com/hc/en-us).
