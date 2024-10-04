@@ -1,6 +1,6 @@
 ---
 id: debug
-title: Debogage
+title: Débogage
 ---
 
 Cette partie permet d'activer le niveau *debug* de la journalisation
