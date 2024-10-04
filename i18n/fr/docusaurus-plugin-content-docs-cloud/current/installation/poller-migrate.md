@@ -1,6 +1,6 @@
 ---
 id: poller-migrate
-title: Migrating a collecteur to another host machine
+title: Migrer un collecteur vers une autre machine hôte
 ---
 
 import Tabs from '@theme/Tabs';
