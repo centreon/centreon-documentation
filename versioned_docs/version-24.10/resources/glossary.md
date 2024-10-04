@@ -135,9 +135,11 @@ Any action performed in the interface that acts on your monitoring in real time.
 
 ## Monitoring Connector
 
-The term "Monitoring Connector" refers to a [plugin](#plugin) and the corresponding pack.
+Connectors are the piece of software that lets Centreon communicate with the monitored resource.
 
-A pack contains the configuration of the plugin in Centreon (command, [templates](#template), thresholds), as well as data required by the automatic discovery feature.
+Centreon offers a great variety of connectors ready to be used to check any type of resource.
+A connector consists of a [pack](#pack) (commands, preconfigured [templates](#template)) and a [plugin](#plugin) (the probe that executes the checks).
+Some connectors also have an automatic discovery feature allowing them to find ressources of a certain type to monitor them.
 
 **See also**:
 
@@ -162,6 +164,10 @@ Message that warns a user that an incident has occurred. You can configure notif
 ## One-peer retention mode
 
 Advanced configuration for Centreon [Broker](#broker) that activates the retention mechanism in [Broker inverted flow mode](#broker-inverted-flow-mode). This mode is commonly used for monitoring servers ([pollers](#poller) or [remote servers](#remote-server)) located in demilitarized zones (DMZ).
+
+## Pack
+
+A pack contains the information related to the services that will be checked, their alert thresholds and the command lines required to perform the checks. The pack brings a default configuration but remains highly customizable.
 
 ## Performance data
 
