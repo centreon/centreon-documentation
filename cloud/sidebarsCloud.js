@@ -115,7 +115,7 @@ module.exports = {
             },
             {
               type: 'doc',
-              id: 'getting-started/create-custom-view',
+              id: 'getting-started/create-dashboard',
             },
           ],
         },
