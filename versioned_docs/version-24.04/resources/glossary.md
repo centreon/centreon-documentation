@@ -167,7 +167,7 @@ Advanced configuration for Centreon [Broker](#broker) that activates the retenti
 
 ## Pack
 
-The pack holds the information related to the services that will be controlled, their alert thresholds and the command lines required to perform the checks. The pack allows a default configuration for the services but remains highly customizable.
+A pack contains the information related to the services that will be checked, their alert thresholds and the command lines required to perform the checks. The pack brings a default configuration but remains highly customizable.
 
 ## Performance data
 
