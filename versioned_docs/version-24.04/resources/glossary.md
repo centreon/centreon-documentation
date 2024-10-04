@@ -138,8 +138,8 @@ Any action performed in the interface that acts on your monitoring in real time.
 Connectors are the programming brick that lets Centreon communicate with the supervised equipment.
 
 Centreon offers a great variety of connectors ready to be used to control any type of equipment.
-The connector is made of a pack (preconfigured models) and a plugin (the probe that executes the checks).
-Some connectors may also have a “discovery” feature allowing them to independently find ressources of a certain type to monitor them.
+The connector is made of a [pack](#pack) (preconfigured models) and a [plugin](#plugin) (the probe that executes the checks).
+Some connectors may also have an automatic discovery feature allowing them to independently find ressources of a certain type to monitor them.
 
 **See also**:
 
@@ -164,6 +164,10 @@ Message that warns a user that an incident has occurred. You can configure notif
 ## One-peer retention mode
 
 Advanced configuration for Centreon [Broker](#broker) that activates the retention mechanism in [Broker inverted flow mode](#broker-inverted-flow-mode). This mode is commonly used for monitoring servers ([pollers](#poller) or [remote servers](#remote-server)) located in demilitarized zones (DMZ).
+
+## Pack
+
+The pack holds the information related to the services that will be controlled, their alert thresholds and the command lines required to perform the checks. The pack allows a default configuration for the services but remains highly customizable.
 
 ## Performance data
 
