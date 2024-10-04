@@ -139,7 +139,7 @@ Connectors are the programming brick that lets Centreon communicate with the mon
 
 Centreon offers a great variety of connectors ready to be used to check any type of resource.
 A connector consists of a [pack](#pack) (commands, preconfigured [templates](#template)) and a [plugin](#plugin) (the probe that executes the checks).
-Some connectors may also have an automatic discovery feature allowing them to independently find ressources of a certain type to monitor them.
+Some connectors also have an automatic discovery feature allowing them to find ressources of a certain type to monitor them.
 
 **See also**:
 
