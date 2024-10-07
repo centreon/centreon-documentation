@@ -22,7 +22,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                                             | Service Description    |
 |:--------------|:-------------------------------------------------------------|:-----------------------|
-| Api-Requests  | Net-Cisco-Meraki-Cloudcontroller-Api-Requests-Restapi-custom | Check meraki API usage |
+| Api-Requests  | Net-Cisco-Meraki-Cloudcontroller-Api-Requests-Restapi-custom | Check Meraki API usage |
 
 > The services listed above are created automatically when the **Net-Cisco-Meraki-Cloudcontroller-Restapi-custom** host template is used.
 
@@ -52,7 +52,7 @@ The connector brings the following service templates (sorted by the host templat
 | Cache         | Net-Cisco-Meraki-Cloudcontroller-Cache-Restapi-custom       | Generate cache files |            |
 | Devices       | Net-Cisco-Meraki-Cloudcontroller-Devices-Restapi-custom     | Check devices usage  | X          |
 | Networks      | Net-Cisco-Meraki-Cloudcontroller-Networks-Restapi-custom    | Check networks usage |            |
-| Vpn-Tunnels   | Net-Cisco-Meraki-Cloudcontroller-Vpn-Tunnels-Restapi-custom | Check devices usage  | X          |
+| Vpn-Tunnels   | Net-Cisco-Meraki-Cloudcontroller-Vpn-Tunnels-Restapi-custom | Check VPN tunnel usage  | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
