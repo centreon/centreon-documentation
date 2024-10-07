@@ -23,7 +23,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias        | Modèle de service                                            | Description                            |
 |:-------------|:-------------------------------------------------------------|:---------------------------------------|
-| Api-Requests | Net-Cisco-Meraki-Cloudcontroller-Api-Requests-Restapi-custom | Contrôle l'utilisation de l'API meraki |
+| Api-Requests | Net-Cisco-Meraki-Cloudcontroller-Api-Requests-Restapi-custom | Contrôle l'utilisation de l'API Meraki |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Cisco-Meraki-Cloudcontroller-Restapi-custom** est utilisé.
 
@@ -53,7 +53,7 @@ Le connecteur apporte les modèles de service suivants
 | Cache       | Net-Cisco-Meraki-Cloudcontroller-Cache-Restapi-custom       | Service permettant de générer les fichiers de cache |            |
 | Devices     | Net-Cisco-Meraki-Cloudcontroller-Devices-Restapi-custom     | Contrôle l'utilisation des équipements              | X          |
 | Networks    | Net-Cisco-Meraki-Cloudcontroller-Networks-Restapi-custom    | Contrôle l'utilisation des réseaux                  |            |
-| Vpn-Tunnels | Net-Cisco-Meraki-Cloudcontroller-Vpn-Tunnels-Restapi-custom | Contrôle l'utilisation des équipements              | X          |
+| Vpn-Tunnels | Net-Cisco-Meraki-Cloudcontroller-Vpn-Tunnels-Restapi-custom | Contrôle l'utilisation des tunnels VPN              | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -69,7 +69,7 @@ Le connecteur apporte les modèles de service suivants
 | Nom de la règle       | Description                                            |
 |:----------------------|:-------------------------------------------------------|
 | Cisco Meraki Devices  | Découvre les appareils Cisco Meraki via RestAPI        |
-| Cisco Meraki Networks | Découvre les réseaux Cisco Meraki Networks via RestAPI |
+| Cisco Meraki Networks | Découvre les réseaux Cisco Meraki via RestAPI |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
