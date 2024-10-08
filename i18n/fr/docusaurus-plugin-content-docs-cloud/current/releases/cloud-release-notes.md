@@ -35,7 +35,6 @@ You are now also able to display the host's name in a service object.
 
 We have also improved the integration of Business Edition features in "Centreon Dashboard" by adding the possibility to display Business Activities in the Status Grid widget.
 
-
 ## August 22, 2024
 
 ### Centreon IT Edition
