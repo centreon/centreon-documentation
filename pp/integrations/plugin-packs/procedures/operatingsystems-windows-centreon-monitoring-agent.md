@@ -95,11 +95,11 @@ No metrics for this service.
 
 ### Network flow
 
-Two TCP flows must be open from the host to the poller.
+Only one TCP flow must be open from the host to the poller.
 
-| Source         | Destination | Protocole | Port | Purpose                                          |
-|----------------|-------------|-----------|------|--------------------------------------------------|
-| Hôte supervisé | Collecteur  | TCP       | 4317 | Configuration retrieval OpenTelemetry data flow. |
+| Source         | Destination | Protocol | Port | Purpose                                          |
+|----------------|-------------|----------|------|--------------------------------------------------|
+| Hôte supervisé | Collecteur  | TCP      | 4317 | Configuration retrieval OpenTelemetry data flow. |
 
 ### System prerequisites on the poller
 
