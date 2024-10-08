@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template              | Service Description                                                                                                                                |
 |:--------------|:------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu           | OS-Linux-Cpu-SNMPv3-custom    | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU. |
+| Cpu           | OS-Linux-Cpu-SNMPv3-custom    | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |
 | Load          | OS-Linux-Load-SNMPv3-custom   | Check the server load average                                                                                                                      |
 | Memory        | OS-Linux-Memory-SNMPv3-custom | Check the rate of the utilization of memory                                                                                                        |
 | Ntp           | OS-Linux-NTP-SNMPv3-custom    | Check the synchronization with an NTP server                                                                                                       |
@@ -34,15 +34,14 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias     | Service Template                         | Service Description                                                                                                                                         | Discovery  |
 |:------------------|:-----------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
-| Cpu-Detailed               | OS-Linux-Cpu-Detailed-SNMP-custom               | Check the detailed rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU. |            |
-| Disk-Generic-Id            | OS-Linux-Disk-Generic-Id-SNMP-custom            | Check the rate of free space on the disk. For each check, the name of the disk will appear.                                                                  |            |
-| Disk-Generic-Name | OS-Linux-Disk-Generic-Name-SNMPv3-custom | Check the rate of free space on the disk.                                                                                                                   |            |
-| Disk-Global       | OS-Linux-Disk-Global-SNMPv3-custom       | Check the rate of free space on disks. For each check, the mount point of disks will appear.                                                                 | X          |
-| Disk-IO           | OS-Linux-Disk-IO-SNMPv3-custom           | Check access disk of the disk.                                       |            |
-| Inodes-Global     | OS-Linux-Inodes-Global-SNMPv3-custom     | Check Inodes space usage on partitions.                                                                                                                     |            |
-| Interfaces        | OS-Linux-Interfaces-SNMPv3-custom        | Check the states and statistics (bandwidth, packet errors, etc.) of the network interfaces.                                                               | X          |
-| Process-Generic   | OS-Linux-Process-Generic-SNMPv3-custom   | Check Linux process/service is working.                                                                                                                     |            |
-| Tcpcon-Generic    | OS-Linux-Tcpcon-Generic-SNMPv3-custom    | Check current TCP connections.                                                                                                                              |            |
+| Cpu-Detailed      | OS-Linux-Cpu-Detailed-SNMPv3-custom      | Check the detailed rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |            |
+| Disk-Generic-Name | OS-Linux-Disk-Generic-Name-SNMPv3-custom | Check the rate of free space on the disk                                                                                                                    |            |
+| Disk-Global       | OS-Linux-Disk-Global-SNMPv3-custom       | Check the rate of free space on disks. For each checks the mount point of disks will appear                                                                 | X          |
+| Disk-IO           | OS-Linux-Disk-IO-SNMPv3-custom           | Check access disk of the disk. For each check the name of the disk will appear "label" rather than the letter assigned                                      |            |
+| Inodes-Global     | OS-Linux-Inodes-Global-SNMPv3-custom     | Check Inodes space usage on partitions                                                                                                                      |            |
+| Interfaces        | OS-Linux-Interfaces-SNMPv3-custom        | Check the states and statistics                                                                                                                             | X          |
+| Process-Generic   | OS-Linux-Process-Generic-SNMPv3-custom   | Check Linux process/service is working                                                                                                                      |            |
+| Tcpcon-Generic    | OS-Linux-Tcpcon-Generic-SNMPv3-custom    | Check current TCP connections                                                                                                                               |            |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -135,12 +134,6 @@ Here is the list of services for this connector, detailing all metrics linked to
 | *disk*#storage.inodes.usage.percentage | %     |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
-
-To work properly, the Inodes mode needs the following directive to be set in the SNMP server configuration file `/etc/snmp/snmpd.conf`:
-
-```
-includeAllDisks 10%
-```
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
@@ -304,7 +297,7 @@ dnf install centreon-pack-operatingsystems-linux-snmpv3
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-pack-operatingsystems-linux-snmpv3
@@ -321,7 +314,7 @@ yum install centreon-pack-operatingsystems-linux-snmpv3
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Linux SNMP v3** connector through
-the **Configuration > Monitoring Connectors Manager** menu.
+the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
 
@@ -351,7 +344,7 @@ dnf install centreon-plugin-Operatingsystems-Linux-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 apt install centreon-plugin-operatingsystems-linux-snmp
@@ -372,7 +365,7 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 ### Using a host template provided by the connector
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
-2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
 3. Apply the **OS-Linux-SNMPv3-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
@@ -397,8 +390,8 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 
 | Macro        | Description                                                                                        | Default value     | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold for average CPU utilization                                                          | 80                |             |
-| CRITICAL     | Critical threshold for average CPU utilization                                                         | 90                |             |
+| WARNING      | Warning threshold average CPU utilization                                                          | 80                |             |
+| CRITICAL     | Critical threshold average CPU utilization                                                         | 90                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
@@ -415,7 +408,7 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 
 | Macro        | Description                                                                                                                                                                                    | Default value                                 | Mandatory   |
 |:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-----------:|
-| DISKNAME     | Define the storage units to be checked (number expected) example: 1, 2,... (empty means 'check all storage units').                                                                                                         |                                               |             |
+| DISKNAME     | Set the storage (number expected) example: 1, 2,... (empty means 'check all storage')                                                                                                          |                                               |             |
 | TRANSFORMSRC | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run' will replace all occurrences of 'dev' with 'run' |                                               |             |
 | TRANSFORMDST | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run' will replace all occurrences of 'dev' with 'run' |                                               |             |
 | WARNING      | Warning threshold                                                                                                                                                                              | 80                                            |             |
@@ -427,7 +420,7 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 
 | Macro        | Description                                                                                                                                                                                    | Default value                                           | Mandatory   |
 |:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:-----------:|
-| FILTER       | Define the storage units to be checked (number expected) example: 1, 2,... (empty means 'check all storage units').                                                                                                          | .*                                                      |             |
+| FILTER       | Set the storage (number expected) example: 1, 2,... (empty means 'check all storage')                                                                                                          | .*                                                      |             |
 | TRANSFORMSRC | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run' will replace all occurrences of 'dev' with 'run' |                                                         |             |
 | TRANSFORMDST | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run' will replace all occurrences of 'dev' with 'run' |                                                         |             |
 | WARNING      | Warning threshold                                                                                                                                                                              | 80                                                      |             |
@@ -439,7 +432,7 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 
 | Macro         | Description                                                                                        | Default value     | Mandatory   |
 |:--------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| DISKNAME      | Define the device you want to check (number expected) example: 1, 2,... (empty means 'check all devices')               |                   |             |
+| DISKNAME      | Set the device (number expected) example: 1, 2,... (empty means 'check all devices')               |                   |             |
 | WARNINGREAD   | Warning threshold                                                                                  |                   |             |
 | CRITICALREAD  | Critical threshold                                                                                 |                   |             |
 | WARNINGWRITE  | Warning threshold                                                                                  |                   |             |
@@ -451,7 +444,7 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 
 | Macro        | Description                                                                                        | Default value                                            | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------|:---------------------------------------------------------|:-----------:|
-| FILTER       | Specify the path of the disk you want to check (number expected) example: 1, 2,... (empty means 'check all disk paths')        | .*                                                       |             |
+| FILTER       | Set the disk path (number expected) example: 1, 2,... (empty means 'check all disks path')         | .*                                                       |             |
 | FILTERDEVICE | Filter devices by name (regexp)                                                                    | ^(?!(tmpfs\|devpts\|none\|proc\|sysfs\|sunrpc\|\/\/.*)$) |             |
 | WARNING      | Warning threshold in percent                                                                       | 80                                                       |             |
 | CRITICAL     | Critical threshold in percent                                                                      | 90                                                       |             |
@@ -464,7 +457,7 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 |:-------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
 | OIDFILTER          | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                                          | ifname                                                | X           |
 | OIDDISPLAY         | Define the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                                 | ifname                                                | X           |
-| INTERFACENAME      | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                                                                                           |                                                       |             |
+| INTERFACENAME      | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name                                                               |                                                       |             |
 | WARNINGINDISCARD   | Thresholds                                                                                                                                                                                                          |                                                       |             |
 | CRITICALINDISCARD  | Thresholds                                                                                                                                                                                                          |                                                       |             |
 | WARNINGINERROR     | Thresholds                                                                                                                                                                                                          |                                                       |             |
@@ -493,22 +486,22 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Thresholds                                                                                         | 80                |             |
-| CRITICAL     | Thresholds                                                                                         | 90                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro        | Description                                                                                        | Default value           | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------|:------------------------|:-----------:|
+| WARNING      | Thresholds                                                                                         | 80                      |             |
+| CRITICAL     | Thresholds                                                                                         | 90                      |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --force-64bits-counters |             |
 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
 
 | Macro        | Description                                                                                                     | Default value     | Mandatory   |
 |:-------------|:----------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| NTPADDR      | Set the NTP server's hostname (if not set, localtime is used)                                                           |                   |             |
-| NTPPORT      | Define the port of the NTP server (default: 123)                                                                                 |                   |             |
-| TIMEZONE     | Set the timezone of the distant server. For Windows, you need to set it. Can use format: 'Europe/London' or '+0100' |                   |             |
+| NTPADDR      | Set the ntp hostname (if not set, localtime is used)                                                            |                   |             |
+| NTPPORT      | Set the ntp port (default: 123)                                                                                 |                   |             |
+| TIMEZONE     | Set the timezone of distant server. For Windows, you need to set it. Can use format: 'Europe/London' or '+0100' |                   |             |
 | WARNING      | Time offset warning threshold (in seconds)                                                                      | -1:1              |             |
-| CRITICAL     | Time offset critical threshold (in seconds)                                                                     | -2:2              |             |
+| CRITICAL     | Time offset critical Threshold (in seconds)                                                                     | -2:2              |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).              |                   |             |
 
 </TabItem>
@@ -516,9 +509,9 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 
 | Macro        | Description                                                                                        | Default value     | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PROCESSNAME  | Regular expression to define which processes should be monitored based on the executable’s name.  |                   |             |
-| PROCESSPATH  | Regular expression to define which processes should be monitored based on the executable’s path.  |                   |             |
-| PROCESSARGS  | Regular expression to define which processes should be monitored based on the command’s arguments.  |                   |             |
+| PROCESSNAME  | Filter process name                                                                                |                   |             |
+| PROCESSPATH  | Filter process path                                                                                |                   |             |
+| PROCESSARGS  | Filter process arguments                                                                           |                   |             |
 | CRITICAL     | Critical threshold of matching processes count                                                     | 1:                |             |
 | WARNING      | Warning threshold of matching processes count                                                      |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
@@ -564,22 +557,42 @@ is able to monitor a resource using a command like this one (replace the sample 
 ```bash
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl \
 	--plugin=os::linux::snmp::plugin \
-	--mode=cpu \
-	--hostname=10.0.0.1 \
+	--mode=interfaces \
+	--hostname='10.0.0.1' \
 	--snmp-version 3 \
-	--snmp-username='centreon' \
-	--authpassphrase='centreonrocks' \
-	--authprotocol='SHA' \
-	--privpassphrase='linuxisgreat' \
-	--privprotocol='AES' \
-	--warning-average='80' \
-	--critical-average='90'
+	--snmp-username='' \
+	--authpassphrase='' \
+	--authprotocol='' \
+	--privpassphrase='' \
+	--privprotocol=''  \
+	--interface='' \
+	--name \
+	--add-status \
+	--add-traffic \
+	--add-errors \
+	--warning-status='' \
+	--critical-status='%{admstatus} eq "up" and %{opstatus} !~ /up|dormant/' \
+	--warning-in-traffic='' \
+	--critical-in-traffic='' \
+	--warning-out-traffic='' \
+	--critical-out-traffic='' \
+	--warning-in-discard='' \
+	--critical-in-discard='' \
+	--warning-out-discard='' \
+	--critical-out-discard='' \
+	--warning-in-error='' \
+	--critical-in-error='' \
+	--warning-out-error='' \
+	--critical-out-error='' \
+	--oid-filter='ifname' \
+	--oid-display='ifname' \
+	--verbose
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: 1 CPU(s) average usage is 1.00 % - CPU '0' usage : 1.00 % | 'total_cpu_avg'=1.00%;0:80;0:90;0;100 'cpu'=1.00%;;;0;100
+OK: All interfaces are ok | '*interface_name*#status'=;;;;'*interface_name*#interface.traffic.in.bitspersecond'=b/s;;;;'*interface_name*#interface.traffic.out.bitspersecond'=b/s;;;;'*interface_name*#interface.packets.in.discard.percentage'=%;;;;100'*interface_name*#interface.packets.in.error.percentage'=%;;;;100'*interface_name*#interface.packets.out.discard.percentage'=%;;;;100'*interface_name*#interface.packets.out.error.percentage'=%;;;;100
 ```
 
 ### Troubleshooting
@@ -648,7 +661,7 @@ All generic options are listed here:
 | --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
+| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale(Mbps),mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                                |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
 | --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -660,7 +673,7 @@ All generic options are listed here:
 | --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --output-file                              | Write output in file (can be combined with json, xml and openmetrics options). Example: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-file                              | Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
@@ -700,7 +713,7 @@ All available options for each service template are listed below:
 
 | Option             | Description                                   |
 |:-------------------|:----------------------------------------------|
-| --use-ucd          | Use UCD mib for cpu average.                  |
+| --use-ucd          | Use UCD mib for CPU average.                  |
 | --warning-average  | Warning threshold average CPU utilization.    |
 | --critical-average | Critical threshold average CPU utilization.   |
 | --warning-core     | Warning thresholds for each CPU core          |
@@ -749,8 +762,8 @@ All available options for each service template are listed below:
 | --critical-access                               | Critical threshold. Check if storage is readOnly: --critical-access=readOnly                                                                                                                                                                  |
 | --add-access                                    | Check storage access (readOnly, readWrite).                                                                                                                                                                                                   |
 | --units                                         | Units of thresholds (default: '%') ('%', 'B').                                                                                                                                                                                                |
-| --free                                          | Apply thresholds on free space instead of on used space.                                                                                                                                                                                                            |
-| --storage                                       | Define the storage units to be checked (number expected) example: 1, 2,... (empty means 'check all storage units').                                                                                                                                                       |
+| --free                                          | Thresholds are on free space left.                                                                                                                                                                                                            |
+| --storage                                       | Set the storage (number expected) example: 1, 2,... (empty means 'check all storage').                                                                                                                                                        |
 | --name                                          | Allows to use storage name with option --storage instead ofstorage oid index.                                                                                                                                                                 |
 | --regexp                                        | Allows to use regexp to filter storage (with option --name).                                                                                                                                                                                  |
 | --regexp-insensitive                            | Allows to use regexp non case-sensitive (with --regexp).                                                                                                                                                                                      |
@@ -759,7 +772,7 @@ All available options for each service template are listed below:
 | --oid-filter                                    | Choose OID used to filter storage (default: hrStorageDescr) (values: hrStorageDescr, hrFSMountPoint).                                                                                                                                         |
 | --oid-display                                   | Choose OID used to display storage (default: hrStorageDescr) (values: hrStorageDescr, hrFSMountPoint).                                                                                                                                        |
 | --display-transform-src --display-transform-dst | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run' will replace all occurrences of 'dev' with 'run'                                                |
-| --show-cache                                    | Display cache storage datas.                                                                                                                                                                                                                  |
+| --show-cache                                    | Display cache storage data.                                                                                                                                                                                                                   |
 | --space-reservation                             | Some filesystem has space reserved (like ext4 for root). The value is in percent of total (default: none) (results like 'df' command).                                                                                                        |
 | --filter-duplicate                              | Filter duplicate storages (in used size and total size).                                                                                                                                                                                      |
 | --filter-storage-type                           | Filter storage types with a regexp (default: '^(hrStorageFixedDisk\|hrStorageNetworkDisk\|hrFSBerkeleyFFS)$').                                                                                                                                |
@@ -783,8 +796,8 @@ All available options for each service template are listed below:
 | --statefile-cipher     | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
 | --warning-*            | Warning threshold. Can be: 'read', 'write', 'read-iops', 'write-iops', 'total-read', 'total-write', 'total-read-iops', 'total-write-iops', 'sum-read-write', 'sum-read-write-iops'.                                                           |
 | --critical-*           | Critical threshold. Can be: 'read', 'write', 'read-iops', 'write-iops', 'total-read', 'total-write', 'total-read-iops', 'total-write-iops', 'sum-read-write', 'sum-read-write-iops'.                                                          |
-| --device               | Define the device you want to check (number expected) example: 1, 2,... (empty means 'check all devices')                                                                                                                                                     |
-| --name                 | Allows to use device name with option --device instead of device OID index.                                                                                                                                                                    |
+| --device               | Set the device (number expected) example: 1, 2,... (empty means 'check all devices').                                                                                                                                                         |
+| --name                 | Allows to use device name with option --device instead of devoceoid index.                                                                                                                                                                    |
 | --regexp               | Allows to use regexp to filter devices (with option --name).                                                                                                                                                                                  |
 | --regexp-insensitive   | Allows to use regexp non case-sensitive (with --regexp).                                                                                                                                                                                      |
 
@@ -795,8 +808,8 @@ All available options for each service template are listed below:
 |:------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --warning-usage                                 | Warning threshold in percent.                                                                                                                                                                      |
 | --critical-usage                                | Critical threshold in percent.                                                                                                                                                                     |
-| --diskpath                                      | Specify the path of the disk you want to check (number expected) example: 1, 2,... (empty means 'check all disk paths').                                                                                                        |
-| --name                                          | Allows to use disk path name with option --diskpath instead of disk path OID index.                                                                                                                 |
+| --diskpath                                      | Set the disk path (number expected) example: 1, 2,... (empty means 'check all disks path').                                                                                                        |
+| --name                                          | Allows to use disk path name with option --diskpath instead ofdisk path oid index.                                                                                                                 |
 | --regexp                                        | Allows to use regexp to filter diskpath (with option --name).                                                                                                                                      |
 | --regexp-insensitive                            | Allows to use regexp non case-sensitive (with --regexp).                                                                                                                                           |
 | --display-transform-src --display-transform-dst | Modify the disk path name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run' will replace all occurrences of 'dev' with 'run'   |
@@ -835,21 +848,22 @@ All available options for each service template are listed below:
 | --units-traffic                                 | Units of thresholds for the traffic (default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                                                                                                      |
 | --units-errors                                  | Units of thresholds for errors/discards (default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                          |
 | --units-cast                                    | Units of thresholds for communication types (default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                      |
-| --nagvis-perfdata                               | Display traffic perfdata to be compatible with nagvis widget.                                                                                                                                                                                                                              |
-| --interface                                     | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces').                                                                                                                                                                                                 |
-| --name                                          | Allows you to define the interface (in option --interface) by name instead of OID index. The name matching mode supports regular expressions.                                                                                                                                               |
+| --nagvis-perfdata                               | Display traffic perfdata to be compatible with NagVis widget.                                                                                                                                                                                                                              |
+| --interface                                     | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name.                                                                                                                                     |
+| --name                                          | With this option, the interfaces will be filtered by name (givenin option --interface) instead of OID index. The name matching mode supports regular expressions.                                                                                                                          |
+| --regex-id                                      | With this option, interface IDs will be filtered using the --interface parameter as a regular expression instead of a list of IDs.                                                                                                                                                         |
 | --speed                                         | Set interface speed for incoming/outgoing traffic (in Mb).                                                                                                                                                                                                                                 |
 | --speed-in                                      | Set interface speed for incoming traffic (in Mb).                                                                                                                                                                                                                                          |
 | --speed-out                                     | Set interface speed for outgoing traffic (in Mb).                                                                                                                                                                                                                                          |
-| --map-speed-dsl                                 | Get interface speed configuration for interface type 'adsl' and 'vdsl2'.  Syntax: --map-speed-dsl=interface-src-name,interface-dsl-name  Example: --map-speed-dsl=Et0.835,Et0-vdsl2                                                                                                            |
-| --force-counters64                              | Force to use 64-bit counters only. Can be used to improve performance.                                                                                                                                                                                                                    |
-| --force-counters32                              | Force to use 32-bit counters (even in snmp v2c and v3). Should be used when 64-bit counters are buggy.                                                                                                                                                                                   |
+| --map-speed-dsl                                 | Get interface speed configuration for interfaces of type 'ADSL' and 'VDSL2'.  Syntax: --map-speed-dsl=interface-src-name,interface-dsl-name  E.g: --map-speed-dsl=Et0.835,Et0-vdsl2                                                                                                        |
+| --force-counters64                              | Force to use 64 bits counters only. Can be used to improve performance.                                                                                                                                                                                                                    |
+| --force-counters32                              | Force to use 32-bits counters (even with SNMP versions 2c and 3). To use when 64 bits counters are buggy.                                                                                                                                                                                  |
 | --reload-cache-time                             | Time in minutes before reloading cache file (default: 180).                                                                                                                                                                                                                                |
 | --oid-filter                                    | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                                |
 | --oid-display                                   | Define the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                       |
 | --oid-extra-display                             | Add an OID to display.                                                                                                                                                                                                                                                                     |
 | --display-transform-src --display-transform-dst | Modify the interface name displayed by using a regular expression.  Example: adding --display-transform-src='eth' --display-transform-dst='ens' will replace all occurrences of 'eth' with 'ens'                                                                                           |
-| --show-cache                                    | Display cache interface datas.                                                                                                                                                                                                                                                             |
+| --show-cache                                    | Display cache interface data.                                                                                                                                                                                                                                                              |
 
 </TabItem>
 <TabItem value="Load" label="Load">
@@ -863,13 +877,14 @@ All available options for each service template are listed below:
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Option                   | Description                                                                                                                                                                                                                                                                                          |
-|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --units                  | Units of thresholds (default: '%') ('%', 'absolute')(deprecated. Please use new counters directly)                                                                                                                                                                                                   |
-| --free                   | Apply the thresholds on free space instead of on used space. This option is deprecated, please use --(warning|critical)-usage-free or  --(warning|critical)-swap-free instead. |
-| --swap                   | Check swap also.                                                                                                                                                                                                                                                                                     |
-| --warning-* --critical-* | Thresholds. Can be: 'usage' (B), 'usage-free' (B), 'usage-prct' (%), 'swap' (B), 'swap-free' (B), 'swap-prct' (%), 'buffer' (B), 'cached' (B), 'shared' (B).                                                                                                                                         |
-| --patch-redhat           | If using RedHat distribution with net-snmp \>= 5.7.2-43 and net-snmp \< 5.7.2-47. But you should update net-snmp!!!!  This version: used = memTotalReal - memAvailReal // free = memAvailReal  Others versions: used = memTotalReal - memAvailReal - memBuffer - memCached // free = total - used    |
+| Option                   | Description                                                                                                                                                                                                                                                                                                                        |
+|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --units                  | Units of thresholds (default: '%') ('%', 'absolute')(deprecated. Please use new counters directly)                                                                                                                                                                                                                                 |
+| --free                   | Thresholds are on free space left (deprecated. Please use newcounters directly)                                                                                                                                                                                                                                                    |
+| --swap                   | Check swap also.                                                                                                                                                                                                                                                                                                                   |
+| --warning-* --critical-* | Thresholds. Can be: 'usage' (B), 'usage-free' (B), 'usage-prct' (%), 'swap' (B), 'swap-free' (B), 'swap-prct' (%), 'buffer' (B), 'cached' (B), 'shared' (B).                                                                                                                                                                       |
+| --patch-redhat           | If using Red Hat distribution with net-snmp \>= 5.7.2-43 and net-snmp \< 5.7.2-47. But you should update net-snmp!!!!  This version: used = memTotalReal - memAvailReal // free = memAvailReal  Others versions: used = memTotalReal - memAvailReal - memBuffer - memCached // free = total - used                                 |
+| --force-64bits-counters  | Use this option to monitor a server/device that has more than 2 TB of RAM, the maximum size of a signed 32 bits integer. If you omit it you'll get the remainder of the Euclidean division of the actual value by 2 TB. NB: it cannot work with version 1 of SNMP protocol. 64 bits counters are supported starting version 2c.    |
 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
@@ -878,10 +893,10 @@ All available options for each service template are listed below:
 |:------------------|:--------------------------------------------------------------------------------------------------------------------|
 | --oid             | Override default OID.                                                                                               |
 | --warning-offset  | Time offset warning threshold (in seconds).                                                                         |
-| --critical-offset | Time offset critical threshold (in seconds).                                                                        |
-| --ntp-hostname    | Set the NTP server's hostname (if not set, localtime is used)                                                               |
-| --ntp-port        | Define the port of the NTP server (default: 123).                                                                                    |
-| --timezone        | Set the timezone of the distant server. For Windows, you need to set it. Can use format: 'Europe/London' or '+0100'.    |
+| --critical-offset | Time offset critical Threshold (in seconds).                                                                        |
+| --ntp-hostname    | Set the ntp hostname (if not set, localtime is used).                                                               |
+| --ntp-port        | Set the ntp port (default: 123).                                                                                    |
+| --timezone        | Set the timezone of distant server. For Windows, you need to set it. Can use format: 'Europe/London' or '+0100'.    |
 
 </TabItem>
 <TabItem value="Process-Generic" label="Process-Generic">
@@ -910,14 +925,14 @@ All available options for each service template are listed below:
 | --warning              | Warning threshold of matching processes count.                                                                                                                                                                                                |
 | --critical             | Critical threshold of matching processes count.                                                                                                                                                                                               |
 | --memory               | Check memory usage.                                                                                                                                                                                                                           |
-| --warning-mem-each     | Warning threshold of memory used by each matching process (in Bytes).                                                                                                                                                                       |
-| --critical-mem-each    | Critical threshold of memory used by each matching process (in Bytes).                                                                                                                                                                      |
+| --warning-mem-each     | Warning threshold of memory used by each matching processes (in Bytes).                                                                                                                                                                       |
+| --critical-mem-each    | Critical threshold of memory used by each matching processes (in Bytes).                                                                                                                                                                      |
 | --warning-mem-total    | Warning threshold of total memory used by matching processes (in Bytes).                                                                                                                                                                      |
 | --critical-mem-total   | Critical threshold of total memory used by matching processes (in Bytes).                                                                                                                                                                     |
 | --warning-mem-avg      | Warning threshold of average memory used by matching processes (in Bytes).                                                                                                                                                                    |
 | --critical-mem-avg     | Critical threshold of average memory used by matching processes (in Bytes).                                                                                                                                                                   |
-| --cpu                  | Check cpu usage. Should be used with fix processes. If processespid changes too much, the plugin can't compute values.                                                                                                                        |
-| --warning-cpu-total    | Warning threshold of cpu usage for all processes (in percent). CPU usage is in % of one cpu, so maximum can be 100% * number of CPU and a process can have a value greater than 100%.                                                         |
+| --cpu                  | Check CPU usage. Should be used with fix processes. If processespid changes too much, the plugin can't compute values.                                                                                                                        |
+| --warning-cpu-total    | Warning threshold of CPU usage for all processes (in percent). CPU usage is in % of one CPU, so maximum can be 100% * number of CPU and a process can have a value greater than 100%.                                                         |
 | --critical-cpu-total   | Critical threshold of CPU usage for all processes (in percent). CPU usage is in % of one CPU, so maximum can be 100% * number of CPU and a process can have a value greater than 100%.                                                        |
 | --top                  | Enable top memory usage display.                                                                                                                                                                                                              |
 | --top-num              | Number of processes in top memory display (default: 5).                                                                                                                                                                                       |
@@ -961,8 +976,8 @@ All available options for each service template are listed below:
 | --warning-uptime       | Warning threshold.                                                                                                                                                                                                                            |
 | --critical-uptime      | Critical threshold.                                                                                                                                                                                                                           |
 | --add-sysdesc          | Display system description.                                                                                                                                                                                                                   |
-| --force-oid            | Can choose your oid (numeric format only).                                                                                                                                                                                                    |
-| --check-overload       | The uptime counter limit is 4294967296 centiseconds (~497 days). This option makes the plugin store the actual uptime by incrementing the number of revolutions of the counter when it resets to zero. |
+| --force-oid            | Can choose your OID (numeric format only).                                                                                                                                                                                                    |
+| --check-overload       | Uptime counter limit is 4294967296 and overflow. With that option, we manage the counter going back. But there is a few chance we can miss a reboot.                                                                                          |
 | --reboot-window        | To be used with check-overload option. Time in milliseconds (default: 5000) You increase the chance of not missing a reboot if you decrease that value.                                                                                       |
 | --unit                 | Select the time unit for thresholds. May be 's' for seconds, 'm'for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                                                                                                  |
 
