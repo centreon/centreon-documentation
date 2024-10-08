@@ -26,7 +26,7 @@ The creation of a resource is now synchronous with the computation of its associ
 **MAP**
 
 It is now possible to use different common fonts in your maps. As a note, "roboto" will now be the default font. 
-You are now also able to display host name in a service object.
+You are now also able to display the host's name in a service object.
 
 **Service Mapping**
 
