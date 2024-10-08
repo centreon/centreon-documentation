@@ -97,12 +97,11 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Afin de superviser votre **WD NAS** en SNMP,  il est nécessaire de configurer l'agent sur l'équipement.
+Pour utiliser ce connecteur de supervision, le service SNMP doit démarré et configuré sur le serveur **WD NAS**.
 
 ### Flux réseau
 
-La communication doit être possible sur le port UDP 161 depuis le collecteur
-Centreon vers le serveur supervisé.
+La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers le serveur supervisé.
 
 ## Installer le connecteur de supervision
 
