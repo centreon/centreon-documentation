@@ -6,8 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-> At the moment, this monitoring connector is in a **BETA** version. Centreon does not recommend to use it 
-> in production yet.
+> At the moment, this monitoring connector is in a **BETA** version.
 
 You may refer to [this page](../getting-started/how-to-guides/cma.md) for more information about Centreon Monitoring Agent.
 

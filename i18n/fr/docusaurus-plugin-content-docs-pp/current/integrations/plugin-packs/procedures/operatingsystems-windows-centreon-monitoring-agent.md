@@ -6,8 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-> Pour le moment, ce connecteur de supervision est en version **BETA**. Centreon ne recommande
-> pas sa mise en oeuvre en production.
+> Pour le moment, ce connecteur de supervision est en version **BETA**.
 
 Vous pouvez consulter [cette page](../getting-started/how-to-guides/cma.md) pour plus d'informations sur ce que permet 
 Centreon Monitoring Agent.
