@@ -154,6 +154,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
+To work properly, the Inodes mode needs the following directive to be set in the SNMP server configuration file:
+
+```includeAllDisks 10%```
+
 </TabItem>
 <TabItem value="Load" label="Load">
 
