@@ -10,13 +10,15 @@ title: Centreon Cloud - notes de release
 
 **Notifications**
 
+**Notifications**
+
 It is now possible to configure a time period for a notification. When you do so, notifications will be issued only in the time range corresponding to the defined time period.
 Please note that time period exceptions are not taken into account yet.
 
 **Centreon Dashboards**
 
 A new widget named "Clock / Timer" is available, allowing you to contextualize your dashboards by adding a time reference in it (either time and date of a specific timezone or a timer).
-Statut grid widget tiles have also been improved by displaying resource icons and information about resource state (acknowledge or in downtime).
+Status Grid widget tiles have also been improved by displaying resource icons and information about the state of the resource (acknowledged or in downtime).
 
 **APIs**
 
