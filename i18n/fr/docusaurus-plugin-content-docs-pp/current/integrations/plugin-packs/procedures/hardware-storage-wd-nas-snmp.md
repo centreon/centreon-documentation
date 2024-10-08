@@ -97,7 +97,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Pour utiliser ce connecteur de supervision, le service SNMP doit démarré et configuré sur le serveur **WD NAS**.
+Pour utiliser ce connecteur de supervision, le service SNMP doit être démarré et configuré sur le serveur **WD NAS**. Veuillez vous référer à la documentation officielle du fabricant/éditeur.
 
 ### Flux réseau
 
