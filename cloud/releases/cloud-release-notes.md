@@ -19,7 +19,7 @@ Statut grid widget tiles have also been improved by displaying resource icons an
 
 **APIs**
 
-Resource creation is now synchonous with computation of their associated access rights which improves automatic resource creation via API.
+The creation of a resource is now synchronous with the computation of its associated access rights, which improves automatic resource creation using the API.
 
 ### Centreon Business Edition
 
