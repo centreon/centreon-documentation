@@ -30,7 +30,7 @@ You are now also able to display the host's name in a service object.
 
 **Service Mapping**
 
-We have also improved integration of Business Edition features in "Centreon Dashboard" by adding the possibility to display Business Activities in the Status Grid widget.
+We have also improved the integration of Business Edition features in "Centreon Dashboard" by adding the possibility to display Business Activities in the Status Grid widget.
 
 ## August 22, 2024
 
