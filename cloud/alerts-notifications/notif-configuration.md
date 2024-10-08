@@ -16,9 +16,11 @@ For each notification rule, you define in which cases the notifications will be 
 
 Resources are checked according to the following parameters:
 
-* Checks are made 24x7, every 5 minutes for as long as the host or service is in an OK state.
-* When a host or service enters a non-ok status (SOFT status type, e.g. Down SOFT for a host), Centreon checks 3 times that the host or service is still in a non-ok state (1 minute elapses between each of these checks).
-* If, after these 3 checks, the resource is still in a non-ok status, its status type becomes HARD. If notifications are activated for this status, a notification email is sent.
+* By default, checks are made 24x7 for as long as the host or service is in an OK state, every 5 minutes.
+   * The check period can be customized using [the **Check period** field of the resource](../monitoring/basic-objects/hosts.md#monitoring-settings).
+   * The frequency of checks can be customized using [the **Normal Check Interval** field of the resource](../monitoring/basic-objects/hosts.md#scheduling-options).
+* When a host or service enters a non-ok status (SOFT status type, e.g. Down SOFT for a host), by default Centreon checks 3 times that the host or service is still in a non-ok state (you can define a custom number of checks using [the **Max Check Attempts** field of the resource](../monitoring/basic-objects/hosts.md#scheduling-options)). By default, 1 minute elapses between each of these checks (you can customize this value using [the **Retry Check Interval** field of the resource](../monitoring/basic-objects/hosts.md#scheduling-options)).
+* If, after these checks, the resource is still in a non-ok status, its status type becomes HARD. If notifications are activated for this status, a notification email is sent.
 * When the resource goes back to an OK state, an email notification is sent if you have activated notifications in case of **Recovery**.
 * Contacts receive one notification email when the status of the resource changes (according to the statuses you have defined) - and one only. Example: if you have only selected **Critical**, no email will be sent when the service enters a **Warning** status. One email will be sent when the service becomes **Critical**, but no more.
 * If a service already had a critical status before you created a rule that activates notifications for the critical status, then no email notification will be sent.

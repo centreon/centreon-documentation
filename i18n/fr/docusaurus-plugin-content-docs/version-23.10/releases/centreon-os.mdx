@@ -22,14 +22,65 @@ notre [Github](https://github.com/centreon/centreon/issues/new/choose).
 
 ## Centreon Web
 
-### 23.10.15
+### 23.10.17
 
-Release date: `August 06, 2024`
+Release date: `September 30, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Authentication] Rescheduled the task of deleting expired tokens.
+
+</details>
 
 <details>
   <summary>Bug fixes</summary>
 
-- [Resource Status] Fixed a bug that occurred when users accessed the Graph panel for a resource.
+- [API] Fixed access control for monitoring servers configuration endpoints.
+- [API] Fixed ACL for meta-service endpoint.
+- [Authorization] Fixed an issue on ACLs reloading.
+- [Authentication] Fixed an issue with the ‘X509, MultiFactor’ authentication method.
+- [Authentication] Fixed incorrect URL redirection issue with OpenID Connect.
+- [Configuration] Fixed an issue on mass change which enabled disabled services.
+- [Configuration] The central server’s ID is now correctly configured in the Gorgone configuration.
+- [Configuration] The correct value for the notification activation option is now written to the Engine configuration file.
+- [CLAPI] The -V command now displays the version of Centreon with no unnecessary message.
+- [Dashboard] When the user locale is different from **en_US**, the legend for the Metrics Graph widget is no longer empty.
+- [Graph] Fixed an error that occurred when editing curves.
+- [Graph] You can now select a metric in the curve and virtual metric configuration forms.
+- [Packaging] Fixed invalid permissions on the cron that deletes obsolete tokens.
+- [Performance] Fixed a query performance issue with some specific data on the Resource status page.
+- [Resource Status] Fixed an issue with the "Force Active Checks" option, which was ignored in some cases.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed SQLi in contacts form (CVE-2024-39843).
+- [Security] Updated jQuery & jQuery-UI dependencies (CVE-2022-31160).
+
+</details>
+
+### 23.10.16
+
+Release date: `September 11, 2024`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed SQLi in contacts form (CVE-2024-39843).
+
+</details>
+
+### 23.10.15
+
+Release date: `August 6, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Resource Status] Fixed an issue that occurred when users accessed the Graph panel for a resource.
 
 </details>
 
@@ -453,6 +504,18 @@ Release date: `October 30, 2023`
 
 ## Centreon Collect
 
+### 23.10.11
+
+Release date: `September 30, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] If a plugin sends the same metric several times, an error log from broker explains the issue and only the first occurrence of the metric is kept.
+- [Engine] Fixed issues on external commands output.
+
+</details>
+
 ### 23.10.10
 
 Release date: `August 05, 2024`
@@ -653,6 +716,22 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon Gorgone
+
+### 23.10.10
+
+Release date: `September 30, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Added a partition for the Gorgone MBI **mod_bi_metriccentileweeklyvalue** and **mod_bi_metriccentilemonthlyvalue** tables, which are required by the ETL to run correctly.
+- [Gorgone] Fixed an issue affecting CPU load when a poller was not responding.
+- [Gorgone] Fixed an issue stopping the **nmap** discovery provider from working after a Gorgone whitelist was created.
+- [Gorgone] Fixed an issue where Gorgone running on a central server was leaking file descriptors when pollers were disconnected.
+- [Gorgone] In MBI, fixed the **perfdataStatisticsBuilder.pl** script: when using the **'-r --centile-only'** parameters, the **mod_bi_metrichourlyvalue** table is no longer truncated.
+- [Gorgone] The password of an MBI database user can now include special characters.
+
+</details>
 
 ### 23.10.9 
 

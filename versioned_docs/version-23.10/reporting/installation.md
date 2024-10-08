@@ -318,8 +318,30 @@ dnf install centreon-bi-server
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
+Install **gpg**:
+
 ```shell
-apt update && apt install centreon-bi-server
+apt install gpg
+```
+
+Import the repository key:
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
+
+Add the following external repository (for Java 8):
+
+```shell
+wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
+add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
+apt update
+```
+
+Then install Centreon MBI:
+
+```shell
+apt install centreon-bi-server
 ```
 
 </TabItem>
@@ -362,7 +384,7 @@ Use the following option:
 /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
 ```
 
-**@ROOTPWD@**: Root password of the MariaDB database of supervision.
+**@ROOTPWD@**: Root password of the MariaDB monitoring database.
 If there is no password for the "root" user, do not specify the **root-password** option.
 
 </TabItem>
@@ -743,7 +765,6 @@ Add the following external repository (for Java 8):
 ```shell
 wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
 add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
-apt update
 ```
 
 For an installation based on a blank distribution, install the GPG key:
@@ -975,7 +996,7 @@ You will get an error when creating the USER, because it already exists. This is
 
 Centreon MBI integrates an ETL that allows you to:
 
-- Synchronize the raw data from the supervision to the reporting server
+- Synchronize the raw data from the monitoring to the reporting server
 - Feed statistical data to the reporting server databases
 - Control the retention of data on the reporting server
 
