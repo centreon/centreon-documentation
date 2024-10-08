@@ -14,7 +14,7 @@ Please note that time period exceptions are not taken into account yet.
 
 **Centreon Dashboards**
 
-A new widget named "clock / Timer" is available, allowing you to contextualize your dashboards by adding a time reference in it (either time and date of a specific timezone or a timer).
+A new widget named "Clock / Timer" is available, allowing you to contextualize your dashboards by adding a time reference in it (either time and date of a specific timezone or a timer).
 Statut grid widget tiles have also been improved by displaying resource icons and information about resource state (acknowledge or downtime).
 
 **APIs**
