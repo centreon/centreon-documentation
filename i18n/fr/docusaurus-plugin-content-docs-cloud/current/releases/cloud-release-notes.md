@@ -10,28 +10,28 @@ title: Centreon Cloud - notes de release
 
 **Notifications**
 
-It is now possible to configure a time period for a notification. When you do so, notification will be issued only in the time range corresponding to the defined time period.
-Please note that time period exceptions are not yet considered.
+It is now possible to configure a time period for a notification. When you do so, notifications will be issued only in the time range corresponding to the defined time period.
+Please note that time period exceptions are not taken into account yet.
 
 **Centreon Dashboards**
 
-A new widget named "clock / Timer" is available, allowing you to contextualize your dashboards by adding a time reference in it (either time and date of a specific timezone or a timer).
-Statut grid widget tiles have also been improved by displaying resource icons and information about resource state (acknowledge or downtime).
+A new widget named "Clock / Timer" is available, allowing you to contextualize your dashboards by adding a time reference in it (either time and date of a specific timezone or a timer).
+Statut grid widget tiles have also been improved by displaying resource icons and information about resource state (acknowledge or in downtime).
 
 **APIs**
 
-Resource creation is now synchonous with computation of their associated access rights which improves automatic resource creation via API.
+The creation of a resource is now synchronous with the computation of its associated access rights, which improves automatic resource creation using the API.
 
 ### Centreon Business Edition
 
 **MAP**
 
 It is now possible to use different common fonts in your maps. As a note, "roboto" will now be the default font. 
-You are now also able to display host name in a service object.
+You are now also able to display the host's name in a service object.
 
 **Service Mapping**
 
-We have also improved integration of Business Edition features in "Centreon Dashboard" by adding the possibility to display Business Activities in the Status Grid widget.
+We have also improved the integration of Business Edition features in "Centreon Dashboard" by adding the possibility to display Business Activities in the Status Grid widget.
 
 
 ## August 22, 2024
