@@ -10,7 +10,7 @@ title: Centreon Cloud release notes
 **Notifications**
 
 It is now possible to configure a time period for a notification. When you do so, notifications will be issued only in the time range corresponding to the defined time period.
-Please note that time period exceptions are not yet considered.
+Please note that time period exceptions are not taken into account yet.
 
 **Centreon Dashboards**
 
