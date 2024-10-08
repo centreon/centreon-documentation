@@ -892,7 +892,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 | Macro               | Description                                                                                                                    | Default value     | Mandatory   |
 |:--------------------|:-------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTER              | The connector will only take into account alerts coming from the datastores listed here                                        | .*                |             |
-| UNIT                |                                                                                                                                | %                 |             |
+| UNIT                | Set this option to '%' if you want the thresholds to be interpreted as a percentage of the maximum possible value instead of as an absolute threshold.  | %                 |             |
 | UNKNOWNSTATUS       | Define the conditions to match for the status to be UNKNOWN (Default: '%{accessible} !~ /^true\|1$/i'). You can use the following variables: %{accessible} |                   |             |
 | WARNINGPROVISIONED  | Thresholds. : 'usage' (B), 'usage-free' (B), 'usage-prct' (%), 'provisioned'                                                   |                   |             |
 | CRITICALPROVISIONED | Thresholds. : 'usage' (B), 'usage-free' (B), 'usage-prct' (%), 'provisioned'                                                   |                   |             |
