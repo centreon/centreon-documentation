@@ -254,3 +254,11 @@ cat /var/lib/centreon-engine/*-module-stats.json
 > Note: This file is a UNIX pipe file and is only accessible when the **centengine** service is running.
 
 If all troubleshooting steps have failed, contact [our support team](https://support.centreon.com/hc/en-us).
+
+## Poller log files
+
+| Use to debug what? | Process | File | Symptoms |
+|--------------------|---------|------|----------|
+| Installation of the poller |   | {scriptdir}/logs/register-poller.log | |
+| Centreon Engine | centengine | /var/log/centreon-engine/centengine.log | <ul><li>Checks are not performed</li><li>Objects that have been deleted are still monitored</li></ul> |
+| Gorgone | gorgoned | /var/log/centreon-gorgone/gorgoned.log | Actions are not triggered: acknowledgements, downtimes, force checks, autodiscovery |
