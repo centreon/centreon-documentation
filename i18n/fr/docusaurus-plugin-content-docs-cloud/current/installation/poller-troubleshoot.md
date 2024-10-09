@@ -10,7 +10,7 @@ Cette page propose des procédures pour dépanner les collecteurs Centreon **dan
 
 ## Qu'y a-t-il dans un collecteur ?
 
-En gros, un collecteur consiste en deux services :
+Pour résumer, un collecteur consiste en deux services :
 
 * **Gorgone** (le processus **gorgoned**) est responsable de gérer la configuration de la supervision. Gorgone reçoit et applique la configuration sur le collecteur lorsqu'un utilisateur [déploie la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) pour ce collecteur depuis l'interface Centreon Cloud.
 
@@ -30,7 +30,7 @@ less ./log/register-poller.log
 
 Typiquement, les contrôles ne sont pas exécutés. Faites les vérifications suivantes : si une étape a fonctionné, passez à la suivante.
 
-### Étape 1 : Testez la connexion de Gorgone à la plateforme
+### Étape 1 : Tester la connexion de Gorgone à la plateforme
 
 Vérifiez que Gorgone peut se connecter à votre plateforme Centreon Cloud.
 
@@ -47,7 +47,7 @@ Ncat: Connected to n.n.n.n:443.
 Si vous obtenez un timeout, cela signifie que la configuration réseau ne permet pas au collecteur de parler à la plateforme.
 Vérifiez si vous avez besoin d'un proxy, ou si vous devez [ouvrir certains flux](prerequisites.md#réseau) ou [autoriser certaines plages d'IP](prerequisites.md#autoriser-le-trafic-vers-ou-en-provenance-des-plages-dip-aws).
 
-### Étape 2 : Vérifiez que Gorgone tourne
+### Étape 2 : Vérifier que Gorgone tourne
 
 Exécutez la commande suivante :
 
@@ -61,7 +61,7 @@ Si le statut de Gorgone n'est pas **active (running)**, redémarrez-le :
 systemctl restart gorgoned
 ```
 
-### Étape 3 : Vérifiez les logs Gorgone
+### Étape 3 : Vérifier les logs Gorgone
 
 Les logs Gorgone sont écrits dans le fichier suivant : repérez d'éventuelles erreurs.
 
@@ -87,7 +87,7 @@ Le niveau de log par défault de Gorgone est **error**. Si vous avez besoin de p
    systemctl restart gorgoned
    ```
 
-### Étape 5 : Vérifiez la connexion de Gorgone
+### Étape 5 : Vérifier la connexion de Gorgone
 
 Une fois que vous avez défini le niveau de log à info ou debug, ce message de type INFO devrait apparaître dans les logs de Gorgone :
 
@@ -97,7 +97,7 @@ INFO - [pullwss] websocket connected
 
 Si vous obtenez un message différent, cela signifie qu'il y a un problème avec la configuration réseau, ou un problème d'authentification.
 
-### Étape 6 : Vérifiez que la commande de déploiement fonctionne
+### Étape 6 : Vérifier que la commande de déploiement fonctionne
 
 Vérifiez les messages de log générés par Gorgone pendant que la configuration est en train d'être déployée. Le log devrait contenir les lignes suivantes, qui signifient que le collecteur a reçu la configuration.
 
@@ -108,9 +108,9 @@ Vérifiez les messages de log générés par Gorgone pendant que la configuratio
 2024-09-13 14:28:51 - INFO - [action] Copy processing - Copy to '/etc/centreon-broker/' finished successfully
 ```
 
-Si toutes les étapes suivantes ont fonctionné mais que le log ne montre pas que collecteur a reçu la configuration, contactez [notre équipe support](https://support.centreon.com/hc/en-us).
+Si toutes les étapes suivantes ont fonctionné mais que le log ne montre pas que le collecteur a reçu la configuration, contactez [notre équipe support](https://support.centreon.com/hc/en-us).
 
-### Étape 7 : Vérifiez que les fichiers de configuration sont correctement mis à jour
+### Étape 7 : Vérifier que les fichiers de configuration sont correctement mis à jour
 
 Vérifiez les dates de modification des fichiers de configuration : si vous voyez que les fichiers n'ont pas été mis à jour lorsque vous avez déployé la configuration, vérifiez que l'utilisateur **gorgone** a des droits sur le répertoire correspondant.
 
@@ -118,7 +118,7 @@ Vérifiez les dates de modification des fichiers de configuration : si vous voye
 ls -l /etc/centreon-engine
 ```
 
-### Étape 8 : Vérifiez qu'Engine se recharge ou redémarre corrctement
+### Étape 8 : Vérifier que Engine se recharge ou redémarre correctement
 
 Vérifiez le fichier de log d'Engine suivant la méthode sélectionnée lors du déploiement de la configuration.
 
@@ -150,7 +150,7 @@ Si le fichier ne contient pas les lignes ci-dessus, vérifiez que **gorgoned** a
 
 ## Le collecteur n'envoie pas de données à la plateforme
 
-### Étape 1 : Testez la connectivité réseau
+### Étape 1 : Tester la connectivité réseau
 
 Vérifiez que le collecteur peut envoyer des données temps-réel à la plateforme Centreon Cloud. Exécutez la commande suivante (remplacez **{org-code}** par le code de votre organisation) :
 
@@ -164,9 +164,9 @@ La commande devrait retourner un message similaire à celui-ci :
 Ncat: Connected to n.n.n.n:443.
 ```
 
-Si vous obtenez un message différent, vérifiez votre configuration réseau. Par exemple, vérifiez qu'aucun filtrage par nom de domaine ne bloque le processus **broker**.
+Si vous obtenez un message différent, vérifiez votre configuration réseau. Par exemple, vérifiez qu'aucun filtrage par nom de domaine ne bloque le processus **Broker**.
 
-### Étape 2 : Vériiez qu'Engine fonctionne
+### Étape 2 : Vérifier que Engine fonctionne
 
 Exécutez la commande suivante :
 
@@ -180,7 +180,7 @@ Si le statut de **centengine** n'est pas **active (running)**, redémarrez-le :
 systemctl restart centengine
 ```
 
-### Étape 3 : Vérifiez s'il existe des fichiers de retention
+### Étape 3 : Vérifier s'il existe des fichiers de retention
 
 Inspectez le dossier contenant les fichiers de rétention pour déterminer s'il existe actuellement de la rétention sur le collecteur.
 
@@ -190,9 +190,9 @@ ls -l /var/lib/centreon-engine
 
 Si les 2 précédents tests on retourné le résultat attendu mais qu'il y a de la rétention sur le collecteur, contactez [notre équipe support](https://support.centreon.com/hc/en-us).
 
-### Étape 4 : Activez et inspectez les logs d'Engine
+### Étape 4 : Activer et inspecter les logs d'Engine
 
-Modifiez les niveaux de log pour obtenir plus d'informations sur ce qu'Engine fait.
+Modifiez les niveaux de log pour obtenir plus d'informations sur ce que Engine fait.
 
 1. Éditez le fichier **centengine.cfg**.
 
@@ -224,11 +224,11 @@ Modifiez les niveaux de log pour obtenir plus d'informations sur ce qu'Engine fa
    systemctl restart centengine
    ```
 
-> Note: Ces changements seront écrasés la prochaine fois que la configuration sera déployée.
+> Note : Ces changements seront écrasés la prochaine fois que la configuration sera déployée.
 
-### Étape 5 : Activez et inspectez les logs cbmod
+### Étape 5 : Activer et inspecter les logs cbmod
 
-1. Éditez la configuration de Centreon Broker module (remplacez **{hostname}** par la valeur correcte):
+1. Éditez la configuration de Centreon Broker module (remplacez **{hostname}** par la valeur correcte) :
 
    ```shell
    vi /etc/centreon-broker/{hostname}-module.json
@@ -242,17 +242,17 @@ Modifiez les niveaux de log pour obtenir plus d'informations sur ce qu'Engine fa
     systemctl restart centengine
    ```
 
-> Note: Ce changement sera écrasé la prochaine fois que la configuration sera déployée.
+> Note : Ce changement sera écrasé la prochaine fois que la configuration sera déployée.
 
-### Étape 6 : Vérifiez les statisiques d'export
+### Étape 6 : Vérifier les statistiques d'export
 
-Certaines statistiques concernant les données temps-réel exportées dans Centreon Cloud sont disponibles sous forme de fichier JSON. Vérifiez si ce fichier contient des erreurs.
+Certaines statistiques concernant les données temps réel exportées dans Centreon Cloud sont disponibles sous forme de fichier JSON. Vérifiez si ce fichier contient des erreurs.
 
 ```shell
 cat /var/lib/centreon-engine/*-module-stats.json
 ```
 
-> Note: Ce fichier est un fichier de tube UNIX et est seulement accessible lorsque le service **centengine** tourne.
+> Note : Ce fichier est un fichier de tube UNIX et est seulement accessible lorsque le service **centengine** tourne.
 
 Si toutes ces étapes de dépannage ont échoué, contactez [notre équipe support](https://support.centreon.com/hc/en-us).
 
