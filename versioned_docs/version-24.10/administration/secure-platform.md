@@ -1072,7 +1072,7 @@ ServerTokens Prod
 TraceEnable Off
 ```
 
-Edit the **/etc/php/8.1/mods-available/centreon.ini** file and turn off the **expose_php** parameter:
+Edit the **/etc/php/8.2/mods-available/centreon.ini** file and turn off the **expose_php** parameter:
 
 > This was done during the installation process.
 
@@ -1231,7 +1231,7 @@ If everything is ok, you should have:
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
-systemctl restart php8.1-fpm apache2
+systemctl restart php8.2-fpm apache2
 ```
 
 Then check its status:
@@ -1520,7 +1520,7 @@ apt install nghttp2
 4. Execute the following commands:
 
 ```shell
-a2dismod php8.1
+a2dismod php8.2
 a2dismod mpm_prefork
 a2enmod mpm_event
 a2enmod http2

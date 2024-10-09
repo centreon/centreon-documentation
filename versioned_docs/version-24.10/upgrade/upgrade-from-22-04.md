@@ -72,12 +72,12 @@ apt update
 
 ### Upgrade PHP
 
-Centreon 24.04 uses PHP in version 8.1.
+Centreon 24.04 uses PHP in version 8.2.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
 
-You need to change the PHP stream from version 8.0 to 8.1 by executing the following commands and answering **y**
+You need to change the PHP stream from version 8.0 to 8.2 by executing the following commands and answering **y**
 to confirm:
 
 ```shell
@@ -85,13 +85,13 @@ dnf module reset php
 ```
 
 ```shell
-dnf module install php:remi-8.1
+dnf module install php:remi-8.2
 ```
 
 </TabItem>
 <TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
 
-You need to change the PHP stream from version 8.0 to 8.1 by executing the following commands and answering **y**
+You need to change the PHP stream from version 8.0 to 8.2 by executing the following commands and answering **y**
 to confirm:
 
 ```shell
@@ -99,7 +99,7 @@ dnf module reset php
 ```
 
 ```shell
-dnf module install php:remi-8.1
+dnf module install php:remi-8.2
 ```
 
 </TabItem>
@@ -331,8 +331,8 @@ systemctl reload php-fpm httpd
 apt autoremove
 systemctl daemon-reload
 systemctl stop php8.0-fpm.service
-systemctl enable php8.1-fpm
-systemctl start php8.1-fpm
+systemctl enable php8.2-fpm
+systemctl start php8.2-fpm
 systemctl restart apache2
 ```
 

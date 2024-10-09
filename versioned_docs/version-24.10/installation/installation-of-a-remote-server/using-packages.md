@@ -183,11 +183,11 @@ dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 dnf config-manager --set-enabled 'powertools'
 ```
 
-Enable PHP 8.1 using the following commands:
+Enable PHP 8.2 using the following commands:
 
 ```shell
 dnf module reset php
-dnf module install php:remi-8.1
+dnf module install php:remi-8.2
 ```
 
 </TabItem>
@@ -212,11 +212,11 @@ If your server is a Cloud RHEL instance, you will have to execute the following 
 dnf config-manager --set-enabled codeready-builder-for-rhel-8-rhui-rpms
 ```
 
-Enable PHP 8.1 using the following commands:
+Enable PHP 8.2 using the following commands:
 
 ```shell
 dnf module reset php
-dnf module install php:remi-8.1
+dnf module install php:remi-8.2
 ```
 
 </TabItem>
@@ -235,10 +235,10 @@ dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 dnf config-manager --set-enabled ol8_codeready_builder
 ```
 
-Enable PHP 8.1 using the following commands:
+Enable PHP 8.2 using the following commands:
 ```shell
 dnf module reset php
-dnf module install php:remi-8.1
+dnf module install php:remi-8.2
 ```
 
 </TabItem>
@@ -254,11 +254,11 @@ dnf install epel-release
 dnf config-manager --set-enabled crb
 ```
 
-Enable PHP 8.1 using the following commands:
+Enable PHP 8.2 using the following commands:
 
 ```shell
 dnf module reset php
-dnf module install php:8.1
+dnf module install php:8.2
 ```
 
 </TabItem>
@@ -280,11 +280,11 @@ If your server is a Cloud RHEL instance, you will have to execute the following 
 dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
 ```
 
-Enable PHP 8.1 using the following commands:
+Enable PHP 8.2 using the following commands:
 
 ```shell
 dnf module reset php
-dnf module install php:8.1
+dnf module install php:8.2
 ```
 
 </TabItem>
@@ -300,11 +300,11 @@ dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch
 dnf config-manager --set-enabled ol9_codeready_builder
 ```
 
-Enable PHP 8.1 using the following commands:
+Enable PHP 8.2 using the following commands:
 
 ```shell
 dnf module reset php
-dnf module install php:8.1
+dnf module install php:8.2
 ```
 
 </TabItem>
@@ -318,7 +318,7 @@ Install the following dependencies:
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
 ```
 
-#### Add Sury APT repository for PHP 8.1
+#### Add Sury APT repository for PHP 8.2
 
 To install the Sury repository, execute the following command:
 
@@ -419,69 +419,6 @@ Replace **new-server-name** with the name of your choice. Example:
 hostnamectl set-hostname remote1
 ```
 
-### Set the PHP time zone
-
-You are required to set the PHP time zone.
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Run the command:
-
-```shell
-echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
-```
-
-> Replace **Europe/Paris** with your time zone. You can find the list of
-> supported time zones [here](http://php.net/manual/en/timezones.php).
-
-After saving the file, remember to restart the PHP-FPM service:
-
-```shell
-systemctl restart php-fpm
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-Run the command:
-
-```shell
-echo "date.timezone = Europe/Paris" >> /etc/php.d/50-centreon.ini
-```
-
-> Replace **Europe/Paris** with your time zone. You can find the list of
-> supported time zones [here](http://php.net/manual/en/timezones.php).
-
-After saving the file, remember to restart the PHP-FPM service:
-
-```shell
-systemctl restart php-fpm
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
-
-Run the command:
-
-```shell
-echo "date.timezone = Europe/Paris" >> /etc/php/8.1/mods-available/centreon.ini
-```
-
-> The PHP timezone was defined during the installation process by retrieving the timezone configured on the operating system.
-
-> You can find the list of
-> supported time zones [here](http://php.net/manual/en/timezones.php).
-
-After saving the file, restart the PHP-FPM service:
-
-```shell
-systemctl restart php8.1-fpm
-```
-
-</TabItem>
-</Tabs>
-
 ### Service startup during system bootup
 
 To make services start automatically during system bootup, run these commands
@@ -509,7 +446,7 @@ systemctl start crond
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```shell
-systemctl enable php8.1-fpm apache2 centreon cbd centengine gorgoned centreontrapd snmpd snmptrapd
+systemctl enable php8.2-fpm apache2 centreon cbd centengine gorgoned centreontrapd snmpd snmptrapd
 ```
 
 </TabItem>

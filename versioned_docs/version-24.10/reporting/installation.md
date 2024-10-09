@@ -82,7 +82,7 @@ considerations.
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 - Centreon Web 24.04
-- Check that `date.timezone` is correctly configured in the `/etc/php.d/50-centreon.ini`
+- Check that `date.timezone` is correctly configured in the `/etc/php.d/50-centreon.ini` or `/etc/php.d/20-timezone.ini`
   file (same as the one returned by the `timedatectl status` command).
 - Avoid using the following variables in the configuration file `/etc/my.cnf`. They interrupt the
   execution of long queries and can stop ETL or report generation jobs:
@@ -100,7 +100,7 @@ considerations.
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 - Centreon Web 24.04
-- Check that `date.timezone` is correctly configured in the `/etc/php.d/50-centreon.ini`
+- Check that `date.timezone` is correctly configured in the `/etc/php.d/50-centreon.ini` or `/etc/php.d/20-timezone.ini`
   file (same as the one returned by the `timedatectl status` command).
 - Avoid using the following variables in the configuration file `/etc/my.cnf`. They interrupt the
   execution of long queries and can stop ETL or report generation jobs:
@@ -118,7 +118,7 @@ considerations.
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 - Centreon Web 24.04
-- Check that `date.timezone` is correctly configured in the `/etc/php/8.1/mods-available/centreon.ini` file
+- Check that `date.timezone` is correctly configured in the `/etc/php/8.2/mods-available/centreon.ini` or `/etc/php/8.2/mods-available/timezone.ini` file
   (same as the one returned by the `timedatectl status` command).
 - Avoid using the following variables in the configuration file `/etc/mysql/mariadb.cnf`. They interrupt the
   execution of long queries and can stop ETL or report generation jobs:

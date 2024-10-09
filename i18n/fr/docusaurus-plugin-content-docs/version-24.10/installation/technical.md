@@ -204,7 +204,7 @@ Le tableau suivant décrit les dépendances logicielles :
 | GnuTLS   | \>= 2.0    |
 | Net-SNMP | 5.7        |
 | openssl  | \>= 1.0.1k |
-| PHP      | 8.1        |
+| PHP      | 8.2        |
 | RRDtools | 1.4.7      |
 | zlib     | 1.2.3      |
 
