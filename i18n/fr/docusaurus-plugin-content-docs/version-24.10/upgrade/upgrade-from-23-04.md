@@ -384,9 +384,10 @@ systemctl reload php-fpm httpd
 ```shell
 apt autoremove
 systemctl daemon-reload
-systemctl stop php8.0-fpm.service
-systemctl enable php8.1-fpm
-systemctl start php8.1-fpm
+systemctl stop php8.1-fpm
+systemctl disable php8.1-fpm
+systemctl enable php8.2-fpm
+systemctl start php8.2-fpm
 systemctl restart apache2
 ```
 

@@ -193,26 +193,26 @@ pcs resource group remove centreon cbd_central_broker
 pcs resource group add centreon cbd_central_broker --before gorgone
 ```
 
-### Modifier la ressource php-clone pour utiliser php 8.1
+### Modifier la ressource php-clone pour utiliser php 8.2
 
-Modifier php8.0-fpm en php8.1-fpm avec la commande ci-dessous (une sauvegarde automatique du fichier est faite dans export_cluster.xml.bak)
+Modifier php8.0-fpm en php8.2-fpm avec la commande ci-dessous (une sauvegarde automatique du fichier est faite dans export_cluster.xml.bak)
 
 ```bash
-sed -i.bak s/php8.0-fpm/php8.1-fpm/ export_cluster.xml
+sed -i.bak s/php8.0-fpm/php8.2-fpm/ export_cluster.xml
 ```
 
-Vérifier si la modification a été faite en recherchant **php8.1-fpm** dans le fichier xml
+Vérifier si la modification a été faite en recherchant **php8.2-fpm** dans le fichier xml
 
 ```bash
-grep php8.1-fpm export_cluster.xml
+grep php8.2-fpm export_cluster.xml
 ```
 
 Vous devriez avoir 3 lignes dans le résultat comme ceci:
 
 ```text
-        <primitive id="php" class="systemd" type="php8.1-fpm">
-          <lrm_resource id="php" type="php8.1-fpm" class="systemd">
-          <lrm_resource id="php" type="php8.1-fpm" class="systemd">
+        <primitive id="php" class="systemd" type="php8.2-fpm">
+          <lrm_resource id="php" type="php8.2-fpm" class="systemd">
+          <lrm_resource id="php" type="php8.2-fpm" class="systemd">
 ```
 
 Si c'est OK, appliquez les changements à la configuration du cluster

@@ -54,12 +54,12 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/e
 
 ### Montée de version de PHP
 
-Centreon 24.10 utilise PHP en version 8.1.
+Centreon 24.10 utilise PHP en version 8.2.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
 
-Vous devez changer le flux PHP de la version 8.0 à 8.1 en exécutant les commandes suivantes et en répondant **y**
+Vous devez changer le flux PHP de la version 8.0 à 8.2 en exécutant les commandes suivantes et en répondant **y**
 pour confirmer :
 
 ```shell
@@ -67,13 +67,13 @@ dnf module reset php
 ```
 
 ```shell
-dnf module install php:remi-8.1
+dnf module install php:remi-8.2
 ```
 
 </TabItem>
 <TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
 
-Vous devez changer le flux PHP de la version 8.0 à 8.1 en exécutant les commandes suivantes et en répondant **y**
+Vous devez changer le flux PHP de la version 8.0 à 8.2 en exécutant les commandes suivantes et en répondant **y**
 pour confirmer :
 
 ```shell
@@ -81,7 +81,7 @@ dnf module reset php
 ```
 
 ```shell
-dnf module install php:remi-8.1
+dnf module install php:remi-8.2
 ```
 
 </TabItem>

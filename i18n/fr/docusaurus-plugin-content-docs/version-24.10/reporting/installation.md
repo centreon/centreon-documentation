@@ -80,7 +80,7 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
 
 - Centreon Web 24.10
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
-  `/etc/php.d/50-centreon.ini` (même que celui retourné par la commande
+  `/etc/php.d/50-centreon.ini` ou `/etc/php.d/20-timezone.ini` (même que celui retourné par la commande
   `timedatectl status`)
 - Evitez l'utilisation des variables ci-dessous dans le fichier de
   configuration MariaDB `/etc/my.cnf`. Elles interrompent l'exécution de longues requêtes et peuvent arrêter les jobs d'ETL ou de génération de rapports :
@@ -97,7 +97,7 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
 
 - Centreon Web 24.10
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
-  `/etc/php.d/50-centreon.ini` (même que celui retourné par la commande
+  `/etc/php.d/50-centreon.ini` ou `/etc/php.d/20-timezone.ini` (même que celui retourné par la commande
   `timedatectl status`)
 - Evitez l'utilisation des variables ci-dessous dans le fichier de
   configuration MariaDB `/etc/my.cnf`. Elles interrompent l'exécution de longues requêtes et peuvent arrêter les jobs d'ETL ou de génération de rapports :
@@ -114,7 +114,7 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
 
 - Centreon Web 24.10
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
-  `/etc/php/8.1/mods-available/centreon.ini` (même que celui retourné par la commande
+  `/etc/php/8.2/mods-available/centreon.ini` ou `/etc/php/8.2/mods-available/timezone.ini` (même que celui retourné par la commande
   `timedatectl status`)
 - Evitez l'utilisation des variables ci dessous dans le fichier de
   configuration MariaDB `/etc/mysql/mariadb.cnf`. Elles interrompent l'exécution de longues requêtes et peuvent arrêter les jobs d'ETL ou de génération de rapports :
