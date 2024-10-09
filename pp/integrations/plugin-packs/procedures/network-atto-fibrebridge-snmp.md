@@ -226,7 +226,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 ```bash
 /usr/lib/centreon/plugins/centreon_atto_fibrebridge_snmp.pl \
 	--plugin=network::atto::fibrebridge::snmp::plugin \
-	--mode=fcport-usage \
+	--mode=hardware \
 	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \

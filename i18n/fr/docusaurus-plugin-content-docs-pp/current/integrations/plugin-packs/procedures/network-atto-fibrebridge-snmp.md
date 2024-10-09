@@ -228,7 +228,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 ```bash
 /usr/lib/centreon/plugins/centreon_atto_fibrebridge_snmp.pl \
 	--plugin=network::atto::fibrebridge::snmp::plugin \
-	--mode=fcport-usage \
+	--mode=hardware \
 	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
