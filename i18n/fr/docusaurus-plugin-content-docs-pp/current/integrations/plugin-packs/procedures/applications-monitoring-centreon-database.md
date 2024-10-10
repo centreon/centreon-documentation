@@ -5,147 +5,41 @@ title: Centreon Database
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Vue d'ensemble
-
 Le connecteur de supervision Centreon Database permet une mise en place simple et rapide de la surveillance de la base de données de supervision.
 
-## Contenu du Pack
+## Contenu du pack
 
 ### Modèles
 
-Le connecteur de supervision Centreon Centreon Database apporte un modèle d'hôte :
-* App-Monitoring-Centreon-Database-custom
+Le connecteur de supervision **Centreon Database** apporte un modèle d'hôte :
 
-Il apporte les templates de services suivants : 
+* **App-Monitoring-Centreon-Database-custom**
 
-| Service Alias      | Service Template                              | Service Description                                              | Default |
-|:-------------------|:----------------------------------------------|:-----------------------------------------------------------------|:--------|
-| Partitioning       | App-Centreon-MySQL-Partitioning-custom        | Contrôle le partitionnement de la base de données de supervision | X       |
-| Connection-Time    | App-DB-MySQL-Connection-Time-custom           | Contrôle le temps de connexion à la base de données              | X       |
-| Connections-Number | App-DB-MySQL-Connections-Number-custom        | Contrôle le nombre de connexions à la base de données            | X       |
-| Database-size      | App-DB-MySQL-Database-Size-custom             | Contrôle la taille de la base de données                         | X       |
-| Myisam-Keycache    | App-DB-MySQL-Myisam-Keycache-custom           | Contrôle du Mysisam Keycache                                     | X       |
-| Open-Files         | App-DB-MySQL-Open-Files-custom                | Cpntrôle le nombre de fichiers ouverts                           | X       |
-| Queries            | App-DB-MySQL-Queries-custom                   | Contrôle le nombre de requêtes faites à la base                  | X       |
-| Slowqueries        | App-DB-MySQL-Slowqueries-custom               | Contrôle le nombre de requêtes lentes                            | X       |
-| Swap               | OS-Linux-Swap-SNMP-custom                     | Contrôle l'utilisation de la swap                                | X       |
-| Memory             | OS-Linux-Memory-SNMP-custom                   | Contrôle l'utilisation de la mémoire                             | X       |
-| Load               | OS-Linux-Load-SNMP-custom                     | Contrôle la load                                                 | X       |
-| Cpu                | OS-Linux-Cpu-SNMP-custom                      | Contrôle l'utilisation du CPU                                    | X       |
-
-
-### Métriques & statuts collectés
-
-Indicateurs base de données:
+Le connecteur apporte le modèle de service suivant
+(classé selon le modèle d'hôte auquel il est rattaché) :
 
 <Tabs groupId="sync">
-<TabItem value="Partitionning" label="Partitionning">
+<TabItem value="App-Monitoring-Centreon-Database-custom" label="App-Monitoring-Centreon-Database-custom">
 
-| Métrique                     | Unité |
-| :--------------------------- | :---- |
-| Partitioning Status          | string |
+| Alias        | Modèle de service                      | Description                              |
+|:-------------|:---------------------------------------|:-----------------------------------------|
+| Partitioning | App-Centreon-MySQL-Partitioning-custom | Contrôle la création de partitions MySQL |
 
-</TabItem>
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Monitoring-Centreon-Database-custom** est utilisé.
 
-<TabItem value="Connection-time" label="Connection-time">
-
-| Métrique                     | Unité |
-| :--------------------------- | :---- |
-| Connection time              | s     |
-
-</TabItem>
-
-<TabItem value="Connection-Numbers" label="Connection-Numbers">
-
-| Métrique                     | Unité         |
-| :--------------------------- | :------------ |
-| Connections number           | count or %    |
-
-</TabItem>
-
-<TabItem value="Database-size" label="Database-size">
-
-| Métrique                     | Unité         |
-| :--------------------------- | :------------ |
-| Database size                | Bytes or %    |
-
-</TabItem>
-
-<TabItem value="Myisam-Keycache" label="Myisam-Keycache">
-
-| Métrique                     | Unité |
-| :--------------------------- | :---- |
-| Myisam Keycache              | %     |
-
-</TabItem>
-
-<TabItem value="Open-files" label="Open-files">
-
-| Métrique                     | Unité |
-| :--------------------------- | :---- |
-| Open Files                   | %     |
-
-</TabItem>
-
-<TabItem value="Slowqueries" label="Slowqueries">
-
-| Métrique                     | Unité |
-| :--------------------------- | :---- |
-| Slowqueries                  | count |
-
-</TabItem>
-
-<TabItem value="Queries" label="Queries">
-
-| Métrique                     | Unité  |
-| :--------------------------- | :----- |
-| Queries                      | count  |
+> Des service issus du connecteur **[MariaDB/MySQL](../procedures/applications-databases-mysql.md)** seront également créés automatiquement car le modèle **App-Monitoring-Centreon-Database-custom** hérite du modèle **App-DB-MySQL-custom**.
 
 </TabItem>
 </Tabs>
 
-Indicateurs système:
+### Métriques & statuts collectés
+
+Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
 
 <Tabs groupId="sync">
-<TabItem value="CPU" label="CPU">
+<TabItem value="Partitioning" label="Partitioning">
 
-| Métrique                           | Unité  |
-| :--------------------------------- | :----- |
-| cpu.utilization.percentage         | %      |
-| core.cpu.utilization.percentage    | %      |
-
-</TabItem>
-
-<TabItem value="Memory" label="Memory">
-
-| Métrique                | Unité |
-| :---------------------  | :---- |
-| memory.usage.bytes      | Bytes |
-| memory.free.bytes       | Bytes |
-| memory.usage.percentage | %     |
-| memory.buffer.bytes     | Bytes |
-| memory.cached.bytes     | Bytes |
-| memory.shared.bytes     | Bytes |
-
-</TabItem>
-
-<TabItem value="Swap" label="Swap">
-
-| Métrique                    | Unité   |
-| :-------------------------- | :------ |
-| swap.usage.bytes            | Bytes   |
-| swap.free.bytes             | Bytes   |
-| swap.usage.percentage       | %       |
-
-</TabItem>
-
-<TabItem value="Load" label="Load">
-
-| Métrique                    | Unité                          |
-| :-------------------------- | :----------------------------- |
-| load1                       | System load 1 minute-sample    |
-| load5                       | System load 5 minutes-sample   |
-| load15                      | System load 15 minutes-sample  |
+Pas de métrique pour ce service.
 
 </TabItem>
 </Tabs>
@@ -156,117 +50,301 @@ Indicateurs système:
 
 Pour permettre la collecte d'informations liées à la base de données, la création d'un utilisateur avec des droits spécifiques est nécessaire :
 
-
 ``` mysql
 CREATE USER 'monitor_user'@'IP_POLLER' IDENTIFIED BY 'a_very_secure_passwd';
 GRANT SELECT ON *.* to 'monitor_user'@'IP_POLLER';
 ```
 
-### SNMP
+## Installer le connecteur de supervision
 
-SNMP doit être configuré sur le serveur central. Vous pouvez vous aider de cette [documentation](operatingsystems-linux-snmp.md#prerequisites) pour mettre en place rapidement une simple configuration SNMP. 
+### Pack
 
-## Installation
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Installez les plugins centreon suivant sur le collecteur qui supervisera la base de donnée :
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Applications-Monitoring-Centreon-Database centreon-plugin-Operatingsystems-Linux-Snmp
-
+dnf install centreon-pack-applications-monitoring-centreon-database
 ```
-
-2. Sur l'interface Web de Centreon, installez le connecteur de supervision **Centreon Databse** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
-
-<TabItem value="Offline License" label="Offline License">
-
-1. Installez les plugins centreon suivant sur le collecteur qui supervisera la base de donnée :
-
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Applications-Monitoring-Centreon-Database centreon-plugin-Operatingsystems-Linux-Snmp
+dnf install centreon-pack-applications-monitoring-centreon-database
 ```
 
-2. Sur le serveur Central Centreon, installez le RPM du Pack **Centreon Database** :
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
+```bash
+apt install centreon-pack-applications-monitoring-centreon-database
+```
 
- ```bash
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
 yum install centreon-pack-applications-monitoring-centreon-database
 ```
 
-3. Sur l'interface Web de Centreon, installez le connecteur de supervision **Centreon Databse** depuis la page **Configuration > Packs de plugins**.
-
 </TabItem>
-
 </Tabs>
 
-## Configuration
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Centreon Database**
+depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
-### Hôte
+### Plugin
 
-* Ajoutez un Hôte à Centreon depuis la page **Configuration > Hôtes**.
-* Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre serveur *Centreon Database*.
-* Appliquez le Modèle d'Hôte **App-Monitoring-Centreon-Database-custom**.
-* Une fois le modèle appliqué, les Macros ci-dessous indiquées comme requises (*Obligatoire*) doivent être renseignées.
-* Les valeurs à renseigner pour les macros MYSQLUSERNAME et MYSQLPASSWORD sont celles correspondants à l'utilisateur qui a été créé précédemment pour superviser la base de données.
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
 
-| Mandatory  | Macro            |
-| :--------- | :--------------  |
-| X          | MYSQLPORT        |
-| X          | MYSQLUSERNAME    |
-| X          | MYSQLPASSWORD    |
-|            | SNMPEXTRAOPTIONS |
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
 
-## Comment puis-je tester le Plugin et que signifient les options des commandes ?
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne 
-de commande depuis votre collecteur Centreon en vous connectant avec 
-l'utilisateur **centreon-engine** (`su - centreon-engine`) :
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-/usr/lib/centreon/plugins//centreon_mysql.pl \
-	--plugin=database::mysql::plugin  \
-	--host=localhost   \
-	--username='monitor_user' \
-	--password='a_very_secure_passwd' \
+dnf install centreon-plugin-Applications-Monitoring-Centreon-Database
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Applications-Monitoring-Centreon-Database
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-applications-monitoring-centreon-database
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Applications-Monitoring-Centreon-Database
+```
+
+</TabItem>
+</Tabs>
+
+## Utiliser le connecteur de supervision
+
+### Utiliser un modèle d'hôte issu du connecteur
+
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **App-Monitoring-Centreon-Database-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
+
+| Macro         | Description                               | Valeur par défaut | Obligatoire |
+|:--------------|:------------------------------------------|:------------------|:-----------:|
+| MYSQLUSERNAME | User name used to connect to the database | centreon          |             |
+| MYSQLPASSWORD | Password for the defined user name        |                   | X           |
+| MYSQLPORT     | Database Server Port.                     | 3306              |             |
+
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
+
+### Utiliser un modèle de service issu du connecteur
+
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
+
+<Tabs groupId="sync">
+<TabItem value="Partitioning" label="Partitioning">
+
+| Macro      | Description                                                                      | Valeur par défaut                       | Obligatoire |
+|:-----------|:---------------------------------------------------------------------------------|:----------------------------------------|:-----------:|
+| TABLENAME1 | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin | centreon\_storage.data\_bin             | X           |
+| TABLENAME2 | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin | centreon\_storage.logs                  | X           |
+| TABLENAME3 | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin | centreon\_storage.log\_archive\_service | X           |
+| TABLENAME4 | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin | centreon\_storage.log\_archive\_host    | X           |
+| WARNING    | Warning threshold (number of retention forward days)                             | 7:                                      |             |
+| CRITICAL   | Critical threshold (number of retention forward days)                            | 3:                                      |             |
+
+</TabItem>
+</Tabs>
+
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
+
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
+que le connecteur arrive bien à superviser une ressource en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
+
+```bash
+/usr/lib/centreon/plugins/centreon_centreon_database.pl \
+	--plugin=database::mysql::plugin \
+	--dyn-mode=apps::centreon::sql::mode::partitioning \
+	--host='10.0.0.1' \
+	--username='centreon' \
+	--password='***' \
 	--port='3306' \
-	--mode=threads-connected \
-	--warning-usage='' \
-	--critical-usage='' \
-	--warning-usage-prct='' \
-	--critical-usage-prct='' 
+	--tablename='centreon_storage.data_bin' \
+	--tablename='centreon_storage.logs' \
+	--tablename='centreon_storage.log_archive_service' \
+	--tablename='centreon_storage.log_archive_host' \
+	--warning='7:' \
+	--critical='3:' \
+	--verbose
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Client connected threads total: 151 used: 10 (6.62%) free: 141 (93.38%)
-```
-
-La liste de toutes les options complémentaires et leur signification peut être
-affichée en ajoutant le paramètre `--help` à la commande :
-
-```bash
-/usr/lib/centreon/plugins//centreon_mysql.pl \
-	--plugin=database::mysql::plugin  \
-	--host=localhost   \
-    --help
-```
-
-Tous les modes disponibles peuvent être affichés en ajoutant le paramètre 
-`--list-mode` à la commande :
-
-```
-/usr/lib/centreon/plugins//centreon_mysql.pl \
-	--plugin=database::mysql::plugin  \
-    --list-mode
+OK: All table partitions are up to date 
+Table 'centreon_storage.data_bin' last partition date is Thu Dec 21 00:00:00 2023 (current retention forward in days: 10)
+Table 'centreon_storage.logs' last partition date is Thu Dec 21 00:00:00 2023 (current retention forward in days: 10)
+Table 'centreon_storage.log_archive_service' last partition date is Thu Dec 21 00:00:00 2023 (current retention forward in days: 10)
+Table 'centreon_storage.log_archive_host' last partition date is Thu Dec 21 00:00:00 2023 (current retention forward in days: 10)
 ```
 
 ### Diagnostic des erreurs communes
 
 Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
-pour le diagnostic des erreurs communes des Plugins Centreon.
+pour le diagnostic des erreurs communes des plugins Centreon.
+
+### Modes disponibles
+
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution 
+du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
+implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
+modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
+
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
+
+```bash
+/usr/lib/centreon/plugins/centreon_centreon_database.pl \
+	--plugin=database::mysql::plugin \
+	--list-mode
+```
+
+Le plugin apporte les modes suivants :
+
+| Mode                                                                                                                                             | Modèle de service associé              |
+|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------|
+| arp [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/arp.pm)]                                            | Not used in this Monitoring Connector  |
+| backup [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mysql/mode/backup.pm)]                                     | Not used in this Monitoring Connector  |
+| collection [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/protocols/sql/mode/collection.pm)]              | Not used in this Monitoring Connector  |
+| connection-time [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/protocols/sql/mode/connectiontime.pm)]     | Not used in this Monitoring Connector  |
+| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/cpu.pm)]                                            | Not used in this Monitoring Connector  |
+| cpu-detailed [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/cpudetailed.pm)]                           | Not used in this Monitoring Connector  |
+| databases-size [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mysql/mode/databasessize.pm)]                      | Not used in this Monitoring Connector  |
+| disk-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/diskusage.pm)]                               | Not used in this Monitoring Connector  |
+| diskio [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/diskio.pm)]                                      | Not used in this Monitoring Connector  |
+| innodb-bufferpool-hitrate [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mysql/mode/innodbbufferpoolhitrate.pm)] | Not used in this Monitoring Connector  |
+| inodes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/inodes.pm)]                                      | Not used in this Monitoring Connector  |
+| interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/interfaces.pm)]                              | Not used in this Monitoring Connector  |
+| list-diskio [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listdiskio.pm)]                             | Not used in this Monitoring Connector  |
+| list-diskspath [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listdiskspath.pm)]                       | Not used in this Monitoring Connector  |
+| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]                     | Not used in this Monitoring Connector  |
+| list-processes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listprocesses.pm)]                       | Not used in this Monitoring Connector  |
+| list-storages [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/liststorages.pm)]                         | Not used in this Monitoring Connector  |
+| load [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/loadaverage.pm)]                                   | Not used in this Monitoring Connector  |
+| long-queries [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mysql/mode/longqueries.pm)]                          | Not used in this Monitoring Connector  |
+| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/memory.pm)]                                      | Not used in this Monitoring Connector  |
+| myisam-keycache-hitrate [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mysql/mode/myisamkeycachehitrate.pm)]     | Not used in this Monitoring Connector  |
+| name [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/db_socket.pm)]                                                        | Not used in this Monitoring Connector  |
+| open-files [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mysql/mode/openfiles.pm)]                              | Not used in this Monitoring Connector  |
+| open-tables [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mysql/mode/opentables.pm)]                            | Not used in this Monitoring Connector  |
+| partitioning [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/centreon/sql/mode/partitioning.pm)]                      | App-Centreon-MySQL-Partitioning-custom |
+| password-expiration [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mysql/mode/passwordexpiration.pm)]            | Not used in this Monitoring Connector  |
+| processcount [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/processcount.pm)]                          | Not used in this Monitoring Connector  |
+| qcache-hitrate [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mysql/mode/qcachehitrate.pm)]                      | Not used in this Monitoring Connector  |
+| queries [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mysql/mode/queries.pm)]                                   | Not used in this Monitoring Connector  |
+| replication [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mysql/mode/replication.pm)]                           | Not used in this Monitoring Connector  |
+| slow-queries [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mysql/mode/slowqueries.pm)]                          | Not used in this Monitoring Connector  |
+| sql [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/protocols/sql/mode/sql.pm)]                            | Not used in this Monitoring Connector  |
+| sql-string [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/protocols/sql/mode/sqlstring.pm)]               | Not used in this Monitoring Connector  |
+| storage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/storage.pm)]                                    | Not used in this Monitoring Connector  |
+| swap [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/swap.pm)]                                          | Not used in this Monitoring Connector  |
+| tcpcon [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/tcpcon.pm)]                                      | Not used in this Monitoring Connector  |
+| threads-connected [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mysql/mode/threadsconnected.pm)]                | Not used in this Monitoring Connector  |
+| time [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/ntp.pm)]                                           | Not used in this Monitoring Connector  |
+| udpcon [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/udpcon.pm)]                                      | Not used in this Monitoring Connector  |
+| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/uptime.pm)]                                      | Not used in this Monitoring Connector  |
+
+### Options disponibles
+
+#### Options des modes
+
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
+
+<Tabs groupId="sync">
+<TabItem value="Partitioning" label="Partitioning">
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     | Define the mode in which you want the plugin to be executed (see--list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --sqlmode                                  | This plugin offers several ways to query the database (default: dbi). See --list-sqlmode.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --list-sqlmode                             | List all available sql modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --multiple                                 | Enable connecting to multiple databases (required by some specific modes such as replication).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
+| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-ignore-perfdata                   | Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-ignore-label                      | Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --output-file                              | Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --datasource                               | Database server information, mandatory if the server's address and port are not defined in the corresponding options. The syntax depends on the database type.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --username                                 | User name used to connect to the database.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --password                                 | Password for the defined user name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --connect-options                          | Add connection options for the DBI connect method. Format: name=value,name2=value2,...                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --connect-query                            | Execute a query just after the connection.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --sql-errors-exit                          | Expected status in case of DB error or timeout. Possible values are warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --timeout                                  | Timeout in seconds for connection.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --exec-timeout                             | Timeout in seconds for query execution                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --tablename                                | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --warning                                  | Warning threshold (number of retention forward days)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --critical                                 | Critical threshold (number of retention forward days)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --timezone                                 | Timezone use for partitioning (if not set, we use current server execution timezone)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+
+</TabItem>
+</Tabs>
+
+Pour un mode, la liste de toutes les options disponibles et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
+
+```bash
+/usr/lib/centreon/plugins/centreon_centreon_database.pl \
+	--plugin=database::mysql::plugin \
+	--dyn-mode=apps::centreon::sql::mode::partitioning \
+	--help
+```

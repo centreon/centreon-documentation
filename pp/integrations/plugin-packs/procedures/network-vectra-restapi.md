@@ -109,7 +109,7 @@ The Pack uses the following API endpoints:
 
 If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the pack displayed within the
-**Configuration > Monitoring Connectors Manager** menu.
+**Configuration > Monitoring Connector Manager** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -128,7 +128,7 @@ yum install centreon-pack-network-vectra-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-network-vectra-restapi
@@ -138,7 +138,7 @@ apt install centreon-pack-network-vectra-restapi
 </Tabs>
 
 Whatever the license type (*online* or *offline*), install the **Vectra Rest API** Pack through
-the **Configuration > Monitoring Connectors Manager** menu.
+the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
 
@@ -168,7 +168,7 @@ yum install centreon-plugin-Network-Vectra-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-network-vectra-restapi

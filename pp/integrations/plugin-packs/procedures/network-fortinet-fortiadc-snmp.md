@@ -132,7 +132,7 @@ port.
 yum install centreon-plugin-Network-Fortinet-Fortiadc-Snmp
 ```
 
-2. On the Centreon Web interface, install the **Fortinet FortiADC SNMP** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon Web interface, install the **Fortinet FortiADC SNMP** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 
@@ -150,7 +150,7 @@ yum install centreon-plugin-Network-Fortinet-Fortiadc-Snmp
 yum install centreon-pack-network-fortinet-fortiadc-snmp
 ```
 
-3. On the Centreon Web interface, install the **Fortinet FortiADC SNMP** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the **Fortinet FortiADC SNMP** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

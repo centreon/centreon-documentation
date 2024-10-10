@@ -17,6 +17,164 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon MAP
 
+### 22.10.17
+
+Release date: `October 7, 2024`
+
+#### Enhancements
+
+- [SELinux] Packaged SELinux rules for centreon-map.
+
+#### Bug fixes
+
+- [Diagnostic] Fixed an issue in the diagnostic script when MAP was configured in HTTPS.
+
+### 22.10.16
+
+Release date: `April 17, 2024`
+
+#### Enhancements
+
+- [Packaging] Correct rights are now set for Centreon MAP configuration files.
+
+#### Security fixes
+
+- [Security] Updated dependencies.
+
+### 22.10.15
+
+Release date: `February 19, 2024`
+
+#### Bug fixes
+
+- [Editor] Fixed the label font size in the editor mode.
+- [Viewer] Fixed an issue in the container status color.
+- [Viewer] Made resource labels contained in shapes (no overflow).
+- [Viewer] Fixed an issue that converted breadcrumb elements to lowercase.
+- [Widget] Fixed an issue preventing non admin users from saving the position and the zooming of a map.
+
+### 22.10.14
+
+Release date: `December 21, 2023`
+
+#### Enhancements
+
+- [Viewer] Fixed an issue with the "status as font color" option in the Output widget.
+
+#### Bug fixes
+
+- [Editor] Removed border and fill colors parameters for Centreon resources shapes.
+  
+### 22.10.13
+
+Release date: `November 22, 2023`
+
+#### Enhancements
+
+- [CEIP] Fixed telemetry error when Centreon MAP engine is configured.
+- [Editor] You can now add Centreon resources to a map by searching their names.
+- [Editor] Handled metaservices in output widget.
+- [Migration] Improved the image migration process.
+
+#### Security fixes
+
+- [Server] Updated dependencies.
+
+#### Bug fixes
+
+- [Editor] Fixed an issue which caused links to disappear when editing anchor points.
+- [Geoviews] Fixed the display of tooltip when infrastructure view is defined.
+- [Server] Fixed an issue that caused server to crash on duplicated Centreon modules.
+- [UX] Fixed miscellaneous translation issues.
+- [Viewer] Fixed issue with monitoring links containing a double slash.
+- [Viewer] Fixed the redirection to monitoring pages from tooltips.
+
+### 22.10.12
+
+Release date: `October 04, 2023`
+
+#### Enhancements
+
+- [Server] Make link anchors consistent between viewer and editor.
+
+#### Security fixes
+
+- [Server] Updated dependencies.
+
+#### Bug fixes
+
+- [Editor] Fixed an issue where copying and pasting an object deleted it.
+- [Packaging] Fixed a Debian packaging issue preventing MAP from starting.
+- [Server] Fixed MAP service ExecStart command to take JVM parameters into account.
+- [Server] Fixed the diagnostic protocol test.
+
+### 22.10.11
+
+Release date: `September 07, 2023`
+
+#### Bug fixes
+
+- [Packaging] Fixed a regression in centreon-map-server and centreon-map-engine packaging that caused a broken dependency situation with Java.
+
+### 22.10.10
+
+Release date: `August 31, 2023`
+
+#### Bug fixes
+
+- [Editor] Fixed an issue that made it impossible to use the extended output in the "output" widget.
+- [Server] Fixed an issue that prevented the MAP Engine server from starting.
+- [Server] Updated dependencies.
+- [Viewer] Fixed the alignment of output text in the "output" widget.
+
+### 22.10.9
+
+Release date: `August 03, 2023`
+
+#### Bug fixes
+
+- [Editor] Fixed an issue that could lead to an empty page when trying to edit an existing map.
+- [Server] Fixed an issue that could prevent some maps from being edited.
+
+### 22.10.8
+
+Release date: `July 28, 2023`
+
+#### Bug fixes
+
+- [Geoviews] Fixed an issue that prevented hosts from being displayed on geoviews.
+- [Install] Fixed a documentation link for Mapbox account linking in configure.sh installation script.
+- Allowed elements to be grouped.
+- Fixed an issue making Business Activities' size different between viewer and editor.
+- Fixed an issue that caused server to crash because of duplicated Centreon modules.
+- [UI] You can now freely resize basic geometric shapes.
+
+### 22.10.7
+
+Release date: `July 20, 2023`
+
+#### Enhancements
+
+- [UI] You can now hide the label of a resource.
+- [Viewer] Resources now have a unique status.
+- [Viewer] You can now define a label for a URL shape.
+
+#### Bug fixes
+
+- [Editor] Fixed a bug where empty metric min or max prevented users from saving a map.
+- [Editor] Fixed an issue that made duplicated containers point to the same view.
+- [Editor] Fixed metric links when no metric name were filled in.
+- [Install] Fixed a documentation link for Mapbox account linking in configure.sh installation script.
+- [Server] Fixed an issue which made diagnostic.sh raise an error if a custom URI was used.
+- [UI] Fixed image edition for a MAP thumbnail or media component.
+- [UI] Fixed the selection of layers in Geo views.
+- [Viewer] Fixed a regression causing output not to be displayed in the output widget.
+- [Viewer] Fixed an issue that caused links not to be reactivated when the associated resource went back online.
+- [Viewer] Fixed an issue preventing hosts from being displayed in Geo views.
+- [Viewer] Fixed an issue preventing the font color from being applied at the first edition.
+- [Viewer] Fixed an issue that prevented graphs from being displayed for non admin users.
+- [Widget] Fixed incorrect behavior when saving the MAP widget.
+
 ### 22.10.6
 
 Release date: `June 5, 2023`
@@ -45,6 +203,7 @@ Release date: `April 24, 2023`
 > You need to [execute the **configure.sh** script](../graph-views/map-web-install.md#étape-6--exécuter-le-script-configuresh) in order to apply some fixes provided by this release.
 
 #### Bug fixes
+
 - [API] Fixed an issue with create element in view that could break default icon.
 - [Editor] Fixed an issue in shapes edition modal that caused scrollbar to be reset when browsing images.
 - [Editor] Fixed view edition with some links having corrupted bend points.
@@ -120,6 +279,74 @@ The new MAP extension is now available in a full web version with a new server, 
 
 ## Centreon MAP Legacy
 
+### 22.10.17
+
+Release date: `October 7, 2024`
+
+#### Bug fixes
+
+- [Diagnostic] Fixed an issue in the diagnostic script when MAP was configured in HTTPS.
+
+### 22.10.13
+
+Release date: `November 22, 2023`
+
+#### Bug fixes
+
+- [Server] Fixed an issue that caused server to crash on duplicated Centreon modules.
+- [Viewer] Fixed the redirection to monitoring pages from tooltips.
+
+### 22.10.12
+
+Release date: `October 04, 2023`
+
+#### Security fixes
+
+- [Server] Fixed a vulnerable property.
+- [Server] Updated dependencies.
+
+#### Bug fixes
+
+- [Packaging] Fixed a Debian packaging issue preventing MAP from starting.
+
+### 22.10.11
+
+Release date: `September 07, 2023`
+
+#### Bug fixes
+
+- [Packaging] Fixed a regression in centreon-map-server and centreon-map-engine packaging that caused a broken dependency situation with Java.
+
+### 22.10.10
+
+Release date: `August 31, 2023`
+
+- No change.
+
+### 22.10.9
+
+Release date: `August 03, 2023`
+
+- No change.
+
+### 22.10.8
+
+Release date: `July 28, 2023`
+
+- No change.
+
+### 22.10.7
+
+Release date: `July 20, 2023`
+
+- No change.
+
+### 22.10.6
+
+Release date: `June 5, 2023`
+
+- No change.
+
 ### 22.10.5
 
 Release date: `April 24, 2023`
@@ -134,7 +361,7 @@ Release date: `January 17, 2023`
 
 ### 22.10.3
 
-Release date:  `December 16, 2022`
+Release date: `December 16, 2022`
 
 - No change.
 
@@ -168,6 +395,30 @@ Release date: `October 26, 2022`
 - Move to Java 17
 
 ## Centreon BAM
+
+### 22.10.6
+
+Release date: `April 17, 2024`
+
+#### Security fixes
+
+- Upgraded svg-sanitize dependency.
+  
+### 22.10.5
+
+Release date: `November 22, 2023`
+
+#### Bug fixes
+
+- [UI] Renamed "massive change" to "mass change" in the "More actions" selectbox.
+  
+### 22.10.4
+
+Release date: `July 20, 2023`
+
+#### Bug fixes
+
+- [UI] Fixed the way column names were displayed in the acknowledgment description pop-up.
 
 ### 22.10.3
 
@@ -209,6 +460,91 @@ Release date: `October 26, 2022`
 
 ## Centreon MBI
 
+### 22.10.11
+
+Release date: `October 7, 2024`
+
+#### Enhancements
+
+- [SELinux] Packaged SELinux rules for centreon-mbi.
+  
+#### Bug fixes
+
+- [Dependencies] Upgraded Spring framework.
+
+#### Security fixes
+
+- [Security] Fixed SQLi in configuration pages, only accessible to authenticated users with high privilege access (CVE-2024-45754).
+
+### 22.10.10
+
+Release date: `July 4, 2024`
+
+#### Bug fixes
+
+- [Packaging] Fixed an issue with the report design functionality on Debian.
+
+### 22.10.9
+
+Release date: `April 17, 2024`
+
+#### Enhancements
+
+- [Packaging] Correct rights are now set for Centreon MBI configuration files.
+
+### 22.10.8
+
+Release date: `January 18, 2024`
+
+#### Bug fixes
+
+- [Reports] Fixed an issue that prevented reports to be sent by email with Office 365.
+
+### 22.10.7
+
+Release date: `December 21, 2023`
+
+#### Bug fixes
+
+- [MBI] Updated dependency.
+
+### 22.10.6
+
+Release date: `September 14, 2023`
+
+#### Bug fixes
+
+- [Packaging] Fixed a regression in the packaging of centreon-bi-engine that caused a broken dependency situation with Java.
+
+### 22.10.5
+
+Release date: `August 31, 2023`
+
+#### Bug fixes
+
+- [Packaging] Fixed ETL script references in Debian packaging.
+- Fixed a 500 error on the Grafana connector when retrieving timeseries for BAM business activities.
+
+### 22.10.4
+
+Release date: `July 28, 2023`
+
+#### Bug fixes
+
+- Fixed centreonBIETL_legacy script by calling only legacy scripts.
+- Removed old images in forms.
+
+### 22.10.3
+
+Release date: `July 20, 2023`
+
+#### Bug fixes
+
+- [Compatibility] Fixed the compatibility between Gorgone and MBI by adding the missing no-purge option in eventStatisticsBuilder and perfdataStatisticsBuilder scripts.
+- [Configuration] Removed the image beside "Report specific parameters" that was not displayed properly.
+- [Install] Added missing Gorgone dependencies required by the MBI ETL.
+- [Reporting] Fixed the display of the duration of ongoing alerts in the Hostgroups-Service-Current-Events report.
+
 ### 22.10.2
 
 Release date: `June 5, 2023`
@@ -239,7 +575,25 @@ Release date: `October 26, 2022`
 
 ## Centreon Auto Discovery
 
-### 22.10.1
+### 22.10.5
+
+Release date: `November 22, 2023`
+
+- [Core] Updated dependencies.
+
+### 22.10.4
+
+Release date: `October 04, 2023`
+
+- Fixed an issue where new services were created when updating the discovery job on existing hosts.
+
+### 22.10.3
+
+Release date: `August 31, 2023`
+
+- Fixed task execution schedule.
+
+### 22.10.2
 
 Release date: `April 24, 2023`
 
@@ -257,6 +611,14 @@ Release date: `October 26, 2022`
 - When no template mappers apply to a host, one can choose whether the default template must be applied or if the host must not be monitored at all
 
 ## Centreon Plugin Packs Manager
+
+### 22.10.1
+
+Release date: `April 17, 2024`
+
+#### Bug fixes
+
+- Fixed the absence of error displayed when the deletion of a Monitoring Connector is not possible.
 
 ### 22.10.0
 
@@ -281,6 +643,39 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon Anomaly Detection
+
+### 22.10.6
+
+Release date: `July 4, 2024`
+
+#### Bug fixes
+
+- [Packaging] Added missing dependencies on anomaly detection.
+- [Packaging] Various anomaly detection perl installation scripts are now deployed on **/usr/share/perl5/centreon/anomalydetection** instead of **/%{perl_vendorlib}/centreon**.
+
+### 22.10.5
+
+Release date: `November 22, 2023`
+
+#### Bug fixes
+
+- [UI] Renamed "massive change" to "mass change" in the "More actions" selectbox.
+  
+### 22.10.4
+
+Release date: `July 28, 2023`
+
+#### Bug fixes
+
+- [Prediction] Fixed Anomaly Detection script that was not sending data history.
+
+### 22.10.3
+
+Release date: `July 20, 2023`
+
+#### Bug fixes
+
+- [Prediction] Fixed an Anomaly Detection script that was not sending data history.
 
 ### 22.10.2
 
@@ -307,3 +702,9 @@ Release date: `October 26, 2022`
 - Added new type of resources in Resource Status (display and filter)
 - Added prediction envelope size management by user from Resources Status
 - Downtimes on regular services are now propagated to related Anomaly Detection service(s)
+
+## Centreon Data Source For Grafana
+
+Release date: `August 31, 2023`
+
+- Fixed a 500 error on the Grafana connector when retrieving timeseries for BAM business activities.

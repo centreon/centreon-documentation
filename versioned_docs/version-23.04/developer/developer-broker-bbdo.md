@@ -329,6 +329,8 @@ basis.
 
 BBDO must have the same version for all servers in your architecture (central server, remote servers, pollers).
 
+> If you use BBDO v2 with this version of Centreon, you will not be able to use the **Resources Status** page.
+
 If you want to switch versions of BBDO (either switch from v3 to v2 or from v2 to v3), follow this procedure:
 
 1. On the central server, go to **Configuration > Pollers > Broker configuration**.

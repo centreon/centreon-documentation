@@ -121,7 +121,7 @@ cliquez sur le bouton **Create manually**.
 
 2. Remplissez les champs suivants :
 
-    - **Description**: nom du service.
+    - **Description**: nom du service. Les caractères suivants ne sont pas autorisés : `~!$%^&|'"<>?,()=*{}` et les espaces.
     - **Statut**: permet d'activer ou désactiver le service. Si vous désactivez un service, après avoir déployé la configuration, celui-ci ne sera plus supervisé (notamment, il n'apparaîtra plus à la page **Statut des ressources**).
     - **Select host - service**: définir le couple hôte/service sur lequel le service Anomaly Detection se basera.
     - **Select metric** : sélectionnez la métrique sur laquelle appliquer la détection d'anomalie.
@@ -334,6 +334,14 @@ Les données hébergées par le service de détection d'anomalies ne concernent 
 par l'utilisateur. Elles comprennent la date et l'heure du contrôle, l'identifiant de la ressource surveillée,
 l'identifiant de l'indicateur associé, le nom des données de performance sur lesquelles les calculs seront effectués
 ainsi que la valeur des données de performance.
+
+### Comment l’envoi et le stockage de mes données sont-ils protégés?
+
+L’envoi de données à notre infrastructure Cloud ne comporte aucun risque.
+Les données sont chiffrées de bout en bout. Les données collectées ne contiennent que des métriques et
+quelques identifiants Centreon (nom d’hôte, nom de service). Notre environnement est protégé par AWS Web
+Application Firewall et AWS Shields pour prévenir les attaques DDoS. Notre architecture a été revue par les
+architectes AWS (AWS Foundational Technical Review) et nous sommes un partenaire qualifié d’AWS.
 
 ### Quel est l'usage des données ?
 

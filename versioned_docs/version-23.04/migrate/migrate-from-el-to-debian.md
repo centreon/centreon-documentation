@@ -10,14 +10,16 @@ import TabItem from '@theme/TabItem';
 This procedure only applies if the following conditions are met:
 
 - You wish to migrate from a 64-bit EL-type OS to Debian 11. For instance, if you want to migrate from a CentOS 7 to a Debian 11.
-- Your version of Centreon is 18.10 or newer and you wish to upgrade to the latest version of Centreon. If you wish to migrate from an older version, [contact the Centreon support team](https://centreon/force.com).
+- Your version of Centreon is 18.10 or newer and you wish to upgrade to the latest version of Centreon. If you wish to migrate from an older version, [contact the Centreon support team](https://support.centreon.com).
+
+All servers (central, remote and pollers) in your architecture must have the same major version of Centreon. It is also recommended that they have the same minor version.
 
 > If your Centreon platform includes a Centreon redundancy system, please
 > contact [Centreon support](https://support.centreon.com).
 
-## Migrating a central server
+## Migrating a platform
 
-### Step 1: Install the new server
+### Step 1: Install the new central server
 
 1. Install your new OS: check the [supported operating systems](../installation/compatibility.md#operating-systems).
 
@@ -163,19 +165,19 @@ apt install centreon-pack*
 apt install centreon-plugin-\*
 ```
 
-On Debian, the Nagios plugins directory (plugins that run commands like **check_icmp**) is **/usr/lib/nagios/plugins/**. Go to **Configuration > Pollers > Resources** and check that the path to the **$USER1$** macro is **/usr/lib/nagios/plugins/**.
+On Debian, the Nagios plugins directory (plugins that run commands like **check_icmp**) is **/usr/lib/nagios/plugins/**. Go to **Configuration > Pollers > Resources** and check that the path to the **$USER1$** macro is **/usr/lib/nagios/plugins/**. The path should be the same in the **Plugins directory** field on the **Administration > Parameters > Monitoring** page.
 
 If you are using custom plugins, synchronize the directories that contain your custom plugins, including any necessary dependencies.
 
 ### Step 5: Upgrade Centreon
 
 1. On the new server, force the update by moving the contents of the
-**/var/lib/centreon/installs/install-22.10.x-YYYYMMDD\_HHMMSS** directory to
+**/var/lib/centreon/installs/install-23.04.x-YYYYMMDD\_HHMMSS** directory to
 the **/usr/share/centreon/www/install** directory (**x** is the target version number for your migrated machine):
 
    ```shell
    cd /var/lib/centreon/installs/
-   mv install-22.10.x-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
+   mv install-23.04.x-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
    ```
 
 2. If you use the same IP address or same DNS name between the old Centreon webserver and the new one, do a full cache cleanup of your browser to avoid JS issues.
@@ -189,15 +191,30 @@ the **/usr/share/centreon/www/install** directory (**x** is the target version n
    3. Edit the Centreon Broker central configuration using the Centreon web interface and change the password for the **unfied-sql** output,
    4. Edit the **/etc/centreon/config.d/10-database.yaml** file.
 
-5. If the IP address of your Centreon server has changed, edit the configuration for all
-the Centreon Broker modules of your Pollers and change the IP to connect to
+5. If the IP address of your Centreon server has changed:
+   - Edit the configuration for all the Centreon Broker modules of your Pollers and change the IP to connect to
 the Centreon Central server (output IPv4). See the [Advanced
 configuration](../monitoring/monitoring-servers/advanced-configuration.md#tcp-outputs)
 chapter for more information.
+   - The fingerprint of your platform has changed too: [contact Centreon](mailto:support@centreon.com) to obtain a new license.
 
-6. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for all your monitoring servers (including the central).
+6. The credentials of the newly created **centreon-gorgone** user need to be updated to match those of the **centreon-gorgone** user on the old server. Edit `etc/centreon-gorgone/config.d/31-centreon-api.yaml` and enter the credentials of the old user. Example:
 
-7. Restart the following processes:
+   ```shell
+   gorgone:
+     tpapi:
+       - name: centreonv2
+         base_url: "http://127.0.0.1/centreon/api/latest/"
+         username: "@GORGONE_USER@"
+         password: "@GORGONE_PASSWORD@"
+       - name: clapi
+         username: "@GORGONE_USER@"
+         password: "@GORGONE_PASSWORD@"
+   ```
+
+7. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for all your monitoring servers (including the central).
+
+8. Restart the following processes:
 
    ```shell
    systemctl restart cbd centengine
@@ -206,9 +223,9 @@ chapter for more information.
    systemctl start snmpd
    ```
 
-8. If your old Centreon server was monitoring itself, and you have changed the username/password for the database during the migration, update the configuration of all related resources (host, services attached to that host).
+9. If your old Centreon server was monitoring itself, and you have changed the username/password for the database during the migration, update the configuration of all related resources (host, services attached to that host).
 
-9. Go to **Configuration > Monitoring Connectors Manager**, then [update all the Monitoring Connectors](../monitoring/pluginpacks.md#updating-one-packall-packs).
+10. Go to **Configuration > Monitoring Connector Manager**, then [update all the Monitoring Connectors](../monitoring/pluginpacks.md#updating-one-packall-packs).
 
 ### Step 6 (older versions only): Migrate to Gorgone
 
@@ -222,18 +239,21 @@ If you have a MAP server or an MBI server, follow the corresponding migration pr
 - Migration procedure for [MAP](../graph-views/migrate.md),
 - Migration procedure for [MBI](../reporting/migrate.md).
 
-## Migrating a remote server
+### Step 8: Migrating your other servers (distributed architecture)
+
+#### Migrating a remote server
 
 To migrate a remote server:
 
 1. Follow the same procedure as for a central server.
 2. [Attach the new remote server](../monitoring/monitoring-servers/add-a-remote-server-to-configuration.md) to your central server.
 
-## Migrating a poller
+#### Migrating a poller
 
 To migrate a poller:
 
-1. Follow steps 1 and 4 of the procedure to migrate a central server (i.e. [install the new server](#step-1-install-the-new-server) and [synchronize the plugins](#step-4-synchronize-the-plugins)).
-2. On the central server, go to **Configuration > Pollers**. Select the poller that was migrated and update its IP address (if it has changed).
-3. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
-4. If your poller doesn't work after migrating it (e.g. you cannot deploy the configuration, or execute monitoring actions), update the poller's fingerprint, as described in this [knowledge base article](https://thewatch.centreon.com/troubleshooting-41/poller-does-not-work-after-migration-or-reinstallation-fingerprint-changed-for-target-1177).
+1. [Install a new poller](../installation/installation-of-a-poller/using-packages.md).
+2. Synchronize the plugins, as described in [step 4 of the migration procedure for a central server](#step-4-synchronize-the-plugins).
+3. On the central server, go to **Configuration > Pollers**. Select the poller that was migrated and update its IP address (if it has changed).
+4. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+5. If your poller doesn't work after migrating it (e.g. you cannot deploy the configuration, or execute monitoring actions), update the poller's fingerprint, as described in this [knowledge base article](https://thewatch.centreon.com/troubleshooting-41/poller-does-not-work-after-migration-or-reinstallation-fingerprint-changed-for-target-1177).

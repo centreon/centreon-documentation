@@ -55,6 +55,7 @@ ALTER TABLE virtual_metrics MODIFY index_id bigint unsigned;
 
 L'autologin n'est actuellement pas géré pour les pages suivantes :
 
+* **Supervision > Map (legacy exclus)**
 * **Monitoring > Resources Status**
 * **Configuration > Hosts > Discovery**
 * **Configuration > Business Activity > Business Views**
@@ -79,6 +80,51 @@ Lorsque vous créez un métaservice auquel est lié un service de détection des
 Il n'existe actuellement pas de contournement.
 
 ## Centreon MBI
+
+### Vous obtenez des erreurs lors de l'import journalier et calcul des statistiques
+
+#### Description
+
+Après la mise à jour de MBI, vous obtenez une erreur similaire à la suivante pendant le calcul des statistiques.
+
+```shell
+[Tue Jun 1 18:28:26 2021] [FATAL] mod_bi_hgservicemonthavailability insertion execute error : Out of range value for column 'mtbf' at row 1
+[Tue Jun 1 18:28:26 2021] [FATAL] Program terminated with errors
+```
+
+Cette erreur est due à un problème de mise à jour des colonnes dans la base de données.
+
+#### Solution
+
+1. Vous devez exécuter un script pour mettre à jour les colonnes de la base de données, en entrant cette commande sur le serveur central :
+
+  ```shell
+  php /usr/share/centreon/www/modules/centreon-bi-server/tools/updateColumnsToBigint.php
+  ```
+
+2. Puis suivez cette procédure pour [reprendre partiellement les données de reporting](../reporting/concepts.md#comment-reprendre-partiellement-les-données-de-reporting-).
+
+### Les rapports contenant des graphes sont vides
+
+> Cet incident ne concerne que **MBI 22.10** sur **EL7**.
+
+Votre serveur central est en HTTPS et les graphes suivants ne s'affichent pas lors de la génération des rapports :
+
+- Host-Graph-v2
+- Hostgroup-Graph-v2
+
+Cet incident est dû au lien manquant vers le fichier des certificats CA.
+
+#### Contournement
+
+- Exécutez les commandes suivantes en tant qu'utilisateur root :
+
+> Notez que le chemin vers le fichier **cacerts** de Java peut varier en fonction de la version installée.
+
+```shell
+rm /usr/java/jdk-17/lib/security/cacerts
+ln -s /etc/pki/ca-trust/extracted/java/cacerts /usr/java/jdk-17/lib/security/cacerts
+```
 
 ### Erreur lors de l'exécution du script ETL
 

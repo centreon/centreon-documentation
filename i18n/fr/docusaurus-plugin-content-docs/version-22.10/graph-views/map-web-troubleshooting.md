@@ -7,6 +7,20 @@ import TabItem from '@theme/TabItem';
 
 Cette page présente quelques recommandations pour résoudre des incidents lors de l'installation de MAP.
 
+## Erreur « Echec d'authentification » lors de la connexion à la page d'accueil MAP
+
+#### Symptôme
+
+Une erreur « Echec d'authentification » se produit à la page d'accueil de MAP lors de la tentative de connexion au service Centreon MAP.
+
+#### Problème
+
+Les informations d'identification utilisées par l'utilisateur **Web interface** (définies lors de l'installation) pour se connecter au module MAP ne sont plus valides car elles ont été modifiées, probablement suite à l'expiration du mot de passe.
+
+#### Solution
+
+Vous pouvez mettre à jour le mot de passe en accédant à ce fichier : **/etc/centreon-map/map-config.properties**.
+
 ## La configuration MAP ne fonctionne pas en HTTPS
 
 #### Symptôme
@@ -154,13 +168,13 @@ Voici les principales erreurs que vous pouvez rencontrer :
 2. Vérifiez le statut de MAP en accédant à l'URL suivante dans le navigateur (utilisez les mêmes valeurs pour **MAP_IP_ADDRESS** et **MAP_PORT** que celles définies dans **Administration > Extensions > MAP > Options**).
 
   ```shell
-  http://[MAP_IP_ADDRESS]:[MAP_PORT]/centreon-map/api/actuator/health
+  http://[MAP_IP_ADDRESS]:[MAP_PORT]/centreon-map/api/beta/actuator/health
   ```
   
   Exemple:
   
   ```shell
-  http://10.0.0.2:8081/centreon-map/api/actuator/health
+  http://10.0.0.2:8081/centreon-map/api/beta/actuator/health
   ```
   
   Le résultat doit être le suivant :

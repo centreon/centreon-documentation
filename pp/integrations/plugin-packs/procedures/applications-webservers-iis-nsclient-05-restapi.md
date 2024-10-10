@@ -1,9 +1,6 @@
 ---
 id: applications-webservers-iis-nsclient-05-restapi
-title: Microsoft IIS Server NSClient API (Deprecated)
+title: Microsoft IIS Server NSClient API (deprecated)
 ---
 
-## **WARNING** This Pack has been deprecated
-
-This Monitoring Connector has been deprecated and replaced by `Microsoft IIS Server Restapi`. 
-Refer to [this procedure](applications-webservers-iis-restapi.md)
+> This Monitoring Connector is no longer maintained and should not be used. It has been replaced by the [Microsoft IIS Server Restapi](applications-webservers-iis-restapi.md) connector.

@@ -21,3 +21,7 @@ title: Débuter avec les collecteurs
 1. Avant d'installer un collecteur, vous devez vous assurer que les [prérequis](../installation/prerequisites.md) sont respectés.
 
 2. Vous pouvez ensuite suivre la procédure d'[installation](../installation/deploy-poller.md).
+
+## Dépannage
+
+N'hésitez pas à poser vos questions sur notre plateforme communautaire [The Watch](https://thewatch.centreon.com/).

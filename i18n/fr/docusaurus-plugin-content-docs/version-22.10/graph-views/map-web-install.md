@@ -173,6 +173,89 @@ Le serveur nécessite que la licence soit disponible et valide sur le serveur ce
 
 Notez que l'interface web de MAP a les mêmes prérequis que l'interface web Centreon. Voir les prérequis pour la compatibilité des navigateurs web [ici](../installation/prerequisites.md).
 
+## Pré-installation
+
+### Désactiver SELinux
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
+**/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
+exécutez la commande suivante :
+
+```shell
+sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
+```
+
+Redémarrez votre système d'exploitation pour prendre en compte le changement.
+
+```shell
+reboot
+```
+
+Après le redémarrage, une vérification rapide permet de confirmer le statut de
+SELinux :
+
+```shell
+$ getenforce
+```
+
+Vous devriez obtenir ce résultat :
+
+```shell
+Disabled
+```
+
+> **Notez que cette désactivation doit être temporaire.** Pour réactiver SELinux, éditez le fichier **/etc/selinux/config** et changez la valeur avec les options suivantes :
+> - ``SELINUX=enforcing`` pour que la politique de sécurité SELinux soit appliquée en mode strict.
+> - ``SELINUX=permissive`` pour que les erreurs d’accès soient enregistrées dans les logs, mais l’accès ne sera pas bloqué.
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
+**/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
+exécutez la commande suivante :
+
+```shell
+reboot
+```
+
+Après le démarrage du système, effectuez une vérification rapide de l'état de SELinux :
+
+```shell
+getenforce
+```
+
+Vous devriez obtenir ce résultat :
+
+```shell
+Disabled
+```
+
+> **Notez que cette désactivation doit être temporaire.** Pour réactiver SELinux, éditez le fichier **/etc/selinux/config** et changez la valeur avec les options suivantes :
+> - ``SELINUX=enforcing`` pour que la politique de sécurité SELinux soit appliquée en mode strict.
+> - ``SELINUX=permissive`` pour que les erreurs d’accès soient enregistrées dans les logs, mais l’accès ne sera pas bloqué.
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+SELinux n'est pas installé sur Debian 11, continuez.
+
+</TabItem>
+</Tabs>
+
+### Configurer ou désactiver le pare-feu
+
+Si votre pare-feu système est actif, [paramétrez-le](../administration/secure-platform.md#activer-firewalld).
+Vous pouvez également le désactiver le temps de l'installation :
+
+```shell
+systemctl stop firewalld
+systemctl disable firewalld
+```
+
 ## Installation du serveur MAP Engine
 
 ### Étape 1 : définir les paramètres d'authentification
@@ -205,7 +288,7 @@ Le privilège INSERT ne sera utilisé que pendant le processus d'installation af
 
 #### Installation des paquets
 
-Si vous installez votre serveur Centreon MAP à partir d'une "installation OS fraîche", vous devez installer le paquet **centreon-release** :
+Si vous installez votre serveur Centreon MAP à partir d'une "installation OS fraîche", vous devez installer le dépôt Centreon :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -225,17 +308,19 @@ Installed:
 Complete!
 ```
 
-Ensuite installez le paquet **centreon-release** :
+Ensuite installez le dépôt Centreon :
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el8/centreon-22.10.repo
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+yum install -y yum-utils
+yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el7/centreon-22.10.repo
 ```
 
 </TabItem>
@@ -250,7 +335,8 @@ apt update && apt install lsb-release ca-certificates apt-transport-https softwa
 Pour installer le dépôt Centreon, exécutez la commande suivante :
 
 ```shell
-echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-22.10-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
 Ensuite, importez la clé du dépôt :
@@ -551,6 +637,8 @@ centreon.path=/your-custom-uri
 
 #### Optimisation de la mémoire pour Java
 
+> JAVA_OPTS est une variable d'environnement standard utilisée pour modifier les propriétés Java.
+
 Pour implémenter correctement la mémoire dédiée :
 
 Modifiez le paramètre **JAVA_OPTS** dans le fichier de configuration Centreon MAP
@@ -642,7 +730,7 @@ Installez le dépôt de Centreon Business : vous pouvez le trouver sur le [porta
 
 ### Étape 2 : installer le module MAP
 
-1. Depuis votre terminal, entrez la commande suivante :
+1. Depuis votre terminal, entrez la commande suivante sur le serveur central :
 
   <Tabs groupId="sync">
   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">

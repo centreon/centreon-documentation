@@ -5,6 +5,8 @@ title: Introduction
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Cette version de Centreon est ancienne, et ne sera bientôt plus supportée. Nous vous recommandons d'installer la dernière version.
+
 Ce chapitre décrit les différentes étapes de mise en place d'une plateforme de
 supervision Centreon.
 
@@ -64,7 +66,7 @@ yum update
 2. Exécutez la commande suivante en **root** :
 
 ``` shell
-curl -L https://raw.githubusercontent.com/centreon/centreon/22.10.x/centreon/unattended.sh | sh
+curl -L https://download.centreon.com/22.10/unattended.sh | sh
 ```
 
 Le script installera un serveur central avec la version 22.10, depuis le dépôt stable, avec une sortie minimale sur votre terminal.

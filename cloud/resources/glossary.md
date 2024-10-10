@@ -9,7 +9,7 @@ When a user acknowledges a resource in Centreon, they notify their teams that th
 
 When a resource is acknowledged, [notifications](#notification) are stopped, and the resource is highlighted yellow in monitoring screens.
 
-Acknowledging a resource does not mean that the incident is over: it will be over when the resource is back to its nominal state (**OK** or **UP**).
+Acknowledging a resource does not mean that the incident is over. It will be over when the resource is back to its nominal state (**OK** or **UP**).
 
 **See also**: [Acknowledging an alert](../alerts-notifications/acknowledge.md).
 
@@ -29,7 +29,7 @@ In Centreon, the central server is the main console where you monitor resources.
 
 ## Downtime
 
-A downtime is a time period during which [notifications](#notification) are disabled for a resource. Downtimes are used during planned maintenance operations, to avoid getting unnecessary alerts.
+Downtime is a period during which [notifications](#notification) are disabled for a resource. Downtime is used during planned maintenance operations, to avoid unnecessary alerts.
 
 **See also**: [Planning a downtime](../alerts-notifications/downtimes.md).
 
@@ -39,11 +39,11 @@ See [**Monitoring engine**](#monitoring-engine).
 
 ## FQDN
 
-Fully Qualified Domain Name: hostname and domain name for a server. E.g.: demo.centreon.com (hostname: demo, domain name: centreon.com).
+Fully Qualified Domain Name: hostname and domain name for a server. Example: demo.centreon.com (hostname: demo, domain name: centreon.com).
 
 ## Graph
 
-Graphs are generated from the [metrics](#metric) that make up [services](#service). They show how these metrics evolve in time.
+Graphs are generated from the [metrics](#metric) that make up [services](#service). They show how these metrics evolve over time.
 
 **See also**: [Charts management](../metrology/chart-management.md) and the other topics in this section.
 
@@ -53,7 +53,7 @@ Principle according to which a parameter of a [template](#template) is applied t
 
 ## Host
 
-Equipment that has an IP address or a FQDN, and that you want to monitor. Examples: a Linux server, an internet router, a website, a 3D printer, an EC2 instance, a docker host, a cash register, etc. A host can have one or more associated [services](#service).
+Equipment that has an IP address or an FQDN, and that you want to monitor. Examples: a Linux server, an internet router, a website, a 3D printer, an EC2 instance, a docker host, a cash register, etc. A host can have one or more associated [services](#service).
 
 A host can have one of the following [statuses](#status): OK, DOWN and UNREACHABLE.
 
@@ -61,11 +61,19 @@ See also: [Monitoring a host](../monitoring/basic-objects/hosts-create.md) and t
 
 ## Metric
 
-A metric (or performance data) is part of a [service](#service). This piece of data allows you to display graphs, and to define thresholds according to which you will receive notifications. These thresholds will determine the [status](#status) of the service the metric belongs to.
+A metric (or performance data) is part of a [service](#service). This piece of data allows you to display graphs and to define thresholds according to which you will receive notifications. These thresholds will determine the [status](#status) of the service the metric belongs to.
 
 When a service has several metrics, the status of the service is the status of the worst metric.
 
 You can see all metrics attached to a service in the details panel of the service.
+
+**See also**: [Understanding metrics](../monitoring/metrics.md).
+
+## Mode
+
+Modes are used in [plugins](#plugin). In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector. In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template. However, you will need to specify the correct mode for the template if you want to test the execution command for the connector in your terminal, or to create a custom command.
+
+The documentation of the Monitoring Connectors provides a list of available modes for each connector, with all the corresponding options.
 
 ## Monitoring action
 
@@ -89,9 +97,7 @@ Centreon Engine is present on [pollers](#poller) and the [central server](#centr
 
 ## Notification
 
-Message that warns a user that an incident has occurred. You can configure notifications on various [statuses](#status).
-
-**See also**: [How notifications work](../alerts-notifications/notif-concept.md) and the other topics in this section.
+Message that warns a user that an incident has occurred.
 
 ## Performance data
 
@@ -113,7 +119,7 @@ A poller is a monitoring server installed in your infrastructure to monitor your
 
 ## Recurring downtime
 
-Recurring downtimes are [downtimes](#downtime) that occur regularly.
+Recurring downtime periods are [downtimes](#downtime) that occur regularly.
 
 **See also**: [Recurrent downtimes](../alerts-notifications/downtimes.md#recurrent-downtimes).
 
@@ -131,7 +137,7 @@ A service is attached to a [host](#host). It is a check point on this host, that
 
 - the status of a component: is the power supply connected? Is my instance started?
 
-- the performance of a component: is my website accessible in less than 0.5s? What are the ink levels on my printer? How much of the memory is used on my server?
+- the performance of a component: is my website accessible in less than 0.5 s? What are the ink levels on my printer? How much of the memory is used on my server?
 
 A service can consist of one or several [metrics](#metric).
 

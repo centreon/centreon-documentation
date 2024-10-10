@@ -318,8 +318,30 @@ dnf install centreon-bi-server
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
+Install **gpg**:
+
 ```shell
-apt update && apt install centreon-bi-server
+apt install gpg
+```
+
+Import the repository key:
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
+
+Add the following external repository (for Java 8):
+
+```shell
+wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
+add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
+apt update
+```
+
+Then install Centreon MBI:
+
+```shell
+apt install centreon-bi-server
 ```
 
 </TabItem>
@@ -359,10 +381,10 @@ Run the command below to allow the reporting server to connect to the databases 
 Use the following option:
 
 ```shell
-/usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
+perl /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
 ```
 
-**@ROOTPWD@** : Root password of the MariaDB database of supervision.
+**@ROOTPWD@** : Root password of the MariaDB monitoring database.
 If there is no password for the "root" user, do not specify the **root-password** option.
 
 </TabItem>
@@ -392,12 +414,11 @@ file of the slave server or mariadb.cnf on Debian 11.
 replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
 ```
 
-Then, create the views manually on the slave server by running the following
-command:
+Then, create the views manually on the slave server:
 
-```bash
-wget https://docs.centreon.com/fr/assets/files/view_creation-948c02cd93f8867179ec47fd611426bd.sql -O /tmp/view_creation.sql
-```
+1. Download [the following file](../assets/reporting/installation/view_creation.sql) to a temporary folder (in our example, **/tmp**), for instance using **wget**.
+
+2. Run the following command (change the name of your temporary folder if necessary):
 
 ```bash
 mysql centreon < /tmp/view_creation.sql
@@ -462,9 +483,51 @@ You must have the following information before proceeding with the installation 
 
 #### Procedure
 
-1. To start installing the reporting server, install the Business repository. You can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+1. Install the Centreon repository:
 
-2. Ensure a version of Java 17 (or 18) is installed before you start the procedure.
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
+dnf clean all --enablerepo=*
+dnf update
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
+dnf clean all --enablerepo=*
+dnf update
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+To install the Centreon repository, execute the following command:
+
+```shell
+echo "deb https://packages.centreon.com/apt-standard-23.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
+```
+
+Then import the repository key:
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+apt update
+```
+
+</TabItem>
+</Tabs>
+
+2. Install the Business repository. You can find it on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+
+3. Ensure a version of Java 17 (or 18) is installed before you start the procedure.
    
    - If you need to check the Java version, enter the following command:
    
@@ -480,7 +543,7 @@ You must have the following information before proceeding with the installation 
    sudo update-alternatives --config java
    ```
 
-3. Install the MariaDB repository:
+4. Install the MariaDB repository:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -506,7 +569,7 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 </TabItem>
 </Tabs>
 
-4. Then run the following command:
+5. Then run the following command:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
@@ -702,7 +765,6 @@ Add the following external repository (for Java 8):
 ```shell
 wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
 add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
-apt update
 ```
 
 In the case of an installation based on a blank distribution, install the GPG key:
@@ -934,7 +996,7 @@ You will get an error when creating the USER, because it already exists. This is
 
 Centreon MBI integrates an ETL that allows you to :
 
-- Synchronize the raw data from the supervision to the reporting server
+- Synchronize the raw data from the monitoring to the reporting server
 - Feed statistical data to the reporting server databases statistical data
 - Control the retention of data on the reporting server
 

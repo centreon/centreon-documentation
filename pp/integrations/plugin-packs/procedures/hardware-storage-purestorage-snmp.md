@@ -55,7 +55,7 @@ Your Centreon poller must be able to reach the PureStorage storage array on the 
 yum install centreon-plugin-Hardware-Storage-Purestorage-Snmp
 ```
 
-2. Install the "Pure Storage SNMP" Centreon Monitoring Connector from the **Configuration > Monitoring Connectors Manager** page
+2. Install the "Pure Storage SNMP" Centreon Monitoring Connector from the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -72,7 +72,7 @@ yum install centreon-plugin-Hardware-Storage-Purestorage-Snmp
 yum install centreon-pack-hardware-storage-purestorage-snmp
 ```
 
-3. Install the "Pure Storage SNMP" Centreon Monitoring Connector from the **Configuration > Monitoring Connectors Manager** page
+3. Install the "Pure Storage SNMP" Centreon Monitoring Connector from the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

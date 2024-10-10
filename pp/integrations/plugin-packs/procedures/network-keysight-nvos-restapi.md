@@ -119,7 +119,7 @@ To monitor, a user with read privileges on the Control-M [Automation API](https:
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connectors Manager** menu.
+**Configuration > Monitoring Connector Manager** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -138,7 +138,7 @@ dnf install centreon-pack-network-keysight-nvos-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-network-keysight-nvos-restapi
@@ -155,7 +155,7 @@ yum install centreon-pack-network-keysight-nvos-restapi
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Keysight NVOS Rest API** connector through
-the **Configuration > Monitoring Connectors Manager** menu.
+the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
 
@@ -185,7 +185,7 @@ dnf install centreon-plugin-Network-Keysight-Nvos-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-network-keysight-nvos-restapi

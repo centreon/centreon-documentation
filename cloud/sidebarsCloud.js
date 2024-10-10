@@ -31,8 +31,9 @@ module.exports = {
         {
           type: 'doc',
           id: 'getting-started/concepts',
+
         },
-      ],
+        ],
       },
       {
         "collapsed": true,
@@ -46,6 +47,7 @@ module.exports = {
       type: 'doc',
       id: 'getting-started/start-with-pollers',
     },
+
     {
       type: 'doc',
       id: 'getting-started/start-with-connectors',
@@ -119,6 +121,9 @@ items: [
 {
       type: 'category',
       label: 'Managing Centreon Cloud users',
+      "link": {
+        "type": "generated-index",
+      },
       items: [
         {
           type: 'doc',
@@ -128,11 +133,22 @@ items: [
           type: 'doc',
           id: 'users/users',
         },
+        {
+          type: 'doc',
+          id: 'users/user_groups',
+        },
+        {
+          type: 'doc',
+          id: 'administration/ram',
+        },
       ],
     },
     {
       type: 'category',
-      label: 'Installing a poller',
+      label: 'Managing pollers',
+      "link": {
+        "type": "generated-index",
+      },
       items: [
         {
           type: 'doc',
@@ -142,175 +158,286 @@ items: [
           type: 'doc',
           id: 'installation/deploy-poller',
         },
+        {
+          type: 'doc',
+          id: 'installation/poller-update-upgrade',
+        },
+        {
+          type: 'doc',
+          id: 'installation/poller-secure',
+        },
       ],
     },
     {
-        "type": "category",
-        "label": "Monitoring resources",
-        "items": [
-          {
-            "type": "category",
-            "label": "Monitoring basics",
-            "items": [
-              {
-                "type": "doc",
-                "id": "monitoring/pluginpacks"
-              },
-              {
-                "type": "doc",
-                "id": "monitoring/monitoring-servers/deploying-a-configuration"
-              }
-            ]
-          },
-          {
-            "type": "category",
-            "label": "Monitoring hosts",
-            "items": [
-              {
-                "type": "doc",
-                "id": "monitoring/basic-objects/hosts-create"
-              },
-              {
-                "type": "doc",
-                "id": "monitoring/basic-objects/hosts"
-              },
-              {
-                "type": "doc",
-                "id": "monitoring/basic-objects/hosts-create-disco"
-              },
-              {
-                "type": "doc",
-                "id": "monitoring/basic-objects/hosts-templates"
-              }
-            ]
-          },
-          {
-            "type": "category",
-            "label": "Monitoring services",
-            "items": [
-              {
-                "type": "doc",
-                "id": "monitoring/basic-objects/services-create"
-              },
-              {
-                "type": "doc",
-                "id": "monitoring/basic-objects/services"
-              },
-              {
-                "type": "doc",
-                "id": "monitoring/basic-objects/services-create-disco"
-              },
-              {
-                "type": "doc",
-                "id": "monitoring/basic-objects/services-templates"
-              }
-            ]
-          },
-          {
-            "type": "category",
-            "label": "Discovering hosts and services automatically",
-            "items": [
-              {
-                "type": "doc",
-                "id": "monitoring/discovery/introduction"
-              },
-              {
-                "type": "doc",
-                "id": "monitoring/discovery/hosts-discovery"
-              },
-              {
-                "type": "doc",
-                "id": "monitoring/discovery/services-discovery"
-              },
-            ]
-          },
-          {
-            "type": "category",
-            "label": "Organizing hosts and services",
-            "items": [
-              {
-                "type": "doc",
-                "id": "monitoring/groups"
-              },
-              {
-                "type": "doc",
-                "id": "monitoring/categories"
-              }
-            ]
-          },
-          {
-            "type": "category",
-            "label": "Basic objects and actions",
-            "items": [
-              {
-                "type": "doc",
-                "id": "monitoring/basic-objects/macros"
-              },
-              {
-                "type": "doc",
-                "id": "monitoring/generic-actions"
-              }
-            ]
-          },
-        ]
+      "type": "category",
+      "label": "Monitoring resources",
+      "link": {
+        "type": "generated-index",
       },
+      "items": [
+        {
+          "type": "category",
+          "label": "Monitoring basics",
+          "link": {
+            "type": "generated-index",
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "monitoring/metrics"
+            },
+            {
+              "type": "doc",
+              "id": "monitoring/pluginpacks"
+            },
+            {
+              "type": "doc",
+              "id": "monitoring/monitoring-servers/deploying-a-configuration"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Monitoring hosts",
+          "link": {
+            "type": "generated-index",
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "monitoring/basic-objects/hosts-create"
+            },
+            {
+              "type": "doc",
+              "id": "monitoring/basic-objects/hosts"
+            },
+            {
+              "type": "doc",
+              "id": "monitoring/basic-objects/hosts-create-disco"
+            },
+            {
+              "type": "doc",
+              "id": "monitoring/basic-objects/hosts-templates"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Monitoring services",
+          "link": {
+            "type": "generated-index",
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "monitoring/basic-objects/services-create"
+            },
+            {
+              "type": "doc",
+              "id": "monitoring/basic-objects/services"
+            },
+            {
+              "type": "doc",
+              "id": "monitoring/basic-objects/services-create-disco"
+            },
+            {
+              "type": "doc",
+              "id": "monitoring/basic-objects/services-templates"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Discovering hosts and services automatically",
+          "link": {
+            "type": "generated-index",
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "monitoring/discovery/introduction"
+            },
+            {
+              "type": "doc",
+              "id": "monitoring/discovery/hosts-discovery"
+            },
+            {
+              "type": "doc",
+              "id": "monitoring/discovery/services-discovery"
+            },
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Organizing hosts and services",
+          "link": {
+            "type": "generated-index",
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "monitoring/groups"
+            },
+            {
+              "type": "doc",
+              "id": "monitoring/categories"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Basic objects and actions",
+          "link": {
+            "type": "generated-index",
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "monitoring/basic-objects/commands"
+            },
+            {
+              "type": "doc",
+              "id": "monitoring/basic-objects/timeperiods"
+            },
+            {
+              "type": "doc",
+              "id": "monitoring/basic-objects/macros"
+            },
+            {
+              "type": "doc",
+              "id": "monitoring/generic-actions"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Detecting anomalies",
+          "link": {
+            "type": "generated-index",
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "monitoring/anomaly-detection"
+            }
+          ]
+        },
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Managing events and alerts",
+      "link": {
+        "type": "generated-index",
+      },
+      "items": [
+        {
+          "type": "category",
+          "label": "Viewing events",
+          "link": {
+            "type": "generated-index",
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "alerts-notifications/concepts"
+            },
+            {
+              "type": "doc",
+              "id": "alerts-notifications/resources-status"
+            },
+            {
+              "type": "doc",
+              "id": "alerts-notifications/event-log"
+            }
+      ]
+        },
+        {
+          "type": "category",
+          "label": "Managing alerts",
+          "link": {
+            "type": "generated-index",
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "alerts-notifications/acknowledge"
+            },
+            {
+              "type": "doc",
+              "id": "alerts-notifications/downtimes"
+            },
+            {
+              "type": "doc",
+              "id": "alerts-notifications/submit"
+            }
+          ]
+        },
+        {
+          "type": "doc",
+          "id": "alerts-notifications/notif-configuration"
+        },
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Service Mapping",
+      "link": {
+        "type": "generated-index",
+      },
+      "items": [
+        {
+          "type": "doc",
+          "id": "service-mapping/introduction"
+        },
+        {
+          "type": "category",
+          "label": "Guide",
+          "link": {
+            "type": "generated-index",
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "service-mapping/ba-management"
+            },
+            {
+              "type": "doc",
+              "id": "service-mapping/ba-monitoring"
+            },
+            {
+              "type": "doc",
+              "id": "service-mapping/ba-reporting"
+            },
+            {
+              "type": "doc",
+              "id": "service-mapping/ba-settings"
+            },
+            {
+              "type": "doc",
+              "id": "service-mapping/widgets"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Data Visualization",
+      "link": {
+        "type": "generated-index"
+      },
+      "items": [
       {
-        "type": "category",
-        "label": "Managing events and alerts",
-        "items": [
-          {
-            "type": "category",
-            "label": "Viewing events",
-            "items": [
-              {
-                "type": "doc",
-                "id": "alerts-notifications/concepts"
-              },
-              {
-                "type": "doc",
-                "id": "alerts-notifications/resources-status"
-              },
-              {
-                "type": "doc",
-                "id": "alerts-notifications/event-log"
-              },
-              {
-                "type": "doc",
-                "id": "alerts-notifications/custom-views"
-              }
-            ]
-          },
-          {
-            "type": "category",
-            "label": "Managing alerts",
-            "items": [
-              {
-                "type": "doc",
-                "id": "alerts-notifications/acknowledge"
-              },
-              {
-                "type": "doc",
-                "id": "alerts-notifications/downtimes"
-              },
-              {
-                "type": "doc",
-                "id": "alerts-notifications/submit"
-              },
-              {
-                "type": "doc",
-                "id": "alerts-notifications/other"
-              }
-            ]
-          },
-          {
-            "type": "doc",
-            "id": "alerts-notifications/notif-configuration"
-          },
-        ]
+        "type": "doc",
+        "id": "alerts-notifications/dashboards"
       },
       {
         "type": "category",
         "label": "Performance graphs",
+        "link": {
+          "type": "generated-index",
+        },
         "items": [
           {
             "type": "doc",
@@ -327,178 +454,148 @@ items: [
           {
             "type": "doc",
             "id": "metrology/chart-virtual-metrics"
-          },
-        ]
-      },
-      {
-        "type": "category",
-        "label": "Service Mapping",
-        "items": [
-          {
-            "type": "doc",
-            "id": "service-mapping/introduction"
-          },
-          {
-            "type": "category",
-            "label": "Guide",
-            "items": [
-              {
-                "type": "doc",
-                "id": "service-mapping/ba-management"
-              },
-              {
-                "type": "doc",
-                "id": "service-mapping/ba-monitoring"
-              },
-              {
-                "type": "doc",
-                "id": "service-mapping/ba-reporting"
-              },
-              {
-                "type": "doc",
-                "id": "service-mapping/ba-settings"
-              },
-              {
-                "type": "doc",
-                "id": "service-mapping/widgets"
-              }
-            ]
           }
         ]
       },
-      {
-        "type": "category",
-        "label": "Graphical views",
-        "items": [
+    {
+      "type": "category",
+      "label": "Graphical views (maps)",
+      "link": {
+        "type": "generated-index",
+      },
+      "items": [
         {
           "type": "doc",
           "id": "graph-views/introduction-map"
-        }, 
-        {                    
-            "type": "category",
+        },
+        {
+          "type": "category",
           "label": "Guide",
+          "link": {
+            "type": "generated-index",
+          },
           "items": [
-              {
+            {
               "type": "doc",
               "id": "graph-views/map-web-access"
-              },
-                              {
-                    "type": "doc",
-                    "id": "graph-views/map-web-manage"
-                  },
-                  {
-                  "type": "doc",
-                  "id": "graph-views/map-web-create-standard-map"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/map-web-create-geoview"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/map-web-known-issues"
-                  }            
-                ]
-              }
-            ]
-                            },
-      {
-        "type": "link",
-        "href": "/pp/integrations/plugin-packs/getting-started/introduction",
-        "label": "Monitoring Connectors"
-      },
-
-      {
-        "type": "category",
-        "label": "Integrations",
-        "items": [
-          {
-            "type": "doc",
-            "id": "integrations/introduction-integrations"
-          },
-          {
-            "type": "category",
-            "label": "ITSM",
-            "items": [
-              {
-                "type": "doc",
-                "id": "integrations/itsm/itsm-overview"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/itsm/ot-bmc-footprints"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/itsm/ot-bmc-remedy"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/itsm/ot-easyvista"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/itsm/ot-glpi"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/itsm/ot-glpi-restapi"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/itsm/ot-itop"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/itsm/ot-iws-isilog"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/itsm/ot-jira"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/itsm/ot-mail"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/itsm/ot-otrs-restapi"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/itsm/ot-request-tracker-restapi"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/itsm/ot-serena"
-              },
-              {
-                "type": "doc",
-                "id": "integrations/itsm/ot-servicenow"
-              }
-            ]
-          },
-        ]
-      },
-      {
-        "type": "category",
-        "label": "Security",
-        "items": [
-          {
-            "type": "doc",
-            "id": "security/security"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/map-web-manage"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/map-web-create-standard-map"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/map-web-create-geoview"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/map-web-known-issues"
+            }
+          ]
           }
         ]
       },
-      {
-        "type": "category",
-        "label": "Resources",
-        "items": [
-          {
-            "type": "doc",
-            "id": "resources/glossary"
-          }
-        ]
-      }
-    ]
-  }
+    {
+      "type": "doc",
+      "id": "alerts-notifications/custom-views"
+    }
+  ]
+},
+    {
+      "type": "category",
+      "label": "Administration",
+      "link": {
+        "type": "generated-index",
+      },
+      "items": [
+        {
+          "type": "doc",
+          "id": "administration/media"
+        },
+              ]
+    },
+    {
+      "type": "link",
+      "href": "/pp/integrations/plugin-packs/getting-started/introduction",
+      "label": "Monitoring Connectors"
+    },
+    {
+      "type": "category",
+      "label": "Integrations",
+      "link": {
+        "type": "generated-index",
+      },
+      "items": [
+        {
+          "type": "doc",
+          "id": "integrations/stream-connectors-cloud"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "API",
+      "link": {
+        "type": "generated-index",
+      },
+      "items": [
+    {
+      "type": "link",
+      "href": "https://docs-api.centreon.com/api/centreon-web/cloud/",
+      "label": "Centreon Cloud API"
+    },
+    {
+          "type": "doc",
+          "id": "administration/api-tokens"
+        }
+      ],
+},
+    {
+      "type": "category",
+      "label": "Security",
+      "link": {
+        "type": "generated-index",
+      },
+      "items": [
+        {
+          "type": "doc",
+          "id": "security/security"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Release notes",
+      "link": {
+        "type": "generated-index",
+      },
+      "items": [
+        {
+          "type": "doc",
+          "id": "releases/cloud-release-notes"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Resources",
+      "link": {
+        "type": "generated-index",
+      },
+      "items": [
+        {
+          "type": "doc",
+          "id": "resources/known-issues"
+        },
+        {
+          "type": "doc",
+          "id": "resources/glossary"
+        }
+      ]
+    }
+  ]
+}

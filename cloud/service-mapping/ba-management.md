@@ -8,38 +8,38 @@ import TabItem from '@theme/TabItem';
 
 ## Business Activities (BA)
 
-> When you modify a business activity, you need to push & reload the
-> configuration using the "Poller" menu so that it's applied.
+> When you modify a business activity, you need to push and reload the
+> configuration using the "Poller" menu so that it is applied.
 
-> In Centreon Cloud, when you create a business activity, you need to add it systematically to the **all_BAs** business view so as to make it visible to other users.
+> In Centreon Cloud, when you create a business activity, you must always add it to the **all_BAs** business view to make it visible to other users.
 
 ### Definition
 
 Business Activities form the core of the Centreon BAM extension. As
-aggregated indicators they are monitored by the software in real time
+aggregated indicators, they are monitored by the software in real time
 using specific calculation methods. Business Activities are able to
 notify users depending their status, revealing a problem with the IT
 service or application.
 
 ### Calculation methods
 
-Business activities status rely on the calculation done on indicators
+Business activity statuses rely on the calculation done on indicators
 (child resources). The calculation method is configured at business
 activity level.
 
 There are four calculation methods that you can use:
 
 -   **Best status**: When you only need to be warned that ALL indicators
-    are critical at the same times
--   **Worst status**: When you immediately want to know that at least 1
+    are critical at the same time
+-   **Worst status**: When you want to know immediately when at least one
     indicator is not-ok
 -   **Ratio**: When you want to model Cluster concepts by specifying a
-    number of percentage of critical resources that you don't want to
+    number or percentage of critical resources that you do not want to
     exceed
 -   **Impact**: When you want to precisely define the weight of each
-    indicators and reflect that on your BA status
+    indicator and reflect that on your BA status
 
-Find below examples & configuration of each calculation methods
+Below are some examples and a configuration of each calculation method.
 
 <Tabs groupId="sync">
 <TabItem value="Best Status" label="Best Status">
@@ -49,7 +49,7 @@ Find below examples & configuration of each calculation methods
 The following order will be applied to find the "Best" status:
 `OK > Unknown > Warning > Critical > Pending`
 
-The configuration is as follow:
+The configuration is as follows:
 
 ![image](../assets/service-mapping/guide/business-activity-best-status.png)
 
@@ -58,10 +58,10 @@ The configuration is as follow:
 
 ![image](../assets/service-mapping/guide/business-activity-worst-status-tree.png)
 
-The following order will be applied fto find the "Worst" status:
+The following order will be applied to find the "Worst" status:
 `CRITICAL > Warning > Unknown > OK > Pending`
 
-The configuration is as follow:
+The configuration is as follows:
 
 ![image](../assets/service-mapping/guide/business-activity-worst-status.png)
 
@@ -69,41 +69,41 @@ The configuration is as follow:
 <TabItem value="Ratio" label="Ratio">
 
 This method helps you model “Cluster” concepts. The calculation is based
-on the **number or percentage of indicator in CRITICAL status** that you
-compare to number/percentage thresholds that you don't want to exceed.
+on the **number or percentage of indicators in CRITICAL status**, which you
+compare to number/percentage thresholds that you do not want to exceed.
 
-In the following example, we defined that we want number of Critical to
+In the following example, we defined that we want the percentage of Critical indicators to
 be less than 80%.
 
 ![image](../assets/service-mapping/guide/business-activity-ratio-tree.png)
 
-The configuration is as follow:
+The configuration is as follows:
 
 ![image](../assets/service-mapping/guide/business-activity-ratio.png)
 
-After choosing wether you want to define in percentage or number, the
-thresholds parameters have to be configured:
+After choosing whether you want to define them in terms of percentage or number,
+you must configure the threshold parameters:
 
 -   Critical threshold: if the number/percentage of **Critical**
-    indicators exceed that number/percentage, the Business activity will
+    indicators exceeds that number/percentage, the Business activity will
     be Critical
 -   Warning threshold: if the number/percentage of **Critical**
-    indicators exceed that number/percentage, the Business activity will
+    indicators exceeds that number/percentage, the Business activity will
     be Warning
 
 </TabItem>
 <TabItem value="Impact" label="Impact">
 
-> This mode is complex to use but may help you model heighly
+> This mode is complex to use, but it could help you model
 > severity-related concepts.
 
-When you use the impact mode, the business activity has a “Health”
-between 100% and 0%. When you attach indicators to it, you have to
-define the impact (in %) of each status for each indicator. When this
-indicators switch to these status (unknwon, critical etc..) Then the
+When you use impact mode, the business activity has a “Health”
+between 100% and 0%. When you attach indicators to it, you must
+define the impact (in %) of each status for each indicator. When these
+indicators switch to these statuses (unknown, critical etc.),  the 
 calculation is simple: BA Health = 100% - Current impacts.
 
-You then use the Warning & Critical thresholds to determine at what
+You then use the Warning and Critical thresholds to determine at what
 level you want the BA to become Warning or Critical
 
 -   **Warning threshold**: Between 100 and 0, the threshold below which
@@ -115,7 +115,7 @@ level you want the BA to become Warning or Critical
 
 The health value between 100% and 0% is often related to a service
 quality measurement. A variation in this value is used to determine
-whether the modelized IT service or application is in an **OK**,
+whether the modeled IT service or application is in an **OK**,
 **Warning** or **Critical** state.
 
 </TabItem>
@@ -123,29 +123,30 @@ whether the modelized IT service or application is in an **OK**,
 
 ### Create a Business Activity
 
-To add a Business Activity, click on the **Add** button. The following panel
+To add a Business Activity, click the **Add** button. The following panel
 appears:
 
 ![image](../assets/service-mapping/guide/business-activity-add.png)
 
 In this configuration panel, after giving a unique name (mandatory), you
-need to configure multiple sections to have an agregated indicator. The
-name is the only parameter mandatory but to have a BA that works, **you
-need at least to configure some indicators and define the
+need to configure multiple sections to have an aggregated indicator. The
+name is the only mandatory parameter, but to have a BA that works, **you
+must at least configure some indicators and define the
 calculation methods**. This can be done in the "Indicator" section.
+The following characters are not authorized in the name of a BA: `~!$%^&|'"<>?,()=*{}` and spaces.
 
 #### Indicators
 
-This section is the most important section for a business activity: this
-is where you define the way the status will be calculated by attaching
+This section is the most important section for a business activity, because it
+is where you define how the status will be calculated by attaching
 resources to the business activity and setting the calculation method.
 
-The type of indicator you can use are :
+The types of indicator you can use are:
 
 -   Services
--   Other business activities: that is really important to understand
-    that you can create “infinite” multi-level BA to model simple to
-    highly complex IT services or App.
+-   Other business activities: it is really important to understand
+    that you can create “infinite” multi-level BAs to model simple to
+    highly complex IT services or apps.
 -   Meta services
 -   Boolean rules: a combination of services with AND/OR/XOR rules
 
@@ -159,16 +160,16 @@ the previous section to understand each calculation method.
 -   Ratio
 -   Impact
 
-Now that you've choosen the way the business activity status will be
+Now that you have chosen how the business activity status will be
 calculated, you can manage how **planned downtime** on indicators will
 be handled. You have three choices:
 
 -   **Ignore the downtime**: In that case, the planned downtime
-    positionned on child indicators will be ignored, the BA will be
-    impacted, that's it.
--   **Inherit the downtime**: the BA is automatically sets in “planned
-    downtime” whenever an indicators in non-ok state is in planned
-    downtime AND impact the BA. The BA will still be impacted. The
+    positioned on child indicators will be ignored, the BA will be
+    impacted, and that is all.
+-   **Inherit the downtime**: the BA is automatically set in “planned
+    downtime” whenever an indicator in a non-ok state is in planned
+    downtime AND impacts the BA. The BA will still be impacted. The
     planned downtime inheritance follows these rules:
     -   A BA inherits planned downtime from its indicators only when the
         BA status is **not OK**.
@@ -176,66 +177,66 @@ be handled. You have three choices:
         inheritance: If the BA status switches to OK, planned downtime
         is stopped.
     -   When a BA is in planned downtime due to indicators downtime
-        inheritance: If an impact comes from an indicators that has no
+        inheritance: If an impact comes from an indicator that has no
         planned downtime, the BA downtime is stopped.
 -   **Ignore the indicator in the calculation**: when the indicator
-    impacts the BA and is it planned downtime, its status/impact is
-    ignored from the calculation.
+    impacts the BA and is in planned downtime, its status/impact is
+    ignored in the calculation.
 
-After configuring the way the business activity status is computed,
-you'll be able to configure the following properties:
+After configuring how the business activity status is computed,
+you will be able to configure the following properties:
 
 -   Business View: what BV(s) to link the BA to. Mandatory if you want
     to give access to this BA to non-admin users
 -   Display: All parameters concerning the way the BA will be accessible
     outside the BA monitoring page
--   Notification: who & when users get notified
--   Reporting: What SLA & timeperiod you want to use to calculate the BA
+-   Reporting: What SLA and time period you want to use to calculate the BA
     availability statistics
 -   Event handler: parameters to auto-remediate the BA when state
     becomes non-ok
 
 #### Business View
 
-In Centreon Cloud, when you create a business activity, you need to add it systematically to the **all_BAs** business view so as to make it visible to other users.
+In Centreon Cloud, when you create a business activity, you must always add it to the **all_BAs** business view to make it visible to other users.
 
 #### Display
 
--   Display on remote server: If you're using a remote server, you can
-    send the business activity to it so that it's also available for
+-   Display on remote server: If you are using a remote server, you can
+    send the business activity to it so that it is also available for
     remote teams. This is possible only if ALL the indicators under the
     BA (at any level) are visible by the remote server.
 -   Geo-coordinates: Geo-coordinate to position the BA on a geoview
 -   Associated infrastructure view name: the BA probably corresponds to
-    an agregated/customer's point of view state of an IT service or
-    application that rely on a complexe infrastructure. If this
-    infrastructure has been designed in Centreon Map, you can ease
+    an aggregated/customer's point of view state of an IT service or
+    application that relies on a complex infrastructure. If this
+    infrastructure was designed in Centreon Map, you can ease
     access from this BA to the corresponding view to help users to drill
     down when a problem occurs on that BA.
 
 #### Notification
 
-Configure when and for what status notifications should be sent when the BA's
-status changes. Add the **Notification** contact group so that users can be notified.
+This screen is not currently active. In Centreon Cloud, BAs use [the same notification mechanism as hosts and services](https://docs.centreon.com/cloud/alerts-notifications/notif-configuration/).
 
 #### Reporting
 
--   Default reporting time period: Availability statistics for widgets &
+-   Default reporting time period: Availability statistics for widgets and
     reports will be automatically calculated using this time period
 -   Service Level Agreement in % (SLA): whenever the availability is
     compared to a SLA in %, this will be the value that it will be
     compared to
 -   Service Level Agreement in minutes (SLA): whenever the availability
-    is compared to a SLA in minutes, this will be the value that it will
+    is compared to an SLA in minutes, this will be the value that it will
     be compared to
--   Service Level Objective in % (SLO): additonnal threshold in % to
-    compare the availability. It can be seen as a “SLA warning”
+-   Service Level Objective in % (SLO): additional threshold in % to
+    compare the availability. It can be seen as an “SLA warning”
     threshold.
--   Service Level Objective in minutes (SLO): additonnal threshold in
-    minutes to compare the availability. It can be seen as a “SLA
-    warning” threshold..
--   Extra reporting time periods: Additionnal time period you may want
-    to use in widget & reports
+-   Service Level Objective in minutes (SLO): additional threshold in
+    minutes to compare the availability. It can be seen as an “SLA
+    warning” threshold.
+-   Extra reporting time periods: Additional time period you may want
+    to use in widget and reports
+
+> In the **Default reporting time period** and **Extra reporting time periods** fields, do not use time periods that include [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab), as the exceptions will not not be taken into account.
 
 #### Event handler
 
@@ -253,44 +254,44 @@ The BA is managed through the
 
 ![image](../assets/service-mapping/guide/business-activity-listing.png)
 
-You have inline actions & global action to delete, duplicate,
+You have inline actions and global actions to delete, duplicate,
 enable/disable the BA and massively change thresholds.
 
-> Deleting a business activity is permannent, only passed data will be
+> Deleting a business activity is permanent; only past data will be
 > available through reports/widgets
 
 ## Indicators (KPI)
 
-> To update indicator configuration, you need to push & reload the
+> To update the indicator configuration, you need to push and reload the
 > configuration using the “Poller” menu
 
 ### Definition
 
-An indicator is a resources in the monitoring system that is linked to a
-BA. A BA may have multiple indicators & sub-indicators. There are four
-types of indicators:
+An indicator is a resource in the monitoring system that is linked to a
+BA. A BA may have multiple indicators and sub-indicators. There are four
+types of indicator:
 
 -   *Service* (Service by hostgroups are **NOT** usable as indicators)
 -   *Meta service*
 -   *Boolean*
 -   *Another business activity*
 
-An indicator can only impact a BA when status of its object (e.g., a
+An indicator can only impact a BA when the status of its object (e.g., a
 service) is *Hard* (validated).
 
 The indicator can impact the health of a BA and change its value
-according to the indicator status. We recommend for you to use the
+according to the indicator status. We recommend that you use the
 standard impact mode (based on keywords *Minor*, *Major*, etc.) instead
-of the advanced mode based on numeric impact values, which involve more
+of the advanced mode based on numeric impact values, which involve a more
 complex calculation.
 
 Any time an indicator status changes, the BA engine evaluates the impact
 and subtracts its value from the BA health level. The minimum health of
-a BA is 0, even if the sum of its indicators impact is > 100.
+a BA is 0, even if the sum of the impacts of its indicators is > 100.
 
 ### List Indicators
 
-Indicators can be configured through two different way:
+Indicators can be configured in two different ways:
 
 -   From the BA panel (common way)
 -   From **Configuration > Business Activity > Indicators**
@@ -300,14 +301,14 @@ Indicators can be configured through two different way:
 | Column          | Description                                                                                                          |
 | --------------- | -------------------------------------------------------------------------------------------------------------------- |
 | Indicator (KPI) | Indicator or Key Performance Indicator: Name of the indicator based on the object used                               |
-| Type            | Indicator type in(service, meta service, BA, boolean rule)                                                           |
-| Warning Impact  | Impact weight in the event of a *Warning* condition, in real-time monitoring Ignored if indicators is a boolean rule |
+| Type            | Indicator type (service, meta service, BA, boolean rule)                                                           |
+| Warning Impact  | Impact weight in the event of a *Warning* condition, in real-time monitoring. Ignored if indicator is a boolean rule |
 | Critical Impact | Impact weight in the event of a *Critical* condition, in real-time monitoring                                        |
-| Unknown Impact  | Impact weight in the event of a *Unknown* condition, in real-time monitoring Ignored if indicators is a boolean rule |
+| Unknown Impact  | Impact weight in the event of an *Unknown* condition, in real-time monitoring. Ignored if indicator is a boolean rule |
 | Actions         | Actions can be performed (modification,activation/deactivation)                                                      |
 
 The **More Actions** menu allows an action to be applied to several
-indicator at once:
+indicators at once:
 
 -   Activate the indicator within their BA.
 -   Update impact types collectively.
@@ -316,9 +317,9 @@ indicator at once:
 
 ### Create an indicator (KPI)
 
-> In this page, you can only attach indicator to business activities
+> In this page, you can only attach an indicator to business activities
 > that use the “Impact” calculation method. If you want to manipulate BA
-> or indicators using other calculation method, go back to the Business
+> or indicators using another calculation method, go back to the Business
 > Activity page.
 
 There are several ways to create an indicator:
@@ -327,7 +328,7 @@ There are several ways to create an indicator:
 
 #### Add an indicator
 
-To add an indicator, click on the **Add a KPI** link, which takes you to the
+To add an indicator, click the **Add a KPI** link, which takes you to the
 following form.
 
 **Regular Mode**:
@@ -340,7 +341,7 @@ To be able to manually define an impact:
 
 ![image](../assets/service-mapping/guide/kpi_advanced.png)
 
-| Column                    | Description                                                                   |
+| Column          | Description                                                                                                          |
 | ------------------------- | ----------------------------------------------------------------------------- |
 | Configuration Mode        | Configuration mode: regular or advanced                                       |
 | KPI Type                  | KPI type (service, meta service, boolean rule or a BA)                        |
@@ -355,7 +356,7 @@ the KPI.*
 
 #### Adding multiple KPIs
 
-In order to add multiple KPIs, click on **Add multiple KPIs** link which takes
+In order to add multiple KPIs, click the **Add multiple KPIs** link, which takes
 you to a data entry form.
 
 | Column                            | Description                                                                           |
@@ -365,8 +366,8 @@ you to a data entry form.
 | Hosts, Host Groups, Service group | Depending on the selected object type, a list of objects will be automatically loaded |
 | Linked Business Activity          | BA related to indicators                                                              |
 
-Clicking on the **Retrieve KPI** button, a list of indicators will be displayed.
-You can filter and apply thresholds, collectively one by one:
+Click the **Retrieve KPI** button; a list of indicators will be displayed.
+You can filter and apply thresholds, collectively or one by one:
 
 ![image](../assets/service-mapping/guide/kpi_multiple_retrieve.png)
 
@@ -401,7 +402,7 @@ Logical expression:
 4.  Button for evaluating the expression with real-time monitored status
 5.  Boolean state after evaluation (whether it is real-time or
     simulated)
-6.  Enter simulation mode, thus allowing user to simulate statuses of
+6.  Enter simulation mode, thus allowing the user to simulate the statuses of
     the defined services
 
 ## Business View (BV)
@@ -411,11 +412,11 @@ Logical expression:
 BVs are used to gather multiple BAs into a single group. Similar to Centreon
 host groups, BV groups can be used in different Centreon BAM screens.
 
-Access restrictions (via ACL) for visualising BAs are managed by linking them to
+Access restrictions (via ACL) for viewing BAs are managed by linking them to
 BVs, which are in turn linked to one or more *Centreon Access Groups*.
 
-> For root cause analysis purpose, as soon as you give access to a user to a
-> business activity, he'll see all indicators linked to it, no matter his
+> For the purpose of a root cause analysis, as soon as you give a user access to a
+> business activity, they will see all the indicators linked to it, no matter what their
 > restriction concerning resources used in the BA definition
 
 A BV is not an indicator as such by which data can be calculated. The

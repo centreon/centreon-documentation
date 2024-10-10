@@ -110,9 +110,8 @@ dépendra alors des paramètres présents dans la section Indicateur.
     notification si configuré.
 -   **Seuil non fonctionnel (critical)** : entre 100 et 0 (doit être
     inférieur au seuil dégradé). Seuil à partir duquel l'activité métier
-    sera en état non fonctionnel.Ce seuil permet à l'activité métier de
-    passer en "rouge" (non fonctionnel) et de déclencher l'envoi de
-    notification si configuré.
+    sera en état non fonctionnel. Ce seuil permet à l'activité métier de
+    passer en "rouge" (non fonctionnel).
 
 ![image](../assets/service-mapping/guide/business-activity-impact.png)
 
@@ -127,9 +126,10 @@ formulaire ci-dessous apparaît :
 ![image](../assets/service-mapping/guide/business-activity-add.png)
 
 La création de l'activité métier se fait directement dans le panneau qui
-s'ouvre. Après avoir donner un nom (obligatoire & unique) à votre
+s'ouvre. Après avoir donné un nom (obligatoire & unique) à votre
 activité métier, vous devrez configurer plusieurs sections. La section
 **Indicateur** est la plus importante.
+Les caractères suivants ne sont pas autorisés dans le nom d'une BA : `~!$%^&|'"<>?,()=*{}` et les espaces.
 
 #### Indicateurs
 
@@ -184,8 +184,6 @@ sections:
 
 -   Vue métier: Pour lier l'activité métier à une vue métier
 -   Affichage: Paramètrer les options d'affichage de l'activité métier
--   Notification: à quels moment et qui sera notifié en cas de
-    dégradation de service sur cette activité métier
 -   Rapport: paramètres gérant les SLA cibles et période de reporting à
     utiliser dans les widgets et rapports (lié à l'extension Centreon
     MBI)
@@ -210,8 +208,7 @@ Dans Centreon Cloud, lorsque vous crééz une activité métier, vous devez syst
 
 #### Notification
 
-Configurez quand et pour quels statuts des notifications doivent être envoyées lorsque le statut de l'activité métier change.
-Ajoutez le groupe de contacts **Notification** pour que les utilisateurs puissent être notifiés.
+Cet écran n'est pas actif actuellement. Dans Centreon Cloud, les BA utilisent [le même mécanisme de notification que les hôtes et les services](https://docs.centreon.com/cloud/alerts-notifications/notif-configuration/).
 
 #### Rapport
 
@@ -229,6 +226,8 @@ Ajoutez le groupe de contacts **Notification** pour que les utilisateurs puissen
     peut être utilisé comme un seuil de SLA "warning".
 -   Plages de reporting additionnelles: permet de calculer les
     statistiques de l'activité métier sur d'autres plages horaire
+
+> Dans les champs **Période de rapport par défaut** et **Plages de reporting additionnelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab) : les exceptions ne seront pas prises en compte.
 
 #### Gestionnaire d'évènements
 

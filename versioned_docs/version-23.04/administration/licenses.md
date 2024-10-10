@@ -14,8 +14,8 @@ import TabItem from '@theme/TabItem';
 ## Types of licenses
 
 According to your [Centreon edition](https://www.centreon.com/en/editions/), your license can be:
-- offline: uses one or several license files
 - online: uses a token. Your Centreon platform must be connected to the internet.
+- offline: uses one or several license files
 
 ## Which modules require a license?
 
@@ -25,7 +25,7 @@ The following modules need to be installed separately and require a valid licens
 - [Auto Discovery](../monitoring/discovery/installation.md)
 - [Anomaly Detection](../monitoring/anomaly-detection.md)
 - [Service mapping (BAM)](../service-mapping/install.md)
-- [Graphical views (MAP)](../graph-views/install.md)
+- [Graphical views (MAP)](../graph-views/introduction-map.md)
 - [Reporting (MBI)](../reporting/installation.md)
 
 ## Viewing license-based modules
@@ -37,25 +37,6 @@ Go to **Administration > Extensions > Manager**. All modules currently installed
 ## Adding a license to your Centreon platform
 
 <Tabs groupId="sync">
-<TabItem value="Offline licenses" label="Offline licenses">
-
-1. To request your license:
-
-    1. Go to **Administration > Extensions > Manager**.
-
-    2. Click on **Get fingerprint**.
-
-    3. Paste the fingerprint in an email to our [support](mailto:support@centreon.com) team requesting the license.
-
-2. Once you have received your license, in the **Administration > Extensions > Manager** page, click on **Upload license**.
-
-5. Browse to the file and then click **OK**. The license is applied and the corresponding modules display their validity date:
-    
-    ![image](../assets/administration/license_valid.png)
-
-6. If you have several licenses (e.g. for BAM, MBI...), repeat the steps above until you have uploaded all license files.
-
-</TabItem>
 <TabItem value="Online licenses" label="Online licenses">
 
 > Refer to the [tables of network flows](../installation/technical.md#tables-of-network-flows) to integrate your monitoring platform.
@@ -93,6 +74,25 @@ Make sure your Centreon platform is allowed to reach the internet:
     The **Add token** button changes to become a **View license** button.
 
 </TabItem>
+<TabItem value="Offline licenses" label="Offline licenses">
+
+1. To request your license:
+
+    1. Go to **Administration > Extensions > Manager**.
+
+    2. Click on **Get fingerprint**.
+
+    3. Paste the fingerprint in an email to our [support](mailto:support@centreon.com) team requesting the license.
+
+2. Once you have received your license, in the **Administration > Extensions > Manager** page, click on **Upload license**.
+
+5. Browse to the file and then click **OK**. The license is applied and the corresponding modules display their validity date:
+    
+    ![image](../assets/administration/license_valid.png)
+
+6. If you have several licenses (e.g. for BAM, MBI...), repeat the steps above until you have uploaded all license files.
+
+</TabItem>
 </Tabs>
 
 ## Free IT-100 license
@@ -101,7 +101,7 @@ See chapter [Set up your free IT-100 solution](../getting-started/it100.md).
 
 ## Troubleshooting licenses
 
-### No valid file uploaded
+### "No valid file uploaded"
 
 ![image](../assets/administration/license_not_valid.png)
 
@@ -118,7 +118,7 @@ chown apache:apache /etc/centreon/license.d/*
 chmod 640 /etc/centreon/license.d/*
 ```
 
-### Your EPP license is not valid
+### "Your EPP license is not valid"
 
 * Check that the fingerprint of the central server (on page **Administration > Extensions > Manager**) matches the fingerprint in the license.
 
@@ -126,11 +126,7 @@ chmod 640 /etc/centreon/license.d/*
     less /etc/centreon/license.d/epp.license
     ```
 
-* Check that you do not have more hosts than your license allows. To know the total number of hosts you are supervising, go to **Configuration > Hosts > Hosts**, and then use the dropdown list to the right above the list of hosts:
-
-    ![image](../assets/administration/number-of-hosts.png)
-
-    You can also use the following command:
+* Check that you do not have more hosts than your license allows. Use the following command:
 
     ```sql
     SELECT COUNT(*) FROM centreon.host WHERE host_register='1';

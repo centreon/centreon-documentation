@@ -69,7 +69,7 @@ port.
 yum install centreon-plugin-Hardware-Servers-Dell-Omem-Snmp
 ```
 
-2. On the Centreon Web interface, install the **Dell OME–Modular SNMP** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon Web interface, install the **Dell OME–Modular SNMP** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -86,7 +86,7 @@ yum install centreon-plugin-Hardware-Servers-Dell-Omem-Snmp
 yum install centreon-pack-hardware-servers-dell-omem-snmp
 ```
 
-3. On the Centreon Web interface, install the **Dell OME–Modular SNMP** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the **Dell OME–Modular SNMP** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

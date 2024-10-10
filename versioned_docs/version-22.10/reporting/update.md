@@ -10,7 +10,7 @@ The update of Centreon MBI is made of 2 steps :
 - Updating the extension interface
 - Updating the reporting server
 
-## Upgrade the extension interface
+## Update the extension interface
 
 1. Update the package, run the following commands:
 
@@ -34,8 +34,8 @@ yum update centreon-bi-server
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt clean all
-apt update centreon-bi-server
+apt clean
+apt --only-upgrade install centreon-bi\*
 ```
 
 </TabItem>
@@ -45,7 +45,7 @@ apt update centreon-bi-server
 the **Administration > Extension > Manager** page and click on the
 Update button to update the extension and the widgets.
 
-## Upgrade the reporting server
+## Update the reporting server
 
 Connect to your reporting server and stop the scheduler service (CBIS):
 
@@ -75,8 +75,8 @@ yum update centreon-bi\*
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt clean all
-apt update centreon-bi\*
+apt clean
+apt --only-upgrade install centreon-bi\*
 ```
 
 </TabItem>
@@ -89,3 +89,5 @@ systemctl start cbis
 ```
 
 MBI is now updated.
+
+> Follow this procedure if [you get an error due to a column update issue](../resources/known-issues.md#you-get-some-errors-during-daily-import-and-statistic-calculation) in the database.

@@ -35,7 +35,7 @@ const cards = [
     href: "docs/getting-started/welcome/",
     links: [
       {
-        label: "Getting started",
+        label: "Getting started with Centreon OnPrem",
         href: "docs/getting-started/welcome"
       },{
         label: "Installation",
@@ -57,11 +57,11 @@ const cards = [
   },
   {
     title: "Centreon Cloud",
-    href: "cloud/getting-started/architecture/",
+    href: "cloud/getting-started/welcome",
     links: [
       {
-        label: "Getting started",
-        href: "docs/getting-started/welcome"
+        label: "Getting started with Centreon Cloud",
+        href: "cloud/getting-started/welcome/"
       },{
         label: "Installing a poller",
         href: "cloud/installation/prerequisites/"
@@ -77,8 +77,8 @@ const cards = [
 ]
 
 const versionInfo = {
-  version: '23.04',
-  link: 'https://www.centreon.com/centreon-23-04-discover-the-latest-release/',
+  version: '24.04',
+  link: 'https://www.centreon.com/new-centreon-release-cadence-and-version-lifecycle/',
   target: '_blank'
 }
 
@@ -100,8 +100,8 @@ function BannerBlock() {
     <div className={clsx(styles.bannerContainer)}>
       <div className={clsx(styles.mainContainer)}>
         <div className={clsx(styles.bannerWrapper)}>
-          <span className={clsx(styles.badge)}>CENTREON {versionInfo.version}</span>
-          <p>New software version available</p>
+          {/* <span className={clsx(styles.badge)}>CENTREON {versionInfo.version}</span> */}
+          <p>New product lifecycle coming soon!</p>
           <Button href={versionInfo.link} target={versionInfo.target} label="Learn more" dark="true"/>
         </div>
       </div>
@@ -220,7 +220,7 @@ function SocialBlock() {
 
 export default function Home() {
   const { versions } = usePluginData('docusaurus-plugin-content-docs');
-  const defaultPath = versions?.[0]?.path ?? '/docs';
+  const defaultPath = versions?.[0]?.path ?? 'docs';
   const defaultPage = versions?.[0]?.mainDocId ?? 'getting-started/installation-first-steps';
   const defaultRoute = `${defaultPath}/${defaultPage}`;
 

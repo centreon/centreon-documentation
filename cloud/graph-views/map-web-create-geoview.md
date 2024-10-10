@@ -13,7 +13,7 @@ In order to apply geographic coordinates while configuring a new geographic view
 
 For example, to fill in geographic coordinates for the **Central** host:
 
-1. Go to **Configuration > Hosts > Hosts**. Then click on the **Central** host.
+1. Go to **Configuration > Hosts > Hosts**. Then click the **Central** host.
 2. Click the **Host Extended Infos** tab.
 3. Fill in the **Geographic coordinates** field with the `Latitude, Longitude` format. Then click **Save**.
 
@@ -25,15 +25,9 @@ For example, to fill in geographic coordinates for the **Central** host:
    - Name: provide a name to the geographic view.
 
 3. Click **Add**.
-The new view is added to the **Geographic views** section. Click on it to complete its configuration.
+The new view is added to the **Geographic views** section. Click it to complete its configuration.
 
-4. Click the **Edit** button and fill in the following **Edit view parameters**:
-  - Hosts 
-  - Hosts belonging to hostgroup(s)
-  - Business Activity belonging to Business View(s)
-  - Latitude
-  - Longitude
-  - Zoom
+4. Click the **Edit** button and fill in the **Edit view parameters**.
 
 5. Click **Edit** to confirm the parameters.
 
@@ -41,7 +35,7 @@ The new view is added to the **Geographic views** section. Click on it to comple
 
 ### How resources are displayed
 
-When a resource (host, hostgroup or business activity) is positionned on a geographic view, it is displayed as a circle which color is defined using the following rules:
+When a resource (host, hostgroup or business activity) is positioned on a geographic view, it is displayed as a circle whose color is defined using the following rules:
 
 - **Host:** worst state between the host and its services.
 - **Hostgroups:** worst state of hosts belonging to the hostgroups.
@@ -56,7 +50,7 @@ When multiple resources are geographically close and you are at a "certain" zoom
 displaying two elements:
 
 - Status of the worst object (displayed as a color between green, orange, red
-  and grey).
+  and gray).
 - Number of resources in this state.
 
 This behavior can be disabled in the global Centreon Map options, by setting the **Clustering mode** option to **No**.
@@ -64,11 +58,11 @@ This behavior can be disabled in the global Centreon Map options, by setting the
 ### Blinking resources
 
 If a resource is in a "non-ok" state, it blinks.
-This behavior can be disabled in the global Centreon Map options, by setting the **Blink markers** option to **No**.
+This behavior can be disabled in the global Centreon Map options by setting the **Blink markers** option to **No**.
 
 ### Datalayers on geographic views
 
-Centreon MAP allows you to display additionnal data layers on maps to add context to your real time IT infrastructure status.
+Centreon MAP allows you to display additional data layers on maps to add context to your real time IT infrastructure status.
 
 First you need to add data layers in Centreon Map options, in the **Data Layers geographic services** section.
 Then, if the data layer is enabled, you can make it visible or not by checking the dedicated layer using the top left icon.

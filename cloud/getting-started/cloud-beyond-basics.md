@@ -7,10 +7,6 @@ Now that you have learned the basics about Centreon Cloud, you are ready to know
 
 This list of features allows you to extend the experience!
 
-## Invite other users
-
-Find out about the [CIAM](../ciam/ciam.md) (Customer Identity and Access Management): the module to manage user accounts.
-
 ## Organize your monitoring
 
 Optimize your monitoring by grouping your resources strategically. Follow our [recommendations](../monitoring/groups.md) to better organize your hosts and services.
@@ -18,8 +14,6 @@ Optimize your monitoring by grouping your resources strategically. Follow our [r
 ## Get an email when an alert occurs
 
 Benefit from the [notification](../alerts-notifications/notif-configuration.md) feature to be informed when the status of your resource becomes critical for instance.
-
-> Notifications are not active for [Centreon Cloud trial](cc-trial.md) users.
 
 ## Experiment Auto Discovery
 

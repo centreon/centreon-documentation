@@ -64,7 +64,7 @@ SNMP port.
 
 If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the pack displayed within the
-**Configuration > Monitoring Connectors Manager** menu.
+**Configuration > Monitoring Connector Manager** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
 
@@ -83,7 +83,7 @@ yum install centreon-pack-hardware-servers-lenovo-xcc-snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-hardware-servers-lenovo-xcc-snmp
@@ -93,7 +93,7 @@ apt install centreon-pack-hardware-servers-lenovo-xcc-snmp
 </Tabs>
 
 Whatever the license type (*online* or *offline*), install the **Lenovo XCC SNMP** Pack through
-the **Configuration > Monitoring Connectors Manager** menu.
+the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
 
@@ -123,7 +123,7 @@ yum install centreon-plugin-Hardware-Servers-Lenovo-Xcc-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-hardware-servers-lenovo-xcc-snmp

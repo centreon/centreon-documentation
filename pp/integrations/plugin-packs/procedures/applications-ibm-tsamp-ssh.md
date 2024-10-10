@@ -60,7 +60,7 @@ The centreon-engine user performs a SSH connection to a remote system user. This
 yum install centreon-plugin-Applications-Ibm-Tsamp-Ssh
 ```
 
-2. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *IBM TSAMP SSH* Pack
+2. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *IBM TSAMP SSH* Pack
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -77,7 +77,7 @@ yum install centreon-plugin-Applications-Ibm-Tsamp-Ssh
 yum install centreon-pack-applications-ibm-tsamp-ssh
 ```
 
-3. On the Centreon Web interface in **Configuration > Monitoring Connectors Manager**, install the *IBM TSAMP SSH* Pack
+3. On the Centreon Web interface in **Configuration > Monitoring Connector Manager**, install the *IBM TSAMP SSH* Pack
 
 </TabItem>
 </Tabs>

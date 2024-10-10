@@ -28,7 +28,7 @@ In addition, it is important to verify that the Apache account does not have con
 Execute the following command:
 
 ```shell
-cat /etc/passwd | grep apache
+grep apache /etc/passwd
 ```
 
 You must have **/sbin/nologin** like:
@@ -37,7 +37,7 @@ You must have **/sbin/nologin** like:
 apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 ```
 
-> As a reminder, the list of users and groups can be found [here](../installation/prerequisites.md#users-and-groups)
+> As a reminder, the list of users and groups can be found [here](../installation/technical.md#users-and-groups)
 
 ## Enable SELinux
 
@@ -72,24 +72,13 @@ the various system resources. By default, the policy does not allow any interact
 
 For more information about SELinux please see [Red Hat documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/using_selinux/getting-started-with-selinux_using-selinux)
 
-### Activate SELinux in permissive mode
+### Activate SELinux
 
-By default, SELinux is disabled during the Centreon installation process. To enable SELinux in permissive mode, you need to
-modify the `/etc/selinux/config` file as:
+By default, SELinux is disabled during the Centreon installation process and must be reenabled after it for security reasons.
 
-```shell
-# This file controls the state of SELinux on the system.
-# SELINUX= can take one of these three values:
-#     enforcing - SELinux security policy is enforced.
-#     permissive - SELinux prints warnings instead of enforcing.
-#     disabled - No SELinux policy is loaded.
-SELINUX=permissive
-# SELINUXTYPE= can take one of three two values:
-#     targeted - Targeted processes are protected,
-#     minimum - Modification of targeted policy. Only selected processes are protected.
-#     mls - Multi Level Security protection.
-SELINUXTYPE=targeted
-```
+To enable SELinux again, edit the **/etc/selinux/config** file and change the value with the following options:
+- ``SELINUX=enforcing`` to make SELinux security policy enforced.
+- ``SELINUX=permissive`` to make SELinux print warnings instead of enforce security policy.
 
 Then reboot your server:
 
@@ -256,7 +245,7 @@ centreon-web	0.0.8
 Before enabling SELinux in **enforcing** mode, you need to be sure that no errors appear using the following command:
 
 ```shell
-cat /var/log/audit/audit.log | grep -i denied
+grep -i denied /var/log/audit/audit.log
 ```
 
 If errors appear, you have to analyse them and to decide if these errors are regular and must be added in addition to
@@ -269,7 +258,7 @@ audit2allow -a
 Then execute the proposed rules.
 
 If after a while, no error is present, you can activate SELinux in full mode by
-following this [procedure](#activate-selinux-in-permissive-mode) using **enforcing** mode.
+following this [procedure](#activate-selinux) using **enforcing** mode.
 
 > Do not hesitate to give us your feedback on [Github](https://github.com/centreon/centreon).
 
@@ -1023,7 +1012,7 @@ ServerTokens Prod
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Edit the **/etc/httpd/conf.d/10-centreon.conf** file and add the following line:
+Edit the **/etc/httpd/conf.d/10-centreon.conf** file and add the following lines before the `<VirtualHost>` tag:
 
 ```apacheconf
 Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
@@ -1041,7 +1030,7 @@ expose_php = Off
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Edit the **/etc/httpd/conf.d/10-centreon.conf** file and add the following line:
+Edit the **/etc/httpd/conf.d/10-centreon.conf** file and add the following lines before the `<VirtualHost>` tag:
 
 ```apacheconf
 Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
@@ -1059,7 +1048,7 @@ expose_php = Off
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Edit the **/etc/apache2/sites-available/centreon.conf** file and add the following line:
+Edit the **/etc/apache2/sites-available/centreon.conf** file and add the following lines before the `<VirtualHost>` tag:
 
 ```apacheconf
 Header set X-Frame-Options: "sameorigin"
@@ -1583,9 +1572,11 @@ By default, ZMQ communications are secured, both external (with the poller) and 
 
 However, the gorgone HTTP API is unsecured by default. Only localhost can talk with gorgone but the communication is not done using SSL.
 
-You can [configure SSL](https://github.com/centreon/centreon/blob/develop/centreon-gorgone/docs/modules/core/httpserver.md) in the **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** file.
+You can [configure SSL](https://github.com/centreon/centreon-collect/blob/develop/gorgone/docs/modules/core/httpserver.md) in the **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** file.
 
 Then you must configure gorgone using the **Administration > Parameters > Gorgone** page.
+
+The **/etc/centreon-gorgone/config.d/whitelist.conf.d/centreon.yaml** file (on your central server, your remote servers and your pollers) contains the whitelists for Gorgone. If you want to customize the allowed commands, do not edit this file. Create a new one in the same folder, e.g. **/etc/centreon-gorgone/config.d/whitelist.conf.d/custom.yaml**.
 
 ## Security Information and Event Management - SIEM
 

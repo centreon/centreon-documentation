@@ -309,9 +309,9 @@ should return a string of the form:
   2.0.0
 ```
 
-### The *broker_cache* object
+### The *broker\_cache* object
 
-This object provides several methods to access the cache. Among data, we can
+This object provides several methods to access the cache. Among other data, we can
 get hostnames, etc...
 
 > The functions described here need the cache to be filled. It is
@@ -327,46 +327,50 @@ The available methods are:
 3.  ``get_bvs(ba_id)`` that gets all the *bv* containing the *ba* of id *ba_id*.
     This function returns an array of *bv* *ids*, potentially empty if no *bv*
     are found.
-4.  ``get_hostgroup_name(id)`` that gets from the cache the host group name of
-    the given id. This function returns a string or *nil* otherwise.
-5.  ``get_hostgroups(host_id)`` that gets the list of host groups containing the
-    host corresponding to *host_id*. The return value is an array of objects,
+4.  ``get_check_command(host_id[, service_id])`` that gets the check command
+    configured in the host or service. The *service_id* is optional. If provided,
+    you get the check command of a service, otherwise the check
+    command of a host. If nothing is found in the cache, *nil* is returned.
+5.  ``get_hostgroup_name(id)`` that gets from the cache the host group name for
+    the given ID. This function returns a string, or *nil* otherwise.
+6.  ``get_hostgroups(host_id)`` that gets the list of host groups containing the
+    host corresponding to the *host_id*. The return value is an array of objects,
     each one containing two fields, *group_id* and *group_name*.
-6.  ``get_hostname(id)`` that gets from the cache the host name corresponding to
-    the given host id. This function returns a string with the host name or
+7.  ``get_hostname(id)`` that gets from the cache the host name corresponding to
+    the given host ID. This function returns a string with the host name, or
     *nil* otherwise.
-7.  ``get_index_mapping(index_id)`` that gets from the cache the
-    index mapping object of the given index id. The result is a table containing
+8.  ``get_index_mapping(index_id)`` that gets from the cache the
+    index mapping object for the given index ID. The result is a table containing
     three keys, ``index_id``, ``host_id`` and ``service_id``.
-8.  ``get_instance_name(instance_id)`` that gets from the cache the
-    instance name corresponding to the instance id.
-9.  ``get_metric_mapping(metric_id)`` that gets from the cache the
-    metric mapping object of the given metric id. The result is a table
+9.  ``get_instance_name(instance_id)`` that gets from the cache the
+    instance name corresponding to the instance ID.
+10.  ``get_metric_mapping(metric_id)`` that gets from the cache the
+    metric mapping object for the given metric ID. The result is a table
     containing two keys, ``metric_id`` and ``index_id``.
-10. ``get_service_description(host_id,service_id)`` that gets from the cache the
-    service description of the given pair host_id / service_id. This function
-    returns a string or *nil* otherwise.
-11. ``get_servicegroup_name(id)`` that gets from the cache the service group name*
-    of the given id. This function returns a string or *nil* otherwise.
-12. ``get_servicegroups(host_id, service_id)`` that gets the list of service
+11. ``get_service_description(host_id,service_id)`` that gets from the cache the
+    service description for the given pair: host_id / service_id. This function
+    returns a string, or *nil* otherwise.
+12. ``get_servicegroup_name(id)`` that gets from the cache the service group name
+    for the given id. This function returns a string, or *nil* otherwise.
+13. ``get_servicegroups(host_id, service_id)`` that gets the list of service
     groups containing the service corresponding to the pair *host_id* /
     *service_id*. The return value is an array of objects, each one containing
     two fields, *group_id* and *group_name*.
-13. ``get_notes(host_id[,service_id])`` that gets the notes configured in the
-    host or service. The *service_id* is optional, if given we want notes from
-    a service, otherwise we want notes from a host. If the object is not found
-    in cache, *nil* is returned.
-14. ``get_notes_url(host_id[, service_id])`` that gets the notes url configured
-    in the host or service. The *service_id* is optional, if given we want
-    *notes url* from a service, otherwise we want it from a host. If the object
-    is not found in cache, *nil* is returned.
-15. ``get_action_url(host_id)`` that gets the action url configured in the host
-    or service. The *service_id* is optional, if given we want *action url* from
-    a service, otherwise we want it from a host. If the object is not found in
+14. ``get_notes(host_id[,service_id])`` that gets the notes configured in the
+    host or service. The *service_id* is optional. If given, you obtain notes for
+    a service, otherwise notes for a host. If the object is not found
+    in the cache, *nil* is returned.
+15. ``get_notes_url(host_id[, service_id])`` that gets the notes URL configured
+    in the host or service. The *service_id* is optional. If given, you obtain
+    *notes url* for a service, otherwise for a host. If the object
+    is not found in the cache, *nil* is returned.
+16. ``get_action_url(host_id)`` that gets the action URL configured in the host
+    or service. The *service_id* is optional. If given, you obtain the *action url* for
+    a service, otherwise for a host. If the object is not found in the
     cache, *nil* is returned.
-16. ``get_severity(host_id[,service_id])`` that gets the severity of a host or
-    a service. If you only provide the *host_id*, we suppose you want to get
-    a host severity. If a host or a service does not have any severity, the
+17. ``get_severity(host_id[,service_id])`` that gets the severity of a host or
+    a service. If you only provide the *host_id*, you get
+    a host severity. If a host or a service do not have any severity, the
     function returns a *nil* value.
 
 ## The init() function

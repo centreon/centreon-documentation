@@ -1,0 +1,199 @@
+---
+id: centreon-os
+title: Centreon Open Source
+---
+
+import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
+
+## Introduction
+
+Vous trouverez dans ce chapitre tout ce qui concerne **Centreon Open Source**.
+
+> Il est important de mettre à jour en utilisant la documentation adéquate de mise à jour et de lire attentivement les
+> notes de mise à jour afin d'être au courant des changements qui pourraient impacter votre usage ou votre plateforme
+> ou des développements spécifiques que vous auriez fait.
+
+Pour faire des demandes d'évolutions ou signaler des bugs sur les extensions commerciales, vous pouvez vous rendre sur
+notre [Github](https://github.com/centreon/centreon/issues/new/choose).
+
+> Retrouvez plus de détails sur la version 24.04 dans notre [post de blog](https://www.centreon.com/fr/centreon-annonce-la-sortie-de-sa-derniere-version-logicielle-centreon-24-04/).
+
+<ExpandCollapseAll />
+
+## Centreon Web
+
+### 24.04.0
+
+Release date: `April 30, 2024`
+
+<details open>
+  <summary>New features</summary>
+
+**Dashboards GA**
+
+Dashboards are now in Global Availability (GA) and fully supported by Centreon.
+Many features have been added in this version.
+
+- **Playlists feature:** You can now create dashboard playlists. Selected dashboards will be displayed sequentially without any interaction, allowing you to broadcast them on TVs in public spaces.
+- **New widgets**
+  - The "Status Chart" widget displays the distribution of current statuses on selected resources, as a chart.
+  - The "Group Monitoring" widget displays the distribution of current statuses on selected groups of resources, as a table.
+- **Resource Status**: Widgets now include a link to the Resource Status page. When you access this link, Resources Status will be filtered according to the criteria used in the widget.
+- **User Experience**
+  - You can now search for a dashboard by its name.
+  - You can now navigate more easily with the pagination.
+  - You can now duplicate a dashboard.
+  - You can now access widgets more easily thanks to pictograms representing each type of widget.
+  - You can now display dashboards as a list, with the **View as list** button.
+  - A modal now appears when deleting widgets, dashboards or playlists.
+  - A warning modal is now preventing users from leaving the dashboard without saving it first.
+  
+</details>
+
+<details open>
+  <summary>Enhancements</summary>
+
+**Dashboards GA**
+
+- **Improvements made on global Dashboard behavior**
+  - When sharing a dashboard, only contacts and contact groups that have access to the dashboard are displayed.
+  - Optimized the rendering of widgets.
+  - Optimized legend and thickened curves on graphs.
+  - Moved the parameter used for hiding widgets' descriptions.
+  - Updated the dashboard global refresh icon.
+  - Widgets can now be edited quickly and easily by using an "Edit widget" shortcut that opens widget edition mode.
+  - Made the dashboard library's "view as list" the default view.
+  - Reorganized rich text options for widget descriptions.
+
+- **Improvements made to specific widgets**
+  - [MAP widget] Added an information message displayed when editing the widget.
+  - [Metrics Graph widget] Added a warning message indicating that thresholds have been hidden when selecting two different metric units.
+  - [Metrics Graph widget] Added an information tooltip when hovering over an element on the graph.
+  - [Single Metric widget] Simplified metric selection.
+  - [Single Metric widget] Simplified dataset selection by forcing a "host + service" pair.
+  - [Status Grid widget] Added an "unhandled" state property.
+  - [Status Grid widget] Added a new "condensed" view.
+
+> BREAKING CHANGE: The way metrics are handled has been changed to allow for more flexibility (e.g., you now have the possibiliyy to exclude metrics). If you used the metrics graph widget, you may have to select your metrics again.
+
+**User Experience**
+
+- Added full screen mode for the entire application.
+
+**API**
+
+- **Dashboards**
+  - Added new endpoints to manage [playlists](centreon-commercial-extensions.mdx#centreon-it-edition-extensions).
+  - Added a new endpoint to duplicate dashboards.
+  - Updated endpoints to handle the Status Grid "condensed" view.
+
+- **Configuration**
+  - Added an endpoint to update a service severity.
+  - Added an endpoint to create Broker outputs.
+  - Added an endpoint to list all installed connectors.
+  - Added an endpoint to list graph templates.
+  - Added an endpoint to list and delete Business Activities.
+  - Added an endpoint to update a service.
+  - Added an endpoint to update a host partially.
+  - Added an endpoint to handle the file format associated with a Stream Connector.
+
+- **Monitoring**
+  - Added an endpoint to list all metrics of a given service.
+  - Metrics linked to a resource are now retrieved by the endpoint that lists resources.
+
+- **Administration**:
+  - Added endpoints to upload and list media.
+
+**Installation**
+
+- Added support for the Debian 12 operating system.
+- Added compatibility with MySQL 8.0.
+- Updated the MariaDB version to its latest LTS, 10.11.
+- Improved the unattended.sh script to offer the possibility to select which DBMS will be installed.
+
+</details>
+
+## Centreon Collect
+
+### 24.04.0
+
+Release date: `April 30, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed some incorrect statuses in Broker's statistics retrieved by the `broker-stats.json` file.
+- [Packaging] Added symbolic link from /usr/lib64/nagios/plugins to /usr/lib/nagios/plugins.
+- Semicolons are no longer considered as the beginning of a comment in Engine's configuration files. This is because comments were not useful in these files, and they prevented the use of semicolons in macros (e.g., passwords).
+
+</details>
+
+#### Centreon Engine
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 24.04 components.
+
+</details>
+
+#### Centreon Broker
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 24.04 components.
+
+</details>
+
+## Centreon Gorgone
+
+### 24.04.0
+
+Release date: `April 30, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Moved gorgone whitelists to a dedicated file.
+
+</details>
+
+## Centreon High Availability
+
+### 24.04.0
+
+Release date: `April 30, 2024`
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 24.04 components.
+
+</details>
+
+## Centreon DSM
+
+### 24.04.0
+
+Release date: `April 30, 2024`
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 24.04 components.
+
+</details>
+
+## Centreon Open Tickets
+
+### 24.04.0
+
+Release date: `April 30, 2024`
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 24.04 components.
+
+</details>

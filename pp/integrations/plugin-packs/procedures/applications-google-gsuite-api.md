@@ -1,10 +1,6 @@
 ---
 id: applications-google-gsuite-api
-title: Google Gsuite (Deprecated)
+title: Google Gsuite (deprecated)
 ---
 
-## **WARNING** This Pack is deprecated
-
-This Monitoring Connector has been deprecated and replaced by `Google Workspace`. 
-
-Refer to [this procedure](applications-google-workspace-api.md)
+> This Monitoring Connector is no longer maintained and should not be used. It has been replaced by the [Google Workspace](applications-google-workspace-api.md) connector.

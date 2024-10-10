@@ -5,11 +5,15 @@ title: Installation de Centreon-HA 4 nœuds à basculement manuel
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> La HA manuelle est maintenant dépréciée. Ne réalisez plus de nouvelles installations suivant cette procédure.
+
 ## Conditions préalables
 
 ### Compréhension
 
-Avant de suivre cette procédure, il est recommandé d'avoir un niveau de connaissance satisfaisant du système d'exploitation Linux et de Centreon afin de comprendre ce qui va être fait et de pouvoir se sortir d'une éventuelle erreur.
+Avant de suivre cette procédure, il est recommandé d'avoir un niveau de connaissance satisfaisant du système d'exploitation Linux, de Centreon et des outils de clustering Pacemaker-Corosync pour bien comprendre ce qui va être fait et savoir résoudre un éventuel incident.
+
+> **AVERTISSEMENT :** Toute personne mettant en application cette procédure doit être consciente qu'elle prend ses responsabilités en cas de dysfonctionnement. En aucun cas la société Centreon ne saurait être tenue pour responsable d'une quelconque détérioration ou perte de données.
 
 ### Installation de Centreon
 
@@ -82,8 +86,6 @@ Plutôt que de mettre en place une réplication en temps réel des fichiers de d
 | Nom | centreon-broker-master-rrd |
 | Port de connexion | 5670 |
 | Hôte auquel se connecter | `@CENTRAL_MASTER_IPADDR@' |
-| Délai de mise en mémoire tampon | 0 |
-| Intervalle de réessai | 60 |
 
 * Ajouter une nouvelle sortie IPv4, similaire à la première et nommée par exemple "centreon-broker-slave-rrd" pointant cette fois sur `@CENTRAL_SLAVE_IPADDR@`.
 
@@ -92,8 +94,6 @@ Plutôt que de mettre en place une réplication en temps réel des fichiers de d
 | Nom | centreon-broker-slave-rrd |
 | Port de connexion | 5670 |
 | Hôte auquel se connecter | `@CENTRAL_SLAVE_IPADDR@` |
-| Délai de mise en mémoire tampon | 0 |
-| Intervalle de réessai | 60 |
 
 #### Exporter la configuration
 

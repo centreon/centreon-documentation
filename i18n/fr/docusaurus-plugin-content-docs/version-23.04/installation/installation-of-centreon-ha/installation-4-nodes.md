@@ -9,8 +9,11 @@ import TabItem from '@theme/TabItem';
 
 ### Compréhension
 
-Avant de suivre cette procédure, il est recommandé d'avoir un niveau de connaissance satisfaisant du système d'exploitation Linux, de Centreon
-et des outils de clustering Pacemaker-Corosync pour bien comprendre ce qui va être fait et pour pouvoir se sortir d'un éventuel faux pas.
+Avant de suivre cette procédure, il est recommandé d'avoir un niveau de connaissance satisfaisant du système d'exploitation Linux, de Centreon et des outils de clustering Pacemaker-Corosync pour bien comprendre ce qui va être fait et savoir résoudre un éventuel incident.
+
+> **AVERTISSEMENT :** Toute personne mettant en application cette procédure doit être consciente qu'elle prend ses responsabilités en cas de dysfonctionnement. En aucun cas la société Centreon ne saurait être tenue pour responsable d'une quelconque détérioration ou perte de données.
+
+> EL9 n'est pas supporté pour les installations HA sur Centreon 23.04.
 
 ### Flux réseaux
 
@@ -108,8 +111,6 @@ Plutôt que de mettre en place une réplication en temps réel des fichiers de d
 | Nom                                                           | centreon-broker-master-rrd |
 | Port de connexion                                             | 5670                       |
 | Hôte distant                                                  | `@CENTRAL_MASTER_IPADDR@`  |
-| Temps avant activation du processus de basculement (failover) | 0                          |
-| Intervalle entre 2 tentatives                                 | 60                         |
 
 * Ajouter une nouvelle sortie IPv4, similaire à la première et nommée par exemple "centreon-broker-slave-rrd" pointant cette fois vers `@CENTRAL_SLAVE_IPADDR@`.
 
@@ -118,8 +119,6 @@ Plutôt que de mettre en place une réplication en temps réel des fichiers de d
 | Nom                                                           | centreon-broker-slave-rrd |
 | Port de connexion                                             | 5670                      |
 | Hôte distant                                                  | `@CENTRAL_SLAVE_IPADDR@`  |
-| Temps avant activation du processus de basculement (failover) | 0                         |
-| Intervalle entre 2 tentatives                                 | 60                        |
 
 #### Exporter la configuration
 
@@ -1084,7 +1083,7 @@ pcs resource create "ms_mysql" \
     datadir="/var/lib/mysql" \
     socket="/run/mysqld/mysqld.sock" \
     binary="/usr/bin/mysqld_safe" \
-    node_list="@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@" \
+    node_list="@DATABASE_MASTER_NAME@ @DATABASE_SLAVE_NAME@" \
     replication_user="@MARIADB_REPL_USER@" \
     replication_passwd='@MARIADB_REPL_PASSWD@' \
     test_user="@MARIADB_REPL_USER@" \
@@ -1324,7 +1323,7 @@ Exécuter les commandes suivantes pour indiquer au Cluster que les ressources vi
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-pcs constraint colocation add master "vip_mysql" with "ms_mysql-clone"
+pcs constraint colocation add "vip_mysql" with master "ms_mysql-clone"
 pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 ```
 
@@ -1332,7 +1331,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-pcs constraint colocation add master "vip_mysql" with "ms_mysql-clone"
+pcs constraint colocation add "vip_mysql" with master "ms_mysql-clone"
 pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 ```
 
@@ -1364,9 +1363,7 @@ pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABA
 </TabItem>
 </Tabs>
 
-### Lancement du Cluster et contrôle de l'état des ressources
-
-#### Activer les ressources
+### Activation des ressources
 
 ```bash
 pcs resource enable php-clone

@@ -34,15 +34,16 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 1. Mettez à jour votre Centreon 22.10 jusqu'à la dernière version mineure.
 
-2. Supprimez le fichier **centreon.repo** :
+2. Supprimez le fichier **centreon-22.10.repo** :
 
    ```shell
-   rm /etc/yum.repos.d/centreon.repo
+   rm /etc/yum.repos.d/centreon-22.10.repo
    ```
 
 3. Installez le nouveau dépôt :
 
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 ```
 
@@ -105,7 +106,7 @@ dnf clean all --enablerepo=*
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt clean all
+apt clean
 apt update
 ```
 
@@ -118,14 +119,14 @@ Mettez à jour l'ensemble des composants :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-yum update centreon\* php-pecl-gnupg
+dnf update centreon\* php-pecl-gnupg
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt upgrade centreon
+apt install --only-upgrade centreon
 ```
 
 </TabItem>
@@ -217,13 +218,7 @@ Le résultat attendu est le suivant :
 Syntax OK
 ```
 
-Redémarrez Apache pour appliquer les modifications :
-
-```shell
-systemctl restart php8.1-fpm apache2
-```
-
-Puis vérifiez le statut :
+Vérifiez le statut d'Apache :
 
 ```shell
 systemctl status apache2
@@ -420,7 +415,7 @@ associée](../service-mapping/upgrade.md) pour le mettre à jour.
    toutes les extensions, en commençant par les suivantes :
 
    - License Manager,
-   - Monitoring Connectors Manager,
+   - Monitoring Connector Manager,
    - Auto Discovery.
 
     Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
@@ -450,6 +445,7 @@ Exécutez la commande suivante :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 ```
 
@@ -479,7 +475,7 @@ dnf clean all --enablerepo=*
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt clean all
+apt clean
 apt update
 ```
 
@@ -500,7 +496,7 @@ dnf update centreon\*
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt upgrade centreon-poller
+apt install --only-upgrade centreon-poller
 ```
 
 </TabItem>

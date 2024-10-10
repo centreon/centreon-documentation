@@ -80,7 +80,7 @@ yum install centreon-plugin-Blockchain-Parity-Restapi
 ```
 
 2. On the Centreon Web interface, install the *Parity API* Centreon Monitoring Connector on 
-the **Configuration > Monitoring Connectors Manager** page
+the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -99,7 +99,7 @@ yum install centreon-pack-blockchain-parity-restapi
 ```
 
 3. On the Centreon Web interface, install the *Parity API* Centreon Monitoring Connector on 
-the **Configuration > Monitoring Connectors Manager** page
+the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

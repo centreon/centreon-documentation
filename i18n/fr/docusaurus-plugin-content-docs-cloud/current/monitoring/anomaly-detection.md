@@ -5,9 +5,7 @@ title: Anomaly Detection
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> Centreon Anomaly Detection est actuellement en **phase de bêta fermée** et
-> nécessite un jeton valide fourni par Centreon. Nous ouvrirons bientôt la
-> phase bêta au public sous certaines conditions.
+> Dans Centreon Cloud, seuls les utilisateurs ayant le [rôle](../users/users.md#rôles-des-utilisateurs) **Administrator** ou **Editor** peuvent configurer un service Anomaly Detection.
 
 ## Description
 
@@ -15,9 +13,9 @@ Le module **Anomaly Detection** détecte les déviations par rapport au comporte
 
 Avec la supervision classique, les alertes sont déclenchées à partir de seuils fixes : par exemple, on alerte quand le ping sur un serveur dépasse 700 ms. Cependant, pour certains services, les valeurs "normales" varient au cours du temps, ce qui rend des seuils fixes peu pertinents. Il est possible d'utiliser la détection automatique d'anomalies lorsque le comportement du service est régulier et prévisible :
 
-![image](../assets/monitoring/anomaly/simple_scheme.png)
+![image](../../../docusaurus-plugin-content-docs/version-23.10/assets/monitoring/anomaly/simple_scheme.png)
 
-On détermine quelles sont les valeurs normales au cours du temps : la prévision permet de calculer un seuil bas et un seuil élevé. Lorsque le comportement du service dévie du modèle attendu, ces seuils sont dépassés (c'est-à-dire que la métrique descend en-dessous du seuil bas ou dépasse le seuil élevé). Le service passe en statut CRITIQUE et une notification est envoyée. Exemple: un serveur a habituellement peu de trafic la nuit. Une nuit, Centreon détecte des flux réseau plus élevés
+On détermine quelles sont les valeurs normales au cours du temps : la prévision permet de calculer un seuil bas et un seuil élevé. Lorsque le comportement du service dévie du modèle attendu, ces seuils sont dépassés (c'est-à-dire que la métrique descend en-dessous du seuil bas ou dépasse le seuil élevé). Le service passe en statut CRITIQUE et une notification est envoyée. Exemple : un serveur a habituellement peu de trafic la nuit. Une nuit, Centreon détecte des flux réseau plus élevés
 que la normale et déclenche une alerte. Cela permet à l'entreprise de se rendre compte d'un piratage.
 
 ### Fonctionnement
@@ -36,67 +34,14 @@ pour mettre en évidence les écarts et générer des alertes. Pour ne pas fauss
 
 5. Les modèles sont recalculés régulièrement, et les prévisions s'affinent dans le temps.
 
-## Prérequis
+### Ajouter votre jeton
 
-Pour utiliser **Anomaly Detection**, vous aurez besoin des éléments suivants :
+1. Récupérez votre jeton dans la page de votre organisation dans le [CIAM](../ciam/ciam.md).
 
-- Un jeton fourni par Centreon pour accéder à la plateforme SaaS de Centreon,
-- Une connexion internet depuis le serveur Centreon central.
-- La variable d'environnement SHELL [LC_ALL](https://www.gnu.org/software/gettext/manual/html_node/Locale-Environment-Variables) ne doit pas être définie ou bien avoir la valeur `C`. Pour vérifier la valeur de cette variable, entrez :
-
-  ```
-  echo $LC_ALL
-  ```
-
-## Installation
-
-### Étape 1 : Installation des paquets
-
-1. Ajoutez un dépôt supplémentaire:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Rien à faire.
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```shell
-yum install -y epel-release
-```
-
-</TabItem>
-</Tabs>
-
-2. Exécutez la commande suivante :
-
-  ```shell
-  yum install centreon-anomaly-detection
-  ```
-
-### Étape 2 : Installation via l'interface
-
-1. Allez à la page **Administration > Extensions > Gestionnaire**. Une tuile **Anomaly detection** apparaît dans la section **Modules**.
-
-2. Cliquez sur le bouton d'installation dans la tuile **Anomaly Detection**.
-  Le module est maintenant installé (le numéro de version apparaît sur fond vert avec une coche blanche).
-
-3. Exécutez la commande suivante en tant qu'utilisateur privilégié :
-
-  ```shell
-  systemctl restart gorgoned
-  ```
-
-### Étape 3 : Ajouter votre jeton
-
-1. Rendez-vous dans le menu **Configuration > Services > Anomaly Detection** et
+2. Rendez-vous dans le menu **Configuration > Services > Anomaly Detection** et
 cliquez sur le bouton **Add Centreon Cloud Token**.
 
-2. Saisissez votre jeton et cliquez sur **Save**.
-
-  > Si votre serveur Centreon Central a besoin d'une configuration proxy pour
-  > accéder à Internet, cochez la case **Use proxy**.
+3. Saisissez votre jeton et cliquez sur **Save**.
 
   Votre plateforme Centreon est maintenant prête à utiliser la détection
 d'anomalies Centreon.
@@ -121,9 +66,9 @@ cliquez sur le bouton **Create manually**.
 
 2. Remplissez les champs suivants :
 
-    - **Description**: nom du service.
-    - **Statut**: permet d'activer ou désactiver le service. Si vous désactivez un service, après avoir déployé la configuration, celui-ci ne sera plus supervisé (notamment, il n'apparaîtra plus à la page **Statut des ressources**).
-    - **Select host - service**: définir le couple hôte/service sur lequel le service Anomaly Detection se basera.
+    - **Description** : nom du service. Les caractères suivants ne sont pas autorisés : `~!$%^&|'"<>?,()=*{}` et les espaces.
+    - **Statut** : permet d'activer ou désactiver le service. Si vous désactivez un service, après avoir déployé la configuration, celui-ci ne sera plus supervisé (notamment, il n'apparaîtra plus à la page **Statut des ressources**).
+    - **Select host - service** : définir le couple hôte/service sur lequel le service Anomaly Detection se basera.
     - **Select metric** : sélectionnez la métrique sur laquelle appliquer la détection d'anomalie.
     - Dans un premier temps, laissez le champ **Enable notifications** à **Désactivé**. (L'option sera activée à l'étape 3.)
     - Dans la section **Categories & groups**, vous pouvez sélectionner un [**Niveau de criticité**](../monitoring/categories.md#criticité).
@@ -137,11 +82,6 @@ cliquez sur le bouton **Create manually**.
    - Le calcul du modèle de comportement démarre. Tant qu'un premier calcul n'a pas été effectué et que des prévisions n'ont pas été reçues, le statut du service reste INCONNU. Pour que des prédictions puissent être calculées, il faut disposer d'un minimum de 4h de données.
 
    - Les premières prévisions apparaîtront dans un délai de 36h maximum. Le service passera alors en statut OK et y restera tant que les alertes ne seront pas activées (étape 3).
-
-    > Si le service sur lequel vous appliquez la détection d'anomalies a été
-    > supervisé depuis un certain temps, il est possible de [transférer
-    > l'historique des données](#transférer-lhistorique-des-données) pour obtenir
-    > plus rapidement un modèle fiable.
 
 ### Étape 2 : Évaluer la pertinence des prévisions
 
@@ -174,25 +114,9 @@ stable, vous pouvez activer les changements de statut. Une fois cette option act
 
 ### Étape 4 : Activer le processus de notification
 
-Lorsque vous êtes satisfait des changements de statut que vous constatez (que ceux-ci correspondent bien à des débuts ou fins d'incidents), alors votre service Anomaly Detection est pleinement opérationnel. Vous pouvez alors activer les notifications.
+Les notifications sur les services de détection d'anomalies sont paramétrées de la même façon que les [notifications concernant les services standard](../alerts-notifications/notif-configuration.md).
 
-1. Allez à la page **Configuration > Services > Anomaly Detection** et
-cliquez sur le service Anomaly Detection désiré.
-
-2. Remplissez les champs suivants :
-
-   - **Enable notification**: sélectionnez **Activé**.
-   - **Contacts liés** : sélectionnez les contacts qui seront notifiés.
-   - **Groupes de contacts liés** : sélectionnez des groupes de contacts qui seront notifiés.
-   - **Intervalle de notification** : définissez la fréquence à laquelle envoyer des notifications une fois que le service est entré en  état CRITIQUE HARD et tant qu'il n'a pas été acquitté. La valeur par défaut est **0**, ce qui veut dire qu'une seule notification par changement d'état sera envoyée.
-   - **Période de notification** : sélectionnez la période de temps pendant laquelle ces utilisateurs pourront recevoir des notifications.
-   - **Type de notification** : sélectionnez les types de notification qui seront envoyées (lorsque le service passe en état CRITIQUE, et/ou quand il revient à la normale).
-
-3. Cliquez sur **Sauvegarder**.
-
-4. [Déployez la configuration](monitoring-servers/deploying-a-configuration.md).
-
-### Utiliser l'assistant de création
+## Utiliser l'assistant de création
 
 L'assistant de création permet de mettre en avant les services
 présentant soit une saisonnalité, soit une stabilité régulière (dont les valeurs sont comprises en permanence entre deux bornes).
@@ -204,133 +128,30 @@ La liste des services existant de votre plateforme Centreon est affichée ainsi
 qu'un score en nombre d'étoiles : de 5 étoiles à 0, 5 étoiles représentant les
 services à fort potentiel :
 
-![image](../assets/monitoring/anomaly/configure_analysis_01.png)
+![image](../../../docusaurus-plugin-content-docs/version-23.10/assets/monitoring/anomaly/configure_analysis_01.png)
 
 Après avoir sélectionné un service intéressant, cliquez sur le bouton **ADD** à
 gauche de la ligne. Vous arrivez sur le formulaire de création pré-rempli :
 
-![image](../assets/monitoring/anomaly/configure_analysis_02.png)
+![image](../../../docusaurus-plugin-content-docs/version-23.10/assets/monitoring/anomaly/configure_analysis_02.png)
 
 Modifez le nom du service puis cliquez sur le bouton **Sauvegarder**.
 
 > Si la liste est vide, c'est que le calcul afin de déterminer les services
-> intéressants n'a pas encore démarré.
-> 
-> Celui-ci est réalisé toutes les 6 heures via un cron lancé par le processus
-> **gorgoned** (défini dans le fichier **/etc/centreon-gorgone/config.d/cron.d/42-anomalydetection.yaml**).
-> 
-> Il est possible de lancer le premier calcul manuellement via la commande
-> suivante depuis le serveur Centreon central :
->
-> ```shell
-> su - centreon
-> perl /usr/share/centreon/bin/anomaly_detection --seasonality
-> ```
+> intéressants n'a pas encore démarré. Celui-ci est réalisé toutes les 6 heures.
 
 ## Visualiser les anomalies détectées
 
 Une fois un service de type Anomaly Detection créé, vous pouvez le visualiser aux endroits suivants :
 
 - À la page **Supervision > Statut des ressources**.
-- À la page **Supervision > Détails des statuts > Services**.
 - À la page **Supervision > Informations de performance > Graphiques**.
 - À la page **Supervision > Journaux d'évènements**.
 - Dans le widget **service-monitoring** via le menu **Accueil > Vues personnalisées**.
+- Vous pouvez utiliser des services Anomaly Detection comme indicateurs dans [Centreon BAM](../service-mapping/ba-management.md).
 - Et tous les menus où vous pouvez opérer sur les services.
 
-## Transférer l'historique des données
-
-> L'envoi de l'historique des données est un processus très consommateur de CPU.
-> Selon le nombre de services surveillés, l'extraction des données de la base de
-> données **centreon\_storage** peut prendre plusieurs dizaines de minutes. Cela
-> aura un impact important sur les performances de la base de données et
-> pourrait ralentir globalement la plateforme de supervision.
-
-Pour envoyer l'historique des données d'un service d'anomalie à notre plateforme SaaS, connectez-vous à
-votre serveur Centreon Central et accédez à l'utilisateur **centreon**:
-
-```shell
-su - centreon
-```
-
-Sélectionnez le service d'anomalie à l'aide de la commande suivante :
-
-```shell
-/usr/share/centreon/bin/anomaly_detection --list-services
-```
-
-Vous verrez la liste des services avec leur identifiant :
-
-```shell
-List of available anomaly detection services:
-
-- id: 14, hostname: fw-beijing, servicename: anomaly-nbr-connect, metric name: connection
-- id: 15, hostname: fw-brasilia, servicename: anomaly-nbr-connect, metric name: connection
-- id: 17, hostname: fw-mexico, servicename: anomaly-nbr-connect, metric name: connection
-- id: 18, hostname: fw-berlin, servicename: anomaly-nbr-connect, metric name: connection
-- id: 22, hostname: fw-brasilia, servicename: anomaly-traffic-in, metric name: traffic_in
-```
-
-Pour envoyer l'historique des données du service d'anomalies avec l'ID 14 pour
-les 4 dernières semaines, exécutez la commande suivante :
-
-```shell
-/usr/share/centreon/bin/anomaly_detection --send-history 14 --history-period 4w
-```
-
-Attendez la fin du processus :
-
-```shell
-Sending data from 2020-03-09T09:32:31 to 2020-03-10T00:00:00
-Sending data from 2020-03-10T00:00:00 to 2020-03-11T00:00:00
-Sending data from 2020-03-11T00:00:00 to 2020-03-12T00:00:00
-Sending data from 2020-03-12T00:00:00 to 2020-03-13T00:00:00
-Sending data from 2020-03-13T00:00:00 to 2020-03-14T00:00:00
-Sending data from 2020-03-14T00:00:00 to 2020-03-15T00:00:00
-Sending data from 2020-03-15T00:00:00 to 2020-03-16T00:00:00
-Sending data from 2020-03-16T00:00:00 to 2020-03-17T00:00:00
-Sending data from 2020-03-17T00:00:00 to 2020-03-18T00:00:00
-Sending data from 2020-03-18T00:00:00 to 2020-03-19T00:00:00
-Sending data from 2020-03-19T00:00:00 to 2020-03-20T00:00:00
-Sending data from 2020-03-20T00:00:00 to 2020-03-21T00:00:00
-Sending data from 2020-03-21T00:00:00 to 2020-03-22T00:00:00
-Sending data from 2020-03-22T00:00:00 to 2020-03-23T00:00:00
-Sending data from 2020-03-23T00:00:00 to 2020-03-24T00:00:00
-Sending data from 2020-03-24T00:00:00 to 2020-03-25T00:00:00
-Sending data from 2020-03-25T00:00:00 to 2020-03-26T00:00:00
-Sending data from 2020-03-26T00:00:00 to 2020-03-27T00:00:00
-Sending data from 2020-03-27T00:00:00 to 2020-03-28T00:00:00
-Sending data from 2020-03-28T00:00:00 to 2020-03-29T00:00:00
-Sending data from 2020-03-29T00:00:00 to 2020-03-30T00:00:00
-Sending data from 2020-03-30T00:00:00 to 2020-03-31T00:00:00
-Sending data from 2020-03-31T00:00:00 to 2020-04-01T00:00:00
-Sending data from 2020-04-01T00:00:00 to 2020-04-02T00:00:00
-Sending data from 2020-04-02T00:00:00 to 2020-04-03T00:00:00
-Sending data from 2020-04-03T00:00:00 to 2020-04-04T00:00:00
-Sending data from 2020-04-04T00:00:00 to 2020-04-05T00:00:00
-Sending data from 2020-04-05T00:00:00 to 2020-04-06T00:00:00
-```
-
 ## FAQ
-
-### Quels services sont offerts et quel est le SLA associé?
-
-Le service de détection d'anomalies est actuellement en phase de bêta test fermée. Le but de cette phase de test bêta
-fermée est de tester nos algorithmes de calcul de prédictions (seuils flottants). Au cours de cette phase, Centreon
-améliorera la fonctionnalité de détection d'anomalies en fonction du retour d'expérience des utilisateurs. Aucun SLA ne sera disponible
-pendant cette phase.
-
-### Quels sont les critères de sélection pour le programme de bêta ? Pour quelle durée et pour quel volume ?
-
-Un formulaire de participation est disponible pour les clients Centreon. À partir des réponses, Centreon
-sélectionnera les candidats pour participer à la phase de test bêta fermée.
-
-### Quel est le processus défini pour le programme de test bêta ?
-
-Une fois les candidats sélectionnés, Centreon les contactera pour leur indiquer la procédure à suivre. Des réunions
-régulières seront programmées pour évaluer l'efficacité de la fonctionnalité sur la plateforme des clients. Des
-sessions de prise en main à distance peuvent être nécessaires. Une mise à jour de la fonctionnalité peut également
-être demandée pour valider les modifications apportées suite au retour d'expérience.
 
 ### Combien de temps les données sont-elles hébergées ?
 
@@ -344,6 +165,14 @@ Les données hébergées par le service de détection d'anomalies ne concernent 
 par l'utilisateur. Elles comprennent la date et l'heure du contrôle, l'identifiant de la ressource surveillée,
 l'identifiant de l'indicateur associé, le nom des données de performance sur lesquelles les calculs seront effectués
 ainsi que la valeur des données de performance.
+
+### Comment l’envoi et le stockage de mes données sont-ils protégés ?
+
+L’envoi de données à notre infrastructure Cloud ne comporte aucun risque.
+Les données sont chiffrées de bout en bout. Les données collectées ne contiennent que des métriques et
+quelques identifiants Centreon (nom d’hôte, nom de service). Notre environnement est protégé par AWS Web
+Application Firewall et AWS Shields pour prévenir les attaques DDoS. Notre architecture a été revue par les
+architectes AWS (AWS Foundational Technical Review) et nous sommes un partenaire qualifié d’AWS.
 
 ### Quel est l'usage des données ?
 
