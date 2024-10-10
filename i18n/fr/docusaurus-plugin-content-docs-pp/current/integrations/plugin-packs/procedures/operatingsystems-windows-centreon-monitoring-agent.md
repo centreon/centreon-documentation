@@ -106,7 +106,7 @@ Deux flux TCP doivent être ouverts depuis l'hôte supervisé vers le collecteur
 ### Prérequis système sur le collecteur
 
 > Rappel: pour pouvoir utiliser l'agent **Centreon Monitoring Agent**, vous devez utiliser un collecteur ayant au
-minimum la version `24.09.0` pour les utilisateurs de Centreon Cloud, et la version `24.04.6` ou `24.10.0` pour les utilisateurs *On Premices* de `centreon-engine`. L'agent devra se configurer en se connectant à Centreon Engine.
+minimum la version `24.09.0` pour les utilisateurs de Centreon Cloud, et la version `24.04.6` ou `24.10.0` pour les utilisateurs On Prem de `centreon-engine`. L'agent devra se configurer en se connectant à Centreon Engine.
 
 ### Configuration de Centreon Engine
 
@@ -233,9 +233,9 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 
 | Macro          | Description                                                                                                                                                                                                                                              | Valeur par défaut             | Obligatoire |
 |:---------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------:|
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (Default: '%{RebootPending} =~ /true/i'). You can use the following variables: %{RebootPending}, %{WindowsUpdate}, %{CBServicing}, %{CCMClientSDK}, %{PendFileRename}, %{PendComputerRename} | `%{RebootPending} =~ /true/i` |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{RebootPending}, %{WindowsUpdate}, %{CBServicing}, %{CCMClientSDK}, %{PendFileRename}, %{PendComputerRename} | `%{RebootPending} =~ /true/i` |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{RebootPending}, %{WindowsUpdate}, %{CBServicing}, %{CCMClientSDK}, %{PendFileRename}, %{PendComputerRename}                           |                               |             |
-| TIMEOUT        | Set timeout time for command execution (default: 50 sec).                                                                                                                                                                                                | 10                            |             |
+| TIMEOUT        | Set timeout time for command execution                                                                                                                                                                                                | 10                            |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                 |                               |             |
 
 </TabItem>
@@ -255,7 +255,7 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | CRITICALSESSIONSRECONNECTED         | Thresholds.                                                                                                                                          |                   |             |
 | WARNINGSESSIONSDISCONNECTEDCURRENT  | Thresholds.                                                                                                                                          |                   |             |
 | CRITICALSESSIONSDISCONNECTEDCURRENT | Thresholds.                                                                                                                                          |                   |             |
-| TIMEOUT                             | Timeout in seconds for the command (default: 30).                                                                                                    | 10                |             |
+| TIMEOUT                             | Timeout in seconds for the command                                                                                                   | 10                |             |
 | EXTRAOPTIONS                        | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)             |                   |             |
 
 </TabItem>
@@ -265,7 +265,7 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 |:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-------------------|:-----------:|
 | WARNINGPENDINGUPDATES  | Thresholds                                                                                                                               | 1                  |             |
 | CRITICALPENDINGUPDATES | Thresholds                                                                                                                               |                    |             |
-| TIMEOUT                | Set timeout time for command execution (default: 50 sec).                                                                                | 30                 |             |
+| TIMEOUT                | Set timeout time for command execution.                                                                                | 30                 |             |
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --filter-mandatory |             |
 
 </TabItem>

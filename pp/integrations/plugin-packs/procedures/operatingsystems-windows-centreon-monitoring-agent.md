@@ -103,11 +103,11 @@ Only one TCP flow must be open from the host to the poller.
 
 ### System prerequisites on the poller
 
-> To be able to use the Centreon Monitoring agent, you must use a poller with at least version `24.09.0` for Centreon Cloud users and version `24.04.6` or `24.10.0` for *On Premices* users of `centreon-engine`. The Centreon Monitoring agent will configure itself by connecting to Centreon Engine.
+> To be able to use the Centreon Monitoring agent, you must use a poller with at least version `24.09.0` for Centreon Cloud users and version `24.04.6` or `24.10.0` for On Prem users of `centreon-engine`. The Centreon Monitoring agent will configure itself by connecting to Centreon Engine.
 
 ### Configure Engine
 
-Read [this page](../getting-started/how-to-guides/cma.md#configure-engine) to learn how to configure engine for compatibility with CMA.
+Read [this page](../getting-started/how-to-guides/cma.md#configure-engine) to learn how to configure Engine for compatibility with CMA.
 
 ### System prerequisites on the monitored host
 
@@ -230,9 +230,9 @@ This connector relies on an integration supported by Centreon Engine and does no
 
 | Macro          | Description                                                                                                                                                                                                                                              | Default value                 | Mandatory |
 |:---------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:---------:|
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (Default: '%{RebootPending} =~ /true/i'). You can use the following variables: %{RebootPending}, %{WindowsUpdate}, %{CBServicing}, %{CCMClientSDK}, %{PendFileRename}, %{PendComputerRename} | `%{RebootPending} =~ /true/i` |           |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{RebootPending}, %{WindowsUpdate}, %{CBServicing}, %{CCMClientSDK}, %{PendFileRename}, %{PendComputerRename} | `%{RebootPending} =~ /true/i` |           |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{RebootPending}, %{WindowsUpdate}, %{CBServicing}, %{CCMClientSDK}, %{PendFileRename}, %{PendComputerRename}                           |                               |           |
-| TIMEOUT        | Set timeout time for command execution (default: 50 sec).                                                                                                                                                                                                | 10                            |           |
+| TIMEOUT        | Set timeout time for command execution                                                                                                                                                                                                | 10                            |           |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                                                           |                               |           |
 
 </TabItem>
@@ -252,7 +252,7 @@ This connector relies on an integration supported by Centreon Engine and does no
 | CRITICALSESSIONSRECONNECTED         | Thresholds.                                                                                                                                          |               |           |
 | WARNINGSESSIONSDISCONNECTEDCURRENT  | Thresholds.                                                                                                                                          |               |           |
 | CRITICALSESSIONSDISCONNECTEDCURRENT | Thresholds.                                                                                                                                          |               |           |
-| TIMEOUT                             | Timeout in seconds for the command (default: 30).                                                                                                    | 10            |           |
+| TIMEOUT                             | Timeout in seconds for the command                                                                                                  | 10            |           |
 | EXTRAOPTIONS                        | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                       |               |           |
 
 </TabItem>
@@ -262,7 +262,7 @@ This connector relies on an integration supported by Centreon Engine and does no
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:---------:|
 | WARNINGPENDINGUPDATES  | Thresholds                                                                                                                     | 1                           |           |
 | CRITICALPENDINGUPDATES | Thresholds                                                                                                                     |                             |           |
-| TIMEOUT                | Set timeout time for command execution (default: 50 sec).                                                                      | 30                          |           |
+| TIMEOUT                | Set timeout time for command execution                                                                    | 30                          |           |
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose --display-updates |           |
 
 </TabItem>
