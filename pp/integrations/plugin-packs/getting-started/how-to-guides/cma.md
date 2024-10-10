@@ -121,7 +121,7 @@ chown centreon-engine: /etc/centreon-engine/otl_server.json
       "encryption":true,
       "public_cert":"<CERTIFICATE PATH>",
       "private_key":"<KEY PATH>",
-      "ca_certificate":"<CA PATH>",
+      "ca_certificate":"<CA PATH>"
       "ca_name":"<CA NAME>"
    },
    "max_length_grpc_log":0,
