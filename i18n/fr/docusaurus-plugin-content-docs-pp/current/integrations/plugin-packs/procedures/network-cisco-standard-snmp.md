@@ -533,7 +533,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 
 | Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| ROLE         | If role is 'primary', an error if HSRPs are 'standby' states. If role is 'secondary', an error if HSRPs are 'active' states.                      | primary           | X           |
+| ROLE         | If role is 'primary', an error is returned when HSRPs are 'standby' states. If role is 'secondary', an error is returned when HSRPs are 'active' states.                      | primary           | X           |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
@@ -1008,7 +1008,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option        | Description                                                                                                                                         |
 |:--------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-vrid | Filter VRID (can be a regexp).                                                                                                                      |
-| --role        | If role is 'primary', an error if HSRPs are 'standby' states. If role is 'secondary', an error if HSRPs are 'active' states. (default: 'primary')    |
+| --role        | If role is 'primary', an error is returned when HSRPs are 'standby' states. If role is 'secondary', an error is returned when HSRPs are 'active' states. Default: 'primary'.    |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
