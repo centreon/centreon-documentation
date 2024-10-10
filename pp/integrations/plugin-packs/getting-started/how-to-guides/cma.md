@@ -306,7 +306,7 @@ systemctl restart centagent
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-1. [Download the CMA installer](https://github.com/centreon/centreon-collect/releases) on every server you want to monitor.
+1. [Download the CMA installer](https://github.com/centreon/centreon-collect/releases/download/centreon-collect-24.04.6/centreon-monitoring-agent-24.10.0.exe) on every server you want to monitor.
 
 2. Start the installer (during the configuration, you can click on the (i) icons for help).
    
