@@ -134,5 +134,9 @@
   "sidebar.cloud.category.Data Visualization": {
     "message": "Visualisation des données",
     "description": "The label for category Data Visualization in sidebar cloud"
+  },
+  "sidebar.cloud.category.Monitoring examples": {
+    "message": "Examples de supervision",
+    "description": "The label for category Monitoring examples in sidebar cloud"
   }
 }

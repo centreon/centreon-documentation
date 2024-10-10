@@ -3,6 +3,36 @@ id: interface
 title: Aperçu de l'interface Centreon
 ---
 
+## Tutoriels vidéo
+
+Parcourez l'interface pour vous familiariser avec Centreon Cloud, selon votre [rôle utilisateur](../users/users.md#user-roles).
+
+<details>
+<summary>J'ai le rôle Editor</summary>
+
+- Découvrir le menu principal :
+
+<iframe width="100%" height="650" src="https://app.arcade.software/share/3asg2bObpD9nH31r1jvR" frameborder="0" allowfullscreen></iframe>
+
+- Découvrir le bandeau supérieur :
+
+<iframe width="100%" height="650" src="https://app.arcade.software/share/fdCcspkyOLIsHehIBOHZ" frameborder="0" allowfullscreen></iframe>
+
+</details>
+
+<details>
+<summary>J'ai le rôle User</summary>
+
+- Découvrir le menu principal :
+
+<iframe width="100%" height="650" src="https://app.arcade.software/share/8xmtVdestemqeYPvKtGy" frameborder="0" allowfullscreen></iframe>
+
+- Découvrir le bandeau supérieur :
+
+<iframe width="100%" height="650" src="https://app.arcade.software/share/qvZAsg23B2q4MEe8T2Sl" frameborder="0" allowfullscreen></iframe>
+
+</details>
+
 ## Accéder à l'interface du serveur central
 
 Pour vous connecter à Centreon Cloud pour la première fois, connectez-vous d'abord au [CIAM](../ciam/ciam.md), puis cliquez sur votre plateforme dans la liste **Applications** à la page de votre organisation. Vous pouvez ensuite enregistrer l'URL dans vos favoris afin d'accéder à la plateforme plus rapidement.
