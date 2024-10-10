@@ -440,7 +440,7 @@ systemctl start crond
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
-systemctl enable php2-fpm apache2 centreon cbd centengine gorgoned centreontrapd snmpd snmptrapd
+systemctl enable php8.2-fpm apache2 centreon cbd centengine gorgoned centreontrapd snmpd snmptrapd
 ```
 
 </TabItem>
