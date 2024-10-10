@@ -8,6 +8,44 @@ import TabItem from '@theme/TabItem';
 
 ## 2024
 
+### October
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Linux Centreon Monitoring Agent**](../procedures/operatingsystems-linux-centreon-monitoring-agent.md) - Initial release of Linux with Centreon Monitoring Agent.
+- [**Windows Centreon Monitoring Agent**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Initial release of Windows with Centreon Monitoring Agent.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Ansible Tower**](../procedures/applications-ansible-tower.md) - Added `filter-time` option to jobs mode, redesigned from community contribution [PR 4990](https://github.com/centreon/centreon-plugins/pull/4990).
+- [**Ansible Tower**](../procedures/applications-ansible-tower.md) - Added Host IP to the returned fields of host discovery.
+- [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - Added Centreon user-agent key to Meraki API calls.
+- [**Cisco Standard**](../procedures/network-cisco-standard-snmp.md) -  Added `add-fc-fe-errors` option to interfaces mode.
+- [**CyberPower Systems PDU SNMP**](../procedures/hardware-pdu-cyberpower-snmp.md) - Added `phase-voltage` metric to load mode.
+- [**Linux SNMP v3**](../procedures/operatingsystems-linux-snmpv3.md) - Added an option `force-64bits-counters` to switch to 64bits counters for memory mode.
+- [**Linux SNMP**](../procedures/operatingsystems-linux-snmp.md) - Added an option `force-64bits-counters` to switch to 64bits counters for memory mode.
+- [**Rubrik Rest API**](../procedures/applications-rubrik-restapi.md) - Added hostmacro to show more login ways on the API.
+- [**WD NAS SNMP**](../procedures/hardware-storage-wd-nas-snmp.md) - Added support for ex4100 models in volumes, listvolumes and hardware modes, from community contributions ([PR 4805](https://github.com/centreon/centreon-plugins/pull/4805), [PR 4806](https://github.com/centreon/centreon-plugins/pull/4806) and [PR 4807](https://github.com/centreon/centreon-plugins/pull/4807)).
+- [**Cisco WLC**](../procedures/network-cisco-wlc-snmp.md) - Added Host macros to AP host template.
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Cisco WLC**](../procedures/network-cisco-wlc-snmp.md) - Fixed host template used in the host discovery template mapper.
+- [**CyberPower Systems PDU SNMP**](../procedures/hardware-pdu-cyberpower-snmp.md) - Fixed power value in load mode (should not be multiplied by 10).
+- [**HPE Primera REST API**](../procedures/hardware-storage-hpe-primera-restapi.md) - Fixed header leading to API authentication issue from community feedback [PR 5183](https://github.com/centreon/centreon-plugins/pull/5183).
+- [**Linux NRPE4**](../procedures/operatingsystems-linux-nrpe4.md) - Fixed issue of not existing option `--output-fields` for some OS in systemd-journal mode (this option has been added in journalctl version 236 and doesn't work for older versions).
+- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Fixed issue of not existing option `--output-fields` for some OS in systemd-journal mode (this option has been added in journalctl version 236 and doesn't work for older versions).
+- [**Linux Telegraf Agent**](../procedures/operatingsystems-linux-telegraf-agent.md) - Fixed issue of not existing option `--output-fields` for some OS in systemd-journal mode (this option has been added in journalctl version 236 and doesn't work for older versions).
+- [**Rapid Recovery SNMP**](../procedures/applications-rapidrecovery-snmp.md) - Fixed commands typo for repository and agent modes.
+- [**Stormshield SNMP**](../procedures/network-stormshield-snmp.md) - Fixed issue on temperature value not used in hardware mode.
+- [**VMware vCenter**](../procedures/virtualization-vmware2-vcenter-generic.md) - Fixed latency unit on vsan-cluster-usage mode.
+
+</TabItem>
+</Tabs>
+
 ### September
 
 <Tabs groupId="sync">
