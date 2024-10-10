@@ -376,6 +376,23 @@ OK:    | 'hosts.total.count'=93;;;0; 'hosts.failed.count'=65;;;0;total
 Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
 pour le diagnostic des erreurs communes des plugins Centreon.
 
+### Custom modes disponibles
+
+Ce connecteur offre plusieurs méthodes pour se connecter à la ressource (CLI, bibliothèque, etc.), appelées **custom modes**.
+Tous les custom modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-custommode` à la commande :
+
+```bash
+/usr/lib/centreon/plugins//centreon_ansible_tower.pl \
+	--plugin=apps::automation::ansible::tower::plugin \
+	--list-custommode
+```
+
+Le plugin apporte les custom modes suivants :
+
+* api
+* towercli
+
 ### Modes disponibles
 
 Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution 
