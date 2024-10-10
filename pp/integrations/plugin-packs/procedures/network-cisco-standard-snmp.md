@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                           | Service Description                                                                                           |
 |:--------------|:-------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
-| Cpu           | Net-Cisco-Standard-Cpu-SNMP-custom         | Check the rate of utilization of CPU for the machine. This check can give the average utilization rate of CPU |
+| Cpu           | Net-Cisco-Standard-Cpu-SNMP-custom         | Check the rate of utilization of the CPU for the machine. This check can give the average utilization rate of the CPU |
 | Environment   | Net-Cisco-Standard-Environment-SNMP-custom | Check hardware environment                                                                                    |
 | Memory        | Net-Cisco-Standard-Memory-SNMP-custom      | Check machine memory usage                                                                                    |
 
@@ -33,7 +33,7 @@ The connector brings the following service templates (sorted by the host templat
 |:--------------|:---------------------------------------------|:-----------------------------------------------------------------------|:----------:|
 | Aaa-Servers   | Net-Cisco-Standard-Aaa-Servers-SNMP-custom   | Check AAA servers                                                      | X          |
 | Anycast       | Net-Cisco-Standard-Anycast-SNMP-custom       | Check traffic types                                                    |            |
-| Arp           | Net-Cisco-Standard-Arp-SNMP-custom           | Check arp table.                                                       |            |
+| Arp           | Net-Cisco-Standard-Arp-SNMP-custom           | Check ARP table.                                                       |            |
 | Bgp           | Net-Cisco-Standard-Bgp-SNMP-custom           | Check BGP.                                                             |            |
 | Configuration | Net-Cisco-Standard-Configuration-SNMP-custom | Check Cisco changed and saved configurations                           |            |
 | Hsrp          | Net-Cisco-Standard-Hsrp-SNMP-custom          | Check Cisco HSRP status                                                |            |
@@ -415,7 +415,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 
 | Macro                            | Description                                                                                                                             | Default value        | Mandatory   |
 |:---------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------|:---------------------|:-----------:|
-| FILTERNAME                       | Filter AAA server by name (E.g.: 10.199.126.100:1812:1813. Format: \[address\]:\[authPort\]:\[accPort\])                                |                      |             |
+| FILTERNAME                       | Filter AAA server by name (Example: 10.199.126.100:1812:1813. Format: \[address\]:\[authPort\]:\[accPort\])                                |                      |             |
 | WARNINGACCREQUESTS               | Thresholds                                                                                                                              |                      |             |
 | CRITICALACCREQUESTS              | Thresholds                                                                                                                              |                      |             |
 | WARNINGACCREQUESTSTIMEOUT        | Thresholds                                                                                                                              |                      |             |
@@ -534,7 +534,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 
 | Macro        | Description                                                                                                                            | Default value     | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| ROLE         | If role is 'primary', an error if HSRPs are 'standby' states. Ifrole is 'secondary', an error if HSRPs are 'active' states.            | primary           | X           |
+| ROLE         | If role is 'primary', an error if HSRPs are 'standby' states. If role is 'secondary', an error if HSRPs are 'active' states.            | primary           | X           |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
@@ -881,7 +881,7 @@ All available options for each service template are listed below:
 | --statefile-key          | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
 | --statefile-cipher       | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
 | --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='auth'                                                                                                                                                            |
-| --filter-name            | Filter AAA server by name (E.g.: 10.199.126.100:1812:1813. Format: \[address\]:\[authPort\]:\[accPort\]).                                                                                                                                     |
+| --filter-name            | Filter AAA server by name (Example: 10.199.126.100:1812:1813. Format: \[address\]:\[authPort\]:\[accPort\]).                                                                                                                                     |
 | --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{name}                                                                                                                          |
 | --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}                                                                                                                          |
 | --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /dead/i'). You can use the following variables: %{status}, %{name}                                                                                       |
@@ -982,7 +982,7 @@ All available options for each service template are listed below:
 
 | Option                   | Description                                                                                                                                                              |
 |:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --check-order            | Check CPU in standard cisco mib. If you have some issue (wrong CPU information in a specific mib), you can change the order (default: 'process,old\_sys,system\_ext').   |
+| --check-order            | Check CPU in standard cisco MIB. If you have some issue (wrong CPU information in a specific MIB), you can change the order (default: 'process,old\_sys,system\_ext').   |
 | --warning-* --critical-* | Thresholds. Can be: 'core-5s', 'core-1m', 'core-5m', 'average-5s', 'average-1m', 'average-5m'.                                                                           |
 
 </TabItem>
@@ -1007,7 +1007,7 @@ All available options for each service template are listed below:
 | Option        | Description                                                                                                                                         |
 |:--------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-vrid | Filter VRID (can be a regexp).                                                                                                                      |
-| --role        | If role is 'primary', an error if HSRPs are 'standby' states. Ifrole is 'secondary', an error if HSRPs are 'active' states. (default: 'primary')    |
+| --role        | If role is 'primary', an error if HSRPs are 'standby' states. If role is 'secondary', an error if HSRPs are 'active' states. (default: 'primary')    |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">

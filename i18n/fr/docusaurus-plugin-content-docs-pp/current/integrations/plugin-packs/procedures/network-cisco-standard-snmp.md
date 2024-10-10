@@ -34,7 +34,7 @@ Le connecteur apporte les modèles de service suivants
 |:--------------|:---------------------------------------------|:--------------------------------------------------------------|:----------:|
 | Aaa-Servers   | Net-Cisco-Standard-Aaa-Servers-SNMP-custom   | Contrôle les serveurs AAA                                     | X          |
 | Anycast       | Net-Cisco-Standard-Anycast-SNMP-custom       | Contrôle le type de trafic                                    |            |
-| Arp           | Net-Cisco-Standard-Arp-SNMP-custom           | Contrôle la table arp                                         |            |
+| Arp           | Net-Cisco-Standard-Arp-SNMP-custom           | Contrôle la table ARP                                         |            |
 | Bgp           | Net-Cisco-Standard-Bgp-SNMP-custom           | Contrôle le BGP                                               |            |
 | Configuration | Net-Cisco-Standard-Configuration-SNMP-custom | Contrôle si la configuration "running" est sauvegardée        |            |
 | Hsrp          | Net-Cisco-Standard-Hsrp-SNMP-custom          | Contrôle Cisco HSRP                                           |            |
@@ -68,7 +68,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 | Nom de la règle                         | Description                                                             |
 |:----------------------------------------|:------------------------------------------------------------------------|
 | Net-Cisco-Standard-SNMP-Aaa-Server-Name | Découvre les serveurs AAA et supervise l'utilisation                                                                        |
-| Net-Cisco-Standard-SNMP-Interface-Name  | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
+| Net-Cisco-Standard-SNMP-Interface-Name  | Découvre les interfaces réseau et supervise leur statut et leur utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -414,7 +414,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 
 | Macro                            | Description                                                                                                                                      | Valeur par défaut    | Obligatoire |
 |:---------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|:-----------:|
-| FILTERNAME                       | Filter AAA server by name (E.g.: 10.199.126.100:1812:1813. Format: \[address\]:\[authPort\]:\[accPort\])                                         |                      |             |
+| FILTERNAME                       | Filter AAA server by name (Example: 10.199.126.100:1812:1813. Format: \[address\]:\[authPort\]:\[accPort\])                                         |                      |             |
 | WARNINGACCREQUESTS               | Thresholds                                                                                                                                       |                      |             |
 | CRITICALACCREQUESTS              | Thresholds                                                                                                                                       |                      |             |
 | WARNINGACCREQUESTSTIMEOUT        | Thresholds                                                                                                                                       |                      |             |
@@ -533,7 +533,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 
 | Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| ROLE         | If role is 'primary', an error if HSRPs are 'standby' states. Ifrole is 'secondary', an error if HSRPs are 'active' states.                      | primary           | X           |
+| ROLE         | If role is 'primary', an error if HSRPs are 'standby' states. If role is 'secondary', an error if HSRPs are 'active' states.                      | primary           | X           |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
@@ -541,7 +541,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 
 | Macro                   | Description                                                                                                                                                              | Valeur par défaut                                     | Obligatoire |
 |:------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
-| UNITSTRAFFIC            | Units of thresholds for the traffic ('percent\_delta', 'bps', 'counter')                                                                                                 | percent\_delta                                        |             |
+| UNITSTRAFFIC            | Units in which the thresholds are given for the traffic ('percent\_delta', 'bps', 'counter')                                                                                                 | percent\_delta                                        |             |
 | UNITSERROR              | Units of thresholds for errors/discards ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter')                                                                     | percent\_delta                                        |             |
 | UNITSCAST               | Units of thresholds for communication types ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter')                                                                 | percent\_delta                                        |             |
 | OIDFILTER               | Define the OID to be used to filter interfaces (values: ifDesc, ifAlias, ifName, IpAddr)                                                                                 | ifname                                                |             |
@@ -882,7 +882,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --statefile-key          | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
 | --statefile-cipher       | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
 | --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='auth'                                                                                                                                                            |
-| --filter-name            | Filter AAA server by name (E.g.: 10.199.126.100:1812:1813. Format: \[address\]:\[authPort\]:\[accPort\]).                                                                                                                                     |
+| --filter-name            | Filter AAA server by name (Example: 10.199.126.100:1812:1813. Format: \[address\]:\[authPort\]:\[accPort\]).                                                                                                                                     |
 | --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{name}                                                                                                                          |
 | --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{name}                                                                                                                          |
 | --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /dead/i'). You can use the following variables: %{status}, %{name}                                                                                       |
@@ -943,7 +943,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option                   | Description                                                                      |
 |:-------------------------|:---------------------------------------------------------------------------------|
 | --filter-macaddr         | Filter mac addresses (can be a regexp).                                          |
-| --filter-ipaddr          | Filter ip addresses (can be a regexp).                                           |
+| --filter-ipaddr          | Filter IP addresses (can be a regexp).                                           |
 | --warning-* --critical-* | Thresholds. Can be: 'total-entries', 'duplicate-macaddr', 'duplicate-ipaddr'.    |
 
 </TabItem>
@@ -1008,7 +1008,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option        | Description                                                                                                                                         |
 |:--------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-vrid | Filter VRID (can be a regexp).                                                                                                                      |
-| --role        | If role is 'primary', an error if HSRPs are 'standby' states. Ifrole is 'secondary', an error if HSRPs are 'active' states. (default: 'primary')    |
+| --role        | If role is 'primary', an error if HSRPs are 'standby' states. If role is 'secondary', an error if HSRPs are 'active' states. (default: 'primary')    |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
@@ -1089,7 +1089,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --warning-usage  | Warning threshold in percent.                                                                                                                                                              |
 | --critical-usage | Critical threshold in percent.                                                                                                                                                             |
 | --filter-pool    | Filter pool to check (can use regexp).                                                                                                                                                     |
-| --check-order    | Check memory in standard cisco mib. If you have some issue (wrong memory information in a specific mib), you can change the order (default: 'enhanced\_pool,pool,process,system\_ext').    |
+| --check-order    | Check memory in standard cisco MIB. If you have some issue (wrong memory information in a specific MIB), you can change the order (default: 'enhanced\_pool,pool,process,system\_ext').    |
 
 </TabItem>
 <TabItem value="Memory-Flash" label="Memory-Flash">
@@ -1141,7 +1141,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option                   | Description                                                                                                                                                                                                                                                                                                                                                                                            |
 |:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --warning-* --critical-* | Set thresholds for members count for each states.can be: 'waiting', 'progressing', 'added', 'ready', 'sdm-mismatch', 'version-mismatch', 'feature-mismatch', 'new-master-init', 'provisioned', 'invalid', 'removed')                                                                                                                                                                                 |
+| --warning-* --critical-* | Set thresholds on members count for each states. (Can be: 'waiting', 'progressing', 'added', 'ready', 'sdm-mismatch', 'version-mismatch', 'feature-mismatch', 'new-master-init', 'provisioned', 'invalid', 'removed')                                                                                                                                                                                 |
 | --warning-stack-status   | Set warning threshold for stack status (default: ''). You can use the following variables: %{stack\_status}                                                                                                                                                                                                                                                                                            |
 | --critical-stack-status  | Set critical threshold for stack status (default: '%{stack\_status} =~ /notredundant/'). You can use the following variables: %{stack\_status}                                                                                                                                                                                                                                                         |
 | --warning-status         | Set warning threshold for members status (default: ''). You can use the following variables: %{name}, %{role}, %{state}                                                                                                                                                                                                                                                                                |
