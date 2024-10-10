@@ -574,7 +574,7 @@ This monitoring connector relies on an integration supported by Centreon Engine 
 
 | Macro             | Description                                                                                        | Default value     | Mandatory   |
 |:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CONNECTIONCOMMAND | Default mode for parsing and command: 'netstat' (default) or 'ss'                                  | ss                | X           |
+| CONNECTIONCOMMAND | Default mode for parsing and command: 'netstat' or 'ss'                                  | ss                | X           |
 | WARNING           | Warning threshold for total connections                                                            |                   |             |
 | CRITICAL          | Critical threshold for total connections                                                           |                   |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
@@ -702,7 +702,7 @@ This monitoring connector relies on an integration supported by Centreon Engine 
 
 | Macro           | Description                                                                                                                                                         | Default value                | Mandatory   |
 |:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
-| NTPCOMMAND      | Default mode for parsing and command: 'ntpq' (default), 'chronyc' or 'all'                                                                                          | all                          |             |
+| NTPCOMMAND      | Default mode for parsing and command: 'ntpq', 'chronyc' or 'all'                                                                                          | all                          |             |
 | FILTERPEERNAME  | Filter peer name (can be a regexp)                                                                                                                                  | .*                           |             |
 | FILTERPEERSTATE | Filter peer state (can be a regexp)                                                                                                                                 | .*                           |             |
 | WARNINGOFFSET   | Warning threshold offset deviation value in milliseconds                                                                                                            |                              |             |
@@ -749,7 +749,7 @@ This monitoring connector relies on an integration supported by Centreon Engine 
 
 | Macro            | Description                                                                                        | Default value     | Mandatory   |
 |:-----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| OSMODE           | Default mode for parsing and command: 'rhel' (default), 'debian', 'suse'                           | rhel              |             |
+| OSMODE           | Default mode for parsing and command: 'rhel', 'debian', 'suse'                           | rhel              |             |
 | FILTERPACKAGE    | Filter package name                                                                                |                   |             |
 | FILTERREPOSITORY | Filter repository name                                                                             |                   |             |
 | WARNINGTOTAL     | Warning threshold for total amount of pending updates                                              |                   |             |
@@ -784,8 +784,8 @@ This monitoring connector relies on an integration supported by Centreon Engine 
 
 | Macro           | Description                                                                                                                                                     | Default value     | Mandatory   |
 |:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SINCE           | Defines the amount of time to look back at messages. Can beminutes (ie 5 "minutes ago") or 'cache' to use the timestamp from last execution. (default: 'cache') | cache             |             |
-| TIMEZONE        | Defines the timezone to convert date/time to the host timezone when using timestamp from cache. (default: 'local')                                              | local             |             |
+| SINCE           | Defines the amount of time to look back at messages. Can beminutes (ie 5 "minutes ago") or 'cache' to use the timestamp from last execution | cache             |             |
+| TIMEZONE        | Defines the timezone to convert date/time to the host timezone when using timestamp from cache                                              | local             |             |
 | UNIT            | Only look for messages of the specified unit, ie the name of thesystemd service who created the message                                                         |                   |             |
 | FILTERMESSAGE   | Filter on message content (can be a regexp)                                                                                                                     |                   |             |
 | WARNINGENTRIES  | Thresholds on the number of entries found in the journal for the specified parameters                                                                           |                   |             |
