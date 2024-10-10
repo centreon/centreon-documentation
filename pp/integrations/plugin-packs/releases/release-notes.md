@@ -13,8 +13,8 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
 
-- [**Linux Centreon Monitoring Agent**](../procedures/operatingsystems-linux-centreon-monitoring-agent.md) - Initial release of Linux with Centreon Monitoring Agent.
-- [**Windows Centreon Monitoring Agent**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Initial release of Windows with Centreon Monitoring Agent.
+- [**Linux Centreon Monitoring Agent**](../procedures/operatingsystems-linux-centreon-monitoring-agent.md) - Initial release of Linux Centreon Monitoring Agent.
+- [**Windows Centreon Monitoring Agent**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Initial release of Windows Centreon Monitoring Agent.
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
