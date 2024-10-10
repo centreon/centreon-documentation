@@ -58,7 +58,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/e
 
 ### Upgrade PHP
 
-Centreon 24.10 uses PHP in version 8.1.
+Centreon 24.10 uses PHP in version 8.2.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
@@ -72,7 +72,7 @@ dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
-Then, you need to change the PHP stream from version 7.3 to 8.1 by executing the following commands and answering **y**
+Then, you need to change the PHP stream from version 7.3 to 8.2 by executing the following commands and answering **y**
 to confirm:
 
 ```shell
@@ -80,7 +80,7 @@ dnf module reset php
 ```
 
 ```shell
-dnf module install php:remi-8.1
+dnf module install php:remi-8.2
 ```
 
 </TabItem>
@@ -94,7 +94,7 @@ dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarc
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 ```
 
-Then, you need to change the PHP stream from version 7.3 to 8.1 by executing the following commands and answering **y**
+Then, you need to change the PHP stream from version 7.3 to 8.2 by executing the following commands and answering **y**
 to confirm:
 
 ```shell
@@ -102,7 +102,7 @@ dnf module reset php
 ```
 
 ```shell
-dnf module install php:remi-8.1
+dnf module install php:remi-8.2
 ```
 
 </TabItem>

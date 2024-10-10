@@ -73,12 +73,12 @@ apt update
 
 ### Montée de version de PHP
 
-Centreon 24.10 utilise PHP en version 8.1.
+Centreon 24.10 utilise PHP en version 8.2.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
 
-Vous devez changer le flux PHP de la version 8.0 à 8.1 en exécutant les commandes suivantes et en répondant **y**
+Vous devez changer le flux PHP de la version 8.0 à 8.2 en exécutant les commandes suivantes et en répondant **y**
 pour confirmer :
 
 ```shell
@@ -86,13 +86,13 @@ dnf module reset php
 ```
 
 ```shell
-dnf module install php:remi-8.1
+dnf module install php:remi-8.2
 ```
 
 </TabItem>
 <TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
 
-Vous devez changer le flux PHP de la version 8.0 à 8.1 en exécutant les commandes suivantes et en répondant **y**
+Vous devez changer le flux PHP de la version 8.0 à 8.2 en exécutant les commandes suivantes et en répondant **y**
 pour confirmer :
 
 ```shell
@@ -100,7 +100,7 @@ dnf module reset php
 ```
 
 ```shell
-dnf module install php:remi-8.1
+dnf module install php:remi-8.2
 ```
 
 </TabItem>
@@ -263,7 +263,7 @@ Syntax OK
 Redémarrez Apache pour appliquer les modifications :
 
 ```shell
-systemctl restart php8.1-fpm apache2
+systemctl restart php8.2-fpm apache2
 ```
 
 Puis vérifiez le statut :
@@ -331,8 +331,8 @@ systemctl reload php-fpm httpd
 apt autoremove
 systemctl daemon-reload
 systemctl stop php8.0-fpm.service
-systemctl enable php8.1-fpm
-systemctl start php8.1-fpm
+systemctl enable php8.2-fpm
+systemctl start php8.2-fpm
 systemctl restart apache2
 ```
 

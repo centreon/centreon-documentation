@@ -190,7 +190,7 @@ Change the following settings:
         1. Open the following file:
 
         ```shell
-        /etc/php/8.1/mods-available/centreon.ini
+        /etc/php/8.2/mods-available/centreon.ini
         ```
 
    2. In `date.timezone`, define the time zone you want.
@@ -198,7 +198,7 @@ Change the following settings:
    3. Restart the PHP server:
 
       ```shell
-      systemctl restart php8.1-fpm.service
+      systemctl restart php8.2-fpm.service
       ```
 
 - The hostname of your server (this is optional). The default name is `centreon-central`. To change it, use the following command:
