@@ -20,7 +20,7 @@ nécessaire de patienter quelques instants avant de voir appliquer la
 modification sur le profil. Vous pouvez également [forcer le recalcul des ACL](#recalculer-les-acls).
 
 > Les modules Centreon
-> [MBI](../reporting/configure.md), BAM et [MAP](../graph-views/configuration.md) ont leurs propres ACL.
+> [MBI](../reporting/configure.md), BAM et [MAP](../graph-views/map-web-access.md) ont leurs propres ACL.
 
 ## Donner des droits à un utilisateur
 
