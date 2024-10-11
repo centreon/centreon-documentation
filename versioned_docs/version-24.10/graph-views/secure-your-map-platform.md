@@ -120,7 +120,7 @@ systemctl start centreon-map-engine
 Centreon MAP server is now configured to respond to requests from HTTPS at port 9443.
 
 To change the default port, refer to the [dedicated
-procedure](advanced-configuration.md#change-centreon-map-server-port).
+procedure](map-web-advanced-configuration.md#change-centreon-map-server-port).
 
 > Don't forget to modify the URL on Centreon side in the **MAP server address**
 > field in the **Administration > Extensions > Map > Options** menu.
