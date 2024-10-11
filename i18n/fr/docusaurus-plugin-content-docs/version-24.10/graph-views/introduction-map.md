@@ -7,8 +7,6 @@ Centreon MAP est une solution intégralement disponible dans l'interface web Cen
 
 Contrairement à la version MAP (Legacy), MAP vous fournit un outil d'édition entièrement intégré à l'interface web Centreon. Vous n'avez pas besoin d'installer quoi que ce soit sur votre machine. Vous pouvez également naviguer facilement entre le mode édition et le mode de visualisation.
 
-> Si vous êtes déjà utilisateur de MAP (Legacy), notez que vous pouvez aisément [importer vos anciennes cartes](import-into-map-web.md) dans l'interface MAP.
-
 > Vous pouvez consulter la procédure de gestion des vues à l'aide de l'API REST de Centreon MAP [ici](https://docs-api.centreon.com/api/centreon-map/24.04/).
 
 ## Aperçu de l'interface
@@ -35,7 +33,6 @@ Les procédures suivantes permettent de gérer et d'utiliser Centreon MAP.
   - [Installer MAP](map-web-install.md) décrit les prérequis et les procédures d'installation de MAP.
   - [Installer MAP sur un serveur distant](map-web-install-remote.md) explique comment installer MAP sur un serveur distant.
   - [Mettre à jour MAP](map-web-update.md) décrit la procédure de mise à jour de MAP.
-  - [Passer de MAP (Legacy) à MAP](import-into-map-web.md) explique comment migrer vos anciennes cartes vers l'interface MAP.
   - [Gérer les droits d'accès dans MAP](map-web-manage.md) décrit les différents droits et permissions sur les cartes.
   - [Problèmes connus dans MAP](map-web-known-issues.md) est une liste d'incidents que vous pouvez rencontrer en utilisant MAP.
   - [Dépannage de MAP](map-web-troubleshooting.md) vous aide à résoudre certains incidents survenant dans MAP.

@@ -7,8 +7,6 @@ Centreon MAP is a solution fully available in the Centreon web interface while o
 
 The difference with the MAP (Legacy) version is that MAP provides you with an editing tool fully embedded in the web interface. You do not need to install anything on your desktop. You can navigate easily between the editing mode and viewing mode.
 
-> If you have already used the MAP (Legacy) version, note that you can easily [import your legacy maps](import-into-map-web.md#importing-legacy-maps-into-map) into the MAP interface.
-
 > See how to manage views using the Centreon MAP REST API [here](https://docs-api.centreon.com/api/centreon-map/24.04/).
 
 ## Overview
@@ -35,7 +33,6 @@ Use the following procedures to use and administer Centreon MAP.
   - [Installing MAP](map-web-install.md) describes prerequisites and procedures to install MAP.
   - [Installing MAP on a remote server](map-web-install-remote.md) explains how to install MAP on a remote server.
   - [Updating MAP](map-web-update.md) describes the update process for MAP.
-  - [Switching from Map (Legacy) to MAP](import-into-map-web.md) explains how to migrate your legacy maps into the MAP interface.
   - [Managing access rights in MAP](map-web-manage.md) describes the different rights and permissions on maps.
   
 ### Using MAP

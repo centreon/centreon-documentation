@@ -8,7 +8,7 @@ Les catégories vous permettent :
 - d'organiser hôtes et services, afin de définir les droits des utilisateurs sur ceux-ci via les [ACLs](../administration/access-control-lists.md).
 - de [filtrer la vue](../alerts-notifications/resources-status.md#filtering-events) dans la page **Statut des ressources**.
 - de classifier les hôtes et services par sous-groupes dans les [rapports MBI](../reporting/concepts.md).
-- de définir des types d'objets dans le module [Centreon MAP](../graph-views/introduction.md).
+- de définir des types d'objets dans le module [Centreon MAP](../graph-views/introduction-map.md).
 
 Il existe un type spécial de catégorie, nommé criticité. Les criticités vos permettent de faire la même chose que les catégories, mais également de :
 

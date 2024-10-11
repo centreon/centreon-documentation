@@ -1,6 +1,6 @@
 ---
-id: advanced-configuration
-title: Advanced configuration
+id: map-web-advanced-configuration
+title: Advanced configuration in MAP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -11,28 +11,7 @@ system.
 
 ## Monitoring your Centreon MAP server after installation
 
-Centreon provides a Monitoring Connector and a plugin to monitor your Centreon MAP
-server.
-
-### Install the Packs
-
-On the Central server, install the required Packs with the following commands:
-
-```shell
-yum install centreon-pack-operatingsystems-linux-snmp centreon-pack-applications-jvm-actuator
-```
-
-From the Monitoring Connector Manager, install the Packs.
-
-### Install the Plugins
-
-Use SSH to access the Poller that will be monitoring your Centreon MAP server.
-
-Install all the required plugins with the following commands:
-
-```shell
-yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applications-Jvm-Actuator
-```
+Centreon provides a [Monitoring Connector and a plugin](/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-map-engine-actuator) to monitor your Centreon MAP server.
 
 ### Configure your services
 
@@ -42,10 +21,7 @@ Fill in the basic information about your host and add the following host
 templates:
 
 - OS-Linux-SNMP-custom
-- App-Jvm-actuator-custom
-
-![image](../assets/graph-views/jvm1.png)
-![image](../assets/graph-views/jvm2.png)
+- App-Jvm-Centreon-Map-Engine-custom
 
 To monitor centreon-map JVM, please use following macro values:
 
@@ -60,8 +36,6 @@ To monitor centreon-map JVM, please use following macro values:
 
 You can now export your configuration, and your Centreon MAP server will be
 monitored.
-
-![image](../assets/graph-views/jvm3.png)
 
 You can also simply check by accessing the following URL, which tells you
 whether or not the server is up:
@@ -83,34 +57,14 @@ https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health.
 </TabItem>
 </Tabs>
 
-## Centreon MAP configuration files
-
-> We advise you against editing the configuration files manually unless you are
-> an experienced user.
-
-The four configuration files are located in */etc/centreon-studio/*. Their
-templates can be found in */etc/centreon-studio/templates/*.
-
-The configuration script replaces the macros in these templates and copies them
-to the folder /etc/centreon-studio.
-
-If these files are modified, the server must be restarted with the command:
-
-```shell
-systemctl restart centreon-map
-```
-
-> Do not delete any variables in these files! This may cause the server to
-> malfunction or not to start up.
-
 ## Backup of Centreon MAP server
 
 ### Saved items
 
 The saved items are:
 
-- Saving configuration files (**/etc/centreon-studio**)
-- Saving database **centreon\_studio**
+- Saving configuration files (**/etc/centreon-map**)
+- Saving database **centreon\_map**
 
 ### How it works?
 
@@ -187,7 +141,7 @@ systemctl start centreon-map
 
 By default, the Centreon MAP server is listening and sending information
 through the port 8080. If you set the SSL (see [HTTPS/TLS
-Configuration](secure-your-map-platform.md#configure-httpstls-on-the-web-server),
+Configuration](secure-your-map-platform.md#configure-httpstls-on-the-web-server)),
 use the port 8443.
 
 You can change this port (e.g., if you have a firewall on your network
@@ -231,103 +185,3 @@ entering the following URL in your web browser:
 ```shell
 http://<MAP_IP>:<NEW_PORT>/centreon-studio/api/beta/actuator/health
 ```
-
-## Define port below 1024
-
-You may want to set up your server to listen and send data through ports below
-1024, such as port 80 or 443 (as these ports are rarely blocked by a firewall).
-
-If you want to set a port below 1024, the method is different, since all ports
-under 1024 are restricted and only accessible through special applications.
-
-There are a few workarounds for this issue. One method is "port
-forwarding" through the firewall.
-
-> For this example, set the MAP server to listen and send data through port 80.
-> Replace each occurrence of *80* with the port you want to use.
-
-1.  Check your firewall.
-
-    On your MAP server, run the following command to check that the firewall is
-    running:
-
-    ```shell
-    systemctl status iptables
-    ```
-
-    If your firewall is running, you will see the following output:
-
-    ```shell
-    Table: raw
-    Chain PREROUTING (policy ACCEPT)
-    num  target     prot opt source               destination
-
-    Chain OUTPUT (policy ACCEPT)
-    num  target     prot opt source               destination
-
-    Table: mangle
-    Chain PREROUTING (policy ACCEPT)
-    num  target     prot opt source               destination
-    ...
-    ...
-    ...
-    ```
-
-    If your firewall is stopped, you will see the following output:
-
-    ```shell
-    iptables: Firewall is not running.
-    ```
-
-    Start the firewall:
-
-    ```shell
-    systemctl start iptables
-    ```
-
-2.  Enable a connection on the port for MAP for listening and sending.
-
-    Execute the following lines on your console:
-
-    ```shell
-    /sbin/iptables -A OUTPUT -p tcp --dport 80 -j ACCEPT
-    /sbin/iptables -A INPUT -p tcp --dport 80 -j ACCEPT
-    ```
-
-3.  Add port forwarding.
-
-    Execute the following line on your console:
-
-    ```shell
-    iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
-    ```
-
-4.  Restart and save.
-
-    Restart your firewall:
-
-    ```shell
-    systemctl restart iptables
-    ```
-
-    Save this configuration so it will be applied each time you reboot your server:
-
-    ```shell
-    /sbin/iptables save
-    ```
-
-Your Centreon MAP server is now accessible on port 80. Check this by entering
-the following URL in your browser:
-
-```shell
-http://<MAP_IP>/centreon-studio/api/beta/actuator/health
-```
-
-You should see the server's state:
-
-```json
-{"status":"UP"}
-```
-
-> Remember to update both your desktop client configuration and your web
-> interface configuration.
