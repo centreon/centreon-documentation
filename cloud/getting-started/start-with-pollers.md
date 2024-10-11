@@ -7,7 +7,14 @@ title: Getting started with pollers
 
 - Read the definition of a poller [here](../resources/glossary.md#poller).
 
-- Go to [**Architecture of Centreon Cloud**](./architecture.md) to understand how the poller works in the Centreon Cloud infrastructure. 
+- Go to [**Architecture of Centreon Cloud**](./architecture.md) to understand how the poller works in the Centreon Cloud infrastructure. You can also follow the video tutorial below.
+
+<details>
+<summary>Discover pollers</summary>
+
+<iframe width="100%" height="650" src="https://demo.arcade.software/Zml96xdwdRboKG99sIKm?embed" frameborder="0" allowfullscreen></iframe>
+
+</details>
 
 ## Installation
 
