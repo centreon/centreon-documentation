@@ -133,7 +133,7 @@ yum install unixODBC perl-DBD-ODBC
 
 ### Configuration of freetds.conf file
 
-The /etc/odbcinst.ini file have to be modified. Add following lines:
+The **/etc/odbcinst.ini** file has to be modified. Add the following lines:
 
     [HDBODBC]
     Description = "SmartCloudPT HANA"
@@ -141,11 +141,11 @@ The /etc/odbcinst.ini file have to be modified. Add following lines:
 
 ### User account
 
-An user with rights on SYS schema is needed.
+A user with rights on the SYS schema is needed.
 
 ### Test the connection
 
-An example of command to test database connection:
+Here is an example of command to test the connection to the database:
 
 ```/usr/sap/hdbclient/hdbsql -n saphanadb\_servername:31041 -d databasename -u username -p password```
 
