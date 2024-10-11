@@ -381,7 +381,7 @@ Run the command below to allow the reporting server to connect to the databases 
 Use the following option:
 
 ```shell
-/usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
+perl /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
 ```
 
 **@ROOTPWD@** : Root password of the MariaDB monitoring database.
