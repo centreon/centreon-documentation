@@ -2,6 +2,8 @@
 id: ticketing
 title: Configuration
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Configuration
 
@@ -49,72 +51,77 @@ dernier. Ajouter la macro **TICKET\_ID** et cliquez sur \*\*Save\* :
 
 ### Configuration du widget
 
-Pour utiliser le widget, vous devez l'ajouter dans une vue
-personnalisée. Allez dans le menu **Home > Custom Views**, sélectionnez
-votre vue et cliquez sur le bouton **Add widget**.
+Vous pouvez configurer Open Ticket pour qu'il soit intégré dans un widget :
+- en utilisant la fonctionnalité **Tableaux de bord** avec le widget **Tableau des ressources**,
+- ou en utilisant la fonctionnalité **Vues personnalisées (legacy)**.
 
-Définissez un titre pour votre widget (par exemple: Open-Tickets) et
+<Tabs groupId="sync">
+<TabItem value="Tableaux de bord" label="Tableaux de bord">
+
+> Dans la fonctionnalité **Tableaux de bord**, Open Ticket n'est actuellement disponible que via le widget **Tableau des ressources**, dans la liste des événements.
+
+Pour utiliser **Open Ticket**, vous devez l'ajouter à un tableau de bord.
+
+1. Allez dans le menu **Accueil > Tableaux de bord**, sélectionnez votre tableau de bord et ajoutez un widget **Tableau des ressources**.
+
+2. Renseignez les propriétés.
+
+3. Définissez les paramètres de vos tickets dans la section **Paramètres du ticket**.
+   - Définissez si vous souhaitez afficher les **Ressources sans ticket** ou les **Ressources liées à un ticket**.
+
+4. Enregistrez vos modifications.
+
+Votre tableau de bord affiche maintenant le widget **Tableau des ressources** contenant les ressources avec ou sans ticket.
+
+> Vous pouvez également fermer les tickets directement à partir du widget.
+
+</TabItem>
+<TabItem value="Vues personnalisées (legacy)" label="Vues personnalisées (legacy)">
+
+Pour utiliser le widget, vous devez l'ajouter dans une vue personnalisée. 
+
+1. Allez dans le menu **Accueil > Vues personnalisées**, sélectionnez votre vue et cliquez sur le bouton **Ajouter widget**.
+
+2. Définissez un titre pour votre widget (par exemple: Open-Tickets) et
 sélectionnez le widget **Open Tickets**. Faites la même manipulation
 pour ajouter à nouveau ce widget.
 
-Sur le premier widget, pour ouvrir le ticket, cliquez sur le bouton de
+3. Sur le premier widget, pour ouvrir le ticket, cliquez sur le bouton de
 **configuration** :
+   - Sélectionnez la règle **Rule** précédemment définie.
+   - Ne cochez pas la case **Opened Tickets**.
+   - Sélectionnez d'autres filtres.
+   -  Ne cochez pas les cases **Display Ticket ID** et **Display Ticket Time**.
 
--   Sélectionnez la règle **Rule** précédemment définie
--   Ne cochez pas la case **Opened Tickets**
--   Sélectionnez d'autres filtres
--   Ne cochez pas les cases **Display Ticket ID** et **Display Ticket
-    Time**
+4. Sur le deuxième widget, pour afficher les tickets ouverts, cliquez sur le bouton de **configuration** :
+   - Sélectionnez la règle **Rule** précédemment définie.
+   - Cochez la case **Opened Tickets**.
+   - Sélectionnez d'autres filtres.
+   - Cochez les cases **Display Ticket ID** et **Display Ticket Time**.
 
-Sur le deuxième widget, pour afficher les tickets ouverts, cliquez sur
-le bouton de **configuration** :
-
--   Sélectionnez la règle **Rule** précédemment définie
--   Cochez la case **Opened Tickets**
--   Sélectionnez d'autres filtres
--   Cochez les cases **Display Ticket ID** et **Display Ticket Time**
-
-![image](../assets/alerts/open_tickets_add_widget.png)
+</TabItem>
+</Tabs>
 
 ## Guide utilisateur
 
 ### Créer un ticket
 
-Pour ouvrir un ticket, sélectionnez le ressources à l'aide de la case à
-cocher et dans le menu **– More actions –** sélectionnez l'action
-requise :
-
-![image](../assets/alerts/open_ticket_add_01.png)
-
-Une fenêtre s'ouvre pour saisir un commentaire. Une fois saisin cliquez sur
-le bouton **Open** pour créer le ticket :
-
-![image](../assets/alerts/open_ticket_add_02.png)
-
-Une fois le ticket créé, l'ID de ce dernier appraît :
-
-![image](../assets/alerts/open_ticket_add_03.png)
-
-Les ressources précédemment sélectionnées disparaissent du widget
-d'ouverture de tickets :
-
-![image](../assets/alerts/open_ticket_add_04.png)
+- Pour ouvrir un ticket, sélectionnez la ressource à l'aide de la case à
+cocher et dans le menu **– Plus d'actions –** sélectionnez l'action
+requise.
+- Une fenêtre s'ouvre pour saisir un commentaire. Une fois saisi, cliquez sur
+le bouton **Open** pour créer le ticket.
+- Une fois le ticket créé, l'ID de ce dernier apparaît.
+- Les ressources précédemment sélectionnées disparaissent du widget
+d'ouverture de tickets.
 
 ### Fermer un ticket
 
-Pour fermer un ticket, sélectionnez le ressources à l'aide de la case à
-cocher et dans le menu **-- More actions --** sélectionnez l'action requise :
-
-![image](../assets/alerts/open_ticket_close_ticket_01.png)
-
-Le ticket est fermé (pour Centreon seulement) :
-
-![image](../assets/alerts/open_ticket_close_ticket_02.png)
-
-Les ressources précédemment sélectionnées disparaissent du widget des
-tickets ouverts :
-
-![image](../assets/alerts/open_ticket_close_ticket_03.png)
+- Pour fermer un ticket, sélectionnez la ressource à l'aide de la case à
+cocher et dans le menu **-- Plus d'actions --** sélectionnez l'action requise.
+- Le ticket est fermé (pour Centreon seulement).
+- Les ressources précédemment sélectionnées disparaissent du widget des
+tickets ouverts.
 
 ## Configuration avancée
 

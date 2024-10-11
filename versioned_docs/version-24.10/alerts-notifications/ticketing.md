@@ -2,6 +2,8 @@
 id: ticketing
 title: Configuring Open Tickets
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Configuration
 
@@ -47,68 +49,74 @@ macro **TICKET\_ID** and click **Save**:
 
 ### Widget configuration
 
-To use the widget, you must add it into a custom view. Go to the
-**Home > Custom Views** menu, select your view and click the **Add widget**
+You can configure Open Ticket to be integrated into a widget:
+- using the **Dashboards** feature with the **Resource table** widget,
+- or using the **Custom Views (legacy)** feature.
+
+<Tabs groupId="sync">
+<TabItem value="Dashboards" label="Dashboards">
+
+> In the **Dashboards** feature, Open Ticket is currently only available through the **Resource table** widget, in the list of events.
+
+To use **Open Ticket**, you must add it into a dashboard.
+
+1. Go to the **Home > Dashboards** menu, select your dashboard and add a **Resource table** widget.
+
+2. Fill in the properties.
+
+3. Set the parameters for your tickets in the **Ticket settings** section.
+   - Define if you want to display **Resources with no tickets** or **Resources linked to a ticket**.
+
+4. Save your changes.
+
+Your dashboard now displays the **Resource table** widget containing resources with or without tickets.
+
+> You can also close tickets directly from the widget.
+
+</TabItem>
+<TabItem value="Custom Views (legacy)" label="Custom Views (legacy)">
+
+To use the widget, you must add it into a custom view. 
+
+1. Go to the **Home > Custom Views** menu, select your view and click the **Add widget**
 button.
 
-Define a title for your widget (for example: Open-Tickets) and select
+2. Define a title for your widget (for example: Open-Tickets) and select
 the **Open Tickets** widget. Apply the same procedure to add this
 widget again.
 
-On the first widget, to open a ticket, click the **Configuration**
-button:
+3. On the first widget, to open a ticket, click the **Configuration** button:
+   - Select the **Rule** previously defined.
+   - Don’t check the **Opened Tickets** box.
+   - Select other filters.
+   - Don’t check the boxes **Display Ticket ID** and **Display Ticket Time**.
 
--   Select the **Rule** previously defined
--   **Don’t check** the **Opened Tickets** box
--   Select other filters
--   **Don’t check** the boxes **Display Ticket ID** and **Display Ticket
-    Time**
-
-On the second widget, to display opened tickets, click the
+4. On the second widget, to display opened tickets, click the
 **Configuration** button:
+   - Select the **Rule** previously defined.
+   - Check the **Opened Tickets** box.
+   - Select other filters.
+   - Check the boxes **Display Ticket ID** and **Display Ticket Time**.
 
--   Select the **Rule** previously defined
--   Check the **Opened Tickets** box
--   Select other filters
--   Check the boxes **Display Ticket ID** and **Display Ticket Time**
-
-![image](../assets/alerts/open_tickets_add_widget.png)
+</TabItem>
+</Tabs>
 
 ## User guide
 
 ### Open a ticket
 
-To open a ticket, select an object using its checkbox, and in the **-- More
-actions --** menu, select the required action:
-
-![image](../assets/alerts/open_ticket_add_01.png)
-
-A popup appears to define a comment. Click the **Open** button to open a ticket:
-
-![image](../assets/alerts/open_ticket_add_02.png)
-
-Once the ticket is created, the popup displays the ticket ID:
-
-![image](../assets/alerts/open_ticket_add_03.png)
-
-The selected objects disappear from the widget to open tickets:
-
-![image](../assets/alerts/open_ticket_add_04.png)
+- To open a ticket, select an object using its checkbox, and in the **-- More
+actions --** menu, select the required action.
+- A popup appears to define a comment. Click the **Open** button to open a ticket.
+- Once the ticket is created, the popup displays the ticket ID.
+- The selected objects disappear from the widget to open tickets.
 
 ### Close a ticket
 
-To close a ticket, select the object using its checkbox and in the **-- More
-actions --** menu, select the required action:
-
-![image](../assets/alerts/open_ticket_close_ticket_01.png)
-
-The ticket is closed (only for Centreon):
-
-![image](../assets/alerts/open_ticket_close_ticket_02.png)
-
-The selected objects disappear from the opened tickets widget:
-
-![image](../assets/alerts/open_ticket_close_ticket_03.png)
+- To close a ticket, select the object using its checkbox and in the **-- More
+actions --** menu, select the required action.
+- The ticket is closed (only for Centreon).
+- The selected objects disappear from the opened tickets widget.
 
 ## Advanced configuration
 
