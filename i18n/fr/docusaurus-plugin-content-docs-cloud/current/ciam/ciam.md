@@ -45,3 +45,5 @@ Votre administrateur vous a invité dans Centreon CIAM : vous avez reçu un emai
 1. Dans l'email, cliquez sur **Accept invitation**.
 2. Entrez votre mot de passe, puis cliquez sur **Continue**. Le site Centreon CIAM s'ouvre.
 3. Dans le coin supérieur droit de l'écran, cliquez sur l'icône de profil, puis cliquez sur **Edit profile**. Vous pouvez maintenant renseigner vos informations personnelles.
+
+> Vous pouvez changer votre mot de passe via le CIAM.

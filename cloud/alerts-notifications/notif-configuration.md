@@ -5,6 +5,8 @@ title: Configuring notifications
 
 By default, no notifications are sent by Centreon Cloud. To activate notification emails for specific resources, you need to create notification rules.
 
+> Notifications are not active for [Centreon Cloud trial](../getting-started/cc-trial.md) users.
+
 ## In which cases can notifications be sent?
 
 For each notification rule, you define in which cases the notifications will be sent:

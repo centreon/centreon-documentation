@@ -1,135 +1,126 @@
 module.exports = {
-  cloud: [
-    {
-      type: 'category',
-      label: 'Getting started with Centreon Cloud',
-      link: {
-        type: "doc",
-        id: "getting-started/welcome"
+  cloud: [    
+      {
+        "collapsed": true,
+        "type": "category",
+        "label": "Getting started with Centreon Cloud",
+        "link": {
+          "type": "generated-index",
+        },
+      items: [        
+        {
+          type: 'doc',
+          id: 'getting-started/cc-trial',
+        },
+        {
+          "collapsed": true,
+        "type": "category",
+        "label": "Step 1: Discover Centreon Cloud",
+        "link": {
+          "type": "generated-index",
+                          },
+          items: [
+        {
+          type: 'doc',
+          id: 'getting-started/interface',
+        },
+        {
+          type: 'doc',
+          id: 'getting-started/architecture',
+        },
+        {
+          type: 'doc',
+          id: 'getting-started/concepts',
+
+        },
+        ],
       },
+      {
+        "collapsed": true,
+      "type": "category",
+      "label": "Step 2: Set up your platform",
+      "link": {
+        "type": "generated-index",
+                                },
       items: [
-        {
-          type: 'doc',
-          id: 'getting-started/about-centreon-cloud',
-        },
-        {
-          "collapsed": true,
-          "type": "category",
-          "label": "Discover Centreon Cloud",
-          "link": {
-            "type": "generated-index",
-          },
-          items: [
-            {
-              type: 'doc',
-              id: 'getting-started/architecture',
-            },
-            {
-              type: 'doc',
-              id: 'getting-started/interface',
-            },
-            {
-              type: 'doc',
-              id: 'getting-started/concepts',
-            },
-          ],
-        },
-        {
-          "collapsed": true,
-          "type": "category",
-          "label": "Set up your platform",
-          "link": {
-            "type": "generated-index",
-          },
-          items: [
-            {
-              type: 'doc',
-              id: 'getting-started/platform',
-            },
-            {
-              type: 'doc',
-              id: 'getting-started/start-with-pollers',
-            },
-            {
-              type: 'doc',
-              id: 'getting-started/start-with-connectors',
-            },
-          ],
-        },
-        {
-          "collapsed": true,
-          "type": "category",
-          "label": "Prepare the monitoring",
-          "link": {
-            "type": "generated-index",
-          },
-          items: [
-            {
-              type: 'doc',
-              id: 'getting-started/monitoring',
-            },
-            {
-              type: 'category',
-              label: 'Tutorials',
-              link: {
-                type: 'doc',
-                id: "getting-started/tutorials",
-              },
-
-              items: [
                 {
-                  type: 'doc',
-                  id: 'getting-started/monitor-linux-server-with-snmp',
-                },
-                {
-                  type: 'doc',
-                  id: 'getting-started/monitor-windows-server-with-snmp',
-                },
-                {
-                  type: 'doc',
-                  id: 'getting-started/monitor-cisco-router-with-snmp',
-                },
-                {
-                  type: 'doc',
-                  id: 'getting-started/monitor-mysql-server',
-                },
-                {
-                  type: 'doc',
-                  id: 'getting-started/autodisco-aws',
-                },
-              ],
-            },
-          ],
-        },
-        {
-          "collapsed": true,
-          "type": "category",
-          "label": "Monitor and visualize",
-          "link": {
-            "type": "generated-index",
-          },
-          items: [
-            {
-              type: 'doc',
-              id: 'getting-started/monitor-in-real-time',
-            },
-            {
-              type: 'doc',
-              id: 'getting-started/create-custom-view',
-            },
-          ],
-        },
-        {
-          type: 'doc',
-          id: 'getting-started/cloud-beyond-basics',
-        },
-
-      ],
+      type: 'doc',
+      id: 'getting-started/start-with-pollers',
     },
 
     {
-      "type": 'category',
-      "label": 'Managing Centreon Cloud users',
+      type: 'doc',
+      id: 'getting-started/start-with-connectors',
+    },
+  ],   
+},
+{
+  "collapsed": true,
+"type": "category",
+"label": "Step 3: Prepare the monitoring",
+"link": {
+  "type": "generated-index",
+   },
+items: [
+{
+  type: 'doc',
+  id: 'getting-started/first-host',
+},
+{
+  type: 'category',
+  label: 'Monitoring examples',
+  items: [
+  {
+    type: 'doc',
+    id: 'getting-started/monitor-linux-server-with-snmp',
+  },
+  {
+    type: 'doc',
+    id: 'getting-started/monitor-windows-server-with-snmp',
+  },
+  {
+    type: 'doc',
+    id: 'getting-started/monitor-cisco-router-with-snmp',
+  },
+  {
+    type: 'doc',
+    id: 'getting-started/monitor-mysql-server',
+  },
+  {
+    type: 'doc',
+    id: 'getting-started/autodisco-aws',
+  },
+],
+},
+],
+},
+{
+  "collapsed": true,
+"type": "category",
+"label": "Step 4: Monitor and visualize",
+"link": {
+  "type": "generated-index",
+   },
+items: [
+{
+  type: 'doc',
+  id: 'getting-started/monitor-in-real-time',
+},
+{
+  type: 'doc',
+  id: 'getting-started/first-dashboard',
+},
+], 
+},
+{
+  type: 'doc',
+  id: 'getting-started/cloud-beyond-basics',
+},
+  ],
+},
+{
+      type: 'category',
+      label: 'Managing Centreon Cloud users',
       "link": {
         "type": "generated-index",
       },
