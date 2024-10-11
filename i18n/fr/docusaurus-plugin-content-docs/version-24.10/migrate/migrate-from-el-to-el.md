@@ -255,7 +255,7 @@ Si vous migrez depuis un Centreon 18.10, 19.04 ou 19.10, vous devez également [
 Pour mettre à jour les modules, allez à la page **Administration > Extensions > Gestionnaire** et cliquez sur **Update all**.
 Si vous avez un serveur MAP ou MBI, suivez les procédures de migration correspondantes :
 
-- Procédure de migration pour [MAP](../graph-views/migrate.md),
+- Procédure de migration pour [MAP](../graph-views/map-web-migrate.md),
 - Procédure de migration pour [MBI](../reporting/migrate.md).
 
 ### Étape 8: Migrer vos autres serveurs (architecture distribuée)

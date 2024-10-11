@@ -112,7 +112,7 @@ centreon-map.keystore-pass=xxx
 
 Le serveur MAP est maintenant configuré pour répondre aux demandes provenant de HTTPS sur le port 9443.
 
-Pour modifier le port par défaut, reportez-vous à la [procédure dédiée](advanced-configuration.md#changer-le-port-du-serveur-centreon-map).
+Pour modifier le port par défaut, reportez-vous à la [procédure dédiée](map-web-advanced-configuration.md#changer-le-port-du-serveur-centreon-map).
 
 > N'oubliez pas de modifier l'URL côté Centreon dans le champ **Adresse du serveur Centreon MAP** du menu **Administration > Extensions > Map > Options**.
 
