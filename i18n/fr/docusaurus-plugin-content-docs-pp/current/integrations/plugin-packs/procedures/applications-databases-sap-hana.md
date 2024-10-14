@@ -134,7 +134,7 @@ Exécutez la commande suivante afin d'installer les outils nécessaires pour se 
 yum install unixODBC perl-DBD-ODBC
 ```
 
-### Configuration of freetds.conf file
+### Configuration of odbcinst.ini file
 
 Le fichier /etc/odbcinst.ini doit être modifié. Ajoutez les lignes suivantes :
 
