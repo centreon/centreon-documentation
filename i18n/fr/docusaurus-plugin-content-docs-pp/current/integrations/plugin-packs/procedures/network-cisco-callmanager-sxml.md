@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Vue d'ensemble
 
-En utilisant le SXML, ce connecteur de supervision Cisco Call Manager, supervise les alertes du composant Cisco Unified Communications.
+En utilisant SXML, ce connecteur de supervision Cisco Call Manager supervise les alertes du composant Cisco Unified Communications.
 
 ## Contenu du pack
 
