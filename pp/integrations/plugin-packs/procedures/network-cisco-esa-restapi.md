@@ -201,8 +201,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--plugin=network::cisco::esa::restapi::plugin \
 	--mode=system \
 	--hostname='10.0.0.1' \
-	--api-username='' \
-	--api-password='' \
+	--api-username='myapiusername' \
+	--api-password='myapipassword' \
 	--port='443' \
 	--proto='https'  \
 	--warning-cpu-utilization='' \
