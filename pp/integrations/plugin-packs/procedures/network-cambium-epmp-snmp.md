@@ -21,7 +21,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias | Service Template                        | Service Description                                  | Discovery  |
 |:--------------|:----------------------------------------|:-----------------------------------------------------|:----------:|
 | Antenna       | Net-Cambium-Epmp-Antenna-SNMP-custom    | Check antenna gain in dBi                            |            |
-| Cpu           | Net-Cambium-Epmp-Cpu-SNMP-custom        | Check cpu hardware                                   |            |
+| Cpu           | Net-Cambium-Epmp-Cpu-SNMP-custom        | Check CPU hardware                                   |            |
 | Interfaces    | Net-Cambium-Epmp-Interfaces-SNMP-custom | Check network interfaces                             | X          |
 | License       | Net-Cambium-Epmp-License-SNMP-custom    | Check license state                                  |            |
 | Uptime        | Net-Cambium-Epmp-Uptime-SNMP-custom     | Time since the device has been working and available |            |
