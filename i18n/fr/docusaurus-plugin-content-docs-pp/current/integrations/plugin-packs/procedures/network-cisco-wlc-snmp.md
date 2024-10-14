@@ -74,16 +74,16 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle | Description                                                   |
 |:----------------|:--------------------------------------------------------------|
-| Cisco WLC       | Découvrez les points d'accès du contrôleur LAN sans fil Cisco |
+| Cisco WLC       | Découvre les points d'accès du contrôleur LAN sans fil Cisco  |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
 #### Découverte de services
 
-| Nom de la règle                 | Description                                                             |
-|:--------------------------------|:------------------------------------------------------------------------|
-| Net-Cisco-Wlc-SNMP-AP-Name      |                                                                         |
-| Net-Cisco-Wlc-SNMP-Traffic-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
+| Nom de la règle                 | Description                                                                 |
+|:--------------------------------|:----------------------------------------------------------------------------|
+| Net-Cisco-Wlc-SNMP-AP-Name      | Découvre les points d'accès et supervise leur statut                        |
+| Net-Cisco-Wlc-SNMP-Traffic-Name | Découvre les interfaces réseau et supervise leur statut et leurutilisation  |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -163,7 +163,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | *ssid*#ssid.users.total.count      | users |
 | *ap*#accesspoint.users.total.count | users |
 
-> Concerne les modèles de service suivants : Ap-Users, Ap-Users
+> Concerne les modèles de service suivants : Ap-Users (Net-Cisco-Wlc-Ap-Users-SNMP-custom) et Ap-Users (Net-Cisco-Wlc-Ap-Users-SNMP-Access-Point-custom).
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
@@ -200,6 +200,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | *interface_name*#interface.traffic.out.bitspersecond | b/s   |
 
 > Concerne les modèles de service suivants : Traffic-Generic-Id, Traffic-Generic-Name, Traffic-Global
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 </Tabs>

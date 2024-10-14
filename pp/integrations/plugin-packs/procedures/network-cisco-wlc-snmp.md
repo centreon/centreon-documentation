@@ -81,7 +81,7 @@ More information about discovering hosts automatically is available on the [dedi
 
 | Rule name                       | Description                                                   |
 |:--------------------------------|:--------------------------------------------------------------|
-| Net-Cisco-Wlc-SNMP-AP-Name      |                                                               |
+| Net-Cisco-Wlc-SNMP-AP-Name      | Discover access points  and moniteur status                   |
 | Net-Cisco-Wlc-SNMP-Traffic-Name | Discover network interfaces and monitor bandwidth utilization |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
@@ -162,7 +162,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | *ssid*#ssid.users.total.count      | users |
 | *ap*#accesspoint.users.total.count | users |
 
-> Applies to the following service templates: Ap-Users, Ap-Users
+> Applies to the following service templates: Ap-Users (Net-Cisco-Wlc-Ap-Users-SNMP-custom) et Ap-Users (Net-Cisco-Wlc-Ap-Users-SNMP-Access-Point-custom).
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
@@ -199,6 +199,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 | *interface_name*#interface.traffic.out.bitspersecond | b/s   |
 
 > Applies to the following service templates: Traffic-Generic-Id, Traffic-Generic-Name, Traffic-Global
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 </Tabs>
