@@ -24,7 +24,7 @@ The connector brings the following service templates (sorted by the host templat
 | Connected-Users      | App-DB-Sap-Hana-Connected-Users-custom      | Check total connected users             |
 | Connection-Time      | App-DB-Sap-Hana-Connection-Time-custom      | Check the connection time to the server |
 | Disk-Usage           | App-DB-Sap-Hana-Disk-Usage-custom           | Check disk usage                        |
-| Host-Cpu             | App-DB-Sap-Hana-Host-Cpu-custom             | Check host cpu usage                    |
+| Host-Cpu             | App-DB-Sap-Hana-Host-Cpu-custom             | Check host CPU usage                    |
 | Host-Memory          | App-DB-Sap-Hana-Host-Memory-custom          | Check host memory usage                 |
 | Volume-Usage         | App-DB-Sap-Hana-Volume-Usage-custom         | Check volume usage                      |
 
