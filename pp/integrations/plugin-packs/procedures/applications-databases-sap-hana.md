@@ -124,7 +124,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-To monitor Sap Hana DB, you need to install SAP Hana Linux Client. The client is
+To monitor SAP Hana DB, you need to install the SAP Hana Linux Client. The client is available
 on SAP support website (an account is needed).
 
 ``` shell
