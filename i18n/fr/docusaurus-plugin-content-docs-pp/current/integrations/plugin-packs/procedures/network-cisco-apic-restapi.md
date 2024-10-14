@@ -62,6 +62,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
+Assurez-vous d'avoir les identifiants d'accès en lecture seule à l'API REST ainsi que l'adresse IP de l'équipement.
+
 Plus d'informations à propos de l'API de Cisco APIC sont disponibles sur la documentation officielle :
 https://www.cisco.com/c/en/us/td/docs/switches/datacenter/aci/apic/sw/1-x/api/rest/b_APIC_RESTful_API_User_Guide/overview_of_the.html
 
