@@ -22,7 +22,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias  | Modèle de service                    | Description             |
 |:-------|:-------------------------------------|:------------------------|
 | Fabric | Net-Cisco-Apic-Fabric-Restapi-custom | Contrôle les structures |
-| Node   | Net-Cisco-Apic-Node-Restapi-custom   | Contrôle de les noeuds  |
+| Node   | Net-Cisco-Apic-Node-Restapi-custom   | Contrôle les noeuds  |
 | Tenant | Net-Cisco-Apic-Tenant-Restapi-custom | Contrôle les titulaires |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Cisco-Apic-Restapi-custom** est utilisé.
