@@ -127,6 +127,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 To monitor SAP Hana DB, you need to install the SAP Hana Linux Client. The client is available
 on SAP support website (an account is needed).
 
+Run the following command to install the necessary tools to connect to the SAP HANA database via ODBC, as well as the Perl module to enable the use of Perl scripts with this connection.
+
 ``` shell
 yum install unixODBC perl-DBD-ODBC
 ```
