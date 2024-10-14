@@ -22,7 +22,7 @@ The connector brings the following service templates (sorted by the host templat
 |:------------------|:----------------------------------------------------|:--------------------------------|
 | Gateway-Usage     | Net-Cisco-Callmanager-Gateway-Usage-SNMP-custom     | Check gateways usage by status  |
 | Mediadevice-Usage | Net-Cisco-Callmanager-Mediadevice-Usage-SNMP-custom | Check voicemail usage by status |
-| Phone-Usage       | Net-Cisco-Callmanager-Phone-Usage-SNMP-custom       | Check phones usage by status    |
+| Phone-Usage       | Net-Cisco-Callmanager-Phone-Usage-SNMP-custom       | Check phone usage by status    |
 
 > The services listed above are created automatically when the **Net-Cisco-Callmanager-SNMP-custom** host template is used.
 
