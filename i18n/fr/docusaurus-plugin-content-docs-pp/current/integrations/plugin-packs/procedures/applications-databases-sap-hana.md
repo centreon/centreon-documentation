@@ -21,7 +21,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                | Modèle de service                           | Description                                                         |
 |:---------------------|:--------------------------------------------|:--------------------------------------------------------------------|
-| Blocked-Transactions | App-DB-Sap-Hana-Blocked-Transactions-custom | Contrôle permettant de verifier les transactions bloquées           |
+| Blocked-Transactions | App-DB-Sap-Hana-Blocked-Transactions-custom | Contrôle permettant de vérifier les transactions bloquées           |
 | Connected-Users      | App-DB-Sap-Hana-Connected-Users-custom      | Contrôle permettant de vérifier le nombre d'utilisateurs connectés.                                                              |
 | Connection-Time      | App-DB-Sap-Hana-Connection-Time-custom      | Contrôle permettant de verifier la durée de connexion au serveur    |
 | Disk-Usage           | App-DB-Sap-Hana-Disk-Usage-custom           | Contrôle permettant de verifier l'utilisation des disques           |
