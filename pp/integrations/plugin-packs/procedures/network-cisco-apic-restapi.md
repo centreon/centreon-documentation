@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                     | Service Description |
 |:--------------|:-------------------------------------|:--------------------|
-| Fabric        | Net-Cisco-Apic-Fabric-Restapi-custom | Check Fabrics       |
+| Fabric        | Net-Cisco-Apic-Fabric-Restapi-custom | Check fabrics       |
 | Node          | Net-Cisco-Apic-Node-Restapi-custom   | Check nodes         |
 | Tenant        | Net-Cisco-Apic-Tenant-Restapi-custom | Check tenant        |
 
