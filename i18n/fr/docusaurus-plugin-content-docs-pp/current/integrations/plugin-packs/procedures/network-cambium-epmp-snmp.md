@@ -22,7 +22,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias      | Modèle de service                       | Description                                                 | Découverte |
 |:-----------|:----------------------------------------|:------------------------------------------------------------|:----------:|
 | Antenna    | Net-Cambium-Epmp-Antenna-SNMP-custom    | Contrôle le gain d'une antenne en dBi                       |            |
-| Cpu        | Net-Cambium-Epmp-Cpu-SNMP-custom        | Contrôle les cpu                                            |            |
+| Cpu        | Net-Cambium-Epmp-Cpu-SNMP-custom        | Contrôle les CPU                                            |            |
 | Interfaces | Net-Cambium-Epmp-Interfaces-SNMP-custom | Contrôle les interfaces réseau                              | X          |
 | License    | Net-Cambium-Epmp-License-SNMP-custom    | Contrôle la validité de la licence                          |            |
 | Uptime     | Net-Cambium-Epmp-Uptime-SNMP-custom     | Durée depuis laquelle l'équipement tourne sans interruption |            |
