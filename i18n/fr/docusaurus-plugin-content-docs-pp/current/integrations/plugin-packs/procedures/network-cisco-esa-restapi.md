@@ -201,8 +201,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=network::cisco::esa::restapi::plugin \
 	--mode=system \
 	--hostname='10.0.0.1' \
-	--api-username='' \
-	--api-password='' \
+	--api-username='myapiusername' \
+	--api-password='myapipassword' \
 	--port='443' \
 	--proto='https'  \
 	--warning-cpu-utilization='' \
