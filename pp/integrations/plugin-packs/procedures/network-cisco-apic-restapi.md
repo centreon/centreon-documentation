@@ -61,6 +61,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
+Ensure you have the Read-Only REST API credentials and the equipment's IP address.
+
 More information about the Cisco APIC API can be found in the official documentation:
 https://www.cisco.com/c/en/us/td/docs/switches/datacenter/aci/apic/sw/1-x/api/rest/b_APIC_RESTful_API_User_Guide/overview_of_the.html
 
