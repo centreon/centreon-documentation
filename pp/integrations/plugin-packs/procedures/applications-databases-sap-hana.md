@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                            | Service Description                     |
 |:---------------------|:--------------------------------------------|:----------------------------------------|
-| Blocked-Transactions | App-DB-Sap-Hana-Blocked-Transactions-custom | Check total  blocked transactions       |
+| Blocked-Transactions | App-DB-Sap-Hana-Blocked-Transactions-custom | Check total blocked transactions       |
 | Connected-Users      | App-DB-Sap-Hana-Connected-Users-custom      | Check total connected users             |
 | Connection-Time      | App-DB-Sap-Hana-Connection-Time-custom      | Check the connection time to the server |
 | Disk-Usage           | App-DB-Sap-Hana-Disk-Usage-custom           | Check disk usage                        |
