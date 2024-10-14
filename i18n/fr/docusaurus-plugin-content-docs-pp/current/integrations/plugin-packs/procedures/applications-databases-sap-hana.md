@@ -25,7 +25,7 @@ Le connecteur apporte les modèles de service suivants
 | Connected-Users      | App-DB-Sap-Hana-Connected-Users-custom      | Contrôle permettant de vérifier le nombre d'utilisateurs connectés.                                                              |
 | Connection-Time      | App-DB-Sap-Hana-Connection-Time-custom      | Contrôle permettant de vérifier la durée de connexion au serveur    |
 | Disk-Usage           | App-DB-Sap-Hana-Disk-Usage-custom           | Contrôle permettant de vérifier l'utilisation des disques           |
-| Host-Cpu             | App-DB-Sap-Hana-Host-Cpu-custom             | Contrôle permettant de verifier l'utilisation processeur du systeme |
+| Host-Cpu             | App-DB-Sap-Hana-Host-Cpu-custom             | Contrôle permettant de vérifier l'utilisation processeur du système |
 | Host-Memory          | App-DB-Sap-Hana-Host-Memory-custom          | Contrôle permettant de verifier l'utilisation mémoires du systeme   |
 | Volume-Usage         | App-DB-Sap-Hana-Volume-Usage-custom         | Contrôle permettant de verifier l'utilisation des volumes           |
 
