@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias     | Service Template                                    | Service Description             |
 |:------------------|:----------------------------------------------------|:--------------------------------|
-| Gateway-Usage     | Net-Cisco-Callmanager-Gateway-Usage-SNMP-custom     | Check gateways usage by status  |
+| Gateway-Usage     | Net-Cisco-Callmanager-Gateway-Usage-SNMP-custom     | Check gateway usage by status  |
 | Mediadevice-Usage | Net-Cisco-Callmanager-Mediadevice-Usage-SNMP-custom | Check voicemail usage by status |
 | Phone-Usage       | Net-Cisco-Callmanager-Phone-Usage-SNMP-custom       | Check phone usage by status    |
 
