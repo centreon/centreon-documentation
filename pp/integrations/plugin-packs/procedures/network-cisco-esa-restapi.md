@@ -50,7 +50,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 ## Prerequisites
 
 To monitor your Cisco ESA, the Rest API must be configured:
-E.g: https://www.cisco.com/c/en/us/support/security/email-security-appliance/products-programming-reference-guides-list.html
+https://www.cisco.com/c/en/us/support/security/email-security-appliance/products-programming-reference-guides-list.html
 
 ## Installing the monitoring connector
 
