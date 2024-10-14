@@ -22,7 +22,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias             | Modèle de service                                   | Description                                           |
 |:------------------|:----------------------------------------------------|:------------------------------------------------------|
 | Gateway-Usage     | Net-Cisco-Callmanager-Gateway-Usage-SNMP-custom     | Contrôle l'utilisation des paserelles par statuts     |
-| Mediadevice-Usage | Net-Cisco-Callmanager-Mediadevice-Usage-SNMP-custom | Contrôle l'utilisation des boites vocales par statuts |
+| Mediadevice-Usage | Net-Cisco-Callmanager-Mediadevice-Usage-SNMP-custom | Contrôle l'utilisation des boîtes vocales par statuts |
 | Phone-Usage       | Net-Cisco-Callmanager-Phone-Usage-SNMP-custom       | Contrôle l'utilisation des téléphones par statuts     |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Cisco-Callmanager-SNMP-custom** est utilisé.
