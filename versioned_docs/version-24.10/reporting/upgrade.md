@@ -31,7 +31,7 @@ On EL8, for security reasons, the keys used to sign Centreon RPMs are rotated re
 
 ## Step 1: Update the repository
 
-When you upgrade from a previous major version to 24.04.x, you first need to update the repository on your Central & Reporting servers.
+When you upgrade from a previous major version to 24.10.x, you first need to update the repository on your Central & Reporting servers.
 
 You will find the new "Business" repository on the "Repositories" page in your [Centreon Support account](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
@@ -56,7 +56,7 @@ dnf update centreon-bi-server
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt clean
@@ -127,7 +127,7 @@ dnf update centreon-bi\*
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt clean

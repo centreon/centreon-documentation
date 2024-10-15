@@ -69,7 +69,7 @@ dnf install centreon-anomaly-detection
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ``` shell
 apt update && apt install centreon-anomaly-detection

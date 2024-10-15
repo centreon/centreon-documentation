@@ -37,7 +37,7 @@ dnf install luarocks make gcc lua-curl lua-devel wget
 
 </TabItem>
 
-<TabItem value="Debian 11" label="Debian_11">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt install luarocks make gcc lua-curl lua-devel wget
@@ -65,7 +65,7 @@ luarocks install centreon-stream-connectors-lib
 
 </TabItem>
 
-<TabItem value="Debian 11" label="Debian_11">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 luarocks install centreon-stream-connectors-lib
@@ -101,7 +101,7 @@ chmod 644 /usr/share/centreon-broker/lua/elastic-events-apiv2.lua
 
 </TabItem>
 
-<TabItem value="Debian 11" label="Debian_11">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 wget -O /usr/share/centreon-broker/lua/elastic-metrics-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connectorscripts/develop/centreon-certified/elasticsearch/elastic-metrics-apiv2.lua

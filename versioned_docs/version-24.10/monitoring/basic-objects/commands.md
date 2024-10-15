@@ -97,7 +97,7 @@ dnf install centreon-connector-ssh
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ``` shell
 apt install centreon-connector-ssh
@@ -132,7 +132,7 @@ dnf install centreon-connector-perl
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ``` shell
 apt install centreon-connector-perl

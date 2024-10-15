@@ -23,11 +23,11 @@ systemctl restart mariadb
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt update
-apt install -y --no-install-recommends centreon-mariadb centreon
+apt install -y centreon-mariadb centreon
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -65,12 +65,12 @@ systemctl restart mysqld
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt update
 apt install -y centreon-mysql
-apt install -y --no-install-recommends centreon
+apt install -y centreon
 # Selectionner "Use Legacy Authentication Method"
 systemctl daemon-reload
 systemctl restart mysql

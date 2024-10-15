@@ -1,11 +1,11 @@
 ---
-id: upgrade-from-23-10
-title: Upgrade from Centreon 23.10
+id: upgrade-from-24-04
+title: Upgrade from Centreon 24.04
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This chapter describes how to upgrade your Centreon platform from version 23.10 to version 24.10.
+This chapter describes how to upgrade your Centreon platform from version 24.04 to version 24.10.
 
 > When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers. All servers in your architecture must have the same version of Centreon. In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
@@ -30,12 +30,12 @@ servers:
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-1. Update your Centreon 23.10 to the latest minor version.
+1. Update your Centreon 24.04 to the latest minor version.
 
 2. Remove the repository files:
 
    ```shell
-   rm /etc/yum.repos.d/centreon-23.10.repo
+   rm /etc/yum.repos.d/centreon-24.04.repo
    rm /etc/yum.repos.d/centreon.repo
    ```
 
@@ -49,12 +49,12 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/e
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-1. Update your Centreon 23.10 to the latest minor version.
+1. Update your Centreon 24.04 to the latest minor version.
 
 2. Remove the repository files:
 
    ```shell
-   rm /etc/yum.repos.d/centreon-23.10.repo
+   rm /etc/yum.repos.d/centreon-24.04.repo
    rm /etc/yum.repos.d/centreon.repo
    ```
 

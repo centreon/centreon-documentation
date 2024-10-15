@@ -84,7 +84,7 @@ dnf install centreon-plugin-Operatingsystems-Linux-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt install centreon-plugin-operatingsystems-linux-snmp

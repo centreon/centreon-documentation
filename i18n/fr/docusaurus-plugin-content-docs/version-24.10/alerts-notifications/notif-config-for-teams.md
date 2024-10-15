@@ -48,7 +48,7 @@ Vous devez installer le plugin de notification Teams avec le gestionnaire de paq
  ```
  
  </TabItem>
- <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+ <TabItem value="Debian 12" label="Debian 12">
  
  ``` shell
  apt install centreon-plugin-notification-teams

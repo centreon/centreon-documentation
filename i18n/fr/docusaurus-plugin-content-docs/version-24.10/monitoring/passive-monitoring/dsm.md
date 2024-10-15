@@ -42,7 +42,7 @@ dnf install centreon-dsm-server centreon-dsm-client
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ``` shell
 apt install centreon-dsm-server centreon-dsm-client
@@ -83,7 +83,7 @@ dnf install centreon-dsm-client
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ``` shell
 apt install centreon-dsm-client
