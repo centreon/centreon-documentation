@@ -9,9 +9,8 @@ Ce chapitre décrit la procédure de montée de version de votre plateforme
 Centreon depuis la version 24.04 vers la version 24.10.
 
 > Lorsque vous effectuez la montée de version de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs. Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon. De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo.md#changement-de-version-de-bbdo).
-
-> Si vous souhaitez migrer votre serveur Centreon vers Oracle Linux
-> / RHEL 8, vous devez suivre la [procédure de migration](../migrate/introduction.md).
+>
+> Si vous souhaitez migrer votre serveur Centreon vers Oracle Linux / RHEL 8, vous devez suivre la [procédure de migration](../migrate/introduction.md).
 
 ## Prérequis
 
