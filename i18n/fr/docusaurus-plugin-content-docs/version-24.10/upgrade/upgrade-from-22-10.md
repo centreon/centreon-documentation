@@ -71,6 +71,49 @@ apt update
 >
 > Vous pouvez trouver l'adresse des dépôts sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
+### Montée de version de PHP
+
+Centreon 24.10 utilise PHP en version 8.2.
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Vous devez changer le flux PHP de la version 8.1 à 8.2 en exécutant les commandes suivantes et en répondant **y**
+pour confirmer :
+
+```shell
+dnf module reset php
+```
+
+```shell
+dnf module enable php:remi-8.2
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Vous devez changer le flux PHP de la version 8.1 à 8.2 en exécutant les commandes suivantes et en répondant **y**
+pour confirmer :
+
+```shell
+dnf module reset php
+```
+
+```shell
+dnf module enable php:8.2
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+systemctl stop php8.1-fpm
+systemctl disable php8.1-fpm
+```
+
+</TabItem>
+</Tabs>
+
 ### Montée de version de la solution Centreon
 
 > Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer
