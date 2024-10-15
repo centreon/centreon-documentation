@@ -22,7 +22,7 @@ The connector brings the following service templates (sorted by the host templat
 |:--------------|:-----------------------------------|:-----------------------------|
 | Cpu           | Net-Dell-Os10-Cpu-SNMP-custom      | Check CPU                    |
 | Hardware      | Net-Dell-Os10-Hardware-SNMP-custom | Check hardware components     |
-| Load          | Net-Dell-Os10-Load-SNMP-custom     | Check Load on 1m, 5m and 15m |
+| Load          | Net-Dell-Os10-Load-SNMP-custom     | Check load every 1m, 5m and 15m |
 | Memory        | Net-Dell-Os10-Memory-SNMP-custom   | Check memory                 |
 | Swap          | Net-Dell-Os10-Swap-SNMP-custom     | Check swap                   |
 
