@@ -308,7 +308,7 @@ yum install centreon-plugin-Network-Dell-Os10-Snmp
 
 | Macro             | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| DISKPATH          |                                                                                                    |                   |             |
+| DISKPATH          | Filter disks according to their path                                                                                                   |                   |             |
 | WARNINGUSAGE      | Thresholds                                                                                        | 80                |             |
 | CRITICALUSAGE     | Thresholds                                                                                        | 90                |             |
 | WARNINGUSAGEFREE  | Thresholds                                                                                        |                   |             |
