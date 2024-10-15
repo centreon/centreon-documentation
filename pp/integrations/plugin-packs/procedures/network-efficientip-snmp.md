@@ -74,7 +74,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Dns-Answers" label="Dns-Answers">
 
-| Metric Name     | Unit  |
+| Metric name     | Unit  |
 | :-------------- | :---- |
 | success         | count |
 | formerr         | count |
@@ -86,7 +86,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Dns-General" label="Dns-General">
 
-| Metric Name    | Unit  |
+| Metric name    | Unit  |
 |:---------------|:------|
 | udp            | count |
 | tcp            | count |
@@ -106,7 +106,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Dns-Transfer" label="Dns-Transfer">
 
-| Metric Name | Unit  |
+| Metric name | Unit  |
 |:------------|:------|
 | xfrdone     | count |
 | xfrrej      | count |
@@ -114,7 +114,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Dns-Usage" label="Dns-Usage">
 
-| Metric Name           | Unit  |
+| Metric name           | Unit  |
 |:-------------------|:-------|
 | udp                | count  |
 | tcp                | count  |
@@ -146,7 +146,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Dnssec-Validation" label="Dnssec-Validation">
 
-| Metric Name       | Unit  |
+| Metric name       | Unit  |
 |:------------------|:------|
 | res-val           | count |
 | res-valsuccess    | count |
