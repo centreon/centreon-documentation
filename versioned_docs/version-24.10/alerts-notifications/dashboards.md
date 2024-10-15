@@ -172,6 +172,8 @@ The three dots action menu at the end of a playlist row allows you to edit prope
 
 | Widget                   | Description                                                                                                                                                                                                                                                                                                    |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Business Activity Diagram           | Displays graphically a business activity hierarchy of KPIs and lets you navigate through it.   |
+| Clock/Timer           | Displays the time according to the selected time zone, or a timer.   |
 | Generic text           | Allows you to add free text to your dashboards (section titles, information, etc.).   |
 | Group monitoring           | Displays the distribution of current statuses on selected groups of resources, as a table.   |
 | MAP - Display a view            |  Allows you to select and visualize a map created from the MAP module.  |
@@ -181,3 +183,4 @@ The three dots action menu at the end of a playlist row allows you to edit prope
 | Status chart     | Displays the distribution of current statuses on selected resources, as a chart.      |
 | Status grid     | Displays the current status of selected resources, as a grid.      |
 | Top/bottom              | Displays the top or bottom x hosts, for a selected metric.   |
+| Web page           | Displays a web page.   |
