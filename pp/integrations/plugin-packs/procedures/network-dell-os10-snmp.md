@@ -36,7 +36,7 @@ The connector brings the following service templates (sorted by the host templat
 | Disk-Usage    | Net-Dell-Os10-Disk-Usage-SNMP-custom | Check disk usage          |            |
 | Inodes        | Net-Dell-Os10-Inodes-SNMP-custom     | Check inodes              |            |
 | Interfaces    | Net-Dell-Os10-Interfaces-SNMP-custom | Check interfaces          | X          |
-| Uptime        | Net-Dell-Os10-Uptime-SNMP-custom     | Check Uptime of equipment |            |
+| Uptime        | Net-Dell-Os10-Uptime-SNMP-custom     | Check uptime of resource |            |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
