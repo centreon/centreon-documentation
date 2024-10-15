@@ -22,7 +22,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias    | Modèle de service                  | Description                        |
 |:---------|:-----------------------------------|:-----------------------------------|
 | Cpu      | Net-Dell-Os10-Cpu-SNMP-custom      | Contrôle le CPU                    |
-| Hardware | Net-Dell-Os10-Hardware-SNMP-custom | Contrôle les composants Hardware   |
+| Hardware | Net-Dell-Os10-Hardware-SNMP-custom | Contrôle les composants hardware   |
 | Load     | Net-Dell-Os10-Load-SNMP-custom     | Contrôle le Load sur 1m, 5m et 15m |
 | Memory   | Net-Dell-Os10-Memory-SNMP-custom   | Contrôle la mémoire                |
 | Swap     | Net-Dell-Os10-Swap-SNMP-custom     | Contrôle le swap                   |
