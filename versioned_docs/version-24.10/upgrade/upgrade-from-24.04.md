@@ -13,7 +13,7 @@ This chapter describes how to upgrade your Centreon platform from version 24.04 
 >
 > In addition, all servers must use the same [version of the BBDO protocol](/docs/developer/developer-broker-bbdo#switching-versions-of-bbdo).
 
-> If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../migrate/introduction.md).
+> If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](/docs/migrate/introduction.md).
 
 ## Prerequisites
 
