@@ -45,7 +45,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-Afin de contrôler l'application Cisco Firepower Management Center, l'API Rest doit être configurée comme indiqué dans la documentation officielle : 
+Afin de superviser l'application Cisco Firepower Management Center, l'API Rest doit être configurée comme indiqué dans la documentation officielle : 
 - https://www.cisco.com/c/en/us/td/docs/security/firepower/620/api/REST/Firepower_Management_Center_REST_API_Quick_Start_Guide_620.html
 
 ## Installer le connecteur de supervision

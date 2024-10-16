@@ -44,7 +44,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-To control the Cisco Firepower Management Center application, the Rest API must be configured as described in the official documentation: 
+To monitor the Cisco Firepower Management Center application, the Rest API must be configured as described in the official documentation: 
 https://www.cisco.com/c/en/us/td/docs/security/firepower/620/api/REST/Firepower_Management_Center_REST_API_Quick_Start_Guide_620.html
 
 ## Installing the monitoring connector
