@@ -11,9 +11,9 @@ This chapter describes how to upgrade your Centreon platform from version 24.04 
 >
 > All servers in your architecture must have the same version of Centreon.
 >
-> In addition, all servers must use the same [version of the BBDO protocol](../../developer/developer-broker-bbdo#switching-versions-of-bbdo).
+> In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
-> If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../../migrate/introduction).
+> If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../migrate/introduction.md).
 
 ## Prerequisites
 
@@ -87,7 +87,7 @@ apt update
 </TabItem>
 </Tabs>
 
-> If you have an [offline license](../../administration/licenses#types-of-licenses), also remove the old Monitoring Connectors repository, then install the new one.
+> If you have an [offline license](../administration/licenses.md#types-of-licenses), also remove the old Monitoring Connectors repository, then install the new one.
 >
 > If you have a Business edition, do the same with the Business repository.
 >
@@ -468,10 +468,10 @@ page:
 
   ![image](../assets/upgrade/web_update_5.png)
 
-  > If the Centreon BAM module is installed, refer to the [update procedure](../../service-mapping/update).
+  > If the Centreon BAM module is installed, refer to the [update procedure](../service-mapping/update.md).
 
 1. Deploy the central's configuration from the Centreon web UI by following [this
-procedure](../../monitoring/monitoring-servers/deploying-a-configuration).
+procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 </TabItem>
 <TabItem value="Using a dedicated API endpoint" label="Using a dedicated API endpoint">
@@ -567,7 +567,7 @@ usermod -a -G www-data centreon-broker
 </Tabs>
 
 If the Centreon BAM module is installed, refer to the
-[upgrade procedure](../../service-mapping/upgrade).
+[upgrade procedure](../service-mapping/upgrade.md).
 
 ### Post-upgrade actions
 
@@ -580,7 +580,7 @@ with the following:
 
    Then you can upgrade all other commercial extensions.
 
-2. [Deploy the configuration](../../monitoring/monitoring-servers/deploying-a-configuration).
+2. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 3. Restart the processes:
 
@@ -590,7 +590,7 @@ with the following:
 
 ## Upgrade MariaDB
 
-Follow [this procedure](../upgrade-mariadb) to upgrade MariaDB to version 10.11.
+Follow [this procedure](upgrade-mariadb.md) to upgrade MariaDB to version 10.11.
 
 ## Upgrade the Remote Servers
 

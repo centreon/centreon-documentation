@@ -12,9 +12,9 @@ Centreon depuis la version 24.04 vers la version 24.10.
 >
 > Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon.
 >
-> De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../../developer/developer-broker-bbdo#switching-versions-of-bbdo).
+> De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
-> Si vous souhaitez migrer votre serveur Centreon vers Oracle Linux / RHEL 8, vous devez suivre la [procédure de migration](../../migrate/introduction).
+> Si vous souhaitez migrer votre serveur Centreon vers Oracle Linux / RHEL 8, vous devez suivre la [procédure de migration](../migrate/introduction.md).
 
 ## Prérequis
 
@@ -86,7 +86,7 @@ apt update
 </TabItem>
 </Tabs>
 
-> Si vous avez une [licence offline](../../administration/licenses#types-de-licences), supprimez également l'ancien dépôt des connecteurs de supervision, puis installez le nouveau dépôt.
+> Si vous avez une [licence offline](../administration/licenses.md#types-de-licences), supprimez également l'ancien dépôt des connecteurs de supervision, puis installez le nouveau dépôt.
 >
 > Si vous avez une édition Business, faites de même avec le dépôt Business.
 >
@@ -562,7 +562,7 @@ usermod -a -G www-data centreon-broker
 </Tabs>
 
 Si le module Centreon BAM est installé, référez-vous à la [documentation
-associée](../../service-mapping/upgrade) pour le mettre à jour.
+associée](../service-mapping/upgrade.md) pour le mettre à jour.
 
 ### Actions post montée de version
 
@@ -577,7 +577,7 @@ associée](../../service-mapping/upgrade) pour le mettre à jour.
 
     Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
-2. [Déployez la configuration](../../monitoring/monitoring-servers/deploying-a-configuration).
+2. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 3. Redémarrez les processus Centreon :
 
@@ -587,7 +587,7 @@ associée](../../service-mapping/upgrade) pour le mettre à jour.
 
 ## Mettre à jour MariaDB
 
-Suivez [cette procédure](../upgrade-mariadb) pour monter de version MariaDB en 10.11.
+Suivez [cette procédure](upgrade-mariadb.md) pour monter de version MariaDB en 10.11.
 
 ## Montée de version des Remote Servers
 
