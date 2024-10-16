@@ -61,13 +61,14 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-### Configuration des équipements Pure Storage
+### Configuration SNMP
 
-Afin de superviser vos équipements Pure Storage le SNMP v2 doit être configuré.
+Afin de superviser votre **Pure Storage** en SNMP, il est nécessaire de configurer l'agent sur l'équipement.
 
-### Flux Réseaux
+### Flux réseau
 
-La communication doit être possible sur le port UDP 161 depuis le Collecteur Centreon vers l'équipement Pure Storage supervisé.
+La communication doit être possible sur le port UDP 161 depuis le collecteur
+Centreon vers le serveur supervisé.
 
 ## Installer le connecteur de supervision
 
