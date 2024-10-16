@@ -562,7 +562,7 @@ usermod -a -G www-data centreon-broker
 </Tabs>
 
 Si le module Centreon BAM est installé, référez-vous à la [documentation
-associée](../service-mapping/upgrade.md) pour le mettre à jour.
+associée](../../service-mapping/upgrade) pour le mettre à jour.
 
 ### Actions post montée de version
 
@@ -577,7 +577,7 @@ associée](../service-mapping/upgrade.md) pour le mettre à jour.
 
     Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
-2. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+2. [Déployez la configuration](../../monitoring/monitoring-servers/deploying-a-configuration).
 
 3. Redémarrez les processus Centreon :
 
@@ -587,7 +587,7 @@ associée](../service-mapping/upgrade.md) pour le mettre à jour.
 
 ## Mettre à jour MariaDB
 
-Suivez [cette procédure](upgrade-mariadb.md) pour monter de version MariaDB en 10.11.
+Suivez [cette procédure](../upgrade-mariadb) pour monter de version MariaDB en 10.11.
 
 ## Montée de version des Remote Servers
 

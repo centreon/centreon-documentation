@@ -468,11 +468,11 @@ page:
 
   ![image](../assets/upgrade/web_update_5.png)
 
-  > If the Centreon BAM module is installed, refer to the [update procedure](../service-mapping/update.md).
+  > If the Centreon BAM module is installed, refer to the [update procedure](../../service-mapping/update).
 
-6. Deploy the central's configuration from the Centreon web UI by following [this
-procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
-  
+1. Deploy the central's configuration from the Centreon web UI by following [this
+procedure](../../monitoring/monitoring-servers/deploying-a-configuration).
+
 </TabItem>
 <TabItem value="Using a dedicated API endpoint" label="Using a dedicated API endpoint">
 
@@ -567,7 +567,7 @@ usermod -a -G www-data centreon-broker
 </Tabs>
 
 If the Centreon BAM module is installed, refer to the
-[upgrade procedure](../service-mapping/upgrade.md).
+[upgrade procedure](../../service-mapping/upgrade).
 
 ### Post-upgrade actions
 
@@ -580,7 +580,7 @@ with the following:
 
    Then you can upgrade all other commercial extensions.
 
-2. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+2. [Deploy the configuration](../../monitoring/monitoring-servers/deploying-a-configuration).
 
 3. Restart the processes:
 
@@ -590,7 +590,7 @@ with the following:
 
 ## Upgrade MariaDB
 
-Follow [this procedure](upgrade-mariadb.md) to upgrade MariaDB to version 10.11.
+Follow [this procedure](../upgrade-mariadb) to upgrade MariaDB to version 10.11.
 
 ## Upgrade the Remote Servers
 
