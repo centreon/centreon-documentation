@@ -87,12 +87,12 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ### Configuration SNMP
 
-Le service SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+Afin de superviser votre **Evertz FC7800** en SNMP, il est nécessaire de configurer l'agent sur l'équipement.
 
 ### Flux réseau
 
 La communication doit être possible sur le port UDP 161 depuis le collecteur
-Centreon vers la ressource supervisée.
+Centreon vers le serveur supervisé.
 
 ## Installer le connecteur de supervision
 
