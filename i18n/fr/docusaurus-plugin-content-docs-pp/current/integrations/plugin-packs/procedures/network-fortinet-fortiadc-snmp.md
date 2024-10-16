@@ -67,7 +67,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 | Nom de la règle                                | Description                                                             |
 |:-----------------------------------------------|:------------------------------------------------------------------------|
 | Net-Fortinet-Fortiadc-SNMP-Interface-Name      | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
-| Net-Fortinet-Fortiadc-SNMP-Virtual-Server-Name |                                                                         |
+| Net-Fortinet-Fortiadc-SNMP-Virtual-Server-Name | Découvre les serveurs virtuels et supervise le statut et l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
