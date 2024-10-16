@@ -7,7 +7,11 @@ import TabItem from '@theme/TabItem';
 
 This chapter describes how to upgrade your Centreon platform from version 24.04 to version 24.10.
 
-> When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers. All servers in your architecture must have the same version of Centreon. In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
+> When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers.
+>
+> All servers in your architecture must have the same version of Centreon.
+>
+> In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
 > If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../migrate/introduction.md).
 
@@ -88,6 +92,49 @@ apt update
 > If you have a Business edition, do the same with the Business repository.
 >
 > You can find the address of these repositories on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+
+### Upgrade PHP
+
+Centreon 24.10 uses PHP in version 8.2.
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+You need to change the PHP stream from version 8.1 to 8.2 by executing the following commands and answering **y**
+to confirm:
+
+```shell
+dnf module reset php
+```
+
+```shell
+dnf module enable php:remi-8.2
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+You need to change the PHP stream from version 8.1 to 8.2 by executing the following commands and answering **y**
+to confirm:
+
+```shell
+dnf module reset php
+```
+
+```shell
+dnf module enable php:8.2
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+systemctl stop php8.1-fpm
+systemctl disable php8.1-fpm
+```
+
+</TabItem>
+</Tabs>
 
 ### Upgrade the Centreon solution
 
@@ -425,7 +472,7 @@ page:
 
 6. Deploy the central's configuration from the Centreon web UI by following [this
 procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
-  
+
 </TabItem>
 <TabItem value="Using a dedicated API endpoint" label="Using a dedicated API endpoint">
 
