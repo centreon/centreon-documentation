@@ -470,7 +470,7 @@ page:
 
   > If the Centreon BAM module is installed, refer to the [update procedure](../service-mapping/update.md).
 
-1. Deploy the central's configuration from the Centreon web UI by following [this
+6. Deploy the central's configuration from the Centreon web UI by following [this
 procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 </TabItem>
