@@ -22,9 +22,9 @@ Le connecteur apporte les modèles de service suivants
 | Alias    | Modèle de service                        | Description                                    |
 |:---------|:-----------------------------------------|:-----------------------------------------------|
 | Cpu      | Net-Cisco-Firepower-Cpu-SNMP-custom      | Contrôle du taux d'utilisation des processeurs |
-| Faults   | Net-Cisco-Firepower-Faults-SNMP-custom   | Contrôle les messages d'erreurs                |
+| Faults   | Net-Cisco-Firepower-Faults-SNMP-custom   | Contrôle les messages d'erreur                |
 | Hardware | Net-CIsco-Firepower-Hardware-SNMP-custom | Contrôle l'état du matériel                    |
-| Memory   | Net-Cisco-Firepower-Memory-SNMP-custom   | Contrôle du taux d'utilisation des mémoire     |
+| Memory   | Net-Cisco-Firepower-Memory-SNMP-custom   | Contrôle du taux d'utilisation des mémoires     |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Cisco-Firepower-SNMP-custom** est utilisé.
 
@@ -56,8 +56,8 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                             | Description                                                                  |
 |:--------------------------------------------|:-----------------------------------------------------------------------------|
-| Net-Cisco-Firepower-SNMP-Packet-Errors-Name | Découvrir les interfaces réseaux et supervise les paquets erronés et rejetés |
-| Net-Cisco-Firepower-SNMP-Traffic-Name       | Découvre les interfaces réseaux et supervise le statut et l'utilisation      |
+| Net-Cisco-Firepower-SNMP-Packet-Errors-Name | Découvre les interfaces réseau et supervise les paquets erronés et rejetés |
+| Net-Cisco-Firepower-SNMP-Traffic-Name       | Découvre les interfaces réseau et supervise leur statut et leur utilisation      |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -136,7 +136,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Pour utiliser ce connecteur de supervision, le service SNMP doit démarré et configuré sur le serveur **HP Proliant**.
+Pour utiliser ce connecteur de supervision, le service SNMP doit démarré et configuré sur le serveur **Cisco Firepower**.
 
 ### Flux réseau
 
@@ -145,7 +145,7 @@ Centreon vers le serveur supervisé.
 
 ### Configuration de l'équipement Cisco Firepower
 
-Afin de contrôler vos équipements Cisco Firepower, le SNMP doit être configuré (voir la documentation officielle : https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/213971-configure-snmp-on-firepower-ngfw-applian).
+Afin de contrôler vos équipements Cisco Firepower, le SNMP doit être configuré.
 
 ## Installer le connecteur de supervision
 
