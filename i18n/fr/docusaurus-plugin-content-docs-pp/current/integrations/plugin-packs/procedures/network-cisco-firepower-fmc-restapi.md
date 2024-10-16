@@ -38,6 +38,11 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 | Métrique                          | Unité |
 |:----------------------------------|:------|
 | devices.total.count               | count |
+| devices.status.green.count | count |
+| devices.status.black.count | count |
+| devices.status.blue.count | count |
+| devices.status.red.count | count |
+| devices.status.yellow.count | count |
 | *domains*~*devices*#device-status | N/A   |
 
 </TabItem>

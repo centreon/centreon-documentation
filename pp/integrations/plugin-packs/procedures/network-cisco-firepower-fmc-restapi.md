@@ -37,6 +37,11 @@ Here is the list of services for this connector, detailing all metrics linked to
 | Metric name                       | Unit  |
 |:----------------------------------|:------|
 | devices.total.count               | count |
+| devices.status.green.count | count |
+| devices.status.black.count | count |
+| devices.status.blue.count | count |
+| devices.status.red.count | count |
+| devices.status.yellow.count | count |
 | *domains*~*devices*#device-status | N/A   |
 
 </TabItem>
