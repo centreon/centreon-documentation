@@ -46,7 +46,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-The plugin need an account to connect on Rest API.
+The plugin needs an account to connect to the Rest API.
 
 ## Installing the monitoring connector
 
@@ -164,7 +164,7 @@ yum install centreon-plugin-Network-Cisco-Prime-Restapi
 
 | Macro                 | Description                                                                                                                                            | Default value                                                    | Mandatory   |
 |:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|:-----------:|
-| FILTERAP              | Filter ap name (can be a regexp)                                                                                                                       | .*                                                               |             |
+| FILTERAP              | Filter AP name (can be a regexp)                                                                                                                       | .*                                                               |             |
 | FILTERCONTROLLER      | Filter controller name (can be a regexp)                                                                                                               | .*                                                               |             |
 | WARNINGAPCLIENTS      | Warning threshold                                                                                                                                      |                                                                  |             |
 | CRITICALAPCLIENTS     | Critical threshold                                                                                                                                     |                                                                  |             |
