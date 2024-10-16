@@ -86,7 +86,7 @@ apt update
 </TabItem>
 </Tabs>
 
-> Si vous avez une [licence offline](../administration/licenses.md#types-de-licences), supprimez également l'ancien dépôt des connecteurs de supervision, puis installez le nouveau dépôt.
+> Si vous avez une [licence offline](../../administration/licenses#types-de-licences), supprimez également l'ancien dépôt des connecteurs de supervision, puis installez le nouveau dépôt.
 >
 > Si vous avez une édition Business, faites de même avec le dépôt Business.
 >
