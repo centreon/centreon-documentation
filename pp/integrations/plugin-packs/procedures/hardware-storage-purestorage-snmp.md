@@ -60,13 +60,14 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-### Configuration Pure Storage Equipment  
+### SNMP Configuration
 
-The SNMP agent must be configured on the Pure Storage devices.
+To use this pack, the SNMP service must be properly configured on your **Pure Storage** equipment.
 
 ### Network flow
 
-Your Centreon poller must be able to reach the PureStorage storage array on the UDP/161 SNMP port.
+The target server must be reachable from the Centreon poller on the UDP/161
+SNMP port.
 
 ## Installing the monitoring connector
 
