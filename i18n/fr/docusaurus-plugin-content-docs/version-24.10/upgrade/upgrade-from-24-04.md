@@ -13,7 +13,9 @@ Centreon depuis la version 24.04 vers la version 24.10.
 >
 > Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon.
 >
-> Tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo.md#changement-de-version-de-bbdo).
+> Tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo.md#changement-de-version-de-bbdo)
+
+test
 
 > Si vous souhaitez migrer votre serveur Centreon vers Oracle Linux / RHEL 8, vous devez suivre la [procédure de migration](../migrate/introduction.md).
 
