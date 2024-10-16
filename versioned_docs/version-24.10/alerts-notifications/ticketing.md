@@ -56,7 +56,7 @@ You can configure Open Ticket to be integrated into a widget:
 <Tabs groupId="sync">
 <TabItem value="Dashboards" label="Dashboards">
 
-> In the **Dashboards** feature, Open Ticket is currently only available through the **Resource table** widget, in the list of events.
+> In the **Dashboards** feature, Open Ticket is available in the **Resource table** widget, in the list of events.
 
 To use **Open Ticket**, you must add it into a dashboard.
 
