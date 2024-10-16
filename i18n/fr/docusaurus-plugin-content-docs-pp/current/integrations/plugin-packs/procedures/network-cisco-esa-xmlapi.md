@@ -58,8 +58,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 Veillez à disposer des informations suivantes :
 
-* Informations d'identification de l'API XML en lecture seule
-* Adresse IP de l'équipement
+* Informations d'authentification auprès de l'API XML (accès en lecture seule)
+* Adresse IP de l'équipement.
 
 ## Installer le connecteur de supervision
 

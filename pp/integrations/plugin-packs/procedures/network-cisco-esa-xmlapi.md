@@ -57,8 +57,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 Be sure to have with you the following information:
 
-* Read-Only XML API credentials
-* IP Address of the equipment
+* Credentials for the XML API (read-only account)
+* IP Address of the device.
 
 ## Installing the monitoring connector
 
