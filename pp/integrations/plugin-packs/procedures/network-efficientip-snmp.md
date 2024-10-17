@@ -21,7 +21,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias       | Service Template                              | Service Description                    |
 |:--------------------|:----------------------------------------------|:---------------------------------------|
 | Dhcp-Usage          | Net-Efficientip-Dhcp-Usage-SNMP-custom        | Check DHCP usage                       |
-| Dns-Answers         | Net-Efficientip-Dns-Answers-SNMP-custom       | Check DNS answers statistics           |
+| Dns-Answers         | Net-Efficientip-Dns-Answers-SNMP-custom       | Check DNS answer statistics           |
 | Dns-General         | Net-Efficientip-Dns-General-SNMP-custom       | Check DNS general usage                |
 | Dns-Transfer        | Net-Efficientip-Dns-Transfer-SNMP-custom      | Check DNS transfer requests statistics |
 | Dnssec-Validation   | Net-Efficientip-Dnssec-Validation-SNMP-custom | Check DNSSEC Validation Statistics     |
