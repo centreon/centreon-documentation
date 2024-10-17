@@ -23,7 +23,7 @@ The connector brings the following service templates (sorted by the host templat
 | Dhcp-Usage          | Net-Efficientip-Dhcp-Usage-SNMP-custom        | Check DHCP usage                       |
 | Dns-Answers         | Net-Efficientip-Dns-Answers-SNMP-custom       | Check DNS answer statistics           |
 | Dns-General         | Net-Efficientip-Dns-General-SNMP-custom       | Check DNS general usage                |
-| Dns-Transfer        | Net-Efficientip-Dns-Transfer-SNMP-custom      | Check DNS transfer requests statistics |
+| Dns-Transfer        | Net-Efficientip-Dns-Transfer-SNMP-custom      | Check DNS transfer request statistics |
 | Dnssec-Validation   | Net-Efficientip-Dnssec-Validation-SNMP-custom | Check DNSSEC validation statistics     |
 | SOLID-Server-status | Net-Efficientip-Status-SNMP-custom            | Check SOLID server role and status     |
 
