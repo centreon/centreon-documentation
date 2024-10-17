@@ -34,7 +34,7 @@ Le connecteur apporte les modèles de service suivants
 |:---------------------|:-----------------------------------------------|:------------------------------------------------------------------------------|:----------:|
 | Global-Status        | Net-Dell-6200-Global-Status-SNMP-custom        | Contrôle l'état global et indique les informations génériques de l'équipement |            |
 | Traffic-Generic-Id   | Net-Dell-6200-Traffic-Generic-Id-SNMP-custom   | Contrôle le trafic réseau d'une interface réseau                             |            |
-| Traffic-Generic-Name | Net-Dell-6200-Traffic-Generic-Name-SNMP-custom | Contrôle le traffic réseau d'une interface réseau                             |            |
+| Traffic-Generic-Name | Net-Dell-6200-Traffic-Generic-Name-SNMP-custom | Contrôle le trafic réseau d'une interface réseau                             |            |
 | Traffic-Global       | Net-Dell-6200-Traffic-Global-SNMP-custom       | Contrôle le traffic réseau de plusieurs interfaces réseau                     | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
