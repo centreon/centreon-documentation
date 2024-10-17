@@ -129,7 +129,7 @@ Le bandeau de contrôle vous permet de :
 
 ### Partager la liste de diffusion avec les utilisateurs de votre plateforme
 
-Vous pouvez partager votre liste de diffusion avec des contacts ayant accès à votre plateforme Centreon.
+Vous pouvez partager votre liste de diffusion avec des contacts ayant accès à votre plateforme Centreon, et les droits de viewer sur les tableaux de bord.
 
 - Cliquez sur le bouton **Partager avec des contacts** à partir de la ligne de votre liste de diffusion.
 La fenêtre **Droits d'accès de la liste de diffusion** s'affiche.
@@ -141,7 +141,8 @@ La fenêtre **Droits d'accès de la liste de diffusion** s'affiche.
 
 Vous pouvez envoyer un lien public à des utilisateurs non-Centreon pour leur donner accès à une vue plein écran de leur infrastructure informatique.
 
-> Le lien que vous partagez affichera le contenu de la liste de diffusion en fonction des droits d'accès. Toute personne disposant de ce lien peut consulter la liste de diffusion. Soyez vigilant lorsque vous le partagez.
+> - Le lien que vous partagez affichera le contenu de la liste de diffusion en fonction des droits d'accès de l'utilisateur qui active le lien. Toute personne disposant de ce lien peut consulter la liste de diffusion. Soyez vigilant lorsque vous le partagez.
+> - La langue utilisée est celle définie par le navigateur courant, même si la langue initiale de la liste de diffusion est différente.
 
 - Dans la fenêtre **Droits d'accès à la liste de diffusion**, cliquez sur le bouton **Activé** dans la section **Lien public**.
 - Vous pouvez maintenant copier le lien URL vers la liste de diffusion.
