@@ -22,7 +22,7 @@ The connector brings the following service templates (sorted by the host templat
 |:--------------|:------------------------------------|:--------------------------------------------|
 | Cpu           | Net-Fiberstore-Cpu-SNMP-custom      | Check the rate of the utilization of CPU    |
 | Hardware      | Net-Fiberstore-Hardware-SNMP-custom | Check hardware                              |
-| Memory        | Net-Fiberstore-Memory-SNMP-custom   | Check the rate of the utilization of memory |
+| Memory        | Net-Fiberstore-Memory-SNMP-custom   | Check the rate of memory utilization |
 
 > The services listed above are created automatically when the **Net-Fiberstore-SNMP-custom** host template is used.
 
