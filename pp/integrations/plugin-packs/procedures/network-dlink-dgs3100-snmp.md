@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias   | Service Template                              | Service Description                                                                                           |
 |:----------------|:----------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
-| Cpu             | Net-Dlink-Dgs3100-Cpu-SNMP-custom             | Check the rate of utilization of CPU for the machine. This check can give the average utilization rate of CPU |
+| Cpu             | Net-Dlink-Dgs3100-Cpu-SNMP-custom             | Check the rate of CPU utilization for the machine. This check can give the average utilization rate of the CPU |
 | Hardware-Global | Net-Dlink-Dgs3100-Hardware-Global-SNMP-custom | Check hardware                                                                                                |
 
 > The services listed above are created automatically when the **Net-Dlink-Dgs3100-SNMP-custom** host template is used.
