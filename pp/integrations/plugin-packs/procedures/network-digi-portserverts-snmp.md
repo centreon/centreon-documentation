@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias  | Service Template                                 | Service Description                          | Discovery  |
 |:---------------|:-------------------------------------------------|:---------------------------------------------|:----------:|
-| Cpu            | Net-Digi-Portserverts-Cpu-SNMP-custom            | Check the rate of utilization of CPU         |            |
+| Cpu            | Net-Digi-Portserverts-Cpu-SNMP-custom            | Check the rate of utilization of the CPU         |            |
 | Memory         | Net-Digi-Portserverts-Memory-SNMP-custom         | Check the rate of the utilization of memory  |            |
 | Traffic-Global | Net-Digi-Portserverts-Traffic-Global-SNMP-custom | Check traffic of multiple network interfaces | X          |
 
