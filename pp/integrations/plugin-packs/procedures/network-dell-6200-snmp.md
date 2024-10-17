@@ -33,7 +33,7 @@ The connector brings the following service templates (sorted by the host templat
 |:---------------------|:-----------------------------------------------|:----------------------------------------------------------------------|:----------:|
 | Global-Status        | Net-Dell-6200-Global-Status-SNMP-custom        | Check global status and indicate generic information of the equipment |            |
 | Traffic-Generic-Id   | Net-Dell-6200-Traffic-Generic-Id-SNMP-custom   | Check traffic of an network interface                                 |            |
-| Traffic-Generic-Name | Net-Dell-6200-Traffic-Generic-Name-SNMP-custom | Check traffic of an network interface                                 |            |
+| Traffic-Generic-Name | Net-Dell-6200-Traffic-Generic-Name-SNMP-custom | Check traffic of a network interface                                 |            |
 | Traffic-Global       | Net-Dell-6200-Traffic-Global-SNMP-custom       | Check traffic of multiple network interfaces                          | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
