@@ -155,8 +155,9 @@ const config = {
       plugins = [
         ...plugins,
         [
-          require.resolve("@cmfcmf/docusaurus-search-local"),
+          require.resolve("@easyops-cn/docusaurus-search-local"),
           {
+            hashed: true,
             indexBlog: false,
             language: ["en", "fr"],
           },
@@ -208,14 +209,15 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      algolia: archivedVersion
-        ? undefined
-        : {
-          appId: '3WEC6XPLDB',
-          apiKey: 'be499306058f3e54012bab278e6e6d86',
-          indexName: 'centreon',
-          contextualSearch: true,
-        },
+      algolia: undefined,
+      // algolia: archivedVersion
+      //   ? undefined
+      //   : {
+      //     appId: '3WEC6XPLDB',
+      //     apiKey: 'be499306058f3e54012bab278e6e6d86',
+      //     indexName: 'centreon',
+      //     contextualSearch: true,
+      //   },
 
       zoomSelector: '.markdown :not(.authority-availability) > img',
 
