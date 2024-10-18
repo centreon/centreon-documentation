@@ -27,7 +27,7 @@ Le connecteur apporte les modèles de service suivants
 | Disk-Usage           | App-DB-Sap-Hana-Disk-Usage-custom           | Contrôle permettant de vérifier l'utilisation des disques           |
 | Host-Cpu             | App-DB-Sap-Hana-Host-Cpu-custom             | Contrôle permettant de vérifier l'utilisation processeur du système |
 | Host-Memory          | App-DB-Sap-Hana-Host-Memory-custom          | Contrôle permettant de vérifier l'utilisation mémoires du système   |
-| Volume-Usage         | App-DB-Sap-Hana-Volume-Usage-custom         | Contrôle permettant de verifier l'utilisation des volumes           |
+| Volume-Usage         | App-DB-Sap-Hana-Volume-Usage-custom         | Contrôle permettant de vérifier l'utilisation des volumes           |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-DB-Sap-Hana-custom** est utilisé.
 
@@ -36,7 +36,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias       | Modèle de service                  | Description                                                  |
 |:------------|:-----------------------------------|:-------------------------------------------------------------|
-| Sql-Generic | App-DB-Sap-Hana-Sql-Generic-custom | Contrôle permettant d'utiliser une requete SQL personnalisée |
+| Sql-Generic | App-DB-Sap-Hana-Sql-Generic-custom | Contrôle permettant d'utiliser une requête SQL personnalisée |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -125,7 +125,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-Pour surveiller Sap Hana DB, vous devez installer SAP Hana Linux Client. Le client est
+Pour superviser SAP Hana DB, vous devez installer SAP Hana Linux Client. Le client est disponible
 sur le site Web de support SAP (un compte est nécessaire).
 
 Exécutez la commande suivante afin d'installer les outils nécessaires pour se connecter à la base de données SAP HANA via ODBC, ainsi que le module Perl pour permettre l'utilisation de scripts Perl avec cette connexion.
@@ -136,19 +136,19 @@ yum install unixODBC perl-DBD-ODBC
 
 ### Configuration of odbcinst.ini file
 
-Le fichier /etc/odbcinst.ini doit être modifié. Ajoutez les lignes suivantes :
+Le fichier **/etc/odbcinst.ini** doit être modifié. Ajoutez les lignes suivantes :
 
     [HDBODBC]
     Description = "SmartCloudPT HANA"
     Driver=/usr/sap/hdbclient/libodbcHDB.so
 
-### User account
+### Compte utilisateur
 
 Un utilisateur disposant de droits sur le schéma SYS est nécessaire.
 
-### Test the connection
+### Tester la connexion
 
-Un exemple de commande pour tester la connexion à la base de données :
+Exemple de commande pour tester la connexion à la base de données :
 
 ```/usr/sap/hdbclient/hdbsql -n saphanadb\_servername:31041 -d databasename -u username -p password```
 
