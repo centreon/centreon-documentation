@@ -30,6 +30,9 @@
     "swc-loader": "^0.2.3",
     "typeface-roboto": "^1.1.13"
   },
+  "resolutions": {
+    "cheerio": "1.0.0-rc.3"
+  },
   "browserslist": {
     "production": [
       ">0.5%",
