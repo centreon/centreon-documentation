@@ -140,6 +140,7 @@ const config = {
         hashed: true,
         indexBlog: false,
         language: ["en", "fr"],
+        docsDir: "versioned_docs",
       }),
     ],
   ],
