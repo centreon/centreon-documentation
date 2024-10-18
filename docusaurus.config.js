@@ -135,7 +135,7 @@ const config = {
 
   themes: [
     [
-      '@easyops-cn/docusaurus-search-local',
+      require.resolve('@easyops-cn/docusaurus-search-local'),
       ({
         hashed: true,
         indexBlog: false,
