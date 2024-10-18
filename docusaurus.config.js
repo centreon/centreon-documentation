@@ -135,12 +135,12 @@ const config = {
 
   themes: [
     [
-      require.resolve("@easyops-cn/docusaurus-search-local"),
-      {
+      '@easyops-cn/docusaurus-search-local',
+      ({
         hashed: true,
         indexBlog: false,
         language: ["en", "fr"],
-      },
+      }),
     ],
   ],
 
