@@ -210,7 +210,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--port='443' \
 	--proto='https'  \
 	--filter-domain-name='' \
-	--filter-device-name='' \
+	--filter-device-name='Global' \
 	--warning-devices-total='' \
 	--critical-devices-total='' \
 	--warning-devices-status-green='' \

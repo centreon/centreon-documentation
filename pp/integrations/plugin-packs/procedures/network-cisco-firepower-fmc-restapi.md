@@ -209,7 +209,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--port='443' \
 	--proto='https'  \
 	--filter-domain-name='' \
-	--filter-device-name='' \
+	--filter-device-name='Global' \
 	--warning-devices-total='' \
 	--critical-devices-total='' \
 	--warning-devices-status-green='' \
