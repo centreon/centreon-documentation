@@ -133,7 +133,7 @@ Run the following command to install the necessary tools to connect to the SAP H
 yum install unixODBC perl-DBD-ODBC
 ```
 
-### Configuration of odbcinst.ini file
+### Configuration file
 
 The **/etc/odbcinst.ini** file has to be modified. Add the following lines:
 
