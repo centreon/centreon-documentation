@@ -136,7 +136,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Pour utiliser ce connecteur de supervision, le service SNMP doit démarré et configuré sur le serveur **Cisco Firepower**.
+Pour utiliser ce connecteur de supervision, le service SNMP doit démarré et configuré sur le serveur **Cisco Firepower** (voir la [documentation officielle)](https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/213971-configure-snmp-on-firepower-ngfw-applian.html?dtid=osscdc000283).
 
 ### Flux réseau
 
