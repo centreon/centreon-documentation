@@ -80,6 +80,12 @@ Autologin is currently not supported on the following pages:
 
 There is currently no workaround.
 
+## Centreon Dashboards
+
+### The MAP widget is not supported yet on public playlists
+
+There is no workaround but the feature will be available in a coming version.
+
 ## Centreon MBI
 
 ### You get some errors during daily import and statistic calculation
