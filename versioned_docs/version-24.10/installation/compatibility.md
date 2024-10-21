@@ -44,6 +44,6 @@ Bear in mind that IT Edition and Business Edition modules do not work yet on uns
 | Software | Version |
 |----------|---------|
 | MariaDB  | 10.11.x |
-| MySQL    | 8       |
+| MySQL    | 8.0     |
 
 > You can use another DBMS based on MySQL, but it will only be supported by the community.
