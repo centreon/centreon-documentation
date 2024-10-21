@@ -1,6 +1,6 @@
 ---
 id: sc-opsgenie
-title: Opsgenie integration
+title: Opsgenie Events
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -101,11 +101,11 @@ Centreon Broker**.
 sur **Add**. Un nouvel output apparaît dans la liste. 
 4. Remplissez les champs de la manière suivante :
 
-| Champ           | Valeur                                                  |
-|-----------------|---------------------------------------------------------|
-| Name            | Opsgenie events                                         |
-| Path            | /usr/share/centreon-broker/lua/opsgenieevents-apiv2.lua |
-| Filter category | Neb                                                     |
+| Champ           | Valeur                                                   |
+|-----------------|----------------------------------------------------------|
+| Name            | Opsgenie events                                          |
+| Path            | /usr/share/centreon-broker/lua/opsgenie-events-apiv2.lua |
+| Filter category | Neb                                                      |
 
 5. Pour permettre à Centreon de se connecter à votre équipement Opsgenie, remplissez les 
 paramètres obligatoires suivants. La première entrée existe déjà. Cliquez sur le lien **+Add 
@@ -195,13 +195,21 @@ Ce stream connector envoie des évènements au format suivant :
 ### Exemple de sortie pour un événement service_status
 
 ```json
-
+{
+	"alias": "Host-Name_Service-Name_WARNING",
+	"description": "Output returned from plugin",
+	"message": "2024-10-21 11:29:41 Host-Name // Service-Name is WARNING"
+}
 ```
 
 ### Exemple de sortie pour un événement host_status
 
 ```json
-
+{
+	"alias": "Host-Name_DOWN",
+	"description": "Output returned from host check",
+	"message": "2024-10-21 11:32:42 Host-Name is DOWN"
+}
 ```
 
 ### Format d'évènement personnalisé
@@ -224,52 +232,18 @@ consulter la **[documentation dédiée](https://github.com/centreon/centreon-str
 
 ## Commandes Curl : tester le stream connector
 
-Voici la liste des commandes curl qui sont utilisées par le stream connector Opsgenie.
+### Envoyer des évènements
 
-### Configuration du stream connector
+Si vous voulez tester que les évènements sont envoyés correctement à Opsgenie :
 
-Si vous voulez tester que les commandes de configuration sont envoyées correctement à Opsgenie, utilisez les commandes curl suivantes.
-
-#### Requête de la route des alertes
-
-
-
-1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à 
-Opsgenie (le serveur central, un serveur distant ou un collecteur)
+1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à Opsgenie (le serveur central, un serveur distant ou un collecteur)
 2. Exécutez la commande suivante :
 
 ```shell
-
+curl -X POST -H 'content-type: application/json' -H 'Authorization: GenieKey <app_api_token>' 'https://api.opsgenie.com/v2/alerts' -d '{"description":"Output returned from plugin","message":"2024-10-21 11:46:37 Host-Name // Service-Name is WARNING","alias":"Host-Name_Service-Name_WARNING"}'
+'
 ```
 
-> Remplacez les *`<xxxx>`* dans la commande ci-dessus par les valeurs correctes d'authentification à l'hôte Opsgenie.
-> Les valeurs par défaut définies dans le stream connector sont : 
+> Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par la valeur correcte.
 
-3. Vérifiez que la commande renvoie bien une structure de données de la forme suivante :
-
-```json
-
-```
-
-#### Requête de la route des incidents
-
-
-
-1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à 
-Opsgenie (le serveur central, un serveur distant ou un collecteur)
-2. Exécutez la commande suivante :
-
-```shell
-
-```
-
-> Remplacez les *`<xxxx>`* dans la commande ci-dessus par les valeurs correctes d'authentification à l'hôte Opsgenie.
-> Les valeurs par défaut définies dans le stream connector sont : 
-
-3. Vérifiez que la commande renvoie bien une structure de données de la forme suivante :
-
-```json
-
-```
-
-
+3. Vérifiez que les données ont été reçues par Opsgenie.
