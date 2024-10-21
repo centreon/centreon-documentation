@@ -573,11 +573,19 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 Pour la supervision VMWare, centreon utlise un daemon pour se connecter et requêter le vCenter.
 
-Installer le daemon sur tous les Collecteurs :
+Installez le daemon sur tous les collecteurs :
 
-```
+```shell
 yum install centreon-plugin-Virtualization-VMWare-daemon
 ```
+
+<Tabs groupId="sync">
+<TabItem value="Centreon Cloud et OnPrem à partir de la 24.10" label="Centreon Cloud et OnPrem à partir de la 24.10">
+
+Allez à la page [**Configuration > Configurations supplémentaires de connecteurs**](../getting-started/how-to-guides/acc.md) pour configurer la connexion à votre vCenter.
+
+</TabItem>
+<TabItem value="Versions de Centreon OnPrem antérieures à la 24.10" label="Versions de Centreon OnPrem antérieures à la 24.10">
 
 Pour configurer les accès à votre infrastructure, éditer le fichier
 "/etc/centreon/centreon\_vmware.pm" :
@@ -596,7 +604,7 @@ Pour configurer les accès à votre infrastructure, éditer le fichier
 1;
 ```
 
-ssurez vous d'avoir remplacé toutes les variables avec les informations nécessaires :
+Assurez-vous d'avoir remplacé toutes les variables avec les informations nécessaires :
 
 - _ip\_hostname_: Adresse IP ou nom d'hôte du vCenter ou de l'ESX (Si il est en mode standalone),
 - _username_: utilisateur avec un accès "lecture seul" au vCenter ou à l'ESX (Vous pouvez utilisez un utilisateur du domaine),
@@ -626,6 +634,9 @@ en utilisant cette structure:
 ```
 
 Chaque entrée est un **container**.
+
+</TabItem>
+</Tabs>
 
 Pour démarrer le daemon et l'activer au démarrage :
 
