@@ -1286,6 +1286,10 @@
             },
             {
               "type": "doc",
+              "id": "version-22.10/integrations/data-analytics/sc-influxdb2-metrics"
+            },
+            {
+              "type": "doc",
               "id": "version-22.10/integrations/data-analytics/sc-kafka-events"
             },
             {

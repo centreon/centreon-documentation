@@ -64,7 +64,7 @@ Clean the cache:
 Then upgrade all the components with the following command:
 
   ```shell
-  apt install --only-upgrade centreon
+  apt install --only-upgrade centreon*
   ```
 
 </TabItem>
@@ -173,7 +173,7 @@ with the following:
 - Plugin Packs Manager,
 - Auto Discovery.
 
-Then you can update all other commercial extensions.
+Then you can update all other commercial extensions (such as [MBI](../reporting/update.md) and [MAP](../graph-views/map-web-update.md)).
 
 ## Update the Remote Servers
 
