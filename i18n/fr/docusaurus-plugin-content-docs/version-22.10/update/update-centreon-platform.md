@@ -178,7 +178,7 @@ toutes les extensions, en commençant par les suivantes :
 - Plugin Packs Manager,
 - Auto Discovery.
 
-Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
+Vous pouvez alors mettre à jour toutes les autres extensions commerciales (telles que [MBI](../reporting/update.md) et [MAP](../graph-views/map-web-update.md)).
 
 ## Mise à jour des Remote Servers
 
