@@ -1,61 +1,39 @@
 ---
-id: sc-opsgenie
-title: Opsgenie integration
+id: sc-opsgenie-events
+title: Opsgenie Events
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Opsgenie + Centreon Integration Benefits
+The Opsgenie Events stream connector allows you to send data from Centreon to Opsgenie
+using their HTTP REST API.
 
-* Manage your notifications when an alert is detected by Centreon.
-* Deduplicate your alerts from Centreon
-* Distinguish alerts from incidents using Centreon BAM and Opsgenie
-* Create reporting based on your notifications from Centreon
+## Before starting
 
-## How it Works
+- In most cases, you will want to send data from the central server. It is also possible 
+to send it from a remote server or a poller (e.g. if you want to avoid the central 
+server being a SPOF, or if you are an MSP and you install the stream connector on a 
+poller or a remote server within your customer's infrastructure).
+- By default, the Opsgenie Events stream connector sends events from 
+**[host_status](https://docs.centreon.com/docs/developer/developer-broker-mapping/#host-status)** and 
+**[service_status](https://docs.centreon.com/docs/developer/developer-broker-mapping/#service-status)**.
+Broker events. The event format is shown **[here](#event-format)**.
+- These events are sent each time a host or a service is checked. Various parameters let 
+you [filter out events](#filtering-or-adapting-the-data-you-want-to-send-to-opsgenie).
 
-* Every time a service, a host or a BA state is checked, the event passes through Centreon Broker, which loads the Stream Connector to send state changes.
-* State changes can occur in case of an anomaly detection.
-* An alias is generated for each alert to make use of Opsgenie deduplication:
-
-## Requirements
-
-* Opsgenie integration requires two different API key. The first one is an integration API key coming from the **Rest API HTTPS over JSON** integration. This integration must have the **Create and Update Access**. The second access is an API key coming from the **APP Settings**. This key must have the **Create and Update** access right. 
-* It is also necessary to use a Centreon account with either **admin privileges** or **Export configuration** and **Broker configuration** menu access in the WUI, as well as a **`root` access in command-line interface**.
-
-## Support
-
-If you need help with this integration, depending on how you are using Centreon, you can:
-
-* **Commercial Edition customers**: please contact the [Centreon Support team](mailto:support@centreon.com).
-* **Open Source Edition users** or **Centreon IT-100 users** (free versions): please visit [our community platform The Watch](https://thewatch.centreon.com/) where our users and staff will try to help you.
-
-## Integration Walkthrough
-
-### In Opsgenie
+## Compatibility
 
 > Warning, this documentation was written in February 2021, it is possible that certain elements described below became obsoletes due to changes on Opsgenie.
+You can let us know by using the documentation feedback tools at the bottom right of this page.
 
-#### Opsgenie integration: alerts
+## Installation
 
-1. From the **Settings** menu, select **Integration list**.
-2. In the integration list, add an **API** integration (Rest API HTTPS over JSON).
-3. Head over the **Configured integrations** menu and edit your **API** integration to enable it if it is not. You also must to give it a **Create and Update Access**. Save your configuration and the **API Key** that is mandatory to send alerts from Centreon to Opsgenie. This **API key** is referred as **integration_api_token** in the Centreon configuration.
+Perform the installation on the server that will send data to Opsgenie (central server, 
+remote server, poller).
 
-#### Opsgenie integration: incidents
+1. Login as `root` on the Centreon central server using your favorite SSH client.
 
-1. Before starting, this integration will only work if you are using the Centreon BAM module.
-2. From the **Settings** menu, select **API key management** in the subcategory **APP SETTINGS**.
-3. In the **API key management** menu, add a new API key with **Create and Update** access
-4. Save your configuration and your **Api key** that is mandatory to send incidents from Centreon to Opsgenie. This **API key** is referred as **app_api_token** in the Centreon configuration.
-
-### In Centreon
-
-#### Installation 
-
-Login as `root` on the Centreon central server using your favorite SSH client.
-
-Run the command according on your system:
+2. Run the following command:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -83,133 +61,179 @@ apt install centreon-stream-connector-opsgenie
 </TabItem>
 </Tabs>
 
-The Opsgenie Stream Connnector is now installed on your Centreon central server!
+## Configuring Opsgenie
 
-#### Broker configuration
+You will need to configure your Opsgenie instance to receive data from Centreon. Opsgenie integration 
+requires two different API key. The first one is an integration API key coming from the **Rest API HTTPS over JSON**
+integration. This integration must have the **Create and Update Access**. The second access is an 
+API key coming from the **APP Settings**. This key must have the **Create and Update** access right.
 
-1. Login to the Centreon WUI using an administrator account.
-2. Navigate to the **Configuration** > **Pollers** menu and select **Broker configuration**.
-3. Click on the **central-broker-master** broker configuration object and navigate to the **Output** tab.
-4. Add a new **Generic - Stream connector** output.
-5. Name it as you want (eg. **Opsgenie**) and set the right path for the LUA script: `/usr/share/centreon-broker/lua/opsgenie.lua`.
-6. Add at least one string parameter. That parameter is a key that must be configured. The parameter name *must be* `app_api_token` (for the alerts) or `integration_api_token` (for the incidents, requires the Centreon BAM module). If you want to use both aspects then you need to add both parameters in your configuration
+### Opsgenie integration: alerts
 
-| Name                      | Type   | Value                   |
-| ------------------------- | ------ | ----------------------- |
-| `app_api_token`           | String | `<paste your key here>` |
-| `integration_api_token`   | String | `<paste your key here>` |
+1. From the **Settings** menu, select **Integration list**.
+2. In the integration list, add an **API** integration (Rest API HTTPS over JSON).
+3. Head over the **Configured integrations** menu and edit your **API** integration to enable 
+it if it is not. You also must to give it a **Create and Update Access**. Save your configuration 
+and the **API Key** that is mandatory to send alerts from Centreon to Opsgenie. This **API key** 
+is referred as **integration_api_token** in the Centreon configuration.
 
-7. Save your configuration, then navigate to the **Configuration** > **Pollers** menu and select **Pollers**.
-8. Select the **Central** poller and click on **Export configuration**.
-9. Keep **Generate Configuration Files** and **Run monitoring engine debug (-v)** checked and select **Move Export Files** and then click on the **Export** button.
-10. Restart the `cbd` service:
+### Opsgenie integration: incidents
 
-```bash
-systemctl restart cbd
+1. Before starting, this integration will only work if you are using the Centreon BAM module.
+2. From the **Settings** menu, select **API key management** in the subcategory **APP SETTINGS**.
+3. In the **API key management** menu, add a new API key with **Create and Update** access
+4. Save your configuration and your **Api key** that is mandatory to send incidents from Centreon 
+to Opsgenie. This **API key** is referred as **app_api_token** in the Centreon configuration.
+
+## Configuring the stream connector in Centreon
+
+1. On your central server, go to **Configuration > Pollers > Broker configuration**.
+2. Click on **central-broker-master** (or the appropriate broker configuration if it is 
+a poller or a remote server that will send events).
+3. On the **Output** tab, select **Generic - Stream connector** from the list and then 
+click **Add**. A new output appears in the list.
+4. Fill in the fields as follows:
+
+| Field           | Value                                                    |
+|-----------------|----------------------------------------------------------|
+| Name            | Opsgenie events                                          |
+| Path            | /usr/share/centreon-broker/lua/opsgenie-events-apiv2.lua |
+| Filter category | Neb                                                      |
+
+5. To enable Centreon to connect to your Opsgenie equipment, fill in the following 
+mandatory parameters. The fields for the first entry are already present. Click on 
+the **+Add a new entry** link located below the **Filter category** table to add 
+another one.
+
+| Type   | Name                  | Description                                                                          | Example of value |
+| ------ |-----------------------|--------------------------------------------------------------------------------------|------------------|
+| string | app_api_token         | Clé d'authentification à l'API pour les alertes                                      | `an_authkey`     |
+| string | integration_api_token | Clé d'authentification à l'API pour les incidents (nécessite le module Centreon BAM) | `an_authkey`     |
+
+6. Fill in any optional parameters you want (using the **+Add a new entry** link):
+
+| Type   | Name      | Description                                               | Default value                                      |
+|--------|-----------|-----------------------------------------------------------|----------------------------------------------------|
+| string | logfile   | Fichier dans lequel les logs sont écrits                  | /var/log/centreon-broker/opsgenie-events-apiv2.log |
+| number | log_level | Niveau de verbosité des logs : de 1 (erreurs) à 3 (debug) | 1                                                  |
+
+7. Use the stream connector's optional parameters to [filter or adapt the data you want 
+Centreon to send to Opsgenie](#filtering-or-adapting-the-data-you-want-to-send-to-opsgenie).
+8. [Deploy the configuration](../../monitoring/monitoring-servers/deploying-a-configuration.md).
+9. Restart **centengine** on all pollers:
+
+   ```shell
+   systemctl restart centengine
+   ```
+
+   Opsgenie should now receive data from Centreon.
+
+
+### Filtering or adapting the data you want to send to Opsgenie
+
+All stream connectors have a set of [optional parameters](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters)
+, that allow you to filter the data you will send to your Opsgenie equipment, to reformat 
+the data, to define a proxy...
+
+Each optional parameter has a default value, that is indicated in the corresponding 
+documentation.
+
+* To override the default value of a parameter, click on the **+Add a new entry** link 
+located below the **Filter category** table to add a custom parameter. For example, if 
+you want to only send to Opsgenie the events linked to a hostgroup called "Europe", enter:
+
+   ```text
+   type = string
+   name = accepted_hostgroup
+   value = Europe
+   ```
+
+* For the Opsgenie Events stream connector, the following values always override the 
+default values, you do not need to define them in the interface except if you want to 
+change their values (for example to remove the downtimes in the **accepted_elements** variable).
+
+| Type   | Name                        | Value explanation                                                                                                                                                                 | Default value for the stream connector              | Possible values                                              |
+|--------|-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|--------------------------------------------------------------|
+| string | accepted_categories         | Each event is linked to a broker category, which can be used to filter events                                                                                                     | neb                                                 | neb ou bam                          |
+| string | accepted_elements           | Centreon item managed by this connector (to add more, you need to look at the custom event format section, see below), the list of items to be separated by commas without spaces | host_status,service_status                          | host_status ou service_status ou ba |
+| string | api_url                     | Opsgenie API address, use https://api.eu.opsgenie.com if your instance is in Europe                                                                                               | https://api.opsgenie.com                            | -                                   |
+| string | alerts_api_endpoint         | Opsgenie API address for alerts                                                                                                                                                   | /v2/alerts                                          | -                                   |
+| string | incident_api_endpoint       | Opsgenie API address for incidents                                                                                                                                                | /v1/incidents/create                                | -                                   |
+| string | ba_incident_tags            | List of tags for an incident. Must use comma as separator. BV names will be automatically added to the tags                                                                       | centreon,application                                | -                                   |
+| number | enable_incident_tags        | Adds tags for incidents if set to ` 1`                                                                                                                                            | 1                                                   | 1 ou 0                              |
+| number | get_bv                      | Adds BV name to tags if `enable_incident_tags` is set to `1`                                                                                                                      | 1                                                   | 1 ou 0                              |
+| string | enable_severity             | If set to 1, tries to link a Centreon severity to an Opsgenie priority                                                                                                            | 0                                                   | 1 ou 0                              |
+| string | default_priority            |                                                                                                                                                                                   |                                                     |                                     |
+| string | priority_mapping            | Allows to match Opsgenie priorities with a priority order in the stream connector                                                                                                 | P1=1,P2=2,P3=3,P4=4,P5=5                            | -                                   |
+| string | opsgenie_priorities         | List of Opsgenie priorities with comma separator                                                                                                                                  | P1,P2,P3,P4,P5                                      | -                                   |
+| string | timestamp_conversion_format | Indicates timestamp display format                                                                                                                                                | %Y-%m-%d %H:%M:%S                                   | -                                   |
+
+## Event bulking
+
+This stream connector is compatible with event bulking. Meaning that it is able to send more that one event in each call to the EOpsgenie REST API.
+
+To use this feature you must add the following parameter in the configuration of your stream connector.
+
+| Type    | Name            | Value     |
+|---------|-----------------|-----------|
+| number  | max_buffer_size | 1 ou plus |
+
+## Event format
+
+This stream connector will send events with the following format.
+
+### Output example for service_status events
+
+```json
+{
+	"alias": "Host-Name_Service-Name_WARNING",
+	"description": "Output returned from plugin",
+	"message": "2024-10-21 11:29:41 Host-Name // Service-Name is WARNING"
+}
 ```
 
-Now your central server has loaded the Opsgenie Stream Connector and has started to send data!
+### Output example for host_status events
 
-To make sure that everything goes fine, you should have a look at `central-broker-master.log` and `connector-opsgenie.log`, both located in `/var/log/centreon-broker`.
-
-#### Advanced configuration
-
-**Parameters table**
-
-| Name                        | Type   | Default value                                                           | Description                                    |
-| --------------------------- | ------ | ----------------------------------------------------------------------- | ---------------------------------------------- |
-| `api_url`                   | String | `https://api.opsgenie.com`                                              | Opsgenie api address. Use https://api.eu.opsgenie.com if your instance is in Europe |               
-| `proxy_address`             | String |                                                                         | If needed, the address of the proxy server (requires proxy_port option) |
-| `proxy_port`                | String |                                                                         | The port of the proxy server |                 
-| `proxy_username`            | String |                                                                         | If needed, the proxy user (requires proxy_password option) |                 
-| `proxy_password`            | String |                                                                         | the proxy user password |                  
-| `logfile`                   | String | `/var/log/centreon-broker/connector-opsgenie.log`                       | logfile for the stream connector |     
-| `host_status`               | String | `0,1,2`                                                                 | send event for up, down and unreachable hosts |               
-| `service_status`            | String | `0,1,2,3`                                                               | send event for ok, warning, critical, unknown services |               
-| `ba_status`                 | String | `0,1,2`                                                                 | send event for ok, warning, critical business activities |
-| `hard_only`                 | Number | `1`                                                                     | Only send events in hard state |               
-| `acknowledged`              | Number | `0`                                                                     | Only send events that are not acknowledged |               
-| `element_type`              | String | `host_status,service_status,ba_status`                                  | Send host, service, BA centreon status event |               
-| `category_type`             | String | `neb,bam`                                                               | Filter out non neb or bam events |               
-| `in_downtime`               | Number | `0`                                                                     | Only send events that are not in downtime |               
-| `max_buffer_size`           | Number | `1`                                                                     | Send events one at a time |               
-| `max_buffer_age`            | Number | `5`                                                                     | Store events for 5 second before sending them unless max_buffer_size is reached before  |               
-| `max_stored_events`         | Number | `10`                                                                    | Keep event in cache to avoid sending duplicated events, change with caution |               
-| `skip_anon_events`          | Number | `1`                                                                     | Do not send events from hosts or services that are not found in the broker cache |               
-| `skip_nil_id`               | Number | `1`                                                                     | Do not send events from objects that do not have an ID (meta services most of the time) |               
-| `accepted_hostgroups`       | String |                                                                         | List of hostgroups in which the host must be (coma separeted eg: grp1,grp2,grp3) |               
-| `date_format`               | String | `%Y-%m-%d %H:%M:%S`                                                     | The default date format for converted timestamps (https://www.lua.org/pil/22.1) |               
-| `host_alert_message`        | String | `{last_update_date} {hostname} is {state}`                              | The default message for host alerts. See [host event macros](sc-opsgenie.md#host-event-macros) for more details about macros |
-| `host_alert_description`    | String |                                                                         | The default description of a host alert. See [host event macros](sc-opsgenie.md#host-event-macros) for more details about macros |
-| `host_alert_alias`          | String | `{hostname}_{state}`                                                    | The default alias for a host alert, useful for alert deduplication. See [host event macros](sc-opsgenie.md#host-event-macros) for more details about macros  |
-| `service_alert_message`     | String | `{last_update_date} {hostname} // {serviceDescription} is {state}`      | The default message for service alerts. See [service event macros](sc-opsgenie.md#service-event-macros) for more details about macros |
-| `service_alert_description` | String |                                                                         | The default description of a service alert. See [service event macros](sc-opsgenie.md#service-event-macros) for more details about macros |
-| `service_alert_alias`       | String | `{hostname}_{serviceDescription}_{state}`                               | The default alias for a service alert, useful for alert deduplication. See [service event macros](sc-opsgenie.md#service-event-macros) for more details about macros  |
-| `ba_incident_message`       | String | `{baName} is {state}, health level reached {level_nominal}`             | The default message for a ba incident. See [BA event macros](sc-opsgenie.md#ba-event-macros) for more details about macros |
-| `ba_incident_description`   | String |                                                                         | The default description of a ba incident. See [BA event macros](sc-opsgenie.md#ba-event-macros) for more details about macros |
-| `enable_incident_tags`      | Number | `1`                                                                     | Add tags to incidents |
-| `get_bv`                    | Number | `1`                                                                      | Add BV names as tags if `enable_incident_tags` is set to `1`
-| `ba_incident_tags`          | String | `centreon,applications`                                                 | List of tags for an incident. must be coma separeted. It will automatically add all the BV related to the BA as tags |
-| `enable_severity`           | Number | `0`                                                                     | If set to 1, tries to match a Centreon severity value to an Opsgenie priority. |
-| `priority_must_be_set`      | Number | `0`                                                                     | Will drop the alert if set to 1 and it can't match the severity with a priority according to the relation set in the `priority_matching` parameter |
-| `priority_matching`         | String | `P1=1,P2=2,P3=3,P4=4,P5=5`                                              | Links priorities to severities with the following syntax: priority_name=severity_value,priority_name=severity_value. |
-| `opsgenie_priorities`       | String | `P1,P2,P3,P4,P5`                                                        | Coma separeted list of Opsgenie priorities |
-
-**Remarks**
-
-* A value of 2 for `log_level` is fine for initial troubleshooting, but can generate a huge amount of logs if you monitor a lot of hosts. In order to get less log messages, you should keep it a 1.
-
----------------
-
-## How to Uninstall
-
-1. Login to the Centreon WUI using an administrator account.
-2. Navigate to the **Configuration** > **Pollers** menu and select **Broker configuration**.
-3. Click on the **central-broker-master** broker configuration object and navigate to the **Output** tab.
-4. Delete the **Generic - Stream connector** output by clicking on the red circled cross at the end of the line.
-5. Save your configuration, then navigate to the **Configuration** > **Pollers** menu and select **Pollers**.
-6. Select the **Central** poller and click on **Export configuration**.
-7. Keep **Generate Configuration Files** and **Run monitoring engine debug (-v)** checked and select **Move Export Files** and then click on the **Export** button.
-8. Restart the `cbd` service:
-
-```bash
-systemctl restart cbd
+```json
+{
+	"alias": "Host-Name_DOWN",
+	"description": "Output returned from host check",
+	"message": "2024-10-21 11:32:42 Host-Name is DOWN"
+}
 ```
 
-The Stream Connector is not loaded anymore!
+### Custom event format
 
-9. Optionally, you can even delete the script file:
+This stream connector allows you to change the format of the event to suit your needs. 
+It allows you to handle event types that are not handled by default such as 
+**downtimes** events.
 
-```bash
-rm -f /usr/share/centreon-broker/lua/opsgenie.lua
+In order to use this feature you need to configure a json event format file and add 
+a new stream connector parameter.
+
+| Type   | Name        | Value                                           |
+| ------ |-------------|-------------------------------------------------|
+| string | format_file | /etc/centreon-broker/opsgenie-events-format.json|
+
+> The event format configuration file must be readable by the **centreon-broker** user.
+
+To learn more about custom event formats and templating files, read
+**[this documentation](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
+
+## Curl commands: testing the stream connector
+
+### Sending events
+
+If you want to test that events are sent to Opsgenie correctly:
+
+1. Log in to the server that you configured to send events to Opsgenie (your central server, a remote server or a poller). 
+2. Run the following command:
+
+```shell
+curl -X POST -H 'content-type: application/json' -H 'Authorization: GenieKey <app_api_token>' 'https://api.opsgenie.com/v2/alerts' -d '{"description":"Output returned from plugin","message":"2024-10-21 11:46:37 Host-Name // Service-Name is WARNING","alias":"Host-Name_Service-Name_WARNING"}'
 ```
 
-## Macros
+> Replace all the <xxxx> inside the above command with the appropriate value.
 
-Macros are a tool to create dynamic messages depending on the event you want to send. They must be enclosed by {} (eg: {hostname}). If a macro is a time type macro then you will be able to use **\_date suffix** to convert it to a human readable format. You can Change this format using the string parameter `date_format` (eg: {last_update} is a timestamp macro. You can use {last_update_date} to have it converted)
 
-#### Host event macros
-
-| Macro name |
-| ---------- |
-| hostname   |
-
-All the Properties in the [Host status](../../developer/developer-broker-mapping.md#host-status) table are also usable
-
-#### Service event macros
-
-| Macro name           |
-| -------------------- |
-| hostname             |
-| serviceDescription   |
-
-All the Properties in the [Service status](../../developer/developer-broker-mapping.md#service-status) table are also usable
-
-#### BA event macros
-
-| Macro name    |
-| ------------- |
-| baName        |
-| baDescription |
-
-All the Properties in the [Ba status event](../../developer/developer-broker-mapping.md#ba-status-event) table are also usable
+3. Check that the data has been received by Opsgenie.
