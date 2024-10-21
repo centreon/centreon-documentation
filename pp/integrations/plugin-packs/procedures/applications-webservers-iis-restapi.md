@@ -82,6 +82,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 To use this Monitoring Connector, you must enable the Microsoft IIS Administration API. Microsoft provides an official documentation to achieve this: https://docs.microsoft.com/en-us/iis-administration/
 
+> Warning : IIS Administration API component must be at least in version 2.3.0 (otherwise errors may be returned if the supervised server is not in UTC timezone).
+
 ## Installing the monitoring connector
 
 ### Pack
