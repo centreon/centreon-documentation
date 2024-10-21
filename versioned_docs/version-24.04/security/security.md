@@ -51,7 +51,7 @@ vulnerability and build an action plan with timelines depending on the computed 
 Centreon will provide feedback to the reporter of the vulnerability and work with them to mitigate
 the vulnerability.
 
-Subscribe to the [Security Bulletins thread](https://thewatch.centreon.com/latest-security-bulletins-64) on our community platform The Watch to keep up with the latest vulnerabilities fixes
+Subscribe to the [Security Bulletins thread](https://thewatch.centreon.com/latest-security-bulletins-64) on our community platform The Watch to keep up with the latest vulnerabilities fixes.
 
 ### Vulnerability scoring
 
