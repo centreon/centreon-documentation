@@ -57,6 +57,8 @@ construit un plan d'action avec des délais variant en fonction de la gravité c
 Centreon fournit un retour d'information au rapporteur de la vulnérabilité et travaille avec lui pour
 atténuer/corriger la vulnérabilité.
 
+Abonnez-vous avec le bouton "subscribe" aux [bulletins de sécurité](https://thewatch.centreon.com/latest-security-bulletins-64) sur notre plateforme communautaire The Watch pour être au courant des vulnérabilités corrigées.
+
 ### Score de vulnérabilité
 
 Centreon utilise la version 3.1 du Common Vulnerability Scoring System (CVSS) dans le cadre de son
