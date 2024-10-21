@@ -23,4 +23,4 @@ Vous pouvez paramétrer la connexion à plusieurs vCenters dans une seule config
    * [VMware ESX](../../procedures/virtualization-vmware2-esx.md)
    * [VMware vCenter v6](../../procedures/virtualization-vmware2-vcenter-6.md)
    * [VMware vCenter](../../procedures/virtualization-vmware2-vcenter-generic.md)
-   * [VMware VM](virtualization-vmware2-vm.md).
+   * [VMware VM](../../procedures/virtualization-vmware2-vm.md).
