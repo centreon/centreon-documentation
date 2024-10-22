@@ -174,7 +174,7 @@ with the following:
 - Monitoring Connector Manager,
 - Auto Discovery.
 
-Then you can update all other commercial extensions.
+Then you can update all other commercial extensions (such as [MBI](../reporting/update.md) and [MAP](../graph-views/map-web-update.md)).
 
 ## Update the Remote Servers
 

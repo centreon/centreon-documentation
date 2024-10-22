@@ -166,6 +166,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-docker-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-drbd-ssh'
         },
         {
@@ -203,10 +207,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-google-workspace-api'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-gorgone-restapi'
         },
         {
           type: 'doc',
@@ -723,6 +723,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-monitoring-centreon-ha'
+        },
+	{
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-gorgone-restapi'
         }
       ]
     },
@@ -2649,6 +2653,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/hardware-storage-purestorage-flashblade-v2-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-purestorage-snmp'
         },
         {
           type: 'doc',
