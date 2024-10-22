@@ -49,9 +49,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+Pour utiliser ce pack, vous devez disposer des droits d'administration, avoir une version compatible de CUCM, et assurer une connexion réseau sécurisée au serveur.
 
 ## Installer le connecteur de supervision
 
@@ -205,40 +203,29 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_cisco_cucm_sxml.pl \
-	--plugin=network::cisco::callmanager::sxml::plugin \
+    --plugin=network::cisco::callmanager::sxml::plugin \
 	--mode=alerts \
-	--hostname='10.0.0.1' \
-	--api-username='' \
-	--api-password='' \
+	--Hostname='mycucm.com' \
+	--api-username='centreoncucm' \
+	--api-password='myapipassword' \
 	--port='8443' \
-	--proto='https'  \
-	--filter-counters='' \
-	--filter-alert-name=''  \
-	--warning-total='' \
-	--critical-total='' \
-	--warning-severity-notice='' \
-	--critical-severity-notice='' \
-	--warning-severity-critical='' \
-	--critical-severity-critical='' \
-	--warning-severity-error='' \
-	--critical-severity-error='' \
-	--warning-severity-emergency='' \
-	--critical-severity-emergency='' \
-	--warning-severity-informational='' \
-	--critical-severity-informational='' \
-	--warning-severity-alert='' \
-	--critical-severity-alert='' \
-	--warning-severity-warning='' \
-	--critical-severity-warning='' \
-	--warning-severity-debugging='' \
-	--critical-severity-debugging='' \
-	--verbose
+	--proto='https' \ 
+	--http-backend=curl \
+	--curl-opt="CURLOPT_SSL_VERIFYPEER => 0" \
+	--verbose \
+	--display-alerts
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: total: 0 values %: 57 | 'alerts.total.count'=0;;;0;'alerts.severity.values %.count'=57;;;0;total
+OK: Alerts total: 1, informational: 0, error: 0, debugging: 0, critical: 1, alert: 0, warning: 0, emergency: 0, notice: 0 
+| 'alerts.total.count'=1;;;0; 'alerts.severity.informational.count'=0;;;0;1 'alerts.severity.error.count'=0;;;0;1 'alerts.severity.debugging.count'=0;;;0;1 
+'alerts.severity.critical.count'=1;;;0;1 'alerts.severity.alert.count'=0;;;0;1 'alerts.severity.warning.count'=0;;;0;1 'alerts.severity.emergency.count'=0;;;0;1 
+'alerts.severity.notice.count'=0;;;0;1
+alert [name: CDRFileDeliveryFailureContinues] [severity: critical] [date: Tue Oct  6 05:42:12 2020]:  BillingServerAddress : 172.28.172.105 
+AppID : Cisco CDR Repository Manager ClusterID :  NodeID : server.centreon.com  TimeStamp : Tue Oct 06 05:41:50 EDT 2020. 
+The alarm is generated on Tue Oct 06 05:41:50 EDT 2020.
 ```
 
 ### Diagnostic des erreurs communes
