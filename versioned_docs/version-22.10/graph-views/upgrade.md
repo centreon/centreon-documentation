@@ -5,6 +5,13 @@ title: Upgrading the extension
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> **From Centreon 24.10, MAP Legacy is no longer available.** You will need to migrate to MAP to benefit from the capabilities of this feature.
+> 
+> Follow these steps if you want to upgrade to version 24.10:
+  - [Migrate](./import-into-map-web.md) to the available version of MAP.
+  - [Upgrade](./map-web-upgrade.md) MAP.
+  - [Uninstall](../../version-24.10/graph-views/map-legacy-eol.md) MAP Legacy.
+
 This chapter describes how to upgrade your Centreon MAP (Legacy) extension. This
 is done by upgrading the four main components:
 

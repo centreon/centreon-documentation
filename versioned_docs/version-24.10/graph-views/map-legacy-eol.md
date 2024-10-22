@@ -9,11 +9,13 @@ title: MAP Legacy end of life
 
 As MAP Legacy is no longer delivered, you must uninstall it completely following the instructions below.
 
+> It is mandatory to perform these steps now, as you may encounter issues when upgrading to later versions.
+
 ### Migrate to Centreon MAP
 
 > MAP Legacy must be uninstalled after you have migrated to MAP.
 
-Ensure you are using the [correct version of MAP](./introduction-map). Use the [migration to Centreon MAP](./import-into-map-web) procedure if needed.
+Ensure you are using the [correct version of MAP](./introduction-map.md). Use the [migration to Centreon MAP](./import-into-map-web.md) procedure if needed.
 
 ### Remove the legacy package
 
@@ -24,6 +26,8 @@ Remove the **centreon-map-server** package from the server where MAP Legacy was 
 ```
 
 ### Optional procedures
+
+> These cleaning procedures will allow you to work in an optimal environment. If you wish, you can make a backup of your data.
 
 - Remove the legacy configuration files from the server where MAP Legacy was installed:
   
@@ -46,5 +50,4 @@ Remove the **centreon-map-server** package from the server where MAP Legacy was 
   ```shell
   --> command for /var/log/centreon-map/centreon-map.log
   ```
-
-  If the database for the Legacy server was not the same as the one used for Engine, the database may be removed... ?
+ 

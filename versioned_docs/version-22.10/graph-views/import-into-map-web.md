@@ -13,6 +13,8 @@ This topic describes how to move from Centreon MAP (Legacy) to Centreon MAP by i
 
 - In case you want to install MAP on the same server as MAP (Legacy), you need to make sure that free disk space is at least equal to used space. Indeed, after migration, the new database will coexist with the legacy one.
 
+> **From Centreon 24.10, MAP Legacy is no longer available.** See [how to uninstall MAP Legacy](../../version-24.10/graph-views/map-legacy-eol.md).
+
 ## Importing legacy maps into MAP
 
 > When you import your legacy maps, any content created in MAP is deleted.
