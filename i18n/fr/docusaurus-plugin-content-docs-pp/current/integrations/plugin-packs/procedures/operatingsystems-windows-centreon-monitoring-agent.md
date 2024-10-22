@@ -97,7 +97,7 @@ Pas de métrique pour ce service.
 
 ### Flux réseau
 
-Deux flux TCP doivent être ouverts depuis l'hôte supervisé vers le collecteur.
+Un flux TCP doit être ouvert depuis l'hôte supervisé vers le collecteur.
 
 | Source         | Destination | Protocole | Port | Objet                                                                       |
 |----------------|-------------|-----------|------|-----------------------------------------------------------------------------|
