@@ -94,13 +94,13 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-### Configuration de l'équipement Adva FSP 150
+### Configuration SNMP
 
-Afin de superviser vos équipements Adva le SNMP v2 doit être configuré.
+L'agent SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
 
 ### Flux réseau
 
-La communication doit être possible sur le port UDP 161 depuis le Collecteur Centreon vers l'équipement Adva supervisé.
+La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers le serveur supervisé.
 
 ## Installer le connecteur de supervision
 
