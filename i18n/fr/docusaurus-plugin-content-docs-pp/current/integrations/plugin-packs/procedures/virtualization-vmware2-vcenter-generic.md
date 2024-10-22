@@ -587,7 +587,7 @@ Allez à la page [**Configuration > Configurations supplémentaires de connecteu
 </TabItem>
 <TabItem value="Versions de Centreon OnPrem antérieures à la 24.10" label="Versions de Centreon OnPrem antérieures à la 24.10">
 
-Pour configurer les accès à votre infrastructure, éditer le fichier
+Pour configurer les accès à votre infrastructure, éditez le fichier
 "/etc/centreon/centreon\_vmware.pm" :
 
 ``` perl
