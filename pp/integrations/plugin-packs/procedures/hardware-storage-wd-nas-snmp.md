@@ -96,7 +96,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-The SNMP service must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
+The SNMP agent must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
 
 ### Network flow
 
@@ -215,15 +215,15 @@ yum install centreon-plugin-Hardware-Storage-Wd-Nas-Snmp
 <Tabs groupId="sync">
 <TabItem value="Hardware" label="Hardware">
 
-| Macro                     | Description                                                                                                                                       | Default value     | Mandatory   |
-|:--------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGDRIVETEMPERATURE   | Thresholds                                                                                                                                        |                   |             |
-| CRITICALDRIVETEMPERATURE  | Thresholds                                                                                                                                        |                   |             |
-| WARNINGFANSTATUS          | Define the conditions to match for the status to be WARNING (default : '%{status} ne "running"'). You can use the following variables: %{status}  |                   |             |
-| CRITICALFANSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}                                      |                   |             |
-| WARNINGSYSTEMTEMPERATURE  | Thresholds                                                                                                                                        |                   |             |
-| CRITICALSYSTEMTEMPERATURE | Thresholds                                                                                                                                        |                   |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).            | --verbose         |             |
+| Macro                     | Description                                                                                                                                      | Default value     | Mandatory   |
+|:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGDRIVETEMPERATURE   | Warning threshold for 'drive-temperature'                                                                                                        |                   |             |
+| CRITICALDRIVETEMPERATURE  | Critical threshold for 'drive-temperature'                                                                                                       |                   |             |
+| WARNINGFANSTATUS          | Define the conditions to match for the status to be WARNING (default : '%{status} ne "running"'). You can use the following variables: %{status} |                   |             |
+| CRITICALFANSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}                                     |                   |             |
+| WARNINGSYSTEMTEMPERATURE  | Warning threshold for 'system-temperature'                                                                                                       |                   |             |
+| CRITICALSYSTEMTEMPERATURE | Critical threshold for 'system-temperature'                                                                                                      |                   |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose         |             |
 
 </TabItem>
 <TabItem value="Volumes" label="Volumes">
@@ -231,12 +231,12 @@ yum install centreon-plugin-Hardware-Storage-Wd-Nas-Snmp
 | Macro                  | Description                                                                                                                            | Default value     | Mandatory   |
 |:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTERNAME             | Filter volumes by name (can be a regexp)                                                                                               |                   |             |
-| WARNINGSPACEUSAGE      | Thresholds                                                                                                                             |                   |             |
-| CRITICALSPACEUSAGE     | Thresholds                                                                                                                             |                   |             |
-| WARNINGSPACEUSAGEFREE  | Thresholds                                                                                                                             |                   |             |
-| CRITICALSPACEUSAGEFREE | Thresholds                                                                                                                             |                   |             |
-| WARNINGSPACEUSAGEPRCT  | Thresholds                                                                                                                             |                   |             |
-| CRITICALSPACEUSAGEPRCT | Thresholds                                                                                                                             |                   |             |
+| WARNINGSPACEUSAGE      | Warning threshold for 'space-usage'                                                                                                    |                   |             |
+| CRITICALSPACEUSAGE     | Critical threshold for 'space-usage'                                                                                                   |                   |             |
+| WARNINGSPACEUSAGEFREE  | Warning threshold for 'space-usage-free'                                                                                               |                   |             |
+| CRITICALSPACEUSAGEFREE | Critical threshold for 'space-usage-free'                                                                                              |                   |             |
+| WARNINGSPACEUSAGEPRCT  | Warning threshold for 'space-usage-prct'                                                                                               |                   |             |
+| CRITICALSPACEUSAGEPRCT | Critical threshold for 'space-usage-prct'                                                                                              |                   |             |
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>

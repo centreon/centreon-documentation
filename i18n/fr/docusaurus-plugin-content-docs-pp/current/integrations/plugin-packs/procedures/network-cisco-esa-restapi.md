@@ -5,28 +5,45 @@ title: Cisco ESA Rest API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Contenu du pack
 
-## Contenu du Pack
+### Modèles
 
-### Objets supervisés
+Le connecteur de supervision **Cisco ESA Rest API** apporte un modèle d'hôte :
 
-Le Pack Cisco ESA collecte les données pour:
-* System
+* **Net-Cisco-Esa-Restapi-custom**
 
-### Métriques collectées
+Le connecteur apporte le modèle de service suivant
+(classé selon le modèle d'hôte auquel il est rattaché) :
+
+<Tabs groupId="sync">
+<TabItem value="Net-Cisco-Esa-Restapi-custom" label="Net-Cisco-Esa-Restapi-custom">
+
+| Alias  | Modèle de service                   | Description                        |
+|:-------|:------------------------------------|:-----------------------------------|
+| System | Net-Cisco-Esa-System-Restapi-custom | Contrôle l'utilisation du système  |
+
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Cisco-Esa-Restapi-custom** est utilisé.
+
+</TabItem>
+</Tabs>
+
+### Métriques & statuts collectés
+
+Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
 
 <Tabs groupId="sync">
 <TabItem value="System" label="System">
 
-| Metric name                                    | Description                      | Unit  |
-| :--------------------------------------------- | :------------------------------- | :---- |
-| system.cpu.utilization.percentage              | Cpu utilization                  | %     |
-| system.memory.usage.percentage                 | Memory usage                     | %     |
-| system.swap.usage.percentage                   | Swap usage                       | %     |
-| system.resource.conservation.current.count     | Current resource conservation    |       |
-| system.queue.messages.quarantine.current.count | Number of messages in quarantine |       |
-| system.queue.messages.workqueue.current.count  | Number of messages in workqueue  |       |
-| system.queue.utilization.percentage            | Queue utilization                |       |
+| Métrique                                                | Unité |
+|:--------------------------------------------------------|:------|
+| *system*~system.cpu.utilization.percentage              | %     |
+| *system*~system.memory.usage.percentage                 | %     |
+| *system*~system.swap.usage.percentage                   | %     |
+| *system*~system.resource.conservation.current.count     | count |
+| *system*~system.queue.messages.quarantine.current.count | count |
+| *system*~system.queue.messages.workqueue.current.count  | count |
+| *system*~system.queue.utilization.percentage            | %     |
 
 </TabItem>
 </Tabs>
@@ -35,99 +52,276 @@ Le Pack Cisco ESA collecte les données pour:
 
 Afin de contrôler votre équipement Cisco ESA, l'API Rest doit être configurée (cf: https://www.cisco.com/c/en/us/support/security/email-security-appliance/products-programming-reference-guides-list.html).
 
-## Installation
+## Installer le connecteur de supervision
+
+### Pack
+
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Installer le Plugin sur tous les Collecteurs Centreon :
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Network-Cisco-Esa-Restapi
+dnf install centreon-pack-network-cisco-esa-restapi
 ```
-
-2. Sur l'interface Web de Centreon, installer le Pack *Cisco ESA Rest API* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Installer le Plugin sur tous les Collecteurs Centreon :
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Network-Cisco-Esa-Restapi
+dnf install centreon-pack-network-cisco-esa-restapi
 ```
 
-2. Sur le serveur Central Centreon, installer le Pack via le RPM:
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-network-cisco-esa-restapi
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-network-cisco-esa-restapi
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack *Cisco ESA Rest API* depuis la page **Configuration > Gestionnaire de connecteurs de supervision**
+</TabItem>
+</Tabs>
+
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco ESA Rest API**
+depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+
+### Plugin
+
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
+
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Network-Cisco-Esa-Restapi
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Network-Cisco-Esa-Restapi
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-network-cisco-esa-restapi
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Network-Cisco-Esa-Restapi
+```
 
 </TabItem>
 </Tabs>
 
-## Configuration
+## Utiliser le connecteur de supervision
 
-Ce Pack est conçu de manière à avoir dans Centreon un hôte par équipement Cisco ESA.
-Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *Net-Cisco-Esa-Restapi-custom*. 
-Une fois celui-ci configuré, certaines macros doivent être renseignées:
+### Utiliser un modèle d'hôte issu du connecteur
 
-| Mandatory | Name            | Description                                                                |
-| :-------- | :-------------- | :------------------------------------------------------------------------- |
-| X         | APIPORT         | Port used (Default: 443)                                                   |
-| X         | APIPROTO        | Specify https if needed (Default: 'https')                                 |
-| X         | APIUSERNAME     | Api username                                                               |
-| X         | APIPASSWORD     | Api password                                                               |
-|           | APIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **Net-Cisco-Esa-Restapi-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-## Comment puis-je tester le Plugin et que signifient les options des commandes ?
+| Macro           | Description                                                                                          | Valeur par défaut | Obligatoire |
+|:----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| APIUSERNAME     | API username                                                                                         |                   | X           |
+| APIPASSWORD     | API password                                                                                         |                   | X           |
+| APIPROTO        | Specify https if needed (default: 'https')                                                           | https             |             |
+| APIPORT         | Port used (default: 443)                                                                             | 443               |             |
+| APIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande
-depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-engine*:
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
+
+### Utiliser un modèle de service issu du connecteur
+
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
+
+<Tabs groupId="sync">
+<TabItem value="System" label="System">
+
+| Macro                        | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:-----------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGCPUUTILIZATION        | Thresholds                                                                                         |                   |             |
+| CRITICALCPUUTILIZATION       | Thresholds                                                                                         |                   |             |
+| WARNINGMEMORY                | Thresholds                                                                                         |                   |             |
+| CRITICALMEMORY               | Thresholds                                                                                         |                   |             |
+| WARNINGMESSAGESQUARANTINE    | Thresholds                                                                                         |                   |             |
+| CRITICALMESSAGESQUARANTINE   | Thresholds                                                                                         |                   |             |
+| WARNINGMESSAGESWORKQUEUE     | Thresholds                                                                                         |                   |             |
+| CRITICALMESSAGESWORKQUEUE    | Thresholds                                                                                         |                   |             |
+| WARNINGQUEUEUTILIZATION      | Thresholds                                                                                         |                   |             |
+| CRITICALQUEUEUTILIZATION     | Thresholds                                                                                         |                   |             |
+| WARNINGRESOURCECONSERVATION  | Thresholds                                                                                         |                   |             |
+| CRITICALRESOURCECONSERVATION | Thresholds                                                                                         |                   |             |
+| WARNINGSWAP                  | Thresholds                                                                                         |                   |             |
+| CRITICALSWAP                 | Thresholds                                                                                         |                   |             |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+
+</TabItem>
+</Tabs>
+
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
+
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
+que le connecteur arrive bien à superviser une ressource en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_cisco_esa_restapi.pl \
-    --plugin=network::cisco::esa::restapi::plugin \
-    --mode=system \
-    --hostname='10.30.2.79' \
-    --port='443' \
-    --proto='https' \
-    --api-username='myapiusername' \
-    --api-password='myapipassword' \
-    --warning-cpu-utilization='90' \
-    --critical-cpu-utilization='95' \
-    --verbose
+	--plugin=network::cisco::esa::restapi::plugin \
+	--mode=system \
+	--hostname='10.0.0.1' \
+	--api-username='myapiusername' \
+	--api-password='myapipassword' \
+	--port='443' \
+	--proto='https'  \
+	--warning-cpu-utilization='' \
+	--critical-cpu-utilization='' \
+	--warning-queue-utilization='' \
+	--critical-queue-utilization='' \
+	--warning-messages-quarantine='' \
+	--critical-messages-quarantine='' \
+	--warning-messages-workqueue='' \
+	--critical-messages-workqueue='' \
+	--warning-memory='' \
+	--critical-memory='' \
+	--warning-swap='' \
+	--critical-swap='' \
+	--warning-resource-conservation='' \
+	--critical-resource-conservation='' \
+	--verbose
 ```
 
-La commande devrait retourner un message de sortie de la forme ci-dessous:
+La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: System is ok | 'system.cpu.utilization.percentage'=78%;0:90;0:95;0;100 'system.memory.usage.percentage'=5.00%;;;0;100 'system.swap.usage.percentage'=0.00%;;;0;100 'system.resource.conservation.current.count'=0;;;0; 'system.queue.messages.quarantine.current.count'=1;;;0; 'system.queue.messages.workqueue.current.count'=0;;;0; 'system.queue.utilization.percentage'=0.092%;;;0;100
-checking system
-    cpu utilization: 78.00%
-    memory usage: 5.00 %, swap usage: 0.00 %
-    current resource conservation: 0
-    messages in quarantine: 1, workqueue: 0
-    queue utilization: 0.09%
+OK: cpu utilization: 49% memory usage: 97 % swap usage: 78 % current resource conservation: 95 quarantine: 19 workqueue: 78 queue utilization: 80% | '*system*~system.cpu.utilization.percentage'=49%;;;0;100'*system*~system.memory.usage.percentage'=97%;;;0;100'*system*~system.swap.usage.percentage'=78%;;;0;100'*system*~system.resource.conservation.current.count'=95;;;0;'*system*~system.queue.messages.quarantine.current.count'=19;;;0;'*system*~system.queue.messages.workqueue.current.count'=78;;;0;'*system*~system.queue.utilization.percentage'=80%;;;0;100
 ```
 
-Cette commande contrôle les système (```--mode=system```).
+### Diagnostic des erreurs communes
 
-La commande utilise l'api-username (```--api-username='myapiusername'```), l'api-password (```--api-password='myapipassword'```)
-et elle se connecte à l'hôte _10.30.2.79_ (```--hostname='10.30.2.79'```) sur le port _443_ (```--port='443'```) utilisant le protocol _https_ (```--proto='https'```).
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+des plugins basés sur HTTP/API.
 
-Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peuvent être affichés
-en ajoutant le paramètre ```--help``` à la commande:
+### Modes disponibles
+
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution
+du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
+implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
+modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
+
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_cisco_esa_restapi.pl \
-    --plugin=network::cisco::esa::restapi::plugin \
-    --mode=system \
-    --help
+	--plugin=network::cisco::esa::restapi::plugin \
+	--list-mode
 ```
 
-## Diagnostique
+Le plugin apporte les modes suivants :
 
-[Diagnostique des plugins](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+| Mode                                                                                                                    | Modèle de service associé           |
+|:------------------------------------------------------------------------------------------------------------------------|:------------------------------------|
+| system [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/cisco/esa/restapi/mode/system.pm)] | Net-Cisco-Esa-System-Restapi-custom |
+
+### Options disponibles
+
+#### Options des modes
+
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
+
+<Tabs groupId="sync">
+<TabItem value="System" label="System">
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     | Define the mode in which you want the plugin to be executed (see--list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --custommode                               | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --list-custommode                          | List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --multiple                                 | Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale(Mbps),mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                                |
+| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-ignore-perfdata                   | Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-ignore-label                      | Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --output-file                              | Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.      Cisco AsyncOS API                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --hostname                                 | Set hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --port                                     | Port used (default: 443)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --proto                                    | Specify https if needed (default: 'https')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --api-username                             | API username.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --api-password                             | API password.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --timeout                                  | Set timeout in seconds (default: 50).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --http-peer-addr                           | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --proxyurl                                 | Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --proxypac                                 | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --insecure                                 | Accept insecure SSL connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --http-backend                             | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --ssl-opt                                  | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --curl-opt                                 | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --filter-counters                          | Only display some counters (regexp can be used). Example: --filter-counters='memory'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --warning-* --critical-*                   | Thresholds. Can be: 'resource-conservation', 'cpu-utilization' (%), 'messages-quarantine', 'messages-workqueue', 'queue-utilization' (%), 'memory' (%), 'swap' (%).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+
+</TabItem>
+</Tabs>
+
+Pour un mode, la liste de toutes les options disponibles et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
+
+```bash
+/usr/lib/centreon/plugins/centreon_cisco_esa_restapi.pl \
+	--plugin=network::cisco::esa::restapi::plugin \
+	--mode=system \
+	--help
+```
