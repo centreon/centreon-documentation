@@ -133,7 +133,18 @@ const config = {
     ],
   ],
 
-  themes: [],
+  themes: [
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      ({
+        hashed: true,
+        indexBlog: false,
+        explicitSearchResultPath: true,
+        searchContextByPaths: ["docs", "cloud", "pp"],
+        language: ["en", "fr"],
+      }),
+    ],
+  ],
 
   plugins: (() => {
     let plugins = [
@@ -150,19 +161,6 @@ const config = {
       ],
       'plugin-image-zoom',
     ];
-
-    if (archivedVersion) {
-      plugins = [
-        ...plugins,
-        [
-          require.resolve("@cmfcmf/docusaurus-search-local"),
-          {
-            indexBlog: false,
-            language: ["en", "fr"],
-          },
-        ],
-      ];
-    }
 
     if (cloud) {
       plugins = [
@@ -208,15 +206,6 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      algolia: archivedVersion
-        ? undefined
-        : {
-          appId: '3WEC6XPLDB',
-          apiKey: 'be499306058f3e54012bab278e6e6d86',
-          indexName: 'centreon',
-          contextualSearch: true,
-        },
-
       zoomSelector: '.markdown :not(.authority-availability) > img',
 
       prism: {

@@ -176,7 +176,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6 # v4.0.4
         with:
-          node-version: 20
+          node-version: 18
           cache: yarn
 
       - name: Install dependencies
