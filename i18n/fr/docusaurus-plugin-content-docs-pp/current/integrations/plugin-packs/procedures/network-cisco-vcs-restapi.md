@@ -21,10 +21,10 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias            | Modèle de service                             | Description                                                                     |
 |:-----------------|:----------------------------------------------|:--------------------------------------------------------------------------------|
-| Alerts           | Net-Cisco-Vcs-Alerts-Restapi-custom           | Contrôle les alerts                                                             |
-| Calls            | Net-Cisco-Vcs-Calls-Restapi-custom            | Contrôle le nombre d'appel et le statut des appels passés                       |
+| Alerts           | Net-Cisco-Vcs-Alerts-Restapi-custom           | Contrôle les alertes                                                             |
+| Calls            | Net-Cisco-Vcs-Calls-Restapi-custom            | Contrôle le nombre d'appels et le statut des appels passés                       |
 | Http-Proxy-Stats | Net-Cisco-Vcs-Http-Proxy-Stats-Restapi-custom | Contrôle le statut et les statistiques du proxy HTTP                            |
-| Zones            | Net-Cisco-Vcs-Zones-Restapi-custom            | Contrôle l'état des zones, le nombre d'appel par zone et le nombre de recherche |
+| Zones            | Net-Cisco-Vcs-Zones-Restapi-custom            | Contrôle l'état des zones, le nombre d'appels par zone et le nombre de recherches |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Cisco-Vcs-Restapi-custom** est utilisé.
 
@@ -86,7 +86,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-Afin de contrôler votre équipement Cisco VCS, l'API Rest doit être configurée (vous devez disposer d'un couple username/password notamment).
+Afin de contrôler votre équipement Cisco VCS, l'API Rest doit être configurée (vous devez disposer d'un couple identifiant/mot de passe pour vous authentifier).
 Pour plus d'information voir la [documentation de l'API Rest](https://www.cisco.com/c/en/us/support/unified-communications/telepresence-video-communication-server-vcs/products-installation-and-configuration-guides-list.html)
 
 ## Installer le connecteur de supervision

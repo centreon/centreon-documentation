@@ -23,7 +23,7 @@ The connector brings the following service templates (sorted by the host templat
 | Alerts           | Net-Cisco-Vcs-Alerts-Restapi-custom           | Check alerts                                                |
 | Calls            | Net-Cisco-Vcs-Calls-Restapi-custom            | Check calls                                                 |
 | Http-Proxy-Stats | Net-Cisco-Vcs-Http-Proxy-Stats-Restapi-custom | Check HTTP proxy status and statistics                      |
-| Zones            | Net-Cisco-Vcs-Zones-Restapi-custom            | Check zones status, calls count by zones and searches count |
+| Zones            | Net-Cisco-Vcs-Zones-Restapi-custom            | Check zone status, call count by zones and search count |
 
 > The services listed above are created automatically when the **Net-Cisco-Vcs-Restapi-custom** host template is used.
 
@@ -85,8 +85,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-To control your Cisco VCS, the Rest API must be configured (you must have a username/password pair in particular).
-For more informations see the [Rest API documentation](https://www.cisco.com/c/en/us/support/unified-communications/telepresence-video-communication-server-vcs/products-installation-and-configuration-guides-list.html)
+To monitor your Cisco VCS, the Rest API must be configured (you must have a username/password pair to authenticate to it).
+For more information see the [Rest API documentation](https://www.cisco.com/c/en/us/support/unified-communications/telepresence-video-communication-server-vcs/products-installation-and-configuration-guides-list.html)
 
 ## Installing the monitoring connector
 
