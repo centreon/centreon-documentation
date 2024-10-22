@@ -58,7 +58,7 @@ More information about discovering hosts automatically is available on the [dedi
 | Rule name                    | Description                                                   |
 |:-----------------------------|:--------------------------------------------------------------|
 | Net-A10-Ax-SNMP-Traffic-Name | Discover network interfaces and monitor bandwidth utilization |
-| Net-A10-Ax-SNMP-Vservers     | Discover virtual server and monitor usage                     |
+| Net-A10-Ax-SNMP-Vservers     | Discover virtual servers and monitor usage                     |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
