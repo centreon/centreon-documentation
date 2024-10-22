@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 > Follow these steps if you want to upgrade to version 24.10:
   - [Migrate](./import-into-map-web.md) to the available version of MAP.
   - [Upgrade](./map-web-upgrade.md) MAP.
-  - [Uninstall](../../version-24.10/graph-views/map-legacy-eol.md) MAP Legacy.
+  - Follow the "How to fully uninstall MAP Legacy" procedure in the 24.10 documentation.
 
 This chapter describes how to upgrade your Centreon MAP (Legacy) extension. This
 is done by upgrading the four main components:
