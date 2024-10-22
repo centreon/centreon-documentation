@@ -21,15 +21,6 @@ The Centreon Monitoring Agent is in Beta Phase. The following limitations need t
 The CMA can be installed on and monitor the following OSs:
 
 <Tabs groupId="sync">
-<TabItem value="Windows" label="Windows">
-
-* Windows 10
-* Windows 11
-* Windows Server 2016
-* Windows Server 2019
-* Windows Server 2022
-
-</TabItem>
 <TabItem value="Linux" label="Linux">
 
 * Alma 8
@@ -37,6 +28,15 @@ The CMA can be installed on and monitor the following OSs:
 * Debian 11
 * Debian 12
 * Ubuntu 22.04 LTS
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+* Windows 10
+* Windows 11
+* Windows Server 2016
+* Windows Server 2019
+* Windows Server 2022
 
 </TabItem>
 </Tabs>
@@ -49,13 +49,13 @@ The CMA can be installed on and monitor the following OSs:
 <TabItem value="Linux" label="Linux">
 
 1. On your central server, go to **Configuration > Monitoring Connector Manager**.
-2. [Install](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) the "Windows Centreon Monitoring Agent" monitoring connector.
+2. [Install](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) the [**Linux Centreon Monitoring Agent**](../../procedures/operatingsystems-linux-centreon-monitoring-agent.md) monitoring connector.
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
 1. On your central server, go to **Configuration > Monitoring Connector Manager**.
-2. [Install](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) the "Linux Centreon Monitoring Agent" monitoring connector.
+2. [Install](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) the [**Windows Centreon Monitoring Agent**](../../procedures/operatingsystems-windows-centreon-monitoring-agent.md) monitoring connector.
 
 </TabItem>
 </Tabs>

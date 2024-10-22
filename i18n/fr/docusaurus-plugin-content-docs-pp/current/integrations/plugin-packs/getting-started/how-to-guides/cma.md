@@ -22,15 +22,6 @@ L'Agent de supervision Centreon est en phase Beta. Les limitations suivantes s'a
 L'agent peut être installé sur et superviser les OS suivants :
 
 <Tabs groupId="sync">
-<TabItem value="Windows" label="Windows">
-
-* Windows 10
-* Windows 11
-* Windows Server 2016
-* Windows Server 2019
-* Windows Server 2022
-
-</TabItem>
 <TabItem value="Linux" label="Linux">
 
 * Alma 8
@@ -38,6 +29,15 @@ L'agent peut être installé sur et superviser les OS suivants :
 * Debian 11
 * Debian 12
 * Ubuntu 22.04 LTS
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+* Windows 10
+* Windows 11
+* Windows Server 2016
+* Windows Server 2019
+* Windows Server 2022
 
 </TabItem>
 </Tabs>
@@ -50,13 +50,13 @@ L'agent peut être installé sur et superviser les OS suivants :
 <TabItem value="Linux" label="Linux">
 
 1. Sur votre serveur central, allez à la page **Configuration > Gestionnaire de connecteurs de supervision**.
-2. [Installez](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) le connecteur de supervision "Windows Centreon Monitoring Agent".
+2. [Installez](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) le connecteur de supervision [**Linux Centreon Monitoring Agent**](../../procedures/operatingsystems-linux-centreon-monitoring-agent.md).
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
 1. Sur votre serveur central, allez à la page **Configuration > Gestionnaire de connecteurs de supervision**.
-2. [Installez](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) le connecteur de supervision "Linux Centreon Monitoring Agent".
+2. [Installez](/docs/monitoring/pluginpacks/#installing-a-monitoring-connector) le connecteur de supervision [**Windows Centreon Monitoring Agent**](../../procedures/operatingsystems-windows-centreon-monitoring-agent.md).
 
 </TabItem>
 </Tabs>
@@ -73,7 +73,7 @@ Sur votre serveur central :
 | Nom du connecteur         | Centreon Monitoring Agent                                                                                                                                                                     |
 | Description du connecteur | Centreon Monitoring Agent                                                                                                                                                                     |
 | Ligne de commande         | `opentelemetry --processor=centreon_agent --extractor=attributes --host_path=resource_metrics.resource.attributes.host.name --service_path=resource_metrics.resource.attributes.service.name` |
-| Utilisé par la commande   | Entrez `Centreon Monitoring Agent` et cliquez sur **Sélectionner tout**                                                                                                                       |
+| Utilisé par la commande   | Entrez `Centreon-Monitoring-Agent` et cliquez sur **Sélectionner tout**                                                                                                                       |
 | Statut du connecteur      | Activé                                                                                                                                                                                        |
 
 ### Configurez Engine
