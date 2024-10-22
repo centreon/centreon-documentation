@@ -6,6 +6,13 @@ title: Montée de version de l'extension
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> **À partir de Centreon 24.10, MAP Legacy ne sera plus disponible.** Si vous utilisez encore MAP Legacy, vous devrez migrer vers la version disponible de MAP. Voir les [étapes à suivre concernant MAP Legacy](https://docs.centreon.com/fr/docs/graph-views/map-legacy-eol/) après la migration.
+> 
+> Suivez ces étapes si vous souhaitez faire une montée de version vers 24.10 :
+  - [Migrer](./import-into-map-web.md) vers la version disponible de MAP.
+  - [Mettre à jour](./map-web-upgrade.md) MAP.
+  - [Désinstaller](https://docs.centreon.com/fr/docs/graph-views/map-legacy-eol/) MAP Legacy.
+
 Ce chapitre décrit comment monter de version votre extension Centreon MAP. Pour ce faire, vous devez mettre à niveau les quatre principaux composants :
 
 - le serveur Centreon MAP
