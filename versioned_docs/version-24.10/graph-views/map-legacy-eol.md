@@ -2,6 +2,8 @@
 id: map-legacy-eol
 title: MAP Legacy end of life
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 > **MAP Legacy is no longer available from version 24.10, you have to use MAP.**
 
@@ -21,9 +23,29 @@ Ensure you are using the [correct version of MAP](../graph-views/introduction-ma
 
 Remove the **centreon-map-server** package from the server where MAP Legacy was installed:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ```shell
---> command for centreon-map-server deletion
+dnf remove centreon-map-server
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf remove centreon-map-server
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+apt remove centreon-map-server
+```
+
+</TabItem>
+</Tabs>
 
 ### Optional procedures
 
@@ -32,7 +54,7 @@ Remove the **centreon-map-server** package from the server where MAP Legacy was 
 - Remove the legacy configuration files from the server where MAP Legacy was installed:
   
   ```shell
-  --> command for /etc/centreon-studio/ deletion
+  rm -rf /etc/centreon-studio
   ```
 
 - Remove the legacy log files:
@@ -40,7 +62,7 @@ Remove the **centreon-map-server** package from the server where MAP Legacy was 
   > You can check the path with this command `/etc/centreon/studio/centreon-map.log`
 
   ```shell
-  --> command for /var/log/centreon-map/centreon-map.log
+  rm centreon-map.log
   ```
 
 - Remove the database that was used by MAP Legacy:
@@ -48,6 +70,6 @@ Remove the **centreon-map-server** package from the server where MAP Legacy was 
   > You can check the service and the database with this command `/etc/centreon/studio/studio-database.properties`
 
   ```shell
-  --> command for /var/log/centreon-map/centreon-map.log
+  DROP DATABASE centreon_studio;
   ```
  
