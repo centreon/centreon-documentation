@@ -1,5 +1,5 @@
 ---
-id: sc-opsgenie
+id: sc-opsgenie-events
 title: Opsgenie Events
 ---
 import Tabs from '@theme/Tabs';
