@@ -17,7 +17,7 @@ As MAP Legacy is no longer delivered, you must uninstall it completely following
 
 > MAP Legacy must be uninstalled after you have migrated to MAP.
 
-Ensure you are using the [correct version of MAP](../graph-views/introduction-map.md). Use the [migration to Centreon MAP](../graph-views/import-into-map-web.md) procedure if needed.
+Ensure you are using the [correct version of MAP](https://docs.centreon.com/docs/graph-views/introduction-map/). Use the [migration to Centreon MAP](https://docs.centreon.com/docs/graph-views/import-into-map-web/) procedure if needed.
 
 ### Remove the legacy package
 
