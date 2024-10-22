@@ -32,10 +32,10 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                      | Modèle de service                                 | Description                                                                                          |
 |:---------------------------|:--------------------------------------------------|:-----------------------------------------------------------------------------------------------------|
-| Packet-Errors-Generic-Id   | Net-Arista-Packet-Errors-Generic-Id-SNMP-custom   | Contrôle le pourcentage de paquets en erreur/écarté d'une interface réseau                           |
-| Packet-Errors-Generic-Name | Net-Arista-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écarté d'une interface réseau                           |
-| Packet-Errors-Global       | Net-Arista-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écarté de plusieurs interfaces réseau                   |
-| Tcpcon-Generic             | Net-Arista-Tcpcon-Generic-SNMP-custom             | Contrôle permettant de vérifier les connexions tcp                                                   |
+| Packet-Errors-Generic-Id   | Net-Arista-Packet-Errors-Generic-Id-SNMP-custom   | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau                           |
+| Packet-Errors-Generic-Name | Net-Arista-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau                           |
+| Packet-Errors-Global       | Net-Arista-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau                   |
+| Tcpcon-Generic             | Net-Arista-Tcpcon-Generic-SNMP-custom             | Contrôle permettant de vérifier les connexions TCP                                                   |
 | Traffic-Generic-Id         | Net-Arista-Traffic-Generic-Id-SNMP-custom         | Contrôle de la bande passante de l'interface. Pour chaque contrôle apparaîtra le nom de l'interface  |
 | Traffic-Generic-Name       | Net-Arista-Traffic-Generic-Name-SNMP-custom       | Contrôle de la bande passante de l'interface. Pour chaque contrôle apparaîtra le nom de l'interface  |
 | Traffic-Global             | Net-Arista-Traffic-Global-SNMP-custom             | Contrôle de la bande passante des interfaces. Pour chaque contrôle apparaîtra le nom de l'interface  |
@@ -426,7 +426,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All interfaces are ok | *interface_name*#interface.traffic.in.bitspersecond'=4212b/s;;;;' *interface_name*#interface.traffic.out.bitspersecond'=1242b/s;;;;
+OK: All interfaces are ok | *interface_name*#interface.traffic.in.bitspersecond'=4212b/s;80;90;;' *interface_name*#interface.traffic.out.bitspersecond'=1242b/s;80;90;;
 ```
 
 ### Diagnostic des erreurs communes

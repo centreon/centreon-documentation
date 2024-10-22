@@ -20,8 +20,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template               | Service Description                                                                                                                                  |
 |:--------------|:-------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu           | Net-Arista-Cpu-SNMP-custom     | Check the rate of utilization of CPU for the equipment. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |
-| Memory        | Net-Arista-Memory-SNMP-custom  | Check the rate of the utilization of memory                                                                                                          |
+| Cpu           | Net-Arista-Cpu-SNMP-custom     | Check the rate of utilization of the CPU for the resource. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |
+| Memory        | Net-Arista-Memory-SNMP-custom  | Check the rate of the utilization of the memory                                                                                                          |
 | Sensors       | Net-Arista-Sensors-SNMP-custom | Check sensors                                                                                                                                        |
 
 > The services listed above are created automatically when the **Net-Arista-SNMP-custom** host template is used.
@@ -31,13 +31,13 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias              | Service Template                                  | Service Description                                                                          |
 |:---------------------------|:--------------------------------------------------|:---------------------------------------------------------------------------------------------|
-| Packet-Errors-Generic-Id   | Net-Arista-Packet-Errors-Generic-Id-SNMP-custom   | Check packets on errors/discards of a network interface                                      |
-| Packet-Errors-Generic-Name | Net-Arista-Packet-Errors-Generic-Name-SNMP-custom | Check packets on errors/discards of a network interface                                      |
-| Packet-Errors-Global       | Net-Arista-Packet-Errors-Global-SNMP-custom       | Check packets on errors/discards of multiple network interfaces                              |
-| Tcpcon-Generic             | Net-Arista-Tcpcon-Generic-SNMP-custom             | Check current tcp connections                                                                |
-| Traffic-Generic-Id         | Net-Arista-Traffic-Generic-Id-SNMP-custom         | Check the bandwidth of the interface. For each checks the name of the interface will appear  |
-| Traffic-Generic-Name       | Net-Arista-Traffic-Generic-Name-SNMP-custom       | Check the bandwidth of the interface. For each checks the name of the interface will appear  |
-| Traffic-Global             | Net-Arista-Traffic-Global-SNMP-custom             | Check the bandwidth of interfaces. For each checks the name of the interface will appear     |
+| Packet-Errors-Generic-Id   | Net-Arista-Packet-Errors-Generic-Id-SNMP-custom   | Check packets in error/discarded from a network interface                                      |
+| Packet-Errors-Generic-Name | Net-Arista-Packet-Errors-Generic-Name-SNMP-custom | Check packets in error/discarded from a network interface                                     |
+| Packet-Errors-Global       | Net-Arista-Packet-Errors-Global-SNMP-custom       | Check packets in error/discarded from multiple network interfaces                              |
+| Tcpcon-Generic             | Net-Arista-Tcpcon-Generic-SNMP-custom             | Check current TCP connections                                                                |
+| Traffic-Generic-Id         | Net-Arista-Traffic-Generic-Id-SNMP-custom         | Check the bandwidth of the interface. For each check the name of the interface will appear  |
+| Traffic-Generic-Name       | Net-Arista-Traffic-Generic-Name-SNMP-custom       | Check the bandwidth of the interface. For each check the name of the interface will appear  |
+| Traffic-Global             | Net-Arista-Traffic-Global-SNMP-custom             | Check the bandwidth of interfaces. For each check the name of the interface will appear     |
 | Uptime                     | Net-Arista-Uptime-SNMP-custom                     | Time since the equipment has been working and available                                      |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
@@ -425,7 +425,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All interfaces are ok | *interface_name*#interface.traffic.in.bitspersecond'=4212b/s;;;;' *interface_name*#interface.traffic.out.bitspersecond'=1242b/s;;;;
+OK: All interfaces are ok | *interface_name*#interface.traffic.in.bitspersecond'=4212b/s;80;90;;' *interface_name*#interface.traffic.out.bitspersecond'=1242b/s;80;90;;
 ```
 
 ### Troubleshooting
