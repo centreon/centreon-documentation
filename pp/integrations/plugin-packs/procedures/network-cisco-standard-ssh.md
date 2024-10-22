@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                  | Service Description                                                                                           |
 |:--------------|:----------------------------------|:--------------------------------------------------------------------------------------------------------------|
-| Cpu           | Net-Cisco-Standard-Cpu-SSH-custom | Check the rate of utilization of CPU for the machine. This check can give the average utilization rate of CPU |
+| Cpu           | Net-Cisco-Standard-Cpu-SSH-custom | Check the utilization rate of the CPU for the machine. This check can give the average utilization rate of the CPU |
 
 > The services listed above are created automatically when the **Net-Cisco-Standard-SSH-custom** host template is used.
 
@@ -67,8 +67,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 A user is required to query the resource by SSH. There is no need for root or sudo
 privileges. There are two possible ways to log in through SSH, either by
-exchanging the SSH key from **centreon-engine** user to the target resource, or by
-setting your unique user and password directly in the host macros.
+exchanging the SSH key from the **centreon-engine** user to the target resource, or by
+setting your unique username and password directly in the host macros.
 
 ## Installing the monitoring connector
 
