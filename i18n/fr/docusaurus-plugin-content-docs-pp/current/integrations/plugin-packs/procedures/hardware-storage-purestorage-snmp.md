@@ -63,7 +63,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Afin de superviser votre **Pure Storage** en SNMP, il est nécessaire de configurer l'agent sur l'équipement.
+Afin de superviser votre **Pure Storage** en SNMP, il est nécessaire de configurer l'agent sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
 
 ### Flux réseau
 

@@ -62,7 +62,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your **Pure Storage** equipment.
+To use this pack, the SNMP service must be properly configured on your **Pure Storage** equipment. Please refer to the official documentation from the manufacturer/publisher.
 
 ### Network flow
 
