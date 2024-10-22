@@ -216,12 +216,12 @@ yum install centreon-plugin-Hardware-Storage-Wd-Nas-Snmp
 
 | Macro                     | Description                                                                                                                                       | Valeur par défaut | Obligatoire |
 |:--------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGDRIVETEMPERATURE   | Thresholds                                                                                                                                        |                   |             |
-| CRITICALDRIVETEMPERATURE  | Thresholds                                                                                                                                        |                   |             |
+| WARNINGDRIVETEMPERATURE   | Warning threshold for 'drive-temperature'                                                                                                        |                   |             |
+| CRITICALDRIVETEMPERATURE  | Critical threshold for 'drive-temperature'                                                                                                       |                   |             |
 | WARNINGFANSTATUS          | Define the conditions to match for the status to be WARNING (default : '%{status} ne "running"'). You can use the following variables: %{status}  |                   |             |
 | CRITICALFANSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}                                      |                   |             |
-| WARNINGSYSTEMTEMPERATURE  | Thresholds                                                                                                                                        |                   |             |
-| CRITICALSYSTEMTEMPERATURE | Thresholds                                                                                                                                        |                   |             |
+| WARNINGSYSTEMTEMPERATURE  | Warning threshold for 'system-temperature'                                                                                                       |                   |             |
+| CRITICALSYSTEMTEMPERATURE | Critical threshold for 'system-temperature'                                                                                                      |                   |             |
 | EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).  | --verbose         |             |
 
 </TabItem>
@@ -230,12 +230,12 @@ yum install centreon-plugin-Hardware-Storage-Wd-Nas-Snmp
 | Macro                  | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTERNAME             | Filter volumes by name (can be a regexp)                                                                                                         |                   |             |
-| WARNINGSPACEUSAGE      | Thresholds                                                                                                                                       |                   |             |
-| CRITICALSPACEUSAGE     | Thresholds                                                                                                                                       |                   |             |
-| WARNINGSPACEUSAGEFREE  | Thresholds                                                                                                                                       |                   |             |
-| CRITICALSPACEUSAGEFREE | Thresholds                                                                                                                                       |                   |             |
-| WARNINGSPACEUSAGEPRCT  | Thresholds                                                                                                                                       |                   |             |
-| CRITICALSPACEUSAGEPRCT | Thresholds                                                                                                                                       |                   |             |
+| WARNINGSPACEUSAGE      | Warning threshold for 'space-usage'                                                                                                    |                   |             |
+| CRITICALSPACEUSAGE     | Critical threshold for 'space-usage'                                                                                                   |                   |             |
+| WARNINGSPACEUSAGEFREE  | Warning threshold for 'space-usage-free'                                                                                               |                   |             |
+| CRITICALSPACEUSAGEFREE | Critical threshold for 'space-usage-free'                                                                                              |                   |             |
+| WARNINGSPACEUSAGEPRCT  | Warning threshold for 'space-usage-prct'                                                                                               |                   |             |
+| CRITICALSPACEUSAGEPRCT | Critical threshold for 'space-usage-prct'                                                                                              |                   |             |
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
