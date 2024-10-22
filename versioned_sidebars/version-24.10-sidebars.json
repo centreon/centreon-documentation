@@ -717,6 +717,10 @@
             },
             {
               "type": "doc",
+              "id": "version-24.10/graph-views/map-legacy-eol"
+            },
+            {
+              "type": "doc",
               "id": "version-24.10/graph-views/map-web-install"
             },
             {
@@ -730,6 +734,10 @@
             {
               "type": "doc",
               "id": "version-24.10/graph-views/map-web-upgrade"
+            },
+            {
+              "type": "doc",
+              "id": "version-24.10/graph-views/import-into-map-web"
             },
             {
               "type": "doc",
@@ -1331,10 +1339,6 @@
         {
           "type": "doc",
           "id": "version-24.10/api/map-api"
-        },
-        {
-          "type": "doc",
-          "id": "version-24.10/api/graph-views-api"
         },
         {
           "type": "doc",
