@@ -139,6 +139,7 @@ const config = {
       ({
         hashed: true,
         indexBlog: false,
+        explicitSearchResultPath: true,
         language: ["en", "fr"],
       }),
     ],
