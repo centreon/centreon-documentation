@@ -32,7 +32,7 @@ The connector brings the following service templates (sorted by the host templat
 |:---------------|:------------------------------------------|:----------------------------------------|:----------:|
 | Codec          | Net-Acmepacket-Codec-SNMP-custom          | Check codec transcoding                 |            |
 | Interfaces     | Net-Acmepacket-Interfaces-SNMP-custom     | Check interfaces                        | X          |
-| Policy-Servers | Net-Acmepacket-Policy-Servers-SNMP-custom | Check external policy servers statitics | X          |
+| Policy-Servers | Net-Acmepacket-Policy-Servers-SNMP-custom | Check external policy server statistics | X          |
 | Realm-Usage    | Net-Acmepacket-Realm-Usage-SNMP-custom    | Check realm usage                       | X          |
 | Security       | Net-Acmepacket-Security-SNMP-custom       | Check security statistics               |            |
 | Sip-Usage      | Net-Acmepacket-Sip-Usage-SNMP-custom      | Check SIP usage                         | X          |
@@ -187,7 +187,13 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-To control your Acme Packet, the SNMP must be configured.
+### SNMP Configuration
+
+The SNMP agent must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
+
+### Network flow
+
+The target resource must be reachable from the Centreon poller on the UDP/161 SNMP port.
 
 ## Installing the monitoring connector
 

@@ -59,10 +59,10 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                        | Description                                                             |
 |:---------------------------------------|:------------------------------------------------------------------------|
-| Net-Acmepacket-SNMP-Interface-Name     | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
+| Net-Acmepacket-SNMP-Interface-Name     | Découvre les interfaces réseau et en supervise le statut et l'utilisation |
 | Net-Acmepacket-SNMP-Policy-Server-Name | Découvre les policy servers externes et supervise leurs statistiques    |
-| Net-Acmepacket-SNMP-Realm-Name         | Découvre les Realms et supervise l'utilisation                          |
-| Net-Acmepacket-SNMP-Sip-Name           | Découvre les interfaces Sip et supervise le statut et l'utilisation     |
+| Net-Acmepacket-SNMP-Realm-Name         | Découvre les Realms et en supervise l'utilisation                          |
+| Net-Acmepacket-SNMP-Sip-Name           | Découvre les interfaces Sip et en supervise le statut et l'utilisation     |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -188,7 +188,13 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-Afin de contrôler votre équipement Acme Packet, le SNMP doit être configuré. 
+### Configuration SNMP
+
+L'agent SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+
+### Flux réseau
+
+La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers le serveur supervisé.
 
 ## Installer le connecteur de supervision
 
