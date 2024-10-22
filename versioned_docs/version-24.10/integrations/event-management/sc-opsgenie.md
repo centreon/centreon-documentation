@@ -233,7 +233,7 @@ If you want to test that events are sent to Opsgenie correctly:
 curl -X POST -H 'content-type: application/json' -H 'Authorization: GenieKey <app_api_token>' 'https://api.opsgenie.com/v2/alerts' -d '{"description":"Output returned from plugin","message":"2024-10-21 11:46:37 Host-Name // Service-Name is WARNING","alias":"Host-Name_Service-Name_WARNING"}'
 ```
 
-> Replace all the <xxxx> inside the above command with the appropriate value.
+> Replace all the ** \<xxxx\>** inside the above command with the appropriate value.
 
 
 3. Check that the data has been received by Opsgenie.
