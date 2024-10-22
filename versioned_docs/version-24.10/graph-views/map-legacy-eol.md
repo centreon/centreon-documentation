@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 > **MAP Legacy is no longer available from version 24.10, you have to use MAP.**
 
+This topic describes the steps to follow regarding MAP Legacy once you have migrated to the available version of MAP.
+
 ## How to fully uninstall MAP Legacy
 
 As MAP Legacy is no longer delivered, you must uninstall it completely following the instructions below.
