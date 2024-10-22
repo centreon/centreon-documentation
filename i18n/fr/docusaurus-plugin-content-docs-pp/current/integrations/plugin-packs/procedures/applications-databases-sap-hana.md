@@ -382,7 +382,7 @@ OK: All data volumes are ok | '*volume*#volume.usage.bytes'=12B;;;;
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+Rendez-vous sur la [documentation dédiée](https://docs.centreon.com/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins)
 pour le diagnostic des erreurs communes des plugins Centreon.
 
 ### Modes disponibles

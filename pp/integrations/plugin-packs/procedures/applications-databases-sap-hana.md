@@ -381,7 +381,7 @@ OK: All data volumes are ok | '*volume*#volume.usage.bytes'=12B;;;;
 
 ### Troubleshooting
 
-Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
+Please find the [troubleshooting documentation](https://docs.centreon.com/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins)
 for Centreon Plugins typical issues.
 
 ### Available modes
