@@ -93,13 +93,13 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-### Adva FSP 150 device configuration 
+### SNMP Configuration
 
-To use this Monitoring Connector, the SNMP service must be properly configured on your device.
+The SNMP agent must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
 
 ### Network flow
 
-Your Centreon poller must be able to reach the SNMP port (UDP/161) of the Adva device.
+The target resource must be reachable from the Centreon poller on the UDP/161 SNMP port.
 
 ## Installing the monitoring connector
 
