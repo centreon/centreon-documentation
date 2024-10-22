@@ -22,9 +22,9 @@ Le connecteur apporte les modèles de service suivants
 | Alias            | Modèle de service                               | Description                                                                                                                       |
 |:-----------------|:------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------|
 | Appliance-Status | Net-Cisco-Umbrella-Appliance-Status-SNMP-custom | Contrôle le statut de l'appliance virtuelle                                                                                       |
-| Connectivity     | Net-Cisco-Umbrella-Connectivity-SNMP-custom     | Contrôle le statut de la connexion entre l'appliance virtuelle Umbrella et les serveurs DNS, le DNS local, le dashboard Umbrella  |
+| Connectivity     | Net-Cisco-Umbrella-Connectivity-SNMP-custom     | Contrôle le statut de la connexion entre l'appliance virtuelle Umbrella et les serveurs DNS, le DNS local, et le dashboard Umbrella  |
 | Cpu              | Net-Cisco-Umbrella-Cpu-SNMP-custom              | Contrôle le taux d'utilisation du CPU                                                                                             |
-| Load-Average     | Net-Cisco-Umbrella-Load-Average-SNMP-custom     | Contrôle le Load sur 5m et 15m                                                                                                    |
+| Load-Average     | Net-Cisco-Umbrella-Load-Average-SNMP-custom     | Contrôle le load sur 5m et 15m                                                                                                    |
 | Memory           | Net-Cisco-Umbrella-Memory-SNMP-custom           | Contrôle du taux d'utilisation mémoire                                                                                            |
 | Query            | Net-Cisco-Umbrella-Query-SNMP-custom            | Contrôle le nombre de requêtes DNS par seconde durant les dernières 5 et 15 minutes                                               |
 | Storage-Usage    | Net-Cisco-Umbrella-Storage-SNMP-custom          | Contrôle permettant de vérifier l'utilisation de l'espace disque                                                                  |
@@ -64,6 +64,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 |:------------------------------|:------|
 | DNS connectivity status       | N/A   |
 | Local DNS connectivity status | N/A   |
+| Umbrella dashboard (cloud) connectivity status | N/A |
+| AD connectors connectivity status              | N/A |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
