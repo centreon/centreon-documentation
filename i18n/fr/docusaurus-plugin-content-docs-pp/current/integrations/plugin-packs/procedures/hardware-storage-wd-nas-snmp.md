@@ -271,7 +271,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: volume 'Volume_1' space usage total: 7.20 TB used: 5.30 TB (73.61%) free: 1.90 TB (26.39%) | 'Volume_1#volume.space.usage.bytes'=5827411627212B;;;0;7916483719987.2 'Volume_1#volume.space.free.bytes'=2089072092774B;;;0;7916483719987.2 'Volume_1#volume.space.usage.percentage'=73.61%;;;0;100
+OK: volume 'Volume_1' space usage total: 7.20 TB used: 5.60 TB (77.78%) free: 1.60 TB (22.22%) | 'Volume_1#volume.space.usage.bytes'=6157265115545B;;;0;7916483719987.2 'Volume_1#volume.space.free.bytes'=1759218604441B;;;0;7916483719987.2 'Volume_1#volume.space.usage.percentage'=77.78%;;;0;100
 ```
 
 ### Diagnostic des erreurs communes
