@@ -53,7 +53,7 @@ La troisième phase d'une version commence lorsque la deuxième version majeure 
 
 Le schéma suivant présente le cycle de vie des produits Centreon à partir de la version 24.10 :
 
-*[ajouter nouveau schema]*
+![image](../assets/releases/lifecycle-24.10.png)
 
 ## Tableau de maintenance des versions
 

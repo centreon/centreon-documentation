@@ -54,7 +54,7 @@ The third phase of a version begins when the second next major version is availa
 
 This diagram outlines the Centreon version lifecycle policy from version 24.10:
 
-*[Add new lifecycle diagram]*
+![image](../assets/releases/lifecycle-from-24.10.png)
 
 ## Maintenance table for Centreon versions
 
