@@ -156,6 +156,7 @@ Le menu d'action à trois points situé à la fin de la ligne de la liste de dif
 | Widget                   | Description                                                                                                                                                                                                                                                                                                    |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Diagramme d'activité métier           | Affiche graphiquement et permet la navigation dans la hiérarchie d'une activité métier.   |
+| Horloge/Minuteur           | Affiche l'heure en fonction du fuseau horaire sélectionné, ou un minuteur.   |
 | Texte générique           | Permet d'ajouter du texte libre à vos tableaux de bord (titres de sections, informations, etc.).   |
 | Group monitoring	|  Affiche la répartition des statuts actuels pour les groupes de ressources sélectionnés, sous forme de tableau.   |
 | MAP - Afficher une vue           |  Permet de sélectionner et de visualiser une carte créée à partir du module MAP.  |

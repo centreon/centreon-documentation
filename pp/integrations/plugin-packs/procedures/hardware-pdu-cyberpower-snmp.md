@@ -37,7 +37,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name       | Description                                                                                                                                                                                                                                           |
 |:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **HW-Pdu-Cyberpower-SNMP-custom** host template. |
+| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **HW-Pdu-Cyberpower-SNMP-custom** host template |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
@@ -55,6 +55,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 | *devices*~*phases*#phase-status         | N/A   |
 | *devices*~*phases*#phase.current.ampere | A     |
 | *devices*~*phases*#phase.power.watt     | W     |
+| *devices*~*phases*#phase.voltage.volt   | V     |
 
 </TabItem>
 <TabItem value="Outlets" label="Outlets">
@@ -120,7 +121,7 @@ yum install centreon-pack-hardware-pdu-cyberpower-snmp
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **CyberPower Systems PDU SNMP** connector through
-the **Configuration > Monitoring Connectors Manager** menu.
+the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
 
@@ -171,15 +172,15 @@ yum install centreon-plugin-Hardware-Pdu-Cyberpower-Snmp
 ### Using a host template provided by the connector
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
-2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
+2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your resource settings.
 3. Apply the **HW-Pdu-Cyberpower-SNMP-custom** template to the host. 
 
 > When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
-| Macro            | Description                                                                                   | Default value     | Mandatory   |
-|:-----------------|:----------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| Macro            | Description                                                                                          | Default value     | Mandatory   |
+|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -203,7 +204,7 @@ yum install centreon-plugin-Hardware-Pdu-Cyberpower-Snmp
 | CRITICALPHASEPOWER   | Thresholds                                                                                                                                                           |                                  |             |
 | WARNINGPHASESTATUS   | Define the conditions to match for the status to be WARNING (default: '%{state} =~ /low\|nearOverload/i'). You can use the following variables: %{state}, %{display} | %{state} =~ /low\|nearOverload/i |             |
 | CRITICALPHASESTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%{state} =~ /^overload/i'). You can use the following variables: %{state}, %{display}        | %{state} =~ /^overload/i         |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                          | --verbose                        |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                   | --verbose                        |             |
 
 </TabItem>
 <TabItem value="Outlets" label="Outlets">
@@ -214,7 +215,7 @@ yum install centreon-plugin-Hardware-Pdu-Cyberpower-Snmp
 | CRITICALCURRENT | Thresholds                                                                                                                                                                |                    |             |
 | CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%{state} =~ /off/'). You can use the following variables: %{state}, %{phase}, %{bank}, %{display} | %{state} =~ /off/i |             |
 | WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %{state}, %{phase}, %{bank}, %{display}                                 |                    |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                                               | --verbose          |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                        | --verbose          |             |
 
 </TabItem>
 </Tabs>
@@ -294,7 +295,7 @@ All generic options are listed here:
 | --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
+| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale(Mbps),mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                                |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
 | --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -352,7 +353,7 @@ All available options for each service template are listed below:
 | --unknown-phase-status   | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{state}, %{display}                                                 |
 | --warning-phase-status   | Define the conditions to match for the status to be WARNING (default: '%{state} =~ /low\|nearOverload/i'). You can use the following variables: %{state}, %{display}   |
 | --critical-phase-status  | Define the conditions to match for the status to be CRITICAL (default: '%{state} =~ /^overload/i'). You can use the following variables: %{state}, %{display}          |
-| --warning-* --critical-* | Thresholds. Can be: 'phase-current', 'phase-power', 'bank-current'.                                                                                                    |
+| --warning-* --critical-* | Thresholds. Can be: 'phase-current', 'phase-power', 'phase-voltage', 'bank-current'.                                                                                   |
 
 </TabItem>
 <TabItem value="Outlets" label="Outlets">
