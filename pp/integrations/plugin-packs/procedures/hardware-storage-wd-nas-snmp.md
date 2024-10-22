@@ -7,16 +7,17 @@ import TabItem from '@theme/TabItem';
 
 ## Pack assets
 
-### Templates
+### Supported equipment models
 
-The **WD NAS SNMP** monitoring connector is compatible with the following WD NAS devices:
 * EX2
 * EX2 Ultra
-* EX4100
-* PR2100
-* PR4100
+* EX 4100
+* PR 2100
+* PR 4100
 
-Other devices may be supported but without guarantee.
+> Other models of equipment may be compatible, but we cannot guarantee this.
+
+### Templates
 
 The Monitoring Connector **WD NAS SNMP** brings a host template:
 
@@ -99,8 +100,7 @@ The SNMP agent must be configured and activated on the host. Please refer to the
 
 ### Network flow
 
-The target server must be reachable from the Centreon poller on the UDP/161
-SNMP port.
+The target resource must be reachable from the Centreon poller on the UDP/161 SNMP port.
 
 ## Installing the monitoring connector
 

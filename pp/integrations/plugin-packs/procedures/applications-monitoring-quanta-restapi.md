@@ -45,7 +45,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-In order to supervise your Quanta interface and more particularly the web scenarios, it is necessary to [configure your Quanta interface](https://quantaio.notion.site/Cr-ation-d-un-sc-nario-Parcours-User-dcdc4e44b9af44fd892dd834e2d0a452).
+In order to monitor your Quanta interface and more particularly the web scenarios, it is necessary to [configure your Quanta interface](https://quantaio.notion.site/Cr-ation-d-un-sc-nario-Parcours-User-dcdc4e44b9af44fd892dd834e2d0a452).
 
 ## Installing the monitoring connector
 

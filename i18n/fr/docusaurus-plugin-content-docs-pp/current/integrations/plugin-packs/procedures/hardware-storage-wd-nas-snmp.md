@@ -7,16 +7,17 @@ import TabItem from '@theme/TabItem';
 
 ## Contenu du pack
 
-### Modèles
+### Modèles d'équipement supportés
 
-Le connecteur de supervision **WD NAS SNMP** est compatible avec les équipements WD NAS suivants :
 * EX2
 * EX2 Ultra
-* EX4100
-* PR2100
-* PR4100
+* EX 4100
+* PR 2100
+* PR 4100
 
-Les autres équipements peuvent être supportés mais sans garantie.
+> D'autres modèles d'équipement peuvent être compatibles, mais nous ne pouvons le garantir à priori.
+
+### Modèles
 
 Le connecteur de supervision **WD NAS SNMP** apporte un modèle d'hôte :
 
@@ -52,17 +53,17 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte d'hôtes
 
-| Nom de la règle | Description                                                                                                                                                                                                                                   |
-|:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Nom de la règle | Description                                                                                                                                                                                                                                                 |
+|:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **HW-Storage-Wd-Nas-SNMP-custom** |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
 #### Découverte de services
 
-| Nom de la règle                    | Description                                                  |
-|:-----------------------------------|:-------------------------------------------------------------|
-| HW-Storage-Wd-Nas-SNMP-Volume-Name | Découvre la partition du disque et supervise l'espace occupé |
+| Nom de la règle                    | Description                                               |
+|:-----------------------------------|:----------------------------------------------------------|
+| HW-Storage-Wd-Nas-SNMP-Volume-Name | Discover the disk partitions and monitor space occupation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -100,8 +101,7 @@ L'agent SNMP doit être activé et configuré sur l'équipement. Veuillez vous r
 
 ### Flux réseau
 
-La communication doit être possible sur le port UDP 161 depuis le collecteur
-Centreon vers le serveur supervisé.
+La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers le serveur supervisé.
 
 ## Installer le connecteur de supervision
 
@@ -214,15 +214,15 @@ yum install centreon-plugin-Hardware-Storage-Wd-Nas-Snmp
 <Tabs groupId="sync">
 <TabItem value="Hardware" label="Hardware">
 
-| Macro                     | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
-|:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGDRIVETEMPERATURE   | Warning threshold for 'drive-temperature'                                                                                                        |                   |             |
-| CRITICALDRIVETEMPERATURE  | Critical threshold for 'drive-temperature'                                                                                                       |                   |             |
-| WARNINGFANSTATUS          | Define the conditions to match for the status to be WARNING (default : '%{status} ne "running"'). You can use the following variables: %{status} |                   |             |
-| CRITICALFANSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}                                     |                   |             |
-| WARNINGSYSTEMTEMPERATURE  | Warning threshold for 'system-temperature'                                                                                                       |                   |             |
-| CRITICALSYSTEMTEMPERATURE | Critical threshold for 'system-temperature'                                                                                                      |                   |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+| Macro                     | Description                                                                                                                                       | Valeur par défaut | Obligatoire |
+|:--------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGDRIVETEMPERATURE   | Thresholds                                                                                                                                        |                   |             |
+| CRITICALDRIVETEMPERATURE  | Thresholds                                                                                                                                        |                   |             |
+| WARNINGFANSTATUS          | Define the conditions to match for the status to be WARNING (default : '%{status} ne "running"'). You can use the following variables: %{status}  |                   |             |
+| CRITICALFANSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}                                      |                   |             |
+| WARNINGSYSTEMTEMPERATURE  | Thresholds                                                                                                                                        |                   |             |
+| CRITICALSYSTEMTEMPERATURE | Thresholds                                                                                                                                        |                   |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).  | --verbose         |             |
 
 </TabItem>
 <TabItem value="Volumes" label="Volumes">
@@ -230,12 +230,12 @@ yum install centreon-plugin-Hardware-Storage-Wd-Nas-Snmp
 | Macro                  | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTERNAME             | Filter volumes by name (can be a regexp)                                                                                                         |                   |             |
-| WARNINGSPACEUSAGE      | Warning threshold for 'space-usage'                                                                                                              |                   |             |
-| CRITICALSPACEUSAGE     | Critical threshold for 'space-usage'                                                                                                             |                   |             |
-| WARNINGSPACEUSAGEFREE  | Warning threshold for 'space-usage-free'                                                                                                         |                   |             |
-| CRITICALSPACEUSAGEFREE | Critical threshold for 'space-usage-free'                                                                                                        |                   |             |
-| WARNINGSPACEUSAGEPRCT  | Warning threshold for 'space-usage-prct'                                                                                                         |                   |             |
-| CRITICALSPACEUSAGEPRCT | Critical threshold for 'space-usage-prct'                                                                                                        |                   |             |
+| WARNINGSPACEUSAGE      | Thresholds                                                                                                                                       |                   |             |
+| CRITICALSPACEUSAGE     | Thresholds                                                                                                                                       |                   |             |
+| WARNINGSPACEUSAGEFREE  | Thresholds                                                                                                                                       |                   |             |
+| CRITICALSPACEUSAGEFREE | Thresholds                                                                                                                                       |                   |             |
+| WARNINGSPACEUSAGEPRCT  | Thresholds                                                                                                                                       |                   |             |
+| CRITICALSPACEUSAGEPRCT | Thresholds                                                                                                                                       |                   |             |
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>

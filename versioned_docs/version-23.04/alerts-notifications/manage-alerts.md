@@ -291,7 +291,7 @@ The following window appears:
 It is possible to temporarily enable or disable check on a host or a service.
 
 > Changes to settings checks do not affect the configuration of the
-> object in the database. These changes are made on the supervision in
+> object in the database. These changes are made on the monitoring in
 > real time, they are canceled if the scheduler is restarted.
 
 ### Practice

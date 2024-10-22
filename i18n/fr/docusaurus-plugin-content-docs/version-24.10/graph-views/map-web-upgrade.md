@@ -54,7 +54,7 @@ Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centre
  ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
  - Si MAP seul est installé :
  
