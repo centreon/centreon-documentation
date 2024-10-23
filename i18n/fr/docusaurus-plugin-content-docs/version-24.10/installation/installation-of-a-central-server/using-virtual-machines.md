@@ -7,7 +7,8 @@ import TabItem from '@theme/TabItem';
 
 Sur sa [page de téléchargement](https://download.centreon.com), Centreon fournit des machines virtuelles prêtes à l’emploi. Ces machines virtuelles sont disponibles pour les environnements
 VMware et pour l'outil Oracle VirtualBox.
-Elles sont basées sur les systèmes d'exploitation **Alma Linux 8** et **Debian 12** et incluent
+
+Elles sont basées sur les systèmes d'exploitation **Alma Linux 8 et 9** et **Debian 12** et incluent
 une installation de Centreon permettant de démarrer en toute simplicité votre première supervision.
 
 > L'installation par machine virtuelle n'est adaptée que pour utiliser IT-100, ou à des fins de test.
@@ -120,7 +121,7 @@ cliquez sur **Download**.
 configuration.
  
 <Tabs groupId="sync">
-<TabItem value="Alma 8" label="Alma 8">
+<TabItem value="Alma 8 et 9" label="Alma 8 et 9">
   
 Définissez les paramètres suivants :
 
