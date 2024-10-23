@@ -5,8 +5,6 @@ title: Unattended installation of a remote server
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> This is an older version of Centreon, and support for it is ending soon. We recommend you install the latest version.
-
 To install a remote server quicker, you can use a script. This will perform all installation steps. You must then register the remote server and attach it to the central server.
 
 ## Installation procedure

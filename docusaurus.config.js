@@ -108,7 +108,7 @@ const config = {
               (accumulator, currentValue) => {
                 accumulator[currentValue] = {
                   label: Object.keys(accumulator).length === 0 ? `⭐ ${currentValue}` : currentValue,
-                  banner: 'none',
+                  banner: currentValue === '22.10' ? 'unmaintained' : 'none',
                 }
 
                 return accumulator;
