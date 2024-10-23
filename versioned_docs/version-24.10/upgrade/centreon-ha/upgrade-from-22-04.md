@@ -5,7 +5,7 @@ title: Upgrade Centreon HA from Centreon 22.04
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This chapter describes how to upgrade your Centreon HA platform from version 22.04 to version 24.04.
+This chapter describes how to upgrade your Centreon HA platform from version 22.04 to version 24.10.
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ sudo -u apache /usr/share/centreon/bin/console cache:clear
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 On the **passive central node**, move the "install" directory to avoid getting the "upgrade" screen in the interface in the event of a further exchange of roles.
 
@@ -91,7 +91,7 @@ systemctl restart crond
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```bash
 systemctl restart cron
@@ -160,7 +160,7 @@ pcs resource group add centreon cbd_central_broker --before gorgone
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 ### Backup the confguration
 
@@ -192,26 +192,26 @@ pcs resource group remove centreon cbd_central_broker
 pcs resource group add centreon cbd_central_broker --before gorgone
 ```
 
-### Modify php-clone resource to use php 8.1
+### Modify php-clone resource to use php 8.2
 
-Modify php8.0-fpm to php8.1-fpm with the command below (an automatic backup of file is made in export_cluster.xml.bak)
+Modify php8.0-fpm to php8.2-fpm with the command below (an automatic backup of file is made in export_cluster.xml.bak)
 
 ```bash
-sed -i.bak s/php8.0-fpm/php8.1-fpm/ export_cluster.xml
+sed -i.bak s/php8.0-fpm/php8.2-fpm/ export_cluster.xml
 ```
 
-Verify if modification is made by searching **php8.1-fpm** in xml file
+Verify if modification is made by searching **php8.2-fpm** in xml file
 
 ```bash
-grep php8.1-fpm export_cluster.xml
+grep php8.2-fpm export_cluster.xml
 ```
 
 You should have 3 lines in the result like this:
 
 ```text
-        <primitive id="php" class="systemd" type="php8.1-fpm">
-          <lrm_resource id="php" type="php8.1-fpm" class="systemd">
-          <lrm_resource id="php" type="php8.1-fpm" class="systemd">
+        <primitive id="php" class="systemd" type="php8.2-fpm">
+          <lrm_resource id="php" type="php8.2-fpm" class="systemd">
+          <lrm_resource id="php" type="php8.2-fpm" class="systemd">
 ```
 
 If it's OK, apply changes to the cluster configuration
@@ -287,7 +287,7 @@ pcs constraint colocation add master "centreon" with "ms_mysql-clone"
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 First extract all contraint IDs:
 
@@ -396,7 +396,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 First extract all contraint id:
 
@@ -466,7 +466,7 @@ pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABA
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```bash
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY

@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 Voir les [prérequis logiciels](../installation/prerequisites.md#logiciels).
 
 Installez BAM sur le serveur central.
-Le serveur central et Centreon BAM doivent être dans la même version majeure (c'est-à-dire tous les deux en 24.04.x).
+Le serveur central et Centreon BAM doivent être dans la même version majeure (c'est-à-dire tous les deux en 24.10.x).
 Si vous voulez pouvoir voir les Activités métier supervisées par un serveur distant, installez BAM également sur le serveur distant. Lorsque BAM est installé sur un serveur distant, les Activités métier n'incluent que les ressources supervisées par le serveur distant.
 
 ## Installation
@@ -42,7 +42,7 @@ dnf install centreon-bam-server
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt update && apt install centreon-bam-server

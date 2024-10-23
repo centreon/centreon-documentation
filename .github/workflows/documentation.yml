@@ -13,7 +13,7 @@ concurrency:
 
 jobs:
   get-versions:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     name: Get versions
 
@@ -152,7 +152,7 @@ jobs:
 
   build:
     if: ${{ needs.get-versions.outputs.build_environments != '[]' }}
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     needs: [get-versions]
 
     strategy:
@@ -246,7 +246,7 @@ jobs:
 
   comment-preview:
     needs: [get-versions, deploy-preview]
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     name: Add comment for preview
 
