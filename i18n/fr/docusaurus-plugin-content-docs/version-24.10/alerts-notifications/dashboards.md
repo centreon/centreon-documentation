@@ -186,7 +186,7 @@ Le menu d'action à trois points situé à la fin de la ligne de la liste de dif
 | Group monitoring           | Affiche la répartition des statuts actuels pour les groupes de ressources sélectionnés, sous forme de tableau.   |
 | MAP - Afficher une vue           |  Permet de sélectionner et de visualiser une carte créée à partir du module MAP.  |
 | Graphe de métriques         | Affiche les métriques pour une période donnée.                                  |
-| Tableau des ressources                 | Affiche des données sur le statut des ressources et les événements, centralisées dans un tableau.|
+| Tableau des ressources                 | Affiche des données sur le statut des ressources et les événements, centralisées dans un tableau. Affiche également les [ressources liées ou non à un ticket](../alerts-notifications/ticketing.md#configuration-du-widget).|
 | Métrique unique        | Affiche la valeur d'une seule métrique sous forme de texte, de jauge ou de diagramme à barres.  |
 | Graphique de statut    | Affiche la répartition des statuts actuels sur des ressources sélectionnées, sous forme de graphique.   |
 | Grille de statut    | Affiche le statut actuel des ressources sélectionnées, sous forme de grille.   |
