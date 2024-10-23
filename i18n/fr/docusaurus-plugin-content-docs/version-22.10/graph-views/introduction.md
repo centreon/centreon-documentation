@@ -11,7 +11,7 @@ Il est capable d'afficher des aperçus graphiques efficaces et de cartographier 
 > Centreon MAP est une **extension** Centreon qui nécessite une [licence](../administration/licenses.md) valide.
 > Pour en acquérir une et récupérer les dépôts nécessaires, contactez [Centreon](mailto:sales@centreon.com).
 
-> **À partir de Centreon 24.10, MAP Legacy ne sera plus disponible.** Si vous utilisez encore MAP Legacy, vous devrez migrer vers la version disponible de MAP. Voir les [étapes à suivre concernant MAP Legacy](https://docs.centreon.com/fr/docs/graph-views/map-legacy-eol/) après la migration.
+> **À partir de Centreon 24.10, MAP Legacy ne sera plus disponible.** Si vous utilisez encore MAP Legacy, vous devrez migrer vers la version disponible de MAP. Après la migration, consultez les [étapes à suivre concernant MAP Legacy](https://docs.centreon.com/fr/docs/graph-views/map-legacy-eol/).
 
 ## Aperçu de l'interface
 
