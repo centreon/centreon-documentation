@@ -10,18 +10,17 @@ de Centreon sur une cadence régulière depuis Centreon 18.10, permettant à la 
 entreprises et aux développeurs de planifier leurs feuilles de route avec la
 certitude d’avoir de la visibilité en amont sur les nouvelles capacités offertes par l'open source.
 
+<Tabs groupId="sync">
+<TabItem value="À partir de la version 24.10" label="À partir de la version 24.10">
+
 ## Numéros de version
 
-Les versions de Centreon sont nommées par l'année et la période de livraison : XX.04 pour la version de printemps,
-et XX.10 pour la version d'automne. Par
-exemple, Centreon 21.04 a été livrée au printemps 2021. Tous les modules et
+Les versions de Centreon sont nommées par l'année et la période de livraison. Par
+exemple, Centreon 22.10 a été livrée en octobre 2022. Tous les modules et
 composants de la collection de logiciels Centreon possèdent le même numéro de
 version.
 
 ## Cadence de publication
-
-<Tabs groupId="sync">
-<TabItem value="À partir de la version 24.10" label="À partir de la version 24.10">
 
 - À partir de Centreon 24.10, Centreon publiera **une version majeure par an**.
 - Des versions mineures, avec des corrections de bugs et des améliorations mineures, sortiront sur une base mensuelle.
@@ -65,7 +64,7 @@ Le schéma suivant présente le cycle de vie des produits Centreon à partir de 
 | Centreon 24.04 | 04/2024      | 04/2026                   | Supportée           |
 | Centreon 23.10 | 10/2023      | 10/2025                   | Supportée           |
 | Centreon 23.04 | 04/2023      | 04/2025                   | Supportée           |
-| Centreon 22.10 | 10/2022      | 10/2024                   | Supportée           |
+| Centreon 22.10 | 10/2022      | 10/2024                   | Plus supportée      |
 | Centreon 22.04 | 05/2022      | 05/2024                   | Plus supportée      |
 | Centreon 21.10 | 11/2021      | 11/2023                   | Plus supportée      |
 | Centreon 21.04 | 04/2021      | 10/2022                   | Plus supportée      |
@@ -74,6 +73,16 @@ Le schéma suivant présente le cycle de vie des produits Centreon à partir de 
 
 </TabItem>
 <TabItem value="Jusqu'à la version 24.04" label="Jusqu'à la version 24.04">
+
+## Numéros de version
+
+Les versions de Centreon sont nommées par l'année et la période de livraison : XX.04 pour la version de printemps,
+et XX.10 pour la version d'automne. Par
+exemple, Centreon 21.04 a été livrée au printemps 2021. Tous les modules et
+composants de la collection de logiciels Centreon possèdent le même numéro de
+version.
+
+## Cadence de publication
 
 Jusqu'à la version 21.04 incluse, les versions étaient supportées pendant 18 mois. Le cycle de vie d'une version est divisé en 3 phases :
 

@@ -10,17 +10,16 @@ Centreon solution at regular intervals since version 18.10, enabling the communi
 developers to plan their roadmaps with the guarantee of upstream visibility on the
 latest open source capabilities.
 
+<Tabs groupId="sync">
+<TabItem value="From version 24.10" label="From version 24.10">
+
 ## Version numbers
 
-Releases of Centreon are named according to the year and period of delivery: 
-XX.04 for the spring release, and XX.10 for the fall release.
-For example, Centreon 21.04 was released in spring 2021. All modules and
+Releases of Centreon are named according to the year and period of delivery.
+For example, Centreon 22.10 was released in October 2022. All modules and
 components of the Centreon software suite use the same version numbers.
 
 ## Release frequency
-
-<Tabs groupId="sync">
-<TabItem value="From version 24.10" label="From version 24.10">
 
 Starting with Centreon 24.10, Centreon will release **one major version per year**.
 
@@ -75,6 +74,15 @@ This diagram outlines the Centreon version lifecycle policy from version 24.10:
 
 </TabItem>
 <TabItem value="Until version 24.04" label="Until version 24.04">
+
+## Version numbers
+
+Releases of Centreon are named according to the year and period of delivery: 
+XX.04 for the spring release, and XX.10 for the fall release.
+For example, Centreon 21.04 was released in spring 2021. All modules and
+components of the Centreon software suite use the same version numbers.
+
+## Release frequency
 
 Centreon delivers two releases per year. The first will occur in the spring and will be major (including new products or features as well as larger architecture changes), while the second will be in the fall and will be minor (including primarily enhancements and fixes to existing features). Between these two, Centreon will regularly deliver minor updates (versioned YY.MM.NN), including security/vulnerability fixes, bug fixes and enhancements to the software.
 
