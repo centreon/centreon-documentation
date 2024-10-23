@@ -104,7 +104,7 @@ const config = {
               }
             }
 
-        return versions.reduce(
+            return versions.reduce(
               (accumulator, currentValue) => {
                 accumulator[currentValue] = {
                   label: Object.keys(accumulator).length === 0 ? `⭐ ${currentValue}` : currentValue,
