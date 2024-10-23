@@ -9,8 +9,10 @@ Un jeton est lié à un [utilisateur Centreon](../users/users.md) et a une duré
 
 ## Qui peut créer des jetons d'API ?
 
-* [Les utilisateurs ayant un rôle **Editor** ou **Administrator**](../users/users.md#user-roles) ont accès à la page **Administration > Jetons d'API** et peuvent créer des jetons d'API pour leur propre usage.
-* Les utilisateurs ayant un rôle **Administrator** peuvent également voir les jetons créés par d'autres utilisateurs, créer des jetons pour d'autres utilisateurs, ou les désactiver ou les supprimer.
+[Les utilisateurs ayant un rôle **Administrator**](../users/users.md#user-roles) ont accès à la page **Administration > Jetons d'API** et peuvent :
+* créer des jetons d'API pour leur propre usage.
+* voir les jetons créés par d'autres utilisateurs.
+* créer des jetons pour d'autres utilisateurs, ou les désactiver ou les supprimer.
 
 ## Créer un jeton d'API
 

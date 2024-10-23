@@ -23,7 +23,7 @@ Centreon utilise [plusieurs hébergeurs](../security/security.md#sécurité-de-l
 
 ## Combien de temps sont gardées mes données ?
 
-Les données de supervision sont gardées 13 mois : données de performance data (métriques), plages de maintenance, acquittements, commentaires, logs...
+Les données de supervision sont gardées 12 mois : données de performance data (métriques), plages de maintenance, acquittements, commentaires, logs...
 Toutes les autres données (par exemple la configuration) sont gardées jusqu'à la fin de votre souscription.
 
 ## Quelles mesures de sécurité Centreon prend-il ?

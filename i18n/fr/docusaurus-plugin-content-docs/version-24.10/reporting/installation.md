@@ -339,7 +339,7 @@ apt update
 Puis installez Centreon MBI:
 
 ```shell
-apt update && apt install centreon-bi-server
+apt install centreon-bi-server
 ```
 
 </TabItem>
@@ -379,7 +379,7 @@ Lancez la commande ci-dessous pour autoriser le serveur de reporting à se conne
 aux bases de données du serveur de supervision. Utilisez l'option suivante :
 
 ```shell
-/usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
+perl /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
 ```
 
 **@ROOTPWD@** : Mot de passe root de la base MariaDB/MySQL de supervision.

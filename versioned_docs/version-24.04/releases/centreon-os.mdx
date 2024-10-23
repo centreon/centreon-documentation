@@ -24,6 +24,60 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 24.04.7
+
+Release date: `September 30, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added an endpoint that automatically deploys the services brought by the host template.
+- [Authentication] Rescheduled the task of deleting expired tokens.
+- [Resource Status] Users can now filter by host name in view by host mode.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Administration] Fixed access to the Add token button.
+- [Authentication] Fixed an issue with the ‘X509, MultiFactor’ authentication method.
+- [Authentication] Fixed incorrect URL redirection issue with OpenID Connect.
+- [Authorization] Fixed an issue on ACLs reloading.
+- [API] Added missing configuration change logs.
+- [API] Fixed access control for monitoring servers configuration endpoints.
+- [API] Fixed ACL for meta-service endpoint.
+- [CLAPI] The -V command now displays the version of Centreon with no unnecessary message.
+- [Configuration] Fixed an issue on mass change which enabled disabled services.
+- [Configuration] The central server’s ID is now correctly configured in the Gorgone configuration
+- [Configuration] Fixed an issue with the list of available metrics in the metaservices form.
+- [Configuration] The correct value for the notification activation option is now written to the Engine configuration file.
+- [Dataset] Fixed filtering when searching for a resource.
+- [Dataset] Handled special characters in metrics.
+- [Dashboards] Fixed the search for hosts in the resource status widget.
+- [Graph] Fixed an error that occurred when editing curves.
+- [Graph] You can now select a metric in the curve and virtual metric configuration forms.
+- [Install] The 24.04.0 update wizard can now be rerun if required.
+- [Packaging] Fixed invalid permissions on the cron that deletes obsolete tokens.
+- [Performance] Fixed a query performance issue with some specific data on the Resource status page.
+- [Resource Status] Fixed an issue that occurred when a non-admin user was searching for resources by host categories.
+- [Resource Status] Fixed an issue with the "Force Active Checks" option, which was ignored in some cases.
+- [Resource Status] Fixed the responsivity and visibility of "display by" views.
+- [Status Chart widget] Fixed an issue with the list of resources displayed when hovering the charts.
+- [Status Chart widget] Filtering on selected resources is now handled correctly.
+- [Status Grid widget] Filtering on selected resources is now handled correctly in the condensed view.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed SQL injection vulnerability in host-monitoring widgets.
+- [Security] Fixed SQLi in contacts form (CVE-2024-39843).
+- [Security] Updated jQuery & jQuery-UI dependencies (CVE-2022-31160).
+
+</details>
+
 ### 24.04.6
 
 Release date: `September 11, 2024`
@@ -66,7 +120,7 @@ Release date: `July 3, 2024`
 
 ### 24.04.3
 
-Release date: `June 26, 2024`
+Release date: `June 30, 2024`
 
 <details open>
   <summary>Enhancements</summary>
@@ -222,6 +276,21 @@ Many features have been added in this version.
 
 ## Centreon Collect
 
+### 24.04.6
+
+Release date: `September 26, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] When no filter is configured on a Broker output, a default filter is applied so as to avoid Broker crashing.
+- [CMA] Binary file for Centreon Monitoring Agent on Windows (Beta).
+- [Engine] Engine now waits until no thread uses a gRPC service before deleting the service.
+- [Engine] When Engine's configuration is modified, already sent events are no longer sent a second time.
+- [Engine] Fixed the following issue: when Engine was restarted, its log file wasn't reopened, so if it was moved or removed, it wasn't created again.
+
+</details>
+
 ### 24.04.5
 
 Release date: `August 05, 2024`
@@ -332,6 +401,22 @@ Release date: `April 30, 2024`
 
 ## Centreon Gorgone
 
+### 24.04.3
+
+Release date: `September 30, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Added a partition for the Gorgone MBI **mod_bi_metriccentileweeklyvalue** and **mod_bi_metriccentilemonthlyvalue** tables, which are required by the ETL to run correctly.
+- [Gorgone] Fixed an issue affecting CPU load when a poller was not responding.
+- [Gorgone] Fixed an issue where Gorgone running on a central server was leaking file descriptors when pollers were disconnected.
+- [Gorgone] Fixed an issue stopping the **nmap** discovery provider from working after a Gorgone whitelist was created.
+- [Gorgone] In MBI, fixed the **perfdataStatisticsBuilder.pl** script: when using the **'-r --centile-only'** parameters, the **mod_bi_metrichourlyvalue** table is no longer truncated.
+- [Gorgone] The password of an MBI database user can now include special characters.
+
+</details>
+
 ### 24.04.2
 
 Release date: `July 18, 2024`
@@ -415,6 +500,24 @@ Release date: `April 30, 2024`
 </details>
 
 ## Centreon Open Tickets
+
+## 24.04.1
+
+Release date: `September 30, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [OpenTickets] Fixed redirection to monitoring pages according to the "use deprecated pages" option.
+
+</details>
+
+<details>
+  <summary>Bug fixex</summary>
+
+- [Open Tickets widget] Fixed GlpiRestApiProvider ticket subject persistence.
+
+</details>
 
 ### 24.04.0
 

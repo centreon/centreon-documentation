@@ -17,6 +17,10 @@ module.exports = {
           items: [
             {
               type: 'doc',
+              id: 'integrations/plugin-packs/getting-started/how-to-guides/cma'
+            },
+			{
+              type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/azure-credential-configuration'
             },
             {
@@ -159,6 +163,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-controlm-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-docker-restapi'
         },
         {
           type: 'doc',
@@ -2116,6 +2124,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/operatingsystems-linux-centreon-monitoring-agent'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/operatingsystems-linux-nrpe'
         },
         {
@@ -2153,6 +2165,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/operatingsystems-solaris-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/operatingsystems-windows-centreon-monitoring-agent'
         },
         {
           type: 'doc',
