@@ -83,7 +83,7 @@ In both cases, you will get a full log file with all errors in your **tmp** fold
 4. Configure Centreon frontend
 
 Log in to Centreon web interface via the URL http://[SERVER_IP]/centreon where [SERVER_IP] is the real IP address of your server.
-After attempting to connect, follow the steps described in Centreon documentation [here](../installation/web-and-post-installation).
+After attempting to connect, follow the steps described in Centreon documentation [here](../../installation/web-and-post-installation).
 
 5. Start using Centreon
 
