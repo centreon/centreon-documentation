@@ -50,7 +50,7 @@ In all cases, the format of the metrics as returned by the plugins is as follows
 
    * The min and max values will be the minimum/maximum values on the Y axis of the graph. If no min or max are defined, the graph will adapt its height to the smallest and biggest seen value. Redefining the min/max values help make graphs as relevant as possible: if several graphs that represent the same service for several hosts are displayed together, defining the same min and max for all metrics allows you to display them with the same scale.
    * The min/max values also make it possible to assess the usage of a resource compared to its capacity: redefining them may be relevant in certain cases. For instance, if you are checking the network traffic on an interface, this interface provides its theoretical minimum speed to the plugin, but you can change it manually if the actual speed is limited by another device. This impacts the data exploited by capacity reports in [MBI](../reporting/introduction.md).
-   * Min/max values can also be used to display data as a gauge in [MAP](../graph-views/introduction.md).
+   * Min/max values can also be used to display data as a gauge in [MAP](../graph-views/introduction-map.md).
 
 ### Syntax of metric thresholds
 

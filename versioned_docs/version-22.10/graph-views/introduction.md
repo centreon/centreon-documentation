@@ -13,7 +13,9 @@ data in customized user-relevant views.
 
 > Centreon MAP is a Centreon extension that requires a valid [license](../administration/licenses.md).
 > To purchase one and retrieve the necessary repositories, contact [Centreon](mailto:sales@centreon.com).
- 
+
+> **From Centreon 24.10, MAP Legacy will no longer be available.** If you are still using MAP Legacy, you will need to migrate to the available version of MAP. After the migration, see the [steps to follow regarding MAP Legacy](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
+
 ## Overview
 
 Here is an overview of MAP (Legacy). You need first to create logical views using the Desktop client:

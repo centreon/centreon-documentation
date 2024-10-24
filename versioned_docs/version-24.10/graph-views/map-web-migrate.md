@@ -1,5 +1,5 @@
 ---
-id: migrate
+id: map-web-migrate
 title: Migrate the extension
 ---
 

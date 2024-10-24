@@ -1,6 +1,6 @@
 ---
-id: advanced-configuration
-title: Configuration avancée
+id: map-web-advanced-configuration
+title: Configuration avancée dans MAP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,27 +9,7 @@ Ce chapitre décrit les procédures avancées de configuration de votre système
 
 ## Superviser votre serveur Centreon MAP après installation
 
-Centreon fournit un connecteur de supervision et un plugin pour superviser votre serveur Centreon MAP.
-
-### Installer les packs
-
-Sur le serveur central, installez les Packs requis à l'aide des commandes suivantes :
-
-```shell
-yum install centreon-pack-operatingsystems-linux-snmp centreon-pack-applications-jvm-actuator
-```
-
-À partir du Gestionnaire de connecteurs de supervision, installez les packs.
-
-### Installer les plugins
-
-Utilisez SSH pour accéder au Poller qui supervisera votre serveur Centreon MAP.
-
-Installez tous les plugins requis à l'aide des commandes suivantes :
-
-```shell
-yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applications-Jvm-Actuator
-```
+Centreon fournit un [connecteur de supervision et un plugin](/pp/integrations/plugin-packs/procedures/applications-monitoring-centreon-map-engine-actuator) pour superviser votre serveur Centreon MAP.
 
 ### Configurer vos services
 
@@ -76,22 +56,6 @@ https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health.
 
 </TabItem>
 </Tabs>
-
-## Fichiers de configuration de Centreon MAP
-
-> Nous vous déconseillons de modifier manuellement les fichiers de configuration, sauf si vous êtes un utilisateur expérimenté.
-
-Les quatre fichiers de configuration sont situés dans **/etc/centreon-studio/**. Leurs modèles se trouvent dans **/etc/centreon-studio/templates/**.
-
-Le script de configuration remplace les macros de ces modèles et les copie dans le dossier **/etc/centreon-studio**.
-
-Si ces fichiers sont modifiés, le serveur doit être redémarré avec la commande :
-
-```shell
-systemctl restart centreon-map
-```
-
-> Ne supprimez aucune variable dans ces fichiers ! Cela pourrait entraîner un dysfonctionnement du serveur, ou l'empêcher de démarrer.
 
 ### Sauvegarder le serveur Centreon MAP
 
@@ -172,7 +136,7 @@ systemctl start centreon-map
 > Des erreurs de modification de fichiers de configuration peuvent entraîner des dysfonctionnements du logiciel. Nous vous recommandons de faire une sauvegarde du fichier avant de le modifier et de ne changer que les paramètres conseillés par Centreon.
 
 Par défaut, le serveur Centreon MAP écoute et envoie des informations via le port 8080. 
-Si vous avez configuré le SSL (voir [Configuration HTTPS/TLS](secure-your-map-platform.md#configure-httpstls-on-the-web-server), utilisez le port 8443.
+Si vous avez configuré le SSL (voir [Configuration HTTPS/TLS](secure-your-map-platform.md#configure-httpstls-on-the-web-server)), utilisez le port 8443.
 
 Vous pouvez modifier ce port (par exemple, si un pare-feu sur votre réseau bloque ces ports).
 
@@ -211,97 +175,3 @@ Vérifiez que votre serveur est opérationnel et accessible sur le nouveau port 
 ```shell
 http://<MAP_IP>:<NEW_PORT>/centreon-studio/api/beta/actuator/health
 ```
-
-## Définir un port inférieur à 1024
-
-Vous pouvez configurer votre serveur pour qu'il écoute et envoie des données via des ports inférieurs à 1024, tels que les ports 80 ou 443 (ces ports étant rarement bloqués par un pare-feu).
-
-Si vous souhaitez définir un port inférieur à 1024, la méthode est différente de celle décrite ci-dessus puisque tous les ports inférieurs à 1024 sont restreints et uniquement accessibles par des applications spéciales.
-
-Il existe plusieurs solutions de contournement pour ce problème. L'une d'entre elles est la "redirection de port" à travers le pare-feu.
-
-> Pour cet exemple, configurez le serveur MAP pour qu'il écoute et envoie des données via le port 80.
-> Remplacez chaque occurrence de *80* par le port que vous souhaitez utiliser.
-
-1. Vérifiez votre pare-feu.
-
-   Sur votre serveur MAP, exécutez la commande suivante pour vérifier que le pare-feu fonctionne :
-
-   ```shell
-   systemctl status iptables
-   ```
-
-   Si votre pare-feu est en cours d'exécution, vous verrez la sortie suivante :
-
-   ```shell
-   Table: raw
-   Chain PREROUTING (policy ACCEPT)
-   num  target     prot opt source               destination
-
-   Chain OUTPUT (policy ACCEPT)
-   num  target     prot opt source               destination
-
-   Table: mangle
-   Chain PREROUTING (policy ACCEPT)
-   num  target     prot opt source               destination
-   ...
-   ...
-   ...
-   ```
-
-   Si votre pare-feu est arrêté, vous verrez la sortie suivante :
-
-   ```shell
-   iptables: Firewall is not running.
-   ```
-
-   Démarrez le pare-feu :
-
-   ```shell
-   systemctl start iptables
-   ```
-
-2. Activez une connexion sur le port pour MAP pour l'écoute et l'envoi.
-
-   Exécutez les lignes suivantes sur votre console :
-
-   ```shell
-   /sbin/iptables -A OUTPUT -p tcp --dport 80 -j ACCEPT
-   /sbin/iptables -A INPUT -p tcp --dport 80 -j ACCEPT
-   ```
-
-3. Ajoutez la redirection de port.
-
-   Exécutez la ligne suivante sur votre console :
-
-   ```shell
-   iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
-   ```
-
-4. Redémarrez et enregistrez.
-
-   Redémarrez votre pare-feu :
-
-   ```shell
-   systemctl restart iptables
-   ```
-
-   Enregistrez cette configuration afin qu'elle soit appliquée à chaque redémarrage de votre serveur :
-
-   ```shell
-   /sbin/iptables save
-   ```
-
-Votre serveur Centreon MAP est maintenant accessible sur le port 80. Vérifiez-le en entrant l'URL suivante dans votre navigateur :
-
-```shell
-http://<MAP_IP>/centreon-studio/api/beta/actuator/health
-```
-
-Vous devriez voir l'état suivant pour votre serveur :
-
-```json
-{"status":"UP"}
-```
-
-> N'oubliez pas de mettre à jour la configuration de votre client lourd et celle de votre interface web.
