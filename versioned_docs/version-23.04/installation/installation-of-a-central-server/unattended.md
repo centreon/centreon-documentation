@@ -78,12 +78,12 @@ bash /tmp/unattended.sh install -t central -v 23.04 -r stable -s -p <admin_passw
 bash /tmp/unattended.sh install -t central -v 23.04 -r stable -s -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```
 
+In both cases, you will get a full log file with all errors in your **tmp** folder, named **unattended(date).log**.
+
 4. Configure Centreon frontend
 
 Log in to Centreon web interface via the URL http://[SERVER_IP]/centreon where [SERVER_IP] is the real IP address of your server.
 After attempting to connect, follow the steps described in Centreon documentation [here](..installation/web-and-post-installation).
-
-In both cases, you will get a full log file with all errors in your **tmp** folder, named **unattended(date).log**.
 
 ## Help
 
