@@ -1,12 +1,12 @@
 ---
 id: poller-secure
-title: Securing your poller
+title: Securing your pollers
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> **IMPORTANT**: It is the customer's resonsibility to secure the OS of the poller's host machine, and to [update its OS](https://thewatch.centreon.com/product-how-to-21/os-updates-security-3136).
+> **IMPORTANT**: It is the customer's responsibility to secure the OS of the poller's host machine, and to [update its OS](https://thewatch.centreon.com/product-how-to-21/os-updates-security-3136).
 
 ## Strengthen user account security
 
