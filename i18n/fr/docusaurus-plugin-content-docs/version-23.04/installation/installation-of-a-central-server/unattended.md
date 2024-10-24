@@ -80,8 +80,14 @@ bash /tmp/unattended.sh install -t central -v 23.04 -r stable -s -l DEBUG  2>&1 
 
 Dans les deux cas, vous obtiendrez un fichier de log complet avec toutes les erreurs dans votre répertoire **tmp**, fichier nommé **unattended(date).log**.
 
-## Aide
+4. Configurez Centreon
+Connectez-vous à l'interface web de Centreon avec l'URL http://[SERVER_IP]/centreon en remplaçant [SERVER_IP] par l'adresse IP de votre serveur.
+Après avoir tenté de vous connecter, suivez les instructions décrites dans la [documentation Centreon](../web-and-post-installation).
 
+5. Commencez à utiliser Centreon
+Suivez notre [guide de démarrage](../getting-started/welcome.md) pour commencez à superviser.
+
+>## Aide
 Pour obtenir de l'aide sur le script, utilisez la commande suivante :
 
 ```shell
