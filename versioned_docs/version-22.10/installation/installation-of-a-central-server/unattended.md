@@ -87,7 +87,7 @@ After attempting to connect, follow the steps described in Centreon documentatio
 
 5. Start using Centreon
 
-Follow our quick start guide to start your monitoring
+Follow our [quick start guide](../getting-started/welcome.md) to start your monitoring
    
 ## Help
 
