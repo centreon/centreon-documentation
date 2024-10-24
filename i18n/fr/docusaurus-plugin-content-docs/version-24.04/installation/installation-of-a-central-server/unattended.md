@@ -83,7 +83,7 @@ Connectez-vous à l'interface web de Centreon avec l'URL http://[SERVER_IP]/cent
 Après avoir tenté de vous connecter, suivez les instructions décrites dans la [documentation Centreon](../web-and-post-installation).
 
 5. Commencez à utiliser Centreon
-Suivez notre [guide de démarrage](../getting-started/welcome.md) pour commencez à superviser.
+Suivez notre [guide de démarrage](../../getting-started/welcome.md) pour commencez à superviser.
 
 >## Aide
 Pour obtenir de l'aide sur le script, utilisez la commande suivante :
