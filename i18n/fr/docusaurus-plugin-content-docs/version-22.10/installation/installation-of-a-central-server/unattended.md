@@ -80,7 +80,7 @@ bash /tmp/unattended.sh install -t central -v 22.10 -r stable -s -l DEBUG  2>&1 
 
 Dans les deux cas, vous obtiendrez un fichier de log complet avec toutes les erreurs dans votre répertoire **tmp**, fichier nommé **unattended(date).log**.
 
->Pour obtenir de l'aide sur le script, utilisez la commande suivante :`bash unattended.sh -h`
+> Pour obtenir de l'aide sur le script, utilisez la commande suivante :`bash unattended.sh -h`
 
 4. Configurez Centreon
 Connectez-vous à l'interface web de Centreon avec l'URL http://[SERVER_IP]/centreon en remplaçant [SERVER_IP] par l'adresse IP de votre serveur.
