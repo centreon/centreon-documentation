@@ -11,7 +11,7 @@ To create a host manually:
 
 ## Host configuration tab
 
-### Host basic information
+### Host basic information 
 
 * The **Name** field defines the host name that will be used by the Monitoring Engine. The following characters are not authorized: `~!$%^&|'"<>?,()=*{}` and spaces.
 * The **Alias** field shows the alias of the host.
