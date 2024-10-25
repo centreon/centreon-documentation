@@ -58,7 +58,7 @@ For a more extensive explanation on macros, check our [dedicated article](../mac
   host as not OK. When the status is confirmed, the notification process is triggered.
 * The **Normal Check Interval** defines the interval in minutes between checks when the host status is OK.
 * The **Retry Check Interval** defines the check interval in minutes of the Not-OK status of the host.
-* The **Active Checks Enabled** and **Passive Checks Enabled** fields enable / disable the active and passive checks. Passive checks are information the monitored resource sends to Central without it having been actively requested, you cqn learn more about passive monitoring [here](../monitoring/passive-monitoring).
+* The **Active Checks Enabled** and **Passive Checks Enabled** fields enable / disable the active and passive checks. Passive checks are information the monitored resource sends to Central without it having been actively requested, you cqn learn more about passive monitoring [here](../../monitoring/passive-monitoring/enable-snmp-traps.md).
 
 ## Notification tab
 
