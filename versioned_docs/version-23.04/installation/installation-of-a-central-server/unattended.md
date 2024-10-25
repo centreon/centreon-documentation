@@ -89,4 +89,4 @@ After attempting to connect, follow the steps described [here](../../web-and-pos
 
 5. Start using Centreon
 
-Follow our [quick start guide](../../getting-started/welcome.md) to start your monitoring
+Follow our [quick start guide](../../getting-started/welcome.md) to start your monitoring.
