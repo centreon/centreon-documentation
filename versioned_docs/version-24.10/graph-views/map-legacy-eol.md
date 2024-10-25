@@ -10,10 +10,10 @@ import TabItem from '@theme/TabItem';
 This topic describes what to do:
 
 - if you were still using MAP Legacy and want to upgrade to Centreon 24.10 without losing any data.
-- if you were still using MAP Legacy and have already upgraded to Centreon 24.10, and want to switcg to MAP without losing any data.
+- if you were still using MAP Legacy and have already upgraded to Centreon 24.10, and want to switch to MAP without losing any data.
 - if you had already migrated from MAP Legacy to MAP in an earlier version (then MAP Legacy files need to be removed).
 
-## I was still using MAP Legacy but I haven't upgraded to Centreon 24.10 yet
+## I was still using MAP Legacy and I haven't upgraded to Centreon 24.10 yet
 
 If you have not upgraded to Centreon 24.10 yet, follow these steps:
 
@@ -31,7 +31,7 @@ If you have not upgraded to Centreon 24.10 yet, follow these steps:
 
 ## I wasn't using MAP Legacy anymore but it was still installed on my platform
 
-If you had already migrated to MAP in an earlier version and weren't using MAP Legacy anymore, you can just [uninstall MAP Legacy from your Centreon 24.10 platform](#how-to-fully-uninstall-map-legacy). This is because some legacy files are still present and need to be removed to avoid all problems when upgrading later.
+If you had already migrated to MAP in an earlier version and weren't using MAP Legacy anymore, [uninstall MAP Legacy from your Centreon 24.10 platform](#how-to-fully-uninstall-map-legacy). This is because some legacy files are still present and need to be removed to avoid all problems when upgrading later.
 
 ## How to fully uninstall MAP Legacy
 

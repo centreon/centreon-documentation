@@ -17,7 +17,7 @@ This topic describes how to move from Centreon MAP (Legacy) to Centreon MAP by i
 
 ## Importing legacy maps into MAP
 
-> Migration from MAP Legacy to MAP is final: importing your maps from MAP Legacy to MAP must be done only once. Do not use MAP Legacy again once you have migrated your legacy maps to MAP. If you migrate your maps from MAP Legacy to MAP more than once, any content created in MAP in the meantime will be deleted and there will be no way of retrieving it.
+> Migration from MAP Legacy to MAP is final: importing your maps from MAP Legacy to MAP must be done only once, from a blank MAP installation. Do not use MAP Legacy again once you have migrated your legacy maps to MAP. If you migrate your maps from MAP Legacy to MAP more than once, any content created in MAP in the meantime will be deleted and there will be no way of retrieving it.
 
 ### Step 1: Install MAP
 
