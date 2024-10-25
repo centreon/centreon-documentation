@@ -80,10 +80,13 @@ bash /tmp/unattended.sh install -t central -v 22.10 -r stable -s -l DEBUG  2>&1 
 
 In both cases, you will get a full log file with all errors in your **tmp** folder, named **unattended(date).log**.
 
-## Help
+> To get help on the script, use the following command: `bash unattended.sh -h`
 
-To get help on the script, use the following command:
+4. Configure Centreon
 
-```shell
-bash unattended.sh -h
-```
+Log in to the Centreon web interface via the URL `http://[SERVER_IP]/centreon` where [SERVER_IP] is the real IP address of your server.
+Once you are logged in, follow the steps described [here](../../web-and-post-installation/#initialization-of-the-monitoring).
+
+5. Start using Centreon
+
+Follow our [quick start guide](../../getting-started/welcome.md) to start your monitoring.
