@@ -5,6 +5,8 @@ title: Passer de MAP (Legacy) à MAP
 
 Cette page décrit comment passer de Centreon MAP (Legacy) à Centreon MAP en important vos anciennes cartes dans le module MAP.
 
+> **À partir de Centreon 24.10, MAP Legacy ne sera plus disponible.** Si vous utilisez encore MAP Legacy, vous devrez migrer vers MAP. Consultez la page [Fin de vie de MAP Legacy](https://docs.centreon.com/fr/docs/graph-views/map-legacy-eol/).
+
 ## Prérequis
 
 - Centreon MAP doit être installé dans votre environnement. Consultez la procédure [Installer MAP](map-web-install.md) si besoin.
@@ -13,11 +15,9 @@ Cette page décrit comment passer de Centreon MAP (Legacy) à Centreon MAP en im
 
 - Si vous souhaitez installer MAP sur le même serveur que MAP (Legacy), assurez-vous que l'espace disque disponible est au moins égal à l'espace utilisé. En effet, après la migration, la nouvelle base de données coexistera avec l'ancienne (du Legacy).
 
-> **À partir de Centreon 24.10, MAP Legacy ne sera plus disponible.** Si vous utilisez encore MAP Legacy, vous devrez migrer vers la version disponible de MAP. Après la migration, consultez les [étapes à suivre concernant MAP Legacy](https://docs.centreon.com/fr/docs/graph-views/map-legacy-eol/).
-
 ## Importer les cartes Legacy dans MAP
 
-> Lorsque vous importez vos anciennes cartes, tout le contenu créé dans MAP est supprimé.
+> Toute migration de MAP Legacy à MAP est définitive : importer vos cartes depuis MAP Legacy vers MAP doit être fait une seule fois, depuis une installation MAP vierge. N'utilisez plus MAP Legacy une fois que vous avez migré vos cartes legacy vers MAP. Si vous migrez vos cartes de MAP Legacy à MAP plus d'une fois, tout contenu créé dans MAP entre-temps sera supprimé, sans possibilité de récupération.
 
 ### Étape 1 : installer MAP
 

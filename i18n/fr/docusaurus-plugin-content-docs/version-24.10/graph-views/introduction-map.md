@@ -5,7 +5,7 @@ title: Introduction à Centreon MAP
 
 Centreon MAP est une solution intégralement disponible dans l'interface web Centreon tout en vous proposant la meilleure expérience possible pour créer, visualiser et partager des représentations graphiques de votre infrastructure supervisée.
 
-Contrairement à la version MAP (Legacy), MAP vous fournit un outil d'édition entièrement intégré à l'interface web Centreon. Vous n'avez pas besoin d'installer quoi que ce soit sur votre machine. Vous pouvez également naviguer facilement entre le mode édition et le mode de visualisation.
+> **À partir de Centreon 24.10, MAP Legacy n'est plus disponible.** Que vous utilisiez encore MAP Legacy ou non, consultez la page [Fin de vie de MAP Legacy](https://docs.centreon.com/fr/docs/graph-views/map-legacy-eol/).
 
 > Vous pouvez consulter la procédure de gestion des vues à l'aide de l'API REST de Centreon MAP [ici](https://docs-api.centreon.com/api/centreon-map/24.04/).
 
