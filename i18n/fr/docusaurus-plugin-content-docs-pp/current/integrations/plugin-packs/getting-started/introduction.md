@@ -8,39 +8,30 @@ title: Démarrer avec les connecteurs de supervision
 > Pour savoir comment installer un connecteur de supervision, vous pouvez vous rendre sur la documentation dédiée: 
 > [installation des connecteurs de supervision](/docs/monitoring/pluginpacks).
 
-Un connecteur de supervision (ou pack de supervision en français) est un jeu téléchargeable
-de modèles de configuration qui rendent la supervision de votre infrastructure
-facile et intuitive.
+Un connecteur de supervision est la brique logicielle qui permet à Centreon de communiquer avec les équipements supervisés.
 
-Ces modèles (modèles d’hôtes et de services, commandes associées) configurent
-une sonde (aussi appelée plugin) qui elle-même exécute les commandes de
-supervision depuis un Centreon Poller. Les sondes ne sont pas téléchargées avec
-les connecteurs de supervision et doivent être installées par ailleurs : ceci est expliqué
-dans la procédure de mise en supervision associée à chaque connecteur de supervision.
-Certains connecteurs de supervision nécessitent aussi un Connecteur (ex : AS400 ou VMware)
-ou un agent (ex : Windows NRPE).
+Centreon propose de nombreux connecteurs de supervision prêts à l’emploi qui permettent de contrôler tout type d’équipement. Notre collection de connecteurs s’agrandit tous les mois.
 
-Pour chaque type d’équipement, les modèles déterminent quels indicateurs seront
-supervisés et définissent les valeurs par défaut des seuils Warning et
-Critical. Ceux-ci sont modifiables par la suite.
+Le connecteur est constitué d’un pack (des modèles préconfigurés) et d’un plugin (la sonde qui exécute les contrôles). Les plugins ne sont pas téléchargées avec les connecteurs de supervision et doivent être installées par ailleurs : ceci est expliqué en détail dans la procédure de mise en supervision associée à chaque connecteur de supervision.
+Certains connecteurs ont également une option de “découverte” qui leur permet de détecter par eux-mêmes un certain type de ressources à superviser.
 
-Certains connecteurs de supervision contiennent aussi des règles de découverte. Ces règles
-sont exécutées par le moteur de découverte Centreon pour déterminer une liste
-de ressources supplémentaires à superviser. Les règles de découverte de hôtes
-listent de nouveaux hôtes (ex : des ressources AWS EC2, des machines virtuelles
-VMware) alors que les règles de découverte de services listent des services
-supplémentaires (ex : volumes disques ou interfaces Ethernet sur un serveur).
+Le pack contient les informations relatives aux indicateurs qui seront supervisés, leurs seuils d’alertes et les commandes nécessaires pour les contrôles. Le pack permet une configuration prédéterminée pour les services mais celle-ci reste hautement personnalisable par la suite. 
 
-Les connecteurs de supervision de votre plateforme Centreon sont gérés à travers l’IHM Plugin
-Pack Manager. Les connecteurs de supervision sont susceptibles d’être mis à jour, ou de
-nouveaux connecteurs de supervision sont susceptibles d’être ajouté à la bibliothèque en
-ligne Centreon chaque semaine. Ils sont tous accessibles depuis l’IHM Gestionnaire de connecteurs de supervision.
+
+Les lignes de commande contiennent ce que l’on appelle des macros: des espaces dans les lignes de code alloués aux informations spécifiques à chacun des objets à superviser. 
+
+Les modèles de service et d’hôtes sont des préconfigurations d’hôtes. Par exemple, un connecteur pour serveur contiendra la configuration nécessaire pour contrôler l’usage du CPU mais également des seuils d’alerte déjà définis pour les serveurs que l’utilisateur ajoutera à Centreon.
+Lorsqu’une requête de contrôle est réalisée, Centreon Engine prend la ligne de commande correspondante et remplace le texte par défaut des macros par les identifiants relatifs à l’équipement interrogé, utilise le protocole adapté (tel que HTTP pour une API) et spécifie les informations à obtenir. Une fois que tous les blancs sont remplis, la commande est envoyée au plugin qui exécute et renvoie les informations qu’il a obtenu du service.
+
+
+L’utilisateur peut, s’il le souhaite, mettre en place lui-même toutes les fonctions qu’il obtiendrait en employant les connecteurs (en créant des commandes personnalisées). Le but du connecteur est de lui économiser le temps qu’il passerait à configurer cela : les connecteurs sont prêts à être intégrés à Centreon dès leur installation.
+
 
 Le chapitre ci-dessous est la liste à jour de tous les connecteurs de supervision disponibles
-avec leur procédure de mise en supervision associée. Ils sont répartis en 14
+avec leur procédure de mise en supervision associée répartis en 14
 catégories (Applications, Centreon, Cloud, Database, Hardware, Network,
 Operating System, Protocol, Sensor, Storage, ToIP-VoIP, UPS-PDU,
-Virtualization) puis listés par ordre alphabétique.
+Virtualization).
 
 Vous trouverez ici une liste des connecteurs de supervision fréquemment utilisés :
 
