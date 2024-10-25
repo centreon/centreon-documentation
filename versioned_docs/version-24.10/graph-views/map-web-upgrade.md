@@ -5,9 +5,11 @@ title: Upgrading MAP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> If you're updating to a new major version (i.e: A.B.x with A or B that
+> If you're upgrading to a new major version (i.e: A.B.x with A or B that
 > changes) you need to install the new Business
 > repository. You can find its address on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+
+> From Centreon 24.10, MAP Legacy is no longer available. Whether you were you were still using MAP Legacy or not, see [MAP Legacy end of life](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
 
 ## Prerequisites
 

@@ -7,17 +7,35 @@ import TabItem from '@theme/TabItem';
 
 > **MAP Legacy is no longer available. Starting from version 24.10, you have to use MAP.**
 
-This topic describes the steps to follow regarding MAP Legacy once you have migrated to the available version of MAP.
+This topic describes what to do:
+
+- if you were still using MAP Legacy and want to upgrade to Centreon 24.10 without losing any data.
+- if you were still using MAP Legacy and have already upgraded to Centreon 24.10, and want to switcg to MAP without losing any data.
+- if you had already migrated from MAP Legacy to MAP in an earlier version (then MAP Legacy files need to be removed).
+
+## I was still using MAP Legacy but I haven't upgraded to Centreon 24.10 yet
+
+If you have not upgraded to Centreon 24.10 yet, follow these steps:
+
+* Make a backup of your MAP legacy data: backup all files in **/etc/centreon-studio** and make a dump of the MAP database.
+* [Switch from MAP Legacy to MAP](import-into-map-web.md) in your current version. This includes activating the new MAP module and importing your legacy maps into MAP.
+* [Upgrade your Centreon platform to version 24.10](../../upgrade/introduction).
+* [Upgrade the MAP module to version 24.10](map-web-upgrade.md).
+* [Uninstall MAP Legacy from your Centreon platform](#how-to-fully-uninstall-map-legacy).
+
+## I was still using MAP Legacy and I have already upgraded my platform and the MAP module to Centreon 24.10
+
+* Make a backup of your MAP legacy data: backup all files in **/etc/centreon-studio** and make a dump of the MAP database.
+* [Switch from MAP Legacy to MAP](import-into-map-web.md). This includes activating the new MAP module and importing your legacy maps into MAP.
+* [Uninstall MAP Legacy from your Centreon platform](#how-to-fully-uninstall-map-legacy).
+
+## I wasn't using MAP Legacy anymore but it was still installed on my platform
+
+If you had already migrated to MAP in an earlier version and weren't using MAP Legacy anymore, you can just [uninstall MAP Legacy from your Centreon 24.10 platform](#how-to-fully-uninstall-map-legacy). This is because some legacy files are still present and need to be removed to avoid all problems when upgrading later.
 
 ## How to fully uninstall MAP Legacy
 
-As MAP Legacy is no longer delivered, you must uninstall it completely following the instructions below.
-
-> It is mandatory to perform these steps now, as you may encounter issues when upgrading to later versions.
-
-### Migrate to Centreon MAP
-
-Ensure you are using the [correct version of MAP](https://docs.centreon.com/docs/graph-views/introduction-map/). Use the [migration to Centreon MAP](https://docs.centreon.com/docs/graph-views/import-into-map-web/) procedure if needed.
+> It is mandatory to unistall MAP Legacy from your Centreon 24.10 platform, otherwise you may encounter issues when upgrading to later versions.
 
 ### Remove the legacy package
 
@@ -51,10 +69,8 @@ apt remove centreon-map-server
 
 > These cleaning procedures will allow you to work in an optimal environment. If you wish, you can make a backup of your data.
 
-- Remove the legacy log files:
+- Remove the legacy log files. (If you do not know where to find the log files, look in `/etc/centreon-studio/map-log.xml`. By default, the path is `/var/log/centreon-map/centreon-map.log`.)
   
-  > You can check the path in this file `/etc/centreon-studio/map-log.xml`. By default, this should be `/var/log/centreon-map/centreon-map.log`.
-
   ```shell
   rm /var/log/centreon-map/centreon-map.log
   ```
@@ -67,11 +83,10 @@ apt remove centreon-map-server
 
 - Remove the database that was used by MAP Legacy:
   
-  - Retrieve the credentials to connect to the database in this file `/etc/centreon-studio/studio-database.properties`.
+  - Retrieve the credentials to connect to the database from this file `/etc/centreon-studio/studio-database.properties`.
 
-  - Enter this command to remove the database: 
+  - Enter this command to remove the database:
 
   ```shell
   mysql --host=$DB_HOST --port=$DB_PORT --user=$DB_USER --password $DB_NAME "DROP DATABASE centreon_studio;"
   ```
- 
