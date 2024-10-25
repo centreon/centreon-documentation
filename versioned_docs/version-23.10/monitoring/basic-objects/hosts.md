@@ -129,4 +129,4 @@ The **2d Coords** and **3d Coords** fields are obsolete and have no impact on th
 * The **Comments** field can be used to add a comment concerning the host.
 
 
-> Remember to [Deploy the configuration](../monitoring-servers/deploying-a-configuration.md) for your changes to be taken into account.
+> Remember to [deploy the configuration](../monitoring-servers/deploying-a-configuration.md) for your changes to be taken into account.
