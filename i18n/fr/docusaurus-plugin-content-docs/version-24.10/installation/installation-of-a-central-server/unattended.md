@@ -86,6 +86,3 @@ Après avoir tenté de vous connecter, suivez les instructions décrites [ici](.
 
 5. Commencez à utiliser Centreon
 Suivez notre [guide de démarrage](../../getting-started/welcome.md) pour commencez à superviser.
-
->## Aide
-Pour obtenir de l'aide sur le script, utilisez la commande suivante :
