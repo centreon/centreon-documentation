@@ -3,7 +3,7 @@ id: introduction
 title: Introduction to Monitoring Connectors
 ---
 
-> As of April 2023, we're changing the name of some Centreon objects and attributes. "Monitoring Connectors" becomes the new name for Plugin Packs. We're making this change because users were often confused between two similar terms, Plugins and Plugin Packs, sometimes using one for the other. We're only changing the name! The functionalities and capabilities stay the same.
+> TTTTTTAs of April 2023, we're changing the name of some Centreon objects and attributes. "Monitoring Connectors" becomes the new name for Plugin Packs. We're making this change because users were often confused between two similar terms, Plugins and Plugin Packs, sometimes using one for the other. We're only changing the name! The functionalities and capabilities stay the same.
 
 > To know how to install Monitoring Connectors, you can go to the dedicated part: 
 > [Monitoring Connectors installation](/docs/monitoring/pluginpacks).
