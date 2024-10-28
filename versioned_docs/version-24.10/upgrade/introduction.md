@@ -7,6 +7,8 @@ This chapter describes how to upgrade your Centreon monitoring platform, i.e. sw
 
 > As of version 23.04, Centreon no longer supports CentOS 7. If your Centreon platform was installed on CentOS 7, you cannot simply upgrade it; you must change to a [supported OS](../installation/compatibility.md#operating-systems) using a [migration procedure](../migrate/introduction.md).
 
+> Business edition users: MAP Legacy is no longer available in Centreon 24.10. If you are still using MAP Legacy, you will need to migrate to MAP. See [MAP Legacy end of life](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
+
 This procedure is linked to your initial version of Centreon. You will have to
 **use packages** if you already installed using Centreon ISO or an RPM, and
 source files if you installed from sources. Before upgrading Centreon, remember
