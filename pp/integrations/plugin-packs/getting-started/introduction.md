@@ -10,7 +10,7 @@ title: Introduction to Monitoring Connectors
 
 A monitoring connector is the software brick that allows Centreon to communicate with the monitored equipments.
 
-Centreon proposes a great variety of monitoring connectors ready for use to monitor all sorts of equipments and our catalog grows every month.
+Centreon offers a vast array of monitoring connectors ready for use to monitor all sorts of equipments and our catalog grows every month.
 
 The connector is made of a pack (preconfigured templates) and a plugin (the probe that executes the commands). Plugins are not downloaded along the monitoring connecters and must be installed separately, this is more extensively explained in the guides of each specific connector.
 Some connectors may also have a "discovery" feature that allows them to find by themselves a certain type of resources to monitor.
