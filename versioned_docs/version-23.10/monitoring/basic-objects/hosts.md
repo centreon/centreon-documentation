@@ -121,7 +121,7 @@ The **2d Coords** and **3d Coords** fields are obsolete and have no impact on th
 ### Access groups
 
 * The **ACL Resource Groups** (only displayed for a non-administrator) is used to link this host to a hostgroup in order
-  to view it (see the *[Access Control Lists](../../administration/access-control-lists.md)* chapter).
+  to view it (see the [Access Control Lists](../../administration/access-control-lists.md) chapter).
 
 ### Additional Information
 
