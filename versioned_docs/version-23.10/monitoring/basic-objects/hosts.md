@@ -30,7 +30,7 @@ This button ![image](../../assets/configuration/common/delete.png#thumbnail1) is
 
 * If the **Create Services linked to the Template too** field is defined as **Yes**, Centreon automatically generates
   the services according to the service templates of the host template placed above the others
-  (see the *[templates chapter](../templates.md#definition)*).
+  (see the [templates chapter](../templates.md#definition)).
 
 ### Host check options
 
