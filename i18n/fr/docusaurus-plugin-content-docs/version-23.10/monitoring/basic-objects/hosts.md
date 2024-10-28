@@ -128,7 +128,7 @@ Les champs **Coordonnées 2D** et **Coordonnées 3D** sont obsolètes et n'ont a
 
 * Le champ **ACL Resource Groups** (seulement visible pour les utilisateurs non administrateurs), permet de lier l’hôte
   à un groupe d’hôtes afin de pouvoir visualiser ce dernier (voir le chapitre sur
-  *[les listes de contrôles d'accès](../../administration/access-control-lists.md)*).
+  [les listes de contrôles d'accès](../../administration/access-control-lists.md)).
 
 ### Informations supplémentaires
 
