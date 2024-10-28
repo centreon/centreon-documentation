@@ -8,30 +8,22 @@ title: Introduction to Monitoring Connectors
 > To know how to install Monitoring Connectors, you can go to the dedicated part: 
 > [Monitoring Connectors installation](/docs/monitoring/pluginpacks).
 
-A Monitoring Connector is a downloadable package containing a set of configuration
-templates that make it fast and easy to monitor your IT infrastructure.
+A monitoring connector is the software brick that allows Centreon to communicate with the monitored equipments.
 
-The templates (commands, hosts and services templates) configure a monitoring
-plugin that actually executes the monitoring commands on a Centreon Poller.
-Plugins are not packaged with Monitoring Connectors and must be installed separately:
-this is explained in the monitoring procedure that comes with each Monitoring Connector.
-Some Monitoring Connectors also require a Connector (e.g. AS400, VMWare) or an agent
-(e.g. Windows NRPE).
+Centreon proposes a great variety of monitoring connectors ready for use to monitor all sorts of equipments and our catalog grows every month.
 
-For each type of equipment, the templates determine which indicators will be
-monitored and set default warning and critical thresholds. These may be
-fine-tuned later-on.
+The connector is made of a pack (preconfigured templates) and a plugin (the probe that executes the commands). Plugins are not downloaded along the monitoring connecters and must be installed separately, this is more extensively explained in the guides of each specific connector.
+Some connectors may also have a "discovery" feature that allows them to find by themselves a certain type of resources to monitor.
 
-Some Monitoring Connectors also contain discovery rules. Discovery rules instruct the
-Centreon discovery engine to fetch additional assets to be monitored. Host
-discovery rules will look for new hosts (e.g. EC2 assets on AWS, virtual
-machines on VMware) while Service discovery rules will look for new services
-(e.g. Disk Volumes or Ethernet Interfaces on a server).
+The pack contains information such as the services to monitor, their alert thresholds and commands necessary to their checks. The pack allows for the set up of a predetermined configuration for the services but this remains highly customizable later on.
 
-Monitoring Connectors on your Centreon platform are managed by the Monitoring Connector Manager
-user interface. Monitoring Connectors may be updated or new Monitoring Connectors may be added to
-the Centreon online library on a weekly basis. These are accessed from the
-Monitoring Connector Manager.
+The command lines contain what we call macros: placeholder text that is to be replaced with information specific to each object to monitor.
+
+Service and host templates are preconfigurations. For example, a monitoring connector for servers will have the configuration necessary to monitor the CPU usage but also alert thresholds already established for the servers the user will add to Centreon.
+When a check request is made, Centreon Engine takes the corresponding command line, replaces the default text of the macros by the identifiers of the equipment that needs to be checked, adapts to the appropriate protocol (like HTTP for an API) and specifies the information it wants to obtain. Once all the blanks are filled in, the command is sent to the plugin to be executed and retrieve the data from the service.
+
+
+The user can, if they prefer it, set up by themselves all the fonctions obtained from connectors (by creating custom commands). The goal of connectors is to save the time that would be spent configuring everything: connectors are ready to be implemented from the moment htey are installed.
 
 This chapter contains an up-to-date list of all Monitoring Connectors with their
 respective monitoring procedure. They are organized in 14 categories
