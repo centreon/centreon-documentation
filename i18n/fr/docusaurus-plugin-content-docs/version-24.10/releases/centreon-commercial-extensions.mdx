@@ -29,18 +29,17 @@ Release date: `October 30, 2024`
   <summary>Enhancements</summary>
 
 - [API] Fixed access control for some v2 API endpoints.
-- [Editor] Added an option to hide the label for containers.
-- [Editor] Increased the number of available fonts and make Roboto the default one.
+- [Editor] You can now hide container labels.
+- [Editor] Increased the number of available fonts and made Roboto the default one.
 - [GeoViews] Redesigned the edit modal.
-- [Legacy] MAP Legacy is no longer supported.
+- [Legacy] MAP Legacy is no longer available.
 - [Protobuf] Implemented "pb_instance_configuration" event.
 - [SELinux] Packaged SELinux rules for centreon-map and centreon-mbi.
-- [Server] Adapted Protobuf to handle the new event "AdaptiveHostStatus" from Broker.
-- [Server] Adapted Protobuf to handle the new event "AdaptiveServiceStatus" from Broker.
+- [Server] Adapted Protobuf to handle the new "AdaptiveHostStatus" and "AdaptiveServiceStatus" events from Broker.
 - [Server] Improved logs related to Broker event processing and made event queue size configurable.
 - [Server] Improved the parsing of Broker events on creation and deletion of resources.
-- [Server] Increased the default log level to INFO.
-- [Server] Optimized the propagation of a resource status change.
+- [Server] Increased the default log level to INFO for map-engine.
+- [Server] Optimized the way the global map status is calculated.
 - [Viewer] You can now display a host name for a service.
 - [Viewer] You can now display the status as background color for a resource in weather style.
 
@@ -64,7 +63,7 @@ Release date: `October 30, 2024`
 <details open>
   <summary>Enhancements</summary>
 
-- Business Activity Diagram new widget is now available in Dashboards.
+- A new "Business Activity Diagram" widget is now available in Dashboards.
 
 </details>
 
@@ -77,7 +76,7 @@ Release date: `October 30, 2024`
 <details open>
   <summary>Enhancements</summary>
 
-- [MBI] Improved the starting of CBIS by using systemd configuration.
+- [MBI] The CBIS service is now started using systemd's configuration.
 
 </details>
 
@@ -129,7 +128,7 @@ Release date: `October 30, 2024`
 <details open>
   <summary>Enhancements</summary>
 
-- [Dashboards] A new PATCH endpoint is added for playlist update.
+- [Dashboards] A new PATCH endpoint has been added for updating playlists.
 
 </details>
 
