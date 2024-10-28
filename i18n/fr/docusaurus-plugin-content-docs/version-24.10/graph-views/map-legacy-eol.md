@@ -16,7 +16,7 @@ Cette page décrit quoi faire :
 Si vous utilisiez toujours MAP Legacy, il est probable que vous n'ayez jamais installé MAP par le passé. Pour savoir si MAP est installé sur votre palteforme, exécutez la commande suivante :
 
 ```shell
-rpm -qa | grep centreon-map-engine
+rpm -q centreon-map-engine
 ```
 
 Si vous aviez utilisé MAP par le passé, puis êtes retournés à MAP Legacy, sachez que migrer de MAP Legacy à MAP supprimera tout contenu créé dans MAP lorsque vous l'aviez utilisé à l'époque..
