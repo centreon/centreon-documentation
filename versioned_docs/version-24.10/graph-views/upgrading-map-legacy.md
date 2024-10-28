@@ -156,7 +156,7 @@ dnf update centreon-map-web-client
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt install --only-upgrade centreon-map-web-client
@@ -180,7 +180,7 @@ Map` menu and the **Desktop client** button.
 
 ## Step 4: Update dialects in .properties files
 
-In the **/etc/centreon-studio/centreon-database.properties** and the **/etc/centreon-studio/studio-database.properties** files, replace **MySQL5Dialect** with **MariaDB10Dialect**.
+In the **/etc/centreon-studio/centreon-database.properties** and the **/etc/centreon-studio/studio-database.properties** files, replace **MySQL5Dialect** with **MariaDBDialect**.
 
 > This configuration also works with a MySQL database.
 

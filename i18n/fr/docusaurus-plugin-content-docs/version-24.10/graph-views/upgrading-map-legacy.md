@@ -95,7 +95,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/e
     ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 echo "deb https://packages.centreon.com/apt-standard-24.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
@@ -152,7 +152,7 @@ dnf update centreon-map-web-client
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt install --only-upgrade centreon-map-web-client
@@ -175,7 +175,7 @@ Sinon, le client peut être téléchargé via le menu **Supervision > MAP** et l
 
 ## Étape 4 : mise à jour des dialectes dans les fichiers .properties
 
-Dans les fichiers **/etc/centreon-studio/centreon-database.properties** et **/etc/centreon-studio/studio-database.properties**, remplacez  **MySQL5Dialect** par **MariaDB10Dialect**.
+Dans les fichiers **/etc/centreon-studio/centreon-database.properties** et **/etc/centreon-studio/studio-database.properties**, remplacez  **MySQL5Dialect** par **MariaDBDialect**.
 
 > Cette configuration fonctionne également avec une base MySQL.
 
