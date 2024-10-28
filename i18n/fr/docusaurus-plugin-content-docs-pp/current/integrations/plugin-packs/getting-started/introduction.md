@@ -15,13 +15,13 @@ Centreon propose de nombreux connecteurs de supervision prêts à l’emploi qui
 Le connecteur est constitué d’un pack (des modèles préconfigurés) et d’un plugin (la sonde qui exécute les contrôles). Les plugins ne sont pas téléchargées avec les connecteurs de supervision et doivent être installées par ailleurs : ceci est expliqué en détail dans la procédure de mise en supervision associée à chaque connecteur de supervision.
 Certains connecteurs ont également une option de “découverte” qui leur permet de détecter par eux-mêmes un certain type de ressources à superviser.
 
-Le pack contient les informations relatives aux indicateurs qui seront supervisés, leurs seuils d’alertes et les commandes nécessaires pour les contrôles. Le pack permet une configuration prédéterminée pour les services mais celle-ci reste hautement personnalisable par la suite. 
+Le pack contient les informations relatives aux indicateurs qui seront supervisés, leurs seuils d’alertes et les commandes nécessaires pour les contrôles. Le pack permet la mise en place d'une configuration prédéterminée pour les services mais celle-ci reste hautement personnalisable par la suite. 
 
 
 Les lignes de commande contiennent ce que l’on appelle des macros: des espaces dans les lignes de code alloués aux informations spécifiques à chacun des objets à superviser. 
 
-Les modèles de service et d’hôtes sont des préconfigurations d’hôtes. Par exemple, un connecteur pour serveur contiendra la configuration nécessaire pour contrôler l’usage du CPU mais également des seuils d’alerte déjà définis pour les serveurs que l’utilisateur ajoutera à Centreon.
-Lorsqu’une requête de contrôle est réalisée, Centreon Engine prend la ligne de commande correspondante et remplace le texte par défaut des macros par les identifiants relatifs à l’équipement interrogé, utilise le protocole adapté (tel que HTTP pour une API) et spécifie les informations à obtenir. Une fois que tous les blancs sont remplis, la commande est envoyée au plugin qui exécute et renvoie les informations qu’il a obtenu du service.
+Les modèles de service et d’hôtes sont des préconfigurations. Par exemple, un connecteur pour serveur contiendra la configuration nécessaire pour contrôler l’usage du CPU mais également des seuils d’alerte déjà définis pour les serveurs que l’utilisateur ajoutera à Centreon.
+Lorsqu’une requête de contrôle est réalisée, Centreon Engine prend la ligne de commande correspondante et remplace le texte par défaut des macros par les identifiants relatifs à l’équipement interrogé, s'adapte protocole approprié (tel que HTTP pour une API) et spécifie les informations à obtenir. Une fois que tous les blancs sont remplis, la commande est envoyée au plugin qui exécute et renvoie les données qu’il a obtenu du service.
 
 
 L’utilisateur peut, s’il le souhaite, mettre en place lui-même toutes les fonctions qu’il obtiendrait en employant les connecteurs (en créant des commandes personnalisées). Le but du connecteur est de lui économiser le temps qu’il passerait à configurer cela : les connecteurs sont prêts à être intégrés à Centreon dès leur installation.
