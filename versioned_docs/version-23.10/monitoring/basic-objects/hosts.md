@@ -13,15 +13,15 @@ To create a host manually:
 
 ### Host basic information
 
-* The **Name** field defines the host name that will be used by the Monitoring Engine. The following characters are not authorized: `~!$%^&|'"<>?,()=*{}` and spaces.
-* The **Alias** is another name for the host, spaces and characters unauthorized in the name are allowed here. You may also use the alias to look up the host using the Name search bar.
-* The **Address** field defines the IP address or DNS name of the host. The **Resolve** button tests the domain name by questioning the DNS server configured on the central server. If given a DNS name, the Resolve button will also replace the text with the matching IP address.
-* The **SNMP Community & Version** fields contain the name of the community and the SNMP version.
-* The **Monitoring server** field indicates which one amongst Central, a poller or a remote server will be charged with monitoring this host.
-* The **Timezone** field indicates the time zone location of the host.
-* The **Templates** field enables us to associate one or more host templates with this object to quickly configure it.
+* **Name**: the host name used by the Monitoring Engine. Cannot contain `~!$%^&|'"<>?,()=*{}` and spaces.
+* **Alias**: another name for the host, spaces and characters unauthorized in the name are allowed here. You may also use the alias to look up the host using the Name search bar.
+* **Address**: IP address or DNS name of the host. The **Resolve** button tests the domain name by questioning the DNS server configured on the central server. If given a DNS name, the Resolve button will also replace the text with the matching IP address.
+* **SNMP Community & Version**: name of the community and the SNMP version.
+* **Monitoring server**: which one amongst Central, a poller or a remote server will be charged with monitoring this host.
+* **Timezone**: the time zone location of the host. Note that the timezone established here is what determines the time of the checks of this host.
+* **Templates**: associate one or more [host templates](../../../../pp/integrations/plugin-packs/getting-started/introduction.md) with this object.
 
-If multiple templates would modify the same field, the properties of the template placed above the others will be applied. 
+If multiple [templates](../templates.md#definition) would modify the same field, the properties of the [template](../templates.md#definition) placed above the others will be applied. 
 
 ###SCHEMA GOES HERE
 
@@ -29,21 +29,20 @@ This button ![image](../../assets/configuration/common/move.png#thumbnail1) enab
 This button ![image](../../assets/configuration/common/delete.png#thumbnail1) is used to delete the host template.
 
 * If the **Create Services linked to the Template too** field is defined as **Yes**, Centreon automatically generates
-  the services according to the service templates of the host template placed above the others
-  (see the [templates chapter](../templates.md#definition)).
+  the services according to the service [template](../templates.md#definition) of the host [template](../templates.md#definition) placed above the others.
 
 ### Host check options
 
-* The **Check Command** field indicates the command used to check the availability of the host.
-* The **Args** field defines the arguments given to the check command (each argument starts with ”!”).
+* **Check Command**: command used to check the availability of the host.
+* **Args**: arguments given to the check command (each argument starts with ”!”).
 
-* **Custom macros**:
+* [**Custom macros**](../macros/#custom-macros):
 
-For a more extensive explanation on macros, check our [dedicated article](../macros/#custom-macros)
-   * The **Name** and **Value** field enable us to define the name and value of the macro.
-   * The **Password** box is used to hide the value of the macro.
 
-  To revert to the value defined by the template, click ![image](../../assets/configuration/common/undo.png#thumbnail1)
+   * The **Name** and **Value** define the name and value of the macro.
+   * Checking the **Password** box hides the value of the macro.
+
+  To revert to the value defined by the [template](../templates.md#definition), click ![image](../../assets/configuration/common/undo.png#thumbnail1)
   
   To view the description of the macro, click ![image](../../assets/configuration/common/description.png#thumbnail1)
 
@@ -53,12 +52,12 @@ For a more extensive explanation on macros, check our [dedicated article](../mac
 
 ### Scheduling options
 
-* The **Check Period** field defines the time period during which active checks can performed.
-* The **Max Check Attempts** field defines the number of checks to be performed before confirming the status of the
+* **Check Period**: time period during which active checks can performed.
+* **Max Check Attempts**: the number of checks to be performed before confirming the status of the
   host as not OK. When the status is confirmed, the notification process is triggered.
-* The **Normal Check Interval** defines the interval in minutes between checks when the host status is OK.
-* The **Retry Check Interval** defines the check interval in minutes of the Not-OK status of the host.
-* The **Active Checks Enabled** and **Passive Checks Enabled** fields enable / disable the active and passive checks. Passive checks are information the monitored resource sends to Central without it having been actively requested, you can learn more about passive monitoring [here](../../monitoring/passive-monitoring/enable-snmp-traps.md).
+* **Normal Check Interval** : interval in minutes between checks when the host status is OK.
+* **Retry Check Interval** interval expressed in minutes referring to the wait between the checks done to confirm the status of the host. Once the max check attempts have been made, the interval returns to its normal check interval.
+* **Active Checks Enabled** and **Passive Checks Enabled**: enable / disable the active and passive checks. [Passive checks](../../monitoring/passive-monitoring/enable-snmp-traps.md). are information the monitored resource sends to Central without it having been actively requested.
 
 ## Notification tab
 
