@@ -716,8 +716,25 @@
               "id": "version-24.10/graph-views/introduction-map"
             },
             {
-              "type": "doc",
-              "id": "version-24.10/graph-views/map-legacy-eol"
+              "type": "category",
+              "label": "Information for MAP Legacy users",
+              "link": {
+                "type": "generated-index"
+              },
+                    "items":[
+                      {
+                        "type": "doc",
+                        "id": "version-24.10/graph-views/map-legacy-eol"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "version-24.10/graph-views/upgrading-map-legacy"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "version-24.10/graph-views/import-into-map-web"
+                      }
+                    ]
             },
             {
               "type": "doc",
@@ -734,10 +751,6 @@
             {
               "type": "doc",
               "id": "version-24.10/graph-views/map-web-upgrade"
-            },
-            {
-              "type": "doc",
-              "id": "version-24.10/graph-views/import-into-map-web"
             },
             {
               "type": "doc",

@@ -13,15 +13,24 @@ Cette page décrit quoi faire :
 - si vous utilisiez toujours MAP Legacy et que vous êtes déjà montés de version vers Centreon 24.10, et que vous souhaitez passer à MAP sans perdre de données.
 - si vous aviez déjà migré de MAP Legacy à MAP dans une version précédente (dans ce cas les fichiers MAP Legacy doivent être supprimés).
 
+Si vous utilisiez toujours MAP Legacy, il est probable que vous n'ayez jamais installé MAP par le passé. Pour savoir si MAP est installé sur votre palteforme, exécutez la commande suivante :
+
+```shell
+rpm -qa | grep centreon-map-engine
+```
+
+Si vous aviez utilisé MAP par le passé, puis êtes retournés à MAP Legacy, sachez que migrer de MAP Legacy à MAP supprimera tout contenu créé dans MAP lorsque vous l'aviez utilisé à l'époque..
+
 ## J'utilisais toujours MAP Legacy et je n'ai pas encore monté de version vers la 24.10
 
 * Faites une sauvegarde de vos données MAP legacy : sauvegardez tous les fichiers présents dans **/etc/centreon-studio** et faites un dump de la base de données MAP.
-* [Migrez de MAP Legacy à MAP](import-into-map-web.md) dans votre version actuelle. Cela inclut d'activer le nouveau module MAP et d'importer vos cartes legacy dans MAP.
 * [Montez de version votre plateforme Centreon en 24.10](../../upgrade/introduction).
-* [Montez de version le module MAP vers le version 24.10](map-web-upgrade.md).
+* Si vous ne l'aviez jamais installé par le passé, [installez MAP](map-web-install.md). Si vous l'aviez déjà installé, [montez-le de version vers la 24.10](map-web-upgrade.md).
+* [Montez MAP legacy de version vers la 24.10](upgrading-map-legacy.md).
+* [Migrez de MAP Legacy à MAP](import-into-map-web.md) dans votre version actuelle. Cela inclut d'activer le nouveau module MAP et d'importer vos cartes legacy dans MAP.
 * [Désinstallez MAP Legacy de votre plateforme Centreon](#how-to-fully-uninstall-map-legacy).
 
-## J'utilisais toujours MAP Legacy et j'ai déjà monté de version ma platefrome et mon module MAP vers la 24.10
+## J'utilisais toujours MAP Legacy et j'ai déjà monté de version ma platefrome et MAP Legacy et MAP vers la 24.10
 
 * Faites une sauvegarde de vos données MAP legacy : sauvegardez tous les fichiers présents dans **/etc/centreon-studio** et faites un dump de la base de données MAP.
 * [Migrez de MAP Legacy à MAP](import-into-map-web.md) dans votre version actuelle. Cela inclut d'activer le nouveau module MAP et d'importer vos cartes legacy dans MAP.
