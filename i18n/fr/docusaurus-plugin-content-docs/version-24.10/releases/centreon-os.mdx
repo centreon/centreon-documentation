@@ -29,45 +29,40 @@ Release date: `October 30, 2024`
 <details open>
   <summary>Enhancements</summary>
 
-- [ACL] Improved host groups listing based on Resources Access configuration.
-- [ACL] Improved service groups listing based on Resources Access configuration.
+- [ACL] Non-admin users can now see immediately freshly-created host groups in the list of host groups.
+- [ACL] Non-admin users can now see freshly-created service groups immediately in the list of service groups.
 - [API] Added an endpoint that automatically deploys the services brought by the host template.
 - [API] Added an endpoint to list Pollers.
 - [API] Added an endpoint to create Broker inputs.
-- [API] Added an endpoint to create Additional Connector Configurations.
-- [API] Added an endpoint to delete Additional Connector Configurations.
-- [API] Added an endpoint to update an Additional Connector Configuration.
-- [API] Added an endpoint to list/get an Additional Connector Configuration.
+- [API] Added endpoints to create, delete, update and list/get Additional Connector Configurations.
 - [API] Added API endpoints to return the complete hierarchy for a given BA.
 - [API] Added configuration change logs for hostgroup endpoints.
 - [API] Added missing configuration change logs for host configuration.
 - [Authentication] Expired tokens are now deleted faster.
 - [Authentication] You can now enable/disable API Tokens.
-- [CEIP] Added telemetry for Additional Connector Configuration.
 - [CLAPI] CLAPI now manages multiline values.
-- [Configuration] Added the ability to duplicate a locked command.
+- [Configuration] You can now duplicate a locked command.
 - [Configuration] You can now configure several more Broker loggers from the interface.
-- [Dashboards] Added a pending refresh indicator to widgets.
+- [Dashboards] Added a "pending refresh" indicator to widgets.
 - [Dashboards] Added a new menu to manage Additional Connector Configurations.
-- [Dashboards] Added last update to widgets and enabled refresh directly from widgets.
+- [Dashboards] Added last update time to widgets and enabled refresh directly from inside widgets.
 - [Dashboards] Added meta-services to Resource Table widget.
-- [Dashboards] Added the ability to create a public link to a playlist.
+- [Dashboards] You can now create a public link to a playlist.
 - [Dashboards] Added the display of parent hosts statuses when only services are selected in status chart and status grid widgets.
 - [Dashboards] Allowed smaller dimensions for widgets through more responsive behavior.
 - [Dashboards] Implemented new "Clock / Timer" widget.
-- [Dashboards] Optimised data payload required by widgets to retrieve resource data.
+- [Dashboards] Optimized data payload required by widgets to retrieve resource data.
 - [Dataset] When users select a resource, only the data that is linked to this resource is displayed in the lists for the other types of data. Irrelevant entries are filtered out.
 - [Metrics Graph widget] Added curve type format setting.
-- [Metrics Graph widget] Added multiple options to customize graph.
-- [Metrics Graph widget] Distinguished curves for same metric name, by automatically adjusting colors.
-- [Metrics Graph widget] Enabled visualization using bar chart and stacked bar chart.
+- [Metrics Graph widget] Added multiple options to customize graphs.
+- [Metrics Graph widget] Colors are now automatically adjusted to distinguish curves for the same metric name.
+- [Metrics Graph widget] Enabled visualization using bar charts and stacked bar charts.
 - [Resource Status] In the filter window, you can now filter by resource type.
-- [Resource Status] Users can now  filter by host name in view by host mode.
+- [Resource Status] Users can now filter by host name in "view by host" mode.
 - [Resource Table widget] Added ticketing (by third-party provider) feature.
-- [Resource Table widget] Added action buttons, similar to Resource Status (Acknowledge, Downtime, Forced check).
+- [Resource Table widget] Added the same action buttons as in Resource Status (Acknowledge, Downtime, Forced check).
 - [Resource Table widget] Added filtering options by severity and by status type.
 - [Resource Table widget] Moved display type selection into the widget.
-- [Secrets] Manage Vault credentials storage/update/duplicate/delete for Host/Service/Host template/Service template and snmp community macros.
 - [Status Grid widget] Added Centreon resources pictograms.
 - [Status Grid widget] Added colored banners for resources states.
 - [UX] Removed autocomplete for credentials fields in administration pages.
@@ -84,7 +79,6 @@ Release date: `October 30, 2024`
 - [API] Fixed access control for notification configuration endpoints.
 - [API] Fixed access control for some v2 API endpoints.
 - [ACL] Fixed access rights for dashboard configuration endpoints.
-- [API] Fixed access control for some v2 API endpoints.
 - [API] Fixed access control for some v2 API service configuration endpoints.
 - [API] Fixed an issue on ACL checks for Administration endpoints.
 - [API] Fixed an issue on ACL checks for Platform endpoints.
@@ -117,8 +111,8 @@ Release date: `October 30, 2024`
 <details open>
   <summary>Enhancements</summary>
 
-- [CMA] Added a silent mode (CLI) to the agent's Windows installer.
 - [CMA] Centreon Monitoring Agent is now available with a Windows installer, which installs the service and deploys Centreon plugins on the host.
+- [CMA] Added a silent mode (CLI) to the agent's Windows installer.
 - [CMA] Made Telegraf and Centreon Monitoring Agent commands compliant with Engine whitelists.
 
 </details>
