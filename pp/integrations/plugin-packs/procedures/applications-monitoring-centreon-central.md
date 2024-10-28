@@ -187,25 +187,52 @@ SNMP must be configured on each poller being monitored. You can refer to this [d
 
 ### SSH key exchange
 
-The checks related to **Broker-Stats** service should be done from a poller and it is done through SSH. If you only have a central server, then checks will be initiated and performed on and by the central server itself. You can skip below steps for SSH key exchange if the central server monitors itself.
+The checks related to **Broker-Stats** service should be done from a poller and it is done through SSH. 
+If you only have a central server, then checks will be initiated and performed on and by the central server itself. 
+You can skip below steps for SSH key exchange if the central server monitors itself.
 
-The poller monitoring the central will have to log on through SSH as **centreon** user on the central server while being **centreon-engine**.
+> NB : It is strongly recommended to monitor the cluster from an external poller rather than from the cluster's active node.
 
-Follow below steps to exchange the SSH key:
+Open a `root` command-line session on:
 
-1. From the **central server**, set a password for the **centreon** user:
+* the poller that will monitor the cluster
+* both of the cluster nodes
 
-```
-passwd centreon
-```
-
-2. From the poller server, create and copy the new **centreon-engine's SSH key** on the central:
+Then switch to `centreon-engine`'s bash environment on both nodes:
 
 ```
 su - centreon-engine
-ssh-keygen -t ed25519 -a 100
-ssh-copy-id -i ~/.ssh/id_ed25519.pub centreon@<IP_CENTRAL>
 ```
+
+Then run these commands on both nodes:
+
+```bash
+ssh-keygen -t ed25519 -a 100
+```
+
+We have generated a pair of keys on each server, and the `~/.ssh` directory. 
+
+Run this command on the poller to display the user's public key:
+
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+
+Once done, copy the content of the public key file displayed by `cat` and paste it to `~/.ssh/authorized_keys` (must be created) on both of the cluster's nodes and apply the correct file permissions (still as the `centreon-engine` user):
+
+```
+chmod 600 ~/.ssh/authorized_keys
+```
+
+The keys exchange must be validated by an initial connection from each node to the other in order to accept and register the peer node's SSH fingerprint (still as `centreon-engine` user):
+
+```
+ssh <cluster-node-ip-address>
+```
+
+Then exit the `centreon-engine` session typing `exit` or `Ctrl-D`.
+
+The `centreon-engine` user is now able to log in *via* SSH to both central nodes.
 
 ### Self-monitored central server
 

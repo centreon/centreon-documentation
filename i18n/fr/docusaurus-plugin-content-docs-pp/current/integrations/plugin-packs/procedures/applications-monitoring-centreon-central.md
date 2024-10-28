@@ -182,31 +182,56 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-### SNMP
+### Configuration SNMP de l'équipement
 
 SNMP doit être configuré sur le serveur central. Vous pouvez vous aider de cette [documentation](operatingsystems-linux-snmp.md#prerequisites) pour mettre en place rapidement une simple configuration SNMP.
 
-### SSH key exchange
+### Configuration de la connexion SSH sans mot de passe
 
-Les vérifications liées au service **Broker-Stats** devraient être effectuées depuis un collecteur et sont réalisées par SSH. Si vous ne disposez que d'un central, les vérifications seront faites depuis et sur le central lui-même. Vous pouvez ignorer les étapes ci-dessous si vous êtes dans ce cas-là.
+Les vérifications liées au service **Broker-Stats** devraient être effectuées depuis un collecteur et sont réalisées par SSH. 
+Si vous ne disposez que d'un central, les vérifications seront faites depuis et sur le central lui-même. 
+Vous pouvez ignorer les étapes ci-dessous si vous êtes dans ce cas-là.
 
-Le collecteur réalise les vérifications en tant qu'utilisateur système **centreon-engine** et se connectera au serveur central en tant qu'utilisateur **centreon**.
+> NB : Il est très fortement recommandé de surveiller le cluster à partir d'un poller plutôt qu'à partir du cluster.
 
-Les étapes ci-dessous décrivent l'échange de clef SSH entre le collecteur et le central :
+Ouvrir une session en ligne de commande sur :
 
-1. Depuis le central, paramétrer un mot de passe pour l'utilisateur **centreon** :
+* le poller qui sera chargé de superviser le cluster
+* chaque nœud de ce cluster
 
-```
-passwd centreon
-```
+Une fois ces sessions ouvertes, lancer cette commande :
 
-2. Depuis le collecteur, créer et copier la nouvelle clef SSH de l'utilisateur **centreon-engine** vers le central :
-
-```
+```bash
 su - centreon-engine
-ssh-keygen -t ed25519 -a 100
-ssh-copy-id -i ~/.ssh/id_ed25519.pub centreon@<IP_CENTRAL>
 ```
+
+À présent nous sommes dans l'environnement `bash` de `centreon-engine`. Lancer ensuite cette commande :
+
+```bash
+ssh-keygen -t ed25519 -a 100
+```
+
+Nous avons généré une paire de clés sur chaque serveur, ainsi que le répertoire `~/.ssh`. 
+
+Sur le poller lancer cette commande pour afficher la clé publique créée :
+
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+
+Après avoir lancé cette commande, copier le contenu du fichier qui s'est affiché sous la commande `cat` et le coller à la fin du fichier (probablement à créer) `~/.ssh/authorized_keys` des nœuds centraux, puis appliquer les bons droits sur le fichier (toujours en tant que `centreon-engine`) :
+
+```bash
+chmod 600 ~/.ssh/authorized_keys
+```
+
+Une fois cette étape effectuée sur chaque nœud central, il ne reste plus qu'à initialiser une première connexion depuis le poller vers chacun des nœuds :
+
+```bash
+ssh <cluster-node-ip-address>
+```
+
+L'utilisateur `centreon-engine` du poller est alors capable d'ouvrir une session SSH sur les deux nœuds centraux. 
 
 ### Serveur central auto-supervisé
 
