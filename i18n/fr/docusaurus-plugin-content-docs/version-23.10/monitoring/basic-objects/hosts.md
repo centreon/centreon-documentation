@@ -13,15 +13,15 @@ Pour créer un hôte manuellement :
 
 ### Information de base sur l'hôte
 
-* Le champ **Nom** définit le nom d’hôte qui sera utilisé par le moteur de supervision. Les caractères suivants ne sont pas autorisés : `~!$%^&|'"<>?,()=*{}` et les espaces.
-* Le champ **Alias** est un autre nom pour l'hôte. Les espaces et caractères interdits dans le nom peuvent être employés ici. L'alias peut être utilisé dans la barre de recherche **Nom** pour retrouver les hôtes.
-* Le champ **Adresse** définit l'adresse IP ou le nom DNS de l’hôte. Le bouton **Résoudre** permet de tester le nom du domaine en interrogeant le serveur DNS configuré dans le serveur central. Dans le cas où un nom DNS est utilisé pour remplir le champ, le bouton **Résoudre** le remplacera également par l'adresse IP correspondante.
-* Les champs **Communauté SNMP & Version** contiennent respectivement le nom de la communauté ainsi que la version SNMP.
-* Le champ **Serveur de supervision** indique lequel parmi Central, un poller ou un serveur distant sera chargé de superviser cet hôte.
-* Le champ **Fuseau horaire** indique l'emplacement du fuseau horaire des hôtes surveillés.
-* Le champ **Modèles** permet d’associer un ou plusieurs modèles d’hôtes à cet objet pour le configurer plus rapidement.
+* **Nom** : nom d’hôte utilisé par le moteur de supervision. Ne peut pas contenir : `~!$%^&|'"<>?,()=*{}` et les espaces.
+* **Alias** : un autre nom pour l'hôte. Les espaces et caractères interdits dans le nom peuvent être employés ici. L'alias peut être utilisé dans la barre de recherche **Nom** pour retrouver un hôte.
+* **Adresse** : adresse IP ou nom DNS de l’hôte. Le bouton **Résoudre** permet de tester le nom du domaine en interrogeant le serveur DNS configuré dans le serveur central. Dans le cas où un nom DNS est utilisé pour remplir le champ, le bouton **Résoudre** le remplacera également par l'adresse IP correspondante.
+* **Communauté SNMP & Version** : contiennent respectivement le nom de la communauté ainsi que la version SNMP.
+* **Serveur de supervision** : détermine si c'est Central, un poller ou un serveur distant sera chargé de superviser cet hôte.
+* **Fuseau horaire** : emplacement du fuseau horaire des hôtes surveillés. Tenez en compte que c'est le fuseau horaire établi ici qui détermine à quel moment sont réalisés les contrôles de cet hôte.
+* **Modèles** : permet d’associer un ou plusieurs [modèles](../templates.md) à cet objet.
 
-Si plusieurs modèles tenteraient de modifier le même champ, les caractéristiques du template placé au-dessus des autres seront appliquées.
+Si plusieurs [modèles](../templates.md) tenteraient de modifier le même champ, les caractéristiques du [modèle](../templates.md) placé au-dessus des autres seront appliquées.
 
 > schéma ici
 
@@ -29,20 +29,19 @@ Si plusieurs modèles tenteraient de modifier le même champ, les caractéristiq
    Ce bouton ![image](../../assets/configuration/common/delete.png#thumbnail2) sert à supprimer le modèle hôte.
 
 * Si la case **Oui** est cochée pour **Créer aussi les services liés aux modèles**, Centreon génère automatiquement les
-  services en se basant sur les modèles de services liés aux modèles d’hôtes définis au-dessus
-  (voir chapitre Les [modèles](../templates.md)).
+  services en se basant sur les [modèles](../templates.md) de services liés aux [modèles](../templates.md) d’hôtes définis au-dessus.
 
 ### Options de contrôle de l'hôte
 
-* Le champ **Commande de vérification** indique la commande utilisée pour vérifier la disponibilité de l’hôte.
-* Le champ **Arguments** définit les arguments donnés à la commande de vérification (chaque argument commence avec un ”!”).
+* **Commande de vérification** : commande utilisée pour vérifier la disponibilité de l’hôte.
+* **Arguments** : arguments donnés à la commande de vérification (chaque argument commence avec un ”!”).
 
-* Section **Macros personnalisées** :
+* Section [**Macros personnalisées**](../macros/#custom-macros) :
 
-   * Les champs **Nom** et **Valeur** permettent respectivement de définir le nom et la valeur de la macro.
-   * La case **Mot de passe** permet de cacher la valeur de la macro.
+   * Les champs **Nom** et **Valeur** établissent le nom et la valeur de la macro.
+   * Cocher la case **Mot de passe** cache la valeur de la macro.
 
-   Pour réinitialiser la macro avec sa valeur par défaut (définie dans le template) cliquez sur ![image](../../assets/configuration/common/undo.png#thumbnail2)
+   Pour réinitialiser la macro avec sa valeur par défaut définie par le [modèle](../templates.md) cliquez sur ![image](../../assets/configuration/common/undo.png#thumbnail2)
 
    Pour afficher la description de la macro, cliquez sur ![image](../../assets/configuration/common/description.png#thumbnail2)
 
@@ -52,13 +51,13 @@ Si plusieurs modèles tenteraient de modifier le même champ, les caractéristiq
 
 ### Options d’ordonnancement
 
-* Le champ **Période de contrôle** définit la période temporelle durant laquelle l’ordonnanceur vérifie activement le statut de l’objet.
-* Le champ **Nombre de contrôles avant validation de l'état** définit le nombre de contrôles à effectuer avant de confirmer le statut de l’hôte comme non-OK.
+* **Période de contrôle** définit la période temporelle durant laquelle l’ordonnanceur vérifie activement le statut de l’objet.
+* **Nombre de contrôles avant validation de l'état** définit le nombre de contrôles à effectuer avant de confirmer le statut de l’hôte comme non-OK.
   lorsque le statut est validé, le processus de notification est enclenché.
-* Le champ **Intervalle normal de contrôle** est exprimé en minutes. Il définit l’intervalle entre chaque contrôle lorsque
+* **Intervalle normal de contrôle** est exprimé en minutes. Il définit l’intervalle entre chaque contrôle lorsque
   le statut de l’hôte est OK.
-* Le champ **Intervalle non-régulier de contrôle** est exprimé en minutes. Il définit l’intervalle de validation du statut non-OK de l’hôte.
-* Les champs **Contrôle actif activé** et **Contrôle passif activé** activent / désactivent les contrôles actifs et passifs. Les contrôles passifs sont les informations que la ressource supervisée envoie au Central sans que celles-ci aient été activement demandées. Pour en savoir plus sur le contrôle passif, lisez notre [article dédié](../../monitoring/passive-monitoring/enable-snmp-traps.md).
+* **Intervalle non-régulier de contrôle** exprimé en minutes, désigne l'intervalle de temps entre chaque contrôle réalisé avant la validation de l'état. Une fois le nombre de contrôles de validation réalisé, l'intervalle revient à son rythme normal.
+* **Contrôle actif activé** et **Contrôle passif activé** activent / désactivent les contrôles actifs et passifs. [Les contrôles passifs](../../monitoring/passive-monitoring/enable-snmp-traps.md) sont les informations que la ressource supervisée envoie au Central sans que celles-ci aient été activement demandées.
 
 ## Onglet Notification
 
