@@ -30,7 +30,7 @@ Si plusieurs modèles tenteraient de modifier le même champ, les caractéristiq
 
 * Si la case **Oui** est cochée pour **Créer aussi les services liés aux modèles**, Centreon génère automatiquement les
   services en se basant sur les modèles de services liés aux modèles d’hôtes définis au-dessus
-  (voir chapitre Les *[modèles](../templates.md)*).
+  (voir chapitre Les [modèles](../templates.md)).
 
 ### Options de contrôle de l'hôte
 
