@@ -26,31 +26,41 @@ Pour faire des demandes d'évolutions ou reporter des bugs sur les extensions co
 Release date: `October 30, 2024`
 
 <details open>
+  <summary>Map Legacy retirement</summary>
+
+- **MAP Legacy is no longer available.**
+- If you are still using Map Legacy and want to know more about how to migrate to MAP, [(https://docs.centreon.com/docs/graph-views/map-legacy-eol/)this topic] will be helpful.
+
   <summary>Enhancements</summary>
 
-- [API] Fixed access control for some v2 API endpoints.
-- [Editor] You can now hide container labels.
-- [Editor] Increased the number of available fonts and made Roboto the default one.
-- [GeoViews] Redesigned the edit modal.
-- [Legacy] MAP Legacy is no longer available.
-- [Protobuf] Implemented "pb_instance_configuration" event.
-- [SELinux] Packaged SELinux rules for centreon-map and centreon-mbi.
-- [Server] Adapted Protobuf to handle the new "AdaptiveHostStatus" and "AdaptiveServiceStatus" events from Broker.
-- [Server] Improved logs related to Broker event processing and made event queue size configurable.
-- [Server] Improved the parsing of Broker events on creation and deletion of resources.
-- [Server] Increased the default log level to INFO for map-engine.
-- [Server] Optimized the way the global map status is calculated.
-- [Viewer] You can now display a host name for a service.
-- [Viewer] You can now display the status as background color for a resource in weather style.
+Server side:
+- Optimized the way the global map status is calculated.
+- Adapted Protobuf to handle the new "AdaptiveHostStatus", "AdaptiveServiceStatus" and "pb_instance_configuration" events from Broker.
+- Improved logs related to Broker event processing and made event queue size configurable.
+- Improved the parsing of Broker events on creation and deletion of resources.
+- Increased the default log level to INFO for map-engine.
+- Fixed access control for some v2 API endpoints.
+- Packaged SELinux rules for centreon-map and centreon-mbi.
+
+Editor side:
+- You can now hide container labels.
+- Increased the number of available fonts and made Roboto the default one.
+
+Viewer side:
+- You can now display a host name for a service.
+- You can now display the status as background color for a resource in weather style.
+
+GeoViews side:
+- Redesigned the edit modal.
 
 </details>
 
 <details>
   <summary>Bug fixes</summary>
 
-- [Server] Fixed a synchronization issue that could cause resources to disappear from a map.
-- [Server] Fixed concurrent access issues causing exceptions in the viewer.
-- [Server] When using Service Templates or Hostgroup Services, the status of Service groups is now displayed correctly.
+- Fixed a synchronization issue that could cause resources to disappear from a map.
+- Fixed concurrent access issues causing exceptions in the viewer.
+- When using Service Templates or Hostgroup Services, the status of Service groups is now displayed correctly.
 
 </details>
 
