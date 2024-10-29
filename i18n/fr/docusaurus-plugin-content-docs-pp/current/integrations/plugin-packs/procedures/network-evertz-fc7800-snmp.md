@@ -5,9 +5,9 @@ title: Evertz FC7800 SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Evertz FC7800** 
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Evertz FC7800 SNMP** 
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs 
 
 ### Modèles
 
-Le connecteur de supervision **Evertz FC7800** apporte un modèle d'hôte :
+Le connecteur de supervision **Evertz FC7800 SNMP** apporte un modèle d'hôte :
 
 * **Net-Evertz-FC7800-SNMP-custom**
 
@@ -87,12 +87,11 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ### Configuration SNMP
 
-Afin de superviser votre **Evertz FC7800** en SNMP, il est nécessaire de configurer l'agent sur l'équipement.
+L'agent SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
 
 ### Flux réseau
 
-La communication doit être possible sur le port UDP 161 depuis le collecteur
-Centreon vers le serveur supervisé.
+La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers le serveur supervisé.
 
 ## Installer le connecteur de supervision
 

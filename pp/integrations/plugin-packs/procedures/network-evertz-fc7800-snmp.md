@@ -5,9 +5,9 @@ title: Evertz FC7800 SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Connector Dependencies
+## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Evertz FC7800** connector through the
+The following monitoring connectors will be installed when you install the **Evertz FC7800 SNMP** connector through the
 **Configuration > Monitoring Connector Manager** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ The following monitoring connectors will be installed when you install the **Eve
 
 ### Templates
 
-The Monitoring Connector **Evertz FC7800** brings a host template:
+The Monitoring Connector **Evertz FC7800 SNMP** brings a host template:
 
 * **Net-Evertz-FC7800-SNMP-custom**
 
@@ -86,12 +86,11 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your **Evertz FC7800** equipment.
+The SNMP agent must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
 
 ### Network flow
 
-The target server must be reachable from the Centreon poller on the UDP/161
-SNMP port.
+The target server must be reachable from the Centreon poller on the UDP/161 SNMP port.
 
 ## Installing the monitoring connector
 
