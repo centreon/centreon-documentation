@@ -20,8 +20,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                      | Service Description   |
 |:--------------|:--------------------------------------|:----------------------|
-| Load          | Net-Barracuda-Bma-Load-SNMP-custom    | Check system cpu load |
-| Mails         | Net-Barracuda-Bma-Mails-SNMP-custom   | Check mails activity  |
+| Load          | Net-Barracuda-Bma-Load-SNMP-custom    | Check system CPU load |
+| Mails         | Net-Barracuda-Bma-Mails-SNMP-custom   | Check email activity  |
 | Storage       | Net-Barracuda-Bma-Storage-SNMP-custom | Check storage usage   |
 
 > The services listed above are created automatically when the **Net-Barracuda-Bma-SNMP-custom** host template is used.
