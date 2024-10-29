@@ -5,7 +5,7 @@ title: Dell N-series SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Dell N-series SNMP** 
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -63,7 +63,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                      | Description                                                             |
 |:-------------------------------------|:------------------------------------------------------------------------|
-| Net-Dell-Nseries-SNMP-Interface-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
+| Net-Dell-Nseries-SNMP-Interface-Name | Découvre les interfaces réseau et supervise leur statut et leur utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).

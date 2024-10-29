@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                         | Service Description                                                                                           |
 |:--------------|:-----------------------------------------|:--------------------------------------------------------------------------------------------------------------|
-| Cpu           | Net-Dell-Nseries-Cpu-SNMP-custom         | Check the rate of utilization of CPU for the machine. This check can give the average utilization rate of CPU |
+| Cpu           | Net-Dell-Nseries-Cpu-SNMP-custom         | Check the rate of CPU utilization for the machine. This check can give the average utilization rate of the CPU |
 | Environment   | Net-Dell-Nseries-Environment-SNMP-custom | Check hardware status                                                                                         |
 | Memory        | Net-Dell-Nseries-Memory-SNMP-custom      | Check equipment memory usage                                                                                  |
 
