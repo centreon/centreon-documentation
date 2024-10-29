@@ -31,9 +31,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias              | Service Template                                     | Service Description                                             | Discovery  |
 |:---------------------------|:-----------------------------------------------------|:----------------------------------------------------------------|:----------:|
-| Packet-Errors-Generic-Name | Net-FW-Arkoon-Packet-Errors-Generic-Name-SNMP-custom | Check packets on errors/discards of a network interface         |            |
-| Packet-Errors-Global       | Net-FW-Arkoon-Packet-Errors-Global-SNMP-custom       | Check packets on errors/discards of multiple network interfaces | X          |
-| Process-Generic            | Net-FW-Arkoon-Process-Generic-SNMP-custom            | Check Arkoon process/service is working                         |            |
+| Packet-Errors-Generic-Name | Net-FW-Arkoon-Packet-Errors-Generic-Name-SNMP-custom | Check packets in error/discarded from a network interface          |            |
+| Packet-Errors-Global       | Net-FW-Arkoon-Packet-Errors-Global-SNMP-custom       | Check packets in error/discarded from multiple network interfaces | X          |
+| Process-Generic            | Net-FW-Arkoon-Process-Generic-SNMP-custom            | Check that an Arkoon process/service is working                         |            |
 | Traffic-Generic-Name       | Net-FW-Arkoon-Traffic-Generic-Name-SNMP-custom       | Check traffic of an network interface                           |            |
 | Traffic-Global             | Net-FW-Arkoon-Traffic-Global-SNMP-custom             | Check traffic of multiple network interfaces                    | X          |
 | Uptime                     | Net-FW-Arkoon-Uptime-SNMP-custom                     | Get uptime                                                      |            |

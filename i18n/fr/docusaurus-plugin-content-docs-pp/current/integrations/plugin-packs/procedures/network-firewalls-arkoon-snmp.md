@@ -32,12 +32,12 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                      | Modèle de service                                    | Description                                                                        | Découverte |
 |:---------------------------|:-----------------------------------------------------|:-----------------------------------------------------------------------------------|:----------:|
-| Packet-Errors-Generic-Name | Net-FW-Arkoon-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écarté d'une interface réseau         |            |
-| Packet-Errors-Global       | Net-FW-Arkoon-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écarté de plusieurs interfaces réseau | X          |
+| Packet-Errors-Generic-Name | Net-FW-Arkoon-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau         |            |
+| Packet-Errors-Global       | Net-FW-Arkoon-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau | X          |
 | Process-Generic            | Net-FW-Arkoon-Process-Generic-SNMP-custom            | Contrôle permettant de vérifier le fonctionnement d'un processus/service Arkoon    |            |
-| Traffic-Generic-Name       | Net-FW-Arkoon-Traffic-Generic-Name-SNMP-custom       | Contrôle le traffic réseau d'une interface réseau                                  |            |
-| Traffic-Global             | Net-FW-Arkoon-Traffic-Global-SNMP-custom             | Contrôle le traffic réseau de plusieurs interfaces réseau                          | X          |
-| Uptime                     | Net-FW-Arkoon-Uptime-SNMP-custom                     | Contrôle permettant de récuperer l'uptime                                          |            |
+| Traffic-Generic-Name       | Net-FW-Arkoon-Traffic-Generic-Name-SNMP-custom       | Contrôle le trafic réseau d'une interface réseau                                  |            |
+| Traffic-Global             | Net-FW-Arkoon-Traffic-Global-SNMP-custom             | Contrôle le trafic réseau de plusieurs interfaces réseau                          | X          |
+| Uptime                     | Net-FW-Arkoon-Uptime-SNMP-custom                     | Contrôle permettant de récupérer l'uptime                                          |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -60,8 +60,8 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                       | Description                                                               |
 |:--------------------------------------|:--------------------------------------------------------------------------|
-| Net-FW-Arkoon-SNMP-Packet-Errors-Name | Découvre les interfaces réseaux et supervise les paquets en erreur/écarté |
-| Net-FW-Arkoon-SNMP-Traffic-Name       | Découvre les interfaces réseaux et supervise le statut et l'utilisation   |
+| Net-FW-Arkoon-SNMP-Packet-Errors-Name | Découvre les interfaces réseau et supervise les paquets en erreur/écartés |
+| Net-FW-Arkoon-SNMP-Traffic-Name       | Découvre les interfaces réseau et en supervise le statut et l'utilisation   |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
