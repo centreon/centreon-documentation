@@ -23,7 +23,7 @@ To create a host manually:
 
 If multiple [templates](../templates.md#definition) would modify the same field, the properties of the [template](../templates.md#definition) placed above the others will be applied. 
 
-###SCHEMA GOES HERE
+[!image](../../assets/monitoring/template_priority_example.png)
 
 This button ![image](../../assets/configuration/common/move.png#thumbnail1) enables us to change the order of host templates.
 This button ![image](../../assets/configuration/common/delete.png#thumbnail1) is used to delete the host template.
