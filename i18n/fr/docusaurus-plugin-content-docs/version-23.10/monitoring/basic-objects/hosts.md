@@ -23,7 +23,7 @@ Pour créer un hôte manuellement :
 
 Si plusieurs [modèles](../templates.md) tenteraient de modifier le même champ, les caractéristiques du [modèle](../templates.md) placé au-dessus des autres seront appliquées.
 
-> schéma ici
+[!image](../../assets/monitoring/template_priority_example.png)
 
    Ce bouton ![image](../../assets/configuration/common/move.png#thumbnail2) nous permet de changer l'ordre des modèles hôtes.
    Ce bouton ![image](../../assets/configuration/common/delete.png#thumbnail2) sert à supprimer le modèle hôte.
