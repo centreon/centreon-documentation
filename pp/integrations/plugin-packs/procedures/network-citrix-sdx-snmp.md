@@ -20,10 +20,10 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias            | Service Template                                    | Service Description             |
 |:-------------------------|:----------------------------------------------------|:--------------------------------|
-| Disk-Usage               | Net-Citrix-Sdx-Disk-Usage-SNMP-custom               | Check disk usages               |
+| Disk-Usage               | Net-Citrix-Sdx-Disk-Usage-SNMP-custom               | Check disk usage               |
 | Hardware                 | Net-Citrix-Sdx-Hardware-SNMP-custom                 | Check hardware                  |
-| Storage-Repository-Usage | Net-Citrix-Sdx-Storage-Repository-Usage-SNMP-custom | Check storage repository usages |
-| Xen-Usage                | Net-Citrix-Sdx-Xen-Usage-SNMP-custom                | Check xen hypervisor usages     |
+| Storage-Repository-Usage | Net-Citrix-Sdx-Storage-Repository-Usage-SNMP-custom | Check storage repository usage |
+| Xen-Usage                | Net-Citrix-Sdx-Xen-Usage-SNMP-custom                | Check xen hypervisor usage     |
 
 > The services listed above are created automatically when the **Net-Citrix-Sdx-SNMP-custom** host template is used.
 
