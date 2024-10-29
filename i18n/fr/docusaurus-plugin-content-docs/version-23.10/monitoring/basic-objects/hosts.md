@@ -23,7 +23,19 @@ Pour créer un hôte manuellement :
 
 Si plusieurs [modèles](../templates.md) tenteraient de modifier le même champ, les caractéristiques du [modèle](../templates.md) placé au-dessus des autres seront appliquées.
 
+Voici un exemple d’hôte avec 3 modèles appliqués.
+
 [!image](../../assets/monitoring/template_priority_example.png)
+
+* App-Monitoring-Centreon-Poller applique une première configuration.
+
+* OS-Linux-SNMP va ensuite ecraser la configuration de App-Monitoring-Centreon-Poller là où il y a un conflit des champs à remplir mais n’effacera pas les champs remplis par un autre modèle s’il n’a pas de nouvelles informations à apporter.
+
+* App-DB-MySQL fait la même chose avec OS-Linux-SNMP.
+
+Changer l’ordre des templates modifie automatiquement les configurations selon ce nouvel ordre le cas échéant.
+
+
 
    Ce bouton ![image](../../assets/configuration/common/move.png#thumbnail2) nous permet de changer l'ordre des modèles hôtes.
    Ce bouton ![image](../../assets/configuration/common/delete.png#thumbnail2) sert à supprimer le modèle hôte.
