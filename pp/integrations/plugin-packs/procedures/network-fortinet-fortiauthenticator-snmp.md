@@ -131,7 +131,9 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-### Device Configuration
+### SNMP Configuration
+
+The SNMP agent must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
 
 On the FortiAuthenticator device, enable and configure the SNMP agent:
 
@@ -141,8 +143,7 @@ On the FortiAuthenticator device, enable and configure the SNMP agent:
 
 ### Network flow
 
-The target server must be reachable from the Centreon poller on the UDP/161
-SNMP port.
+The target resource must be reachable from the Centreon poller on the UDP/161 SNMP port.
 
 ## Installing the monitoring connector
 
