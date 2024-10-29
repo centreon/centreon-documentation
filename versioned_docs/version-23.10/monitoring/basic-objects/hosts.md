@@ -57,7 +57,7 @@ This button ![image](../../assets/configuration/common/delete.png#thumbnail1) is
   host as not OK. When the status is confirmed, the notification process is triggered.
 * **Normal Check Interval**: interval in minutes between checks when the host status is OK.
 * **Retry Check Interval**: interval expressed in minutes referring to the wait between the checks done to confirm the status of the host. Once the max check attempts have been made, the interval returns to its normal check interval.
-* **Active Checks Enabled** and **Passive Checks Enabled**: enable / disable the active and passive checks. [Passive checks](../../monitoring/passive-monitoring/enable-snmp-traps.md). are information the monitored resource sends to Central without it having been actively requested.
+* **Active Checks Enabled** and **Passive Checks Enabled**: enable / disable the active and passive checks. [Passive checks](../../monitoring/passive-monitoring/enable-snmp-traps.md) are information the monitored resource sends to Central without it having been actively requested.
 
 ## Notification tab
 
