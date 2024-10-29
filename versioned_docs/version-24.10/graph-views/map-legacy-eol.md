@@ -76,7 +76,7 @@ apt remove centreon-map-server
 
 ### Optional procedures
 
-> These cleaning procedures will allow you to work in an optimal environment. If you wish, you can make a backup of your data.
+> These cleaning procedures will allow you to work in an optimal environment. Make sure you have made a backup of your data.
 
 - Remove the legacy log files. (If you do not know where to find the log files, look in `/etc/centreon-studio/map-log.xml`. By default, the path is `/var/log/centreon-map/centreon-map.log`.)
   
