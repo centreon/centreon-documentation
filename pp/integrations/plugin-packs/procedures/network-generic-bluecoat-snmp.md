@@ -21,8 +21,8 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias      | Service Template                            | Service Description                                     |
 |:-------------------|:--------------------------------------------|:--------------------------------------------------------|
 | Client-Connections | Net-Bluecoat-Client-Connections-SNMP-custom | Check current client connections on Bluecoat            |
-| Client-Requests    | Net-Bluecoat-Client-Requests-SNMP-custom    | Check current http client requests on Bluecoat          |
-| Client-Traffic     | Net-Bluecoat-Client-Traffic-SNMP-custom     | Check bytes/s received/delivered to clients on Bluecoat |
+| Client-Requests    | Net-Bluecoat-Client-Requests-SNMP-custom    | Check current HTTP client requests on Bluecoat          |
+| Client-Traffic     | Net-Bluecoat-Client-Traffic-SNMP-custom     | Check bytes received from/delivered to clients on Bluecoat |
 | Cpu                | Net-Bluecoat-Cpu-SNMP-custom                | Check CPU usage on Bluecoat                             |
 | Disk               | Net-Bluecoat-Disk-SNMP-custom               | Check disk usage on Bluecoat                            |
 | Hardware           | Net-Bluecoat-Hardware-SNMP-custom           | Check hardware sensors on Bluecoat                      |
