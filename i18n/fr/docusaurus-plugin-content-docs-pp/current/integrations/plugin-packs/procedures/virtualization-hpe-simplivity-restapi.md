@@ -353,7 +353,71 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: alive: 86 faulty: 20 managed: 8 removed: 16 suspected: 31 unknown: 48 green: 3 yellow: 42 red: 12 unknown: 6 logical drives are ok physical drives are ok | 'hosts.alive.count'=86;;;;'hosts.faulty.count'=20;;;;'hosts.managed.count'=8;;;;'hosts.removed.count'=16;;;;'hosts.suspected.count'=31;;;;'hosts.unknown.count'=48;;;;'*hosts*~host.components.green.count'=3;;;;'*hosts*~host.components.yellow.count'=42;;;;'*hosts*~host.components.red.count'=12;;;;'*hosts*~host.components.unknown.count'=6;;;;
+OK: All hosts are ok | 'hosts.alive.count'=4;;;; 'hosts.faulty.count'=0;;;; 'hosts.managed.count'=0;;;; 'hosts.removed.count'=0;;;; 'hosts.suspected.count'=0;;;; 'hosts.unknown.count'=0;;;; 'svt01.acme.com#host.components.green.count'=15;;;; 'svt01.acme.com#host.components.yellow.count'=0;;;; 'svt01.acme.com#host.components.red.count'=0;;;; 'svt01.acme.com#host.components.unknown.count'=0;;;; 'svt02.acme.com#host.components.green.count'=15;;;; 'svt02.acme.com#host.components.yellow.count'=0;;;; 'svt02.acme.com#host.components.red.count'=0;;;; 'svt02.acme.com#host.components.unknown.count'=0;;;; 'svt11.acme.com#host.components.green.count'=15;;;; 'svt11.acme.com#host.components.yellow.count'=0;;;; 'svt11.acme.com#host.components.red.count'=0;;;; 'svt11.acme.com#host.components.unknown.count'=0;;;; 'svt12.acme.com#host.components.green.count'=15;;;; 'svt12.acme.com#host.components.yellow.count'=0;;;; 'svt12.acme.com#host.components.red.count'=0;;;; 'svt12.acme.com#host.components.unknown.count'=0;;;;
+checking host 'svt01.acme.com'
+    status: alive
+    logical drive '1' status: green
+    logical drive '3' status: green
+    physical drive '1:1-1' status: green
+    physical drive '1:1-2' status: green
+    physical drive '1:1-3' status: green
+    physical drive '1:1-4' status: green
+    physical drive '1:1-5' status: green
+    physical drive '1:1-6' status: green
+    physical drive '3:1-1' status: green
+    physical drive '3:1-2' status: green
+    physical drive '3:1-3' status: green
+    physical drive '3:1-4' status: green
+    physical drive '3:1-5' status: green
+    physical drive '3:1-6' status: green
+checking host 'svt02.acme.com'
+    status: alive
+    logical drive '1' status: green
+    logical drive '3' status: green
+    physical drive '1:1-1' status: green
+    physical drive '1:1-2' status: green
+    physical drive '1:1-3' status: green
+    physical drive '1:1-4' status: green
+    physical drive '1:1-5' status: green
+    physical drive '1:1-6' status: green
+    physical drive '3:1-1' status: green
+    physical drive '3:1-2' status: green
+    physical drive '3:1-3' status: green
+    physical drive '3:1-4' status: green
+    physical drive '3:1-5' status: green
+    physical drive '3:1-6' status: green
+checking host 'svt11.acme.com'
+    status: alive
+    logical drive '1' status: green
+    logical drive '3' status: green
+    physical drive '1:1-1' status: green
+    physical drive '1:1-2' status: green
+    physical drive '1:1-3' status: green
+    physical drive '1:1-4' status: green
+    physical drive '1:1-5' status: green
+    physical drive '1:1-6' status: green
+    physical drive '3:1-1' status: green
+    physical drive '3:1-2' status: green
+    physical drive '3:1-3' status: green
+    physical drive '3:1-4' status: green
+    physical drive '3:1-5' status: green
+    physical drive '3:1-6' status: green
+checking host 'svt12.acme.com'
+    status: alive
+    logical drive '1' status: green
+    logical drive '3' status: green
+    physical drive '1:1-1' status: green
+    physical drive '1:1-2' status: green
+    physical drive '1:1-3' status: green
+    physical drive '1:1-4' status: green
+    physical drive '1:1-5' status: green
+    physical drive '1:1-6' status: green
+    physical drive '3:1-1' status: green
+    physical drive '3:1-2' status: green
+    physical drive '3:1-3' status: green
+    physical drive '3:1-4' status: green
+    physical drive '3:1-5' status: green
+    physical drive '3:1-6' status: green
 ```
 
 ### Diagnostic des erreurs communes
