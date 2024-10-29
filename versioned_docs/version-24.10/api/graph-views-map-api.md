@@ -103,4 +103,4 @@ Body: {
 
 ## More information
 
-> Follow this [link](https://docs-api.centreon.com/api/centreon-map/24.04/) to access the Centreon API documentation and preview the API capabilities.
+> Follow this [link](https://docs-api.centreon.com/api/centreon-map/24.10/) to access the Centreon API documentation and preview the API capabilities.

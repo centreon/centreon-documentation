@@ -13,7 +13,7 @@ Centreon fournit un [connecteur de supervision et un plugin](/pp/integrations/pl
 
 ### Configurer vos services
 
-Accédez à votre interface Web Centreon. Allez à la page **Configuration > Hôtes > Hôtes**, puis cliquer sur **Ajouter**.
+Accédez à votre interface web Centreon. Allez à la page **Configuration > Hôtes > Hôtes**, puis cliquez sur **Ajouter**.
 
 Remplissez les informations de base sur votre hôte et ajoutez les modèles d'hôte suivants :
 
@@ -23,12 +23,12 @@ Remplissez les informations de base sur votre hôte et ajoutez les modèles d'h�
 ![image](../assets/graph-views/jvm1.png)
 ![image](../assets/graph-views/jvm2.png)
 
-Pour surveiller la JVM centreon-map, veuillez utiliser les valeurs de macro suivantes :
+Pour superviser la JVM centreon-map, veuillez utiliser les valeurs de macro suivantes :
 
 | Nom                     | Valeur                                    |
 | :---------------------- | :---------------------------------------- |
 | ACTUATORCUSTOMMODE      | ```centreonmap```                         |
-| ACTUATORAPIURLPATH      | ```/centreon-studio/api/beta```           |
+| ACTUATORAPIURLPATH      | ```/centreon-map/api/beta```           |
 | ACTUATORAPIUSERNAME     | Le nom d'utilisateur Api doit être défini |
 | ACTUATORAPIPASSWORD     | Le mot de passe Api doit être défini      |
 
@@ -44,14 +44,14 @@ Vous pouvez également vérifier l'URL suivante, qui indique si le serveur est o
 <TabItem value="HTTP" label="HTTP">
 
 ```shell
-http://<MAP_IP>:8080/centreon-studio/api/beta/actuator/health.
+http://<MAP_IP>:8080/centreon-map/api/beta/actuator/health.
 ```
 
 </TabItem>
 <TabItem value="HTTPS" label="HTTPS">
 
 ```shell
-https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health.
+https://<MAP_IP>:8443/centreon-map/api/beta/actuator/health.
 ```
 
 </TabItem>
@@ -63,12 +63,12 @@ https://<MAP_IP>:8443/centreon-studio/api/beta/actuator/health.
 
 Les éléments sauvegardés sont :
 
-- Les fichiers de configuration (**/etc/centreon-studio**).
-- La base de données (**centreon\_studio**)
+- Les fichiers de configuration (**/etc/centreon-map**).
+- La base de données (**centreon\_map**)
 
 ### Comment ça marche ?
 
-Le script de sauvegarde est exécuté quotidiennement (2 heures du matin) avec une tâche cron située dans **/etc/cron.d/centreon-map-server-backup** :
+Le script de sauvegarde est exécuté quotidiennement (à 2 heures du matin) avec une tâche cron située dans **/etc/cron.d/centreon-map-server-backup** :
 
 ```text
 #
@@ -79,14 +79,14 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin
 # rewrite file with new cron line
 CRONTAB_EXEC_USER=""
 
-0 2 * * * root bash /usr/share/centreon-map-server/bin/centreon-map-server-backup.sh >> /var/log/centreon-studio/backup.log 2>&1
+0 2 * * * root bash /usr/share/centreon-map-server/bin/centreon-map-server-backup.sh >> /var/log/centreon-map/backup.log 2>&1
 ```
 
-La sauvegarde **centreon-map-server-yyyy-mm-dd.tar.gz** est stockée dans **BACKUP\_DIR**, qui est défini dans le fichier de configuration.
+La sauvegarde **centreon-map-server-yyyy-mm-dd.tar.gz** est stockée dans **BACKUP\_DIR**; ce répertoire est défini dans le fichier de configuration.
 
 ### Paramètres de sauvegarde
 
-Les paramètres de sauvegarde sont enregistrés dans **/etc/centreon-studio/backup.conf**.
+Les paramètres de sauvegarde sont enregistrés dans **/etc/centreon-map/backup.conf**.
 
 - ENABLE : activer/désactiver le mécanisme de sauvegarde (valeur par défaut : 0)
 - BACKUP\_DIR : emplacement où la sauvegarde est stockée (valeur par défaut : **/var/backup**)
@@ -118,12 +118,12 @@ tar xzf centreon-map-server-yyyy-mm-dd.tar.gz
 Pour restaurer les fichiers de configuration, exécutez la commande suivante :
 
 ```shell
-cp -R etc/centreon-studio/* /etc/centreon-studio/
+cp -R etc/centreon-map/* /etc/centreon-map/
 ```
 
 ### Restaurer la base de données
 
-Pour restaurer la base de données **centreon\_studio**, exécutez la commande suivante :
+Pour restaurer la base de données **centreon\_map**, exécutez la commande suivante :
 
 ```shell
 systemctl stop centreon-map
@@ -135,23 +135,21 @@ systemctl start centreon-map
 
 > Des erreurs de modification de fichiers de configuration peuvent entraîner des dysfonctionnements du logiciel. Nous vous recommandons de faire une sauvegarde du fichier avant de le modifier et de ne changer que les paramètres conseillés par Centreon.
 
-Par défaut, le serveur Centreon MAP écoute et envoie des informations via le port 8080. 
+Par défaut, le serveur Centreon MAP écoute et envoie des informations via le port 8080.
 Si vous avez configuré le SSL (voir [Configuration HTTPS/TLS](secure-your-map-platform.md#configure-httpstls-on-the-web-server)), utilisez le port 8443.
 
-Vous pouvez modifier ce port (par exemple, si un pare-feu sur votre réseau bloque ces ports).
+Vous pouvez modifier ce port (par exemple, si un pare-feu sur votre réseau le bloque).
 
-> Si le nouveau port est inférieur à 1024, utilisez plutôt la procédure ci-dessous "Définir un port inférieur à 1024".
-
-Sur votre serveur Centreon MAP, arrêtez le serveur Centreon MAP :
+Sur votre serveur Centreon MAP, arrêtez le service centreon-map :
 
 ```shell
 systemctl stop centreon-map
 ```
 
-Modifiez le fichier de paramètres **studio-config.properties** situé dans **/etc/centreon-studio** :
+Modifiez le fichier de paramètres **map-config.properties** situé dans **/etc/centreon-map** :
 
 ```shell
-vi /etc/centreon-studio/studio-config.properties
+vi /etc/centreon-map/map-config.properties
 ```
 
 Ajoutez la ligne suivante à la section MAP SERVER :
@@ -173,5 +171,5 @@ Attendez que le service Centreon MAP ait fini de démarrer (~30 secondes à une 
 Vérifiez que votre serveur est opérationnel et accessible sur le nouveau port que vous avez défini, en entrant l'URL suivante dans votre navigateur web :
 
 ```shell
-http://<MAP_IP>:<NEW_PORT>/centreon-studio/api/beta/actuator/health
+http://<MAP_IP>:<NEW_PORT>/centreon-map/api/beta/actuator/health
 ```
