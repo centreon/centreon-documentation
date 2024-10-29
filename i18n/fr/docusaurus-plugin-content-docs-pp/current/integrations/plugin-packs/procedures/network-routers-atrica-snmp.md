@@ -19,8 +19,7 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="Net-Atrica-SNMP-custom" label="Net-Atrica-SNMP-custom">
 
-| Alias | Modèle de service | Description |
-|:------|:------------------|:------------|
+Pas de modèle de service rattaché à ce modèle d'hôte.
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Atrica-SNMP-custom** est utilisé.
 
@@ -29,8 +28,8 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                    | Modèle de service                               | Description          |
 |:-------------------------|:------------------------------------------------|:---------------------|
-| Connections-Generic-Id   | Net-Atrica-Connections-Generic-Id-SNMP-custom   | Contrôle le trafic  |
-| Connections-Generic-Name | Net-Atrica-Connections-Generic-Name-SNMP-custom | Contrôle le trafic  |
+| Connections-Generic-Id   | Net-Atrica-Connections-Generic-Id-SNMP-custom   | Contrôle le trafic de l'équipement ayant un ID spécifié |
+| Connections-Generic-Name | Net-Atrica-Connections-Generic-Name-SNMP-custom | Contrôle le trafic de l'équipement ayant un nom spécifié |
 | Connections-Global       | Net-Atrica-Connections-Global-SNMP-custom       | Contrôle le trafic  |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.

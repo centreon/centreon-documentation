@@ -18,8 +18,7 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="Net-Atrica-SNMP-custom" label="Net-Atrica-SNMP-custom">
 
-| Service Alias | Service Template  | Service Description |
-|:--------------|:------------------|:--------------------|
+No service template linked to this host template.
 
 > The services listed above are created automatically when the **Net-Atrica-SNMP-custom** host template is used.
 
@@ -28,8 +27,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias            | Service Template                                | Service Description |
 |:-------------------------|:------------------------------------------------|:--------------------|
-| Connections-Generic-Id   | Net-Atrica-Connections-Generic-Id-SNMP-custom   | Check traffic       |
-| Connections-Generic-Name | Net-Atrica-Connections-Generic-Name-SNMP-custom | Check traffic       |
+| Connections-Generic-Id   | Net-Atrica-Connections-Generic-Id-SNMP-custom   | Check device traffic using a specified ID       |
+| Connections-Generic-Name | Net-Atrica-Connections-Generic-Name-SNMP-custom | Check device traffic using a specified name      |
 | Connections-Global       | Net-Atrica-Connections-Global-SNMP-custom       | Check traffic       |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
