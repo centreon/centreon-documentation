@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                  | Service Description                                  |
 |:--------------|:----------------------------------|:-----------------------------------------------------|
-| Cpu           | Net-Enterasys-Cpu-SNMP-custom     | Check the rate of utilization of CPU for the machine |
+| Cpu           | Net-Enterasys-Cpu-SNMP-custom     | Check the rate of CPU utilization for the machine |
 | Memory        | Net-Enterasys-Memory-SNMP-custom  | Check memory usage                                   |
 | Storage       | Net-Enterasys-Storage-SNMP-custom | Check storage usage                                  |
 | Uptime        | Net-Enterasys-Uptime-SNMP-custom  | Time since the server has been working and available |
