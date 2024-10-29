@@ -18,7 +18,7 @@ Pour créer un hôte manuellement :
 * **Adresse** : adresse IP ou nom DNS de l’hôte. Le bouton **Résoudre** permet de tester le nom du domaine en interrogeant le serveur DNS configuré dans le serveur central. Dans le cas où un nom DNS est utilisé pour remplir le champ, le bouton **Résoudre** le remplacera également par l'adresse IP correspondante.
 * **Communauté SNMP & Version** : contiennent respectivement le nom de la communauté ainsi que la version SNMP.
 * **Serveur de supervision** : détermine si c'est Central, un poller ou un serveur distant sera chargé de superviser cet hôte.
-* **Fuseau horaire** : emplacement du fuseau horaire des hôtes surveillés. Tenez en compte que c'est le fuseau horaire établi ici qui détermine à quel moment sont réalisés les contrôles de cet hôte.
+* **Fuseau horaire** : localisation de l'hôte. Tenez en compte que c'est le fuseau horaire établi ici qui détermine à quel moment sont réalisés les contrôles de cet hôte.
 * **Modèles** : permet d’associer un ou plusieurs [modèles](../templates.md) à cet objet.
 
 Si plusieurs [modèles](../templates.md) tenteraient de modifier le même champ, les caractéristiques du [modèle](../templates.md) placé au-dessus des autres seront appliquées.
@@ -51,36 +51,36 @@ Si plusieurs [modèles](../templates.md) tenteraient de modifier le même champ,
 
 ### Options d’ordonnancement
 
-* **Période de contrôle** définit la période temporelle durant laquelle l’ordonnanceur vérifie activement le statut de l’objet.
-* **Nombre de contrôles avant validation de l'état** définit le nombre de contrôles à effectuer avant de confirmer le statut de l’hôte comme non-OK.
+* **Période de contrôle** : définit la période temporelle durant laquelle l’ordonnanceur vérifie activement le statut de l’objet.
+* **Nombre de contrôles avant validation de l'état** : définit le nombre de contrôles à effectuer avant de confirmer le statut de l’hôte comme non-OK.
   lorsque le statut est validé, le processus de notification est enclenché.
-* **Intervalle normal de contrôle** est exprimé en minutes. Il définit l’intervalle entre chaque contrôle lorsque
+* **Intervalle normal de contrôle** : exprimé en minutes. Il définit l’intervalle entre chaque contrôle lorsque
   le statut de l’hôte est OK.
-* **Intervalle non-régulier de contrôle** exprimé en minutes, désigne l'intervalle de temps entre chaque contrôle réalisé avant la validation de l'état. Une fois le nombre de contrôles de validation réalisé, l'intervalle revient à son rythme normal.
+* **Intervalle non-régulier de contrôle** : exprimé en minutes, désigne l'intervalle de temps entre chaque contrôle réalisé avant la validation de l'état. Une fois le nombre de contrôles de validation réalisé, l'intervalle revient à son rythme normal.
 * **Contrôle actif activé** et **Contrôle passif activé** activent / désactivent les contrôles actifs et passifs. [Les contrôles passifs](../../monitoring/passive-monitoring/enable-snmp-traps.md) sont les informations que la ressource supervisée envoie au Central sans que celles-ci aient été activement demandées.
 
 ## Onglet Notification
 
-* **Notification activée** activer ou de désactiver les notifications concernant l’objet.
-* **Contacts liés** contacts qui recevront les notifications. Ces contacts doivent être d'abord configurés dans l'onglet **Utilisateurs**.
-* **Groupes de contacts liés** tous les contacts appartenant aux groupes de contacts définis recevront les
+* **Notification activée** : activer ou de désactiver les notifications concernant l’objet.
+* **Contacts liés** : contacts qui recevront les notifications. Ces contacts doivent être d'abord configurés dans l'onglet **Utilisateurs**.
+* **Groupes de contacts liés** : tous les contacts appartenant aux groupes de contacts définis recevront les
   notifications. Les groupes doivent d'abord être configurés dans l'onglet **Utilisateurs**.
   
-  **Vertical inheritance only** établit les contacts et/ou groupes de contacts à notifier. Elle se trouve dans l'onglet **Administration > Paramètres > Centreon web**. Une fois activée, deux cases supplémentaires apparaissent :
+  **Vertical inheritance only** : établit les contacts et/ou groupes de contacts à notifier. Elle se trouve dans l'onglet **Administration > Paramètres > Centreon web**. Une fois activée, deux cases supplémentaires apparaissent :
 
     * Cocher **Contacts hérités additionnels** écrase pas la configuration du parent modèle d'hôte
   mais ajoute les contacts en plus des contacts définis dans le modèle parent.
     * Cocher **Groupes de contacts hérités additionnels** n'écrasera pas la configuration du parent modèle d'hôte
   mais ajoute les contacts en plus des groupes de contacts définis dans le modèle parent.
 
-* **Options de notifications** définit les statuts pour lesquels une notification sera envoyée. Si aucune case n'est cochée, vous serez notifié pour tous les statuts listés.
-* **Intervalle de notification** est exprimé en minutes. Il indique la durée entre chaque envoi de notification
+* **Options de notifications** : définit les statuts pour lesquels une notification sera envoyée. Si aucune case n'est cochée, vous serez notifié pour tous les statuts listés.
+* **Intervalle de notification** : exprimé en minutes. Il indique la durée entre chaque envoi de notification
   lorsque le statut est non-OK. Si la valeur est définie à 0, l’ordonnanceur envoie une seule notification par
   changement de statut.
-* **Période de notification** indique la période temporelle durant laquelle les notifications seront activées.
-* **Délai de première notification** est exprimé en minutes. Il fait référence au délai à respecter avant l’envoi
+* **Période de notification** : indique la période temporelle durant laquelle les notifications seront activées.
+* **Délai de première notification** : exprimé en minutes. Il fait référence au délai à respecter avant l’envoi
   de la première notification lorsqu’un statut non-OK est confirmé. Mettre la valeur à 0 résulte en l'envoi immédiat de la notification.
-* **Délai de première notification de recouvrement** est le temps qui doit s'écouler avant qu'une notification de type **Récupération** soit envoyée (lorsque l'hôte revient à un état DISPONIBLE). Mettre la valeur à 0 résulte en l'envoi immédiat de la notification.
+* **Délai de première notification de recouvrement** : est le temps qui doit s'écouler avant qu'une notification de type **Récupération** soit envoyée (lorsque l'hôte revient à un état DISPONIBLE). Mettre la valeur à 0 résulte en l'envoi immédiat de la notification.
 
 ## Onglet Relations
 
