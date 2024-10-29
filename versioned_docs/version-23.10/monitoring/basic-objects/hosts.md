@@ -36,7 +36,7 @@ This button ![image](../../assets/configuration/common/delete.png#thumbnail1) is
 * **Check Command**: command used to check the availability of the host.
 * **Args**: arguments given to the check command (each argument starts with ”!”).
 
-* [**Custom macros**](../macros/#custom-macros):
+* **Custom macros**: is automatically populated if you are adding [templates](../templates.md#definition) but you can also add your own [custom macros](../macros/#custom-macros).
 
 
    * The **Name** and **Value** define the name and value of the macro.
