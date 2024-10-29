@@ -18,7 +18,7 @@ To create a host manually:
 * **Address**: IP address or DNS name of the host. The **Resolve** button tests the domain name by questioning the DNS server configured on the central server. If given a DNS name, the Resolve button will also replace the text with the matching IP address.
 * **SNMP Community & Version**: name of the community and the SNMP version.
 * **Monitoring server**: which one amongst Central, a poller or a remote server will be charged with monitoring this host.
-* **Timezone**: the time zone location of the host. Note that the timezone established here is what determines the time of the checks of this host.
+* **Timezone**: location of the host. Note that the timezone established here is what determines the time of the checks of this host.
 * **Templates**: associate one or more [host templates](../templates.md#definition) with this object.
 
 If multiple [templates](../templates.md#definition) would modify the same field, the properties of the [template](../templates.md#definition) placed above the others will be applied. 
@@ -55,28 +55,28 @@ This button ![image](../../assets/configuration/common/delete.png#thumbnail1) is
 * **Check Period**: time period during which active checks can performed.
 * **Max Check Attempts**: the number of checks to be performed before confirming the status of the
   host as not OK. When the status is confirmed, the notification process is triggered.
-* **Normal Check Interval** : interval in minutes between checks when the host status is OK.
-* **Retry Check Interval** interval expressed in minutes referring to the wait between the checks done to confirm the status of the host. Once the max check attempts have been made, the interval returns to its normal check interval.
+* **Normal Check Interval**: interval in minutes between checks when the host status is OK.
+* **Retry Check Interval**: interval expressed in minutes referring to the wait between the checks done to confirm the status of the host. Once the max check attempts have been made, the interval returns to its normal check interval.
 * **Active Checks Enabled** and **Passive Checks Enabled**: enable / disable the active and passive checks. [Passive checks](../../monitoring/passive-monitoring/enable-snmp-traps.md). are information the monitored resource sends to Central without it having been actively requested.
 
 ## Notification tab
 
-* **Notification Enabled** used to enable or disable notifications concerning the object.
-* **Linked contacts** contacts that will receive the notifications. These contacts must be previously configured in the **Users** section.
-* **Linked contacts Groups** groups of contacts that will receive the notifications. Groups must be previously configured in the **Users** section.
+* **Notification Enabled**: used to enable or disable notifications concerning the object.
+* **Linked contacts**: contacts that will receive the notifications. These contacts must be previously configured in the **Users** section.
+* **Linked contacts Groups**: groups of contacts that will receive the notifications. Groups must be previously configured in the **Users** section.
   
-  **Vertical inheritance only** determines contacts and/or groups of contacts that should be notified. When enabled on the  **Administration > Parameters > Centreon UI** page, two extra checkboxes appear:
+  **Vertical inheritance only**: determines contacts and/or groups of contacts that should be notified. When enabled on the  **Administration > Parameters > Centreon UI** page, two extra checkboxes appear:
 
-    * **Contact additive inheritance** overwrites the configuration of the parent host template, but adds the contacts in addition to the contacts defined in the parent template.
-    * **Contact group additive inheritance** will not overwrite the configuration of the parent host template, but adds the contact groups in addition to the contact groups defined in the parent template.
+    * **Contact additive inheritance**: overwrites the configuration of the parent host template, but adds the contacts in addition to the contacts defined in the parent template.
+    * **Contact group additive inheritance**: will not overwrite the configuration of the parent host template, but adds the contact groups in addition to the contact groups defined in the parent template.
 
-* **Notification Options** define the statuses for which a notification will be sent. If no boxes are checked, you will receive notifications for all the statuses listed.
-* **Notification Interval** is expressed in minutes. It indicates the time between sending notifications when the status is Not-OK. If the value is defined as 0, the scheduler sends a single notification per status change.
+* **Notification Options**: define the statuses for which a notification will be sent. If no boxes are checked, you will receive notifications for all the statuses listed.
+* **Notification Interval**: expressed in minutes. It indicates the time between sending notifications when the status is Not-OK. If the value is defined as 0, the scheduler sends a single notification per status change.
   If the value is defined as 0, the scheduler sends a single notification per status change.
-* **Notification Period** indicates the time period during which the notifications will be enabled.
-* **First notification delay** is expressed in minutes. It refers to the time delay to be respected before sending
+* **Notification Period**: indicates the time period during which the notifications will be enabled.
+* **First notification delay**: expressed in minutes. It refers to the time delay to be respected before sending
   the first notification when a Not-OK status is validated. Setting the value to 0 will cause notifications to be sent immediately.
-* **Recovery notification delay** is the time that must pass before a recovery notification is sent (when the host goes back to an UP state). Setting the value to 0 will cause notifications to be sent immediately.
+* **Recovery notification delay**: the time that must pass before a recovery notification is sent (when the host goes back to an UP state). Setting the value to 0 will cause notifications to be sent immediately.
 
 ## Relations tab
 
