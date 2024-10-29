@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias   | Service Template                                 | Service Description |
 |:----------------|:-------------------------------------------------|:--------------------|
-| Fcport-Usage    | Net-Atto-Fibrebridge-Fcport-Usage-SNMP-custom    | Check fc port usage |
+| Fcport-Usage    | Net-Atto-Fibrebridge-Fcport-Usage-SNMP-custom    | Check fiber channel port usage |
 | Hardware-Global | Net-Atto-Fibrebridge-Hardware-Global-SNMP-custom | Check hardware      |
 
 > The services listed above are created automatically when the **Net-Atto-Fibrebridge-SNMP-custom** host template is used.
