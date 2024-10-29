@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 | Load            | Net-Barracuda-Cloudgen-Load-SNMP-custom            | Check the server load average |
 | Memory          | Net-Barracuda-Cloudgen-Memory-SNMP-custom          | Check memory usage            |
 | Server-Service  | Net-Barracuda-Cloudgen-Server-Service-SNMP-custom  | Check server services status  |
-| Vpn-Status      | Net-Barracuda-Cloudgen-Vpn-Status-SNMP-custom      | Check vpn status              |
+| Vpn-Status      | Net-Barracuda-Cloudgen-Vpn-Status-SNMP-custom      | Check VPN status              |
 
 > The services listed above are created automatically when the **Net-Barracuda-Cloudgen-SNMP-custom** host template is used.
 
@@ -35,7 +35,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                                | Service Description                                                                          |
 |:--------------|:------------------------------------------------|:---------------------------------------------------------------------------------------------|
-| Cpu-Detailed  | Net-Barracuda-Cloudgen-Cpu-Detailed-SNMP-custom | Check CPU detailed                                                                           |
+| Cpu-Detailed  | Net-Barracuda-Cloudgen-Cpu-Detailed-SNMP-custom | Detailed checks for CPUs                                                                          |
 | Interfaces    | Net-Barracuda-Cloudgen-Interfaces-SNMP-custom   | Check interfaces                                                                             |
 | Storage       | Net-Barracuda-Cloudgen-Storage-SNMP-custom      | Check the rate of free space on disks. For each checks the mount point of disks will appear  |
 | Uptime        | Net-Barracuda-Cloudgen-Uptime-SNMP-custom       | Check uptime                                                                                 |

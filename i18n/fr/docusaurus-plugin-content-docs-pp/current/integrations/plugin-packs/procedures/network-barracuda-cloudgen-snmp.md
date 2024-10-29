@@ -36,7 +36,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias        | Modèle de service                               | Description                                                                                                             |
 |:-------------|:------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------|
-| Cpu-Detailed | Net-Barracuda-Cloudgen-Cpu-Detailed-SNMP-custom | Contrôle l'utilisation des CPUs détaillés                                                                               |
+| Cpu-Detailed | Net-Barracuda-Cloudgen-Cpu-Detailed-SNMP-custom | Contrôle l'utilisation des CPUs de façon détaillée                                                                               |
 | Interfaces   | Net-Barracuda-Cloudgen-Interfaces-SNMP-custom   | Contrôle les interfaces réseau                                                                                          |
 | Storage      | Net-Barracuda-Cloudgen-Storage-SNMP-custom      | Contrôle du taux d'espace libre disponible des disques. Pour chaque contrôle apparaîtra le point de montage des disques |
 | Uptime       | Net-Barracuda-Cloudgen-Uptime-SNMP-custom       | Contrôle l'uptime de l'équipement                                                                                       |
