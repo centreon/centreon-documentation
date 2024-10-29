@@ -30,7 +30,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias               | Modèle de service                               | Description                         | Découverte |
 |:--------------------|:------------------------------------------------|:------------------------------------|:----------:|
-| Aggregate           | Net-Athonet-Epc-Aggregate-SNMP-custom           | Contrôle les statistiques aggrégés  |            |
+| Aggregate           | Net-Athonet-Epc-Aggregate-SNMP-custom           | Contrôle les statistiques agrégées  |            |
 | Apns                | Net-Athonet-Epc-Apns-SNMP-custom                | Contrôle les points d'accès         | X          |
 | Interfaces-Diameter | Net-Athonet-Epc-Interfaces-Diameter-SNMP-custom | Contrôle les interfaces diameter    | X          |
 | Interfaces-Ga       | Net-Athonet-Epc-Interfaces-Ga-SNMP-custom       | Contrôle les interfaces GA          | X          |
@@ -60,10 +60,10 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 | Nom de la règle                                             | Description                                                                         |
 |:------------------------------------------------------------|:------------------------------------------------------------------------------------|
 | Net-Athonet-Epc-SNMP-Apn-Name                               | Découvre les points d'accès et les supervise                                        |
-| Net-Athonet-Epc-SNMP-Interface-Diameter-Name                | Découvre les interfaces réseaux Diameter et supervise le statut et l'utilisation    |
-| Net-Athonet-Epc-SNMP-Interface-Ga-Name                      | Découvre les interfaces réseaux GA et supervise le statut et l'utilisation          |
-| Net-Athonet-Epc-SNMP-Interface-Gtpc-Source-Destination-Type | Découvre les interfaces réseaux GTP Control et supervise le statut et l'utilisation |
-| Net-Athonet-Epc-SNMP-Interface-Lte-Name                     | Découvre les interfaces réseaux LTE et supervise le statut et l'utilisation         |
+| Net-Athonet-Epc-SNMP-Interface-Diameter-Name                | Découvre les interfaces réseau Diameter et supervise leur statut et leur utilisation    |
+| Net-Athonet-Epc-SNMP-Interface-Ga-Name                      | Découvre les interfaces réseau GA et supervise leur statut et leur utilisation          |
+| Net-Athonet-Epc-SNMP-Interface-Gtpc-Source-Destination-Type | Découvre les interfaces réseau GTP Control et supervise leur statut et leur utilisation |
+| Net-Athonet-Epc-SNMP-Interface-Lte-Name                     | Découvre les interfaces réseau LTE et supervise leur statut et leur utilisation         |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
