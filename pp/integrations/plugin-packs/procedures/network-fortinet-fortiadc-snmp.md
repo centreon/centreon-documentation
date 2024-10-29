@@ -5,7 +5,7 @@ title: Fortinet FortiADC SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Connector Dependencies
+## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Fortinet FortiADC SNMP** connector through the
 **Configuration > Monitoring Connector Manager** menu:
@@ -26,9 +26,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias   | Service Template                                  | Service Description                                  | Discovery  |
 |:----------------|:--------------------------------------------------|:-----------------------------------------------------|:----------:|
-| Cpu             | Net-Fortinet-Fortiadc-Cpu-SNMP-custom             | Check the rate of utilization of CPU for the machine |            |
+| Cpu             | Net-Fortinet-Fortiadc-Cpu-SNMP-custom             | Check the rate of CPU utilization for the machine |            |
 | Hardware        | Net-Fortinet-Fortiadc-Hardware-SNMP-custom        | Check hardware                                       |            |
-| Memory          | Net-Fortinet-Fortiadc-Memory-SNMP-custom          | Check the rate of the utilization of memory          |            |
+| Memory          | Net-Fortinet-Fortiadc-Memory-SNMP-custom          | Check the rate of memory utilization      |            |
 | Security        | Net-Fortinet-Fortiadc-Security-SNMP-custom        | Check security                                       |            |
 | Uptime          | Net-Fortinet-Fortiadc-Uptime-SNMP-custom          | Time since the server has been working and available |            |
 | Virtual-Servers | Net-Fortinet-Fortiadc-Virtual-Servers-SNMP-custom | Check virtual servers                                | X          |

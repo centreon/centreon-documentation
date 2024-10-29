@@ -5,7 +5,7 @@ title: Fortinet FortiADC SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Fortinet FortiADC SNMP** 
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision** :
