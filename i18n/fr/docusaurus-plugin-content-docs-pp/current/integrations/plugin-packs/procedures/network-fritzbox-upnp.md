@@ -5,7 +5,7 @@ title: Fritz!Box UPnP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Fritz!Box UPnP** 
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias   | Modèle de service                | Description                                   |
 |:--------|:---------------------------------|:----------------------------------------------|
 | System  | Net-Fritzbox-System-UPNP-custom  | Contrôle le système                           |
-| Traffic | Net-Fritzbox-Traffic-UPNP-custom | Contrôle le traffic réseau de l'interface WAN |
+| Traffic | Net-Fritzbox-Traffic-UPNP-custom | Contrôle le trafic réseau de l'interface WAN |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Fritzbox-UPNP-custom** est utilisé.
 

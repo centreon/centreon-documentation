@@ -27,7 +27,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias | Service Template                 | Service Description         |
 |:--------------|:---------------------------------|:----------------------------|
 | System        | Net-Fritzbox-System-UPNP-custom  | Checks system               |
-| Traffic       | Net-Fritzbox-Traffic-UPNP-custom | Check wan traffic interface |
+| Traffic       | Net-Fritzbox-Traffic-UPNP-custom | Check wan interface traffic |
 
 > The services listed above are created automatically when the **Net-Fritzbox-UPNP-custom** host template is used.
 
