@@ -26,8 +26,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                | Service Description |
 |:--------------|:--------------------------------|:--------------------|
-| Cpu           | Net-Denyall-Cpu-SNMP-custom     | Check cpu usage     |
-| Load          | Net-Denyall-Load-SNMP-custom    | Check load-average  |
+| Cpu           | Net-Denyall-Cpu-SNMP-custom     | Check CPU usage     |
+| Load          | Net-Denyall-Load-SNMP-custom    | Check load average  |
 | Memory        | Net-Denyall-Memory-SNMP-custom  | Check memory        |
 | Storage       | Net-Denyall-Storage-SNMP-custom | Check storage       |
 | Swap          | Net-Denyall-Swap-SNMP-custom    | Check swap          |
@@ -165,7 +165,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 ## Prerequisites
 
 ### SNMP Configuration
-To use this pack, the SNMP service must be properly configured on your **DenyAll** equipment.
+
+The SNMP agent must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
 
 ### Network flow
 The target server must be reachable from the Centreon poller on the UDP/161 SNMP port.

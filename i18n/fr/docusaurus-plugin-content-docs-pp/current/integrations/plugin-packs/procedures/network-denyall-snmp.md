@@ -5,7 +5,7 @@ title: DenyAll SNMP (Rohde & Schwarz)
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **DenyAll (Rohde & Schwarz) SNMP** 
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -28,10 +28,10 @@ Le connecteur apporte les modèles de service suivants
 | Alias   | Modèle de service               | Description                       |
 |:--------|:--------------------------------|:----------------------------------|
 | Cpu     | Net-Denyall-Cpu-SNMP-custom     | Contrôle l'utilisation processeur |
-| Load    | Net-Denyall-Load-SNMP-custom    | Contrôle la load average          |
+| Load    | Net-Denyall-Load-SNMP-custom    | Contrôle la charge moyenne          |
 | Memory  | Net-Denyall-Memory-SNMP-custom  | Contrôle la mémoire               |
 | Storage | Net-Denyall-Storage-SNMP-custom | Contrôle l'espace disque          |
-| Swap    | Net-Denyall-Swap-SNMP-custom    | Contrôle la swap                  |
+| Swap    | Net-Denyall-Swap-SNMP-custom    | Contrôle le swap                  |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Denyall-SNMP-custom** est utilisé.
 
@@ -64,7 +64,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                    | Description                                                             |
 |:-----------------------------------|:------------------------------------------------------------------------|
-| Net-Denyall-SNMP-Interface-Name    | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
+| Net-Denyall-SNMP-Interface-Name    | Découvre les interfaces réseau et en supervise le statut et l'utilisation |
 | Net-Denyall-SNMP-Reverse-Proxy-Uid | Découvre les reverse proxy en filtrant sur leurs UID et les supervise   |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
@@ -166,7 +166,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 ## Prérequis
 
 ### Configuration SNMP
-Afin de superviser votre **DenyAll** en SNMP, il est nécessaire de configurer l'agent sur l'équipement.
+
+L'agent SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
 
 ### Flux réseau
 La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers le serveur supervisé.
@@ -375,7 +376,7 @@ yum install centreon-plugin-Network-Denyall-Snmp
 | FILTERSTORAGE  | Set the storage (number expected) example: 1, 2,... (empty means 'check all storage')                                                            |                              |             |
 | WARNINGACCESS  | Warning threshold                                                                                                                                |                              |             |
 | CRITICALACCESS | Critical threshold. Check if storage is readOnly: --critical-access=readOnly                                                                     |                              |             |
-| WARNINGCOUNT   | Warning threshol                                                                                                                                 |                              |             |
+| WARNINGCOUNT   | Warning threshold                                                                                                                                 |                              |             |
 | CRITICALCOUNT  | Critical threshold                                                                                                                               |                              |             |
 | WARNINGUSAGE   | Warning threshold                                                                                                                                |                              |             |
 | CRITICALUSAGE  | Critical threshold                                                                                                                               |                              |             |
