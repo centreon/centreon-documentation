@@ -21,7 +21,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias      | Service Template                                      | Service Description      | Discovery  |
 |:-------------------|:------------------------------------------------------|:-------------------------|:----------:|
 | Hosts              | Virt-Hpe-Simplivity-Hosts-Restapi-custom              | Check hosts              | X          |
-| Omnistack-Clusters | Virt-Hpe-Simplivity-Omnistack-Clusters-Restapi-custom | Check omnistack clusters |            |
+| Omnistack-Clusters | Virt-Hpe-Simplivity-Omnistack-Clusters-Restapi-custom | Check Omnistack clusters |            |
 
 > The services listed above are created automatically when the **Virt-Hpe-Simplivity-Restapi-custom** host template is used.
 
@@ -309,8 +309,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--plugin=apps::virtualization::hpe::simplivity::restapi::plugin \
 	--mode=hosts \
 	--hostname='10.0.0.1' \
-	--api-username='' \
-	--api-password='' \
+	--api-username='XXXX' \
+	--api-password='XXXX' \
 	--proto='https' \
 	--port='443'  \
 	--filter-name='' \

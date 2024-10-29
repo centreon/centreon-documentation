@@ -310,8 +310,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=apps::virtualization::hpe::simplivity::restapi::plugin \
 	--mode=hosts \
 	--hostname='10.0.0.1' \
-	--api-username='' \
-	--api-password='' \
+	--api-username='XXXX' \
+	--api-password='XXXX' \
 	--proto='https' \
 	--port='443'  \
 	--filter-name='' \
