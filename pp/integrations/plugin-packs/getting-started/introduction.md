@@ -5,7 +5,8 @@ title: Introduction to Monitoring Connectors
 
 > As of April 2023, we're changing the name of some Centreon objects and attributes. "Monitoring Connectors" becomes the new name for Plugin Packs. We're making this change because users were often confused between two similar terms, Plugins and Plugin Packs, sometimes using one for the other. We're only changing the name! The functionalities and capabilities stay the same.
 
-> Check out the our section dedicated to help you [install monitoring connectors](/docs/monitoring/pluginpacks).
+> Need a hand?
+> We have a section dedicated to help you [install monitoring connectors](/docs/monitoring/pluginpacks) or [troubleshooting connectors](../how-to-guides/troubleshooting-plugins.md).
 
 ## What are monitoring connectors (or connectors for short)?
 
@@ -16,7 +17,6 @@ Some connectors may also have a "discovery" feature that allows them to find by 
 
 Centreon offers a vast array of monitoring connectors ready for use to monitor all sorts of equipments and our catalog grows every month.
 
-> Issues with a connector? Check out our [troubleshooting guide](../how-to-guides/troubleshooting-plugins.md).
 
 ## Where can I find connectors supported by Centreon?
 
