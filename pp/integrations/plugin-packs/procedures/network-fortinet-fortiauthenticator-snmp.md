@@ -5,7 +5,7 @@ title: Fortinet FortiAuthenticator SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Connector Dependencies
+## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Fortinet Fortiauthenticator SNMP** connector through the
 **Configuration > Monitoring Connector Manager** menu:
@@ -27,9 +27,9 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias | Service Template                                          | Service Description            |
 |:--------------|:----------------------------------------------------------|:-------------------------------|
 | Authenticator | Net-Fortinet-Fortiauthenticator-Authenticator-SNMP-custom | Check authenticator statistics |
-| Cpu           | Net-Fortinet-Fortiauthenticator-Cpu-SNMP-custom           | Check cpu usage                |
+| Cpu           | Net-Fortinet-Fortiauthenticator-Cpu-SNMP-custom           | Check CPU usage                |
 | Disk-Log      | Net-Fortinet-Fortiauthenticator-Disk-Log-SNMP-custom      | Check log disk usage           |
-| Ha            | Net-Fortinet-Fortiauthenticator-Ha-SNMP-custom            | Check high-availability status |
+| Ha            | Net-Fortinet-Fortiauthenticator-Ha-SNMP-custom            | Check high availability status |
 | Memory        | Net-Fortinet-Fortiauthenticator-Memory-SNMP-custom        | Check memory usage             |
 
 > The services listed above are created automatically when the **Net-Fortinet-Fortiauthenticator-SNMP-custom** host template is used.

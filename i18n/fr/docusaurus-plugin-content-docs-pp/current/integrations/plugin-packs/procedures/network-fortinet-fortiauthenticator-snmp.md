@@ -5,7 +5,7 @@ title: Fortinet FortiAuthenticator SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Fortinet Fortiauthenticator SNMP** 
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -30,7 +30,7 @@ Le connecteur apporte les modèles de service suivants
 | Authenticator | Net-Fortinet-Fortiauthenticator-Authenticator-SNMP-custom | Contrôle les statistiques d'authentification |
 | Cpu           | Net-Fortinet-Fortiauthenticator-Cpu-SNMP-custom           | Contrôle du taux d'utilisation CPU           |
 | Disk-Log      | Net-Fortinet-Fortiauthenticator-Disk-Log-SNMP-custom      | Contrôle l'utilisation du disque de log      |
-| Ha            | Net-Fortinet-Fortiauthenticator-Ha-SNMP-custom            | Contrôle le statut de la haute-disponibilité |
+| Ha            | Net-Fortinet-Fortiauthenticator-Ha-SNMP-custom            | Contrôle le statut de la haute disponibilité |
 | Memory        | Net-Fortinet-Fortiauthenticator-Memory-SNMP-custom        | Contrôle l'utilisation mémoire               |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Fortinet-Fortiauthenticator-SNMP-custom** est utilisé.
