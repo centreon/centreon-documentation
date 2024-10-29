@@ -1,6 +1,6 @@
 ---
 id: applications-cisco-ssms-restapi
-title: Cisco SSMS
+title: Cisco SSMS Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -14,7 +14,7 @@ a way to access a subset of Cisco SSM functionalities without using a direct int
 
 ### Templates
 
-The Monitoring Connector **Cisco SSMS** brings a host template:
+The Monitoring Connector **Cisco SSMS Rest API** brings a host template:
 
 * **App-Cisco-Ssms-Restapi-custom**
 
@@ -105,7 +105,7 @@ yum install centreon-pack-applications-cisco-ssms-restapi
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Cisco SSMS** connector through
+2. Whatever the license type (*online* or *offline*), install the **Cisco SSMS Rest API** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

@@ -1,6 +1,6 @@
 ---
 id: applications-grafana-api
-title: Grafana
+title:  Grafana API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Grafana** brings a host template:
+The Monitoring Connector **Grafana API** brings a host template:
 
 * **App-Grafana-Api-custom**
 
@@ -86,7 +86,7 @@ yum install centreon-pack-applications-grafana-api
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Grafana** connector through
+2. Whatever the license type (*online* or *offline*), install the ** Grafana API** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

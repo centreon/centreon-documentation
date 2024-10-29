@@ -1,6 +1,6 @@
 ---
 id: applications-vernemq-restapi
-title: VerneMQ Restapi
+title: VerneMQ RRest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -12,7 +12,7 @@ The VerneMQ Monitoring Connector monitors Clusters, Listeners, Plugins and sessi
 
 ### Templates
 
-The Monitoring Connector **Verne MQ RestAPI** brings a host template:
+The Monitoring Connector **VerneMQ Rest API** brings a host template:
 
 * **App-Vernemq-Restapi-custom**
 
@@ -132,7 +132,7 @@ yum install centreon-pack-applications-vernemq-restapi
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Verne MQ RestAPI** connector through
+2. Whatever the license type (*online* or *offline*), install the **VerneMQ Rest API** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

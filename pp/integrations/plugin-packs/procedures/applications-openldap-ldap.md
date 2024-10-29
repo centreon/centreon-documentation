@@ -1,6 +1,6 @@
 ---
 id: applications-openldap-ldap
-title: OpenLDAP
+title: OpenLDAP LDAP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **OpenLDAP** brings a host template:
+The Monitoring Connector **OpenLDAP LDAP** brings a host template:
 
 * **App-Openldap-LDAP-custom**
 
@@ -95,7 +95,7 @@ yum install centreon-pack-applications-openldap-ldap
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **OpenLDAP** connector through
+2. Whatever the license type (*online* or *offline*), install the **OpenLDAP LDAP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

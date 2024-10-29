@@ -1,6 +1,6 @@
 ---
 id: infrastructure-active-directory-nsclient-05-restapi
-title: Microsoft Active Directory NSClient++ API
+title: Microsoft Active Directory NSClient++ Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Active Directory API** brings a host template:
+The Monitoring Connector **Active Directory Rest API** brings a host template:
 
 * **Infra-ActiveDirectory-NSClient-05-Restapi-custom**
 
@@ -108,7 +108,7 @@ yum install centreon-pack-infrastructure-active-directory-nsclient-05-restapi
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Active Directory API** connector through
+2. Whatever the license type (*online* or *offline*), install the **Active Directory Rest API** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

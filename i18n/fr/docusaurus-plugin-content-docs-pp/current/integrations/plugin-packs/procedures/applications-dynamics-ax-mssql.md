@@ -1,6 +1,6 @@
 ---
 id: applications-dynamics-ax-mssql
-title: Dynamics AX Database
+title: Dynamics AX Database MSSQL
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Dynamics AX Database** apporte un modèle d'hôte :
+Le connecteur de supervision **Dynamics AX Database MSSQL** apporte un modèle d'hôte :
 
 * **App-Dynamics-AX-Database-Mssql-custom**
 
@@ -88,7 +88,7 @@ yum install centreon-pack-applications-dynamics-ax-mssql
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Dynamics AX Database**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Dynamics AX Database MSSQL**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

@@ -1,6 +1,6 @@
 ---
 id: applications-pacemaker-ssh
-title: Pacemaker
+title: Pacemaker SSH
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Pacemaker** apporte un modèle d'hôte :
+Le connecteur de supervision **Pacemaker SSH** apporte un modèle d'hôte :
 
 * **App-Pacemaker-SSH-custom**
 
@@ -143,7 +143,7 @@ yum install centreon-pack-applications-pacemaker-ssh
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Pacemaker**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Pacemaker SSH**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

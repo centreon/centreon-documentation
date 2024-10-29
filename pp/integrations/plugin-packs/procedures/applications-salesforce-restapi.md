@@ -1,6 +1,6 @@
 ---
 id: applications-salesforce-restapi
-title: Salesforce
+title: Salesforce Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Salesforce** brings a host template:
+The Monitoring Connector **Salesforce Rest API** brings a host template:
 
 * **App-Salesforce-Restapi-custom**
 
@@ -87,7 +87,7 @@ yum install centreon-pack-applications-salesforce-restapi
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Salesforce** connector through
+2. Whatever the license type (*online* or *offline*), install the **Salesforce Rest API** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

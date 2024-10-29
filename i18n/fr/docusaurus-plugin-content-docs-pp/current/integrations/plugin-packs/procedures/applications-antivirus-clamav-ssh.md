@@ -1,6 +1,6 @@
 ---
 id: applications-antivirus-clamav-ssh
-title: Antivirus ClamAV
+title: Antivirus ClamAV SSH
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Antivirus ClamAV** apporte un modèle d'hôte :
+Le connecteur de supervision **Antivirus ClamAV SSH** apporte un modèle d'hôte :
 
 * **App-Antivirus-Clamav-SSH-custom**
 
@@ -100,7 +100,7 @@ yum install centreon-pack-applications-antivirus-clamav-ssh
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Antivirus ClamAV**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Antivirus ClamAV SSH**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

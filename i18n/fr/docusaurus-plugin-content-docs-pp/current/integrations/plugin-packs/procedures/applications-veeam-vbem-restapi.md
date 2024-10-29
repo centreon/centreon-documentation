@@ -1,6 +1,6 @@
 ---
 id: applications-veeam-vbem-restapi
-title: Veeam Backup Enterprise Manager
+title: Veeam Backup Enterprise Manager Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

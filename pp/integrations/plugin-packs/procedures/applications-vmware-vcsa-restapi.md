@@ -1,6 +1,6 @@
 ---
 id: applications-vmware-vcsa-restapi
-title: VMware VCSA RestAPI
+title: VMware VCSA Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -11,7 +11,7 @@ The vCenter Server Appliance (VCSA) is a preconfigured Linux virtual machine, wh
 
 ### Templates
 
-The Monitoring Connector **VMware VCSA RestAPI** brings a host template:
+The Monitoring Connector **VMware VCSA Rest API** brings a host template:
 
 * **App-Vmware-Vcsa-Restapi-custom**
 
@@ -84,7 +84,7 @@ yum install centreon-pack-applications-vmware-vcsa-restapi
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **VMware VCSA RestAPI** connector through
+2. Whatever the license type (*online* or *offline*), install the **VMware VCSA Rest API** connector through
 the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin

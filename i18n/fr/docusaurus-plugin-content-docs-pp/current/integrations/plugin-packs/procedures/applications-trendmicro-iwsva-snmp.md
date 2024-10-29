@@ -1,6 +1,6 @@
 ---
 id: applications-trendmicro-iwsva-snmp
-title: TrendMicro Iwsva
+title: TrendMicro Iwsva SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **TrendMicro Iwsva** apporte un modèle d'hôte :
+Le connecteur de supervision **TrendMicro Iwsva SNMP** apporte un modèle d'hôte :
 
 * **App-Trendmicro-Iwsva-SNMP-custom**
 
@@ -195,7 +195,7 @@ yum install centreon-pack-applications-trendmicro-iwsva-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **TrendMicro Iwsva**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **TrendMicro Iwsva SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

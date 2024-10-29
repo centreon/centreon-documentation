@@ -1,6 +1,6 @@
 ---
 id: applications-monitoring-splunk-api
-title: Splunk
+title: Splunk API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Splunk** apporte un modèle d'hôte :
+Le connecteur de supervision **Splunk API** apporte un modèle d'hôte :
 
 * **App-Monitoring-Splunk-Api-custom**
 
@@ -118,7 +118,7 @@ yum install centreon-pack-applications-monitoring-splunk-api
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Splunk**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Splunk API**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

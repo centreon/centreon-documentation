@@ -1,6 +1,6 @@
 ---
 id: applications-pacemaker-ssh
-title: Pacemaker
+title: Pacemaker SSH
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Pacemaker** brings a host template:
+The Monitoring Connector **Pacemaker SSH** brings a host template:
 
 * **App-Pacemaker-SSH-custom**
 
@@ -138,7 +138,7 @@ yum install centreon-pack-applications-pacemaker-ssh
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Pacemaker** connector through
+2. Whatever the license type (*online* or *offline*), install the **Pacemaker SSH** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

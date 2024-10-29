@@ -1,6 +1,6 @@
 ---
 id: applications-vernemq-restapi
-title: VerneMQ Restapi
+title: VerneMQ Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -12,7 +12,7 @@ Le connecteur de supervision supervise les Clusters, Listeners, Plugins et sessi
 
 ### Modèles
 
-Le connecteur de supervision **Verne MQ RestAPI** apporte un modèle d'hôte :
+Le connecteur de supervision **VerneMQ Rest API** apporte un modèle d'hôte :
 
 * **App-Vernemq-Restapi-custom**
 
@@ -133,7 +133,7 @@ yum install centreon-pack-applications-vernemq-restapi
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Verne MQ RestAPI**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **VerneMQ Rest API**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

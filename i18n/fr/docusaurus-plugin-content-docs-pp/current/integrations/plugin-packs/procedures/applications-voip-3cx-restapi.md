@@ -1,6 +1,6 @@
 ---
 id: applications-voip-3cx-restapi
-title: 3CX
+title: 3CX Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -17,7 +17,7 @@ Ce connecteur a été conçu pour être compatible avec les produits suivants.
 
 ### Modèles
 
-Le connecteur de supervision **3CX** apporte un modèle d'hôte :
+Le connecteur de supervision **3CX Rest API** apporte un modèle d'hôte :
 
 * **App-VoIP-3cx-Restapi-custom**
 
@@ -99,7 +99,7 @@ yum install centreon-pack-applications-voip-3cx-restapi
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **3CX**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **3CX Rest API**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

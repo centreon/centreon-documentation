@@ -1,6 +1,6 @@
 ---
 id: infrastructure-active-directory-nsclient-05-restapi
-title: Microsoft Active Directory NSClient++ API
+title: Microsoft Active Directory NSClient++ Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Active Directory API** apporte un modèle d'hôte :
+Le connecteur de supervision **Active Directory Rest API** apporte un modèle d'hôte :
 
 * **Infra-ActiveDirectory-NSClient-05-Restapi-custom**
 
@@ -108,7 +108,7 @@ yum install centreon-pack-infrastructure-active-directory-nsclient-05-restapi
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Active Directory API**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Active Directory Rest API**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

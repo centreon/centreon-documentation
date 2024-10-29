@@ -1,6 +1,6 @@
 ---
 id: applications-openldap-ldap
-title: OpenLDAP
+title: OpenLDAP LDAP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **OpenLDAP** apporte un modèle d'hôte :
+Le connecteur de supervision **OpenLDAP LDAP** apporte un modèle d'hôte :
 
 * **App-Openldap-LDAP-custom**
 
@@ -96,7 +96,7 @@ yum install centreon-pack-applications-openldap-ldap
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **OpenLDAP**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **OpenLDAP LDAP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

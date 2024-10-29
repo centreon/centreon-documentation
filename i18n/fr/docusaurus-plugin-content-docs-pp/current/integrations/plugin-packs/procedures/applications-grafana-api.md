@@ -1,6 +1,6 @@
 ---
 id: applications-grafana-api
-title: Grafana
+title: Grafana API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Grafana** apporte un modèle d'hôte :
+Le connecteur de supervision **Grafana API** apporte un modèle d'hôte :
 
 * **App-Grafana-Api-custom**
 
@@ -87,7 +87,7 @@ yum install centreon-pack-applications-grafana-api
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Grafana**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Grafana API**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

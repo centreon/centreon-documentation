@@ -1,6 +1,6 @@
 ---
 id: applications-trendmicro-iwsva-snmp
-title: TrendMicro Iwsva
+title: TrendMicro Iwsva SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **TrendMicro Iwsva** brings a host template:
+The Monitoring Connector **TrendMicro Iwsva SNMP** brings a host template:
 
 * **App-Trendmicro-Iwsva-SNMP-custom**
 
@@ -194,7 +194,7 @@ yum install centreon-pack-applications-trendmicro-iwsva-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **TrendMicro Iwsva** connector through
+2. Whatever the license type (*online* or *offline*), install the **TrendMicro Iwsva SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

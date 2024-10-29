@@ -1,6 +1,6 @@
 ---
 id: applications-voip-3cx-restapi
-title: 3CX
+title: 3CX Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -17,7 +17,7 @@ This connector is designed to be compatible with the following products.
 
 ### Templates
 
-The Monitoring Connector **3CX** brings a host template:
+The Monitoring Connector **3CX Rest API** brings a host template:
 
 * **App-VoIP-3cx-Restapi-custom**
 
@@ -98,7 +98,7 @@ yum install centreon-pack-applications-voip-3cx-restapi
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **3CX** connector through
+2. Whatever the license type (*online* or *offline*), install the **3CX Rest API** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

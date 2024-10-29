@@ -1,6 +1,6 @@
 ---
 id: applications-dynamics-ax-mssql
-title: Dynamics AX Database
+title: Dynamics AX Database MSSQL
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Dynamics AX Database** brings a host template:
+The Monitoring Connector **Dynamics AX Database MSSQL** brings a host template:
 
 * **App-Dynamics-AX-Database-Mssql-custom**
 
@@ -87,7 +87,7 @@ yum install centreon-pack-applications-dynamics-ax-mssql
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Dynamics AX Database** connector through
+2. Whatever the license type (*online* or *offline*), install the **Dynamics AX Database MSSQL** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin

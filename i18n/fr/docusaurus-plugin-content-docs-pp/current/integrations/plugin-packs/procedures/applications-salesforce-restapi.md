@@ -1,6 +1,6 @@
 ---
 id: applications-salesforce-restapi
-title: Salesforce
+title: Salesforce Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ### Modèles
 
-Le connecteur de supervision **Salesforce** apporte un modèle d'hôte :
+Le connecteur de supervision **Salesforce Rest API** apporte un modèle d'hôte :
 
 * **App-Salesforce-Restapi-custom**
 
@@ -88,7 +88,7 @@ yum install centreon-pack-applications-salesforce-restapi
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Salesforce**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Salesforce Rest API**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

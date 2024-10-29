@@ -1,6 +1,6 @@
 ---
 id: applications-cisco-ssms-restapi
-title: Cisco SSMS
+title: Cisco SSMS Rest API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -15,7 +15,7 @@ sans utiliser de connexion Internet directe pour gérer leur base d'installation
 
 ### Modèles
 
-Le connecteur de supervision **Cisco SSMS** apporte un modèle d'hôte :
+Le connecteur de supervision **Cisco SSMS Rest API** apporte un modèle d'hôte :
 
 * **App-Cisco-Ssms-Restapi-custom**
 
@@ -107,7 +107,7 @@ yum install centreon-pack-applications-cisco-ssms-restapi
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco SSMS**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco SSMS Rest API**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
