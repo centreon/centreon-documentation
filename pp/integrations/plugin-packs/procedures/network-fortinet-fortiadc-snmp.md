@@ -148,13 +148,11 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your **Aruba CPPM** equipment according to 
-the [official documentation](https://docs.fortinet.com/product/fortiac/).
+The SNMP agent must be configured and activated on the host. Please refer to the [official documentation](https://docs.fortinet.com/product/fortiac/) from the manufacturer/publisher.
 
 ### Network flow
 
-The target server must be reachable from the Centreon poller on the UDP/161
-SNMP port.
+The target resource must be reachable from the Centreon poller on the UDP/161 SNMP port.
 
 ## Installing the monitoring connector
 
