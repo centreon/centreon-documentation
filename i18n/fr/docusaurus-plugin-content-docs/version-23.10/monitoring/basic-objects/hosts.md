@@ -36,7 +36,7 @@ Si plusieurs [modèles](../templates.md) tenteraient de modifier le même champ,
 * **Commande de vérification** : commande utilisée pour vérifier la disponibilité de l’hôte.
 * **Arguments** : arguments donnés à la commande de vérification (chaque argument commence avec un ”!”).
 
-* Section [**Macros personnalisées**](../macros/#custom-macros) :
+* **Macros personnalisées : automatiquement rempli si vous ajoutez des [modèles](../templates.md) mais vous pouvez également ajouter vos [macros personnalisées](../macros/#custom-macros).
 
    * Les champs **Nom** et **Valeur** établissent le nom et la valeur de la macro.
    * Cocher la case **Mot de passe** cache la valeur de la macro.
