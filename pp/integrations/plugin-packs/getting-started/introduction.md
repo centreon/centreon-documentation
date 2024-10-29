@@ -5,7 +5,9 @@ title: Introduction to Monitoring Connectors
 
 > As of April 2023, we're changing the name of some Centreon objects and attributes. "Monitoring Connectors" becomes the new name for Plugin Packs. We're making this change because users were often confused between two similar terms, Plugins and Plugin Packs, sometimes using one for the other. We're only changing the name! The functionalities and capabilities stay the same.
 
-> Check out the our section dedicated to teach you how to [install monitoring connectors](/docs/monitoring/pluginpacks).
+> Check out the our section dedicated to help you [install monitoring connectors](/docs/monitoring/pluginpacks).
+
+## What are monitoring connectors (or connectors for short)?
 
 A monitoring connector is the software brick that allows Centreon to communicate with the monitored equipments.
 
@@ -16,6 +18,7 @@ Centreon offers a vast array of monitoring connectors ready for use to monitor a
 
 > Issues with a connector? Check out our [troubleshooting guide](../how-to-guides/troubleshooting-plugins.md).
 
+## Where can I find connectors supported by Centreon?
 
 The table of contents on the left contains an up-to-date list of all Monitoring Connectors organized in 14 categories
 (Applications, Centreon, Cloud, Database, Hardware, Network, Operating System,
