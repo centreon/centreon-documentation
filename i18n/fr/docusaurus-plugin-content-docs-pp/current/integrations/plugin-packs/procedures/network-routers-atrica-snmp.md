@@ -29,9 +29,9 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                    | Modèle de service                               | Description          |
 |:-------------------------|:------------------------------------------------|:---------------------|
-| Connections-Generic-Id   | Net-Atrica-Connections-Generic-Id-SNMP-custom   | Contrôle le traffic  |
-| Connections-Generic-Name | Net-Atrica-Connections-Generic-Name-SNMP-custom | Contrôle le traffic  |
-| Connections-Global       | Net-Atrica-Connections-Global-SNMP-custom       | Contrôle le traffic  |
+| Connections-Generic-Id   | Net-Atrica-Connections-Generic-Id-SNMP-custom   | Contrôle le trafic  |
+| Connections-Generic-Name | Net-Atrica-Connections-Generic-Name-SNMP-custom | Contrôle le trafic  |
+| Connections-Global       | Net-Atrica-Connections-Global-SNMP-custom       | Contrôle le trafic  |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
