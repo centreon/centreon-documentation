@@ -19,7 +19,7 @@ To create a host manually:
 * **SNMP Community & Version**: name of the community and the SNMP version.
 * **Monitoring server**: which one amongst Central, a poller or a remote server will be charged with monitoring this host.
 * **Timezone**: the time zone location of the host. Note that the timezone established here is what determines the time of the checks of this host.
-* **Templates**: associate one or more [host templates](../../../../pp/integrations/plugin-packs/getting-started/introduction.md) with this object.
+* **Templates**: associate one or more [host templates](../../../pp/integrations/plugin-packs/getting-started/introduction.md) with this object.
 
 If multiple [templates](../templates.md#definition) would modify the same field, the properties of the [template](../templates.md#definition) placed above the others will be applied. 
 
