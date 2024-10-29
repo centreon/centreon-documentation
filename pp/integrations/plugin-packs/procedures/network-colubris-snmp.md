@@ -250,7 +250,7 @@ yum install centreon-plugin-Network-Colubris-Snmp
 
 | Macro              | Description                                                                                                                            | Default value              | Mandatory   |
 |:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:-----------:|
-| FILTERNAME         | Filter ap name with regexp                                                                                                             |                            |             |
+| FILTERNAME         | Filter AP name with regexp                                                                                                             |                            |             |
 | CRITICALAPSTATUS   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{state}, %{display}                | %{state} eq "disconnected" |             |
 | WARNINGAPSTATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: %{state}, %{display}                 |                            |             |
 | WARNINGAPUSERS     | Warning threshold                                                                                                                      |                            |             |

@@ -23,7 +23,7 @@ Le connecteur apporte les modèles de service suivants
 |:---------|:----------------------------------|:-----------------------------------|
 | Ap-Usage | Net-Colubris-Ap-Usage-SNMP-custom | Contrôle les points d'accès        |
 | Cpu      | Net-Colubris-Cpu-SNMP-custom      | Contrôle l'utilisation CPU         |
-| Load     | Net-Colubris-Load-SNMP-custom     | Contrôle le load average           |
+| Load     | Net-Colubris-Load-SNMP-custom     | Contrôle la charge moyenne           |
 | Memory   | Net-Colubris-Memory-SNMP-custom   | Contrôle l'utilisation mémoire     |
 | Storage  | Net-Colubris-Storage-SNMP-custom  | Contrôle l'utilisation du stockage |
 
@@ -249,7 +249,7 @@ yum install centreon-plugin-Network-Colubris-Snmp
 
 | Macro              | Description                                                                                                                                      | Valeur par défaut          | Obligatoire |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:-----------:|
-| FILTERNAME         | Filter ap name with regexp                                                                                                                       |                            |             |
+| FILTERNAME         | Filter AP name with regexp                                                                                                                       |                            |             |
 | CRITICALAPSTATUS   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{state}, %{display}                          | %{state} eq "disconnected" |             |
 | WARNINGAPSTATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: %{state}, %{display}                           |                            |             |
 | WARNINGAPUSERS     | Warning threshold                                                                                                                                |                            |             |
