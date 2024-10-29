@@ -7,6 +7,8 @@ title: Démarrer avec les connecteurs de supervision
 
 > Consultez la documentation dédiée pour apprendre à [installater des connecteurs de supervision](/docs/monitoring/pluginpacks).
 
+## Que sont les connecteurs de supervision ?
+
 Un connecteur de supervision est la brique logicielle qui permet à Centreon de communiquer avec les équipements supervisés.
 
 Le connecteur est constitué d’un pack (des modèles préconfigurés) et d’un plugin (la sonde qui exécute les contrôles). Les plugins ne sont pas téléchargées avec les connecteurs de supervision et doivent être installées par ailleurs : ceci est expliqué en détail dans la procédure de mise en supervision associée à chaque connecteur de supervision.
@@ -15,6 +17,8 @@ Certains connecteurs ont également une option de “découverte” qui leur per
 Centreon propose une large gamme connecteurs de supervision prêts à l’emploi qui permettent de contrôler tout type d’équipement. Nous agrandissons notre collection de connecteurs tous les mois.
 
 > Des problèmes avec un connecteur ? Suivez notre [guide de troubleshooting pour connecteurs](../how-to-guides/troubleshooting-plugins.md).
+
+## Où puis-je trouver des connecteurs compatibles avec Centreon ?
 
 La table des matières à gauche contient tous les connecteurs actuellement disponibles répartis en 14
 catégories (Applications, Centreon, Cloud, Database, Hardware, Network,
