@@ -5,7 +5,8 @@ title: Démarrer avec les connecteurs de supervision
 
 > À partir d'avril 2023, nous changeons le nom de certains objets Centreon. "Connecteurs de supervision" est désormais le nouveau nom des Plugin Packs. Nous procédons à ce changement car les utilisateurs confondaient souvent deux termes similaires, Plugins et Plugin Packs, utilisant parfois l'un à la place de l'autre. Nous ne changeons que le nom ! Les fonctionnalités et les capacités restent les mêmes.
 
-> Consultez la documentation dédiée pour apprendre à [installater des connecteurs de supervision](/docs/monitoring/pluginpacks).
+> # Besoin d'aide ?
+> Consultez la documentation dédiée pour [installater des connecteurs de supervision](/docs/monitoring/pluginpacks)  ou pour [troubleshooter des connecteurs](../how-to-guides/troubleshooting-plugins.md).
 
 ## Que sont les connecteurs de supervision ?
 
@@ -15,8 +16,6 @@ Le connecteur est constitué d’un pack (des modèles préconfigurés) et d’u
 Certains connecteurs ont également une option de “découverte” qui leur permet de détecter par eux-mêmes un certain type de ressources à superviser.
 
 Centreon propose une large gamme connecteurs de supervision prêts à l’emploi qui permettent de contrôler tout type d’équipement. Nous agrandissons notre collection de connecteurs tous les mois.
-
-> Des problèmes avec un connecteur ? Suivez notre [guide de troubleshooting pour connecteurs](../how-to-guides/troubleshooting-plugins.md).
 
 ## Où puis-je trouver des connecteurs compatibles avec Centreon ?
 
