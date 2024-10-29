@@ -35,7 +35,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle              | Description                               |
 |:-----------------------------|:------------------------------------------|
-| Aruba Orchestrator Appliance | Découvre les Appareils Aruba Orchestrator |
+| Aruba Orchestrator Appliance | Découvre les appareils Aruba Orchestrator |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -231,7 +231,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--hostname='10.0.0.1' \
 	--port='443' \
 	--proto='https' \
-	--access-token=''  \
+	--access-token='XXXX'  \
 	--filter-hostname='' \
 	--filter-group='' \
 	--unknown-status='%{state} =~ /unknown|unreachable/i' \

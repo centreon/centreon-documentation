@@ -34,7 +34,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name                    | Description                            |
 |:-----------------------------|:---------------------------------------|
-| Aruba Orchestrator Appliance | Discover Aruba Orchestrator Appliances |
+| Aruba Orchestrator Appliance | Discover Aruba Orchestrator appliances |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
@@ -230,7 +230,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--hostname='10.0.0.1' \
 	--port='443' \
 	--proto='https' \
-	--access-token=''  \
+	--access-token='XXXX'  \
 	--filter-hostname='' \
 	--filter-group='' \
 	--unknown-status='%{state} =~ /unknown|unreachable/i' \
