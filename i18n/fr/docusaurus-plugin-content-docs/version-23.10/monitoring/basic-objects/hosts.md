@@ -61,78 +61,77 @@ Si plusieurs [modèles](../templates.md) tenteraient de modifier le même champ,
 
 ## Onglet Notification
 
-* Le champ **Notification activée** permet d’activer ou de désactiver les notifications concernant l’objet.
-* La liste **Contacts liés** indique les contacts qui recevront les notifications. Ces contacts doivent être d'abord configurés dans l'onglet **Utilisateurs**.
-* La liste **Groupes de contacts liés** tous les contacts appartenant aux groupes de contacts définis recevront les
+* **Notification activée** activer ou de désactiver les notifications concernant l’objet.
+* **Contacts liés** contacts qui recevront les notifications. Ces contacts doivent être d'abord configurés dans l'onglet **Utilisateurs**.
+* **Groupes de contacts liés** tous les contacts appartenant aux groupes de contacts définis recevront les
   notifications. Les groupes doivent d'abord être configurés dans l'onglet **Utilisateurs**.
   
-  L'option **Vertical inheritance only** sert à établir les contacts et/ou groupes de contacts à notifier. Elle se trouve dans l'onglet **Administration > Paramètres > Centreon web**. Une fois activée, deux cases supplémentaires apparaissent :
+  **Vertical inheritance only** établit les contacts et/ou groupes de contacts à notifier. Elle se trouve dans l'onglet **Administration > Paramètres > Centreon web**. Une fois activée, deux cases supplémentaires apparaissent :
 
-    * Si la case **Contacts hérités additionnels** est cochée, Centreon n'écrase pas la configuration du parent modèle d'hôte
+    * Cocher **Contacts hérités additionnels** écrase pas la configuration du parent modèle d'hôte
   mais ajoute les contacts en plus des contacts définis dans le modèle parent.
-    * Si la case **Groupes de contacts hérités additionnels** est cochée, Centreon n'écrase pas la configuration du parent modèle d'hôte
+    * Cocher **Groupes de contacts hérités additionnels** n'écrasera pas la configuration du parent modèle d'hôte
   mais ajoute les contacts en plus des groupes de contacts définis dans le modèle parent.
 
-* Le champ **Options de notifications** définit les statuts pour lesquels une notification sera envoyée. Si aucune case n'est cochée, vous serez notifié pour tous les statuts listés.
-* Le champ **Intervalle de notification** est exprimé en minutes. Il indique la durée entre chaque envoi de notification
+* **Options de notifications** définit les statuts pour lesquels une notification sera envoyée. Si aucune case n'est cochée, vous serez notifié pour tous les statuts listés.
+* **Intervalle de notification** est exprimé en minutes. Il indique la durée entre chaque envoi de notification
   lorsque le statut est non-OK. Si la valeur est définie à 0, l’ordonnanceur envoie une seule notification par
   changement de statut.
-* Le champ **Période de notification**  indique la période temporelle durant laquelle les notifications seront activées.
-* Le champ **Délai de première notification** est exprimé en minutes. Il fait référence au délai à respecter avant l’envoi
+* **Période de notification** indique la période temporelle durant laquelle les notifications seront activées.
+* **Délai de première notification** est exprimé en minutes. Il fait référence au délai à respecter avant l’envoi
   de la première notification lorsqu’un statut non-OK est confirmé. Mettre la valeur à 0 résulte en l'envoi immédiat de la notification.
-* Le champ **Délai de première notification de recouvrement** est le temps qui doit s'écouler avant qu'une notification de type **Récupération** soit envoyée (lorsque l'hôte revient à un état DISPONIBLE). Mettre la valeur à 0 résulte en l'envoi immédiat de la notification.
+* **Délai de première notification de recouvrement** est le temps qui doit s'écouler avant qu'une notification de type **Récupération** soit envoyée (lorsque l'hôte revient à un état DISPONIBLE). Mettre la valeur à 0 résulte en l'envoi immédiat de la notification.
 
 ## Onglet Relations
 
-* Le champ **Groupes d'hôtes** définit les groupes d’hôtes auxquels l’hôte appartient. Les groupes vous permettent de faire des changements sur plusieurs hôtes en même temps.
-* Le champ **Catégories d'hôte** définit les catégories auxquelles l’hôte appartient.
-* La liste **Hôtes parents** permet de définir les relations physiques de parenté entre objet. Le parent d'un hôte est l'objet entre l'hôte et son superviseur qui est également le plus proche de l'objet supervisé. On considère qu'un hôte n'a pas de parent s'il se trouve sur le même segment du réseau que l'hôte qui le supervise ssans aucun intermédiaire. Laissez ce champs libre dans ce cas-là.
-* La liste **Hôtes enfants** permet d'établir l'hôte actuel en tant que parent d'un autre hôte.
+* **Groupes d'hôtes** : les groupes d’hôtes auxquels l’hôte appartient. Les groupes vous permettent de faire des changements sur plusieurs hôtes en même temps.
+* **Catégories d'hôte** : les catégories auxquelles l’hôte appartient.
+* **Hôtes parents** : relations physiques de parenté entre objet. Le parent d'un hôte est l'objet entre l'hôte et son superviseur qui est également le plus proche de l'objet supervisé. On considère qu'un hôte n'a pas de parent s'il se trouve sur le même segment du réseau que l'hôte qui le supervise ssans aucun intermédiaire. Laissez ce champs libre dans ce cas-là.
+* **Hôtes enfants** : établir l'hôte actuel en tant que parent d'un autre hôte.
 
 ## Onglet Traitement des données
 
-* Si le **Obsess Over Host** est activé, alors la commande de remontée des contrôles de l’hôte sera activée.
-* Le champ **Check Freshness** est un contrôle actif réalisé lorsque la quantité de temps établie s'est écoulée depuis le dernier contrôle passif de l'objet.
-* Le champ **Freshness Threshold**  est exprimé en secondes. Si durant cette période aucune demande de changement de
+* **Obsess Over Host** : active la commande de remontée des contrôles de l’hôte.
+* **Check Freshness** : contrôle actif réalisé lorsque la quantité de temps établie s'est écoulée depuis le dernier contrôle passif de l'objet.
+* **Freshness Threshold** : exprimé en secondes. Si durant cette période aucune demande de changement de
   statut de l’hôte (commande passive) n’a été reçue alors la commande de vérification active est exécutée. Si le contrôle est activé mais que le champs est laissé vide, un seuil sera determiné automatiquement.
-* Le champ **Flap Detection Enabled** permet d’activer ou de désactiver la détection du bagotage des statuts (statut
+* **Flap Detection Enabled** : active ou désactive la détection du bagotage des statuts (statut
   changeant trop fréquemment de valeur sur une période donnée).
-* Les champs **Low Flap Threshold** et **High Flap Threshold** définissent les seuils hauts et bas pour la détection du
+* **Low Flap Threshold** et **High Flap Threshold** : les seuils hauts et bas pour la détection du
   bagotage en pourcentage de changement de statuts.
-* Les champs **Retain Status Information** et **Retain Non Status Information** indiquent si les informations concernant
+* **Retain Status Information** et **Retain Non Status Information** : indiquent si les informations concernant
   ou non le statut sont sauvegardées après chaque relance de la commande de vérification.
-* Le champ **Stalking Options** définit les options à enregistrer si la **Rétention** est activée.
-* Le champ **Event Handler Enabled** permet d’activer ou de désactiver le gestionnaire d’évènements.
-* Le champ **Event Handler** définit la commande à exécuter si le gestionnaire d’évènements est activé.
-* Le champ **Args** définit les arguments de la commande du gestionnaire d’évènements.
+* **Stalking Options** : options à enregistrer si la **Rétention** est activée.
+* **Event Handler Enabled** : activer ou de désactiver le gestionnaire d’évènements.
+* **Event Handler** : commande à exécuter si le gestionnaire d’évènements est activé.
+* **Args** : arguments de la commande du gestionnaire d’évènements.
 
 ## Onglet Informations détaillées de l’hôte
 
 ### Moteur de supervision
 
-* Le champ **URL de la note** définit une URL cliquable qui apparaitra dans la colonne **Notes** de l'écran **Statut des Ressources** (la colonne **Notes** doit être activée pour cette fonction).
-* Le champ **Note** permet d’ajouter des notes optionnelles concernant l’hôte qui seront visibles dans l'écran **Statut des Ressources** (la colonne **Notes** doit être activée pour cette fonction).
-* Le champ **URL d'action** définit une URL habituellement utilisée pour donner des informations d’actions sur l’hôte
+* **URL de la note** : URL cliquable qui apparaitra dans la colonne **Notes** de l'écran **Statut des Ressources** (la colonne **Notes** doit être activée pour cette fonction).
+* **Note** : notes optionnelles concernant l’hôte qui seront visibles dans l'écran **Statut des Ressources** (la colonne **Notes** doit être activée pour cette fonction).
+* **URL d'action** : URL habituellement utilisée pour donner des informations d’actions sur l’hôte
   (maintenance...).
-* Le champ **Icône** indique l’icône à utiliser pour l’hôte, cet icône est visible à divers endroits. Un formqt 40x40 pixels est recommandé.
-* Le champ **Icône alternative** est un texte optionnel apparaissant lorsque l'icône ne peut être affiché.
-* Le champ **Criticité d'hôte** indique le niveau de criticité de l’hôte. Il s'agit d'une sorte de catégorie spéciale que vous pouvez utiliser pour organiser l'écran **Statut des Ressources** par niveau de criticité.
-* Le champ **Image de la carte des états** défini le logo du module Centreon Map.
-* Le champ **Coordonnées géographiques** définit les coordonnées géographiques utilisées par le module Centreon Map pour positionner
+* **Icône** : icône à utiliser pour l’hôte, cet icône est visible à divers endroits. Un formqt 40x40 pixels est recommandé.
+* **Icône alternative** : texte optionnel apparaissant lorsque l'icône ne peut être affiché.
+* **Criticité d'hôte** : niveau de criticité de l’hôte. Il s'agit d'une sorte de catégorie spéciale que vous pouvez utiliser pour organiser l'écran **Statut des Ressources** par niveau de criticité.
+* **Image de la carte des états** : logo du module Centreon Map.
+* **Coordonnées géographiques** : coordonnées géographiques utilisées par le module Centreon Map pour positionner
   l'élément sur la carte. Définissez "Latitude, Longitude", par exemple pour le jeu de coordonnées de Paris "48.51,2.20"
 
 Les champs **Coordonnées 2D** et **Coordonnées 3D** sont obsolètes et n'ont aucun impact sur l'hôte.
 
 ### Groupes d'accès
 
-* Le champ **ACL Resource Groups** (seulement visible pour les utilisateurs non administrateurs), permet de lier l’hôte
-  à un groupe d’hôtes afin de pouvoir visualiser ce dernier (voir le chapitre sur
-  [les listes de contrôles d'accès](../../administration/access-control-lists.md)).
+* **ACL Resource Groups** : ([listes de contrôles d'accès](../../administration/access-control-lists.md) en français) permet de lier l’hôte
+  à un groupe d’hôtes afin de pouvoir visualiser ce dernier. Uniquement visible aux utilisateurs non administrateurs
 
 ### Informations supplémentaires
 
-* Le champ **Activer/désactiver la ressource** détermine si l'hôte doit ou ne doit pas être supervisé. Si l'hôte est désactivé, il n'apparaitra pas sur l'écran **Statut des Ressources**.
-* Le champ **Commentaires** permet d’ajouter un commentaire concernant l’hôte.
+* **Activer/désactiver la ressource** : détermine si l'hôte doit être supervisé ou pas. Si l'hôte est désactivé, il n'apparaitra pas sur l'écran **Statut des Ressources**.
+* **Commentaires** : ajouter un commentaire concernant l’hôte.
 
 > N'oubliez pas de [déployer la configuration](../monitoring-servers/deploying-a-configuration.md) pour que les changements réalisés soient pris en compte.
 
