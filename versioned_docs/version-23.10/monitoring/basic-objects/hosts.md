@@ -23,17 +23,17 @@ To create a host manually:
 
 If multiple [templates](../templates.md#definition) would modify the same field, the properties of the [template](../templates.md#definition) placed above the others will be applied. 
 
-Voici un exemple d’hôte avec 3 modèles appliqués.
+Here is an example of a host with 3 templates applied to it.
 
 [!image](../../assets/monitoring/template_priority_example.png)
 
-* App-Monitoring-Centreon-Poller applique une première configuration.
+* App-Monitoring-Centreon-Poller applies its configuration.
 
-* OS-Linux-SNMP va ensuite ecraser la configuration de App-Monitoring-Centreon-Poller là où il y a un conflit des champs à remplir mais n’effacera pas les champs remplis par un autre modèle s’il n’a pas de nouvelles informations à apporter.
+* OS-Linux-SNMP then overwrites it where its own configuration is in conflict with App-Monitoring-Centreon-Poller but will not change fields occupied for which it has no new information.
 
-* App-DB-MySQL fait la même chose avec OS-Linux-SNMP.
+* App-DB-MySQL then does the same with the configuration from OS-Linux-SNMP.
 
-Changer l’ordre des templates modifie automatiquement les configurations selon ce nouvel ordre le cas échéant.
+Modifying the order of the templates automatically updates the applied configurations if necessary.
 
 This button ![image](../../assets/configuration/common/move.png#thumbnail1) enables us to change the order of host templates.
 This button ![image](../../assets/configuration/common/delete.png#thumbnail1) is used to delete the host template.
