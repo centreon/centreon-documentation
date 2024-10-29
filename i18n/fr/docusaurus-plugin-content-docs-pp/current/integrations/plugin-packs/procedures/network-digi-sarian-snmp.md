@@ -5,9 +5,9 @@ title: Digi Sarian SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Digi Sarian** 
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Digi Sarian SNMP** 
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs 
 
 ### Modèles
 
-Le connecteur de supervision **Digi Sarian** apporte un modèle d'hôte :
+Le connecteur de supervision **Digi Sarian SNMP** apporte un modèle d'hôte :
 
 * **Net-Digi-Sarian-SNMP-custom**
 
@@ -39,7 +39,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias          | Modèle de service                          | Description                                               | Découverte |
 |:---------------|:-------------------------------------------|:----------------------------------------------------------|:----------:|
-| Traffic-Global | Net-Digi-Sarian-Traffic-Global-SNMP-custom | Contrôle le traffic réseau de plusieurs interfaces réseau | X          |
+| Traffic-Global | Net-Digi-Sarian-Traffic-Global-SNMP-custom | Contrôle le trafic réseau de plusieurs interfaces réseau | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -62,7 +62,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                   | Description                                                             |
 |:----------------------------------|:------------------------------------------------------------------------|
-| Net-Digi-Sarian-SNMP-Traffic-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
+| Net-Digi-Sarian-SNMP-Traffic-Name | Découvre les interfaces réseau et en supervise le statut et l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -126,12 +126,11 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ### Configuration SNMP
 
-Afin de superviser votre **Digi Sarian** en SNMP, il est nécessaire de configurer l'agent sur l'équipement.
+L'agent SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
 
 ### Flux réseau
 
-La communication doit être possible sur le port UDP 161 depuis le collecteur
-Centreon vers le serveur supervisé.
+La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers le serveur supervisé.
 
 ## Installer le connecteur de supervision
 
@@ -174,7 +173,7 @@ yum install centreon-pack-network-digi-sarian-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Digi Sarian**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Digi Sarian SNMP**
 depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin

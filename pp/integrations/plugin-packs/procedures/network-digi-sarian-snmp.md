@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Connector Dependencies
 
-The following monitoring connectors will be installed when you install the **Digi Sarian** connector through the
+The following monitoring connectors will be installed when you install the **Digi Sarian SNMP** connector through the
 **Configuration > Monitoring Connector Manager** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ The following monitoring connectors will be installed when you install the **Dig
 
 ### Templates
 
-The Monitoring Connector **Digi Sarian** brings a host template:
+The Monitoring Connector **Digi Sarian SNMP** brings a host template:
 
 * **Net-Digi-Sarian-SNMP-custom**
 
@@ -26,9 +26,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                        | Service Description                                  |
 |:--------------|:----------------------------------------|:-----------------------------------------------------|
-| Cpu           | Net-Digi-Sarian-Cpu-SNMP-custom         | Check the rate of utilization of CPU for the machine |
+| Cpu           | Net-Digi-Sarian-Cpu-SNMP-custom         | Check the rate of CPU utilization for the machine |
 | Gprs          | Net-Digi-Sarian-Gprs-SNMP-custom        | Check GPRS status                                    |
-| Memory        | Net-Digi-Sarian-Memory-SNMP-custom      | Check the rate of the utilization of memory          |
+| Memory        | Net-Digi-Sarian-Memory-SNMP-custom      | Check the rate of  memory utilization          |
 | Temperature   | Net-Digi-Sarian-Temperature-SNMP-custom | Check temperatures                                   |
 
 > The services listed above are created automatically when the **Net-Digi-Sarian-SNMP-custom** host template is used.
@@ -125,12 +125,11 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your **Digi Sarian** equipment.
+The SNMP agent must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
 
 ### Network flow
 
-The target resource must be reachable from the Centreon poller on the UDP/161
-SNMP port.
+The target resource must be reachable from the Centreon poller on the UDP/161 SNMP port.
 
 ## Installing the monitoring connector
 
@@ -173,7 +172,7 @@ yum install centreon-pack-network-digi-sarian-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Digi Sarian** connector through
+2. Whatever the license type (*online* or *offline*), install the **Digi Sarian SNMP** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
