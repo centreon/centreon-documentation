@@ -104,7 +104,7 @@ Also called [dependencies](../../alerts-notifications/notif-dependencies.md)
 
 ## Data processing tab
 
-* **Check Freshness**: active check performed by the engine when a determined threshold of time has elapsed since the last [passive check](../../passive-monitoring/enable-snmp-traps.md) of the object.
+* **Check Freshness**: active check performed by the engine when a determined threshold of time has elapsed since the last [passive check](../../monitoring/passive-monitoring/enable-snmp-traps.md) of the object.
 * **Freshness Threshold**: expressed in seconds. If, during this period, no host status change request (passive command) is received, the active check command is executed. A threshold will be determined automatically if the field is left blank and the check is enabled.
 * **Flap Detection Enabled**: enable or disable the detection [flapping](../../alerts-notifications/notif-flapping.md) in the statuses (status
   value changing too often in a given period).

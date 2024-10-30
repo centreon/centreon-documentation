@@ -111,7 +111,7 @@ Aussi appelées [dépendances](../../alerts-notifications/notif-dependencies.md)
 
 ## Onglet Traitement des données
 
-* **Check Freshness** : contrôle actif réalisé lorsque la quantité de temps établie s'est écoulée depuis le dernier [contrôle passif](../../passive-monitoring/enable-snmp-traps.md) de l'objet.
+* **Check Freshness** : contrôle actif réalisé lorsque la quantité de temps établie s'est écoulée depuis le dernier [contrôle passif](../../monitoring/passive-monitoring/enable-snmp-traps.md) de l'objet.
 * **Freshness Threshold** : exprimé en secondes. Si durant cette période aucune demande de changement de
   statut de l’hôte (commande passive) n’a été reçue alors la commande de vérification active est exécutée. Si le contrôle est activé mais que le champs est laissé vide, un seuil sera determiné automatiquement.
 * **Flap Detection Enabled** : active ou désactive la détection du [flapping](../../alerts-notifications/notif-flapping.md) (ou bagotage) des statuts (statut
