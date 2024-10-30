@@ -25,7 +25,7 @@ Si plusieurs [modèles](../templates.md) tenteraient de modifier le même champ,
 
 Voici un exemple d’hôte avec 3 modèles appliqués.
 
-[!image](../../assets/monitoring/template_priority_example.png)
+![image](../../assets/monitoring/template_priority_example.png)
 
 * App-Monitoring-Centreon-Poller applique une première configuration.
 
