@@ -70,7 +70,7 @@ This button ![image](../../assets/configuration/common/delete.png#thumbnail1) is
 * **Active Checks Enabled** and **Passive Checks Enabled**: enable / disable the active and passive checks. [Passive checks](../../monitoring/passive-monitoring/enable-snmp-traps.md) are information the monitored resource sends to Central without it having been actively requested.
 
 ## Notification tab
-Learn more about [notifications](../../alerts-notifications/notif-concept.md) and [contacts](../../contacts.md) with our dedicated articles
+Learn more about [notifications](../../alerts-notifications/notif-concept.md) and [contacts](contacts.md) with our dedicated articles
 
 * **Notification Enabled**: used to enable or disable notifications concerning the object.
 * **Linked contacts**: contacts that will receive the notifications. These contacts must be previously configured in the **Users** section.
