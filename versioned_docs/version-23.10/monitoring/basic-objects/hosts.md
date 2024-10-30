@@ -13,7 +13,7 @@ To create a host manually:
 
 ### Host basic information
 
-* **Name**: the host name used by the Monitoring Engine. Cannot contain `~!$%^&|'"<>?,()=*{}` and spaces.
+* **Name**: host name used by the Monitoring Engine. Cannot contain `~!$%^&|'"<>?,()=*{}` and spaces.
 * **Alias**: another name for the host, spaces and characters unauthorized in the name are allowed here. You may also use the alias to look up the host using the Name search bar.
 * **Address**: IP address or DNS name of the host. The **Resolve** button tests the domain name by questioning the DNS server configured on the central server. If given a DNS name, the Resolve button will also replace the text with the matching IP address.
 * **SNMP Community & Version**: name of the community and the SNMP version.
@@ -49,7 +49,7 @@ This button ![image](../../assets/configuration/common/delete.png#thumbnail1) is
 * **Custom macros**: is automatically populated if you are adding [templates](../templates.md#definition) but you can also add your own [custom macros](../macros/#custom-macros).
 
 
-   * The **Name** and **Value** define the name and value of the macro.
+   * **Name** and **Value** define the name and value of the macro.
    * Checking the **Password** box hides the value of the macro.
 
   To revert to the value defined by the template, click ![image](../../assets/configuration/common/undo.png#thumbnail1)
@@ -87,7 +87,7 @@ Learn more about [notifications](../../../alerts-notifications/notif-concept.md)
 * **Notification Period**: indicates the time period during which the notifications will be enabled.
 * **First notification delay**: expressed in minutes. It refers to the time delay to be respected before sending
   the first notification when a Not-OK status is validated. Setting the value to 0 will cause notifications to be sent immediately.
-* **Recovery notification delay**: the time that must pass before a recovery notification is sent (when the host goes back to an UP state). Setting the value to 0 will cause notifications to be sent immediately.
+* **Recovery notification delay**: time that must pass before a recovery notification is sent (when the host goes back to an UP state). Setting the value to 0 will cause notifications to be sent immediately.
 
 ## Relations tab
 Also called [dependencies](../../../alerts-notifications/notif-dependencies.md)
@@ -131,7 +131,7 @@ The **2d Coords** and **3d Coords** fields are obsolete and have no impact on th
 
 ### Access groups
 
-* The **[ACL Resource Groups](../../administration/access-control-lists.md)**: link this host to a hostgroup in order
+* **[ACL Resource Groups](../../administration/access-control-lists.md)**: link this host to a hostgroup in order
   to view it (only viewable by non-administrators).
 
 ### Additional Information
