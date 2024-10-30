@@ -56,6 +56,7 @@ Release date: `October 30, 2024`
 **Configuration**
 
 - You can now duplicate a locked command.
+- Added an option that allows users to disable checks for a service whose host is down.
 - You can now configure several more Broker loggers from the interface.
 
 **Dashboards and widgets**
@@ -131,7 +132,6 @@ Release date: `October 30, 2024`
 **Other**
 
 - [Broker]The spdlog logger library has been mutualized for Engine and Broker, as well as the log files. This change will not impact Broker's logs, but Engine will log all its messages (including broker-module's messages) in centengine.log.
-- [Configuration] Added an option that allows users to disable checks for a service whose host is down.
 - [gRPC API] The GetHost function has been improved to return more information.
 - [Packaging] Collect packages are now also available for Debian 12 (bookworm) ARM64 (for pollers on Raspberry Pi).
 
