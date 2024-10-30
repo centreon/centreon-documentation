@@ -25,7 +25,7 @@ If multiple [templates](../templates.md#definition) would modify the same field,
 
 Here is an example of a host with 3 templates applied to it.
 
-[!image](../../assets/monitoring/template_priority_example.png)
+![image](../../assets/monitoring/template_priority_example.png)
 
 * App-Monitoring-Centreon-Poller applies its configuration.
 
