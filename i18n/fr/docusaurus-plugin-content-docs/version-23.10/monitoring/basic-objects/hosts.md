@@ -72,7 +72,7 @@ Si plusieurs modèles tenteraient de modifier le même champ, les caractéristiq
 * **Contrôle actif activé** et **Contrôle passif activé** activent / désactivent les contrôles actifs et passifs. [Les contrôles passifs](../../monitoring/passive-monitoring/enable-snmp-traps.md) sont les informations que la ressource supervisée envoie au Central sans que celles-ci aient été activement demandées.
 
 ## Onglet Notification
-Jetez un oeil à nos articles sur les [notifications](../alert-notifications/notif-concept.md) et les [contacts](../contacts.md) pour en savoir plus sur ces sujets.
+Jetez un oeil à nos articles sur les [notifications](../alerts-notifications/notif-concept.md) et les [contacts](../contacts.md) pour en savoir plus sur ces sujets.
 
 * **Notification activée** : activer ou de désactiver les notifications concernant l’objet.
 * **Contacts liés** : contacts qui recevront les notifications. Ces contacts doivent être d'abord configurés dans l'onglet **Utilisateurs**.
