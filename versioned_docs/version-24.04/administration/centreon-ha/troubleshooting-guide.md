@@ -134,3 +134,49 @@ pcs resource clear centreon
 ```
 
 Resources should be starting now.
+
+## No resource is starting
+
+If no resource is starting, one of the possible causes is that the quorum device is not started.
+
+### Solution
+
+To check how the quorum device is doing, run the following command on the central nodes or the database nodes:
+
+```shell
+pcs quorum status
+```
+
+If everything is OK, the output looks like this:
+
+```text
+Membership information
+----------------------
+    Nodeid      Votes    Qdevice Name
+         1          1    A,V,NMW node1 (local)
+         2          1    A,V,NMW node2
+         3          1    A,V,NMW node3
+         4          1    A,V,NMW node4
+         0          1            Qdevice
+```
+
+If you obtain something else, there is a problem.
+
+- Check that the **corosync-qnetd** service is running on your central and databases nodes.
+
+```shell
+systemctl status corosync-qnetd
+```
+
+- Try running this command to know whether the quorum device is started or not:
+
+```shell
+pcs qdevice status net --full
+```
+
+- If the quorum device is running, there may be a problem with the flows between the nodes and the quorum device.
+- If the quorum device is not running, log in to your quorum device and start it using the following command:
+
+```shell
+pcs qdevice start net
+```
