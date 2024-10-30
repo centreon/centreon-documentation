@@ -97,3 +97,9 @@ apt remove centreon-map-server
   ```shell
   mysql --host=$DB_HOST --port=$DB_PORT --user=$DB_USER --password $DB_NAME "DROP DATABASE centreon_studio;"
   ```
+
+- Si vous avez réutilisé votre serveur MAP legacy pour installer MAP, supprimez les images stockées sur le serveur pendant la migration vers MAP:
+
+```shell
+rm -fr /usr/share/centreon/www/img/media/
+```
