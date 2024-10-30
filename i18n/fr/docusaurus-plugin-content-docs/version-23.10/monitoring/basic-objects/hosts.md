@@ -21,7 +21,7 @@ Pour créer un hôte manuellement :
 * **Fuseau horaire** : localisation de l'hôte. Tenez en compte que c'est le fuseau horaire établi ici qui détermine à quel moment sont réalisés les contrôles de cet hôte.
 * **Modèles** : permet d’associer un ou plusieurs [modèles](../templates.md) à cet objet.
 
-Si plusieurs [modèles](../templates.md) tenteraient de modifier le même champ, les caractéristiques du [modèle](../templates.md) placé au-dessus des autres seront appliquées.
+Si plusieurs modèles tenteraient de modifier le même champ, les caractéristiques du modèle placé au-dessus des autres seront appliquées.
 
    Voici un exemple d’hôte avec 3 modèles appliqués.
 
@@ -41,7 +41,7 @@ Si plusieurs [modèles](../templates.md) tenteraient de modifier le même champ,
    Ce bouton ![image](../../assets/configuration/common/delete.png#thumbnail2) sert à supprimer le modèle hôte.
 
 * Si la case **Oui** est cochée pour **Créer aussi les services liés aux modèles**, Centreon génère automatiquement les
-  services en se basant sur les [modèles](../templates.md) de services liés aux [modèles](../templates.md) d’hôtes définis au-dessus.
+  services en se basant sur les [modèles](../templates.md) de services liés aux modèles d’hôtes définis au-dessus.
 
 ### Options de contrôle de l'hôte
 
@@ -53,7 +53,7 @@ Si plusieurs [modèles](../templates.md) tenteraient de modifier le même champ,
    * Les champs **Nom** et **Valeur** établissent le nom et la valeur de la macro.
    * Cocher la case **Mot de passe** cache la valeur de la macro.
 
-   Pour réinitialiser la macro avec sa valeur par défaut définie par le [modèle](../templates.md) cliquez sur ![image](../../assets/configuration/common/undo.png#thumbnail2)
+   Pour réinitialiser la macro avec sa valeur par défaut définie par le modèle cliquez sur ![image](../../assets/configuration/common/undo.png#thumbnail2)
 
    Pour afficher la description de la macro, cliquez sur ![image](../../assets/configuration/common/description.png#thumbnail2)
 
@@ -72,7 +72,7 @@ Si plusieurs [modèles](../templates.md) tenteraient de modifier le même champ,
 * **Contrôle actif activé** et **Contrôle passif activé** activent / désactivent les contrôles actifs et passifs. [Les contrôles passifs](../../monitoring/passive-monitoring/enable-snmp-traps.md) sont les informations que la ressource supervisée envoie au Central sans que celles-ci aient été activement demandées.
 
 ## Onglet Notification
-Jetez un oeil à nos articles sur les [notifications](../../alert-notifications/notif-concept.md) et les [contacts](../contacts.md) pour en savoir plus sur ces sujets.
+Jetez un oeil à nos articles sur les [notifications](../alert-notifications/notif-concept.md) et les [contacts](../contacts.md) pour en savoir plus sur ces sujets.
 
 * **Notification activée** : activer ou de désactiver les notifications concernant l’objet.
 * **Contacts liés** : contacts qui recevront les notifications. Ces contacts doivent être d'abord configurés dans l'onglet **Utilisateurs**.
@@ -96,7 +96,7 @@ Jetez un oeil à nos articles sur les [notifications](../../alert-notifications/
 * **Délai de première notification de recouvrement** : est le temps qui doit s'écouler avant qu'une notification de type **Récupération** soit envoyée (lorsque l'hôte revient à un état DISPONIBLE). Mettre la valeur à 0 résulte en l'envoi immédiat de la notification.
 
 ## Onglet Relations
-Aussi appelées [dépendances](../../alerts-notifications/notif-dependencies.md)
+Aussi appelées [dépendances](../alerts-notifications/notif-dependencies.md)
 
 * **Groupes d'hôtes** : les groupes d’hôtes auxquels l’hôte appartient. Les groupes vous permettent de faire des changements sur plusieurs hôtes en même temps.
 * **Catégories d'hôte** : les catégories auxquelles l’hôte appartient.
@@ -109,14 +109,14 @@ Aussi appelées [dépendances](../../alerts-notifications/notif-dependencies.md)
 * **Check Freshness** : contrôle actif réalisé lorsque la quantité de temps établie s'est écoulée depuis le dernier contrôle passif de l'objet.
 * **Freshness Threshold** : exprimé en secondes. Si durant cette période aucune demande de changement de
   statut de l’hôte (commande passive) n’a été reçue alors la commande de vérification active est exécutée. Si le contrôle est activé mais que le champs est laissé vide, un seuil sera determiné automatiquement.
-* **Flap Detection Enabled** : active ou désactive la détection du [flapping](../../alert-notifications/notif-flapping.md) (ou bagotage) des statuts (statut
+* **Flap Detection Enabled** : active ou désactive la détection du [flapping](../alert-notifications/notif-flapping.md) (ou bagotage) des statuts (statut
   changeant trop fréquemment de valeur sur une période donnée).
 * **Low Flap Threshold** et **High Flap Threshold** : les seuils hauts et bas pour la détection du
   bagotage en pourcentage de changement de statuts.
 * **Retain Status Information** et **Retain Non Status Information** : indiquent si les informations concernant
   ou non le statut sont sauvegardées après chaque relance de la commande de vérification.
 * **Stalking Options** : options à enregistrer si la **Rétention** est activée.
-* **Event Handler Enabled** : activer ou de désactiver le [gestionnaire d’évènements](../../event-handler.md).
+* **Event Handler Enabled** : activer ou de désactiver le [gestionnaire d’évènements](../event-handler.md).
 * **Event Handler** : commande à exécuter si le gestionnaire d’évènements est activé.
 * **Args** : arguments de la commande du gestionnaire d’évènements.
 
@@ -131,7 +131,7 @@ Aussi appelées [dépendances](../../alerts-notifications/notif-dependencies.md)
 * **Icône** : icône à utiliser pour l’hôte, cet icône est visible à divers endroits. Un formqt 40x40 pixels est recommandé.
 * **Icône alternative** : texte optionnel apparaissant lorsque l'icône ne peut être affiché.
 * **Criticité d'hôte** : niveau de criticité de l’hôte. Il s'agit d'une sorte de catégorie spéciale que vous pouvez utiliser pour organiser l'écran **Statut des Ressources** par niveau de criticité.
-* **Image de la carte des états** : logo du module [Centreon MAP](../../graph-views/introduction-map.md).
+* **Image de la carte des états** : logo du module [Centreon MAP](../graph-views/introduction-map.md).
 * **Coordonnées géographiques** : coordonnées géographiques utilisées par le module Centreon MAP pour positionner
   l'élément sur la carte. Définissez "Latitude, Longitude", par exemple pour le jeu de coordonnées de Paris "48.51,2.20"
 
