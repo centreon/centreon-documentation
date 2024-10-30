@@ -23,17 +23,17 @@ To create a host manually:
 
 If multiple [templates](../templates.md#definition) would modify the same field, the properties of the [template](../templates.md#definition) placed above the others will be applied. 
 
-Here is an example of a host with 3 templates applied to it.
+   Here is an example of a host with 3 templates applied to it.
 
 ![image](../../assets/monitoring/template_priority_example.png)
 
-* App-Monitoring-Centreon-Poller applies its configuration.
+   * App-Monitoring-Centreon-Poller applies its configuration.
 
-* OS-Linux-SNMP then overwrites it where its own configuration is in conflict with App-Monitoring-Centreon-Poller but will not change fields occupied for which it has no new information.
+   * OS-Linux-SNMP then overwrites it where its own configuration is in conflict with App-Monitoring-Centreon-Poller but will not change fields occupied for which it has no new information.
 
-* App-DB-MySQL then does the same with the configuration from OS-Linux-SNMP.
+   * App-DB-MySQL then does the same with the configuration from OS-Linux-SNMP.
 
-Modifying the order of the templates automatically updates the applied configurations if necessary.
+   Modifying the order of the templates automatically updates the applied configurations if necessary.
 
 This button ![image](../../assets/configuration/common/move.png#thumbnail1) enables us to change the order of host templates.
 This button ![image](../../assets/configuration/common/delete.png#thumbnail1) is used to delete the host template.
@@ -70,6 +70,7 @@ This button ![image](../../assets/configuration/common/delete.png#thumbnail1) is
 * **Active Checks Enabled** and **Passive Checks Enabled**: enable / disable the active and passive checks. [Passive checks](../../monitoring/passive-monitoring/enable-snmp-traps.md) are information the monitored resource sends to Central without it having been actively requested.
 
 ## Notification tab
+Learn more about [notifications](../../alert-notifications/notif-concept.md) and [contacts](../contacts.md) with our dedicated articles
 
 * **Notification Enabled**: used to enable or disable notifications concerning the object.
 * **Linked contacts**: contacts that will receive the notifications. These contacts must be previously configured in the **Users** section.
@@ -89,6 +90,7 @@ This button ![image](../../assets/configuration/common/delete.png#thumbnail1) is
 * **Recovery notification delay**: the time that must pass before a recovery notification is sent (when the host goes back to an UP state). Setting the value to 0 will cause notifications to be sent immediately.
 
 ## Relations tab
+Also called [dependencies](../../alerts-notifications/notif-dependencies.md)
 
 * **Host Groups**: host groups to which the host belongs. Groups allow you to make changes to many hosts at the same time.
 * **Host Categories**: categories to which the host belongs.
@@ -100,14 +102,14 @@ This button ![image](../../assets/configuration/common/delete.png#thumbnail1) is
 * **Obsess Over Host**: enables the host check feedback command.
 * **Check Freshness**: active check performed by the engine when a determined threshold of time has elapsed since the last passive check of the object.
 * **Freshness Threshold**: expressed in seconds. If, during this period, no host status change request (passive command) is received, the active check command is executed. A threshold will be determined automatically if the field is left blank and the check is enabled.
-* **Flap Detection Enabled**: enable or disable the detection flapping in the statuses (status
+* **Flap Detection Enabled**: enable or disable the detection [flapping](../../alert-notifications/notif-flapping.md) in the statuses (status
   value changing too often in a given period).
 * **Low Flap Threshold** and **High Flap Threshold** define the high and low thresholds for the detection of
   flapping as a percentage of status change.
 * **Retain Status Information** and **Retain Non Status Information**: indicate if the information concerning
   the status is saved after each time the check command is repeated.
 * **Stalking Options**: options to be recorded if **Retain Information** is enabled.
-* **Event Handler Enabled**: enables or disables the event handler.
+* **Event Handler Enabled**: enables or disables the [event handler](../../event-handler.md).
 * **Event Handler**: command to be executed if the event handler is enabled.
 * **Args**: arguments of the events handler command.
 
@@ -121,7 +123,7 @@ This button ![image](../../assets/configuration/common/delete.png#thumbnail1) is
 * **Icon**: icon used for the host, it can be seen in a variety of places. A 40x40 pixels format is recommended.
 * **Alt Icon**: optional string shown when the **Icon** cannot be displayed.
 * **Host severity**: severity level of the host. This is a special type of category that also allows you to sort the Resource Status by severity level.
-* **Status Map Image**: logo for the Centreon Map module.
+* **Status MAP Image**: logo for the [Centreon MAP module](../../graph-views/introduction-map.md).
 * **Geographic coordinates**: geographical coordinates used by the Centreon MAP module to position the resource on a map.
   Define "Latitude,Longitude"; for example, the set of coordinates for Paris is "48.51,2.20"
 
@@ -129,7 +131,7 @@ The **2d Coords** and **3d Coords** fields are obsolete and have no impact on th
 
 ### Access groups
 
-* The **ACL Resource Groups(../../administration/access-control-lists.md)**: link this host to a hostgroup in order
+* The **[ACL Resource Groups](../../administration/access-control-lists.md)**: link this host to a hostgroup in order
   to view it (only viewable by non-administrators).
 
 ### Additional Information
