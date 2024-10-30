@@ -14,11 +14,11 @@ Pour créer un hôte manuellement :
 ### Information de base sur l'hôte
 
 * **Nom** : nom d’hôte utilisé par le moteur de supervision. Ne peut pas contenir : `~!$%^&|'"<>?,()=*{}` et les espaces.
-* **Alias** : un autre nom pour l'hôte. Les espaces et caractères interdits dans le nom peuvent être employés ici. L'alias peut être utilisé dans la barre de recherche **Nom** pour retrouver un hôte.
+* **Alias** : un autre nom pour l'hôte. Les espaces et caractères interdits dans le nom peuvent être employés ici. L'alias peut être utilisé dans la **Barre de recherche** avec la syntaxe `alias:` pour retrouver un hôte.
 * **Adresse** : adresse IP ou nom DNS de l’hôte. Le bouton **Résoudre** permet de tester le nom du domaine en interrogeant le serveur DNS configuré dans le serveur central. Dans le cas où un nom DNS est utilisé pour remplir le champ, le bouton **Résoudre** le remplacera également par l'adresse IP correspondante.
-* **Communauté SNMP & Version** : contiennent respectivement le nom de la communauté ainsi que la version SNMP.
-* **Serveur de supervision** : détermine si c'est Central, un poller ou un serveur distant sera chargé de superviser cet hôte.
-* **Fuseau horaire** : localisation de l'hôte. Tenez en compte que c'est le fuseau horaire établi ici qui détermine à quel moment sont réalisés les contrôles de cet hôte.
+* **Communauté SNMP & Version** : nom de la communauté attribuée à l'équipement et sa version. S'il s'agit de la version 1 ou 2, remplissez le champ communauté. S'il s'agit de la version 3, laissez le champ communauté vide et ajoutez la macro personnalisée suivante dans la section **Options de contrôle de l'hôte** : [`snmpextraoptions`](centreon-documentation/i18n/fr/docusaurus-plugin-content-docs-pp/current/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md).
+* **Serveur de supervision** : détermine quel serveur Centreon (central, poller ou distant) sera chargé de superviser cet hôte.
+* **Fuseau horaire** : localisation de l'hôte. Tenez en compte que c'est le fuseau horaire établi ici qui détermine à quel moment sont réalisés les contrôles de cet hôte, le fuseau horaire du serveur qui contrôle l'hôte n'influe pas ici.
 * **Modèles** : permet d’associer un ou plusieurs [modèles](../templates.md) à cet objet.
 
 Si plusieurs modèles tenteraient de modifier le même champ, les caractéristiques du modèle placé au-dessus des autres seront appliquées.
@@ -43,9 +43,15 @@ Si plusieurs modèles tenteraient de modifier le même champ, les caractéristiq
 * Si la case **Oui** est cochée pour **Créer aussi les services liés aux modèles**, Centreon génère automatiquement les
   services en se basant sur les [modèles](../templates.md) de services liés aux modèles d’hôtes définis au-dessus.
 
+### Groupes d'accès (option invisible aux administrateurs)
+
+* **ACL Resource Groups** : ([listes de contrôles d'accès](../../administration/access-control-lists.md) en français) permet de lier l’hôte
+  à un groupe d’hôtes.
+> Les hôtes qui ne sont pas liés à un groupe ne seront pas visibles ! 
+
 ### Options de contrôle de l'hôte
 
-* **Commande de vérification** : commande utilisée pour vérifier la disponibilité de l’hôte.
+* **Commande de vérification** : commande utilisée pour vérifier la disponibilité de l’hôte. n'est utile que si vous n'avez pas appliqué de [modèles](../templates.md) à votre hôte.
 * **Arguments** : arguments donnés à la commande de vérification (chaque argument commence avec un ”!”).
 
 * **Macros personnalisées : automatiquement rempli si vous ajoutez des [modèles](../templates.md) mais vous pouvez également ajouter vos [macros personnalisées](../macros/#custom-macros).
@@ -105,8 +111,7 @@ Aussi appelées [dépendances](../../alerts-notifications/notif-dependencies.md)
 
 ## Onglet Traitement des données
 
-* **Obsess Over Host** : active la commande de remontée des contrôles de l’hôte.
-* **Check Freshness** : contrôle actif réalisé lorsque la quantité de temps établie s'est écoulée depuis le dernier contrôle passif de l'objet.
+* **Check Freshness** : contrôle actif réalisé lorsque la quantité de temps établie s'est écoulée depuis le dernier [contrôle passif](../../passive-monitoring/enable-snmp-traps.md) de l'objet.
 * **Freshness Threshold** : exprimé en secondes. Si durant cette période aucune demande de changement de
   statut de l’hôte (commande passive) n’a été reçue alors la commande de vérification active est exécutée. Si le contrôle est activé mais que le champs est laissé vide, un seuil sera determiné automatiquement.
 * **Flap Detection Enabled** : active ou désactive la détection du [flapping](../../alerts-notifications/notif-flapping.md) (ou bagotage) des statuts (statut
@@ -124,27 +129,22 @@ Aussi appelées [dépendances](../../alerts-notifications/notif-dependencies.md)
 
 ### Moteur de supervision
 
-* **URL de la note** : URL cliquable qui apparaitra dans la colonne **Notes** de l'écran **Statut des Ressources** (la colonne **Notes** doit être activée pour cette fonction).
-* **Note** : notes optionnelles concernant l’hôte qui seront visibles dans l'écran **Statut des Ressources** (la colonne **Notes** doit être activée pour cette fonction).
+* **URL de la note** : URL cliquable qui apparaitra dans la colonne **Notes** de la page **Statut des Ressources** (la colonne **Notes** doit être visible pour cette fonction).
+* **Note** : notes optionnelles concernant l’hôte qui seront visibles dans la page **Statut des Ressources** (la colonne **Notes** doit être visible pour cette fonction).
 * **URL d'action** : URL habituellement utilisée pour donner des informations d’actions sur l’hôte
   (maintenance...).
 * **Icône** : icône à utiliser pour l’hôte, cet icône est visible à divers endroits. Un formqt 40x40 pixels est recommandé.
 * **Icône alternative** : texte optionnel apparaissant lorsque l'icône ne peut être affiché.
-* **Criticité d'hôte** : niveau de criticité de l’hôte. Il s'agit d'une sorte de catégorie spéciale que vous pouvez utiliser pour organiser l'écran **Statut des Ressources** par niveau de criticité.
+* **Criticité d'hôte** : niveau de criticité de l’hôte. Il s'agit d'une sorte de catégorie spéciale que vous pouvez utiliser pour organiser la page **Statut des Ressources** par niveau de criticité.
 * **Image de la carte des états** : logo du module [Centreon MAP](../../graph-views/introduction-map.md).
 * **Coordonnées géographiques** : coordonnées géographiques utilisées par le module Centreon MAP pour positionner
   l'élément sur la carte. Définissez "Latitude, Longitude", par exemple pour le jeu de coordonnées de Paris "48.51,2.20"
 
 Les champs **Coordonnées 2D** et **Coordonnées 3D** sont obsolètes et n'ont aucun impact sur l'hôte.
 
-### Groupes d'accès
-
-* **ACL Resource Groups** : ([listes de contrôles d'accès](../../administration/access-control-lists.md) en français) permet de lier l’hôte
-  à un groupe d’hôtes afin de pouvoir visualiser ce dernier. Uniquement visible aux utilisateurs non administrateurs
-
 ### Informations supplémentaires
 
-* **Activer/désactiver la ressource** : détermine si l'hôte doit être supervisé ou pas. Si l'hôte est désactivé, il n'apparaitra pas sur l'écran **Statut des Ressources**.
+* **Activer/désactiver la ressource** : détermine si l'hôte doit être supervisé ou pas. Si l'hôte est désactivé, il n'apparaitra pas sur la page **Statut des Ressources**.
 * **Commentaires** : ajouter un commentaire concernant l’hôte.
 
 > N'oubliez pas de [déployer la configuration](../monitoring-servers/deploying-a-configuration.md) pour que les changements réalisés soient pris en compte.
