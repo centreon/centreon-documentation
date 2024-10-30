@@ -14,11 +14,11 @@ To create a host manually:
 ### Host basic information
 
 * **Name**: host name used by the Monitoring Engine. Cannot contain `~!$%^&|'"<>?,()=*{}` and spaces.
-* **Alias**: another name for the host, spaces and characters unauthorized in the name are allowed here. You may also use the alias to look up the host using the Name search bar.
+* **Alias**: another name for the host, spaces and characters unauthorized in the name are allowed here. You may also use the alias to look up the host using the **Search bar** with the syntax `alias:`.
 * **Address**: IP address or DNS name of the host. The **Resolve** button tests the domain name by questioning the DNS server configured on the central server. If given a DNS name, the Resolve button will also replace the text with the matching IP address.
-* **SNMP Community & Version**: name of the community and the SNMP version.
-* **Monitoring server**: which one amongst Central, a poller or a remote server will be charged with monitoring this host.
-* **Timezone**: location of the host. Note that the timezone established here is what determines the time of the checks of this host.
+* **SNMP Community & Version**: name of the community that was defined for the equipment and its version. If the version is 1 or 2, use the community field, if the version is 3, leave the community field empty and add the following custom macro in the **Host check options** section: [`snmpextraoptions`](centreon-documentation/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md).
+* **Monitoring server**: which server (central, poller or remote) will be charged with monitoring this host.
+* **Timezone**: location of the host. Note that the timezone defined here is what determines the time of the checks of this host, not the timezone of server monitoring the host.
 * **Templates**: associate one or more [host templates](../templates.md#definition) with this object.
 
 If multiple templates would modify the same field, the properties of the template placed above the others will be applied. 
@@ -41,12 +41,17 @@ This button ![image](../../assets/configuration/common/delete.png#thumbnail1) is
 * If the **Create Services linked to the Template too** field is defined as **Yes**, Centreon automatically generates
   the services according to the service template of the host template placed above the others.
 
+### Access groups (option invisible to administrators)
+
+* **[ACL Resource Groups](../../administration/access-control-lists.md)**: link this host to a hostgroup.
+> Not linking the host to a hostgroup will cause it to be invisible!
+
 ### Host check options
 
-* **Check Command**: command used to check the availability of the host.
+* **Check Command**: command used to check the availability of the host. Only useful if you are not applying any [templates](../templates.md) to the host.
 * **Args**: arguments given to the check command (each argument starts with ”!”).
 
-* **Custom macros**: is automatically populated if you are adding [templates](../templates.md#definition) but you can also add your own [custom macros](../macros/#custom-macros).
+* **Custom macros**: is automatically populated as you add [templates](../templates.md#definition) but you can also add your own [custom macros](../macros/#custom-macros).
 
 
    * **Name** and **Value** define the name and value of the macro.
@@ -70,7 +75,7 @@ This button ![image](../../assets/configuration/common/delete.png#thumbnail1) is
 * **Active Checks Enabled** and **Passive Checks Enabled**: enable / disable the active and passive checks. [Passive checks](../../monitoring/passive-monitoring/enable-snmp-traps.md) are information the monitored resource sends to Central without it having been actively requested.
 
 ## Notification tab
-Learn more about [notifications](../../alerts-notifications/notif-concept.md) and [contacts](contacts.md) with our dedicated articles
+Learn more about [notifications](../../alerts-notifications/notif-concept.md) and [contacts](contacts.md) with our dedicated articles.
 
 * **Notification Enabled**: used to enable or disable notifications concerning the object.
 * **Linked contacts**: contacts that will receive the notifications. These contacts must be previously configured in the **Users** section.
@@ -99,8 +104,7 @@ Also called [dependencies](../../alerts-notifications/notif-dependencies.md)
 
 ## Data processing tab
 
-* **Obsess Over Host**: enables the host check feedback command.
-* **Check Freshness**: active check performed by the engine when a determined threshold of time has elapsed since the last passive check of the object.
+* **Check Freshness**: active check performed by the engine when a determined threshold of time has elapsed since the last [passive check](../../passive-monitoring/enable-snmp-traps.md) of the object.
 * **Freshness Threshold**: expressed in seconds. If, during this period, no host status change request (passive command) is received, the active check command is executed. A threshold will be determined automatically if the field is left blank and the check is enabled.
 * **Flap Detection Enabled**: enable or disable the detection [flapping](../../alerts-notifications/notif-flapping.md) in the statuses (status
   value changing too often in a given period).
@@ -117,8 +121,8 @@ Also called [dependencies](../../alerts-notifications/notif-dependencies.md)
 
 ### Monitoring engine
 
-* **Note URL**: clickable URL that will appear in the **Notes** column on the **Resource Status** screen (the **Notes** column must be enabled for this).
-* **Note**: optional information concerning the host visible in the Resource Status screen (the **Notes** column must be enabled for this).
+* **Note URL**: clickable URL that will appear in the **Notes** column on the **Resource Status** page (the **Notes** column must be displayed for this).
+* **Note**: optional information concerning the host visible in the Resource Status page (the **Notes** column must be displayed for this).
 * **Action URL**: URL normally used for giving information on actions on the host (maintenance, etc.).
 * **Icon**: icon used for the host, it can be seen in a variety of places. A 40x40 pixels format is recommended.
 * **Alt Icon**: optional string shown when the **Icon** cannot be displayed.
@@ -128,11 +132,6 @@ Also called [dependencies](../../alerts-notifications/notif-dependencies.md)
   Define "Latitude,Longitude"; for example, the set of coordinates for Paris is "48.51,2.20"
 
 The **2d Coords** and **3d Coords** fields are obsolete and have no impact on the host.
-
-### Access groups
-
-* **[ACL Resource Groups](../../administration/access-control-lists.md)**: link this host to a hostgroup in order
-  to view it (only viewable by non-administrators).
 
 ### Additional Information
 
