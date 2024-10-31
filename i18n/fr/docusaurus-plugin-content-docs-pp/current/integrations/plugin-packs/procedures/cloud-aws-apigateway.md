@@ -41,7 +41,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle        | Description                               |
 |:-----------------------|:------------------------------------------|
-| Amazon AWS API Gateway | Discover Amazon AWS API Gateway instances |
+| Amazon AWS API Gateway | Découvre les instances Amazon AWS API Gateway |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
