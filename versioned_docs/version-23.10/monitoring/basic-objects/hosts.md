@@ -27,11 +27,11 @@ If multiple templates modify the same field, the properties of the template plac
 
    ![image](../../assets/monitoring/template_priority_example.png)
 
-      * **App-Monitoring-Centreon-Central** applies its configuration.
+   * **App-Monitoring-Centreon-Central** applies its configuration.
 
-      * **OS-Linux-SNMP** then overwrites it where its own configuration is in conflict with **App-Monitoring-Centreon-Central** but will not change fields for which it has no new information.
+   * **OS-Linux-SNMP** then overwrites it where its own configuration is in conflict with **App-Monitoring-Centreon-Central** but will not change fields for which it has no new information.
 
-      * **App-DB-MySQL** then does the same with the configuration from **OS-Linux-SNMP**.
+   * **App-DB-MySQL** then does the same with the configuration from **OS-Linux-SNMP**.
 
    Modifying the order of the templates automatically updates the applied configurations if necessary.
 
