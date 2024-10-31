@@ -27,9 +27,9 @@ Si plusieurs modèles tenteraient de modifier le même champ, les caractéristiq
 
    ![image](../../assets/monitoring/template_priority_example.png)
 
-   * **App-Monitoring-Centreon-Poller** applique une première configuration.
+   * **App-Monitoring-Centreon-Central** applique une première configuration.
 
-   * **OS-Linux-SNMP** va ensuite ecraser la configuration de **App-Monitoring-Centreon-Poller** là où il y a un conflit des champs à remplir mais ne modifie pas les champs pour lesquels il n’a pas de nouvelles informations à apporter.
+   * **OS-Linux-SNMP** va ensuite ecraser la configuration de **App-Monitoring-Centreon-Central** là où il y a un conflit des champs à remplir mais ne modifie pas les champs pour lesquels il n’a pas de nouvelles informations à apporter.
 
    * **App-DB-MySQL** fait la même chose avec **OS-Linux-SNMP**.
 
