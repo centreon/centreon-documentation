@@ -188,11 +188,11 @@ SNMP doit être configuré sur le serveur central. Vous pouvez vous aider de cet
 
 ### Configuration de la connexion SSH sans mot de passe
 
-Les vérifications liées au service **Broker-Stats** devraient être effectuées depuis un collecteur et sont réalisées par SSH. 
-Si vous ne disposez que d'un central, les vérifications seront faites depuis et sur le central lui-même. 
+Les contrôles liés au service **Broker-Stats** devraient être effectués depuis un collecteur et sont réalisés par SSH. 
+Si vous ne disposez que d'un central, les contrôles seront faits depuis et sur le central lui-même. 
 Vous pouvez ignorer les étapes ci-dessous si vous êtes dans ce cas-là.
 
-> NB : Il est très fortement recommandé de surveiller le cluster à partir d'un poller plutôt qu'à partir du cluster.
+> NB : Il est très fortement recommandé de superviser le central à partir d'un collecteur plutôt qu'à partir du central.
 
 Ouvrir une session en ligne de commande sur :
 

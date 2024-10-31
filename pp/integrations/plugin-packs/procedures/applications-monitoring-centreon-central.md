@@ -187,9 +187,9 @@ SNMP must be configured on each poller being monitored. You can refer to this [d
 
 ### SSH key exchange
 
-The checks related to **Broker-Stats** service should be done from a poller and it is done through SSH. 
+The checks related to the **Broker-Stats** service should be done from a poller and are done through SSH. 
 If you only have a central server, then checks will be initiated and performed on and by the central server itself. 
-You can skip below steps for SSH key exchange if the central server monitors itself.
+You can skip the steps below for SSH key exchange if the central server monitors itself.
 
 > NB : It is strongly recommended to monitor the cluster from an external poller rather than from the cluster's active node.
 
