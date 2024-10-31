@@ -43,7 +43,7 @@ If multiple templates modify the same field, the properties of the template plac
 
 ### Access groups (option for non-administrators)
 
-* **[ACL Resource Groups](../../administration/access-control-lists.md)**: link this host to a hostgroup.
+* **[ACL Resource Groups](../../administration/access-control-lists.md)**: link this host to a hostgroup, this action can only be performed by non-administrators users.
 > Not linking the host to a hostgroup will cause it to be invisible!
 
 ### Host check options
@@ -97,9 +97,9 @@ Learn more about [notifications](../../alerts-notifications/notif-concept.md) an
 ## Relations tab
 Also called [dependencies](../../alerts-notifications/notif-dependencies.md)
 
-* **Host Groups**: host groups to which the host belongs. Groups allow you to make changes to many hosts at the same time.
-* **Host Categories**: categories to which the host belongs.
-* **Parent Hosts**: define an object as a parent for this host. The parent of a host is the object between it and its monitoring host that is also the closest to the monitored object. A host is considered to have no parent host if it is on the same network segment as the host doing the monitoring without any intermediates. Leave this field blank if that is the case.
+* **Host Groups**: [host groups](../groups.md) to which the host belongs. Groups allow you to make changes to many hosts at the same time.
+* **Host Categories**: [categories](../categories.md) to which the host belongs.
+* **Parent Hosts**: define an object as a [parent](../../alerts-notifications/notif-dependencies.md) for this host. The parent of a host is the object between it and its monitoring host that is also the closest to the monitored object. A host is considered to have no parent host if it is on the same network segment as the host doing the monitoring without any intermediates. Leave this field blank if that is the case.
 * **Child Hosts**: designate the current host as the parent for other hosts.
 
 ## Data processing tab
@@ -124,9 +124,9 @@ Also called [dependencies](../../alerts-notifications/notif-dependencies.md)
 * **Note URL**: clickable URL that will appear in the **Notes** column on the **Resource Status** page (the **Notes** column must be displayed for this).
 * **Note**: optional information concerning the host visible in the Resource Status page (the **Notes** column must be displayed for this).
 * **Action URL**: URL normally used for giving information on actions on the host (maintenance, etc.).
-* **Icon**: icon used for the host, it can be seen in a variety of places. A 40x40 pixels format is recommended.
+* **Icon**: icon used for the host, it can be seen in a variety of places such as the ressource status page. A 40x40 pixels format is recommended.
 * **Alt Icon**: optional string shown when the **Icon** cannot be displayed.
-* **Host severity**: severity level of the host. This is a special type of category that also allows you to sort the Resource Status by severity level.
+* **Host severity**: [severity](../categories.md#severities) level of the host. This is a special type of category that also allows you to sort the Resource Status by severity level.
 * **Status MAP Image**: logo for the [Centreon MAP module](../../graph-views/introduction-map.md).
 * **Geographic coordinates**: geographical coordinates used by the Centreon MAP module to position the resource on a map.
   Define "Latitude,Longitude"; for example, the set of coordinates for Paris is "48.51,2.20"
