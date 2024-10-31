@@ -191,20 +191,20 @@ The checks related to the **Broker-Stats** service should be done from a poller 
 If you only have a central server, then checks will be initiated and performed on and by the central server itself. 
 You can skip the steps below for SSH key exchange if the central server monitors itself.
 
-> NB : It is strongly recommended to monitor the cluster from an external poller rather than from the cluster's active node.
+> NB : It is strongly recommended to monitor the central from an external poller rather than from the central itself.
 
 Open a `root` command-line session on:
 
-* the poller that will monitor the cluster
-* both of the cluster nodes
+* the poller that will monitor the central
+* the central
 
-Then switch to `centreon-engine`'s bash environment on both nodes:
+Then switch to `centreon-engine`'s bash environment on both:
 
 ```
 su - centreon-engine
 ```
 
-Then run these commands on both nodes:
+Then run these command:
 
 ```bash
 ssh-keygen -t ed25519 -a 100
@@ -218,21 +218,21 @@ Run this command on the poller to display the user's public key:
 cat ~/.ssh/id_ed25519.pub
 ```
 
-Once done, copy the content of the public key file displayed by `cat` and paste it to `~/.ssh/authorized_keys` (must be created) on both of the cluster's nodes and apply the correct file permissions (still as the `centreon-engine` user):
+Once done, copy the content of the public key file displayed by `cat` and paste it to `~/.ssh/authorized_keys` (must be created) on both of the central and apply the correct file permissions (still as the `centreon-engine` user):
 
 ```
 chmod 600 ~/.ssh/authorized_keys
 ```
 
-The keys exchange must be validated by an initial connection from each node to the other in order to accept and register the peer node's SSH fingerprint (still as `centreon-engine` user):
+Once this step completed on the exchange, all that remains is to initiate a first connection from the poller to the central (still as `centreon-engine` user):
 
 ```
-ssh <cluster-node-ip-address>
+ssh <central-ip-address>
 ```
 
 Then exit the `centreon-engine` session typing `exit` or `Ctrl-D`.
 
-The `centreon-engine` user is now able to log in *via* SSH to both central nodes.
+The `centreon-engine` user is now able to log in *via* SSH to central.
 
 ### Self-monitored central server
 
