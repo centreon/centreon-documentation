@@ -12,6 +12,8 @@ to version 24.10.
 
 > If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../migrate/introduction.md).
 
+> Business edition users: MAP Legacy is no longer available in Centreon 24.10. If you are still using MAP Legacy, you will need to migrate to MAP. See [MAP Legacy end of life](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
+
 ## Prerequisites
 
 ### Perform a backup

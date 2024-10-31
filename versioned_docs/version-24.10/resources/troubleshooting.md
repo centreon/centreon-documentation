@@ -8,7 +8,6 @@ This page lists the troubleshooting items available in this documentation. Click
 * [Debugging](../administration/parameters/debug.md)
 * [Troubleshooting Plugin errors](/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins)
 * [Troubleshooting MAP](../graph-views/map-web-troubleshooting.md)
-* [Troubleshooting MAP Legacy](../graph-views/troubleshooter.md)
 * [Testing and troubleshooting email configuration](../administration/postfix.md#testing-and-troubleshooting-email-configuration)
 * [Troubleshooting licenses](../administration/licenses.md#troubleshooting-licenses)
 * [Troubleshooting host discovery issues](../monitoring/discovery/troubleshooting-hosts-discovery.md)

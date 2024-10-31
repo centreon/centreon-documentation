@@ -7,6 +7,8 @@ Ce chapitre décrit le processus de montée de version (upgrade) d'une plateform
 
 > à partir de la version 23.04, Centreon ne supporte plus CentOS 7. Si votre plateforme Centreon était installée sous CentOS 7, vous ne pouvez pas simplement monter de version : passez à un [OS supporté](../installation/compatibility.md#système-dexploitation) en suivant une [procédure de migration](../migrate/introduction.md).
 
+> Utilisateurs de la Business edition : MAP Legacy n'est plus disponible dans Centreon 24.10. Si vous utilisiez toujours MAP Legacy, vous devez migrer vers MAP. Consultez la page [Fin de vie de MAP Legacy](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
+
 La procédure dépend de la méthode d'installation de votre plate-forme Centreon.
 Faites une **Mise à jour RPM** si vous avez installé Centreon à partir de
 l'ISO ou des RPMS, et utilisez les fichiers source si vous avez installé Centreon à partir des sources. Avant de mettre

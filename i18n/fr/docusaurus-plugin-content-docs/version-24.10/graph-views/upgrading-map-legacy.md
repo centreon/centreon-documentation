@@ -1,10 +1,12 @@
 ---
-id: upgrade
-title: Montée de version de l'extension
+id: upgrading-map-legacy
+title: Monter MAP Legacy en 24.10
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+> **À partir de Centreon 24.10, MAP Legacy n'est plus disponible.** Si vous utilisez encore MAP Legacy, il vous faut migrer vers MAP. Cependant, il sera nécessaire d'effectuer une dernière montée de version en 24.10 avant de désinstaller MAP Legacy. Consultez la page [Fin de vie de MAP Legacy](https://docs.centreon.com/fr/docs/graph-views/map-legacy-eol/).
 
 Ce chapitre décrit comment monter de version votre extension Centreon MAP. Pour ce faire, vous devez mettre à niveau les quatre principaux composants :
 
@@ -171,11 +173,9 @@ Si l'ordinateur de l'utilisateur dispose d'une connexion internet, le client lou
 
 Sinon, le client peut être téléchargé via le menu **Supervision > MAP** et le bouton **client lourd**.
 
-> Veuillez suivre ces recommandations pour [éviter des lenteurs de fonctionnement du client lourd MAP](./troubleshooter.md#mon-client-lourd-est-lent-et-je-suis-souvent-déconnecté) après sa mise à jour.
-
 ## Étape 4 : mise à jour des dialectes dans les fichiers .properties
 
-Dans les fichiers **/etc/centreon-studio/centreon-database.properties** et **/etc/centreon-studio/studio-database.properties**, remplacez  **MySQL5Dialect** par **MariaDB10Dialect**.
+Dans les fichiers **/etc/centreon-studio/centreon-database.properties** et **/etc/centreon-studio/studio-database.properties**, remplacez  **MySQL5Dialect** par **MariaDBDialect**.
 
 > Cette configuration fonctionne également avec une base MySQL.
 
@@ -189,7 +189,7 @@ Dans les fichiers **/etc/centreon-studio/centreon-database.properties** et **/et
     systemctl stop centreon-map
     ```
 
-2. Voir [Mettre à jour MariaDB](../upgrade/upgrade-mariadb.md).
+2. Si vous faites une mise à jour vers la version 24.04 et plus, vous devez mettre à jour MariaDB en version 10.11. Voir [Mettre à jour MariaDB](../upgrade/upgrade-mariadb.md).
 
 3. Si vous avez mis à niveau votre plateforme Centreon depuis une version antérieure à 22.10, le nouveau protocole BBDO v3 est activé.
 Vous devez modifier le fichier suivant pour permettre à MAP de fonctionner correctement : `/etc/centreon-studio/studio-config.properties`.

@@ -5,6 +5,8 @@ title: Monter de version MAP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> **À partir de Centreon 24.10, MAP Legacy n'est plus disponible.** Que vous utilisiez encore MAP Legacy ou non, consultez la page [Fin de vie de MAP Legacy](https://docs.centreon.com/fr/docs/graph-views/map-legacy-eol/).
+
 > Lorsque vous mettez à jour une nouvelle version majeure (c'est à dire version A.B.x avec A ou B qui évolue), vous devez installer le nouveau dépôt Business. Vous pouvez trouver l'adresse du dépôt sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
 ## Prérequis

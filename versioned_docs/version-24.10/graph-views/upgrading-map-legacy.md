@@ -1,9 +1,11 @@
 ---
-id: upgrade
-title: Upgrading the extension
+id: upgrading-map-legacy
+title: Upgrading MAP Legacy to version 24.10
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+> **From Centreon 24.10, MAP Legacy is no longer available.**  If you are still using MAP Legacy, you will need to migrate to MAP. However, a final upgrade to version 24.10 is necessary before you can uninstall it. See [MAP Legacy end of life](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
 
 This chapter describes how to upgrade your Centreon MAP (Legacy) extension. This
 is done by upgrading the four main components:
@@ -176,11 +178,9 @@ automatically upgraded to the latest version that corresponds to the server.
 Alternatively, the client can be downloaded through the `Monitoring >
 Map` menu and the **Desktop client** button.
 
-> Please follow these recommendations to [avoid the MAP desktop client running slowly](./troubleshooter.md#my-desktop-client-is-slow-and-i-often-get-disconnected) after its upgrade.
-
 ## Step 4: Update dialects in .properties files
 
-In the **/etc/centreon-studio/centreon-database.properties** and the **/etc/centreon-studio/studio-database.properties** files, replace **MySQL5Dialect** with **MariaDB10Dialect**.
+In the **/etc/centreon-studio/centreon-database.properties** and the **/etc/centreon-studio/studio-database.properties** files, replace **MySQL5Dialect** with **MariaDBDialect**.
 
 > This configuration also works with a MySQL database.
 
@@ -193,7 +193,7 @@ In the **/etc/centreon-studio/centreon-database.properties** and the **/etc/cent
     systemctl stop centreon-map
     ```
 
-2. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).
+2. When upgrading to version 24.04 and above, you have to upgrade MariaDB to version 10.11. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).
 
 3. If you have upgraded your Centreon platform from a version earlier than 22.10, the new BBDO v3 protocol is enabled. You need to edit the following file to allow MAP to work properly: **/etc/centreon-studio/studio-config.properties**
 
