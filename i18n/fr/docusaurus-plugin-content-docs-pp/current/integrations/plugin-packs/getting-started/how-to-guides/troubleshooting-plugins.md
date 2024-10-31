@@ -8,7 +8,7 @@ page into French and provide a sample execution command. If it's you, let us
 know by offering a PR or pinging us on [our community platform The Watch](https://thewatch.centreon.com/)
 When using Plugins and deploying a new monitoring probe, some errors might show up. 
 
-Most of the time, the cause of these failures is a misconfiguration or a third-party 
+ Most of the time, the cause of these failures is a misconfiguration or a third-party 
 device. This section compiles the most common errors you may face and some hints to 
 identify the root cause.
 
