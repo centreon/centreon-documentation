@@ -5,7 +5,7 @@ title: Amazon API Gateway
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Amazon API Gateway** 
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -27,8 +27,8 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias        | Modèle de service                        | Description                                             |
 |:-------------|:-----------------------------------------|:--------------------------------------------------------|
-| Api-Latency  | Cloud-Aws-ApiGateway-Latency-Api-custom  | Contrôle les métriques liées aux latences de ApiGateway |
-| Api-Requests | Cloud-Aws-ApiGateway-Requests-Api-custom | Contrôle les métriques liées aux requêtes de ApiGateway |
+| Api-Latency  | Cloud-Aws-ApiGateway-Latency-Api-custom  | Contrôle les métriques liées aux latences d'ApiGateway |
+| Api-Requests | Cloud-Aws-ApiGateway-Requests-Api-custom | Contrôle les métriques liées aux requêtes d'ApiGateway |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Cloud-Aws-ApiGateway-custom** est utilisé.
 
