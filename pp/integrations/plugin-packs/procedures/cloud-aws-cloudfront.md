@@ -26,8 +26,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias         | Service Template                           | Service Description                   |
 |:----------------------|:-------------------------------------------|:--------------------------------------|
-| Cloudfront-Errors     | Cloud-Aws-Cloudfront-Errors-Api-custom     | Check pages access errors             |
-| Cloudfront-Requests   | Cloud-Aws-Cloudfront-Requests-Api-custom   | Check requests number                 |
+| Cloudfront-Errors     | Cloud-Aws-Cloudfront-Errors-Api-custom     | Check page access errors             |
+| Cloudfront-Requests   | Cloud-Aws-Cloudfront-Requests-Api-custom   | Check the number of requests                 |
 | Cloudfront-Throughput | Cloud-Aws-Cloudfront-Throughput-Api-custom | Check upload and download throughputs |
 
 > The services listed above are created automatically when the **Cloud-Aws-CloudFront-custom** host template is used.

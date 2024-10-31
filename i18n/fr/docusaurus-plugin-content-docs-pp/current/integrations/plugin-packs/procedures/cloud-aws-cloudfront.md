@@ -5,7 +5,7 @@ title: Amazon CloudFront
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Amazon CloudFront** 
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -88,7 +88,7 @@ Configurez un compte de service (via une combinaison d'access et secret key) et 
 * cloudwatch:getMetricStatistics
 * cloudfront:ListDistributions
 
-### Dépendances du Plugin
+### Dépendances du plugin
 
 Afin de récupérer les informations nécessaires via les APIs AWS, il est possible d'utiliser soit le binaire *awscli* fourni par Amazon, soit le SDK Perl *paws*. Le SDK est recommandé car plus performant.
 
@@ -310,7 +310,6 @@ La commande devrait retourner un message de sortie similaire à :
 
 ```bash
 OK: Bytes Downloaded Bytes Uploaded | 'cloudfront.bytes.downloaded.bytes'=9000;;;; 'cloudfront.bytes.uploaded.bytes'=9000B;;;; 
-
 ```
 
 ### Diagnostic des erreurs communes
