@@ -35,11 +35,12 @@ If multiple templates modify the same field, the properties of the template plac
 
    Modifying the order of the templates automatically updates the applied configurations if necessary.
 
+
    This button ![image](../../assets/configuration/common/move.png#thumbnail1) enables us to change the order of host templates.
    This button ![image](../../assets/configuration/common/delete.png#thumbnail1) is used to delete the host template.
 
 * If the **Create Services linked to the Template too** field is defined as **Yes**, Centreon automatically generates
-  the services according to the service template of the host template placed above the others.
+  the services according to the service [template](../templates.md) of the host template placed above the others.
 
 ### Access groups (option for non-administrators)
 
@@ -51,7 +52,7 @@ If multiple templates modify the same field, the properties of the template plac
 * **Check Command**: command used to check the availability of the host. Use it only if you are not applying any [templates](../templates.md) to the host.
 * **Args**: arguments given to the check command (each argument starts with ”!”).
 
-* **Custom macros**: is automatically populated as you add [templates](../templates.md#definition) but you can also add your own [custom macros](../macros/#custom-macros).
+* **Custom macros**: is automatically populated as you add templates] but you can also add your own [custom macros](../macros/#custom-macros).
 
 
    * **Name** and **Value** define the name and value of the macro.
@@ -95,7 +96,6 @@ Learn more about [notifications](../../alerts-notifications/notif-concept.md) an
 * **Recovery notification delay**: time that must pass before a recovery notification is sent (when the host goes back to an UP status). Setting the value to 0 will cause notifications to be sent immediately.
 
 ## Relations tab
-Also called [dependencies](../../alerts-notifications/notif-dependencies.md)
 
 * **Host Groups**: [host groups](../groups.md) to which the host belongs. Groups allow you to make changes to many hosts at the same time.
 * **Host Categories**: [categories](../categories.md) to which the host belongs.
