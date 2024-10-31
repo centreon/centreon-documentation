@@ -5,8 +5,6 @@ title: Using packages
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> This is an older version of Centreon, and support for it is ending soon. We recommend you install the latest version.
-
 Centreon provides RPM packages for its products through the Centreon Open
 Source version available free of charge in our repository.
 
