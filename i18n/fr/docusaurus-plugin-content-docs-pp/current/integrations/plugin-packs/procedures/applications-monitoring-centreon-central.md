@@ -219,19 +219,19 @@ Sur le poller lancer cette commande pour afficher la clé publique créée :
 cat ~/.ssh/id_ed25519.pub
 ```
 
-Après avoir lancé cette commande, copier le contenu du fichier qui s'est affiché sous la commande `cat` et le coller à la fin du fichier (probablement à créer) `~/.ssh/authorized_keys` des nœuds centraux, puis appliquer les bons droits sur le fichier (toujours en tant que `centreon-engine`) :
+Après avoir lancé cette commande, copier le contenu du fichier qui s'est affiché sous la commande `cat` et le coller à la fin du fichier (probablement à créer) `~/.ssh/authorized_keys` du central, puis appliquer les bons droits sur le fichier (toujours en tant que `centreon-engine`) :
 
 ```bash
 chmod 600 ~/.ssh/authorized_keys
 ```
 
-Une fois cette étape effectuée sur chaque nœud central, il ne reste plus qu'à initialiser une première connexion depuis le poller vers chacun des nœuds :
+Une fois cette étape effectuée sur le central, il ne reste plus qu'à initialiser une première connexion depuis le poller vers celui-ci :
 
 ```bash
-ssh <cluster-node-ip-address>
+ssh <central-ip-address>
 ```
 
-L'utilisateur `centreon-engine` du poller est alors capable d'ouvrir une session SSH sur les deux nœuds centraux. 
+L'utilisateur `centreon-engine` du poller est alors capable d'ouvrir une session SSH sur le central. 
 
 ### Serveur central auto-supervisé
 
