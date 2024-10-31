@@ -5,6 +5,12 @@ title: Amazon EBS
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+
+Amazon Elastic Block Store (EBS) est un service de stockage par bloc hautes performances et simple d'utilisation conçu en vue d'une utilisation avec Amazon Elastic Compute Cloud (EC2) 
+pour les charges de travail exigeantes en débit et en transactions à n'importe quelle échelle.
+Des charges de travail variées, telles que des bases de données relationnelles et non relationnelles, des applications d'entreprise, des applications conteneurisées, des moteurs d'analyse Big Data, 
+des systèmes de fichiers et des workflows multimédias, sont largement déployées sur Amazon EBS.
+
 ## Dépendances du Connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Amazon EBS** 

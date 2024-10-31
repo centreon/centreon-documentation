@@ -5,6 +5,13 @@ title: Amazon EBS
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+
+Amazon Elastic Block Store (Amazon EBS) provides block level storage volumes for use with EC2 instances. 
+EBS volumes behave like raw, unformatted block devices. You can mount these volumes as devices on your instances. 
+You can mount multiple volumes on the same instance, and you can mount a volume to multiple instances at a time. 
+You can create a file system on top of these volumes, or use them in any way you would use a block device (like a hard drive). 
+You can dynamically change the configuration of a volume attached to an instance.
+
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Amazon EBS** connector through the
