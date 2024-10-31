@@ -201,7 +201,6 @@ Ouvrir une session en ligne de commande sur :
 Une fois ces sessions ouvertes, lancer cette commande :
 
 
-
 ```bash
 su - centreon-engine
 ```
