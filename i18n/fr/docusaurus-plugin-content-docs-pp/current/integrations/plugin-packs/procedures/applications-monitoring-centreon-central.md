@@ -194,12 +194,9 @@ Vous pouvez ignorer les étapes ci-dessous si vous êtes dans ce cas-là.
 
 > NB : Il est très fortement recommandé de superviser le central à partir d'un collecteur plutôt qu'à partir du central.
 
-Ouvrir une session en ligne de commande sur :
+Ouvrir une session en ligne de commande et lancer cette commande :
 
-* le poller qui sera chargé de superviser le cluster
-* chaque nœud de ce cluster
 
-Une fois ces sessions ouvertes, lancer cette commande :
 
 ```bash
 su - centreon-engine
