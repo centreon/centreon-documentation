@@ -5,6 +5,13 @@ title: Amazon CloudWatch Logs
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+
+CloudWatch Logs vous permet de centraliser les journaux de tous vos systèmes ainsi que les applications et les services AWSque vous utilisez au sein d’un seul service hautement évolutif. Vous pouvez ensuite facilement les consulter, y effectuer des recherches pour identifier des codes d’erreur spécifiques ou des modèles, les filtrer en fonction de champs spécifiques ou les archiver en toute sécurité à des fins d’analyse ultérieure.
+
+> **Attention** Ce Plugin est susceptible de générer un volume importants de données lors des requêtes API.
+> Il est indispensable d'utiliser les fonctionnalités de filtrage de celui-ci (```--group-name``` and ```--stream-name```) afin
+> de limiter les résultats retournés par l'API.
+
 ## Dépendances du Connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Amazon CloudWatch Logs** 
