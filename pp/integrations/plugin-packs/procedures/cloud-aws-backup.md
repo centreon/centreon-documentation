@@ -39,7 +39,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name                       | Description               |
 |:--------------------------------|:--------------------------|
-| Amazon Web Service Backup Vault | Discover AWS Backup Vault |
+| Amazon Web Service Backup Vault | Discover AWS Backup Vaults |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
