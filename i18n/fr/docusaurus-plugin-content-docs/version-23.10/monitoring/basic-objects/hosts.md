@@ -14,9 +14,9 @@ Pour créer un hôte manuellement :
 ### Information de base sur l'hôte
 
 * **Nom** : nom d’hôte utilisé par le moteur de supervision. Ne peut pas contenir : `~!$%^&|'"<>?,()=*{}` et les espaces.
-* **Alias** : un autre nom pour l'hôte. Les espaces et caractères interdits dans le nom peuvent être employés ici. L'alias peut être utilisé dans la **Barre de recherche** avec la syntaxe `alias:` pour retrouver un hôte.
+* **Alias** : un autre nom pour l'hôte. Les espaces et caractères interdits dans le nom peuvent être employés ici. L'alias peut être utilisé dans la **Barre de recherche** de la page **Statut des ressources** avec la syntaxe `alias:` pour retrouver un hôte.
 * **Adresse** : adresse IP ou nom DNS de l’hôte. Le bouton **Résoudre** permet de tester le nom du domaine en interrogeant le serveur DNS configuré dans le serveur central. Dans le cas où un nom DNS est utilisé pour remplir le champ, le bouton **Résoudre** le remplacera également par l'adresse IP correspondante.
-* **Communauté SNMP & Version** : nom de la communauté attribuée à l'équipement et sa version. S'il s'agit de la version 1 ou 2, remplissez le champ communauté. S'il s'agit de la version 3, laissez le champ communauté vide et ajoutez la macro personnalisée suivante dans la section **Options de contrôle de l'hôte** : [`snmpextraoptions`](/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins/#snmpv3-options-mapping).
+* **Communauté SNMP & Version** : nom de la communauté attribuée à l'équipement et sa version. S'il s'agit de la version 1 ou 2c, remplissez le premier champ. S'il s'agit de la version 3, laissez le premier champ vide et ajoutez la macro personnalisée suivante dans la section **Options de contrôle de l'hôte** : [`snmpextraoptions`](/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins/#snmpv3-options-mapping).
 * **Serveur de supervision** : détermine quel serveur Centreon (central, poller ou distant) sera chargé de superviser cet hôte.
 * **Fuseau horaire** : localisation de l'hôte. Tenez en compte que c'est le fuseau horaire établi ici qui détermine à quel moment sont réalisés les contrôles de cet hôte, le fuseau horaire du serveur qui contrôle l'hôte n'influe pas ici.
 * **Modèles** : permet d’associer un ou plusieurs [modèles](../templates.md) à cet objet.
@@ -25,16 +25,15 @@ Si plusieurs modèles tenteraient de modifier le même champ, les caractéristiq
 
    Voici un exemple d’hôte avec 3 modèles appliqués.
 
-![image](../../assets/monitoring/template_priority_example.png)
+   ![image](../../assets/monitoring/template_priority_example.png)
 
-   * App-Monitoring-Centreon-Poller applique une première configuration.
+      * **App-Monitoring-Centreon-Poller** applique une première configuration.
 
-   * OS-Linux-SNMP va ensuite ecraser la configuration de App-Monitoring-Centreon-Poller là où il y a un conflit des champs à remplir mais n’effacera pas les champs remplis par un autre modèle s’il n’a pas de nouvelles informations à apporter.
+      * **OS-Linux-SNMP** va ensuite ecraser la configuration de **App-Monitoring-Centreon-Poller** là où il y a un conflit des champs à remplir mais ne modifie pas les champs pour lesquels il n’a pas de nouvelles informations à apporter.
 
-   * App-DB-MySQL fait la même chose avec OS-Linux-SNMP.
+      * **App-DB-MySQL** fait la même chose avec **OS-Linux-SNMP**.
 
    Changer l’ordre des templates modifie automatiquement les configurations selon ce nouvel ordre le cas échéant.
-
 
 
    Ce bouton ![image](../../assets/configuration/common/move.png#thumbnail2) nous permet de changer l'ordre des modèles hôtes.
@@ -43,18 +42,18 @@ Si plusieurs modèles tenteraient de modifier le même champ, les caractéristiq
 * Si la case **Oui** est cochée pour **Créer aussi les services liés aux modèles**, Centreon génère automatiquement les
   services en se basant sur les [modèles](../templates.md) de services liés aux modèles d’hôtes définis au-dessus.
 
-### Groupes d'accès (option invisible aux administrateurs)
+### Groupes d'accès (option pour les utilisateurs non-administrateurs)
 
 * **ACL Resource Groups** : ([listes de contrôles d'accès](../../administration/access-control-lists.md) en français) permet de lier l’hôte
-  à un groupe d’hôtes.
+  à un groupe d’hôtes. Cette action est exclusive aux non-administrateurs.
 > Les hôtes qui ne sont pas liés à un groupe ne seront pas visibles ! 
 
 ### Options de contrôle de l'hôte
 
-* **Commande de vérification** : commande utilisée pour vérifier la disponibilité de l’hôte. n'est utile que si vous n'avez pas appliqué de [modèles](../templates.md) à votre hôte.
+* **Commande de vérification** : commande utilisée pour vérifier la disponibilité de l’hôte. À n'utiliser que si vous n'avez pas appliqué de [modèles](../templates.md) à votre hôte.
 * **Arguments** : arguments donnés à la commande de vérification (chaque argument commence avec un ”!”).
 
-* **Macros personnalisées : automatiquement rempli si vous ajoutez des [modèles](../templates.md) mais vous pouvez également ajouter vos [macros personnalisées](../macros/#custom-macros).
+* **Macros personnalisées : automatiquement rempli si vous ajoutez des modèles mais vous pouvez également ajouter vos [macros personnalisées](../macros/#custom-macros).
 
    * Les champs **Nom** et **Valeur** établissent le nom et la valeur de la macro.
    * Cocher la case **Mot de passe** cache la valeur de la macro.
@@ -87,26 +86,24 @@ Jetez un oeil à notre documentation sur les [notifications](../../alerts-notifi
   
   **Vertical inheritance only** : établit les contacts et/ou groupes de contacts à notifier. Elle se trouve dans l'onglet **Administration > Paramètres > Centreon web**. Une fois activée, deux cases supplémentaires apparaissent :
 
-    * Cocher **Contacts hérités additionnels** écrase pas la configuration du parent modèle d'hôte
+    * Cocher **Contacts hérités additionnels** n'écrase pas la configuration du parent modèle d'hôte
   mais ajoute les contacts en plus des contacts définis dans le modèle parent.
-    * Cocher **Groupes de contacts hérités additionnels** n'écrasera pas la configuration du parent modèle d'hôte
+    * Cocher **Groupes de contacts hérités additionnels** n'écrase pas la configuration du parent modèle d'hôte
   mais ajoute les contacts en plus des groupes de contacts définis dans le modèle parent.
 
 * **Options de notifications** : définit les statuts pour lesquels une notification sera envoyée. Si aucune case n'est cochée, vous serez notifié pour tous les statuts listés.
 * **Intervalle de notification** : exprimé en minutes. Il indique la durée entre chaque envoi de notification
-  lorsque le statut est non-OK. Si la valeur est définie à 0, l’ordonnanceur envoie une seule notification par
-  changement de statut.
-* **Période de notification** : indique la période temporelle durant laquelle les notifications seront activées.
+  lorsque le statut est non-OK. Si la valeur est définie à 0, Centreon envoie une seule notification par changement de statut.
+* **Période de notification** : indique la période temporelle durant laquelle les notifications seront activées. Aucune notification de changement de status ne sera envoyée
 * **Délai de première notification** : exprimé en minutes. Il fait référence au délai à respecter avant l’envoi
   de la première notification lorsqu’un statut non-OK est confirmé. Mettre la valeur à 0 résulte en l'envoi immédiat de la notification.
 * **Délai de première notification de recouvrement** : est le temps qui doit s'écouler avant qu'une notification de type **Récupération** soit envoyée (lorsque l'hôte revient à un état DISPONIBLE). Mettre la valeur à 0 résulte en l'envoi immédiat de la notification.
 
 ## Onglet Relations
-Aussi appelées [dépendances](../../alerts-notifications/notif-dependencies.md)
 
-* **Groupes d'hôtes** : les groupes d’hôtes auxquels l’hôte appartient. Les groupes vous permettent de faire des changements sur plusieurs hôtes en même temps.
-* **Catégories d'hôte** : les catégories auxquelles l’hôte appartient.
-* **Hôtes parents** : relations physiques de parenté entre objet. Le parent d'un hôte est l'objet entre l'hôte et son superviseur qui est également le plus proche de l'objet supervisé. On considère qu'un hôte n'a pas de parent s'il se trouve sur le même segment du réseau que l'hôte qui le supervise ssans aucun intermédiaire. Laissez ce champs libre dans ce cas-là.
+* **Groupes d'hôtes** : les [groupes d’hôtes](../groups.md) auxquels l’hôte appartient. Les groupes vous permettent de faire des changements sur plusieurs hôtes en même temps.
+* **Catégories d'hôte** : les [catégories](../categories.md) auxquelles l’hôte appartient.
+* **Hôtes parents** : établit un objet en tant que [parent](../../alerts-notifications/notif-dependencies.md) de cet hôte. Le parent d'un hôte est l'objet entre l'hôte et son superviseur qui est également le plus proche de l'objet supervisé. On considère qu'un hôte n'a pas de parent s'il se trouve sur le même segment du réseau que l'hôte qui le supervise ssans aucun intermédiaire. Laissez ce champs libre dans ce cas-là.
 * **Hôtes enfants** : établir l'hôte actuel en tant que parent d'un autre hôte.
 
 ## Onglet Traitement des données
@@ -133,9 +130,9 @@ Aussi appelées [dépendances](../../alerts-notifications/notif-dependencies.md)
 * **Note** : notes optionnelles concernant l’hôte qui seront visibles dans la page **Statut des Ressources** (la colonne **Notes** doit être visible pour cette fonction).
 * **URL d'action** : URL habituellement utilisée pour donner des informations d’actions sur l’hôte
   (maintenance...).
-* **Icône** : icône à utiliser pour l’hôte, cet icône est visible à divers endroits. Un formqt 40x40 pixels est recommandé.
+* **Icône** : icône à utiliser pour l’hôte, cet icône est visible à divers endroits tels que la page de **Statut des Ressources**. Un format 40x40 pixels est recommandé.
 * **Icône alternative** : texte optionnel apparaissant lorsque l'icône ne peut être affiché.
-* **Criticité d'hôte** : niveau de criticité de l’hôte. Il s'agit d'une sorte de catégorie spéciale que vous pouvez utiliser pour organiser la page **Statut des Ressources** par niveau de criticité.
+* **Criticité d'hôte** : niveau de [criticité](../categories.md#severities) de l’hôte. Il s'agit d'une sorte de catégorie spéciale que vous pouvez utiliser pour organiser la page **Statut des Ressources** par niveau de criticité.
 * **Image de la carte des états** : logo du module [Centreon MAP](../../graph-views/introduction-map.md).
 * **Coordonnées géographiques** : coordonnées géographiques utilisées par le module Centreon MAP pour positionner
   l'élément sur la carte. Définissez "Latitude, Longitude", par exemple pour le jeu de coordonnées de Paris "48.51,2.20"
