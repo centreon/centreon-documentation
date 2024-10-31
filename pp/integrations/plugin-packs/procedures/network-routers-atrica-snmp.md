@@ -20,8 +20,6 @@ The connector brings the following service templates (sorted by the host templat
 
 No service template linked to this host template.
 
-> The services listed above are created automatically when the **Net-Atrica-SNMP-custom** host template is used.
-
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
