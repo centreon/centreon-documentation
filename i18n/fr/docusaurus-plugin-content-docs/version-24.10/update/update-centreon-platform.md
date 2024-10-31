@@ -1,12 +1,12 @@
 ---
 id: update-centreon-platform
-title: Mise à jour d'une plateforme Centreon 24.04
+title: Mise à jour d'une plateforme Centreon 24.10
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit la procédure de mise à jour de votre plate-forme Centreon
-24.04 (c'est-à-dire le passage de 24.04.x à 24.04.y).
+24.10 (c'est-à-dire le passage de 24.10.x à 24.10.y).
 
 ## Sauvegarde
 
@@ -53,7 +53,7 @@ Mettez à jour l'ensemble des composants :
   ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 Videz le cache :
 
@@ -116,14 +116,14 @@ mise à jour.
 
    - adresse : 10.25.XX.XX
    - port : 80
-   - version : 24.04
+   - version : 24.10
    - identifiant : Admin
    - mot de passe : xxxxx
 
 2. Entrez la requête suivante :
 
   ```shell
-  curl --location --request POST '10.25.XX.XX:80/centreon/api/v24.04/login' \
+  curl --location --request POST '10.25.XX.XX:80/centreon/api/v24.10/login' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --data '{
@@ -221,7 +221,7 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
   ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 1. Videz le cache :
 
@@ -264,7 +264,7 @@ Rien à faire pour cet OS.
 Rien à faire pour cet OS.
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
   ```shell
   apt-mark unhold centreon-pack* && apt-mark unhold centreon-plugin*
@@ -280,7 +280,7 @@ Vous pouvez réaliser une mise à jour silencieuse de votre plateforme en utilis
 1. Téléchargez le script avec la commande suivante :
 
 ```shell
-curl -L https://download.centreon.com/24.04/unattended.sh -O /tmp/unattended
+curl -L https://download.centreon.com/24.10/unattended.sh -O /tmp/unattended
 ```
 
 2. Lancez le script :
@@ -288,17 +288,17 @@ curl -L https://download.centreon.com/24.04/unattended.sh -O /tmp/unattended
 * Pour un serveur central :
 
 ```shell
-bash unattended.sh update -t central -v 24.04 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+bash unattended.sh update -t central -v 24.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```
 
 * Pour un serveur distant :
 
 ```shell
-bash unattended.sh update -t central -v 24.04 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+bash unattended.sh update -t central -v 24.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```
 
 * Pour un collecteur :
 
 ```shell
-bash unattended.sh update -t poller -v 24.04 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+bash unattended.sh update -t poller -v 24.10 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```

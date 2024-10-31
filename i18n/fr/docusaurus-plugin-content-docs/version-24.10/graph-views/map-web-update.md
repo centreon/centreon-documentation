@@ -46,7 +46,7 @@ Suivez cette procédure pour mettre à jour la version de MAP :
  ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
  - Si MAP seul est installé :
  

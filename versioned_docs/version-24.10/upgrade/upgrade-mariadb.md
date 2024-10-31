@@ -22,6 +22,7 @@ When you upgrade from one major version of Centreon to another, you must:
 
 | Centreon | MariaDB |
 |----------|---------|
+| 24.10    | 10.11   |
 | 24.04    | 10.11   |
 | 23.10    | 10.5    |
 | 23.04    | 10.5    |
@@ -72,7 +73,7 @@ MariaDB-compat-10.5.8-1.el9.centos.x86_64
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 dpkg -l |grep MariaDB
@@ -122,7 +123,7 @@ rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared Mari
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 At the **[ Knowing your version of MariaDB](#knowing-your-version-of-mariadb)** step, the **grep** command returned the precise version of MariaDB you have.
 
@@ -167,23 +168,6 @@ dnf install MariaDB-server-10.11\* MariaDB-client-10.11\* MariaDB-shared-10.11\*
 
 ```shell
 dnf install MariaDB-server-10.11\* MariaDB-client-10.11\* MariaDB-shared-10.11\* MariaDB-compat-10.11\* MariaDB-common-10.11\*
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.11"
-```
-
-```shell
-sudo apt-get install mariadb-server galera-4 mariadb-client libmariadb3 mariadb-backup mariadb-common
-```
-
-If an error message informs you that one or several MariaDB packages are missing, you will need to specify the missing packages in the command, like in the following example:
-
-```shell
-sudo apt-get install mariadb-server galera-4 mariadb-client libmariadb3 mariadb-backup mariadb-common MISSING-PACKAGE_A MISSING-PACKAGE_B
 ```
 
 </TabItem>
@@ -291,7 +275,7 @@ dnf update MariaDB-*
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt update MariaDB-*

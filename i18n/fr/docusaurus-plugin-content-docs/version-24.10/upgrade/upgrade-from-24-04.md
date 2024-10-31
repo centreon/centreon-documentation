@@ -1,83 +1,85 @@
 ---
-id: upgrade-from-23-04
-title: Upgrade from Centreon 23.04
+id: upgrade-from-24-04
+title: Montée de version depuis Centreon 24.04
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This chapter describes how to upgrade your Centreon platform from version 23.04
-to version 24.10.
+Ce chapitre décrit la procédure de montée de version de votre plateforme
+Centreon depuis la version 24.04 vers la version 24.10.
 
-> When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers. All servers in your architecture must have the same version of Centreon. In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
+> Lorsque vous effectuez la montée de version de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs.
+>
+> Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon.
+>
+> De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
-> If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../migrate/introduction.md).
+> Si vous souhaitez migrer votre serveur Centreon vers Oracle Linux / RHEL 8, vous devez suivre la [procédure de migration](../migrate/introduction.md).
 
-## Prerequisites
+## Prérequis
 
-### Perform a backup
+### Sauvegarde
 
-Be sure that you have fully backed up your environment for the following
-servers:
+Avant toute chose, il est préférable de s’assurer de l’état et de la consistance
+des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
-- Central server
-- Database server
+- Serveur Centreon Central,
+- Serveur de gestion de base de données.
 
-## Upgrade the Centreon Central server
+## Montée de version du serveur Centreon Central
 
-> When you run a command, check its output. If you get an error message, stop the procedure and fix the issue.
+> Lorsque vous lancez une commande, vérifiez les messagez obtenus. En cas de message d'erreur, arrêtez la procédure et dépannez les problèmes.
 
-### Install the new repositories
+### Installation du nouveau dépôt Centreon
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-1. Update your Centreon 23.04 to the latest minor version.
+1. Mettez à jour votre Centreon 24.04 jusqu'à la dernière version mineure.
 
-2. Remove the repository files:
+2. Supprimez les fichiers des dépôts :
 
    ```shell
-   rm /etc/yum.repos.d/centreon-23.04.repo
+   rm /etc/yum.repos.d/centreon-24.04.repo
    rm /etc/yum.repos.d/centreon.repo
    ```
 
-3. Install the new repository:
+3. Installez le nouveau dépôt :
 
 ```shell
-dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-1. Update your Centreon 23.04 to the latest minor version.
+1. Mettez à jour votre Centreon 24.04 jusqu'à la dernière version mineure.
 
-2. Remove the repository files:
+2. Supprimez les fichiers des dépôts :
 
    ```shell
-   rm /etc/yum.repos.d/centreon-23.04.repo
+   rm /etc/yum.repos.d/centreon-24.04.repo
    rm /etc/yum.repos.d/centreon.repo
    ```
 
-3. Install the new repository:
+3. Installez le nouveau dépôt :
 
 ```shell
-dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-24.10.repo
 ```
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-1. Update your Centreon 23.04 to the latest minor version.
-2. Run the following commands:
+1. Mettez à jour votre Centreon 24.04 jusqu'à la dernière version mineure.
+2. Exécutez les commandes suivantes :
 
 ```shell
 echo "deb https://packages.centreon.com/apt-standard-24.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
-3. Then import the repository key:
+3. Ensuite, importez la clé du dépôt :
 
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
@@ -87,21 +89,21 @@ apt update
 </TabItem>
 </Tabs>
 
-> If you have an [offline license](../administration/licenses.md#types-of-licenses), also remove the old Monitoring Connectors repository, then install the new one.
+> Si vous avez une [licence offline](../administration/licenses.md#types-de-licences), supprimez également l'ancien dépôt des connecteurs de supervision, puis installez le nouveau dépôt.
 >
-> If you have a Business edition, do the same with the Business repository.
+> Si vous avez une édition Business, faites de même avec le dépôt Business.
 >
-> You can find the address of these repositories on the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+> Vous pouvez trouver l'adresse des dépôts sur le [portail support Centreon](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
 
-### Upgrade PHP
+### Montée de version de PHP
 
-Centreon 24.10 uses PHP in version 8.2.
+Centreon 24.10 utilise PHP en version 8.2.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-You need to change the PHP stream from version 8.1 to 8.2 by executing the following commands and answering **y**
-to confirm:
+Vous devez changer le flux PHP de la version 8.1 à 8.2 en exécutant les commandes suivantes et en répondant **y**
+pour confirmer :
 
 ```shell
 dnf module reset php
@@ -114,8 +116,8 @@ dnf module enable php:remi-8.2
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-You need to change the PHP stream from version 8.1 to 8.2 by executing the following commands and answering **y**
-to confirm:
+Vous devez changer le flux PHP de la version 8.1 à 8.2 en exécutant les commandes suivantes et en répondant **y**
+pour confirmer :
 
 ```shell
 dnf module reset php
@@ -136,29 +138,29 @@ systemctl disable php8.1-fpm
 </TabItem>
 </Tabs>
 
-### Upgrade the Centreon solution
+### Montée de version de la solution Centreon
 
-> Make sure all users are logged out from the Centreon web interface
-> before starting the upgrade procedure.
+> Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer
+> la procédure de mise à jour.
 
-If you have installed Business extensions, update the Business repository to version 24.10.
-Visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
+Si vous avez des extensions Business installées, mettez à jour le dépôt business en 24.10.
+Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
 
-If your OS is Debian 12 and you have a customized Apache configuration, perform a backup of your configuration file (**/etc/apache2/sites-available/centreon.conf**).
+Si votre OS est Debian 12 et que vous avez une configuration Apache personnalisée, faites une sauvegarde de votre fichier de configuration (**/etc/apache2/sites-available/centreon.conf**).
 
-Stop the Centreon Broker process:
+Arrêtez le processus Centreon Broker :
 
 ```shell
 systemctl stop cbd
 ```
 
-Delete existing retention files:
+Supprimez les fichiers de rétention présents :
 
 ```shell
 rm /var/lib/centreon-broker/* -f
 ```
 
-Clean the cache:
+Videz le cache :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -185,20 +187,20 @@ apt update
 </TabItem>
 </Tabs>
 
-Then upgrade all the components with the following command:
+Mettez à jour l'ensemble des composants :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf update centreon\* php-pecl-gnupg
+yum update centreon\* php-pecl-gnupg
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf update centreon\* php-pecl-gnupg
+yum update centreon\* php-pecl-gnupg
 ```
 
 </TabItem>
@@ -211,53 +213,53 @@ apt install --only-upgrade centreon
 </TabItem>
 </Tabs>
 
-> Accept new GPG keys from the repositories as needed.
+> Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 
-### Update your customized Apache configuration
+### Mettre à jour une configuration Apache personnalisée
 
-This section only applies if you customized your Apache configuration. 
+Cette section s'applique uniquement si vous avez personnalisé votre configuration Apache. 
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-When you upgrade your platform, the Apache configuration file is not upgraded automatically. The new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
+Lors de la montée de version, le fichier de configuration Apache n'est pas mis à jour automatiquement : le nouveau fichier de configuration amené par le rpm ne remplace pas l'ancien. Vous devez reporter les changements manuellement dans votre fichier de configuration personnalisée.
 
-Run a diff between the old and the new Apache configuration files:
+Faites un diff entre l'ancien et le nouveau fichier de configuration Apache :
 
-```shell
+```
 diff -u /etc/httpd/conf.d/10-centreon.conf /etc/httpd/conf.d/10-centreon.conf.rpmnew
 ```
 
-* **10-centreon.conf** (post upgrade): this file contains the custom configuration. It does not contain anything new brought by the upgrade.
-* **10-centreon.conf.rpmnew** (post upgrade): this file is provided by the rpm; it does not contain any custom configuration.
+* **10-centreon.conf** (post montée de version) : ce fichier contient la configuration personnalisée. Il ne contient pas les nouveautés apportées par la montée de version.
+* **10-centreon.conf.rpmnew** (post montée de version) : ce fichier est fourni par le rpm; il ne contient pas la configuration personnalisée.
 
-For each difference between the files, assess whether you should copy it from **10-centreon.conf.rpmnew** to **10-centreon.conf**.
+Pour chaque différence entre les fichiers, évaluez si celle-ci doit être reportée du fichier **10-centreon.conf.rpmnew** au fichier **10-centreon.conf**.
 
-Check that Apache is configured properly by running the following command:
+Vérifiez qu'Apache est bien configuré, en exécutant la commande suivante :
 
 ```shell
 apachectl configtest
 ```
 
-The expected result is the following:
+Le résultat attendu est le suivant :
 
 ```shell
 Syntax OK
 ```
 
-Restart the Apache and PHP processes to take the new configuration into account:
+Redémarrez Apache pour appliquer les modifications :
 
 ```shell
 systemctl restart php-fpm httpd
 ```
 
-Then check its status:
+Puis vérifiez le statut :
 
 ```shell
 systemctl status httpd
 ```
 
-If everything is ok, you should have:
+Si tout est correct, vous devriez avoir quelque chose comme :
 
 ```shell
 ● httpd.service - The Apache HTTP Server
@@ -283,44 +285,44 @@ If everything is ok, you should have:
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-When you upgrade your platform, the Apache configuration file is not upgraded automatically. The new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
+Lors de la montée de version, le fichier de configuration Apache n'est pas mis à jour automatiquement : le nouveau fichier de configuration amené par le rpm ne remplace pas l'ancien. Vous devez reporter les changements manuellement dans votre fichier de configuration personnalisée.
 
-Run a diff between the old and the new Apache configuration files:
+Faites un diff entre l'ancien et le nouveau fichier de configuration Apache :
 
-```shell
+```
 diff -u /etc/httpd/conf.d/10-centreon.conf /etc/httpd/conf.d/10-centreon.conf.rpmnew
 ```
 
-* **10-centreon.conf** (post upgrade): this file contains the custom configuration. It does not contain anything new brought by the upgrade.
-* **10-centreon.conf.rpmnew** (post upgrade): this file is provided by the rpm; it does not contain any custom configuration.
+* **10-centreon.conf** (post montée de version) : ce fichier contient la configuration personnalisée. Il ne contient pas les nouveautés apportées par la montée de version.
+* **10-centreon.conf.rpmnew** (post montée de version) : ce fichier est fourni par le rpm; il ne contient pas la configuration personnalisée.
 
-For each difference between the files, assess whether you should copy it from **10-centreon.conf.rpmnew** to **10-centreon.conf**.
+Pour chaque différence entre les fichiers, évaluez si celle-ci doit être reportée du fichier **10-centreon.conf.rpmnew** au fichier **10-centreon.conf**.
 
-Check that Apache is configured properly by running the following command:
+Vérifiez qu'Apache est bien configuré, en exécutant la commande suivante :
 
 ```shell
 apachectl configtest
 ```
 
-The expected result is the following:
+Le résultat attendu est le suivant :
 
 ```shell
 Syntax OK
 ```
 
-Restart the Apache and PHP processes to take the new configuration into account:
+Redémarrez Apache pour appliquer les modifications :
 
 ```shell
 systemctl restart php-fpm httpd
 ```
 
-Then check its status:
+Puis vérifiez le statut :
 
 ```shell
 systemctl status httpd
 ```
 
-If everything is ok, you should have:
+Si tout est correct, vous devriez avoir quelque chose comme :
 
 ```shell
 ● httpd.service - The Apache HTTP Server
@@ -346,27 +348,27 @@ If everything is ok, you should have:
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-Use the backup file you created in the previous step to copy your customizations to the file **/etc/apache2/sites-available/centreon.conf**.
+Utilisez la sauvegarde que vous avez effectuée à l'étape précédente pour reporter vos personnalisations dans le fichier **/etc/apache2/sites-available/centreon.conf**.
 
-Check that Apache is configured properly by running the following command:
+Vérifiez qu'Apache est bien configuré, en exécutant la commande suivante :
 
 ```shell
 apache2ctl configtest
 ```
 
-The expected result is the following:
+Le résultat attendu est le suivant :
 
 ```shell
 Syntax OK
 ```
 
-Check the status of Apache:
+Vérifiez le statut d'Apache :
 
 ```shell
 systemctl status apache2
 ```
 
-If everything is ok, you should have:
+Si tout est correct, vous devriez avoir quelque chose comme :
 
 ```shell
 ● apache2.service - The Apache HTTP Server
@@ -394,11 +396,11 @@ If everything is ok, you should have:
 </TabItem>
 </Tabs>
 
-#### Customized Apache configuration: enable text compression
+#### Configuration Apache personnalisée : activer la compression du texte
 
-In order to improve page loading speed, you can activate text compression on the Apache server. It requires the **brotli** package to work. This is optional, but it provides a better user experience.
+Pour améliorer le temps de chargement des pages, vous pouvez activer la compression du texte sur le serveur Apache. Le paquet **brotli** est nécessaire. Cette configuration est optionnelle mais vous fournira une meilleure expérience utilisateur.
 
-Add the following code to your Apache configuration file, in both the `<VirtualHost *:80>` and `<VirtualHost *:443>` elements:
+Ajoutez le code suivant à votre fichier de configuration Apache, dans les éléments `<VirtualHost *:80>` et `<VirtualHost *:443>` :
 
 ```shell
 <IfModule mod_brotli.c>
@@ -407,10 +409,9 @@ Add the following code to your Apache configuration file, in both the `<VirtualH
 AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
 ```
 
-### Finalizing the upgrade
+### Finalisation de la mise à jour
 
-Before starting the web upgrade process, reload the Apache server with the
-following command:
+Avant de démarrer la montée de version via l'interface web, rechargez le serveur Apache avec les commandes suivantes :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -442,52 +443,49 @@ systemctl restart apache2
 </TabItem>
 </Tabs>
 
-Then you need to finalize the upgrade process:
+Vous devez ensuite finaliser le processus de mise à jour :
 
   <Tabs groupId="sync">
-  <TabItem value="Using the wizard" label="Using the wizard">
+  <TabItem value="Avec l'assistant d'interface" label="Avec l'assistant d'interface">
 
-1. Log on to the Centreon web interface to continue the update process. Click **Next**:
+1. Connectez-vous à l'interface web Centreon, l'assistant d'interface s'affiche. Cliquez sur **Next** :
 
   ![image](../assets/upgrade/web_update_1.png)
 
-2. Click **Next**:
+2. Cliquez sur **Next** :
 
   ![image](../assets/upgrade/web_update_2.png)
 
-3. The release notes describe the main changes. Click **Next**:
+3. La note de version présente les principaux changements, cliquez sur **Next** :
 
   ![image](../assets/upgrade/web_update_3.png)
 
-4. This process performs the various upgrades. Click **Next**:
+4. Le processus réalise les différentes mises à jour, cliquez sur **Next** :
 
   ![image](../assets/upgrade/web_update_4.png)
 
-5. Your Centreon server is now up to date. Click **Finish** to access the login
-page:
+5. Votre serveur Centreon est maintenant à jour, cliquez sur **Finish** pour
+accéder à la page de connexion :
 
   ![image](../assets/upgrade/web_update_5.png)
-
-  > If the Centreon BAM module is installed, refer to the [update procedure](../service-mapping/update.md).
-
-6. Deploy the central's configuration from the Centreon web UI by following [this
-procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
   
 </TabItem>
-<TabItem value="Using a dedicated API endpoint" label="Using a dedicated API endpoint">
+<TabItem value="Avec une API dédiée" label="Avec une API dédiée">
 
-1. Log on to the central server through your terminal to continue the update process.
+1. Connectez-vous au serveur Central via le terminal pour poursuivre le processus de
+mise à jour.
 
-  > You need an authentication token to reach the API endpoint. Perform the following procedure to get a token.
+  > Vous avez besoin d'un token d'authentification pour accéder à l'endpoint de l'API. Suivez la procédure ci-dessous pour obtenir un token.
 
-  In our case, we have the configuration described below (you need to adapt the procedure to your configuration).
-   - address: 10.25.XX.XX
-   -  port: 80
-   -  version: 24.10
-   -  login: Admin
-   -  password: xxxxx
+  Dans notre cas, nous avons la configuration décrite ci-dessous (vous devez adapter la procédure à votre configuration).
 
-2. Enter the following request:
+   - adresse : 10.25.XX.XX
+   - port : 80
+   - version : 24.10
+   - identifiant : Admin
+   - mot de passe : xxxxx
+
+2. Entrez la requête suivante :
 
   ```shell
   curl --location --request POST '10.25.XX.XX:80/centreon/api/v24.10/login' \
@@ -503,15 +501,15 @@ procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
   }'
   ```
 
-  This is how the result should look:
+  Voici à quoi ressemble le résultat :
 
-    ```shell
-    {"contact":{"id":1,"name":"Admin Centreon","alias":"admin","email":"admin@localhost","is_admin":true},"security":{"token":"hwwE7w/ukiiMce2lwhNi2mcFxLNYPhB9bYSKVP3xeTRUeN8FuGQms3RhpLreDX/S"}}
-    ```
+  ```shell
+  {"contact":{"id":1,"name":"Admin Centreon","alias":"admin","email":"admin@localhost",  "is_admin":true},"security":{"token":"hwwE7w/ukiiMce2lwhNi2mcFxLNYPhB9bYSKVP3xeTRUeN8FuGQms3RhpLreDX/S"}}
+  ```
 
-3. Retrieve the token number to use it in the next request.
+3. Récupérez le numéro du token pour l'utiliser lors de la prochaine requête.
 
-4. Then enter this request:
+4. Entrez ensuite cette requête :
 
   ```shell
   curl --location --request PATCH 'http://10.25.XX.XX:80/centreon/api/latest/platform/updates' \
@@ -526,18 +524,18 @@ procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
   }'
   ```
 
-5. This request does not return any result. To check if the update has been successfully applied, read the version number displayed on the Centreon web interface login page.
+5. Cette requête ne renvoie aucun résultat. Pour vérifier que la mise à jour a bien été appliquée, consultez le numéro de version affiché sur la page de connexion à l'interface web Centreon.
 
 </TabItem>
 </Tabs>
 
-Finally, restart Broker, Engine and Gorgone on the central server by running this command:
+Enfin, redémarrez Broker, Engine et Gorgone sur le serveur Central en exécutant la commande suivante :
 
   ```shell
   systemctl restart cbd centengine gorgoned
   ```
 
-Update the permissions on the centreon-broker configuration files.
+Mettez à jour les permissions sur les fichiers de configurations de centreon-broker.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -566,49 +564,51 @@ usermod -a -G www-data centreon-broker
 </TabItem>
 </Tabs>
 
-If the Centreon BAM module is installed, refer to the
-[upgrade procedure](../service-mapping/upgrade.md).
+Si le module Centreon BAM est installé, référez-vous à la [documentation
+associée](../service-mapping/upgrade.md) pour le mettre à jour.
 
-### Post-upgrade actions
+### Actions post montée de version
 
-1. Upgrade extensions. From **Administration > Extensions > Manager**, upgrade all extensions, starting
-with the following:
+1. Montée de version des extensions :
+
+   Depuis le menu **Administration > Extensions > Gestionnaire**, mettez à jour
+   toutes les extensions, en commençant par les suivantes :
 
    - License Manager,
    - Monitoring Connector Manager,
    - Auto Discovery.
 
-   Then you can upgrade all other commercial extensions.
+    Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
 
-2. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+2. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
-3. Restart the processes:
+3. Redémarrez les processus Centreon :
 
-    ``` shell
+    ```shell
     systemctl restart cbd centengine centreontrapd gorgoned
     ```
 
-## Upgrade MariaDB
+## Mettre à jour MariaDB
 
-Follow [this procedure](upgrade-mariadb.md) to upgrade MariaDB to version 10.11.
+Suivez [cette procédure](upgrade-mariadb.md) pour monter de version MariaDB en 10.11.
 
-## Upgrade the Remote Servers
+## Montée de version des Remote Servers
 
-This procedure is the same as for upgrading a Centreon Central server.
+Cette procédure est identique à la montée de version d'un serveur Centreon
+Central.
 
-> At the end of the update, the configuration should be deployed from the Central server.
+> En fin de mise à jour, la configuration doit être déployée depuis le serveur Central.
 
-## Upgrade the Pollers
+## Montée de version des collecteurs
 
-### Update the Centreon repository
+### Mise à jour des dépôts
 
-Run the following command:
+Exécutez la commande suivante :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
 ```
 
@@ -616,7 +616,6 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/e
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-24.10.repo
 ```
 
@@ -631,9 +630,9 @@ apt update
 </TabItem>
 </Tabs>
 
-### Upgrade the Centreon solution
+### Montée de version de la solution Centreon
 
-Clean the cache:
+Videz le cache :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -660,9 +659,10 @@ apt update
 </TabItem>
 </Tabs>
 
-Then upgrade all the components with the following command:
+Mettez à jour l'ensemble des composants :
 
 <Tabs groupId="sync">
+
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -684,11 +684,12 @@ apt install --only-upgrade centreon-poller
 ```
 
 </TabItem>
+
 </Tabs>
 
-> Accept new GPG keys from the repositories as needed.
+> Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 
-Restart **centreon**:
+Redémarrez **centreon** :
 
 ```shell
 systemctl restart centreon

@@ -1,14 +1,17 @@
 ---
-id: upgrade-from-22-04
-title: Upgrade from Centreon 22.04
+id: upgrade-from-24-04
+title: Upgrade from Centreon 24.04
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This chapter describes how to upgrade your Centreon platform from version 22.04
-to version 24.10.
+This chapter describes how to upgrade your Centreon platform from version 24.04 to version 24.10.
 
-> When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers. All servers in your architecture must have the same version of Centreon. In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
+> When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers.
+>
+> All servers in your architecture must have the same version of Centreon.
+>
+> In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
 > If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../migrate/introduction.md).
 
@@ -31,12 +34,13 @@ servers:
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-1. Update your Centreon 22.04 to the latest minor version.
+1. Update your Centreon 24.04 to the latest minor version.
 
-2. Remove the **centreon-22.04.repo** file:
+2. Remove the repository files:
 
    ```shell
-   rm /etc/yum.repos.d/centreon-22.04.repo
+   rm /etc/yum.repos.d/centreon-24.04.repo
+   rm /etc/yum.repos.d/centreon.repo
    ```
 
 3. Install the new repository:
@@ -47,9 +51,29 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/e
 ```
 
 </TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+1. Update your Centreon 24.04 to the latest minor version.
+
+2. Remove the repository files:
+
+   ```shell
+   rm /etc/yum.repos.d/centreon-24.04.repo
+   rm /etc/yum.repos.d/centreon.repo
+   ```
+
+3. Install the new repository:
+
+```shell
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-24.10.repo
+```
+
+</TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-1. Update your Centreon 22.04 to the latest minor version.
+1. Update your Centreon 24.04 to the latest minor version.
+
 2. Run the following commands:
 
 ```shell
@@ -78,9 +102,9 @@ apt update
 Centreon 24.10 uses PHP in version 8.2.
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8" label="RHEL 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-You need to change the PHP stream from version 8.0 to 8.2 by executing the following commands and answering **y**
+You need to change the PHP stream from version 8.1 to 8.2 by executing the following commands and answering **y**
 to confirm:
 
 ```shell
@@ -88,13 +112,13 @@ dnf module reset php
 ```
 
 ```shell
-dnf module install php:remi-8.2
+dnf module enable php:remi-8.2
 ```
 
 </TabItem>
-<TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-You need to change the PHP stream from version 8.0 to 8.2 by executing the following commands and answering **y**
+You need to change the PHP stream from version 8.1 to 8.2 by executing the following commands and answering **y**
 to confirm:
 
 ```shell
@@ -102,14 +126,15 @@ dnf module reset php
 ```
 
 ```shell
-dnf module install php:remi-8.2
+dnf module enable php:8.2
 ```
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
-systemctl stop php8.0-fpm
+systemctl stop php8.1-fpm
+systemctl disable php8.1-fpm
 ```
 
 </TabItem>
@@ -147,10 +172,17 @@ dnf clean all --enablerepo=*
 ```
 
 </TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf clean all --enablerepo=*
+```
+
+</TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
-apt clean
+apt clean all
 apt update
 ```
 
@@ -161,6 +193,13 @@ Then upgrade all the components with the following command:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update centreon\* php-pecl-gnupg
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 dnf update centreon\* php-pecl-gnupg
@@ -246,6 +285,69 @@ If everything is ok, you should have:
 ```
 
 </TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+When you upgrade your platform, the Apache configuration file is not upgraded automatically. The new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
+
+Run a diff between the old and the new Apache configuration files:
+
+```shell
+diff -u /etc/httpd/conf.d/10-centreon.conf /etc/httpd/conf.d/10-centreon.conf.rpmnew
+```
+
+* **10-centreon.conf** (post upgrade): this file contains the custom configuration. It does not contain anything new brought by the upgrade.
+* **10-centreon.conf.rpmnew** (post upgrade): this file is provided by the rpm; it does not contain any custom configuration.
+
+For each difference between the files, assess whether you should copy it from **10-centreon.conf.rpmnew** to **10-centreon.conf**.
+
+Check that Apache is configured properly by running the following command:
+
+```shell
+apachectl configtest
+```
+
+The expected result is the following:
+
+```shell
+Syntax OK
+```
+
+Restart the Apache and PHP processes to take the new configuration into account:
+
+```shell
+systemctl restart php-fpm httpd
+```
+
+Then check its status:
+
+```shell
+systemctl status httpd
+```
+
+If everything is ok, you should have:
+
+```shell
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
+  Drop-In: /usr/lib/systemd/system/httpd.service.d
+           └─php-fpm.conf
+   Active: active (running) since Tue 2020-10-27 12:49:42 GMT; 2h 35min ago
+     Docs: man:httpd.service(8)
+ Main PID: 1483 (httpd)
+   Status: "Total requests: 446; Idle/Busy workers 100/0;Requests/sec: 0.0479; Bytes served/sec: 443 B/sec"
+    Tasks: 278 (limit: 5032)
+   Memory: 39.6M
+   CGroup: /system.slice/httpd.service
+           ├─1483 /usr/sbin/httpd -DFOREGROUND
+           ├─1484 /usr/sbin/httpd -DFOREGROUND
+           ├─1485 /usr/sbin/httpd -DFOREGROUND
+           ├─1486 /usr/sbin/httpd -DFOREGROUND
+           ├─1487 /usr/sbin/httpd -DFOREGROUND
+           └─1887 /usr/sbin/httpd -DFOREGROUND
+
+```
+
+</TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 Use the backup file you created in the previous step to copy your customizations to the file **/etc/apache2/sites-available/centreon.conf**.
@@ -262,13 +364,7 @@ The expected result is the following:
 Syntax OK
 ```
 
-Restart the Apache and PHP processes to take the new configuration into account:
-
-```shell
-systemctl restart php8.0-fpm apache2
-```
-
-Then check its status:
+Check the status of Apache:
 
 ```shell
 systemctl status apache2
@@ -328,12 +424,20 @@ systemctl reload php-fpm httpd
 ```
 
 </TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+systemctl reload php-fpm httpd
+```
+
+</TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt autoremove
 systemctl daemon-reload
-systemctl stop php8.0-fpm.service
+systemctl stop php8.1-fpm
+systemctl disable php8.1-fpm
 systemctl enable php8.2-fpm
 systemctl start php8.2-fpm
 systemctl restart apache2
@@ -372,7 +476,7 @@ page:
 
 6. Deploy the central's configuration from the Centreon web UI by following [this
 procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
-  
+
 </TabItem>
 <TabItem value="Using a dedicated API endpoint" label="Using a dedicated API endpoint">
 
@@ -448,6 +552,14 @@ usermod -a -G apache centreon-broker
 ```
 
 </TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+usermod -a -G centreon-broker apache
+usermod -a -G apache centreon-broker
+```
+
+</TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
@@ -457,8 +569,6 @@ usermod -a -G www-data centreon-broker
 
 </TabItem>
 </Tabs>
-
-> As the interface layout has changed in version 22.10, you need to clear your browser cache to display the new theme.
 
 If the Centreon BAM module is installed, refer to the
 [upgrade procedure](../service-mapping/upgrade.md).
@@ -507,6 +617,14 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/e
 ```
 
 </TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-24.10.repo
+```
+
+</TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
@@ -529,10 +647,17 @@ dnf clean all --enablerepo=*
 ```
 
 </TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf clean all --enablerepo=*
+```
+
+</TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
-apt clean
+apt clean all
 apt update
 ```
 
@@ -542,8 +667,14 @@ apt update
 Then upgrade all the components with the following command:
 
 <Tabs groupId="sync">
-
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update centreon\*
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 dnf update centreon\*

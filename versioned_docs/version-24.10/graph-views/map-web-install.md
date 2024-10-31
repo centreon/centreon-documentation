@@ -246,9 +246,9 @@ Disabled
 > - ``SELINUX=permissive`` to make SELinux print warnings instead of enforce security policy.
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
-SELinux is not installed on Debian 11 & 12, continue.
+SELinux is not installed on Debian 12, continue.
 
 </TabItem>
 </Tabs>
@@ -326,7 +326,7 @@ Then install the Centreon repository:
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
 ```
 
 </TabItem>
@@ -351,11 +351,11 @@ Then install the Centreon repository:
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el9/centreon-24.04.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-24.10.repo
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 Install the following dependencies:
 
@@ -366,7 +366,7 @@ apt update && apt install lsb-release ca-certificates apt-transport-https softwa
 To install the Centreon repository, execute the following command:
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-24.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-24.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -419,13 +419,6 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.11"
-```
-
-</TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
@@ -452,7 +445,7 @@ dnf install MariaDB-server
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt update && apt install mariadb-server
@@ -521,7 +514,7 @@ dnf install centreon-map-engine
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt update && apt install centreon-map-engine
@@ -556,7 +549,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
    ```
    
    </TabItem>
-   <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+   <TabItem value="Debian 12" label="Debian 12">
    
    ```shell
    cp /etc/mysql/map.cnf /etc/mysql/map.cnf.bk
@@ -582,7 +575,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
    ```
    
    </TabItem>
-   <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+   <TabItem value="Debian 12" label="Debian 12">
    
    ```shell
    apt update && apt-get -o Dpkg::Options::="--force-overwrite" install centreon-map-engine
@@ -608,7 +601,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
    ```
    
    </TabItem>
-   <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+   <TabItem value="Debian 12" label="Debian 12">
    
    ```shell
    cp /etc/mysql/map.cnf.bk /etc/mysql/map.cnf
@@ -831,7 +824,7 @@ Install the Centreon Business repository. You can find this on the
   ```
 
   </TabItem>
-  <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+  <TabItem value="Debian 12" label="Debian 12">
 
   ```shell
   sudo apt install centreon-map-web-client

@@ -49,7 +49,7 @@ Le schéma ci-dessous résume l'architecture :
 
 ### Centreon
 
-Le serveur central et Centreon MAP doivent être installés dans les mêmes versions majeures (c'est-à-dire tous deux en 24.04.x).
+Le serveur central et Centreon MAP doivent être installés dans les mêmes versions majeures (c'est-à-dire tous deux en 24.10.x).
 
 ### Serveur MAP Centreon
 
@@ -252,7 +252,7 @@ Ensuite installez le dépôt Centreon :
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
 ```
 
 </TabItem>
@@ -277,11 +277,11 @@ Ensuite installez le dépôt Centreon :
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el9/centreon-24.04.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-24.10.repo
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 Installez les dépendances suivantes :
 
@@ -292,7 +292,7 @@ apt update && apt install lsb-release ca-certificates apt-transport-https softwa
 Pour installer le dépôt Centreon, exécutez la commande suivante :
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-24.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-24.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -326,7 +326,7 @@ dnf install centreon-map-server
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt update
@@ -365,7 +365,7 @@ dnf install MariaDB-client MariaDB-server
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt install MariaDB-client MariaDB-server
@@ -511,7 +511,7 @@ dnf install centreon-map-web-client
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt update
@@ -568,7 +568,7 @@ Allez dans **Administration > Extensions** et cliquez sur le bouton **Installer*
 Le client lourd est actuellement disponible uniquement pour les plateformes **64-bit** Windows, Mac et Linux (Debian et Ubuntu).
 
 Vous pouvez trouver les installateurs dans **Supervision > Map > Desktop Client** ou
-[ici](https://download.centreon.com/?action=product&product=centreon-map&version=24.04&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
+[ici](https://download.centreon.com/?action=product&product=centreon-map&version=24.10&secKey=9ae03a4457fa0ce578379a4e0c8b51f2).
 
 > Pour des raisons de performance, nous recommandons fortement d'avoir moins de 5 à 10 utilisateurs maximum connectés en même temps pour manipuler les vues.
 

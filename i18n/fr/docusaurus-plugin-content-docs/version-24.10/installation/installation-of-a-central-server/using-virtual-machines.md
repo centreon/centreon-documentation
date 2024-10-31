@@ -7,6 +7,7 @@ import TabItem from '@theme/TabItem';
 
 Sur sa [page de téléchargement](https://download.centreon.com), Centreon fournit des machines virtuelles prêtes à l’emploi. Ces machines virtuelles sont disponibles pour les environnements
 VMware et pour l'outil Oracle VirtualBox.
+
 Elles sont basées sur les systèmes d'exploitation **Alma Linux 8 et 9** et **Debian 12** et incluent
 une installation de Centreon permettant de démarrer en toute simplicité votre première supervision.
 
@@ -203,7 +204,7 @@ Définissez les paramètres suivants :
     1. Ouvrez le fichier suivant :
       
    ```shell
-   /etc/php/8.1/mods-available/centreon.ini
+   /etc/php/8.2/mods-available/centreon.ini
    ```
    
    2. Après date.timezone, entrez le fuseau horaire désiré.
@@ -211,7 +212,7 @@ Définissez les paramètres suivants :
    3. Redémarrez le serveur PHP :
 
    ```shell
-   systemctl restart php8.1-fpm.service
+   systemctl restart php8.2-fpm.service
    ```
 
 - Le hostname de votre serveur (facultatif). Le nom par défaut du serveur est centreon-central. Pour le

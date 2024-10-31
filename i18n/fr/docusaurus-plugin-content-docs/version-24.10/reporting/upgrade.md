@@ -31,7 +31,7 @@ Sous EL8, pour des raisons de sécurité, les clés utilisées pour signer les R
 
 ## Étape 1 : Montée de version du paquet
 
-Lors d'une montée de version majeure (ex: 20.10.x à 24.04.x) il faut en premier lieu mettre à jour
+Lors d'une montée de version majeure (ex: 20.10.x à 24.10.x) il faut en premier lieu mettre à jour
  le dépôt contenant les paquets. 
 
 Vous trouverez ce dépôt depuis votre compte sur notre [platefome de support, à la page **Dépôts**](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
@@ -57,7 +57,7 @@ dnf update centreon-bi-server
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt clean
@@ -127,7 +127,7 @@ dnf update centreon-bi\*
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt clean
