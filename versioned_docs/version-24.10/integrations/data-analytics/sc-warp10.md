@@ -37,7 +37,7 @@ dnf install centreon-stream-connector-warp10
 
 </TabItem>
 
-<TabItem value="Debian 11" label="Debian_11">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt install centreon-stream-connector-warp10

@@ -6,9 +6,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit la procédure de montée de version de votre plate-forme
-Centreon depuis la version 20.10 vers la version 24.04.
+Centreon depuis la version 20.10 vers la version 24.10.
 
-Vous ne pouvez pas simplement monter de version depuis une version antérieure à Centreon 20.10 et vers une version 24.04, car CentOS 7 n'est plus supporté: vous devez [migrer votre plateforme vers un OS supporté](../migrate/introduction.md).
+Vous ne pouvez pas simplement monter de version depuis une version antérieure à Centreon 20.10 et vers une version 24.10, car CentOS 7 n'est plus supporté: vous devez [migrer votre plateforme vers un OS supporté](../migrate/introduction.md).
 
 > Lorsque vous effectuez la montée de version de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs. Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon. De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
@@ -66,7 +66,7 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
 ```
 
 > Si vous avez une [licence offline](../administration/licenses.md#types-de-licences), supprimez également l'ancien dépôt des connecteurs de supervision, puis installez le nouveau dépôt.
@@ -89,7 +89,7 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 
 ### Montée de version de PHP
 
-Centreon 24.04 utilise PHP en version 8.1.
+Centreon 24.10 utilise PHP en version 8.2.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
@@ -103,7 +103,7 @@ dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
-Ensuite, vous devez changer le flux PHP de la version 7.3 à 8.1 en exécutant les commandes suivantes et en répondant **y**
+Ensuite, vous devez changer le flux PHP de la version 7.3 à 8.2 en exécutant les commandes suivantes et en répondant **y**
 pour confirmer :
 
 ```shell
@@ -111,7 +111,7 @@ dnf module reset php
 ```
 
 ```shell
-dnf module install php:remi-8.1
+dnf module install php:remi-8.2
 ```
 
 </TabItem>
@@ -125,7 +125,7 @@ dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarc
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 ```
 
-Ensuite, vous devez changer le flux PHP de la version 7.3 à 8.1 en exécutant les commandes suivantes et en répondant **y**
+Ensuite, vous devez changer le flux PHP de la version 7.3 à 8.2 en exécutant les commandes suivantes et en répondant **y**
 pour confirmer :
 
 ```shell
@@ -133,7 +133,7 @@ dnf module reset php
 ```
 
 ```shell
-dnf module install php:remi-8.1
+dnf module install php:remi-8.2
 ```
 
 </TabItem>
@@ -144,7 +144,7 @@ dnf module install php:remi-8.1
 > Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer
 > la procédure de mise à jour.
 
-Si vous avez des extensions Business installées, mettez à jour le dépôt business en 24.04.
+Si vous avez des extensions Business installées, mettez à jour le dépôt business en 24.10.
 Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
 
 Arrêter le processus Centreon Broker :
@@ -295,7 +295,7 @@ Exécutez la commande suivante sur le serveur de base de données dédié :
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
 ```
 
 </TabItem>
@@ -460,7 +460,7 @@ Exécutez la commande suivante :
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
 ```
 
 </TabItem>

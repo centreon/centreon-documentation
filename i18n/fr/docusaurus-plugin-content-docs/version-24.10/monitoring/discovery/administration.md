@@ -24,7 +24,7 @@ dnf update -y centreon-auto-discovery-server
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ``` shell
 apt update && apt update centreon-auto-discovery-server

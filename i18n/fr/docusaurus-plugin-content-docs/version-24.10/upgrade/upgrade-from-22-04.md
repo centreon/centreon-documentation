@@ -6,7 +6,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit la procédure de montée de version de votre plateforme
-Centreon depuis la version 22.04 vers la version 24.04.
+Centreon depuis la version 22.04 vers la version 24.10.
 
 > Lorsque vous effectuez la montée de version de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs. Dans votre architecture, tous les serveurs doivent avoir la même version de Centreon. De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo.md#changement-de-version-de-bbdo).
 
@@ -46,18 +46,21 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
+1. Mettez à jour votre Centreon 22.04 jusqu'à la dernière version mineure.
+2. Exécutez les commandes suivantes :
+
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-24.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-24.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
-Ensuite, importez la clé du dépôt :
+3. Ensuite, importez la clé du dépôt :
 
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
@@ -75,12 +78,12 @@ apt update
 
 ### Montée de version de PHP
 
-Centreon 24.04 utilise PHP en version 8.1.
+Centreon 24.10 utilise PHP en version 8.2.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
 
-Vous devez changer le flux PHP de la version 8.0 à 8.1 en exécutant les commandes suivantes et en répondant **y**
+Vous devez changer le flux PHP de la version 8.0 à 8.2 en exécutant les commandes suivantes et en répondant **y**
 pour confirmer :
 
 ```shell
@@ -88,13 +91,13 @@ dnf module reset php
 ```
 
 ```shell
-dnf module install php:remi-8.1
+dnf module install php:remi-8.2
 ```
 
 </TabItem>
 <TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
 
-Vous devez changer le flux PHP de la version 8.0 à 8.1 en exécutant les commandes suivantes et en répondant **y**
+Vous devez changer le flux PHP de la version 8.0 à 8.2 en exécutant les commandes suivantes et en répondant **y**
 pour confirmer :
 
 ```shell
@@ -102,7 +105,7 @@ dnf module reset php
 ```
 
 ```shell
-dnf module install php:remi-8.1
+dnf module install php:remi-8.2
 ```
 
 </TabItem>
@@ -120,7 +123,7 @@ systemctl stop php8.0-fpm
 > Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer
 > la procédure de mise à jour.
 
-Si vous avez des extensions Business installées, mettez à jour le dépôt business en 24.04.
+Si vous avez des extensions Business installées, mettez à jour le dépôt business en 24.10.
 Rendez-vous sur le [portail du support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts) pour en récupérer l'adresse.
 
 Si votre OS est Debian 11 et que vous avez une configuration Apache personnalisée, faites une sauvegarde de votre fichier de configuration (**/etc/apache2/sites-available/centreon.conf**).
@@ -265,7 +268,7 @@ Syntax OK
 Redémarrez Apache pour appliquer les modifications :
 
 ```shell
-systemctl restart php8.1-fpm apache2
+systemctl restart php8.2-fpm apache2
 ```
 
 Puis vérifiez le statut :
@@ -333,8 +336,8 @@ systemctl reload php-fpm httpd
 apt autoremove
 systemctl daemon-reload
 systemctl stop php8.0-fpm.service
-systemctl enable php8.1-fpm
-systemctl start php8.1-fpm
+systemctl enable php8.2-fpm
+systemctl start php8.2-fpm
 systemctl restart apache2
 ```
 
@@ -379,14 +382,14 @@ mise à jour.
 
    - adresse : 10.25.XX.XX
    - port : 80
-   - version : 24.04
+   - version : 24.10
    - identifiant : Admin
    - mot de passe : xxxxx
 
 2. Entrez la requête suivante :
 
   ```shell
-  curl --location --request POST '10.25.XX.XX:80/centreon/api/v24.04/login' \
+  curl --location --request POST '10.25.XX.XX:80/centreon/api/v24.10/login' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --data '{
@@ -502,14 +505,14 @@ Exécutez la commande suivante :
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-24.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-24.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 apt update
 ```
 

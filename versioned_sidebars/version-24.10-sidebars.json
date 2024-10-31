@@ -1043,6 +1043,10 @@
             },
             {
               "type": "doc",
+              "id": "version-24.10/upgrade/upgrade-from-24-04"
+            },
+            {
+              "type": "doc",
               "id": "version-24.10/upgrade/upgrade-from-23-10"
             },
             {

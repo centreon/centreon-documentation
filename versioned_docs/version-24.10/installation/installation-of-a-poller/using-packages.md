@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 Centreon provides RPM and DEB packages for its products through the Centreon Open
 Source version available free of charge in our repository.
 
-These packages can be installed on Alma/RHEL/Oracle Linux 8 and 9 and on Debian 11.
+These packages can be installed on Alma/RHEL/Oracle Linux 8 and 9 and on Debian 12.
 
 You must run the installation procedure as a privileged user.
 
@@ -68,7 +68,7 @@ locale -a
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt update && apt upgrade
@@ -145,9 +145,9 @@ Disabled
 > **Note that this deactivation should be temporary.** SELinux should be [reenabled after installation](../../administration/secure-platform.md#activate-selinux) for security reasons.
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
-SELinux is not installed on Debian 11 and 12, continue.
+SELinux is not installed on Debian 12, continue.
 
 </TabItem>
 </Tabs>
@@ -276,7 +276,7 @@ dnf install -y epel-release
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 Install the following dependencies:
 
@@ -298,7 +298,7 @@ Install the Centreon repository using this command:
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -308,18 +308,18 @@ dnf update
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el9/centreon-24.04.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-24.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 To install the Centreon repository, execute the following command line:
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard-24.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-24.10-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -352,7 +352,7 @@ dnf install -y centreon-poller
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt install -y --no-install-recommends centreon-poller
@@ -469,7 +469,7 @@ Couldn't connect to 192.168.0.1:444; Connection refused
 2023-05-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> Your Centreon target version is invalid. It should be greater than or equal to 24.04.
+> Your Centreon target version is invalid. It should be greater than or equal to 24.10.
 
 ## Step 4: Add the Poller to the configuration
 

@@ -29,7 +29,6 @@ Les OS supportés par Centreon sont les suivants :
 | Alma Linux 8                   | paquets RPM, sources, machine virtuelle               |
 | RHEL/Oracle Linux 8            | paquets RPM, sources                                  |
 | RHEL/Oracle Linux/Alma Linux 9 | paquets RPM, sources                                  |
-| Debian 11 (bullseye)           | paquets DEB                                           |
 | Debian 12 (bookworm)           | paquets DEB                                           |
 
 Voir notre article de base de connaissances [How to install Linux to host Centreon software](https://thewatch.centreon.com/product-how-to-21/how-to-install-linux-to-host-centreon-software-3759).
@@ -45,6 +44,6 @@ Attention, les modules de l'IT Edition et de la Business Edition ne fonctionnent
 | Logiciel | Version          |
 |----------|------------------|
 | MariaDB  | 10.11            |
-| MySQL    | 8                |
+| MySQL    | 8.0              |
 
 > Vous pouvez utiliser un autre SGBD basé sur MySQL, mais celui-ci sera uniquement supporté par la communauté.

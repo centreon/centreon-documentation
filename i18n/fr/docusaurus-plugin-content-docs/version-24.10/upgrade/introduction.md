@@ -3,7 +3,7 @@ id: introduction
 title: Introduction à la montée de version
 ---
 
-Ce chapitre décrit le processus de montée de version (upgrade) d'une plateforme Centreon, c'est-à-dire le passage d'une version majeure à une autre (par exemple, 21.10 à 24.04).
+Ce chapitre décrit le processus de montée de version (upgrade) d'une plateforme Centreon, c'est-à-dire le passage d'une version majeure à une autre (par exemple, 21.10 à 24.10).
 
 > à partir de la version 23.04, Centreon ne supporte plus CentOS 7. Si votre plateforme Centreon était installée sous CentOS 7, vous ne pouvez pas simplement monter de version : passez à un [OS supporté](../installation/compatibility.md#système-dexploitation) en suivant une [procédure de migration](../migrate/introduction.md).
 

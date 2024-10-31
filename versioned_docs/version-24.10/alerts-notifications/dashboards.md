@@ -67,7 +67,6 @@ Most of the widgets usually follow these steps:
 ### More actions
 
 Click the **three vertical dots** menu at the top right of the widget to edit it or to access more actions:
-- Refresh
 - Duplicate
 - Delete widget
 
@@ -86,7 +85,7 @@ From the dashboard, you can click a screen pictogram at the top right of a widge
 
 #### Update properties
 
-Click the **gear** button at the bottom right of the dashboard to update its name and description.
+Click the **gear** button at the top left of the dashboard to update its name and description.
 
 #### Edit dashboard widgets 
 
@@ -154,15 +153,26 @@ The control banner allows you to:
 - Go to the previous or next dashboard.
 - Go directly to a specific dashboard by clicking its name.
 
-### Share the playlist
+### Share the playlist with users of your platform
 
-> You can only share your playlist with contacts who have access to your Centreon platform and are authorized Dashboards viewers.
+You can share your playlist with contacts who have access to your Centreon platform and are authorized Dashboards viewers.
 
 - Click the **Share with contacts** button from the line of your playlist.
 The **Playlist access rights** window is displayed.
-- You can now add contacts or contact groups and define their rights as viewer or editor in the **Share with** section.
+- In the **Share with** section, add contacts or contact groups and define their rights as viewer or editor.
 - Use the **trash** button in the **User rights** section to remove a contact or contact group.
-- Use the **Copy link** button to share the playlist URL directly with users who have access to your platform.
+- Then **Save** your changes.
+
+### Share the playlist with a public link
+
+You can send a public link to non-Centreon users, giving them access to a full-screen view of their IT infrastructure.
+
+> - The link you share will display the playlist content based on the access rights of the user activating the link. Anyone with this link can view the playlist. Be cautious when you share it.
+> - The language used is the one set by the current browser, even if the initial language of the playlist is different.
+
+- In the **Playlist access rights** window, click the **Activated** button in the **Public link** section.
+- You can now copy the URL link to the playlist.
+- You can also resize and copy the embedded code of the playlist view.
 
 ### Edit/Delete a playlist
 
@@ -172,12 +182,15 @@ The three dots action menu at the end of a playlist row allows you to edit prope
 
 | Widget                   | Description                                                                                                                                                                                                                                                                                                    |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Business Activity Diagram           | Displays graphically a business activity hierarchy of KPIs and lets you navigate through it.   |
+| Clock/Timer           | Displays the time according to the selected time zone, or a timer.   |
 | Generic text           | Allows you to add free text to your dashboards (section titles, information, etc.).   |
 | Group monitoring           | Displays the distribution of current statuses on selected groups of resources, as a table.   |
 | MAP - Display a view            |  Allows you to select and visualize a map created from the MAP module.  |
 | Metrics graph         | Displays metrics for a given time period.                                                                                |
-| Resource table                 | Displays data on resource status and events, centralized in a table.
+| Resource table                 | Displays data on resource status and events, centralized in a table. Also displays [resources linked to a ticket](../alerts-notifications/ticketing.md#widget-configuration) or not.
 | Single metric          | Displays the value of a single metric as a text, a gauge or a bar chart.   |
 | Status chart     | Displays the distribution of current statuses on selected resources, as a chart.      |
 | Status grid     | Displays the current status of selected resources, as a grid.      |
 | Top/bottom              | Displays the top or bottom x hosts, for a selected metric.   |
+| Web page           | Displays a web page.   |

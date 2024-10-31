@@ -6,9 +6,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 This chapter describes how to upgrade your Centreon platform from version 20.10
-to version 24.04.
+to version 24.10.
 
-You cannot simply upgrade Centreon from a version earlier than 20.10 to version 24.04, as CentOS 7 is no longer supported. You need to [migrate your platform to a supported OS](../migrate/introduction.md).
+You cannot simply upgrade Centreon from a version earlier than 20.10 to version 24.10, as CentOS 7 is no longer supported. You need to [migrate your platform to a supported OS](../migrate/introduction.md).
 
 > When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers. All servers in your architecture must have the same version of Centreon. In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo.md#switching-versions-of-bbdo).
 
@@ -20,7 +20,7 @@ You cannot simply upgrade Centreon from a version earlier than 20.10 to version 
 > To perform this procedure, your MariaDB version must be >= 10.3.22.
 > If not, please follow [this](./upgrade-mariadb.md)
 > procedure in order to update MariaDB before you can continue with the upgrade
-> from version 20.10 to version 24.04 as described by this document.
+> from version 20.10 to version 24.10 as described by this document.
 
 > Warning: following the correction of a problem relating to the database schema, it will be necessary to stop the 
 > insertion of data collected in the database during the update. These will be stored in temporary files and then
@@ -66,7 +66,7 @@ servers:
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
 ```
 
 > If you have an [offline license](../administration/licenses.md#types-of-licenses), also remove the old Monitoring Connectors repository, then install the new one.
@@ -89,7 +89,7 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 
 ### Upgrade PHP
 
-Centreon 24.04 uses PHP in version 8.1.
+Centreon 24.10 uses PHP in version 8.2.
 
 <Tabs groupId="sync">
 <TabItem value="RHEL 8" label="RHEL 8">
@@ -103,7 +103,7 @@ dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
-Then, you need to change the PHP stream from version 7.3 to 8.1 by executing the following commands and answering **y**
+Then, you need to change the PHP stream from version 7.3 to 8.2 by executing the following commands and answering **y**
 to confirm:
 
 ```shell
@@ -111,7 +111,7 @@ dnf module reset php
 ```
 
 ```shell
-dnf module install php:remi-8.1
+dnf module install php:remi-8.2
 ```
 
 </TabItem>
@@ -125,7 +125,7 @@ dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarc
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 ```
 
-Then, you need to change the PHP stream from version 7.3 to 8.1 by executing the following commands and answering **y**
+Then, you need to change the PHP stream from version 7.3 to 8.2 by executing the following commands and answering **y**
 to confirm:
 
 ```shell
@@ -133,7 +133,7 @@ dnf module reset php
 ```
 
 ```shell
-dnf module install php:remi-8.1
+dnf module install php:remi-8.2
 ```
 
 </TabItem>
@@ -144,7 +144,7 @@ dnf module install php:remi-8.1
 > Make sure all users are logged out from the Centreon web interface
 > before starting the upgrade procedure.
 
-If you have installed Business extensions, update the Business repository to version 24.04.
+If you have installed Business extensions, update the Business repository to version 24.10.
 Visit the [support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) to get its address.
 
 Stop the Centreon Broker process:
@@ -300,7 +300,7 @@ Run the following command on the dedicated DBMS server:
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
 ```
 
 </TabItem>
@@ -461,7 +461,7 @@ Run the following command:
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.04/el8/centreon-24.04.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
 ```
 
 </TabItem>

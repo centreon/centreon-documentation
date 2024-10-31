@@ -36,7 +36,7 @@ dnf install perl-Module-Build
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt-get install libmodule-build-perl

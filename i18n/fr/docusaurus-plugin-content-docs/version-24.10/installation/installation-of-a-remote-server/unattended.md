@@ -47,7 +47,7 @@ dnf update
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt update && apt upgrade
@@ -59,7 +59,7 @@ apt update && apt upgrade
 2. Téléchargez le script à l'aide de la commande suivante :
 
 ```shell
-curl -L https://download.centreon.com/24.04/unattended.sh --output /tmp/unattended.sh
+curl -L https://download.centreon.com/24.10/unattended.sh --output /tmp/unattended.sh
 ```
 
 3. Exécutez la commande suivante en **root** :
@@ -67,18 +67,18 @@ curl -L https://download.centreon.com/24.04/unattended.sh --output /tmp/unattend
 * Pour spécifier le mot de passe du compte **admin** par défaut :
 
 ```shell
-bash /tmp/unattended.sh install -t central -v 24.04 -r stable -s -p <admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+bash /tmp/unattended.sh install -t central -v 24.10 -r stable -s -p <admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```
 
 * Pour obtenir un mot de passe autogénéré pour le compte **admin** par défaut (le script vous indiquera où le mot de passe est stocké) :
 
 ```shell
-bash /tmp/unattended.sh install -t central -v 24.04 -r stable -s -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+bash /tmp/unattended.sh install -t central -v 24.10 -r stable -s -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```
 
 Dans les deux cas, vous obtiendrez un fichier de log complet avec toutes les erreurs dans votre répertoire **tmp**, fichier nommé **unattended(date).log**.
 
-4. Une fois le script exécuté, suivez les [étapes 5 à 8 de la procédure d'installation standard d'un serveur distant](./using-packages.md#step-5-register-the-server).
+4. Une fois le script exécuté, suivez les [étapes 4 à 8 de la procédure d'installation standard d'un serveur distant](./using-packages.md#step-5-register-the-server).
 
 ## Aide
 

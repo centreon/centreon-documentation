@@ -17,7 +17,7 @@ désinstallez le module **centreon-poller-display-central**
     ```
 
 Puis suivez la [procédure de migration](../migrate/migrate-from-3-4.md) d'un serveur Centreon
-Central vers 24.04.
+Central vers 24.10.
 
 > Si vous possédez des modules Centreon EMS, il est nécessaire de mettre à jour
 > ces dépôts. Contactez votre support Centreon pour obtenir ces derniers. Demandez
@@ -165,7 +165,7 @@ Failed connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 24.04.
+> La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 24.10.
 
 6. Ajout des droits pour l'utilsateur de base de données centreon d'utiliser la
 commande **LOAD DATA INFILE**:
