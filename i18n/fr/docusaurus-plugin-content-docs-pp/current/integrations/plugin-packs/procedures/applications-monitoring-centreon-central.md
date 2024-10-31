@@ -195,8 +195,8 @@ Vous pouvez ignorer les étapes ci-dessous si vous êtes dans ce cas-là.
 > NB : Il est très fortement recommandé de superviser le central à partir d'un collecteur plutôt qu'à partir du central.
 
 Ouvrir une session en ligne de commande sur :
-- le poller qui sera chargé de superviser le central
-- le central
+* le poller qui sera chargé de superviser le central
+* le central
 
 Une fois ces sessions ouvertes, lancer cette commande :
 
