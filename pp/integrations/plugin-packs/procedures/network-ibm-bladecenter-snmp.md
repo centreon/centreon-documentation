@@ -5,12 +5,6 @@ title: IBM Bladecenter Switch
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Overview
-
-IBM develops, manufactures and sells hardware, middleware, software and other
-services and products. Created in 2002, IBM BladeCenter was IBM's blade server
-architecture.
-
 ## Pack assets
 
 ### Templates
