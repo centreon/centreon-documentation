@@ -12,8 +12,8 @@ Vous pouvez ensuite facilement les consulter, y effectuer des recherches pour id
 codes d’erreur spécifiques ou des modèles, les filtrer en fonction de champs spécifiques ou 
 les archiver en toute sécurité à des fins d’analyse ultérieure.
 
-> **Attention** Ce Plugin est susceptible de générer un volume importants de données lors des requêtes API.
-> Il est indispensable d'utiliser les fonctionnalités de filtrage de celui-ci (```--group-name``` and ```--stream-name```) afin
+> **Attention**: Ce plugin est susceptible de générer un volume important de données lors des requêtes API.
+> Il est indispensable d'utiliser les fonctionnalités de filtrage de celui-ci (```--group-name``` et ```--stream-name```) afin
 > de limiter les résultats retournés par l'API.
 
 ## Dépendances du Connecteur de supervision
