@@ -15,6 +15,8 @@ This chapter describes how to upgrade your Centreon platform from version 24.04 
 
 > If you want to migrate your Centreon platform to another server/OS, follow the [migration procedure](../migrate/introduction.md).
 
+> Version 24.10 means the end of support for Debian 11. If you were using Debian 11, you must first migrate to Debian 12 before you can upgrade Centreon. See [How to migrate from Debian 11 to Debian 12](https://thewatch.centreon.com/product-how-to-21/how-to-migrate-from-debian-11-to-debian-12-3874).
+
 ## Prerequisites
 
 ### Perform a backup

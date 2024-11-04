@@ -16,6 +16,10 @@ Centreon depuis la version 24.04 vers la version 24.10.
 
 > Si vous souhaitez migrer votre serveur Centreon vers Oracle Linux / RHEL 8, vous devez suivre la [procédure de migration](../migrate/introduction.md).
 
+> Utilisateurs de la Business edition : MAP Legacy n'est plus disponible dans Centreon 24.10. Si vous utilisiez toujours MAP Legacy, vous devez migrer vers MAP. Consultez la page [Fin de vie de MAP Legacy](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
+
+> La version 24.10 marque la fin de support pour Debian 11. Si vous utilisiez Debian 11, vous devez d'abord migrer en Debian 12 avant d'upgrader Centreon. Voir [How to migrate from Debian 11 to Debian 12](https://thewatch.centreon.com/product-how-to-21/how-to-migrate-from-debian-11-to-debian-12-3874).
+
 ## Prérequis
 
 ### Sauvegarde
