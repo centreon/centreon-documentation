@@ -1,0 +1,178 @@
+---
+id: centreon-commercial-extensions
+title: Commercial extensions
+---
+
+import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
+
+## Introduction
+
+You can find in this chapter all changelogs concerning **Centreon Commercial Extension**.
+
+> It is very important when you update your system to refer to this section in order to learn about behavior changes or
+> major changes that have been made on this version. This will let you know the impact of the installation of these
+> versions on the features you use or the specific developments that you have built on your platform (modules,
+> widgets, plugins).
+
+If you have feature requests or want to report a bug, please contact support.
+
+Read more about version 24.10 in our [blog post](https://www.centreon.com/centreon-announces-its-latest-software-release-centreon-24-10/).
+
+<ExpandCollapseAll />
+
+## Centreon MAP
+
+### 24.10.0
+
+Release date: `October 31, 2024`
+
+<details open>
+  <summary>Map Legacy retirement</summary>
+
+> **MAP Legacy is no longer available.**
+- If you have used MAP Legacy in the past, or are still using Map Legacy and want to know more about how to migrate to MAP, read [MAP Legacy end of life](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
+
+</details>
+
+<details open>
+  <summary>Enhancements</summary>
+
+**Server**
+- Optimized the way the global map status is calculated.
+- Adapted Protobuf to handle the new "AdaptiveHostStatus", "AdaptiveServiceStatus" and "pb_instance_configuration" events from Broker.
+- Improved logs related to Broker event processing and made event queue size configurable.
+- Improved the parsing of Broker events on creation and deletion of resources.
+- Increased the default log level to INFO for map-engine.
+- Fixed access control for some v2 API endpoints.
+- Packaged SELinux rules for centreon-map and centreon-mbi.
+
+**Editor**
+- You can now hide container labels.
+- Increased the number of available fonts and made Roboto the default one.
+
+**Viewer**
+- You can now display a host name for a service.
+- You can now display the status as background color for a resource in weather style.
+
+**GeoViews**
+- Redesigned the edit window.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a synchronization issue that could cause resources to disappear from a map.
+- Fixed concurrent access issues causing exceptions in the viewer.
+- When using Service Templates or Hostgroup Services, the status of Service groups is now displayed correctly.
+
+</details>
+
+## Centreon BAM
+
+### 24.10.0
+
+Release date: `October 31, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+**Dashboards**
+- A new "Business Activity Diagram" widget is now available.
+- Business Activities and Business Views can now be displayed in the Status Grid widget.
+
+</details>
+
+## Centreon MBI
+
+### 24.10.0
+
+Release date: `October 31, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- The CBIS service is now started using systemd's configuration.
+- Packaged SELinux rules for centreon-map and centreon-mbi.
+
+</details>
+
+## Centreon Auto Discovery
+
+### 24.10.0
+
+Release date: `October 31, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Fixed access control for some v2 API endpoints.
+
+</details>
+
+## Centreon License Manager
+
+### 24.10.0
+
+Release date: `October 31, 2024`
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 24.10 components.
+
+</details>
+
+## Centreon Anomaly Detection
+
+### 24.10.0
+
+Release date: `October 31, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Improved ergonomics by displaying the entire window with a default screen resolution, making all buttons visible.
+
+</details>
+
+## Centreon IT Edition Extensions
+
+### 24.10.0
+
+Release date: `October 31, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+**Dashboard playlists**
+- Added unauthenticated playlists for TV projection.
+- A new PATCH endpoint has been added for updating playlists.
+
+</details>
+
+## Centreon IT & Business Extensions
+
+### 24.10.0
+
+Release date: `October 31, 2024`
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 24.10 components.
+
+</details>
+
+## Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager)
+
+### 24.10.0
+
+Release date: `October 31, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Updated the links from the Monitoring Connector manager to the Monitoring Connectors documentation.
+
+</details>
