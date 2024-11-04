@@ -7,4 +7,4 @@ Les procédures de migration s'appliquent dans le cas où vous souhaitez install
 
 Dans les cas où vous souhaitez simplement changer de version de Centreon alors que celui-ci est installé sur un OS supporté, utilisez les [procédures d'upgrade](../upgrade/introduction.md).
 
-> La version 24.10  marque la fin du support de Debian 11: voir [How to migrate from Debian 11 to Debian 12](https://thewatch.centreon.com/product-how-to-21/how-to-migrate-from-debian-11-to-debian-12-3874).
+> La version 24.10 marque la fin du support de Debian 11 : voir [How to migrate from Debian 11 to Debian 12](https://thewatch.centreon.com/product-how-to-21/how-to-migrate-from-debian-11-to-debian-12-3874).
