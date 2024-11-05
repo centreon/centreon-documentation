@@ -58,7 +58,6 @@ Here is the list of services for this connector, detailing all metrics and statu
 | Name   | Unit  |
 |:-------|:------|
 | metric | N/A   |
-| metric | N/A   |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
