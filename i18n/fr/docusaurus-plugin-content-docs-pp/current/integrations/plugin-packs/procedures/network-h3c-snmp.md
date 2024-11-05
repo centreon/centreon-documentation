@@ -86,8 +86,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 | Nom               | Unité |
 |:------------------|:------|
-| count_<component> | count |
-| temp_<instance>   | C     |
+| count_component | count |
+| temp_instance   | C     |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
