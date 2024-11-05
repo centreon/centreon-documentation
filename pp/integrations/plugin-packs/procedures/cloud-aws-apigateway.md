@@ -261,8 +261,8 @@ is able to monitor an AWS Instance using a command like this one (replace the sa
 	--plugin=cloud::aws::apigateway::plugin \
 	--mode=requests \
 	--custommode='awscli' \
-	--aws-secret-key='' \
-	--aws-access-key='' \
+	--aws-secret-key='XXXX' \
+	--aws-access-key='XXXX' \
 	--aws-role-arn='' \
 	--region='us-east-1' \
 	--api-name='' \
