@@ -85,8 +85,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 | Name              | Unit  |
 |:------------------|:------|
-| count_<component> | count |
-| temp_<instance>   | C     |
+| count_component | count |
+| temp_instance   | C     |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
