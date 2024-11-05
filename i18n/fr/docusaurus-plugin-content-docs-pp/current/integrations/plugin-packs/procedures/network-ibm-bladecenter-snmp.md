@@ -5,11 +5,6 @@ title: IBM Bladecenter Switch
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Vue d'ensemble
-
-IBM développe, fabrique et vend du matériel, des logiciels, des middlewares et
-autres services et produits informatiques. Créée en 2002, IBM BladeCenter est
-l'architecture de serveurs lames d'IBM.
 
 ## Contenu du pack
 
@@ -30,7 +25,7 @@ Le connecteur apporte les modèles de service suivants
 | Cpu            | Net-IBM-Bladecenter-Cpu-custom                 | Contrôle permettant de vérifier l'utilisation processeur            |
 | Environment    | Net-IBM-Bladecenter-Environment-custom         | Contrôle l'état du matériel            |
 | Memory Usage   | Net-IBM-Bladecenter-Memory-Usage-custom        | Contrôle l'utilisation mémoire            |
-| Traffic-Global | Net-IBM-Bladecenter-Traffic-Global-SNMP-custom | Contrôle le traffic réseau de plusieurs interfaces réseau            |
+| Traffic-Global | Net-IBM-Bladecenter-Traffic-Global-SNMP-custom | Contrôle le trafic réseau de plusieurs interfaces réseau            |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-IBM-Bladecenter-SNMP-custom** est utilisé.
 
@@ -44,8 +39,8 @@ Le connecteur apporte les modèles de service suivants
 | Packet-Errors-Global       | Net-IBM-Bladecenter-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau            |
 | Storage                    | Net-IBM-Bladecenter-Disk-Usage-custom                      | Contrôle le système de stockage            |
 | Time                       | Net-IBM-Bladecenter-Time-custom                            | Contrôle le décalage de temps            |
-| Traffic-Generic-Id         | Net-IBM-Bladecenter-Traffic-Generic-Id-SNMP-custom         | Contrôle le traffic réseau d'une interface réseau            |
-| Traffic-Generic-Name       | Net-IBM-Bladecenter-Traffic-Generic-Name-SNMP-custom       | Contrôle le traffic réseau d'une interface réseau            |
+| Traffic-Generic-Id         | Net-IBM-Bladecenter-Traffic-Generic-Id-SNMP-custom         | Contrôle le trafic réseau d'une interface réseau            |
+| Traffic-Generic-Name       | Net-IBM-Bladecenter-Traffic-Generic-Name-SNMP-custom       | Contrôle le trafic réseau d'une interface réseau            |
 | Uptime                     | Net-IBM-Bladecenter-Uptime-custom                          | Durée depuis laquelle l'équipement tourne sans interruption            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
@@ -150,7 +145,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-Pour utiliser ce connecteur de supervision, vous devez configurer le service SNMP sur l'IBM
+Pour utiliser ce connecteur de supervision, vous devez configurer le service SNMP sur le serveur IBM
 BladeCenter. Une description complète est disponible sur le site officiel de Cisco:
 
 * Avec l'interface Web de BladeCenter : https://bladecenter.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.bladecenter.mgtmod.doc%2Fkp1ag_bc_mmug_configsnmp
@@ -159,7 +154,7 @@ BladeCenter. Une description complète est disponible sur le site officiel de Ci
 ### Flux réseaux
 
 Les collecteurs Centreon doivent pouvoir communiquer via le port UDP/161 SNMP
-avec l'IBM BladeCenter.
+avec le serveur IBM BladeCenter.
 
 ## Installer le connecteur de supervision
 

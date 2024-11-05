@@ -37,8 +37,8 @@ The connector brings the following service templates (sorted by the host templat
 | Packet-Errors-Global       | Net-IBM-Bladecenter-Packet-Errors-Global-SNMP-custom       | Check packets in error and discarded packets for multiple network interfaces                    |
 | Storage                    | Net-IBM-Bladecenter-Disk-Usage-custom                      | Check system storage                    |
 | Time                       | Net-IBM-Bladecenter-Time-custom                            | Check time offset                    |
-| Traffic-Generic-Id         | Net-IBM-Bladecenter-Traffic-Generic-Id-SNMP-custom         | Check traffic of an network interface                    |
-| Traffic-Generic-Name       | Net-IBM-Bladecenter-Traffic-Generic-Name-SNMP-custom       | Check traffic of an network interface                    |
+| Traffic-Generic-Id         | Net-IBM-Bladecenter-Traffic-Generic-Id-SNMP-custom         | Check traffic of a network interface                    |
+| Traffic-Generic-Name       | Net-IBM-Bladecenter-Traffic-Generic-Name-SNMP-custom       | Check traffic of a network interface                    |
 | Uptime                     | Net-IBM-Bladecenter-Uptime-custom                          | Time since the device has been working and available                   |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
@@ -146,8 +146,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 To use this pack, the SNMP service must be properly configured on your
 IBM BladeCenter server. Lenovo provides an official documentation
 to achieve this:
-* Throught BladeCenter Web Interface: https://bladecenter.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.bladecenter.mgtmod.doc%2Fkp1ag_bc_mmug_configsnmp
-* Throught BladeCenter Command-Line Interface : https://bladecenter.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.bladecenter.advmgtmod.doc%2Fkp1bc_bc_cli_snmp
+* Through the BladeCenter Web Interface: https://bladecenter.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.bladecenter.mgtmod.doc%2Fkp1ag_bc_mmug_configsnmp
+* Through the BladeCenter Command-Line Interface : https://bladecenter.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.bladecenter.advmgtmod.doc%2Fkp1bc_bc_cli_snmp
 
 ### Network flow
 
