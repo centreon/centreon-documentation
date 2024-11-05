@@ -29,7 +29,7 @@ The connector brings the following service templates (sorted by the host templat
 | Cpu           | Net-Hirschmann-Standard-Cpu-SNMP-custom       | Check the rate of utilization of CPU for the device |
 | Hardware      | Net-Hirschmann-Standard-Hardware-SNMP-custom  | Check hardware environment                          |
 | Memory        | Net-Hirschmann-Standard-Memory-SNMP-custom    | Check device memory usage                           |
-| Processes     | Net-Hirschmann-Standard-Processes-SNMP-custom | Check process number of device                      |
+| Processes     | Net-Hirschmann-Standard-Processes-SNMP-custom | Check the number of processes for the device                      |
 
 > The services listed above are created automatically when the **Net-Hirschmann-Standard-SNMP-custom** host template is used.
 
@@ -39,9 +39,9 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias        | Service Template                                         | Service Description                   |
 |:---------------------|:---------------------------------------------------------|:--------------------------------------|
 | Configuration        | Net-Hirschmann-Standard-Configuration-SNMP-custom        | Check configuration                   |
-| Traffic-Generic-Id   | Net-Hirschmann-Standard-Traffic-Generic-Id-SNMP-custom   | Check traffic of an network interface |
-| Traffic-Generic-Name | Net-Hirschmann-Standard-Traffic-Generic-Name-SNMP-custom | Check traffic of an network interface |
-| Traffic-Global       | Net-Hirschmann-Standard-Traffic-Global-SNMP-custom       | Check traffic of an network interface |
+| Traffic-Generic-Id   | Net-Hirschmann-Standard-Traffic-Generic-Id-SNMP-custom   | Check traffic of a network interface |
+| Traffic-Generic-Name | Net-Hirschmann-Standard-Traffic-Generic-Name-SNMP-custom | Check traffic of a network interface |
+| Traffic-Global       | Net-Hirschmann-Standard-Traffic-Global-SNMP-custom       | Check traffic of a network interface |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -113,7 +113,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ### SNMP Configuration
 
-To use this pack, the SNMP service must be properly configured on your **Hirschmann switch** equipment.
+The SNMP agent must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
 
 ### Network flow
 
