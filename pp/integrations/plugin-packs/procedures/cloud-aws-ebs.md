@@ -226,11 +226,11 @@ yum install centreon-plugin-Cloud-Aws-Ebs-Api
 
 | Macro         | Description                                                                                                                              | Default value     | Mandatory   |
 |:--------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| AWSACCESSKEY  | Set AWS access key                                                                                                                       |                   |             |
+| AWSACCESSKEY  | Set AWS access key                                                                                                                       |                   | X           |
 | AWSASSUMEROLE | Set Amazon Resource Name of the role to be assumed                                                                                       |                   |             |
 | AWSCUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option               | awscli            |             |
 | AWSREGION     | Set the region name (required)                                                                                                           |                   | X           |
-| AWSSECRETKEY  | Set AWS secret key                                                                                                                       |                   |             |
+| AWSSECRETKEY  | Set AWS secret key                                                                                                                       |                   | X           |
 | AWSVOLUMEID   | Set the VolumeId (required)                                                                                                              |                   | X           |
 | PROXYURL      | Proxy URL if any                                                                                                                         |                   |             |
 | EXTRAOPTIONS  | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
@@ -299,10 +299,10 @@ is able to monitor an AWS Instance using a command like this one (replace the sa
 	--plugin=cloud::aws::ebs::plugin \
 	--mode=volumeio \
 	--custommode='awscli' \
-	--aws-secret-key='' \
-	--aws-access-key='' \
+	--aws-secret-key='XXXX' \
+	--aws-access-key='XXXX' \
 	--aws-role-arn='' \
-	--region='' \
+	--region='eu-west-1' \
 	--volume-id='' \
 	--proxyurl=''  \
 	--warning-volume-read-bytes='' \

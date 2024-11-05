@@ -11,7 +11,7 @@ pour les charges de travail exigeantes en débit et en transactions à n'importe
 Des charges de travail variées, telles que des bases de données relationnelles et non relationnelles, des applications d'entreprise, des applications conteneurisées, des moteurs d'analyse Big Data, 
 des systèmes de fichiers et des workflows multimédias, sont largement déployées sur Amazon EBS.
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Amazon EBS** 
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -98,7 +98,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ### Privilèges AWS
 
-Configurez un compte de service (via une combinaison d'access et secret key) et affectez-lui les privilèges suivants :
+Configurez un compte de service (via une combinaison d'access key et secret key) et affectez-lui les privilèges suivants :
 * cloudwatch:getMetricStatistics
 * ec2:DescribeVolumes
 
@@ -224,11 +224,11 @@ yum install centreon-plugin-Cloud-Aws-Ebs-Api
 
 | Macro         | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
 |:--------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| AWSACCESSKEY  | Set AWS access key                                                                                                                                 |                   |             |
+| AWSACCESSKEY  | Set AWS access key                                                                                                                                 |                   | X           |
 | AWSASSUMEROLE | Set Amazon Resource Name of the role to be assumed                                                                                                 |                   |             |
 | AWSCUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option                         | awscli            |             |
 | AWSREGION     | Set the region name (required)                                                                                                                     |                   | X           |
-| AWSSECRETKEY  | Set AWS secret key                                                                                                                                 |                   |             |
+| AWSSECRETKEY  | Set AWS secret key                                                                                                                                 |                   | X           |
 | AWSVOLUMEID   | Set the VolumeId (required)                                                                                                                        |                   | X           |
 | PROXYURL      | Proxy URL if any                                                                                                                                   |                   |             |
 | EXTRAOPTIONS  | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
@@ -299,10 +299,10 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=cloud::aws::ebs::plugin \
 	--mode=volumeio \
 	--custommode='awscli' \
-	--aws-secret-key='' \
-	--aws-access-key='' \
+	--aws-secret-key='XXXX' \
+	--aws-access-key='XXXX' \
 	--aws-role-arn='' \
-	--region='' \
+	--region='eu-west-1' \
 	--volume-id='' \
 	--proxyurl=''  \
 	--warning-volume-read-bytes='' \
