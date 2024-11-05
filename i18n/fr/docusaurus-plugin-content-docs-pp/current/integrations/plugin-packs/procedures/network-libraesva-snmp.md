@@ -58,7 +58,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 | Nom de la règle                   | Description                                                             |
 |:----------------------------------|:------------------------------------------------------------------------|
 | Net-Libraesva-SNMP-Interface-Name | Découvre les interfaces réseau et supervise le statut et l'utilisation |
-| Net-Libraesva-SNMP-Storage-Name   | Découvre les partitions de disque et surveille l'occupation de l'espace               |
+| Net-Libraesva-SNMP-Storage-Name   | Découvre les partitions de disque et contrôle l'occupation de l'espace               |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).

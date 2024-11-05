@@ -33,7 +33,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias | Service Template                     | Service Description         | Discovery  |
 |:--------------|:-------------------------------------|:----------------------------|:----------:|
 | Interfaces    | Net-Libraesva-Interfaces-SNMP-custom | Check interfaces            | X          |
-| Storage       | Net-Libraesva-Storage-SNMP-custom    | Check storage device usages | X          |
+| Storage       | Net-Libraesva-Storage-SNMP-custom    | Check storage device usage | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
