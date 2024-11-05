@@ -29,7 +29,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                   | Modèle de service                            | Description                      |
 |:------------------------|:---------------------------------------------|:---------------------------------|
-| ElastiCache-Connections | Cloud-Aws-ElastiCache-Connections-Api-custom | Contrôle le nombre de connexion  |
+| ElastiCache-Connections | Cloud-Aws-ElastiCache-Connections-Api-custom | Contrôle le nombre de connexions  |
 | ElastiCache-Cpu         | Cloud-Aws-ElastiCache-Cpu-Api-custom         | Contrôle l'utilisation CPU       |
 | ElastiCache-Evictions   | Cloud-Aws-ElastiCache-Evictions-Api-custom   | Contrôle le nombre d'évictions   |
 | ElastiCache-Items       | Cloud-Aws-ElastiCache-Items-Api-custom       | Contrôle le nombre d'items       |
@@ -44,7 +44,7 @@ Le connecteur apporte les modèles de service suivants
 |:------------------------|:----------------------------------------------------|:-------------------------------------------------|
 | ElastiCache-Commands    | Cloud-Aws-ElastiCache-Commands-Memcached-Api-custom | Contrôle les performances du cache Memcached     |
 | ElastiCache-Commands    | Cloud-Aws-ElastiCache-Commands-Redis-Api-custom     | Contrôle les performances du cache Redis         |
-| ElastiCache-Connections | Cloud-Aws-ElastiCache-Connections-Api-custom        | Contrôle le nombre de connexion                  |
+| ElastiCache-Connections | Cloud-Aws-ElastiCache-Connections-Api-custom        | Contrôle le nombre de connexions                 |
 | ElastiCache-Cpu         | Cloud-Aws-ElastiCache-Cpu-Api-custom                | Contrôle l'utilisation CPU                       |
 | ElastiCache-Evictions   | Cloud-Aws-ElastiCache-Evictions-Api-custom          | Contrôle le nombre d'évictions                   |
 | ElastiCache-Items       | Cloud-Aws-ElastiCache-Items-Api-custom              | Contrôle le nombre d'items                       |
@@ -63,7 +63,7 @@ Le connecteur apporte les modèles de service suivants
 |:------------------------|:----------------------------------------------------|:-------------------------------------------------|
 | ElastiCache-Commands    | Cloud-Aws-ElastiCache-Commands-Memcached-Api-custom | Contrôle les performances du cache Memcached     |
 | ElastiCache-Commands    | Cloud-Aws-ElastiCache-Commands-Redis-Api-custom     | Contrôle les performances du cache Redis         |
-| ElastiCache-Connections | Cloud-Aws-ElastiCache-Connections-Api-custom        | Contrôle le nombre de connexion                  |
+| ElastiCache-Connections | Cloud-Aws-ElastiCache-Connections-Api-custom        | Contrôle le nombre de connexions                  |
 | ElastiCache-Cpu         | Cloud-Aws-ElastiCache-Cpu-Api-custom                | Contrôle l'utilisation CPU                       |
 | ElastiCache-Evictions   | Cloud-Aws-ElastiCache-Evictions-Api-custom          | Contrôle le nombre d'évictions                   |
 | ElastiCache-Items       | Cloud-Aws-ElastiCache-Items-Api-custom              | Contrôle le nombre d'items                       |
@@ -177,11 +177,11 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ### Privilèges AWS
 
-Configurez un compte de service (via une combinaison d'access et secret key) et affectez-lui les privilèges suivants :
+Configurez un compte de service (via une combinaison d'access key et secret key) et affectez-lui les privilèges suivants :
 * cloudwatch:getMetricStatistics
 * elasticache:describeCacheClusters
 
-### Dépendances du Plugin
+### Dépendances du plugin
 
 Afin de récupérer les informations nécessaires via les APIs AWS, il est possible d'utiliser soit le binaire *awscli* fourni par Amazon, soit le SDK Perl *paws*. Le SDK est recommandé car plus performant.
 
@@ -350,13 +350,13 @@ yum install centreon-plugin-Cloud-Aws-Elasticache-Api
 
 | Macro           | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| AWSACCESSKEY    | Set AWS access key                                                                                                                                 |                   |             |
+| AWSACCESSKEY    | Set AWS access key                                                                                                                                 |                   | X           |
 | AWSASSUMEROLE   | Set Amazon Resource Name of the role to be assumed                                                                                                 |                   |             |
 | AWSCUSTOMMODE   | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option                         | paws              |             |
 | AWSINSTANCENAME | Set the cluster name (required) (can be defined multiple times)                                                                                    |                   | X           |
 | AWSNODEID       | Set the node ID (optional)                                                                                                                         |                   |             |
 | AWSREGION       | Set the region name (required)                                                                                                                     |                   | X           |
-| AWSSECRETKEY    | Set AWS secret key                                                                                                                                 |                   |             |
+| AWSSECRETKEY    | Set AWS secret key                                                                                                                                 |                   | X           |
 | PROXYURL        | Proxy URL if any                                                                                                                                   |                   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
@@ -531,10 +531,10 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=cloud::aws::elasticache::plugin \
 	--mode=cpu \
 	--custommode='' \
-	--aws-secret-key='' \
-	--aws-access-key='' \
+	--aws-secret-key='XXXX' \
+	--aws-access-key='XXXX' \
 	--aws-role-arn='' \
-	--region='' \
+	--region='eu-west-1' \
 	--name='' \
 	--node-id='' \
 	--proxyurl=''  \

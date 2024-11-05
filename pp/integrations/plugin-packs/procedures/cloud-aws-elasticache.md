@@ -28,10 +28,10 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias           | Service Template                             | Service Description      |
 |:------------------------|:---------------------------------------------|:-------------------------|
-| ElastiCache-Connections | Cloud-Aws-ElastiCache-Connections-Api-custom | Check connections number |
+| ElastiCache-Connections | Cloud-Aws-ElastiCache-Connections-Api-custom | Check the number of connections |
 | ElastiCache-Cpu         | Cloud-Aws-ElastiCache-Cpu-Api-custom         | Check CPU utilization    |
-| ElastiCache-Evictions   | Cloud-Aws-ElastiCache-Evictions-Api-custom   | Check evictions number   |
-| ElastiCache-Items       | Cloud-Aws-ElastiCache-Items-Api-custom       | Check items number       |
+| ElastiCache-Evictions   | Cloud-Aws-ElastiCache-Evictions-Api-custom   | Check the number of evictions |
+| ElastiCache-Items       | Cloud-Aws-ElastiCache-Items-Api-custom       | Check the number of items      |
 | ElastiCache-Network     | Cloud-Aws-ElastiCache-Network-Api-custom     | Check network usage      |
 
 > The services listed above are created automatically when the **Cloud-Aws-ElastiCache-custom** host template is used.
@@ -329,13 +329,13 @@ yum install centreon-plugin-Cloud-Aws-Elasticache-Api
 
 | Macro           | Description                                                                                                                | Default value     | Mandatory   |
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| AWSACCESSKEY    | Set AWS access key                                                                                                         |                   |             |
+| AWSACCESSKEY    | Set AWS access key                                                                                                         |                   | X            |
 | AWSASSUMEROLE   | Set Amazon Resource Name of the role to be assumed                                                                         |                   |             |
 | AWSCUSTOMMODE   | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | paws              |             |
 | AWSINSTANCENAME | Set the cluster name (required) (can be defined multiple times)                                                            |                   | X           |
 | AWSNODEID       | Set the node ID (optional)                                                                                                 |                   |             |
 | AWSREGION       | Set the region name (required)                                                                                             |                   | X           |
-| AWSSECRETKEY    | Set AWS secret key                                                                                                         |                   |             |
+| AWSSECRETKEY    | Set AWS secret key                                                                                                         |                   | X           |
 | PROXYURL        | Proxy URL if any                                                                                                           |                   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                       |                   |             |
 
@@ -530,10 +530,10 @@ is able to monitor an AWS Instance using a command like this one (replace the sa
 	--plugin=cloud::aws::elasticache::plugin \
 	--mode=cpu \
 	--custommode='' \
-	--aws-secret-key='' \
-	--aws-access-key='' \
+	--aws-secret-key='XXXX' \
+	--aws-access-key='XXXX' \
 	--aws-role-arn='' \
-	--region='' \
+	--region='eu-west-1' \
 	--name='' \
 	--node-id='' \
 	--proxyurl=''  \
