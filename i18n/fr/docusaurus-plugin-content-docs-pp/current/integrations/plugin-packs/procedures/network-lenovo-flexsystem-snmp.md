@@ -5,10 +5,6 @@ title: Lenovo Flex System Switch
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Vue d'ensemble
-
-Lenovo développe, fabrique et vend du matériel et logiciels informatiques.
-Lenovo Flex System est l'architecture de serveurs lames de Lenovo.
 
 ## Contenu du pack
 
@@ -133,7 +129,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 | *interface_name*#interface.traffic.in.bitspersecond  | b/s   |
 | *interface_name*#interface.traffic.out.bitspersecond | b/s   |
 
-> Concerne les modèles de service suivants : Traffic-Generic-Id, Traffic-Generic-Name, Traffic-Global
+> Concerne les modèles de service suivants : Traffic-Generic-Id, Traffic-Generic-Name, Traffic-Global.
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">

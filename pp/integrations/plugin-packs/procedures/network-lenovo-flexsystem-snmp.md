@@ -5,10 +5,6 @@ title: Lenovo Flex System Switch
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Overview
-
-Lenovo develops, manufactures and sells computer hardware and software. Flex
-System is Lenovo's blade server architecture.
 
 ## Pack assets
 
@@ -151,8 +147,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 To use this pack, the SNMP service must be properly configured on your
 Flex System blade server. Lenovo provides an official documentation
 to achieve this:
-* Throught the CMM Web console : https://sysmgt.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.lxci_hwmp_scom.doc%2Fhwmp_enable_snmp_agent
-* Throught the CMM Command-Line Interface : https://flexsystem.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.acc.cmm.doc%2Fcli_command_snmp
+* Through the CMM Web console : https://sysmgt.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.lxci_hwmp_scom.doc%2Fhwmp_enable_snmp_agent
+* Through the CMM Command-Line Interface : https://flexsystem.lenovofiles.com/help/index.jsp?topic=%2Fcom.lenovo.acc.cmm.doc%2Fcli_command_snmp
 
 ### Network flow
 
@@ -210,7 +206,7 @@ When this feature is enabled, you can skip the installation part below.
 
 You still have to manually install the plugin on the poller(s) when:
 - Automatic plugin installation is turned off
-- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet.
 
 > More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
 
