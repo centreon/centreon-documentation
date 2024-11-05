@@ -5,7 +5,7 @@ title: Hirschmann switch SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Hirschmann switch** 
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -40,9 +40,9 @@ Le connecteur apporte les modèles de service suivants
 | Alias                | Modèle de service                                        | Description                                       |
 |:---------------------|:---------------------------------------------------------|:--------------------------------------------------|
 | Configuration        | Net-Hirschmann-Standard-Configuration-SNMP-custom        | Contrôle l'état de la configuration               |
-| Traffic-Generic-Id   | Net-Hirschmann-Standard-Traffic-Generic-Id-SNMP-custom   | Contrôle le traffic réseau d'une interface réseau |
-| Traffic-Generic-Name | Net-Hirschmann-Standard-Traffic-Generic-Name-SNMP-custom | Contrôle le traffic réseau d'une interface réseau |
-| Traffic-Global       | Net-Hirschmann-Standard-Traffic-Global-SNMP-custom       | Contrôle le traffic réseau d'une interface réseau |
+| Traffic-Generic-Id   | Net-Hirschmann-Standard-Traffic-Generic-Id-SNMP-custom   | Contrôle le trafic réseau d'une interface réseau |
+| Traffic-Generic-Name | Net-Hirschmann-Standard-Traffic-Generic-Name-SNMP-custom | Contrôle le trafic réseau d'une interface réseau |
+| Traffic-Global       | Net-Hirschmann-Standard-Traffic-Global-SNMP-custom       | Contrôle le trafic réseau d'une interface réseau |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -114,7 +114,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ### Configuration SNMP
 
-Afin de superviser votre **Hirschmann switch** en SNMP, il est nécessaire de configurer l'agent sur l'équipement.
+L'agent SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
 
 ### Flux réseau
 
