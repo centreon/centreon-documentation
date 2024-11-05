@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                   | Service Description |
 |:--------------|:-----------------------------------|:--------------------|
-| Cpu           | Net-Hp-Moonshot-Cpu-SNMP-custom    | Check cpu           |
+| Cpu           | Net-Hp-Moonshot-Cpu-SNMP-custom    | Check CPU           |
 | Memory        | Net-Hp-Moonshot-Memory-SNMP-custom | Check memory        |
 
 > The services listed above are created automatically when the **Net-Hp-Moonshot-SNMP-custom** host template is used.
