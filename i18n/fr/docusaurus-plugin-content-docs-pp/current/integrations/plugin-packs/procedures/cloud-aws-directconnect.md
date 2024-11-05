@@ -5,7 +5,7 @@ title: Amazon Direct Connect
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Amazon Direct Connect** 
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -89,7 +89,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ### Privilèges AWS
 
-Configurez un compte de service (via une combinaison d'access et secret key) et affectez-lui les privilèges suivants :
+Configurez un compte de service (via une combinaison d'access key et secret key) et affectez-lui les privilèges suivants :
 * directconnect:describe-connections
 * directconnect:describe-virtual-interfaces
 * cloudwatch:getMetricStatistics
@@ -216,11 +216,11 @@ yum install centreon-plugin-Cloud-Aws-Directconnect-Api
 
 | Macro         | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
 |:--------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| AWSACCESSKEY  | Set AWS access key                                                                                                                                 |                   |             |
+| AWSACCESSKEY  | Set AWS access key                                                                                                                                 |                   | X           |
 | AWSASSUMEROLE | Set Amazon Resource Name of the role to be assumed                                                                                                 |                   |             |
 | AWSCUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option                         | awscli            |             |
 | AWSREGION     | Set the region name (required)                                                                                                                     |                   | X           |
-| AWSSECRETKEY  | Set AWS secret key                                                                                                                                 |                   |             |
+| AWSSECRETKEY  | Set AWS secret key                                                                                                                                 |                   | X           |
 | CONNECTIONID  | Filter connection ID (can be a regexp)                                                                                                             |                   |             |
 | PROXYURL      | Proxy URL if any                                                                                                                                   |                   |             |
 | EXTRAOPTIONS  | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
@@ -298,7 +298,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--aws-secret-key='' \
 	--aws-access-key='' \
 	--aws-role-arn='' \
-	--region='' \
+	--region='eu-west-1' \
 	--proxyurl=''  \
 	--statistic='average' \
 	--timeframe='600' \
