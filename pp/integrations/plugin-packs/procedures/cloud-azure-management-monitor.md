@@ -29,7 +29,7 @@ The connector brings the following service templates (sorted by the host templat
 | Get-Metrics   | Cloud-Azure-Management-Monitor-Get-Metrics-Api-custom       | Check one or several metrics of a resource |
 | Kusto-Query   | Cloud-Azure-Management-Log-Analytics-Kusto-Query-Api-custom | Query Log Analytics API using KQL syntax   |
 
-> The list and descriptions of metrics available for Azure resources are [here](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/metrics-index).
+> Find [here the list and descriptions of metrics available for Azure resources](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/metrics-index).
 > The services listed above are created automatically when the **Cloud-Azure-Management-Monitor-custom** host template is used.
 
 </TabItem>
@@ -44,7 +44,6 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 | Name   | Unit  |
 |:-------|:------|
-| metric | N/A   |
 | metric | N/A   |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
