@@ -11,8 +11,8 @@ and AWS services that you use, in a single, highly scalable service. You can the
 search them for specific error codes or patterns, filter them based on specific fields, 
 or archive them securely for future analysis.
 
-> This Plugin may generate very huge queries toward CloudWatch Logs API. Make sure to use filtering capability
-> with ```--group-name``` and ```--stream-name``` options. 
+> This plugin may generate very huge queries toward the CloudWatch Logs API. Make sure you use the plugin's filtering capabilities
+> using the```--group-name``` and ```--stream-name``` options. 
 
 ## Connector dependencies
 
@@ -33,7 +33,7 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="Cloud-Aws-CloudWatchLogs-custom" label="Cloud-Aws-CloudWatchLogs-custom">
 
-There is no service template linked to this host template.
+No service template is linked to this host template.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
@@ -194,10 +194,10 @@ yum install centreon-plugin-Cloud-Aws-Cloudwatchlogs-Api
 
 | Macro         | Description                                                                                                                | Default value     | Mandatory   |
 |:--------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| AWSACCESSKEY  | Set AWS access key                                                                                                         |                   |             |
+| AWSACCESSKEY  | Set AWS access key                                                                                                         |                   | X           |
 | AWSCUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | awscli            |             |
-| AWSREGION     | Set the region name (required)                                                                                             |                   |             |
-| AWSSECRETKEY  | Set AWS secret key                                                                                                         |                   |             |
+| AWSREGION     | Set the region name (required)                                                                                             |                   | X           |
+| AWSSECRETKEY  | Set AWS secret key                                                                                                         |                   | X           |
 | PROXYURL      | Proxy URL if any                                                                                                           |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -236,11 +236,11 @@ is able to monitor an AWS Instance using a command like this one (replace the sa
 	--plugin=cloud::aws::cloudwatchlogs::plugin \
 	--mode=get-logs \
 	--custommode='awscli' \
-	--aws-secret-key='' \
-	--aws-access-key='' \
+	--aws-secret-key='XXXX' \
+	--aws-access-key='XXXX' \
 	--aws-role-arn='' \
 	--proxyurl=''  \
-	--region='' \
+	--region='eu-west-1' \
 	--group-name='' \
 	--stream-name='' \
 	--start-time-since='' \

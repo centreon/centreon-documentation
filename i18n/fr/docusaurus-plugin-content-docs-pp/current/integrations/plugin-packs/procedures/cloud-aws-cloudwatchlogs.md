@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 
 CloudWatch Logs vous permet de centraliser les journaux de tous vos systèmes ainsi que les 
-applications et les services AWSque vous utilisez au sein d’un seul service hautement évolutif. 
+applications et les services AWS que vous utilisez au sein d’un seul service hautement évolutif. 
 Vous pouvez ensuite facilement les consulter, y effectuer des recherches pour identifier des 
 codes d’erreur spécifiques ou des modèles, les filtrer en fonction de champs spécifiques ou 
 les archiver en toute sécurité à des fins d’analyse ultérieure.
@@ -16,7 +16,7 @@ les archiver en toute sécurité à des fins d’analyse ultérieure.
 > Il est indispensable d'utiliser les fonctionnalités de filtrage de celui-ci (```--group-name``` et ```--stream-name```) afin
 > de limiter les résultats retournés par l'API.
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Amazon CloudWatch Logs** 
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -70,7 +70,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ### Privilèges AWS
 
-Configurez un compte de service (via une combinaison d'access et secret key) et affectez-lui les privilèges suivants :
+Configurez un compte de service (via une combinaison d'access key et secret key) et affectez-lui les privilèges suivants :
 * CloudWatchLogs:DescribeLogGroups
 
 ### Dépendances du Plugin
@@ -195,10 +195,10 @@ yum install centreon-plugin-Cloud-Aws-Cloudwatchlogs-Api
 
 | Macro         | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:--------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| AWSACCESSKEY  | Set AWS access key                                                                                                         |                   |             |
+| AWSACCESSKEY  | Set AWS access key                                                                                                         |                   | X           |
 | AWSCUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | awscli            |             |
-| AWSREGION     | Set the region name (required)                                                                                             |                   |             |
-| AWSSECRETKEY  | Set AWS secret key                                                                                                         |                   |             |
+| AWSREGION     | Set the region name (required)                                                                                             |                   | X           |
+| AWSSECRETKEY  | Set AWS secret key                                                                                                         |                   | X           |
 | PROXYURL      | Proxy URL if any                                                                                                           |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -239,11 +239,11 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=cloud::aws::cloudwatchlogs::plugin \
 	--mode=get-logs \
 	--custommode='awscli' \
-	--aws-secret-key='' \
-	--aws-access-key='' \
+	--aws-secret-key='XXXX' \
+	--aws-access-key='XXXX' \
 	--aws-role-arn='' \
 	--proxyurl=''  \
-	--region='' \
+	--region='eu-west-1' \
 	--group-name='' \
 	--stream-name='' \
 	--start-time-since='' \
