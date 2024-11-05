@@ -21,7 +21,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias | Service Template              | Service Description       |
 |:--------------|:------------------------------|:--------------------------|
 | Alarms        | Net-Meru-Alarms-SNMP-custom   | Check alarms              |
-| Cpu           | Net-Meru-Cpu-SNMP-custom      | Check cpu usage           |
+| Cpu           | Net-Meru-Cpu-SNMP-custom      | Check CPU usage           |
 | Memory        | Net-Meru-Memory-SNMP-custom   | Check memory              |
 | Wireless      | Net-Meru-Wireless-SNMP-custom | Check wireless statistics |
 
