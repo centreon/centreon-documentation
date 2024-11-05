@@ -917,6 +917,7 @@ realm join --user=administrator <YOUR_DOMAIN>
 apt -y install realmd sssd sssd-tools libnss-sss libpam-sss adcli samba-common-bin oddjob oddjob-mkhomedir packagekit krb5-user 
 realm join --user=administrator <YOUR_DOMAIN>
 ```
+
 Il vous sera demandé de saisir le mot de passe de votre compte d'administrateur de domaine.
 
 Dans notre exemple, voici le résultat :
