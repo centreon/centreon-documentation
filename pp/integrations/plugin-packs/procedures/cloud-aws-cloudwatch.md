@@ -197,8 +197,8 @@ yum install centreon-plugin-Cloud-Aws-Cloudwatch-Api
 
 | Macro        | Description        | Default value     | Mandatory   |
 |:-------------|:-------------------|:------------------|:-----------:|
-| AWSACCESSKEY | Set AWS access key |                   |             |
-| AWSSECRETKEY | Set AWS secret key |                   |             |
+| AWSACCESSKEY | Set AWS access key |                   | X           |
+| AWSSECRETKEY | Set AWS secret key |                   | X           |
 | PROXYURL     | Proxy URL if any   |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -253,11 +253,11 @@ is able to monitor an AWS Instance using a command like this one (replace the sa
 	--plugin=cloud::aws::cloudwatch::plugin \
 	--mode=get-metrics \
 	--custommode='awscli' \
-	--aws-secret-key='' \
-	--aws-access-key='' \
+	--aws-secret-key='XXXX' \
+	--aws-access-key='XXXX' \
 	--aws-role-arn='' \
 	--proxyurl=''  \
-	--region='' \
+	--region='eu-west-1' \
 	--namespace='' \
 	--dimension='' \
 	--metric='' \

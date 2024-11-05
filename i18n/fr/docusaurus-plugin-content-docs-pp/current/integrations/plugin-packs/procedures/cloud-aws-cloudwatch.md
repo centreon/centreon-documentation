@@ -5,7 +5,7 @@ title: Amazon CloudWatch
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Amazon CloudWatch** 
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -70,11 +70,11 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ### Privilèges AWS
 
-Configurez un compte de service (via une combinaison d'access et secret key) et affectez-lui les privilèges suivants :
+Configurez un compte de service (via une combinaison d'access key et secret key) et affectez-lui les privilèges suivants :
 * cloudwatch:getMetricStatistics
 * ec2:DescribeVpcs
 
-### Dépendances du Plugin
+### Dépendances du plugin
 
 Afin de récupérer les informations nécessaires via les APIs AWS, il est possible d'utiliser soit le binaire *awscli* fourni par Amazon, soit le SDK Perl *paws*. Le SDK est recommandé car plus performant.
 
@@ -196,8 +196,8 @@ yum install centreon-plugin-Cloud-Aws-Cloudwatch-Api
 
 | Macro        | Description        | Valeur par défaut | Obligatoire |
 |:-------------|:-------------------|:------------------|:-----------:|
-| AWSACCESSKEY | Set AWS access key |                   |             |
-| AWSSECRETKEY | Set AWS secret key |                   |             |
+| AWSACCESSKEY | Set AWS access key |                   | X           |
+| AWSSECRETKEY | Set AWS secret key |                   | X           |
 | PROXYURL     | Proxy URL if any   |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -258,7 +258,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--aws-access-key='' \
 	--aws-role-arn='' \
 	--proxyurl=''  \
-	--region='' \
+	--region='eu-west-1' \
 	--namespace='' \
 	--dimension='' \
 	--metric='' \
