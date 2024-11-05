@@ -60,7 +60,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-Le service SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+Afin de contrôler l'équipement HP OneView, l'API Rest doit être configuré d'après la [documentation officielle](https://support.hpe.com/connect/s/product?language=fr&kmpmoid=5410258).
 
 ## Installer le connecteur de supervision
 
@@ -230,10 +230,10 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--verbose
 ```
 
-La commande devrait retourner un message de sortie similaire à :
+The expected command output is shown below:
 
 ```bash
-OK: All storage pools are ok | '*pool*#status'=;;;;'*pool*#pool.space.usage.bytes'=B;;;0;total_space'*pool*#pool.space.free.bytes'=B;;;0;total_space'*pool*#pool.space.usage.percentage'=%;;;0;100
+OK: All storage pools are ok | 'pool1#pool.space.usage.bytes'=25979B;;;0;total_space 'pool2#pool.space.usage.bytes'=27165B;;;0;total_space 'pool1#pool.space.free.bytes'=29448B;;;0;total_space 'pool2#pool.space.free.bytes'=42357B;;;0;total_space 'pool1#pool.space.usage.percentage'=77554%;;;0;100 'pool2#pool.space.usage.percentage'=75824%;;;0;100 
 ```
 
 ### Diagnostic des erreurs communes
