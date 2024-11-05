@@ -78,7 +78,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-You have to authorize the client and generate an app_id and a token to monitor your freebox.
+You have to authorize the client and generate an app_id and a token to monitor your Freebox.
 
 - Call the API endpoint to authorize an application, replacing the values with the desired ones:
 
@@ -86,7 +86,7 @@ You have to authorize the client and generate an app_id and a token to monitor y
 
 - Validate within the Freebox UI and keep the token safe
 - Navigate to http://<freebox_ip>/api/v4/login/authorize/<app_id>
-- Check on the webpage that the application is authorized
+- Check on the webpage that the application is authorized.
 
 Keep your <app_id> and obtained token with you as you will need it during the host configuration.
 
