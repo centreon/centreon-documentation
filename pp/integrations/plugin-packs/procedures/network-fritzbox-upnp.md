@@ -59,7 +59,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-To control your Fritz!Box, the UPnP must be configured.
+To monitor your Fritz!Box, the UPnP must be configured. Refer to the [official documentation](https://en.avm.de/service/manuals/fritzbox/).
 
 ## Installing the monitoring connector
 

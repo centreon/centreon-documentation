@@ -60,7 +60,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Afin de contrôler votre équipement Fritz!Box, l'UPnP doit être configuré.
+Afin de contrôler votre équipement Fritz!Box, l'UPnP doit être configuré. Référez vous à la [documentation officielle](https://en.avm.de/service/manuals/fritzbox/).
 
 ## Installer le connecteur de supervision
 
