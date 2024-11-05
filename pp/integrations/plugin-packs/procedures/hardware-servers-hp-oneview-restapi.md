@@ -59,7 +59,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-The SNMP service must be configured and activated on the host. Please refer to the official documentation from the constructor/editor.
+To monitor your HP OneView, the Rest API must be configured using the [official documentation](https://support.hpe.com/connect/s/product?language=fr&kmpmoid=5410258).
 
 ## Installing the monitoring connector
 
@@ -232,7 +232,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All storage pools are ok | '*pool*#status'=;;;;'*pool*#pool.space.usage.bytes'=B;;;0;total_space'*pool*#pool.space.free.bytes'=B;;;0;total_space'*pool*#pool.space.usage.percentage'=%;;;0;100
+OK: All storage pools are ok | 'pool1#pool.space.usage.bytes'=56975B;;;0;total_space 'pool2#pool.space.usage.bytes'=90155B;;;0;total_space 'pool1#pool.space.free.bytes'=2031B;;;0;total_space 'pool2#pool.space.free.bytes'=29252B;;;0;total_space 'pool1#pool.space.usage.percentage'=19590%;;;0;100 'pool2#pool.space.usage.percentage'=44266%;;;0;100 
 ```
 
 ### Troubleshooting
