@@ -29,7 +29,7 @@ Le connecteur apporte les modèles de service suivants
 |:--------------|:----------------------------------------------------------|:---------------------------------------------|
 | Authenticator | Net-Fortinet-Fortiauthenticator-Authenticator-SNMP-custom | Contrôle les statistiques d'authentification |
 | Cpu           | Net-Fortinet-Fortiauthenticator-Cpu-SNMP-custom           | Contrôle du taux d'utilisation CPU           |
-| Disk-Log      | Net-Fortinet-Fortiauthenticator-Disk-Log-SNMP-custom      | Contrôle l'utilisation du disque de log      |
+| Disk-Log      | Net-Fortinet-Fortiauthenticator-Disk-Log-SNMP-custom      | Contrôle l'utilisation du disque de log FortiAuthenticator      |
 | Ha            | Net-Fortinet-Fortiauthenticator-Ha-SNMP-custom            | Contrôle le statut de la haute disponibilité |
 | Memory        | Net-Fortinet-Fortiauthenticator-Memory-SNMP-custom        | Contrôle l'utilisation mémoire               |
 
