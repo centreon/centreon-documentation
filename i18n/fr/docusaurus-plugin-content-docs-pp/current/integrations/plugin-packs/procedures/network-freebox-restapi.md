@@ -79,17 +79,17 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-Il est nécessaire au préalable d'autoriser le client et choisir un _app\_id_ et obtenir un _token_. 
+Il est nécessaire au préalable d'autoriser le client, de choisir un _app\_id_ et d'obtenir un token. 
 
 - Appelez la terminaison API permettant d'autoriser une application, remplacez les valeurs par celles souhaitées:
 
 `curl http://<freebox_ip>/api/v4/login/authorize -d '{"app_id":"centreon","app_name":"centreon","app_version":"3.0","device_name":"Freebox"}'`
 
-- Validez depuis l'écran de la freebox et récupérez le _token_
+- Validez depuis l'écran de la freebox et récupérez le token
 - Ouvrez la page suivante http://<freebox_ip>/api/v4/login/authorize/<app_id>
 - Vérifiez que l'application est correcte et possède les bons droits
 
-Conservez précieusement votre _app\_id_ et le _token_ car ils seront nécessaires durant la configuration de l'hôte.
+Conservez précieusement votre _app\_id_ et le token car ils seront nécessaires durant la configuration de l'hôte.
 
 ## Installer le connecteur de supervision
 
