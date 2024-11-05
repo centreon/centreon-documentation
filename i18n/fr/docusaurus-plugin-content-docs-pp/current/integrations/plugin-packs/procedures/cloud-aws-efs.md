@@ -12,7 +12,7 @@ ajustant automatiquement sa capacité à la hausse ou à la baisse en fonction d
 de la suppression de fichiers. De cette manière, il n’est plus nécessaire d’allouer et 
 de gérer la capacité en fonction de la croissance.
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Amazon EFS** 
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -213,12 +213,12 @@ yum install centreon-plugin-Cloud-Aws-Efs-Api
 
 | Macro           | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
 |:----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| AWSACCESSKEY    | Set AWS access key                                                                                                                                 |                   |             |
+| AWSACCESSKEY    | Set AWS access key                                                                                                                                 |                   | X           |
 | AWSASSUMEROLE   | Set Amazon Resource Name of the role to be assumed                                                                                                 |                   |             |
 | AWSCUSTOMMODE   | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option                         | awscli            |             |
 | AWSFILESYSTEMID | Set the instance name (required) (can be defined multiple times)                                                                                   |                   | X           |
 | AWSREGION       | Set the region name (required)                                                                                                                     |                   | X           |
-| AWSSECRETKEY    | Set AWS secret key                                                                                                                                 |                   |             |
+| AWSSECRETKEY    | Set AWS secret key                                                                                                                                 |                   | X           |
 | PROXYURL        | Proxy URL if any                                                                                                                                   |                   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
@@ -280,10 +280,10 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=cloud::aws::efs::plugin \
 	--mode=datausage \
 	--custommode='awscli' \
-	--aws-secret-key='' \
-	--aws-access-key='' \
+	--aws-secret-key='XXXX' \
+	--aws-access-key='XXXX' \
 	--aws-role-arn='' \
-	--region='' \
+	--region='eu-west-1' \
 	--name='fs-1234abcd' \
 	--proxyurl=''  \
 	--filter-metric='' \
