@@ -356,7 +356,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=54590b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=67975b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=86710b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=80594b/s;80;90;;
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=20b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=20b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=20b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=20b/s;80;90;;
 ```
 
 ### Troubleshooting
