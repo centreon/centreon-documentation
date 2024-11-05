@@ -211,12 +211,12 @@ yum install centreon-plugin-Cloud-Aws-Cloudfront-Api
 
 | Macro         | Description                                                                                                                              | Default value     | Mandatory   |
 |:--------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| AWSACCESSKEY  | Set AWS access key                                                                                                                       |                   |             |
+| AWSACCESSKEY  | Set AWS access key                                                                                                                       |                   | X           |
 | AWSASSUMEROLE | Set Amazon Resource Name of the role to be assumed                                                                                       |                   |             |
 | AWSCUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option               | paws              |             |
 | AWSINSTANCEID | Set the instance ID (required) (can be defined multiple times)                                                                           |                   | X           |
 | AWSREGION     | Set the region name (required)                                                                                                           |                   | X           |
-| AWSSECRETKEY  | Set AWS secret key                                                                                                                       |                   |             |
+| AWSSECRETKEY  | Set AWS secret key                                                                                                                       |                   | X           |
 | PROXYURL      | Proxy URL if any                                                                                                                         |                   |             |
 | EXTRAOPTIONS  | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
@@ -287,11 +287,11 @@ is able to monitor an AWS Instance using a command like this one (replace the sa
 	--plugin=cloud::aws::cloudfront::plugin \
 	--mode=throughput \
 	--custommode='paws' \
-	--aws-secret-key='' \
-	--aws-access-key='' \
+	--aws-secret-key='XXXX' \
+	--aws-access-key='XXXX' \
 	--aws-role-arn='' \
 	--region='' \
-	--id='' \
+	--id='XXXX' \
 	--proxyurl=''  \
 	--filter-metric='' \
 	--statistic='sum' \
