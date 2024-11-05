@@ -34,10 +34,10 @@ The connector brings the following service templates (sorted by the host templat
 |:---------------------|:------------------------------------------------|:--------------------------------------------------------------------------------------------------------------|:----------:|
 | CPU-Detailed         | Net-Juniper-SA-Cpu-Detailed-SNMP-custom         | Check the rate of utilization of CPU for the machine. This check can give the average utilization rate of CPU |            |
 | Disk                 | Net-Juniper-SA-Disk-SNMP-custom                 | Check disk usage                                                                                              |            |
-| Traffic-Generic-ID   | Net-Juniper-SA-Traffic-Generic-ID-SNMP-custom   | Check the bandwidth of the interface. For each checks the name of the interface will appear                   |            |
-| Traffic-Generic-Name | Net-Juniper-SA-Traffic-Generic-Name-SNMP-custom | Check the bandwidth of the interface. For each checks the name of the interface will appear                   |            |
-| Traffic-Global       | Net-Juniper-SA-Traffic-Global-SNMP-custom       | Check the bandwidth of interfaces. For each checks the name of the interface will appear                      | X          |
-| Users                | Net-Juniper-SA-Users-SNMP-custom                | Check current connected users                                                                                 |            |
+| Traffic-Generic-ID   | Net-Juniper-SA-Traffic-Generic-ID-SNMP-custom   | Check the bandwidth of the interface. For each check the name of the interface will appear                   |            |
+| Traffic-Generic-Name | Net-Juniper-SA-Traffic-Generic-Name-SNMP-custom | Check the bandwidth of the interface. For each check the name of the interface will appear                   |            |
+| Traffic-Global       | Net-Juniper-SA-Traffic-Global-SNMP-custom       | Check the bandwidth of interfaces. For each check the name of the interface will appear                      | X          |
+| Users                | Net-Juniper-SA-Users-SNMP-custom                | Check currently connected users                                                                                 |            |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -236,7 +236,7 @@ When this feature is enabled, you can skip the installation part below.
 
 You still have to manually install the plugin on the poller(s) when:
 - Automatic plugin installation is turned off
-- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet.
 
 > More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
 
