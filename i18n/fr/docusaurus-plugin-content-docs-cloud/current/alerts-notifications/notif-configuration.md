@@ -5,6 +5,8 @@ title: Configurer les notifications
 
 Par défaut, aucune notification n'est envoyée par Centreon Cloud. Pour activer les emails de notification pour des ressources spécifiques, vous devez créer des règles de notification.
 
+> Les notifications ne sont pas actives pour les utilisateurs de la version d'essai [Centreon Cloud trial](../getting-started/cc-trial.md).
+
 ## Dans quels cas des notifications peuvent-elles être envoyées ?
 
 Pour chaque règle de notification, vous définissez dans quel cas les notifications doivent être envoyées :
