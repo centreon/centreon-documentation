@@ -3,6 +3,36 @@ id: interface
 title: Overview of the Centreon interface
 ---
 
+## Video tutorials
+
+Take a tour of the interface to get familiar with Centreon Cloud, according to your [user role](../users/users.md#user-roles).
+
+<details>
+<summary>I'm an Editor</summary>
+
+- Discover the main menu:
+
+<iframe width="100%" height="650" src="https://demo.arcade.software/piyJh7IO1OtnMvuHEh5o?embed" frameborder="0" allowfullscreen></iframe>
+
+- Discover the top banner:
+
+<iframe width="100%" height="650" src="https://demo.arcade.software/j1cCyYghLIVpGAs2wW0x?embed" frameborder="0" allowfullscreen></iframe>
+
+</details>
+
+<details>
+<summary>I'm a User</summary>
+
+- Discover the main menu:
+
+<iframe width="100%" height="650" src="https://demo.arcade.software/rlazq3RJUcApVO6Vw3V3?embed" frameborder="0" allowfullscreen></iframe>
+
+- Discover the top banner:
+
+<iframe width="100%" height="650" src="https://demo.arcade.software/I7RA2Mj8n4BNi22LVTbr?embed" frameborder="0" allowfullscreen></iframe>
+
+</details>
+
 ## Accessing the central server's interface
 
 To connect to Centreon Cloud for the first time, connect to the [CIAM](../ciam/ciam.md) and click on your platform in the **Applications** list on your organization's home page. You can then mark the URL as a favorite to access the platform faster.

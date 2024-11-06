@@ -13,6 +13,10 @@ module.exports = {
           id: 'getting-started/about-centreon-cloud',
         },
         {
+          type: 'doc',
+          id: 'getting-started/cc-trial',
+        },
+        {
           "collapsed": true,
           "type": "category",
           "label": "Discover Centreon Cloud",
@@ -66,16 +70,14 @@ module.exports = {
           items: [
             {
               type: 'doc',
-              id: 'getting-started/monitoring',
+              id: 'getting-started/first-host',
             },
             {
               type: 'category',
-              label: 'Tutorials',
-              link: {
-                type: 'doc',
-                id: "getting-started/tutorials",
-              },
-
+              label: 'Monitoring examples',
+              "link": {
+            "type": "generated-index",
+          },
               items: [
                 {
                   type: 'doc',
@@ -115,7 +117,7 @@ module.exports = {
             },
             {
               type: 'doc',
-              id: 'getting-started/create-custom-view',
+              id: 'getting-started/first-dashboard',
             },
           ],
         },
