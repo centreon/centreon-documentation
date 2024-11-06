@@ -5,6 +5,12 @@ title: Atrica Routeur
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Connector dependencies
+
+The following monitoring connectors will be installed when you install the **Atrica Routeur** connector through the
+**Configuration > Monitoring Connector Manager** menu:
+* [Base Pack](./base-generic.md)
+
 ## Pack assets
 
 ### Templates
@@ -23,13 +29,15 @@ No service template linked to this host template.
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias            | Service Template                                | Service Description |
-|:-------------------------|:------------------------------------------------|:--------------------|
-| Connections-Generic-Id   | Net-Atrica-Connections-Generic-Id-SNMP-custom   | Check device traffic using a specified ID       |
-| Connections-Generic-Name | Net-Atrica-Connections-Generic-Name-SNMP-custom | Check device traffic using a specified name      |
-| Connections-Global       | Net-Atrica-Connections-Global-SNMP-custom       | Check traffic       |
+| Service Alias            | Service Template                                | Service Description                         | Discovery  |
+|:-------------------------|:------------------------------------------------|:--------------------------------------------|:----------:|
+| Connections-Generic-Id   | Net-Atrica-Connections-Generic-Id-SNMP-custom   | Check device traffic using a specified ID   |            |
+| Connections-Generic-Name | Net-Atrica-Connections-Generic-Name-SNMP-custom | Check device traffic using a specified name |            |
+| Connections-Global       | Net-Atrica-Connections-Global-SNMP-custom       | Check traffic                               | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
+
+> If **Discovery** is checked, it means a service discovery rule exists for this service template.
 
 </TabItem>
 </Tabs>
@@ -38,15 +46,24 @@ No service template linked to this host template.
 
 #### Host discovery
 
-| Rule name       | Description                                                                                                                                                                                                                                    |
-|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Atrica-SNMP-custom** host template |
+| Rule name       | Description                                                                                                                                                                                                                                     |
+|:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Atrica-SNMP-custom** host template. |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
+#### Service discovery
+
+| Rule name                      | Description                                                   |
+|:-------------------------------|:--------------------------------------------------------------|
+| Net-Atrica-SNMP-Conection-Name | Discover network interfaces and monitor bandwidth utilization |
+
+More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
+and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
+
 ### Collected metrics & status
 
-Here is the list of services for this connector, detailing all metrics linked to each service.
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
 <TabItem value="Connections-*" label="Connections-*">
@@ -70,7 +87,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-The SNMP service must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
+The SNMP agent must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
 
 ### Network flow
 
@@ -325,7 +342,7 @@ The plugin brings the following modes:
 | Mode                                                                                                                                 | Linked service template                                                                                                                           |
 |:-------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
 | connections [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/atrica/snmp/mode/connections.pm)]          | Net-Atrica-Connections-Generic-Id-SNMP-custom<br />Net-Atrica-Connections-Generic-Name-SNMP-custom<br />Net-Atrica-Connections-Global-SNMP-custom |
-| list-connections [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/atrica/snmp/mode/listconnections.pm)] | Not used in this Monitoring Connector                                                                                                             |
+| list-connections [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/atrica/snmp/mode/listconnections.pm)] | Used for service discovery                                                                                                                        |
 
 ### Available options
 
