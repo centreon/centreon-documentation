@@ -30,11 +30,11 @@ Pas de modèle de service rattaché à ce modèle d'hôte.
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias                    | Modèle de service                               | Description        | Découverte |
-|:-------------------------|:------------------------------------------------|:-------------------|:----------:|
-| Connections-Generic-Id   | Net-Atrica-Connections-Generic-Id-SNMP-custom   | Contrôle le trafic |            |
-| Connections-Generic-Name | Net-Atrica-Connections-Generic-Name-SNMP-custom | Contrôle le trafic |            |
-| Connections-Global       | Net-Atrica-Connections-Global-SNMP-custom       | Contrôle le trafic | X          |
+| Alias                    | Modèle de service                               | Description                                              | Découverte |
+|:-------------------------|:------------------------------------------------|:---------------------------------------------------------|:----------:|
+| Connections-Generic-Id   | Net-Atrica-Connections-Generic-Id-SNMP-custom   | Contrôle le trafic de l'équipement ayant un ID spécifié  |            |
+| Connections-Generic-Name | Net-Atrica-Connections-Generic-Name-SNMP-custom | Contrôle le trafic de l'équipement ayant un nom spécifié |            |
+| Connections-Global       | Net-Atrica-Connections-Global-SNMP-custom       | Contrôle le trafic                                       | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -78,6 +78,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | *interface_name*#interface.packets.in.error.percentage    | %     |
 | *interface_name*#interface.packets.out.discard.percentage | %     |
 | *interface_name*#interface.packets.out.error.percentage   | %     |
+
+> Concerne les modèles de service suivants : Connections-Generic-Id, Connections-Generic-Name, Connections-Global
 
 </TabItem>
 </Tabs>

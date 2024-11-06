@@ -29,11 +29,11 @@ No service template linked to this host template.
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias            | Service Template                                | Service Description | Discovery  |
-|:-------------------------|:------------------------------------------------|:--------------------|:----------:|
-| Connections-Generic-Id   | Net-Atrica-Connections-Generic-Id-SNMP-custom   | Check traffic       |            |
-| Connections-Generic-Name | Net-Atrica-Connections-Generic-Name-SNMP-custom | Check traffic       |            |
-| Connections-Global       | Net-Atrica-Connections-Global-SNMP-custom       | Check traffic       | X          |
+| Service Alias            | Service Template                                | Service Description                         | Discovery  |
+|:-------------------------|:------------------------------------------------|:--------------------------------------------|:----------:|
+| Connections-Generic-Id   | Net-Atrica-Connections-Generic-Id-SNMP-custom   | Check device traffic using a specified ID   |            |
+| Connections-Generic-Name | Net-Atrica-Connections-Generic-Name-SNMP-custom | Check device traffic using a specified name |            |
+| Connections-Global       | Net-Atrica-Connections-Global-SNMP-custom       | Check traffic                               | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -77,6 +77,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 | *interface_name*#interface.packets.in.error.percentage    | %     |
 | *interface_name*#interface.packets.out.discard.percentage | %     |
 | *interface_name*#interface.packets.out.error.percentage   | %     |
+
+> Applies to the following service templates: Connections-Generic-Id, Connections-Generic-Name, Connections-Global
 
 </TabItem>
 </Tabs>
