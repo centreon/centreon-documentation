@@ -8,6 +8,36 @@ import TabItem from '@theme/TabItem';
 
 ## 2024
 
+### Novembre
+
+<Tabs groupId="sync">
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Atrica Routeur**](../procedures/network-routers-atrica-snmp.md) - Added service discovery rule for connections mode.
+- [**Centreon Database**](../procedures/applications-monitoring-centreon-database.md) - Used the proper mariadb message when checking mysql replication state.
+- [**EMC Data Domain SNMP**](../procedures/hardware-storage-emc-datadomain-snmp.md) - Added a lot of enhancements leading to a breaking change. [MANQUE LA PR]
+- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - Used the proper mariadb message when checking mysql replication state.
+
+</TabItem>
+<TabItem value="Breaking changes" label="Breaking changes">
+
+- [**EMC Data Domain SNMP**](../procedures/hardware-storage-emc-datadomain-snmp.md) - Added a lot of enhancements leading to a breaking change. [MANQUE LA PR]
+- [**Linux Telegraf Agent**](../procedures/operatingsystems-linux-telegraf-agent.md) - Changed the inherited template to passive.
+- [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - Fixed exclude options working as includes.
+- [**Windows Telegraf Agent**](../procedures/operatingsystems-windows-telegraf-agent.md) - Changed the inherited template to passive.
+
+</TabItem>
+<TabItem value="Fix" label="Fix">
+
+- [**Amazon CloudTrail**](../procedures/cloud-aws-cloudtrail.md) - Fixed command for event lookup from community feedback [PR 5086](https://github.com/centreon/centreon-plugins/pull/5086).
+- [**Eclipse Mosquitto MQTT**](../procedures//applications-eclipse-mosquitto-mqtt.md) - Fixed ` warning-regexp` and `critical-regexp` options. [MANQUE LA PR]
+- [**HPE Primera REST API**](../procedures/hardware-storage-hpe-primera-restapi.md) - Fixed status handling & retry on invalid token from community feedback [PR 5256](https://github.com/centreon/centreon-plugins/pull/5256).
+- [**Speedtest**](../procedures/applications-monitoring-speedtest.md) - Fixed packaging issue leading to conflict between speedtest and speedtest-cli binaries.
+- [**Cisco WLC**](../procedures/network-cisco-wlc-snmp.md) - Fixed wrong unit for roundtrip-time.
+
+</TabItem>
+</Tabs>
+
 ### Octobre
 
 <Tabs groupId="sync">
