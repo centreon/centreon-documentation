@@ -23,7 +23,7 @@ import TabItem from '@theme/TabItem';
 
 - [**EMC Data Domain SNMP**](../procedures/hardware-storage-emc-datadomain-snmp.md) - Added a lot of enhancements leading to a breaking change. [MANQUE LA PR]
 - [**Linux Telegraf Agent**](../procedures/operatingsystems-linux-telegraf-agent.md) - The default inherited templates are now passive.
-- [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - Fixed exclude options working as includes.
+- [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - Fixed `exclude` option working as includes.
 - [**Windows Telegraf Agent**](../procedures/operatingsystems-windows-telegraf-agent.md) - The default inherited templates are now passive.
 
 </TabItem>
