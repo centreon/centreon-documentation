@@ -27,7 +27,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias   | Service Template                                      | Service Description                          | Discovery  |
 |:----------------|:------------------------------------------------------|:---------------------------------------------|:----------:|
 | Alerts          | HW-Storage-EMC-DataDomain-Alerts-SNMP-custom          | Check current alerts                         |            |
-| Cleaning        | HW-Storage-EMC-DataDomain-Cleaning-SNMP-custom        | Check last time filesystems had been cleaned |            |
+| Cleaning        | HW-Storage-EMC-DataDomain-Cleaning-SNMP-custom        | Check last time filesystems have been cleaned |            |
 | Filesystems     | HW-Storage-EMC-DataDomain-Filesystems-SNMP-custom     | Check filesystems                            | X          |
 | Hardware-Global | HW-Storage-EMC-DataDomain-Hardware-Global-SNMP-custom | Check all hardware                           |            |
 | Mtrees          | HW-Storage-EMC-DataDomain-Mtrees-SNMP-custom          | Check MTrees                                 | X          |

@@ -5,7 +5,7 @@ title: EMC Data Domain
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **EMC Data Domain** 
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -33,7 +33,7 @@ Le connecteur apporte les modèles de service suivants
 | Hardware-Global | HW-Storage-EMC-DataDomain-Hardware-Global-SNMP-custom | Contrôle l'ensemble du matériel                        |            |
 | Mtrees          | HW-Storage-EMC-DataDomain-Mtrees-SNMP-custom          | Contrôle des MTrees                                    | X          |
 | Process         | HW-Storage-EMC-DataDomain-Process-SNMP-custom         | Contrôle de l'état des processus                       |            |
-| Replications    | HW-Storage-EMC-DataDomain-Replications-SNMP-custom    | Contrôle des réplications'                             | X          |
+| Replications    | HW-Storage-EMC-DataDomain-Replications-SNMP-custom    | Contrôle des réplications                             | X          |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Storage-EMC-DataDomain-SNMP-custom** est utilisé.
 
