@@ -332,7 +332,7 @@ yum install centreon-plugin-Hardware-Storage-Emc-Datadomain-Snmp
 
 | Macro                 | Description                                                                                           | Valeur par défaut                                     | Obligatoire |
 |:----------------------|:------------------------------------------------------------------------------------------------------|:------------------------------------------------------|:-----------:|
-| TRULYALERT            | Expression to define a truly alert (default: '%{severity} =~ /emergency\|alert\|warning\|critical/i') | %{severity} =~ /emergency\|alert\|warning\|critical/i |             |
+| TRULYALERT            | Expression to define an actual alert (default: '%{severity} =~ /emergency\|alert\|warning\|critical/i') | %{severity} =~ /emergency\|alert\|warning\|critical/i |             |
 | WARNINGALERTSCURRENT  | Threshold                                                                                             |                                                       |             |
 | CRITICALALERTSCURRENT | Threshold                                                                                             |                                                       |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).    |                                                       |             |
