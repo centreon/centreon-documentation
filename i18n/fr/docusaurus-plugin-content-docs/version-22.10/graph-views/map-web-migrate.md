@@ -5,7 +5,7 @@ title: Migrer l'extension
 
 Cette section explique comment déplacer le serveur Centreon MAP vers un autre serveur.
 
-Cette tâche peut être utile si vous devez migrer votre serveur de Alma 8 à Alma 9.
+Cette tâche peut être utile si vous devez migrer votre serveur de CentOS 6 à CentOS 7.
 
 ### Installation du nouveau serveur Centreon MAP
 
