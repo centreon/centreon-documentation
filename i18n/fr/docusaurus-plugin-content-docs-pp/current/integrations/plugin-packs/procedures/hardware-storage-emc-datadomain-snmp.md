@@ -127,7 +127,13 @@ Coming soon
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-Coming soon
+| Nom                | Unité |
+|:-------------------|:------|
+| battery.status     | N/A   |
+| disk.status        | N/A   |
+| fan.status         | N/A   |
+| psu.status         | N/A   |
+| temperature.status | N/A   |
 
 </TabItem>
 <TabItem value="Hardware-Psu" label="Hardware-Psu">
@@ -137,7 +143,15 @@ Coming soon
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
 
-Coming soon
+| Nom                                                       | Unité |
+|:----------------------------------------------------------|:------|
+| *interface_name*#status                                   | N/A   |
+| *interface_name*#interface.traffic.in.bitspersecond       | b/s   |
+| *interface_name*#interface.traffic.out.bitspersecond      | b/s   |
+| *interface_name*#interface.packets.in.discard.percentage  | %     |
+| *interface_name*#interface.packets.in.error.percentage    | %     |
+| *interface_name*#interface.packets.out.discard.percentage | %     |
+| *interface_name*#interface.packets.out.error.percentage   | %     |
 
 </TabItem>
 <TabItem value="Mtrees" label="Mtrees">
