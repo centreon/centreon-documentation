@@ -72,9 +72,9 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 | Nom de la règle                             | Description                                                                         |
 |:--------------------------------------------|:------------------------------------------------------------------------------------|
 | HW-Storage-EMC-DataDomain-SNMP-Filesystems  | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé |
-| HW-Storage-EMC-DataDomain-SNMP-Interfaces   | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé |
-| HW-Storage-EMC-DataDomain-SNMP-Mtrees       | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé |
-| HW-Storage-EMC-DataDomain-SNMP-Replications | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé |
+| HW-Storage-EMC-DataDomain-SNMP-Interfaces   | Découvre des interfaces réseau et supervise l'utilisation de la bande passante      |
+| HW-Storage-EMC-DataDomain-SNMP-Mtrees       | Découvre les MTrees                                                                 |
+| HW-Storage-EMC-DataDomain-SNMP-Replications | Découvre les réplications                                                           |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -112,17 +112,27 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Hardware-Battery" label="Hardware-Battery">
 
-Coming soon
+| Nom                                                | Unité |
+|:---------------------------------------------------|:------|
+| status                                             | N/A   |
+| *battery*~hardware.battery.nvram.charge.percentage | %     |
+| hardware.battery.count                             | N/A   |
 
 </TabItem>
 <TabItem value="Hardware-Disk" label="Hardware-Disk">
 
-Coming soon
+| Nom                 | Unité |
+|:--------------------|:------|
+| status              | N/A   |
+| hardware.disk.count | N/A   |
 
 </TabItem>
 <TabItem value="Hardware-Fan" label="Hardware-Fan">
 
-Coming soon
+| Nom                 | Unité |
+|:--------------------|:------|
+| status              | N/A   |
+| hardware.fan.count  | N/A   |
 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
@@ -138,7 +148,18 @@ Coming soon
 </TabItem>
 <TabItem value="Hardware-Psu" label="Hardware-Psu">
 
-Coming soon
+| Nom                | Unité |
+|:-------------------|:------|
+| status             | N/A   |
+| hardware.psu.count | N/A   |
+
+</TabItem><TabItem value="Hardware-Temperature" label="Hardware-Temperature">
+
+| Nom                                        | Unité |
+|:-------------------------------------------|:------|
+| status                                     | N/A   |
+| *temperature*~hardware.temperature.celsius | C     |
+| hardware.temperature.count                 | N/A   |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">
