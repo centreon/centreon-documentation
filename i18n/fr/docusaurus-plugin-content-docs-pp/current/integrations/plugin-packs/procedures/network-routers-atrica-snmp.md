@@ -5,6 +5,12 @@ title: Atrica Routeur
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Dépendances du connecteur de supervision
+
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Atrica Routeur** 
+depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+* [Base Pack](./base-generic.md)
+
 ## Contenu du pack
 
 ### Modèles
@@ -24,13 +30,15 @@ Pas de modèle de service rattaché à ce modèle d'hôte.
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias                    | Modèle de service                               | Description          |
-|:-------------------------|:------------------------------------------------|:---------------------|
-| Connections-Generic-Id   | Net-Atrica-Connections-Generic-Id-SNMP-custom   | Contrôle le trafic de l'équipement ayant un ID spécifié |
-| Connections-Generic-Name | Net-Atrica-Connections-Generic-Name-SNMP-custom | Contrôle le trafic de l'équipement ayant un nom spécifié |
-| Connections-Global       | Net-Atrica-Connections-Global-SNMP-custom       | Contrôle le trafic  |
+| Alias                    | Modèle de service                               | Description                                              | Découverte |
+|:-------------------------|:------------------------------------------------|:---------------------------------------------------------|:----------:|
+| Connections-Generic-Id   | Net-Atrica-Connections-Generic-Id-SNMP-custom   | Contrôle le trafic de l'équipement ayant un ID spécifié  |            |
+| Connections-Generic-Name | Net-Atrica-Connections-Generic-Name-SNMP-custom | Contrôle le trafic de l'équipement ayant un nom spécifié |            |
+| Connections-Global       | Net-Atrica-Connections-Global-SNMP-custom       | Contrôle le trafic                                       | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
+
+> Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
 
 </TabItem>
 </Tabs>
@@ -39,15 +47,24 @@ Pas de modèle de service rattaché à ce modèle d'hôte.
 
 #### Découverte d'hôtes
 
-| Nom de la règle | Description                                                                                                                                                                                                                                    |
-|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **Net-Atrica-SNMP-custom** |
+| Nom de la règle | Description                                                                                                                                                                                                                             |
+|:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **Net-Atrica-SNMP-custom**. |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
+#### Découverte de services
+
+| Nom de la règle                | Description                                                                |
+|:-------------------------------|:---------------------------------------------------------------------------|
+| Net-Atrica-SNMP-Conection-Name | Découvre les interfaces réseau et en supervise le statut et l'utilisation  |
+
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
+pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
+
 ### Métriques & statuts collectés
 
-Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
+Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
 <TabItem value="Connections-*" label="Connections-*">
@@ -71,7 +88,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Le service SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+L'agent SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
 
 ### Flux réseau
 
@@ -326,7 +343,7 @@ Le plugin apporte les modes suivants :
 | Mode                                                                                                                                 | Modèle de service associé                                                                                                                         |
 |:-------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
 | connections [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/atrica/snmp/mode/connections.pm)]          | Net-Atrica-Connections-Generic-Id-SNMP-custom<br />Net-Atrica-Connections-Generic-Name-SNMP-custom<br />Net-Atrica-Connections-Global-SNMP-custom |
-| list-connections [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/atrica/snmp/mode/listconnections.pm)] | Not used in this Monitoring Connector                                                                                                             |
+| list-connections [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/atrica/snmp/mode/listconnections.pm)] | Used for service discovery                                                                                                                        |
 
 ### Options disponibles
 
