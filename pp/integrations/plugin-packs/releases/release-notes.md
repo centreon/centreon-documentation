@@ -13,25 +13,25 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="Enhancements" label="Enhancements">
 
-- [**Atrica Routeur**](../procedures/network-routers-atrica-snmp.md) - Added service discovery rule for connections mode.
-- [**Centreon Database**](../procedures/applications-monitoring-centreon-database.md) - Used the proper mariadb message when checking mysql replication state.
-- [**EMC Data Domain SNMP**](../procedures/hardware-storage-emc-datadomain-snmp.md) - Added several new modes and services discovery rules.
-- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - Used the proper mariadb message when checking mysql replication state.
+- [**Atrica Routeur**](../procedures/network-routers-atrica-snmp.md) - Added service discovery rule for **connections** mode.
+- [**Centreon Database**](../procedures/applications-monitoring-centreon-database.md) - Used the correct MariaDB message when checking MySQL replication state.
+- [**EMC Data Domain SNMP**](../procedures/hardware-storage-emc-datadomain-snmp.md) - Added several new modes and service discovery rules.
+- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - Used the correct MariaDB message when checking MySQL replication state.
 
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
 
-- [**EMC Data Domain SNMP**](../procedures/hardware-storage-emc-datadomain-snmp.md) - Changed modes name and dependencies paths.
+- [**EMC Data Domain SNMP**](../procedures/hardware-storage-emc-datadomain-snmp.md) - Changed mode names and dependencies paths.
 - [**Linux Telegraf Agent**](../procedures/operatingsystems-linux-telegraf-agent.md) - The default inherited templates are now passive.
-- [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - Fixed `exclude` option working as includes.
+- [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - Fixed `exclude` option working as "include".
 - [**Windows Telegraf Agent**](../procedures/operatingsystems-windows-telegraf-agent.md) - The default inherited templates are now passive.
 
 </TabItem>
 <TabItem value="Fix" label="Fix">
 
-- [**Amazon CloudTrail**](../procedures/cloud-aws-cloudtrail.md) - Fixed command for event lookup from community feedback [PR 5086](https://github.com/centreon/centreon-plugins/pull/5086).
+- [**Amazon CloudTrail**](../procedures/cloud-aws-cloudtrail.md) - Fixed command for event lookup, from community feedback [PR 5086](https://github.com/centreon/centreon-plugins/pull/5086).
 - [**Eclipse Mosquitto MQTT**](../procedures//applications-eclipse-mosquitto-mqtt.md) - Fixed ` warning-regexp` and `critical-regexp` options.
-- [**HPE Primera REST API**](../procedures/hardware-storage-hpe-primera-restapi.md) - Fixed status handling & retry on invalid token from community feedback [PR 5256](https://github.com/centreon/centreon-plugins/pull/5256).
+- [**HPE Primera REST API**](../procedures/hardware-storage-hpe-primera-restapi.md) - Fixed status handling & retry on invalid token, from community feedback [PR 5256](https://github.com/centreon/centreon-plugins/pull/5256).
 - [**Speedtest**](../procedures/applications-monitoring-speedtest.md) - Fixed packaging issue leading to conflict between speedtest and speedtest-cli binaries.
 - [**Cisco WLC**](../procedures/network-cisco-wlc-snmp.md) - Fixed wrong unit for roundtrip-time.
 
