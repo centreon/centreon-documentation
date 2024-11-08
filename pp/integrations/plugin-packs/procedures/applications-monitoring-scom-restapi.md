@@ -49,9 +49,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+This plugin works with SCOM 2012 and 2016 only. Refers to the [official documentation 2016](https://learn.microsoft.com/fr-fr/shows/ignite-2016/brk3165).
 
 ## Installing the monitoring connector
 

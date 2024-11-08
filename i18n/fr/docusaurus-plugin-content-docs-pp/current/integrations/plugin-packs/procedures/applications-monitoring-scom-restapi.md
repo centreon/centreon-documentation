@@ -50,9 +50,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-*Specify prerequisites that are relevant. You may want to just provide a link\n\
-to the manufacturer official documentation BUT you should try to be as complete\n\
-as possible here as it will save time to everybody.*
+Ce plugin fonctionne avec SCOM 2012 et 2016 seulement. Référez-vous à la [documentation officielle 2016](https://learn.microsoft.com/fr-fr/shows/ignite-2016/brk3165).
 
 ## Installer le connecteur de supervision
 
