@@ -233,7 +233,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: 
+OK: 0 problem(s) detected | 'alerts.resolution.new.count'=2;;;0; 'alerts.resolution.closed.count'=0;;;0; 'alerts.resolution.resolved.count'=0;;;0; 'alerts.resolution.scheduled.count'=0;;;0; 'alerts.resolution.awaiting_evidence.count'=0;;;0; 'alerts.resolution.assigned_to_engineering.count'=0;;;0; 'alerts.resolution.acknowledge.count'=1;;;0; 'alerts.problems.current.count'=0;;;0;
 ```
 
 ### Diagnostic des erreurs communes

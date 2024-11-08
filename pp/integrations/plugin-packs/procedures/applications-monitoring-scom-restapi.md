@@ -232,7 +232,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: 
+OK: 0 problem(s) detected | 'alerts.resolution.new.count'=2;;;0; 'alerts.resolution.closed.count'=0;;;0; 'alerts.resolution.resolved.count'=0;;;0; 'alerts.resolution.scheduled.count'=0;;;0; 'alerts.resolution.awaiting_evidence.count'=0;;;0; 'alerts.resolution.assigned_to_engineering.count'=0;;;0; 'alerts.resolution.acknowledge.count'=1;;;0; 'alerts.problems.current.count'=0;;;0;
 ```
 
 ### Troubleshooting
