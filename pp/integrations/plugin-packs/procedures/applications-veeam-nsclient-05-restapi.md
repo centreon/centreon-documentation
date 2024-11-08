@@ -200,9 +200,9 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 
 | Macro                     | Description                                                                                                                              | Default value     | Mandatory   |
 |:--------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| NSCPRESTAPILEGACYPASSWORD |                                                                                                                                          | PASSWORD          |             |
-| NSCPRESTAPIPROTO          |                                                                                                                                          | https             |             |
-| NSCPRESTAPIPORT           |                                                                                                                                          | 8443              |             |
+| NSCPRESTAPILEGACYPASSWORD | Password to authenticate against the API if relevant                                                                                     | PASSWORD          |             |
+| NSCPRESTAPIPROTO          | NSClient++ RestAPI protocol to use                                                                                                       | https             |             |
+| NSCPRESTAPIPORT           | NSClient++ RestAPI port                                                                                                                  | 8443              |             |
 | NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
