@@ -1100,6 +1100,10 @@
             },
             {
               "type": "doc",
+              "id": "version-24.10/migrate/migrate-from-debian-to-debian"
+            },
+            {
+              "type": "doc",
               "id": "version-24.10/migrate/migrate-from-3-4"
             },
             {
