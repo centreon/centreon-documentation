@@ -201,9 +201,9 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 
 | Macro                     | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
 |:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| NSCPRESTAPILEGACYPASSWORD |                                                                                                                                                    | PASSWORD          |             |
-| NSCPRESTAPIPROTO          |                                                                                                                                                    | https             |             |
-| NSCPRESTAPIPORT           |                                                                                                                                                    | 8443              |             |
+| NSCPRESTAPILEGACYPASSWORD | Password to authenticate against the API if relevant                                                                                               | PASSWORD          |             |
+| NSCPRESTAPIPROTO          | NSClient++ RestAPI protocol to use                                                                                                                 | https             |             |
+| NSCPRESTAPIPORT           | NSClient++ RestAPI port                                                                                                                            | 8443              |             |
 | NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
