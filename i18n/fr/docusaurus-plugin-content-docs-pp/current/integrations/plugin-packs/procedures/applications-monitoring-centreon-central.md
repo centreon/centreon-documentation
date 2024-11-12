@@ -192,11 +192,11 @@ Les contrôles liés au service **Broker-Stats** devraient être effectués depu
 Si vous ne disposez que d'un central, les contrôles seront faits depuis et sur le central lui-même. 
 Vous pouvez ignorer les étapes ci-dessous si vous êtes dans ce cas-là.
 
-> NB : Il est très fortement recommandé de superviser le central à partir d'un collecteur plutôt qu'à partir du central.
+> NB : Il est très fortement recommandé de superviser le serveur central à partir d'un collecteur plutôt qu'à partir du serveur central.
 
 Ouvrir une session en ligne de commande sur :
-* le poller qui sera chargé de superviser le central
-* le central
+* le collecteur qui sera chargé de superviser le central
+* le serveur central
 
 Une fois ces sessions ouvertes, lancer cette commande :
 
@@ -213,25 +213,25 @@ ssh-keygen -t ed25519 -a 100
 
 Nous avons généré une paire de clés sur chaque serveur, ainsi que le répertoire `~/.ssh`. 
 
-Sur le poller lancer cette commande pour afficher la clé publique créée :
+Sur le collecteur lancer cette commande pour afficher la clé publique créée :
 
 ```bash
 cat ~/.ssh/id_ed25519.pub
 ```
 
-Après avoir lancé cette commande, copier le contenu du fichier qui s'est affiché sous la commande `cat` et le coller à la fin du fichier (probablement à créer) `~/.ssh/authorized_keys` du central, puis appliquer les bons droits sur le fichier (toujours en tant que `centreon-engine`) :
+Après avoir lancé cette commande, copier le contenu du fichier qui s'est affiché sous la commande `cat`. Coller ce contenu à la fin du fichier (probablement à créer) `~/.ssh/authorized_keys` du serveur central, puis appliquer les bons droits sur le fichier (toujours en tant que `centreon-engine`) :
 
 ```bash
 chmod 600 ~/.ssh/authorized_keys
 ```
 
-Une fois cette étape effectuée sur le central, il ne reste plus qu'à initialiser une première connexion depuis le poller vers celui-ci :
+Une fois cette étape effectuée sur le central, il ne reste plus qu'à initialiser une première connexion depuis le collecteur vers celui-ci :
 
 ```bash
 ssh <central-ip-address>
 ```
 
-L'utilisateur `centreon-engine` du poller est alors capable d'ouvrir une session SSH sur le central. 
+L'utilisateur `centreon-engine` du collecteur est alors capable d'ouvrir une session SSH sur le serveur central. 
 
 ### Serveur central auto-supervisé
 
