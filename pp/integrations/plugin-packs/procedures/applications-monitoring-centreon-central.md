@@ -191,7 +191,7 @@ The checks related to the **Broker-Stats** service should be done from a poller 
 If you only have a central server, then checks will be initiated and performed on and by the central server itself. 
 You can skip the steps below for SSH key exchange if the central server monitors itself.
 
-> NB : It is strongly recommended to monitor the central from an external poller rather than from the central itself.
+> NB : It is strongly recommended to monitor the central server from an external poller rather than from the central server itself.
 
 Open a `root` command-line session on:
 
@@ -232,7 +232,7 @@ ssh <central-ip-address>
 
 Then exit the `centreon-engine` session typing `exit` or `Ctrl-D`.
 
-The `centreon-engine` user is now able to log in via SSH to central.
+The `centreon-engine` user is now able to log in to the central server via SSH.
 
 ### Self-monitored central server
 
