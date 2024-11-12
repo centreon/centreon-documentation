@@ -149,8 +149,8 @@ yum install centreon-plugin-Applications-Monitoring-Scom-Restapi
 
 | Macro               | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
 |:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SCOMAPIUSERNAME     | Specify the username for authentication                                                                                                            |                   |             |
-| SCOMAPIPASSWORD     | Specify the password for authentication                                                                                                            |                   |             |
+| SCOMAPIUSERNAME     | Specify the username for authentication                                                                                                            |                   | X           |
+| SCOMAPIPASSWORD     | Specify the password for authentication                                                                                                            |                   | X           |
 | SCOMAPIPROTO        | Specify https if needed                                                                                                                            | http              |             |
 | SCOMAPIPORT         | Port used                                                                                                                                          | 80                |             |
 | SCOMAPIVERSION      | Set SCOM API version. Could be: 2012, 2016 or 1801                                                                                                 | 2016              |             |
@@ -206,8 +206,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--mode=alerts \
 	--hostname='10.0.0.1' \
 	--api-version='2016' \
-	--username='' \
-	--password='' \
+	--username='XXXX' \
+	--password='XXXX' \
 	--port='80' \
 	--proto='http'  \
 	--filter-host='' \
