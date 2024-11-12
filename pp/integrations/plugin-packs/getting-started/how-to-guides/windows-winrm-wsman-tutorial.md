@@ -908,7 +908,7 @@ yum install sssd realmd oddjob oddjob-mkhomedir adcli samba-common samba-common-
 realm join --user=administrator <YOUR_DOMAIN>
 ```
 
-> In case of Debian 12:
+> If you are using Debian 12:
 ``` bash
 apt -y install realmd sssd sssd-tools libnss-sss libpam-sss adcli samba-common-bin oddjob oddjob-mkhomedir packagekit krb5-user 
 realm join --user=administrator <YOUR_DOMAIN>
