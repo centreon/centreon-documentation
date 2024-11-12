@@ -37,6 +37,10 @@ module.exports = {
             },
             {
               type: 'doc',
+              id: 'integrations/plugin-packs/getting-started/how-to-guides/additional-connector-configuration'
+            },
+            {
+              type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins'
             },
             {
@@ -1040,10 +1044,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-docker-restapi'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-docker-ssh'
         },
         {
@@ -1770,7 +1770,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/network-switchs-hirschmann'
+          id: 'integrations/plugin-packs/procedures/network-switchs-hirschmann-snmp'
         },
         {
           type: 'doc',

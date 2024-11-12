@@ -115,8 +115,8 @@
     "message": "Administrer",
     "description": "The label for category Administrate in sidebar docs"
   },
-  "sidebar.docs.category.Graphical views": {
-    "message": "Vues graphiques",
+  "sidebar.docs.category.Graphical views (maps)": {
+    "message": "Vues graphiques (cartes)",
     "description": "The label for category Graphical views in sidebar docs"
   },
   "sidebar.docs.category.Reporting": {
@@ -302,5 +302,9 @@
   "sidebar.docs.category.Data Visualization": {
     "message": "Visualisation des données",
     "description": "The label for category Data Visualization in sidebar docs"
+  },
+  "sidebar.docs.category.Information for MAP Legacy users": {
+    "message": "Informations pour les utilisateurs de MAP Legacy",
+    "description": "The label for category Information for MAP Legacy users in sidebar docs"
   }
 }
