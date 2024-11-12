@@ -204,13 +204,13 @@ Then switch to `centreon-engine`'s bash environment on both:
 su - centreon-engine
 ```
 
-Then run these command:
+Then run these commands:
 
 ```bash
 ssh-keygen -t ed25519 -a 100
 ```
 
-We have generated a pair of keys on each server, and the `~/.ssh` directory. 
+We have generated a pair of keys on each server, and created the `~/.ssh` directory. 
 
 Run this command on the poller to display the user's public key:
 
@@ -218,13 +218,13 @@ Run this command on the poller to display the user's public key:
 cat ~/.ssh/id_ed25519.pub
 ```
 
-Once done, copy the content of the public key file displayed by `cat` and paste it to `~/.ssh/authorized_keys` (must be created) on both of the central and apply the correct file permissions (still as the `centreon-engine` user):
+Once done, copy the content of the public key file displayed by `cat` and paste it to `~/.ssh/authorized_keys` (must be created) on the central and apply the correct file permissions (still as the `centreon-engine` user):
 
 ```
 chmod 600 ~/.ssh/authorized_keys
 ```
 
-Once this step completed on the exchange, all that remains is to initiate a first connection from the poller to the central (still as `centreon-engine` user):
+Initiate a first connection from the poller to the central (still as the `centreon-engine` user):
 
 ```
 ssh <central-ip-address>
@@ -232,7 +232,7 @@ ssh <central-ip-address>
 
 Then exit the `centreon-engine` session typing `exit` or `Ctrl-D`.
 
-The `centreon-engine` user is now able to log in *via* SSH to central.
+The `centreon-engine` user is now able to log in via SSH to central.
 
 ### Self-monitored central server
 
