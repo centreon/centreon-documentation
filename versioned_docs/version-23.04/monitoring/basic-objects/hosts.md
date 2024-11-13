@@ -52,7 +52,7 @@ If multiple templates modify the same field, the properties of the template plac
 * **Check Command**: command used to check the availability of the host. Use it only if you are not applying any [templates](../templates.md) to the host.
 * **Args**: arguments given to the check command (each argument starts with ”!”).
 
-* **Custom macros**: is automatically populated as you add templates] but you can also add your own [custom macros](../macros/#custom-macros).
+* **Custom macros**: is automatically populated as you add templates, but you can also add your own [custom macros](../macros/#custom-macros).
 
 
    * **Name** and **Value** define the name and value of the macro.
