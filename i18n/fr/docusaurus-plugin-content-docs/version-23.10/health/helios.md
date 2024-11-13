@@ -456,7 +456,7 @@ Par défaut, un fichier `/etc/logrotate.d/centreon-agent` a été créé à l'in
 }
 ```
 
-Vous pouvez le laisser ainsi ou bien ajuster la politique de rotation des logs pour mieux correspondre à vos besoins en utilisant les paramètres de [logrotate](https://www.unix.com/man-page/redhat/8/LOGROTATE/).
+Vous pouvez le laisser ainsi ou bien ajuster la politique de rotation des logs pour mieux correspondre à vos besoins en utilisant les paramètres de [logrotate](https://linux.die.net/man/8/logrotate).
 
 ## Tester Helios
 

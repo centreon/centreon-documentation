@@ -17,185 +17,207 @@ In this chapter, you can find all the changelogs concerning **Centreon Open Sour
 If you have feature requests or want to report a bug, please go to our
 [Github](https://github.com/centreon/centreon/issues/new/choose).
 
-> Read more about version 24.04 in our [blog post](https://www.centreon.com/centreon-announces-its-latest-software-release-centreon-24-04/).
-
+Read more about version 24.10 in our [blog post](https://www.centreon.com/centreon-announces-its-latest-software-release-centreon-24-10/).
 
 <ExpandCollapseAll />
 
 ## Centreon Web
 
-### 24.04.0
+### 24.10.1
 
-Release date: `April 30, 2024`
+Release date: `November 8, 2024`
+ 
+<details>
+  <summary>Bug fixes</summary>
 
-<details open>
-  <summary>New features</summary>
-
-**Dashboards GA**
-
-Dashboards are now in Global Availability (GA) and fully supported by Centreon.
-Many features have been added in this version.
-
-- **Playlists feature:** You can now create dashboard playlists. Selected dashboards will be displayed sequentially without any interaction, allowing you to broadcast them on TVs in public spaces.
-- **New widgets**
-  - The "Status Chart" widget displays the distribution of current statuses on selected resources, as a chart.
-  - The "Group Monitoring" widget displays the distribution of current statuses on selected groups of resources, as a table.
-- **Resource Status**: Widgets now include a link to the Resource Status page. When you access this link, Resources Status will be filtered according to the criteria used in the widget.
-- **User Experience**
-  - You can now search for a dashboard by its name.
-  - You can now navigate more easily with the pagination.
-  - You can now duplicate a dashboard.
-  - You can now access widgets more easily thanks to pictograms representing each type of widget.
-  - You can now display dashboards as a list, with the **View as list** button.
-  - A window now appears when deleting widgets, dashboards or playlists.
-  - A warning window is now preventing users from leaving the dashboard without saving it first.
+- Fixed an issue preventing users from creating hosts, templates or broker inputs/outputs, when using HTTPS.
 
 </details>
 
+### 24.10.0
+
+Release date: `October 31, 2024`
+ 
 <details open>
   <summary>Enhancements</summary>
 
-**Dashboards GA**
+**ACL**
 
-- **Improvements made on global Dashboards behavior**
-  - When sharing a dashboard, only contacts and contact groups that have access to the dashboard are displayed.
-  - Optimized the rendering of widgets.
-  - Optimized legend and thickened curves on graphs.
-  - Moved the parameter used for hiding widgets' descriptions.
-  - Updated the dashboard global refresh icon.
-  - Widgets can now be edited quickly and easily by using an "Edit widget" shortcut that opens widget edition mode.
-  - Made the dashboard library's "view as list" the default view.
-  - Reorganized rich text options for widget descriptions.
+- Non-admin users can now see freshly-created host groups and service groups in the list of host/service groups immediately.
 
-- **Improvements made to specific widgets**.
-  - [MAP widget] Added an information message displayed when editing the widget.
-  - [Metrics Graph widget] Added a warning message indicating that thresholds have been hidden when selecting two different metric units.
-  - [Metrics Graph widget] Added an information tooltip when hovering over an element on the graph.
-  - [Single Metric widget] Simplified metric selection.
-  - [Single Metric widget] Simplified dataset selection by forcing a "host + service" pair.
-  - [Status Grid widget] Added an "unhandled" state property.
-  - [Status Grid widget] Added a new "condensed" view.
+**Additional Connector Configurations**
 
-> BREAKING CHANGE: The way metrics are handled has been changed to allow for more flexibility (e.g., you now have the possibility to exclude metrics). If you used the metrics graph widget, you may have to select your metrics again.
-
-**User Experience**
-
-- Added full screen mode for the entire application.
+- The **Additional connector configurations** menu allows you to define the credentials to access a monitored resource through the Centreon interface rather than having to connect to your pollers manually.
 
 **API**
 
-- **Dashboards**
-  - Added new endpoints to manage [playlists](centreon-commercial-extensions.mdx#centreon-it-edition-extensions).
-  - Added a new endpoint to duplicate dashboards.
-  - Updated endpoints to handle the Status Grid "condensed" view.
+- Added an endpoint that automatically deploys the services brought by the host template.
+- Added an endpoint to list Pollers.
+- Added an endpoint to create Broker inputs.
+- Added endpoints to create, delete, update and list/get Additional Connector Configurations.
+- Added API endpoints to return the complete hierarchy for a given BA.
+- Added configuration change logs for hostgroup endpoints.
+- Added missing configuration change logs for host configuration.
+- CLAPI now manages multiline values.
 
-- **Configuration**
-  - Added an endpoint to update a service severity.
-  - Added an endpoint to create Broker outputs.
-  - Added an endpoint to list all installed connectors.
-  - Added an endpoint to list graph templates.
-  - Added an endpoint to list and delete Business Activities.
-  - Added an endpoint to update a service.
-  - Added an endpoint to update a host partially.
-  - Added an endpoint to handle the file format associated with a Stream Connector.
+**Authentication**
 
-- **Monitoring**
-  - Added an endpoint to list all metrics of a given service.
-  - Metrics linked to a resource are now retrieved by the endpoint that lists resources.
+- Expired tokens are now deleted faster.
+- You can now enable/disable API Tokens.
 
-- **Administration**:
-  - Added endpoints to upload and list media.
+**Configuration**
 
-**Installation**
+- You can now duplicate a locked command.
+- Added an option that allows users to disable checks for a service whose host is down.
+- You can now configure several more Broker loggers from the interface.
 
-- Added support for the Debian 12 operating system.
-- Added compatibility with MySQL 8.0.
-- Updated the MariaDB version to its latest LTS, 10.11.
-- Improved the unattended.sh script to offer the possibility to select which DBMS will be installed.
+**Dashboards and widgets**
+
+- Added last update time to widgets and enabled refresh directly from inside widgets.
+- Allowed smaller dimensions for widgets through more responsive behavior.
+- Optimized data payload required by widgets to retrieve resource data.
+- When users select a resource, only the data that is linked to this resource is displayed in the lists for the other types of data. Irrelevant entries are filtered out.
+- **New widgets**:
+   - The "Web Page" widget displays a web page using its URL.
+   - The "Clock / Timer" widget displays the time according to the selected time zone, or a timer.
+- **Metrics Graph widget**:
+   - Curves can now have a linear, smooth or step style.
+   - Added multiple options to customize graphs.
+   - Colors are now automatically adjusted to distinguish curves for the same metric name.
+   - Enabled visualization using bar charts and stacked bar charts.
+- **Resource Table widget**:
+   - Added ticketing feature, by third-party provider.
+   - Added the same action buttons as in Resource Status (Acknowledge, Downtime, Forced check).
+   - Added filtering options by severity and by status type.
+   - The "display view" options are now available inside the widget itself.
+   - Added meta-services.
+- **Status Grid widget**
+   - Pictograms now show the type of the resource and its state (acknowledged, in downtime).
+   - A colored banner now shows the resource's state.
+- **Status Grid and Status Chart widgets**
+   - When users filter by service / service group / service category and choose to display the data by host, the tiles corresponding to the hosts are displayed correctly instead of displaying "no host found".
+
+**Resource Status**
+- In the filter window, you can now filter by resource type.
+- Users can now filter by host name in "view by host" mode.
+
+**UX**
+- Removed autocomplete for credentials fields in administration pages.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+**API**
+- Fixed access control for meta-service endpoint.
+- Fixed access control for monitoring servers configuration endpoints.
+- Fixed access control for notification configuration endpoints.
+- Fixed access control for some v2 API endpoints.
+- Fixed access control for some v2 API service configuration endpoints.
+- Fixed an issue on ACL checks for Administration endpoints.
+- Fixed an issue on ACL checks for Platform endpoints.
+
+**Other**
+- [ACL] Fixed access rights for dashboard configuration endpoints.
+- [API] Fixed access control for hosts configuration endpoints.
+- [Graphs] Fixed an issue with MySQL 8 that occurred when users edited a curve definition.
+- [Packaging] Fixed an issue that prevented centreontrapd from starting properly due to conflicting perl dependencies.
 
 </details>
 
 ## Centreon Collect
 
-### 24.04.0
+### 24.10.1
 
-Release date: `April 30, 2024`
+Release date: `November 7, 2024`
 
 <details>
   <summary>Bug fixes</summary>
 
-- Fixed some incorrect statuses in Broker's statistics retrieved by the `broker-stats.json` file.
-- [Packaging] Added symbolic link from /usr/lib64/nagios/plugins to /usr/lib/nagios/plugins.
-- Semicolons are no longer considered as the beginning of a comment in Engine's configuration files. This is because comments were not useful in these files, and they prevented the use of semicolons in macros (e.g., passwords).
+- Delivered the correct libraries for Collect, so as to avoid issues with template inheritance or Engine crashes.
 
 </details>
 
-#### Centreon Engine
+### 24.10.0
 
-<details>
-  <summary>Compatibility</summary>
+Release date: `October 31, 2024`
 
-- Compatibility with other 24.04 components.
+<details open>
+  <summary>Enhancements</summary>
+
+**Engine**
+- Engine can now handle extra configuration files to complement/overload the centengine.cfg file so that custom configurations remain unchanged when the standard configuration is exported.
+- Added a new centengine parameter (`send_recovery_notifications_anyways`) to force sending a recovery notification even when the resource is outside of its notification period. This aims at keeping third-party tools up-to-date at any time when they are fed notifications.
+- The whitelist now works with all the commands executed by Engine, including notifications and event handlers.
+
+**Other**
+
+- [Broker]The spdlog logger library has been mutualized for Engine and Broker, as well as the log files. This change will not impact Broker's logs, but Engine will log all its messages (including broker-module's messages) in centengine.log.
+- [gRPC API] The GetHost function has been improved to return more information.
+- [Packaging] Collect packages are now also available for Debian 12 (bookworm) ARM64 (for pollers on Raspberry Pi).
 
 </details>
 
-#### Centreon Broker
+## Centreon Monitoring Agent
 
-<details>
-  <summary>Compatibility</summary>
+<details open>
+  <summary>Enhancements</summary>
 
-- Compatibility with other 24.04 components.
+- [CMA] The Centreon Monitoring Agent is now available with a Windows installer, which installs the service and deploys Centreon plugins on the host.
+- [CMA] Added a silent mode (CLI) to the agent's Windows installer.
+- [CMA] Made Telegraf and Centreon Monitoring Agent commands compliant with Engine whitelists.
 
 </details>
 
 ## Centreon Gorgone
 
-### 24.04.0
+### 24.10.0
 
-Release date: `April 30, 2024`
+Release date: `October 31, 2024`
 
 <details open>
   <summary>Enhancements</summary>
 
-- Moved gorgone whitelists to a dedicated file.
+- [Gorgone] Whitelist errors now have an ERROR level in Gorgone logs.
 
 </details>
 
 ## Centreon High Availability
 
-### 24.04.0
+### 24.10.0
 
-Release date: `April 30, 2024`
+Release date: `October 31, 2024`
 
 <details>
   <summary>Compatibility</summary>
 
-- Compatibility with other 24.04 components.
+- Compatibility with other 24.10 components.
 
 </details>
 
 ## Centreon DSM
 
-### 24.04.0
+### 24.10.0
 
-Release date: `April 30, 2024`
+Release date: `October 31, 2024`
 
 <details>
   <summary>Compatibility</summary>
 
-- Compatibility with other 24.04 components.
+- Compatibility with other 24.10 components.
 
 </details>
 
 ## Centreon Open Tickets
 
-### 24.04.0
+### 24.10.0
 
-Release date: `April 30, 2024`
+Release date: `October 31, 2024`
 
 <details>
-  <summary>Compatibility</summary>
+  <summary>Bug fixes</summary>
 
-- Compatibility with other 24.04 components.
+- [Open Tickets widget] Fixed redirection to monitoring pages according to the value of the "use deprecated pages" option.
 
 </details>

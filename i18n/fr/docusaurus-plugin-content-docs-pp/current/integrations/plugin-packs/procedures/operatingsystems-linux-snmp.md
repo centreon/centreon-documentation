@@ -21,9 +21,9 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias  | Modèle de service           | Description                                                                                                                                                                  |
 |:-------|:----------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu    | OS-Linux-Cpu-SNMP-custom    | Contrôle du taux d'utilisation du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur. |
+| Cpu    | OS-Linux-Cpu-SNMP-custom    | Contrôle du taux d'utilisation du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |
 | Load   | OS-Linux-Load-SNMP-custom   | Contrôle de la charge serveur                                                                                                                                                |
-| Memory | OS-Linux-Memory-SNMP-custom | Contrôle du taux d'utilisation de la mémoire vive                                                                                                                            |
+| Memory | OS-Linux-Memory-SNMP-custom | Contrôle l'utilisation de la mémoire vive                                                                                                                                    |
 | Swap   | OS-Linux-Swap-SNMP-custom   | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                       |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **OS-Linux-SNMP-custom** est utilisé.
@@ -31,24 +31,24 @@ Le connecteur apporte les modèles de service suivants
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias                      | Modèle de service                               | Description                                                                                                                                                                         | Découverte |
-|:---------------------------|:------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
-| Cpu-Detailed               | OS-Linux-Cpu-Detailed-SNMP-custom               | Contrôle du taux d'utilisation détaillé CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur. |            |
-| Disk-Generic-Id            | OS-Linux-Disk-Generic-Id-SNMP-custom            | Contrôle du taux d'espace libre disponible du disque. Pour chaque contrôle, le nom du disque apparaîtra.                                                                            |            |
-| Disk-Generic-Name          | OS-Linux-Disk-Generic-Name-SNMP-custom          | Contrôle du taux d'espace libre disponible du disque. Pour chaque contrôle, le point de montage du disque apparaîtra.                                                               |            |
-| Disk-Global                | OS-Linux-Disk-Global-SNMP-custom                | Contrôle du taux d'espace libre disponible des disques. Pour chaque contrôle, le point de montage des disques apparaîtra.                                                           | X          |
-| Disk-IO                    | OS-Linux-Disk-IO-SNMP-custom                    | Contrôle les accès disques du disque. Pour chaque contrôle, le nom du disque apparaîtra.                                                                                            | X          |
-| Inodes-Global              | OS-Linux-Inodes-Global-SNMP-custom              | Contrôle l'utilisation des inodes                                                                                                                                                   | X          |
-| Ntp                        | OS-Linux-NTP-SNMP-custom                        | Contrôle la synchronisation avec un serveur NTP                                                                                                                                     |            |
-| Packet-Errors-Generic-Id   | Os-Linux-Packet-Errors-Generic-Id-SNMP-custom   | Contrôle le pourcentage de paquets en erreur/écarté d'une interface réseau                                                                                                          |            |
-| Packet-Errors-Generic-Name | Os-Linux-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écarté d'une interface réseau                                                                                                          |            |
-| Packet-Errors-Global       | Os-Linux-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écarté de plusieurs interfaces réseau                                                                                                  | X          |
-| Process-Generic            | OS-Linux-Process-Generic-SNMP-custom            | Contrôle permettant de vérifier le fonctionnement d'un processus/service Linux                                                                                                      | X          |
-| Tcpcon-Generic             | OS-Linux-Tcpcon-Generic-SNMP-custom             | Contrôle permettant de vérifier les connexions tcp Linux                                                                                                                            |            |
-| Traffic-Generic-Id         | OS-Linux-Traffic-Generic-Id-SNMP-custom         | Contrôle de la bande passante de l'interface. Pour chaque contrôle, le nom de l'interface apparaîtra.                                                                               |            |
-| Traffic-Generic-Name       | OS-Linux-Traffic-Generic-Name-SNMP-custom       | Contrôle de la bande passante de l'interface. Pour chaque contrôle, le nom de l'interface apparaîtra.                                                                               |            |
-| Traffic-Global             | OS-Linux-Traffic-Global-SNMP-custom             | Contrôle de la bande passante des interfaces. Pour chaque contrôle, le nom de l'interface apparaîtra.                                                                               | X          |
-| Uptime                     | OS-Linux-Uptime-SNMP-custom                     | Durée depuis laquelle le serveur tourne sans interruption                                                                                                                           |            |
+| Alias                      | Modèle de service                               | Description                                                                                                                                                                            | Découverte |
+|:---------------------------|:------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
+| Cpu-Detailed               | OS-Linux-Cpu-Detailed-SNMP-custom               | Contrôle du taux d'utilisation détaillé des CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |            |
+| Disk-Generic-Id            | OS-Linux-Disk-Generic-Id-SNMP-custom            | Contrôle du taux d'espace libre disponible du disque. Pour chaque contrôle apparaîtra le nom du disque                                                                                 |            |
+| Disk-Generic-Name          | OS-Linux-Disk-Generic-Name-SNMP-custom          | Contrôle du taux d'espace libre disponible du disque. Pour chaque contrôle apparaîtra le point de montage du disque                                                                    |            |
+| Disk-Global                | OS-Linux-Disk-Global-SNMP-custom                | Contrôle du taux d'espace libre disponible des disques. Pour chaque contrôle, le point de montage des disques apparaîtra                                                               | X          |
+| Disk-IO                    | OS-Linux-Disk-IO-SNMP-custom                    | Contrôle les accès disques du disque. Pour chaque contrôle, le nom du disque apparaîtra                                                                                                | X          |
+| Inodes-Global              | OS-Linux-Inodes-Global-SNMP-custom              | Contrôle l'utilisation des inodes des partitions                                                                                                                                       | X          |
+| Ntp                        | OS-Linux-NTP-SNMP-custom                        | Contrôle la synchronisation avec un serveur NTP                                                                                                                                        |            |
+| Packet-Errors-Generic-Id   | Os-Linux-Packet-Errors-Generic-Id-SNMP-custom   | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau                                                                                                    |            |
+| Packet-Errors-Generic-Name | Os-Linux-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau                                                                                                            |            |
+| Packet-Errors-Global       | Os-Linux-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau                                                                                                    | X          |
+| Process-Generic            | OS-Linux-Process-Generic-SNMP-custom            | Contrôle permettant de vérifier le fonctionnement d'un processus/service Linux                                                                                                         | X          |
+| Tcpcon-Generic             | OS-Linux-Tcpcon-Generic-SNMP-custom             | Contrôle permettant de vérifier les connexions TCP Linux                                                                                                                               |            |
+| Traffic-Generic-Id         | OS-Linux-Traffic-Generic-Id-SNMP-custom         | Contrôle de la bande passante de l'interface. Pour chaque contrôle apparaîtra le nom de l'interface                                                                                    |            |
+| Traffic-Generic-Name       | OS-Linux-Traffic-Generic-Name-SNMP-custom       | Contrôle de la bande passante de l'interface. Pour chaque contrôle apparaîtra le nom de l'interface                                                                                    |            |
+| Traffic-Global             | OS-Linux-Traffic-Global-SNMP-custom             | Contrôle de la bande passante des interfaces. Pour chaque contrôle apparaîtra le nom de l'interface                                                                                    | X          |
+| Uptime                     | OS-Linux-Uptime-SNMP-custom                     | Durée depuis laquelle le serveur tourne sans interruption                                                                                                                              |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -67,17 +67,17 @@ Le connecteur apporte les modèles de service suivants
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
-#### Découverte de service
+#### Découverte de services
 
-| Nom de la règle                  | Description                                                           |
-|:---------------------------------|:----------------------------------------------------------------------|
-| OS-Linux-SNMP-Disk-IO            | Discover the disk partitions and monitor space occupation             |
-| OS-Linux-SNMP-Disk-Name          | Discover the disk partitions and monitor space occupation             |
-| OS-Linux-SNMP-Disk-Path          | Discover the disk partitions and monitor space occupation             |
-| OS-Linux-SNMP-Inodes-Name        | Discover the disk partitions and monitor inodes usage                 |
-| OS-Linux-SNMP-Packet-Errors-Name | Discover network interfaces and monitor errored and discarded packets |
-| OS-Linux-SNMP-Processes-Name     | Discover processes and monitor their system usage                     |
-| OS-Linux-SNMP-Traffic-Name       | Discover network interfaces and monitor bandwidth utilization         |
+| Nom de la règle                  | Description                                                                                      |
+|:---------------------------------|:-------------------------------------------------------------------------------------------------|
+| OS-Linux-SNMP-Disk-IO            | Découvre les partitions du disque en utilisant son IO et supervise l'espace occupé               |
+| OS-Linux-SNMP-Disk-Name          | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé              |
+| OS-Linux-SNMP-Disk-Path          | Découvre les partitions du disque en utilisant son chemin et supervise l'espace occupé           |
+| OS-Linux-SNMP-Inodes-Name        | Découvre les partitions du disque en utilisant son nom et supervise l'utilisation des inodes     |
+| OS-Linux-SNMP-Packet-Errors-Name | Découvre les interfaces réseau en utilisant leur nom et supervise les paquets erronés et rejetés |
+| OS-Linux-SNMP-Processes-Name     | Découvre les processus en utilisant leur nom et supervise leur utilisation par le système        |
+| OS-Linux-SNMP-Traffic-Name       | Découvre les interfaces réseaux en utilisant leur nom et supervise le statut et l'utilisation    |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -154,10 +154,6 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 | *disk*#storage.inodes.usage.percentage | %     |
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
-
-Pour que le mode Inodes fonctionne correctement, il est nécessaire que le service SNMP du serveur Linux soit correctement configuré. Il vous faut pour cela ajouter la directive ci-dessous dans le fichier de configuration SNMP puis redémarrer le service: 
-
-```includeAllDisks 10%```
 
 </TabItem>
 <TabItem value="Load" label="Load">
@@ -387,11 +383,11 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 3. Appliquez le modèle d'hôte **OS-Linux-SNMP-custom**.
 
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](https://docs.centreon.com/fr/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins#snmpv3-options-mapping).
+> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping).
 
-| Macro            | Description                                                                                   | Valeur par défaut | Obligatoire |
-|:-----------------|:----------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (example: a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro            | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -403,20 +399,20 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Macro        | Description                                                                                 | Valeur par défaut | Obligatoire |
-|:-------------|:--------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold average CPU utilization                                                   | 80                |             |
-| CRITICAL     | Critical threshold average CPU utilization                                                  | 90                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (example: a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold average CPU utilization                                                                                                        | 80                |             |
+| CRITICAL     | Critical threshold average CPU utilization                                                                                                       | 90                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Cpu-Detailed" label="Cpu-Detailed">
 
-| Macro        | Description                                                                                 | Valeur par défaut | Obligatoire |
-|:-------------|:--------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGIDLE  | Warning threshold in percent                                                                | 20:               |             |
-| CRITICALIDLE | Critical threshold in percent                                                               | 10:               |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (example: a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGIDLE  | Warning threshold in percent                                                                                                                     | 20:               |             |
+| CRITICALIDLE | Critical threshold in percent                                                                                                                    | 10:               |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Disk-Generic-Id" label="Disk-Generic-Id">
@@ -428,19 +424,19 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 | TRANSFORMDST | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run' will replace all occurrences of 'dev' with 'run' |                                               |             |
 | WARNING      | Warning threshold                                                                                                                                                                              | 80                                            |             |
 | CRITICAL     | Critical threshold                                                                                                                                                                             | 90                                            |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (example: a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                    | --filter-perfdata='storage.space\|used\|free' |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                               | --filter-perfdata='storage.space\|used\|free' |             |
 
 </TabItem>
 <TabItem value="Disk-Generic-Name" label="Disk-Generic-Name">
 
 | Macro        | Description                                                                                                                                                                                    | Valeur par défaut                             | Obligatoire |
 |:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-----------:|
-| DISKNAME     | Set the storage (number expected) example: 1, 2,... (empty means 'check all storage')                                                                                                          |                                               |             |
+| DISKNAME     | Set the storage name (empty means 'check all storage')                                                                                                                                         |                                               |             |
 | TRANSFORMSRC | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run' will replace all occurrences of 'dev' with 'run' |                                               |             |
 | TRANSFORMDST | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run' will replace all occurrences of 'dev' with 'run' |                                               |             |
 | WARNING      | Warning threshold                                                                                                                                                                              | 80                                            |             |
 | CRITICAL     | Critical threshold                                                                                                                                                                             | 90                                            |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (example: a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                    | --filter-perfdata='storage.space\|used\|free' |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                               | --filter-perfdata='storage.space\|used\|free' |             |
 
 </TabItem>
 <TabItem value="Disk-Global" label="Disk-Global">
@@ -452,185 +448,185 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 | TRANSFORMDST | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run' will replace all occurrences of 'dev' with 'run' |                                                         |             |
 | WARNING      | Warning threshold                                                                                                                                                                              | 80                                                      |             |
 | CRITICAL     | Critical threshold                                                                                                                                                                             | 90                                                      |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (example: a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                    | --verbose --filter-perfdata='storage.space\|used\|free' |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                               | --verbose --filter-perfdata='storage.space\|used\|free' |             |
 
 </TabItem>
 <TabItem value="Disk-IO" label="Disk-IO">
 
-| Macro         | Description                                                                                 | Valeur par défaut | Obligatoire |
-|:--------------|:--------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| DISKNAME      | Set the device (number expected) example: 1, 2,... (empty means 'check all devices')        |                   |             |
-| WARNINGREAD   | Warning threshold                                                                           |                   |             |
-| CRITICALREAD  | Critical threshold                                                                          |                   |             |
-| WARNINGWRITE  | Warning threshold                                                                           |                   |             |
-| CRITICALWRITE | Critical threshold                                                                          |                   |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (example: a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro         | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| DISKNAME      | Set the device name (empty means 'check all devices')                                                                                            |                   |             |
+| WARNINGREAD   | Warning threshold                                                                                                                                |                   |             |
+| CRITICALREAD  | Critical threshold                                                                                                                               |                   |             |
+| WARNINGWRITE  | Warning threshold                                                                                                                                |                   |             |
+| CRITICALWRITE | Critical threshold                                                                                                                               |                   |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Inodes-Global" label="Inodes-Global">
 
-| Macro        | Description                                                                                 | Valeur par défaut                                        | Obligatoire |
-|:-------------|:--------------------------------------------------------------------------------------------|:---------------------------------------------------------|:-----------:|
-| FILTER       | Set the disk path (number expected) example: 1, 2,... (empty means 'check all disks path')  | .*                                                       |             |
-| FILTERDEVICE | Filter devices by name (regexp)                                                             | ^(?!(tmpfs\|devpts\|none\|proc\|sysfs\|sunrpc\|\/\/.*)$) |             |
-| CRITICAL     | Critical threshold in percent                                                               | 90                                                       |             |
-| WARNING      | Warning threshold in percent                                                                | 80                                                       |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (example: a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose                                                |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut                                        | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------|:-----------:|
+| FILTER       | Set the disk path (number expected) example: 1, 2,... (empty means 'check all disks path')                                                       | .*                                                       |             |
+| FILTERDEVICE | Filter devices by name (regexp)                                                                                                                  | ^(?!(tmpfs\|devpts\|none\|proc\|sysfs\|sunrpc\|\/\/.*)$) |             |
+| WARNING      | Warning threshold in percent                                                                                                                     | 80                                                       |             |
+| CRITICAL     | Critical threshold in percent                                                                                                                    | 90                                                       |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                                                |             |
 
 </TabItem>
 <TabItem value="Load" label="Load">
 
-| Macro        | Description                                                                                 | Valeur par défaut | Obligatoire |
-|:-------------|:--------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CRITICAL     | Critical threshold (1min,5min,15min)                                                        | 6,5,4             |             |
-| WARNING      | Warning threshold (1min,5min,15min)                                                         | 4,3,2             |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (example: a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| CRITICAL     | Critical threshold (1min,5min,15min)                                                                                                             | 6,5,4             |             |
+| WARNING      | Warning threshold (1min,5min,15min)                                                                                                              | 4,3,2             |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro        | Description                                                                                 | Valeur par défaut | Obligatoire |
-|:-------------|:--------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CRITICAL     | Thresholds                                                                                  | 90                |             |
-| WARNING      | Thresholds                                                                                  | 80                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (example: a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut       | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------|:-----------:|
+| WARNING      | Thresholds                                                                                                                                       | 80                      |             |
+| CRITICAL     | Thresholds                                                                                                                                       | 90                      |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --force-64bits-counters |             |
 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
 
-| Macro        | Description                                                                                                     | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| NTPADDR      | Set the ntp hostname (if not set, localtime is used)                                                            |                   |             |
-| NTPPORT      | Set the ntp port (default: 123)                                                                                 |                   |             |
-| TIMEZONE     | Set the timezone of distant server. For Windows, you need to set it. Can use format: 'Europe/London' or '+0100' |                   |             |
-| WARNING      | Time offset warning threshold (in seconds)                                                                      | -1:1              |             |
-| CRITICAL     | Time offset critical Threshold (in seconds)                                                                     | -2:2              |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (example: a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                     |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| NTPADDR      | Set the ntp hostname (if not set, localtime is used)                                                                                             |                   |             |
+| NTPPORT      | Set the ntp port (default: 123)                                                                                                                  |                   |             |
+| TIMEZONE     | Set the timezone of distant server. For Windows, you need to set it. Can use format: 'Europe/London' or '+0100'                                  |                   |             |
+| WARNING      | Time offset warning threshold (in seconds)                                                                                                       | -1:1              |             |
+| CRITICAL     | Time offset critical Threshold (in seconds)                                                                                                      | -2:2              |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Packet-Errors-Generic-Id" label="Packet-Errors-Generic-Id">
 
-| Macro              | Description                                                                                 | Valeur par défaut | Obligatoire |
-|:-------------------|:--------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACEID        | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')   |                   |             |
-| CRITICALINDISCARD  | Thresholds                                                                                  |                   |             |
-| WARNINGINDISCARD   | Thresholds                                                                                  |                   |             |
-| CRITICALINERROR    | Thresholds                                                                                  |                   |             |
-| WARNINGINERROR     | Thresholds                                                                                  |                   |             |
-| CRITICALOUTDISCARD | Thresholds                                                                                  |                   |             |
-| WARNINGOUTDISCARD  | Thresholds                                                                                  |                   |             |
-| CRITICALOUTERROR   | Thresholds                                                                                  |                   |             |
-| WARNINGOUTERROR    | Thresholds                                                                                  |                   |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (example: a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro              | Description                                                                                                                                           | Valeur par défaut | Obligatoire |
+|:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| INTERFACEID        | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |                   |             |
+| WARNINGINDISCARD   | Thresholds                                                                                                                                            |                   |             |
+| CRITICALINDISCARD  | Thresholds                                                                                                                                            |                   |             |
+| WARNINGINERROR     | Thresholds                                                                                                                                            |                   |             |
+| CRITICALINERROR    | Thresholds                                                                                                                                            |                   |             |
+| WARNINGOUTDISCARD  | Thresholds                                                                                                                                            |                   |             |
+| CRITICALOUTDISCARD | Thresholds                                                                                                                                            |                   |             |
+| WARNINGOUTERROR    | Thresholds                                                                                                                                            |                   |             |
+| CRITICALOUTERROR   | Thresholds                                                                                                                                            |                   |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).      |                   |             |
 
 </TabItem>
 <TabItem value="Packet-Errors-Generic-Name" label="Packet-Errors-Generic-Name">
 
-| Macro              | Description                                                                                 | Valeur par défaut | Obligatoire |
-|:-------------------|:--------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACENAME      | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')   | .*                |             |
-| WARNINGINDISCARD   | Thresholds                                                                                  |                   |             |
-| CRITICALINDISCARD  | Thresholds                                                                                  |                   |             |
-| WARNINGINERROR     | Thresholds                                                                                  |                   |             |
-| CRITICALINERROR    | Thresholds                                                                                  |                   |             |
-| WARNINGOUTDISCARD  | Thresholds                                                                                  |                   |             |
-| CRITICALOUTDISCARD | Thresholds                                                                                  |                   |             |
-| WARNINGOUTERROR    | Thresholds                                                                                  |                   |             |
-| CRITICALOUTERROR   | Thresholds                                                                                  |                   |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (example: a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro              | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| INTERFACENAME      | Check only the interfaces with the specified name. If empty, all interfaces will be monitored.                                                                 | .*                |             |
+| WARNINGINDISCARD   | Thresholds                                                                                                                                       |                   |             |
+| CRITICALINDISCARD  | Thresholds                                                                                                                                       |                   |             |
+| WARNINGINERROR     | Thresholds                                                                                                                                       |                   |             |
+| CRITICALINERROR    | Thresholds                                                                                                                                       |                   |             |
+| WARNINGOUTDISCARD  | Thresholds                                                                                                                                       |                   |             |
+| CRITICALOUTDISCARD | Thresholds                                                                                                                                       |                   |             |
+| WARNINGOUTERROR    | Thresholds                                                                                                                                       |                   |             |
+| CRITICALOUTERROR   | Thresholds                                                                                                                                       |                   |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Packet-Errors-Global" label="Packet-Errors-Global">
 
 | Macro              | Description                                                                                                                                                                                                         | Valeur par défaut | Obligatoire |
 |:-------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER             | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                                                                                           | .*                |             |
-| CRITICALINDISCARD  | Thresholds                                                                                                                                                                                                          |                   |             |
+| FILTER             | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name                                                               | .*                |             |
 | WARNINGINDISCARD   | Thresholds                                                                                                                                                                                                          |                   |             |
-| CRITICALINERROR    | Thresholds                                                                                                                                                                                                          |                   |             |
+| CRITICALINDISCARD  | Thresholds                                                                                                                                                                                                          |                   |             |
 | WARNINGINERROR     | Thresholds                                                                                                                                                                                                          |                   |             |
-| CRITICALOUTDISCARD | Thresholds                                                                                                                                                                                                          |                   |             |
+| CRITICALINERROR    | Thresholds                                                                                                                                                                                                          |                   |             |
 | WARNINGOUTDISCARD  | Thresholds                                                                                                                                                                                                          |                   |             |
-| CRITICALOUTERROR   | Thresholds                                                                                                                                                                                                          |                   |             |
+| CRITICALOUTDISCARD | Thresholds                                                                                                                                                                                                          |                   |             |
 | WARNINGOUTERROR    | Thresholds                                                                                                                                                                                                          |                   |             |
+| CRITICALOUTERROR   | Thresholds                                                                                                                                                                                                          |                   |             |
 | CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} |                   |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (example: a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                         | --verbose         |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                    | --verbose         |             |
 
 </TabItem>
 <TabItem value="Process-Generic" label="Process-Generic">
 
-| Macro        | Description                                                                                 | Valeur par défaut | Obligatoire |
-|:-------------|:--------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PROCESSARGS  | Filter process arguments                                                                    |                   |             |
-| PROCESSNAME  | Filter process name                                                                         |                   |             |
-| PROCESSPATH  | Filter process path                                                                         |                   |             |
-| CRITICAL     | Critical threshold of matching processes count                                              | 1:                |             |
-| WARNING      | Warning threshold of matching processes count                                               |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (example: a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSARGS  | Filter process arguments                                                                                                                         |                   |             |
+| PROCESSNAME  | Filter process name                                                                                                                              |                   |             |
+| PROCESSPATH  | Filter process path                                                                                                                              |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                                   | 1:                |             |
+| WARNING      | Warning threshold of matching processes count                                                                                                    |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Macro        | Description                                                                                 | Valeur par défaut | Obligatoire |
-|:-------------|:--------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CRITICAL     | Thresholds                                                                                  | 30                |             |
-| WARNING      | Thresholds                                                                                  | 10                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (example: a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| CRITICAL     | Thresholds                                                                                                                                       | 30                |             |
+| WARNING      | Thresholds                                                                                                                                       | 10                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Tcpcon-Generic" label="Tcpcon-Generic">
 
-| Macro        | Description                                                                                 | Valeur par défaut | Obligatoire |
-|:-------------|:--------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold for total connections                                                     |                   |             |
-| CRITICAL     | Critical threshold for total connections                                                    |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (example: a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold for total connections                                                                                                          |                   |             |
+| CRITICAL     | Critical threshold for total connections                                                                                                         |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Traffic-Generic-Id" label="Traffic-Generic-Id">
 
-| Macro        | Description                                                                                 | Valeur par défaut | Obligatoire |
-|:-------------|:--------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACEID  | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')   |                   |             |
-| CRITICALIN   | Thresholds                                                                                  | 90                |             |
-| WARNINGIN    | Thresholds                                                                                  | 80                |             |
-| CRITICALOUT  | Thresholds                                                                                  | 90                |             |
-| WARNINGOUT   | Thresholds                                                                                  | 80                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (example: a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro        | Description                                                                                                                                           | Valeur par défaut | Obligatoire |
+|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| INTERFACEID  | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |                   |             |
+| CRITICALIN   | Thresholds                                                                                                                                            | 90                |             |
+| WARNINGIN    | Thresholds                                                                                                                                            | 80                |             |
+| CRITICALOUT  | Thresholds                                                                                                                                            | 90                |             |
+| WARNINGOUT   | Thresholds                                                                                                                                            | 80                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).      |                   |             |
 
 </TabItem>
 <TabItem value="Traffic-Generic-Name" label="Traffic-Generic-Name">
 
-| Macro         | Description                                                                                 | Valeur par défaut | Obligatoire |
-|:--------------|:--------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACENAME | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')   | .*                |             |
-| WARNINGIN     | Thresholds                                                                                  | 80                |             |
-| CRITICALIN    | Thresholds                                                                                  | 90                |             |
-| WARNINGOUT    | Thresholds                                                                                  | 80                |             |
-| CRITICALOUT   | Thresholds                                                                                  | 90                |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (example: a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro         | Description                                                                                                                                           | Valeur par défaut | Obligatoire |
+|:--------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| INTERFACENAME | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name | .*                |             |
+| WARNINGIN     | Thresholds                                                                                                                                            | 80                |             |
+| CRITICALIN    | Thresholds                                                                                                                                            | 90                |             |
+| WARNINGOUT    | Thresholds                                                                                                                                            | 80                |             |
+| CRITICALOUT   | Thresholds                                                                                                                                            | 90                |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).      |                   |             |
 
 </TabItem>
 <TabItem value="Traffic-Global" label="Traffic-Global">
 
 | Macro          | Description                                                                                                                                                                                                         | Valeur par défaut | Obligatoire |
 |:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER         | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                                                                                           | .*                |             |
+| FILTER         | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name                                                               | .*                |             |
 | CRITICALIN     | Thresholds                                                                                                                                                                                                          | 90                |             |
 | WARNINGIN      | Thresholds                                                                                                                                                                                                          | 80                |             |
 | CRITICALOUT    | Thresholds                                                                                                                                                                                                          | 90                |             |
 | WARNINGOUT     | Thresholds                                                                                                                                                                                                          | 80                |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (example: a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                         | --verbose         |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                    | --verbose         |             |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Macro        | Description                                                                                 | Valeur par défaut | Obligatoire |
-|:-------------|:--------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold                                                                           |                   |             |
-| CRITICAL     | Critical threshold                                                                          |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (example: a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --check-overload  |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold                                                                                                                                |                   |             |
+| CRITICAL     | Critical threshold                                                                                                                               |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --check-overload  |             |
 
 </TabItem>
 </Tabs>
@@ -667,12 +663,12 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All interfaces are ok | *interface_name*#interface.traffic.in.bitspersecond'=4212b/s;;;;' *interface_name*#interface.traffic.out.bitspersecond'=1242b/s;;;;
+OK: All interfaces are ok | *interface_name*#interface.traffic.in.bitspersecond'=20b/s;80;90;;' *interface_name*#interface.traffic.out.bitspersecond'=20b/s;80;90;;
 ```
 
 ### Diagnostic des erreurs communes
 
-Rendez-vous sur la [documentation dédiée](https://docs.centreon.com/fr/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins)
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
 pour le diagnostic des erreurs communes des plugins Centreon.
 
 ### Modes disponibles
@@ -736,7 +732,7 @@ Les options génériques sont listées ci-dessous :
 | --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %{variable} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
+| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale(Mbps),mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                                |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
 | --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -748,7 +744,7 @@ Les options génériques sont listées ci-dessous :
 | --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --output-file                              | Write output in file (can be combined with json, xml and openmetrics options). Example: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --output-file                              | Write output in file (can be combined with json, xml and openmetrics options). Example: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
@@ -788,7 +784,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option             | Description                                   |
 |:-------------------|:----------------------------------------------|
-| --use-ucd          | Use UCD mib for cpu average.                  |
+| --use-ucd          | Use UCD mib for CPU average.                  |
 | --warning-average  | Warning threshold average CPU utilization.    |
 | --critical-average | Critical threshold average CPU utilization.   |
 | --warning-core     | Warning thresholds for each CPU core          |
@@ -847,7 +843,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --oid-filter                                    | Choose OID used to filter storage (default: hrStorageDescr) (values: hrStorageDescr, hrFSMountPoint).                                                                                                                                         |
 | --oid-display                                   | Choose OID used to display storage (default: hrStorageDescr) (values: hrStorageDescr, hrFSMountPoint).                                                                                                                                        |
 | --display-transform-src --display-transform-dst | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run' will replace all occurrences of 'dev' with 'run'                                                |
-| --show-cache                                    | Display cache storage datas.                                                                                                                                                                                                                  |
+| --show-cache                                    | Display cache storage data.                                                                                                                                                                                                                   |
 | --space-reservation                             | Some filesystem has space reserved (like ext4 for root). The value is in percent of total (default: none) (results like 'df' command).                                                                                                        |
 | --filter-duplicate                              | Filter duplicate storages (in used size and total size).                                                                                                                                                                                      |
 | --filter-storage-type                           | Filter storage types with a regexp (default: '^(hrStorageFixedDisk\|hrStorageNetworkDisk\|hrFSBerkeleyFFS)$').                                                                                                                                |
@@ -887,7 +883,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --name                                          | Allows to use disk path name with option --diskpath instead ofdisk path oid index.                                                                                                                 |
 | --regexp                                        | Allows to use regexp to filter diskpath (with option --name).                                                                                                                                      |
 | --regexp-insensitive                            | Allows to use regexp non case-sensitive (with --regexp).                                                                                                                                           |
-| --display-transform-src --display-transform-dst | Modify the disk path name displayed by using a regular expression. Example: adding --display-transform-src='dev' --display-transform-dst='run' will replace all occurrences of 'dev' with 'run'    |
+| --display-transform-src --display-transform-dst | Modify the disk path name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run' will replace all occurrences of 'dev' with 'run'   |
 | --filter-device                                 | Filter devices by name (regexp).                                                                                                                                                                   |
 | --filter-path                                   | Filter devices by path (regexp).                                                                                                                                                                   |
 
@@ -903,13 +899,14 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Option                   | Description                                                                                                                                                                                                                                                                                          |
-|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --units                  | Units of thresholds (default: '%') ('%', 'absolute')(deprecated. Please use new counters directly)                                                                                                                                                                                                   |
-| --free                   | Thresholds are on free space left (deprecated. Please use newcounters directly)                                                                                                                                                                                                                      |
-| --swap                   | Check swap also.                                                                                                                                                                                                                                                                                     |
-| --warning-* --critical-* | Thresholds. Can be: 'usage' (B), 'usage-free' (B), 'usage-prct' (%), 'swap' (B), 'swap-free' (B), 'swap-prct' (%), 'buffer' (B), 'cached' (B), 'shared' (B).                                                                                                                                         |
-| --patch-redhat           | If using RedHat distribution with net-snmp \>= 5.7.2-43 and net-snmp \< 5.7.2-47. But you should update net-snmp!!!!  This version: used = memTotalReal - memAvailReal // free = memAvailReal  Others versions: used = memTotalReal - memAvailReal - memBuffer - memCached // free = total - used    |
+| Option                   | Description                                                                                                                                                                                                                                                                                                                        |
+|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --units                  | Units of thresholds (default: '%') ('%', 'absolute')(deprecated. Please use new counters directly)                                                                                                                                                                                                                                 |
+| --free                   | Thresholds are on free space left (deprecated. Please use newcounters directly)                                                                                                                                                                                                                                                    |
+| --swap                   | Check swap also.                                                                                                                                                                                                                                                                                                                   |
+| --warning-* --critical-* | Thresholds. Can be: 'usage' (B), 'usage-free' (B), 'usage-prct' (%), 'swap' (B), 'swap-free' (B), 'swap-prct' (%), 'buffer' (B), 'cached' (B), 'shared' (B).                                                                                                                                                                       |
+| --patch-redhat           | If using Red Hat distribution with net-snmp \>= 5.7.2-43 and net-snmp \< 5.7.2-47. But you should update net-snmp!!!!  This version: used = memTotalReal - memAvailReal // free = memAvailReal  Others versions: used = memTotalReal - memAvailReal - memBuffer - memCached // free = total - used                                 |
+| --force-64bits-counters  | Use this option to monitor a server/device that has more than 2 TB of RAM, the maximum size of a signed 32 bits integer. If you omit it you'll get the remainder of the Euclidean division of the actual value by 2 TB. NB: it cannot work with version 1 of SNMP protocol. 64 bits counters are supported starting version 2c.    |
 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
@@ -955,21 +952,22 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --units-traffic                                 | Units of thresholds for the traffic (default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                                                                                                      |
 | --units-errors                                  | Units of thresholds for errors/discards (default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                          |
 | --units-cast                                    | Units of thresholds for communication types (default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                      |
-| --nagvis-perfdata                               | Display traffic perfdata to be compatible with nagvis widget.                                                                                                                                                                                                                              |
-| --interface                                     | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces').                                                                                                                                                                                                 |
-| --name                                          | Allows you to define the interface (in option --interface) byname instead of OID index. The name matching mode supports regular expressions.                                                                                                                                               |
+| --nagvis-perfdata                               | Display traffic perfdata to be compatible with NagVis widget.                                                                                                                                                                                                                              |
+| --interface                                     | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name.                                                                                                                                     |
+| --name                                          | With this option, the interfaces will be filtered by name (givenin option --interface) instead of OID index. The name matching mode supports regular expressions.                                                                                                                          |
+| --regex-id                                      | With this option, interface IDs will be filtered using the --interface parameter as a regular expression instead of a list of IDs.                                                                                                                                                         |
 | --speed                                         | Set interface speed for incoming/outgoing traffic (in Mb).                                                                                                                                                                                                                                 |
 | --speed-in                                      | Set interface speed for incoming traffic (in Mb).                                                                                                                                                                                                                                          |
 | --speed-out                                     | Set interface speed for outgoing traffic (in Mb).                                                                                                                                                                                                                                          |
-| --map-speed-dsl                                 | Get interface speed configuration for interface type 'adsl' and 'vdsl2'.  Syntax: --map-speed-dsl=interface-src-name,interface-dsl-name  Example: --map-speed-dsl=Et0.835,Et0-vdsl2                                                                                                            |
+| --map-speed-dsl                                 | Get interface speed configuration for interfaces of type 'ADSL' and 'VDSL2'.  Syntax: --map-speed-dsl=interface-src-name,interface-dsl-name  E.g: --map-speed-dsl=Et0.835,Et0-vdsl2                                                                                                        |
 | --force-counters64                              | Force to use 64 bits counters only. Can be used to improve performance.                                                                                                                                                                                                                    |
-| --force-counters32                              | Force to use 32 bits counters (even in snmp v2c and v3). Should be used when 64 bits counters are buggy.                                                                                                                                                                                   |
+| --force-counters32                              | Force to use 32-bits counters (even with SNMP versions 2c and 3). To use when 64 bits counters are buggy.                                                                                                                                                                                  |
 | --reload-cache-time                             | Time in minutes before reloading cache file (default: 180).                                                                                                                                                                                                                                |
 | --oid-filter                                    | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                                |
 | --oid-display                                   | Define the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                       |
 | --oid-extra-display                             | Add an OID to display.                                                                                                                                                                                                                                                                     |
 | --display-transform-src --display-transform-dst | Modify the interface name displayed by using a regular expression.  Example: adding --display-transform-src='eth' --display-transform-dst='ens' will replace all occurrences of 'eth' with 'ens'                                                                                           |
-| --show-cache                                    | Display cache interface datas.                                                                                                                                                                                                                                                             |
+| --show-cache                                    | Display cache interface data.                                                                                                                                                                                                                                                              |
 
 </TabItem>
 <TabItem value="Process-Generic" label="Process-Generic">
@@ -1004,9 +1002,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --critical-mem-total   | Critical threshold of total memory used by matching processes (in Bytes).                                                                                                                                                                     |
 | --warning-mem-avg      | Warning threshold of average memory used by matching processes (in Bytes).                                                                                                                                                                    |
 | --critical-mem-avg     | Critical threshold of average memory used by matching processes (in Bytes).                                                                                                                                                                   |
-| --cpu                  | Check cpu usage. Should be used with fix processes. If processespid changes too much, the plugin can't compute values.                                                                                                                        |
-| --warning-cpu-total    | Warning threshold of cpu usage for all processes (in percent). CPU usage is in % of one cpu, so maximum can be 100% * number of CPU and a process can have a value greater than 100%.                                                         |
-| --critical-cpu-total   | Critical threshold of cpu usage for all processes (in percent). CPU usage is in % of one cpu, so maximum can be 100% * number of CPU and a process can have a value greater than 100%.                                                        |
+| --cpu                  | Check CPU usage. Should be used with fix processes. If processespid changes too much, the plugin can't compute values.                                                                                                                        |
+| --warning-cpu-total    | Warning threshold of CPU usage for all processes (in percent). CPU usage is in % of one CPU, so maximum can be 100% * number of CPU and a process can have a value greater than 100%.                                                         |
+| --critical-cpu-total   | Critical threshold of CPU usage for all processes (in percent). CPU usage is in % of one CPU, so maximum can be 100% * number of CPU and a process can have a value greater than 100%.                                                        |
 | --top                  | Enable top memory usage display.                                                                                                                                                                                                              |
 | --top-num              | Number of processes in top memory display (default: 5).                                                                                                                                                                                       |
 | --top-size             | Minimum memory usage to be in top memory display (default: 52428800 -\> 50 MB).                                                                                                                                                               |
@@ -1061,21 +1059,22 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --units-traffic                                 | Units of thresholds for the traffic (default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                                                                                                      |
 | --units-errors                                  | Units of thresholds for errors/discards (default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                          |
 | --units-cast                                    | Units of thresholds for communication types (default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                      |
-| --nagvis-perfdata                               | Display traffic perfdata to be compatible with nagvis widget.                                                                                                                                                                                                                              |
-| --interface                                     | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces').                                                                                                                                                                                                 |
-| --name                                          | Allows you to define the interface (in option --interface) byname instead of OID index. The name matching mode supports regular expressions.                                                                                                                                               |
+| --nagvis-perfdata                               | Display traffic perfdata to be compatible with NagVis widget.                                                                                                                                                                                                                              |
+| --interface                                     | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name.                                                                                                                                     |
+| --name                                          | With this option, the interfaces will be filtered by name (givenin option --interface) instead of OID index. The name matching mode supports regular expressions.                                                                                                                          |
+| --regex-id                                      | With this option, interface IDs will be filtered using the --interface parameter as a regular expression instead of a list of IDs.                                                                                                                                                         |
 | --speed                                         | Set interface speed for incoming/outgoing traffic (in Mb).                                                                                                                                                                                                                                 |
 | --speed-in                                      | Set interface speed for incoming traffic (in Mb).                                                                                                                                                                                                                                          |
 | --speed-out                                     | Set interface speed for outgoing traffic (in Mb).                                                                                                                                                                                                                                          |
-| --map-speed-dsl                                 | Get interface speed configuration for interface type 'adsl' and 'vdsl2'.  Syntax: --map-speed-dsl=interface-src-name,interface-dsl-name. Example: --map-speed-dsl=Et0.835,Et0-vdsl2                                                                                                            |
+| --map-speed-dsl                                 | Get interface speed configuration for interfaces of type 'ADSL' and 'VDSL2'.  Syntax: --map-speed-dsl=interface-src-name,interface-dsl-name  E.g: --map-speed-dsl=Et0.835,Et0-vdsl2                                                                                                        |
 | --force-counters64                              | Force to use 64 bits counters only. Can be used to improve performance.                                                                                                                                                                                                                    |
-| --force-counters32                              | Force to use 32 bits counters (even in snmp v2c and v3). Should be used when 64 bits counters are buggy.                                                                                                                                                                                   |
+| --force-counters32                              | Force to use 32-bit counters (even with SNMP versions 2c and 3). To use when 64-bit counters are buggy.                                                                                                                                                                                  |
 | --reload-cache-time                             | Time in minutes before reloading cache file (default: 180).                                                                                                                                                                                                                                |
 | --oid-filter                                    | Define the OID to be used to filter interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                                |
 | --oid-display                                   | Define the OID that will be used to name the interfaces (default: ifName) (values: ifDesc, ifAlias, ifName, IpAddr).                                                                                                                                                                       |
 | --oid-extra-display                             | Add an OID to display.                                                                                                                                                                                                                                                                     |
 | --display-transform-src --display-transform-dst | Modify the interface name displayed by using a regular expression.  Example: adding --display-transform-src='eth' --display-transform-dst='ens' will replace all occurrences of 'eth' with 'ens'                                                                                           |
-| --show-cache                                    | Display cache interface datas.                                                                                                                                                                                                                                                             |
+| --show-cache                                    | Display cache interface data.                                                                                                                                                                                                                                                              |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
@@ -1097,10 +1096,10 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --warning-uptime       | Warning threshold.                                                                                                                                                                                                                            |
 | --critical-uptime      | Critical threshold.                                                                                                                                                                                                                           |
 | --add-sysdesc          | Display system description.                                                                                                                                                                                                                   |
-| --force-oid            | Can choose your oid (numeric format only).                                                                                                                                                                                                    |
+| --force-oid            | Can choose your OID (numeric format only).                                                                                                                                                                                                    |
 | --check-overload       | Uptime counter limit is 4294967296 and overflow. With that option, we manage the counter going back. But there is a few chance we can miss a reboot.                                                                                          |
 | --reboot-window        | To be used with check-overload option. Time in milliseconds (default: 5000) You increase the chance of not missing a reboot if you decrease that value.                                                                                       |
-| --unit                 | Select the time unit for thresholds. May be 's' for seconds,'m'for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                                                                                                   |
+| --unit                 | Select the time unit for thresholds. May be 's' for seconds, 'm'for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                                                                                                  |
 
 </TabItem>
 </Tabs>

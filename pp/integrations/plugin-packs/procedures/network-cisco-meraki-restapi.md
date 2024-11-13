@@ -74,11 +74,11 @@ More information about discovering hosts automatically is available on the [dedi
 
 #### Service discovery
 
-| Rule name                                                         | Description |
-|:------------------------------------------------------------------|:------------|
+| Rule name                                                         | Description                                |
+|:------------------------------------------------------------------|:-------------------------------------------|
 | Net-Cisco-Meraki-Cloudcontroller-Restapi-Vpn-Tunnels-Network-Name | Discover VPN tunnels by their network name |
-| Net-Cisco-Meraki-RestAPI-Device                                   | Discover devices |
-| Net-Cisco-Meraki-RestAPI-Tag                                      | Discover tags    |
+| Net-Cisco-Meraki-RestAPI-Device                                   | Discover devices                           |
+| Net-Cisco-Meraki-RestAPI-Tag                                      | Discover tags                              |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -99,7 +99,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Cache" label="Cache">
 
-Coming soon
+No metrics for this service.
 
 </TabItem>
 <TabItem value="Device" label="Device">
@@ -156,7 +156,20 @@ Coming soon
 | *devices*~*device_ports*#device.port.traffic.out.bitspersecond | b/s   |
 
 </TabItem>
-<TabItem value="Network, Networks" label="Network, Networks">
+<TabItem value="Network" label="Network">
+
+| Metric name                                  | Unit  |
+|:---------------------------------------------|:------|
+| *networks*#network.connections.success.count | count |
+| *networks*#network.connections.auth.count    | count |
+| *networks*#network.connections.assoc.count   | count |
+| *networks*#network.connections.dhcp.count    | count |
+| *networks*#network.connections.dns.count     | count |
+| *networks*#network.traffic.in.bitspersecond  | b/s   |
+| *networks*#network.traffic.out.bitspersecond | b/s   |
+
+</TabItem>
+<TabItem value="Networks" label="Networks">
 
 | Metric name                                  | Unit  |
 |:---------------------------------------------|:------|
@@ -295,13 +308,13 @@ yum install centreon-plugin-Network-Cisco-Meraki-Restapi
 3. Apply the **Net-Cisco-Meraki-Cloudcontroller-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                 | Description                                                                                          | Default value     | Mandatory   |
-|:----------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| MERAKIAPIHOSTNAME     | Meraki API hostname                                                                                  | api.meraki.com    | X           |
-| MERAKIAPITOKEN        | Meraki API token                                                                                     |                   | X           |
-| MERAKIAPIPROTO        | Define the protocol to use to reach the API                                                                 | https             |             |
-| MERAKIAPIPORT         | Define the TCP port to use to reach the API                                                          | 443               |             |
-| PROXYURL              | Proxy URL. Example: http://my.proxy:3128                                                             |                   |             |
+| Macro                 | Description                                                                                                                              | Default value     | Mandatory   |
+|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| MERAKIAPIHOSTNAME     | Meraki API hostname                                                                                                                      | api.meraki.com    | X           |
+| MERAKIAPITOKEN        | Meraki API token                                                                                                                         |                   | X           |
+| MERAKIAPIPROTO        | Define the protocol to use to reach the API                                                                                                     | https             |             |
+| MERAKIAPIPORT         | Define the TCP port to use to reach the API                                                                                              | 443               |             |
+| PROXYURL              | Proxy URL. Example: http://my.proxy:3128                                                                                                 |                   |             |
 | MERAKIAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -314,14 +327,14 @@ yum install centreon-plugin-Network-Cisco-Meraki-Restapi
 3. Apply the **Net-Cisco-Meraki-Device-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                 | Description                                                                                          | Default value     | Mandatory   |
-|:----------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| MERAKIAPIHOSTNAME     | Meraki API hostname                                                                                  | api.meraki.com    | X           |
-| MERAKIAPITOKEN        | Meraki API token                                                                                     |                   | X           |
-| MERAKIAPIPROTO        | Define the protocol to use to reach the API                                                                 | https             |             |
-| MERAKIAPIPORT         | Define the TCP port to use to reach the API                                                          | 443               |             |
-| MERAKIDEVICENAME      | Filter devices by name (can be a regexp)                                                             |                   |             |
-| PROXYURL              | Proxy URL. Example: http://my.proxy:3128                                                             |                   |             |
+| Macro                 | Description                                                                                                                              | Default value     | Mandatory   |
+|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| MERAKIAPIHOSTNAME     | Meraki API hostname                                                                                                                      | api.meraki.com    | X           |
+| MERAKIAPITOKEN        | Meraki API token                                                                                                                         |                   | X           |
+| MERAKIAPIPROTO        | Define the protocol to use to reach the API                                                                                                     | https             |             |
+| MERAKIAPIPORT         | Define the TCP port to use to reach the API                                                                                              | 443               |             |
+| MERAKIDEVICENAME      | Filter devices by name (can be a regexp)                                                                                                 |                   |             |
+| PROXYURL              | Proxy URL. Example: http://my.proxy:3128                                                                                                 |                   |             |
 | MERAKIAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -334,14 +347,14 @@ yum install centreon-plugin-Network-Cisco-Meraki-Restapi
 3. Apply the **Net-Cisco-Meraki-Network-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                 | Description                                                                                          | Default value     | Mandatory   |
-|:----------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| MERAKIAPIHOSTNAME     | Meraki API hostname                                                                                  | api.meraki.com    | X           |
-| MERAKIAPITOKEN        | Meraki API token                                                                                     |                   | X           |
-| MERAKIAPIPROTO        | Define the protocol to use to reach the API                                                                 | https             |             |
-| MERAKIAPIPORT         | Define the TCP port to use to reach the API                                                          | 443               |             |
-| MERAKINETWORKNAME     | Filter network name (can be a regexp)                                                                |                   |             |
-| PROXYURL              | Proxy URL. Example: http://my.proxy:3128                                                             |                   |             |
+| Macro                 | Description                                                                                                                              | Default value     | Mandatory   |
+|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| MERAKIAPIHOSTNAME     | Meraki API hostname                                                                                                                      | api.meraki.com    | X           |
+| MERAKIAPITOKEN        | Meraki API token                                                                                                                         |                   | X           |
+| MERAKIAPIPROTO        | Define the protocol to use to reach the API                                                                                                     | https             |             |
+| MERAKIAPIPORT         | Define the TCP port to use to reach the API                                                                                              | 443               |             |
+| MERAKINETWORKNAME     | Filter network name (can be a regexp)                                                                                                    |                   |             |
+| PROXYURL              | Proxy URL. Example: http://my.proxy:3128                                                                                                 |                   |             |
 | MERAKIAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -357,22 +370,22 @@ yum install centreon-plugin-Network-Cisco-Meraki-Restapi
 <Tabs groupId="sync">
 <TabItem value="Api-Requests" label="Api-Requests">
 
-| Macro                  | Description                                                                                        | Default value     | Mandatory   |
-|:-----------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERORGANIZATIONNAME | Filter organization name (can be a regexp)                                                         |                   |             |
-| WARNINGAPIREQUESTS200  | Thresholds                                                                                         |                   |             |
-| CRITICALAPIREQUESTS200 | Thresholds                                                                                         |                   |             |
-| WARNINGAPIREQUESTS404  | Thresholds                                                                                         |                   |             |
-| CRITICALAPIREQUESTS404 | Thresholds                                                                                         |                   |             |
-| WARNINGAPIREQUESTS429  | Thresholds                                                                                         |                   |             |
-| CRITICALAPIREQUESTS429 | Thresholds                                                                                         |                   |             |
+| Macro                  | Description                                                                                                                            | Default value     | Mandatory   |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERORGANIZATIONNAME | Filter organization name (can be a regexp)                                                                                             |                   |             |
+| WARNINGAPIREQUESTS200  | Thresholds                                                                                                                             |                   |             |
+| CRITICALAPIREQUESTS200 | Thresholds                                                                                                                             |                   |             |
+| WARNINGAPIREQUESTS404  | Thresholds                                                                                                                             |                   |             |
+| CRITICALAPIREQUESTS404 | Thresholds                                                                                                                             |                   |             |
+| WARNINGAPIREQUESTS429  | Thresholds                                                                                                                             |                   |             |
+| CRITICALAPIREQUESTS429 | Thresholds                                                                                                                             |                   |             |
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Cache" label="Cache">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| Macro        | Description                                                                                                                            | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
@@ -420,7 +433,7 @@ yum install centreon-plugin-Network-Cisco-Meraki-Restapi
 | CRITICALTRAFFICIN          | Thresholds                                                                                                                                                                                                               |                   |             |
 | WARNINGTRAFFICOUT          | Thresholds                                                                                                                                                                                                               |                   |             |
 | CRITICALTRAFFICOUT         | Thresholds                                                                                                                                                                                                               |                   |             |
-| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                       |                   |             |
+| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                   |                   |             |
 
 </TabItem>
 <TabItem value="Devices" label="Devices">
@@ -428,7 +441,7 @@ yum install centreon-plugin-Network-Cisco-Meraki-Restapi
 | Macro                      | Description                                                                                                                                                                                                              | Default value                | Mandatory   |
 |:---------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
 | FILTERDEVICENAME           | Filter devices by name (can be a regexp)                                                                                                                                                                                 |                              |             |
-| FILTERLINKNAME             | Filter devices by link name (can be a regexp)                                                                                                                                                                                                                 |                              |             |
+| FILTERLINKNAME             | Filter VPN links by name (can be a regexp)                                                                                                                                                                               |                              |             |
 | FILTERNETWORKID            | Filter devices by network ID (can be a regexp)                                                                                                                                                                           |                              |             |
 | FILTERTAGS                 | Filter devices by tags (can be a regexp)                                                                                                                                                                                 |                              |             |
 | FILTERORGANIZATIONNAME     | Filter devices by organization name (can be a regexp)                                                                                                                                                                    |                              |             |
@@ -449,7 +462,7 @@ yum install centreon-plugin-Network-Cisco-Meraki-Restapi
 | CRITICALLINKLOSS           | Thresholds                                                                                                                                                                                                               |                              |             |
 | WARNINGLINKSINEFFECTIVE    | Thresholds                                                                                                                                                                                                               |                              |             |
 | CRITICALLINKSINEFFECTIVE   | Thresholds                                                                                                                                                                                                               |                              |             |
-| CRITICALLINKSTATUS         | Define the conditions to match for the status to be CRITICAL (default: '%{link\_status} =~ /failed/i'). You can use the following variables: %{link\_status}, %{display}                                                 | %{link\_status} =~ /failed/i |             |
+| CRITICALLINKSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{link\_status}, %{display}                                                                                           | %{link\_status} =~ /failed/i |             |
 | WARNINGLINKSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %{link\_status}, %{display}                                                                                            |                              |             |
 | WARNINGLOAD                | Thresholds                                                                                                                                                                                                               |                              |             |
 | CRITICALLOAD               | Thresholds                                                                                                                                                                                                               |                              |             |
@@ -459,7 +472,7 @@ yum install centreon-plugin-Network-Cisco-Meraki-Restapi
 | CRITICALPORTTRAFFICIN      | Thresholds                                                                                                                                                                                                               |                              |             |
 | WARNINGPORTTRAFFICOUT      | Thresholds                                                                                                                                                                                                               |                              |             |
 | CRITICALPORTTRAFFICOUT     | Thresholds                                                                                                                                                                                                               |                              |             |
-| CRITICALSTATUS             | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /alerting/i'). You can use the following variables: %{status}, %{display}                                                           | %{status} =~ /alerting/i     |             |
+| CRITICALSTATUS             | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{display}                                                                                                 | %{status} =~ /alerting/i     |             |
 | WARNINGSTATUS              | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{display}                                                                                                  |                              |             |
 | WARNINGTOTALALERTING       | Thresholds                                                                                                                                                                                                               |                              |             |
 | CRITICALTOTALALERTING      | Thresholds                                                                                                                                                                                                               |                              |             |
@@ -475,71 +488,71 @@ yum install centreon-plugin-Network-Cisco-Meraki-Restapi
 | CRITICALTRAFFICIN          | Thresholds                                                                                                                                                                                                               |                              |             |
 | WARNINGTRAFFICOUT          | Thresholds                                                                                                                                                                                                               |                              |             |
 | CRITICALTRAFFICOUT         | Thresholds                                                                                                                                                                                                               |                              |             |
-| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                       | --verbose                    |             |
+| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                   | --verbose                    |             |
 
 </TabItem>
 <TabItem value="Network" label="Network">
 
-| Macro                      | Description                                                                                        | Default value     | Mandatory   |
-|:---------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGCONNECTIONSASSOC    | Thresholds                                                                                         |                   |             |
-| CRITICALCONNECTIONSASSOC   | Thresholds                                                                                         |                   |             |
-| WARNINGCONNECTIONSAUTH     | Thresholds                                                                                         |                   |             |
-| CRITICALCONNECTIONSAUTH    | Thresholds                                                                                         |                   |             |
-| WARNINGCONNECTIONSDHCP     | Thresholds                                                                                         |                   |             |
-| CRITICALCONNECTIONSDHCP    | Thresholds                                                                                         |                   |             |
-| WARNINGCONNECTIONSDNS      | Thresholds                                                                                         |                   |             |
-| CRITICALCONNECTIONSDNS     | Thresholds                                                                                         |                   |             |
-| WARNINGCONNECTIONSSUCCESS  | Thresholds                                                                                         |                   |             |
-| CRITICALCONNECTIONSSUCCESS | Thresholds                                                                                         |                   |             |
-| WARNINGTRAFFICIN           | Thresholds                                                                                         |                   |             |
-| CRITICALTRAFFICIN          | Thresholds                                                                                         |                   |             |
-| WARNINGTRAFFICOUT          | Thresholds                                                                                         |                   |             |
-| CRITICALTRAFFICOUT         | Thresholds                                                                                         |                   |             |
+| Macro                      | Description                                                                                                                            | Default value     | Mandatory   |
+|:---------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGCONNECTIONSASSOC    | Thresholds                                                                                                                             |                   |             |
+| CRITICALCONNECTIONSASSOC   | Thresholds                                                                                                                             |                   |             |
+| WARNINGCONNECTIONSAUTH     | Thresholds                                                                                                                             |                   |             |
+| CRITICALCONNECTIONSAUTH    | Thresholds                                                                                                                             |                   |             |
+| WARNINGCONNECTIONSDHCP     | Thresholds                                                                                                                             |                   |             |
+| CRITICALCONNECTIONSDHCP    | Thresholds                                                                                                                             |                   |             |
+| WARNINGCONNECTIONSDNS      | Thresholds                                                                                                                             |                   |             |
+| CRITICALCONNECTIONSDNS     | Thresholds                                                                                                                             |                   |             |
+| WARNINGCONNECTIONSSUCCESS  | Thresholds                                                                                                                             |                   |             |
+| CRITICALCONNECTIONSSUCCESS | Thresholds                                                                                                                             |                   |             |
+| WARNINGTRAFFICIN           | Thresholds                                                                                                                             |                   |             |
+| CRITICALTRAFFICIN          | Thresholds                                                                                                                             |                   |             |
+| WARNINGTRAFFICOUT          | Thresholds                                                                                                                             |                   |             |
+| CRITICALTRAFFICOUT         | Thresholds                                                                                                                             |                   |             |
 | EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Networks" label="Networks">
 
-| Macro                      | Description                                                                                        | Default value     | Mandatory   |
-|:---------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNETWORKNAME          | Filter network name (can be a regexp)                                                              |                   |             |
-| FILTERORGANIZATIONNAME     | Filter networks by organization name (can be a regexp)                                             |                   |             |
-| FILTERORGANIZATIONID       | Filter networks by organization ID (can be a regexp)                                               |                   |             |
-| WARNINGCONNECTIONSASSOC    | Thresholds                                                                                         |                   |             |
-| CRITICALCONNECTIONSASSOC   | Thresholds                                                                                         |                   |             |
-| WARNINGCONNECTIONSAUTH     | Thresholds                                                                                         |                   |             |
-| CRITICALCONNECTIONSAUTH    | Thresholds                                                                                         |                   |             |
-| WARNINGCONNECTIONSDHCP     | Thresholds                                                                                         |                   |             |
-| CRITICALCONNECTIONSDHCP    | Thresholds                                                                                         |                   |             |
-| WARNINGCONNECTIONSDNS      | Thresholds                                                                                         |                   |             |
-| CRITICALCONNECTIONSDNS     | Thresholds                                                                                         |                   |             |
-| WARNINGCONNECTIONSSUCCESS  | Thresholds                                                                                         |                   |             |
-| CRITICALCONNECTIONSSUCCESS | Thresholds                                                                                         |                   |             |
-| WARNINGTRAFFICIN           | Thresholds                                                                                         |                   |             |
-| CRITICALTRAFFICIN          | Thresholds                                                                                         |                   |             |
-| WARNINGTRAFFICOUT          | Thresholds                                                                                         |                   |             |
-| CRITICALTRAFFICOUT         | Thresholds                                                                                         |                   |             |
+| Macro                      | Description                                                                                                                            | Default value     | Mandatory   |
+|:---------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERNETWORKNAME          | Filter network name (can be a regexp)                                                                                                  |                   |             |
+| FILTERORGANIZATIONNAME     | Filter networks by organization name (can be a regexp)                                                                                 |                   |             |
+| FILTERORGANIZATIONID       | Filter networks by organization ID (can be a regexp)                                                                                   |                   |             |
+| WARNINGCONNECTIONSASSOC    | Thresholds                                                                                                                             |                   |             |
+| CRITICALCONNECTIONSASSOC   | Thresholds                                                                                                                             |                   |             |
+| WARNINGCONNECTIONSAUTH     | Thresholds                                                                                                                             |                   |             |
+| CRITICALCONNECTIONSAUTH    | Thresholds                                                                                                                             |                   |             |
+| WARNINGCONNECTIONSDHCP     | Thresholds                                                                                                                             |                   |             |
+| CRITICALCONNECTIONSDHCP    | Thresholds                                                                                                                             |                   |             |
+| WARNINGCONNECTIONSDNS      | Thresholds                                                                                                                             |                   |             |
+| CRITICALCONNECTIONSDNS     | Thresholds                                                                                                                             |                   |             |
+| WARNINGCONNECTIONSSUCCESS  | Thresholds                                                                                                                             |                   |             |
+| CRITICALCONNECTIONSSUCCESS | Thresholds                                                                                                                             |                   |             |
+| WARNINGTRAFFICIN           | Thresholds                                                                                                                             |                   |             |
+| CRITICALTRAFFICIN          | Thresholds                                                                                                                             |                   |             |
+| WARNINGTRAFFICOUT          | Thresholds                                                                                                                             |                   |             |
+| CRITICALTRAFFICOUT         | Thresholds                                                                                                                             |                   |             |
 | EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Vpn-Tunnels" label="Vpn-Tunnels">
 
-| Macro                  | Description                                                                                                                                                                 | Default value           | Mandatory   |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------|:-----------:|
-| FILTERNETWORKNAME      | Filter VPN tunnels by network name (can be a regexp)                                                                                                                        |                         |             |
-| FILTERORGANIZATIONID   | Filter VPN tunnels by organization ID (can be a regexp)                                                                                                                     |                         |             |
-| FILTERORGANIZATIONNAME | Filter VPN tunnels by organization name (can be a regexp)                                                                                                                   |                         |             |
-| FILTERDEVICESERIAL     | Filter VPN tunnels by device serial (can be a regexp)                                                                                                                       |                         |             |
-| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /offline/i'). You can use the following variables: %{status}, %{deviceSerial}, %{mode} | %{status} =~ /offline/i |             |
-| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{deviceSerial}, %{mode}                                       |                         |             |
-| WARNINGTOTALDORMANT    | Thresholds                                                                                                                                                                  |                         |             |
-| CRITICALTOTALDORMANT   | Thresholds                                                                                                                                                                  |                         |             |
-| WARNINGTOTALOFFLINE    | Thresholds                                                                                                                                                                  |                         |             |
-| CRITICALTOTALOFFLINE   | Thresholds                                                                                                                                                                  |                         |             |
-| CRITICALTOTALONLINE    | Thresholds                                                                                                                                                                  | 1:                      |             |
-| WARNINGTOTALONLINE     | Thresholds                                                                                                                                                                  |                         |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                          |                         |             |
+| Macro                  | Description                                                                                                                             | Default value           | Mandatory   |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------|:------------------------|:-----------:|
+| FILTERNETWORKNAME      | Filter VPN tunnels by network name (can be a regexp)                                                                                    |                         |             |
+| FILTERORGANIZATIONID   | Filter VPN tunnels by organization ID (can be a regexp)                                                                                 |                         |             |
+| FILTERORGANIZATIONNAME | Filter VPN tunnels by organization name (can be a regexp)                                                                               |                         |             |
+| FILTERDEVICESERIAL     | Filter VPN tunnels by device serial (can be a regexp)                                                                                   |                         |             |
+| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{status}, %{deviceSerial}, %{mode}  | %{status} =~ /offline/i |             |
+| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{deviceSerial}, %{mode}   |                         |             |
+| WARNINGTOTALDORMANT    | Thresholds                                                                                                                              |                         |             |
+| CRITICALTOTALDORMANT   | Thresholds                                                                                                                              |                         |             |
+| WARNINGTOTALOFFLINE    | Thresholds                                                                                                                              |                         |             |
+| CRITICALTOTALOFFLINE   | Thresholds                                                                                                                              |                         |             |
+| CRITICALTOTALONLINE    | Thresholds                                                                                                                              | 1:                      |             |
+| WARNINGTOTALONLINE     | Thresholds                                                                                                                              |                         |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).  |                         |             |
 
 </TabItem>
 </Tabs>
@@ -708,6 +721,7 @@ All available options for each service template are listed below:
 | Option                         | Description                                                                                                                                                                                                                                                                                                                                                         |
 |:-------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-device-name           | Filter devices by name (can be a regexp).                                                                                                                                                                                                                                                                                                                           |
+| --filter-link-name             | Filter VPN links by name (can be a regexp).                                                                                                                                                                                                                                                                                                                         |
 | --filter-network-id            | Filter devices by network ID (can be a regexp).                                                                                                                                                                                                                                                                                                                     |
 | --filter-organization-id       | Filter devices by organization ID (can be a regexp).                                                                                                                                                                                                                                                                                                                |
 | --filter-organization-name     | Filter devices by organization name (can be a regexp).                                                                                                                                                                                                                                                                                                              |
@@ -735,6 +749,7 @@ All available options for each service template are listed below:
 | Option                         | Description                                                                                                                                                                                                                                                                                                                                                         |
 |:-------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-device-name           | Filter devices by name (can be a regexp).                                                                                                                                                                                                                                                                                                                           |
+| --filter-link-name             | Filter VPN links by name (can be a regexp).                                                                                                                                                                                                                                                                                                                         |
 | --filter-network-id            | Filter devices by network ID (can be a regexp).                                                                                                                                                                                                                                                                                                                     |
 | --filter-organization-id       | Filter devices by organization ID (can be a regexp).                                                                                                                                                                                                                                                                                                                |
 | --filter-organization-name     | Filter devices by organization name (can be a regexp).                                                                                                                                                                                                                                                                                                              |

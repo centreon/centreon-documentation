@@ -5,6 +5,11 @@ title: Install Centreon MAP extension
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> **From Centreon 24.10, MAP Legacy will no longer be available.** We recommend you [install the new MAP module](map-web-install.md) instead.
+
+MAP has significant advantages compared to MAP (Legacy), including:
+- Web editor: Create and edit your views directly from your web browser.
+- New server: Brand new server and data model providing better performance.
 
 > Centreon MAP requires a valid license key. To purchase one and retrieve the necessary repositories, contact [Centreon](mailto:sales@centreon.com).
 

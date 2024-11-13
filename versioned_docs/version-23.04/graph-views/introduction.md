@@ -3,8 +3,7 @@ id: introduction
 title: Introduction to Centreon MAP (Legacy)
 ---
 
-The graphical view capabilities in Centreon relies on the Centreon MAP
-module.
+> **From Centreon 24.10, MAP Legacy will no longer be available.** If you are still using MAP Legacy, you will need to migrate to MAP. See [MAP Legacy end of life](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
 
 Centreon MAP is a data-mapping and visualization tool designed for IT
 Operations management (ITOM) administrators and developers. It is
@@ -13,7 +12,7 @@ data in customized user-relevant views.
 
 > Centreon MAP is a Centreon extension that requires a valid [license](../administration/licenses.md).
 > To purchase one and retrieve the necessary repositories, contact [Centreon](mailto:sales@centreon.com).
- 
+
 ## Overview
 
 Here is an overview of MAP (Legacy). You need first to create logical views using the Desktop client:
