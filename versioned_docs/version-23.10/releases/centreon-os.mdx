@@ -23,6 +23,63 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 23.10.18
+
+Release date: `November 18, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Core] Improved the way the logo on the login page can be customized.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Administration] The names of the metaservices are now correctly displayed in the "Administration > Parameters > Data" menu.
+- [API] Fixed ACLs allowing access to a resource (host or service) upon its creation via the APIs by a non-administrator user.
+- [API] The is_notifications_enabled value in the host configuration endpoint of the API is now correctly updated when notifications are enabled.
+- [API Token] Fixed an issue with the expiration date of tokens in the API tokens page.
+- [Configuration] Custom macros are now correctly exported to the Remote Server when the configuration is deployed.
+- [Configuration] Engine log options are now correctly displayed, regardless of the user's language and the selected log level.
+- [Configuration] Fixed incorrect links in the Export configuration page.
+- [Configuration] Notification configuration data is no longer automatically added to services that are auto-created when creating a host based on a template.
+- [Configuration] Updated the list of standard macros in the command creation form.
+- [Custom Login page] Fixed issue with hyperlinks that are now clickable.
+- [Custom Login page] Fixed issue with hyperlinks: they are now clickable.
+- [Debian] Fixed dependencies between Centreon packages.
+- [Graphs] Fixed an issue where non-admin users were downloading empty CSV files.
+- [i18n] Fixed langage translation mismatch in performance graphs, in the predefined periods list.
+- [i18n] Fixed typo in the Event Logs and ACL Resource Access pages.
+- [Resource Status] Custom column definitions are now saved correctly.
+- [Resource Status] Duration units are now displayed correctly in the windows to set a downtime.
+- [Resource Status] Fixed an issue preventing selected filters from being removed by clicking the 'x' symbol in the timeline tab.
+- [Resource Status] Fixed an issue where actions in one browser tab were being replicated to another tab that was open on the same menu.
+- [Resource Status] Fixed an issue with the date and time in the downtime window: the user's time zone is now correctly taken into account.
+- [Resource Status] Fixed an issue with the behavior of group chips in the resource detail panel.
+- [Resource Status] Fixed behavior of page refresh button that was changing the resource displayed in the open panel.
+- [Resource Status] Fixed display of scale/units on graphs containing multiple curves.
+- [Resource Status] Fixed search filter for anomaly detection services.
+- [Resource Status] Fixed the redirection from the Event Logs page to Resource Status: the details panel is now opened on the correct resource.
+- [Resource Status] If no notification has ever been sent, the "Last notification" field in the details panel is left blank instead of displaying 1970.
+- [Resource Status] In the downtime creation window, the controls to select the start and end hours are now displayed correctly.
+- [Resource Status] Made downtime and acknowledge icons more visible in light and dark modes.
+- [Resource Status] Removed list refresh that was triggered by hovering over the left main menu.
+- [Resource Status] The monitoring server filter now takes into account spaces in poller names correctly.
+- [Widget Graph] Fixed "invalid metric format" error when using "threshold area color" parameter for curves.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Improved checks on changed objects that update the "conf changed" column in the list of pollers.
+- [Security] Fixed XSS vulnerability in "Administration > Logs" menu (CVE-2024-47863).
+- [Security] Fixed XSS vulnerability on poller name in several menus.
+
+</details>
+
 ### 23.10.17
 
 Release date: `September 30, 2024`
@@ -863,6 +920,17 @@ Release date: `October 30, 2023`
 
 ## Centreon DSM
 
+### 23.10.1
+
+Release date: `November 18, 2024`
+
+<details>
+  <summary>Securtity fixes</summary>
+
+- [Security] Fixed SQLi in the Centreon DSM slot configuration form, only accessible to authenticated users with high privilege access. (CVE-2024-45755)
+
+</details>
+
 ### 23.10.0
 
 Release date: `October 30, 2023`
@@ -875,6 +943,17 @@ Release date: `October 30, 2023`
 </details>
 
 ## Centreon Open Tickets
+
+### 23.10.1
+
+Release date: `November 18, 2024`
+
+<details>
+  <summary>Securtity fixes</summary>
+
+- [Security] Fixed SQLi in the ticket creation form, only accessible to authenticated users with high privilege access. (CVE-2024-45756)
+
+</details>
 
 ### 23.10.0
 
