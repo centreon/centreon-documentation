@@ -91,7 +91,15 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-Coming soon
+| Metric name         | Unit      |
+|:--------------------|:----------|
+| fan.status          | N/A       |
+| airflow.status          | N/A       |
+| temperature.status   | N/A   |
+| voltage.status       | N/A     |
+| humidity.status         | N/A       |
+| hardware.status         | N/A       |
+| smokeDetection.status         | N/A       |
 
 </TabItem>
 <TabItem value="Infiniband-Usage-Global" label="Infiniband-Usage-Global">
