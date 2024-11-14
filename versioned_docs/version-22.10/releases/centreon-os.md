@@ -21,7 +21,7 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ### 22.10.26
 
-Release date: `November 14, 2024`
+Release date: `November 18, 2024`
 
 #### Bug fixes
 
@@ -781,7 +781,7 @@ Release date: `October 26, 2022`
 
 ### 22.10.2
 
-Release date: `November 14, 2023`
+Release date: `November 18, 2023`
 
 #### Security fixes
 
@@ -809,7 +809,7 @@ Release date: `October 26, 2022`
 
 ### 22.10.4
 
-Release date: `November 14, 2024`
+Release date: `November 18, 2024`
 
 #### Security fixex
 
