@@ -71,6 +71,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 Configurez un compte de service (via une combinaison d'access et secret key) et affectez-lui les privilèges suivants :
 * cloudwatch:getMetricStatistics
+* cloudwatch:listMetrics
 * sqs:ListQueues
 
 ### Dépendances du Plugin
