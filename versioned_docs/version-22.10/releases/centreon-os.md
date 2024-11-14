@@ -19,6 +19,20 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon Web
 
+### 22.10.26
+
+Release date: `November 14, 2024`
+
+#### Bug fixes
+
+- [Resource Status] Fixed an issue where actions in one browser tab were being replicated to another tab that was open on the same menu.
+- [Resource Status] If no notification has ever been sent, the "Last notification" field in the details panel is not displayed.
+
+#### Security fixes
+
+- [Security] Fixed XSS vulnerability in "Administration > Logs" menu (CVE-2024-47863).
+- [Security] Fixed XSS vulnerability on poller name in several menus.
+
 ### 22.10.25
 
 Release date: `September 27, 2024`
@@ -765,6 +779,14 @@ Release date: `October 26, 2022`
 
 ## Centreon DSM
 
+### 22.10.2
+
+Release date: `November 14, 2023`
+
+#### Security fixes
+
+- [Security] Fixed SQLi in the Centreon DSM slot configuration form, only accessible to authenticated users with high privilege access. (CVE-2024-45755)
+
 ### 22.10.1
 
 Release date: `June 5, 2023`
@@ -784,6 +806,14 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon Open Tickets
+
+### 22.10.4
+
+Release date: `November 14, 2024`
+
+#### Security fixex
+
+- [Security] Fixed SQLi in the ticket creation form, only accessible to authenticated users with high privilege access. (CVE-2024-45756)
 
 ### 22.10.3
 
