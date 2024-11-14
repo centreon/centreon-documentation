@@ -92,7 +92,15 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-Coming soon
+| Métrique         | Unité      |
+|:--------------------|:----------|
+| fan.status          | N/A       |
+| airflow.status          | N/A       |
+| temperature.status   | N/A   |
+| voltage.status       | N/A     |
+| humidity.status         | N/A       |
+| hardware.status         | N/A       |
+| smokeDetection.status         | N/A       |
 
 </TabItem>
 <TabItem value="Infiniband-Usage-Global" label="Infiniband-Usage-Global">
