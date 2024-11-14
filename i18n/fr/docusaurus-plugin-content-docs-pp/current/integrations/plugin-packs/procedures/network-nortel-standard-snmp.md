@@ -85,7 +85,14 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-Coming soon
+| Métrique         | Unité      |
+|:--------------------|:----------|
+| fan.status          | N/A       |
+| card.status          | N/A       |
+| entity.status   | N/A   |
+| led.status       | N/A     |
+| temperature.status         | N/A       |
+| psu.status         | N/A       |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
