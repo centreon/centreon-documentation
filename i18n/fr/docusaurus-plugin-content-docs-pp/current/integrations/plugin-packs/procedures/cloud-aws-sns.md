@@ -40,7 +40,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Nom de la règle        | Description                         |
 |:-----------------------|:------------------------------------|
-| Amazon Web Service SNS | Découvre les Topics iscover AWS SNS |
+| Amazon Web Service SNS | Découvre les Topics AWS SNS |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -67,6 +67,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 Configurez un compte de service (via une combinaison d'access et secret key) et affectez-lui les privilèges suivants :
 * cloudwatch:getMetricStatistics
+* cloudwatch:listMetrics
 * sns:ListTopics
 
 ### Dépendances du Plugin

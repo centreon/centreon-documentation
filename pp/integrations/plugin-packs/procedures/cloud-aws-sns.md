@@ -66,6 +66,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 Configure a service account (access/secret key combo) for which the following privileges have to be granted:
 * cloudwatch:getMetricStatistics
+* cloudwatch:listMetrics
 * sns:ListTopics
 
 ### Plugin dependencies
