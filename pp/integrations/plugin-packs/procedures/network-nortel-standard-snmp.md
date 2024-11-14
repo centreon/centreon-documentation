@@ -84,7 +84,14 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-Coming soon
+| Metric name         | Unit      |
+|:--------------------|:----------|
+| fan.status          | N/A       |
+| card.status          | N/A       |
+| entity.status   | N/A   |
+| led.status       | N/A     |
+| temperature.status         | N/A       |
+| psu.status         | N/A       |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
