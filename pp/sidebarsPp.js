@@ -14,6 +14,10 @@ module.exports = {
           items: [
             {
               type: 'doc',
+              id: 'integrations/plugin-packs/getting-started/how-to-guides/plugin-customization'
+            },
+            {
+              type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/azure-credential-configuration'
             },
             {
