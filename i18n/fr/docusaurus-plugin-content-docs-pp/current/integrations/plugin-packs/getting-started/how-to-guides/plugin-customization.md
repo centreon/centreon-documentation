@@ -16,7 +16,7 @@ https://github.com/centreon/centreon-plugins/blob/develop/doc/en/user/guide.rst#
 3. Vérifiez que la case **Créer aussi les services liés aux modèles** est bien cochée.
 4. Cliquez sur **Sauvegarder**.
 5. [Déployez la configuration](docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes, et à la page **Statut des ressources**.
-6. À la page **Statut des ressources**, filtrez sur le nom de l'hôte (dans notre exemple, entrez `h.name:www.centreon.com` dans la barre de recherche). Un service **HTTP-Response-Time** a été créé. 
+6. À la page **Statut des ressources**, filtrez sur le nom de l'hôte (dans notre exemple, entrez `h.name:www.centreon.com` dans la barre de recherche). Un service **HTTP-Response-Time** a été créé.
 7. Cliquez sur celui-ci : dans le panneau de détails, plusieurs tuiles donnent des informations intéressantes :
    - **Données de performance** : le service comprend 2 métriques, **time** (le temps que prend la page html à répondre) et **size** (la taille de la page obtenue). Exemple : `'time'=0.035s;;;0; 'size'=915B;;;0;`.
    - **Commande** : la commande exécutée par le plugin, avec la configuration par défaut. Un bouton vous permet de la copier dans votre presse-papiers afin de l'utiliser facilement dans un terminal. Exemple :
