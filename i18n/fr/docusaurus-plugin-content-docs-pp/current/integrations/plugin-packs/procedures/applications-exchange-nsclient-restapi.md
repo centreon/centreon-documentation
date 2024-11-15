@@ -6,9 +6,9 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-> Hello community! We're looking for a contributor to help us to translate the 
-content in french and provide a sample execution command. If it's you, let us 
-know and ping us on [slack](https://centreon.slack.com)
+> Hello community! We're looking for a contributor to help us translate this 
+page into French and provide a sample execution command. If it's you, let us 
+know and ping us on [our community platform The Watch](https://thewatch.centreon.com/).
 
 ## Overview
 
@@ -51,7 +51,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
 2. On the Centreon Web interface, install the Centreon connecteur de supervision *Exchange NSClient API* 
-from the **Configuration > Monitoring Connectors Manager** page
+from the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -69,7 +69,7 @@ yum install centreon-pack-applications-exchange-nsclient-restapi
 ```
 
 3. On the Centreon Web interface, install the Centreon connecteur de supervision *Exchange NSClient API* 
-from the **Configuration > Monitoring Connectors Manager** page
+from the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

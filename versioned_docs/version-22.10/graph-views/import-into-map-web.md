@@ -5,6 +5,8 @@ title: Switching from MAP (Legacy) to MAP
 
 This topic describes how to move from Centreon MAP (Legacy) to Centreon MAP by importing your legacy maps into your MAP module.
 
+> **From Centreon 24.10, MAP Legacy will no longer be available.** If you are still using MAP Legacy, you will need to migrate to MAP. See [MAP Legacy end of life](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
+
 ## Requirements
 
 - Centreon MAP must be installed in your environment. See the [MAP installation](map-web-install.md) procedure if needed.
@@ -15,23 +17,13 @@ This topic describes how to move from Centreon MAP (Legacy) to Centreon MAP by i
 
 ## Importing legacy maps into MAP
 
-> When you import your legacy maps, any content created in MAP is deleted.
+> Migration from MAP Legacy to MAP is final: importing your maps from MAP Legacy to MAP must be done only once, from a blank MAP installation. Do not use MAP Legacy again once you have migrated your legacy maps to MAP. If you migrate your maps from MAP Legacy to MAP more than once, any content created in MAP in the meantime will be deleted and there will be no way of retrieving it.
 
 ### Step 1: Install MAP
 
 You need first to install Centreon MAP. Go to this [page](map-web-install.md) to perform the installation and switch to the MAP Engine server.
 
-### Step 2: Migrate images
-
-If you have imported images into your desktop client (to custom folders outside the Centreon folder), and used them in your maps, you need first to migrate them to your central server.
-
-1. In the MAP (Legacy) desktop client, in the **Media** panel, select all images you want to migrate from your custom folders, then right-click them and select **Export**.
-
-2. Save the images to your computer.
-
-3. In the central server, go to **Administration > Parameters > Images**, then upload all the images from your computer to the **centreon-map** folder. Be careful not to change the name of your images during this process.
-
-### Step 3: Update MAP (Legacy)
+### Step 2: Update MAP (Legacy)
 
 For the icons to be displayed properly after you migrate your maps, you need to update your MAP (legacy) by running the following commands:
 
@@ -42,16 +34,42 @@ systemctl daemon-reload
 systemctl start centreon-map
 ```
 
-### Step 4: Migrate maps
+### Step 3: Migrate maps
 
-1. To import your legacy maps into MAP, go to the **Monitoring > Map** page, then click the **Migrate** button. The following window appears:
+1. If you have custom images on your legacy maps, you need to create a dedicated directory (**/usr/share/centreon/www/img/media/**) on the MAP Legacy server:
+  
+  ```shell
+  mkdir -p /usr/share/centreon/www/img/media/
+  chown -R centreon-map:centreon-map /usr/share/centreon/
+  chmod -R 775 /usr/share/centreon/*
+  ```
 
-  ![image](../assets/graph-views/ng/map-migrate-1.png)
+2. To import your legacy maps into MAP, go to the **Monitoring > Map** page, then click the **Migrate** button. The following window appears:
+  
+3. Click **Migrate**.
 
-2. Click **Migrate**.
+4. When the migration has succeeded, you can close the window.
+
+5. If you have created a dedicated directory as indicated previously, you need now to copy it to **/usr/share/centreon/www/img/media/** on the central server. Assuming you have access rights to the servers involved, enter the following command:
+  
+  ```shell
+  scp -r /usr/share/centreon/www/img/media/* root@<IP_CENTREON_CENTRAL>:/usr/share/centreon/www/img/media/
+  ```
+
+Your legacy maps are now displayed on the **Map** page. 
+
+## About images
+
+The migration process has migrated images from MAP Legacy to Centreon MAP. The following example explains how the name of the image file is set after the migration:
+
+- In MAP Legacy, your image was located in the **Medias** panel as follows:
+  
+  ```shell
+  countries > france > hardware > hardware_green.png
+  ```
+
+- After the migration, this image will be located in Centreon in **Administration > Parameters > Images**, as follows:
  
-  ![image](../assets/graph-views/ng/map-migrate-2.png)
-
-3. When the migration succeeded, you can close the window.
-
-  Your legacy maps are now displayed on the **Map** page. 
+  ```shell
+  countries_france_hardware > hardware_green.png
+  ```

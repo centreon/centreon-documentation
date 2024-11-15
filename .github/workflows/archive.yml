@@ -12,10 +12,46 @@ concurrency:
 
 jobs:
   build:
-    runs-on: [self-hosted, infra]
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v3
+        uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938 # v4.2.0
+
+      - name: Set up Node
+        uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6 # v4.0.4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        uses: borales/actions-yarn@3766bb1335b98fb13c60eaf358fe20811b730a88 # v5.0.0
+        with:
+          cmd: install --frozen-lockfile
+
+      - name: Redirect pp and cloud links to last documentation
+        run: |
+          find versioned_docs versioned_sidebars -regex ".*\.\(md\|json\)" | xargs --delimiter='\n' sed -i 's#/cloud/#https://docs.centreon.com/cloud/#g'
+          find versioned_docs versioned_sidebars -regex ".*\.\(md\|json\)" | xargs --delimiter='\n' sed -i 's#/pp/#https://docs.centreon.com/pp/#g'
+        shell: bash
+
+      - name: Build documentation for ${{ github.event.inputs.version }}
+        run: ARCHIVED_VERSION="${{ github.event.inputs.version }}" yarn build
+
+      - name: Store build archived doc in cache
+        uses: actions/cache/save@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
+        with:
+          path: "./build"
+          key: "${{ github.sha }}-${{ github.run_id }}-build-archived-doc"
+
+  publish:
+    needs: [build]
+    runs-on: [self-hosted, infra]
+    steps:
+      - name: Restore built archived doc from cache
+        uses: actions/cache/restore@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
+        with:
+          path: "./build"
+          key: "${{ github.sha }}-${{ github.run_id }}-build-archived-doc"
+          fail-on-cache-miss: true
 
       - name: Setup awscli
         run: |
@@ -23,20 +59,6 @@ jobs:
           sudo unzip -q awscliv2.zip
           sudo ./aws/install
         shell: bash
-
-      - name: Set up Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-
-      - name: Install yarn
-        run: npm install -g yarn
-
-      - name: Install dependencies
-        run: yarn install
-
-      - name: Build documentation for ${{ github.event.inputs.version }}
-        run: VERSION="${{ github.event.inputs.version }}" yarn build
 
       - name: Copy to S3
         run: aws s3 sync --delete "build/" s3://centreon-documentation-archive/${{ github.event.inputs.version }}/

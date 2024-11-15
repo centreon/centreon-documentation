@@ -8,7 +8,7 @@ concepts de Centreon : groupes d'hôtes, catégories d'hôtes, catégories
 de services, métriques, etc.
 
 > Vous pouvez jeter un oeil au [Reports
-> book](../assets/reporting/Centreon-MBI-Exemples-de-rapports.pdf) pour trouver le
+> book](../../../../../assets/fr/reporting/Centreon-MBI-Exemples-de-rapports.pdf) pour trouver le
 > rapport dont vous avez besoin avant de consulter ce guide.
 
 La plupart des rapports ont été créés pour un rendu optimal sur PDF, il
@@ -117,6 +117,8 @@ soit bien définie dans la configuration des activités métier en tant que
 plage horaire par défaut ou supplémentaire. Dans le cas contraire, les
 activités métier n'apparaîtront pas dans le rapport*
 
+> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab) : les exceptions ne seront pas prises en compte.
+
 #### Pré-requis
 
 - Superviser au moins une activité métier et la lier à une vue business.
@@ -178,6 +180,8 @@ soit bien définie dans les paramètres de l'application métier dans
 Configuration > Business Activiy > XXXXX | onglet "Information
 étendues" en plage horaire par défaut ou supplémentaire*
 
+> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab) : les exceptions ne seront pas prises en compte.
+
 #### Pre-requis
 
 - Superviser au moins une activité métier et la lier à une vue business.
@@ -230,6 +234,8 @@ soit bien définie dans la configuration des activités métier en tant que
 plage horaire par défaut ou supplémentaire. Dans le cas contraire, elle
 n'apparaîtront pas dans le rapport*
 
+> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab) : les exceptions ne seront pas prises en compte.
+
 #### Pre-requis
 
 - Superviser au moins une activité métier et la lier à une vue business.
@@ -267,6 +273,8 @@ Les paramètres attendus dans ce rapport :
 soit bien définie dans les paramètres de l'application métier dans
 Configuration > Business Activiy > XXXXX | onglet "Information
 étendues" en plage horaire par défaut ou supplémentaire*
+
+> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab) : les exceptions ne seront pas prises en compte.
 
 #### Pre-requis
 
@@ -314,6 +322,8 @@ soit bien définie dans les paramètres de l'application métier dans
 Configuration > Business Activiy > XXXXX | onglet "Information
 étendues" en plage horaire par défaut ou supplémentaire. Dans le cas
 contraire seule les données temps réelles seront affichées.*
+
+> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab) : les exceptions ne seront pas prises en compte.
 
 #### Pre-requis
 
@@ -382,6 +392,8 @@ Les paramètres attendus dans ce rapport :
 soit bien définie dans la configuration des activités métier en tant que
 plage horaire par défaut ou supplémentaire. Dans le cas contraire, elle
 n'apparaîtront pas dans le rapport*
+
+> Dans le champ **périodes temporelles**, n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab) : les exceptions ne seront pas prises en compte.
 
 ![image](../assets/reporting/guide/available-reports/bv-ba-calendar-legende.png)
 
@@ -904,7 +916,7 @@ http://centreon.enterprise.com//include/views/graphs/generateGraphs/generateImag
 > - Récupérer et stocker le certificat :
 >
 >   ``` shell
->   echo quit | openssl s_client -showcerts -servername <hostname> -connect <hostname>:<port> /etc/pki/ca-trust/source/anchors/<hostname>.pem
+>   echo quit | openssl s_client -showcerts -servername <hostname> -connect <hostname>:<port> > /etc/pki/ca-trust/source/anchors/<hostname>.pem
 >   ```
 >
 > La valeur de l'option *servername* doit être le nom d'hôte exact défini dans
@@ -982,7 +994,7 @@ http://centreon.enterprise.com//include/views/graphs/generateGraphs/generateImag
 > - Récupérer et stocker le certificat :
 >
 >   ``` shell
->   echo quit | openssl s_client -showcerts -servername <hostname> -connect <hostname>:<port> /etc/pki/ca-trust/source/anchors/<hostname>.pem
+>   echo quit | openssl s_client -showcerts -servername <hostname> -connect <hostname>:<port> > /etc/pki/ca-trust/source/anchors/<hostname>.pem
 >   ```
 >
 > La valeur de l'option *servername* doit être le nom d'hôte exact défini dans

@@ -28,7 +28,7 @@ De plus, il est important de vérifier que le compte Apache ne dispose pas de dr
 la commande suivante :
 
 ```shell
-cat /etc/passwd | grep apache
+grep apache /etc/passwd
 ```
 
 Vous devez avoir **/sbin/nologin** tel que :
@@ -37,7 +37,7 @@ Vous devez avoir **/sbin/nologin** tel que :
 apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 ```
 
-> Pour rappel, la liste des utilisateurs et des groupes se trouve [ici](../installation/prerequisites.md#utilisateurs-et-groupes)
+> Pour rappel, la liste des utilisateurs et des groupes se trouve [ici](../installation/technical.md#utilisateurs-et-groupes)
 
 ## Activer SELinux
 
@@ -74,24 +74,13 @@ interagir entre eux et avec les différentes ressources système. Par défaut, l
 
 Pour plus d'informations à propos de SELinux, visitez la [documentation Red Hat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/using_selinux/getting-started-with-selinux_using-selinux)
 
-### Activer SELinux en mode permissif
+### Activer SELinux
 
-Par défaut, SELinux est désactivé lors du processus d'installation de Centreon. Pour activer SELinux en mode permissif,
-vous devez modifier le fichier `/etc/selinux/config` comme tel :
+Par défaut, SELinux est désactivé lors du processus d'installation de Centreon et doit être réactivé par la suite pour des raisons de sécurité.
 
-```shell
-# This file controls the state of SELinux on the system.
-# SELINUX= can take one of these three values:
-#     enforcing - SELinux security policy is enforced.
-#     permissive - SELinux prints warnings instead of enforcing.
-#     disabled - No SELinux policy is loaded.
-SELINUX=permissive
-# SELINUXTYPE= can take one of three two values:
-#     targeted - Targeted processes are protected,
-#     minimum - Modification of targeted policy. Only selected processes are protected.
-#     mls - Multi Level Security protection.
-SELINUXTYPE=targeted
-```
+Pour réactiver SELinux, éditez le fichier **/etc/selinux/config** et changez la valeur avec les options suivantes :
+- ``SELINUX=enforcing`` pour que la politique de sécurité SELinux soit appliquée en mode strict.
+- ``SELINUX=permissive`` pour que les erreurs d’accès soient enregistrées dans les logs, mais l’accès ne sera pas bloqué.
 
 Puis redémarrez votre serveur :
 ```shell
@@ -256,7 +245,7 @@ Avant d'activer SELinux en **mode renforcé**, vous devez vous assurer qu'aucune
 commande suivante :
 
 ```shell
-cat /var/log/audit/audit.log | grep -i denied
+grep -i denied /var/log/audit/audit.log
 ```
 
 Si des erreurs apparaissent, vous devez les analyser et décider si ces erreurs sont régulières et doivent être ajoutées
@@ -270,7 +259,7 @@ audit2allow -a
 Exécutez ensuite les règles proposées.
 
 Si après un certain temps, aucune erreur n'est présente, vous pouvez activer SELinux en mode renforcé en suivant cette
-[procédure](#activer-selinux-en-mode-permissif) avec le mode **enforcing**.
+[procédure](#activer-selinux) avec le mode **enforcing**.
 
 > N'hésitez pas à nous faire part de vos retours sur [Github](https://github.com/centreon/centreon).
 
@@ -372,6 +361,8 @@ Exécutez les commandes suivantes :
 firewall-cmd --zone=public --add-service=ssh --permanent
 firewall-cmd --zone=public --add-service=snmp --permanent
 firewall-cmd --zone=public --add-service=snmptrap --permanent
+# Centreon Gorgone
+firewall-cmd --zone=public --add-port=5556/tcp --permanent
 ```
 
 </TabItem>
@@ -1015,7 +1006,7 @@ ServerTokens Prod
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** en ajoutant la ligne suivante :
+Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** en ajoutant les lignes suivantes avant la balise `<VirtualHost>` :
 
 ```apacheconf
 Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
@@ -1033,7 +1024,7 @@ expose_php = Off
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** en ajoutant la ligne suivante :
+Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** en ajoutant les lignes suivantes avant la balise `<VirtualHost>` :
 
 ```apacheconf
 Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
@@ -1051,7 +1042,7 @@ expose_php = Off
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
-Éditez le fichier **/etc/apache2/sites-available/centreon.conf** en ajoutant la ligne suivante :
+Éditez le fichier **/etc/apache2/sites-available/centreon.conf** en ajoutant les lignes suivantes avant la balise `<VirtualHost>` :
 
 ```apacheconf
 Header set X-Frame-Options: "sameorigin"
@@ -1412,7 +1403,7 @@ Pour utiliser http2, vous devez suivre les étapes suivantes:
 dnf install nghttp2
 ```
 
-3. Activez le protocole **http2** dans **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** :
+3. Activez le protocole **http2** dans **/etc/httpd/conf.d/10-centreon.conf** :
 
 ```apacheconf
 ...
@@ -1454,7 +1445,7 @@ systemctl restart httpd
 dnf install nghttp2
 ```
 
-3. Activez le protocole **http2** dans **/opt/rh/httpd24/root/etc/httpd/conf.d/10-centreon.conf** :
+3. Activez le protocole **http2** dans **/etc/httpd/conf.d/10-centreon.conf** :
 
 ```apacheconf
 ...
@@ -1507,18 +1498,13 @@ apt install nghttp2
 ...
 ```
 
-4. Modifiez la méthode utilisée par apache pour le module multi-processus dans **/etc/apache2/sites-available/00-mpm.conf** :
-
-Commentez la ligne suivante :
+4. Exécutez les commandes suivantes :
 
 ```shell
-LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
-```
-
-Décommentez la ligne suivante :
-
-```shell
-LoadModule mpm_event_module modules/mod_mpm_event.so
+a2dismod php8.1
+a2dismod mpm_prefork
+a2enmod mpm_event
+a2enmod http2
 ```
 
 5. Redémarrez le processus Apache pour prendre en compte la nouvelle configuration :
@@ -1576,7 +1562,15 @@ et sorties **IPv4**:
 
 ### Communication Centreon Gorgone
 
-La [documentation officielle de Centreon gorgone](https://github.com/centreon/centreon-gorgone/blob/master/docs/configuration.md#gorgonecore) vous permettra de sécuriser la communication entre les processus Gorgone.
+Par défaut, les communications ZMQ sont sécurisées, à la fois celles externes (avec le collecteur) et celles internes (entre processus gorgone).
+
+Cependant, l'API gorgone HTTP n'est pas sécurisée par défaut. Seul localhost peut communiquer avec gorgone, mais il n'utilise pas SSL.
+
+Vous pouvez [configurer SSL](https://github.com/centreon/centreon-collect/blob/develop/gorgone/docs/modules/core/httpserver.md) via le fichier **/etc/centreon-gorgone/config.d/40-gorgoned.yaml**.
+
+Puis configurez gorgone à la page **Administration > Paramètres > Gorgone**.
+
+Le fichier **/etc/centreon-gorgone/config.d/whitelist.conf.d/centreon.yaml** (sur votre serveur central, vos serveurs distants et vos collecteurs) contient les listes blanches pour Gorgone. Si vous souhaitez personnaliser les commandes autorisées, n'éditez pas ce fichier. Créez un nouveau fichier dans le même dossier, par exemple **/etc/centreon-gorgone/config.d/whitelist.conf.d/custom.yaml**.
 
 ## Gestion de l'information et des événements de sécurité (SIEM)
 

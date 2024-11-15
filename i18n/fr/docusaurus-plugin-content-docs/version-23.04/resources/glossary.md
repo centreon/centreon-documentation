@@ -74,9 +74,11 @@ On appelle aussi “collecteur” le moteur de supervision présent dans un serv
 
 ## Connecteur de supervision
 
-L'expression "Connecteur de supervision" désigne un [plugin](#plugin) et son pack :
+Les connecteurs de supervision sont la brique logicielle qui permet à Centreon de communiquer avec les équipements supervisés.
+Centreon propose de nombreux connecteurs prêts à l’emploi qui permettent de contrôler tout type d’équipement.
 
-Le pack contient la configuration associée au plugin dans Centreon (commandes, [modèles](#modèle), seuils) ainsi que des éléments nécessaires à la mise en œuvre de la découverte automatique.
+Un connecteur est constitué d’un [pack](#pack) (des commandes et [modèles](#modèle) préconfigurés) et d’un [plugin](#plugin) (la sonde qui exécute les contrôles).
+Certains connecteurs ont également une option de “découverte” qui leur permet de détecter automatiquement un certain type de ressources à superviser.
 
 **Voir aussi** :
 
@@ -106,7 +108,7 @@ Ces fichiers permettent de conserver les données de supervision quand elles n�
 
 ## Fichiers RRD
 
-Un fichier RRD contient les données d'une [métrique](#métrique). Ces fichiers permettent de construire les graphiques de performances. Si les fichiers RRD ne sont pas présents, les graphiques ne peuvent pas être affichés. Du fait du fonctionnement de RRD, les valeurs affichées dans les graphes donnent ainsi une tendance, mais ne montrent en général pas les valeurs exactes mesurées.
+Un fichier RRD contient les données d'une [métrique](#métrique). Ces fichiers permettent de construire les [graphiques](#graphique) de performances. Si les fichiers RRD ne sont pas présents, les graphiques ne peuvent pas être affichés. Du fait du fonctionnement de RRD, les valeurs affichées dans les graphes donnent ainsi une tendance, mais ne montrent en général pas les valeurs exactes mesurées.
 
 ## FQDN
 
@@ -155,6 +157,8 @@ Lorsqu’un service comprend plusieurs métriques, le statut du service est celu
 
 Vous pouvez voir les métriques associées à un service dans le panneau de détails de celui-ci.
 
+**Voir aussi** : [Comprendre les métriques](../monitoring/metrics.md).
+
 ## Mode flux Broker inversé
 
 Configuration avancée de Centreon [Broker](#broker), inversant le sens de connexion de la communication Broker par interversion des rôles "client" et "serveur" afin de s'adapter à des configurations réseau particulières. Ce mode est notamment utilisé par Centreon MAP pour s'abonner au flux temps réel des évènements Broker.
@@ -195,6 +199,10 @@ Message avertissant l’utilisateur d’un incident. Il est possible de paramét
 ## Ordonnanceur
 
 Voir [**Moteur de supervision**](#moteur-de-supervision).
+
+## Pack
+
+Un pack contient les informations relatives aux indicateurs qui seront supervisés, leurs seuils d’alerte et les commandes nécessaires pour les contrôles. Le pack fournit une configuration par défaut, mais celle-ci reste hautement personnalisable. 
 
 ## Période de rétention
 

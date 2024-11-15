@@ -9,63 +9,92 @@ To be able to install Centreon on servers with no internet access, create a loca
 
 ## Creating a local copy of the Centreon repository
 
-1. Install **centreon-release** on your mirror server.
+1. Install the repository on your mirror server.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
+dnf clean all --enablerepo=*
+dnf update
+```
+
+Then retrieve the gpg key for the packages:
+
+```shell
+rpm --import https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
+dnf clean all --enablerepo=*
+dnf update
+```
+
+Then retrieve the gpg key for the packages:
+
+```shell
+rpm --import https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+To install the Centreon repository, execute the following command:
+
+```shell
+echo "deb https://packages.centreon.com/apt-standard-23.04-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
+```
+
+Then import the repository key:
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+apt update
 ```
 
 </TabItem>
 </Tabs>
 
-2. Retrieve the gpg key for the packages:
-
-   ```shell
-   rpm --import https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-   ```
-
-3. Create a directory for the local repository:
+2. Create a directory for the local repository:
 
    ```shell
    mkdir -p /var/www/html/repos/centreon
    ```
 
-4. Install the required packages:
+3. Install the required packages:
 
    ```shell
    yum install yum-utils createrepo httpd
    ```
 
-5. Synchronize the repositories:
+4. Synchronize the repositories:
 
    ```shell
    reposync -p /var/www/html/repos/centreon/ -r centreon-stable-noarch
    reposync -p /var/www/html/repos/centreon/ -r centreon-stable
    ```
 
-6. Create the repository:
+5. Create the repository:
 
    ```shell
    createrepo /var/www/html/repos/centreon/
    ```
 
-7. Start the web server:
+6. Start the web server:
 
    ```shell
    service httpd start
    ```
 
-8. On your Centreon server, edit the following file:
+7. On your Centreon server, edit the following file:
 
    ```shell
    vi /etc/yum.repos.d/centreon.repo

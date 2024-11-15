@@ -1,0 +1,225 @@
+---
+id: centreon-os
+title: Centreon Open Source
+---
+
+import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
+
+## Introduction
+
+Vous trouverez dans ce chapitre tout ce qui concerne **Centreon Open Source**.
+
+> Il est important de mettre à jour en utilisant la documentation adéquate de mise à jour et de lire attentivement les
+> notes de mise à jour afin d'être au courant des changements qui pourraient impacter votre usage ou votre plateforme
+> ou des développements spécifiques que vous auriez fait.
+
+Pour faire des demandes d'évolutions ou signaler des bugs sur les extensions commerciales, vous pouvez vous rendre sur
+notre [Github](https://github.com/centreon/centreon/issues/new/choose).
+
+> Retrouvez plus de détails sur la version 24.10 dans notre [post de blog](https://www.centreon.com/fr/centreon-annonce-la-sortie-de-sa-derniere-version-logicielle-centreon-24-10/).
+
+<ExpandCollapseAll />
+
+## Centreon Web
+
+### 24.10.1
+
+Release date: `November 8, 2024`
+ 
+<details>
+  <summary>Bug fixes</summary>
+
+-Fixed an issue preventing users from creating hosts, templates or broker inputs/outputs, when using HTTPS.
+
+</details>
+
+## Centreon Web
+
+### 24.10.0
+
+Release date: `October 31, 2024`
+ 
+<details open>
+  <summary>Enhancements</summary>
+
+**ACL**
+
+- Non-admin users can now see freshly-created host groups and service groups in the list of host/service groups immediately.
+
+**Additional Connector Configurations**
+
+- The **Additional connector configurations** menu allows you to define the credentials to access a monitored resource through the Centreon interface rather than having to connect to your pollers manually.
+
+**API**
+
+- Added an endpoint that automatically deploys the services brought by the host template.
+- Added an endpoint to list Pollers.
+- Added an endpoint to create Broker inputs.
+- Added endpoints to create, delete, update and list/get Additional Connector Configurations.
+- Added API endpoints to return the complete hierarchy for a given BA.
+- Added configuration change logs for hostgroup endpoints.
+- Added missing configuration change logs for host configuration.
+- CLAPI now manages multiline values.
+
+**Authentication**
+
+- Expired tokens are now deleted faster.
+- You can now enable/disable API Tokens.
+
+**Configuration**
+
+- You can now duplicate a locked command.
+- Added an option that allows users to disable checks for a service whose host is down.
+- You can now configure several more Broker loggers from the interface.
+
+**Dashboards and widgets**
+
+- Added last update time to widgets and enabled refresh directly from inside widgets.
+- Allowed smaller dimensions for widgets through more responsive behavior.
+- Optimized data payload required by widgets to retrieve resource data.
+- When users select a resource, only the data that is linked to this resource is displayed in the lists for the other types of data. Irrelevant entries are filtered out.
+- **New widgets**:
+   - The "Web Page" widget displays a web page using its URL.
+   - The "Clock / Timer" widget displays the time according to the selected time zone, or a timer.
+- **Metrics Graph widget**:
+   - Curves can now have a linear, smooth or step style.
+   - Added multiple options to customize graphs.
+   - Colors are now automatically adjusted to distinguish curves for the same metric name.
+   - Enabled visualization using bar charts and stacked bar charts.
+- **Resource Table widget**:
+   - Added ticketing feature, by third-party provider.
+   - Added the same action buttons as in Resource Status (Acknowledge, Downtime, Forced check).
+   - Added filtering options by severity and by status type.
+   - The "display view" options are now available inside the widget itself.
+   - Added meta-services.
+- **Status Grid widget**
+   - Pictograms now show the type of the resource and its state (acknowledged, in downtime).
+   - A colored banner now shows the resource's state.
+- **Status Grid and Status Chart widgets**
+   - When users filter by service / service group / service category and choose to display the data by host, the tiles corresponding to the hosts are displayed correctly instead of displaying "no host found".
+
+
+**Resource Status**
+- In the filter window, you can now filter by resource type.
+- Users can now filter by host name in "view by host" mode.
+
+**UX**
+- Removed autocomplete for credentials fields in administration pages.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+**API**
+- Fixed access control for meta-service endpoint.
+- Fixed access control for monitoring servers configuration endpoints.
+- Fixed access control for notification configuration endpoints.
+- Fixed access control for some v2 API endpoints.
+- Fixed access control for some v2 API service configuration endpoints.
+- Fixed an issue on ACL checks for Administration endpoints.
+- Fixed an issue on ACL checks for Platform endpoints.
+
+**Other**
+- [ACL] Fixed access rights for dashboard configuration endpoints.
+- [API] Fixed access control for hosts configuration endpoints.
+- [Graphs] Fixed an issue with MySQL 8 that occurred when users edited a curve definition.
+- [Packaging] Fixed an issue that prevented centreontrapd from starting properly due to conflicting perl dependencies.
+
+</details>
+
+## Centreon Collect
+
+### 24.10.1
+
+Release date: `November 7, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Delivered the correct libraries for Collect, so as to avoid issues with template inheritance or Engine crashes.
+
+</details>
+
+### 24.10.0
+
+Release date: `October 31, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+**Engine**
+- Engine can now handle extra configuration files to complement/overload the centengine.cfg file so that custom configurations remain unchanged when the standard configuration is exported.
+- Added a new centengine parameter (`send_recovery_notifications_anyways`) to force sending a recovery notification even when the resource is outside of its notification period. This aims at keeping third-party tools up-to-date at any time when they are fed notifications.
+- The whitelist now works with all the commands executed by Engine, including notifications and event handlers.
+
+**Other**
+
+- [Broker]The spdlog logger library has been mutualized for Engine and Broker, as well as the log files. This change will not impact Broker's logs, but Engine will log all its messages (including broker-module's messages) in centengine.log.
+- [gRPC API] The GetHost function has been improved to return more information.
+- [Packaging] Collect packages are now also available for Debian 12 (bookworm) ARM64 (for pollers on Raspberry Pi).
+
+</details>
+
+## Centreon Monitoring Agent
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CMA] The Centreon Monitoring Agent is now available with a Windows installer, which installs the service and deploys Centreon plugins on the host.
+- [CMA] Added a silent mode (CLI) to the agent's Windows installer.
+- [CMA] Made Telegraf and Centreon Monitoring Agent commands compliant with Engine whitelists.
+
+</details>
+
+## Centreon Gorgone
+
+### 24.10.0
+
+Release date: `October 31, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Gorgone] Whitelist errors now have an ERROR level in Gorgone logs.
+
+</details>
+
+## Centreon High Availability
+
+### 24.10.0
+
+Release date: `October 31, 2024`
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 24.10 components.
+
+</details>
+
+## Centreon DSM
+
+### 24.10.0
+
+Release date: `October 31, 2024`
+
+<details>
+  <summary>Compatibility</summary>
+
+- Compatibility with other 24.10 components.
+
+</details>
+
+## Centreon Open Tickets
+
+### 24.10.0
+
+Release date: `October 31, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Open Tickets widget] Fixed redirection to monitoring pages according to the value of the "use deprecated pages" option.
+
+</details>

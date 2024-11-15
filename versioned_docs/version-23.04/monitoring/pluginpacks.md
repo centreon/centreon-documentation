@@ -54,7 +54,7 @@ dnf update centreon-pp-manager
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt update centreon-pp-manager
+apt install --only-upgrade centreon-pp-manager
 ```
 
 </TabItem>
@@ -88,18 +88,11 @@ Installing a Monitoring Connector is a 4-step process:
 
 ### Accessing the Monitoring Connectors catalog
 
-* If you have an online [license](../administration/licenses.md), the Monitoring Connectors catalog is already available on your platform, on page **Configuration > Monitoring Connectors Manager**.
+* If you have an online [license](../administration/licenses.md), the Monitoring Connectors catalog is already available on your platform, on page **Configuration > Monitoring Connector Manager**.
 
 * If you have an offline license:
     - install the Monitoring Connectors repository (go to the [Centreon support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) for its address)
     - install or update the Monitoring Connectors catalog from your Centreon Central server:
-
-#### Offline license
-
-If you have an offline license:
-
-- install the Monitoring Connectors repository (go to the [Centreon support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) for its address)
-- install or update the Monitoring Connectors catalog from your Centreon Central server:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -113,7 +106,6 @@ or:
 ```shell
 dnf update centreon-pack-*
 ```
-
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
@@ -137,7 +129,7 @@ apt install centreon-pack-*
 or:
 
 ```shell
-apt update centreon-pack-*
+apt install --only-upgrade centreon-pack-\*
 ```
 
 </TabItem>
@@ -147,7 +139,7 @@ apt update centreon-pack-*
 
 ### Installing the pack
 
-You now have access to the Monitoring Connectors catalog, on page **Configuration > Monitoring Connectors Manager**:
+You now have access to the Monitoring Connectors catalog, on page **Configuration > Monitoring Connector Manager**:
 
 ![image](../assets/configuration/pluginpacks/pp_list.png)
 
@@ -192,7 +184,7 @@ Plugins can be installed from the command line or automatically.
 
 1. [Install the pack](#installing-the-pack).
 2. [Check the monitoring procedure](#checking-the-monitoring-procedure) for extra configuration steps.
-3. On page **Configuration > Monitoring Connectors Manager**, set **Automatic installation of plugins** to **ON**.
+3. On page **Configuration > Monitoring Connector Manager**, set **Automatic installation of plugins** to **ON**.
 4. Use a template provided by the pack to monitor a host or a service.
 5. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for the pollers that monitor these hosts or services: the corresponding plugins will be automatically installed on these pollers.
 
@@ -248,7 +240,7 @@ dnf install centreon-plugin-Cloud-Aws-Ec2-Api
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt install centreon-plugin-Cloud-Aws-Ec2-Api
+apt install centreon-plugin-cloud-aws-ec2-api
 ```
 
 </TabItem>
@@ -299,7 +291,7 @@ Note that you will still have to [update the plugins](#updating-the-plugins).
 
 ### Updating the plugins
 
-On page **Configuration > Monitoring Connectors Manager**, if **Automatic installation of plugins** is set to **ON**, plugins will be automatically updated when you deploy the configuration for a poller that monitors a host that uses these plugins.
+On page **Configuration > Monitoring Connector Manager**, if **Automatic installation of plugins** is set to **ON**, plugins will be automatically updated when you deploy the configuration for a poller that monitors a host that uses these plugins.
 
 If **Automatic installation of plugins** is set to **OFF**, use the following command to update the plugins:
 
@@ -323,7 +315,7 @@ dnf update centreon-plugin\*
 <TabItem value="Debian 11" label="Debian 11">
 
 ```shell
-apt update centreon-plugin\*
+apt-get --only-upgrade install centreon-plugin\*
 ```
 
 </TabItem>

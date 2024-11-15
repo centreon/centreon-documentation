@@ -7,13 +7,15 @@ See also our tutorial on [how to detect AWS EC2 instances](../../getting-started
 
 ## Create a discovery job
 
-1. Install the Plugin Pack for the resources you want to discover.
-    > The discovery providers are included in Plugin Packs (Azure,
-    > Amazon AWS, VMware, etc.). To know the complete list, please go to
-    > the [Plugin Packs](/pp/integrations/plugin-packs/getting-started/introduction)
+1. Install the Monitoring Connector for the resources you want to discover.
+    > The discovery providers are included in Monitoring Connectors (Azure,
+    > Amazon AWS, VMware, etc.). To see the complete list, please go to
+    > the [Monitoring Connectors](/pp/integrations/plugin-packs/getting-started/introduction)
     > catalog.
 
-2. Create a discovery job for each type of resource you want to discover: go to **Configuration > Hosts > Discovery** and click on **+ADD**. A wizard opens.
+2. Create a discovery job for each type of resource you want to discover: go to **Configuration > Hosts > Discovery** and click **+ADD**. A wizard opens.
+
+You can duplicate discovery jobs: hover over the job and then click **Duplicate**.
 
 ## Job discovery wizard
 
@@ -21,7 +23,7 @@ See also our tutorial on [how to detect AWS EC2 instances](../../getting-started
 
 1. Enter a name for the job (if you don't, the provider's name will be used).
 
-2. Click on the correct provider for the resources you want to discover.
+2. Click the correct provider for the resources you want to discover.
 
     ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-1.png)
 
@@ -29,7 +31,7 @@ See also our tutorial on [how to detect AWS EC2 instances](../../getting-started
 
     ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-2.png)
 
-3. Click on **Next**.
+3. Click **Next**.
 
 ### Step 2: Define access and discovery parameters
 
@@ -37,7 +39,7 @@ Define the monitoring server from which the discovery will be made.
 
 ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-2.png)
 
-Some providers ask for other parameters such as a proxy if the discovery is made
+Some providers ask for other parameters, such as a proxy if the discovery is made
 on an online service, and/or credentials.
 
 ### Step 3: Define additional parameters
@@ -60,7 +62,7 @@ discovery results could look like:
 
 ### Step 5: Define analysis and update policies
 
-- **Manual analysis**: Once the discovery job is executed, you will have to choose manually which hosts should be added to the list of monitored hosts (on page **Configuration > Hosts > Hosts (simplified)**). See [Analyze the results of a discovery job](#analyze-the-results-of-a-discovery-job).
+- **Manual analysis**: Once the discovery job is executed, you will have to choose manually which hosts should be added to the list of monitored hosts (on the **Configuration > Hosts > Hosts (simplified)** page). See [Analyze the results of a discovery job](#analyze-the-results-of-a-discovery-job).
 
 - **Automatic analysis**: The results will be processed automatically according to the selected policy (you must choose at least one):
 
@@ -110,7 +112,7 @@ understand the scope of the first 3 policies.
 
     ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-minute.png)
 
-Click on **FINISH** to create the discovery job and to execute or schedule it. The job appears in the list of discovery jobs.
+Click **FINISH** to create the discovery job and to execute or schedule it. The job appears in the list of discovery jobs.
 See section [Analyze the results of a discovery job](#analyze-the-results-of-a-discovery-job).
 
 ## Manage discovery jobs
@@ -135,7 +137,7 @@ The status of a job can be:
 - If a job is in a **Finished** status, click on the arrow next to its status to analyze the result. See
 [Analyze the results of a discovery job](#analyze-the-results-of-a-discovery-job) to know more.
 
-Several actions can be done on jobs:
+Several actions can be performed on jobs:
 
 | Icon                                                                            | Action                                                                                                      |
 |---------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
@@ -147,8 +149,8 @@ Several actions can be done on jobs:
 
 ## Analyze the results of a discovery job
 
-1. On the **Configuration > Hosts > Discovery** page, click on the arrow ![image](../../assets/monitoring/discovery/host-discovery-goto-results.png#thumbnail1)
-next to the status of a **Finished** job to visualize the results.
+1. On the **Configuration > Hosts > Discovery** page, click the arrow ![image](../../assets/monitoring/discovery/host-discovery-goto-results.png#thumbnail1)
+next to the status of a **Finished** job to view the results.
 
   ![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
 
@@ -160,13 +162,13 @@ next to the status of a **Finished** job to visualize the results.
 
 2. Select the hosts you want to add to the list of monitored hosts and click the **Save** button. Then click the **Back** button to return to the **Discovery** page.
 
-3. If you want, you can edit the mappers linked to this job. Click on the job to display its settings.  In the **Mappers** section, edit the mapper with its **Edit** icon: ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
+3. If you want, you can edit the mappers linked to this job. Click the job to display its settings.  In the **Mappers** section, edit the mapper with its **Edit** icon: ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
 
-  The results will be updated automatically in the preview once you click on the **Save** icon at the top right of the panel.
+  The results will be updated automatically in the preview once you click the **Save** icon at the top right of the panel.
   
   If the job was set to **Automatic analysis** at step 5 of the wizard and **Update existing hosts** was selected, the hosts will be updated when you re-run the job (see [Edit a discovery job](#edit-a-discovery-job)).
 
-4. If your job was set to **Manual analysis** at step 5 of the wizard, select the hosts you want to add or update in the configuration and click on the **Save**
+4. If your job was set to **Manual analysis** at step 5 of the wizard, select the hosts you want to add or update in the configuration and click the **Save**
 button: ![image](../../assets/monitoring/discovery/host-discovery-hosts-save.png#thumbnail1)
 
   The hosts are created as well as the services linked to their host templates.
@@ -176,7 +178,7 @@ button: ![image](../../assets/monitoring/discovery/host-discovery-hosts-save.png
   ![image](../../assets/monitoring/discovery/host-discovery-configuration-hosts.png)
 
   If the hosts you selected are not visible in the configuration, go back to the
-list of jobs and see if an error occured during the saving task.
+list of jobs and see if an error occurred during the saving task.
 
 6. In the following cases, [deploy](../monitoring-servers/deploying-a-configuration.md) the configuration:
 
@@ -189,14 +191,14 @@ list of jobs and see if an error occured during the saving task.
 
 Some discovery jobs can be edited:
 
-- if you have set the job to **Automatic analysis** and you have selected **Update existing hosts** at step 5 of the wizard, you can edit and rerun the job: the hosts discovered by the job will be updated. To rerun the job, go to page **Configuration > Hosts > Discovery**, hover over the job and then click **Force execution**.
+- if you have set the job to **Automatic analysis** and you have selected **Update existing hosts** at step 5 of the wizard, you can edit and rerun the job: the hosts discovered by the job will be updated. To rerun the job, go to page **Configuration > Hosts > Discovery**, hover over the job, and then click **Force execution**.
 - If a job is set to **Manual analysis** and its hosts are already monitored, then editing and running the job again will have no effect.
 
-1. On the **Configuration > Hosts > Discovery** page, click on the discovery job you want. A panel appears on the right.
+1. On the **Configuration > Hosts > Discovery** page, click the discovery job you want. A panel appears on the right.
 
     ![image](../../assets/monitoring/discovery/host-discovery-edit-job.png)
 
-2. In this panel, edit the settings of the job.
+2. In this panel, edit the job settings.
 
    If your job is set to **Automatic analysis**, you can update some host properties using mappers. You can:
 
@@ -207,11 +209,11 @@ Some discovery jobs can be edited:
 
   To preserve the consistency of data and the traceability of actions, the name, alias and IP address of the host cannot be updated (i.e. data brought by **Property** mappers).
 
-  When you edit mappers, if you selected **Update existing hosts** at step 5 of the wizard, the hosts will be updated. If you did not select this option, running the job again will only add new hosts to the monitoring: existing hosts will not be updated.
+  When you edit mappers, if you selected **Update existing hosts** at step 5 of the wizard, the hosts will be updated. If you did not select this option, running the job again will only add new hosts to the monitoring; existing hosts will not be updated.
 
-  If the autodiscovery module discovers hosts whose names are already used by hosts that have previously been created manually on page **Configuration > Hosts > Hosts (simplified)** or with the API or CLAPI, those existing hosts will also be updated by the autodiscovery module.
+  If the autodiscovery module discovers hosts whose names are already used by hosts that have previously been created manually on the **Configuration > Hosts > Hosts (simplified)** page or with the API or CLAPI, those existing hosts will also be updated by the autodiscovery module.
 
-3. Click on the **Save** icon at the top right of the panel: ![image](../../assets/monitoring/discovery/host-discovery-save.png#thumbnail2)
+3. Click the **Save** icon at the top right of the panel: ![image](../../assets/monitoring/discovery/host-discovery-save.png#thumbnail2)
 
 ## How to use mappers
 
@@ -221,13 +223,13 @@ Mappers allow you to:
 
 - Include/exclude hosts from the list of results.
 
-There are nine types of mappers:
+There are nine types of mapper:
 
 |    Mapper           |              Action                                                                                                             |
 |---------------|---------------------------------------------------------------------------------------------------------------------------|
 | Property      | Define a label (name, alias, IP address)                                                                                  |
 | Macro         | Define a custom macro for the host                                                                                        |
-| Template      | Add host templates (the template from the plugin pack is added automatically)                                             |
+| Template      | Add host templates (the template from the Monitoring Connector is added automatically)                                             |
 | Host group    | Link hosts to a host group                                                                                                |
 | Host category | Link a host to a category                                                                                                 |
 | Host severity | Prioritize the host according to a severity                                                                               |
@@ -244,49 +246,58 @@ contain*.
 If you include several conditions inside a mapper, all the conditions must be fulfilled in
 order for the mapper to apply.
 
-From version 21.04, mappers **Property**, **Macro**, **Host group** and **Host category**
+From version 21.04, the mappers **Property**, **Macro**, **Host group** and **Host category**
  support concatenating either discovery attributes or custom strings.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-concatenation.gif)
 
+When you define several mappers of the same type and the conditions apply for several of them, the last mapper will prevail over the others (the one at the bottom of the list). This applies to the following mappers: monitoring, severity, property, macros.
+
 ### Add a mapper
 
-1. In the job wizard at step four, or on the edition panel in the **Mappers**
-section, click on **+ADD MAPPER**.
+1. In the job wizard at step four, or on the editing panel in the **Mappers**
+section, click **+ADD MAPPER**.
 
-2. Select the type of mapper from the drop-down list, and fill every required
+2. Select the type of mapper from the dropdown list, and fill every required
 field.
 
-3. Click on **SAVE** to add the mapper.
+3. Click **SAVE** to add the mapper.
 
 ### Edit a mapper
 
-1. In the job wizard at step four, or on the edition panel in the **Mappers**
-section, click on the **Edit** icon: ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
+1. In the job wizard at step four, or on the editing panel in the **Mappers**
+section, click the **More actions** icon, and then click **Edit**.
 
 2. Edit the fields you want, or even the type of mapper. See [Edit a discovery job](#edit-a-discovery-job).
 
-3. Click on **SAVE** to save the mapper.
+3. Click **SAVE** to save the mapper.
 
 ### Delete a mapper
 
-1. In the job wizard at step four, or on the edition panel in the **Mappers**
-section, click on the **Delete** icon: ![image](../../assets/monitoring/discovery/host-discovery-delete.png#thumbnail1)
+1. In the job wizard at step four, or on the editing panel in the **Mappers**
+section, click the **More actions** icon, and then click **Delete**.
 
   A popin window will ask you to confirm the action.
 
-2. Click on **DELETE** to delete the mapper.
+2. Click **DELETE** to delete the mapper.
+
+### Duplicate a mapper
+
+1. In the job wizard at step four, or on the editing panel in the **Mappers**
+section, click the **More actions** icon, and then click **Duplicate**.
+
+2. Enter the number of copies of the mapper you want to make, and then click **Duplicate**.
 
 ## Types of mappers
 
 ### Property
 
-The **Property** mapper is used to set common properties of a host like
-its name, alias or IP address. Those three properties are mandatory.
+The **Property** mapper is used to set common properties of a host, such as
+its name, alias, or IP address. Those three properties are mandatory.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-property.png)
 
-The **Source** list allows you to choose between credentials, parameters or
+The **Source** list allows you to choose between credentials, parameters, or
 discovery result attributes.
 
 The **Destination** list allows you to define to which property the value will be
@@ -299,12 +310,12 @@ host.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-macro.png)
 
-The **Source** list allows you to choose between credentials, parameters or
+The **Source** list allows you to choose between credentials, parameters, or
 discovery result attributes.
 
-The **Destination** is a user defined text field.
+The **Destination** list is a user-defined text field.
 
-The **Password** checkbox defines if the macro will be created as a password
+The **Password** checkbox defines whether the macro will be created as a password
 macro or not.
 
 ### Template
@@ -317,13 +328,13 @@ As in the example below, you can define a template according to conditions
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-template.png)
 
-The **Host template** list allows you to choose among all host templates defined
+The **Host template** list allows you to choose from among all host templates defined
 in the configuration.
 
 ### Host group
 
 From version 21.04, the discovered hosts can be linked to host groups. There
-are two ways of doing it.
+are two ways of doing this.
 
 - Select an existing host group from the dropdown list.
 
@@ -339,12 +350,12 @@ name.
 be created.
 
   If a host group already exists with the same name, it won't be 
-created again, the host will simply be linked to it.
+created again; the host will simply be linked to it.
 
 ### Host category
 
 From version 21.04, the discovered hosts can also be categorized using host 
-categories. Again, there are two ways of doing it.
+categories. Again, there are two ways of doing this.
 
 - Select an existing host category from the dropdown list.
 
@@ -357,12 +368,12 @@ and discovery attributes can be used and concatenated to compose the
   ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostcategory-create.png)
 
   If a host category already exists with the same name, it won't be 
-created again, the host will simply be linked to it.
+created again; the host will simply be linked to it.
 
 ### Host severity
 
 From version 21.04, discovered hosts can also be prioritized using host
-severities. Since severities are not just a simple label but also have a 
+severities. Since severities are not just a simple label, but also have a 
 numeric level, they can't be created on the fly, and can only be selected from the
 dropdown list.
 
@@ -370,16 +381,18 @@ dropdown list.
 
 ### Monitoring
 
-The **Monitoring** mapper is used to choose from which monitoring server the host will
+The **Monitoring** mapper is used to choose the monitoring server from which the host will
 be monitored.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-monitoring.png)
 
 The **Monitoring instance selector** radio buttons allow you to choose between the
-monitoring server defined in the job or from the ones available on the
+monitoring server defined in the job and the ones available on the
 Centreon platform.
 
 This mapper is mandatory.
+
+If no Monitoring mapper applies to the host (because you have defined excessively strict conditions), the monitoring server on which the job runs will be selected by default.
 
 ### Exclusion
 
@@ -388,7 +401,7 @@ list.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-exclusion.png)
 
-The mapper uses hosts attributes as conditions to exclude them. In the example above, Windows hosts 
+The mapper uses the attributes of hosts as conditions to exclude them. In the example above, Windows hosts 
 will be excluded from the results list.
 
 ### Inclusion
@@ -401,13 +414,13 @@ In the example below, let's say that all hosts have been excluded from the resul
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-inclusion.png)
 
-The mapper uses hosts attributes as conditions to include them.
+The mapper uses the attributes of hosts as conditions to include them.
 
 
 ## Advanced attributes
 
 Some attributes retrieved by discovery jobs, called advanced attributes, consist of a list of objects that contain pairs of properties.
-You can use them as source for **Macro**, **Host group** and **Host category** mappers, and in conditions for any type of mapper. In **Inclusion** and **Exclusion** mappers in particular, you can filter the results of the discovery according to a specific pair of values.
+You can use them as a source for **Macro**, **Host group** and **Host category** mappers, and in conditions for any type of mapper. In **Inclusion** and **Exclusion** mappers in particular, you can filter the results of the discovery according to a specific pair of values.
 
 Example of advanced attribute describing a host: **cloud tags**. Your hosts are hosted in the cloud. They have an advanced attribute named **tags**. For an instance with the tags **os: windows** and **environment: production**, the discovery job will receive the data in the following way:
 
@@ -473,7 +486,7 @@ configuration:
 
 ![image](../../assets/monitoring/discovery/host-discovery-exclude-powered-off.png)
 
-This way, all powered off virtual machines will not be part of the processed
+This way, all powered-off virtual machines will not be part of the processed
 result. Those will not be added (2).
 
 In addition to this mapper, choose the automatic analysis with all the update
@@ -485,11 +498,11 @@ With the first policy, the virtual machines part of the processed result will be
 added (1).
 
 With the second one, virtual machines that were added at some point (because
-in a powered on state) will be disabled in the Centreon configuration if they
+in a powered-on state) will be disabled in the Centreon configuration if they
 happen to be powered off (3).
 
-The last one will enable the virtual machines that are once again in a powered
-on state (4).
+The last one will enable the virtual machines that are once again in a powered-on
+state (4).
 
 Of course, the last two policies work better if the job is scheduled to run more
 than one time.

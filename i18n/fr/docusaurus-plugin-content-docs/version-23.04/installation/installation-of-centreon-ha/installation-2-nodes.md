@@ -9,9 +9,11 @@ import TabItem from '@theme/TabItem';
 
 ### Compréhension
 
-Avant de suivre cette procédure, il est recommandé d'avoir un niveau de connaissance satisfaisant du système d'exploitation Linux, de Centreon et des outils de clustering Pacemaker-Corosync pour bien comprendre ce qui va être fait et pour pouvoir se sortir d'un éventuel faux pas.
+Avant de suivre cette procédure, il est recommandé d'avoir un niveau de connaissance satisfaisant du système d'exploitation Linux, de Centreon et des outils de clustering Pacemaker-Corosync pour bien comprendre ce qui va être fait et savoir résoudre un éventuel incident.
 
-> **AVERTISSEMENT :** Toute personne mettant en application cette procédure doit être consciente qu'elle prend ses responsabilités en cas de dysfonctionnement. En aucun cas la société Centreon ne saurait pas être tenue pour responsable de toute détérioration ou perte de données.
+> **AVERTISSEMENT :** Toute personne mettant en application cette procédure doit être consciente qu'elle prend ses responsabilités en cas de dysfonctionnement. En aucun cas la société Centreon ne saurait être tenue pour responsable d'une quelconque détérioration ou perte de données.
+
+> EL9 n'est pas supporté pour les installations HA sur Centreon 23.04.
 
 ### Flux réseaux
 
@@ -97,8 +99,6 @@ Plutôt que de mettre en place une réplication en temps réel des fichiers de d
 | Nom                                                           | centreon-broker-master-rrd |
 | Port de connexion                                             | 5670                       |
 | Hôte distant                                                  | `@CENTRAL_MASTER_IPADDR@`  |
-| Temps avant activation du processus de basculement (failover) | 0                          |
-| Intervalle entre 2 tentatives                                 | 60                         |
 
 * Ajouter une nouvelle sortie IPv4, similaire à la première et nommée par exemple "centreon-broker-slave-rrd" pointant cette fois vers `@CENTRAL_SLAVE_IPADDR@`.
 
@@ -107,8 +107,6 @@ Plutôt que de mettre en place une réplication en temps réel des fichiers de d
 | Nom                                                           | centreon-broker-slave-rrd |
 | Port de connexion                                             | 5670                      |
 | Hôte distant                                                  | `@CENTRAL_SLAVE_IPADDR@`  |
-| Temps avant activation du processus de basculement (failover) | 0                         |
-| Intervalle entre 2 tentatives                                 | 60                        |
 
 #### Exporter la configuration
 
@@ -678,6 +676,7 @@ Les tâches planifiées de type **cron** sont exécutées directement par le pro
 rm -f /etc/cron.d/centreon
 rm -f /etc/cron.d/centstorage
 rm -f /etc/cron.d/centreon-auto-disco
+rm -f /etc/cron.d/centreon-ha-mysql
 ```
 
 ### Modification des droits
@@ -1227,15 +1226,12 @@ pcs constraint colocation add master "ms_mysql-clone" with "centreon"
 
 Après cette étape, toutes les ressources doivent être actives au même endroit, et la plateforme fonctionnelle et redondée. Dans le cas contraire, se référer au guide de troubleshooting du paragraphe suivant.
 
-### Lancement du Cluster et contrôle de l'état des ressources
-
-#### Activer les ressources
+### Activation des ressources
 
 ```bash
 pcs resource enable php-clone
 pcs resource enable cbd_rrd-clone
 pcs resource meta vip target-role="started"
-pcs resource meta vip_mysql target-role="started"
 pcs resource meta centreontrapd target-role="started"
 pcs resource meta snmptrapd target-role="started"
 pcs resource meta centengine target-role="started"

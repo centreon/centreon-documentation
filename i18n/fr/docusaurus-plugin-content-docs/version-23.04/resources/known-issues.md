@@ -3,6 +3,9 @@ id: known-issues
 title: Problèmes connus
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 Voici une liste de problèmes connus et/ou bugs que vous pouvez rencontrer.
 Nous essayons ici de fournir des contournements.
 Nous appliquons des correctifs lorsque cela est nécessaire et améliorons continuellement notre logiciel afin de résoudre les problèmes de prochaines versions.
@@ -69,6 +72,7 @@ ALTER TABLE virtual_metrics MODIFY index_id bigint unsigned;
 
 L'autologin n'est actuellement pas géré pour les pages suivantes :
 
+* **Supervision > Map (legacy exclus)**
 * **Monitoring > Resources Status**
 * **Configuration > Hosts > Discovery**
 * **Configuration > Business Activity > Business Views**
@@ -78,21 +82,30 @@ L'autologin n'est actuellement pas géré pour les pages suivantes :
 
 Il n'existe actuellement pas de contournement.
 
-### Le contenu des pages n'est pas traduit selon la langue de l'utilisateur
-
-#### Contournement
-
-Vous devez installer les langues sur votre système d'exploitation avec la commande suivante :
-```shell
-yum install -y glibc-all-langpacks
-```
-
-Puis redémarrer PHP à l'aide de la commande suivante :
-```shell
-systemctl restart php-fpm
-```
-
 ## Centreon MBI
+
+### Vous obtenez des erreurs lors de l'import journalier et calcul des statistiques
+
+#### Description
+
+Après la mise à jour de MBI, vous obtenez une erreur similaire à la suivante pendant le calcul des statistiques.
+
+```shell
+[Tue Jun 1 18:28:26 2021] [FATAL] mod_bi_hgservicemonthavailability insertion execute error : Out of range value for column 'mtbf' at row 1
+[Tue Jun 1 18:28:26 2021] [FATAL] Program terminated with errors
+```
+
+Cette erreur est due à un problème de mise à jour des colonnes dans la base de données.
+
+#### Solution
+
+1. Vous devez exécuter un script pour mettre à jour les colonnes de la base de données, en entrant cette commande sur le serveur central :
+
+  ```shell
+  php /usr/share/centreon/www/modules/centreon-bi-server/tools/updateColumnsToBigint.php
+  ```
+
+2. Puis suivez cette procédure pour [reprendre partiellement les données de reporting](../reporting/concepts.md#comment-reprendre-partiellement-les-données-de-reporting-).
 
 ### MBI ne fonctionne pas si les bases de données ont des noms personnalisés
 

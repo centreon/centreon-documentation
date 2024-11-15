@@ -89,7 +89,7 @@ Ces fichiers permettent de conserver les données de supervision quand elles n�
 
 ## Fichiers RRD
 
-Un fichier RRD contient les données d'une [métrique](#métrique). Ces fichiers permettent de construire les graphiques de performances. Si les fichiers RRD ne sont pas présents, les graphiques ne peuvent pas être affichés. Du fait du fonctionnement de RRD, les valeurs affichées dans les graphes donnent ainsi une tendance, mais ne montrent en général pas les valeurs exactes mesurées.
+Un fichier RRD contient les données d'une [métrique](#métrique). Ces fichiers permettent de construire les [graphiques](#graphique) de performances. Si les fichiers RRD ne sont pas présents, les graphiques ne peuvent pas être affichés. Du fait du fonctionnement de RRD, les valeurs affichées dans les graphes donnent ainsi une tendance, mais ne montrent en général pas les valeurs exactes mesurées.
 
 ## FQDN
 
@@ -137,6 +137,8 @@ Une métrique ou donnée de performance est rattachée à un [service](#service)
 Lorsqu’un service comprend plusieurs métriques, le statut du service est celui de la plus mauvaise métrique.
 
 Vous pouvez voir les métriques associées à un service dans le panneau de détails de celui-ci.
+
+**Voir aussi** : [Comprendre les métriques](../monitoring/metrics.md).
 
 ## Mode flux Broker inversé
 

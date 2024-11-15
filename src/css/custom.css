@@ -146,6 +146,15 @@ html[data-theme='dark'] ul.tabs {
   display: none;
 }
 
+.dropdown-separator {
+  margin: 0.3rem 0;
+}
+
+.dropdown-archived-versions {
+  font-size: 0.875rem;
+  padding: 0.2rem 0.5rem;
+}
+
 /* FOOTER */
 footer.footer .footer__bottom img {
   object-position: -99999px 99999px;
@@ -303,4 +312,10 @@ img[src*="thumbnail1"] {
 img[src*="thumbnail2"] {
   width: 36px!important;
   margin-bottom: -6px!important;
+}
+details{
+  border-width: 0px!important;
+}
+summary{
+  font-weight: bold;
 }

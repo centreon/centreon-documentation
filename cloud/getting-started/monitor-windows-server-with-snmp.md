@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 In this tutorial, we're assuming that your Centreon platform is installed and running well.
 
-Your Windows server will be monitored using the Windows SNMP Plugin Pack. (More about Plugin Packs [here](../monitoring/pluginpacks.md)).
+Your Windows server will be monitored using the Windows SNMP Monitoring Connector. (More about Monitoring Connectors [here](../monitoring/pluginpacks.md)).
 
 ## Prerequisites
 
@@ -17,7 +17,7 @@ Your Windows server will be monitored using the Windows SNMP Plugin Pack. (More 
 
 The first step is to install and configure the SNMP service on the Windows host you
 want to monitor. Please refer to the documentation of your Windows distribution
-to know how to configure the SNMP service.
+to find out how to configure the SNMP service.
 
 Find below some steps to install and configure SNMP on Windows 10.
 
@@ -30,11 +30,11 @@ There are several ways to enable SNMP: from the **Settings** menu or by using Po
 
 1. Go to **Settings > Apps & features > Optional features**.
 
-2. Click on **Add a feature** and search for SNMP:
+2. Click **Add a feature** and search for SNMP:
 
   ![image](../assets/getting-started/quick_start_windows_snmp_4.png)
 
-3. Select **Simple Network Management Protocol** (SNMP) and click on **Install**.
+3. Select **Simple Network Management Protocol** (SNMP) and click **Install**.
 
 </TabItem>
 <TabItem value="By using PowerShell" label="By using PowerShell">
@@ -76,11 +76,11 @@ After installing SNMP, you need to configure it.
 
   ![image](../assets/getting-started/quick_start_windows_snmp_55.png)
 
-3. On the **Agent** tab, fill in the **Contact** and **Location** parameters. Then in the **Service** section, check the boxes for services from which you want to collect data for forwarding it to the Centreon Poller which will monitor the host.
+3. On the **Agent** tab, fill in the **Contact** and **Location** parameters. Then, in the **Service** section, check the boxes for services from which you want to collect data for forwarding to the Centreon Poller that will monitor the host.
 
   ![image](../assets/getting-started/quick_start_windows_snmp_6.png)
 
-4. On the **Security** tab, write the SNMP community in the **Accepted community names** section and choose the **READ ONLY** option.
+4. On the **Security** tab, enter the SNMP community in the **Accepted community names** section and choose the **READ ONLY** option.
 Then select **Accept SNMP packets from these hosts** and add the IP address of the Centreon poller.
 
   ![image](../assets/getting-started/quick_start_windows_snmp_8.png)
@@ -91,17 +91,17 @@ Then select **Accept SNMP packets from these hosts** and add the IP address of t
 
 ### On the central server
 
-In the web interface, go to **Configuration > Plugin Packs** and install the **Windows SNMP** Plugin Pack:
+In the web interface, go to **Configuration > Monitoring Connector Manager** and install the **Windows SNMP** Monitoring Connector:
 
 ![image](../assets/getting-started/quick_start_windows_snmp_10.gif)
 
 ## Configure the host and deploy the configuration
 
-1. Go to **Configuration > Hosts > Hosts (simplified)** and click on **Add**:
+1. Go to **Configuration > Hosts > Hosts (simplified)** and click **Add**:
 
   ![image](../assets/getting-started/quick_start_windows_snmp_11.gif)
 
-2. Fill in the following information:
+2. Input the following information:
 
    * The name of the server (1)
    * A description of the server (2)
@@ -109,11 +109,11 @@ In the web interface, go to **Configuration > Plugin Packs** and install the **W
    * The SNMP version and community (4)
    * Select the poller that will monitor your Windows server (5)
 
-3. Click on **+ Add a new entry** in the **Templates** field (6), then select the **OS-Windows-SNMP-custom** template (7) from the list.
+3. Click **+ Add a new entry** in the **Templates** field (6), then select the **OS-Windows-SNMP-custom** template (7) from the list.
 
   ![image](../assets/getting-started/quick_start_windows_snmp_12.png)
 
-4. Click on **Save**. Your equipment has been added to the list of hosts:
+4. Click **Save**. Your device has been added to the list of hosts:
 
   ![image](../assets/getting-started/quick_start_windows_snmp_13.png)
 
@@ -131,21 +131,21 @@ In the web interface, go to **Configuration > Plugin Packs** and install the **W
 
    ![image](../assets/getting-started/quick_start_windows_snmp_16.png)
 
-   If not all services are in an OK state, check what causes the error and fix the problem.
+   If not all services are in an OK state, check what is causing the error and fix the problem.
 
 ### To go further
 
-The **Windows SNMP** Plugin Pack provides several monitoring templates. Go to **Configuration > Services > Templates (simplified)** to know the complete list:
+The **Windows SNMP** Monitoring Connector provides several monitoring templates. Go to **Configuration > Services > Templates (simplified)** to see the complete list:
 
    ![image](../assets/getting-started/quick_start_windows_snmp_18.png)
 
-With **Centreon IT Edition** you can add very quickly and very simply the monitoring of your network cards, partitions, processes and services using the Service Discovery functionality.
+With **Centreon IT Edition** you can add the monitoring of your network cards, partitions, processes and services very quickly and very simply using the Service Discovery feature.
 
-1. Go to **Configuration > Services > Scan**. Start writing the name of the host and the web interface automatically completes the name:
+1. Go to **Configuration > Services > Scan**. Start entering the name of the host and the web interface automatically completes the name:
 
 	![image](../assets/getting-started/quick_start_windows_snmp_19.png)
 
-2. Select the discovery command to run from the list that has just appeared below the **Rule** field. Then click on the **Scan** button and wait during the discovery. The result is displayed. Select items to add to the monitoring and click on the **Save** button:
+2. Select the discovery command to run from the list that has just appeared below the **Rule** field. Then click the **Scan** button and wait during the discovery. The result is displayed. Select items to add to the monitoring and click the **Save** button:
 
 	![image](../assets/getting-started/quick_start_windows_snmp_20.png)
 

@@ -7,13 +7,15 @@ Voir aussi [notre tutoriel sur la détection d'instances AWS EC2](../../getting-
 
 ## Créer une tâche de découverte
 
-1. Installez le [Plugin Pack](../pluginpacks.md) correspondant aux ressources que vous voulez découvrir.
-    > Les fournisseurs de découverte sont amenés par l'installation de Plugin Packs
+1. Installez le [connecteur de supervision](../pluginpacks.md) correspondant aux ressources que vous voulez découvrir.
+    > Les fournisseurs de découverte sont amenés par l'installation de connecteurs de supervision
     > (Azure, Amazon AWS, VMware, etc). Pour connaître la liste complète, consultez
     > le [catalogue des Plugin
     > Packs](/pp/integrations/plugin-packs/getting-started/introduction).
 
 2. Créez une tâche de découverte pour chaque type de ressources que vous souhaitez découvrir : à la page **Configuration > Hôtes > Découverte**, cliquez sur **+AJOUTER**. Un assistant s'ouvre.
+
+Vous pouvez dupliquer des tâches de découverte : survolez la tâche désirée puis cliquez sur **Dupliquer**.
 
 ## Assistant de création de tâche de découverte
 
@@ -235,7 +237,7 @@ Les modificateurs permettent de :
 |---------------|---------------------------------------------------------------------------------------|
 | Propriété      | définir un libellé (nom, alias, adresse IP)                                           |
 | Macro         | définir une macro custom pour l'hôte                                                  |
-| Modèle      | ajouter des modèles d'hôtes (le modèle lié au plugin pack est ajouté automatiquement) |
+| Modèle      | ajouter des modèles d'hôtes (le modèle lié au connecteur de supervision est ajouté automatiquement) |
 | Groupe d'hôtes    | rattacher les hôtes à un groupe d'hôtes                                               |
 | Catégorie d'hôte | rattacher les hôtes à une catégorie                                                   |
 | Criticité d'hôte | prioriser les hôtes par sévérité                                                      |
@@ -257,6 +259,8 @@ de ces attributs avec une ou plusieurs chaînes de caractères personnalisées.
 
 ![image](../../assets/monitoring/discovery/host-discovery-mappers-concatenation.gif)
 
+Lorsque vous définissez plusieurs modificateurs du même type et que les conditions s'appliquent à plusieurs d'entre eux, le dernier modificateur prend le pas sur les autres (ceux situés avant lui). Cela s'applique aux modificateurs suivants : supervision, sévérité, propriété, macros.
+
 ### Ajouter un modificateur
 
 1. Depuis l'étape quatre de l'assistant de création d'une tâche, ou depuis le
@@ -272,7 +276,7 @@ tous les champs requis.
 
 1. Depuis l'étape quatre de l'assistant de création d'une tâche, ou depuis
 le panneau d'édition dans la section **Modificateurs**, cliquez sur l'icône
-d'édition : ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
+**Plus d'actions**, puis cliquez sur **Éditer**.
 
 2. Modifiez n'importe quel champ ou le type de modificateur lui-même. Voir [Éditer une tâche de découverte](#éditer-une-tâche-de-découverte).
 
@@ -281,12 +285,20 @@ d'édition : ![image](../../assets/monitoring/discovery/host-discovery-edit.png#
 ### Supprimer un modificateur
 
 1. Depuis l'étape quatre de l'assistant de création d'une tâche, ou depuis le
-panneau d'édition dans la section **Modificateurs**, cliquez sur l'icône de
-suppression :  ![image](../../assets/monitoring/discovery/host-discovery-delete.png#thumbnail1)
+panneau d'édition dans la section **Modificateurs**, cliquez sur l'icône
+**Plus d'actions**, puis cliquez sur **Supprimer**.
 
   Une fenêtre demandera de confirmer l'action.
 
 2. Cliquez sur **SUPPRIMER** pour supprimer le modificateur.
+
+### Dupliquer un modificateur
+
+1. Depuis l'étape quatre de l'assistant de création d'une tâche, ou depuis le
+panneau d'édition dans la section **Modificateurs**, cliquez sur l'icône
+**Plus d'actions**, puis cliquez sur **Dupliquer**.
+
+2. Entrez le nombre de copies à faire du modificateur, puis cliquez sur **Dupliquer**.
 
 ## Types de modificateur
 
@@ -395,6 +407,8 @@ supervision l'hôte sera supervisé. Celui-ci est obligatoire.
 Le bouton radio **Sélecteur d'instance de supervision** permet de choisir entre
 le serveur de supervision défini dans la tâche ou depuis ceux disponibles sur
 la plateforme Centreon.
+
+Si aucun modificateur de type **Supervision** ne s'applique à un hôte (à cause de conditions trop restrictives que vous auriez définies), le serveur de supervision sur lequel est exécuté le job sera sélectionné par défaut.
 
 ### Exclusion
 

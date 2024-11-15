@@ -5,13 +5,9 @@ title: Aperçu de l'interface Centreon
 
 ## Accéder à l'interface du serveur central
 
-Lors de votre première connexion à Centreon Cloud, utilisez l'URL et les identifiants que le support Centreon vous a fourni. L'URL de connexion a le format suivant : `https://<organisation>.<region>.centreon.cloud`.
+Pour vous connecter à Centreon Cloud pour la première fois, connectez-vous d'abord au [CIAM](../ciam/ciam.md), puis cliquez sur votre plateforme dans la liste **Applications** à la page de votre organisation. Vous pouvez ensuite enregistrer l'URL dans vos favoris afin d'accéder à la plateforme plus rapidement.
 
-Renseignez votre identifiant et mot de passe (définis via [Centreon CIAM](../ciam/ciam.md)), puis cliquez sur le bouton **Connect** :
-
-![image](../assets/getting-started/aconnection.png)
-
-Vous êtes maintenant connecté à l'interface web Centreon.
+Une URL Centreon Cloud a le format suivant : `https://<organization>.<region>.centreon.cloud`.
 
 ## Menus
 
@@ -75,13 +71,6 @@ Dans le bandeau supérieur, cliquez sur l'icône profil et utilisez le bouton po
 
 ![image](../assets/getting-started/dark_mode_switch.png)
 
-Vous pouvez aussi passer en mode sombre en modifiant le thème de l'interface dans les paramètres du compte.
-
-Allez dans **Administration > Paramètres > Mon compte** et sélectionnez l'onglet **Informations générales**. 
-Sélectionnez **Light** ou **Dark** dans le champ **Front-end Theme**.
-
-Puis cliquez sur **Sauvegarder**. Le thème de l'interface est maintenant dans le mode que vous avez choisi.
-
 ### Langue de l'interface utilisateur
 
 Dans le bandeau, cliquez sur l'icône profil, puis cliquez sur **Editer le profil**:
@@ -92,24 +81,3 @@ Dans la liste **Langue**, sélectionnez la vôtre.
 
 Puis cliquez sur **Sauvegarder**. Votre interface est maintenant traduite dans votre
 langue.
-
-## Réinitialisez votre mot de passe
-
-### Réinitialisez votre mot de passe avant expiration
-
-Lorsque votre mot de passe va expirer dans les 7 prochains jours, un point orange apparaît dans le
-bandeau à droite à côté de l'icône de profil :
-
-![image](../assets/administration/password_will_expire.png)
-
-Cliquez sur **Editer le profil**, puis modifiez votre mot de passe :
-
-![image](../assets/administration/password_expiration.png)
-
-### Réinitialisez votre mot de passe après expiration
-
-Si vous n'avez pas changé votre mot de passe avant son expiration, après connexion vous serez redirigé vers une page dédiée où vous pourrez le mettre à jour :
-
-![image](../assets/administration/password_expired.png)
-
-Entrez votre mot de passe actuel, définissez-en un nouveau puis cliquez sur **Réinitialiser le mot de passe**.

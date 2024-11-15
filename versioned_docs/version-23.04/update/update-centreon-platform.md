@@ -57,14 +57,14 @@ Then upgrade all the components with the following command:
 Clean the cache:
 
   ```shell
-  apt clean all
+  apt clean
   apt update
   ```
 
 Then upgrade all the components with the following command:
 
   ```shell
-  apt upgrade centreon
+  apt install --only-upgrade centreon*
   ```
 
 </TabItem>
@@ -171,10 +171,10 @@ From **Administration > Extensions > Manager**, update all extensions, starting
 with the following:
 
 - License Manager,
-- Monitoring Connectors Manager,
+- Monitoring Connector Manager,
 - Auto Discovery.
 
-Then you can update all other commercial extensions.
+Then you can update all other commercial extensions (such as [MBI](../reporting/update.md) and [MAP](../graph-views/map-web-update.md)).
 
 ## Update the Remote Servers
 
@@ -197,7 +197,7 @@ This procedure is the same as to update a Centreon central server.
 2. Then upgrade all the components with the following command:
 
   ```shell
-  dnf update centreon-poller
+  dnf update centreon\*  --exclude=centreon-plugin*
   ```
 
 </TabItem>
@@ -212,7 +212,7 @@ This procedure is the same as to update a Centreon central server.
 2. Then upgrade all the components with the following command:
 
   ```shell
-  dnf update centreon-poller
+  dnf update centreon\*  --exclude=centreon-plugin*
   ```
 
 </TabItem>
@@ -221,14 +221,14 @@ This procedure is the same as to update a Centreon central server.
 1. Clean the cache:
 
   ```shell
-  apt clean all
+  apt clean
   apt update
   ```
 
 2. Then upgrade all the components with the following command:
 
   ```shell
-  apt upgrade centreon-poller
+  apt-get update && apt-mark hold centreon-pack* && apt-mark hold centreon-plugin* && apt-get install --only-upgrade 'centreon*' 
   ```
 
 </TabItem>
@@ -245,3 +245,25 @@ and choose the **Restart** method for the Engine process.
   ```shell
   systemctl restart centengine gorgoned
   ```
+
+5. Run the following command:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Nothing to do for this OS.
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Nothing to do for this OS.
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+  ```shell
+  apt-mark unhold centreon-pack* && apt-mark unhold centreon-plugin*
+  ```
+
+</TabItem>
+</Tabs>

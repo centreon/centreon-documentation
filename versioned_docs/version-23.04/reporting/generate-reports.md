@@ -97,7 +97,7 @@ The following table describes the different options:
 To generate a report, you need to create a job by clicking on "Add" in the job listing page. The job configuration 
 is done in two main steps (tabs):
 
-- Select the report design you want to use (see all the designs available [here](../assets/reporting/Centreon-MBI-Sample-Reports.pdf))
+- Select the report design you want to use (see all the designs available [here](../../../assets/en/reporting/Centreon-MBI-Sample-Reports.pdf))
 - Select the perimeter on which to generate the report 
 
 Two optionals steps (tabs) can be done to :
@@ -186,6 +186,8 @@ There are three types of fields in this form:
     - Business activities (Centreon BAM module is required)
     - Images that will be inserted in the reports (logo for example).
 
+> In the **Time period** field for reports concerning [BAM](../service-mapping/introduction.md), do not use time periods that include [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab), as the exceptions will not not be taken into account.
+
 **Note**: A value must be specified for each field in this menu except for the multi-selection 
 parameter when metrics are excluded.
 
@@ -234,7 +236,7 @@ The "Tuning" menu contains three parameters:
 
 After a scheduled job is executed, a new report is generated and then
 stored on the **Centreon** server. You can then view or download it
-using the following menu **Reporting > Monitoring Business Intelligence > Archives**
+using the following menu **Reporting  >  Monitoring Business Intelligence  >  Report view**
 
 The following table lists the reports generated:
 

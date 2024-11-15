@@ -12,8 +12,8 @@ When a host or a service presents an incident and this incident is
 confirmed, the notification process is triggered, it can generate a
 notification sent to a contact. If the problem persists and depending on
 the configuration produced (resend a notification at regular time
-intervals, escalation of notification, etc.) it is possible that other
-alerts be send.
+intervals, escalation of notification, etc.), it is possible that other
+alerts are send.
 
 The acknowledgment of an incident can be used to stop the notification
 process (sending of notifications) until the host or the service

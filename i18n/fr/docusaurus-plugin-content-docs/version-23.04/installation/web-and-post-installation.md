@@ -54,7 +54,7 @@ Fournissez les informations de connexion à l'instance de base de données.
 
 - **Database Host Address** : si vous utilisez une base de données locale, laissez ce champ vide (la valeur par défaut étant **localhost**). Sinon, renseignez l'adresse IP de votre base de données déportée.
 - **Root user/password** : ce compte sera utilisé pour installer les bases de données.
-   - S'il s'agit du compte par défaut (**root**), le mot de passe root de la base de données est celui que vous avez défini lorsque vous avez exécuté `mysql_secure_installation` (que vous ayez effectué l'installation à partir des [paquets](installation-of-a-central-server/using-packages.md#sécuriser-la-base-de-données) ou bien des [sources](installation-of-a-central-server/using-sources.md#sécurisez-la-base-de-données)).
+   - S'il s'agit du compte par défaut (**root**), le mot de passe root de la base de données est [celui que vous avez défini](installation-of-a-central-server/using-packages.md#sécuriser-la-base-de-données) lorsque vous avez exécuté `mysql_secure_installation`.
    - Si vous avez défini un utilisateur dédié avec des privilèges root sur toutes les bases, (par exemple pendant [l'installation d'une base de donnée déportée](../installation/installation-of-a-central-server/using-packages.md#avec-base-de-données-déportée)), utilisez celui-ci. Cet utilisateur pourra être supprimé une fois l'installation web terminée.
 
 - **Database user name/password**: les identifiants du compte qui sera utilisé pour interagir avec les bases de données Centreon. Le compte sera créé pendant l'installation de la base.
@@ -153,5 +153,5 @@ N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
 
 ## Premiers pas
 
-Rendez-vous dans le chapitre [Premiers pas](../getting-started/installation-first-steps.md)
+Rendez-vous dans le chapitre [Premiers pas](../getting-started/welcome.md)
 pour mettre en place votre première supervision.

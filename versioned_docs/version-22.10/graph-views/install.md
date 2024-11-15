@@ -5,7 +5,9 @@ title: Installing Centreon MAP extension
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> As MAP (Legacy) will not evolve anymore, we suggest you install [Centreon MAP](introduction-map.md) instead. MAP has significant advantages compared to MAP (Legacy) including:
+> **From Centreon 24.10, MAP Legacy will no longer be available.** We recommend you [install the new MAP module](map-web-install.md) instead.
+
+MAP has significant advantages compared to MAP (Legacy), including:
 - Web editor: Create and edit your views directly from your web browser.
 - New server: Brand new server and data model providing better performance.
 
@@ -71,9 +73,9 @@ Hardware requirements for your dedicated Centreon MAP (Legacy) server are as fol
 
 | *Monitored services*     | < 10 000                | < 20 000             |  < 40 000            |  > 40 000            |
 | ------------------------ | ----------------------- | -------------------- | -------------------- | -------------------- |
-| *CPU*                    | 2 vCPU ( 3Ghz ) minimum | 4 CPU (3GHz) Minimum | 4 CPU (3GHz) Minimum | Ask Centreon Support |
-| *Dedicated Memory*       | 2GB                     | 4GB                  | 8GB                  | Ask Centreon Support |
-| *MariaDB data partition* | 2GB                     | 5GB                  | 10GB                 | Ask Centreon Support |
+| *CPU*                    | 2 vCPU ( 3Ghz ) minimum | 4 CPU (3GHz) Minimum | 4 CPU (3GHz) Minimum | Ask Centreon Sales team |
+| *Dedicated Memory*       | 2GB                     | 4GB                  | 8GB                  | Ask Centreon Sales team |
+| *MariaDB data partition* | 2GB                     | 5GB                  | 10GB                 | Ask Centreon Sales team |
 
 To correctly implement the dedicated memory, you have to edit the
 *JAVA\_OPTS* parameter in the Centreon Map (Legacy) configurations file
@@ -244,8 +246,8 @@ in order to create new Centreon Broker output. It will be revoked later.
 
 #### Procedure
 
-If you installed your Centreon MAP (Legacy) server from a "fresh CentOS installation"
-you need to install the `centreon-release` package:
+If you installed your Centreon MAP (Legacy) server from a "fresh OS installation"
+you need to install the Centreon repository:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -265,17 +267,19 @@ Installed:
 Complete!
 ```
 
-Now you can install the **centreon-release** package:
+Now you can install the Centreon repository:
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el8/centreon-22.10.repo
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+yum install -y yum-utils
+yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el7/centreon-22.10.repo
 ```
 
 </TabItem>
@@ -288,7 +292,8 @@ apt update && apt install lsb-release ca-certificates apt-transport-https softwa
 To install the Centreon repository, execute the following command:
 
 ```shell
-echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-22.10-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
 Then import the repository key:
@@ -337,10 +342,18 @@ When installing Centreon MAP (Legacy) server, it will automatically install java
 > You need to have a MariaDB database to store Centreon MAP data, whether
 > it's on localhost or somewhere else.
 
-To install MariaDB, execute the following command:
+Execute the following command to install MariaDB:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+You need first to add the MariaDB repository: 
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
+```
+
+Then install MariaDB:
 
 ```shell
 dnf install MariaDB-client MariaDB-server

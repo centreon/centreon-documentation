@@ -121,8 +121,18 @@ rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared Mari
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
+Lors de l'étape **[Connaître la version de MariaDB](#connaître-la-version-de-mariadb)**, la commande **grep** vous a renvoyé la version précise de votre MariaDB.
+
+* Si votre résultat incluait l'indication de version “10.3”, votre commande de désinstallation doit inclure celle-ci, comme dans l’exemple ci-dessous :
+
 ```shell
-dpkg -r --ignore-depends=MariaDB-server,MariaDB-client,MariaDB-shared,MariaDB-compat,MariaDB-common
+dpkg -r --ignore-depends=mariadb-server,mariadb-client,mariadb-shared,mariadb-compat,mariadb-common mariadb-server mariadb-server-10.3 mariadb-client mariadb-client-10.3 mariadb-client-core-10.3 mariadb-common mariadb-server-core-10.3 mysql-common
+```
+
+* Si votre résultat n’incluait pas l'indication de version “10.3”, utilisez la commande suivante :
+
+```shell
+dpkg -r --ignore-depends=mariadb-server,mariadb-client,mariadb-shared,mariadb-compat,mariadb-common mariadb-server mariadb-server mariadb-client mariadb-client mariadb-client-core mariadb-common mariadb-server-core mysql-common
 ```
 
 </TabItem>
@@ -263,5 +273,5 @@ apt update MariaDB-*
 2. Redémarrez MariaDB :
 
     ```
-    restart mariadb
+    systemctl restart mariadb
     ```

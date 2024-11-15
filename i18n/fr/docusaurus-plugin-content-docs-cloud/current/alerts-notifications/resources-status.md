@@ -23,6 +23,22 @@ exemple par statut ou encore par sévérité.
 
 ![image](../assets/alerts/resources-status/resources-status-listing-order.gif)
 
+### Vue par hôte/par service
+
+Utilisez les boutons **Afficher la vue** au-dessus de la liste des ressources pour définir la façon dont la liste sera affichée. 
+
+- **Tous**: Affiche une liste complète de tous les types de ressources dans la même vue (hôtes, services, métaservices, services de type Anomaly Detection).
+- **Afficher par hôte**: Affiche la liste de tous les hôtes. Par défaut, pour chaque hôte, un résumé des statuts de tous les services est affiché dans la colonne **Services**. Cliquez sur la flèche à gauche du résumé pour étendre la zone et afficher le détail de tous les services rattachés à l'hôte. Les métaservices ne sont pas inclus dans cette vue.
+- **Afficher par service**: Affiche la liste de tous les services, et indique l'hôte auquel ils sont rattachés dans la colonne **Hôte**. La liste inclut les métaservices et les services de type Anomaly Detection.
+
+### Vue compacte ou étendue
+
+Vous pouvez afficher la vue dans le mode qui vous convient le mieux, en modifiant la présentation visuelle des lignes dans les tableaux.
+
+Cliquez sur le bouton dédié pour faciliter la lecture des informations contenues dans les tableaux :
+- Mode vue "compact" ![image](../assets/alerts/resources-status/compact-icon.png)
+- Mode vue "extended" ![image](../assets/alerts/resources-status/extended-icon.png)
+
 ## Exécuter des actions sur les évènements
 
 ### Prendre en compte un évènement
@@ -38,15 +54,13 @@ Seule une ressource non acquittée peut être acquittée.
 
 Lorsqu'une ressource est acquittée :
 
-- l'alerte disparaît de la vue **Problèmes non traités**
+- l'alerte disparaît de la vue **Alertes non traitées**
 - les [notifications](notif-configuration.md) partant de la ressource sont stoppées
 - L'arrière-plan de la ligne d'une ressource acquittée passe en jaune.
 
 L'acquittement peut aussi être supprimé pour reverser l'évènement dans la liste
 des évènements non pris en compte ainsi que pour relancer les notifications. Cliquez
 sur **Désacquitter** dans le menu **Plus d'actions**.
-
-![image](../assets/alerts/resources-status/resources-status-acknowledgement.gif)
 
 ### Planifier une plage de maintenance
 
@@ -56,21 +70,23 @@ Il est possible de [planifier une plage de maintenance](downtimes.md) :
 - En sélectionnant une ou plusieurs lignes et en cliquant sur le bouton **Planifier une maintenance** au-dessus du tableau.
 
 La mise en maintenance d'une ressource a pour effet de masquer l'alerte
-de la vue **Problèmes non traités** et de stopper les notifications partant
+de la vue **Alertes non traitées** et de stopper les notifications partant
 de la ressource. L'arrière-plan des lignes des ressources en maintenance est mauve.
-
-![image](../assets/alerts/resources-status/resources-status-downtime.gif)
 
 ### Relancer un contrôle
 
 Dans de nombreuses situations, il est nécessaire de pouvoir rafraîchir
-le statut d'un service/hôte en lançant un contrôle manuellement via
-l'interface. Cela est possible de deux manières différentes :
+le statut d'une ou plusieurs ressources en lançant un contrôle manuellement via
+l'interface.
 
-- En lançant le contrôle directement via le bouton qui s'affiche au survol de la ligne
-- En sélectionnant une ou plusieurs lignes et en cliquant sur le bouton **Vérifier**.
+Deux types d'actions de contrôle sont disponibles :
+- L'action **Vérifier** : un contrôle que vous effectuez uniquement durant la période de vérification configurée.
+- L'action **Vérification forcée** : un contrôle que vous pouvez effectuer à tout moment (pendant ou en dehors de la période de vérification configurée).
 
-![image](../assets/alerts/resources-status/resources-status-check.gif)
+Vous pouvez contrôler vos ressources et rafraîchir leur statut de deux manières :
+
+- En lançant le contrôle directement via le bouton qui s'affiche au survol de la ligne (**Vérification forcée** uniquement).
+- En sélectionnant une ou plusieurs lignes et en cliquant sur le bouton **Vérifier** au-dessus du tableau.
 
 ### Soumettre un statut
 
@@ -80,8 +96,6 @@ de sortie et des métriques, afin de remettre à zéro l'évènement.
 Pour cela, sélectionnez un service passif puis cliquez sur **Soumettre un statut**
 dans le menu **Plus d'actions**.
 
-![image](../assets/alerts/resources-status/resources-status-submit-status.gif)
-
 ## Filtrer les évènements
 
 Les différents filtres s'ajoutent selon un critère ET : les résultats correspondront à tous les critères saisis.
@@ -89,17 +103,17 @@ Les différents filtres s'ajoutent selon un critère ET : les résultats corresp
 ### Filtres prédéfinis
 
 Lorsque vous arrivez sur la vue d'évènements, par défaut le filtre est
-positionné sur **Problèmes non traités** : ce filtre permet de visualiser
+positionné sur **Alertes non traitées** : ce filtre permet de visualiser
 rapidement tous les problèmes n'ayant pas encore été pris en compte ou
 associés à une plage de maintenance. Il est possible de choisir parmi 2
-autres filtres : **Problèmes de ressources** & **Tous**.
+autres filtres : **Toutes les alertes** & **Tous**.
 
 Signification des filtres :
 
-- **Problèmes non traités** : Le statut de la ressource est **Alerte** ou
+- **Alertes non traitées** : Le statut de la ressource est **Alerte** ou
     **Critique** ou **Inconnu** ou **Indisponible** ET la ressource n'est ni acquittée ni en
     plage de maintenance planifiée
-- **Problèmes de ressources**: Le statut de la ressource est **Alerte** ou
+- **Toutes les alertes**: Le statut de la ressource est **Alerte** ou
     **Critique** ou **Inconnu** ou **Indisponible** (que la ressource ait été acquittée/mise en maintenance ou non)
 - **Tous** : toutes les ressources.
 
@@ -107,35 +121,31 @@ Signification des filtres :
 
 Vous pouvez filtrer la liste des ressources selon un certain nombre de critères prédéfinis.
 
-1. Cliquez sur l'icône **Options de recherche** :![image](../assets/alerts/resources-status/search-options-icon.png)
+1. Cliquez sur l'icône **Options de filtre** :![image](../assets/alerts/resources-status/search-options-icon.png)
 
     Une pop-in apparaît, listant les critères suivants :
 
-    - **Type** : afficher uniquement les hôtes, les services, ou les métaservices. Vous pouvez également filtrer sur les services de type [Anomaly Detection](../monitoring/anomaly-detection.md) si le module est installé.
-    - **État** : y a-t'il une action en cours sur le service ou l'équipement ? (acquittement, plage de maintenance planifiée)
-    - [**Statut**](concepts.md) : **OK**, **Disponible**, **Alerte**, **Indisponible**, **Critique**, **Injoignable**, **Inconnu**, **En attente**
-    - [**Type de statut**](concepts.md#types-de-statuts): SOFT ou HARD
+    - **Hôte :** sélectionnez un hôte dans la liste déroulante et les statuts à afficher (**Disponible**, **Indisponible**, **Injoignable**, **En attente**).
     - **Groupes d'hôtes**
+    - **Service :** sélectionnez un service dans la liste déroulante et les statuts à afficher (**OK**, **Alerte**, **Critique**, **Inconnu**, **En attente**).
     - **Groupe de services**
-    - **Serveur de supervision** : ressources supervisées par un serveur (ou collecteur) particulier.
+    - **Collecteurs**
+     - **État :** y a-t'il une action en cours sur le service ou l'équipement ? (acquittement, plage de maintenance planifiée).
+
+2. Cliquez sur **Plus de filtres** pour afficher plus d'options :
+    
     - [**Catégorie d'hôte**](../monitoring/categories.md)
+    - [**Criticité d'hôte**](../monitoring/categories.md)
     - [**Catégorie de service**](../monitoring/categories.md)
-    - [**Criticité d'hôte**](../monitoring/categories.md): nom de la criticité de l'hôte
-    - **Niveau de criticité d'hôte**
-    - [**Criticité du service**](../monitoring/categories.md): nom de la criticité du service
-    - **Niveau de criticité du service**
+    - [**Criticité du service**](../monitoring/categories.md)
+    - Vous pouvez ajouter un commentaire dans le champ **Informations**.
+    - [**Type de statut**](concepts.md#types-de-statuts) : **Hard** ou **Soft**.
 
-    ![image](../assets/alerts/resources-status/search-popup.png)
-
-2. Cliquez sur un critère de recherche : une liste de toutes les valeurs possibles s'affiche.
-
-3. Sélectionnez les valeurs désirées. La barre de recherche affiche le texte correspondant au filtre appliqué, et un chiffre indique à gauche du critère le nombre de valeurs sélectionnées.
-
-    ![image](../assets/alerts/resources-status/search-criteria.png)
-
-    Si besoin, cliquez sur le 'x' à droite d'un critère pour désélectionner toutes les valeurs.
-
-4. Cliquez sur **Rechercher**, ou cliquez en dehors de la pop-up. La liste des ressources est filtrée.
+3. Vous pouvez cliquer directement sur le bouton **Recherche** ou enregistrer votre filtre :
+   - Cliquez sur **Save as new** pour nommer et enregistrer votre filtre. Vous pourrez alors y accéder dans la liste **Mes filtres**.
+   - Cliquez sur **Save as** si vous êtes déjà en train de modifier un filtre existant.
+   
+   La liste des ressources est maintenant filtrée.
 
 ### Barre de recherche
 
@@ -226,11 +236,7 @@ Utilisez l'icône "roue dentée" à côté de **Filtre** pour :
 Une fois qu'un filtre est créé, il apparaîtra dans la liste des filtres
 sous la section **Mes filtres**.
 
-![image](../assets/alerts/resources-status/resources-status-filters-custom.gif)
-
-En cliquant sur le menu **Éditer les filtres**, il est possible de manipuler les filtres sauvegardés (en les renommant, ré-ordonnant et supprimant) :
-
-![image](../assets/alerts/resources-status/resources-status-edit-filters.gif)
+En cliquant sur le menu **Éditer les filtres**, il est possible de manipuler les filtres sauvegardés (en les renommant, ré-ordonnant et supprimant).
 
 ## Panneau de détail
 
@@ -335,11 +341,3 @@ Le graphique s'ouvre dans la page **Supervision > Informations de performance > 
 ![image](../assets/alerts/resources-status/graph-open2.png)
 
 Vous pouvez aussi exporter les données du graphique au format CSV. Toutes les métriques seront incluses.
-
-### Onglet Notification
-
-L'onglet Notification affiche si les notifications sont activées pour la ressource sélectionnée. Vous pouvez voir les destinataires de ces notifications dans les sections **Contacts** et **Contact groups**.
-
-Pour paramétrer les destinataires, cliquez sur l'icône "roue dentée" de la section **Contacts** ou **Contact groups**.
-
-![image](../assets/alerts/resources-status/notification_tab.png)

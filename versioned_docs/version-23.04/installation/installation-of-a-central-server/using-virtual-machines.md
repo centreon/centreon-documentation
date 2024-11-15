@@ -5,11 +5,15 @@ title: Using a virtual machine (VM)
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> This is an older version of Centreon. We recommend you install the latest version.
+
 On its [download page](https://download.centreon.com), Centreon provides a ready-to-use virtual machine. This virtual machine is available in OVA format for VMware environments and in OVF format for Oracle VirtualBox. It is based on the **Alma Linux 8** operating system and includes a Centreon installation that allows you to easily start your first monitoring.
+
+> The virtual machine is only suitable to use Centreon IT-100 or to test the solution.
 
 The VM uses the **Thin Provision** option to save as much free space as possible on the disk (this is best practice).
 
-**Prerequisites**
+## Prerequisites
 
 The host machine must have the following characteristics:
 
@@ -21,22 +25,41 @@ The host machine must have the following characteristics:
 
 1. Make sure your virtualization tool (VMWare or VirtualBox) is installed on your machine and up to date.
 
-2. Go to the [Centreon download page](https://download.centreon.com). In section 1, **Appliances** is already selected.
+2. Depending on the type of license you want to use, go to either of the following pages:
 
-3. In section 2, select which version of Centreon you want to download.
+<Tabs groupId="sync">
+<TabItem value="Download page (all types of license)" label="Download page (all types of license)">
 
-4. In section 3, **Download your image**, click the **Download** button next to the VM you want. A new page opens.
+1. Go to the [Centreon download page](https://download.centreon.com). In section 1, **Appliances** is already selected.
+
+2. In section 2, select which version of Centreon you want to download.
+
+3. In section 3, **Download your image**, click the **Download** button next to the type of VM you want (be careful not to mix up images for VMWare and VirtualBox). A new page opens.
 
     - If you want Centreon to contact you, fill in your details, then click **Download**.
 
     - Otherwise, click **Direct download**.
 
-5. The file you have downloaded is an archive file: extract its contents to the folder you want.
+4. The file you have downloaded is an archive file. Extract its contents to the folder you want.
+
+</TabItem>
+<TabItem value="IT-100 free trial page" label="IT-100 free trial page">
+
+1. Go to the [IT-100 free trial page](https://www.centreon.com/free-trial/).
+
+2. Fill in the form to request your free IT-100 token, then follow the instructions you have received by email.
+
+3. Further down the page, in the **Download Centreon** section, download the correct image for the type of VM you want (be careful not to mix up images for VMWare and VirtualBox).
+
+4. The file you have downloaded is an archive file. Extract its contents to the folder you want.
+
+</TabItem>
+</Tabs>
 
 ## Step 2 : Installing the virtual machine
 
 <Tabs groupId="sync">
-<TabItem value="VMware environment" label="VMware environment">
+<TabItem value="VMware" label="VMware">
 
 1. Import the **centreon-central.ova** file into VMWare. A terminal window opens: wait for the server to start. When it is ready, the terminal shows the following message:
 
@@ -57,7 +80,7 @@ The host machine must have the following characteristics:
 
 3. On the **System** tab, check the **Hardware Clock in UTC Time** box.
 
-4. According to how your network is set up, add a network adapter and select the network through which the virtual machine can communicate with the resources it will supervise. For instance:
+4. According to how your network is set up, add a network adapter and select the network through which the virtual machine can communicate with the resources it will monitor. For instance:
 
     1. On the **Network** tab, select **Enable Network Adapter**.
 
@@ -108,7 +131,7 @@ The host machine must have the following characteristics:
         timedatectl list-timezones
         ```
 
-    - The timezone for the php server. To avoid errors, this should be the same as the timezone of the server. By default, it is set to Europe/London.
+    - The timezone for the PHP server. To avoid errors, this should be the same as the timezone of the server. By default, it is set to Europe/London.
 
         1. Open the following file:
 
@@ -118,22 +141,22 @@ The host machine must have the following characteristics:
 
         2. In `date.timezone`, define the timezone you want.
 
-        3. Restart the php server:
+        3. Restart the PHP server:
 
             ```shell
             systemctl restart php-fpm
             ```
 
-    - The hostname of your server. The default name is `centreon-central`. To change it, use the following command:
+    - The hostname of your server (this is optional). The default name is `centreon-central`. To change it, use the following command:
 
         ```shell
         hostnamectl set-hostname your-hostname
         ```
 
-        For example, if you want your machine to be called `supervision`, type:
+        For example, if you want your machine to be called `monitoring`, type:
 
         ```shell
-        hostnamectl set-hostname supervision
+        hostnamectl set-hostname monitoring
         ```
 
 5. Add a MariaDB table partition: this step is mandatory. Your Centreon server will not work if this isn't done.
@@ -172,18 +195,19 @@ The host machine must have the following characteristics:
         >
         >`/etc/profile.d/centreon.sh`
 
-6. To log in to the web interface, go to `http://ip_address/centreon` or `http://FQDN/centreon`. (For example, a valid URL would be `http://192.168.1.44/centreon`.) 
+6. To log in to the web interface, go to `http://ip_address/centreon` or `http://FQDN/centreon`. (For example, a valid URL would be `http://192.168.1.44/centreon`.)
 
 7. Log in using the following credentials: Login: `admin`, password: `Centreon!123`. By default, your server has a predefined configuration to monitor the Centreon server itself.
 
-8. According to your Centreon edition, you may have to [add a license](../../administration/licenses.md).
+8. According to your Centreon edition, you may have to [add a license](../../administration/licenses.md#add-your-license) (for exemple, a free IT-100 token: go to **Administration > Extensions > Manager** and click **Add Token**).
 
 9. [Update](../../update/update-centreon-platform.md) your Centreon platform.
 
-9. [Secure your Centreon platform](../../administration/secure-platform.md). We recommend that you change the passwords for the root and admin accounts. You must define a password for the MariaDB database.
+10. Change the passwords for the root and admin accounts. This is mandatory as the default passwords are available publicly in this documentation. You must also define a password for the MariaDB database.
 
-10. You can now [monitor your first host](../../getting-started/first-supervision.md).
+11. [Secure your Centreon platform](../../administration/secure-platform.md).
 
+12. You can now [monitor your first host](../../getting-started/first-supervision.md).
 
 ## Default credentials
 
@@ -191,4 +215,8 @@ The host machine must have the following characteristics:
 - The server administration account (using SSH) is: `root`/`centreon`.
 - The root password of the DBMS is not initialized.
 
-> For security reasons, we highly recommend you change those passwords after you complete the installation.
+> For security reasons, change these passwords after you complete the installation.
+
+## Troubleshooting
+
+If your VM will not start, check that you used the correct image for your virtualization tool (OVA format for VMware environments and OVF format for Oracle VirtualBox). You may also want to visit our community platform [The Watch](https://thewatch.centreon.com/).

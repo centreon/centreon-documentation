@@ -101,7 +101,7 @@ Equipment that has an IP address or a FQDN, and that you want to monitor. Exampl
 
 A host can have one of the following [statuses](#status): OK, DOWN and UNREACHABLE.
 
-See also: [Monitoring a host](../monitoring/basic-objects/hosts-create.md) and the other topics in this section.
+**See also**: [Monitoring a host](../monitoring/basic-objects/hosts-create.md) and the other topics in this section.
 
 ## LVM
 
@@ -120,6 +120,8 @@ A metric (or performance data) is part of a [service](#service). This piece of d
 When a service has several metrics, the status of the service is the status of the worst metric.
 
 You can see all metrics attached to a service in the details panel of the service.
+
+**See also**: [Understanding metrics](../monitoring/metrics.md).
 
 ## Monitoring action
 
@@ -209,7 +211,7 @@ Time period, in days, during which you want to keep the data from your RRD and M
 
 ## RRD files
 
-An RRD file contains the data for a [metric](#metric). RRD files are used to build performance [graph](#graphs). If there are no RRD files, graphs cannot be displayed. Because of the way RRD works, the data displayed in the graphs show a trend rather than the exact data that was measured.
+An RRD file contains the data for a [metric](#metric). RRD files are used to build performance [graph](#graph). If there are no RRD files, graphs cannot be displayed. Because of the way RRD works, the data displayed in the graphs show a trend rather than the exact data that was measured.
 
 ## Scheduler
 

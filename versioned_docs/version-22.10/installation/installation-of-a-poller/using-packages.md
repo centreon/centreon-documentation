@@ -26,12 +26,13 @@ dnf update
 
 ### Additional configuration
 
-If you intend to use Centreon in French, Spanish or Portuguese, install the corresponding packages:
+If you intend to use Centreon in French, Spanish, Portuguese or German, install the corresponding packages:
 
 ```shell
 dnf install glibc-langpack-fr
 dnf install glibc-langpack-es
 dnf install glibc-langpack-pt
+dnf install glibc-langpack-de
 ```
 
 Use the following command to check which languages are installed on your system:
@@ -91,6 +92,8 @@ You should have this result:
 Disabled
 ```
 
+> **Note that this deactivation should be temporary.** SELinux should be [reenabled after installation](../../administration/secure-platform.md#activate-selinux) for security reasons.
+
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
@@ -119,6 +122,8 @@ You should have this result:
 ```shell
 Disabled
 ```
+
+> **Note that this deactivation should be temporary.** SELinux should be [reenabled after installation](../../administration/secure-platform.md#activate-selinux) for security reasons.
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
@@ -182,6 +187,12 @@ dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-relea
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
+If your server is a Cloud RHEL instance, you will have to execute the following command:
+
+```shell
+dnf config-manager --set-enabled codeready-builder-for-rhel-8-rhui-rpms
+```
+
 </TabItem>
 
 <TabItem value="Oracle Linux 8" label="Oracle Linux 8">
@@ -226,8 +237,7 @@ apt update && apt install lsb-release ca-certificates apt-transport-https softwa
 
 #### Centreon repository
 
-To install Centreon software from the repository, you should first install the
-centreon-release package, which will provide the repository file.
+To install Centreon software, you should first install the Centreon repository.
 
 Install the Centreon repository using this command:
 
@@ -235,14 +245,16 @@ Install the Centreon repository using this command:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install -y https://yum.centreon.com/standard/22.10/el8/stable/noarch/RPMS/centreon-release-22.10-1.el8.noarch.rpm
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el8/centreon-22.10.repo
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+yum install -y yum-utils
+yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el7/centreon-22.10.repo
 ```
 
 </TabItem>
@@ -251,7 +263,8 @@ yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/ce
 To install the Centreon repository, execute following command line:
 
 ```shell
-echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-22.10-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
 Then import the repository key:
@@ -286,7 +299,7 @@ yum install -y centreon-poller
 
 ```shell
 apt update
-apt install -y centreon-poller
+apt install -y --no-install-recommends centreon-poller
 ```
 
 </TabItem>

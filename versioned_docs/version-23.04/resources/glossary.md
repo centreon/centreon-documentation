@@ -107,7 +107,7 @@ Equipment that has an IP address or a FQDN, and that you want to monitor. Exampl
 
 A host can have one of the following [statuses](#status): OK, DOWN and UNREACHABLE.
 
-See also: [Monitoring a host](../monitoring/basic-objects/hosts-create.md) and the other topics in this section.
+**See also**: [Monitoring a host](../monitoring/basic-objects/hosts-create.md) and the other topics in this section.
 
 ## LVM
 
@@ -127,15 +127,19 @@ When a service has several metrics, the status of the service is the status of t
 
 You can see all metrics attached to a service in the details panel of the service.
 
+**See also**: [Understanding metrics](../monitoring/metrics.md).
+
 ## Monitoring action
 
 Any action performed in the interface that acts on your monitoring in real time. For instance, to [acknowledge a resource](#acknowledgement), to [plan a downtime](#downtime), to force a check, etc.
 
 ## Monitoring Connector
 
-The term "Monitoring Connector" refers to a [plugin](#plugin) and the corresponding pack.
+Connectors are the piece of software that lets Centreon communicate with the monitored resource.
 
-A pack contains the configuration of the plugin in Centreon (command, [templates](#template), thresholds), as well as data required by the automatic discovery feature.
+Centreon offers a great variety of connectors ready to be used to check any type of resource.
+A connector consists of a [pack](#pack) (commands, preconfigured [templates](#template)) and a [plugin](#plugin) (the probe that executes the checks).
+Some connectors also have an automatic discovery feature allowing them to find ressources of a certain type to monitor them.
 
 **See also**:
 
@@ -160,6 +164,10 @@ Message that warns a user that an incident has occurred. You can configure notif
 ## One-peer retention mode
 
 Advanced configuration for Centreon [Broker](#broker) that activates the retention mechanism in [Broker inverted flow mode](#broker-inverted-flow-mode). This mode is commonly used for monitoring servers ([pollers](#poller) or [remote servers](#remote-server)) located in demilitarized zones (DMZ).
+
+## Pack
+
+A pack contains the information related to the indicators that will be checked, their alert thresholds and the command lines required to perform the checks. The pack provides a default configuration but remains highly customizable.
 
 ## Performance data
 
@@ -215,7 +223,7 @@ Time period, in days, during which you want to keep the data from your RRD and M
 
 ## RRD files
 
-An RRD file contains the data for a [metric](#metric). RRD files are used to build performance [graph](#graphs). If there are no RRD files, graphs cannot be displayed. Because of the way RRD works, the data displayed in the graphs show a trend rather than the exact data that was measured.
+An RRD file contains the data for a [metric](#metric). RRD files are used to build performance [graph](#graph). If there are no RRD files, graphs cannot be displayed. Because of the way RRD works, the data displayed in the graphs show a trend rather than the exact data that was measured.
 
 ## Scheduler
 

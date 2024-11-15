@@ -202,17 +202,14 @@ You may create some "complex" filters that set you in a specific
 context, using multiple criteria and even complex regular expressions.
 In that case, you may want to save this filter and re-use it later.
 
-Use the **gear icon** next to **Filter** to:
+Use the **Filter options** icon next to the search bar to:
 
 - Save your current search as a new filter
-- Save the current filter so that it is updated using the criteria currently
+- update the current filter using the criteria currently
     applied
-- Edit filters so that you can rename, re-order or delete them
 
-As soon as a filter is saved, it can be reused in the Filter dropdown list,
-categorized under **My Filter**.
-
-By clicking on the **Edit filters** menu, you can manage your existing filters (rename, re-order and delete):
+Once a filter is saved, it can be reused from the Filter dropdown list,
+categorized under **My Filter** and you'll be able to use the **Edit filters** icon to manage your existing filters (rename, re-order and delete).
 
 ## Detail panel
 

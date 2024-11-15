@@ -6,7 +6,7 @@ title: Command Line API (v1) - CLAPI
 ## Overview
 
 Centreon CLAPI aims to offer (almost) all the features that are available on the
-user interface in terms of configuration.
+user interface in terms of configuration. Only administrators can use CLAPI.
 
 ### Features
 
@@ -801,10 +801,12 @@ Parameters that you may change are:
 | daemon                  | Link this configuration to cbd service (0 or 1)                               |
 | pool\_size              | Number of threads used (by default, use the number of CPUs)                   |
 
-#### Listinput, Listoutput and Listlogger
+#### Listinput and Listoutput
 
-If you want to list specific input output types of Centreon Broker, use one of the following commands: listinput
-listoutput listlogger
+If you want to list specific input output types of Centreon Broker, use one of the following commands:
+
+- listinput
+- listoutput
 
 Example:
 
@@ -823,13 +825,12 @@ Columns are the following:
 | ID     | I/O ID      |
 | Name   | I/O Name    |
 
-#### Getinput, Getoutput and Getlogger
+#### Getinput and Getoutput
 
 In order to get parameters of a specific I/O object, use one of the following commands:
 
 * getinput
 * getoutput
-* getlogger
 
 Example:
 
@@ -857,24 +858,26 @@ Columns are the following:
 | 1      | Parameter key of the I/O   |
 | 2      | Parameter value of the I/O |
 
-#### Addinput, Addoutput and Addlogger
+#### Addinput and Addoutput
 
 In order to add a new I/O object, use one of the following commands:
 
 * **ADDINPUT**
 * **ADDOUTPUT**
-* **ADDLOGGER**
 
 Example:
 
 ``` shell
-centreon -u admin -p 'centreon' -o CENTBROKERCFG -a addlogger -v "broker cfg for poller test;/var/log/centreon-broker/central-module.log;file"
+centreon -u admin -p 'centreon' -o CENTBROKERCFG -a addoutput -v "broker cfg for poller test;MyFileOutput;file"
 ```
 
 ``` shell
-centreon -u admin -p 'centreon' -o CENTBROKERCFG -a listlogger -v "broker cfg for poller test"
+centreon -u admin -p 'centreon' -o CENTBROKERCFG -a listoutput -v "broker cfg for poller test"
 id;name
-1;/var/log/centreon-broker/central-module.log
+1;Storage
+2;RRD
+3;PerfData
+4:MyFileOutput
 ```
 
 Arguments are composed of the following columns:
@@ -885,34 +888,32 @@ Arguments are composed of the following columns:
 | 2     | Name of the I/O object      |
 | 3     | Nature of I/O object        |
 
-#### Delinput, Deloutput and Dellogger
+#### Delinput and Deloutput
 
 In order to remove an I/O object from the Centreon Broker configuration, use one of the following commands:
 
 * **DELINPUT**
 * **DELOUTPUT**
-* **DELLOGGER**
 
 Example:
 
 ``` shell
-centreon -u admin -p 'centreon' -o CENTBROKERCFG -a dellogger -v "broker cfg for poller test;1"
+centreon -u admin -p 'centreon' -o CENTBROKERCFG -a deloutput -v "broker cfg for poller test;4"
 ```
 
 The I/O ID is used for identifying the object to delete.
 
-#### Setintput, Setoutput and Setlogger
+#### Setintput and Setoutput
 
 In order to set parameters of an I/O object, use one of the following commands:
 
 * **SETINPUT**
 * **SETOUTPUT**
-* **SETLOGGER**
 
 Example:
 
 ``` shell
-centreon -u admin -p 'centreon' -o CENTBROKERCFG -a setlogger -v "broker cfg for poller test;1;debug;no"
+centreon -u admin -p 'centreon' -o CENTBROKERCFG -a setoutput -v "broker cfg for poller test;1;retry_interval;5'"
 ```
 
 Arguments are composed of the following columns:

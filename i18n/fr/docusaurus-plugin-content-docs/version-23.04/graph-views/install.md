@@ -5,7 +5,9 @@ title: Installer l'extension MAP de Centreon
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> Dans la mesure où MAP (Legacy) n'évoluera plus, nous vous suggérons de le remplacer par [Centreon MAP](introduction-map.md). MAP présente des avantages considérables par rapport à MAP (Legacy), notamment :
+> **À partir de Centreon 24.10, MAP Legacy ne sera plus disponible.** Si vous utilisez encore MAP Legacy, consultez la page [Fin de vie de MAP Legacy](https://docs.centreon.com/fr/docs/graph-views/map-legacy-eol/).
+
+MAP présente des avantages considérables par rapport à MAP (Legacy), notamment :
 - L'éditeur web : créez et modifiez vos vues directement à partir de votre navigateur web.
 - Un nouveau serveur : un tout nouveau serveur et modèle de données offrant de meilleures performances.
 
@@ -64,9 +66,9 @@ La configuration matérielle requise pour votre serveur dédié Centreon MAP est
 
 | *Services supervisés*          | < 10 000                | < 20 000             |  < 40 000            |  > 40 000                    |
 | ------------------------------ | ----------------------- | -------------------- | -------------------- | ---------------------------- |
-| *CPU*                          | 2 vCPU ( 3Ghz ) minimum | 4 CPU (3GHz) Minimum | 4 CPU (3GHz) Minimum | Demandez au support Centreon |
-| *Mémoire dédiée*               | 2GB                     | 4GB                  | 8GB                  | Demandez au support Centreon |
-| *Partition de données MariaDB* | 2GB                     | 5GB                  | 10GB                 | Demandez au support Centreon |
+| *CPU*                          | 2 vCPU ( 3Ghz ) minimum | 4 CPU (3GHz) Minimum | 4 CPU (3GHz) Minimum | Demandez à l'équipe commerciale Centreon |
+| *Mémoire dédiée*               | 2GB                     | 4GB                  | 8GB                  | Demandez à l'équipe commerciale Centreon |
+| *Partition de données MariaDB* | 2GB                     | 5GB                  | 10GB                 | Demandez à l'équipe commerciale Centreon |
 
 Pour implémenter correctement la mémoire dédiée, vous devez modifier le paramètre *JAVA\_OPTS* dans le fichier de configuration Centreon MAP `/etc/centreon-studio/centreon-map.conf` et redémarrer le service :
 
@@ -226,7 +228,7 @@ Le privilège INSERT ne sera utilisé que pendant le processus d'installation af
 
 #### Procédure
 
-Si vous avez installé votre serveur Centreon MAP à partir d'une "installation fraîche", vous devez installer le paquet `centreon-release` :
+Si vous avez installé votre serveur Centreon MAP à partir d'une "installation fraîche", vous devez installer le dépôt Centreon :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -246,9 +248,10 @@ Installed:
 Complete!
 ```
 
-Ensuite installez le paquet **centreon-release** :
+Ensuite installez le dépôt Centreon :
 
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 ```
 
@@ -270,9 +273,10 @@ Installed:
 Complete!
 ```
 
-Ensuite installez le paquet **centreon-release** :
+Ensuite installez le dépôt Centreon :
 
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
 ```
 
@@ -340,6 +344,14 @@ Pour installer MariaDB, exécutez la commande suivante :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Vous devez d'abord ajouter le dépôt MariaDB :
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
+```
+
+Puis installez MariaDB :
 
 ```shell
 dnf install MariaDB-client MariaDB-server

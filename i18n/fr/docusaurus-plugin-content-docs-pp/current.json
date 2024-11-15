@@ -3,12 +3,12 @@
     "message": "Next",
     "description": "The label for version current"
   },
-  "sidebar.pp.category.Getting started": {
-    "message": "Getting started",
-    "description": "The label for category Getting started in sidebar pp"
+  "sidebar.pp.category.Getting started with Monitoring Connectors": {
+    "message": "Démarrer avec les connecteurs de supervision",
+    "description": "The label for category Getting started with Monitoring Connectors in sidebar pp"
   },
   "sidebar.pp.category.How-to guides": {
-    "message": "How-to guides",
+    "message": "Guides",
     "description": "The label for category How-to guides in sidebar pp"
   },
   "sidebar.pp.category.Blockchain": {

@@ -5,6 +5,11 @@ title: Install Centreon MAP extension
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> **From Centreon 24.10, MAP Legacy will no longer be available.** We recommend you [install the new MAP module](map-web-install.md) instead.
+
+MAP has significant advantages compared to MAP (Legacy), including:
+- Web editor: Create and edit your views directly from your web browser.
+- New server: Brand new server and data model providing better performance.
 
 > Centreon MAP requires a valid license key. To purchase one and retrieve the
 > necessary repositories, contact [Centreon](mailto:sales@centreon.com).
@@ -68,9 +73,9 @@ Hardware requirements for your dedicated Centreon MAP server are as follows:
 
 | *Monitored services*     | < 10 000                | < 20 000             |  < 40 000            |  > 40 000            |
 | ------------------------ | ----------------------- | -------------------- | -------------------- | -------------------- |
-| *CPU*                    | 2 vCPU ( 3Ghz ) minimum | 4 CPU (3GHz) Minimum | 4 CPU (3GHz) Minimum | Ask Centreon Support |
-| *Dedicated Memory*       | 2GB                     | 4GB                  | 8GB                  | Ask Centreon Support |
-| *MariaDB data partition* | 2GB                     | 5GB                  | 10GB                 | Ask Centreon Support |
+| *CPU*                    | 2 vCPU ( 3Ghz ) minimum | 4 CPU (3GHz) Minimum | 4 CPU (3GHz) Minimum | Ask Centreon Sales team |
+| *Dedicated Memory*       | 2GB                     | 4GB                  | 8GB                  | Ask Centreon Sales team |
+| *MariaDB data partition* | 2GB                     | 5GB                  | 10GB                 | Ask Centreon Sales team |
 
 To correctly implement the dedicated memory, you have to edit the
 *JAVA\_OPTS* parameter in the Centreon Map configurations file
@@ -242,7 +247,7 @@ in order to create new Centreon Broker output. It will be revoked later.
 #### Procedure
 
 If you installed your Centreon MAP server from a "fresh installation"
-you need to install the `centreon-release` package:
+you need to install the Centreon repository:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -262,9 +267,10 @@ Installed:
 Complete!
 ```
 
-Then install the `centreon-release` package:
+Then install the Centreon repository:
 
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el8/centreon-23.04.repo
 ```
 
@@ -286,9 +292,10 @@ Installed:
 Complete!
 ```
 
-Then install the `centreon-release` package:
+Then install the Centreon repository:
 
 ```shell
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/23.04/el9/centreon-23.04.repo
 ```
 
@@ -354,10 +361,18 @@ When installing Centreon MAP server, it will automatically install java
 > You need to have a MariaDB database to store Centreon MAP data, whether
 > it's on localhost or somewhere else.
 
-To install MariaDB, execute the following command:
+Execute the following command to install MariaDB:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+You need first to add the MariaDB repository: 
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.5"
+```
+
+Then install MariaDB:
 
 ```shell
 dnf install mariadb-client mariadb-server

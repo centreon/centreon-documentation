@@ -1,6 +1,6 @@
 ---
 id: graph-views-api
-title: Graphical views API (beta)
+title: MAP Legacy API (beta)
 ---
 
 If you want to automate standard views creation or maintenance, you may

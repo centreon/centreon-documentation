@@ -41,7 +41,7 @@ thresholds to highlight deviations and generate alerts. Data received during dow
 To use Anomaly Detection, you will need:
 
 - A token provided by Centreon to access the Centreon SaaS platform,
-- An internet connection from the Centreon central server
+- An internet connection from the Centreon central server. The central server must be able to reach `api.a.prod.mycentreon.com` on port 443.
 - The SHELL environment variable [LC_ALL](https://www.gnu.org/software/gettext/manual/html_node/Locale-Environment-Variables) must not be set, or be set to `C`. To check the value of this variable, enter:
 
    ```
@@ -120,7 +120,7 @@ You can create an Anomaly Detection service manually, or [use the creation wizar
 
 2. Fill in the following fields:
 
-  - **Description**: the name of the service.
+  - **Description**: the name of the service. The following characters are not authorized: `~!$%^&|'"<>?,()=*{}` and spaces.
   - **Status**: enable or disable the service. If you disable the service, after you deploy the configuration, the service will no longer be monitored (for instance it won't appear on page **Resources Status** anymore).
   - **Select host - service**: choose the host/service couple on which the Anomaly Detection service will be based.
   - **Select metric**: select the metric on which to apply anomaly detection.
@@ -137,7 +137,7 @@ You can create an Anomaly Detection service manually, or [use the creation wizar
 
    - The first predictions will appear in up to 36 hours. The service will then be in an OK status, until status changes are enabled (step 3).
 
-   > If the data on which you apply the anomaly detection has been supervised for a
+   > If the data on which you apply the anomaly detection has been monitored for a
    > certain time, it is possible to [transfer the data
    > history](#forward-history-of-data) to obtain a reliable model more quickly.
 
@@ -311,13 +311,6 @@ Sending data from 2020-04-05T00:00:00 to 2020-04-06T00:00:00
 
 ## FAQ
 
-### What services are offered and their associated SLA?
-
-The anomaly detection service is currently in closed beta test phase as described in the Centreon documentation. The
-purpose of this phase is to test our algorithms and their resulting predictions (floating thresholds).
-During this phase, Centreon will improve the anomaly detection feature based on users' feedback. No SLA will be available
-during this phase.
-
 ### How long is the data stored?
 
 The data is kept for the entire validity of the license. It will make it possible to recalculate models if necessary. An
@@ -329,6 +322,13 @@ The data hosted by the anomaly detection service only concerns data linked to th
 includes the date and time of the control, the identifier of the monitored resource, the identifier of the associated
 indicator, the name of the performance data on which the computations will be performed as well as the value of the
 performance data.
+
+### How is the sending and storage of my data protected?
+
+Sending data to our Cloud infrastructure is risk-free. Data is sent using end-to-end encryption.
+Collected data consists only in metrics and some Centreon identifiers (host name, service name). Our environment is protected by AWS Web
+Application Firewall and AWS Shields to prevent DDoS attacks. Our architecture has been reviewed by AWS architects
+(AWS Foundational Technical Review) and we are an AWS Qualified Partner.
 
 ### What is the data used for?
 

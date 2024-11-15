@@ -76,7 +76,7 @@ The following commands are used:
 yum install centreon-plugin-Applications-Redis-Sentinel
 ```
 
-2. On the Centreon Web interface, install the **Redis Sentinel** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon Web interface, install the **Redis Sentinel** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -93,7 +93,7 @@ yum install centreon-plugin-Applications-Redis-Sentinel
 yum install centreon-pack-applications-redis-sentinel
 ```
 
-3. On the Centreon Web interface, install the **Redis Sentinel** Centreon Pack on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the **Redis Sentinel** Centreon Pack on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

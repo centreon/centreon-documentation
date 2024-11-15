@@ -51,7 +51,7 @@ the "Reader" role is sufficient to access system notifications
 but an admin account is needed to perform the Lucene queries on the Graylog server.
 
 More information on the official Graylog site:
-https://docs.graylog.org/en/latest/pages/configuration/rest_api.
+https://go2docs.graylog.org/5-1/setting_up_graylog/rest_api.html.
 
 ## Installation
 
@@ -64,7 +64,7 @@ https://docs.graylog.org/en/latest/pages/configuration/rest_api.
 yum install centreon-plugin-Applications-Graylog-Restapi
 ```
 
-2. On the Centreon Web interface, install the Centreon Monitoring Connector *Graylog* from the **Configuration > Monitoring Connectors Manager** page
+2. On the Centreon Web interface, install the Centreon Monitoring Connector *Graylog* from the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -81,7 +81,7 @@ yum install centreon-plugin-Applications-Graylog-Restapi
 yum install centreon-pack-applications-graylog-restapi
 ```
 
-3. On the Centreon Web interface, install the Centreon Monitoring Connector *Graylog* from the **Configuration > Monitoring Connectors Manager** page
+3. On the Centreon Web interface, install the Centreon Monitoring Connector *Graylog* from the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

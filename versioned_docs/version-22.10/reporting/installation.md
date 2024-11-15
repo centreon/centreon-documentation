@@ -316,8 +316,30 @@ yum install centreon-bi-server
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
+Install **gpg**:
+
 ```shell
-apt update && apt install centreon-bi-server
+apt install gpg
+```
+
+Import the repository key:
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
+
+Add the following external repository (for Java 8):
+
+```shell
+wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
+add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
+apt update
+```
+
+Then install Centreon MBI:
+
+```shell
+apt install centreon-bi-server
 ```
 
 </TabItem>
@@ -359,10 +381,10 @@ Run the command below to allow the reporting server to connect to the databases 
 Use the following option:
 
 ```shell
-/usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
+perl /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
 ```
 
-**@ROOTPWD@** : Root password of the MariaDB database of supervision.
+**@ROOTPWD@** : Root password of the MariaDB monitoring database.
 If there is no password for the "root" user, do not specify the **root-password** option.
 
 </TabItem>
@@ -392,12 +414,11 @@ file of the slave server or mariadb.cnf on Debian 11.
 replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
 ```
 
-Then, create the views manually on the slave server by running the following
-command:
+Then, create the views manually on the slave server:
 
-```bash
-wget https://docs.centreon.com/fr/assets/files/view_creation-948c02cd93f8867179ec47fd611426bd.sql -O /tmp/view_creation.sql
-```
+1. Download [the following file](../assets/reporting/installation/view_creation.sql) to a temporary folder (in our example, **/tmp**), for instance using **wget**.
+
+2. Run the following command (change the name of your temporary folder if necessary):
 
 ```bash
 mysql centreon < /tmp/view_creation.sql
@@ -575,7 +596,8 @@ wget https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 Install the Centreon repository :
 
 ```shell
-echo "deb https://apt.centreon.com/repository/22.10/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-standard-22.10-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
 Install the prerequisite packages:
@@ -589,13 +611,13 @@ Add the following external repository (for Java 8):
 ```shell
 wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
 add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
-apt update
 ```
 
 In the case of an installation based on a blank distribution, install the GPG key:
 
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+
 ```
 
 Then launch the installation:
@@ -801,12 +823,12 @@ You will get an error when creating the USER, because it already exists. This is
 
 Centreon MBI integrates an ETL that allows you to :
 
-- Synchronize the raw data from the supervision to the reporting server
+- Synchronize the raw data from the monitoring to the reporting server
 - Feed statistical data to the reporting server databases statistical data
 - Control the retention of data on the reporting server
 
 Before proceeding to the next steps, it is necessary to read the
-chapter on [best practices](concepts.md#best-practices-of-monitoring) to make sure that the configuration of
+chapter on [best practices](concepts.md#best-practices-for-monitoring) to make sure that the configuration of
 the objects in Centreon (groups, categories...) is in accordance with the expectations of Centreon MBI.
 
 In the `Reporting > Monitoring Business Intelligence > General Options > ETL Options` tab, specify the following options the following options:

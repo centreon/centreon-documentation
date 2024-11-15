@@ -2,6 +2,8 @@
 id: pluginpacks
 title: Plugin Packs
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 A Plugin Pack is a downloadable package containing a set of configuration
 templates that make it fast and easy to monitor your IT infrastructure.
@@ -32,9 +34,29 @@ Packs. It is installed by default. We recommend that you keep this module regula
 
 To update this module, run the following command:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update centreon-pp-manager
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum update centreon-pp-manager
 ```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install --only-upgrade centreon-pp-manager
+```
+
+</TabItem>
+</Tabs>
 
 ### License
 
@@ -70,15 +92,46 @@ Installing a plugin pack is a 4-step process:
     - install the Plugin Packs repository (go to the [Centreon support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) for its address)
     - install or update the Plugin Packs catalog from your Centreon Central server:
 
-      ```shell
-      yum install centreon-pack-*
-      ```
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-      or:
+```shell
+dnf install centreon-pack-*
+```
 
-      ```shell
-      yum update centreon-pack-*
-      ```
+or:
+
+```shell
+dnf update centreon-pack-*
+```
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+yum install centreon-pack-*
+```
+
+or:
+
+```shell
+yum update centreon-pack-*
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install centreon-pack-*
+```
+
+or:
+
+```shell
+apt install --only-upgrade centreon-pack-\*
+```
+
+</TabItem>
+</Tabs>
 
 > Please note that although this command is called `install`, it only makes Plugin Packs available in the Centreon interface. It will not install the Plugin Packs themselves. Please follow the rest of the procedure.
 
@@ -140,6 +193,22 @@ The monitoring procedure contains an **Installation** section that explains how 
 
 The installation command looks like this:
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install centreon-plugin-$PLUGIN-PACK$
+```
+
+Where ``$PLUGIN-PACK$`` is the name of the pack. Example:
+
+```
+dnf install centreon-plugin-Cloud-Aws-Ec2-Api
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
 ```shell
 yum install centreon-plugin-$PLUGIN-PACK$
 ```
@@ -151,6 +220,22 @@ yum install centreon-plugin-Cloud-Aws-Ec2-Api
 ```
 
 > Bear in mind that the `yum` command is case-sensitive.
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt install centreon-plugin-$PLUGIN-PACK$
+```
+
+Where ``$PLUGIN-PACK$`` is the name of the pack. Example:
+
+```
+apt install centreon-plugin-cloud-aws-ec2-api
+```
+
+</TabItem>
+</Tabs>
 
 ## Using plugin packs
 
@@ -203,9 +288,29 @@ If **Automatic installation of plugins** is set to **OFF**, use the following co
 
 1. Execute the following command on all pollers:
 
-  ```shell
-  yum update centreon-plugin\*
-  ```
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf update centreon-plugin\*
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```shell
+yum update centreon-plugin\*
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```shell
+apt-get --only-upgrade install centreon-plugin\*
+```
+
+</TabItem>
+</Tabs>
 
 2. [Deploy the configuration](monitoring-servers/deploying-a-configuration.md) for all pollers. The **Restart Monitoring Engine** 
 option must be set to **Restart**.

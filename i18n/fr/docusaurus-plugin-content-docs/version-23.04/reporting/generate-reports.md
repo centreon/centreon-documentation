@@ -108,7 +108,7 @@ Le tableau suivant décrit les différentes actions possibles:
 Pour générer un rapport, il faut créer une tâche planifiée en cliquant sur "Ajouter". La configuration d'une
 tâche planifiée se fait en deux principales étapes:
 
-- Sélection du modèle de rapport à utiliser ([voir tous les modèles disponibles](../assets/reporting/Centreon-MBI-Exemples-de-rapports.pdf))
+- Sélection du modèle de rapport à utiliser ([voir tous les modèles disponibles](../../../../../assets/fr/reporting/Centreon-MBI-Exemples-de-rapports.pdf))
 - Selectionner le périmètre sur lequel générer le rapport
 
 et deux étapes optionnelles:
@@ -212,12 +212,12 @@ Il existe trois types de champs dans ce formulaire:
     -   Périodes temporelles
     -   Images à insérer au rapport ( les logos par exemple)
 
+> Dans le champ **périodes temporelles** des rapports concernant [BAM](../service-mapping/introduction.md), n'utilisez pas de périodes temporelles comprenant des [exceptions](../monitoring/basic-objects/timeperiods.md#time-range-exceptions-tab) : les exceptions ne seront pas prises en compte.
 
 > Une valeur doit être renseignée pour chaque champs excepté le
 > multi-select quand il s'agit d'exclusion de métriques. Dans ce cas
 > précis, quand aucune métrique n'est à exclure, toutes les métriques
 > seront utilisées.
-
 
 </TabItem>
 <TabItem value="3. Publication (optionel)" label="3. Publication (optionel)">
@@ -262,7 +262,7 @@ chapitre [Options générales](configure.md#options-g%C3%A9n%C3%A9rales)
 
 Après l'execution d'une tâche planifiée, un nouveau rapport est généré
 et stocké sur le serveur de supervision. Il est donc possible de
-visualiser ou télécharger le rapport généré directement depuis le menu: **Reporting > Business Intelligence > Archives**
+visualiser ou télécharger le rapport généré directement depuis le menu: **Rapports > Monitoring Business Intelligence > Visualisation des rapports**
 
 Le tableau ci-dessous liste les rapports générés.
 

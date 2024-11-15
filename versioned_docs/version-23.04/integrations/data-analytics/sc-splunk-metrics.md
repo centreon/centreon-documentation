@@ -11,7 +11,7 @@ The Splunk Metrics stream connector allows you to send data from Centreon to Spl
 
 If you want to retrieve only metrics, use the Splunk Metrics stream connector. If you want to retrieve all the data for the events, use the Splunk Events stream connector.
 
-- In most cases, you will want to send data from the central server. It is also possible to send it from a remote server or a poller (e.g. if you want to avoid the central server being a SPOF, or if you are an MSP and you install the stream connector on a poller or a remote serevr within your customer's infrastructure).
+- In most cases, you will want to send data from the central server. It is also possible to send it from a remote server or a poller (e.g. if you want to avoid the central server being a SPOF, or if you are an MSP and you install the stream connector on a poller or a remote server within your customer's infrastructure).
 - By default, the Splunk Metrics stream connector sends **metrics** from [**host_status**](../../developer/developer-broker-mapping.md#host-status) and [**service_status**](../../developer/developer-broker-mapping.md#service-status) Broker events. These metrics are contained in the **perf_data** field of the events. The event format is shown **[here](#event-format)**.
 - These events are sent each time a host or a service is checked. Various parameters let you [filter out events](#filtering-or-adapting-the-data-you-want-to-send-to-splunk).
 
@@ -19,7 +19,7 @@ If you want to retrieve only metrics, use the Splunk Metrics stream connector. I
 
 Perform the installation on the server that will send data to Splunk (central server, remote server, poller).
 
-1. Login as `root` on the Centreon central server using your favorite SSH client.
+1. Login as `root` using your favorite SSH client.
 
 2. Run the following command:
 

@@ -10,7 +10,7 @@ operation. Meta-services are managed in the same way as a service i.e. they have
 generate a performance graph, etc.
 
 E.g.: It is possible to determine the total consumption of WAN traffic by adding together, within a meta-service, all
-the services supervising the WAN traffic individually.
+the services monitoring the WAN traffic individually.
 
 ### Types of computing
 
@@ -46,7 +46,7 @@ Go into the menu: **Configuration \> Services \> Meta Services** and click on **
 
 ### General information
 
-* The **Meta Service Name** field corresponds to the name of the meta-service Displayed in the interface.
+* The **Meta Service Name** field corresponds to the name of the meta-service Displayed in the interface. The following characters are not authorized: `~!$%^&|'"<>?,()=*{}` and spaces.
 * The **Output format string (printf-style)** field corresponds to the output message (‘output’) visible in Centreon.
   The “%d” value corresponds to the value calculated by the meta-service
 * The **Warning level** and **Critical level** correspond to the “WARNING” and “CRITICAL” thresholds of the meta-service

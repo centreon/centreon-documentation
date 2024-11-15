@@ -25,8 +25,8 @@ GRANT SELECT ON *.* TO 'username'@'IP_POLLER';
 
 ### Sur le serveur central
 
-La base de données sera supervisée à l'aide du Plugin Pack **MySQL/MariaDB**.
-Rendez-vous dans le menu **Configuration > Packs de plugins** et installez le Plugin Pack **MySQL/MariaDB** :
+La base de données sera supervisée à l'aide du connecteur de supervision **MySQL/MariaDB**.
+Rendez-vous dans le menu **Configuration > Gestionnaire de connecteurs de supervision** et installez le connecteur de supervision **MySQL/MariaDB** :
 
 ![image](../assets/getting-started/quick_start_mysql_0.gif)
 

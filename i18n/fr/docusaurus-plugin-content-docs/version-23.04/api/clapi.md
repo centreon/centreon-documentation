@@ -8,7 +8,7 @@ title: Command Line API (v1) - CLAPI
 ## Overview
 
 Centreon CLAPI aims to offer (almost) all the features that are available on the
-user interface in terms of configuration.
+user interface in terms of configuration. Only administrators can use CLAPI.
 
 ### Features
 
@@ -154,7 +154,7 @@ Parameters that you may change are:
 If you want to retrieve the Menu Rules that are linked to a specific ACL Group, use the **GETMENU** action:
 
 ``` shell
-centreon -u admin -p 'centreon' -o ACLGROUP -a getmenu -v "ACL Group test" 
+centreon -u admin -p 'centreon' -o ACLGROUP -a getmenu -v "ACL Group test"
 id;name
 1;Configuration
 3;Reporting
@@ -295,7 +295,7 @@ Arguments are composed of the following columns:
 If you want to remove rules from a specific ACL Group, use the following actions: **DELCONTACT**, **DELCONTACTGROUP**:
 
 ``` shell
-centreon -u admin -p 'centreon' -o ACLGROUP -a delcontact -v "ACL Group test;user1" 
+centreon -u admin -p 'centreon' -o ACLGROUP -a delcontact -v "ACL Group test;user1"
 ```
 
 Arguments are composed of the following columns:
@@ -480,7 +480,7 @@ Object name: **ACLMENU**
 In order to list available ACL Menus, use the **SHOW** action:
 
 ``` shell
-centreon -u admin -p 'centreon' -o ACLMENU -a show 
+centreon -u admin -p 'centreon' -o ACLMENU -a show
 id;name;alias;comment;activate
 1;Configuration;Configuration;;1
 2;Monitoring + Home;Monitoring + Home;;1
@@ -528,7 +528,7 @@ If you want to change a specific parameter of an ACL Menu, use the **SETPARAM** 
 the ACL Menu to update:
 
 ``` shell
-centreon -u admin -p 'centreon' -o ACLMENU -a setparam -v "ACL Menu test;alias;my new alias" 
+centreon -u admin -p 'centreon' -o ACLMENU -a setparam -v "ACL Menu test;alias;my new alias"
 ```
 
 Arguments are composed of the following columns:
@@ -612,7 +612,7 @@ Object name: **ACLRESOURCE**
 In order to list available ACL Resources, use the **SHOW** action:
 
 ``` shell
-centreon -u admin -p 'centreon' -o ACLRESOURCE -a show 
+centreon -u admin -p 'centreon' -o ACLRESOURCE -a show
 id;name;alias;comment;activate
 1;All Resources;All Resources;;1
 [...]
@@ -633,7 +633,7 @@ Columns are the following :
 In order to add an ACL Resource, use the **ADD** action:
 
 ``` shell
-centreon -u admin -p 'centreon' -o ACLRESOURCE -a add -v "ACL Resource test;my alias" 
+centreon -u admin -p 'centreon' -o ACLRESOURCE -a add -v "ACL Resource test;my alias"
 ```
 
 Required fields are:
@@ -649,7 +649,7 @@ If you want to remove an ACL Resource, use the **DEL** action. The Name is used 
 delete:
 
 ``` shell
-centreon -u admin -p 'centreon' -o ACLRESOURCE -a del -v "ACL Resource test" 
+centreon -u admin -p 'centreon' -o ACLRESOURCE -a del -v "ACL Resource test"
 ```
 
 #### Setparam
@@ -658,7 +658,7 @@ If you want to change a specific parameter of an ACL Resource, use the **SETPARA
 identifying the ACL Resource to update:
 
 ``` shell
-centreon -u admin -p 'centreon' -o ACLRESOURCE -a setparam -v "ACL Resource test;alias;my new alias" 
+centreon -u admin -p 'centreon' -o ACLRESOURCE -a setparam -v "ACL Resource test;alias;my new alias"
 ```
 
 Arguments are composed of the following columns:
@@ -793,20 +793,27 @@ Arguments are composed of the following columns:
 
 Parameters that you may change are:
 
-| Column                  | Description                                                                   |
-| ----------------------- | ----------------------------------------------------------------------------- |
-| filename                | Filename of configuration (.json extension)                                   |
-| name                    | Name of configuration                                                         |
-| instance                | Instance that is linked to Centreon Broker CFG                                |
-| event\_queue\_max\_size | Event queue max size (when number is reached, temporary output will be used). |
-| cache\_directory        | Path for cache files                                                          |
-| daemon                  | Link this configuration to cbd service (0 or 1)                               |
-| pool\_size              | Number of threads used (by default, use the number of CPUs)                   |
+| Column                     | Description                                                                   |
+| -------------------------- | ----------------------------------------------------------------------------- |
+| filename                   | Filename of configuration (.json extension)                                   |
+| name                       | Name of configuration                                                         |
+| instance                   | Instance that is linked to Centreon Broker CFG                                |
+| event\_queue\_max\_size    | Event queue max size (when number is reached, temporary output will be used). |
+| event\_queues\_total\_size | Event queues maximum total size                                               |
+| cache\_directory           | Path for cache files                                                          |
+| daemon                     | Link this configuration to cbd service (0 or 1)                               |
+| pool\_size                 | Number of threads used (by default, use the number of CPUs)                   |
+| stats\_activate            |                                                                               |
+| command\_file              | Filename of command                                                           |
+| log\_directory             | Directory of log files                                                        |
+| log\_filename              | Filename of log file                                                          |
 
-#### Listinput, Listoutput and Listlogger
+#### Listinput and Listoutput
 
-If you want to list specific input output types of Centreon Broker, use one of the following commands: listinput
-listoutput listlogger
+If you want to list specific input output types of Centreon Broker, use one of the following commands:
+
+- listinput
+- listoutput
 
 Example:
 
@@ -825,13 +832,12 @@ Columns are the following:
 | ID     | I/O ID      |
 | Name   | I/O Name    |
 
-#### Getinput, Getoutput and Getlogger
+#### Getinput and Getoutput
 
 In order to get parameters of a specific I/O object, use one of the following commands:
 
 * getinput
 * getoutput
-* getlogger
 
 Example:
 
@@ -859,24 +865,26 @@ Columns are the following:
 | 1      | Parameter key of the I/O   |
 | 2      | Parameter value of the I/O |
 
-#### Addinput, Addoutput and Addlogger
+#### Addinput and Addoutput
 
 In order to add a new I/O object, use one of the following commands:
 
 * **ADDINPUT**
 * **ADDOUTPUT**
-* **ADDLOGGER**
 
 Example:
 
 ``` shell
-centreon -u admin -p 'centreon' -o CENTBROKERCFG -a addlogger -v "broker cfg for poller test;/var/log/centreon-broker/central-module.log;file"
+centreon -u admin -p 'centreon' -o CENTBROKERCFG -a addoutput -v "broker cfg for poller test;MyFileOutput;file"
 ```
 
 ``` shell
-centreon -u admin -p 'centreon' -o CENTBROKERCFG -a listlogger -v "broker cfg for poller test"
+centreon -u admin -p 'centreon' -o CENTBROKERCFG -a listoutput -v "broker cfg for poller test"
 id;name
-1;/var/log/centreon-broker/central-module.log
+1;Storage
+2;RRD
+3;PerfData
+4:MyFileOutput
 ```
 
 Arguments are composed of the following columns:
@@ -887,34 +895,32 @@ Arguments are composed of the following columns:
 | 2     | Name of the I/O object      |
 | 3     | Nature of I/O object        |
 
-#### Delinput, Deloutput and Dellogger
+#### Delinput and Deloutput
 
 In order to remove an I/O object from the Centreon Broker configuration, use one of the following commands:
 
 * **DELINPUT**
 * **DELOUTPUT**
-* **DELLOGGER**
 
 Example:
 
 ``` shell
-centreon -u admin -p 'centreon' -o CENTBROKERCFG -a dellogger -v "broker cfg for poller test;1"
+centreon -u admin -p 'centreon' -o CENTBROKERCFG -a deloutput -v "broker cfg for poller test;4"
 ```
 
 The I/O ID is used for identifying the object to delete.
 
-#### Setintput, Setoutput and Setlogger
+#### Setintput and Setoutput
 
 In order to set parameters of an I/O object, use one of the following commands:
 
 * **SETINPUT**
 * **SETOUTPUT**
-* **SETLOGGER**
 
 Example:
 
 ``` shell
-centreon -u admin -p 'centreon' -o CENTBROKERCFG -a setlogger -v "broker cfg for poller test;1;debug;no"
+centreon -u admin -p 'centreon' -o CENTBROKERCFG -a setoutput -v "broker cfg for poller test;1;retry_interval;5'"
 ```
 
 Arguments are composed of the following columns:
@@ -1930,7 +1936,7 @@ Object name: **ENGINECFG**
 In order to list available Centreon Engine conf, use the **SHOW** action:
 
 ``` shell
-centreon -u admin -p 'centreon' -o ENGINECFG -a show 
+centreon -u admin -p 'centreon' -o ENGINECFG -a show
 id;name;instance;comment
 1;Centreon Engine CFG 1;Central;Default CentreonEngine.cfg
 [...]
@@ -1950,7 +1956,7 @@ Columns are the following :
 In order to add a Centreon Engine conf, use the **ADD** action:
 
 ``` shell
-centreon -u admin -p 'centreon' -o ENGINECFG -a add -v "Centreon Engine cfg for poller NY;Poller-NY;Just a small comment" 
+centreon -u admin -p 'centreon' -o ENGINECFG -a add -v "Centreon Engine cfg for poller NY;Poller-NY;Just a small comment"
 ```
 
 Required fields are:
@@ -1967,7 +1973,7 @@ If you want to remove a Centreon Engine conf, use the **DEL** action. The name i
 to delete:
 
 ``` shell
-centreon -u admin -p 'centreon' -o ENGINECFG -a del -v "Centreon Engine cfg for poller NY" 
+centreon -u admin -p 'centreon' -o ENGINECFG -a del -v "Centreon Engine cfg for poller NY"
 ```
 
 #### Setparam
@@ -1976,7 +1982,7 @@ If you want to change a specific parameter of a Centreon Engine conf, use the **
 identifying the configuration to update:
 
 ``` shell
-centreon -u admin -p 'centreon' -o ENGINECFG -a setparam -v "Centreon Engine cfg for poller NY;cfg_dir;/usr/local/nagios/etc" 
+centreon -u admin -p 'centreon' -o ENGINECFG -a setparam -v "Centreon Engine cfg for poller NY;cfg_dir;/usr/local/nagios/etc"
 ```
 
 Arguments are composed of the following columns:
@@ -1999,7 +2005,7 @@ Parameters that you may change are:
 
 #### Addbrokermodule
 
-If you want to add new broker module without removing existing modules, use the **ADDBROKERMODULE**:  
+If you want to add new broker module without removing existing modules, use the **ADDBROKERMODULE**:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ENGINECFG -a addbrokermodule -v "Centreon Engine cfg for poller NY;/usr/lib64/centreon-engine/externalcmd.so"
@@ -2016,7 +2022,7 @@ To add multiple modules in one line, it will put the separator "/etc/centreon-br
 
 #### Delbrokermodule
 
-If you want to delete broker module, use the **DELBROKERMODULE**:  
+If you want to delete broker module, use the **DELBROKERMODULE**:
 
 ``` shell
 centreon -u admin -p 'centreon' -o ENGINECFG -a delbrokermodule -v "Centreon Engine cfg for poller NY;/usr/lib64/centreon-engine/externalcmd.so"
@@ -2040,7 +2046,7 @@ Object name: **CMD**
 In order to list available commands, use **SHOW** action:
 
 ``` shell
-centreon -u admin -p 'centreon' -o CMD -a show 
+centreon -u admin -p 'centreon' -o CMD -a show
 id;name;type;line
 1;check-ping;check;$USER1$/check_ping -H $HOSTADDRESS$ -w $ARG1$ -c $ARG2$
 2;check_dummy;check;$USER1$/check_dummy -o $ARG1$ -s $ARG2$
@@ -2241,7 +2247,7 @@ Parameters that you can change are the following:
 In order to enable a contact group, use the **ENABLE** action:
 
 ``` shell
-centreon -u admin -p 'centreon' -o CG -a enable -v "Guest" 
+centreon -u admin -p 'centreon' -o CG -a enable -v "Guest"
 ```
 
 > ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
@@ -2331,7 +2337,7 @@ Columns are the following :
 In order to add a contact, use the **ADD** action:
 
 ``` shell
-centreon -u admin -p 'centreon' -o CONTACT -a ADD -v "user;user;user@mail.com;mypassword;1;1;en_US;local" 
+centreon -u admin -p 'centreon' -o CONTACT -a ADD -v "user;user;user@mail.com;mypassword;1;1;en_US;local"
 ```
 
 The required parameters are the following:
@@ -2355,7 +2361,7 @@ In order to delete one contact, use the **DEL** action. The contact name is used
 like to delete:
 
 ``` shell
-centreon -u admin -p 'centreon' -o contact -a del -v "user" 
+centreon -u admin -p 'centreon' -o contact -a del -v "user"
 ```
 
 > ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
@@ -2365,8 +2371,8 @@ centreon -u admin -p 'centreon' -o contact -a del -v "user"
 If you want to change a specific parameter for a contact, use the **SETPARAM** action:
 
 ``` shell
-centreon -u admin -p 'centreon' -o contact -a setParam -v "contact alias;hostnotifcmd;command name" 
-centreon -u admin -p 'centreon' -o contact -a setParam -v "contact alias;svcnotifcmd;command name" 
+centreon -u admin -p 'centreon' -o contact -a setParam -v "contact alias;hostnotifcmd;command name"
+centreon -u admin -p 'centreon' -o contact -a setParam -v "contact alias;svcnotifcmd;command name"
 centreon -u admin -p 'centreon' -o contact -a setParam -v "contact alias;hostnotifperiod;period name"
 centreon -u admin -p 'centreon' -o contact -a setparam -v "contact alias;timezone;Europe/Berlin"
 ```
@@ -3558,7 +3564,7 @@ Object name: **INSTANCE**
 In order to list available instances, use the **SHOW** action:
 
 ``` shell
-centreon -u admin -p 'centreon' -o INSTANCE -a show 
+centreon -u admin -p 'centreon' -o INSTANCE -a show
 id;name;localhost;ip address;activate;status;init script;monitoring engine;bin;stats bin;perfdata;ssh port
 1;Central;1;127.0.0.1;1;0;/etc/init.d/nagios;NAGIOS;/usr/local/nagios/bin/nagios;/usr/local/nagios/bin/nagiostats;/usr/local/nagios/var/service-perfdata;22
 [...]
@@ -4222,7 +4228,7 @@ In order to add a new element to a specific service category, you use the follow
 *add* will append and *set* will overwrite previous definitions:
 
 ``` shell
-centreon -u admin -p 'centreon' -o SC -a addservicetemplate -v "Ping-Category;my template" 
+centreon -u admin -p 'centreon' -o SC -a addservicetemplate -v "Ping-Category;my template"
 ```
 
 #### Delservice and Delservicetemplate
@@ -4234,7 +4240,7 @@ centreon -u admin -p 'centreon' -o SC -a delservice -v "Ping-Category;my host,my
 ```
 
 ``` shell
-centreon -u admin -p 'centreon' -o SC -a delservicetemplate -v "Ping-Category;my template" 
+centreon -u admin -p 'centreon' -o SC -a delservicetemplate -v "Ping-Category;my template"
 ```
 
 #### Setseverity
@@ -4242,7 +4248,7 @@ centreon -u admin -p 'centreon' -o SC -a delservicetemplate -v "Ping-Category;my
 In order to turn a service category into a severity, use the **SETSEVERITY** action:
 
 ``` shell
-centreon -u admin -p 'centreon' -o SC -a setseverity -v "Critical;3;16x16/critical.gif" 
+centreon -u admin -p 'centreon' -o SC -a setseverity -v "Critical;3;16x16/critical.gif"
 ```
 
 The needed parameters are the following:
@@ -4258,7 +4264,7 @@ The needed parameters are the following:
 In order to turn a severity into a regular service category, use the **UNSETSEVERITY** action:
 
 ``` shell
-centreon -u admin -p 'centreon' -o SC -a unsetseverity -v "Critical" 
+centreon -u admin -p 'centreon' -o SC -a unsetseverity -v "Critical"
 ```
 
 The needed parameters are the following:
@@ -4474,7 +4480,7 @@ Columns are the following:
 In order to add a service, use the **ADD** action:
 
 ``` shell
-centreon -u admin -p 'centreon' -o SERVICE -a add -v "Host-Test;ping;Ping-LAN" 
+centreon -u admin -p 'centreon' -o SERVICE -a add -v "Host-Test;ping;Ping-LAN"
 ```
 
 The required fields are:
@@ -4769,7 +4775,7 @@ centreon -u admin -p 'centreon' -o SERVICE -a delcontact -v "test;ping;User2"
 In order to view the contact group list of a service, use the **GETCONTACTGROUP** action:
 
 ``` shell
-centreon -u admin -p 'centreon' -o "SERVICE" -a getcontactgroup -v "Centreon-Server;Ping" 
+centreon -u admin -p 'centreon' -o "SERVICE" -a getcontactgroup -v "Centreon-Server;Ping"
 id;name
 28;ContactGroup_1
 29;ContactGroup_2
@@ -5132,7 +5138,7 @@ $_SERVICEPL$;400;description of macro2;0
 In order to set a macro for a specific service template use the **SETMACRO** action:
 
 ``` shell
-centreon -u admin -p 'centreon' -o STPL -a setmacro -v "MyTemplate;time;80" 
+centreon -u admin -p 'centreon' -o STPL -a setmacro -v "MyTemplate;time;80"
 centreon -u admin -p 'centreon' -o STPL -a setmacro -v "MyTemplate;pl;400;description"
 centreon -u admin -p 'centreon' -o STPL -a setmacro -v "MyTemplate;password;mypassword;;1"
 ```
@@ -5307,7 +5313,7 @@ nagios_path_img;/usr/share/nagios/html/images/logos/
 perl_library_path;/usr/local/lib
 rrdtool_path_bin;/usr/bin/rrdtool
 snmpttconvertmib_path_bin;/usr/share/centreon/bin/snmpttconvertmib
-snmptt_unknowntrap_log_file;snmptrapd.log  
+snmptt_unknowntrap_log_file;snmptrapd.log
 ```
 
 #### Setparam
@@ -5704,7 +5710,7 @@ Required fields are:
 
 ## Service Mapping
 
-The service mapping capabilities in Centreon relies on the **Centreon Business Activity Monitoring (BAM)** extension. 
+The service mapping capabilities in Centreon relies on the **Centreon Business Activity Monitoring (BAM)** extension.
 
 
 > Centreon BAM is a Centreon **extension** that requires a valid license key. To purchase one and retrieve
@@ -5790,7 +5796,7 @@ The following columns are required:
 |  Column |  Description                                                |
 |---------|-------------------------------------------------------------|
 |  Bv name|   Business View name                                        |
-|  Ba name|   Business Activity name (multiple with a "pipe" separator) |  
+|  Ba name|   Business Activity name (multiple with a "pipe" separator) |
 
 #### DELBA
 
@@ -5867,7 +5873,7 @@ The following columns are displayed:
   * Ba state_source: Business Activity Calculation Method
   * level\_w: Warning threshold (only applicable for Impact and Ratio modes)
   * level\_c: Critical threshold (only applicable for Impact and Ratio modes)
-  
+
 Business Activity Calculation Methods (state_source):
   * 0 - Impact Mode (requires level\_w to be > level\_c)
   * 1 - Best Status
@@ -5927,8 +5933,8 @@ Parameters that you can change are the following:
   |geo_coords                      |Geo-coordinate to position the BA                                    |                                                                                                                                                         |
   |enable                          |Enable (0 or 1)                                                      |                                                                                                                                                         |
   |state_source                    |0 - Impact, 1 - Best, 2 - Worst, 3 - Ratio Nr., 4 - Ratio Percent    |                                                                                                                                                         |
-  
-> Note: Changing State Source will require updating your Level W and Level C to match the appropriate 
+
+> Note: Changing State Source will require updating your Level W and Level C to match the appropriate
 >    Calculation Method!
 
 #### SETBV
@@ -6056,7 +6062,7 @@ The following columns are required:
 
 #### SETPOLLER
 
-To set the poller where the BA is calculated (in addition to central), 
+To set the poller where the BA is calculated (in addition to central),
 use the **SETPOLLER** action:
 
     ./centreon -u admin -p 'centreon' -o BA -a SETPOLLER -v 'ba1;poller1'
@@ -6093,20 +6099,20 @@ To list available KPI, use the **SHOW** action:
     ./centreon -u admin -p 'centreon' -o KPI -a SHOW
     id;type;name;impacted_ba;warning_impact;critical_impact;unknown_impact
     1;service;Centreon-Server Load;ba1;25;50;20
-    2;metaservice;meta1;toto;50;100;75 
+    2;metaservice;meta1;toto;50;100;75
     [...]
 
 Columns are the following:
 
   |Column           |Description                                  |
-  |-----------------|---------------------------------------------|   
-  |KPI ID           |KPI id                                       | 
+  |-----------------|---------------------------------------------|
+  |KPI ID           |KPI id                                       |
   |KPI type         | *service*, *metaservice*, *ba* or *boolean* |
-  |KPI name         |KPI name                                     |                       
-  |Impacted BA      |Impacted business activity                   | 
-  |Warning impact   |Warning impact                               | 
-  |Critical impact  |Critical impact                              | 
-  |Unknown impact   |Unknown impact                               | 
+  |KPI name         |KPI name                                     |
+  |Impacted BA      |Impacted business activity                   |
+  |Warning impact   |Warning impact                               |
+  |Critical impact  |Critical impact                              |
+  |Unknown impact   |Unknown impact                               |
 
 #### ADD
 
@@ -6120,13 +6126,13 @@ To add a KPI, use the **ADD** action:
 Required columns are the following:
 
   |Column           |Description                                  |
-  |-----------------|---------------------------------------------|   
+  |-----------------|---------------------------------------------|
   |KPI type         | *service*, *metaservice*, *ba* or *boolean* |
-  |Object           | Object used in KPI                          | 
-  |Impacted BA      |Impacted business activity                   | 
-  |Warning impact   |Warning impact                               | 
-  |Critical impact  |Critical impact                              | 
-  |Unknown impact   |Unknown impact                               | 
+  |Object           | Object used in KPI                          |
+  |Impacted BA      |Impacted business activity                   |
+  |Warning impact   |Warning impact                               |
+  |Critical impact  |Critical impact                              |
+  |Unknown impact   |Unknown impact                               |
 
 #### DEL
 
@@ -6145,10 +6151,10 @@ If you want to change a specific parameters for a KPI, use the
 Parameters that you can change are the following:
 
   |Column           |Description                                  |
-  |-----------------|---------------------------------------------|   
-  |Warning impact   |Warning impact                               | 
-  |Critical impact  |Critical impact                              | 
-  |Unknown impact   |Unknown impact                               | 
+  |-----------------|---------------------------------------------|
+  |Warning impact   |Warning impact                               |
+  |Critical impact  |Critical impact                              |
+  |Unknown impact   |Unknown impact                               |
   |impacted\_ba     |Impacted business activity                   |
   |enable           | Enable (0 or 1)                              |
 
@@ -6176,7 +6182,7 @@ Object name: **BOOLEANRULE**
 
 To list available boolean rules, use the **SHOW** action:
 
-    ./centreon -u admin -p 'centreon' -o BOOLEANRULE -a SHOW 
+    ./centreon -u admin -p 'centreon' -o BOOLEANRULE -a SHOW
     id;name;expression;bool_state
     8;rule1;expression1;1
     9;rule2;expression2;1
@@ -6187,7 +6193,7 @@ The following columns are required:
   |Column           |Description                                           |
   |-----------------|------------------------------------------------------|
   |Rule ID          |Boolean rule id                                       |
-  |Rule name        | Boolean rule name                                    |                             
+  |Rule name        | Boolean rule name                                    |
   |Rule expression  |Boolean rule expression                               |
   |Bool state       |Impact is applied when expression returns this state  |
 
@@ -6201,7 +6207,7 @@ The following columns are required:
 
   |Column           |Description                                           |
   |-----------------|------------------------------------------------------|
-  |Rule name        | Boolean rule name                                    |                             
+  |Rule name        | Boolean rule name                                    |
   |Rule expression  |Boolean rule expression                               |
   |Bool state       |Impact is applied when expression returns this state  |
 
@@ -6222,7 +6228,7 @@ Parameters that you can change are the following:
 
   |Column           |Description                                           |
   |-----------------|------------------------------------------------------|
-  |Rule name        | Boolean rule name                                    |                             
+  |Rule name        | Boolean rule name                                    |
   |Rule expression  |Boolean rule expression                               |
   |Bool state       |Impact is applied when expression returns this state  |
 

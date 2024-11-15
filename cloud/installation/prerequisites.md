@@ -3,9 +3,11 @@ id: prerequisites
 title: Prerequisites
 ---
 
+> **IMPORTANT**: The poller is a component that is deployed in the customers' infrastructure. Its administration (material and virtual infrastructure, OS, security, monitoring and Centreon applicative layers, etc) is solely the responsibility of the customers, as per the [Terms and Conditions](https://www.centreon.com/legal/en/centreon-cloud-services-terms-row).
+
 ## OS
 
-The poller should be installed on a dedicated fresh Alma Linux 8 server. Even if still supported, we encourage you not to use CentOS 7, as end of support is close. 
+The poller must be installed on a dedicated fresh Alma Linux/RHEL/Oracle Linux 8 or 9, or Debian 11 server. Debian 12 is also supported for pollers from version 24.04. See our knowledge base article [How to install Linux to host Centreon software](https://thewatch.centreon.com/product-how-to-21/how-to-install-linux-to-host-centreon-software-3759).
 
 ## Hardware
 
@@ -15,7 +17,7 @@ The host machine must have at least the following characteristics:
 
 | Element                     | Value     |
 | ----------------------------| --------- |
-| CPU  (logical core at 3Ghz) | 2 vCPU    |
+| CPU  (logical core at 3 GHz) | 2 vCPU    |
 | RAM                         | 2 GB      |
 | HDD                         | 40 GB     |
 
@@ -23,15 +25,15 @@ The host machine must have at least the following characteristics:
 
 | Element                     | Value     |
 | ----------------------------| --------- |
-| CPU  (logical core at 3Ghz) | 4 vCPU    |
+| CPU  (logical core at 3 GHz) | 4 vCPU    |
 | RAM                         | 4 GB      |
 | HDD                         | 40 GB     |
 
 > A poller can monitor around 7000 active services. vCPU must have a frequency of approximately 3 GHz. The number of
-> vCPU depends of the complexity of checks. If you use connectors or perform a large number of system/third-party
+> vCPU depends on the complexity of the checks. If you use connectors or perform a large number of system/third-party
 > binary calls, you should add more vCPU.
 
-It is recommended to partition the poller's disk to prevent it from becoming full and unusable (for instance, in case of retention issues).
+It is recommended that you partition the poller's disk to prevent it from becoming full and unusable (for instance, in case of retention issues).
 Perform the partitioning following these recommendations:
 
 | File system                | Size                                                                  |
@@ -43,13 +45,23 @@ Perform the partitioning following these recommendations:
 
 ## Network
 
-| Description | Direction | Protocol   | IP           | Port   |
-| ----------- | --------- | ---------- | ------------ | ------ |
-| VPN         | Outbound  | UDP        | VPN IP (TBA) | 1194   |
-| INTERNET    | Outbound  | HTTP/HTTPS | *            | 80/443 |
-| NTP         | Outbound  | UDP        | TBA          | 123    |
+| Description    | Direction | Protocol   | IP           | Port   |
+| -------------- | --------- | ---------- | ------------ | ------ |
+| INTERNET       | Outbound  | HTTPS      | *            | 443    |
+| NTP (optional) | Outbound  | UDP        | TBA          | 123    |
 
 | Source            | Destination         | Port/Protocol      | Monitoring protocol   |
 | ----------------- | ------------------- | ------------------ | --------------------- |
 | Centreon servers  | Devices to monitor  | 80/443 TCP         | API                   |
 | Centreon servers  | Database to monitor | 3306/1521/1433 TCP | MySQL/Oracle/MSSQL    |
+
+## Allowing traffic to/from AWS IP ranges
+
+If you are filtering flows based on IP addresses, authorize the AWS IP ranges your poller needs to interact with.
+
+AWS provides a [list of their IP ranges](https://ip-ranges.amazonaws.com/ip-ranges.json). You can retrieve the list of IP addresses you want using a curl command. Example for AWS Ireland with the EC2 service for IPV6 and IPV4:
+
+```shell
+curl -s https://ip-ranges.amazonaws.com/ip-ranges.json | jq -r '.ipv6_prefixes[] | select(.region == "eu-west-1") | select(.service == "EC2") | .ipv6_prefix' 
+curl -s https://ip-ranges.amazonaws.com/ip-ranges.json | jq -r '.prefixes[] | select(.region == "eu-west-1") | select(.service == "EC2") | .ip_prefix' 
+```

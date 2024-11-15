@@ -3,9 +3,12 @@ id: postfix
 title: Configuring your Centreon to send emails
 ---
 
-For your Centreon to be able to send notification emails, you need to configure a local smtp server. If your operating system is RHEL or Oracle Linux, Postfix is already installed. 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-This page gives you an example of a possible configuration. Refer to the [official Postfix documentation](http://www.postfix.org/BASIC_CONFIGURATION_README) for more information.
+For your Centreon to be able to send notification emails, you need to configure a local smtp server. If your operating system is RHEL or Oracle Linux, Postfix is already installed.
+
+This page gives you an example of a possible configuration. Refer to the [official Postfix documentation](https://www.postfix.org/BASIC_CONFIGURATION_README.html) for more information.
 
 Notifications commands are executed by the poller that monitors the resource: you need to configure the mail relay on all pollers.
 
@@ -15,11 +18,31 @@ We recommend that you use a dedicated email account to send notifications.
 
 1. In your server's terminal, enter the following command:
 
-    ```
-    yum -y install mailx cyrus-sasl-plain
-    ```
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-2. Restart Postfix: 
+``` shell
+dnf install mailx cyrus-sasl-plain
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+``` shell
+dnf install s-nail cyrus-sasl-plain
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+``` shell
+apt install mailx cyrus-sasl-plain
+```
+
+</TabItem>
+</Tabs>
+
+2. Restart Postfix:
 
     ```
     systemctl restart postfix

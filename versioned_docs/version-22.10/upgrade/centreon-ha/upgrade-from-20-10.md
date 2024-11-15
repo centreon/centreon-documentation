@@ -37,7 +37,8 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
 Run the following commands:
 
 ```shell
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+yum install -y yum-utils
+yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el7/centreon-22.10.repo
 ```
 
 > **WARNING:** to avoid broken dependencies, please refer to the documentation of the additional modules to update the Centreon Business Repositories.
@@ -157,6 +158,19 @@ The RPM upgrade puts cron job back in place. Remove them to avoid concurrent exe
 ```bash
 rm -rf /etc/cron.d/centreon
 rm -rf /etc/cron.d/centstorage
+rm -f /etc/cron.d/centreon-ha-mysql
+```
+
+As you have deleted the **centreon-ha-mysql** cron, check that the following line appears in the **server** section of the **/etc/my.cnf.d/server.cnf** file:
+
+```shell
+expire_logs_days=7
+```
+
+If the line is not there, add it, then restart the **ms_mysql** resource:
+
+```shell
+pcs resource restart ms_mysql
 ```
 
 ### Reset the permissions for centreon_central_sync resource

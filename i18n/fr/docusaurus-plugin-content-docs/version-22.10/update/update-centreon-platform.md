@@ -18,48 +18,6 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 ## Mise à jour du serveur Centreon Central
 
-### Prérequis
-
-Si vous aviez installé des paquets **debuginfo** (ou **dbgsym** sous Debian), désinstallez-le avant de mettre à jour la plateforme. Vous pourrez les réinstaller après.
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf remove \
-centreon-collect-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-clib-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-engine-extcommands-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-engine-daemon-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-broker-cbmod-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-broker-core-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-broker-cbd-debuginfo-22.04.0-13.el8.x86_64
-```
-
-</TabItem>
-<TabItem value="Centos 7" label="Centos 7">
-
-```shell
-yum remove \
-centreon-collect-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-clib-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-engine-extcommands-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-engine-daemon-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-broker-cbmod-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-broker-core-debuginfo-22.04.0-13.el8.x86_64 \
-centreon-broker-cbd-debuginfo-22.04.0-13.el8.x86_64
-```
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-```shell
-apt remove 'centreon-*-dbgsym'
-```
-
-</TabItem>
-</Tabs>
-
 ### Mise à jour de la solution Centreon
 
 Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer la procédure de mise à jour.
@@ -100,14 +58,14 @@ Mettez à jour l'ensemble des composants :
 Videz le cache :
 
   ```shell
-  apt clean all
+  apt clean
   apt update
   ```
 
 Mettez à jour l'ensemble des composants :
 
   ```shell
-  apt upgrade centreon
+  apt install --only-upgrade centreon*
   ```
 
 </TabItem>
@@ -211,10 +169,6 @@ Enfin, redémarrez Broker, Engine et Gorgone sur le serveur Central en exécutan
   systemctl restart cbd centengine gorgoned
   ```
 
-### Réinstaller les paquets **debuginfo** ou **dbgsym** (optionnel)
-
-Si vous aviez désinstallé des paquets **debuginfo** ou **dbgsym** avant la mise à jour, vous pouvez les réinstaller maintenant.
-
 ### Mise à jour des extensions
 
 Depuis le menu **Administration > Extensions > Gestionnaire**, mettez à jour
@@ -224,7 +178,7 @@ toutes les extensions, en commençant par les suivantes :
 - Plugin Packs Manager,
 - Auto Discovery.
 
-Vous pouvez alors mettre à jour toutes les autres extensions commerciales.
+Vous pouvez alors mettre à jour toutes les autres extensions commerciales (telles que [MBI](../reporting/update.md) et [MAP](../graph-views/map-web-update.md)).
 
 ## Mise à jour des Remote Servers
 
@@ -247,7 +201,7 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
 2. Mettez à jour l'ensemble des composants :
 
   ```shell
-  dnf update centreon-poller
+  dnf update centreon\*  --exclude=centreon-plugin*
   ```
 
 </TabItem>
@@ -262,7 +216,7 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
 2. Mettez à jour l'ensemble des composants :
 
   ```shell
-  yum update centreon-poller
+  yum update centreon\*  --exclude=centreon-plugin*
   ```
 
 </TabItem>
@@ -271,14 +225,14 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
 1. Videz le cache :
 
   ```shell
-  apt clean all
+  apt clean
   apt update
   ```
 
 2. Mettez à jour l'ensemble des composants :
 
   ```shell
-  apt upgrade centreon-poller
+  apt-get update && apt-mark hold centreon-pack* && apt-mark hold centreon-plugin* && apt-get install --only-upgrade 'centreon*' 
   ```
 
 </TabItem>
@@ -295,3 +249,25 @@ en choisissant la méthode **Redémarrer** pour le processus Engine.
   ```shell
   systemctl restart centengine gorgoned
   ```
+
+5. Exécutez la commande suivante :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Rien à faire pour cet OS.
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Rien à faire pour cet OS.
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+  ```shell
+  apt-mark unhold centreon-pack* && apt-mark unhold centreon-plugin*
+  ```
+
+</TabItem>
+</Tabs>

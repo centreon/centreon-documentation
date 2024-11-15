@@ -80,7 +80,7 @@ More information on how to set up and configure the ActiveMQ RestAPI can be foun
 yum install centreon-plugin-Applications-ActiveMQ-Jmx
 ```
 
-2. On the Centreon Web interface, install the *ActiveMQ JMX* Centreon Monitoring Connector from the **Configuration > Monitoring Connectors Manager** page
+2. On the Centreon Web interface, install the *ActiveMQ JMX* Centreon Monitoring Connector from the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -97,7 +97,7 @@ yum install centreon-plugin-Applications-ActiveMQ-Jmx
 centreon-pack-applications-activemq-jmx.noarch
 ```
 
-3. On the Centreon Web interface, install the *ActiveMQ JMX* Centreon Monitoring Connector from the **Configuration > Monitoring Connectors Manager** page
+3. On the Centreon Web interface, install the *ActiveMQ JMX* Centreon Monitoring Connector from the **Configuration > Monitoring Connector Manager** page
 
 </TabItem>
 </Tabs>

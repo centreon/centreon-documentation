@@ -1,10 +1,6 @@
 ---
 id: applications-redis-restapi
-title: Redis Restapi (Deprecated)
+title: Redis Restapi (déprécié)
 ---
 
-## **ATTENTION** Ce Pack est déprécié
-
-Ce Pack n'est plus maintenu et ne doit pas être utilisé. Il a été remplacé par le Pack ' 	Redis Labs Enterprise Cluster Rest API'.
-
-Référez vous à [cette procédure](applications-redis-rlec-restapi.md)
+> Ce connecteur de supervision n'est plus maintenu et ne doit pas être utilisé. Il a été remplacé par le connecteur [Redis Labs Enterprise Cluster Rest API](applications-redis-rlec-restapi.md).

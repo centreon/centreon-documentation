@@ -7,6 +7,20 @@ import TabItem from '@theme/TabItem';
 
 This chapter shows some guidelines on how to troubleshoot your MAP installation.
 
+## "Failed to authenticate" error when connecting to the MAP homepage
+
+#### Symptom
+
+A "Failed to authenticate" error occurs in the MAP homepage when trying to connect to the Centreon MAP service.
+
+#### Problem
+
+The credentials used by the **Web interface** user (defined during the installation) to connect to the MAP module are no longer valid because they have been changed, probably due to a password expiration.
+
+#### Solution
+
+You can update the password by accessing this file: **/etc/centreon-map/map-config.properties**.
+
 ## MAP configuration is not working in HTTPS
 
 #### Symptom
@@ -155,13 +169,13 @@ Here are the main errors that you can encounter:
 2. Check the status of MAP by opening the following URL in the browser (use the same values for **MAP_IP_ADDRESS** and **MAP_PORT** as the ones defined in **Administration > Extensions > MAP > Options**).
 
   ```shell
-  http://[MAP_IP_ADDRESS]:[MAP_PORT]/centreon-map/api/actuator/health
+  http://[MAP_IP_ADDRESS]:[MAP_PORT]/centreon-map/api/beta/actuator/health
   ```
   
   Example:
   
   ```shell
-  http://10.0.0.2:8081/centreon-map/api/actuator/health
+  http://10.0.0.2:8081/centreon-map/api/beta/actuator/health
   ```
   
   The result should be as follows:

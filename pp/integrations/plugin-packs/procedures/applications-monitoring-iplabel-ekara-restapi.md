@@ -72,7 +72,7 @@ More information about the Host Discovery module is available in the Centreon do
   yum install centreon-plugin-Applications-Monitoring-Iplabel-Ekara-Restapi
   ```
 
-2. On the Centreon Web interface, install the **IP-Label Ekara Rest API** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
+2. On the Centreon Web interface, install the **IP-Label Ekara Rest API** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 <TabItem value="Offline License" label="Offline License">
@@ -89,7 +89,7 @@ More information about the Host Discovery module is available in the Centreon do
   yum install centreon-pack-applications-monitoring-iplabel-ekara-restapi
   ```
 
-3. On the Centreon Web interface, install the **IP-Label Ekara Rest API** Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
+3. On the Centreon Web interface, install the **IP-Label Ekara Rest API** Centreon Monitoring Connector on the **Configuration > Monitoring Connector Manager** page.
 
 </TabItem>
 </Tabs>

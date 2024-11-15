@@ -118,7 +118,7 @@ and make sure that the **Webserver / RESTApi** configuration is correct.
 
 If the platform uses an *online* license, you can skip the package installation
 instructions below as it is not required in order to have the pack displayed within the
-**Configuration > Monitoring Connectors Manager** menu.
+**Configuration > Monitoring Connector Manager** menu.
 
 > If you want to use the **NRPE** host template, please install centreon-nrpe3 package.
 
@@ -140,7 +140,7 @@ yum install centreon-pack-applications-wsus-nsclient
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-applications-wsus-nsclient
@@ -150,7 +150,7 @@ apt install centreon-pack-applications-wsus-nsclient
 </Tabs>
 
 Whatever the license type (*online* or *offline*), install the **Microsoft WSUS** Pack through
-the **Configuration > Monitoring Connectors Manager** menu.
+the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
 
@@ -172,7 +172,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-nrpe3-plugin

@@ -1,0 +1,355 @@
+name: documentation
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - staging
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  get-versions:
+    runs-on: ubuntu-24.04
+
+    name: Get versions
+
+    outputs:
+      build_environments: ${{ steps.filters.outputs.build_environments }}
+      build_versions: ${{ steps.filters.outputs.build_versions }}
+      build_next_version: ${{ steps.filters.outputs.build_next_version }}
+      build_pp: ${{ steps.filters.outputs.build_pp }}
+      build_cloud: ${{ steps.filters.outputs.build_cloud }}
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938 # v4.2.0
+
+      - name: Get changes
+        uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # v3.0.2
+        id: changes
+        with:
+          token: ${{ github.token }}
+          list-files: 'json'
+          filters: |
+            global:
+              - babel.config.js
+              - docusaurus.config.js
+              - package.json
+              - versions.json
+              - nextVersion.json
+              - yarn.lock
+              - 'src/**'
+              - 'static/**'
+              - 'i18n/**/(code|footer|navbar).json'
+              - 'i18n/**/index.js'
+            cloud:
+              - 'cloud/**'
+              - 'i18n/**/docusaurus-plugin-content-docs-cloud/**'
+            pp:
+              - 'pp/**'
+              - 'i18n/**/docusaurus-plugin-content-docs-pp/**'
+            versions:
+              - 'i18n/**/docusaurus-plugin-content-docs/**'
+              - 'versioned_docs/**'
+              - 'versioned_sidebars/**'
+
+      - name: Manage versions to build
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+        if: ${{ steps.changes.outputs.global == 'false' && steps.changes.outputs.versions_count < 100 }}
+        with:
+          script: |
+            const available_versions = require('./versions.json');
+            let build_next_version = require('./nextVersion.json').version;
+            let build_versions = [...available_versions];
+            if (build_versions.includes(build_next_version)) {
+              build_versions.splice(build_versions.indexOf(build_next_version), 1);
+            }
+            let build_pp = '1';
+            let build_cloud = '1';
+
+            if ('${{ github.event_name }}' === 'pull_request' && ${{ steps.changes.outputs.global }} === false) {
+              if (${{ steps.changes.outputs.versions }} === false && ${{ steps.changes.outputs.pp }} === false) {
+                build_pp = '0';
+              }
+
+              if (${{ steps.changes.outputs.versions }} === false && ${{ steps.changes.outputs.cloud }} === false) {
+                build_cloud = '0';
+              }
+
+              build_versions = [];
+              build_next_version = null;
+              if (${{ steps.changes.outputs.versions }} === true) {
+                const next_version = require('./nextVersion.json').version;
+                ${{ steps.changes.outputs.versions_files }}.map((file) => {
+                  [...file.matchAll(/(\d{2}\.(04|10))/g)].map((result) => {
+                    console.log(`Version ${result[1]} updated : ${file}`);
+                    if (next_version === result[1]) {
+                      build_next_version = next_version;
+                    } else if (available_versions.includes(result[1])) {
+                      build_versions.push(result[1]);
+                    }
+                  });
+                });
+                build_versions = [...new Set(build_versions)].sort().reverse(); // remove duplicates and sort desc
+              }
+
+              if (build_versions.length === 0 && (build_pp === '1' || build_cloud === '1')) {
+                build_versions.push(available_versions[0]);
+              }
+            }
+
+            console.log(`Following versions will be built: ${build_versions.join(',')}`);
+            console.log(`next version will${build_next_version === null ? ' not' : ''} be built`);
+            console.log(`pp section will${build_pp === '0' ? ' not' : ''} be built`);
+            console.log(`cloud section will${build_cloud === '0' ? ' not' : ''} be built`);
+
+            const build_environments = [];
+            if (build_versions.length) {
+              build_environments.push('staging');
+            }
+            if (build_next_version !== null && available_versions.includes(build_next_version)) {
+              build_environments.push('next');
+            }
+
+            core.exportVariable('build_environments', JSON.stringify(build_environments));
+            core.exportVariable('build_versions', build_versions.join(','));
+            core.exportVariable('build_next_version', build_next_version);
+            core.exportVariable('build_pp', build_pp);
+            core.exportVariable('build_cloud', build_cloud);
+
+      - name: Manage versions to build
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+        if: ${{ steps.changes.outputs.global == 'true' || steps.changes.outputs.versions_count >= 100 || (github.ref_name == 'staging' && github.event_name != 'pull_request') }}
+        with:
+          script: |
+            let build_versions = require('./versions.json');
+            let build_next_version = require('./nextVersion.json').version;
+            const build_environments = ['staging'];
+            if (build_versions.includes(build_next_version)) {
+              build_environments.push('next');
+              build_versions.splice(build_versions.indexOf(build_next_version), 1);
+            }
+            core.exportVariable('build_environments', JSON.stringify(build_environments));
+            core.exportVariable('build_versions', build_versions.join(','));
+            core.exportVariable('build_next_version', require('./nextVersion.json').version);
+            core.exportVariable('build_pp', '1');
+            core.exportVariable('build_cloud', '1');
+
+      - name: Manage versions to build
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+        id: filters
+        with:
+          script: |
+            core.setOutput('build_environments', '${{ env.build_environments }}');
+            core.setOutput('build_versions', '${{ env.build_versions }}');
+            core.setOutput('build_next_version', '${{ env.build_next_version }}');
+            core.setOutput('build_pp', '${{ env.build_pp }}');
+            core.setOutput('build_cloud', '${{ env.build_cloud }}');
+
+  build:
+    if: ${{ needs.get-versions.outputs.build_environments != '[]' }}
+    runs-on: ubuntu-24.04
+    needs: [get-versions]
+
+    strategy:
+      fail-fast: false
+      matrix:
+        environment: ${{ fromJson(needs.get-versions.outputs.build_environments) }}
+        include:
+          - versions: ${{ needs.get-versions.outputs.build_versions }}
+            next_version: ${{ needs.get-versions.outputs.build_next_version }}
+            pp: ${{ needs.get-versions.outputs.build_pp }}
+            cloud: ${{ needs.get-versions.outputs.build_cloud }}
+
+    name: Build ${{ matrix.environment }}
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938 # v4.2.0
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6 # v4.0.4
+        with:
+          node-version: 20
+          cache: yarn
+
+      - name: Install dependencies
+        uses: borales/actions-yarn@3766bb1335b98fb13c60eaf358fe20811b730a88 # v5.0.0
+        with:
+          cmd: install --frozen-lockfile
+
+      - name: Build documentation
+        run: yarn build
+        env:
+          PP: ${{ matrix.pp }}
+          CLOUD: ${{ matrix.cloud }}
+          VERSIONS: ${{ matrix.environment == 'staging' && matrix.versions || matrix.next_version }}
+          BASE_URL: ${{ github.event_name == 'pull_request' && format('/previews/pr-{0}/{1}', github.event.pull_request.number, matrix.environment) || '' }}
+
+      - name: Store build in cache
+        uses: actions/cache/save@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
+        with:
+          path: "./build"
+          key: "${{ github.sha }}-${{ github.run_id }}-build-doc-${{ matrix.environment }}"
+
+  deploy-preview:
+    if: ${{ github.event_name == 'pull_request' }}
+    needs: [get-versions, build]
+    runs-on: [self-hosted, infra]
+
+    strategy:
+      fail-fast: false
+      matrix:
+        environment: ${{ fromJson(needs.get-versions.outputs.build_environments) }}
+
+    name: Deploy preview ${{ matrix.environment }}
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938 # v4.2.0
+
+      - name: Restore build from cache
+        uses: actions/cache/restore@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
+        with:
+          path: "./build"
+          key: "${{ github.sha }}-${{ github.run_id }}-build-doc-${{ matrix.environment }}"
+          fail-on-cache-miss: true
+
+      - name: Setup awscli
+        run: |
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          sudo unzip -q awscliv2.zip
+          sudo ./aws/install
+        shell: bash
+
+      - name: Deploy to https://docs-preview-int.centreon.com
+        run: |
+          echo "datetime=$(date '+%Y-%m-%d %H:%M %Z')" >> $GITHUB_ENV
+
+          export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
+          $(aws sts assume-role \
+          --role-arn ${{ secrets.CLOUDFRONT_ROLE_DOC_PRODUCTION }} \
+          --role-session-name InvalidDocCache \
+          --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]" \
+          --output text))
+
+          aws s3 sync --delete build s3://centreon-documentation-preview-pr/previews/pr-${{ github.event.pull_request.number }}/${{ matrix.environment }}/
+
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID_DOC_PREVIEW }} --paths "/previews/pr-${{ github.event.pull_request.number }}/${{ matrix.environment }}/*"
+        shell: bash
+
+  comment-preview:
+    needs: [get-versions, deploy-preview]
+    runs-on: ubuntu-24.04
+
+    name: Add comment for preview
+
+    steps:
+      - name: Prepare environment variables for comment
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+        with:
+          script: |
+            const preview_urls = ${{ needs.get-versions.outputs.build_environments }}.map((environment) => {
+              return `:rocket: Deployed preview to https://docs-preview-int.centreon.com/previews/pr-${{ github.event.pull_request.number }}/${environment}/`;
+            })
+
+            core.exportVariable('datetime', new Date().toUTCString());
+            core.exportVariable('preview_urls',preview_urls.join('\n'));
+
+      - name: Leave a comment after deployment
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: pr-preview
+          message: "\
+            **PR Previews**
+
+            :---:
+
+            ${{ env.preview_urls }}
+
+            at ${{ env.datetime }}
+
+
+            > **_NOTE:_**  Previews are deleted after 30 days of inactivity
+            "
+
+  deploy-staging:
+    if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' && contains(fromJson(needs.get-versions.outputs.build_environments), 'staging') }}
+    needs: [get-versions, build]
+    runs-on: [self-hosted, infra]
+
+    name: Deploy to staging
+
+    environment:
+      name: staging
+      url: https://docs-staging.int.centreon.com
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938 # v4.2.0
+
+      - name: Restore build from cache
+        uses: actions/cache/restore@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
+        with:
+          path: "./build"
+          key: "${{ github.sha }}-${{ github.run_id }}-build-doc-staging"
+          fail-on-cache-miss: true
+
+      - name: Deploy to https://docs-staging.int.centreon.com
+        run: |
+          # Prepare ssh-key
+          eval `ssh-agent`
+          ssh-add - <<< "${{ secrets.INT_SSH_KEY }}"
+
+          rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@docs-dev.int.centreon.com:/var/www/html/ \
+          || rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@${{ secrets.DOC_DEV_IP_ADDRESS }}:/var/www/html/
+        shell: bash
+
+  deploy-next:
+    if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' && contains(fromJson(needs.get-versions.outputs.build_environments), 'next') }}
+    needs: [get-versions, build]
+    runs-on: [self-hosted, infra]
+
+    name: Deploy to next
+
+    environment:
+      name: next
+      url: https://docs-next-int.centreon.com
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938 # v4.2.0
+
+      - name: Restore build from cache
+        uses: actions/cache/restore@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
+        with:
+          path: "./build"
+          key: "${{ github.sha }}-${{ github.run_id }}-build-doc-next"
+          fail-on-cache-miss: true
+
+      - name: Setup awscli
+        run: |
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          sudo unzip -q awscliv2.zip
+          sudo ./aws/install
+        shell: bash
+
+      - name: Deploy to https://docs-next-int.centreon.com
+        run: |
+          export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
+          $(aws sts assume-role \
+          --role-arn ${{ secrets.CLOUDFRONT_ROLE_DOC_PRODUCTION }} \
+          --role-session-name InvalidDocCache \
+          --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]" \
+          --output text))
+
+          aws s3 sync --delete build s3://centreon-documentation-next/
+
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID_DOC_NEXT }} --paths "/*"
+        shell: bash

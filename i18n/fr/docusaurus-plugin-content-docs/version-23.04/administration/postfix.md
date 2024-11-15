@@ -3,9 +3,12 @@ id: postfix
 title: Configurer l'envoi d'emails
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 Pour que votre Centreon puisse envoyer des emails de notification, un serveur smtp local doit être configuré. Si votre système d'exploitation est RHEL ou Oracle Linux, Postfix est déjà installé.
 
-Cette page donne un exemple de configuration. Consultez la  [documentation officielle Postfix](http://www.postfix.org/BASIC_CONFIGURATION_README) pour plus d'informations.
+Cette page donne un exemple de configuration. Consultez la  [documentation officielle Postfix](https://www.postfix.org/BASIC_CONFIGURATION_README.html) pour plus d'informations.
 
 Les commandes de notifications sont exécutées par le collecteur qui supervise la ressource : il est nécessaire de configurer le relais mail sur tous les collecteurs.
 
@@ -15,31 +18,51 @@ Nous vous recommandons d'utiliser un compte mail dédié à l'envoi des notifica
 
 1. Dans le terminal de votre serveur, entrez la commande suivante :
 
-    ```
-    yum -y install mailx cyrus-sasl-plain
-    ```
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-2. Redémarrez Postfix : 
+``` shell
+dnf install mailx cyrus-sasl-plain
+```
 
-    ```
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+``` shell
+dnf install s-nail cyrus-sasl-plain
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+``` shell
+apt install mailx cyrus-sasl-plain
+```
+
+</TabItem>
+</Tabs>
+
+2. Redémarrez Postfix :
+
+    ```shell
     systemctl restart postfix
     ```
 
 3. Configurez Postfix pour qu'il s'exécute au démarrage :
 
-    ```
+    ```shell
     systemctl enable postfix
     ```
 
 3. Éditez le fichier suivant :
 
-    ```
+    ```shell
     vi /etc/postfix/main.cf
     ```
 
 4. Ajoutez les informations suivantes :
 
-    ```
+    ```shell
     myhostname = hostname
     relayhost = [smtp.isp.com]:port
     smtp_use_tls = yes
@@ -49,13 +72,13 @@ Nous vous recommandons d'utiliser un compte mail dédié à l'envoi des notifica
     smtp_sasl_security_options = noanonymous
     smtp_sasl_tls_security_options = noanonymous
     ```
-    
+
     - Le paramètre **myhostname** est le hostname du serveur Centreon.
     - Le paramètre **relayhost** correspond au serveur de messagerie du compte qui enverra les emails.
 
     Dans l'exemple suivant, Centreon utilisera un compte Gmail pour envoyer les notifications :
 
-    ```
+    ```shell
     myhostname = centreon-central
     relayhost = [smtp.gmail.com]:587
     smtp_use_tls = yes
@@ -70,19 +93,19 @@ Nous vous recommandons d'utiliser un compte mail dédié à l'envoi des notifica
 
 1. Créez un fichier `/etc/postfix/sasl_passwd` :
 
-    ```
+    ```shell
     touch /etc/postfix/sasl_passwd
     ```
 
 2. Ajoutez la ligne suivante, en remplaçant `identifiant:motdepasse` par les informations de connexion du compte qui enverra les emails de notification :
 
-    ```
+    ```shell
     [smtp.fai.com]:port identifiant:motdepasse
     ```
 
     Exemple:
 
-    ```
+    ```shell
     [smtp.gmail.com]:587 username@gmail.com:XXXXXXXX
     ```
 
@@ -90,20 +113,20 @@ Nous vous recommandons d'utiliser un compte mail dédié à l'envoi des notifica
 
 3. Dans le terminal, entrez la commande suivante : 
 
-    ```
+    ```shell
     postmap /etc/postfix/sasl_passwd
     ```
 
 4. Pour plus de sécurité, changez les permissions sur le fichier `sasl_passwd` :
 
-    ```
+    ```shell
     chown root:postfix /etc/postfix/sasl_passwd*
     chmod 640 /etc/postfix/sasl_passwd*
     ```
 
 3. Rechargez Postfix pour prendre en compte les modifications:
 
-    ```
+    ```shell
     systemctl reload postfix
     ```
 
@@ -111,7 +134,7 @@ Nous vous recommandons d'utiliser un compte mail dédié à l'envoi des notifica
 
 - Pour envoyer un email de test, utilisez la commande suivante :
 
-    ```
+    ```shell
     echo "Test" | mail -s "Test" utilisateur@fai.com
     ```
 
@@ -119,13 +142,13 @@ Nous vous recommandons d'utiliser un compte mail dédié à l'envoi des notifica
 
 - Si le destinataire n'a pas reçu l'email, vérifiez le fichier de log suivant :
 
-    ```
+    ```shell
     tail -f /var/log/maillog
     ```
 
 - Pour vérifier si votre service Postfix tourne, entrez:
 
-    ```
+    ```shell
     systemctl status postfix
     ```
 
@@ -136,4 +159,3 @@ Nous vous recommandons d'utiliser un compte mail dédié à l'envoi des notifica
 ## Configuration spécifique à Gmail
 
 Si vous souhaitez envoyer des emails en utilisant un compte Gmail, vous devrez activer l'option **Accès pour les applications moins sécurisées** sur celui-ci : voir la page [Autoriser les applications moins sécurisées à accéder à votre compte](https://support.google.com/accounts/answer/6010255).
-

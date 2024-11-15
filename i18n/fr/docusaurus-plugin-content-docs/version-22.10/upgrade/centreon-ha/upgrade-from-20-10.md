@@ -39,7 +39,8 @@ Il est nécessaire de mettre à jour le dépôt Centreon.
 Exécutez la commande suivante :
 
 ```bash
-yum install -y https://yum.centreon.com/standard/22.10/el7/stable/noarch/RPMS/centreon-release-22.10-1.el7.centos.noarch.rpm
+yum install -y yum-utils
+yum-config-manager --add-repo https://packages.centreon.com/rpm-standard/22.10/el7/centreon-22.10.repo
 ```
 
 > **WARNING:** pour éviter des problèmes de dépendances manquantes, référez-vous à la documentation des modules additionnels pour mettre à jour les dépôts Centreon Business
@@ -160,6 +161,19 @@ Les crons sont remis en place lors de la mise à jour des RPMs. Supprimer les su
 ```bash
 rm -rf /etc/cron.d/centreon
 rm -rf /etc/cron.d/centstorage
+rm -f /etc/cron.d/centreon-ha-mysql
+```
+
+Le cron **centreon-ha-mysql** étant supprimé, vérifiez que vous avez bien la ligne suivante dans la section **server** du fichier **/etc/my.cnf.d/server.cnf** :
+
+```shell
+expire_logs_days=7
+```
+
+Si ce n'est pas le cas, ajoutez-la et redémarrez la ressource **ms_mysql** :
+
+```shell
+pcs resource restart ms_mysql
 ```
 
 ### Changez les permissions pour la resource centreon_central_sync

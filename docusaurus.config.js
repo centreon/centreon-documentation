@@ -4,21 +4,63 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
-const versions = require('./versions.json');
-const version = process.env.VERSION ? process.env.VERSION : null;
+const availableVersions = require('./versions.json');
+const archivedVersions = require('./archivedVersions.json');
+
+const archivedVersion = process.env.ARCHIVED_VERSION ?? null;
+
+const versions = (() => {
+  if (archivedVersion) {
+    return [archivedVersion];
+  }
+  if (process.env.VERSIONS !== undefined) {
+    const splittedVersions = process.env.VERSIONS.split(',');
+    if (process.env.VERSIONS.trim() === '' || splittedVersions.length === 0) {
+      return availableVersions.slice(0,1);
+    }
+    return splittedVersions;
+  }
+  return availableVersions;
+})();
+
+const pp = (() => {
+  if (archivedVersion) {
+    return false;
+  }
+  if (process.env.PP !== undefined && process.env.PP === '0') {
+    return false;
+  }
+  return true;
+})();
+
+const cloud = (() => {
+  if (archivedVersion) {
+    return false;
+  }
+  if (process.env.CLOUD !== undefined && process.env.CLOUD === '0') {
+    return false;
+  }
+  return true;
+})();
+
+const baseUrl = process.env.BASE_URL ? process.env.BASE_URL : (archivedVersion ? `${archivedVersion}/` : '/');
+
+if (versions.length == 0 && !pp && !cloud) {
+  throw new Error('Nothing is selected for build');
+}
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 const config = {
   customFields: {
-    version: version ?? null,
+    version: archivedVersion ?? null,
   },
 
   title: 'Centreon Documentation',
   tagline: '',
   url: 'https://docs.centreon.com',
-  baseUrl: version ? `${version}/` : '/',
-  onBrokenLinks: version ? 'log' : 'throw',
-  onBrokenMarkdownLinks: version ? 'log' : 'throw',
+  baseUrl,
+  onBrokenLinks: archivedVersion || !cloud || !pp ? 'log' : 'throw',
+  onBrokenMarkdownLinks: archivedVersion || !cloud || !pp  ? 'log' : 'throw',
   favicon: 'img/favicon.ico',
   organizationName: 'Centreon',
   projectName: 'Centreon Documentation',
@@ -45,52 +87,43 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          breadcrumbs: false,
+          breadcrumbs: true,
           admonitions: {},
           editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
           editLocalizedFiles: true,
           showLastUpdateTime: true,
           includeCurrentVersion: false,
-          onlyIncludeVersions: (() => {
-            if (version) {
-              return [version];
+          onlyIncludeVersions: versions,
+          versions: (() => {
+            if (archivedVersion) {
+              return {
+                [archivedVersion]: {
+                  label: archivedVersion,
+                  banner:'unmaintained',
+                }
+              }
             }
-            return versions;
+
+            return versions.reduce(
+              (accumulator, currentValue) => {
+                accumulator[currentValue] = {
+                  label: Object.keys(accumulator).length === 0 ? `⭐ ${currentValue}` : currentValue,
+                  banner: currentValue === '22.10' ? 'unmaintained' : 'none',
+                }
+
+                return accumulator;
+              },
+              {}
+            );
           })(),
-          versions: {
-            23.04: {
-              label: '⭐ 23.04',
-              banner:'none',
-            },
-            '22.10': {
-              label: '22.10',
-              banner:'none',
-            },
-            22.04: {
-              label: '22.04',
-              banner:'none',
-            },
-            '21.10': {
-              label: '21.10',
-              banner:'none',
-            },
-            21.04: {
-              label: '21.04',
-              banner:'unmaintained',
-            },
-            '20.10': {
-              label: '20.10',
-              banner:'unmaintained',
-            },
-            20.04: {
-              label: '20.04',
-              banner:'unmaintained',
-            },
-          },
         },
         blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
+        },
+        gtag: {
+          trackingID: 'G-BGL69N5GPJ',
+          anonymizeIP: true,
         },
         googleAnalytics: {
           trackingID: 'UA-8418698-13',
@@ -102,49 +135,80 @@ const config = {
 
   themes: [],
 
-  plugins: [
-    [
-      '@docusaurus/plugin-ideal-image',
-      {
-        quality: 70,
-        max: 1030, // max resized image's size.
-        min: 640, // min resized image's size. if original is lower, use that size.
-        steps: 2, // the max number of images generated between min and max (inclusive)
-        // Use false to debug, but it incurs huge perf costs
-        disableInDev: true,
-      },
-    ],
-    'plugin-image-zoom',
-	  [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'cloud',
-        path: 'cloud',
-        routeBasePath: 'cloud',
-        sidebarPath: require.resolve('./cloud/sidebarsCloud.js'),
-        breadcrumbs: false,
-        editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
-        editLocalizedFiles: true,
-      },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'pp',
-        path: 'pp',
-        routeBasePath: 'pp',
-        sidebarPath: require.resolve('./pp/sidebarsPp.js'),
-        breadcrumbs: false,
-        editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
-        editLocalizedFiles: true,
-      },
-    ],
-  ],
+  plugins: (() => {
+    let plugins = [
+      [
+        '@docusaurus/plugin-ideal-image',
+        {
+          quality: 70,
+          max: 1030, // max resized image's size.
+          min: 640, // min resized image's size. if original is lower, use that size.
+          steps: 2, // the max number of images generated between min and max (inclusive)
+          // Use false to debug, but it incurs huge perf costs
+          disableInDev: true,
+        },
+      ],
+      'plugin-image-zoom',
+    ];
+
+    if (archivedVersion) {
+      plugins = [
+        ...plugins,
+        [
+          require.resolve("@cmfcmf/docusaurus-search-local"),
+          {
+            indexBlog: false,
+            language: ["en", "fr"],
+          },
+        ],
+      ];
+    }
+
+    if (cloud) {
+      plugins = [
+        ...plugins,
+        [
+          '@docusaurus/plugin-content-docs',
+          {
+            id: 'cloud',
+            path: 'cloud',
+            routeBasePath: 'cloud',
+            sidebarPath: require.resolve('./cloud/sidebarsCloud.js'),
+            breadcrumbs: true,
+            editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
+            editLocalizedFiles: true,
+            showLastUpdateTime: true,
+          },
+        ],
+      ];
+    }
+
+    if (pp) {
+      plugins = [
+        ...plugins,
+        [
+          '@docusaurus/plugin-content-docs',
+          {
+            id: 'pp',
+            path: 'pp',
+            routeBasePath: 'pp',
+            sidebarPath: require.resolve('./pp/sidebarsPp.js'),
+            breadcrumbs: true,
+            editUrl: 'https://github.com/centreon/centreon-documentation/edit/staging/',
+            editLocalizedFiles: true,
+            showLastUpdateTime: true,
+          },
+        ],
+      ];
+    }
+
+    return plugins;
+  })(),
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      algolia: version
+      algolia: archivedVersion
         ? undefined
         : {
           appId: '3WEC6XPLDB',
@@ -194,12 +258,12 @@ const config = {
           href: '/',
         },
         items: (() => {
-          if (version) {
+          if (archivedVersion) {
             return [
               {
                 type: 'html',
                 position: 'left',
-                value: `<h2 style="margin:0">Centreon OnPrem ${version}</h2>`,
+                value: `<h2 style="margin:0">Centreon OnPrem ${archivedVersion}</h2>`,
               },
               {
                 type: 'localeDropdown',
@@ -207,25 +271,49 @@ const config = {
               },
             ];
           }
-          return [
+
+          let items = [];
+
+          const defaultPageId = versions.sort().reverse()[0].match(/(21\.10|22\.04)/)
+            ? 'getting-started/installation-first-steps'
+            : 'getting-started/welcome';
+
+          items = [
+            ...items,
             {
               type: 'doc',
-              docId: 'getting-started/welcome',
+              docId: defaultPageId,
               position: 'left',
               label: 'Centreon OnPrem',
             },
-            {
-              to: '/cloud/getting-started/architecture',
-              label: 'Centreon Cloud',
-              position: 'left',
-              activeBaseRegex: '/cloud/',
-            },
-            {
-              to: '/pp/integrations/plugin-packs/getting-started/introduction',
-              label: 'Monitoring Connectors',
-              position: 'left',
-              activeBaseRegex: '/pp/',
-            },
+          ];
+
+          if (cloud) {
+            items = [
+              ...items,
+              {
+                to: '/cloud/getting-started/welcome',
+                label: 'Centreon Cloud',
+                position: 'left',
+                activeBaseRegex: '/cloud/',
+              },
+            ];
+          }
+
+          if (pp) {
+            items = [
+              ...items,
+              {
+                to: '/pp/integrations/plugin-packs/getting-started/introduction',
+                label: 'Monitoring Connectors',
+                position: 'left',
+                activeBaseRegex: '/pp/',
+              },
+            ];
+          }
+
+          return [
+            ...items,
             {
               type: 'search',
               position: 'right',
@@ -236,9 +324,25 @@ const config = {
               dropdownActiveClassDisabled: true,
               dropdownItemsAfter: [
                 {
-                  to: 'https://docs-older.centreon.com',
-                  label: 'Older',
+                  type: 'html',
+                  value: '<hr class="dropdown-separator">',
                 },
+                {
+                  type: 'html',
+                  className: 'dropdown-archived-versions',
+                  value: (() => {
+                    switch (process.env.DOCUSAURUS_CURRENT_LOCALE) {
+                      case "fr": return "<b>Versions archivées</b>";
+                      default: return "<b>Archived versions</b>";
+                    }
+                  })(),
+                },
+                ...Object.entries(archivedVersions).map(
+                  ([versionName, versionUrl]) => ({
+                    label: versionName,
+                    href: versionUrl,
+                  }),
+                ),
               ],
             },
             {
@@ -280,7 +384,7 @@ const config = {
           alt: 'Centreon Open Source Logo',
           src: 'img/logo_centreon.png',
         },
-        copyright: `Copyright © 2005 - 2023 Centreon`,
+        copyright: `Copyright © 2005 - 2024 Centreon`,
       },
     }),
   webpack: {
@@ -299,7 +403,7 @@ const config = {
         }
       },
     }),
-  },
+  }
 };
 
 module.exports = config;

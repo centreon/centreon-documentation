@@ -1,13 +1,13 @@
 ---
 id: actions
-title: Quelles actions effectuer pour superviser?
+title: Quelles actions effectuer pour superviser ?
 ---
 
 Une fois vos ressources [mises en supervision](first-supervision.md), allez à la page **Supervision > Statut des ressources** pour suivre le statut des ressources en temps réel.
 
 Sur cette page, vous pouvez effectuer les actions suivantes (survolez le statut d'une ressource puis cliquez sur le bouton correspondant)&nbsp;:
 
-- **Aquitter une ressource** : Quand un évènement survient sur une ressource, vous pouvez marquer cette ressource commme aqcuittée, afin de signigier à votre équipe que vous êtes au courant de l'incident et ue vous vous en occupez.
+- **Aquitter une ressource** : Quand un évènement survient sur une ressource, vous pouvez marquer cette ressource commme acquittée, afin de signifier à votre équipe que vous êtes au courant de l'incident et que vous vous en occupez.
 
    Lorsqu'une ressource est acquittée, les notifications sont suspendues et la ressource acquittée est surlignée en jaune dans les écrans de supervision.
 

@@ -3,6 +3,9 @@ id: ticketing-install
 title: Installation d'Open Tickets
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 **Centreon Open Tickets** est un module communautaire développé pour
 créer des tickets vers une plateforme ITSM à l'aide des API.
 
@@ -20,9 +23,29 @@ création de ceux-ci.
 
 Exécutez la commande suivante :
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
 ``` shell
-yum install centreon-open-tickets
+dnf install centreon-open-tickets
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+``` shell
+dnf install centreon-open-tickets
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+``` shell
+apt install centreon-open-tickets
+```
+
+</TabItem>
+</Tabs>
 
 ## Installation via l'interface
 
@@ -36,4 +59,3 @@ Cliquez sur **Install selection**:
 Le module est maintenant installé.
 
 ![image](../assets/alerts/open_tickets_install_02.png)
-

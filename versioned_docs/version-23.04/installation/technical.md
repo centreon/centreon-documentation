@@ -104,11 +104,11 @@ Description of software and linked users:
 | Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 | Software          | Service          | User             | Comment         |
 | ----------------- | ---------------- | ---------------- | --------------- |
-| Apache            | httpd24-httpd    | apache           | automatic start |
+| Apache            | httpd            | apache           | automatic start |
 | PHP-FPM           | php-fpm          | apache           | automatic start |
 | MariaDB           | mariadb          | mysql            | automatic start |
 | Centreon          | centreontrapd    | centreon         | automatic start |
@@ -116,6 +116,7 @@ Description of software and linked users:
 | Centreon Broker   | cbd              | centreon-broker  | automatic start |
 | Centreon Engine   | centengine       | centreon-engine  | automatic start |
 | Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
+
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 

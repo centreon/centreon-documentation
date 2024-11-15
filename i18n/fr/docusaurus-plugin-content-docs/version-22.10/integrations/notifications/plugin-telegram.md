@@ -75,7 +75,7 @@ for example, if the url is as follow: **https://web.telegram.org/#/im?p=g123456*
 ![service command](../../assets/integrations/notifications/telegram/service-command-telegram.png)
 
 ```bash
-/usr/lib/centreon/git-plugins/centreon-plugins/centreon_plugins.pl \
+/usr/lib/centreon/git-plugins/centreon-plugins/src/centreon_plugins.pl \
 --plugin=notification::telegram::plugin \
 --mode=alert \
 --http-peer-addr='api.telegram.org' --bot-token='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' \
@@ -88,7 +88,7 @@ for example, if the url is as follow: **https://web.telegram.org/#/im?p=g123456*
 ![host command](../../assets/integrations/notifications/telegram/host-command-telegram.png)
 
 ```bash
-/usr/lib/centreon/git-plugins/centreon-plugins/centreon_plugins.pl \
+/usr/lib/centreon/git-plugins/centreon-plugins/src/centreon_plugins.pl \
 --plugin=notification::telegram::plugin \
 --mode=alert \
 --http-peer-addr='api.telegram.org' \
@@ -102,7 +102,7 @@ for example, if the url is as follow: **https://web.telegram.org/#/im?p=g123456*
 ## Example
 
 ```bash
-/usr/lib/centreon/git-plugins/centreon-plugins/centreon_plugins.pl \ 
+/usr/lib/centreon/git-plugins/centreon-plugins/src/centreon_plugins.pl \ 
 --plugin=notification::telegram::plugin \
 --mode=alert \
 --http-peer-addr='api.telegram.org' \
@@ -117,7 +117,7 @@ for example, if the url is as follow: **https://web.telegram.org/#/im?p=g123456*
 ![service notification](../../assets/integrations/notifications/telegram/service-notification-telegram.png)
 
 ```bash
-/usr/lib/centreon/git-plugins/centreon-plugins/centreon_plugins.pl \
+/usr/lib/centreon/git-plugins/centreon-plugins/src/centreon_plugins.pl \
 --plugin=notification::telegram::plugin \
 --mode=alert \
 --http-peer-addr='api.telegram.org' \
@@ -147,7 +147,7 @@ Below are some of the available options:
 All options can be displayed with the following command:
 
 ```bash
-/usr/lib/centreon/git-plugins/centreon-plugins/centreon_plugins.pl \
+/usr/lib/centreon/git-plugins/centreon-plugins/src/centreon_plugins.pl \
 --plugin=notification::telegram::plugin \
 --mode=alert \
 --help

@@ -8,8 +8,8 @@ import TabItem from '@theme/TabItem';
 
 ## Overview
 
-The Centreon Monitoring Connector *Azure Discover* is a *super* Pack allowing to discover a whole Azure infrastructure for a given
-subscription.
+The Centreon Monitoring Connector *Azure Discover* allows you to discover a whole Azure infrastructure for a given
+subscription or a given tenant.
 This Pack relies on the Azure Monitor API to fetch the resources of the Azure infrastructure and on all of the Centreon Monitoring Connectors
 for Azure to set templates and proper monitoring indicators for each type of resource.
 
@@ -22,11 +22,11 @@ for Azure to set templates and proper monitoring indicators for each type of res
 
 ### Discovery rules
 
-The Centreon Monitoring Connector *Azure Discover* includes a Host Discovery *provider* to automatically discover all of the Azure resources
-of a given subscription and add them to the Centreon configuration using the dedicated Host Templates.
-This provider is named **Microsoft Azure Management Discover**.
+The Centreon Monitoring Connector *Azure Discover* includes two Host Discovery *providers*:
+- **Microsoft Azure Management Discover** to automatically discover all of the Azure resources of a given subscription.
+- **Azure Tenant Discovery** to discover all of the Azure resources for every subscription related to a particular tenant.
 
-> This discovery feature is only compatible with the 'api' custom mode.
+> These discovery rules are only compatible with the 'api' custom mode.
 
 More information about the Host Discovery module is available in the Centreon documentation:
 [Host Discovery](/docs/monitoring/discovery/hosts-discovery)
@@ -42,11 +42,31 @@ Please find all the prerequisites needed for Centreon to get information from Az
 
 1. Install the Plugin on every Centreon Poller expected to discover Azure resources:
 
-```bash
-yum install centreon-plugin-Cloud-Azure-Management-Discover-Api
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+``` shell
+dnf install centreon-plugin-Cloud-Azure-Management-Discover-Api
 ```
 
-2. On the Centreon Web interface, install the *Azure Discover* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+``` shell
+dnf install centreon-plugin-Cloud-Azure-Management-Discover-Api
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```shell
+apt install centreon-plugin-cloud-azure-management-discover-api
+```
+
+</TabItem>
+</Tabs>
+
+2. On the Centreon Web interface, install the *Azure Discover* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 You'll be prompted to install several other Azure Monitoring Connectors as dependencies (they will be used to set the proper templates/indicators
 on the discovered elements).
 
@@ -55,18 +75,58 @@ on the discovered elements).
 
 1. Install the Plugin on every Centreon Poller expected to discover Azure resources:
 
-```bash
-yum install centreon-plugin-Cloud-Azure-Management-Discover-Api
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+``` shell
+dnf install centreon-plugin-Cloud-Azure-Management-Discover-Api
 ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+``` shell
+dnf install centreon-plugin-Cloud-Azure-Management-Discover-Api
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```shell
+apt install centreon-plugin-cloud-azure-management-discover-api
+```
+
+</TabItem>
+</Tabs>
 
 2. Install the Centreon Monitoring Connector RPM on the Centreon Central server, install all of the Centreon Monitoring Connectors for Azure, in order
 to make all the dependencies available:
 
-```bash
-yum install centreon-pack-cloud-azure\*
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+``` shell
+dnf install centreon-pack-cloud-azure\*
 ```
 
-3. On the Centreon Web interface, install the *Azure Discover* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+``` shell
+dnf install centreon-pack-cloud-azure\*
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```shell
+apt install centreon-pack-cloud-azure\*
+```
+
+</TabItem>
+</Tabs>
+
+3. On the Centreon Web interface, install the *Azure Discover* Centreon Monitoring Connector on the **Configuration > Monitoring Connectors Manager** page.
 You'll be prompted to install several other Azure Monitoring Connectors as dependencies (they will be used to set the proper templates/indicators
 on the discovered elements).
 
@@ -79,7 +139,7 @@ on the discovered elements).
 
 ### Access parameters
 
-Create a new discovery job and select **Azure Management Discover** as the provider. Click on *next* and set the authentication parameters
+Create a new discovery job and select **Microsoft Azure Management Discover** or **Azure Tenant Discovery** as the provider. Click on *next* and set the authentication parameters
 as well as optional access parameters:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-accessparameters.png)
@@ -91,7 +151,18 @@ as well as optional access parameters:
 The first time, a new credentials profile has to be created. You can do so by clicking the '+' button and set the proper Azure
 authentication parameters:
 
+<Tabs groupId="sync">
+<TabItem value="Microsoft Azure Management Discover" label="Microsoft Azure Management Discover">
+
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-credentials.png)
+
+</TabItem>
+<TabItem value="Azure Tenant Discovery" label="Azure Tenant Discovery">
+
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-credentials-tenant.png)
+
+</TabItem>
+</Tabs>
 
 > All of the fields of the *credentials* form must be filled.
 
@@ -101,15 +172,26 @@ Click on *confirm* then *next* to go to the next step of the wizard and adjust t
 
 If necessary, adjust the following settings:
 
-![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-discoparameters.png)
+<Tabs groupId="sync">
+<TabItem value="Microsoft Azure Management Discover" label="Microsoft Azure Management Discover">
 
-> All the fields of this form are optional
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-discoparameters.png)
 
 - Azure Location/Resource Group: allows to filter the discovery on a specific *Location* or *Resource Group*
 - Filter on namespace/type: only discovers elements of a given namespace/type relative to Azure resources, for example:
-    - *Resource namepsace*: 'Microsoft.Compute'
+    - *Resource namespace*: 'Microsoft.Compute'
     - *Resource type*: 'virtualMachines'
     > ** Warning ** To use this filter, it's mandatory to fill **both** *Resource namespace* and *Resource type* fields
+
+</TabItem>
+<TabItem value="Azure Tenant Discovery" label="Azure Tenant Discovery">
+
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-azure-management-discover-discoparameters-tenant.png)
+
+</TabItem>
+</Tabs>
+
+> All the fields of this form are optional
 
 ### Run the discovery job and display results
 

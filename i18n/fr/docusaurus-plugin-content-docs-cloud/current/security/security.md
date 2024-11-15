@@ -59,10 +59,12 @@ Par ailleurs, Centreon Cloud a passé avec succès les évaluations [Foundationa
 
 Les services de Centreon Cloud sont intégralement hébergés et opérés depuis l’Union Européenne :
 
-| Service | Hébergement | Infogérance |
-| --- | --- | --- |
-| Centreon Cloud | AWS EU Ireland Region (eu-west-1) | France |
-| Centreon Anomaly Detection | AWS EU Ireland Region (eu-west-1) | France |
+| Service   | Hosting   |
+|---------|-----------|
+| Centreon Cloud (Europe) | AWS EU Ireland (eu-west-1) |
+| Centreon Cloud (Amérique)  | AWS US East N. Virginia (us-east-1) |
+| Fournisseur d'identité (Global)  |  Auth0 Europe |
+| Plateforme d'engagement produit (Global) |  Pendo Europe |
 
 Plus d’informations sur les pratiques de sécurité et de conformité d’AWS sont disponibles [ici](https://d1.awsstatic.com/whitepapers/compliance/AWS_Compliance_Quick_Reference.pdf).
 
@@ -99,7 +101,7 @@ Centreon utilise des protocoles, certificats, algorithmes et logiciels à jour p
 | Protocole de communication | TLS 1.2/TLS 1.3 |
 | Certificats | RSA 2048 bits |
 | Algorithmes | PKCS #1 SHA-256 avec chiffrement RSA |
-| Logiciels | OpenSSL v1.1.x, OpenVPN 2.4.x |
+| Logiciels | OpenSSL v1.1.x |
 
 ## Sécurité du produit
 
@@ -135,7 +137,7 @@ Les mécanismes d’automatisation et d’orchestration en place garantissent un
 ### Signalement de vulnérabilités
 
 Centreon dispose d’un process permettant la bonne réception et le bon traitement des signalements de vulnérabilité.
-Si vous pensez avoir trouvé une faille de sécurité, veuillez nous la signaler comme décrit dans le
+Si vous pensez avoir trouvé une faille de sécurité, veuillez nous la signaler via le [portail support](https://support.centreon.com/), comme décrit dans le
 [processus de signalement](https://github.com/centreon/centreon/security/policy#reporting-a-vulnerability).
 
 ### Détection de vulnérabilités

@@ -9,7 +9,7 @@ This topic explains how users can access the maps according to well-defined priv
 
 ### Definitions
 
-Different types of roles are:
+The following different types of role exist:
 
 - **Administrators / Editors:** can create new maps. Can see, edit, delete and share all maps.
 - **Users (also called Operators):** by default, they have no privileges on maps. They only can see maps shared with them.
@@ -41,7 +41,7 @@ Perform the following procedure to grant privileges using the sharing action.
 1. Go to **Monitoring > Map**.
 The Map homepage is displayed with the list of available maps.
 
-2. Click on the **share** button corresponding to the map you want to share.
+2. Click the **share** button corresponding to the map you want to share.
 The list of available roles is displayed.
 
 3. For the **Users** (called **Operators** in the list) role, select the privilege to grant in the dropdown list.
@@ -61,3 +61,5 @@ This table describes the types of privileges and related permissions:
 
 - Users with Owner privileges can also set or change map properties (name and icon).
 - Sharing a map allows the recipient to acquire privileges on that map.
+
+Access control to maps is only enforced at the map level. When you have the “Viewer” privilege, you can view a map and all its included resources, even if you do not have the corresponding ACL. When editing a map, you can only add resources if you have the corresponding ACL.

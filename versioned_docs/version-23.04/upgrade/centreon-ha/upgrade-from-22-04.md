@@ -31,32 +31,79 @@ When upgrading from an older version, you need to go through the [key rotation p
 
 ## Upgrade process
 
-To perform the upgrade:
+Before process the upgrade, stop Centreon-Broker-SQL on the **central master node**:
+
+```bash
+systemctl stop cbd-sql
+```
+
+Now, to perform the upgrade:
 
 > For the **active central node** and **active database node if needed** please [follow the official documentation](../../upgrade/upgrade-from-22-04.md) **until the "Post-upgrade actions" step included**.
 
 > For the **passive central node** and **passive database node if needed**, please [follow the official documentation](../../upgrade/upgrade-from-22-04.md) **until the "Update your customized Apache configuration" step included only. Do not perform the "Finalizing the upgrade" step.**.
 
-Then on the two central nodes, restore the file `/etc/centreon-ha/centreon_central_sync.pm`:
+<Tabs groupId="sync">
+<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
+
+Then on the **two central nodes**, restore the file `/etc/centreon-ha/centreon_central_sync.pm`:
 
 ```shell
 mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
 ```
 
-On the passive central node, move the "install" directory to avoid getting the "upgrade" screen in the interface in the event of a further exchange of roles.
+On the **passive central node**, move the "install" directory to avoid getting the "upgrade" screen in the interface in the event of a further exchange of roles.
 
 ```bash
 mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`date +%Y-%m-%d`
 sudo -u apache /usr/share/centreon/bin/console cache:clear
 ```
 
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+On the **passive central node**, move the "install" directory to avoid getting the "upgrade" screen in the interface in the event of a further exchange of roles.
+
+```bash
+mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`date +%Y-%m-%d`
+sudo -u www-data /usr/share/centreon/bin/console cache:clear
+```
+
+</TabItem></Tabs>
+
 ### Removing cron jobs
 
 The RPM upgrade puts cron jobs back in place on the central and databases servers. Remove them to avoid concurrent executions on central and database nodes: 
 
 ```bash
-rm -rf /etc/cron.d/centreon
-rm -rf /etc/cron.d/centstorage
+rm -f /etc/cron.d/centreon
+rm -f /etc/cron.d/centstorage
+rm -f /etc/cron.d/centreon-ha-mysql
+```
+
+and restart the cron daemon:
+
+<Tabs groupId="sync">
+<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
+
+```bash
+systemctl restart crond
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+```bash
+systemctl restart cron
+```
+
+</TabItem>
+</Tabs>
+
+As you have deleted the **centreon-ha-mysql** cron, check that the following line appears in the **server** section of the **/etc/my.cnf.d/server.cnf** file (or in the **/etc/mysql/mariadb.conf.d/50-server.cnf** on Debian), it is normally already in place since 22.04 and GTID replication:
+
+```shell
+expire_logs_days=7
 ```
 
 ### Reset the permissions for centreon_central_sync resource
@@ -76,22 +123,20 @@ find /usr/share/centreon/www/img/media -type f \( ! -iname ".keep" ! -iname ".ht
 ## Cluster ugprade
 
 Since Centreon 22.04, The mariaDB Replication is now based on [GTID](https://mariadb.com/kb/en/gtid/).
-It's necessary to destroy the cluster completely and configure it back again with the latest version of Centreon and MariaDB replication mechanisms.
 
-### Maintenance mode and backup
-
-Perform a backup of the cluster using:
+However, some changes must always be done.
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
+
+### Backup the configuration
+
+Perform a backup of the cluster on central master node using:
 
 ```bash
 pcs config backup centreon_cluster
-pcs resource config --output-format=cmd | sed -e :a -e '/\\$/N; s/\\\n//; ta' | sed 's/-f tmp-cib.xml//' | egrep "create|group" | egrep -v "(mysql|php|cbd_rrd)" > centreon_pcs_command.sh
+cibadmin -Q > export_cluster.xml
 ```
-
-</TabItem>
-</Tabs>
 
 Check the file `centreon_cluster.tar.bz2` exist before continuing this procedure.
 
@@ -105,75 +150,78 @@ You should have a result like this:
 -rw------- 1 root root 2777 May  3 17:49 centreon_cluster.tar.bz2
 ```
 
-Then check the file centreon_pcs_command.sh, the export command may display some Warning lines but it's not blocking.
+### Modifying order of resources on centreon group
+
+To optimize managment of resources and to avoid restart cbd-sql when we just want to restart gorgone, we must change there order in the group.
 
 ```bash
-cat centreon_pcs_command.sh
+pcs resource group remove centreon cbd_central_broker
+pcs resource group add centreon cbd_central_broker --before gorgone
 ```
 
-The content should looks like this:
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
 
-<Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+### Backup the confguration
+
+Perform a backup of the cluster on central master node using:
+
+```bash
+pcs config backup centreon_cluster
+cibadmin -Q > export_cluster.xml
+```
+
+Check the file `centreon_cluster.tar.bz2` exist before continuing this procedure.
+
+```bash
+ls -l centreon_cluster.tar.bz2
+```
+
+You should have a result like this:
 
 ```text
-pcs resource create --no-default-ops --force -- vip ocf:heartbeat:IPaddr2   broadcast=@VIP_BROADCAST_IPADDR@ cidr_netmask=@VIP_CIDR_NETMASK@ flush_routes=true ip=@VIP_IPADDR@ nic=@VIP_IFNAME@   op     monitor interval=10s id=vip-monitor-interval-10s timeout=20s     start interval=0s id=vip-start-interval-0s timeout=20s     stop interval=0s id=vip-stop-interval-0s timeout=20s   meta target-role=started;
-pcs resource create --no-default-ops --force -- http systemd:httpd   op     monitor interval=5s id=http-monitor-interval-5s timeout=20s     start interval=0s id=http-start-interval-0s timeout=40s     stop interval=0s id=http-stop-interval-0s timeout=40s   meta target-role=started;
-pcs resource create --no-default-ops --force -- gorgone systemd:gorgoned   op     monitor interval=5s id=gorgone-monitor-interval-5s timeout=20s     start interval=0s id=gorgone-start-interval-0s timeout=90s     stop interval=0s id=gorgone-stop-interval-0s timeout=90s   meta target-role=started;
-pcs resource create --no-default-ops --force -- centreon_central_sync systemd:centreon-central-sync   op     monitor interval=5s id=centreon_central_sync-monitor-interval-5s timeout=20s     start interval=0s id=centreon_central_sync-start-interval-0s timeout=90s     stop interval=0s id=centreon_central_sync-stop-interval-0s timeout=90s   meta target-role=started;
-pcs resource create --no-default-ops --force -- cbd_central_broker systemd:cbd-sql   op     monitor interval=5s id=cbd_central_broker-monitor-interval-5s timeout=30s     start interval=0s id=cbd_central_broker-start-interval-0s timeout=90s     stop interval=0s id=cbd_central_broker-stop-interval-0s timeout=90s   meta target-role=started;
-pcs resource create --no-default-ops --force -- centengine systemd:centengine   op     monitor interval=5s id=centengine-monitor-interval-5s timeout=30s     start interval=0s id=centengine-start-interval-0s timeout=90s     stop interval=0s id=centengine-stop-interval-0s timeout=90s   meta multiple-active=stop_start target-role=started;
-pcs resource create --no-default-ops --force -- centreontrapd systemd:centreontrapd   op     monitor interval=5s id=centreontrapd-monitor-interval-5s timeout=20s     start interval=0s id=centreontrapd-start-interval-0s timeout=30s     stop interval=0s id=centreontrapd-stop-interval-0s timeout=30s   meta target-role=started;
-pcs resource create --no-default-ops --force -- snmptrapd systemd:snmptrapd   op     monitor interval=5s id=snmptrapd-monitor-interval-5s timeout=20s     start interval=0s id=snmptrapd-start-interval-0s timeout=30s     stop interval=0s id=snmptrapd-stop-interval-0s timeout=30s   meta target-role=started;
-pcs resource group add centreon   vip http gorgone centreon_central_sync cbd_central_broker centengine centreontrapd snmptrapd;
+-rw------- 1 root root 2777 May  3 17:49 centreon_cluster.tar.bz2
+```
+
+### Modifying order of resources on centreon group
+
+To optimize managment of resources and to avoid restart cbd-sql when we just want to restart gorgone, we must change there order in the group.
+
+```bash
+pcs resource group remove centreon cbd_central_broker
+pcs resource group add centreon cbd_central_broker --before gorgone
+```
+
+### Modify php-clone resource to use php 8.1
+
+Modify php8.0-fpm to php8.1-fpm with the command below (an automatic backup of file is made in export_cluster.xml.bak)
+
+```bash
+sed -i.bak s/php8.0-fpm/php8.1-fpm/ export_cluster.xml
+```
+
+Verify if modification is made by searching **php8.1-fpm** in xml file
+
+```bash
+grep php8.1-fpm export_cluster.xml
+```
+
+You should have 3 lines in the result like this:
+
+```text
+        <primitive id="php" class="systemd" type="php8.1-fpm">
+          <lrm_resource id="php" type="php8.1-fpm" class="systemd">
+          <lrm_resource id="php" type="php8.1-fpm" class="systemd">
+```
+
+If it's OK, apply changes to the cluster configuration
+
+```bash
+cibadmin --replace --xml-file export_cluster.xml
 ```
 
 </TabItem>
 </Tabs>
-
-This file will be necessary to recreate all the ressources of your cluster.
-
-### Delete the resources
-
-These command should run only the active central node:
-
-<Tabs groupId="sync">
-<TabItem value="HA 2 Nodes" label="HA 2 Nodes">
-
-```bash
-pcs resource delete ms_mysql --force
-pcs resource delete cbd_rrd --force
-pcs resource delete php --force
-pcs resource delete centreon --force
-```
-
-</TabItem>
-<TabItem value="HA 4 Nodes" label="HA 4 Nodes">
-
-```bash
-pcs resource delete ms_mysql --force
-pcs resource delete vip_mysql --force
-pcs resource delete cbd_rrd --force
-pcs resource delete php --force
-pcs resource delete centreon --force
-```
-
-</TabItem>
-</Tabs>
-
-### Restart Centreon process
-
-Then to restart all the processes on the **active central node**:
-
-```bash
-systemctl restart cbd-sql cbd gorgoned centengine centreontrapd
-```
-
-And on the **passive central node**:
-
-```bash
-systemctl restart cbd
-```
 
 ### Clean broker memory files
 
@@ -182,122 +230,9 @@ systemctl restart cbd
 Before resuming the cluster resources management, to avoid broker issues, cleanup all the *.memory.*, *.unprocessed.* or *.queue.* files:
 
 ```bash
-rm -rf /var/lib/centreon-broker/central-broker-master.memory*
-rm -rf /var/lib/centreon-broker/central-broker-master.queue*
-rm -rf /var/lib/centreon-broker/central-broker-master.unprocessed*
-```
-
-### Recreate the cluster resources
-
-To be run **only on one central node**:
-
-> **WARNING:** the syntax of the following command depends on the Linux distribution you are using.
-
-> You can find the @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ @MARIADB_REPL_USER@ @MARIADB_REPL_USER@ variables in `/etc/centreon-ha/mysql-resources.sh`
-
-<Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
-
-```bash
-pcs resource create "ms_mysql" \
-    ocf:heartbeat:mariadb-centreon \
-    config="/etc/my.cnf.d/server.cnf" \
-    pid="/var/lib/mysql/mysql.pid" \
-    datadir="/var/lib/mysql" \
-    socket="/var/lib/mysql/mysql.sock" \
-    binary="/usr/bin/mysqld_safe" \
-    node_list="@CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@" \
-    replication_user="@MARIADB_REPL_USER@" \
-    replication_passwd='@MARIADB_REPL_PASSWD@' \
-    test_user="@MARIADB_REPL_USER@" \
-    test_passwd="@MARIADB_REPL_PASSWD@" \
-    test_table='centreon.host'
-```
-
-</TabItem>
-</Tabs>
-
-> **WARNING:** the syntax of the following command depends on the Linux distribution you are using.
-
-<Tabs groupId="sync">
-<TabItem value="HA 2 Nodes" label="HA 2 Nodes">
-<Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
-
-```bash
-pcs resource promotable ms_mysql \
-    master-node-max="1" \
-    clone_max="2" \
-    globally-unique="false" \
-    clone-node-max="1" \
-    notify="true"
-```
-
-</TabItem>
-</Tabs>
-</TabItem>
-<TabItem value="HA 4 Nodes" label="HA 4 Nodes">
-<Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
-
-```bash
-pcs resource promotable ms_mysql \
-    master-node-max="1" \
-    clone_max="2" \
-    globally-unique="false" \
-    clone-node-max="1" \
-    notify="true"
-```
-
-VIP Address of databases servers
-
-```bash
-pcs resource create vip_mysql \
-    ocf:heartbeat:IPaddr2 \
-    ip="@VIP_SQL_IPADDR@" \
-    nic="@VIP_SQL_IFNAME@" \
-    cidr_netmask="@VIP_SQL_CIDR_NETMASK@" \
-    broadcast="@VIP_SQL_BROADCAST_IPADDR@" \
-    flush_routes="true" \
-    meta target-role="stopped" \
-    op start interval="0s" timeout="20s" \
-    stop interval="0s" timeout="20s" \
-    monitor interval="10s" timeout="20s"
-```
-
-</TabItem>
-</Tabs>
-</TabItem>
-</Tabs>
-
-#### PHP resource
-
-```bash
-pcs resource create "php" \
-    systemd:php-fpm \
-    meta target-role="started" \
-    op start interval="0s" timeout="30s" \
-    stop interval="0s" timeout="30s" \
-    monitor interval="5s" timeout="30s" \
-    clone
-```
-
-#### RRD broker resource
-
-```bash
-pcs resource create "cbd_rrd" \
-    systemd:cbd \
-    meta target-role="started" \
-    op start interval="0s" timeout="90s" \
-    stop interval="0s" timeout="90s" \
-    monitor interval="20s" timeout="30s" \
-    clone
-```
-
-#### Recreating the *centreon* resource group
-
-```bash
-bash centreon_pcs_command.sh
+rm -f /var/lib/centreon-broker/central-broker-master.memory*
+rm -f /var/lib/centreon-broker/central-broker-master.queue*
+rm -f /var/lib/centreon-broker/central-broker-master.unprocessed*
 ```
 
 #### Recreating the constraint
@@ -305,7 +240,93 @@ bash centreon_pcs_command.sh
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
+
+First extract all contraint IDs:
+
+```bash
+pcs constraint config --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.$//'
+```
+
+You should have a similar result:
+
+```text
+order-centreon-ms_mysql-clone-mandatory
+colocation-ms_mysql-clone-centreon-INFINITY
+colocation-centreon-ms_mysql-clone-INFINITY
+```
+
+and delete **all** constraints, **adapt IDs with your own**
+
+```bash
+pcs constraint delete order-centreon-ms_mysql-clone-mandatory
+pcs constraint delete colocation-ms_mysql-clone-centreon-INFINITY
+pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
+```
+
+Verify if all constraint are well deleted:
+
+```bash
+pcs constraint
+```
+
+You should have a result like this:
+
+```text
+Location Constraints:
+Ordering Constraints:
+Colocation Constraints:
+Ticket Constraints:
+```
+
+If it's OK, then recreate only needed constraints
+
+```bash
+pcs constraint colocation add master "ms_mysql-clone" with "centreon"
+pcs constraint colocation add master "centreon" with "ms_mysql-clone"
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+First extract all contraint IDs:
+
+```bash
+pcs constraint show --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.$//'
+```
+
+You should have a result like this:
+
+```text
+order-centreon-ms_mysql-clone-mandatory
+colocation-ms_mysql-clone-centreon-INFINITY
+colocation-centreon-ms_mysql-clone-INFINITY
+```
+
+and delete **all** constraints, **adapt ids with your own**
+
+```bash
+pcs constraint delete order-centreon-ms_mysql-clone-mandatory
+pcs constraint delete colocation-ms_mysql-clone-centreon-INFINITY
+pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
+```
+
+Verify if all constraint are well deleted:
+
+```bash
+pcs constraint
+```
+
+You should have a result like this:
+
+```text
+Location Constraints:
+Ordering Constraints:
+Colocation Constraints:
+Ticket Constraints:
+```
+
+If it's OK, then recreate only needed constraints
 
 ```bash
 pcs constraint colocation add master "ms_mysql-clone" with "centreon"
@@ -316,11 +337,113 @@ pcs constraint colocation add master "centreon" with "ms_mysql-clone"
 </Tabs>
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
+<Tabs groupId="sync">
+<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
+
+First extract all contraint IDs:
+
+```bash
+pcs constraint config --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.$//'
+```
+
+You should have a similar result depending of your host names:
+
+```text
+location-cbd_rrd-clone-cc-ha-bdd1-2210-alma8--INFINITY
+location-cbd_rrd-clone-cc-ha-bdd2-2210-alma8--INFINITY
+location-centreon-cc-ha-bdd1-2210-alma8--INFINITY
+location-centreon-cc-ha-bdd2-2210-alma8--INFINITY
+location-ms_mysql-clone-cc-ha-web1-2210-alma8--INFINITY
+location-ms_mysql-clone-cc-ha-web2-2210-alma8--INFINITY
+location-php-clone-cc-ha-bdd1-2210-alma8--INFINITY
+location-php-clone-cc-ha-bdd2-2210-alma8--INFINITY
+order-centreon-ms_mysql-clone-mandatory
+colocation-ms_mysql-clone-vip_mysql-INFINITY
+colocation-centreon-vip-INFINITY
+```
+
+and delete **all** constraints, **adapt IDs with your own**
+
+```bash
+pcs constraint delete location-cbd_rrd-clone-cc-ha-bdd1-2210-alma8--INFINITY
+pcs constraint delete location-cbd_rrd-clone-cc-ha-bdd2-2210-alma8--INFINITY
+pcs constraint delete location-centreon-cc-ha-bdd1-2210-alma8--INFINITY
+...
+```
+
+Verify if all constraint are well deleted:
+
+```bash
+pcs constraint
+```
+
+You should have a result like this:
+
+```text
+Location Constraints:
+Ordering Constraints:
+Colocation Constraints:
+Ticket Constraints:
+```
+
+If it's OK, then recreate only needed constraints.
 
 In order to glue the Primary Database role with the Virtual IP, define a mutual Constraint:
 
-<Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+```bash
+pcs constraint colocation add "vip_mysql" with master "ms_mysql-clone"
+pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
+
+First extract all contraint id:
+
+```bash
+pcs constraint show --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.$//'
+```
+
+You should have a similar result depending of your host names:
+
+```text
+location-cbd_rrd-clone-deb11-bdd1--INFINITY
+location-cbd_rrd-clone-deb11-bdd2--INFINITY
+location-centreon-deb11-bdd1--INFINITY
+location-centreon-deb11-bdd2--INFINITY
+location-ms_mysql-clone-deb11-central1--INFINITY
+location-ms_mysql-clone-deb11-central2--INFINITY
+location-php-clone-deb11-bdd1--INFINITY
+location-php-clone-deb11-bdd2--INFINITY
+colocation-vip_mysql-ms_mysql-clone-INFINITY-1
+colocation-ms_mysql-clone-vip_mysql-INFINITY
+```
+
+and delete **all** constraints, **adapt ids with your own**
+
+```bash
+pcs constraint delete location-cbd_rrd-clone-deb11-bdd1--INFINITY
+pcs constraint delete location-cbd_rrd-clone-deb11-bdd2--INFINITY
+pcs constraint delete location-centreon-deb11-bdd1--INFINITY
+...
+```
+
+Verify if all constraint are well deleted:
+
+```bash
+pcs constraint
+```
+
+You should have a result like this:
+
+```text
+Location Constraints:
+Ordering Constraints:
+Colocation Constraints:
+Ticket Constraints:
+```
+
+If it's OK, then recreate only needed constraints
 
 ```bash
 pcs constraint colocation add "vip_mysql" with master "ms_mysql-clone"
@@ -330,10 +453,20 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 </TabItem>
 </Tabs>
 
-Then recreate the Constraint that prevent Centreon Processes to run on Database nodes and vice-et-versa:
+Then recreate the Constraint that prevent Centreon Processes to run on Database nodes and vice versa:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
+<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
+
+```bash
+pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location ms_mysql-clone avoids @CENTRAL_MASTER_NAME@=INFINITY @CENTRAL_SLAVE_NAME@=INFINITY
+pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+```
+
+</TabItem>
+<TabItem value="Debian 11" label="Debian 11">
 
 ```bash
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
@@ -431,32 +564,6 @@ vip_mysql       (ocf::heartbeat:IPaddr2):       Started @DATABASE_MASTER_NAME@
 
 </TabItem>
 </Tabs>
-
-### Disabled resources
-
-When you do a `crm_mon -fr` and you have a resource that is disable :
-
-```text
-...
- Master/Slave Set: ms_mysql-master [ms_mysql]
-     Masters: [ @DATABASE_MASTER_NAME@ ]
-     Slaves: [ @DATABASE_SLAVE_NAME@ ]
-     Stopped: [ @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ ]
-vip_mysql       (ocf::heartbeat:IPaddr2):       Stopped (disabled)
-...
-```
-
-You must enable the resource with the following command :
-
-```bash
-pcs resource enable @RESSOURCE_NAME@
-```
-
-In our case :
-
-```bash
-pcs resource enable vip_mysql
-```
 
 ## Verifying the platform stability
 

@@ -11,11 +11,17 @@ Lorsqu'une ressource est acquittée, les [notifications](#notification) sont sus
 
 Acquitter une ressource ne signifie pas que l'incident est résolu : il le sera lorsque la ressource sera revenue dans son état nominal (**OK** ou **DISPONIBLE**).
 
-**Voir aussi** : [Acquitter un problème](../alerts-notifications/acknowledge.md).
+**Voir aussi** : [Acquitter une alerte](../alerts-notifications/acknowledge.md).
 
 ## Action de supervision
 
 Toute action exécutée depuis l’interface permettant d’agir sur votre supervision en temps réel. Par exemple, [faire un acquittement](#acquittement), planifier une [plage de maintenance](#plage-de-maintenance), forcer un contrôle, etc. 
+
+## Alerte
+
+Une alerte correspond à l'un des statuts suivants : **Alerte**, **Indisponible**, **Critique**, **Inconnu**.
+
+Le terme d'alerte est utilisé de cette façon dans les [filtres prédéfinis](../alerts-notifications/resources-status.md#filtres-prédéfinis) à la page **Statut des ressources**.
 
 ## Collecteur
 
@@ -27,6 +33,17 @@ Un collecteur est un serveur de supervision installé dans votre infrastructure,
 
 On appelle aussi “collecteur” le moteur de supervision présent dans un serveur central ou un collecteur.
 
+## Connecteur de supervision
+
+L'expression "connecteur de supervision" désigne un [plugin](#plugin) et son pack :
+
+Le pack contient la configuration associée au plugin dans Centreon (commandes, [modèles](#modèle), seuils) ainsi que des éléments nécessaires à la mise en œuvre de la découverte automatique.
+
+**Voir aussi** :
+
+- [Utiliser des connecteurs de supervision](../monitoring/pluginpacks.md),
+- [Introduction aux connecteurs de supervision](/pp/integrations/plugin-packs/getting-started/introduction).
+
 ## Donnée de performance
 
 Voir [**Métrique**](#métrique).
@@ -35,7 +52,7 @@ Voir [**Métrique**](#métrique).
 
 Voir [**Moteur de supervision**](#moteur-de-supervision).
 
-## État du problème
+## État de l'alerte
 
 Non traité, acquitté, en maintenance.
 
@@ -69,6 +86,14 @@ Lorsqu’un service comprend plusieurs métriques, le statut du service est celu
 
 Vous pouvez voir les métriques associées à un service dans le panneau de détails de celui-ci.
 
+**Voir aussi** : [Comprendre les métriques](../monitoring/metrics.md).
+
+## Mode
+
+Les modes sont utilisés par les [plugins](#plugin). Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
+
+La documentation des connecteurs de supervision fournit une liste des modes disponibles pour chaque connecteur, avec les options correspondantes.
+
 ## Modèle
 
 Squelette préconfiguré d’une [ressource](#ressource) qui permet que les paramètres définis sur le squelette soient appliqués sur la ressource qui en hérite automatiquement.
@@ -87,7 +112,7 @@ Il est présent sur les [collecteurs](#collecteur) et le [serveur central](#serv
 
 ## Notification
 
-Message avertissant l’utilisateur d’un incident. Il est possible de paramétrer des notifications sur différents [statuts](#statut).
+Message avertissant l’utilisateur d’un incident.
 
 ## Ordonnanceur
 
@@ -108,17 +133,6 @@ Les temps d'arrêts récurrents sont des temps d'arrêts qui reviennent de mani�
 ## Plugin
 
 Est appelé "plugin" une sonde de supervision, c'est-à-dire un binaire exécutable ou un script qui est appelé par le [moteur de supervision](#moteur-de-supervision) pour effectuer un contrôle sur un [hôte](#hôte) ou un [service](#service). Le plugin va déterminer le statut à renvoyer au moteur de supervision à partir des vérifications qu'il fait et des seuils qui ont été définis dans la configuration de l'hôte ou du service.
-
-## Plugin Pack
-
-L'expression "Plugin pack" désigne un [plugin](#plugin) et son pack :
-
-Le pack contient la configuration associée au plugin dans Centreon (commandes, [modèles](#modèle), seuils) ainsi que des éléments nécessaires à la mise en œuvre de la découverte automatique.
-
-**Voir aussi** :
-
-- [Utiliser des Plugin Packs](../monitoring/pluginpacks.md),
-- [Introduction aux Plugin Packs](/pp/integrations/plugin-packs/getting-started/introduction).
 
 ## Ressource
 

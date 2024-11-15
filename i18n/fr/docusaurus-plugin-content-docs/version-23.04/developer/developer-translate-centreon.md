@@ -43,11 +43,7 @@ Vous pouvez maintenant commencer la traduction de Centreon en modifiant les fich
 
 ## Utiliser votre traduction
 
-Sur votre serveur Centreon, installez gettext :
-
-```shell
-sudo dnf install gettext
-```
+Sur votre serveur Centreon, installez gettext.
 
 Créez le répertoire **locale** pour votre Centreon :
 

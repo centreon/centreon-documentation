@@ -51,6 +51,8 @@ vulnerability and build an action plan with timelines depending on the computed 
 Centreon will provide feedback to the reporter of the vulnerability and work with them to mitigate
 the vulnerability.
 
+Subscribe to the [Security Bulletins thread](https://thewatch.centreon.com/latest-security-bulletins-64) on our community platform The Watch to keep up with the latest vulnerability fixes.
+
 ### Vulnerability scoring
 
 Centreon uses version 3.1 of the Common Vulnerability Scoring System (CVSS) as part of its standard
@@ -76,8 +78,8 @@ If you believe you have found a security vulnerability, please report it to us a
 
 Please do not report security vulnerabilities through public GitHub issues.
 
-Send an email to [security@centreon.com](mailto:security@centreon.com). If possible, encrypt your message with the [provided PGP
-key](https://github.com/centreon/centreon/security/policy#pgp-information).
+Open source users can send an email to [security@centreon.com](mailto:security@centreon.com). If possible, encrypt your message with the [provided PGP
+key](https://github.com/centreon/centreon/security/policy#pgp-information). Commercial edition customers, please report vulnerabilities through the [support portal](https://support.centreon.com).
 
 You should receive a response within 48 hours. If for some reason you do not, please follow up via
 email to ensure we received your original message.
