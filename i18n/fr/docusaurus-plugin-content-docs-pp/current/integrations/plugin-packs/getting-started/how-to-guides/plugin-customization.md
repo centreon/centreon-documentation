@@ -5,7 +5,7 @@ title: Personnaliser le comportement d'un plugin
 
 Les connecteurs de supervision sont fournis avec une configuration par défaut. Cependant, vous pouvez personnaliser leur comportement (plus précisément, le comportement du plugin, qui exécute la commande de contrôle). Voici quelques exemples avec le connecteur de supervision [**HTTP Server**](../../procedures/applications-protocol-http.md), qui permet de tester la connexion à un site web.
 
-> Lorsque vous testez un plugin, faites-le avec l'utilisateur **centreon-engine**. En effet, en conditions réelles le plugin est exécuté par cet utilisateur.
+> Lorsque vous testez un plugin en ligne de commande, faites-le avec l'utilisateur **centreon-engine**. En effet, en conditions réelles le plugin est exécuté par cet utilisateur.
 
 **Voir aussi :**
 
@@ -164,6 +164,8 @@ Cette fois-ci, prenons l'exemple d'un serveur Centreon supervisé par un collect
 
 Pour que le service passe en CRITIQUE lorsque le nombre de workers est supérieur à 5, nous utilisons l'option **--critical='5'** :
 
+Commande :
+
 ```shell
 /usr/lib/centreon/plugins//centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=processcount --hostname=127.0.0.1 --snmp-version='2c' --snmp-community='public'  --process-name='php-fpm' --process-path='' --process-args='' --regexp-name --regexp-path --regexp-args --warning='' --critical='5'
 ```
@@ -175,6 +177,8 @@ CRITICAL: Number of current processes running: 11 | 'nbproc'=11;;0:5;0;
 ```
 
 Il est également possible d'utiliser **--critical='0:5'**. (Les deux syntaxes ont la même signification.)
+
+Commande :
 
 ```shell
 /usr/lib/centreon/plugins//centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=processcount --hostname=127.0.0.1 --snmp-version='2c' --snmp-community='public'  --process-name='php-fpm' --process-path='' --process-args='' --regexp-name --regexp-path --regexp-args --warning='' --critical='0:5'
@@ -190,6 +194,8 @@ CRITICAL: Number of current processes running: 11 | 'nbproc'=11;;0:5;0;
 
 Il est également possible de passer le service en CRITIQUE lorsque le nombre retourné est moins élevé qu'une certaine valeur. On utilisera la syntaxe suivante : **--critical='5:'**.
 
+Commande :
+
 ```shell
 /usr/lib/centreon/plugins//centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=processcount --hostname=127.0.0.1 --snmp-version='2c' --snmp-community='public'  --process-name='php-fpm' --process-path='' --process-args='' --regexp-name --regexp-path --regexp-args --warning='' --critical='5:'
 ```
@@ -204,6 +210,8 @@ CRITICAL: Number of current processes running: 4 | 'nbproc'=4;;5:;0;
 
 Dans l'exemple suivant, le service passe en statut CRITIQUE quand la métrique est comprise dans une plage de valeurs (entre 0 et 5) :
 
+Commande :
+
 ```shell
 /usr/lib/centreon/plugins//centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=processcount --hostname=127.0.0.1 --snmp-version='2c' --snmp-community='public'  --process-name='php-fpm' --process-path='' --process-args='' --regexp-name --regexp-path --regexp-args --warning='' --critical='@0:5'
 ```
@@ -215,6 +223,8 @@ CRITICAL: Number of current processes running: 4 | 'nbproc'=4;;@0:5;0;
 ```
 
 Et dans celui-ci, le service passe en CRITIQUE lorsque la métrique est en-dehors d'une plage de valeurs :
+
+Commande :
 
 ```shell
 /usr/lib/centreon/plugins//centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=processcount --hostname=127.0.0.1 --snmp-version='2c' --snmp-community='public'  --process-name='php-fpm' --process-path='' --process-args='' --regexp-name --regexp-path --regexp-args --warning='' --critical='5:15'
