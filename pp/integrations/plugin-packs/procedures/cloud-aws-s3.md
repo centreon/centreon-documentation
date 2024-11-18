@@ -52,21 +52,21 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="S3-Bucket-Size" label="S3-Bucket-Size">
 
-| Metric                                                            | Unit |
-|:-------------------------------------------------|:------|
-| *bucketsizebytes*_*storage-type*_*statistic* | B      |
+| Metric                                       | Unit |
+|:---------------------------------------------|:-----|
+| *bucketsizebytes*_*storage-type*_*statistic* | B    |
 
 </TabItem>
 <TabItem value="S3-Objects" label="S3-Objects">
 
-| Metric                                               | Unit |
+| Metric                                 | Unit  |
 |:---------------------------------------|:------|
 | *numberofobjects*_*metric*_*statistic* | count |
 
 </TabItem>
 <TabItem value="S3-Requests" label="S3-Requests">
 
-| Metric                  | Unit |
+| Metric             | Unit  |
 |:-------------------|:------|
 | allrequests_sum    | count |
 | getrequests_sum    | count |
