@@ -61,7 +61,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 | Metric                                 | Unit  |
 |:---------------------------------------|:------|
-| *numberofobjects*\ _*metric*\_*statistic* | count |
+| *numberofobjects*\_*metric*\_*statistic* | count |
 
 </TabItem>
 <TabItem value="S3-Requests" label="S3-Requests">
