@@ -55,14 +55,14 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 | Métrique                                     | Unité |
 |:---------------------------------------------|:------|
-| *bucketsizebytes*_*storage-type*_*statistic* | B     |
+| *bucketsizebytes*\_*storage-type*\_*statistic* | B     |
 
 </TabItem>
 <TabItem value="S3-Objects" label="S3-Objects">
 
 | Métrique                               | Unité |
 |:---------------------------------------|:------|
-| *numberofobjects*_*metric*_*statistic* | count |
+| *numberofobjects*\_*metric*\_*statistic* | count |
 
 </TabItem>
 <TabItem value="S3-Requests" label="S3-Requests">
