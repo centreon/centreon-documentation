@@ -124,7 +124,7 @@ Check Engine's log file according to the method you have selected when deploying
 1. Open the log file:
 
 ```shell
-vi /var/log/centreon-engine/centengine.log
+tail -f /var/log/centreon-engine/centengine.log
 ```
 
 2. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) from the interface using either the **reload** or **restart** method.

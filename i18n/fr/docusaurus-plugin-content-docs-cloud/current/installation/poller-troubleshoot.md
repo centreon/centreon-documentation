@@ -125,7 +125,7 @@ Vérifiez le fichier de log d'Engine suivant la méthode sélectionnée lors du 
 1. Ouvrez le fichier de log :
 
 ```shell
-vi /var/log/centreon-engine/centengine.log
+tail -f /var/log/centreon-engine/centengine.log
 ```
 
 2. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) depuis l'interface en utilisant soit la méthode **Recharger** soit la méthode **Redémarrer**.
@@ -258,8 +258,8 @@ Si toutes ces étapes de dépannage ont échoué, contactez [notre équipe suppo
 
 ## Fichiers de log du collecteur
 
-| Use to debug what? | Process | File | Symptoms |
+| Utiliser pour débugguer quoi? | Process | Fichier | Symptômes |
 |--------------------|---------|------|----------|
-| Installation of the poller |   | {scriptdir}/logs/register-poller.log | |
-| Centreon Engine | centengine | /var/log/centreon-engine/centengine.log | <ul><li>Checks are not performed</li><li>Objects that have been deleted are still monitored</li></ul> |
-| Gorgone | gorgoned | /var/log/centreon-gorgone/gorgoned.log | Actions are not triggered: acknowledgements, downtimes, force checks, autodiscovery |
+| Installation du collecteur |   | {scriptdir}/logs/register-poller.log | |
+| Centreon Engine | centengine | /var/log/centreon-engine/centengine.log | <ul><li>Les contrôles ne sont pas effectués</li><li>Les objets supprimés sont toujours supervisés</li></ul> |
+| Gorgone | gorgoned | /var/log/centreon-gorgone/gorgoned.log | Les actions ne se déclenchent pas : aquittements, plages de maintenance, contrôles forcés, autodiscovery |
