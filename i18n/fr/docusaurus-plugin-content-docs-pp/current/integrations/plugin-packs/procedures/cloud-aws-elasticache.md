@@ -549,8 +549,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: | 
-
+OK: Cluster 'Cluster A' average CPUUtilization: 27.00 % | 'cpuutilization_average'=27.00%;0:80;0:90;0;100
+Cluster 'Cluster A' average CPUUtilization: 27.00 %
 ```
 
 ### Diagnostic des erreurs communes

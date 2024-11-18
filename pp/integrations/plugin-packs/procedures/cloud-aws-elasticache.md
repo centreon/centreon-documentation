@@ -548,8 +548,8 @@ is able to monitor an AWS Instance using a command like this one (replace the sa
 The expected command output is shown below:
 
 ```bash
-OK: | 
-
+OK: Cluster 'Cluster A' average CPUUtilization: 27.00 % | 'cpuutilization_average'=27.00%;0:80;0:90;0;100
+Cluster 'Cluster A' average CPUUtilization: 27.00 %
 ```
 
 ### Troubleshooting
