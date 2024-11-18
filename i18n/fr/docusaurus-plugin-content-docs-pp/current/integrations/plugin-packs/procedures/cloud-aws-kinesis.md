@@ -301,7 +301,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Incoming Bytes Incoming Records Outgoing Bytes Outgoing Records | 'kinesis.stream.incoming.volume.bytes'=49930;;;; 'kinesis.stream.incoming.records.count'=9528;;;; 'kinesis.stream.outgoing.volume.bytes'=57611;;;; 'kinesis.stream.outgoing.records.count'=45651;;;; 
+OK: Incoming 49930 Bytes Incoming 9528 Records Outgoing 57611 Bytes Outgoing 45651 Records | 'kinesis.stream.incoming.volume.bytes'=49930;;;; 'kinesis.stream.incoming.records.count'=9528;;;; 'kinesis.stream.outgoing.volume.bytes'=57611;;;; 'kinesis.stream.outgoing.records.count'=45651;;;; 
 ```
 
 ### Diagnostic des erreurs communes

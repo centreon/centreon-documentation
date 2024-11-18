@@ -300,7 +300,7 @@ is able to monitor an AWS Instance using a command like this one (replace the sa
 The expected command output is shown below:
 
 ```bash
-OK: Incoming Bytes Incoming Records Outgoing Bytes Outgoing Records | 'kinesis.stream.incoming.volume.bytes'=49930;;;; 'kinesis.stream.incoming.records.count'=9528;;;; 'kinesis.stream.outgoing.volume.bytes'=57611;;;; 'kinesis.stream.outgoing.records.count'=45651;;;; 
+OK: Incoming 49930 Bytes Incoming 9528 Records Outgoing 57611 Bytes Outgoing 45651 Records | 'kinesis.stream.incoming.volume.bytes'=49930;;;; 'kinesis.stream.incoming.records.count'=9528;;;; 'kinesis.stream.outgoing.volume.bytes'=57611;;;; 'kinesis.stream.outgoing.records.count'=45651;;;;  
 ```
 
 ### Troubleshooting
