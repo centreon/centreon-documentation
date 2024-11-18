@@ -37,10 +37,10 @@ Allez à la page **Administration > Authentification> Politique de sécurité de
 
 ### Politique d'expiration du mot de passe
 
-Configurez les conditions dans lesquelles les mots de passe expireront :
+Configurez les conditions dans lesquelles les mots de passe expireront. Pour des raisons de sécurité, cette fonctionnalité ne peut être désactivée à l'exception des cas décrits ci-dessous.
 
 - **Le mot de passe expire après** : Une fois le mot de passe expiré, l'utilisateur sera redirigé vers une
-  [page dédiée](../getting-started/interface.md#réinitialisez-votre-mot-de-passe-après-expiration) pour mettre à jour son mot de passe.
+  [page dédiée](../getting-started/interface.md#réinitialisez-votre-mot-de-passe-après-expiration) pour mettre à jour son mot de passe. La configuration ne peut pas être sauvegardée avec une durée inférieure à 7 jours.
 - **Durée minimum entre chaque changement de mot de passe** : Lorsqu'un mot de passe vient d'être changé, combien de temps doit s'écouler avant qu'il puisse être changé à nouveau.
 - Activez ou non l'option **Les 3 derniers mot de passe peuvent être réutilisés**.
 - **Excluded users** : Sélectionnez des comptes utilisateur pour lesquels la politique d'expiration de mot de passe ne s'appliquera pas (par exemple, le compte **admin**, ou les comptes accédant aux API). Les mots de passe de ces comptes n'expireront jamais.
