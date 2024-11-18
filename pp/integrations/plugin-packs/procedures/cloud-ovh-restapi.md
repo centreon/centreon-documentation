@@ -1,6 +1,6 @@
 ---
 id: cloud-ovh-restapi
-title: OVH
+title: OVH Rest API
 ---
 
 ## Prerequisites

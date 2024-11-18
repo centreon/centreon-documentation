@@ -1,6 +1,6 @@
 ---
 id: cloud-cloudfoundry-api
-title: Cloud Foundry
+title: Cloud Foundry API
 ---
 
 ## Prerequisites

@@ -1,6 +1,6 @@
 ---
 id: cloud-prometheus-cadvisor-api
-title: cAdvisor
+title: cAdvisor w/ Prometheus API
 ---
 
 ## Prerequisites

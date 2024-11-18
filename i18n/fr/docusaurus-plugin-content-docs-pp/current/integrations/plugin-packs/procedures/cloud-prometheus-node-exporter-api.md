@@ -1,6 +1,6 @@
 ---
 id: cloud-prometheus-node-exporter-api
-title: Node Exporter
+title: Node Exporter w/ Prometheus API
 ---
 
 ## Prerequisites

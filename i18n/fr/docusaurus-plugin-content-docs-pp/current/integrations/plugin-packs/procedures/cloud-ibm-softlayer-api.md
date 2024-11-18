@@ -1,6 +1,6 @@
 ---
 id: cloud-ibm-softlayer-api
-title: IBM Softlayer
+title: IBM Softlayer API
 ---
 
 ## Prerequisites
