@@ -36,7 +36,7 @@ Go to **Administration > Authentication> Password Security Policy**:
 
 ### Password expiration policy
 
-Configure when passwords will expire:
+Configure when passwords will expire. For security reasons, this feature can not be disabled except for specific cases described below. Attempting to set the password to expire after 0 Months and 0 days will result in an error message.
 
 - **Password expires after**: Once the password expires, the user will be redirected to a
   [dedicated page](../getting-started/interface.md#reset-your-password-when-expired) to update their password.
