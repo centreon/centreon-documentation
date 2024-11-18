@@ -9,9 +9,9 @@ Les connecteurs de supervision sont fournis avec une configuration par défaut. 
 
 **Voir aussi :**
 
-* la page [Comprendre les métriques](/docs/monitoring/metrics).
-* sur notre plateforme communautaire The Watch : [How to use thresholds](https://thewatch.centreon.com/product-how-to-21/how-to-use-the-thresholds-694).
-* [un guide sur GitHub](https://github.com/centreon/centreon-plugins/blob/develop/doc/en/user/guide.rst#how-can-i-remove-perfdatas-).
+* La page [Comprendre les métriques](/docs/monitoring/metrics).
+* Sur notre plateforme communautaire The Watch : [How to use thresholds](https://thewatch.centreon.com/product-how-to-21/how-to-use-the-thresholds-694).
+* [Des exemples sur GitHub](https://github.com/centreon/centreon-plugins/blob/develop/doc/en/user/guide.rst#how-can-i-remove-perfdatas-).
 
 ## Configuration avec les options par défaut
 

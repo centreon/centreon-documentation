@@ -3,7 +3,7 @@ id: plugin-customization
 title: Customizing plugin behavior
 ---
 
-Monitoring connectors are provided with a default configuration. However, you can customize their behavior (specifically, the behavior of th eplgin, that rus the check command). Here are a few examples using mostly the [**HTTP Server**](../../procedures/applications-protocol-http.md) monitoring connector, that allows you to test the connection to a website.
+Monitoring connectors are provided with a default configuration. However, you can customize their behavior (specifically, the behavior of the plugin, that runs the check command). Here are a few examples using the [**HTTP Server**](../../procedures/applications-protocol-http.md) monitoring connector, that allows you to test the connection to a website.
 
 > When you want to test a plugin using the CLI, do it as user **centreon-engine**. This is because in real-life conditions, the plugin is executed by this user.
 
@@ -11,16 +11,16 @@ Monitoring connectors are provided with a default configuration. However, you ca
 
 * The [Understanding metrics](/docs/monitoring/metrics) page.
 * On our community platform The Watch : [How to use thresholds](https://thewatch.centreon.com/product-how-to-21/how-to-use-the-thresholds-694).
-* [On GitHub](https://github.com/centreon/centreon-plugins/blob/develop/doc/en/user/guide.rst#how-can-i-remove-perfdatas-).
+* [Some examples on GitHub](https://github.com/centreon/centreon-plugins/blob/develop/doc/en/user/guide.rst#how-can-i-remove-perfdatas-).
 
 ## Configuration with the default options
 
 1. Check that the [**HTTP Server**](../../procedures/applications-protocol-http.md) monitoring connector is installed and that the plugin and the pack are both [up to date](/docs/monitoring/pluginpacks#updating-monitoring-connectors).
-2. [Create a host](/docs/monitoring/basic-objects/hosts) (for instance, `www.centreon.com`) and apply the **App-Protocol-HTTP-custom** host template.
+2. [Create a host](/docs/monitoring/basic-objects/hosts) (for instance, `www.centreon.com`) and apply the **App-Protocol-HTTP-custom** host template to it.
 3. Check that the option **Create Services linked to the Template too** is selected.
 4. Click **Save**.
-5. [Deploy the configuration](docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in th elist of hosts, and in the **Resource status** page.
-6. On the **Resource status** page, filter on the host's name (in our example, type `h.name:www.centreon.com` in the search bar). You can see that a service called **HTTP-Response-Time** has been created.
+5. [Deploy the configuration](docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and in the **Resource status** page.
+6. In the **Resource status** page, filter on the host's name (in our example, type `h.name:www.centreon.com` in the search bar). You can see that a service called **HTTP-Response-Time** has been created.
 7. Click on this service: in the details panel, several tiles give us interesting information:
    - **Performance data**: the service has 2 metrics, **time** (the time that the HTML page takes to answer) and **size** (the size of the obtained page). Example: `'time'=0.035s;;;0; 'size'=915B;;;0;`.
    - **Command**: the exact command executed by the plugin, with the default configuration. A button lets you copy it to your clipboard so that you can use it easily in your terminal. Example:
@@ -70,7 +70,7 @@ We check that the page the plugin obtains is the expected one, and not an error 
 
 In the **EXTRAOPTIONS** macro, enter the following value: **--mode expected-content --expected-string='Best-in-Class Hybrid IT Monitoring for Enterprise'**.
 
-The commande becomes:
+The command becomes:
 
 ```shell
 /usr/lib/centreon/plugins/centreon_protocol_http.pl --plugin apps::protocols::http::plugin --mode expected-content --hostname www.centreon.com --expected-string='Best-in-Class Hybrid IT Monitoring for Enterprise'
@@ -115,7 +115,7 @@ Expected content found | 'size'=158714B;;;0; 'time'=0.262s;;;0;
 
 ### Collect only one metric
 
-For the **HTTP-response-Time** service, let's say we are only interested in the **time** metric. So there's no need to collect the **size** metric, which will use storage space for nothing. We can use the **--filter perfdata** option ir the **--filter-perfdata-adv** option in the **EXTRAOPTIONS** macro of the service.
+For the **HTTP-response-Time** service, let's say we are only interested in the **time** metric. So there's no need to collect the **size** metric, which will use storage space for nothing. We can use the **--filter perfdata** option or the **--filter-perfdata-adv** option in the **EXTRAOPTIONS** macro of the service.
 
 Command:
 
@@ -152,7 +152,7 @@ Results:
 OK: HTTP test(s) | 'size'=158714B;;;0; 'response-time'=0.287s;;;0;
 ```
 
-If you want to delete the data you had collected until then for the unwanted **size** metric, go to the **Administration > Parameters > Data** page (Centreon OnPrem only). Search for your host/service then click the **HTTP-response-Time** service. Selecti the **size** metric, then click **Delete graphs**.
+If you want to delete the data you had collected until then for the unwanted **size** metric, go to the **Administration > Parameters > Data** page (Centreon OnPrem only). Search for your host/service then click the **HTTP-response-Time** service. Select the **size** metric, then click **Delete graphs**.
 
 ### Alert when a value is higher than a threshold
 
