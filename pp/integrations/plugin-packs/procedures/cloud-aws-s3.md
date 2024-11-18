@@ -52,17 +52,29 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="S3-Bucket-Size" label="S3-Bucket-Size">
 
-Coming soon
+| Metric                                                            | Unit |
+|:-------------------------------------------------|:------|
+| *bucketsizebytes*_*storage-type*_*statistic* | B      |
 
 </TabItem>
 <TabItem value="S3-Objects" label="S3-Objects">
 
-Coming soon
+| Metric                                               | Unit |
+|:---------------------------------------|:------|
+| *numberofobjects*_*metric*_*statistic* | count |
 
 </TabItem>
 <TabItem value="S3-Requests" label="S3-Requests">
 
-Coming soon
+| Metric                  | Unit |
+|:-------------------|:------|
+| allrequests_sum    | count |
+| getrequests_sum    | count |
+| putrequests_sum    | count |
+| deleterequests_sum | count |
+| headrequests_sum   | count |
+| postrequests_sum   | count |
+| listrequests_sum   | count |
 
 </TabItem>
 </Tabs>
@@ -311,7 +323,8 @@ is able to monitor an AWS Instance using a command like this one (replace the sa
 The expected command output is shown below:
 
 ```bash
-OK: All requests metrics are ok 
+OK: Bucket 'aws' sum AllRequests: 2504 requests, GetRequests: 1500 requests, PutRequests: 500 requests, DeleteRequests: 400 requests, HeadRequests: 80 requests, PostRequests: 20 requests, ListRequests: 4 requests | 'allrequests_sum'=2504requests;;;0; 'getrequests_sum'=1500requests;;;0; 'putrequests_sum'=500requests;;;0; 'deleterequests_sum'=400requests;;;0; 'headrequests_sum'=80requests;;;0; 'postrequests_sum'=20requests;;;0; 'listrequests_sum'=4requests;;;0;
+Bucket 'aws' sum AllRequests: 2504 requests, GetRequests: 1500 requests, PutRequests: 500 requests, DeleteRequests: 400 requests, HeadRequests: 80 requests, PostRequests: 20 requests, ListRequests: 4 requests
 ```
 
 ### Troubleshooting
