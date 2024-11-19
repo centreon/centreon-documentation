@@ -1,8 +1,9 @@
 // @ts-nocheck
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const { themes } = require('prism-react-renderer');
+const lightCodeTheme = themes.github;
+const darkCodeTheme = themes.dracula;
 
 const availableVersions = require('./versions.json');
 const archivedVersions = require('./archivedVersions.json');
@@ -224,6 +225,7 @@ const config = {
         darkTheme: darkCodeTheme,
         defaultLanguage: 'shell',
         additionalLanguages: [
+          'diff',
           'java',
           'json',
           'cpp',

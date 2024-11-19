@@ -191,9 +191,9 @@ Si vous voulez tester que les évènements sont envoyés correctement à Splunk 
 2. Exécutez la commande suivante :
 
    ```shell
-   curl -X POST -H "content-type: application/json" -H "authorization: Splunk <splunk_token>" '<http_server_url>' -d '{"sourcetype": "<splunk_sourcetype>","source": "<splunk_source>","index": "<splunk_index>","host": "<splunk_host>","time": <epoch_timestamp>,"event": {"event_type": "host","state": 1,"state_type": 1,"hostname":"my_host","ctime": 1675865364,"metric: pl": 0,"metric: rta": 10,"metric: rtmin": 5,"metric: rtmax": 15}}'
+   curl -X POST -H "content-type: application/json" -H "authorization: Splunk <splunk_token>" '\<http_server_url\>' -d '{"sourcetype": "\<splunk_sourcetype\>","source": "<splunk_source>","index": "<splunk_index>","host": "<splunk_host>","time": <epoch_timestamp>,"event": {"event_type": "host","state": 1,"state_type": 1,"hostname":"my_host","ctime": 1675865364,"metric: pl": 0,"metric: rta": 10,"metric: rtmin": 5,"metric: rtmax": 15}}'
    ```
 
-   > Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par la valeur correcte. Par exemple, *<splunk_sourcetype>* pourra être remplacé par *_json*.
+   > Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par la valeur correcte. Par exemple, *\<splunk_sourcetype\>* pourra être remplacé par *_json*.
 
 3. Vérifiez que l'évènement a bien été reçu par Splunk.

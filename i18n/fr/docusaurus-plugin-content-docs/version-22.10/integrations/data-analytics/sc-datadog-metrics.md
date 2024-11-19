@@ -232,7 +232,7 @@ Here is the list of all the curl commands that are used by the stream connector.
 ### Send events
 
 ```shell
-curl -X POST -H "content-type: application/json" -H "DD-API-KEY: <api_key>" '<http_server_url><datadog_metric_endpoint>' -d '{"host":"my_host","metric":"database.used.percent","points":[[1630590530,80]],"tags":["service:my_service","instance:my_instance","subinstance:sub_1","subinstance:sub_2"]}'
+curl -X POST -H "content-type: application/json" -H "DD-API-KEY: <api_key>" '\<http_server_url\><datadog_metric_endpoint>' -d '{"host":"my_host","metric":"database.used.percent","points":[[1630590530,80]],"tags":["service:my_service","instance:my_instance","subinstance:sub_1","subinstance:sub_2"]}'
 ```
 
-You must replace all the *`<xxxx>`* inside the above command with their appropriate value. *<http_server_url>* may become *https://api.datadoghq.com*.
+You must replace all the *`<xxxx>`* inside the above command with their appropriate value. *\<http_server_url\>* may become *https://api.datadoghq.com*.
