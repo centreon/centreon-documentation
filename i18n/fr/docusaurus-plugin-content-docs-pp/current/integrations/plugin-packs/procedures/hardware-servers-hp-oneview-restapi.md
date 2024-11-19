@@ -60,7 +60,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ## Prérequis
 
-Afin de contrôler l'équipement HP OneView, l'API Rest doit être configuré d'après la [documentation officielle](https://support.hpe.com/connect/s/product?language=fr&kmpmoid=5410258).
+Afin de superviser l'équipement HP OneView, l'API Rest doit être configurée d'après la [documentation officielle](https://support.hpe.com/connect/s/product?language=fr&kmpmoid=5410258).
 
 ## Installer le connecteur de supervision
 
