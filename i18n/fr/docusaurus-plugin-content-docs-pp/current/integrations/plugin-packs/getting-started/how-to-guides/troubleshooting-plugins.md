@@ -1,45 +1,34 @@
 ---
 id: troubleshooting-plugins
-title: Troubleshooting Plugin errors
+title: Dépannage des erreurs de plugin
 ---
 
-> Hello community! We're looking for a contributor to help us to translate this 
-page into French and provide a sample execution command. If it's you, let us 
-know by offering a PR or pinging us on [our community platform The Watch](https://thewatch.centreon.com/)
-When using Plugins and deploying a new monitoring probe, some errors might show up. 
+Lorsque vous utilisez des plugins et que vous deployez une nouvelle sonde de supervisions, des erreurs peuvent apparaitre.
 
- Most of the time, the cause of these failures is a misconfiguration or a third-party 
-device. This section compiles the most common errors you may face and some hints to 
-identify the root cause.
+Généralement, une mauvaise configuration ou un dispositif tiers sont la source du problème. Cette section décrit les erreurs le plus communes que vous pourriez rencontrer et peut vous aider à identifier 
 
-Remember that most of the Plugin Packs have documentation and, more specifically, 
-"Prerequisites" and "Host Configuration" sections to help you avoid some of the 
-most common pitfalls.
+Mais avant tout, rappelons que la majorité des connecteurs ont leur propre documentation contenant des sections de "Prérequis" et "Configuration" pour vous aider à éviter les erreurs courantes.
 
-The Centreon Pollers run a scheduler responsible for planning and executing checks. 
-To troubleshoot a Plugin, you must always:
+Les pollers Centreon emploie un ordonnanceur planifier et executer les checks.
+Pour dépanner un plugin, vous devez impérativement :
 
-* Copy/Paste the command from the Centreon Web UI to troubleshoot it from the CLI
-* Use the centreon-engine user to execute the Plugin manually (and never root!).
+* Copier/coller la commande du UI Centreon Web pour tenter dépanner le problème avec le CLI
+* Employez l'utilisateur Centreon-engine pour exécuter manuellement le plugin (et jamais root !)
 
-## Common problems
+## Problèmes communs
 
-### (no output returned from plugin)
+### (pas de résultat renvoyé par le plugin)
 
-When getting this error, please focus on the command line executed and ensure that 
-the binary it uses exists or doesn't contain a typo.
+Pour cette erreur, vérifiez la ligne de commande qui a été exécutée et verifiez que le binaire qu'elle contient existe et qu'elle ne présente pas de fautes de frappe.
 
-On RPM-based systems, you can use the following command to identify what's the 
-package is providing the missing binary: `yum whatprovides "*/the_binary_name"`
+Pour les systèmes basés sur RPM, vous pouvez utiliser la commande `yum whatprovides "*/the_binary_name"` pour identifier le binaire manquant du paquet.
 
 ### UNKNOWN: Cannot write statefile '/var/lib/centreon/centplugins/<cache_file_name>'
 
-The most common cause is inappropriate rights on the cache directory (`/var/lib/centreon/centplugins`) 
-or the cache file itself.  It can also be the result of an inconsistent installation 
-or simply that the directory doesn't exist. 
+La raison la plus commune de cette erreur sont des droits inadaptés dans le répertoire de cache (`/var/lib/centreon/centplugins`)  ou dans le ficher cache lui-même. Cela peut ausi être dû à une installation inconsistente ou alors le directoire n'existe tout simplement pas.
 
-Check that the directory exists and has the appropriate rights using the stat utility: 
-`stat /var/lib/centreon/centplugins`. The expected result is: 
+Vérifiez que le directoire existe bien et qu'il a les droits appropriés avec la commande stat suivante : 
+`stat /var/lib/centreon/centplugins`. Vous devriez obtenir le résultat suivant : 
 
 ```bash
 File: '/var/lib/centreon/centplugins'
@@ -48,8 +37,8 @@ Access: (0775/drwxrwxr-x)  Uid: (  998/centreon)   Gid: (  997/centreon)`
 [...]
 ``` 
 
-If directory rights are ok, check also the rights of the cache file: 
-`stat /var/lib/centreon/centplugins/<cache_file_name>`. The expected result is: 
+Si les droits du directoire sont corrects, vérifiez les droits du fichier de cache : 
+`stat /var/lib/centreon/centplugins/<cache_file_name>`. Le résultat devrait être : 
 
 ```bash
 File: '/var/lib/centreon/centplugins/<cache_file_name>'
@@ -60,47 +49,40 @@ Access: (0664/-rw-rw-r--)  Uid: (  994/centreon-engine)   Gid: (  991/centreon-e
 
 ### (Process Timeout)
 
-This error means that a command reached the timeout defined at the engine's level. 
-Centreon-engine has its own timeout allowing him to kill 
-a Plugin execution as soon as it overrides a given number of seconds. It prevents 
-infinite Plugin execution. 
+Cette erreur signifie qu'une commande a atteint le délai d'attente établi par Centreon-engine.
+Centreon-engine possède un délai d'attente interne qui lui permet de mettre fin à l'exécution d'un plugin lorsque celle-ci dépasse un certain nombre de secondes. Ceci sert à éviter l'exécution infinie de plugin. 
 
-By default, this value is 60 seconds for Services and 10 seconds for Hosts.
+La configuration par défaut établit une attente de 60 secondes pour les Services et 10 secondes pour les Hôte.
 
-Frequently, this error is a consequence of a misconfiguration or a lack of a timeout 
-configured at the Plugin level. 
+Cette erreur est souvent causée par une mauvaise configuration ou l'absence d'un délai d'attente au niveau du plugin.
 
-In some cases, it can be normal just because of the complexity of the check or the 
-processing time on the monitoring object side. To measure the time required to finish 
-a check, copy/paste the command-line and execute it through CLI using centreon-engine users. 
+Dans certains cas, ceci peut être normal en raison de la complexité du check à effectuer ou du temps de traitement du côté de l'objet chargé de la supervision.
+Pour mesurer le temps nécessaire pour compléter un check, copiez/collez la ligne de commande et executez-la depuis CLI avec un utilisateur Centreon-engine
 
-You can modify the engine timeout value in the **Configuration > Pollers > Engine Configuration** menu.
-To apply it, export the Poller's configuration and **restart** it.  
+Vous pouvez modifier le délai d'attente d'engine dans le menu **Configuration > Pollers > Engine Configuration**.
+Pour que vos changements soient appliqués, exportez la configuration et **redémarrez** le poller
 
-### Check output or metrics is not complete
 
-When a Plugin execution looks partial or incomplete, it usually means that there's 
-a bug somewhere in the code. If this is the case, you will likely see some *stderr*
-lines printed when executing the check through the CLI. 
+### Le résultat ou metrique du check est incomplet
 
-A message similar to the one below confirms that this is a bug: 
+Si l'exécution du plugin semble incomplète, c'est qu'il y a probablement un bug quelque part dans le code. Si c'est le cas, vous verrez probablement des lignes *stderr* s'afficher lorsque vous exécutez le check avec CLI.
+
+
+Un message similaire à celui ci-dessous nous confirme qu'il s'agit d'un bug.
 
 ```bash
 Use of uninitialized value $options{"value"} in pattern match (m//) and critical return
 ```
 
-In this situation, reach us on [our community platform The Watch](https://thewatch.centreon.com/) or, even better, 
-track an issue within the [centreon-plugins](https://github.com/centreon/centreon-plugins/issues) 
-Github repository so we can patch it. 
+Si c'est le cas, contactez-nous sur notre [plateforme communautaire The Watch](https://thewatch.centreon.com/) ou, encore mieux, aidez-nous à traquer le problème dans notre répositoire Github [centreon-plugins](https://github.com/centreon/centreon-plugins/issues). 
 
-## Troubleshooting SNMP
+## Dépannage de SNMP
 
 ### SNMPv3 options mapping
 
-To set up SNMPv3, Centreon is advising first to try to query your device by using the "snmpwalk" 
-command line and options, then using the following mapping table to make it work with the centreon-plugin.
+Pour configurer SNMPv3, Centreon vous recommande interroger votre appareil avec la commande "snmpwalk" et ses options. Vous pouvez ensuite utilisez le tableau suivant pour le faire marcher avec le centreon-plugin.
 
-Configure those extra SNMP options in the host/host template configuration in the SNMPEXTRAOPTIONS macro. 
+Configurez les options SNMP additionnelles dans la macro SNMPEXTRAOPTIONS dans la partie de configuration de l'hôte/modèle d'hôte.
 
 | snmpwalk  | centreon-plugins       |
 | :-------: | :--------------------- |
@@ -116,15 +98,13 @@ Configure those extra SNMP options in the host/host template configuration in th
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
-Often, a timeout comes from: 
-* An SNMP Agent or Centreon Host misconfiguration, like a wrong SNMP port, version, 
-or community string
-* Third-party equipment (e.g., a firewall) blocking the communication between the 
-Poller and the remote device
+Généralement, un "timeout" est causé par : 
+* Une mauvaise configuration de l'Agent SNMP ou de l'hôte Centreon dû à un port SNMP, une version ou une chaîne communautaire incorrecte.
+* Un équipement tiers (par exemple, un firewall) qui empêche la communication entre le poller et l'appareil à distance.
 
-To go further, troubleshoot using an SNMP utility to mimic the Plugin behavior and 
-see if you get a timeout. On Linux, the `net-snmp` package provides a `snmpwalk` binary. 
-Here is a sample command: 
+Pour aller plus loin, vous pouvez tenter un dépannage avec SNMP en imitant le comportement du plugin afin de voir si vous obtenez un timeout. Sur Linux, le paquet `net-snmp` fournit un binaire `snmp-walk`.
+
+Voici une commande échantillon
 
 `snmpwalk -v <1/2c> -c <community-string> <IP_ADDR> .1`
 
