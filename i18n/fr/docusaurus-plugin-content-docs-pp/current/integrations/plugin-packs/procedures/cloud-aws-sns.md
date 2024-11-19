@@ -5,7 +5,7 @@ title: Amazon SNS
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Amazon SNS** 
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -65,7 +65,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ### Privilèges AWS
 
-Configurez un compte de service (via une combinaison d'access et secret key) et affectez-lui les privilèges suivants :
+Configurez un compte de service (via une combinaison d'access key et de secret key) et affectez-lui les privilèges suivants :
 * cloudwatch:getMetricStatistics
 * cloudwatch:listMetrics
 * sns:ListTopics
