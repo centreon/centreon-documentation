@@ -20,10 +20,10 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias   | Service Template                                  | Service Description                                                                                                                                         |
 |:----------------|:--------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu-Detailed    | Net-Oracle-Infiniband-Cpu-Detailed-SNMP-custom    | Check the detailed rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |
+| Cpu-Detailed    | Net-Oracle-Infiniband-Cpu-Detailed-SNMP-custom    | Check the detailed rate of CPU utilization for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |
 | Hardware-Global | Net-Oracle-Infiniband-Hardware-Global-SNMP-custom | Check hardware                                                                                                                                              |
 | Load            | Net-Oracle-Infiniband-Load-SNMP-custom            | Check the server load average                                                                                                                               |
-| Memory          | Net-Oracle-Infiniband-Memory-SNMP-custom          | Check the rate of the utilization of memory                                                                                                                 |
+| Memory          | Net-Oracle-Infiniband-Memory-SNMP-custom          | Check the rate of memory utilization                                                                                                                 |
 | Swap            | Net-Oracle-Infiniband-Swap-SNMP-custom            | Check virtual memory usage                                                                                                                                  |
 
 > The services listed above are created automatically when the **Net-Oracle-Infiniband-SNMP-custom** host template is used.
@@ -33,10 +33,10 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias           | Service Template                                          | Service Description                                                                          | Discovery  |
 |:------------------------|:----------------------------------------------------------|:---------------------------------------------------------------------------------------------|:----------:|
-| Infiniband-Usage-Global | Net-Oracle-Infiniband-Infiniband-Usage-Global-SNMP-custom | Check the bandwidth of infiniband interfaces                                                 | X          |
-| Infiniband-Usage-Name   | Net-Oracle-Infiniband-Infiniband-Usage-Name-SNMP-custom   | Check the bandwidth of infiniband interface                                                  |            |
-| Traffic-Generic-Name    | Net-Oracle-Infiniband-Traffic-Generic-Name-SNMP-custom    | Check the bandwidth of the interface. For each checks the name of the interface will appear  |            |
-| Traffic-Global          | Net-Oracle-Infiniband-Traffic-Global-SNMP-custom          | Check the bandwidth of interfaces. For each checks the name of the interface will appear     | X          |
+| Infiniband-Usage-Global | Net-Oracle-Infiniband-Infiniband-Usage-Global-SNMP-custom | Check the bandwidth of Infiniband interfaces                                                 | X          |
+| Infiniband-Usage-Name   | Net-Oracle-Infiniband-Infiniband-Usage-Name-SNMP-custom   | Check the bandwidth of an Infiniband interface                                                  |            |
+| Traffic-Generic-Name    | Net-Oracle-Infiniband-Traffic-Generic-Name-SNMP-custom    | Check the bandwidth of the interface. For each check the name of the interface will appear  |            |
+| Traffic-Global          | Net-Oracle-Infiniband-Traffic-Global-SNMP-custom          | Check the bandwidth of interfaces. For each check the name of the interface will appear     | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 

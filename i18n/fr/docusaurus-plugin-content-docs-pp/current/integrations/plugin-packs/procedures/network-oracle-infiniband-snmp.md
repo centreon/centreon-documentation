@@ -36,8 +36,8 @@ Le connecteur apporte les modèles de service suivants
 |:------------------------|:----------------------------------------------------------|:-----------------------------------------------------------------------------------------------------|:----------:|
 | Infiniband-Usage-Global | Net-Oracle-Infiniband-Infiniband-Usage-Global-SNMP-custom | Controle de la bande passante des interfaces infiniband                                              | X          |
 | Infiniband-Usage-Name   | Net-Oracle-Infiniband-Infiniband-Usage-Name-SNMP-custom   | Controle de la bande passante des interfaces                                                         |            |
-| Traffic-Generic-Name    | Net-Oracle-Infiniband-Traffic-Generic-Name-SNMP-custom    | Controle de la bande passante de l'interface. Pour chaque controle apparaitra le nom de l'interface  |            |
-| Traffic-Global          | Net-Oracle-Infiniband-Traffic-Global-SNMP-custom          | Controle de la bande passante des interfaces. Pour chaque controle apparaetra le nom de l'interface  | X          |
+| Traffic-Generic-Name    | Net-Oracle-Infiniband-Traffic-Generic-Name-SNMP-custom    | Contrôle de la bande passante de l'interface. Pour chaque contrôle apparaîtra le nom de l'interface  |            |
+| Traffic-Global          | Net-Oracle-Infiniband-Traffic-Global-SNMP-custom          | Contrôle de la bande passante des interfaces. Pour chaque contrôle apparaîtra le nom de l'interface  | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -61,7 +61,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 | Nom de la règle                            | Description                                                             |
 |:-------------------------------------------|:------------------------------------------------------------------------|
 | Net-Oracle-Infiniband-SNMP-Infiniband-Name | Découvre les interfaces infiniband                                                                        |
-| Net-Oracle-Infiniband-SNMP-Traffic-Name    | Découvre les interfaces réseau et supervise le statut et l'utilisation |
+| Net-Oracle-Infiniband-SNMP-Traffic-Name    | Découvre les interfaces réseau et en supervise le statut et l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
