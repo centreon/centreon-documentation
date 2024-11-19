@@ -26,9 +26,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias   | Service Template                    | Service Description                                  |
 |:----------------|:------------------------------------|:-----------------------------------------------------|
-| Cpu             | Net-H3C-Cpu-SNMP-custom             | Check the rate of utilization of CPU for the machine |
+| Cpu             | Net-H3C-Cpu-SNMP-custom             | Check the rate of CPU utilization for the machine |
 | Hardware-Global | Net-H3C-Hardware-Global-SNMP-custom | Check hardware                                       |
-| Memory          | Net-H3C-Memory-SNMP-custom          | Check the rate of the utilization of memories        |
+| Memory          | Net-H3C-Memory-SNMP-custom          | Check the rate of memory utilization        |
 
 > The services listed above are created automatically when the **Net-H3C-SNMP-custom** host template is used.
 
@@ -37,8 +37,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                         | Service Description                          | Discovery  |
 |:---------------------|:-----------------------------------------|:---------------------------------------------|:----------:|
-| Traffic-Generic-Id   | Net-H3C-Traffic-Generic-Id-SNMP-custom   | Check traffic of an network interface        |            |
-| Traffic-Generic-Name | Net-H3C-Traffic-Generic-Name-SNMP-custom | Check traffic of an network interface        |            |
+| Traffic-Generic-Id   | Net-H3C-Traffic-Generic-Id-SNMP-custom   | Check traffic of a network interface        |            |
+| Traffic-Generic-Name | Net-H3C-Traffic-Generic-Name-SNMP-custom | Check traffic of a network interface        |            |
 | Traffic-Global       | Net-H3C-Traffic-Global-SNMP-custom       | Check traffic of multiple network interfaces | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.

@@ -5,7 +5,7 @@ title: H3C Network SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **H3C Network SNMP** 
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -38,9 +38,9 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                | Modèle de service                        | Description                                               | Découverte |
 |:---------------------|:-----------------------------------------|:----------------------------------------------------------|:----------:|
-| Traffic-Generic-Id   | Net-H3C-Traffic-Generic-Id-SNMP-custom   | Contrôle le traffic réseau d'une interface réseau         |            |
-| Traffic-Generic-Name | Net-H3C-Traffic-Generic-Name-SNMP-custom | Contrôle le traffic réseau d'une interface réseau         |            |
-| Traffic-Global       | Net-H3C-Traffic-Global-SNMP-custom       | Contrôle le traffic réseau de plusieurs interfaces réseau | X          |
+| Traffic-Generic-Id   | Net-H3C-Traffic-Generic-Id-SNMP-custom   | Contrôle le trafic réseau d'une interface réseau         |            |
+| Traffic-Generic-Name | Net-H3C-Traffic-Generic-Name-SNMP-custom | Contrôle le trafic réseau d'une interface réseau         |            |
+| Traffic-Global       | Net-H3C-Traffic-Global-SNMP-custom       | Contrôle le trafic réseau de plusieurs interfaces réseau | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -131,7 +131,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | status                                                 | N/A   |
 | *interface_name*#interface.voltage.volt                | V     |
 
-> A appliquer aux modèles de services suivants : Traffic-Generic-Id, Traffic-Generic-Name, Traffic-Global
+> S'applique aux modèles de services suivants : Traffic-Generic-Id, Traffic-Generic-Name, Traffic-Global
 
 > Pour obtenir les nouveaux formats de métriques, ajouter dans la macro de service les options suivantes : **--use-new-perfdata** et **EXTRAOPTIONS**
 
