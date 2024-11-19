@@ -344,9 +344,9 @@ All available options for each service template are listed below:
 | --port            | Port used                                                                                                                                                                     |
 | --ssl             | Use SSL connection. (no attempt is made to check the certificatevalidity by default).                                                                                         |
 | --timeout         | Connection timeout in seconds (default: 3)                                                                                                                                    |
-| --unknown-status  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{port}, %{error\_message}                                       |
-| --warning-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{port}, %{error\_message}                                       |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} eq "failed"'). You can use the following variables: %{status}, %{port}, %{error\_message}   |
+| --unknown-status  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{port}, %\{error_message\}                                       |
+| --warning-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{port}, %\{error_message\}                                       |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} eq "failed"'). You can use the following variables: %{status}, %{port}, %\{error_message\}   |
 | --warning-time    | Warning threshold in seconds                                                                                                                                                  |
 | --critical-time   | Critical threshold in seconds                                                                                                                                                 |
 

@@ -340,8 +340,8 @@ yum install centreon-plugin-Network-Infoblox-Snmp
 | CRITICALCPU2TEMPERATURE | Thresholds                                                                                                       |                   |             |
 | WARNINGCPULOAD          | Thresholds                                                                                                       |                   |             |
 | CRITICALCPULOAD         | Thresholds                                                                                                       |                   |             |
-| WARNINGHASTATUS         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{ha\_status}  |                   |             |
-| CRITICALHASTATUS        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{ha\_status} |                   |             |
+| WARNINGHASTATUS         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{ha_status\}  |                   |             |
+| CRITICALHASTATUS        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{ha_status\} |                   |             |
 | WARNINGMEMORYUSAGE      | Thresholds                                                                                                       |                   |             |
 | CRITICALMEMORYUSAGE     | Thresholds                                                                                                       |                   |             |
 | WARNINGSWAPUSAGE        | Thresholds                                                                                                       |                   |             |
@@ -609,8 +609,8 @@ All available options for each service template are listed below:
 | Option                   | Description                                                                                                          |
 |:-------------------------|:---------------------------------------------------------------------------------------------------------------------|
 | --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='^memory-usage$'                         |
-| --warning-ha-status      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{ha\_status}      |
-| --critical-ha-status     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{ha\_status}     |
+| --warning-ha-status      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{ha_status\}      |
+| --critical-ha-status     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{ha_status\}     |
 | --warning-* --critical-* | Thresholds. Can be: 'cpu-load' (%), 'cpu1-temperature', 'cpu2-temperature', 'swap-usage' (%), 'memory-usage' (%).    |
 
 </TabItem>

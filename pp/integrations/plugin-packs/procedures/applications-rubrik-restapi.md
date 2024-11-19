@@ -334,13 +334,13 @@ yum install centreon-plugin-Applications-Rubrik-Restapi
 |:--------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|:-----------:|
 | CLUSTERID                 | Which cluster to check (default: 'me')                                                                                                                              | me                 |             |
 | FILTERNODEID              | Filter nodes by node ID (can be a regexp)                                                                                                                           |                    |             |
-| UNKNOWNNODESTATUS         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{ip\_address}, %{id}                                  |                    |             |
+| UNKNOWNNODESTATUS         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %\{ip_address\}, %{id}                                  |                    |             |
 | WARNINGCLUSTERNODESOK     | Threshold                                                                                                                                                           |                    |             |
 | CRITICALCLUSTERNODESOK    | Threshold                                                                                                                                                           |                    |             |
 | WARNINGCLUSTERNODESTOTAL  | Threshold                                                                                                                                                           |                    |             |
 | CRITICALCLUSTERNODESTOTAL | Threshold                                                                                                                                                           |                    |             |
-| CRITICALNODESTATUS        | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /ok/i'). You can use the following variables: %{status}, %{ip\_address}, %{id} | %{status} !~ /ok/i |             |
-| WARNINGNODESTATUS         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{ip\_address}, %{id}                                  |                    |             |
+| CRITICALNODESTATUS        | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /ok/i'). You can use the following variables: %{status}, %\{ip_address\}, %{id} | %{status} !~ /ok/i |             |
+| WARNINGNODESTATUS         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %\{ip_address\}, %{id}                                  |                    |             |
 | EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                  | --verbose          |             |
 
 </TabItem>
@@ -586,9 +586,9 @@ All available options for each service template are listed below:
 | --filter-counters        |   Only display some counters (regexp can be used). Example: --filter-counters='node-status'                                                                             |
 | --cluster-id             |   Which cluster to check (default: 'me').                                                                                                                               |
 | --filter-node-id         |   Filter nodes by node ID (can be a regexp).                                                                                                                            |
-| --unknown-node-status    |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %{ip\_address}, %{id}                                    |
-| --warning-node-status    |   Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{ip\_address}, %{id}                                    |
-| --critical-node-status   |   Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /ok/i'). You can use the following variables: %{status}, %{ip\_address}, %{id}   |
+| --unknown-node-status    |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{status}, %\{ip_address\}, %{id}                                    |
+| --warning-node-status    |   Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %\{ip_address\}, %{id}                                    |
+| --critical-node-status   |   Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /ok/i'). You can use the following variables: %{status}, %\{ip_address\}, %{id}   |
 | --warning-* --critical-* |   Thresholds. Can be: 'cluster-nodes-total', 'cluster-nodes-ok'.                                                                                                        |
 
 </TabItem>

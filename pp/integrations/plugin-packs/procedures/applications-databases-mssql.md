@@ -461,8 +461,8 @@ yum install centreon-plugin-Applications-Databases-Mssql
 |:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SQLSTATEMENT | SQL statement that returns a string                                                                                                                                                       |                   | X           |
 | VALUE        | Value column (must be one of the selected field). MANDATORY                                                                                                                               |                   |             |
-| WARNING      | Define the conditions to match for the status to be WARNING. (Can be: %{key\_field}, %{value\_field}) e.g --warning-string '%{key\_field} eq 'Central' && %{value\_field} =~ /127.0.0.1/' |                   |             |
-| CRITICAL     | Define the conditions to match for the status to be CRITICAL (Can be: %{key\_field} or %{value\_field})                                                                                   |                   |             |
+| WARNING      | Define the conditions to match for the status to be WARNING. (Can be: %\{key_field\}, %\{value_field\}) e.g --warning-string '%\{key_field\} eq 'Central' && %\{value_field\} =~ /127.0.0.1/' |                   |             |
+| CRITICAL     | Define the conditions to match for the status to be CRITICAL (Can be: %\{key_field\} or %\{value_field\})                                                                                   |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                                                                                       |                   |             |
 
 </TabItem>
@@ -732,9 +732,9 @@ All available options for each service template are listed below:
 | --key-column       | Key column (must be one of the selected field). NOT mandatory if you select only one field                                                                                                  |
 | --value-column     | Value column (must be one of the selected field). MANDATORY                                                                                                                                 |
 | --printf-format    | Specify a custom output message relying on printf formatting. If this option is set --printf-value is mandatory.                                                                            |
-| --printf-value     | Specify scalar used to replace in printf. If this option is set --printf-format is mandatory. (Can be: %{key\_field}, %{value\_field})                                                      |
-| --warning-string   | Define the conditions to match for the status to be WARNING. (Can be: %{key\_field}, %{value\_field}) e.g --warning-string '%{key\_field} eq 'Central' && %{value\_field} =~ /127.0.0.1/'   |
-| --critical-string  | Define the conditions to match for the status to be CRITICAL (Can be: %{key\_field} or %{value\_field})                                                                                     |
+| --printf-value     | Specify scalar used to replace in printf. If this option is set --printf-format is mandatory. (Can be: %\{key_field\}, %\{value_field\})                                                      |
+| --warning-string   | Define the conditions to match for the status to be WARNING. (Can be: %\{key_field\}, %\{value_field\}) e.g --warning-string '%\{key_field\} eq 'Central' && %\{value_field\} =~ /127.0.0.1/'   |
+| --critical-string  | Define the conditions to match for the status to be CRITICAL (Can be: %\{key_field\} or %\{value_field\})                                                                                     |
 | --dual-table       | Set this option to ensure compatibility with dual table and Oracle.                                                                                                                         |
 | --empty-sql-string | Set this option to change the output message when the sql statement result is empty. (Default: 'No row returned or --key-column/--value-column do not correctly match selected field')      |
 

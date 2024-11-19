@@ -284,8 +284,8 @@ yum install centreon-plugin-Applications-Databases-Elasticsearch
 
 | Macro          | Description                                                                                                                                                                                            | Default value          | Mandatory   |
 |:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /active/i'). You can use the following variables: %{status}, %{type}, %{issued\_to}, %{expiry\_date\_in\_seconds} | %{status} !~ /active/i |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{type}, %{issued\_to}, %{expiry\_date\_in\_seconds}                                      |                        |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /active/i'). You can use the following variables: %{status}, %{type}, %\{issued_to\}, %\{expiry_date_in_seconds\} | %{status} !~ /active/i |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{type}, %\{issued_to\}, %\{expiry_date_in_seconds\}                                      |                        |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                     |                        |             |
 
 </TabItem>
@@ -458,8 +458,8 @@ All available options for each service template are listed below:
 
 | Option            | Description                                                                                                                                                                                                |
 |:------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --warning-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{type}, %{issued\_to}, %{expiry\_date\_in\_seconds}.                                         |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /active/i'). You can use the following variables: %{status}, %{type}, %{issued\_to}, %{expiry\_date\_in\_seconds}.    |
+| --warning-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{type}, %\{issued_to\}, %\{expiry_date_in_seconds\}.                                         |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /active/i'). You can use the following variables: %{status}, %{type}, %\{issued_to\}, %\{expiry_date_in_seconds\}.    |
 
 </TabItem>
 <TabItem value="Node-Statistics" label="Node-Statistics">

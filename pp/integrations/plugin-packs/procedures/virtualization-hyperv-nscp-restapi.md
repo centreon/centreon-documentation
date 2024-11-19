@@ -291,10 +291,10 @@ yum install
 | FILTERVM              | Filter virtual machines (can be a regexp)                                                                                                                                            |                                                      |             |
 | FILTERNOTE            | Filter by VM notes (can be a regexp)                                                                                                                                                 |                                                      |             |
 | FILTERSTATUS          | Filter virtual machine status (can be a regexp)                                                                                                                                      | Running                                              |             |
-| WARNINGGLOBALSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %{vm}, %{integration\_service\_state}, %{integration\_service\_version}, %{state}  | %{integration\_service\_state} =~ /Update required/i |             |
-| CRITICALGLOBALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{vm}, %{integration\_service\_state}, %{integration\_service\_version}, %{state} |                                                      |             |
-| CRITICALSERVICESTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{vm}, %{service}, %{primary\_status}, %{secondary\_status}, %{enabled}           | not %{primary\_status} =~ /Ok/i                      |             |
-| WARNINGSERVICESTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{vm}, %{service}, %{primary\_status}, %{secondary\_status}, %{enabled}            |                                                      |             |
+| WARNINGGLOBALSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %{vm}, %\{integration_service_state\}, %\{integration_service_version\}, %{state}  | %\{integration_service_state\} =~ /Update required/i |             |
+| CRITICALGLOBALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{vm}, %\{integration_service_state\}, %\{integration_service_version\}, %{state} |                                                      |             |
+| CRITICALSERVICESTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{vm}, %{service}, %\{primary_status\}, %\{secondary_status\}, %{enabled}           | not %\{primary_status\} =~ /Ok/i                      |             |
+| WARNINGSERVICESTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{vm}, %{service}, %\{primary_status\}, %\{secondary_status\}, %{enabled}            |                                                      |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                               | --verbose                                            |             |
 
 </TabItem>
@@ -328,8 +328,8 @@ yum install
 |:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------|:-----------:|
 | FILTERVM       | Filter virtual machines (can be a regexp)                                                                                                       |                                        |             |
 | FILTERNOTE     | Filter by VM notes (can be a regexp)                                                                                                            |                                        |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{vm}, %{state}, %{status}, %{is\_clustered} | not %{status} =~ /Operating normally/i |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{vm}, %{state}, %{status}, %{is\_clustered}  |                                        |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{vm}, %{state}, %{status}, %\{is_clustered\} | not %{status} =~ /Operating normally/i |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{vm}, %{state}, %{status}, %\{is_clustered\}  |                                        |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).          | --verbose                              |             |
 
 </TabItem>
@@ -508,10 +508,10 @@ All available options for each service template are listed below:
 | --filter-vm               | Filter virtual machines (can be a regexp).                                                                                                                                                                                                              |
 | --filter-note             | Filter by VM notes (can be a regexp).                                                                                                                                                                                                                   |
 | --filter-status           | Filter virtual machine status (can be a regexp) (default: 'running').                                                                                                                                                                                   |
-| --warning-global-status   | Define the conditions to match for the status to be WARNING (default: '%{integration\_service\_state} =~ /Update required/i'). You can use the following variables: %{vm}, %{integration\_service\_state}, %{integration\_service\_version}, %{state}   |
-| --critical-global-status  | Define the conditions to match for the status to be CRITICAL (default: ''). You can use the following variables: %{vm}, %{integration\_service\_state}, %{integration\_service\_version}, %{state}                                                      |
-| --warning-service-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{vm}, %{service}, %{primary\_status}, %{secondary\_status}, %{enabled}                                                                 |
-| --critical-service-status | Define the conditions to match for the status to be CRITICAL (default: '%{primary\_status} !~ /Ok/i'). You can use the following variables: %{vm}, %{service}, %{primary\_status}, %{secondary\_status}, %{enabled}                                     |
+| --warning-global-status   | Define the conditions to match for the status to be WARNING (default: '%\{integration_service_state\} =~ /Update required/i'). You can use the following variables: %{vm}, %\{integration_service_state\}, %\{integration_service_version\}, %{state}   |
+| --critical-global-status  | Define the conditions to match for the status to be CRITICAL (default: ''). You can use the following variables: %{vm}, %\{integration_service_state\}, %\{integration_service_version\}, %{state}                                                      |
+| --warning-service-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{vm}, %{service}, %\{primary_status\}, %\{secondary_status\}, %{enabled}                                                                 |
+| --critical-service-status | Define the conditions to match for the status to be CRITICAL (default: '%\{primary_status\} !~ /Ok/i'). You can use the following variables: %{vm}, %{service}, %\{primary_status\}, %\{secondary_status\}, %{enabled}                                     |
 
 </TabItem>
 <TabItem value="Node-Replication" label="Node-Replication">
@@ -561,8 +561,8 @@ All available options for each service template are listed below:
 | --ps-exec-only    | Print powershell output.                                                                                                                                                                           |
 | --filter-vm       | Filter virtual machines (can be a regexp).                                                                                                                                                         |
 | --filter-note     | Filter by VM notes (can be a regexp).                                                                                                                                                              |
-| --warning-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{vm}, %{state}, %{status}, %{is\_clustered}                                       |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /Operating normally/i'). You can use the following variables: %{vm}, %{state}, %{status}, %{is\_clustered}    |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{vm}, %{state}, %{status}, %\{is_clustered\}                                       |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /Operating normally/i'). You can use the following variables: %{vm}, %{state}, %{status}, %\{is_clustered\}    |
 
 </TabItem>
 <TabItem value="Scvmm-Integration-Service" label="Scvmm-Integration-Service">

@@ -215,8 +215,8 @@ yum install centreon-plugin-Cloud-Aws-Cloudwatch-Api
 | AWSCUSTOMMODE   | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option                                           | awscli                                   |             |
 | AWSREGION       | Set the region name (required)                                                                                                                                       |                                          | X           |
 | FILTERALARMNAME | Filter by alarm name (can be a regexp)                                                                                                                               |                                          |             |
-| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %{alarm\_name}, %{state\_value}, %{metric\_name}, %{last\_update}  | %{state\_value} =~ /INSUFFICIENT\_DATA/i |             |
-| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{alarm\_name}, %{state\_value}, %{metric\_name}, %{last\_update} | %{state\_value} =~ /ALARM/i              |             |
+| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{alarm_name\}, %\{state_value\}, %\{metric_name\}, %\{last_update\}  | %\{state_value\} =~ /INSUFFICIENT\_DATA/i |             |
+| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{alarm_name\}, %\{state_value\}, %\{metric_name\}, %\{last_update\} | %\{state_value\} =~ /ALARM/i              |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                               | --verbose                                |             |
 
 </TabItem>
@@ -388,8 +388,8 @@ All available options for each service template are listed below:
 | --statefile-key        |   Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
 | --statefile-cipher     |   Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
 | --filter-alarm-name    |   Filter by alarm name (can be a regexp).                                                                                                                                                                                                       |
-| --warning-status       |   Define the conditions to match for the status to be WARNING (default: '%{state\_value} =~ /INSUFFICIENT\_DATA/i') You can use the following variables: %{alarm\_name}, %{state\_value}, %{metric\_name}, %{last\_update}                      |
-| --critical-status      |   Define the conditions to match for the status to be CRITICAL (default: '%{state\_value} =~ /ALARM/i'). You can use the following variables: %{alarm\_name}, %{state\_value}, %{metric\_name}, %{last\_update}                                 |
+| --warning-status       |   Define the conditions to match for the status to be WARNING (default: '%\{state_value\} =~ /INSUFFICIENT\_DATA/i') You can use the following variables: %\{alarm_name\}, %\{state_value\}, %\{metric_name\}, %\{last_update\}                      |
+| --critical-status      |   Define the conditions to match for the status to be CRITICAL (default: '%\{state_value\} =~ /ALARM/i'). You can use the following variables: %\{alarm_name\}, %\{state_value\}, %\{metric_name\}, %\{last_update\}                                 |
 | --memory               |   Only check new alarms.                                                                                                                                                                                                                        |
 
 </TabItem>

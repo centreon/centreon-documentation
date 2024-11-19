@@ -302,7 +302,7 @@ yum install centreon-plugin-Network-Fortinet-Fortiauthenticator-Snmp
 | Macro            | Description                                                                                                                            | Default value                        | Mandatory   |
 |:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------|:-----------:|
 | UNKNOWNHASTATUS  | Threshold                                                                                                                              |                                      |             |
-| CRITICALHASTATUS | Threshold                                                                                                                              | %{ha\_status} ne %{ha\_status\_last} |             |
+| CRITICALHASTATUS | Threshold                                                                                                                              | %\{ha_status\} ne %\{ha_status_last\} |             |
 | WARNINGHASTATUS  | Threshold                                                                                                                              |                                      |             |
 | EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                                      |             |
 
@@ -518,8 +518,8 @@ All available options for each service template are listed below:
 
 | Option            | Description                                                                                                                                                                                  |
 |:------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --warning-status  |   Define the conditions to match for the status to be WARNING. You can use the following variables: %{ha\_status}, %{ha\_status\_last}                                                       |
-| --critical-status |   Define the conditions to match for the status to be CRITICAL (default: '%{ha\_status} ne %{ha\_status\_last}'). You can use the following variables: %{ha\_status}, %{ha\_status\_last}    |
+| --warning-status  |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{ha_status\}, %\{ha_status_last\}                                                       |
+| --critical-status |   Define the conditions to match for the status to be CRITICAL (default: '%\{ha_status\} ne %\{ha_status_last\}'). You can use the following variables: %\{ha_status\}, %\{ha_status_last\}    |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">

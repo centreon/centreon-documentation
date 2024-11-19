@@ -411,8 +411,8 @@ All available options for each service template are listed below:
 | --critical-device-db-status             | Set critical threshold for device DB status. You can use the following variables: %{status}, %{name}                                             |
 | --warning-device-config-status          | Set warning threshold for device configuration status. You can use the following variables: %{status}, %{name}                                   |
 | --critical-device-config-status         | Set critical threshold for device configuration status. You can use the following variables: %{status}, %{name}                                  |
-| --warning-device-policy-package-status  | Set warning threshold for device policy package status. You can use the following variables: %{status}, %{package\_name}                         |
-| --critical-device-policy-package-status | Set critical threshold for device policy package status. You can use the following variables: %{status}, %{package\_name}                        |
+| --warning-device-policy-package-status  | Set warning threshold for device policy package status. You can use the following variables: %{status}, %\{package_name\}                         |
+| --critical-device-policy-package-status | Set critical threshold for device policy package status. You can use the following variables: %{status}, %\{package_name\}                        |
 
 </TabItem>
 <TabItem value="Disk" label="Disk">

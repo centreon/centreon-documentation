@@ -337,8 +337,8 @@ yum install centreon-plugin-Applications-Databases-Redis
 | CRITICALLASTSAVEDURATION    | Critical threshold                                                                                                                                                                  |                                   |             |
 | WARNINGSAVESIZE             | Warning threshold                                                                                                                                                                   |                                   |             |
 | CRITICALSAVESIZE            | Critical threshold                                                                                                                                                                  |                                   |             |
-| WARNINGSTATUS               | Define the conditions to match for the status to be WARNING (default: '%{progress\_status} =~ /in progress/i'). You can use the following variables: %{progress\_status}, %{status} | %{sync\_status} =~ /in progress/i |             |
-| CRITICALSTATUS              | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /fail/i'). You can use the following variables: %{progress\_status}, %{status}                 | %{link\_status} =~ /down/i        |             |
+| WARNINGSTATUS               | Define the conditions to match for the status to be WARNING (default: '%\{progress_status\} =~ /in progress/i'). You can use the following variables: %\{progress_status\}, %{status} | %\{sync_status\} =~ /in progress/i |             |
+| CRITICALSTATUS              | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /fail/i'). You can use the following variables: %\{progress_status\}, %{status}                 | %\{link_status\} =~ /down/i        |             |
 | EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                  |                                   |             |
 
 </TabItem>
@@ -358,8 +358,8 @@ yum install centreon-plugin-Applications-Databases-Redis
 | CRITICALSLAVEREADONLY    | Critical threshold                                                                                                                                                                                   |                                   |             |
 | WARNINGSLAVEREPLOFFSET   |                                                                                                                                                                                                      |                                   |             |
 | CRITICALSLAVEREPLOFFSET  |                                                                                                                                                                                                      |                                   |             |
-| WARNINGSTATUS            | Define the conditions to match for the status to be WARNING (default: '%{sync\_status} =~ /in progress/i'). You can use the following variables: %{sync\_status}, %{link\_status}, %{cluster\_state} | %{sync\_status} =~ /in progress/i |             |
-| CRITICALSTATUS           | Define the conditions to match for the status to be CRITICAL (default: '%{link\_status} =~ /down/i'). You can use the following variables: %{sync\_status}, %{link\_status}, %{cluster\_state}       | %{link\_status} =~ /down/i        |             |
+| WARNINGSTATUS            | Define the conditions to match for the status to be WARNING (default: '%\{sync_status\} =~ /in progress/i'). You can use the following variables: %\{sync_status\}, %\{link_status\}, %\{cluster_state\} | %\{sync_status\} =~ /in progress/i |             |
+| CRITICALSTATUS           | Define the conditions to match for the status to be CRITICAL (default: '%\{link_status\} =~ /down/i'). You can use the following variables: %\{sync_status\}, %\{link_status\}, %\{cluster_state\}       | %\{link_status\} =~ /down/i        |             |
 | EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                   |                                   |             |
 
 </TabItem>
@@ -658,8 +658,8 @@ All available options for each service template are listed below:
 
 | Option            | Description                                                                                                                                                                           |
 |:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%{progress\_status} =~ /in progress/i'). You can use the following variables: %{progress\_status}, %{status}   |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /fail/i'). You can use the following variables: %{progress\_status}, %{status}                   |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%\{progress_status\} =~ /in progress/i'). You can use the following variables: %\{progress_status\}, %{status}   |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /fail/i'). You can use the following variables: %\{progress_status\}, %{status}                   |
 | --warning-*       | Warning threshold. Can be: 'changes', 'last-save', 'save-size', 'last-save-duration', 'current-save-duration'.                                                                        |
 | --critical-*      | Critical threshold. Can be: 'changes', 'last-save', 'save-size', 'last-save-duration', 'current-save-duration'.                                                                       |
 
@@ -668,8 +668,8 @@ All available options for each service template are listed below:
 
 | Option            | Description                                                                                                                                                                                            |
 |:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%{sync\_status} =~ /in progress/i'). You can use the following variables: %{sync\_status}, %{link\_status}, %{cluster\_state}   |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{link\_status} =~ /down/i'). You can use the following variables: %{sync\_status}, %{link\_status}, %{cluster\_state}         |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%\{sync_status\} =~ /in progress/i'). You can use the following variables: %\{sync_status\}, %\{link_status\}, %\{cluster_state\}   |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{link_status\} =~ /down/i'). You can use the following variables: %\{sync_status\}, %\{link_status\}, %\{cluster_state\}         |
 | --warning-*       | Warning threshold. Can be: 'connected-slaves', 'master-repl-offset', 'master-last-io', 'slave-priority', 'slave-read-only'.                                                                            |
 | --critical-*      | Critical threshold. Can be: 'connected-slaves', 'master-repl-offset', 'master-last-io', 'slave-priority', 'slave-read-only'.                                                                           |
 

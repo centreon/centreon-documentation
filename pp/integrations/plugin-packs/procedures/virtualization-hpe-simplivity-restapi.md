@@ -281,10 +281,10 @@ yum install centreon-plugin-Virtualization-Hpe-Simplivity-Restapi
 
 | Macro                  | Description                                                                                                                            | Default value               | Mandatory   |
 |:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
-| UNKNOWNHASTATUS        | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{ha\_status}, %{vm\_name}           | %{ha\_status} =~ /unknown/  |             |
+| UNKNOWNHASTATUS        | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{ha_status\}, %\{vm_name\}           | %\{ha_status\} =~ /unknown/  |             |
 | FILTERVMNAME           | Filter virtual machines by virtual machine name                                                                                        |                             |             |
-| WARNINGHASTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %{ha\_status}, %{vm\_name}           | %{ha\_status} =~ /degraded/ |             |
-| CRITICALHASTATUS       | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{ha\_status}, %{vm\_name}          |                             |             |
+| WARNINGHASTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{ha_status\}, %\{vm_name\}           | %\{ha_status\} =~ /degraded/ |             |
+| CRITICALHASTATUS       | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{ha_status\}, %\{vm_name\}          |                             |             |
 | WARNINGSPACEUSAGE      | Thresholds                                                                                                                             |                             |             |
 | CRITICALSPACEUSAGE     | Thresholds                                                                                                                             |                             |             |
 | WARNINGSPACEUSAGEFREE  | Thresholds                                                                                                                             |                             |             |
@@ -553,9 +553,9 @@ All available options for each service template are listed below:
 | Option                   | Description                                                                                                                                                         |
 |:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-vm-name         | Filter virtual machines by virtual machine name.                                                                                                                    |
-| --unknown-ha-status      | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /unknown/'). You can use the following variables: %{ha\_status}, %{vm\_name}    |
-| --warning-ha-status      | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /degraded/'). You can use the following variables: %{ha\_status}, %{vm\_name}   |
-| --critical-ha-status     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{ha\_status}, %{vm\_name}                                       |
+| --unknown-ha-status      | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /unknown/'). You can use the following variables: %\{ha_status\}, %\{vm_name\}    |
+| --warning-ha-status      | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /degraded/'). You can use the following variables: %\{ha_status\}, %\{vm_name\}   |
+| --critical-ha-status     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{ha_status\}, %\{vm_name\}                                       |
 | --warning-* --critical-* | Thresholds. Can be: 'space-usage', 'space-usage-free', 'space-usage-prct'.                                                                                          |
 
 </TabItem>

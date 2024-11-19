@@ -188,8 +188,8 @@ yum install centreon-plugin-Applications-Wazuh-Restapi
 | CRITICALNEVERCONNECTED | Thresholds                                                                                                                                            |                   |             |
 | WARNINGPENDING         | Thresholds                                                                                                                                            |                   |             |
 | CRITICALPENDING        | Thresholds                                                                                                                                            |                   |             |
-| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{status}, %{node\_name}, %{display}  |                   |             |
-| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{status}, %{node\_name}, %{display} |                   |             |
+| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{status}, %\{node_name\}, %{display}  |                   |             |
+| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{status}, %\{node_name\}, %{display} |                   |             |
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (e.g. a --verbose flag). All options are listed [here](#available-options)                                                   | --verbose         |             |
 
 </TabItem>
@@ -358,8 +358,8 @@ All available options for each service template are listed below:
 |:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='^status$'                                                                  |
 | --filter-name            | Filter agent name (can be a regexp).                                                                                                                    |
-| --warning-status         | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{status}, %{node\_name}, %{display}    |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{status}, %{node\_name}, %{display}   |
+| --warning-status         | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{status}, %\{node_name\}, %{display}    |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{status}, %\{node_name\}, %{display}   |
 | --warning-* --critical-* | Thresholds. Can be: 'active', 'pending', 'neverconnected', 'disconnected'.                                                                              |
 
 </TabItem>

@@ -215,8 +215,8 @@ yum install centreon-plugin-Applications-Infor-Ion-Grid-Restapi
 | CRITICALLOGWARNING    | Set critical thresholds on log-warning                                                                                                                              |                        |             |
 | WARNINGLOGERROR       | Set warning thresholds on log-error                                                                                                                                 |                        |             |
 | CRITICALLOGERROR      | Set critical thresholds on log-error                                                                                                                                |                        |             |
-| CRITICALSTATUS        | Set critical threshold for status. Can use special variables like: %{state}, %{name}, %{host\_name}, %{application\_name}, %{type}                                  | '%{state} !~ /online/' |             |
-| WARNINGSTATUS         | Set warning threshold for status (Default: "%{state} !~ /online/"). Can use special variables like: %{state}, %{name}, %{host\_name}, %{application\_name}, %{type} |                        |             |
+| CRITICALSTATUS        | Set critical threshold for status. Can use special variables like: %{state}, %{name}, %\{host_name\}, %\{application_name\}, %{type}                                  | '%{state} !~ /online/' |             |
+| WARNINGSTATUS         | Set warning threshold for status (Default: "%{state} !~ /online/"). Can use special variables like: %{state}, %{name}, %\{host_name\}, %\{application_name\}, %{type} |                        |             |
 | WARNINGUPTIME         | Set warning thresholds on uptime                                                                                                                                    |                        |             |
 | CRITICALUPTIME        |Set critical thresholds on uptime                                                                                                                                    |                        |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                  |                        |             |
@@ -373,8 +373,8 @@ All available options for each service template are listed below:
 | --filter-name             | Filter by node name.                                                                                                                                                   |
 | --filter-application-name | Filter by application name.                                                                                                                                            |
 | --filter-host-name        | Filter by host name.                                                                                                                                                   |
-| --warning-status          | Set warning threshold for status (Default: "%{state} !~ /online/"). Can use special variables like: %{state}, %{name}, %{host\_name}, %{application\_name}, %{type}.   |
-| --critical-status         | Set critical threshold for status. Can use special variables like: %{state}, %{name}, %{host\_name}, %{application\_name}, %{type}.                                    |
+| --warning-status          | Set warning threshold for status (Default: "%{state} !~ /online/"). Can use special variables like: %{state}, %{name}, %\{host_name\}, %\{application_name\}, %{type}.   |
+| --critical-status         | Set critical threshold for status. Can use special variables like: %{state}, %{name}, %\{host_name\}, %\{application_name\}, %{type}.                                    |
 | --warning-* --critical-*  | Thresholds. Can be: 'log-error', 'log-warning', 'uptime' (s), 'cpu-usage', 'heap-usage' (%).                                                                           |
 
 </TabItem>

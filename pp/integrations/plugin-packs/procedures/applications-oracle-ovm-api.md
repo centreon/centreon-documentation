@@ -273,8 +273,8 @@ yum install centreon-plugin-Applications-Oracle-Ovm-Api
 | CRITICALSERVERSRUNNING  | Thresholds                                                                                                                                                     |                   |             |
 | WARNINGSERVERSSTOPPED   | Thresholds                                                                                                                                                     |                   |             |
 | CRITICALSERVERSSTOPPED  | Thresholds                                                                                                                                                     |                   |             |
-| WARNINGSTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %{running\_status}, %{is\_maintenance}, %{up2date}, %{name}  |                   |             |
-| CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{running\_status}, %{is\_maintenance}, %{up2date}, %{name} |                   |             |
+| WARNINGSTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{running_status\}, %\{is_maintenance\}, %{up2date}, %{name}  |                   |             |
+| CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{running_status\}, %\{is_maintenance\}, %{up2date}, %{name} |                   |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                             | --verbose         |             |
 
 </TabItem>
@@ -283,8 +283,8 @@ yum install centreon-plugin-Applications-Oracle-Ovm-Api
 | Macro             | Description                                                                                                                    | Default value     | Mandatory   |
 |:------------------|:-------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTERNAME        | Filter virtual machines by name (can be a regexp)                                                                              |                   |             |
-| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %{running\_status}, %{name}  |                   |             |
-| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{running\_status}, %{name} |                   |             |
+| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{running_status\}, %{name}  |                   |             |
+| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{running_status\}, %{name} |                   |             |
 | WARNINGVMRUNNING  | Thresholds                                                                                                                     |                   |             |
 | CRITICALVMRUNNING | Thresholds                                                                                                                     |                   |             |
 | WARNINGVMSTOPPED  | Thresholds                                                                                                                     |                   |             |
@@ -460,9 +460,9 @@ All available options for each service template are listed below:
 |:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='^memory-usage$'                                                                     |
 | --filter-name            | Filter servers by name (can be a regexp).                                                                                                                        |
-| --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{running\_status}, %{is\_maintenance}, %{up2date}, %{name}    |
-| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{running\_status}, %{is\_maintenance}, %{up2date}, %{name}    |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{running\_status}, %{is\_maintenance}, %{up2date}, %{name}   |
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{running_status\}, %\{is_maintenance\}, %{up2date}, %{name}    |
+| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{running_status\}, %\{is_maintenance\}, %{up2date}, %{name}    |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{running_status\}, %\{is_maintenance\}, %{up2date}, %{name}   |
 | --warning-* --critical-* | Thresholds. Can be: 'servers-running', 'servers-stopped', 'memory-usage' (B), 'memory-usage-free' (B), 'memory-usage-prct' (%).                                  |
 
 </TabItem>
@@ -472,9 +472,9 @@ All available options for each service template are listed below:
 |:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='status'                                             |
 | --filter-name            | Filter virtual machines by name (can be a regexp).                                                                               |
-| --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %{running\_status}, %{name}    |
-| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{running\_status}, %{name}    |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{running\_status}, %{name}   |
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{running_status\}, %{name}    |
+| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{running_status\}, %{name}    |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{running_status\}, %{name}   |
 | --warning-* --critical-* | Thresholds. Can be: 'vm-running', 'vm-stopped'.                                                                                  |
 
 </TabItem>

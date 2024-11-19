@@ -298,9 +298,9 @@ yum install centreon-plugin-Hardware-Devices-Camera-Avigilon-Snmp
 
 | Macro          | Description                                                                                                                                                                                                                                              | Default value                                                                                         | Mandatory   |
 |:---------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------|:-----------:|
-| UNKNOWNSTATUS  | Define the conditions to match to return a unknown status. The condition can be written using the following macros: %{storage\_state}            | %{storage\_state} =~ /Unknown/i                   |             |
-| WARNINGSTATUS  | Define the conditions to match to return a warning status. The condition can be written using the following macros: %{storage\_state}            | %{storage_state} =~ /insufficientMediaCapacity/i \|      \      | %{storage_state} =~ /insufficientMediaSpeed/i |             |
-| CRITICALSTATUS | Define the conditions to match to return a critical status. The condition can be written using the following macros: %{storage\_state}           | %{storage_state} =~ /mediaNotPresent/i \|      \      | %{storage_state} =~ /error/i                            |             |
+| UNKNOWNSTATUS  | Define the conditions to match to return a unknown status. The condition can be written using the following macros: %\{storage_state\}            | %\{storage_state\} =~ /Unknown/i                   |             |
+| WARNINGSTATUS  | Define the conditions to match to return a warning status. The condition can be written using the following macros: %\{storage_state\}            | %{storage_state} =~ /insufficientMediaCapacity/i \|      \      | %{storage_state} =~ /insufficientMediaSpeed/i |             |
+| CRITICALSTATUS | Define the conditions to match to return a critical status. The condition can be written using the following macros: %\{storage_state\}           | %{storage_state} =~ /mediaNotPresent/i \|      \      | %{storage_state} =~ /error/i                            |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                                                   |             |
 
 </TabItem>
@@ -508,9 +508,9 @@ All available options for each service template are listed below:
 
 | Option            | Description                                                                                                                                                                                                                                                 |
 |:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --unknown-status  | Define the conditions to match to return a unknown status (default: "%{storage\_state} =~ /Unknown/i"). The condition can be written using the following macros: %{storage\_state}.                                                                         |
-| --warning-status  | Define the conditions to match to return a warning status (default: "%{storage\_state} =~ /insufficientMediaCapacity/i \|\| %{storage\_state} =~ /insufficientMediaSpeed/i"). The condition can be written using the following macros: %{storage\_state}.   |
-| --critical-status | Define the conditions to match to return a critical status (default: "%{storage\_state} =~ /mediaNotPresent/i \|\| %{storage\_state} =~ /error/i"). The condition can be written using the following macros: %{storage\_state}.                             |
+| --unknown-status  | Define the conditions to match to return a unknown status (default: "%\{storage_state\} =~ /Unknown/i"). The condition can be written using the following macros: %\{storage_state\}.                                                                         |
+| --warning-status  | Define the conditions to match to return a warning status (default: "%\{storage_state\} =~ /insufficientMediaCapacity/i \|\| %\{storage_state\} =~ /insufficientMediaSpeed/i"). The condition can be written using the following macros: %\{storage_state\}.   |
+| --critical-status | Define the conditions to match to return a critical status (default: "%\{storage_state\} =~ /mediaNotPresent/i \|\| %\{storage_state\} =~ /error/i"). The condition can be written using the following macros: %\{storage_state\}.                             |
 
 </TabItem>
 <TabItem value="Temperature sensor" label="Temperature sensor">

@@ -256,8 +256,8 @@ yum install centreon-plugin-Applications-Monitoring-Nodeexporter-Windows
 | Macro          | Description                                                                                                                                                                                    | Default value                                        | Mandatory   |
 |:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:-----------:|
 | SERVICENAME    | Specify which service to monitor. Can be a regex.  Default: all services are monitored                                                                                                         | .*                                                   |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{start\_mode} =~ /auto/ && %{status} !~ /^running$/'). You can use the following variables: %{status}, %{start\_mode} | %{start\_mode} =~ /auto/ && %{status} !~ /^running$/ |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{status}, %{start\_mode}                                                      |                                                      |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{start_mode\} =~ /auto/ && %{status} !~ /^running$/'). You can use the following variables: %{status}, %\{start_mode\} | %\{start_mode\} =~ /auto/ && %{status} !~ /^running$/ |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{status}, %\{start_mode\}                                                      |                                                      |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                             |                                                      |             |
 
 </TabItem>
@@ -456,8 +456,8 @@ All available options for each service template are listed below:
 | Option            | Description                                                                                                                                                                                       |
 |:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --service         | Specify which service to monitor. Can be a regex.  Default: all services are monitored.                                                                                                           |
-| --warning-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{status}, %{start\_mode}                                                         |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{start\_mode} =~ /auto/ && %{status} !~ /^running$/'). You can use the following variables: %{status}, %{start\_mode}    |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{status}, %\{start_mode\}                                                         |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{start_mode\} =~ /auto/ && %{status} !~ /^running$/'). You can use the following variables: %{status}, %\{start_mode\}    |
 
 </TabItem>
 <TabItem value="Node-Storage" label="Node-Storage">

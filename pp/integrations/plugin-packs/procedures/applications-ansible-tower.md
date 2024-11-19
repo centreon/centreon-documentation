@@ -222,12 +222,12 @@ yum install centreon-plugin-Applications-Ansible-Tower
 
 | Macro             | Description                                                                                                                                                                       | Default value                     | Mandatory   |
 |:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------|:-----------:|
-| UNKNOWNJOBSTATUS  | Define the conditions to match for the status to be UNKNOWN (default: '%{last\_job\_status} =~ /default/'). You can use the following variables: %{last\_job\_status}, %{display} | %{last\_job\_status} =~ /default/ |             |
+| UNKNOWNJOBSTATUS  | Define the conditions to match for the status to be UNKNOWN (default: '%\{last_job_status\} =~ /default/'). You can use the following variables: %\{last_job_status\}, %{display} | %\{last_job_status\} =~ /default/ |             |
 | FILTERNAME        | Filter host name (can use regexp)                                                                                                                                                 |                                   |             |
 | WARNINGFAILED     | Threshold                                                                                                                                                                         |                                   |             |
 | CRITICALFAILED    | Threshold                                                                                                                                                                         |                                   |             |
-| CRITICALJOBSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{last\_job\_status} =~ /failed/'). You can use the following variables: %{last\_job\_status}, %{display} | %{last\_job\_status} =~ /failed/  |             |
-| WARNINGJOBSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{last\_job\_status}, %{display}                                                |                                   |             |
+| CRITICALJOBSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{last_job_status\} =~ /failed/'). You can use the following variables: %\{last_job_status\}, %{display} | %\{last_job_status\} =~ /failed/  |             |
+| WARNINGJOBSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{last_job_status\}, %{display}                                                |                                   |             |
 | WARNINGTOTAL      | Threshold                                                                                                                                                                         |                                   |             |
 | CRITICALTOTAL     | Threshold                                                                                                                                                                         |                                   |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                | --verbose                         |             |
@@ -261,7 +261,7 @@ yum install centreon-plugin-Applications-Ansible-Tower
 
 | Macro              | Description                                                                                                                                                                       | Default value                     | Mandatory   |
 |:-------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------|:-----------:|
-| UNKNOWNJOBSTATUS   | Define the conditions to match for the status to be UNKNOWN (default: '%{last\_job\_status} =~ /default/'). You can use the following variables: %{last\_job\_status}, %{display} | %{last\_job\_status} =~ /default/ |             |
+| UNKNOWNJOBSTATUS   | Define the conditions to match for the status to be UNKNOWN (default: '%\{last_job_status\} =~ /default/'). You can use the following variables: %\{last_job_status\}, %{display} | %\{last_job_status\} =~ /default/ |             |
 | FILTERNAME         | Filter job template name (can use regexp)                                                                                                                                         |                                   |             |
 | WARNINGCANCELED    | Threshold                                                                                                                                                                         |                                   |             |
 | CRITICALCANCELED   | Threshold                                                                                                                                                                         |                                   |             |
@@ -269,8 +269,8 @@ yum install centreon-plugin-Applications-Ansible-Tower
 | CRITICALDEFAULT    | Threshold                                                                                                                                                                         |                                   |             |
 | WARNINGFAILED      | Threshold                                                                                                                                                                         |                                   |             |
 | CRITICALFAILED     | Threshold                                                                                                                                                                         |                                   |             |
-| CRITICALJOBSTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%{last\_job\_status} =~ /failed/'). You can use the following variables: %{last\_job\_status}, %{display} | %{last\_job\_status} =~ /failed/  |             |
-| WARNINGJOBSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %{last\_job\_status}, %{display}                                                |                                   |             |
+| CRITICALJOBSTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%\{last_job_status\} =~ /failed/'). You can use the following variables: %\{last_job_status\}, %{display} | %\{last_job_status\} =~ /failed/  |             |
+| WARNINGJOBSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{last_job_status\}, %{display}                                                |                                   |             |
 | WARNINGNEVER       | Threshold                                                                                                                                                                         |                                   |             |
 | CRITICALNEVER      | Threshold                                                                                                                                                                         |                                   |             |
 | WARNINGPENDING     | Threshold                                                                                                                                                                         |                                   |             |
@@ -310,7 +310,7 @@ yum install centreon-plugin-Applications-Ansible-Tower
 
 | Macro                 | Description                                                                                                                                                                       | Default value                     | Mandatory   |
 |:----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------|:-----------:|
-| UNKNOWNJOBSTATUS      | Define the conditions to match for the status to be UNKNOWN (default: '%{last\_job\_status} =~ /default/'). You can use the following variables: %{last\_job\_status}, %{display} | %{last\_job\_status} =~ /default/ |             |
+| UNKNOWNJOBSTATUS      | Define the conditions to match for the status to be UNKNOWN (default: '%\{last_job_status\} =~ /default/'). You can use the following variables: %\{last_job_status\}, %{display} | %\{last_job_status\} =~ /default/ |             |
 | FILTERNAME            | Filter schedule name (can use regexp)                                                                                                                                             |                                   |             |
 | WARNINGCANCELED       | Threshold                                                                                                                                                                         |                                   |             |
 | CRITICALCANCELED      | Threshold                                                                                                                                                                         |                                   |             |
@@ -318,8 +318,8 @@ yum install centreon-plugin-Applications-Ansible-Tower
 | CRITICALDEFAULT       | Threshold                                                                                                                                                                         |                                   |             |
 | WARNINGFAILED         | Threshold                                                                                                                                                                         |                                   |             |
 | CRITICALFAILED        | Threshold                                                                                                                                                                         |                                   |             |
-| CRITICALJOBSTATUS     | Define the conditions to match for the status to be CRITICAL (default: '%{last\_job\_status} =~ /failed/'). You can use the following variables: %{last\_job\_status}, %{display} | %{last\_job\_status} =~ /failed/  |             |
-| WARNINGJOBSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{last\_job\_status}, %{display}                                                |                                   |             |
+| CRITICALJOBSTATUS     | Define the conditions to match for the status to be CRITICAL (default: '%\{last_job_status\} =~ /failed/'). You can use the following variables: %\{last_job_status\}, %{display} | %\{last_job_status\} =~ /failed/  |             |
+| WARNINGJOBSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{last_job_status\}, %{display}                                                |                                   |             |
 | WARNINGNEVER          | Threshold                                                                                                                                                                         |                                   |             |
 | CRITICALNEVER         | Threshold                                                                                                                                                                         |                                   |             |
 | WARNINGPENDING        | Threshold                                                                                                                                                                         |                                   |             |
@@ -354,9 +354,9 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--password='' \
 	--custommode='api'  \
 	--filter-name='' \
-	--unknown-job-status='%{last\_job\_status} =~ /default/' \
+	--unknown-job-status='%\{last_job_status\} =~ /default/' \
 	--warning-job-status='' \
-	--critical-job-status='%{last\_job\_status} =~ /failed/' \
+	--critical-job-status='%\{last_job_status\} =~ /failed/' \
 	--warning-total='' \
 	--critical-total='' \
 	--warning-failed='' \
@@ -486,9 +486,9 @@ All available options for each service template are listed below:
 |:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-name            |   Filter host name (can use regexp).                                                                                                                                                  |
 | --display-failed-hosts   |   Display failed hosts list in verbose output.                                                                                                                                        |
-| --unknown-job-status     |   Define the conditions to match for the status to be UNKNOWN (default: '%{last\_job\_status} =~ /default/'). You can use the following variables: %{last\_job\_status}, %{display}   |
-| --warning-job-status     |   Define the conditions to match for the status to be WARNING. You can use the following variables: %{last\_job\_status}, %{display}                                                  |
-| --critical-job-status    |   Define the conditions to match for the status to be CRITICAL (default: '%{last\_job\_status} =~ /failed/'). You can use the following variables: %{last\_job\_status}, %{display}   |
+| --unknown-job-status     |   Define the conditions to match for the status to be UNKNOWN (default: '%\{last_job_status\} =~ /default/'). You can use the following variables: %\{last_job_status\}, %{display}   |
+| --warning-job-status     |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{last_job_status\}, %{display}                                                  |
+| --critical-job-status    |   Define the conditions to match for the status to be CRITICAL (default: '%\{last_job_status\} =~ /failed/'). You can use the following variables: %\{last_job_status\}, %{display}   |
 | --warning-* --critical-* |    Thresholds. Can be: 'total', 'failed'.                                                                                                                                             |
 
 </TabItem>
@@ -513,9 +513,9 @@ All available options for each service template are listed below:
 | --launch-extra-vars      |   yaml format text that contains extra variables to pass on.                                                                                                                          |
 | --launch-max-retries     |   Number of retries to get job result once launched (default: 5).                                                                                                                     |
 | --launch-retry-interval  |   Number of seconds between retries (default : 10).                                                                                                                                   |
-| --unknown-job-status     |   Define the conditions to match for the status to be UNKNOWN (default: '%{last\_job\_status} =~ /default/'). You can use the following variables: %{last\_job\_status}, %{display}   |
-| --warning-job-status     |   Define the conditions to match for the status to be WARNING. You can use the following variables: %{last\_job\_status}, %{display}                                                  |
-| --critical-job-status    |   Define the conditions to match for the status to be CRITICAL (default: '%{last\_job\_status} =~ /failed/'). You can use the following variables: %{last\_job\_status}, %{display}   |
+| --unknown-job-status     |   Define the conditions to match for the status to be UNKNOWN (default: '%\{last_job_status\} =~ /default/'). You can use the following variables: %\{last_job_status\}, %{display}   |
+| --warning-job-status     |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{last_job_status\}, %{display}                                                  |
+| --critical-job-status    |   Define the conditions to match for the status to be CRITICAL (default: '%\{last_job_status\} =~ /failed/'). You can use the following variables: %\{last_job_status\}, %{display}   |
 | --warning-* --critical-* |    Thresholds. Can be: 'total', 'successful', 'failed', 'running', 'canceled', 'pending', 'default', 'never'.                                                                         |
 
 </TabItem>
@@ -560,9 +560,9 @@ All available options for each service template are listed below:
 | Option                   | Description                                                                                                                                                                           |
 |:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-name            |   Filter schedule name (can use regexp).                                                                                                                                              |
-| --unknown-job-status     |   Define the conditions to match for the status to be UNKNOWN (default: '%{last\_job\_status} =~ /default/'). You can use the following variables: %{last\_job\_status}, %{display}   |
-| --warning-job-status     |   Define the conditions to match for the status to be WARNING. You can use the following variables: %{last\_job\_status}, %{display}                                                  |
-| --critical-job-status    |   Define the conditions to match for the status to be CRITICAL (default: '%{last\_job\_status} =~ /failed/'). You can use the following variables: %{last\_job\_status}, %{display}   |
+| --unknown-job-status     |   Define the conditions to match for the status to be UNKNOWN (default: '%\{last_job_status\} =~ /default/'). You can use the following variables: %\{last_job_status\}, %{display}   |
+| --warning-job-status     |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{last_job_status\}, %{display}                                                  |
+| --critical-job-status    |   Define the conditions to match for the status to be CRITICAL (default: '%\{last_job_status\} =~ /failed/'). You can use the following variables: %\{last_job_status\}, %{display}   |
 | --warning-* --critical-* |    Thresholds. Can be: 'total', 'successful', 'failed', 'running', 'canceled', 'pending', 'default', 'never', 'start-last-time' (s).                                                  |
 
 </TabItem>

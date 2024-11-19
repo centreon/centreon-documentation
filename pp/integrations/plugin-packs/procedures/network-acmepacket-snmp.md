@@ -490,8 +490,8 @@ yum install centreon-plugin-Network-Acmepacket-Snmp
 | CRITICALLICENSEUSAGE      | Critical threshold                                                                                                                     |                                          |             |
 | WARNINGMEMORYUSAGE        | Warning threshold                                                                                                                      |                                          |             |
 | CRITICALMEMORYUSAGE       | Critical threshold                                                                                                                     |                                          |             |
-| CRITICALREPLICATIONSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{replication\_state}               | %{replication\_state} =~ /outOfService/i |             |
-| WARNINGREPLICATIONSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{replication\_state}                |                                          |             |
+| CRITICALREPLICATIONSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{replication_state\}               | %\{replication_state\} =~ /outOfService/i |             |
+| WARNINGREPLICATIONSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{replication_state\}                |                                          |             |
 | EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                                          |             |
 
 </TabItem>
@@ -798,8 +798,8 @@ All available options for each service template are listed below:
 | Option                        | Description                                                                                                                                                                      |
 |:------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters             | Only display some counters (regexp can be used). Example: --filter-counters='^memory-usage$'                                                                                     |
-| --warning-replication-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{replication\_state}                                            |
-| --critical-replication-status | Define the conditions to match for the status to be CRITICAL (default: '%{replication\_state} =~ /outOfService/i'). You can use the following variables: %{replication\_state}   |
+| --warning-replication-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{replication_state\}                                            |
+| --critical-replication-status | Define the conditions to match for the status to be CRITICAL (default: '%\{replication_state\} =~ /outOfService/i'). You can use the following variables: %\{replication_state\}   |
 | --warning-*                   | Warning threshold. Can be: 'license-usage' (%), 'memory-usage' (%), 'cpu-load' (%), 'health-score' (%), 'current-sessions', 'current-calls'.                                     |
 | --critical-*                  | Critical threshold. Can be: 'license-usage' (%), 'memory-usage' (%), 'cpu-load' (%), 'health-score' (%), 'current-sessions', 'current-calls'.                                    |
 

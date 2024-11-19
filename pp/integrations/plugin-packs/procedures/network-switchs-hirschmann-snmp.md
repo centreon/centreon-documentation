@@ -233,8 +233,8 @@ yum install centreon-plugin-Network-Switchs-Hirschmann
 
 | Macro          | Description                                                                                                                            | Default value                               | Mandatory   |
 |:---------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------|:-----------:|
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{config\_status}                    | %{config\_status} =~ /notInSync\|outOfSync/ |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{config\_status}                   |                                             |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{config_status\}                    | %\{config_status\} =~ /notInSync\|outOfSync/ |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{config_status\}                   |                                             |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                                             |             |
 
 </TabItem>
@@ -462,8 +462,8 @@ All available options for each service template are listed below:
 | Option            | Description                                                                                                                                                                       |
 |:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                       |
-| --warning-status  |   Define the conditions to match for the status to be WARNING (default : '%{config\_status} =~ /notInSync\|outOfSync/'). You can use the following variables: %{config\_status}   |
-| --critical-status |   Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{config\_status}                                                            |
+| --warning-status  |   Define the conditions to match for the status to be WARNING (default : '%\{config_status\} =~ /notInSync\|outOfSync/'). You can use the following variables: %\{config_status\}   |
+| --critical-status |   Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{config_status\}                                                            |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">

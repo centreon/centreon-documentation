@@ -264,8 +264,8 @@ yum install centreon-plugin-Network-Fortinet-Fortiweb-Snmp
 | CRITICALCPULOAD     | Thresholds                                                                                                     |                   |             |
 | WARNINGDISKUSAGE    | Thresholds                                                                                                     |                   |             |
 | CRITICALDISKUSAGE   | Thresholds                                                                                                     |                   |             |
-| WARNINGHASTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %{ha\_mode}  |                   |             |
-| CRITICALHASTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{ha\_mode} |                   |             |
+| WARNINGHASTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{ha_mode\}  |                   |             |
+| CRITICALHASTATUS    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{ha_mode\} |                   |             |
 | WARNINGMEMORYUSAGE  | Thresholds                                                                                                     |                   |             |
 | CRITICALMEMORYUSAGE | Thresholds                                                                                                     |                   |             |
 | EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).             | --verbose         |             |
@@ -461,8 +461,8 @@ All available options for each service template are listed below:
 | Option                   | Description                                                                                                      |
 |:-------------------------|:-----------------------------------------------------------------------------------------------------------------|
 | --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='memory-usage'                       |
-| --warning-ha-status      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{ha\_mode}    |
-| --critical-ha-status     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{ha\_mode}   |
+| --warning-ha-status      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{ha_mode\}    |
+| --critical-ha-status     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{ha_mode\}   |
 | --warning-* --critical-* | Thresholds. Can be: 'disk-usage' (%), 'memory-usage' (%), 'cpu-load' (%).                                        |
 
 </TabItem>

@@ -235,8 +235,8 @@ yum install centreon-plugin-Network-Ucopia-Snmp
 | CRITICALCPUTEMPERATURE     | Thresholds                                                                                                                                                   |                   |             |
 | WARNINGDISKTEMPERATURE     | Thresholds                                                                                                                                                   |                   |             |
 | CRITICALDISKTEMPERATURE    | Thresholds                                                                                                                                                   |                   |             |
-| WARNINGHASTATUS            | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{ha\_status}                                |                   |             |
-| CRITICALHASTATUS           | Define the conditions to match for the status to be CRITICAL (default: '%{ha\_status} eq "fault"'). You can use the following variables: %{ha\_status}       |                   |             |
+| WARNINGHASTATUS            | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{ha_status\}                                |                   |             |
+| CRITICALHASTATUS           | Define the conditions to match for the status to be CRITICAL (default: '%\{ha_status\} eq "fault"'). You can use the following variables: %\{ha_status\}       |                   |             |
 | WARNINGSERVICESTATUS       | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{status}, %{display}                        |                   |             |
 | CRITICALSERVICESTATUS      | Define the conditions to match for the status to be CRITICAL (default: '%{status} eq "stopped"'). You can use the following variables: %{status}, %{display} |                   |             |
 | WARNINGUSERSCONNECTED      | Thresholds                                                                                                                                                   |                   |             |
@@ -256,8 +256,8 @@ yum install centreon-plugin-Network-Ucopia-Snmp
 | CRITICALCPUTEMPERATURE     | Thresholds                                                                                                                                                   |                        |             |
 | WARNINGDISKTEMPERATURE     | Thresholds                                                                                                                                                   |                        |             |
 | CRITICALDISKTEMPERATURE    | Thresholds                                                                                                                                                   |                        |             |
-| WARNINGHASTATUS            | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{ha\_status}                                |                        |             |
-| CRITICALHASTATUS           | Define the conditions to match for the status to be CRITICAL (default: '%{ha\_status} eq "fault"'). You can use the following variables: %{ha\_status}       |                        |             |
+| WARNINGHASTATUS            | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{ha_status\}                                |                        |             |
+| CRITICALHASTATUS           | Define the conditions to match for the status to be CRITICAL (default: '%\{ha_status\} eq "fault"'). You can use the following variables: %\{ha_status\}       |                        |             |
 | CRITICALSERVICESTATUS      | Define the conditions to match for the status to be CRITICAL (default: '%{status} eq "stopped"'). You can use the following variables: %{status}, %{display} | %{status} eq "stopped" |             |
 | WARNINGSERVICESTATUS       | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{status}, %{display}                        |                        |             |
 | WARNINGUSERSCONNECTED      | Thresholds                                                                                                                                                   |                        |             |
@@ -277,8 +277,8 @@ yum install centreon-plugin-Network-Ucopia-Snmp
 | CRITICALCPUTEMPERATURE     | Thresholds                                                                                                                                                   |                   |             |
 | WARNINGDISKTEMPERATURE     | Thresholds                                                                                                                                                   |                   |             |
 | CRITICALDISKTEMPERATURE    | Thresholds                                                                                                                                                   |                   |             |
-| WARNINGHASTATUS            | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{ha\_status}                                |                   |             |
-| CRITICALHASTATUS           | Define the conditions to match for the status to be CRITICAL (default: '%{ha\_status} eq "fault"'). You can use the following variables: %{ha\_status}       |                   |             |
+| WARNINGHASTATUS            | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{ha_status\}                                |                   |             |
+| CRITICALHASTATUS           | Define the conditions to match for the status to be CRITICAL (default: '%\{ha_status\} eq "fault"'). You can use the following variables: %\{ha_status\}       |                   |             |
 | WARNINGSERVICESTATUS       | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{status}, %{display}                        |                   |             |
 | CRITICALSERVICESTATUS      | Define the conditions to match for the status to be CRITICAL (default: '%{status} eq "stopped"'). You can use the following variables: %{status}, %{display} |                   |             |
 | WARNINGUSERSCONNECTED      | Thresholds                                                                                                                                                   |                   |             |
@@ -298,8 +298,8 @@ yum install centreon-plugin-Network-Ucopia-Snmp
 | CRITICALCPUTEMPERATURE     | Thresholds                                                                                                                                                   |                   |             |
 | WARNINGDISKTEMPERATURE     | Thresholds                                                                                                                                                   |                   |             |
 | CRITICALDISKTEMPERATURE    | Thresholds                                                                                                                                                   |                   |             |
-| WARNINGHASTATUS            | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{ha\_status}                                |                   |             |
-| CRITICALHASTATUS           | Define the conditions to match for the status to be CRITICAL (default: '%{ha\_status} eq "fault"'). You can use the following variables: %{ha\_status}       |                   |             |
+| WARNINGHASTATUS            | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{ha_status\}                                |                   |             |
+| CRITICALHASTATUS           | Define the conditions to match for the status to be CRITICAL (default: '%\{ha_status\} eq "fault"'). You can use the following variables: %\{ha_status\}       |                   |             |
 | WARNINGSERVICESTATUS       | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{status}, %{display}                        |                   |             |
 | CRITICALSERVICESTATUS      | Define the conditions to match for the status to be CRITICAL (default: '%{status} eq "stopped"'). You can use the following variables: %{status}, %{display} |                   |             |
 | WARNINGUSERSCONNECTED      | Thresholds                                                                                                                                                   |                   |             |
@@ -449,8 +449,8 @@ All available options for each service template are listed below:
 | --filter-counters         | Only display some counters (regexp can be used). Example: --filter-counters='service-status'                                                                   |
 | --warning-service-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{status}, %{display}                          |
 | --critical-service-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} eq "stopped"'). You can use the following variables: %{status}, %{display}   |
-| --warning-ha-status       | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{ha\_status}                                  |
-| --critical-ha-status      | Define the conditions to match for the status to be CRITICAL (default: '%{ha\_status} eq "fault"'). You can use the following variables: %{ha\_status}         |
+| --warning-ha-status       | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{ha_status\}                                  |
+| --critical-ha-status      | Define the conditions to match for the status to be CRITICAL (default: '%\{ha_status\} eq "fault"'). You can use the following variables: %\{ha_status\}         |
 | --warning-* --critical-*  | Thresholds. Can be: 'users-connected', 'users-connected-prct', 'disk-temperature', 'cpu-temperature'.                                                          |
 
 </TabItem>
@@ -461,8 +461,8 @@ All available options for each service template are listed below:
 | --filter-counters         | Only display some counters (regexp can be used). Example: --filter-counters='service-status'                                                                   |
 | --warning-service-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{status}, %{display}                          |
 | --critical-service-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} eq "stopped"'). You can use the following variables: %{status}, %{display}   |
-| --warning-ha-status       | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{ha\_status}                                  |
-| --critical-ha-status      | Define the conditions to match for the status to be CRITICAL (default: '%{ha\_status} eq "fault"'). You can use the following variables: %{ha\_status}         |
+| --warning-ha-status       | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{ha_status\}                                  |
+| --critical-ha-status      | Define the conditions to match for the status to be CRITICAL (default: '%\{ha_status\} eq "fault"'). You can use the following variables: %\{ha_status\}         |
 | --warning-* --critical-*  | Thresholds. Can be: 'users-connected', 'users-connected-prct', 'disk-temperature', 'cpu-temperature'.                                                          |
 
 </TabItem>
@@ -473,8 +473,8 @@ All available options for each service template are listed below:
 | --filter-counters         | Only display some counters (regexp can be used). Example: --filter-counters='service-status'                                                                   |
 | --warning-service-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{status}, %{display}                          |
 | --critical-service-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} eq "stopped"'). You can use the following variables: %{status}, %{display}   |
-| --warning-ha-status       | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{ha\_status}                                  |
-| --critical-ha-status      | Define the conditions to match for the status to be CRITICAL (default: '%{ha\_status} eq "fault"'). You can use the following variables: %{ha\_status}         |
+| --warning-ha-status       | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{ha_status\}                                  |
+| --critical-ha-status      | Define the conditions to match for the status to be CRITICAL (default: '%\{ha_status\} eq "fault"'). You can use the following variables: %\{ha_status\}         |
 | --warning-* --critical-*  | Thresholds. Can be: 'users-connected', 'users-connected-prct', 'disk-temperature', 'cpu-temperature'.                                                          |
 
 </TabItem>
@@ -485,8 +485,8 @@ All available options for each service template are listed below:
 | --filter-counters         | Only display some counters (regexp can be used). Example: --filter-counters='service-status'                                                                   |
 | --warning-service-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{status}, %{display}                          |
 | --critical-service-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} eq "stopped"'). You can use the following variables: %{status}, %{display}   |
-| --warning-ha-status       | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{ha\_status}                                  |
-| --critical-ha-status      | Define the conditions to match for the status to be CRITICAL (default: '%{ha\_status} eq "fault"'). You can use the following variables: %{ha\_status}         |
+| --warning-ha-status       | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{ha_status\}                                  |
+| --critical-ha-status      | Define the conditions to match for the status to be CRITICAL (default: '%\{ha_status\} eq "fault"'). You can use the following variables: %\{ha_status\}         |
 | --warning-* --critical-*  | Thresholds. Can be: 'users-connected', 'users-connected-prct', 'disk-temperature', 'cpu-temperature'.                                                          |
 
 </TabItem>

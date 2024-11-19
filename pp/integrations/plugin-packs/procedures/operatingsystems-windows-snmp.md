@@ -389,8 +389,8 @@ yum install centreon-plugin-Operatingsystems-Windows-Snmp
 | CRITICALPAUSED          | Thresholds on services count                                                                                                |                   |             |
 | WARNINGPAUSEPENDING     | Thresholds on services count                                                                                                |                   |             |
 | CRITICALPAUSEPENDING    | Thresholds on services count                                                                                                |                   |             |
-| WARNINGSTATUS           | Set WARNING or CRITICAL threshold for status. You can use the following variables: %{operating\_state}, %{installed\_state} |                   |             |
-| CRITICALSTATUS          | Set WARNING or CRITICAL threshold for status. You can use the following variables: %{operating\_state}, %{installed\_state} |                   |             |
+| WARNINGSTATUS           | Set WARNING or CRITICAL threshold for status. You can use the following variables: %\{operating_state\}, %\{installed_state\} |                   |             |
+| CRITICALSTATUS          | Set WARNING or CRITICAL threshold for status. You can use the following variables: %\{operating_state\}, %\{installed_state\} |                   |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to the command (example: a --verbose flag). All options are listed [here](#available-options)                                 | --verbose         |             |
 
 </TabItem>
@@ -698,7 +698,7 @@ All available options for each service template are listed below:
 | Option                             | Description                                                                                                                    |
 |:-----------------------------------|:-------------------------------------------------------------------------------------------------------------------------------|
 | --filter-name                      | Filter by service name (can be a regexp).                                                                                      |
-| --warning-status --critical-status | Set WARNING or CRITICAL threshold for status. You can use the following variables: %{operating\_state}, %{installed\_state}.   |
+| --warning-status --critical-status | Set WARNING or CRITICAL threshold for status. You can use the following variables: %\{operating_state\}, %\{installed_state\}.   |
 | --warning-* --critical-*           | Thresholds on services count. Can be: 'total', 'active', 'continue-pending', 'pause-pending', 'paused'.                        |
 | --warning                          | DEPRECATED. Use --warning-active instead.                                                                                      |
 | --critical                         | DEPRECATED. Use --critical-active instead.                                                                                     |

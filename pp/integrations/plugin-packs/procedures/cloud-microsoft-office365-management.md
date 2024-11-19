@@ -280,12 +280,12 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 | FILTERAPPNAME           | Filter applications (can be a regexp)                                                                                                                                  |                         |             |
 | WARNINGKEYEXPIRES       | Thresholds                                                                                                                                                             |                         |             |
 | CRITICALKEYEXPIRES      | Thresholds                                                                                                                                                             |                         |             |
-| CRITICALKEYSTATUS       | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /expired/i'). You can use the following variables: %{status}, %{id}, %{app\_name} | %{status} =~ /expired/i |             |
-| WARNINGKEYSTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{id}, %{app\_name}                                       |                         |             |
+| CRITICALKEYSTATUS       | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /expired/i'). You can use the following variables: %{status}, %{id}, %\{app_name\} | %{status} =~ /expired/i |             |
+| WARNINGKEYSTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{id}, %\{app_name\}                                       |                         |             |
 | WARNINGPASSWORDEXPIRES  | Thresholds                                                                                                                                                             |                         |             |
 | CRITICALPASSWORDEXPIRES | Thresholds                                                                                                                                                             |                         |             |
-| CRITICALPASSWORDSTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /expired/i'). You can use the following variables: %{status}, %{id}, %{app\_name} | %{status} =~ /expired/i |             |
-| WARNINGPASSWORDSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{id}, %{app\_name}                                       |                         |             |
+| CRITICALPASSWORDSTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /expired/i'). You can use the following variables: %{status}, %{id}, %\{app_name\} | %{status} =~ /expired/i |             |
+| WARNINGPASSWORDSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{id}, %\{app_name\}                                       |                         |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                     | --verbose               |             |
 
 </TabItem>
@@ -294,8 +294,8 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 | Macro             | Description                                                                                                                                                                                                        | Default value                                       | Mandatory   |
 |:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------|:-----------:|
 | FILTERSERVICENAME | Filter services (can be a regexp)                                                                                                                                                                                  |                                                     |             |
-| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /serviceOperational\|serviceRestored/i'). You can use the following variables: %{service\_name}, %{status}, %{classification} | %{status} !~ /serviceOperational\|serviceRestored/i |             |
-| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %{service\_name}, %{status}, %{classification}                                                                   |                                                     |             |
+| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /serviceOperational\|serviceRestored/i'). You can use the following variables: %\{service_name\}, %{status}, %{classification} | %{status} !~ /serviceOperational\|serviceRestored/i |             |
+| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{service_name\}, %{status}, %{classification}                                                                   |                                                     |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                 |                                                     |             |
 
 </TabItem>
@@ -456,10 +456,10 @@ All available options for each service template are listed below:
 | Option                     | Description                                                                                                                                                               |
 |:---------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-app-name          | Filter applications (can be a regexp).                                                                                                                                    |
-| --warning-key-status       | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{id}, %{app\_name}.                                         |
-| --critical-key-status      | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /expired/i'). You can use the following variables: %{status}, %{id}, %{app\_name}.   |
-| --warning-password-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{id}, %{app\_name}.                                         |
-| --critical-password-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /expired/i'). You can use the following variables: %{status}, %{id}, %{app\_name}.   |
+| --warning-key-status       | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{id}, %\{app_name\}.                                         |
+| --critical-key-status      | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /expired/i'). You can use the following variables: %{status}, %{id}, %\{app_name\}.   |
+| --warning-password-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{status}, %{id}, %\{app_name\}.                                         |
+| --critical-password-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /expired/i'). You can use the following variables: %{status}, %{id}, %\{app_name\}.   |
 | --unit                     | Select the time unit for the expiration thresholds. May be 's'for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is secondss.              |
 | --warning-* --critical-*   | Thresholds. Can be: 'key-expires', 'password-expires'.                                                                                                                    |
 
@@ -469,8 +469,8 @@ All available options for each service template are listed below:
 | Option                | Description                                                                                                                                                                                                           |
 |:----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-service-name | Filter services (can be a regexp).                                                                                                                                                                                    |
-| --warning-status      | Define the conditions to match for the status to be WARNING. You can use the following variables: %{service\_name}, %{status}, %{classification}                                                                      |
-| --critical-status     | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /serviceOperational\|serviceRestored/i'). You can use the following variables: %{service\_name}, %{status}, %{classification}    |
+| --warning-status      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{service_name\}, %{status}, %{classification}                                                                      |
+| --critical-status     | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /serviceOperational\|serviceRestored/i'). You can use the following variables: %\{service_name\}, %{status}, %{classification}    |
 
 </TabItem>
 <TabItem value="Subscriptions" label="Subscriptions">

@@ -268,8 +268,8 @@ yum install centreon-plugin-Hardware-Ups-Apc-Snmp
 | CRITICALLINEPHASEPOWER   | Thresholds                                                                                                        |                   |             |
 | WARNINGLINEPHASEVOLTAGE  | Thresholds                                                                                                        |                   |             |
 | CRITICALLINEPHASEVOLTAGE | Thresholds                                                                                                        |                   |             |
-| WARNINGSTATUS            | Define the conditions to match for the status to be WARNING. You can use the following variables: %{last\_cause}  |                   |             |
-| CRITICALSTATUS           | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{last\_cause} |                   |             |
+| WARNINGSTATUS            | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{last_cause\}  |                   |             |
+| CRITICALSTATUS           | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{last_cause\} |                   |             |
 | WARNINGVOLTAGE           | Thresholds                                                                                                        |                   |             |
 | CRITICALVOLTAGE          | Thresholds                                                                                                        |                   |             |
 | EXTRAOPTIONS             | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)               |                   |             |
@@ -469,8 +469,8 @@ All available options for each service template are listed below:
 | Option                   | Description                                                                                                                      |
 |:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='^frequence\|voltage$'                               |
-| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{last\_cause}                 |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{last\_cause}                |
+| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{last_cause\}                 |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{last_cause\}                |
 | --warning-* --critical-* | Thresholds. Can be: 'voltage', 'frequence', 'line-frequence', 'line-phase-voltage', 'line-phase-current', 'line-phase-power'.    |
 
 </TabItem>
