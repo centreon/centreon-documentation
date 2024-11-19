@@ -113,12 +113,11 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Afin de superviser votre équipement, le SNMP v2 ou v3 doit être configuré.
+L'agent SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
 
 ### Flux réseau
 
-La communication doit être possible sur le port UDP 161 depuis le collecteur
-Centreon vers l'équipement supervisé.
+La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers la ressource supervisée.
 
 ## Installer le connecteur de supervision
 
