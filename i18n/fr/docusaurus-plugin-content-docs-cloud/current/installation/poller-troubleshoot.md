@@ -115,7 +115,7 @@ Si toutes les étapes suivantes ont fonctionné mais que le log ne montre pas qu
 Vérifiez les dates de modification des fichiers de configuration : si vous voyez que les fichiers n'ont pas été mis à jour lorsque vous avez déployé la configuration, vérifiez que l'utilisateur **gorgone** a des droits sur le répertoire correspondant.
 
 ```shell
-ls -l /etc/centreon-engine
+ls -al /etc/centreon-engine
 ```
 
 ### Étape 8 : Vérifier que Engine se recharge ou redémarre correctement
