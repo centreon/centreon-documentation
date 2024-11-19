@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                         | Service Description                                  |
 |:--------------|:-----------------------------------------|:-----------------------------------------------------|
-| Cpu           | Net-Netgear-Sseries-Cpu-SNMP-custom      | Check the rate of utilization of CPU for the machine |
+| Cpu           | Net-Netgear-Sseries-Cpu-SNMP-custom      | Check the rate of CPU utilization for the machine |
 | Hardware      | Net-Netgear-Sseries-Hardware-SNMP-custom | Check hardware                                       |
 | Memory        | Net-Netgear-Sseries-Memory-SNMP-custom   | Check memory usage                                   |
 
@@ -338,7 +338,7 @@ OK: All interfaces are ok | '*interface_name*#status'='up';;;;'*interface_name*#
 ### Troubleshooting
 
 Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
-for Centreon Plugins typical issues.
+for Centreon plugins typical issues.
 
 ### Available modes
 
