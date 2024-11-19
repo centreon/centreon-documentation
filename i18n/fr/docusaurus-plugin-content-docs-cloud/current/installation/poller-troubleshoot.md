@@ -146,7 +146,7 @@ tail -f /var/log/centreon-engine/centengine.log
 [process] [info] [3142] Centreon Engine yy.mm.p starting ...
 ```
 
-Si le fichier ne contient pas les lignes ci-dessus, vérifiez que **gorgoned** a le droit d'écrire dans `/etc/centreon-engine` et que **centengine** a le droit de lire dedans.
+Si le fichier ne contient pas les lignes ci-dessus, vérifiez les autres messages de logs à la recherche d'erreurs indiquant quel problème survient.
 
 ## Le collecteur n'envoie pas de données à la plateforme
 
