@@ -529,7 +529,7 @@ sub check_options {
     $self->SUPER::check_options(%options);
 
     # Check if the user provided a value for --hostname option. If not, display a message and exit
-    if (!defined($self->{option_results}->{hostname}) || $self->{option_results}->{hostname} eq '') {
+    if (!defined($self->{option_results}-\{hostname\}) || $self->{option_results}-\{hostname\} eq '') {
         $self->{output}->add_option_msg(short_msg => 'Please set hostname option');
         $self->{output}->option_exit();
     }
@@ -981,7 +981,7 @@ sub manage_selection {
     # Initialize an empty app_metrics counter.
     $self->{app_metrics} = {};
     # Loop in the connections array of hashes
-    foreach my $entry (@{ $decoded_content->{connections} }) {
+    foreach my $entry (@\{ $decoded_content->{connections\} }) {
         # Same logic than type => 0 counters but an extra key $entry->{component} to associate the value
         # with a specific instance
         $self->{app_metrics}->{ $entry->{component} }->{display} = $entry->{component};
@@ -989,7 +989,7 @@ sub manage_selection {
     };
 
     # Exactly the same thing with errors
-    foreach my $entry (@{ $decoded_content->{errors} }) {
+    foreach my $entry (@\{ $decoded_content->{errors\} }) {
         # Don't need to redefine the display key, just assign a value to the error key_value while
         # keeping the $entry->{component} key to associate the value with the good instance
         $self->{app_metrics}->{ $entry->{component} }->{errors} = $entry->{value};

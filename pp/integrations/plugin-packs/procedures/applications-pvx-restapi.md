@@ -95,7 +95,7 @@ and the procedure below is an extract from the
 each step replace the value of the macros enclosed by '< \>' with yours.
 
 ```bash 
-curl -k 'https://**<pvxapihost>**/api/login?user=**<user>**&password=**<password>**'`
+curl -k 'https://**\<pvxapihost>**/api/login?user=**<user>**&password=**<password\>**'`
 ```
 
 Result:
@@ -110,7 +110,7 @@ Result:
 Thanks to the obtained session ID, execute the command below get a secret key
 
 ```bash 
-curl -k 'https://**<pvxapihost>**/api/create-api-key?name=**<keyname>**&_session=session:91554086-842b-4b73-9028-c51d20d91b94'`
+curl -k 'https://**\<pvxapihost>**/api/create-api-key?name=**<keyname\>**&_session=session:91554086-842b-4b73-9028-c51d20d91b94'`
 ```
 
 Result:

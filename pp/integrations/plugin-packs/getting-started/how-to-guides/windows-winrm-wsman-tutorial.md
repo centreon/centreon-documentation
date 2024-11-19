@@ -28,7 +28,7 @@ winrm quickconfig
 Enable basic authentication:
 
 ``` bash
-winrm s winrm/config/service/auth '@{Basic="true"}'
+winrm s winrm/config/service/auth '@\{Basic="true"\}'
 ```
 
 ### Firewall configuration
@@ -73,7 +73,7 @@ Copy the **Thumbprint** for the next step:
 Create the WinRM HTTPS listener by replacing the values @HOSTNAME@ and @THUMBPRINT@ with the correct values.
 
 ``` bash
-winrm create winrm/config/Listener?Address=*+Transport=HTTPS  '@{Hostname="@HOSTNAME@";CertificateThumbprint="@THUMBPRINT@"}'
+winrm create winrm/config/Listener?Address=*+Transport=HTTPS  '@\{Hostname="@HOSTNAME@";CertificateThumbprint="@THUMBPRINT@"\}'
 ```
 
 From here, you can monitor your Windows server by using the local administrator account.
@@ -399,11 +399,11 @@ $Thumbprint=Invoke-Command -ComputerName $FQDN `
 
 
 Set-WSManInstance -ResourceURI winrm/config/Listener `
-                  -SelectorSet @{Address="*";Transport="HTTPS"} `
+                  -SelectorSet @\{Address="*";Transport="HTTPS"\} `
                   -ComputerName $FQDN `
-                  -ValueSet @{CertificateThumbprint=$Thumbprint}
+                  -ValueSet @\{CertificateThumbprint=$Thumbprint\}
 
-winrm create winrm/config/Listener?Address=*+Transport=HTTPS "@{Hostname=".$FQDN.".;CertificateThumbprint=".$Thumbprint."}"
+winrm create winrm/config/Listener?Address=*+Transport=HTTPS "@\{Hostname=".$FQDN.".;CertificateThumbprint=".$Thumbprint."\}"
 ```
 
 * Copy this script in the following location to be able to deploy it massively:
