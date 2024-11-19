@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias   | Service Template                                | Service Description                                                                                           |
 |:----------------|:------------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
-| Cpu             | Net-Nortel-Standard-Cpu-SNMP-custom             | Check the rate of utilization of CPU for the machine. This check can give the average utilization rate of CPU |
+| Cpu             | Net-Nortel-Standard-Cpu-SNMP-custom             | Check the rate of CPU utilization for the machine. This check can give the average CPU  utilization rate |
 | Hardware-Global | Net-Nortel-Standard-Hardware-Global-SNMP-custom | Check hardware status                                                                                         |
 | Memory          | Net-Nortel-Standard-Memory-SNMP-custom          | Check memory usage                                                                                            |
 | Stack           | Net-Nortel-Standard-Stack-SNMP-custom           | Check stack units                                                                                             |
@@ -32,11 +32,11 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias              | Service Template                                           | Service Description                                             | Discovery  |
 |:---------------------------|:-----------------------------------------------------------|:----------------------------------------------------------------|:----------:|
-| Packet-Errors-Generic-Id   | Net-Nortel-Standard-Packet-Errors-Generic-Id-SNMP-custom   | Check packets on errors/discards of a network interface         |            |
-| Packet-Errors-Generic-Name | Net-Nortel-Standard-Packet-Errors-Generic-Name-SNMP-custom | Check packets on errors/discards of a network interface         |            |
-| Packet-Errors-Global       | Net-Nortel-Standard-Packet-Errors-Global-SNMP-custom       | Check packets on errors/discards of multiple network interfaces | X          |
-| Traffic-Generic-Id         | Net-Nortel-Standard-Traffic-Generic-Id-SNMP-custom         | Check traffic of an network interface                           |            |
-| Traffic-Generic-Name       | Net-Nortel-Standard-Traffic-Generic-Name-SNMP-custom       | Check traffic of an network interface                           |            |
+| Packet-Errors-Generic-Id   | Net-Nortel-Standard-Packet-Errors-Generic-Id-SNMP-custom   | Check packets in error/discarded from a network interface         |            |
+| Packet-Errors-Generic-Name | Net-Nortel-Standard-Packet-Errors-Generic-Name-SNMP-custom | Check packets in error/discarded from a network interface          |            |
+| Packet-Errors-Global       | Net-Nortel-Standard-Packet-Errors-Global-SNMP-custom       | Check packets in error/discarded from multiple network interfaces | X          |
+| Traffic-Generic-Id         | Net-Nortel-Standard-Traffic-Generic-Id-SNMP-custom         | Check traffic of a network interface                           |            |
+| Traffic-Generic-Name       | Net-Nortel-Standard-Traffic-Generic-Name-SNMP-custom       | Check traffic of a network interface                           |            |
 | Traffic-Global             | Net-Nortel-Standard-Traffic-Global-SNMP-custom             | Check traffic of multiple network interfaces                    | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.

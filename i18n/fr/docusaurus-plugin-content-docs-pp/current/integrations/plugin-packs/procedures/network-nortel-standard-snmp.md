@@ -33,11 +33,11 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                      | Modèle de service                                          | Description                                                                        | Découverte |
 |:---------------------------|:-----------------------------------------------------------|:-----------------------------------------------------------------------------------|:----------:|
-| Packet-Errors-Generic-Id   | Net-Nortel-Standard-Packet-Errors-Generic-Id-SNMP-custom   | Contrôle le pourcentage de paquets en erreur/écarté d'une interface réseau         |            |
-| Packet-Errors-Generic-Name | Net-Nortel-Standard-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écarté d'une interface réseau         |            |
-| Packet-Errors-Global       | Net-Nortel-Standard-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écarté de plusieurs interfaces réseau | X          |
-| Traffic-Generic-Id         | Net-Nortel-Standard-Traffic-Generic-Id-SNMP-custom         | Contrôle le traffic réseau d'une interface réseau                                  |            |
-| Traffic-Generic-Name       | Net-Nortel-Standard-Traffic-Generic-Name-SNMP-custom       | Contrôle le traffic réseau d'une interface réseau                                  |            |
+| Packet-Errors-Generic-Id   | Net-Nortel-Standard-Packet-Errors-Generic-Id-SNMP-custom   | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau         |            |
+| Packet-Errors-Generic-Name | Net-Nortel-Standard-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau         |            |
+| Packet-Errors-Global       | Net-Nortel-Standard-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau | X          |
+| Traffic-Generic-Id         | Net-Nortel-Standard-Traffic-Generic-Id-SNMP-custom         | Contrôle le trafic réseau d'une interface réseau                                  |            |
+| Traffic-Generic-Name       | Net-Nortel-Standard-Traffic-Generic-Name-SNMP-custom       | Contrôle le trafic réseau d'une interface réseau                                  |            |
 | Traffic-Global             | Net-Nortel-Standard-Traffic-Global-SNMP-custom             | Contrôle le trafic réseau de plusieurs interfaces réseau                           | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
