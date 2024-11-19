@@ -17,8 +17,7 @@ Before deploying a poller, make sure the [prerequisites](prerequisites.md) for y
 
    1. Edit the configuration file **/etc/sysconfig/selinux**.
    2. Set the value of SELINUX to disabled (**SELINUX=disabled**).
-   3. By default, the name of the poller is its hostname (this may be shortened) but can be changed using 'hostnamectl set-hostname your-hostname'.
-   5. Save the file and reboot the system to apply the change.
+   3. Save the file and reboot the system to apply the change.
 
 3. [On your central server](../getting-started/interface.md#accessing-the-central-servers-interface), click the arrow next to **Pollers** at the left of the header bar.
 
@@ -28,6 +27,7 @@ Before deploying a poller, make sure the [prerequisites](prerequisites.md) for y
 
 6. When this is finished, on your central server, go to **Configuration > Pollers > Pollers**. The new poller appears in the list of pollers.
    * The address in the **IP Address** column is that of the poller as seen by the central server.
+   * By default, the hostname of the machine will become the name of the poller. If you want to change the machine's hostname, use the following command: 'hostnamectl set-hostname your-hostname'.
    * The poller is not running yet (**No** in the **Is running?** column).
 
 ## Step 2: Exporting the configuration and restarting the poller
