@@ -173,9 +173,9 @@ If you want to test that events are sent to InfluxDB 2 correctly:
 2. Run the following command:
 
    ```shell
-    curl -X POST -H 'content-type: text/plain; charset=utf-8' -H 'accept: application/json' -H 'Authorization: Token <bucket_api_key>' 'http://<http_server_url>/api/v2/write?bucket=<bucket_id>&org=<org_name>&precision=s' -d
+    curl -X POST -H 'content-type: text/plain; charset=utf-8' -H 'accept: application/json' -H 'Authorization: Token <bucket_api_key>' 'http:/\<http_server_url\>/api/v2/write?bucket\<bucket_id\>&org=<org_name>&precision=s' -d
    ```
 
-   > Replace all the *`<xxxx>`* inside the above command with the correct value. For instance, *<bucket_id>* may become something like *65f5f748e28c92f0*.
+   > Replace all the *`<xxxx>`* inside the above command with the correct value. For instance, \<bucket_id\>* may become something like *65f5f748e28c92f0*.
 
 3. Check that the event has been received by InfluxDB 2.

@@ -1,4 +1,4 @@
-Reports publication rules {#publication_rules}
+Reports publication rules \{#publication_rules\}
 =========================
 
 The menu \"Reporting \> Business Intelligence \> Publication rules\"
@@ -43,11 +43,11 @@ passphrase.
 Transfer the key to the **Centreon** server. The **centreonBI** user
 must be configured with a password on the monitoring server):
 
-    ssh-copy-id -i ~/.ssh/id_rsa.pub centreonBI@{MONITORING_IP_ADDRESS}
+    ssh-copy-id -i ~/.ssh/id_rsa.pub centreonBI@\{MONITORING_IP_ADDRESS\}
 
 Test the SSH connection from the reporting server:
 
-    ssh centreonBI@{MONITORING_IP_ADDRESS}
+    ssh centreonBI@\{MONITORING_IP_ADDRESS\}
 
 You should be able to connect without entering any password.
 

@@ -46,8 +46,8 @@ Refer to the [migration procedure](../migrate/migrate-from-3-4.md).
 To transform the server into a Remote Server and register it to the Centreon Central server, execute the following command:
 
 ``` shell
-/usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
--t remote -h <IP_TARGET_NODE> -n <REMOTE_SERVER_NAME>
+/usr/share/centreon/bin/registerServerTopology.sh -u\<API_ACCOUNT\> \
+-t remote -h\<IP_TARGET_NODE\> -n\<REMOTE_SERVER_NAME\>
 ```
 
 Example:
@@ -56,12 +56,12 @@ Example:
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1
 ```
 
-> Replace **<IP_TARGET_NODE>** by the IP of the Centreon server seen by the Remote Server.
+> Replace **\<IP_TARGET_NODE\>** by the IP of the Centreon server seen by the Remote Server.
 
-> The **<API_ACCOUNT>** must have access to configuration API. You can use default **admin** account.
+> The **\<API_ACCOUNT\>** must have access to configuration API. You can use default **admin** account.
 
 > If you need to change the HTTP method or the port, you can use the following format for the **-h** option:
-> HTTPS://<IP_TARGET_NODE>:PORT
+> HTTPS:/\<IP_TARGET_NODE\>:PORT
 
 Then follow instructions by
 1. Entering your password:
@@ -138,19 +138,19 @@ You will receive the validation of the Centreon central server:
 2020-10-20T10:23:15+02:00 [ERROR]: Invalid credentials
 ```
 
-> Your credentials are incorrect for the **<API_ACCOUNT>**.
+> Your credentials are incorrect for the **\<API_ACCOUNT\>**.
 
 ``` shell
 2020-10-20T10:24:59+02:00 [ERROR]: Access Denied.
 ```
 
-> The **<API_ACCOUNT>** doesn't have access to configuration API.
+> The **\<API_ACCOUNT\>** doesn't have access to configuration API.
 
 ``` shell
 Failed connect to 192.168.0.1:444; Connection refused
 ```
 
-> Unable to access to the API. Please check **<IP_TARGET_NODE>**, scheme and port.
+> Unable to access to the API. Please check **\<IP_TARGET_NODE\>**, scheme and port.
 
 ``` shell
 2020-10-20T10:39:30+02:00 [ERROR]: Can’t connect to the API using: https://192.168.0.1:443/centreon/api/latest/login

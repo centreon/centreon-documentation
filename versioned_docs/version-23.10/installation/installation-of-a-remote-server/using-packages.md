@@ -532,9 +532,9 @@ GRANT ALL PRIVILEGES ON *.* TO '<USER>'@'<IP>' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
 
-> Replace **<IP\>** with the Centreon Central IP address that will connect to the database server.
+> Replace **\<IP\\>** with the Centreon Central IP address that will connect to the database server.
 >
-> Replace **<USER\>** and **<PASSWORD\>** with the user's credentials.
+> Replace **\<USER\>** and **<PASSWORD\\>** with the user's credentials.
 
 This user will only be used for the installation process. Once the [web installation](../web-and-post-installation.md) is complete, you can delete this user using:
 
@@ -755,8 +755,8 @@ systemctl start apache2
 To transform the server into a Remote Server and to register it to the Central server or another Remote server, execute the following command on the future remote server:
 
 ``` shell
-/usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
--t remote -h <IP_TARGET_NODE> -n <REMOTE_SERVER_NAME>
+/usr/share/centreon/bin/registerServerTopology.sh -u\<API_ACCOUNT\> \
+-t remote -h\<IP_TARGET_NODE\> -n\<REMOTE_SERVER_NAME\>
 ```
 
 Example:
@@ -765,12 +765,12 @@ Example:
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1
 ```
 
-> Replace **<IP_TARGET_NODE>** with the IP of the central server, as seen by the remote server.
+> Replace **\<IP_TARGET_NODE\>** with the IP of the central server, as seen by the remote server.
 
-> The **<API_ACCOUNT>** must have access to the configuration API. You can use the default **admin** account.
+> The **\<API_ACCOUNT\>** must have access to the configuration API. You can use the default **admin** account.
 
 > If you need to change the HTTP method or the port, you can use the following format for the **-h** option:
-> `HTTPS://<IP_TARGET_NODE>:PORT`
+> `HTTPS:/\<IP_TARGET_NODE\>:PORT`
 
 Then follow instructions by
 1. Entering your password:
@@ -847,19 +847,19 @@ You will receive the validation of the Centreon central server:
 2020-10-20T10:23:15+02:00 [ERROR]: Invalid credentials
 ```
 
-> Your credentials are incorrect for the **<API_ACCOUNT>**.
+> Your credentials are incorrect for the **\<API_ACCOUNT\>**.
 
 ``` shell
 2020-10-20T10:24:59+02:00 [ERROR]: Access Denied.
 ```
 
-> The **<API_ACCOUNT>** doesn't have access to configuration API.
+> The **\<API_ACCOUNT\>** doesn't have access to configuration API.
 
 ``` shell
 Couldn't connect to 192.168.0.1:444; Connection refused
 ```
 
-> Unable to access the API. Please check **<IP_TARGET_NODE>**, scheme and port.
+> Unable to access the API. Please check **\<IP_TARGET_NODE\>**, scheme and port.
 
 ``` shell
 2020-10-20T10:39:30+02:00 [ERROR]: Can’t connect to the API using: https://192.168.0.1:443/centreon/api/latest/login

@@ -84,7 +84,7 @@ use the complete OID number of the arguments you need.
 For example:
 
 ``` shell
-Link down on interface: @{.1.3.6.1.2.1.2.2.1.2} (index: @{.1.3.6.1.2.1.2.2.1.1}). Operational state: @{.1.3.6.1.2.1.2.2.1.8}, Administration state: @{.1.3.6.1.2.1.2.2.1.7}
+Link down on interface: @\{.1.3.6.1.2.1.2.2.1.2\} (index: @\{.1.3.6.1.2.1.2.2.1.1\}). Operational state: @\{.1.3.6.1.2.1.2.2.1.8\}, Administration state: @\{.1.3.6.1.2.1.2.2.1.7\}
 ```
 
 #### Use an external variable
