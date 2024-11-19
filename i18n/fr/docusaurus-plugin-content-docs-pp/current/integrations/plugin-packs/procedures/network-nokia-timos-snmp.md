@@ -23,7 +23,7 @@ Le connecteur apporte les modèles de service suivants
 |:---------|:-------------------------------------|:-----------------------------------------------|
 | Cpu      | Net-Nokia-Timos-Cpu-SNMP-custom      | Contrôle du taux d'utilisation des processeurs |
 | Hardware | Net-Nokia-Timos-Hardware-SNMP-custom | Contrôle le matériel                           |
-| Memory   | Net-Nokia-Timos-Memory-SNMP-custom   | Contrôle du taux d'utilisation des mémoire     |
+| Memory   | Net-Nokia-Timos-Memory-SNMP-custom   | Contrôle du taux d'utilisation des mémoires     |
 | Uptime   | Net-Nokia-Timos-Uptime-SNMP-custom   | Contrôle l'uptime                              |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Nokia-Timos-SNMP-custom** est utilisé.
@@ -64,9 +64,9 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 | Net-Nokia-Timos-SNMP-Bgp-Name           | Découvre les sessions BGP                                                                        |
 | Net-Nokia-Timos-SNMP-Isis-Name          | Découvre les instances IS-IS                                                                        |
 | Net-Nokia-Timos-SNMP-Ldp-Name           | Découvre les sessions LDP                                                                        |
-| Net-Nokia-Timos-SNMP-Packet-Errors-Name | Découvre les interfaces réseau et surveiller les paquets erronés et rejetés   |
-| Net-Nokia-Timos-SNMP-Sap-Name           | Découvrir les Points d'Accès de Service                                                                        |
-| Net-Nokia-Timos-SNMP-Traffic-Name       | Découvre les interfaces réseau et supervise le statut et l'utilisation |
+| Net-Nokia-Timos-SNMP-Packet-Errors-Name | Découvre les interfaces réseau et contrôle les paquets erronés et rejetés   |
+| Net-Nokia-Timos-SNMP-Sap-Name           | Découvre les Points d'Accès de Service                                                                        |
+| Net-Nokia-Timos-SNMP-Traffic-Name       | Découvre les interfaces réseau et en supervise le statut et l'utilisation |
 | Net-Nokia-Timos-SNMP-Vrtr-Name          | Découvre les routeurs virtuels                                                                        |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
