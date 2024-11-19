@@ -20,8 +20,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                   | Service Description                         |
 |:--------------|:-----------------------------------|:--------------------------------------------|
-| Cpu           | Net-Moxa-Switch-Cpu-SNMP-custom    | Check the rate of utilization of CPU        |
-| Memory        | Net-Moxa-Switch-Memory-SNMP-custom | Check the rate of the utilization of memory |
+| Cpu           | Net-Moxa-Switch-Cpu-SNMP-custom    | Check the rate of CPU utilization        |
+| Memory        | Net-Moxa-Switch-Memory-SNMP-custom | Check the rate of memory utilization |
 
 > The services listed above are created automatically when the **Net-Moxa-Switch-SNMP-custom** host template is used.
 
@@ -30,9 +30,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                                 | Service Description                                                                          |
 |:---------------------|:-------------------------------------------------|:---------------------------------------------------------------------------------------------|
-| Traffic-Generic-Id   | Net-Moxa-Switch-Traffic-Generic-Id-SNMP-custom   | Check the bandwidth of the interface. For each checks the name of the interface will appear  |
-| Traffic-Generic-Name | Net-Moxa-Switch-Traffic-Generic-Name-SNMP-custom | Check the bandwidth of the interface. For each checks the name of the interface will appear  |
-| Traffic-Global       | Net-Moxa-Switch-Traffic-Global-SNMP-custom       | Check the bandwidth of interfaces. For each checks the name of the interface will appear     |
+| Traffic-Generic-Id   | Net-Moxa-Switch-Traffic-Generic-Id-SNMP-custom   | Check the bandwidth of the interface. For each check the name of the interface will appear  |
+| Traffic-Generic-Name | Net-Moxa-Switch-Traffic-Generic-Name-SNMP-custom | Check the bandwidth of the interface. For each check the name of the interface will appear  |
+| Traffic-Global       | Net-Moxa-Switch-Traffic-Global-SNMP-custom       | Check the bandwidth of interfaces. For each check the name of the interface will appear     |
 | Uptime               | Net-Moxa-Switch-Uptime-SNMP-custom               | Time since the server has been working and available                                         |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
