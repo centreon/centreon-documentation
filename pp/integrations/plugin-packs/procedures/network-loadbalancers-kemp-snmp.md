@@ -22,8 +22,8 @@ The connector brings the following service templates (sorted by the host templat
 |:----------------------------|:-------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
 | Cpu-Detailed                | Net-Kemp-Cpu-Detailed-SNMP-custom                | Check the detailed rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |            |
 | Load                        | Net-Kemp-Load-SNMP-custom                        | Check the server load average                                                                                                                               |            |
-| Memory                      | Net-Kemp-Memory-SNMP-custom                      | Check the rate of the utilization of memory                                                                                                                 |            |
-| Virtualserver-Status-Global | Net-Kemp-Virtualserver-Status-Global-SNMP-custom | Check virtual servers status                                                                                                                                | X          |
+| Memory                      | Net-Kemp-Memory-SNMP-custom                      | Check the rate of memory utilization |                                              |
+| Virtualserver-Status-Global | Net-Kemp-Virtualserver-Status-Global-SNMP-custom | Check the status of the virtual servers                                                                                                                                | X          |
 
 > The services listed above are created automatically when the **Net-Kemp-SNMP-custom** host template is used.
 
@@ -36,9 +36,9 @@ The connector brings the following service templates (sorted by the host templat
 |:--------------------------|:----------------------------------------------|:---------------------------------------------------------------------------------------------|:----------:|
 | Ha-Status                 | Net-Kemp-Ha-Status-SNMP-custom                | Check HA status                                                                              |            |
 | Reallserver-Status-Global | Net-Kemp-Realserver-Status-Global-SNMP-custom | Check real servers status                                                                    |            |
-| Traffic-Generic-Id        | Net-Kemp-Traffic-Generic-Id-SNMP-custom       | Check the bandwidth of the interface. For each checks the name of the interface will appear  |            |
-| Traffic-Generic-Name      | Net-Kemp-Traffic-Generic-Name-SNMP-custom     | Check the bandwidth of the interface. For each checks the name of the interface will appear  |            |
-| Traffic-Global            | Net-Kemp-Traffic-Global-SNMP-custom           | Check the bandwidth of interfaces. For each checks the name of the interface will appear     | X          |
+| Traffic-Generic-Id        | Net-Kemp-Traffic-Generic-Id-SNMP-custom       | Check the bandwidth of the interface. For each check the name of the interface will appear  |            |
+| Traffic-Generic-Name      | Net-Kemp-Traffic-Generic-Name-SNMP-custom     | Check the bandwidth of the interface. For each check the name of the interface will appear  |            |
+| Traffic-Global            | Net-Kemp-Traffic-Global-SNMP-custom           | Check the bandwidth of interfaces. For each check the name of the interface will appear     | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 

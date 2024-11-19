@@ -62,8 +62,8 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle            | Description                                                             |
 |:---------------------------|:------------------------------------------------------------------------|
-| Net-Kemp-SNMP-Traffic-Name | Découvre les interfaces réseau et supervise le statut et l'utilisation |
-| Net-Kemp-SNMP-VS-Name      | les serveurs virtuels pour superviser leurs statuts                                                                        |
+| Net-Kemp-SNMP-Traffic-Name | Découvre les interfaces réseau et en supervise le statut et l'utilisation |
+| Net-Kemp-SNMP-VS-Name      | Découvre les serveurs virtuels pour superviser leurs statuts                                                                        |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
