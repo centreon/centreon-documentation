@@ -22,7 +22,7 @@ The connector brings the following service templates (sorted by the host templat
 |:--------------|:--------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Cpu-Detailed  | Net-Opengear-Cpu-Detailed-SNMP-custom | Check the detailed rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |
 | Load          | Net-Opengear-Load-SNMP-custom         | Check the server load average                                                                                                                               |
-| Memory        | Net-Opengear-Memory-SNMP-custom       | Check the rate of the utilization of memory                                                                                                                 |
+| Memory        | Net-Opengear-Memory-SNMP-custom       | Check the rate of memory utilization                                                                                                                 |
 | Uptime        | Net-Opengear-Uptime-SNMP-custom       | Time since the server has been working and available                                                                                                        |
 
 > The services listed above are created automatically when the **Net-Opengear-SNMP-custom** host template is used.
@@ -57,7 +57,7 @@ More information about discovering hosts automatically is available on the [dedi
 | Rule name                          | Description                                                   |
 |:-----------------------------------|:--------------------------------------------------------------|
 | Net-Opengear-SNMP-Interface-Name   | Discover network interfaces and monitor bandwidth utilization |
-| Net-Opengear-SNMP-Serial-Port-Name |                                                               |
+| Net-Opengear-SNMP-Serial-Port-Name | Discover serial ports and monitor utilization  |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).

@@ -34,7 +34,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias        | Modèle de service                     | Description               | Découverte |
 |:-------------|:--------------------------------------|:--------------------------|:----------:|
 | Interfaces   | Net-Opengear-Interfaces-SNMP-custom   | Contrôle les interfaces   | X          |
-| Serial-Ports | Net-Opengear-Serial-Ports-SNMP-custom | Contrôle les ports séries | X          |
+| Serial-Ports | Net-Opengear-Serial-Ports-SNMP-custom | Contrôle les ports série | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -58,7 +58,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 | Nom de la règle                    | Description                                                             |
 |:-----------------------------------|:------------------------------------------------------------------------|
 | Net-Opengear-SNMP-Interface-Name   | Découvre les interfaces réseau et supervise le statut et l'utilisation |
-| Net-Opengear-SNMP-Serial-Port-Name |                                                                         |
+| Net-Opengear-SNMP-Serial-Port-Name | Découvre les ports SFP et en supervise l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
