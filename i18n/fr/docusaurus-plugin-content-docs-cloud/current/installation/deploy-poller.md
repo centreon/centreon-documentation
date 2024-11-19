@@ -16,9 +16,8 @@ Avant de déployer un collecteur, assurez-vous que votre machine hôte répond a
 2. Désactivez SELinux (ceci est recommandé afin d'obtenir une installation fluide. Des utilisateurs avancés peuvent activer SELinux en fonction de leur expertise de SELinux ou de leurs contraintes de sécurité, mais attention aux effets secondaires de ce paramétrage.)
    
    1. Éditez le fichier de configuration **/etc/sysconfig/selinux**.
-   3. Donnez au paramètre SELINUX la valeur "disabled" (**SELINUX=disabled**).
-   4. Le nom par défaut du collecteur est le nom de son hôte mais peut être modifié avec 'hostnamectl set-hostname your-hostname'.
-   5. Sauvegardez le fichier et redémarrez le système pour appliquer les changements.
+   2. Donnez au paramètre SELINUX la valeur "disabled" (**SELINUX=disabled**).
+   3. Sauvegardez le fichier et redémarrez le système pour appliquer les changements.
 
 3. [Sur votre serveur central](../getting-started/interface.md#accéder-à-linterface-du-serveur-central), cliquez sur la flèche à côté de **Collecteurs** dans le bandeau en haut à gauche.
 
@@ -28,6 +27,7 @@ Avant de déployer un collecteur, assurez-vous que votre machine hôte répond a
 
 6. Une fois le script exécuté, sur le serveur central, allez à la page **Configuration > Collecteurs > Collecteurs**. Le nouveau collecteur apparaît dans la liste des collecteurs.
    * Dans la colonne **Adresse IP**, l'adresse indiquée est celle du collecteur vu par le serveur central.
+   * Par défaut, le nom de l'hôte de la machine est également le nom du poller. Si vous souhaitez modifier le nom de d'hôte vous pouvez utiliser la commande suivante : 'hostnamectl set-hostname your-hostname'.
    * Le collecteur n'est pas encore démarré (**Non** dans la colonne **En cours d'exécution?**).
 
 ## Étape 2 : Exporter la configuration et redémarrer le collecteur
