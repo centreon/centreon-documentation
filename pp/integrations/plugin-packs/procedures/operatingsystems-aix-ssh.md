@@ -187,7 +187,7 @@ Once the Plugin installed, log into your Poller using the *centreon-engine* user
     --ssh-password='centreon-password' \
     --ssh-backend=sshcli \
     --filter-type='SVG' \
-	  --critical-status='%{state} =~ /stale/i'\
+	  --critical-status='%\{state\} =~ /stale/i'\
     --verbose
 ```
 

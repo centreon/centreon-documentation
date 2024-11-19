@@ -102,7 +102,7 @@ command:
     --ssh-username=''  \
     --ssh-password=''  \
     --warning-status=''  \
-    --critical-status='%{message} !~ /authentification succeeded/i'  \
+    --critical-status='%\{message\} !~ /authentification succeeded/i'  \
     --warning-time='2'  \
     --critical-time='3'  \
     --use-new-perfdata 
@@ -118,7 +118,7 @@ This command would trigger a WARNING alarm if the login response time is
 reported as over 2 seconds (```--warning-time='2'```) and a CRITICAL alarm 
 over 3 seconds (```--critical-time='3'```) or if the login status if different
 than "authentification succeeded" 
-(```--critical-status='%{message} !~ /authentification succeeded/i''```).
+(```--critical-status='%\{message\} !~ /authentification succeeded/i''```).
 
 All available options for a given mode can be displayed by adding the 
 ```--help``` parameter to the command:

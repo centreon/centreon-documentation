@@ -114,7 +114,7 @@ command:
     --password='' \
     --filter-name='' \
     --warning-status='' \
-    --critical-status='%{status} !~ /GREEN/i' \
+    --critical-status='%\{status\} !~ /GREEN/i' \
     --use-new-perfdata 
 ```
 
@@ -125,7 +125,7 @@ OK:  All queues are ok
 ```
 
 This command would trigger a CRITICAL alarm if the queue status isn't equal to 'GREEN'
-(`--critical-status='%{status} !~ /GREEN/i'`).
+(`--critical-status='%\{status\} !~ /GREEN/i'`).
 
 All available options for a given mode can be displayed by adding the 
 `--help` parameter to the command:

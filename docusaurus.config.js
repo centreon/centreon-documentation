@@ -148,7 +148,7 @@ const config = {
           disableInDev: true,
         },
       ],
-      'plugin-image-zoom',
+      'docusaurus-plugin-image-zoom',
     ];
 
     if (archivedVersion) {

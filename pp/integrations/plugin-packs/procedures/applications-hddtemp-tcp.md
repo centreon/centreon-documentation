@@ -27,7 +27,7 @@ It brings the following Service Template:
 | Metric Name                              | Unit                    |
 |:-----------------------------------------|:------------------------|
 | status                                   | string                  |
-| drive_name#drive.temperature.<temp_unit> | celsius or fahrenheit   |
+| drive_name#drive.temperature.\<temp_unit\> | celsius or fahrenheit   |
 
 </TabItem>
 </Tabs>
@@ -100,7 +100,7 @@ command:
     --filter-name='' \
     --unknown-status='' \
     --warning-status='' \
-    --critical-status='%{status} !~ /ok/i' \
+    --critical-status='%\{status\} !~ /ok/i' \
     --warning-temperature='30' \
     --critical-temperature='50' \
     --verbose \
@@ -117,7 +117,7 @@ This command would trigger a WARNING alarm if the disk's temperature was reporte
 30° (`---warning-temperature='30'`). 
 
 A CRITICAL alarm would be triggered if the temperature was reported as over 50° or the status 
-wasn't equal to 'ok' (`--critical-temperature='50' --critical-status='%{status} !~ /ok/i'`).
+wasn't equal to 'ok' (`--critical-temperature='50' --critical-status='%\{status\} !~ /ok/i'`).
 
 All available options for a given mode can be displayed by adding the 
 `--help` parameter to the command:
