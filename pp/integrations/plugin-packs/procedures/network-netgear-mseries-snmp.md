@@ -20,9 +20,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias   | Service Template                                | Service Description                                  |
 |:----------------|:------------------------------------------------|:-----------------------------------------------------|
-| Cpu             | Net-Netgear-Mseries-Cpu-SNMP-custom             | Check the rate of utilization of CPU for the machine |
+| Cpu             | Net-Netgear-Mseries-Cpu-SNMP-custom             | Check the rate of CPU utilization for the machine |
 | Hardware-Global | Net-Netgear-Mseries-Hardware-Global-SNMP-custom | Check hardware                                       |
-| Memory          | Net-Netgear-Mseries-Memory-SNMP-custom          | Check the rate of the utilization of memories        |
+| Memory          | Net-Netgear-Mseries-Memory-SNMP-custom          | Check the rate of memory utilization       |
 
 > The services listed above are created automatically when the **Net-Netgear-Mseries-SNMP-custom** host template is used.
 
