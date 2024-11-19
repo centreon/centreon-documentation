@@ -114,7 +114,7 @@ If all previous steps were OK but the log does not show that the poller has rece
 Check the modification dates of configuration files: if you see that the files were not updated when you deployed the configuration, check that the **gorgone** user has rights on this folder.
 
 ```shell
-ls -l /etc/centreon-engine
+ls -al /etc/centreon-engine
 ```
 
 ### Step 8: Check that Engine reloads or restarts correctly
