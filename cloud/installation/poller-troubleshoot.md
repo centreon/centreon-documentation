@@ -145,7 +145,7 @@ tail -f /var/log/centreon-engine/centengine.log
 [process] [info] [3142] Centreon Engine yy.mm.p starting ...
 ```
 
-If it doesn't, check that **gorgoned** has the right to write in `/etc/centreon-engine` and that **centengine** has the right to read in it.
+If it doesn't, check the logs for errors.
 
 ## The poller does not send any data to the platform
 
