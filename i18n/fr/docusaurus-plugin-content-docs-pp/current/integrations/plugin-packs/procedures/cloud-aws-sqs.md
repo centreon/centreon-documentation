@@ -5,7 +5,7 @@ title: Amazon SQS
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Dépendances du Connecteur de supervision
+## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Amazon SQS** 
 depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
@@ -40,7 +40,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Nom de la règle        | Description                 |
 |:-----------------------|:----------------------------|
-| Amazon Web Service SQS | Découvre les Topics AWS SNS |
+| Amazon Web Service SQS | Découvre les queues AWS SQS |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -69,7 +69,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ### Privilèges AWS
 
-Configurez un compte de service (via une combinaison d'access et secret key) et affectez-lui les privilèges suivants :
+Configurez un compte de service (via une combinaison d'access key et de secret key) et affectez-lui les privilèges suivants :
 * cloudwatch:getMetricStatistics
 * cloudwatch:listMetrics
 * sqs:ListQueues

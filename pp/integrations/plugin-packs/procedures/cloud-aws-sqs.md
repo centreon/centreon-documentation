@@ -39,7 +39,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name              | Description             |
 |:-----------------------|:------------------------|
-| Amazon Web Service SQS | Discover AWS SNS Topics |
+| Amazon Web Service SQS | Discover AWS SQS queues |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
