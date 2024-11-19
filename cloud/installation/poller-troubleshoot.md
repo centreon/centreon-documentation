@@ -111,7 +111,7 @@ If all previous steps were OK but the log does not show that the poller has rece
 
 ### Step 7: Check that configuration files are correctly updated
 
-Check the modification dates of configuration files: if you see that the files were not updated when you deployed the configuration, check that the **gorgone** user has rights on this folder.
+Check the modification dates of configuration files: if you see that the files were not updated when you deployed the configuration, check that the **gorgone** user has rights on this folder. The **centreon-gorgone** user must belong to the group that owns the directory and the rights for the group should be `rwx`. 
 
 ```shell
 ls -al /etc/centreon-engine

@@ -112,7 +112,7 @@ Si toutes les étapes suivantes ont fonctionné mais que le log ne montre pas qu
 
 ### Étape 7 : Vérifier que les fichiers de configuration sont correctement mis à jour
 
-Vérifiez les dates de modification des fichiers de configuration : si vous voyez que les fichiers n'ont pas été mis à jour lorsque vous avez déployé la configuration, vérifiez que l'utilisateur **gorgone** a des droits sur le répertoire correspondant.
+Vérifiez les dates de modification des fichiers de configuration : si vous voyez que les fichiers n'ont pas été mis à jour lorsque vous avez déployé la configuration, vérifiez que l'utilisateur **centreon-gorgone** a des droits sur le répertoire correspondant. L'utilisateur **centreon-gorgone** doit faire partie du groupe auquel appartient le répertoire, et les droits pour ce groupe doivent être `rwx`.
 
 ```shell
 ls -al /etc/centreon-engine
