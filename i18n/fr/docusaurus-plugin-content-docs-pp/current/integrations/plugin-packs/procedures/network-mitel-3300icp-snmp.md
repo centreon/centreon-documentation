@@ -33,9 +33,9 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                | Modèle de service                                  | Description                                       | Découverte |
 |:---------------------|:---------------------------------------------------|:--------------------------------------------------|:----------:|
-| Traffic-Generic-Id   | Net-Mitel-3300icp-Traffic-Generic-Id-SNMP-custom   | Contrôle le traffic réseau d'une interface réseau |            |
-| Traffic-Generic-Name | Net-Mitel-3300icp-Traffic-Generic-Name-SNMP-custom | Contrôle le traffic réseau d'une interface réseau | X          |
-| Traffic-Global       | Net-Mitel-3300icp-Traffic-Global-SNMP-custom       | Contrôle le traffic réseau d'une interface réseau |            |
+| Traffic-Generic-Id   | Net-Mitel-3300icp-Traffic-Generic-Id-SNMP-custom   | Contrôle le trafic réseau d'une interface réseau |            |
+| Traffic-Generic-Name | Net-Mitel-3300icp-Traffic-Generic-Name-SNMP-custom | Contrôle le trafic réseau d'une interface réseau | X          |
+| Traffic-Global       | Net-Mitel-3300icp-Traffic-Global-SNMP-custom       | Contrôle le trafic réseau d'une interface réseau |            |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -58,7 +58,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                     | Description                                                             |
 |:------------------------------------|:------------------------------------------------------------------------|
-| Net-Mitel-3300icp-SNMP-Traffic-Name | Découvre les interfaces réseau et supervise le statut et l'utilisation |
+| Net-Mitel-3300icp-SNMP-Traffic-Name | Découvre les interfaces réseau et en supervise le statut et l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
