@@ -20,7 +20,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias   | Service Template                               | Service Description                                  |
 |:----------------|:-----------------------------------------------|:-----------------------------------------------------|
-| Cpu             | Net-Radware-Alteon-Cpu-SNMP-custom             | Check the rate of utilization of CPU for the machine |
+| Cpu             | Net-Radware-Alteon-Cpu-SNMP-custom             | Check the rate of CPU utilization for the machine |
 | Hardware-Global | Net-Radware-Alteon-Hardware-Global-SNMP-custom | Check hardware                                       |
 | Memory          | Net-Radware-Alteon-Memory-SNMP-custom          | Check machine memory usage                           |
 
