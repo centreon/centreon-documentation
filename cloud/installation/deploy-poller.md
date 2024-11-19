@@ -23,11 +23,11 @@ Before deploying a poller, make sure the [prerequisites](prerequisites.md) for y
 
 4. [On your central server](../getting-started/interface.md#accessing-the-central-servers-interface), click the arrow next to **Pollers** at the left of the header bar.
 
-6. In the pop-up that appears, click **Copy install command**. The command is copied to your clipboard.
+5. In the pop-up that appears, click **Copy install command**. The command is copied to your clipboard.
 
-7. On the server that will become your poller, in your terminal, paste the install command and execute it (this should take about 10 minutes).
+6. On the server that will become your poller, in your terminal, paste the install command and execute it (this should take about 10 minutes).
 
-8. When this is finished, on your central server, go to **Configuration > Pollers > Pollers**. The new poller appears in the list of pollers.
+7. When this is finished, on your central server, go to **Configuration > Pollers > Pollers**. The new poller appears in the list of pollers.
    * The address in the **IP Address** column is that of the poller as seen by the central server.
    * The poller is not running yet (**No** in the **Is running?** column).
 
