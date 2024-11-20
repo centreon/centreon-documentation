@@ -502,10 +502,10 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=cloud::aws::elb::network::plugin \
 	--mode=targets-health \
 	--custommode='awscli' \
-	--aws-secret-key='' \
-	--aws-access-key='' \
+	--aws-secret-key='XXXX' \
+	--aws-access-key='XXXX' \
 	--aws-role-arn='' \
-	--region='' \
+	--region='us-east-1' \
 	--name='' \
 	--availability-zone='' \
 	--target-group='' \

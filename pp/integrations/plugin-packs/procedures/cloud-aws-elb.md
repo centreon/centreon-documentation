@@ -501,10 +501,10 @@ is able to monitor an AWS Instance using a command like this one (replace the sa
 	--plugin=cloud::aws::elb::network::plugin \
 	--mode=targets-health \
 	--custommode='awscli' \
-	--aws-secret-key='' \
-	--aws-access-key='' \
+	--aws-secret-key='XXXX' \
+	--aws-access-key='XXXX' \
 	--aws-role-arn='' \
-	--region='' \
+	--region='us-east-1' \
 	--name='' \
 	--availability-zone='' \
 	--target-group='' \
