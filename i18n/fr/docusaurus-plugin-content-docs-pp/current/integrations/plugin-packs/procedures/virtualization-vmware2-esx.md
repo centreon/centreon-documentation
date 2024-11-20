@@ -740,9 +740,9 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 | Macro                 | Description                                                                                                                                                       | Valeur par défaut               | Obligatoire |
 |:----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------|:-----------:|
 | UNKNOWNSTATUS         | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status}              | %{status} !~ /^connected$/i     |             |
-| UNKNOWNOVERALLSTATUS  | Define the conditions to match for the status to be WARNING (Default: '%{overall\_status} =~ /gray/i'). You can use the following variables: %{overall\_status}   | %{overall\_status} =~ /gray/i   |             |
-| WARNINGOVERALLSTATUS  | Define the conditions to match for the status to be WARNING (Default: '%{overall\_status} =~ /yellow/i'). You can use the following variables: %{overall\_status} | %{overall\_status} =~ /yellow/i |             |
-| CRITICALOVERALLSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%{overall\_status} =~ /red/i'). You can use the following variables: %{overall\_status}   | %{overall\_status} =~ /red/i    |             |
+| UNKNOWNOVERALLSTATUS  | Define the conditions to match for the status to be WARNING (Default: '%\{overall_status\} =~ /gray/i'). You can use the following variables: %\{overall_status\}   | %\{overall_status\} =~ /gray/i   |             |
+| WARNINGOVERALLSTATUS  | Define the conditions to match for the status to be WARNING (Default: '%\{overall_status\} =~ /yellow/i'). You can use the following variables: %\{overall_status\} | %\{overall_status\} =~ /yellow/i |             |
+| CRITICALOVERALLSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%\{overall_status\} =~ /red/i'). You can use the following variables: %\{overall_status\}   | %\{overall_status\} =~ /red/i    |             |
 | WARNINGSTATUS         | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{status}                                         |                                 |             |
 | CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{status}                                        |                                 |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                               | --verbose                       |             |
@@ -1267,9 +1267,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --unknown-status          | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} !~ /^connected$/i'). You can use the following variables: %{status}                |
 | --warning-status          | Define the conditions to match for the status to be WARNING (Default: ''). You can use the following variables: %{status}                                           |
 | --critical-status         | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %{status}                                          |
-| --unknown-overall-status  | Define the conditions to match for the status to be WARNING (Default: '%{overall\_status} =~ /gray/i'). You can use the following variables: %{overall\_status}     |
-| --warning-overall-status  | Define the conditions to match for the status to be WARNING (Default: '%{overall\_status} =~ /yellow/i'). You can use the following variables: %{overall\_status}   |
-| --critical-overall-status | Define the conditions to match for the status to be CRITICAL (Default: '%{overall\_status} =~ /red/i'). You can use the following variables: %{overall\_status}     |
+| --unknown-overall-status  | Define the conditions to match for the status to be WARNING (Default: '%\{overall_status\} =~ /gray/i'). You can use the following variables: %\{overall_status\}     |
+| --warning-overall-status  | Define the conditions to match for the status to be WARNING (Default: '%\{overall_status\} =~ /yellow/i'). You can use the following variables: %\{overall_status\}   |
+| --critical-overall-status | Define the conditions to match for the status to be CRITICAL (Default: '%\{overall_status\} =~ /red/i'). You can use the following variables: %\{overall_status\}     |
 
 </TabItem>
 <TabItem value="Esx-Storage" label="Esx-Storage">

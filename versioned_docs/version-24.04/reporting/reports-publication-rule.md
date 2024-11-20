@@ -31,8 +31,8 @@ monitoring server.:
       > Enter same passphrase again:
       > Your identification has been saved in /home/centreonBI/.ssh/id_rsa.
 
-::: {.note}
-::: {.title}
+::: \{.note\}
+::: \{.title\}
 Note
 :::
 
