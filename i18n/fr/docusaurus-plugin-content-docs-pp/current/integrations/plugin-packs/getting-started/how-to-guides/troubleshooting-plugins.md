@@ -32,7 +32,7 @@ the binary it uses exists or doesn't contain a typo.
 On RPM-based systems, you can use the following command to identify what's the 
 package is providing the missing binary: `yum whatprovides "*/the_binary_name"`
 
-### UNKNOWN: Cannot write statefile '/var/lib/centreon/centplugins/<cache_file_name>'
+### UNKNOWN: Cannot write statefile '/var/lib/centreon/centplugins/\<cache_file_name\>'
 
 The most common cause is inappropriate rights on the cache directory (`/var/lib/centreon/centplugins`) 
 or the cache file itself.  It can also be the result of an inconsistent installation 
@@ -49,10 +49,10 @@ Access: (0775/drwxrwxr-x)  Uid: (  998/centreon)   Gid: (  997/centreon)`
 ``` 
 
 If directory rights are ok, check also the rights of the cache file: 
-`stat /var/lib/centreon/centplugins/<cache_file_name>`. The expected result is: 
+`stat /var/lib/centreon/centplugins/\<cache_file_name\>`. The expected result is: 
 
 ```bash
-File: '/var/lib/centreon/centplugins/<cache_file_name>'
+File: '/var/lib/centreon/centplugins/\<cache_file_name\>'
 [...]
 Access: (0664/-rw-rw-r--)  Uid: (  994/centreon-engine)   Gid: (  991/centreon-engine)
 [...]

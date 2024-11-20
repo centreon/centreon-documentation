@@ -142,7 +142,7 @@ l'utilisateur **centreon-engine** (`su - centreon-engine`) :
     --proxyurl='' \
     --filter-name='' \
     --warning-status='' \
-    --critical-status='%{peering_state} ne "Connected" || %{provisioning_state} ne "Succeeded"' \
+    --critical-status='%{peering_state} ne "Connected" || %\{provisioning_state\} ne "Succeeded"' \
     --use-new-perfdata
 ```
 

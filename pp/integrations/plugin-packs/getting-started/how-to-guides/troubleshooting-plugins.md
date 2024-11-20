@@ -46,10 +46,10 @@ Access: (0775/drwxrwxr-x)  Uid: (  998/centreon)   Gid: (  997/centreon)`
 ``` 
 
 If directory rights are ok, check also the rights of the cache file: 
-`stat /var/lib/centreon/centplugins/<cache_file_name>`. The expected result is: 
+`stat /var/lib/centreon/centplugins/\<cache_file_name\>`. The expected result is: 
 
 ```bash
-File: '/var/lib/centreon/centplugins/<cache_file_name>'
+File: '/var/lib/centreon/centplugins/\<cache_file_name\>'
 [...]
 Access: (0664/-rw-rw-r--)  Uid: (  994/centreon-engine)   Gid: (  991/centreon-engine)
 [...]
