@@ -119,8 +119,8 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
     --api-username='myapiusername' \
     --api-password='myapipassword' \
     --filter-name='mycall1.centreon.com' \
-    --warning-status='%{level} =~ /warning|minor/i' \
-    --critical-status='%{level} =~ /critical|major|error/i' \
+    --warning-status='%\{level\} =~ /warning|minor/i' \
+    --critical-status='%\{level\} =~ /critical|major|error/i' \
     --verbose
 ```
 
@@ -128,8 +128,8 @@ La commande ci-dessus contrôle le statut d'une alarme de l'application Pexip In
 Le Plugin utilise l'api-username (```--api-username='myapiusername'```), l'api-password (```--api-password='myapipassword'```)
 et il se connecte à l'hôte _mypexipinfnitapi.com_ (```--hostname='mypexipinfnitapi.com'```) sur le port _443_ (```--port='443'```) utilisant le protocol _https_ (```--proto='https'```).
 
-Cette commande déclenchera une alarme WARNING i le statut retourné de l'alarme est égale de */warning|minor/i* (```--warning-status='%{level} =~ /warning|minor/i'```)
-et une alarme CRITICAL si l'alarme est égale de */critical|major|error/i* (```--critical-status='%{level} =~ /critical|major|error/i'```).
+Cette commande déclenchera une alarme WARNING i le statut retourné de l'alarme est égale de */warning|minor/i* (```--warning-status='%\{level\} =~ /warning|minor/i'```)
+et une alarme CRITICAL si l'alarme est égale de */critical|major|error/i* (```--critical-status='%\{level\} =~ /critical|major|error/i'```).
 
 Toutes les options et leur utilisation peuvent être consultées avec le paramètre ```--help``` ajouté à la commande:
 

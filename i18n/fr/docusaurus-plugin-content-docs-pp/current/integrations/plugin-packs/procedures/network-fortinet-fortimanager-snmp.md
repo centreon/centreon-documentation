@@ -230,7 +230,7 @@ yum install centreon-plugin-Network-Fortinet-Fortimanager-Snmp
 | FILTERNAME                 | Filter by device name (can be a regexp)                                                                                                        |                      |             |
 | WARNINGDEVICECONFIGSTATUS  | Set warning threshold for device configuration status. You can use the following variables: %\{status\}, %\{name\}                                 |                      |             |
 | CRITICALDEVICECONFIGSTATUS | Set critical threshold for device configuration status. You can use the following variables: %\{status\}, %\{name\}                                |                      |             |
-| CRITICALDEVICECONSTATUS    | Set critical threshold for device connection status (default: '%{status} =~ /down/i'). You can use the following variables: %\{status\}, %\{name\} | %\{status\} =~ /down/i |             |
+| CRITICALDEVICECONSTATUS    | Set critical threshold for device connection status (default: '%\{status\} =~ /down/i'). You can use the following variables: %\{status\}, %\{name\} | %\{status\} =~ /down/i |             |
 | WARNINGDEVICECONSTATUS     | Set warning threshold for device connection status. You can use the following variables: %\{status\}, %\{name\}                                    |                      |             |
 | WARNINGDEVICEDBSTATUS      | Set warning threshold for device DB status. You can use the following variables: %\{status\}, %\{name\}                                            |                      |             |
 | CRITICALDEVICEDBSTATUS     | Set critical threshold for device DB status. You can use the following variables: %\{status\}, %\{name\}                                           |                      |             |
@@ -280,7 +280,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--warning-device-status='' \
 	--critical-device-status='' \
 	--warning-device-con-status='' \
-	--critical-device-con-status='%{status} =~ /down/i' \
+	--critical-device-con-status='%\{status\} =~ /down/i' \
 	--warning-device-db-status='' \
 	--critical-device-db-status='' \
 	--warning-device-config-status='' \
@@ -407,7 +407,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --warning-device-status                 | Set warning threshold for device status. You can use the following variables: %\{status\}, %\{name\}                                                 |
 | --critical-device-status                | Set critical threshold for device status. You can use the following variables: %\{status\}, %\{name\}                                                 |
 | --warning-device-con-status             | Set warning threshold for device connection status. You can use the following variables: %\{status\}, %\{name\}                                      |
-| --critical-device-con-status            | Set critical threshold for device connection status (default: '%{status} =~ /down/i'). You can use the following variables: %\{status\}, %\{name\}   |
+| --critical-device-con-status            | Set critical threshold for device connection status (default: '%\{status\} =~ /down/i'). You can use the following variables: %\{status\}, %\{name\}   |
 | --warning-device-db-status              | Set warning threshold for device DB status. You can use the following variables: %\{status\}, %\{name\}                                              |
 | --critical-device-db-status             | Set critical threshold for device DB status. You can use the following variables: %\{status\}, %\{name\}                                             |
 | --warning-device-config-status          | Set warning threshold for device configuration status. You can use the following variables: %\{status\}, %\{name\}                                   |

@@ -274,7 +274,7 @@ yum install centreon-plugin-Applications-Rubrik-Restapi
 | CRITICALREAD      | Threshold                                                                                                                                             |                    |             |
 | WARNINGREADIOPS   | Threshold                                                                                                                                             |                    |             |
 | CRITICALREADIOPS  | Threshold                                                                                                                                             |                    |             |
-| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /ok/i'). You can use the following variables: %\{status\}, %\{name\} | %\{status\} !~ /ok/i |             |
+| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /ok/i'). You can use the following variables: %\{status\}, %\{name\} | %\{status\} !~ /ok/i |             |
 | WARNINGSTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}                                  |                    |             |
 | WARNINGWRITE      | Threshold                                                                                                                                             |                    |             |
 | CRITICALWRITE     | Threshold                                                                                                                                             |                    |             |
@@ -305,7 +305,7 @@ yum install centreon-plugin-Applications-Rubrik-Restapi
 | CRITICALCLUSTERDISKSACTIVE | Threshold                                                                                                                                               |                        |             |
 | WARNINGCLUSTERDISKSTOTAL   | Threshold                                                                                                                                               |                        |             |
 | CRITICALCLUSTERDISKSTOTAL  | Threshold                                                                                                                                               |                        |             |
-| CRITICALDISKSTATUS         | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /active/i'). You can use the following variables: %\{status\}, %\{id\} | %\{status\} !~ /active/i |             |
+| CRITICALDISKSTATUS         | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /active/i'). You can use the following variables: %\{status\}, %\{id\} | %\{status\} !~ /active/i |             |
 | WARNINGDISKSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{id\}                                      |                        |             |
 | EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                      | --verbose              |             |
 
@@ -343,7 +343,7 @@ yum install centreon-plugin-Applications-Rubrik-Restapi
 | CRITICALCLUSTERNODESOK    | Threshold                                                                                                                                                           |                    |             |
 | WARNINGCLUSTERNODESTOTAL  | Threshold                                                                                                                                                           |                    |             |
 | CRITICALCLUSTERNODESTOTAL | Threshold                                                                                                                                                           |                    |             |
-| CRITICALNODESTATUS        | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /ok/i'). You can use the following variables: %\{status\}, %\{ip_address\}, %\{id\} | %\{status\} !~ /ok/i |             |
+| CRITICALNODESTATUS        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /ok/i'). You can use the following variables: %\{status\}, %\{ip_address\}, %\{id\} | %\{status\} !~ /ok/i |             |
 | WARNINGNODESTATUS         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{ip_address\}, %\{id\}                                  |                    |             |
 | EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                  | --verbose          |             |
 
@@ -411,7 +411,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--warning-jobs-executions-detected='' \
 	--critical-jobs-executions-detected='' \
 	--warning-execution-status='' \
-	--critical-execution-status='%{status} =~ /failure/i' \
+	--critical-execution-status='%\{status\} =~ /failure/i' \
 	--verbose
 ```
 
@@ -543,7 +543,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --cluster-id             |   Which cluster to check (default: 'me').                                                                                                                 |
 | --unknown-status         |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{name\}                                    |
 | --warning-status         |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}                                    |
-| --critical-status        |   Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /ok/i'). You can use the following variables: %\{status\}, %\{name\}   |
+| --critical-status        |   Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /ok/i'). You can use the following variables: %\{status\}, %\{name\}   |
 | --warning-* --critical-* |   Thresholds. Can be: 'read' (B/s), 'write' (B/s), 'read-iops', 'write-iops'.                                                                             |
 
 </TabItem>
@@ -564,7 +564,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-disk-id         |   Filter disks by disk ID (can be a regexp).                                                                                                                |
 | --unknown-disks-status   |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{id\}                                        |
 | --warning-disk-status    |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{id\}                                        |
-| --critical-disk-status   |   Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /active/i'). You can use the following variables: %\{status\}, %\{id\}   |
+| --critical-disk-status   |   Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /active/i'). You can use the following variables: %\{status\}, %\{id\}   |
 | --warning-* --critical-* |   Thresholds. Can be: 'cluster-disks-total', 'cluster-disks-active'.                                                                                        |
 
 </TabItem>
@@ -595,7 +595,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-node-id         |   Filter nodes by node ID (can be a regexp).                                                                                                                            |
 | --unknown-node-status    |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{ip_address\}, %\{id\}                                    |
 | --warning-node-status    |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{ip_address\}, %\{id\}                                    |
-| --critical-node-status   |   Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /ok/i'). You can use the following variables: %\{status\}, %\{ip_address\}, %\{id\}   |
+| --critical-node-status   |   Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /ok/i'). You can use the following variables: %\{status\}, %\{ip_address\}, %\{id\}   |
 | --warning-* --critical-* |   Thresholds. Can be: 'cluster-nodes-total', 'cluster-nodes-ok'.                                                                                                        |
 
 </TabItem>

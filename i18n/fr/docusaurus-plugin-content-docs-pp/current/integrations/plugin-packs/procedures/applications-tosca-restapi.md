@@ -200,7 +200,7 @@ yum install centreon-plugin-Applications-Tosca-Restapi
 | SCENARIOID       | Scenario unique ID                                                                                                                              |                       |             |
 | WARNINGDURATION  | Thresholds                                                                                                                                      |                       |             |
 | CRITICALDURATION | Thresholds                                                                                                                                      |                       |             |
-| CRITICALSTATUS   | Define the conditions to match for the status to be CRITICAL (default: '%{result} !~ /Passed/'). You can use the following variables: %\{result\} | %\{result\} !~ /Passed/ |             |
+| CRITICALSTATUS   | Define the conditions to match for the status to be CRITICAL (default: '%\{result\} !~ /Passed/'). You can use the following variables: %\{result\} | %\{result\} !~ /Passed/ |             |
 | WARNINGSTATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{result\}                                     |                       |             |
 | EXTRAOPTIONS     | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                             |                       |             |
 
@@ -334,7 +334,7 @@ Les options spécifiques aux modes sont listées ci-dessous :
 | --workspace              | Workspace name of the provided scenario.                                                                                                          | Mode |
 | --scenario-id            | Scenario unique ID.                                                                                                                               | Mode |
 | --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{result\}                                       | Mode |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{result} !~ /Passed/'). You can use the following variables: %\{result\}   | Mode |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{result\} !~ /Passed/'). You can use the following variables: %\{result\}   | Mode |
 | --warning-* --critical-* | Thresholds. Can be: 'duration'.                                                                                                                   | Mode |
 
 </TabItem>

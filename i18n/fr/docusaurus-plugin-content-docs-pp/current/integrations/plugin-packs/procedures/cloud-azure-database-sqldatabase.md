@@ -331,9 +331,9 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 
 | Macro          | Description                                                                                                                                                         | Valeur par défaut            | Obligatoire |
 |:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
-| STATUSOK       | Define the conditions to match for the status to be OK (default: '%{status} =~ /^Available$/').  You can use the following variables: %\{status\}, %\{summary\}         | %\{status\} =~ /^Available$/   |             |
-| STATUSUNKNOWN  | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /^Unknown$/').  You can use the following variables: %\{status\}, %\{summary\}      |                              |             |
-| STATUSCRITICAL | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /^Unavailable$/').  You can use the following variables: %\{status\}, %\{summary\} | %\{status\} =~ /^Unavailable$/ |             |
+| STATUSOK       | Define the conditions to match for the status to be OK (default: '%\{status\} =~ /^Available$/').  You can use the following variables: %\{status\}, %\{summary\}         | %\{status\} =~ /^Available$/   |             |
+| STATUSUNKNOWN  | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /^Unknown$/').  You can use the following variables: %\{status\}, %\{summary\}      |                              |             |
+| STATUSCRITICAL | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /^Unavailable$/').  You can use the following variables: %\{status\}, %\{summary\} | %\{status\} =~ /^Unavailable$/ |             |
 | STATUSWARNING  | Define the conditions to match for the status to be WARNING (default: '').  You can use the following variables: %\{status\}, %\{summary\}                              |                              |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                  |                              |             |
 
@@ -626,9 +626,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --resource        | Set resource name or ID (required).                                                                                                                                   |
 | --resource-group  | Set resource group (required if resource's name is used).                                                                                                             |
 | --warning-status  | Define the conditions to match for the status to be WARNING (default: '').  You can use the following variables: %\{status\}, %\{summary\}                                |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /^Unavailable$/').  You can use the following variables: %\{status\}, %\{summary\}   |
-| --unknown-status  | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /^Unknown$/').  You can use the following variables: %\{status\}, %\{summary\}        |
-| --ok-status       | Define the conditions to match for the status to be OK (default: '%{status} =~ /^Available$/').  You can use the following variables: %\{status\}, %\{summary\}           |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /^Unavailable$/').  You can use the following variables: %\{status\}, %\{summary\}   |
+| --unknown-status  | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /^Unknown$/').  You can use the following variables: %\{status\}, %\{summary\}        |
+| --ok-status       | Define the conditions to match for the status to be OK (default: '%\{status\} =~ /^Available$/').  You can use the following variables: %\{status\}, %\{summary\}           |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">

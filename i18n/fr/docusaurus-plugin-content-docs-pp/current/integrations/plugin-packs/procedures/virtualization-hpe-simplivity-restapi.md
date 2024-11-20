@@ -335,18 +335,18 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--critical-hosts-suspected='' \
 	--warning-hosts-unknown='' \
 	--critical-hosts-unknown='' \
-	--unknown-raid-status='%{status} =~ /unknown/' \
-	--warning-raid-status='%{status} =~ /yellow/' \
-	--critical-raid-status='%{status} =~ /red/' \
-	--unknown-physical-drive-status='%{status} =~ /unknown/' \
-	--warning-physical-drive-status='%{status} =~ /yellow/' \
-	--critical-physical-drive-status='%{status} =~ /red/' \
-	--unknown-logical-drive-status='%{status} =~ /unknown/' \
-	--warning-logical-drive-status='%{status} =~ /yellow/' \
-	--critical-logical-drive-status='%{status} =~ /red/' \
-	--unknown-host-status='%{status} =~ /unknown/' \
-	--warning-host-status='%{status} =~ /suspected/' \
-	--critical-host-status='%{status} =~ /faulty/' \
+	--unknown-raid-status='%\{status\} =~ /unknown/' \
+	--warning-raid-status='%\{status\} =~ /yellow/' \
+	--critical-raid-status='%\{status\} =~ /red/' \
+	--unknown-physical-drive-status='%\{status\} =~ /unknown/' \
+	--warning-physical-drive-status='%\{status\} =~ /yellow/' \
+	--critical-physical-drive-status='%\{status\} =~ /red/' \
+	--unknown-logical-drive-status='%\{status\} =~ /unknown/' \
+	--warning-logical-drive-status='%\{status\} =~ /yellow/' \
+	--critical-logical-drive-status='%\{status\} =~ /red/' \
+	--unknown-host-status='%\{status\} =~ /unknown/' \
+	--warning-host-status='%\{status\} =~ /suspected/' \
+	--critical-host-status='%\{status\} =~ /faulty/' \
 	--verbose
 ```
 
@@ -526,18 +526,18 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option                           | Description                                                                                                                                                                                                                      |
 |:---------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-name                    | Filter hosts by name.                                                                                                                                                                                                            |
-| --unknown-host-status            | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /unknown/'). You can use the following variables: %\{status\}, %\{name\}                                                                         |
-| --warning-host-status            | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /suspected/'). You can use the following variables: %\{status\}, %\{name\}                                                                       |
-| --critical-host-status           | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /faulty/'). You can use the following variables: %\{status\}, %\{name\}                                                                         |
-| --unknown-raid-status            | Set unknown threshold for component status (default: '%{status} =~ /unknown/'). You can use the following variables: %\{status\}, %\{name\}                                                                                          |
-| --warning-raid-status            | Set warning threshold for component status (default: '%{status} =~ /yellow/'). You can use the following variables: %\{status\}, %\{name\}                                                                                           |
-| --critical-raid-status           | Set critical threshold for component status (default: '%{status} =~ /red/'). You can use the following variables: %\{status\}, %\{name\}                                                                                             |
-| --unknown-logical-drive-status   | Set unknown threshold for component status (default: '%{status} =~ /unknown/'). You can use the following variables: %\{status\}, %\{name\}                                                                                          |
-| --warning-logical-drive-status   | Set warning threshold for component status (default: '%{status} =~ /yellow/'). You can use the following variables: %\{status\}, %\{name\}                                                                                           |
-| --critical-logical-drive-status  | Set critical threshold for component status (default: '%{status} =~ /red/'). You can use the following variables: %\{status\}, %\{name\}                                                                                             |
-| --unknown-physical-drive-status  | Set unknown threshold for component status (default: '%{status} =~ /unknown/'). You can use the following variables: %\{status\}, %\{name\}                                                                                          |
-| --warning-physical-drive-status  | Set warning threshold for component status (default: '%{status} =~ /yellow/'). You can use the following variables: %\{status\}, %\{name\}                                                                                           |
-| --critical-physical-drive-status | Set critical threshold for component status (default: '%{status} =~ /red/'). You can use the following variables: %\{status\}, %\{name\}                                                                                             |
+| --unknown-host-status            | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /unknown/'). You can use the following variables: %\{status\}, %\{name\}                                                                         |
+| --warning-host-status            | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /suspected/'). You can use the following variables: %\{status\}, %\{name\}                                                                       |
+| --critical-host-status           | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /faulty/'). You can use the following variables: %\{status\}, %\{name\}                                                                         |
+| --unknown-raid-status            | Set unknown threshold for component status (default: '%\{status\} =~ /unknown/'). You can use the following variables: %\{status\}, %\{name\}                                                                                          |
+| --warning-raid-status            | Set warning threshold for component status (default: '%\{status\} =~ /yellow/'). You can use the following variables: %\{status\}, %\{name\}                                                                                           |
+| --critical-raid-status           | Set critical threshold for component status (default: '%\{status\} =~ /red/'). You can use the following variables: %\{status\}, %\{name\}                                                                                             |
+| --unknown-logical-drive-status   | Set unknown threshold for component status (default: '%\{status\} =~ /unknown/'). You can use the following variables: %\{status\}, %\{name\}                                                                                          |
+| --warning-logical-drive-status   | Set warning threshold for component status (default: '%\{status\} =~ /yellow/'). You can use the following variables: %\{status\}, %\{name\}                                                                                           |
+| --critical-logical-drive-status  | Set critical threshold for component status (default: '%\{status\} =~ /red/'). You can use the following variables: %\{status\}, %\{name\}                                                                                             |
+| --unknown-physical-drive-status  | Set unknown threshold for component status (default: '%\{status\} =~ /unknown/'). You can use the following variables: %\{status\}, %\{name\}                                                                                          |
+| --warning-physical-drive-status  | Set warning threshold for component status (default: '%\{status\} =~ /yellow/'). You can use the following variables: %\{status\}, %\{name\}                                                                                           |
+| --critical-physical-drive-status | Set critical threshold for component status (default: '%\{status\} =~ /red/'). You can use the following variables: %\{status\}, %\{name\}                                                                                             |
 | --warning-* --critical-*         | Thresholds. Can be: 'hosts-alive', 'hosts-faulty', 'hosts-managed', 'hosts-removed', 'hosts-suspected', 'hosts-unknown', 'host-components-green', 'host-components-yellow', 'host-components-red', 'host-components-unknown'.    |
 
 </TabItem>
@@ -554,8 +554,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option                   | Description                                                                                                                                                         |
 |:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-vm-name         | Filter virtual machines by virtual machine name.                                                                                                                    |
-| --unknown-ha-status      | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /unknown/'). You can use the following variables: %\{ha_status\}, %\{vm_name\}    |
-| --warning-ha-status      | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /degraded/'). You can use the following variables: %\{ha_status\}, %\{vm_name\}   |
+| --unknown-ha-status      | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /unknown/'). You can use the following variables: %\{ha_status\}, %\{vm_name\}    |
+| --warning-ha-status      | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /degraded/'). You can use the following variables: %\{ha_status\}, %\{vm_name\}   |
 | --critical-ha-status     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{ha_status\}, %\{vm_name\}                                       |
 | --warning-* --critical-* | Thresholds. Can be: 'space-usage', 'space-usage-free', 'space-usage-prct'.                                                                                          |
 

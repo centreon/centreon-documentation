@@ -178,9 +178,9 @@ yum install centreon-plugin-Hardware-Servers-Hp-Oneview-Restapi
 | Macro             | Description                                                                                                                                                    | Valeur par défaut | Obligatoire |
 |:------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTERNAME        | Filter pool name (can be a regexp)                                                                                                                             |                   |             |
-| UNKNOWNSTATUS     | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} =~ /unknown/i'). You can use the following variables: %\{status\}, %\{display\}   |                   |             |
-| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING (Default: '%{status} =~ /warning/i'). You can use the following variables: %\{status\}, %\{display\}   |                   |             |
-| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL (Default: '%{status} =~ /critical/i'). You can use the following variables: %\{status\}, %\{display\} |                   |             |
+| UNKNOWNSTATUS     | Define the conditions to match for the status to be UNKNOWN (Default: '%\{status\} =~ /unknown/i'). You can use the following variables: %\{status\}, %\{display\}   |                   |             |
+| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING (Default: '%\{status\} =~ /warning/i'). You can use the following variables: %\{status\}, %\{display\}   |                   |             |
+| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL (Default: '%\{status\} =~ /critical/i'). You can use the following variables: %\{status\}, %\{display\} |                   |             |
 | WARNINGUSAGE      | Thresholds                                                                                                                                                     |                   |             |
 | CRITICALUSAGE     | Thresholds                                                                                                                                                     |                   |             |
 | WARNINGUSAGEFREE  | Thresholds                                                                                                                                                     |                   |             |
@@ -344,9 +344,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='^usage$'                                                                            |
 | --filter-name            | Filter pool name (can be a regexp).                                                                                                                              |
-| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} =~ /unknown/i'). You can use the following variables: %\{status\}, %\{display\}     |
-| --warning-status         | Define the conditions to match for the status to be WARNING (Default: '%{status} =~ /warning/i'). You can use the following variables: %\{status\}, %\{display\}     |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (Default: '%{status} =~ /critical/i'). You can use the following variables: %\{status\}, %\{display\}   |
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (Default: '%\{status\} =~ /unknown/i'). You can use the following variables: %\{status\}, %\{display\}     |
+| --warning-status         | Define the conditions to match for the status to be WARNING (Default: '%\{status\} =~ /warning/i'). You can use the following variables: %\{status\}, %\{display\}     |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (Default: '%\{status\} =~ /critical/i'). You can use the following variables: %\{status\}, %\{display\}   |
 | --warning-* --critical-* | Thresholds. Can be: 'usage' (B), 'usage-free' (B), 'usage-prct' (%).                                                                                             |
 
 </TabItem>

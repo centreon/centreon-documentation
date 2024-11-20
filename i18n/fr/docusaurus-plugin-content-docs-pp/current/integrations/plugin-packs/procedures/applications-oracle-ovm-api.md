@@ -230,7 +230,7 @@ yum install centreon-plugin-Applications-Oracle-Ovm-Api
 | CRITICALJOBSFAILED    | Thresholds                                                                                                                                                 |                         |             |
 | WARNINGJOBSSUCCEEDED  | Thresholds                                                                                                                                                 |                         |             |
 | CRITICALJOBSSUCCEEDED | Thresholds                                                                                                                                                 |                         |             |
-| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /running/i'). You can use the following variables: %\{status\}, %\{name\} | %\{status\} !~ /running/i |             |
+| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /running/i'). You can use the following variables: %\{status\}, %\{name\} | %\{status\} !~ /running/i |             |
 | WARNINGSTATUS         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}                                       |                         |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                         | --verbose               |             |
 
@@ -442,7 +442,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='status'                                                                         |
 | --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{name\}                                         |
 | --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}                                         |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /running/i'). You can use the following variables: %\{status\}, %\{name\}   |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /running/i'). You can use the following variables: %\{status\}, %\{name\}   |
 | --warning-* --critical-* | Thresholds. Can be: 'jobs-succeeded', 'jobs-failed'.                                                                                                         |
 
 </TabItem>

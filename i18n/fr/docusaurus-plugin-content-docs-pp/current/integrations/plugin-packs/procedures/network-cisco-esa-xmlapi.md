@@ -176,7 +176,7 @@ yum install centreon-plugin-Network-Cisco-Esa-Xmlapi
 
 | Macro                         | Description                                                                                                                                      | Valeur par défaut              | Obligatoire |
 |:------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
-| UNKNOWNHTTPSTATUS             | Threshold unknown for http response code (default: '%{http_code} < 200 or %\{http_code\} >= 300')                                                  |                                |             |
+| UNKNOWNHTTPSTATUS             | Threshold unknown for http response code (default: '%\{http_code\} < 200 or %\{http_code\} >= 300')                                                  |                                |             |
 | WARNINGCONNECTIONSIN          | Warning threshold for 'connections-in'                                                                                                           |                                |             |
 | CRITICALCONNECTIONSIN         | Critical threshold for 'connections-in'                                                                                                          |                                |             |
 | WARNINGCONNECTIONSOUT         | Warning threshold for 'connections-out'                                                                                                          |                                |             |
@@ -233,7 +233,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--warning-http-status='' \
 	--critical-http-status='' \
 	--warning-system-status='' \
-	--critical-system-status='%{system_status} !~ /online/i' \
+	--critical-system-status='%\{system_status\} !~ /online/i' \
 	--warning-memory='' \
 	--critical-memory='' \
 	--warning-cpu-total='' \

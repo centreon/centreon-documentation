@@ -294,7 +294,7 @@ yum install centreon-plugin-Hardware-Storage-Netapp-Ontap-Restapi
 | CRITICALREADIOPS     | Thresholds                                                                                                                                                 |                       |             |
 | WARNINGREADLATENCY   | Thresholds                                                                                                                                                 |                       |             |
 | CRITICALREADLATENCY  | Thresholds                                                                                                                                                 |                       |             |
-| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL (Default: '%{state} !~ /online/i'). You can use the following variables: %\{state\}, %\{display\} | %\{state\} !~ /online/i |             |
+| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL (Default: '%\{state\} !~ /online/i'). You can use the following variables: %\{state\}, %\{display\} | %\{state\} !~ /online/i |             |
 | WARNINGSTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{display\}                                     |                       |             |
 | WARNINGTOTAL         | Thresholds                                                                                                                                                 |                       |             |
 | CRITICALTOTAL        | Thresholds                                                                                                                                                 |                       |             |
@@ -322,7 +322,7 @@ yum install centreon-plugin-Hardware-Storage-Netapp-Ontap-Restapi
 | Macro                | Description                                                                                                                                                                | Valeur par défaut    | Obligatoire |
 |:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|:-----------:|
 | UNKNOWNNODESTATUS    | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{link_status\}, %\{display\}                                    |                      |             |
-| CRITICALNODESTATUS   | Define the conditions to match for the status to be CRITICAL (Default: '%{state} ne "online"'). You can use the following variables: %\{state\}, %\{link_status\}, %\{display\} | %\{state\} ne "online" |             |
+| CRITICALNODESTATUS   | Define the conditions to match for the status to be CRITICAL (Default: '%\{state\} ne "online"'). You can use the following variables: %\{state\}, %\{link_status\}, %\{display\} | %\{state\} ne "online" |             |
 | WARNINGNODESTATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{link_status\}, %\{display\}                                    |                      |             |
 | WARNINGREAD          | Thresholds                                                                                                                                                                 |                      |             |
 | CRITICALREAD         | Thresholds                                                                                                                                                                 |                      |             |
@@ -353,7 +353,7 @@ yum install centreon-plugin-Hardware-Storage-Netapp-Ontap-Restapi
 |:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
 | FILTERNAME     | Filter LUN name (can be a regexp)                                                                                                                                               |                       |             |
 | UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{container_state\}, %\{display\}                                     |                       |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%{state} !~ /online/i'). You can use the following variables: %\{state\}, %\{container_state\}, %\{display\} | %\{state\} !~ /online/i |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%\{state\} !~ /online/i'). You can use the following variables: %\{state\}, %\{container_state\}, %\{display\} | %\{state\} !~ /online/i |             |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{container_state\}, %\{display\}                                     |                       |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                             | --verbose             |             |
 
@@ -381,7 +381,7 @@ yum install centreon-plugin-Hardware-Storage-Netapp-Ontap-Restapi
 |:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------|:-----------:|
 | FILTERNAME     | Filter snapmirror name (can be a regexp)                                                                                                                                                                               |                                                   |             |
 | UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{healthy\}, %\{state\}, %\{transfer_state\}, %\{display\}                                                                 |                                                   |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%{healthy} ne "true" or %\{state\} eq "broken\_off"'). You can use the following variables: %\{healthy\}, %\{state\}, %\{transfer_state\}, %\{display\} | %\{healthy\} ne "true" or %\{state\} eq "broken\_off" |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%\{healthy\} ne "true" or %\{state\} eq "broken\_off"'). You can use the following variables: %\{healthy\}, %\{state\}, %\{transfer_state\}, %\{display\} | %\{healthy\} ne "true" or %\{state\} eq "broken\_off" |             |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{healthy\}, %\{state\}, %\{transfer_state\}, %\{display\}                                                                 |                                                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                    | --verbose                                         |             |
 
@@ -398,7 +398,7 @@ yum install centreon-plugin-Hardware-Storage-Netapp-Ontap-Restapi
 | CRITICALREADIOPS     | Thresholds                                                                                                                                                 |                       |             |
 | WARNINGREADLATENCY   | Thresholds                                                                                                                                                 |                       |             |
 | CRITICALREADLATENCY  | Thresholds                                                                                                                                                 |                       |             |
-| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL (Default: '%{state} !~ /online/i'). You can use the following variables: %\{state\}, %\{display\} | %\{state\} !~ /online/i |             |
+| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL (Default: '%\{state\} !~ /online/i'). You can use the following variables: %\{state\}, %\{display\} | %\{state\} !~ /online/i |             |
 | WARNINGSTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{display\}                                     |                       |             |
 | WARNINGUSAGE         | Thresholds                                                                                                                                                 |                       |             |
 | CRITICALUSAGE        | Thresholds                                                                                                                                                 |                       |             |
@@ -439,7 +439,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--filter-name='' \
 	--unknown-status='' \
 	--warning-status='' \
-	--critical-status='%{state} !~ /online/i' \
+	--critical-status='%\{state\} !~ /online/i' \
 	--warning-usage='' \
 	--critical-usage='' \
 	--warning-usage-free='' \
@@ -570,7 +570,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-name            | Filter aggregates by aggregate name (can be a regexp).                                                                                                                                                                                                                           |
 | --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{display\}                                                                                                                                                           |
 | --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{display\}                                                                                                                                                           |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (Default: '%{state} !~ /online/i'). You can use the following variables: %\{state\}, %\{display\}                                                                                                                       |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (Default: '%\{state\} !~ /online/i'). You can use the following variables: %\{state\}, %\{display\}                                                                                                                       |
 | --warning-* --critical-* | Thresholds. Can be: 'usage' (B), 'usage-free' (B), 'usage-prct' (%), 'read' (B/s), 'read-iops', 'write' (B/s), 'write-iops', 'read-latency' (ms), 'write-latency' (ms), 'total-latency' (ms), 'other-latency' (ms), 'other' (B/s), 'total' (B/s), 'other-iops', 'total-iops'.    |
 
 </TabItem>
@@ -593,7 +593,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='node-status'                                                                                                                                                               |
 | --unknown-node-status    | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{link_status\}, %\{display\}                                                                                                                 |
 | --warning-node-status    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{link_status\}, %\{display\}                                                                                                                 |
-| --critical-node-status   | Define the conditions to match for the status to be CRITICAL (Default: '%{state} ne "online"'). You can use the following variables: %\{state\}, %\{link_status\}, %\{display\}                                                                              |
+| --critical-node-status   | Define the conditions to match for the status to be CRITICAL (Default: '%\{state\} ne "online"'). You can use the following variables: %\{state\}, %\{link_status\}, %\{display\}                                                                              |
 | --warning-* --critical-* | Thresholds. Can be: 'cpu-utilization' (%), 'read' (B/s), 'write' (B/s), 'read-iops', 'write-iops', 'read-latency' (ms), 'write-lantency' (ms), 'other-latency' (ms), 'total-latency' (ms), 'other' (B/s), 'total' (B/s), 'other-iops', 'total-iops'.    |
 
 </TabItem>
@@ -614,7 +614,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-name     | Filter LUN name (can be a regexp).                                                                                                                                                 |
 | --unknown-status  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{container_state\}, %\{display\}                                        |
 | --warning-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{container_state\}, %\{display\}                                        |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (Default: '%{state} !~ /online/i'). You can use the following variables: %\{state\}, %\{container_state\}, %\{display\}    |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (Default: '%\{state\} !~ /online/i'). You can use the following variables: %\{state\}, %\{container_state\}, %\{display\}    |
 
 </TabItem>
 <TabItem value="Quotas" label="Quotas">
@@ -635,7 +635,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-name     | Filter snapmirror name (can be a regexp).                                                                                                                                                                                 |
 | --unknown-status  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{healthy\}, %\{state\}, %\{transfer_state\}, %\{display\}                                                                    |
 | --warning-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{healthy\}, %\{state\}, %\{transfer_state\}, %\{display\}                                                                    |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (Default: '%{healthy} ne "true" or %\{state\} eq "broken\_off"'). You can use the following variables: %\{healthy\}, %\{state\}, %\{transfer_state\}, %\{display\}    |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (Default: '%\{healthy\} ne "true" or %\{state\} eq "broken\_off"'). You can use the following variables: %\{healthy\}, %\{state\}, %\{transfer_state\}, %\{display\}    |
 
 </TabItem>
 <TabItem value="Volumes" label="Volumes">
@@ -647,7 +647,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-vserver-name    | Filter volumes by vserver name (can be a regexp).                                                                                                                                                                                                                                |
 | --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{display\}                                                                                                                                                           |
 | --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{display\}                                                                                                                                                           |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (Default: '%{state} !~ /online/i'). You can use the following variables: %\{state\}, %\{display\}                                                                                                                       |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (Default: '%\{state\} !~ /online/i'). You can use the following variables: %\{state\}, %\{display\}                                                                                                                       |
 | --warning-* --critical-* | Thresholds. Can be: 'usage' (B), 'usage-free' (B), 'usage-prct' (%), 'read' (B/s), 'read-iops', 'write' (B/s), 'write-iops', 'read-latency' (ms), 'write-latency' (ms), 'total-latency' (ms), 'other-latency' (ms), 'other' (B/s), 'total' (B/s), 'other-iops', 'total-iops'.    |
 
 </TabItem>

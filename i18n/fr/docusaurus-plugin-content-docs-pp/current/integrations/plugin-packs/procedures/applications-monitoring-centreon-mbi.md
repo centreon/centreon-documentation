@@ -77,7 +77,7 @@ With the `root` user, install the following package and its dependencies:
 
 Try to execute this command:
 
-    $ snmpwalk -v 1 -c <SNMPCOMMUNITY> <IPSERVER> .1.3.6.1.2.1.1.1
+    $ snmpwalk -v 1 -c <SNMPCOMMUNITY> \<IPSERVER\> .1.3.6.1.2.1.1.1
 
 You should get a response looking like the following:
 

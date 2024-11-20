@@ -1034,8 +1034,8 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 |:----------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
 | FILTERTYPE      | Filter event type (can be a regexp)                                                                                                                                                                                           | .*                    |             |
 | FILTERNAMESPACE | Filter namespace (can be a regexp)                                                                                                                                                                                            | .*                    |             |
-| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING (default: '%{type} =~ /warning/i') Can use special variables like: %\{name\}, %\{namespace\}, %\{type\}, %\{object\}, %\{message\}, %\{count\}, %\{first_seen\}, %\{last_seen\} | %\{type\} =~ /warning/i |             |
-| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%{type} =~ /error/i'). Can use special variables like: %\{name\}, %\{namespace\}, %\{type\}, %\{object\}, %\{message\}, %\{count\}, %\{first_seen\}, %\{last_seen\} | %\{type\} =~ /error/i   |             |
+| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING (default: '%\{type\} =~ /warning/i') Can use special variables like: %\{name\}, %\{namespace\}, %\{type\}, %\{object\}, %\{message\}, %\{count\}, %\{first_seen\}, %\{last_seen\} | %\{type\} =~ /warning/i |             |
+| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%\{type\} =~ /error/i'). Can use special variables like: %\{name\}, %\{namespace\}, %\{type\}, %\{object\}, %\{message\}, %\{count\}, %\{first_seen\}, %\{last_seen\} | %\{type\} =~ /error/i   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                            | --verbose             |             |
 
 </TabItem>
@@ -1057,7 +1057,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | FILTERDAEMONSET | Filter DaemonSet name (can be a regexp)                                                                                                                                                                                                                             | .*                            |             |
 | FILTERNAMESPACE | Filter DaemonSet namespace (can be a regexp)                                                                                                                                                                                                                        | .*                            |             |
 | WARNINGSTATUS   | Define the conditions to match for the status to be WARNING (default: '%\{up_to_date\}\< %\{desired\}') You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %\{available\}, %\{unavailable\}, %{up\_to\_date}, %\{ready\}, %\{misscheduled\} | %\{up_to_date\}\< %\{desired\} |             |
-| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%{available} \< %\{desired\}'). You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %\{available\}, %\{unavailable\}, %{up\_to\_date}, %\{ready\}, %\{misscheduled\}  | %\{available\} \< %\{desired\}    |             |
+| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%\{available\} \< %\{desired\}'). You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %\{available\}, %\{unavailable\}, %{up\_to\_date}, %\{ready\}, %\{misscheduled\}  | %\{available\} \< %\{desired\}    |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                                                  | --verbose                     |             |
 
 </TabItem>
@@ -1068,7 +1068,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | FILTERDEPLOYMENT | Filter deployment name (can be a regexp)                                                                                                                                                                                                 | .*                            |             |
 | FILTERNAMESPACE  | Filter deployment namespace (can be a regexp)                                                                                                                                                                                            | .*                            |             |
 | WARNINGSTATUS    | Define the conditions to match for the status to be WARNING (default: '%\{up_to_date\}\< %\{desired\}') You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %\{available\}, %\{unavailable\}, %\{up_to_date\}| %\{up_to_date\}\< %\{desired\} |             |
-| CRITICALSTATUS   | Define the conditions to match for the status to be CRITICAL (default: '%{available} \< %\{desired\}'). You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %\{available\}, %\{unavailable\}, %\{up_to_date\} | %\{available\} \< %\{desired\}    |             |
+| CRITICALSTATUS   | Define the conditions to match for the status to be CRITICAL (default: '%\{available\} \< %\{desired\}'). You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %\{available\}, %\{unavailable\}, %\{up_to_date\} | %\{available\} \< %\{desired\}    |             |
 | EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                       | --verbose                     |             |
 
 </TabItem>
@@ -1104,7 +1104,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 |:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------|:-----------:|
 | FILTERPERSISTENTVOLUME | Filter persistent volume name (can be a regexp)                                                                                                                             | .*                                        |             |
 | FILTERNAMESPACE        | Filter persistent volume name (can be a regexp).                                                                                                                                                                            | .*                                        |             |
-| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL (default: '%{phase} !~ /Bound\|Available\|Released/i'). You can use the following variables: %\{name\}, %\{phase\} | %\{phase\} !~ /Bound\|Available\|Released/i |             |
+| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL (default: '%\{phase\} !~ /Bound\|Available\|Released/i'). You can use the following variables: %\{name\}, %\{phase\} | %\{phase\} !~ /Bound\|Available\|Released/i |             |
 | WARNINGSTATUS          | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %\{name\}, %\{phase\}                                            |                                           |             |
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                          | --verbose                                 |             |
 
@@ -1118,9 +1118,9 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | UNITS                      | Units of thresholds (default: '%') ('%', 'count')                                                                                                                                               | %                                                  |             |
 | WARNINGCONTAINERSREADY     | Warning threshold                                                                                                                                                                               |                                                    |             |
 | CRITICALCONTAINERSREADY    | Critical threshold                                                                                                                                                                              |                                                    |             |
-| CRITICALCONTAINERSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /running/i \|\| %\{state\} !~ /^ready$/'). You can use the following variables: %\{status\}, %\{state\}, %\{name\} | %\{status\} !~ /running/i \|\| %\{state\} !~ /^ready$/ |             |
+| CRITICALCONTAINERSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /running/i \|\| %\{state\} !~ /^ready$/'). You can use the following variables: %\{status\}, %\{state\}, %\{name\} | %\{status\} !~ /running/i \|\| %\{state\} !~ /^ready$/ |             |
 | WARNINGCONTAINERSTATUS     | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{name\}                                                              |                                                    |             |
-| CRITICALPODSTATUS          | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /running/i'). You can use the following variables: %\{status\}, %\{name\}, %\{namespace\}                        | %\{status\} !~ /running/i                            |             |
+| CRITICALPODSTATUS          | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /running/i'). You can use the following variables: %\{status\}, %\{name\}, %\{namespace\}                        | %\{status\} !~ /running/i                            |             |
 | WARNINGPODSTATUS           | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{name\}, %\{namespace\}                                                |                                                    |             |
 | WARNINGRESTARTSCOUNT       | Warning threshold                                                                                                                                                                               |                                                    |             |
 | CRITICALRESTARTSCOUNT      | Critical threshold                                                                                                                                                                              |                                                    |             |
@@ -1135,7 +1135,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 |:------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
 | FILTERREPLICATSET | Filter ReplicaSet name (can be a regexp)                                                                                                                                                       | .*                     |             |
 | FILTERNAMESPACE   | Filter ReplicaSet namespace (can be a regexp)                                                                                                                                                  | .*                     |             |
-| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%{ready} \< %\{desired\}'). You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %\{ready\} | %\{ready\} \< %\{desired\} |             |
+| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%\{ready\} \< %\{desired\}'). You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %\{ready\} | %\{ready\} \< %\{desired\} |             |
 | WARNINGSTATUS     | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %\{ready\}                         |                        |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                             | --verbose              |             |
 
@@ -1146,7 +1146,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 |:----------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
 | FILTERREPLICATIONCONTROLLER | Filter ReplicationController name (can be a regexp)                                                                                                                                            | .*                     |             |
 | FILTERNAMESPACE             | Filter ReplicationController namespace (can be a regexp)                                                                                                                                       | .*                     |             |
-| CRITICALSTATUS              | Define the conditions to match for the status to be CRITICAL (default: '%{ready} \< %\{desired\}'). You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %\{ready\} | %\{ready\} \< %\{desired\} |             |
+| CRITICALSTATUS              | Define the conditions to match for the status to be CRITICAL (default: '%\{ready\} \< %\{desired\}'). You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %\{ready\} | %\{ready\} \< %\{desired\} |             |
 | WARNINGSTATUS               | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %\{ready\}                         |                        |             |
 | EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                             | --verbose              |             |
 
@@ -1158,7 +1158,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | FILTERSTATEFULSET | Filter StatefulSet name (can be a regexp)                                                                                                                                                                            | .*                            |             |
 | FILTERNAMESPACE   | Filter StatefulSet namespace (can be a regexp)                                                                                                                                                                       | .*                            |             |
 | WARNINGSTATUS     | Define the conditions to match for the status to be WARNING (default: '%\{up_to_date\}\< %\{desired\}') You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %{up\_to\_date}, %\{ready\} | %\{up_to_date\}\< %\{desired\} |             |
-| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%{ready} \< %\{desired\}'). You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %{up\_to\_date}, %\{ready\}      | %\{ready\} \< %\{desired\}        |             |
+| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%\{ready\} \< %\{desired\}'). You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %{up\_to\_date}, %\{ready\}      | %\{ready\} \< %\{desired\}        |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                   | --verbose                     |             |
 
 </TabItem>
@@ -1189,8 +1189,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--timeout='10'  \
 	--filter-name='.*' \
 	--filter-namespace='.*' \
-	--warning-status='%{up_to_date} < %\{desired\}' \
-	--critical-status='%{ready} < %\{desired\}' \
+	--warning-status='%\{up_to_date\} < %\{desired\}' \
+	--critical-status='%\{ready\} < %\{desired\}' \
 	--verbose
 ```
 
@@ -1382,8 +1382,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --command-options  | Command options (default: none).                                                                                                                                                                                                  |
 | --filter-type      | Filter event type (can be a regexp).                                                                                                                                                                                              |
 | --filter-namespace | Filter namespace (can be a regexp).                                                                                                                                                                                               |
-| --warning-status   | Define the conditions to match for the status to be WARNING (default: '%{type} =~ /warning/i') Can use special variables like: %\{name\}, %\{namespace\}, %\{type\}, %\{object\}, %\{message\}, %\{count\}, %\{first_seen\}, %\{last_seen\}.    |
-| --critical-status  | Define the conditions to match for the status to be CRITICAL (default: '%{type} =~ /error/i'). Can use special variables like: %\{name\}, %\{namespace\}, %\{type\}, %\{object\}, %\{message\}, %\{count\}, %\{first_seen\}, %\{last_seen\}.    |
+| --warning-status   | Define the conditions to match for the status to be WARNING (default: '%\{type\} =~ /warning/i') Can use special variables like: %\{name\}, %\{namespace\}, %\{type\}, %\{object\}, %\{message\}, %\{count\}, %\{first_seen\}, %\{last_seen\}.    |
+| --critical-status  | Define the conditions to match for the status to be CRITICAL (default: '%\{type\} =~ /error/i'). Can use special variables like: %\{name\}, %\{namespace\}, %\{type\}, %\{object\}, %\{message\}, %\{count\}, %\{first_seen\}, %\{last_seen\}.    |
 
 </TabItem>
 <TabItem value="CronJob-Status" label="CronJob-Status">
@@ -1403,7 +1403,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-name      | Filter DaemonSet name (can be a regexp).                                                                                                                                                                                                                               |
 | --filter-namespace | Filter DaemonSet namespace (can be a regexp).                                                                                                                                                                                                                          |
 | --warning-status   | Define the conditions to match for the status to be WARNING (default: '%\{up_to_date\}\< %\{desired\}') You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %\{available\}, %\{unavailable\}, %{up\_to\_date}, %\{ready\}, %\{misscheduled\}.   |
-| --critical-status  | Define the conditions to match for the status to be CRITICAL (default: '%{available} \< %\{desired\}'). You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %\{available\}, %\{unavailable\}, %{up\_to\_date}, %\{ready\}, %\{misscheduled\}.    |
+| --critical-status  | Define the conditions to match for the status to be CRITICAL (default: '%\{available\} \< %\{desired\}'). You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %\{available\}, %\{unavailable\}, %{up\_to\_date}, %\{ready\}, %\{misscheduled\}.    |
 
 </TabItem>
 <TabItem value="Deployment-Status" label="Deployment-Status">
@@ -1413,7 +1413,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-name      | Filter deployment name (can be a regexp).                                                                                                                                                                                                   |
 | --filter-namespace | Filter deployment namespace (can be a regexp).                                                                                                                                                                                              |
 | --warning-status   | Define the conditions to match for the status to be WARNING (default: '%\{up_to_date\}\< %\{desired\}') You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %\{available\}, %\{unavailable\}, %{up\_to\_date}.   |
-| --critical-status  | Define the conditions to match for the status to be CRITICAL (default: '%{available} \< %\{desired\}'). You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %\{available\}, %\{unavailable\}, %{up\_to\_date}.    |
+| --critical-status  | Define the conditions to match for the status to be CRITICAL (default: '%\{available\} \< %\{desired\}'). You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %\{available\}, %\{unavailable\}, %{up\_to\_date}.    |
 
 </TabItem>
 <TabItem value="Node-Status*" label="Node-Status*">
@@ -1439,7 +1439,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-name     | Filter persistent volume name (can be a regexp).                                                                                                                                |
 | --warning-status  | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %\{name\}, %\{phase\}.                                               |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{phase} !~ /Bound\|Available\|Released/i'). You can use the following variables: %\{name\}, %\{phase\}.    |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{phase\} !~ /Bound\|Available\|Released/i'). You can use the following variables: %\{name\}, %\{phase\}.    |
 
 </TabItem>
 <TabItem value="Pod-Status" label="Pod-Status">
@@ -1450,9 +1450,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-namespace          | Filter pod namespace (can be a regexp).                                                                                                                                                            |
 | --extra-filter              | Add an extra filter based on labels (can be defined multiple times)  Example : --extra-filter='app=mynewapp'                                                                                       |
 | --warning-pod-status        | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{name\}, %\{namespace\}.                                                  |
-| --critical-pod-status       | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /running/i'). You can use the following variables: %\{status\}, %\{name\}, %\{namespace\}.                          |
+| --critical-pod-status       | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /running/i'). You can use the following variables: %\{status\}, %\{name\}, %\{namespace\}.                          |
 | --warning-container-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{name\}.                                                                |
-| --critical-container-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /running/i \|\| %\{state\} !~ /^ready$/'). You can use the following variables: %\{status\}, %\{state\}, %\{name\}.   |
+| --critical-container-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /running/i \|\| %\{state\} !~ /^ready$/'). You can use the following variables: %\{status\}, %\{state\}, %\{name\}.   |
 | --warning-*                 | Warning threshold. Can be: 'containers-ready', 'total-restarts-count' (count), 'restarts-count' (count).                                                                                           |
 | --critical-*                | Critical threshold. Can be: 'containers-ready', 'total-restarts-count' (count), 'restarts-count' (count).                                                                                          |
 | --units                     | Units of thresholds (default: '%') ('%', 'count').                                                                                                                                                 |
@@ -1465,7 +1465,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-name      | Filter ReplicaSet name (can be a regexp).                                                                                                                                                          |
 | --filter-namespace | Filter ReplicaSet namespace (can be a regexp).                                                                                                                                                     |
 | --warning-status   | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %\{ready\}.                            |
-| --critical-status  | Define the conditions to match for the status to be CRITICAL (default: '%{ready} \< %\{desired\}'). You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %\{ready\}.    |
+| --critical-status  | Define the conditions to match for the status to be CRITICAL (default: '%\{ready\} \< %\{desired\}'). You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %\{ready\}.    |
 
 </TabItem>
 <TabItem value="ReplicationController-Status" label="ReplicationController-Status">
@@ -1475,7 +1475,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-name      | Filter ReplicationController name (can be a regexp).                                                                                                                                               |
 | --filter-namespace | Filter ReplicationController namespace (can be a regexp).                                                                                                                                          |
 | --warning-status   | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %\{ready\}.                            |
-| --critical-status  | Define the conditions to match for the status to be CRITICAL (default: '%{ready} \< %\{desired\}'). You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %\{ready\}.    |
+| --critical-status  | Define the conditions to match for the status to be CRITICAL (default: '%\{ready\} \< %\{desired\}'). You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %\{ready\}.    |
 
 </TabItem>
 <TabItem value="StatefulSet-Status" label="StatefulSet-Status">
@@ -1485,7 +1485,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-name      | Filter StatefulSet name (can be a regexp).                                                                                                                                                                              |
 | --filter-namespace | Filter StatefulSet namespace (can be a regexp).                                                                                                                                                                         |
 | --warning-status   | Define the conditions to match for the status to be WARNING (default: '%\{up_to_date\}\< %\{desired\}') You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %{up\_to\_date}, %\{ready\}.   |
-| --critical-status  | Define the conditions to match for the status to be CRITICAL (default: '%{ready} \< %\{desired\}'). You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %{up\_to\_date}, %\{ready\}.        |
+| --critical-status  | Define the conditions to match for the status to be CRITICAL (default: '%\{ready\} \< %\{desired\}'). You can use the following variables: %\{name\}, %\{namespace\}, %\{desired\}, %\{current\}, %{up\_to\_date}, %\{ready\}.        |
 
 </TabItem>
 </Tabs>

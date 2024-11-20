@@ -361,7 +361,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --warning-* --critical-* | Thresholds. Can be: 'traffic-in', 'traffic-out', 'invalid-crc', 'signal-loss'.                                                                                                                                                                |
 | --filter-name            | Filter name (can be a regexp).                                                                                                                                                                                                                |
 | --warning-status         | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{admin\}, %\{status\}, %\{display\}                                                                                               |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{admin} =~ /enabled/ and %\{status\} !~ /online/'). You can use the following variables: %\{admin\}, %\{status\}, %\{display\}                                               |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{admin\} =~ /enabled/ and %\{status\} !~ /online/'). You can use the following variables: %\{admin\}, %\{status\}, %\{display\}                                               |
 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">

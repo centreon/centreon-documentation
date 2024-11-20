@@ -466,7 +466,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-type            |   Filter licenses by type (can be a regexp).                                                                                                                                    |
 | --filter-status          |   Filter licenses by status (can be a regexp).                                                                                                                                  |
 | --warning-status         |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{to\}, %\{status\}, %\{type\}.                                                  |
-| --critical-status        |   Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /expired\|invalid/i'). You can use the following variables: %\{to\}, %\{status\}, %\{type\}.   |
+| --critical-status        |   Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /expired\|invalid/i'). You can use the following variables: %\{to\}, %\{status\}, %\{type\}.   |
 | --unit                   |   Select the time unit for the expiration thresholds. May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                  |
 | --warning-* --critical-* |   Thresholds. Can be: 'total', 'expires', 'license-instances-usage', 'license-instances-free', 'license-instances-usage-prct'.                                                  |
 
@@ -506,7 +506,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-type     |   Filter job type (can be a regexp).                                                                                                                                                                                                              |
 | --unknown-status  |   Define the conditions to match for the status to be UNKNOWN (default: '') You can use the following variables: %\{display\}, %\{enabled\}, %\{type\}, %\{last_result\}, %\{last_state\}.                                                                |
 | --warning-status  |   Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %\{display\}, %\{enabled\}, %\{type\}, %\{last_result\}, %\{last_state\}.                                                                |
-| --critical-status |   Define the conditions to match for the status to be CRITICAL (default: '%{enabled} == 1 and not %\{last_result\} =~ /Success\|None/i'). You can use the following variables: %\{display\}, %\{enabled\}, %\{type\}, %\{last_result\}, %\{last_state\}.   |
+| --critical-status |   Define the conditions to match for the status to be CRITICAL (default: '%\{enabled\} == 1 and not %\{last_result\} =~ /Success\|None/i'). You can use the following variables: %\{display\}, %\{enabled\}, %\{type\}, %\{last_result\}, %\{last_state\}.   |
 | --warning-total   |   Set warning threshold for total jobs.                                                                                                                                                                                                           |
 | --critical-total  |   Set critical threshold for total jobs.                                                                                                                                                                                                          |
 

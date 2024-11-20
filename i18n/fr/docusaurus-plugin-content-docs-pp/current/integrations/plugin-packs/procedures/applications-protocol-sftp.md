@@ -270,7 +270,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--ssh-password='my-password' \
 	--scenario='' \
 	--warning-status='' \
-	--critical-status='%{status} ne "success"' \
+	--critical-status='%\{status\} ne "success"' \
 	--warning-total-time='' \
 	--critical-total-time='' \
 	--warning-total-steps='' \
@@ -378,7 +378,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option            | Description                                                                                                                                                                     |
 |:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --warning-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{message\}                                                         |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{message} !~ /authentication succeeded/i' You can use the following variables: %\{status\}, %\{message\}   |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{message\} !~ /authentication succeeded/i' You can use the following variables: %\{status\}, %\{message\}   |
 | --warning-time    | Warning threshold in seconds.                                                                                                                                                   |
 | --critical-time   | Critical threshold in seconds.                                                                                                                                                  |
 
@@ -410,7 +410,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
 | --scenario               | Scenario used (required). Can be a file or json content.                                                                                          |
 | --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}                                       |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} ne "success"') You can use the following variables: %\{status\}   |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} ne "success"') You can use the following variables: %\{status\}   |
 | --warning-step-status    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{message\}                           |
 | --critical-step-status   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{message\}                          |
 | --warning-* --critical-* | Thresholds. Can be: 'total-time', 'total-steps', 'errors', 'step-time'.                                                                           |

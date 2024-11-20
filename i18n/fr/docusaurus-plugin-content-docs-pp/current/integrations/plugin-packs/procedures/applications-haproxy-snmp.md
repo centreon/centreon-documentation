@@ -120,7 +120,7 @@ yum install centreon-pack-applications-haproxy-snmp
     --snmp-community='my-snmp-community'   \
     --filter-name=''  \
     --warning-status=''  \
-    --critical-status='%{status} !~ /OPEN/i'  \
+    --critical-status='%\{status\} !~ /OPEN/i'  \
     --warning-total-sessions=''  \
     --critical-total-sessions=''  \
     --warning-current-sessions=''  \
@@ -140,7 +140,7 @@ OK : All frontends are ok | 'frontend.sessions.current.count'=9000;;;; 'frontend
  ```
 
 Dans cet exemple, une alarme est déclenchée si le status du *frontend* est
-différent de 'OPEN' (```--critical-status='%{status} !~ /OPEN/i'```).
+différent de 'OPEN' (```--critical-status='%\{status\} !~ /OPEN/i'```).
 
  La liste de toutes les options complémentaires et leur signification peut être 
  affichée en ajoutant le paramètre ```--help``` à la commande:

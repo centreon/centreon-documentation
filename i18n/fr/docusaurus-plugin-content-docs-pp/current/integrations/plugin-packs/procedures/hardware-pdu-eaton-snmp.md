@@ -203,11 +203,11 @@ yum install centreon-plugin-Hardware-Pdu-Eaton-Snmp
 | UNKNOWNTEMPERATURESTATUS  | Define the conditions to match for the status to be UNKNOWN (default: ''). You can use the following variables: %\{status\}, %\{display\}                    |                    |             |
 | WARNINGHUMIDITY           | Thresholds                                                                                                                                               |                    |             |
 | CRITICALHUMIDITY          | Thresholds                                                                                                                                               |                    |             |
-| CRITICALHUMIDITYSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%{status} eq "bad"'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} eq "bad" |             |
+| CRITICALHUMIDITYSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} eq "bad"'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} eq "bad" |             |
 | WARNINGHUMIDITYSTATUS     | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{display\}                    |                    |             |
 | WARNINGTEMPERATURE        | Thresholds                                                                                                                                               |                    |             |
 | CRITICALTEMPERATURE       | Thresholds                                                                                                                                               |                    |             |
-| CRITICALTEMPERATURESTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{status} eq "bad"'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} eq "bad" |             |
+| CRITICALTEMPERATURESTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} eq "bad"'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} eq "bad" |             |
 | WARNINGTEMPERATURESTATUS  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{display\}                    |                    |             |
 | EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                       | --verbose          |             |
 
@@ -374,10 +374,10 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --unknown-temperature-status  | Define the conditions to match for the status to be UNKNOWN (default: ''). You can use the following variables: %\{status\}, %\{display\}                      |
 | --warning-temperature-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{display\}                      |
-| --critical-temperature-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} eq "bad"'). You can use the following variables: %\{status\}, %\{display\}   |
+| --critical-temperature-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} eq "bad"'). You can use the following variables: %\{status\}, %\{display\}   |
 | --unknown-humidity-status     | Define the conditions to match for the status to be UNKNOWN (default: ''). You can use the following variables: %\{status\}, %\{display\}                      |
 | --warning-humidity-status     | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{display\}                      |
-| --critical-humidity-status    | Define the conditions to match for the status to be CRITICAL (default: '%{status} eq "bad"'). You can use the following variables: %\{status\}, %\{display\}   |
+| --critical-humidity-status    | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} eq "bad"'). You can use the following variables: %\{status\}, %\{display\}   |
 | --warning-* --critical-*      | Thresholds. Can be: 'humidity' (%), 'temperature' (C).                                                                                                     |
 
 </TabItem>

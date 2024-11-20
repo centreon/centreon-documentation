@@ -247,15 +247,15 @@ yum install centreon-plugin-Network-Keysight-Nvos-Restapi
 
 | Macro                     | Description                                                                                                                     | Valeur par défaut      | Obligatoire |
 |:--------------------------|:--------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:------------|
-| UNKNOWNTEMPERATURESTATUS  | Set unknown threshold for status (Default : '%{status} eq "unknown"'). You can use the following variables: %\{status\}, %\{class\} | %\{status\} eq "unknown" |             |
+| UNKNOWNTEMPERATURESTATUS  | Set unknown threshold for status (Default : '%\{status\} eq "unknown"'). You can use the following variables: %\{status\}, %\{class\} | %\{status\} eq "unknown" |             |
 | WARNINGFANSFAILED         | Thresholds                                                                                                                      |                        |             |
 | CRITICALFANSFAILED        | Thresholds                                                                                                                      |                        |             |
 | CRITICALPSUSTATUS         |                                                                                                                                 | %\{status\} eq "bad"     |             |
 | WARNINGPSUSTATUS          | Set warning threshold for status. You can use the following variables: %\{status\}, %\{name\}                                       |                        |             |
 | WARNINGTEMPERATURE        | Thresholds                                                                                                                      |                        |             |
 | CRITICALTEMPERATURE       | Thresholds                                                                                                                      |                        |             |
-| WARNINGTEMPERATURESTATUS  | Set warning threshold for status (Default : '%{status} eq "warn"'). You can use the following variables: %\{status\}, %\{class\}    | %\{status\} eq "warn"    |             |
-| CRITICALTEMPERATURESTATUS | Set critical threshold for status (Default: '%{status} eq "hot"'); You can use the following variables: %\{status\}, %\{class\}     | %\{status\} eq "hot"     |             |
+| WARNINGTEMPERATURESTATUS  | Set warning threshold for status (Default : '%\{status\} eq "warn"'). You can use the following variables: %\{status\}, %\{class\}    | %\{status\} eq "warn"    |             |
+| CRITICALTEMPERATURESTATUS | Set critical threshold for status (Default: '%\{status\} eq "hot"'); You can use the following variables: %\{status\}, %\{class\}     | %\{status\} eq "hot"     |             |
 | EXTRAOPTIONS              | Any extra option you may want to add to the command (E.g. a --verbose flag). Tous les options sont listées [ici](#options-disponibles)                             | --verbose              |             |
 
 </TabItem>
@@ -264,9 +264,9 @@ yum install centreon-plugin-Network-Keysight-Nvos-Restapi
 | Macro                  | Description                                                                                                                                                                                     | Valeur par défaut                                            | Obligatoire |
 |:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------|:------------|
 | FILTERNAME             | Filter ports by name (can be a regexp)                                                                                                                                                          |                                                              |             |
-| WARNINGLICENSESTATUS   | Set warning threshold for status (Default: '%{status} =~ /invalid\_software\_version/'). You can use the following variables: %\{status\}, %\{name\}                                                | %\{status\} =~ /invalid_software_version/                      |             |
+| WARNINGLICENSESTATUS   | Set warning threshold for status (Default: '%\{status\} =~ /invalid\_software\_version/'). You can use the following variables: %\{status\}, %\{name\}                                                | %\{status\} =~ /invalid_software_version/                      |             |
 | CRITICALLICENSESTATUS  | Set critical threshold for status. You can use the following variables: %\{status\}, %\{name\}                                                                                                      |                                                              |             |
-| CRITICALLINKSTATUS     | Set critical threshold for status (Default: '%{adminStatus} eq "enabled" and %\{operationalStatus\} ne "up"'). You can use the following variables: %\{adminStatus\}, %\{operationalStatus\}, %\{name\} | %\{adminStatus\} eq "enabled" and %\{operationalStatus\} ne "up" |             |
+| CRITICALLINKSTATUS     | Set critical threshold for status (Default: '%\{adminStatus\} eq "enabled" and %\{operationalStatus\} ne "up"'). You can use the following variables: %\{adminStatus\}, %\{operationalStatus\}, %\{name\} | %\{adminStatus\} eq "enabled" and %\{operationalStatus\} ne "up" |             |
 | WARNINGLINKSTATUS      | Set warning threshold for status. You can use the following variables: %\{adminStatus\}, %\{operationalStatus\}, %\{name\}                                                                            |                                                              |             |
 | WARNINGPACKETSDROPPED  | Thresholds                                                                                                                                                                                      |                                                              |             |
 | CRITICALPACKETSDROPPED | Thresholds                                                                                                                                                                                      |                                                              |             |
@@ -290,7 +290,7 @@ yum install centreon-plugin-Network-Keysight-Nvos-Restapi
 | TIMEZONE          | Override the timezone of distant equipment. Can use format: 'Europe/London' or '+0100'                                              |                                 |             |
 | NTPHOSTNAME       | Set the ntp hostname (if not set, localtime is used)                                                                                |                                 |             |
 | NTPPORT           | Set the ntp port (Default: 123)                                                                                                     |                                 |             |
-| CRITICALNTPSTATUS | Set thresholds for status (Default critical: '%{status} !~ /in\_reach\|in\_sync/i')  You can use the following variables: %\{status\} | %\{status\} !~ /in_reach\|in_sync/ |             |
+| CRITICALNTPSTATUS | Set thresholds for status (Default critical: '%\{status\} !~ /in\_reach\|in\_sync/i')  You can use the following variables: %\{status\} | %\{status\} !~ /in_reach\|in_sync/ |             |
 | WARNINGNTPSTATUS  |                                                                                                                                     |                                 |             |
 | WARNINGOFFSET     | Time offset warning threshold (in seconds)                                                                                          |                                 |             |
 | CRITICALOFFSET    | Time offset critical Threshold (in seconds)                                                                                         |                                 |             |
@@ -450,12 +450,12 @@ Les options spécifiques aux modes sont listées ci-dessus :
 
 | Option                        | Description                                                                                                                       | Type |
 |:------------------------------|:----------------------------------------------------------------------------------------------------------------------------------|:-----|
-| --unknown-temperature-status  | Set unknown threshold for status (Default : '%{status} eq "unknown"'). You can use the following variables: %\{status\}, %\{class\}   | Mode |
-| --warning-temperature-status  | Set warning threshold for status (Default : '%{status} eq "warn"'). You can use the following variables: %\{status\}, %\{class\}      | Mode |
-| --critical-temperature-status | Set critical threshold for status (Default: '%{status} eq "hot"'); You can use the following variables: %\{status\}, %\{class\}       | Mode |
+| --unknown-temperature-status  | Set unknown threshold for status (Default : '%\{status\} eq "unknown"'). You can use the following variables: %\{status\}, %\{class\}   | Mode |
+| --warning-temperature-status  | Set warning threshold for status (Default : '%\{status\} eq "warn"'). You can use the following variables: %\{status\}, %\{class\}      | Mode |
+| --critical-temperature-status | Set critical threshold for status (Default: '%\{status\} eq "hot"'); You can use the following variables: %\{status\}, %\{class\}       | Mode |
 | --unknown-psu-status          | Set unknown threshold for status. You can use the following variables: %\{status\}, %\{name\}                                         | Mode |
 | --warning-psu-status          | Set warning threshold for status. You can use the following variables: %\{status\}, %\{name\}                                         | Mode |
-| --critical-status             | Set critical threshold for status (Default: '%{status} eq "bad"'); You can use the following variables: %\{status\}, %\{name\}        | Mode |
+| --critical-status             | Set critical threshold for status (Default: '%\{status\} eq "bad"'); You can use the following variables: %\{status\}, %\{name\}        | Mode |
 | --warning-* --critical-*      | Thresholds. Can be: 'temperature', 'fans-failed'.                                                                                 | Mode |
 
 </TabItem>
@@ -477,11 +477,11 @@ Les options spécifiques aux modes sont listées ci-dessus :
 | --statefile-cipher        | Cipher to encrypt cache (Default: 'AES').                                                                                                                                                         | Retention |
 | --filter-name             | Filter ports by name (can be a regexp).                                                                                                                                                           | Mode      |
 | --unknown-license-status  | Set unknown threshold for status. You can use the following variables: %\{status\}, %\{name\}                                                                                                         | Mode      |
-| --warning-license-status  | Set warning threshold for status (Default: '%{status} =~ /invalid\_software\_version/'). You can use the following variables: %\{status\}, %\{name\}                                                  | Mode      |
+| --warning-license-status  | Set warning threshold for status (Default: '%\{status\} =~ /invalid\_software\_version/'). You can use the following variables: %\{status\}, %\{name\}                                                  | Mode      |
 | --critical-license-status | Set critical threshold for status. You can use the following variables: %\{status\}, %\{name\}                                                                                                        | Mode      |
 | --unknown-link-status     | Set unknown threshold for status. You can use the following variables: %\{adminStatus\}, %\{operationalStatus\}, %\{name\}                                                                              | Mode      |
 | --warning-link-status     | Set warning threshold for status. You can use the following variables: %\{adminStatus\}, %\{operationalStatus\}, %\{name\}                                                                              | Mode      |
-| --critical-link-status    | Set critical threshold for status (Default: '%{adminStatus} eq "enabled" and %\{operationalStatus\} ne "up"'). You can use the following variables: %\{adminStatus\}, %\{operationalStatus\}, %\{name\}   | Mode      |
+| --critical-link-status    | Set critical threshold for status (Default: '%\{adminStatus\} eq "enabled" and %\{operationalStatus\} ne "up"'). You can use the following variables: %\{adminStatus\}, %\{operationalStatus\}, %\{name\}   | Mode      |
 | --warning-* --critical-*  | Thresholds. Can be: 'traffic-out-prct', 'traffic-out', 'packets-out', 'packets-dropped', 'packets-pass', 'packets-insp'.                                                                          | Mode      |
 
 </TabItem>
@@ -491,7 +491,7 @@ Les options spécifiques aux modes sont listées ci-dessus :
 |:----------------------|:--------------------------------------------------------------------------------------------------------------------------------------|:-----|
 | --unknown-ntp-status  |                                                                                                                                       | Mode |
 | --warning-ntp-status  |                                                                                                                                       | Mode |
-| --critical-ntp-status | Set thresholds for status (Default critical: '%{status} !~ /in\_reach\|in\_sync/i')  You can use the following variables: %\{status\}   | Mode |
+| --critical-ntp-status | Set thresholds for status (Default critical: '%\{status\} !~ /in\_reach\|in\_sync/i')  You can use the following variables: %\{status\}   | Mode |
 | --warning-offset      | Time offset warning threshold (in seconds).                                                                                           | Mode |
 | --critical-offset     | Time offset critical Threshold (in seconds).                                                                                          | Mode |
 | --ntp-hostname        | Set the ntp hostname (if not set, localtime is used).                                                                                 | Mode |

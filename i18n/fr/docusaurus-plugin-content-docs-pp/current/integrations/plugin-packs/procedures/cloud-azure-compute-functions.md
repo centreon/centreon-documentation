@@ -423,9 +423,9 @@ yum install centreon-plugin-Cloud-Azure-Compute-Functions-Api
 
 | Macro          | Description                                                                                                                                                       | Valeur par défaut            | Obligatoire |
 |:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
-| OKSTATUS       | Define the conditions to match for the status to be OK (Default: '%{status} =~ /^Available$/'). Special variables that can be used: %\{status\}, %\{summary\}         | %\{status\} =~ /^Available$/   |             |
-| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} =~ /^Unknown$/'). Special variables that can be used: %\{status\}, %\{summary\}      | %\{status\} =~ /^Unknown$/     |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%{status} =~ /^Unavailable$/'). Special variables that can be used: %\{status\}, %\{summary\} | %\{status\} =~ /^Unavailable$/ |             |
+| OKSTATUS       | Define the conditions to match for the status to be OK (Default: '%\{status\} =~ /^Available$/'). Special variables that can be used: %\{status\}, %\{summary\}         | %\{status\} =~ /^Available$/   |             |
+| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN (Default: '%\{status\} =~ /^Unknown$/'). Special variables that can be used: %\{status\}, %\{summary\}      | %\{status\} =~ /^Unknown$/     |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%\{status\} =~ /^Unavailable$/'). Special variables that can be used: %\{status\}, %\{summary\} | %\{status\} =~ /^Unavailable$/ |             |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (Default: ''). Special variables that can be used: %\{status\}, %\{summary\}                              |                              |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                               |                              |             |
 
@@ -811,9 +811,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --resource        | Set resource name or ID (required).                                                                                                                                  |
 | --resource-group  | Set resource group (required if resource's name is used).                                                                                                            |
 | --warning-status  | Define the conditions to match for the status to be WARNING (Default: ''). Special variables that can be used: %\{status\}, %\{summary\}.                                |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (Default: '%{status} =~ /^Unavailable$/'). Special variables that can be used: %\{status\}, %\{summary\}.   |
-| --unknown-status  | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} =~ /^Unknown$/'). Special variables that can be used: %\{status\}, %\{summary\}.        |
-| --ok-status       | Define the conditions to match for the status to be OK (Default: '%{status} =~ /^Available$/'). Special variables that can be used: %\{status\}, %\{summary\}.           |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (Default: '%\{status\} =~ /^Unavailable$/'). Special variables that can be used: %\{status\}, %\{summary\}.   |
+| --unknown-status  | Define the conditions to match for the status to be UNKNOWN (Default: '%\{status\} =~ /^Unknown$/'). Special variables that can be used: %\{status\}, %\{summary\}.        |
+| --ok-status       | Define the conditions to match for the status to be OK (Default: '%\{status\} =~ /^Available$/'). Special variables that can be used: %\{status\}, %\{summary\}.           |
 
 </TabItem>
 <TabItem value="Http-Requests" label="Http-Requests">

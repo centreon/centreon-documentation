@@ -47,7 +47,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 | Métrique    | Unité  |
 |:---------------|:------|
-| hardware.sensor.temperature.<temp_unit>         | C or F   |
+| hardware.sensor.temperature.\<temp_unit\>         | C or F   |
 | hardware.sensor.humidity.percentage | %   |
 | input.status | N/A   |
 

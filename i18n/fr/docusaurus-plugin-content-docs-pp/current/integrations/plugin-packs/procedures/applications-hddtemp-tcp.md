@@ -102,7 +102,7 @@ l'utilisateur **centreon-engine**:
     --filter-name='' \
     --unknown-status='' \
     --warning-status='' \
-    --critical-status='%{status} !~ /ok/i' \
+    --critical-status='%\{status\} !~ /ok/i' \
     --warning-temperature='30' \
     --critical-temperature='50' \
     --verbose \
@@ -119,7 +119,7 @@ Dans cet exemple, une alarme de type WARNING sera déclenchée si la températur
 disque est supérieure à 30° (`--warning-temperature='30`).
 
 Une alarme CRITICAL sera déclenchée si la température est supérieure à 50° ou que 
-le statut est différent de 'ok' (`--critical-temperature='50' --critical-status='%{status} !~ /ok/i'`).
+le statut est différent de 'ok' (`--critical-temperature='50' --critical-status='%\{status\} !~ /ok/i'`).
 
 La liste de toutes les options complémentaires et leur signification peut être
 affichée en ajoutant le paramètre `--help` à la commande:

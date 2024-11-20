@@ -219,8 +219,8 @@ yum install centreon-plugin-Network-Silverpeak-Snmp
 | Macro          | Description                                                                                                                                                                                 | Valeur par défaut | Obligatoire |
 |:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTERMSG      | Filter by message (can be a regexp)                                                                                                                                                         |                   |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: '%{severity} =~ /minor\|warning/i') You can use the following variables: %\{severity\}, %\{text\}, %\{source\}, %\{since\}    |                   |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{severity} =~ /critical\|major/i'). You can use the following variables: %\{severity\}, %\{text\}, %\{source\}, %\{since\} |                   |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: '%\{severity\} =~ /minor\|warning/i') You can use the following variables: %\{severity\}, %\{text\}, %\{source\}, %\{since\}    |                   |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{severity\} =~ /critical\|major/i'). You can use the following variables: %\{severity\}, %\{text\}, %\{source\}, %\{since\} |                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                          |                   |             |
 
 </TabItem>
@@ -229,7 +229,7 @@ yum install centreon-plugin-Network-Silverpeak-Snmp
 | Macro          | Description                                                                               | Valeur par défaut | Obligatoire |
 |:---------------|:------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNINGSTATUS  | Trigger warning on %\{operStatus\} values                                                   |                   |             |
-| CRITICALSTATUS | Trigger critical on %\{operStatus\} values (default: '%{operStatus} !~         /(Normal)/') |                   |             |
+| CRITICALSTATUS | Trigger critical on %\{operStatus\} values (default: '%\{operStatus\} !~         /(Normal)/') |                   |             |
 
 </TabItem>
 <TabItem value="Traffic-Generic-Id" label="Traffic-Generic-Id">
@@ -265,7 +265,7 @@ yum install centreon-plugin-Network-Silverpeak-Snmp
 | CRITICALIN     | Thresholds                                                                                                                                                                                                          | 90                |             |
 | WARNINGOUT     | Thresholds                                                                                                                                                                                                          | 80                |             |
 | CRITICALOUT    | Thresholds                                                                                                                                                                                                          | 90                |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} |                   |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} |                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                  | --verbose         |             |
 
 </TabItem>
@@ -430,8 +430,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
 | --statefile-cipher     | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
 | --filter-msg           | Filter by message (can be a regexp).                                                                                                                                                                                                          |
-| --warning-status       | Define the conditions to match for the status to be WARNING (default: '%{severity} =~ /minor\|warning/i') You can use the following variables: %\{severity\}, %\{text\}, %\{source\}, %\{since\}                                                      |
-| --critical-status      | Define the conditions to match for the status to be CRITICAL (default: '%{severity} =~ /critical\|major/i'). You can use the following variables: %\{severity\}, %\{text\}, %\{source\}, %\{since\}                                                   |
+| --warning-status       | Define the conditions to match for the status to be WARNING (default: '%\{severity\} =~ /minor\|warning/i') You can use the following variables: %\{severity\}, %\{text\}, %\{source\}, %\{since\}                                                      |
+| --critical-status      | Define the conditions to match for the status to be CRITICAL (default: '%\{severity\} =~ /critical\|major/i'). You can use the following variables: %\{severity\}, %\{text\}, %\{source\}, %\{since\}                                                   |
 | --memory               | Only check new alarms.                                                                                                                                                                                                                        |
 
 </TabItem>
@@ -440,7 +440,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option            | Description                                                                                          |
 |:------------------|:-----------------------------------------------------------------------------------------------------|
 | --warning-status  |         Trigger warning on %\{operStatus\} values                                                      |
-| --critical-status |         Trigger critical on %\{operStatus\} values (default: '%{operStatus} !~         /(Normal)/')    |
+| --critical-status |         Trigger critical on %\{operStatus\} values (default: '%\{operStatus\} !~         /(Normal)/')    |
 
 </TabItem>
 <TabItem value="Traffic-*" label="Traffic-*">
@@ -467,9 +467,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --add-cast                                      | Check interface cast.                                                                                                                                                                                                                                                                      |
 | --add-speed                                     | Check interface speed.                                                                                                                                                                                                                                                                     |
 | --add-volume                                    | Check interface data volume between two checks (not supposed to be graphed, useful for BI reporting).                                                                                                                                                                                      |
-| --check-metrics                                 | If the expression is true, metrics are checked (default: '%{opstatus} eq "up"').                                                                                                                                                                                                           |
+| --check-metrics                                 | If the expression is true, metrics are checked (default: '%\{opstatus\} eq "up"').                                                                                                                                                                                                           |
 | --warning-status                                | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                                                                                   |
-| --critical-status                               | Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                        |
+| --critical-status                               | Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                        |
 | --warning-* --critical-*                        | Thresholds. Can be: 'total-port', 'total-admin-up', 'total-admin-down', 'total-oper-up', 'total-oper-down', 'in-traffic', 'out-traffic', 'in-error', 'in-discard', 'out-error', 'out-discard', 'in-ucast', 'in-bcast', 'in-mcast', 'out-ucast', 'out-bcast', 'out-mcast', 'speed' (b/s).   |
 | --units-traffic                                 | Units of thresholds for the traffic (default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                                                                                                      |
 | --units-errors                                  | Units of thresholds for errors/discards (default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                          |

@@ -180,8 +180,8 @@ yum install centreon-plugin-Network-Cisco-Apic-Restapi
 
 | Macro          | Description                                                                                                                                          | Valeur par défaut | Obligatoire |
 |:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGHEALTH  | Set warning for the health level You can use the following variables: %\{current\}, %\{previous\}. example: --warning-health='%{previous} \< %\{current\}' |                   |             |
-| CRITICALHEALTH | Set critical for the health level You can use the following variables: %\{current\}, %\{previous\}. example: --critical-health='%{current} \< 98'        |                   |             |
+| WARNINGHEALTH  | Set warning for the health level You can use the following variables: %\{current\}, %\{previous\}. example: --warning-health='%\{previous\} \< %\{current\}' |                   |             |
+| CRITICALHEALTH | Set critical for the health level You can use the following variables: %\{current\}, %\{previous\}. example: --critical-health='%\{current\} \< 98'        |                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                   |                   |             |
 
 </TabItem>
@@ -203,8 +203,8 @@ yum install centreon-plugin-Network-Cisco-Apic-Restapi
 
 | Macro          | Description                                                                                                                                          | Valeur par défaut | Obligatoire |
 |:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGHEALTH  | Set warning for the health level You can use the following variables: %\{current\}, %\{previous\}. example: --warning-health='%{previous} \< %\{current\}' |                   |             |
-| CRITICALHEALTH | Set critical for the health level You can use the following variables: %\{current\}, %\{previous\}. example: --critical-health='%{current} \< 98'        |                   |             |
+| WARNINGHEALTH  | Set warning for the health level You can use the following variables: %\{current\}, %\{previous\}. example: --warning-health='%\{previous\} \< %\{current\}' |                   |             |
+| CRITICALHEALTH | Set critical for the health level You can use the following variables: %\{current\}, %\{previous\}. example: --critical-health='%\{current\} \< 98'        |                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                   |                   |             |
 
 </TabItem>
@@ -342,8 +342,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option            | Description                                                                                                                                            |
 |:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --warning-health  | Set warning for the health level You can use the following variables: %\{current\}, %\{previous\}. example: --warning-health='%{previous} \< %\{current\}'   |
-| --critical-health | Set critical for the health level You can use the following variables: %\{current\}, %\{previous\}. example: --critical-health='%{current} \< 98'          |
+| --warning-health  | Set warning for the health level You can use the following variables: %\{current\}, %\{previous\}. example: --warning-health='%\{previous\} \< %\{current\}'   |
+| --critical-health | Set critical for the health level You can use the following variables: %\{current\}, %\{previous\}. example: --critical-health='%\{current\} \< 98'          |
 
 </TabItem>
 <TabItem value="Node" label="Node">
@@ -360,8 +360,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option            | Description                                                                                                                                            |
 |:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-tenant   | Regexp filter on the tenant name                                                                                                                       |
-| --warning-health  | Set warning for the health level You can use the following variables: %\{current\}, %\{previous\}. example: --warning-health='%{previous} \< %\{current\}'   |
-| --critical-health | Set critical for the health level You can use the following variables: %\{current\}, %\{previous\}. example: --critical-health='%{current} \< 98'          |
+| --warning-health  | Set warning for the health level You can use the following variables: %\{current\}, %\{previous\}. example: --warning-health='%\{previous\} \< %\{current\}'   |
+| --critical-health | Set critical for the health level You can use the following variables: %\{current\}, %\{previous\}. example: --critical-health='%\{current\} \< 98'          |
 
 </TabItem>
 </Tabs>

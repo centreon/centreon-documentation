@@ -254,8 +254,8 @@ yum install centreon-plugin-Applications-Databases-Elasticsearch
 | CRITICALSHARDSTOTAL        | Critical threshold                                                                                                                             |                        |             |
 | WARNINGSHARDSUNASSIGNED    | Warning threshold                                                                                                                              |                        |             |
 | CRITICALSHARDSUNASSIGNED   | Critical threshold                                                                                                                             |                        |             |
-| WARNINGSTATUS              | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /yellow/i') You can use the following variables: %\{status\} | %\{status\} =~ /yellow/i |             |
-| CRITICALSTATUS             | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /red/i'). You can use the following variables: %\{status\}  | %\{status\} =~ /red/i    |             |
+| WARNINGSTATUS              | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /yellow/i') You can use the following variables: %\{status\} | %\{status\} =~ /yellow/i |             |
+| CRITICALSTATUS             | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /red/i'). You can use the following variables: %\{status\}  | %\{status\} =~ /red/i    |             |
 | WARNINGTASKSPENDING        | Warning threshold                                                                                                                              |                        |             |
 | CRITICALTASKSPENDING       | Critical threshold                                                                                                                             |                        |             |
 | EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                             |                        |             |
@@ -283,7 +283,7 @@ yum install centreon-plugin-Applications-Databases-Elasticsearch
 
 | Macro          | Description                                                                                                                                                                                            | Valeur par défaut      | Obligatoire |
 |:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /active/i'). You can use the following variables: %\{status\}, %\{type\}, %\{issued_to\}, %\{expiry_date_in_seconds\} | %\{status\} !~ /active/i |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /active/i'). You can use the following variables: %\{status\}, %\{type\}, %\{issued_to\}, %\{expiry_date_in_seconds\} | %\{status\} !~ /active/i |             |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{type\}, %\{issued_to\}, %\{expiry_date_in_seconds\}                                      |                        |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                     |                        |             |
 
@@ -439,8 +439,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-counters | Only display some counters (regexp can be used). Example: --filter-counters='^status$'                                                                                                                                                                                                                                 |
 | --warning-*       | Warning threshold. Can be: 'nodes-total', 'nodes-data', 'nodes-coordinating', 'nodes-master', 'nodes-ingest', 'indices-total', 'shards-total', 'shards-active-count', 'shards-active-percentage', 'shards-unassigned', 'shards-relocating', 'shards-initializing', 'tasks-pending', 'documents-total', 'data-size'.    |
 | --critical-*      | Critical threshold. Can be: 'nodes-total', 'nodes-data', 'nodes-coordinating', 'nodes-master', 'nodes-ingest', 'indices-total', 'shards-total', 'shards-active-count', 'shards-active-percentage', 'shards-unassigned', 'shards-relocating', 'shards-initializing', 'tasks-pending', 'documents-total', 'data-size'.   |
-| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /yellow/i') You can use the following variables: %\{status\}.                                                                                                                                                                        |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /red/i'). You can use the following variables: %\{status\}.                                                                                                                                                                         |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /yellow/i') You can use the following variables: %\{status\}.                                                                                                                                                                        |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /red/i'). You can use the following variables: %\{status\}.                                                                                                                                                                         |
 
 </TabItem>
 <TabItem value="Indice-Statistics" label="Indice-Statistics">
@@ -451,8 +451,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-counters | Only display some counters (regexp can be used). Example: --filter-counters='^status$'                                                                        |
 | --warning-*       | Warning threshold. Can be: 'documents-total', 'data-size-primaries', 'data-size-total', 'shards-active', 'shards-unassigned'.                                 |
 | --critical-*      | Critical threshold. Can be: 'documents-total', 'data-size-primaries', 'data-size-total', 'shards-active', 'shards-unassigned'.                                |
-| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /yellow/i') You can use the following variables: %\{display\}, %\{status\}.   |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /red/i'). You can use the following variables: %\{display\}, %\{status\}.    |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /yellow/i') You can use the following variables: %\{display\}, %\{status\}.   |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /red/i'). You can use the following variables: %\{display\}, %\{status\}.    |
 
 </TabItem>
 <TabItem value="License" label="License">
@@ -460,7 +460,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option            | Description                                                                                                                                                                                                |
 |:------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --warning-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{type\}, %\{issued_to\}, %\{expiry_date_in_seconds\}.                                         |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /active/i'). You can use the following variables: %\{status\}, %\{type\}, %\{issued_to\}, %\{expiry_date_in_seconds\}.    |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /active/i'). You can use the following variables: %\{status\}, %\{type\}, %\{issued_to\}, %\{expiry_date_in_seconds\}.    |
 
 </TabItem>
 <TabItem value="Node-Statistics" label="Node-Statistics">

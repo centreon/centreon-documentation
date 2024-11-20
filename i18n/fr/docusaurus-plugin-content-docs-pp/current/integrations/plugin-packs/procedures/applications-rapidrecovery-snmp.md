@@ -237,9 +237,9 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
 	--filter-name='' \
-	--unknown-status='%{status} =~ /unknown/i' \
+	--unknown-status='%\{status\} =~ /unknown/i' \
 	--warning-status='' \
-	--critical-status='%{status} =~ /error/i' \
+	--critical-status='%\{status\} =~ /error/i' \
 	--warning-space-usage='' \
 	--critical-space-usage='' \
 	--warning-space-usage-free='' \
@@ -355,9 +355,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option                   | Description                                                                                                                                                                         |
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /unreachable/i'). You can use the following variables: %\{status\}, %\{display\}                    |
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /unreachable/i'). You can use the following variables: %\{status\}, %\{display\}                    |
 | --warning-status         | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{display\}                                               |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /failed\|authenticationError/i'). You can use the following variables: %\{status\}, %\{display\}   |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /failed\|authenticationError/i'). You can use the following variables: %\{status\}, %\{display\}   |
 | --warning-* --critical-* | Thresholds. Can be: 'total', 'recoverypoints'.                                                                                                                                      |
 | --filter-name            | Filter agent name (can be a regexp).                                                                                                                                                |
 
@@ -366,9 +366,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option                   | Description                                                                                                                                                    |
 |:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /unknown/i'). You can use the following variables: %\{status\}, %\{display\}   |
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /unknown/i'). You can use the following variables: %\{status\}, %\{display\}   |
 | --warning-status         | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{display\}                          |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /error/i'). You can use the following variables: %\{status\}, %\{display\}    |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /error/i'). You can use the following variables: %\{status\}, %\{display\}    |
 | --warning-* --critical-* | Thresholds. Can be: 'space-usage' (B), 'space-usage-free' (B), 'space-usage-prct' (%).                                                                         |
 | --filter-name            | Filter repository name (can be a regexp).                                                                                                                      |
 

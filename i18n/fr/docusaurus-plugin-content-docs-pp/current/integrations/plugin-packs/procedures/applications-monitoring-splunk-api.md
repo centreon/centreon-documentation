@@ -211,16 +211,16 @@ yum install centreon-plugin-Applications-Monitoring-Splunk-Api
 
 | Macro                            | Description                                                                | Valeur par défaut | Obligatoire |
 |:---------------------------------|:---------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGFILEMONITORINPUTSTATUS    | Warning thresholds for features status. (default: '%{status} =~ /yellow/') |                   |             |
-| CRITICALFILEMONITORINPUTSTATUS   | Critical thresholds for features status. (default: '%{status} =~ /red/')   |                   |             |
-| WARNINGINDEXPROCESSORSTATUS      | Warning thresholds for features status. (default: '%{status} =~ /yellow/') |                   |             |
-| CRITICALINDEXPROCESSORSTATUS     | Critical thresholds for features status. (default: '%{status} =~ /red/')   |                   |             |
-| WARNINGRESOURCEUSAGESTATUS       | Warning thresholds for features status. (default: '%{status} =~ /yellow/') |                   |             |
-| CRITICALRESOURCEUSAGESTATUS      | Critical thresholds for features status. (default: '%{status} =~ /red/')   |                   |             |
-| WARNINGSEARCHSCHEDULERSTATUS     | Warning thresholds for features status. (default: '%{status} =~ /yellow/') |                   |             |
-| CRITICALSEARCHSCHEDULERSTATUS    | Critical thresholds for features status. (default: '%{status} =~ /red/')   |                   |             |
-| WARNINGWORKLOADMANAGEMENTSTATUS  | Warning thresholds for features status. (default: '%{status} =~ /yellow/') |                   |             |
-| CRITICALWORKLOADMANAGEMENTSTATUS | Critical thresholds for features status. (default: '%{status} =~ /red/')   |                   |             |
+| WARNINGFILEMONITORINPUTSTATUS    | Warning thresholds for features status. (default: '%\{status\} =~ /yellow/') |                   |             |
+| CRITICALFILEMONITORINPUTSTATUS   | Critical thresholds for features status. (default: '%\{status\} =~ /red/')   |                   |             |
+| WARNINGINDEXPROCESSORSTATUS      | Warning thresholds for features status. (default: '%\{status\} =~ /yellow/') |                   |             |
+| CRITICALINDEXPROCESSORSTATUS     | Critical thresholds for features status. (default: '%\{status\} =~ /red/')   |                   |             |
+| WARNINGRESOURCEUSAGESTATUS       | Warning thresholds for features status. (default: '%\{status\} =~ /yellow/') |                   |             |
+| CRITICALRESOURCEUSAGESTATUS      | Critical thresholds for features status. (default: '%\{status\} =~ /red/')   |                   |             |
+| WARNINGSEARCHSCHEDULERSTATUS     | Warning thresholds for features status. (default: '%\{status\} =~ /yellow/') |                   |             |
+| CRITICALSEARCHSCHEDULERSTATUS    | Critical thresholds for features status. (default: '%\{status\} =~ /red/')   |                   |             |
+| WARNINGWORKLOADMANAGEMENTSTATUS  | Warning thresholds for features status. (default: '%\{status\} =~ /yellow/') |                   |             |
+| CRITICALWORKLOADMANAGEMENTSTATUS | Critical thresholds for features status. (default: '%\{status\} =~ /red/')   |                   |             |
 
 </TabItem>
 </Tabs>
@@ -378,8 +378,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option       | Description                                                                                                                                                                                                                    |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --warning-*  | Warning thresholds for features status. (default: '%{status} =~ /yellow/').  Can be: 'file-monitor-input-status', 'index-processor-status', 'resource-usage-status', 'search-scheduler-status', 'workload-management-status'   |
-| --critical-* | Critical thresholds for features status. (default: '%{status} =~ /red/').  Can be: 'file-monitor-input-status', 'index-processor-status', 'resource-usage-status', 'search-scheduler-status', 'workload-management-status'     |
+| --warning-*  | Warning thresholds for features status. (default: '%\{status\} =~ /yellow/').  Can be: 'file-monitor-input-status', 'index-processor-status', 'resource-usage-status', 'search-scheduler-status', 'workload-management-status'   |
+| --critical-* | Critical thresholds for features status. (default: '%\{status\} =~ /red/').  Can be: 'file-monitor-input-status', 'index-processor-status', 'resource-usage-status', 'search-scheduler-status', 'workload-management-status'     |
 
 </TabItem>
 </Tabs>

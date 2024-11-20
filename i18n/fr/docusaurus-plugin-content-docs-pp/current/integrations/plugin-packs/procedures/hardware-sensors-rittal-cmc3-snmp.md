@@ -217,8 +217,8 @@ yum install centreon-plugin-Hardware-Sensors-Rittal-Cmc-Snmp
 | FILTERINDEX    |                                                                                                                                                                                 |                                                     |             |
 | FILTERNAME     | Filter device name (can be a regexp)                                                                                                                                            |                                                     |             |
 | FILTERALIAS    | Filter devices alias (can be a regexp)                                                                                                                                          |                                                     |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /detect\|changed\|fwUpdate\|fwUpdateRun/i'). You can use the following variables: %\{status\} | %\{status\} =~ /detect\|changed\|fwUpdate\|fwUpdateRun/i |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /notAvail\|lost\|error/i'). You can use the following variables: %\{status\}                 | %\{status\} =~ /notAvail\|lost\|error/i                 |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /detect\|changed\|fwUpdate\|fwUpdateRun/i'). You can use the following variables: %\{status\} | %\{status\} =~ /detect\|changed\|fwUpdate\|fwUpdateRun/i |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /notAvail\|lost\|error/i'). You can use the following variables: %\{status\}                 | %\{status\} =~ /notAvail\|lost\|error/i                 |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                             | --verbose                                           |             |
 
 </TabItem>
@@ -396,8 +396,8 @@ Les options spécifiques aux modes sont listées ci-dessous :
 | --filter-alias    | Filter devices alias (can be a regexp).                                                                                                                                           | Mode |
 | --index           | Filter device index (exact match).                                                                                                                                                | Mode |
 | --unknown-status  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}                                                                       | Mode |
-| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /detect\|changed\|fwUpdate\|fwUpdateRun/i'). You can use the following variables: %\{status\}   | Mode |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /notAvail\|lost\|error/i'). You can use the following variables: %\{status\}                   | Mode |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /detect\|changed\|fwUpdate\|fwUpdateRun/i'). You can use the following variables: %\{status\}   | Mode |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /notAvail\|lost\|error/i'). You can use the following variables: %\{status\}                   | Mode |
 
 </TabItem>
 <TabItem value="Load" label="Load">

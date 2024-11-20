@@ -218,7 +218,7 @@ yum install centreon-plugin-Hardware-Storage-Wd-Nas-Snmp
 |:--------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNINGDRIVETEMPERATURE   | Warning threshold for 'drive-temperature'                                                                                                        |                   |             |
 | CRITICALDRIVETEMPERATURE  | Critical threshold for 'drive-temperature'                                                                                                       |                   |             |
-| WARNINGFANSTATUS          | Define the conditions to match for the status to be WARNING (default : '%{status} ne "running"'). You can use the following variables: %\{status\}  |                   |             |
+| WARNINGFANSTATUS          | Define the conditions to match for the status to be WARNING (default : '%\{status\} ne "running"'). You can use the following variables: %\{status\}  |                   |             |
 | CRITICALFANSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}                                      |                   |             |
 | WARNINGSYSTEMTEMPERATURE  | Warning threshold for 'system-temperature'                                                                                                       |                   |             |
 | CRITICALSYSTEMTEMPERATURE | Critical threshold for 'system-temperature'                                                                                                      |                   |             |
@@ -374,7 +374,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option                   | Description                                                                                                                                        |
 |:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|
-| --warning-fan-status     | Define the conditions to match for the status to be WARNING (default : '%{status} ne "running"'). You can use the following variables: %\{status\}   |
+| --warning-fan-status     | Define the conditions to match for the status to be WARNING (default : '%\{status\} ne "running"'). You can use the following variables: %\{status\}   |
 | --critical-fan-status    | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}                                       |
 | --warning-* --critical-* | Thresholds. Can be: 'system-temperature', 'drive-temperature'.                                                                                     |
 

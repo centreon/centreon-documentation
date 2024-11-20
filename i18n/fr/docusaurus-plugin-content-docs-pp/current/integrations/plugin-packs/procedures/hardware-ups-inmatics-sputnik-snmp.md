@@ -234,8 +234,8 @@ yum install centreon-plugin-Hardware-Ups-Sputnik-Snmp
 |:----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|:-----------:|
 | WARNINGALARMSCURRENT  | Thresholds                                                                                                                                                              |                                     |             |
 | CRITICALALARMSCURRENT | Thresholds                                                                                                                                                              |                                     |             |
-| WARNINGTESTSTATUS     | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /doneWarning\|aborted/'). You can use the following variables: %\{status\}, %\{detail\} | %\{status\} =~ /doneWarning\|aborted/ |             |
-| CRITICALTESTSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /doneError/'). You can use the following variables: %\{status\}, %\{detail\}           | %\{status\} =~ /doneError/            |             |
+| WARNINGTESTSTATUS     | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /doneWarning\|aborted/'). You can use the following variables: %\{status\}, %\{detail\} | %\{status\} =~ /doneWarning\|aborted/ |             |
+| CRITICALTESTSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /doneError/'). You can use the following variables: %\{status\}, %\{detail\}           | %\{status\} =~ /doneError/            |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                      | --verbose                           |             |
 
 </TabItem>
@@ -243,13 +243,13 @@ yum install centreon-plugin-Hardware-Ups-Sputnik-Snmp
 
 | Macro               | Description                                                                                                                                        | Valeur par défaut        | Obligatoire |
 |:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:-----------:|
-| UNKNOWNSTATUS       | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /unknown/i'). You can use the following variables: %\{status\}   | %\{status\} =~ /unknown/i  |             |
+| UNKNOWNSTATUS       | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /unknown/i'). You can use the following variables: %\{status\}   | %\{status\} =~ /unknown/i  |             |
 | WARNING             | Thresholds                                                                                                                                         |                          |             |
 | CRITICAL            | Thresholds                                                                                                                                         |                          |             |
 | WARNINGCURRENT      | Thresholds                                                                                                                                         |                          |             |
 | CRITICALCURRENT     | Thresholds                                                                                                                                         |                          |             |
-| WARNINGSTATUS       | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /low/i'). You can use the following variables: %\{status\}       | %\{status\} =~ /low/i      |             |
-| CRITICALSTATUS      | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /depleted/i'). You can use the following variables: %\{status\} | %\{status\} =~ /depleted/i |             |
+| WARNINGSTATUS       | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /low/i'). You can use the following variables: %\{status\}       | %\{status\} =~ /low/i      |             |
+| CRITICALSTATUS      | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /depleted/i'). You can use the following variables: %\{status\} | %\{status\} =~ /depleted/i |             |
 | WARNINGTEMPERATURE  | Thresholds                                                                                                                                         |                          |             |
 | CRITICALTEMPERATURE | Thresholds                                                                                                                                         |                          |             |
 | WARNINGVOLTAGE      | Thresholds                                                                                                                                         |                          |             |
@@ -306,9 +306,9 @@ yum install centreon-plugin-Hardware-Ups-Sputnik-Snmp
 
 | Macro                | Description                                                                                                                                                              | Valeur par défaut                                | Obligatoire |
 |:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|:-----------:|
-| UNKNOWNSOURCESTATUS  | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /other/') You can use the following variables: %\{status\}                             | %\{status\} =~ /other/                             |             |
-| WARNINGSOURCESTATUS  | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /bypass\|battery\|booster\|reducer/') You can use the following variables: %\{status\} | %\{status\} =~ /bypass\|battery\|booster\|reducer/ |             |
-| CRITICALSOURCESTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /none/') You can use the following variables: %\{status\}                             | %\{status\} =~ /none/                              |             |
+| UNKNOWNSOURCESTATUS  | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /other/') You can use the following variables: %\{status\}                             | %\{status\} =~ /other/                             |             |
+| WARNINGSOURCESTATUS  | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /bypass\|battery\|booster\|reducer/') You can use the following variables: %\{status\} | %\{status\} =~ /bypass\|battery\|booster\|reducer/ |             |
+| CRITICALSOURCESTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /none/') You can use the following variables: %\{status\}                             | %\{status\} =~ /none/                              |             |
 | EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                       |                                                  |             |
 
 </TabItem>
@@ -450,8 +450,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --display-alarms         | Display alarms in verbose output.                                                                                                                                         |
 | --unknown-test-status    | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{detail\}                                                    |
-| --warning-test-status    | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /doneWarning\|aborted/'). You can use the following variables: %\{status\}, %\{detail\}   |
-| --critical-test-status   | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /doneError/'). You can use the following variables: %\{status\}, %\{detail\}             |
+| --warning-test-status    | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /doneWarning\|aborted/'). You can use the following variables: %\{status\}, %\{detail\}   |
+| --critical-test-status   | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /doneError/'). You can use the following variables: %\{status\}, %\{detail\}             |
 | --warning-* --critical-* | Thresholds. Can be: 'alarms-current'.                                                                                                                                     |
 
 </TabItem>
@@ -459,9 +459,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option                   | Description                                                                                                                                          |
 |:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /unknown/i'). You can use the following variables: %\{status\}     |
-| --warning-status         | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /low/i'). You can use the following variables: %\{status\}         |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /depleted/i'). You can use the following variables: %\{status\}   |
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /unknown/i'). You can use the following variables: %\{status\}     |
+| --warning-status         | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /low/i'). You can use the following variables: %\{status\}         |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /depleted/i'). You can use the following variables: %\{status\}   |
 | --warning-* --critical-* | Thresholds. Can be: 'charge-remaining' (%), 'charge-remaining-minutes', 'current' (A), 'voltage' (V), 'temperature' (C).                             |
 
 </TabItem>
@@ -496,9 +496,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option                   | Description                                                                                                                                                                |
 |:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --unknown-source-status  | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /other/') You can use the following variables: %\{status\}                               |
-| --warning-source-status  | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /bypass\|battery\|booster\|reducer/') You can use the following variables: %\{status\}   |
-| --critical-source-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /none/') You can use the following variables: %\{status\}                               |
+| --unknown-source-status  | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /other/') You can use the following variables: %\{status\}                               |
+| --warning-source-status  | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /bypass\|battery\|booster\|reducer/') You can use the following variables: %\{status\}   |
+| --critical-source-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /none/') You can use the following variables: %\{status\}                               |
 
 </TabItem>
 </Tabs>

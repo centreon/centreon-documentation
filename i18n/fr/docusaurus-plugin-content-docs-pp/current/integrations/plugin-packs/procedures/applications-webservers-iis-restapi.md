@@ -219,7 +219,7 @@ yum install centreon-plugin-Applications-Webservers-Iis-Restapi
 | CRITICALCONNECTIONSTOTAL   | Thresholds                                                                                                                                                             |                                  |             |
 | WARNINGREQUESTS            | Thresholds                                                                                                                                                             |                                  |             |
 | CRITICALREQUESTS           | Thresholds                                                                                                                                                             |                                  |             |
-| CRITICALSTATUS             | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /starting\|started/'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} !~ /starting\|started/ |             |
+| CRITICALSTATUS             | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /starting\|started/'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} !~ /starting\|started/ |             |
 | WARNINGSTATUS              | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}                                                |                                  |             |
 | WARNINGTRAFFICIN           | Thresholds                                                                                                                                                             |                                  |             |
 | CRITICALTRAFFICIN          | Thresholds                                                                                                                                                             |                                  |             |
@@ -252,7 +252,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--api-token=''  \
 	--filter-name='.*' \
 	--warning-status='' \
-	--critical-status='%{status} !~ /starting|started/' \
+	--critical-status='%\{status\} !~ /starting|started/' \
 	--warning-requests='' \
 	--critical-requests='' \
 	--warning-traffic-in='' \
@@ -393,7 +393,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-name            | Filter website name (can be a regexp).                                                                                                                                   |
 | --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{display\}                                                  |
 | --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}                                                  |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /starting\|started/'). You can use the following variables: %\{status\}, %\{display\}   |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /starting\|started/'). You can use the following variables: %\{status\}, %\{display\}   |
 | --warning-* --critical-* | Thresholds. Can be: 'requests', 'traffic-in', 'traffic-out', 'connections-current', 'connections-total'.                                                                 |
 
 </TabItem>

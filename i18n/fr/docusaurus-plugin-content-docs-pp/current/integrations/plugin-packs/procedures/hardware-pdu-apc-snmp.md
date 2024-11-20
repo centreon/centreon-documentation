@@ -364,11 +364,11 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option                   | Description                                                                                                                                                                       |
 |:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --unknown-bank-status    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{type\}, %\{status\}, %\{display\}                                                  |
-| --warning-bank-status    | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /low\|nearOverload/i'). You can use the following variables: %\{type\}, %\{status\}, %\{display\}   |
-| --critical-bank-status   | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /^overload/'). You can use the following variables: %\{type\}, %\{status\}, %\{display\}           |
+| --warning-bank-status    | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /low\|nearOverload/i'). You can use the following variables: %\{type\}, %\{status\}, %\{display\}   |
+| --critical-bank-status   | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /^overload/'). You can use the following variables: %\{type\}, %\{status\}, %\{display\}           |
 | --unknown-phase-status   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}                                                           |
-| --warning-phase-status   | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /low\|nearOverload/i'). You can use the following variables: %\{status\}, %\{display\}            |
-| --critical-phase-status  | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /^overload/i'). You can use the following variables: %\{status\}, %\{display\}                   |
+| --warning-phase-status   | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /low\|nearOverload/i'). You can use the following variables: %\{status\}, %\{display\}            |
+| --critical-phase-status  | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /^overload/i'). You can use the following variables: %\{status\}, %\{display\}                   |
 | --warning-* --critical-* | Thresholds. Can be: 'current', 'power'.                                                                                                                                           |
 
 </TabItem>
@@ -378,7 +378,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{display\}                                                       |
 | --warning-status         | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{phase\}, %\{bank\}, %\{display\}                      |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /off/'). You can use the following variables: %\{status\}, %\{phase\}, %\{bank\}, %\{display\}   |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /off/'). You can use the following variables: %\{status\}, %\{phase\}, %\{bank\}, %\{display\}   |
 | --warning-* --critical-* | Thresholds. Can be: 'current'.                                                                                                                                                |
 
 </TabItem>

@@ -237,7 +237,7 @@ yum install centreon-plugin-Hardware-Storage-Avid-Isis-Snmp
 | Macro          | Description                                                                                                                                | Valeur par défaut | Obligatoire |
 |:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. (default: ''). Can use special variables like: %\{state\}                       |                   |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. (default: '%{state} !~ /Online/i'). Can use special variables like: %\{state\} |                   |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. (default: '%\{state\} !~ /Online/i'). Can use special variables like: %\{state\} |                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                |                   |             |
 
 </TabItem>
@@ -410,7 +410,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option                          | Description                                                                                                                                  |
 |:--------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------|
 | --warning-status                | Define the conditions to match for the status to be WARNING. (default: ''). Can use special variables like: %\{state\}                         |
-| --critical-status               | Define the conditions to match for the status to be CRITICAL. (default: '%{state} !~ /Online/i'). Can use special variables like: %\{state\}   |
+| --critical-status               | Define the conditions to match for the status to be CRITICAL. (default: '%\{state\} !~ /Online/i'). Can use special variables like: %\{state\}   |
 | --warning-redistributing-count  | Warning threshold for number of workspaces redistributing.                                                                                   |
 | --critical-redistributing-count | Critical threshold for number of workspaces redistributing.                                                                                  |
 

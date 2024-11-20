@@ -407,7 +407,7 @@ yum install centreon-plugin-Network-Stormshield-Snmp
 | WARNINGHEALTH     | Warning threshold for health level (example: --warning 90:)                                                                    |                   |             |
 | CRITICALHEALTH    | Critical threshold for health level (example --critical 80:)                                                                   |                   |             |
 | WARNINGSTATE      | Set warning threshold for state. You can use the following variables: %\{state\}, %\{role\}                                       |                   |             |
-| CRITICALSTATE     | Set critical threshold for state. (default: '%{state} =~ /offline/i'). You can use the following variables: %\{state\}, %\{role\} |                   |             |
+| CRITICALSTATE     | Set critical threshold for state. (default: '%\{state\} =~ /offline/i'). You can use the following variables: %\{state\}, %\{role\} |                   |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                            | --verbose         |             |
 
 </TabItem>
@@ -424,8 +424,8 @@ yum install centreon-plugin-Network-Stormshield-Snmp
 | Macro                 | Description                                                                                                                                                 | Valeur par défaut     | Obligatoire |
 |:----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
 | UNKNOWNSERVICESTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{health\}, %\{service\}                                     |                       |             |
-| WARNINGSERVICESTATUS  | Define the conditions to match for the status to be WARNING (default: '%{health} =~ /minor/i'). You can use the following variables: %\{health\}, %\{service\}  | %\{health\} =~ /minor/i |             |
-| CRITICALSERVICESTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{health} =~ /major/i'). You can use the following variables: %\{health\}, %\{service\} | %\{health\} =~ /major/i |             |
+| WARNINGSERVICESTATUS  | Define the conditions to match for the status to be WARNING (default: '%\{health\} =~ /minor/i'). You can use the following variables: %\{health\}, %\{service\}  | %\{health\} =~ /minor/i |             |
+| CRITICALSERVICESTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{health\} =~ /major/i'). You can use the following variables: %\{health\}, %\{service\} | %\{health\} =~ /major/i |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                          | --verbose             |             |
 
 </TabItem>
@@ -534,7 +534,7 @@ yum install centreon-plugin-Network-Stormshield-Snmp
 | CRITICALIN     | Thresholds                                                                                                                                                                                                          | 90                |             |
 | WARNINGOUT     | Thresholds                                                                                                                                                                                                          | 80                |             |
 | CRITICALOUT    | Thresholds                                                                                                                                                                                                          | 90                |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} |                   |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} |                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                  | --verbose         |             |
 
 </TabItem>
@@ -545,7 +545,7 @@ yum install centreon-plugin-Network-Stormshield-Snmp
 | FILTERID            | Filter by ID (regexp can be used)                                                                                                                              |                    |             |
 | FILTERSRCIP         | Filter by source IP address (regexp can be used)                                                                                                                          |                    |             |
 | FILTERDSTIP         | Filter by destination IP address (regexp can be used)                                                                                                                          |                    |             |
-| WARNINGSTATUS       | Define the conditions to match for the status to be WARNING (default: '%{state} eq "dead"'). You can use the following variables: %\{state\}, %\{srcIp\}, %\{dstIp\} | %\{state\} eq "dead" |             |
+| WARNINGSTATUS       | Define the conditions to match for the status to be WARNING (default: '%\{state\} eq "dead"'). You can use the following variables: %\{state\}, %\{srcIp\}, %\{dstIp\} | %\{state\} eq "dead" |             |
 | CRITICALSTATUS      | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{srcIp\}, %\{dstIp\}                                |                    |             |
 | WARNINGTRAFFIC      | Thresholds                                                                                                                                                     |                    |             |
 | CRITICALTRAFFIC     | Thresholds                                                                                                                                                     |                    |             |
@@ -580,7 +580,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--filter-id='' \
 	--filter-src-ip='' \
 	--filter-dst-ip='' \
-	--warning-status='%{state} eq "dead"' \
+	--warning-status='%\{state\} eq "dead"' \
 	--critical-status='' \
 	--warning-traffic='' \
 	--critical-traffic='' \
@@ -806,7 +806,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --warning-dead-nodes  | Warning threshold on dead nodes (absolute unless --percent is used).                                                               |
 | --critical-dead-nodes | Critical threshold on dead nodes (absolute unless --percent is used).                                                              |
 | --warning-state       | Set warning threshold for state. You can use the following variables: %\{state\}, %\{role\}.                                         |
-| --critical-state      | Set critical threshold for state. (default: '%{state} =~ /offline/i'). You can use the following variables: %\{state\}, %\{role\}.   |
+| --critical-state      | Set critical threshold for state. (default: '%\{state\} =~ /offline/i'). You can use the following variables: %\{state\}, %\{role\}.   |
 | --percent             | Set this option if you want to warn on percent .                                                                                 |
 
 </TabItem>
@@ -828,8 +828,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-serial           | Filter by firewall serial (can be a regexp).                                                                                                                   |
 | --unknown-service-status  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{health\}, %\{service\}                                        |
-| --warning-service-status  | Define the conditions to match for the status to be WARNING (default: '%{health} =~ /minor/i'). You can use the following variables: %\{health\}, %\{service\}     |
-| --critical-service-status | Define the conditions to match for the status to be CRITICAL (default: '%{health} =~ /major/i'). You can use the following variables: %\{health\}, %\{service\}    |
+| --warning-service-status  | Define the conditions to match for the status to be WARNING (default: '%\{health\} =~ /minor/i'). You can use the following variables: %\{health\}, %\{service\}     |
+| --critical-service-status | Define the conditions to match for the status to be CRITICAL (default: '%\{health\} =~ /major/i'). You can use the following variables: %\{health\}, %\{service\}    |
 
 </TabItem>
 <TabItem value="Load" label="Load">
@@ -914,9 +914,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --add-cast                                      | Check interface cast.                                                                                                                                                                                                                                                                      |
 | --add-speed                                     | Check interface speed.                                                                                                                                                                                                                                                                     |
 | --add-volume                                    | Check interface data volume between two checks (not supposed to be graphed, useful for BI reporting).                                                                                                                                                                                      |
-| --check-metrics                                 | If the expression is true, metrics are checked (default: '%{opstatus} eq "up"').                                                                                                                                                                                                           |
+| --check-metrics                                 | If the expression is true, metrics are checked (default: '%\{opstatus\} eq "up"').                                                                                                                                                                                                           |
 | --warning-status                                | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                                                                                   |
-| --critical-status                               | Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                        |
+| --critical-status                               | Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}                                                                        |
 | --warning-* --critical-*                        | Thresholds. Can be: 'total-port', 'total-admin-up', 'total-admin-down', 'total-oper-up', 'total-oper-down', 'in-traffic', 'out-traffic', 'in-error', 'in-discard', 'out-error', 'out-discard', 'in-ucast', 'in-bcast', 'in-mcast', 'out-ucast', 'out-bcast', 'out-mcast', 'speed' (b/s).   |
 | --units-traffic                                 | Units of thresholds for the traffic (default: 'percent\_delta') ('percent\_delta', 'bps', 'counter').                                                                                                                                                                                      |
 | --units-errors                                  | Units of thresholds for errors/discards (default: 'percent\_delta') ('percent\_delta', 'percent', 'delta', 'deltaps', 'counter').                                                                                                                                                          |
@@ -958,7 +958,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-src-ip          | Filter by source IP address (regexp can be used).                                                                                                                                                                                                        |
 | --filter-dst-ip          | Filter by destination IP address (regexp can be used).                                                                                                                                                                                                        |
 | --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{srcIp\}, %\{dstIp\}                                                                                                                |
-| --warning-status         | Define the conditions to match for the status to be WARNING (default: '%{state} eq "dead"'). You can use the following variables: %\{state\}, %\{srcIp\}, %\{dstIp\}                                                                                |
+| --warning-status         | Define the conditions to match for the status to be WARNING (default: '%\{state\} eq "dead"'). You can use the following variables: %\{state\}, %\{srcIp\}, %\{dstIp\}                                                                                |
 | --critical-status        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{srcIp\}, %\{dstIp\}                                                                                                               |
 | --warning-* --critical-* | Thresholds. Can be: 'vpn-detected', 'traffic', 'traffic-in', 'traffic-out'.                                                                                                                                                                   |
 

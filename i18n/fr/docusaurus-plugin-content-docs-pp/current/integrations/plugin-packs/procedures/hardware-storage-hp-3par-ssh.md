@@ -321,8 +321,8 @@ yum install centreon-plugin-Hardware-Storage-Hp-3par-Ssh
 | WARNINGDRIVEPORTASTATUS     | Define the conditions on port A to match for the status to be WARNING                                                                                                      |                         |             |
 | CRITICALDRIVEPORTBSTATUS    | Define the conditions on port B to match for the status to be CRITICAL                                                                                                     | %\{status\} !~ /ok/i      |             |
 | WARNINGDRIVEPORTBSTATUS     | Define the conditions on port B to match for the status to be WARNING                                                                                                      |                         |             |
-| WARNINGDRIVESTATUS          | Define the conditions to match for the status to be WARNING (default: '%{status} !~ /normal/i') You can use the following variables: %\{status\}, %\{cage_id\}, %\{drive_id\}  |                         |             |
-| CRITICALDRIVESTATUS         | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /normal/i') You can use the following variables: %\{status\}, %\{cage_id\}, %\{drive_id\} |                         |             |
+| WARNINGDRIVESTATUS          | Define the conditions to match for the status to be WARNING (default: '%\{status\} !~ /normal/i') You can use the following variables: %\{status\}, %\{cage_id\}, %\{drive_id\}  |                         |             |
+| CRITICALDRIVESTATUS         | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /normal/i') You can use the following variables: %\{status\}, %\{cage_id\}, %\{drive_id\} |                         |             |
 | WARNINGDRIVETEMPERATURE     | Define WARNING threshold for the temperature of the drives                                                                                                                 |                         |             |
 | CRITICALDRIVETEMPERATURE    | Define CRITICAL threshold for the temperature of the drives                                                                                                                |                         |             |
 | CRITICALPSUACSTATUS         | Define the conditions on psu ac to match for the status to be CRITICAL                                                                                                     | %\{status\} !~ /ok/i      |             |
@@ -607,7 +607,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-volume-name | Filter volumes by name (can be a regexp).                                                                                                                                                       |
 | --unknown-status     | Define the conditions to match for the status to be UNKNOWN.                                                                                                                                    |
 | --warning-status     | Define the conditions to match for the status to be WARNING.                                                                                                                                    |
-| --critical-status    | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /normal/i') You can use the following variables: %\{status\}, %\{node_id\}                                    |
+| --critical-status    | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /normal/i') You can use the following variables: %\{status\}, %\{node_id\}                                    |
 | --warning-*          | Define the WARNING thresholds for the following components: 'flashcache-usage', 'flashcache-usage-free', 'flashcache-usage-prct', 'flashcache-node-readhits', 'flashcache-volume-readhits'.     |
 | --critical-*         | Define the CRITICAL thresholds for the following components: 'flashcache-usage', 'flashcache-usage-free', 'flashcache-usage-prct', 'flashcache-node-readhits', 'flashcache-volume-readhits'.    |
 
@@ -619,25 +619,25 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-cage-id                          | Filter cages by ID (can be a regexp).                                                                                                                                         |
 | --unknown-status                          | Define the conditions to match for the status to be UNKNOWN.                                                                                                                  |
 | --warning-status                          | Define the conditions to match for the status to be WARNING.                                                                                                                  |
-| --critical-status                         | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /Normal/i') You can use the following variables: %\{status\}, %\{cage_id\}                  |
+| --critical-status                         | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /Normal/i') You can use the following variables: %\{status\}, %\{cage_id\}                  |
 | --unknown-board-firmware-status           | Define the conditions to match for the status to be UNKNOWN.                                                                                                                  |
 | --warning-board-firmware-status           | Define the conditions to match for the status to be WARNING.                                                                                                                  |
-| --critical-board-firmware-status          | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /Current/i') You can use the following variables: %\{status\}, %\{cage_id\}, %\{board_id\}   |
+| --critical-board-firmware-status          | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /Current/i') You can use the following variables: %\{status\}, %\{cage_id\}, %\{board_id\}   |
 | --unknown-board-\[self\|partner\]-status  | Define the conditions to match for the status to be UNKNOWN.                                                                                                                  |
 | --warning-board-\[self\|partner\]-status  | Define the conditions to match for the status to be WARNING.                                                                                                                  |
-| --critical-board-\[self\|partner\]-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /ok/i') You can use the following variables: %\{status\}, %\{cage_id\}, %\{board_id\}        |
+| --critical-board-\[self\|partner\]-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /ok/i') You can use the following variables: %\{status\}, %\{cage_id\}, %\{board_id\}        |
 | --unknown-psu-status                      | Define the conditions to match for the status to be UNKNOWN.                                                                                                                  |
 | --warning-psu-status                      | Define the conditions to match for the status to be WARNING.                                                                                                                  |
-| --critical-psu-status                     | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /ok/i') You can use the following variables: %\{status\}, %\{cage_id\}, %\{psu_id\}          |
+| --critical-psu-status                     | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /ok/i') You can use the following variables: %\{status\}, %\{cage_id\}, %\{psu_id\}          |
 | --unknown-psu-\[ac\|dc\|fan\]-status      | Define the conditions to match for the status to be UNKNOWN.                                                                                                                  |
 | --warning-psu-\[ac\|dc\|fan\]-status      | Define the conditions to match for the status to be WARNING.                                                                                                                  |
-| --critical-psu-\[ac\|dc\|fan\]-status     | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /ok/i') You can use the following variables: %\{status\}, %\{cage_id\}, %\{psu_id\}          |
+| --critical-psu-\[ac\|dc\|fan\]-status     | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /ok/i') You can use the following variables: %\{status\}, %\{cage_id\}, %\{psu_id\}          |
 | --unknown-drive-status                    | Define the conditions to match for the status to be UNKNOWN.                                                                                                                  |
 | --warning-drive-status                    | Define the conditions to match for the status to be WARNING.                                                                                                                  |
-| --critical-drive-status                   | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /normal/i') You can use the following variables: %\{status\}, %\{cage_id\}, %\{drive_id\}    |
+| --critical-drive-status                   | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /normal/i') You can use the following variables: %\{status\}, %\{cage_id\}, %\{drive_id\}    |
 | --unknown-drive-\[porta\|portb\]-status   | Define the conditions to match for the status to be UNKNOWN.                                                                                                                  |
 | --warning-drive-\[porta\|portb\]-status   | Define the conditions to match for the status to be WARNING.                                                                                                                  |
-| --critical-drive-\[porta\|portb\]-status  | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /ok/i') You can use the following variables: %\{status\}, %\{cage_id\}, %\{drive_id\}        |
+| --critical-drive-\[porta\|portb\]-status  | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /ok/i') You can use the following variables: %\{status\}, %\{cage_id\}, %\{drive_id\}        |
 | --warning-drive-temperature               | Define WARNING threshold for the temperature of the drives.                                                                                                                   |
 | --critical-drive-temperature              | Define CRITICAL threshold for the temperature of the drives.                                                                                                                  |
 
@@ -670,7 +670,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='^status$'                                                                         |
 | --filter-name            | Filter disk name (can be a regexp).                                                                                                                            |
 | --warning-status         | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{display\}                          |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /normal/i'). You can use the following variables: %\{status\}, %\{display\}   |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /normal/i'). You can use the following variables: %\{status\}, %\{display\}   |
 | --warning-* --critical-* | Warning threshold. Can be: 'usage' (B), 'usage-free' (B), 'usage-prct' (%).                                                                                    |
 
 </TabItem>
@@ -681,7 +681,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-node-id         | Filter nodes by ID (can be a regexp).                                                                                                                       |
 | --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{node_id\}                                    |
 | --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{node_id\}                                    |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /ok/i'). You can use the following variables: %\{status\}, %\{node_id\}   |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /ok/i'). You can use the following variables: %\{status\}, %\{node_id\}   |
 | --warning-* --critical-* | Thresholds. Can be: 'cpu-utilization'.                                                                                                                      |
 
 </TabItem>
@@ -693,19 +693,19 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-psu-id           | Filter power supplies by ID (can be a regexp).                                                                                                                          |
 | --unknown-status          | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{node_id\}, %\{psu_id\}                                    |
 | --warning-status          | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{node_id\}, %\{psu_id\}                                    |
-| --critical-status         | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /ok/i'). You can use the following variables: %\{status\}, %\{node_id\}, %\{psu_id\}   |
+| --critical-status         | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /ok/i'). You can use the following variables: %\{status\}, %\{node_id\}, %\{psu_id\}   |
 | --unknown-ac-status       | Set unknown threshold for AC status. You can use the following variables: %\{status\}, %\{node_id\}, %\{psu_id\}                                                            |
 | --warning-ac-status       | Set warning threshold for AC status. You can use the following variables: %\{status\}, %\{node_id\}, %\{psu_id\}                                                            |
-| --critical-ac-status      | Set critical threshold for AC status (default: '%{status} !~ /ok/i'). You can use the following variables: %\{status\}, %\{node_id\}, %\{psu_id\}                           |
+| --critical-ac-status      | Set critical threshold for AC status (default: '%\{status\} !~ /ok/i'). You can use the following variables: %\{status\}, %\{node_id\}, %\{psu_id\}                           |
 | --unknown-dc-status       | Set unknown threshold for DC status. You can use the following variables: %\{status\}, %\{node_id\}, %\{psu_id\}                                                            |
 | --warning-dc-status       | Set warning threshold for DC status. You can use the following variables: %\{status\}, %\{node_id\}, %\{psu_id\}                                                            |
-| --critical-dc-status      | Set critical threshold for DC status (default: '%{status} !~ /ok/i'). You can use the following variables: %\{status\}, %\{node_id\}, %\{psu_id\}                           |
+| --critical-dc-status      | Set critical threshold for DC status (default: '%\{status\} !~ /ok/i'). You can use the following variables: %\{status\}, %\{node_id\}, %\{psu_id\}                           |
 | --unknown-fan-status      | Set unknown threshold for fan status. You can use the following variables: %\{status\}, %\{node_id\}, %\{psu_id\}                                                           |
 | --warning-fan-status      | Set warning threshold for fan status. You can use the following variables: %\{status\}, %\{node_id\}, %\{psu_id\}                                                           |
-| --critical-fan-status     | Set critical threshold for fan status (default: '%{status} !~ /ok/i'). You can use the following variables: %\{status\}, %\{node_id\}, %\{psu_id\}                          |
+| --critical-fan-status     | Set critical threshold for fan status (default: '%\{status\} !~ /ok/i'). You can use the following variables: %\{status\}, %\{node_id\}, %\{psu_id\}                          |
 | --unknown-battery-status  | Set unknown threshold for battery status. You can use the following variables: %\{status\}, %\{node_id\}, %\{psu_id\}                                                       |
 | --warning-battery-status  | Set warning threshold for battery status. You can use the following variables: %\{status\}, %\{node_id\}, %\{psu_id\}                                                       |
-| --critical-battery-status | Set critical threshold for battery status (default: '%{status} !~ /ok/i'). You can use the following variables: %\{status\}, %\{node_id\}, %\{psu_id\}                      |
+| --critical-battery-status | Set critical threshold for battery status (default: '%\{status\} !~ /ok/i'). You can use the following variables: %\{status\}, %\{node_id\}, %\{psu_id\}                      |
 | --warning-* --critical-*  | Thresholds. Can be: 'charge-remaining', 'charge-remaining-minutes.                                                                                                      |
 
 </TabItem>

@@ -354,7 +354,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-name            | Filter name (can be a regexp).                                                                                                                                                                       |
 | --unknown-status         | Define the conditions to match for the status to be UNKNOWN (default: ''). You can use the following variables: %\{admin\}, %\{oper\}, %\{keepalive\}, %\{display\}                                          |
 | --warning-status         | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{admin\}, %\{oper\}, %\{keepalive\}, %\{display\}                                          |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{admin} eq "up" and %\{oper\} eq "down"'). You can use the following variables: %\{admin\}, %\{oper\}, %\{keepalive\}, %\{display\}   |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{admin\} eq "up" and %\{oper\} eq "down"'). You can use the following variables: %\{admin\}, %\{oper\}, %\{keepalive\}, %\{display\}   |
 | --warning-* --critical-* | Thresholds. Can be: 'total', 'total-operational-up'.                                                                                                                                                 |
 
 </TabItem>

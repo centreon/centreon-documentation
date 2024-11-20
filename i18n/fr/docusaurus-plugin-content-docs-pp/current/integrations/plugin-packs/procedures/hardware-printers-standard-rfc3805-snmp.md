@@ -264,9 +264,9 @@ yum install centreon-plugin-Hardware-Printers-Generic-Snmp
 
 | Macro          | Description                                                                                                                                | Valeur par défaut | Obligatoire |
 |:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| OKSTATUS       | Define the conditions to match for the status to be WARNING (Default: '%{status} =~ /ok/'). You can use the following variables: %\{status\} | %\{status\} =~ /ok/ |             |
+| OKSTATUS       | Define the conditions to match for the status to be WARNING (Default: '%\{status\} =~ /ok/'). You can use the following variables: %\{status\} | %\{status\} =~ /ok/ |             |
 | UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}                                |                   |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (Default: '%{status} =~ /.*/'). You can use the following variables: %\{status\} | %\{status\} =~ /.*/ |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (Default: '%\{status\} =~ /.*/'). You can use the following variables: %\{status\} | %\{status\} =~ /.*/ |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}                               |                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                        | --verbose         |             |
 
@@ -297,9 +297,9 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--hostname=10.0.0.1 \
 	--snmp-community='my-snmp-community' \
 	--snmp-version='2c'  \
-	--ok-status='%{status} =~ /ok/' \
+	--ok-status='%\{status\} =~ /ok/' \
 	--unknown-status='' \
-	--warning-status='%{status} =~ /.*/' \
+	--warning-status='%\{status\} =~ /.*/' \
 	--critical-status='' \
 	--verbose
 ```
@@ -461,9 +461,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option            | Description                                                                                                                                  |
 |:------------------|:---------------------------------------------------------------------------------------------------------------------------------------------|
 | --big-endian      | Use that option if your printer provides big-endian bits ordering.                                                                           |
-| --ok-status       | Define the conditions to match for the status to be WARNING (Default: '%{status} =~ /ok/'). You can use the following variables: %\{status\}   |
+| --ok-status       | Define the conditions to match for the status to be WARNING (Default: '%\{status\} =~ /ok/'). You can use the following variables: %\{status\}   |
 | --unknown-status  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}                                  |
-| --warning-status  | Define the conditions to match for the status to be WARNING (Default: '%{status} =~ /.*/'). You can use the following variables: %\{status\}   |
+| --warning-status  | Define the conditions to match for the status to be WARNING (Default: '%\{status\} =~ /.*/'). You can use the following variables: %\{status\}   |
 | --critical-status | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}                                 |
 
 </TabItem>

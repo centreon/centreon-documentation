@@ -337,7 +337,7 @@ yum install centreon-plugin-Applications-Databases-Redis
 | WARNINGSAVESIZE             | Warning threshold                                                                                                                                                                   |                                   |             |
 | CRITICALSAVESIZE            | Critical threshold                                                                                                                                                                  |                                   |             |
 | WARNINGSTATUS               | Define the conditions to match for the status to be WARNING (default: '%\{progress_status\} =~ /in progress/i'). You can use the following variables: %\{progress_status\}, %\{status\} | %\{sync_status\} =~ /in progress/i |             |
-| CRITICALSTATUS              | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /fail/i'). You can use the following variables: %\{progress_status\}, %\{status\}                 | %\{link_status\} =~ /down/i        |             |
+| CRITICALSTATUS              | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /fail/i'). You can use the following variables: %\{progress_status\}, %\{status\}                 | %\{link_status\} =~ /down/i        |             |
 | EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                  |                                   |             |
 
 </TabItem>
@@ -660,7 +660,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option            | Description                                                                                                                                                                           |
 |:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --warning-status  | Define the conditions to match for the status to be WARNING (default: '%\{progress_status\} =~ /in progress/i'). You can use the following variables: %\{progress_status\}, %\{status\}   |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /fail/i'). You can use the following variables: %\{progress_status\}, %\{status\}                   |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /fail/i'). You can use the following variables: %\{progress_status\}, %\{status\}                   |
 | --warning-*       | Warning threshold. Can be: 'changes', 'last-save', 'save-size', 'last-save-duration', 'current-save-duration'.                                                                        |
 | --critical-*      | Critical threshold. Can be: 'changes', 'last-save', 'save-size', 'last-save-duration', 'current-save-duration'.                                                                       |
 

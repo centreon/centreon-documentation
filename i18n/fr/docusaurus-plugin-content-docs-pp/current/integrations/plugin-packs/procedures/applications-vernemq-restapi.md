@@ -212,7 +212,7 @@ yum install centreon-plugin-Applications-Vernemq-Restapi
 | CRITICALNOTRUNNING | Thresholds                                                                                                                                                      |                           |             |
 | WARNINGRUNNING     | Thresholds                                                                                                                                                      |                           |             |
 | CRITICALRUNNING    | Thresholds                                                                                                                                                      |                           |             |
-| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL (default: '%{status} eq "notRunning"'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} eq "notRunning" |             |
+| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} eq "notRunning"'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} eq "notRunning" |             |
 | WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}                                         |                           |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                              | --verbose                 |             |
 
@@ -227,7 +227,7 @@ yum install centreon-plugin-Applications-Vernemq-Restapi
 | CRITICALNOTRUNNING | Thresholds                                                                                                                                                   |                        |             |
 | WARNINGRUNNING     | Thresholds                                                                                                                                                   |                        |             |
 | CRITICALRUNNING    | Thresholds                                                                                                                                                   |                        |             |
-| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL (default: '%{status} ne "running"'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} ne "running" |             |
+| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} ne "running"'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} ne "running" |             |
 | WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}                                      |                        |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                           | --verbose              |             |
 
@@ -380,7 +380,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-name            | Filter cluster name (can be a regexp).                                                                                                                            |
 | --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{display\}                                           |
 | --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}                                           |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} eq "notRunning"'). You can use the following variables: %\{status\}, %\{display\}   |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} eq "notRunning"'). You can use the following variables: %\{status\}, %\{display\}   |
 | --warning-* --critical-* | Thresholds. Can be: 'running', 'notrunning'.                                                                                                                      |
 
 </TabItem>
@@ -391,7 +391,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-type            | Filter listener type (can be a regexp).                                                                                                                        |
 | --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{display\}                                        |
 | --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}                                        |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} ne "running"'). You can use the following variables: %\{status\}, %\{display\}   |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} ne "running"'). You can use the following variables: %\{status\}, %\{display\}   |
 | --warning-* --critical-* | Thresholds. Can be: 'running', 'notrunning'.                                                                                                                   |
 
 </TabItem>

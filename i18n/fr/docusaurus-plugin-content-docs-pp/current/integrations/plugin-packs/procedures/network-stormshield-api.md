@@ -268,10 +268,10 @@ yum install centreon-plugin-Network-Stormshield-Api
 
 | Macro                       | Description                                                                                                                                                                | Valeur par défaut                   | Obligatoire |
 |:----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|:-----------:|
-| UNKNOWNMEMBERLINKSTATUS     | Define the conditions to match for the status to be UNKNOWN (default: '%{linkStatus} =~ /unknown/i'). You can use the following variables: %\{linkStatus\}, %\{name\}          | %\{linkStatus\} =~ /unknown/i         |             |
-| WARNINGMEMBERCONFIG         | Define the conditions to match for the status to be WARNING (default: '%{isConfigSync} eq "no"'). You can use the following variables: %\{isConfigSync\}, %\{name\}            | %\{isConfigSync\} eq "no"             |             |
+| UNKNOWNMEMBERLINKSTATUS     | Define the conditions to match for the status to be UNKNOWN (default: '%\{linkStatus\} =~ /unknown/i'). You can use the following variables: %\{linkStatus\}, %\{name\}          | %\{linkStatus\} =~ /unknown/i         |             |
+| WARNINGMEMBERCONFIG         | Define the conditions to match for the status to be WARNING (default: '%\{isConfigSync\} eq "no"'). You can use the following variables: %\{isConfigSync\}, %\{name\}            | %\{isConfigSync\} eq "no"             |             |
 | CRITICALMEMBERCONFIG        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{isConfigSync\}, %\{name\}                                                |                                     |             |
-| CRITICALMEMBERLINKSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%{linkStatus} =~ /failed\|failing/i'). You can use the following variables: %\{linkStatus\}, %\{name\} | %\{linkStatus\} =~ /failed\|failing/i |             |
+| CRITICALMEMBERLINKSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%\{linkStatus\} =~ /failed\|failing/i'). You can use the following variables: %\{linkStatus\}, %\{name\} | %\{linkStatus\} =~ /failed\|failing/i |             |
 | WARNINGMEMBERLINKSTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{linkStatus\}, %\{name\}                                                   |                                     |             |
 | WARNINGMEMBERQUALITY        | Thresholds                                                                                                                                                                 |                                     |             |
 | CRITICALMEMBERQUALITY       | Thresholds                                                                                                                                                                 |                                     |             |
@@ -311,8 +311,8 @@ yum install centreon-plugin-Network-Stormshield-Api
 | Macro                 | Description                                                                                                                                                 | Valeur par défaut     | Obligatoire |
 |:----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
 | FILTERSERIAL          | Filter by firewalls by serial (can be a regexp)                                                                                                             |                       |             |
-| WARNINGSERVICESTATUS  | Define the conditions to match for the status to be WARNING (default: '%{health} =~ /minor/i'). You can use the following variables: %\{health\}, %\{service\}  | %\{health\} =~ /minor/i |             |
-| CRITICALSERVICESTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{health} =~ /major/i'). You can use the following variables: %\{health\}, %\{service\} | %\{health\} =~ /major/i |             |
+| WARNINGSERVICESTATUS  | Define the conditions to match for the status to be WARNING (default: '%\{health\} =~ /minor/i'). You can use the following variables: %\{health\}, %\{service\}  | %\{health\} =~ /minor/i |             |
+| CRITICALSERVICESTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{health\} =~ /major/i'). You can use the following variables: %\{health\}, %\{service\} | %\{health\} =~ /major/i |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (e.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles).                                                                 | --verbose             |             |
 
 </TabItem>
@@ -528,11 +528,11 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --unknown-member-state        | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{name\}                                                                                                    |
 | --warning-member-state        | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{name\}                                                                                                    |
 | --critical-member-state       | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{name\}                                                                                                   |
-| --unknown-member-link-status  | Define the conditions to match for the status to be UNKNOWN (default: '%{linkStatus} =~ /unknown/i'). You can use the following variables: %\{linkStatus\}, %\{name\}                                                      |
+| --unknown-member-link-status  | Define the conditions to match for the status to be UNKNOWN (default: '%\{linkStatus\} =~ /unknown/i'). You can use the following variables: %\{linkStatus\}, %\{name\}                                                      |
 | --warning-member-link-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{linkStatus\}, %\{name\}                                                                                               |
-| --critical-member-link-status | Define the conditions to match for the status to be CRITICAL (default: '%{linkStatus} =~ /failed\|failing/i'). You can use the following variables: %\{linkStatus\}, %\{name\}                                             |
+| --critical-member-link-status | Define the conditions to match for the status to be CRITICAL (default: '%\{linkStatus\} =~ /failed\|failing/i'). You can use the following variables: %\{linkStatus\}, %\{name\}                                             |
 | --unknown-member-config       | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{isConfigSync\}, %\{name\}                                                                                             |
-| --warning-member-config       | Define the conditions to match for the status to be WARNING (default: '%{isConfigSync} eq "no"'). You can use the following variables: %\{isConfigSync\}, %\{name\}                                                        |
+| --warning-member-config       | Define the conditions to match for the status to be WARNING (default: '%\{isConfigSync\} eq "no"'). You can use the following variables: %\{isConfigSync\}, %\{name\}                                                        |
 | --critical-member-config      | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{isConfigSync\}, %\{name\}                                                                                            |
 | --warning-* --critical-*      | Thresholds. Can be: 'member-quality', 'members-detected', 'members-none', 'members-starting', 'members-waiting-peer', 'members-running', 'members-ready', 'members-reboot', 'members-down', 'members-initializing'.    |
 
@@ -555,8 +555,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-serial           | Filter by firewalls by serial (can be a regexp).                                                                                                               |
 | --unknown-service-status  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{health\}, %\{service\}                                        |
-| --warning-service-status  | Define the conditions to match for the status to be WARNING (default: '%{health} =~ /minor/i'). You can use the following variables: %\{health\}, %\{service\}     |
-| --critical-service-status | Define the conditions to match for the status to be CRITICAL (default: '%{health} =~ /major/i'). You can use the following variables: %\{health\}, %\{service\}    |
+| --warning-service-status  | Define the conditions to match for the status to be WARNING (default: '%\{health\} =~ /minor/i'). You can use the following variables: %\{health\}, %\{service\}     |
+| --critical-service-status | Define the conditions to match for the status to be CRITICAL (default: '%\{health\} =~ /major/i'). You can use the following variables: %\{health\}, %\{service\}    |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">

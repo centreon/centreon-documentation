@@ -124,8 +124,8 @@ depuis un collecteur Centreon en vous connectant avec l'utilisateur *centreon-en
     --mode=services \
     --proxyurl='http://myproxy.mycompany.org:8080' \
     --filter-name='Connections|Messaging' \
-    --warning-status='%{status} eq "active" and %\{type\} eq "incident"' \
-    --critical-status='%{status} eq "active" and %\{type\} eq "outage"' \
+    --warning-status='%\{status\} eq "active" and %\{type\} eq "incident"' \
+    --critical-status='%\{status\} eq "active" and %\{type\} eq "outage"' \
     --verbose
 ```
 
@@ -141,8 +141,8 @@ Dans cet exemple, le Plugin récupère les statuts des services Slack (```--plug
 On choisit ci-desus de n'afficher que le statut des services *Connections* et *Messaging*
 (```--filter-name='Connections|Messaging'```).
 
-Une alarme WARNING sera ainsi déclenchée si le statut d'un de ces services est signalée comme dégradée (```--warning-status='%{status} eq "active" and %\{type\} eq "incident"'```);
-l'alarme sera de type CRITICAL pour un service inaccessible (```--critical-status='%{status} eq "active" and %\{type\} eq "outage"'```).
+Une alarme WARNING sera ainsi déclenchée si le statut d'un de ces services est signalée comme dégradée (```--warning-status='%\{status\} eq "active" and %\{type\} eq "incident"'```);
+l'alarme sera de type CRITICAL pour un service inaccessible (```--critical-status='%\{status\} eq "active" and %\{type\} eq "outage"'```).
 
 Pour chaque mode, la liste de toutes les métriques, seuils associés et options complémentaires peut être affichée 
 en ajoutant le paramètre ```--help``` à la commande:

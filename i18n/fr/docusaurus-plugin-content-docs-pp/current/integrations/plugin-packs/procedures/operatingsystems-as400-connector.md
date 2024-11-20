@@ -524,7 +524,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --command-name    | Specify the command to execute (required).                                                                                                                   |
 | --unknown-status  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{name\}                                         |
 | --warning-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}                                         |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /failed/i'). You can use the following variables: %\{status\}, %\{name\}    |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /failed/i'). You can use the following variables: %\{status\}, %\{name\}    |
 
 </TabItem>
 <TabItem value="Disks" label="Disks">
@@ -533,9 +533,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --disk-name              | Check exact disk.                                                                                                                                                                                                             |
 | --filter-disk-name       | Filter disks by name (can be a regexp).                                                                                                                                                                                       |
-| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /unknown/i'). You can use the following variables: %\{status\}, %\{name\}                                                                     |
-| --warning-status         | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /noReady\|busy\|hwFailureOk\|hwFailurePerf\|Protected\|rebuilding/i') . You can use the following variables: %\{status\}, %\{name\}           |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /^(noAccess\|otherDiskSubFailed\|failed\|notOperational\|noUnitContr ol)$/i'). You can use the following variables: %\{status\}, %\{name\}   |
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /unknown/i'). You can use the following variables: %\{status\}, %\{name\}                                                                     |
+| --warning-status         | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /noReady\|busy\|hwFailureOk\|hwFailurePerf\|Protected\|rebuilding/i') . You can use the following variables: %\{status\}, %\{name\}           |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /^(noAccess\|otherDiskSubFailed\|failed\|notOperational\|noUnitContr ol)$/i'). You can use the following variables: %\{status\}, %\{name\}   |
 | --warning-* --critical-* | Thresholds. Can be: 'space-usage', 'space-usage-free', 'space-usage-prct', 'reserved', 'disks-total', 'disks-active', 'disks-errors', 'disks-gap-repartition'.                                                                |
 
 </TabItem>
@@ -545,7 +545,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{name\}, %\{library\}                                      |
 | --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}, %\{library\}                                      |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /HELD/i'). You can use the following variables: %\{status\}, %\{name\}, %\{library\}   |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /HELD/i'). You can use the following variables: %\{status\}, %\{name\}, %\{library\}   |
 | --warning-* --critical-* | Thresholds. Can be: 'jobqueues-total', 'jobqueue-jobs-active', 'jobqueue-jobs-scheduled', 'jobqueue-jobs-held'.                                                       |
 
 </TabItem>
@@ -587,7 +587,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-subsystem-name    | Filter subsystems by name (can be a regexp).                                                                                                                                                 |
 | --filter-subsystem-library | Filter subsystems by library (can be a regexp).                                                                                                                                              |
 | --unknown-status           | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{name\}, %\{library\}                                                             |
-| --warning-status           | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /ending\|restricted\|starting/i'). You can use the following variables: %\{status\}, %\{name\}, %\{library\}   |
+| --warning-status           | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /ending\|restricted\|starting/i'). You can use the following variables: %\{status\}, %\{name\}, %\{library\}   |
 | --critical-status          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}, %\{library\}                                                            |
 | --warning-* --critical-*   | Thresholds. Can be: 'subsystems-total', 'subsystems-active', 'subsystems-ending', 'subsystems-inactive', 'subsystems-restricted', 'subsystems-starting', 'jobs-active'.                      |
 

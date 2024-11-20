@@ -238,7 +238,7 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-Poller
 | CRITICALQUEUEDEVENTS         | Thresholds                                                                                                                                                                                                                                  |                                                                 |             |
 | WARNINGSPEEDEVENTS           | Thresholds                                                                                                                                                                                                                                  |                                                                 |             |
 | CRITICALSPEEDEVENTS          | Thresholds                                                                                                                                                                                                                                  |                                                                 |             |
-| CRITICALSTATUS               | Define the conditions to match for the status to be CRITICAL (default: '%{type} eq "output" and %\{queue_file_enabled\}=~ /yes/i'). You can use the following variables: %{queue\_file\_enabled}, %\{state\}, %\{status\}, %\{type\}, %\{display\} | %\{type\} eq "output" and %\{queue_file_enabled\}=~ /true\|yes/i |             |
+| CRITICALSTATUS               | Define the conditions to match for the status to be CRITICAL (default: '%\{type\} eq "output" and %\{queue_file_enabled\}=~ /yes/i'). You can use the following variables: %{queue\_file\_enabled}, %\{state\}, %\{status\}, %\{type\}, %\{display\} | %\{type\} eq "output" and %\{queue_file_enabled\}=~ /true\|yes/i |             |
 | WARNINGSTATUS                | Define the conditions to match for the status to be WARNING. You can use the following variables: %{queue\_file\_enabled}, %\{state\}, %\{status\}, %\{type\}, %\{display\}                                                                         |                                                                 |             |
 | WARNINGUNACKNOWLEDGEDEVENTS  | Thresholds                                                                                                                                                                                                                                  |                                                                 |             |
 | CRITICALUNACKNOWLEDGEDEVENTS | Thresholds                                                                                                                                                                                                                                  |                                                                 |             |
@@ -319,7 +319,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--warning-unacknowledged-events='' \
 	--critical-unacknowledged-events='' \
 	--warning-status='' \
-	--critical-status='%{type} eq "output" and %\{queue_file_enabled\} =~ /true|yes/i' \
+	--critical-status='%\{type\} eq "output" and %\{queue_file_enabled\} =~ /true|yes/i' \
 	--verbose \
 	--ssh-username='centreon'
 ```
@@ -451,7 +451,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-name            | Filter endpoint name.                                                                                                                                                                                                                          |
 | --warning-* --critical-* | Thresholds. Can be: 'speed-events', 'queued-events', 'unacknowledged-events'.                                                                                                                                                                  |
 | --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %{queue\_file\_enabled}, %\{state\}, %\{status\}, %\{type\}, %\{display\}                                                                            |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{type} eq "output" and %\{queue_file_enabled\}=~ /yes/i'). You can use the following variables: %{queue\_file\_enabled}, %\{state\}, %\{status\}, %\{type\}, %\{display\}    |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{type\} eq "output" and %\{queue_file_enabled\}=~ /yes/i'). You can use the following variables: %{queue\_file\_enabled}, %\{state\}, %\{status\}, %\{type\}, %\{display\}    |
 
 </TabItem>
 <TabItem value="proc-centengine" label="proc-centengine">

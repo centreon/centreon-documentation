@@ -239,7 +239,7 @@ yum install centreon-plugin-Hardware-Pdu-Gude-Epc-Snmp
 | CRITICALPOWERREACTIVE  | Critical threshold                                                                                                   |                         |             |
 | CRITICALPSSTATUS       | Critical threshold for power supply status (default: '%\{ps_status\} !~ /up/i')                     | %\{ps_status\} !~ /up/i  |             |
 | WARNINGPSSTATUS        | Warning threshold for power supply status                                                          |                         |             |
-| CRITICALSTATUS         | Critical threshold for channel status (default: '%{status} !~ /valid/i')                           | %\{status\} !~ /valid/i   |             |
+| CRITICALSTATUS         | Critical threshold for channel status (default: '%\{status\} !~ /valid/i')                           | %\{status\} !~ /valid/i   |             |
 | WARNINGSTATUS          | Warning threshold for channel status                                                               |                         |             |
 | WARNINGVOLTAGE         | Warning threshold                                                                                  |                         |             |
 | CRITICALVOLTAGE        | Critical threshold                                                                                                   |                         |             |
@@ -433,7 +433,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-name         | Filter power channel interfaces by name (can be a regexp).                                                                                                                     |
 | --warning-status      | Warning threshold for channel status.                                                                                                                                          |
-| --critical-status     | Critical threshold for channel status (default: '%{status} !~ /valid/i')                                                                                                       |
+| --critical-status     | Critical threshold for channel status (default: '%\{status\} !~ /valid/i')                                                                                                       |
 | --warning-ovp-status  | Warning threshold for OVP (OverVoltage Protection) status.                                                                                                                     |
 | --critical-ovp-status | Critical threshold for OVP (OverVoltage Protection) status (default: '%\{ovp_status\} !~ /ok/i')                                                                                |
 | --warning-ps-status   | Warning threshold for power supply status.                                                                                                                                     |

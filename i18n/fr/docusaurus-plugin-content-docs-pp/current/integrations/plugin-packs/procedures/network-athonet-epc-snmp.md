@@ -668,7 +668,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-owner              | Filter interfaces by owner (can be a regexp).                                                                                                                                                       |
 | --unknown-status            | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{name\}, %\{owner\}                                                                      |
 | --warning-status            | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}, %\{owner\}                                                                      |
-| --critical-status           | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /down/i'). You can use the following variables: %\{status\}, %\{name\}, %\{owner\}                                   |
+| --critical-status           | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /down/i'). You can use the following variables: %\{status\}, %\{name\}, %\{owner\}                                   |
 | --unknown-transport-status  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{transport_status\}, %\{transport_type\}, %\{name\}                                                 |
 | --warning-transport-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{transport_status\}, %\{transport_type\}, %\{name\}                                                 |
 | --critical-transport-status | Define the conditions to match for the status to be CRITICAL (default: '%\{transport_status\} =~ /down/i'). You can use the following variables: %\{transport_status\}, %\{transport_type\}, %\{name\}   |
@@ -684,7 +684,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-peer-address    | Filter interfaces by peer address (can be a regexp).                                                                                                                                           |
 | --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{local_address\}, %\{peer_address\}, %\{name\}                                      |
 | --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{local_address\}, %\{peer_address\}, %\{name\}                                      |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /down/i'). You can use the following variables: %\{status\}, %\{local_address\}, %\{peer_address\}, %\{name\}   |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /down/i'). You can use the following variables: %\{status\}, %\{local_address\}, %\{peer_address\}, %\{name\}   |
 | --warning-* --critical-* | Thresholds. Can be: 'total'.                                                                                                                                                                   |
 
 </TabItem>
@@ -697,7 +697,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-type                | Filter interfaces by type (can be a regexp).                                                                                                                                                  |
 | --unknown-status             | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{source_address\}, %\{destination_address\}                                      |
 | --warning-status             | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{source_address\}, %\{destination_address\}                                      |
-| --critical-status            | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /down/i'). You can use the following variables: %\{status\}, %\{source_address\}, %\{destination_address\}   |
+| --critical-status            | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /down/i'). You can use the following variables: %\{status\}, %\{source_address\}, %\{destination_address\}   |
 | --warning-* --critical-*     | Thresholds. Can be: 'total'.                                                                                                                                                                  |
 
 </TabItem>
@@ -731,7 +731,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='users'                                                                                                                                                                                |
 | --warning-status         | Define the conditions to match for the status to be WARNING. Can use special variables like: %\{status\}                                                                                                                                                             |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /expired\|invalid/i'). Can use special variables like: %\{status\}                                                                                                              |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /expired\|invalid/i'). Can use special variables like: %\{status\}                                                                                                              |
 | --unit                   | Select the time unit for the expiration threshold. May be 's'for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is days.                                                                                                            |
 | --warning-* --critical-* | Thresholds. Can be: 'expires', 'license-users-usage', 'license-users-free', 'license-users-usage-prct', 'license-sessions-usage', 'license-sessions-free', 'license-sessions-usage-prct', 'license-usim-usage', 'license-usim-free', 'license-usim-usage-prct'.    |
 

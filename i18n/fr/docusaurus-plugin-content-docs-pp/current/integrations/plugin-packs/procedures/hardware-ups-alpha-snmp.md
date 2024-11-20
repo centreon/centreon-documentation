@@ -196,13 +196,13 @@ yum install centreon-plugin-Hardware-Ups-Alpha-Snmp
 
 | Macro               | Description                                                                                                                                               | Valeur par défaut               | Obligatoire |
 |:--------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------|:-----------:|
-| UNKNOWNSTATUS       | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /unknown/i'). You can use the following variables: %\{status\}          | %\{status\} =~ /unknown/i         |             |
+| UNKNOWNSTATUS       | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /unknown/i'). You can use the following variables: %\{status\}          | %\{status\} =~ /unknown/i         |             |
 | WARNINGCURRENT      | Warning threshold                                                                                                                                         |                                 |             |
 | CRITICALCURRENT     | Critical threshold                                                                                                                                        |                                 |             |
 | WARNINGLOAD         | Warning threshold                                                                                                                                         |                                 |             |
 | CRITICALLOAD        | Critical threshold                                                                                                                                        |                                 |             |
-| WARNINGSTATUS       | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /batteryLow/i'). You can use the following variables: %\{status\}       | %\{status\} =~ /batteryLow/i      |             |
-| CRITICALSTATUS      | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /batteryDepleted/i'). You can use the following variables: %\{status\} | %\{status\} =~ /batteryDepleted/i |             |
+| WARNINGSTATUS       | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /batteryLow/i'). You can use the following variables: %\{status\}       | %\{status\} =~ /batteryLow/i      |             |
+| CRITICALSTATUS      | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /batteryDepleted/i'). You can use the following variables: %\{status\} | %\{status\} =~ /batteryDepleted/i |             |
 | WARNINGTEMPERATURE  | Warning threshold                                                                                                                                         |                                 |             |
 | CRITICALTEMPERATURE | Critical threshold                                                                                                                                        |                                 |             |
 | WARNINGVOLTAGE      | Warning threshold                                                                                                                                         |                                 |             |
@@ -229,9 +229,9 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
-	--unknown-status='%{status} =~ /unknown/i' \
-	--warning-status='%{status} =~ /batteryLow/i' \
-	--critical-status='%{status} =~ /batteryDepleted/i' \
+	--unknown-status='%\{status\} =~ /unknown/i' \
+	--warning-status='%\{status\} =~ /batteryLow/i' \
+	--critical-status='%\{status\} =~ /batteryDepleted/i' \
 	--warning-load='' \
 	--critical-load='' \
 	--warning-current='' \
@@ -357,9 +357,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option            | Description                                                                                                                                                 |
 |:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters | Only display some counters (regexp can be used). Example: --filter-counters='^status\|load$'                                                                |
-| --unknown-status  | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /unknown/i'). You can use the following variables: %\{status\}            |
-| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /batteryLow/i'). You can use the following variables: %\{status\}         |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /batteryDepleted/i'). You can use the following variables: %\{status\}   |
+| --unknown-status  | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /unknown/i'). You can use the following variables: %\{status\}            |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /batteryLow/i'). You can use the following variables: %\{status\}         |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /batteryDepleted/i'). You can use the following variables: %\{status\}   |
 | --warning-*       | Warning threshold. Can be: 'load', 'voltage', 'current', 'temperature'.                                                                                     |
 | --critical-*      | Critical threshold. Can be: 'load', 'voltage', 'current', 'temperature'.                                                                                    |
 

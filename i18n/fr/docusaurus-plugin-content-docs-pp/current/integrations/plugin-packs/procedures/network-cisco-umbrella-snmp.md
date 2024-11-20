@@ -478,15 +478,15 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option            | Description                                                                                                                                      |
 |:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
-| --warning-status  | Define the conditions to match for the status to be WARNING. (default: '%{status} =~ /yellow/') You can use the following variables: %\{status\}   |
-| --critical-status | Define the conditions to match for the status to be CRITICAL. (default: '%{status} =~ /red/'). You can use the following variables: %\{status\}    |
+| --warning-status  | Define the conditions to match for the status to be WARNING. (default: '%\{status\} =~ /yellow/') You can use the following variables: %\{status\}   |
+| --critical-status | Define the conditions to match for the status to be CRITICAL. (default: '%\{status\} =~ /red/'). You can use the following variables: %\{status\}    |
 
 </TabItem>
 <TabItem value="Connectivity" label="Connectivity">
 
 | Option       | Description                                                                                                                                                                                                                                          |
 |:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --warning-*  | Define the conditions to match for the status to be WARNING. (default: '%{status} =~ /yellow/'). Can be: 'dns-status', 'localdns-status', 'cloud-status', 'ad-status'.  Can use special variables like: %\{status\}, %\{display\}                        |
+| --warning-*  | Define the conditions to match for the status to be WARNING. (default: '%\{status\} =~ /yellow/'). Can be: 'dns-status', 'localdns-status', 'cloud-status', 'ad-status'.  Can use special variables like: %\{status\}, %\{display\}                        |
 | --critical-* | Define the conditions to match for the status to be CRITICAL. (default: %\{status\} =~ /red/). Can be: 'dns-connectivity', 'localdns-connectivity', 'cloud-connectivity', 'ad-connectivity'.  Can use special variables like: %\{status\}, %\{display\}    |
 
 </TabItem>

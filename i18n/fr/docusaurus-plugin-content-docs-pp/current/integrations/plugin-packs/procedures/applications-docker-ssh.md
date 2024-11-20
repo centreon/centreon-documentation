@@ -354,7 +354,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-name     | Filter by container name (can be a regexp).                                                                                                              |
 | --filter-id       | Filter by container ID (can be a regexp).                                                                                                                |
 | --warning-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}                                     |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /up/i'). You can use the following variables: %\{status\}, %\{name\}    |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /up/i'). You can use the following variables: %\{status\}, %\{name\}    |
 
 </TabItem>
 <TabItem value="Container-Usage" label="Container-Usage">

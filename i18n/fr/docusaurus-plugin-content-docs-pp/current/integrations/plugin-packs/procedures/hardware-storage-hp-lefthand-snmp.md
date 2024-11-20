@@ -264,7 +264,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--warning-write-latency='' \
 	--critical-write-latency='' \
 	--warning-replication-status='' \
-	--critical-replication-status='%{status} !~ /normal/i' \
+	--critical-replication-status='%\{status\} !~ /normal/i' \
 	--verbose
 ```
 
@@ -402,7 +402,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-counters             | Only display some counters (regexp can be used). Example: --filter-counters='^read\|write$'                                                                                                                                                   |
 | --filter-name                 | Filter volume name (can be a regexp).                                                                                                                                                                                                         |
 | --warning-replication-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}                                                                                                                       |
-| --critical-replication-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /normal/i'). You can use the following variables: %\{status\}, %\{display\}                                                                                  |
+| --critical-replication-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /normal/i'). You can use the following variables: %\{status\}, %\{display\}                                                                                  |
 | --warning-*                   | Warning threshold. Can be: 'read' (b/s), 'write' (b/s), 'read-iops', 'write-iops', 'read-latency', 'write-latency', 'usage'.                                                                                                                  |
 | --critical-*                  | Critical threshold. Can be: 'read' (b/s), 'write' (b/s), 'read-iops', 'write-iops', 'read-latency', 'write-latency', 'usage'.                                                                                                                 |
 | --units                       | Units of thresholds (default: '%') ('%', 'B').                                                                                                                                                                                                |

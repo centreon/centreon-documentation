@@ -199,8 +199,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--password=''  \
 	--filter-ap='.*' \
 	--filter-controller='.*' \
-	--warning-ap-status='%{admin_status} =~ /enable/i && %\{status\} =~ /minor|warning/i' \
-	--critical-ap-status='%{admin_status} =~ /enable/i && %\{status\} =~ /major|critical/i' \
+	--warning-ap-status='%\{admin_status\} =~ /enable/i && %\{status\} =~ /minor|warning/i' \
+	--critical-ap-status='%\{admin_status\} =~ /enable/i && %\{status\} =~ /major|critical/i' \
 	--warning-ap-clients='' \
 	--critical-ap-clients='' \
 	--warning-ap-uptime='' \

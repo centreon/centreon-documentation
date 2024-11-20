@@ -154,7 +154,7 @@ Une fois le Plugin installé, vous pouvez tester directement celui-ci en ligne d
   --organization='.*' \
   --filter-device-name='^CENFRGW101$' \
   --warning-status='' \
-  --critical-status='%{ping_status} ne "reachable" or %\{services_status\} ne "good"' \
+  --critical-status='%\{ping_status\} ne "reachable" or %\{services_status\} ne "good"' \
   --verbose
 ```
 
@@ -205,7 +205,7 @@ Le plugin requête l'API du Versa Director **10.0.0.1** (```--hostname=10.0.0.1`
 **jdoe** et son mot de passe (```--api-username='jdoe' --api-password='6fbadZEJbsLG'```).
 Un équipement Versa peut être lié à plusieurs organisations, nous utilisons une *wildcard* (```--organization='.*'```).
 
-Cette commande retournera une alerte CRITICAL (```--critical-status='%{ping_status} ne "reachable" or %\{services_status\} ne "good"'```) si :
+Cette commande retournera une alerte CRITICAL (```--critical-status='%\{ping_status\} ne "reachable" or %\{services_status\} ne "good"'```) si :
 
 * Le 'ping status' de l'équipement est différent de **reachable**
 * Le 'service_status' de l'équipement est différent de **good**

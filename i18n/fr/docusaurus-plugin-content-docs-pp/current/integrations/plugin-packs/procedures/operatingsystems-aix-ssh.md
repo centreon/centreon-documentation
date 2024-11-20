@@ -187,7 +187,7 @@ Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne d
     --ssh-password='centreon-password' \
     --ssh-backend=sshcli \
     --filter-type='SVG' \
-	--critical-status='%{state} =~ /stale/i'\
+	--critical-status='%\{state\} =~ /stale/i'\
     --verbose
 ```
 

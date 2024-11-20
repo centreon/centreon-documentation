@@ -83,10 +83,10 @@ Il est nécessaire au préalable d'autoriser le client, de choisir un _app\_id_ 
 
 - Appelez la terminaison API permettant d'autoriser une application, remplacez les valeurs par celles souhaitées:
 
-`curl http://<freebox_ip>/api/v4/login/authorize -d '{"app_id":"centreon","app_name":"centreon","app_version":"3.0","device_name":"Freebox"}'`
+`curl http://\<freebox_ip\>/api/v4/login/authorize -d '{"app_id":"centreon","app_name":"centreon","app_version":"3.0","device_name":"Freebox"}'`
 
 - Validez depuis l'écran de la Freebox et récupérez le token
-- Ouvrez la page suivante http://<freebox_ip>/api/v4/login/authorize/<app_id>
+- Ouvrez la page suivante http://\<freebox_ip\>/api/v4/login/authorize/\<app_id\>
 - Vérifiez que l'application est correcte et possède les bons droits
 
 Conservez précieusement votre _app\_id_ et le token car ils seront nécessaires durant la configuration de l'hôte.
@@ -234,7 +234,7 @@ yum install centreon-plugin-Network-Freebox-Restapi
 
 | Macro                     | Description                                                                                                                               | Valeur par défaut          | Obligatoire |
 |:--------------------------|:------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:-----------:|
-| CRITICALDISKSTATUS        | Set critical threshold for disk status (default: '%{status} =~ /error/i'). You can use the following variables: %\{status\}                 | %\{status\} =~ /error/i      |             |
+| CRITICALDISKSTATUS        | Set critical threshold for disk status (default: '%\{status\} =~ /error/i'). You can use the following variables: %\{status\}                 | %\{status\} =~ /error/i      |             |
 | WARNINGDISKSTATUS         | Set warning threshold for disk status. You can use the following variables: %\{status\}                                                     |                            |             |
 | WARNINGFANSPEED           | Thresholds                                                                                                                                |                            |             |
 | CRITICALFANSPEED          | Thresholds                                                                                                                                |                            |             |
@@ -244,8 +244,8 @@ yum install centreon-plugin-Network-Freebox-Restapi
 | CRITICALTEMPERATURECPUM   | Thresholds                                                                                                                                |                            |             |
 | WARNINGTEMPERATURESWITCH  | Thresholds                                                                                                                                |                            |             |
 | CRITICALTEMPERATURESWITCH | Thresholds                                                                                                                                |                            |             |
-| WARNINGWIFISTATUS         | Set warning threshold for wifi status (default: '%{status} =~ /bad\_param/i'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} =~ /bad\_param/i |             |
-| CRITICALWIFISTATUS        | Set critical threshold for wifi status (default: '%{status} =~ /failed/i'). You can use the following variables: %\{status\}, %\{display\}    | %\{status\} =~ /failed/i     |             |
+| WARNINGWIFISTATUS         | Set warning threshold for wifi status (default: '%\{status\} =~ /bad\_param/i'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} =~ /bad\_param/i |             |
+| CRITICALWIFISTATUS        | Set critical threshold for wifi status (default: '%\{status\} =~ /failed/i'). You can use the following variables: %\{status\}, %\{display\}    | %\{status\} =~ /failed/i     |             |
 | EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                        | --verbose                  |             |
 
 </TabItem>
@@ -392,10 +392,10 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option                   | Description                                                                                                                                 |
 |:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='^temperature-cpum$'                                            |
-| --warning-wifi-status    | Set warning threshold for wifi status (default: '%{status} =~ /bad\_param/i'). You can use the following variables: %\{status\}, %\{display\}   |
-| --critical-wifi-status   | Set critical threshold for wifi status (default: '%{status} =~ /failed/i'). You can use the following variables: %\{status\}, %\{display\}      |
+| --warning-wifi-status    | Set warning threshold for wifi status (default: '%\{status\} =~ /bad\_param/i'). You can use the following variables: %\{status\}, %\{display\}   |
+| --critical-wifi-status   | Set critical threshold for wifi status (default: '%\{status\} =~ /failed/i'). You can use the following variables: %\{status\}, %\{display\}      |
 | --warning-disk-status    | Set warning threshold for disk status. You can use the following variables: %\{status\}                                                       |
-| --critical-disk-status   | Set critical threshold for disk status (default: '%{status} =~ /error/i'). You can use the following variables: %\{status\}                   |
+| --critical-disk-status   | Set critical threshold for disk status (default: '%\{status\} =~ /error/i'). You can use the following variables: %\{status\}                   |
 | --warning-* --critical-* | Thresholds. Can be: 'temperature-cpum', 'temperature-cpub', 'temperature-switch', 'fan-speed'.                                              |
 
 </TabItem>

@@ -485,8 +485,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --ps-display      | Display powershell script.                                                                                                                                             |
 | --ps-exec-only    | Print powershell output.                                                                                                                                               |
 | --filter-vm       | Filter virtual machines (can be a regexp).                                                                                                                             |
-| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%{health} =~ /Warning/i'). You can use the following variables: %\{vm\}, %\{state\}, %\{health\}      |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{health} =~ /Critical/i'). You can use the following variables: %\{vm\}, %\{state\}, %\{health\}    |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%\{health\} =~ /Warning/i'). You can use the following variables: %\{vm\}, %\{state\}, %\{health\}      |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{health\} =~ /Critical/i'). You can use the following variables: %\{vm\}, %\{state\}, %\{health\}    |
 
 </TabItem>
 <TabItem value="Node-Snapshot" label="Node-Snapshot">
@@ -521,7 +521,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-vm       | Filter virtual machines (can be a regexp).                                                                                                                                                         |
 | --filter-note     | Filter by VM notes (can be a regexp).                                                                                                                                                              |
 | --warning-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{vm\}, %\{state\}, %\{status\}, %\{is_clustered\}                                       |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /Operating normally/i'). You can use the following variables: %\{vm\}, %\{state\}, %\{status\}, %\{is_clustered\}    |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /Operating normally/i'). You can use the following variables: %\{vm\}, %\{state\}, %\{status\}, %\{is_clustered\}    |
 
 </TabItem>
 <TabItem value="Scvmm-Integration-Service" label="Scvmm-Integration-Service">
@@ -544,7 +544,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-vm          | Filter virtual machines (can be a regexp).                                                                                                                                          |
 | --filter-hostgroup   | Filter hostgroup (can be a regexp).                                                                                                                                                 |
 | --warning-status     | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{vm\}, %\{vmaddition\}, %\{status\}                                     |
-| --critical-status    | Define the conditions to match for the status to be CRITICAL (default: '%{vmaddition} =~ /not detected/i'). You can use the following variables: %\{vm\}, %\{vmaddition\}, %\{status\}    |
+| --critical-status    | Define the conditions to match for the status to be CRITICAL (default: '%\{vmaddition\} =~ /not detected/i'). You can use the following variables: %\{vm\}, %\{vmaddition\}, %\{status\}    |
 
 </TabItem>
 <TabItem value="Scvmm-Snapshot" label="Scvmm-Snapshot">
@@ -589,7 +589,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-hostgroup   | Filter hostgroup (can be a regexp).                                                                                                                                                |
 | --filter-description | Filter by description (can be a regexp).                                                                                                                                           |
 | --warning-status     | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{vm\}, %\{status\}, %\{hostgroup\}                                     |
-| --critical-status    | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /Running\|Stopped/i'). You can use the following variables: %\{vm\}, %\{status\}, %\{hostgroup\}    |
+| --critical-status    | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /Running\|Stopped/i'). You can use the following variables: %\{vm\}, %\{status\}, %\{hostgroup\}    |
 
 </TabItem>
 </Tabs>

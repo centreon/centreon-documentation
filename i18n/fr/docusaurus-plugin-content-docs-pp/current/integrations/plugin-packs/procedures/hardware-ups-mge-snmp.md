@@ -433,7 +433,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --warning-*       | Warning threshold. Can be: 'frequence', 'voltage', 'current'.                                                                                                       |
 | --critical-*      | Critical threshold. Can be: 'frequence', 'voltage', 'current'.                                                                                                      |
 | --warning-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{badstatus\}, %\{failcause\}                          |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{badstatus} =~ /yes/'). You can use the following variables: %\{badstatus\}, %\{failcause\}    |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{badstatus\} =~ /yes/'). You can use the following variables: %\{badstatus\}, %\{failcause\}    |
 
 </TabItem>
 <TabItem value="Output-Lines" label="Output-Lines">

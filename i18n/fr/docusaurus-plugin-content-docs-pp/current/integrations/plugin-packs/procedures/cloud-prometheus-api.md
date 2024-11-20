@@ -166,7 +166,7 @@ Une fois le Plugin installé, connectez-vous au Collecteur Centreon et utilisez 
     --hostname=amzprometheus.int.centreon.com \
     --url-path='/api/v1' --port='9090' --proto='http' \
     --filter-label='job,coredns' \
-    --warning-status='' --critical-status='%{health} !~ /up/' 
+    --warning-status='' --critical-status='%\{health\} !~ /up/' 
 ```
 
 La commande devrait retourner un message de sortie similaire à :
@@ -220,9 +220,9 @@ Voici un exemple pour illustrer comment le mode *Expression* fonctionne :
     --hostname=amzprometheus.int.centreon.com \
     --url-path='/api/v1' --port='9090' --proto='http' \
     --query='cpu_requests,sum by (node) (kube_pod_container_resource_requests_cpu_cores) / sum by (node) (kube_node_status_capacity_cpu_cores) * 100' \
-    --output='%{instance} CPU Requests: %\{cpu_requests\}%' --multiple-output='Nodes CPU Requests within bounds' \
+    --output='%\{instance\} CPU Requests: %\{cpu_requests\}%' --multiple-output='Nodes CPU Requests within bounds' \
     --instance='node' \
-    --warning-status='%{cpu_requests} > 60' --critical-status='%{cpu_requests} > 70' \
+    --warning-status='%\{cpu_requests\} > 60' --critical-status='%\{cpu_requests\} > 70' \
     --use-new-perfdata --verbose 
 ```
 
@@ -263,8 +263,8 @@ Les options `--warning-status` et `--critical-status` permettent de définir les
 Toujours dans l'exemple ci-dessus, l'alerte **WARNING** sera déclenchée quand la valeur de `cpu_requests`
 dépassera `60` et **CRITICAL** quand elle dépassera `70`.
 
-La macro `WARNINGSTATUS` vaudrait `'%{cpu_requests} > 60'`.
-La macro `CRITICALSTATUS` vaudrait `'%{cpu_requests} > 70'`.
+La macro `WARNINGSTATUS` vaudrait `'%\{cpu_requests\} > 60'`.
+La macro `CRITICALSTATUS` vaudrait `'%\{cpu_requests\} > 70'`.
 
 Notez que le label Centreon spécifié dans l'option `--query` est utilisé à nouveau pour comparer les valeurs 
 aux seuils. 

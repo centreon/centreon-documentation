@@ -115,7 +115,7 @@ l'utilisateur **centreon-engine**:
     --password='' \
     --filter-name='' \
     --warning-status='' \
-    --critical-status='%{status} !~ /GREEN/i' \
+    --critical-status='%\{status\} !~ /GREEN/i' \
     --use-new-perfdata 
 ```
 
@@ -127,7 +127,7 @@ OK: All queues are ok
 
 Dans cet exemple, une alarme de type CRITICAL sera déclenchée si le statut de la 
 queue renseignée via la macro de service FILTERNAME n'est pas égal à "GREEN".
-(`--critical-status='%{status} !~ /GREEN/i'`).
+(`--critical-status='%\{status\} !~ /GREEN/i'`).
 
 La liste de toutes les options complémentaires et leur signification peut être
 affichée en ajoutant le paramètre `--help` à la commande:

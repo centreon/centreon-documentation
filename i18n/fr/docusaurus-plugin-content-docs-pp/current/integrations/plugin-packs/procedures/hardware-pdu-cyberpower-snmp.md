@@ -194,14 +194,14 @@ yum install centreon-plugin-Hardware-Pdu-Cyberpower-Snmp
 |:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------|:-----------:|
 | WARNINGBANKCURRENT   | Thresholds                                                                                                                                                           |                                  |             |
 | CRITICALBANKCURRENT  | Thresholds                                                                                                                                                           |                                  |             |
-| WARNINGBANKSTATUS    | Define the conditions to match for the status to be WARNING (default: '%{state} =~ /low\|nearOverload/i'). You can use the following variables: %\{state\}, %\{display\} | %\{state\} =~ /low\|nearOverload/i |             |
-| CRITICALBANKSTATUS   | Define the conditions to match for the status to be CRITICAL (default: '%{state} =~ /^overload/'). You can use the following variables: %\{state\}, %\{display\}         | %\{state\} =~ /^overload/i         |             |
+| WARNINGBANKSTATUS    | Define the conditions to match for the status to be WARNING (default: '%\{state\} =~ /low\|nearOverload/i'). You can use the following variables: %\{state\}, %\{display\} | %\{state\} =~ /low\|nearOverload/i |             |
+| CRITICALBANKSTATUS   | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} =~ /^overload/'). You can use the following variables: %\{state\}, %\{display\}         | %\{state\} =~ /^overload/i         |             |
 | WARNINGPHASECURRENT  | Thresholds                                                                                                                                                           |                                  |             |
 | CRITICALPHASECURRENT | Thresholds                                                                                                                                                           |                                  |             |
 | WARNINGPHASEPOWER    | Thresholds                                                                                                                                                           |                                  |             |
 | CRITICALPHASEPOWER   | Thresholds                                                                                                                                                           |                                  |             |
-| WARNINGPHASESTATUS   | Define the conditions to match for the status to be WARNING (default: '%{state} =~ /low\|nearOverload/i'). You can use the following variables: %\{state\}, %\{display\} | %\{state\} =~ /low\|nearOverload/i |             |
-| CRITICALPHASESTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%{state} =~ /^overload/i'). You can use the following variables: %\{state\}, %\{display\}        | %\{state\} =~ /^overload/i         |             |
+| WARNINGPHASESTATUS   | Define the conditions to match for the status to be WARNING (default: '%\{state\} =~ /low\|nearOverload/i'). You can use the following variables: %\{state\}, %\{display\} | %\{state\} =~ /low\|nearOverload/i |             |
+| CRITICALPHASESTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} =~ /^overload/i'). You can use the following variables: %\{state\}, %\{display\}        | %\{state\} =~ /^overload/i         |             |
 | EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                   | --verbose                        |             |
 
 </TabItem>
@@ -211,7 +211,7 @@ yum install centreon-plugin-Hardware-Pdu-Cyberpower-Snmp
 |:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|:-----------:|
 | WARNINGCURRENT  | Thresholds                                                                                                                                                                |                    |             |
 | CRITICALCURRENT | Thresholds                                                                                                                                                                |                    |             |
-| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%{state} =~ /off/'). You can use the following variables: %\{state\}, %\{phase\}, %\{bank\}, %\{display\} | %\{state\} =~ /off/i |             |
+| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} =~ /off/'). You can use the following variables: %\{state\}, %\{phase\}, %\{bank\}, %\{display\} | %\{state\} =~ /off/i |             |
 | WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{phase\}, %\{bank\}, %\{display\}                                 |                    |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                        | --verbose          |             |
 
@@ -236,7 +236,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
 	--warning-status='' \
-	--critical-status='%{state} =~ /off/i' \
+	--critical-status='%\{state\} =~ /off/i' \
 	--warning-current='' \
 	--critical-current='' \
 	--verbose
@@ -348,11 +348,11 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option                   | Description                                                                                                                                                            |
 |:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --unknown-bank-status    | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{display\}                                                 |
-| --warning-bank-status    | Define the conditions to match for the status to be WARNING (default: '%{state} =~ /low\|nearOverload/i'). You can use the following variables: %\{state\}, %\{display\}   |
-| --critical-bank-status   | Define the conditions to match for the status to be CRITICAL (default: '%{state} =~ /^overload/'). You can use the following variables: %\{state\}, %\{display\}           |
+| --warning-bank-status    | Define the conditions to match for the status to be WARNING (default: '%\{state\} =~ /low\|nearOverload/i'). You can use the following variables: %\{state\}, %\{display\}   |
+| --critical-bank-status   | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} =~ /^overload/'). You can use the following variables: %\{state\}, %\{display\}           |
 | --unknown-phase-status   | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{display\}                                                 |
-| --warning-phase-status   | Define the conditions to match for the status to be WARNING (default: '%{state} =~ /low\|nearOverload/i'). You can use the following variables: %\{state\}, %\{display\}   |
-| --critical-phase-status  | Define the conditions to match for the status to be CRITICAL (default: '%{state} =~ /^overload/i'). You can use the following variables: %\{state\}, %\{display\}          |
+| --warning-phase-status   | Define the conditions to match for the status to be WARNING (default: '%\{state\} =~ /low\|nearOverload/i'). You can use the following variables: %\{state\}, %\{display\}   |
+| --critical-phase-status  | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} =~ /^overload/i'). You can use the following variables: %\{state\}, %\{display\}          |
 | --warning-* --critical-* | Thresholds. Can be: 'phase-current', 'phase-power', 'phase-voltage', 'bank-current'.                                                                                   |
 
 </TabItem>
@@ -362,7 +362,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %%\{state\}, %\{phase\}, %\{bank\}, %\{display\}                                  |
 | --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{phase\}, %\{bank\}, %\{display\}                                   |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{state} =~ /off/'). You can use the following variables: %\{state\}, %\{phase\}, %\{bank\}, %\{display\}   |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{state\} =~ /off/'). You can use the following variables: %\{state\}, %\{phase\}, %\{bank\}, %\{display\}   |
 | --warning-* --critical-* | Thresholds. Can be: 'current'.                                                                                                                                              |
 
 </TabItem>

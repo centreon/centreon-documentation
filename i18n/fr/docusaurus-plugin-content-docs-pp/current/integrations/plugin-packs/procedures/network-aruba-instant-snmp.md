@@ -203,7 +203,7 @@ yum install centreon-plugin-Network-Aruba-Instant-Snmp
 | CRITICALMEMUSAGEFREE | Thresholds                                                                                                                                               |                    |             |
 | WARNINGMEMUSAGEPRCT  | Thresholds                                                                                                                                               |                    |             |
 | CRITICALMEMUSAGEPRCT | Thresholds                                                                                                                                               |                    |             |
-| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /up/i'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} !~ /up/i |             |
+| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /up/i'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} !~ /up/i |             |
 | WARNINGSTATUS        | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{display\}                    |                    |             |
 | EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                       | --verbose          |             |
 
@@ -213,7 +213,7 @@ yum install centreon-plugin-Network-Aruba-Instant-Snmp
 | Macro          | Description                                                                                                                                                  | Valeur par défaut      | Obligatoire |
 |:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
 | FILTERNAME     | Filter SSID name (can be a regexp)                                                                                                                           |                        |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /enable/i'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} !~ /enable/i |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /enable/i'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} !~ /enable/i |             |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{display\}                        |                        |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                           | --verbose              |             |
 
@@ -239,7 +239,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--snmp-community='my-snmp-community'  \
 	--filter-name='' \
 	--warning-status='' \
-	--critical-status='%{status} !~ /up/i' \
+	--critical-status='%\{status\} !~ /up/i' \
 	--warning-cpu='' \
 	--critical-cpu='' \
 	--warning-clients='' \
@@ -361,7 +361,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='^cpu$'                                                                        |
 | --filter-name            | Filter access point name (can be a regexp).                                                                                                                |
 | --warning-status         | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{display\}                      |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /up/i'). You can use the following variables: %\{status\}, %\{display\}   |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /up/i'). You can use the following variables: %\{status\}, %\{display\}   |
 | --warning-* --critical-* | Thresholds. Can be: 'total-ap', 'cpu', 'clients', 'mem-usage' (B), 'mem-usage-free' (B), 'mem-usage-prct' (%).                                             |
 
 </TabItem>
@@ -371,7 +371,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-name     | Filter SSID name (can be a regexp).                                                                                                                             |
 | --warning-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{display\}                           |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /enable/i'). You can use the following variables: %\{status\}, %\{display\}    |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /enable/i'). You can use the following variables: %\{status\}, %\{display\}    |
 
 </TabItem>
 </Tabs>

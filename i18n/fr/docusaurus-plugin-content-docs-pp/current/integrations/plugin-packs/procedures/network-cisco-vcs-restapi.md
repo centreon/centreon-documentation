@@ -328,7 +328,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--filter-counters='' \
 	--filter-zone-name='' \
 	--warning-status='' \
-	--critical-status='%{status} ne "Active"' \
+	--critical-status='%\{status\} ne "Active"' \
 	--warning-zone-calls-current='' \
 	--critical-zone-calls-current='' \
 	--warning-searches-total='' \
@@ -485,7 +485,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-counters        | Only display some counters (regexp can be used). (example: --filter-counters='responses')                                                                                                                                                     |
 | --warning-* --critical-* | Threshold. Can be: 'connections-client', 'connections-server', 'requests-completed', 'requests-get', 'requests-post', 'responses-1xx', 'responses-2xx', 'responses-3xx', 'responses-4xx', 'responses-5xx'.                                    |
 | --warning-status         | Define the conditions to match for the status to be WARNING. Can use special variables like: %\{status\}.                                                                                                                                       |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} ne "Active"'). Can use special variables like: %\{status\}.                                                                                                   |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} ne "Active"'). Can use special variables like: %\{status\}.                                                                                                   |
 
 </TabItem>
 <TabItem value="Zones" label="Zones">
@@ -507,7 +507,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-zone-name       | Filter zones by name (can be a regexp).                                                                                                                                                                                                       |
 | --warning-* --critical-* | Thresholds. Can be: 'zones-count', 'zone-calls-current', 'searches-total', 'searches-dropped', 'searches-maxsub-exceeded', 'searches-maxtargets-exceeded'.                                                                                    |
 | --warning-status         | Define the conditions to match for the status to be WARNING. (default: ''). Can use special variables like: %\{status\}, %\{type\}, %\{name\}.                                                                                                      |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL. (default: '%{status} ne "Active"'). Can use special variables like: %\{status\}, %\{type\}, %\{name\}.                                                                                |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL. (default: '%\{status\} ne "Active"'). Can use special variables like: %\{status\}, %\{type\}, %\{name\}.                                                                                |
 
 </TabItem>
 </Tabs>

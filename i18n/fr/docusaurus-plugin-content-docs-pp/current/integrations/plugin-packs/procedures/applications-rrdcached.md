@@ -302,8 +302,8 @@ yum install centreon-plugin-Applications-RRDCached
 
 | Macro            | Description                                                                                        | Valeur par défaut     | Obligatoire |
 |:-----------------|:---------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
-| CRITICALRESPONSE | Define the conditions to match for the status to be CRITICAL. You can use the variable '%{response}'. | %\{response\} !~ /PONG/ |             |
-| WARNINGRESPONSE  | Define the conditions to match for the status to be WARNING. You can use the variable '%{response}'.  |                       |             |
+| CRITICALRESPONSE | Define the conditions to match for the status to be CRITICAL. You can use the variable '%\{response\}'. | %\{response\} !~ /PONG/ |             |
+| WARNINGRESPONSE  | Define the conditions to match for the status to be WARNING. You can use the variable '%\{response\}'.  |                       |             |
 | EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose             |             |
 
 </TabItem>
@@ -451,8 +451,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option | Description |
 |:-------|:------------|
-| --warning-response | Define the conditions to match for the status to be WARNING. You can use the variable '%{response}'. |
-| --critical-response | Define the conditions to match for the status to be CRITICAL.  You can use the variable '%{response}'. Default: '%{response} !~ /PONG/'. |
+| --warning-response | Define the conditions to match for the status to be WARNING. You can use the variable '%\{response\}'. |
+| --critical-response | Define the conditions to match for the status to be CRITICAL.  You can use the variable '%\{response\}'. Default: '%\{response\} !~ /PONG/'. |
 
 </TabItem>
 <TabItem value="Stats*" label="Stats*">

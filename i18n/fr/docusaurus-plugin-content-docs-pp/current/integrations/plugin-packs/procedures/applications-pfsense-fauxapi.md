@@ -223,7 +223,7 @@ yum install centreon-plugin-Applications-Pfsense-Fauxapi
 | CRITICALPACKETSLOSS   | Thresholds                                                                                                                                                 |                      |             |
 | WARNINGPACKETSSTDDEV  | Thresholds                                                                                                                                                 |                      |             |
 | CRITICALPACKETSSTDDEV | Thresholds                                                                                                                                                 |                      |             |
-| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /none/i'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} !~ /none/i |             |
+| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /none/i'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} !~ /none/i |             |
 | WARNINGSTATUS         | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{display\}                      |                      |             |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                         |                      |             |
 
@@ -390,7 +390,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-name            | Filter gateway name (can be a regexp).                                                                                                                       |
 | --unknown-status         | Define the conditions to match for the status to be UNKNOWN (default: ''). You can use the following variables: %\{status\}, %\{display\}                        |
 | --warning-status         | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{display\}                        |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /none/i'). You can use the following variables: %\{status\}, %\{display\}   |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /none/i'). You can use the following variables: %\{status\}, %\{display\}   |
 | --warning-* --critical-* | Thresholds. Can be: 'packets-delay' (ms), 'packets-loss' (%), 'packets-stddev' (ms).                                                                         |
 
 </TabItem>

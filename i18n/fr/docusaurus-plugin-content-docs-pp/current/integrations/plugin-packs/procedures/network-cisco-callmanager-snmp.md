@@ -234,7 +234,7 @@ yum install centreon-plugin-Network-Cisco-Callmanager-Snmp
 | CRITICALPHONESREJECTED           | Thresholds                                                                                                                                              |                   |             |
 | WARNINGPHONESUNREGISTERED        | Thresholds                                                                                                                                              |                   |             |
 | CRITICALPHONESUNREGISTERED       | Thresholds                                                                                                                                              |                   |             |
-| CRITICALSTATUS                   | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /up/'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} !~ /up/ |             |
+| CRITICALSTATUS                   | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /up/'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} !~ /up/ |             |
 | WARNINGSTATUS                    | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{display\}                   |                   |             |
 | EXTRAOPTIONS                     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                      |                   |             |
 
@@ -243,7 +243,7 @@ yum install centreon-plugin-Network-Cisco-Callmanager-Snmp
 
 | Macro                            | Description                                                                                                                                                      | Valeur par défaut          | Obligatoire |
 |:---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:-----------:|
-| CRITICALSTATUS                   | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /^registered/'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} !~ /^registered/ |             |
+| CRITICALSTATUS                   | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /^registered/'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} !~ /^registered/ |             |
 | WARNINGSTATUS                    | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{display\}                            |                            |             |
 | WARNINGTOTALPARTIALLYREGISTERED  | Warning threshold                                                                                                                                                                 |                            |             |
 | CRITICALTOTALPARTIALLYREGISTERED | Critical threshold                                                                                                                                               |                            |             |
@@ -262,7 +262,7 @@ yum install centreon-plugin-Network-Cisco-Callmanager-Snmp
 
 | Macro                            | Description                                                                                                                                                      | Valeur par défaut          | Obligatoire |
 |:---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:-----------:|
-| CRITICALSTATUS                   | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /^registered/'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} !~ /^registered/ |             |
+| CRITICALSTATUS                   | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /^registered/'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} !~ /^registered/ |             |
 | WARNINGSTATUS                    | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{display\}                            |                            |             |
 | WARNINGTOTALPARTIALLYREGISTERED  | Warning threshold                                                                                                                                                                 |                            |             |
 | CRITICALTOTALPARTIALLYREGISTERED | Critical threshold                                                                                                                                               |                            |             |
@@ -281,7 +281,7 @@ yum install centreon-plugin-Network-Cisco-Callmanager-Snmp
 
 | Macro                            | Description                                                                                                                                                                   | Valeur par défaut          | Obligatoire |
 |:---------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:-----------:|
-| CRITICALSTATUS                   | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /^registered/'). You can use the following variables: %\{status\}, %\{name\}, %\{description\} | %\{status\} !~ /^registered/ |             |
+| CRITICALSTATUS                   | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /^registered/'). You can use the following variables: %\{status\}, %\{name\}, %\{description\} | %\{status\} !~ /^registered/ |             |
 | WARNINGSTATUS                    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}, %\{description\}                                          |                            |             |
 | WARNINGTOTALPARTIALLYREGISTERED  | Thresholds                                                                                                                                                                    |                            |             |
 | CRITICALTOTALPARTIALLYREGISTERED | Thresholds                                                                                                                                                                    |                            |             |
@@ -316,7 +316,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--snmp-version='2c' \
 	--snmp-community='my-snmp-community'  \
 	--warning-status='' \
-	--critical-status='%{status} !~ /^registered/' \
+	--critical-status='%\{status\} !~ /^registered/' \
 	--warning-total-registered='' \
 	--critical-total-registered='' \
 	--warning-total-unregistered='' \
@@ -440,7 +440,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='phone'                                                                                                                                                          |
 | --warning-status         | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{display\}                                                                                                        |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /up/'). You can use the following variables: %\{status\}, %\{display\}                                                                                      |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /up/'). You can use the following variables: %\{status\}, %\{display\}                                                                                      |
 | --warning-* --critical-* | Thresholds.  Can be: 'phones-registered', 'phones-unregistered', 'phones-rejected', 'gateways-registered', 'gateways-unregistered', 'gateways-rejected', 'mediadevices-registered', 'mediadevices-unregistered', 'mediadevices-rejected'.    |
 
 </TabItem>
@@ -450,7 +450,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters | Only display some counters (regexp can be used). Example: --filter-counters='status'                                                                               |
 | --warning-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{display\}                              |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /^registered/'). You can use the following variables: %\{status\}, %\{display\}   |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /^registered/'). You can use the following variables: %\{status\}, %\{display\}   |
 | --warning-*       | Warning threshold.                                                                                                                                                 |
 | --critical-*      | Critical threshold.  Can be: 'total-registered', 'total-unregistered', 'total-rejected', 'total-unknown', 'total-partiallyregistered'.                             |
 
@@ -461,7 +461,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-counters | Only display some counters (regexp can be used). Example: --filter-counters='status'                                                                               |
 | --warning-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}, %\{display\}                              |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /^registered/'). You can use the following variables: %\{status\}, %\{display\}   |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /^registered/'). You can use the following variables: %\{status\}, %\{display\}   |
 | --warning-*       | Warning threshold.                                                                                                                                                 |
 | --critical-*      | Critical threshold.  Can be: 'total-registered', 'total-unregistered', 'total-rejected', 'total-unknown', 'total-partiallyregistered'.                             |
 
@@ -474,7 +474,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-name            | Filter phone by name (can be a regexp).                                                                                                                                         |
 | --filter-description     | Filter phone by description (can be a regexp).                                                                                                                                  |
 | --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}, %\{description\}                                            |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /^registered/'). You can use the following variables: %\{status\}, %\{name\}, %\{description\}   |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /^registered/'). You can use the following variables: %\{status\}, %\{name\}, %\{description\}   |
 | --warning-* --critical-* | Thresholds.  Can be: 'total-registered', 'total-unregistered', 'total-rejected', 'total-unknown', 'total-partiallyregistered'.                                                  |
 
 </TabItem>

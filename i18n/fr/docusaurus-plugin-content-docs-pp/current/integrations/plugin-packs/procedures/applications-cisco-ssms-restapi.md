@@ -198,7 +198,7 @@ yum install centreon-plugin-Applications-Cisco-Ssms-Restapi
 | ACCOUNT               | Check account name (required. Multiple option)                                                                                                                      |                               | X           |
 | FILTERCOUNTERS        | Only display some counters (regexp can be used). Example: --filter-counters='status'                                                                                |                               |             |
 | FILTERLICENSENAME     | Filter license name (can be a regexp)                                                                                                                               |                               |             |
-| CRITICALLICENSESTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /in compliance/i'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} !~ /in compliance/i |             |
+| CRITICALLICENSESTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /in compliance/i'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} !~ /in compliance/i |             |
 | WARNINGLICENSESTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}                                             |                               |             |
 | WARNINGUSAGE          | Thresholds                                                                                                                                                          |                               |             |
 | CRITICALUSAGE         | Thresholds                                                                                                                                                          |                               |             |
@@ -234,7 +234,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--filter-counters= \
 	--filter-license-name='' \
 	--warning-license-status='' \
-	--critical-license-status='%{status} !~ /in compliance/i' \
+	--critical-license-status='%\{status\} !~ /in compliance/i' \
 	--warning-usage='' \
 	--critical-usage='' \
 	--warning-usage-free='' \
@@ -367,7 +367,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-license-name     | Filter license name (can be a regexp).                                                                                                                                |
 | --unknown-license-status  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{display\}                                               |
 | --warning-license-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}                                               |
-| --critical-license-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /in compliance/i'). You can use the following variables: %\{status\}, %\{display\}   |
+| --critical-license-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /in compliance/i'). You can use the following variables: %\{status\}, %\{display\}   |
 | --warning-* --critical-*  | Thresholds. Can be: 'usage' (B), 'usage-free' (B), 'usage-prct' (%).                                                                                                  |
 
 </TabItem>

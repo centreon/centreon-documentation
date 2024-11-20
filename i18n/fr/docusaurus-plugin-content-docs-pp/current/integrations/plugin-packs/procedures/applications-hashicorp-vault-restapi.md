@@ -196,9 +196,9 @@ yum install centreon-plugin-Applications-HashiCorp-Vault-Restapi
 
 | Macro              | Description                                                                                        | Valeur par défaut        | Obligatoire |
 |:-------------------|:---------------------------------------------------------------------------------------------------|:-------------------------|:-----------:|
-| CRITICALINITSTATUS | Set critical threshold for initialization status (default: '%{init} ne "initialized"')             | %\{init\} ne "initialized" |             |
+| CRITICALINITSTATUS | Set critical threshold for initialization status (default: '%\{init\} ne "initialized"')             | %\{init\} ne "initialized" |             |
 | WARNINGINITSTATUS  | Set warning threshold for initialization status (default: none)                                    |                          |             |
-| CRITICALSEALSTATUS | Set critical threshold for seal status (default: '%{sealed} ne "unsealed"')                        | %\{sealed\} ne "unsealed"  |             |
+| CRITICALSEALSTATUS | Set critical threshold for seal status (default: '%\{sealed\} ne "unsealed"')                        | %\{sealed\} ne "unsealed"  |             |
 | WARNINGSEALSTATUS  | Set warning threshold for seal status (default: none)                                              |                          |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                |             |
 
@@ -363,9 +363,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option                 | Description                                                                                |
 |:-----------------------|:-------------------------------------------------------------------------------------------|
 | --warning-seal-status  | Set warning threshold for seal status (default: none).                                     |
-| --critical-seal-status | Set critical threshold for seal status (default: '%{sealed} ne "unsealed"').               |
+| --critical-seal-status | Set critical threshold for seal status (default: '%\{sealed\} ne "unsealed"').               |
 | --warning-init-status  | Set warning threshold for initialization status (default: none).                           |
-| --critical-init-status | Set critical threshold for initialization status (default: '%{init} ne "initialized"').    |
+| --critical-init-status | Set critical threshold for initialization status (default: '%\{init\} ne "initialized"').    |
 
 </TabItem>
 <TabItem value="Raft-Storage" label="Raft-Storage">

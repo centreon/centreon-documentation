@@ -213,8 +213,8 @@ yum install centreon-plugin-Hardware-Ats-Apc-Snmp
 | CRITICALLOADCAPACITY | Critical threshold                                                                                                                                                         |                                      |             |
 | WARNINGPOWER         | Warning threshold                                                                                                                                                          |                                      |             |
 | CRITICALPOWER        | Critical threshold                                                                                                                                                         |                                      |             |
-| WARNINGSTATUS        | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /nearoverload/'). You can use the following variables: %\{status\}, %\{display\}           | %\{status\} =~ /nearoverload/          |             |
-| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /^(lowload\|overload)$/'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} =~ /^(lowload\|overload)$/ |             |
+| WARNINGSTATUS        | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /nearoverload/'). You can use the following variables: %\{status\}, %\{display\}           | %\{status\} =~ /nearoverload/          |             |
+| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /^(lowload\|overload)$/'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} =~ /^(lowload\|overload)$/ |             |
 | WARNINGVOLTAGE       | Warning threshold                                                                                                                                                          |                                      |             |
 | CRITICALVOLTAGE      | Critical threshold                                                                                                                                                         |                                      |             |
 | EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                         | --verbose                            |             |
@@ -378,8 +378,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-counters | Only display some counters (regexp can be used). Example: --filter-counters='^power$'                                                                                         |
 | --warning-*       | Warning threshold. Can be: 'voltage', 'current', 'power', 'load', 'load-capacity'.                                                                                            |
 | --critical-*      | Critical threshold. Can be: 'voltage', 'current', 'power', 'load', 'load-capacity'.                                                                                           |
-| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /nearoverload/'). You can use the following variables: %\{status\}, %\{display\}              |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /^(lowload\|overload)$/'). You can use the following variables: %\{status\}, %\{display\}    |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /nearoverload/'). You can use the following variables: %\{status\}, %\{display\}              |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /^(lowload\|overload)$/'). You can use the following variables: %\{status\}, %\{display\}    |
 
 </TabItem>
 </Tabs>

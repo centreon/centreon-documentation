@@ -215,7 +215,7 @@ yum install centreon-plugin-Network-Fortinet-Fortigate-Restapi
 | Macro          | Description                                                                                                                                                | Valeur par défaut       | Obligatoire |
 |:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------|:-----------:|
 | FILTERVDOM     | Filter vdom by name                                                                                                                                        |                         |             |
-| CRITICALHEALTH | Define the conditions to match for the status to be CRITICAL (Default: '%{status} !~ /success/i'). You can use the following variables: %\{status\}, %\{name\} | %\{status\} !~ /success/i |             |
+| CRITICALHEALTH | Define the conditions to match for the status to be CRITICAL (Default: '%\{status\} !~ /success/i'). You can use the following variables: %\{status\}, %\{name\} | %\{status\} !~ /success/i |             |
 | WARNINGHEALTH  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}                                       |                         |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                        | --verbose               |             |
 
@@ -228,7 +228,7 @@ yum install centreon-plugin-Network-Fortinet-Fortigate-Restapi
 | UNIT            | Select the time unit for thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds              |                         |             |
 | WARNINGEXPIRES  | Thresholds                                                                                                                                                 |                         |             |
 | CRITICALEXPIRES | Thresholds                                                                                                                                                 |                         |             |
-| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL (Default: '%{status} =~ /expired/i'). You can use the following variables: %\{name\}, %\{status\} | %\{status\} =~ /expired/i |             |
+| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL (Default: '%\{status\} =~ /expired/i'). You can use the following variables: %\{name\}, %\{status\} | %\{status\} =~ /expired/i |             |
 | WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{name\}, %\{status\}                                       |                         |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                        | --verbose               |             |
 
@@ -386,7 +386,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-vdom     | Filter vdom by name.                                                                                                                                          |
 | --unknown-health  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{name\}                                          |
 | --warning-health  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}                                          |
-| --critical-health | Define the conditions to match for the status to be CRITICAL (Default: '%{status} !~ /success/i'). You can use the following variables: %\{status\}, %\{name\}    |
+| --critical-health | Define the conditions to match for the status to be CRITICAL (Default: '%\{status\} !~ /success/i'). You can use the following variables: %\{status\}, %\{name\}    |
 
 </TabItem>
 <TabItem value="Licenses" label="Licenses">
@@ -395,7 +395,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-name            | Filter licenses by name (can be a regexp).                                                                                                                    |
 | --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{name\}, %\{status\}.                                         |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (Default: '%{status} =~ /expired/i'). You can use the following variables: %\{name\}, %\{status\}.   |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (Default: '%\{status\} =~ /expired/i'). You can use the following variables: %\{name\}, %\{status\}.   |
 | --unit                   | Select the unit for expires threshold. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds.                |
 | --warning-* --critical-* | Thresholds. Can be: 'expires'.                                                                                                                                |
 

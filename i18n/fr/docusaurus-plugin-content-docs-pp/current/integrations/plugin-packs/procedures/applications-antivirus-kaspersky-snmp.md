@@ -151,7 +151,7 @@ de commande depuis un collecteur Centreon en vous connectant avec l'utilisateur
 /usr/lib/centreon/plugins//centreon_kaspersky_snmp.pl \
   --plugin=apps::antivirus::kaspersky::snmp::plugin --mode=protection \
   --hostname=10.0.0.1 --snmp-version='2c' --snmp-community='kaseprsky_ro' \
-  --warning-status='%{status} =~ /Warning/i' --critical-status='%{status} =~ /Critical/i'
+  --warning-status='%\{status\} =~ /Warning/i' --critical-status='%\{status\} =~ /Critical/i'
   --warning-no-antivirus='0' --critical-no-antivirus='' --warning-no-real-time='0' --critical-no-real-time='' \
   --warning-not-acceptable-level='0' --critical-not-acceptable-level='' \
   --warning-not-cured-objects='0' --critical-not-cured-objects='' \
@@ -173,7 +173,7 @@ protocole SNMP
 (```--hostname='10.0.0.1'  --snmp-version='2c' --snmp-community='kaseprsky_ro'```).
 
 Dans cet exemple, une alarme est déclenchée si le statut global de la protection est différent de 'OK' 
-(```--warning-status='%{status} =~ /Warning/i'``` et ```--critical-status='%{status} =~ /Critical/i'```) 
+(```--warning-status='%\{status\} =~ /Warning/i'``` et ```--critical-status='%\{status\} =~ /Critical/i'```) 
 ou alors que le nombre de PC sans protection ou avec une protection insuffisante est supérieur à 0 (```--warning-no-antivirus='0'```).
 
 La liste de toutes les options complémentaires et leur signification

@@ -223,7 +223,7 @@ yum install centreon-plugin-Applications-Pacemaker-Ssh
 | CRITICALCLONERESOURCEACTIONSFAILED   | Thresholds                                                                                                                                                                                                                   |                                    |             |
 | WARNINGCLONERESOURCEMIGRATIONFAILED  | Thresholds                                                                                                                                                                                                                   |                                    |             |
 | CRITICALCLONERESOURCEMIGRATIONFAILED | Thresholds                                                                                                                                                                                                                   |                                    |             |
-| CRITICALCLONERESOURCESTATUS          | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /failed/i'). You can use the following variables: %\{name\}, %\{status\}, %{masters\_nodes\_name}, %{slaves\_nodes\_name}, %\{is_unmanaged\} | %\{status\} =~ /failed/i             |             |
+| CRITICALCLONERESOURCESTATUS          | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /failed/i'). You can use the following variables: %\{name\}, %\{status\}, %{masters\_nodes\_name}, %{slaves\_nodes\_name}, %\{is_unmanaged\} | %\{status\} =~ /failed/i             |             |
 | WARNINGCLONERESOURCESTATUS           | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{name\}, %\{status\}, %{masters\_nodes\_name}, %{slaves\_nodes\_name}, %\{is_unmanaged\}                                      |                                    |             |
 | CRITICALCLUSTERACTIONSFAILED         | Thresholds                                                                                                                                                                                                                   | 0                                  |             |
 | WARNINGCLUSTERACTIONSFAILED          | Thresholds                                                                                                                                                                                                                   |                                    |             |
@@ -241,7 +241,7 @@ yum install centreon-plugin-Applications-Pacemaker-Ssh
 | CRITICALRESOURCEACTIONSFAILED        | Thresholds                                                                                                                                                                                                                   |                                    |             |
 | CRITICALRESOURCEMIGRATIONFAILED      | Thresholds                                                                                                                                                                                                                   | 0                                  |             |
 | WARNINGRESOURCEMIGRATIONFAILED       | Thresholds                                                                                                                                                                                                                   |                                    |             |
-| CRITICALRESOURCESTATUS               | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /stopped\|failed/i'). You can use the following variables: %\{name\}, %\{status\}, %\{node\}, %\{is_unmanaged\}                                | %\{status\} =~ /stopped\|failed/i    |             |
+| CRITICALRESOURCESTATUS               | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /stopped\|failed/i'). You can use the following variables: %\{name\}, %\{status\}, %\{node\}, %\{is_unmanaged\}                                | %\{status\} =~ /stopped\|failed/i    |             |
 | WARNINGRESOURCESTATUS                | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{name\}, %\{status\}, %\{node\}, %\{is_unmanaged\}                                                                              |                                    |             |
 | EXTRAOPTIONS                         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                           | --verbose                          |             |
 
@@ -292,23 +292,23 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--warning-nodes-standby='' \
 	--critical-nodes-standby='' \
 	--warning-clone-resource-status='' \
-	--critical-clone-resource-status='%{status} =~ /failed/i' \
+	--critical-clone-resource-status='%\{status\} =~ /failed/i' \
 	--warning-clone-resource-actions-failed='' \
 	--critical-clone-resource-actions-failed='' \
 	--warning-clone-resource-migration-failed='' \
 	--critical-clone-resource-migration-failed='' \
 	--warning-connection-status='' \
-	--critical-connection-status='%{connection_status} =~ /failed/i' \
+	--critical-connection-status='%\{connection_status\} =~ /failed/i' \
 	--warning-cluster-actions-failed='' \
 	--critical-cluster-actions-failed='0' \
 	--warning-resource-status='' \
-	--critical-resource-status='%{status} =~ /stopped|failed/i' \
+	--critical-resource-status='%\{status\} =~ /stopped|failed/i' \
 	--warning-resource-actions-failed='' \
 	--critical-resource-actions-failed='' \
 	--warning-resource-migration-failed='' \
 	--critical-resource-migration-failed='0' \
 	--warning-quorum-status='' \
-	--critical-quorum-status='%{quorum_status} =~ /noQuorum/i' \
+	--critical-quorum-status='%\{quorum_status\} =~ /noQuorum/i' \
 	--verbose
 ```
 
@@ -420,9 +420,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --warning-quorum-status          | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{quorum_status\}                                                                                                            |
 | --critical-quorum-status         | Define the conditions to match for the status to be CRITICAL (default: '%\{quorum_status\} =~ /noQuorum/i'). You can use the following variables: %\{quorum_status\}                                                             |
 | --warning-resource-status        | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{name\}, %\{status\}, %\{node\}, %\{is_unmanaged\}                                                                                |
-| --critical-resource-status       | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /stopped\|failed/i'). You can use the following variables: %\{name\}, %\{status\}, %\{node\}, %\{is_unmanaged\}                                  |
+| --critical-resource-status       | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /stopped\|failed/i'). You can use the following variables: %\{name\}, %\{status\}, %\{node\}, %\{is_unmanaged\}                                  |
 | --warning-clone-resource-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{name\}, %\{status\}, %{masters\_nodes\_name}, %{slaves\_nodes\_name}, %\{is_unmanaged\}                                        |
-| --critical-clone-resource-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /failed/i'). You can use the following variables: %\{name\}, %\{status\}, %{masters\_nodes\_name}, %{slaves\_nodes\_name}, %\{is_unmanaged\}   |
+| --critical-clone-resource-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /failed/i'). You can use the following variables: %\{name\}, %\{status\}, %{masters\_nodes\_name}, %{slaves\_nodes\_name}, %\{is_unmanaged\}   |
 | --ignore-failed-actions          | Failed actions errors (that match) are skipped.                                                                                                                                                                                |
 | --resources                      | If resources not started on the node specified, send a warning message: (format: \<rsc\_name\>:\<node\>,\<rsc\_name\>:\<node\>,...)                                                                                            |
 | --warning-* --critical-*         | Thresholds. Can be: 'cluster-actions-failed', 'clone-resource-actions-failed', 'clone-resource-migration-failed', 'nodes-online', 'nodes-offline', 'nodes-standby', 'resource-actions-failed', 'resource-migration-failed'.    |
@@ -433,7 +433,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option       | Description                                                                                                                                                                                      |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --warning-*  | Can be ('group','node') Define the conditions to match for the status to be WARNING.                                                                                                             |
-| --critical-* | Can be ('group','node') Define the conditions to match for the status to be CRITICAL. (default: --critical-node '%{state} !~ /up\|clean/' --critical-group '%{state} !~ /started\|starting/')    |
+| --critical-* | Can be ('group','node') Define the conditions to match for the status to be CRITICAL. (default: --critical-node '%\{state\} !~ /up\|clean/' --critical-group '%\{state\} !~ /started\|starting/')    |
 
 </TabItem>
 <TabItem value="Constraints" label="Constraints">

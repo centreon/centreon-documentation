@@ -209,15 +209,15 @@ yum install centreon-plugin-Hardware-Ups-Riello-Snmp
 
 | Macro                          | Description                                                                                                                                        | Valeur par défaut        | Obligatoire |
 |:-------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:-----------:|
-| UNKNOWNSTATUS                  | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} =~ /unknown/i'). You can use the following variables: %\{status\}   | %\{status\} =~ /unknown/i  |             |
+| UNKNOWNSTATUS                  | Define the conditions to match for the status to be UNKNOWN (Default: '%\{status\} =~ /unknown/i'). You can use the following variables: %\{status\}   | %\{status\} =~ /unknown/i  |             |
 | WARNINGCHARGEREMAINING         | Thresholds                                                                                                                                         |                          |             |
 | CRITICALCHARGEREMAINING        | Thresholds                                                                                                                                         |                          |             |
 | WARNINGCHARGEREMAININGMINUTES  | Thresholds                                                                                                                                         |                          |             |
 | CRITICALCHARGEREMAININGMINUTES | Thresholds                                                                                                                                         |                          |             |
 | WARNINGCURRENT                 | Thresholds                                                                                                                                         |                          |             |
 | CRITICALCURRENT                | Thresholds                                                                                                                                         |                          |             |
-| WARNINGSTATUS                  | Define the conditions to match for the status to be WARNING (Default: '%{status} =~ /low/i'). You can use the following variables: %\{status\}       | %\{status\} =~ /low/i      |             |
-| CRITICALSTATUS                 | Define the conditions to match for the status to be CRITICAL (Default: '%{status} =~ /depleted/i'). You can use the following variables: %\{status\} | %\{status\} =~ /depleted/i |             |
+| WARNINGSTATUS                  | Define the conditions to match for the status to be WARNING (Default: '%\{status\} =~ /low/i'). You can use the following variables: %\{status\}       | %\{status\} =~ /low/i      |             |
+| CRITICALSTATUS                 | Define the conditions to match for the status to be CRITICAL (Default: '%\{status\} =~ /depleted/i'). You can use the following variables: %\{status\} | %\{status\} =~ /depleted/i |             |
 | WARNINGTEMPERATURE             | Thresholds                                                                                                                                         |                          |             |
 | CRITICALTEMPERATURE            | Thresholds                                                                                                                                         |                          |             |
 | WARNINGVOLTAGE                 | Thresholds                                                                                                                                         |                          |             |
@@ -389,9 +389,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option                   | Description                                                                                                                                          |
 |:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (Default: '%{status} =~ /unknown/i'). You can use the following variables: %\{status\}     |
-| --warning-status         | Define the conditions to match for the status to be WARNING (Default: '%{status} =~ /low/i'). You can use the following variables: %\{status\}         |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (Default: '%{status} =~ /depleted/i'). You can use the following variables: %\{status\}   |
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (Default: '%\{status\} =~ /unknown/i'). You can use the following variables: %\{status\}     |
+| --warning-status         | Define the conditions to match for the status to be WARNING (Default: '%\{status\} =~ /low/i'). You can use the following variables: %\{status\}         |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (Default: '%\{status\} =~ /depleted/i'). You can use the following variables: %\{status\}   |
 | --warning-* --critical-* | Thresholds. Can be: 'charge-remaining' (%), 'charge-remaining-minutes', 'current' (A), 'voltage' (V), 'temperature' (C).                             |
 
 </TabItem>

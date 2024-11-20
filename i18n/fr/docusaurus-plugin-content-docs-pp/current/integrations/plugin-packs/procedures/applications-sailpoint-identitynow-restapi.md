@@ -208,7 +208,7 @@ yum install centreon-plugin-Applications-Sailpoint-Identitynow-Restapi
 | SOURCEID                 | Define source ID to retrieve only one source health status (useful with service discovery)              |                                     |             |
 | FILTERNAME               | Filter source name (Can be a regexp)                                                                    |                                     |             |
 | FILTERTYPE               | Filter source type (Can be a regexp)                                                                    |                                     |             |
-| CRITICALHEALTHSTATUS     | Set critical threshold for each source health status (Default: '%{status} ne "SOURCE\_STATE\_HEALTHY"') | %\{status\} ne "SOURCE_STATE_HEALTHY" |             |
+| CRITICALHEALTHSTATUS     | Set critical threshold for each source health status (Default: '%\{status\} ne "SOURCE\_STATE\_HEALTHY"') | %\{status\} ne "SOURCE_STATE_HEALTHY" |             |
 | WARNINGHEALTHSTATUS      | Set warning threshold for each source health status (Default: none)                                     |                                     |             |
 | WARNINGSOURCESERROR      | Set threshold for each status counter                                                                   |                                     |             |
 | CRITICALSOURCESERROR     | Set threshold for each status counter                                                                   |                                     |             |
@@ -375,7 +375,7 @@ Les options spécifiques aux modes sont listées ci-dessous :
 | --filter-name                            | Filter source name (Can be a regexp).                                                                      | Mode |
 | --filter-type                            | Filter source type (Can be a regexp).                                                                      | Mode |
 | --warning-health-status                  | Set warning threshold for each source health status (Default: none).                                       | Mode |
-| --critical-health-status                 | Set critical threshold for each source health status (Default: '%{status} ne "SOURCE\_STATE\_HEALTHY"').   | Mode |
+| --critical-health-status                 | Set critical threshold for each source health status (Default: '%\{status\} ne "SOURCE\_STATE\_HEALTHY"').   | Mode |
 | --warning-sources-* --critical-sources-* | Set threshold for each status counter. Can be: 'healthy', 'error', 'failure', 'unchecked'.                 | Mode |
 
 </TabItem>

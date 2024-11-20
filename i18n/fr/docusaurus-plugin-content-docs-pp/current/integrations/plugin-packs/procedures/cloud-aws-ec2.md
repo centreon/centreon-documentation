@@ -395,7 +395,7 @@ yum install centreon-plugin-Cloud-Aws-Ec2-Api
 | FILTERASG         | Filter by autoscaling group name (can be a regexp)                                                                                                                      | .*                                                    |             |
 | WARNINGCOUNT      | Warning threshold about number of instances in the autoscaling group                                                                                                    |                                                       |             |
 | CRITICALCOUNT     | Critical threshold about number of instances in the autoscaling group                                                                                                   |                                                       |             |
-| CRITICALINSTANCES | Set critical threshold for instances states (Default: '%{health} =~ /Healthy/ && %\{lifecycle\} !~ /InService/'). Can use special variables like: %\{health\}, %\{lifecycle\} | %\{health\} =~ /Healthy/ && %\{lifecycle\} !~ /InService/ |             |
+| CRITICALINSTANCES | Set critical threshold for instances states (Default: '%\{health\} =~ /Healthy/ && %\{lifecycle\} !~ /InService/'). Can use special variables like: %\{health\}, %\{lifecycle\} | %\{health\} =~ /Healthy/ && %\{lifecycle\} !~ /InService/ |             |
 | WARNINGINSTANCES  | Define the conditions to match for the status to be WARNING (Default: ''). Can use special variables like: %\{health\}, %\{lifecycle\}                                      |                                                       |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                     | --verbose                                             |             |
 
@@ -516,7 +516,7 @@ yum install centreon-plugin-Cloud-Aws-Ec2-Api
 | Macro          | Description                                                                                                                                                                           | Valeur par défaut | Obligatoire |
 |:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}. 'status' can be: 'passed', 'failed'                                      |                   |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%{status} =~ /failed/i'). You can use the following variables: %\{status\}. 'status' can be: 'passed', 'failed' |                   |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: '%\{status\} =~ /failed/i'). You can use the following variables: %\{status\}. 'status' can be: 'passed', 'failed' |                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                   | --verbose         |             |
 
 </TabItem>
@@ -728,7 +728,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-counters               | Only display some counters (regexp can be used). Possible values: asg / instances                                                                                         |
 | --filter-asg                    | Filter by autoscaling group name (can be a regexp).                                                                                                                       |
 | --warning-instances             | Define the conditions to match for the status to be WARNING (Default: ''). Can use special variables like: %\{health\}, %\{lifecycle\}                                        |
-| --critical-instances            | Set critical threshold for instances states (Default: '%{health} =~ /Healthy/ && %\{lifecycle\} !~ /InService/'). Can use special variables like: %\{health\}, %\{lifecycle\}   |
+| --critical-instances            | Set critical threshold for instances states (Default: '%\{health\} =~ /Healthy/ && %\{lifecycle\} !~ /InService/'). Can use special variables like: %\{health\}, %\{lifecycle\}   |
 | --warning-asg-instance-current  | Warning threshold about number of instances in the autoscaling group                                                                                                      |
 | --critical-asg-instance-current | Critical threshold about number of instances in the autoscaling group                                                                                                     |
 
@@ -806,7 +806,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --type            | Set the instance type (Required) (Can be: 'asg', 'instance').                                                                                                                             |
 | --name            | Set the instance name (Required) (can be defined multipletimes).                                                                                                                          |
 | --warning-status  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}. 'status' can be: 'passed', 'failed'.                                         |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (Default: '%{status} =~ /failed/i'). You can use the following variables: %\{status\}. 'status' can be: 'passed', 'failed'.    |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (Default: '%\{status\} =~ /failed/i'). You can use the following variables: %\{status\}. 'status' can be: 'passed', 'failed'.    |
 
 </TabItem>
 </Tabs>

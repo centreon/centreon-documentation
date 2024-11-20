@@ -246,7 +246,7 @@ yum install centreon-plugin-Applications-Docker-Restapi
 | CRITICALCONTAINERSRUNNING | Critical threshold                                                                                                                                                                                                       |                                                                |             |
 | WARNINGCONTAINERSSTOPPED  | Warning threshold                                                                                                                                                                                                        |                                                                |             |
 | CRITICALCONTAINERSSTOPPED | Critical threshold                                                                                                                                                                                                       |                                                                |             |
-| CRITICALNODESTATUS        | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /ready/ \|\| %\{manager_status\} !~ /reachable\|-/'). You can use the following variables: %\{display\}, %\{status\}, %\{manager_status\} | %\{status\} !~ /ready/ \|\| %\{manager_status\} !~ /reachable\|-/ |             |
+| CRITICALNODESTATUS        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /ready/ \|\| %\{manager_status\} !~ /reachable\|-/'). You can use the following variables: %\{display\}, %\{status\}, %\{manager_status\} | %\{status\} !~ /ready/ \|\| %\{manager_status\} !~ /reachable\|-/ |             |
 | WARNINGNODESTATUS         | Define the conditions to match for the status to be WARNING (default: -) You can use the following variables: %\{display\}, %\{status\}, %\{manager_status\}                                                                  |                                                                |             |
 | EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                       | --verbose                                                      |             |
 
@@ -270,7 +270,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--hostname='10.0.0.1' \
 	--port=''   \
 	--warning-node-status='' \
-	--critical-node-status='%{status} !~ /ready/ || %\{manager_status\} !~ /reachable|-/' \
+	--critical-node-status='%\{status\} !~ /ready/ || %\{manager_status\} !~ /reachable|-/' \
 	--verbose
 ```
 
@@ -413,7 +413,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option                 | Description                                                                                                                                                                                                                 |
 |:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --warning-node-status  | Define the conditions to match for the status to be WARNING (default: -) You can use the following variables: %\{display\}, %\{status\}, %\{manager_status\}.                                                                    |
-| --critical-node-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /ready/ \|\| %\{manager_status\} !~ /reachable\|-/'). You can use the following variables: %\{display\}, %\{status\}, %\{manager_status\}.   |
+| --critical-node-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /ready/ \|\| %\{manager_status\} !~ /reachable\|-/'). You can use the following variables: %\{display\}, %\{status\}, %\{manager_status\}.   |
 | --warning-*            | Warning threshold. Can be: 'containers-running', 'containers-paused', 'containers-stopped'.                                                                                                                                 |
 | --critical-*           | Critical threshold. Can be: 'containers-running', 'containers-paused', 'containers-stopped'.,                                                                                                                               |
 

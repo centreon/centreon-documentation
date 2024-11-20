@@ -147,8 +147,8 @@ commande depuis votre collecteur Centreon en vous connectant avec l'utilisateur
     --resource='IPA001ABCD' \
     --timeframe='900' \
     --interval='PT5M' \
-    --critical-provisioning-state='%{state} =~ /Failed/i' \
-    --critical-ddos-status='%{status} =~ /DDOS Attack ongoing/i'
+    --critical-provisioning-state='%\{state\} =~ /Failed/i' \
+    --critical-ddos-status='%\{status\} =~ /DDOS Attack ongoing/i'
 ```
 
 La commande devrait retourner un message de sortie similaire à: 
@@ -167,8 +167,8 @@ Les statuts caculés se baseront sur les valeurs maximales d'un échantillon dan
 avec un état retourné par tranche de 5 minutes (```--interval='PT5M'```).
 
 Dans cette exemple, des alarmes de type CRITICAL seront déclenchées dans les cas suivants:
-* l'état opérationnel de la resource est retournée comme *Failed* (```--critical-provisioning-state='%{state} =~ /Failed/i'```)
-* une attaque DDOS est en cours vers la resource (```--critical-ddos-status='%{status} =~ /DDOS Attack ongoing/i'```)
+* l'état opérationnel de la resource est retournée comme *Failed* (```--critical-provisioning-state='%\{state\} =~ /Failed/i'```)
+* une attaque DDOS est en cours vers la resource (```--critical-ddos-status='%\{status\} =~ /DDOS Attack ongoing/i'```)
 
 
 La liste de toutes les options complémentaires et leur signification

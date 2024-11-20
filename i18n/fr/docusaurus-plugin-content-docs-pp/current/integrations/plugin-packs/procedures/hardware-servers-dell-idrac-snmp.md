@@ -328,12 +328,12 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option                    | Description                                                                                                                                                          |
 |:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --unknown-status          | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /unknown/'). You can use the following variables: %\{status\}                      |
-| --warning-status          | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /nonCritical\|other/'). You can use the following variables: %\{status\}           |
-| --critical-status         | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /critical\|nonRecoverable/'). You can use the following variables: %\{status\}    |
-| --unknown-storage-status  | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /unknown/'). You can use the following variables: %\{status\}                      |
-| --warning-storage-status  | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /nonCritical\|other/'). You can use the following variables: %\{status\}           |
-| --critical-storage-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /critical\|nonRecoverable/'). You can use the following variables: %\{status\}    |
+| --unknown-status          | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /unknown/'). You can use the following variables: %\{status\}                      |
+| --warning-status          | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /nonCritical\|other/'). You can use the following variables: %\{status\}           |
+| --critical-status         | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /critical\|nonRecoverable/'). You can use the following variables: %\{status\}    |
+| --unknown-storage-status  | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /unknown/'). You can use the following variables: %\{status\}                      |
+| --warning-storage-status  | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /nonCritical\|other/'). You can use the following variables: %\{status\}           |
+| --critical-storage-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /critical\|nonRecoverable/'). You can use the following variables: %\{status\}    |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">

@@ -325,7 +325,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --ldap-starttls-options | Add custom start tls options (need --tls option):  An example      --ldap-starttls-options='verify=none'                                                    |
 | --ldap-bind-options     | Add custom bind options (can force noauth) (not really useful now).                                                                                         |
 | --ldap-search-options   | Add custom search options (can change the scope for example).                                                                                               |
-| --display-entry         | Display ldap entries (with --verbose option) (example: '%{cn} account locked')                                                                              |
+| --display-entry         | Display ldap entries (with --verbose option) (example: '%\{cn\} account locked')                                                                              |
 | --username              | Specify username for authentification (can be a DN)                                                                                                         |
 | --password              | Specify password for authentification                                                                                                                       |
 | --timeout               | Connection timeout in seconds (default: 30)                                                                                                                 |

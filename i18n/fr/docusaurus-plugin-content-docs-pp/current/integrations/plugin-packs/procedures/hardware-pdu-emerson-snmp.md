@@ -207,8 +207,8 @@ yum install centreon-plugin-Hardware-Pdu-Emerson-Snmp
 | Macro          | Description                                                                                                                                                                              | Valeur par défaut                                  | Obligatoire |
 |:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------|:-----------:|
 | FILTERNAME     | Filter PDU name (can be a regexp)                                                                                                                                                        |                                                    |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /normalWithAlarm\|abnormalOperation/i'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} =~ /normalWithAlarm\|abnormalOperation/i |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /normalWithWarning/i'). You can use the following variables: %\{status\}, %\{display\}                   | %\{status\} =~ /normalWithWarning/i                  |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /normalWithAlarm\|abnormalOperation/i'). You can use the following variables: %\{status\}, %\{display\} | %\{status\} =~ /normalWithAlarm\|abnormalOperation/i |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /normalWithWarning/i'). You can use the following variables: %\{status\}, %\{display\}                   | %\{status\} =~ /normalWithWarning/i                  |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                       | --verbose                                          |             |
 
 </TabItem>
@@ -391,8 +391,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option            | Description                                                                                                                                                                                 |
 |:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --filter-name     | Filter PDU name (can be a regexp).                                                                                                                                                          |
-| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /normalWithWarning/i'). You can use the following variables: %\{status\}, %\{display\}.                     |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%{status} =~ /normalWithAlarm\|abnormalOperation/i'). You can use the following variables: %\{status\}, %\{display\}    |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /normalWithWarning/i'). You can use the following variables: %\{status\}, %\{display\}.                     |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /normalWithAlarm\|abnormalOperation/i'). You can use the following variables: %\{status\}, %\{display\}    |
 
 </TabItem>
 <TabItem value="Power-Source-Usage" label="Power-Source-Usage">

@@ -450,7 +450,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option                   | Description                                                                                                                                                                                         |
 |:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{installed\}, %\{communicating\}, %\{used_capacity\}                                                 |
-| --warning-status         | Define the conditions to match for the status to be WARNING (default: '%{installed} != %\{communicating\}'). You can use the following variables: %\{installed\}, %\{communicating\}, %\{used_capacity\}   |
+| --warning-status         | Define the conditions to match for the status to be WARNING (default: '%\{installed\} != %\{communicating\}'). You can use the following variables: %\{installed\}, %\{communicating\}, %\{used_capacity\}   |
 | --critical-status        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{installed\}, %\{communicating\}, %\{used_capacity\}                                                |
 | --warning-* --critical-* | Thresholds. Can be: 'used-capacity', 'installed', 'communicating'                                                                                                                                   |
 

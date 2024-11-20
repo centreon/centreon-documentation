@@ -202,10 +202,10 @@ yum install centreon-plugin-Hardware-Ups-Nitram-Snmp
 
 | Macro                   | Description                                                                                                                                                  | Valeur par défaut                   | Obligatoire |
 |:------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|:-----------:|
-| UNKNOWNSTATUS           | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /unknown\|notPresent/i'). You can use the following variables: %\{status\} | %\{status\} =~ /unknown\|notPresent/i |             |
+| UNKNOWNSTATUS           | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /unknown\|notPresent/i'). You can use the following variables: %\{status\} | %\{status\} =~ /unknown\|notPresent/i |             |
 | WARNINGCHARGEREMAINING  | Thresholds                                                                                                                                                   |                                     |             |
 | CRITICALCHARGEREMAINING | Thresholds                                                                                                                                                   |                                     |             |
-| WARNINGSTATUS           | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /low/i'). You can use the following variables: %\{status\}                 | %\{status\} =~ /low/i                 |             |
+| WARNINGSTATUS           | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /low/i'). You can use the following variables: %\{status\}                 | %\{status\} =~ /low/i                 |             |
 | CRITICALSTATUS          | Define the conditions to match for the status to be CRITICAL (default: ''). You can use the following variables: %\{status\}                                   |                                     |             |
 | WARNINGTEMPERATURE      | Thresholds                                                                                                                                                   |                                     |             |
 | CRITICALTEMPERATURE     | Thresholds                                                                                                                                                   |                                     |             |
@@ -221,7 +221,7 @@ yum install centreon-plugin-Hardware-Ups-Nitram-Snmp
 | UNKNOWNSTATUS     | Define the conditions to match for the status to be UNKNOWN (default: ''). You can use the following variables: %\{status\}                       |                       |             |
 | WARNINGFREQUENCE  | Thresholds                                                                                                                                      |                       |             |
 | CRITICALFREQUENCE | Thresholds                                                                                                                                      |                       |             |
-| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /normal/'). You can use the following variables: %\{status\} | %\{status\} !~ /normal/ |             |
+| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /normal/'). You can use the following variables: %\{status\} | %\{status\} !~ /normal/ |             |
 | WARNINGSTATUS     | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}                       |                       |             |
 | WARNINGVOLTAGE    | Thresholds                                                                                                                                      |                       |             |
 | CRITICALVOLTAGE   | Thresholds                                                                                                                                      |                       |             |
@@ -232,7 +232,7 @@ yum install centreon-plugin-Hardware-Ups-Nitram-Snmp
 
 | Macro             | Description                                                                                                                                                             | Valeur par défaut     | Obligatoire |
 |:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
-| UNKNOWNSTATUS     | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /unknown/i'). You can use the following variables: %\{status\}                        |                       |             |
+| UNKNOWNSTATUS     | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /unknown/i'). You can use the following variables: %\{status\}                        |                       |             |
 | WARNINGCURRENT    | Thresholds                                                                                                                                                              |                       |             |
 | CRITICALCURRENT   | Thresholds                                                                                                                                                              |                       |             |
 | WARNINGFREQUENCE  | Thresholds                                                                                                                                                              |                       |             |
@@ -242,7 +242,7 @@ yum install centreon-plugin-Hardware-Ups-Nitram-Snmp
 | WARNINGPOWER      | Thresholds                                                                                                                                                              |                       |             |
 | CRITICALPOWER     | Thresholds                                                                                                                                                              |                       |             |
 | CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL (default: ''). You can use the following variables: %\{status\}                                              | %\{status\} !~ /normal/ |             |
-| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /rebooting\|onBattery\|onBypass/i'). You can use the following variables: %\{status\} |                       |             |
+| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /rebooting\|onBattery\|onBypass/i'). You can use the following variables: %\{status\} |                       |             |
 | WARNINGVOLTAGE    | Thresholds                                                                                                                                                              |                       |             |
 | CRITICALVOLTAGE   | Thresholds                                                                                                                                                              |                       |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                      | --verbose             |             |
@@ -269,7 +269,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--snmp-community='my-snmp-community'  \
 	--unknown-status='' \
 	--warning-status='' \
-	--critical-status='%{status} !~ /normal/' \
+	--critical-status='%\{status\} !~ /normal/' \
 	--warning-load='' \
 	--critical-load='' \
 	--warning-current='' \
@@ -389,8 +389,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option                   | Description                                                                                                                                                    |
 |:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /unknown\|notPresent/i'). You can use the following variables: %\{status\}   |
-| --warning-status         | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /low/i'). You can use the following variables: %\{status\}                   |
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /unknown\|notPresent/i'). You can use the following variables: %\{status\}   |
+| --warning-status         | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /low/i'). You can use the following variables: %\{status\}                   |
 | --critical-status        | Define the conditions to match for the status to be CRITICAL (default: ''). You can use the following variables: %\{status\}                                     |
 | --warning-* --critical-* | Thresholds. Can be: 'charge-remaining' (%), 'voltage' (V), 'temperature' (C).                                                                                  |
 
@@ -401,7 +401,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|
 | --unknown-status         | Define the conditions to match for the status to be UNKNOWN (default: ''). You can use the following variables: %\{status\}                         |
 | --warning-status         | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{status\}                         |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%{status} !~ /normal/'). You can use the following variables: %\{status\}   |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /normal/'). You can use the following variables: %\{status\}   |
 | --warning-* --critical-* | Thresholds. Can be: 'voltage', 'frequence'.                                                                                                       |
 
 </TabItem>
@@ -409,8 +409,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option                   | Description                                                                                                                                                               |
 |:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (default: '%{status} =~ /unknown/i'). You can use the following variables: %\{status\}                          |
-| --warning-status         | Define the conditions to match for the status to be WARNING (default: '%{status} =~ /rebooting\|onBattery\|onBypass/i'). You can use the following variables: %\{status\}   |
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /unknown/i'). You can use the following variables: %\{status\}                          |
+| --warning-status         | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /rebooting\|onBattery\|onBypass/i'). You can use the following variables: %\{status\}   |
 | --critical-status        | Define the conditions to match for the status to be CRITICAL (default: ''). You can use the following variables: %\{status\}                                                |
 | --warning-* --critical-* | Thresholds. Can be: 'load', 'voltage', 'current', 'power', 'frequence'.                                                                                                   |
 

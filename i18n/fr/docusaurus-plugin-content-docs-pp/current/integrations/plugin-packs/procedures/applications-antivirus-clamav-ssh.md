@@ -207,9 +207,9 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--warning-engine-status='' \
 	--critical-engine-status='' \
 	--warning-maindb-status='' \
-	--critical-maindb-status='%{last_maindb_version} ne %\{current_maindb_version\}' \
+	--critical-maindb-status='%\{last_maindb_version\} ne %\{current_maindb_version\}' \
 	--warning-dailydb-status='' \
-	--critical-dailydb-status='%{last_dailydb_version} ne %\{current_dailydb_version\} || %\{current_dailydb_timediff\} > 432000' 
+	--critical-dailydb-status='%\{last_dailydb_version\} ne %\{current_dailydb_version\} || %\{current_dailydb_timediff\} > 432000' 
 ```
 
 La commande devrait retourner un message de sortie similaire à :
