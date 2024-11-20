@@ -334,6 +334,7 @@ La commande devrait retourner un message de sortie similaire à :
 
 ```bash
 OK: 69537 (1m) 16781 (5m) 10110 (15m) | 'system.loadaverage.1m.count'=69537;;;0; 'system.loadaverage.5m.count'=16781;;;0; 'system.loadaverage.15m.count'=10110;;;0; 
+```
 
 ### Diagnostic des erreurs communes
 
