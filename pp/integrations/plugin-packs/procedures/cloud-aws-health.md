@@ -235,8 +235,8 @@ is able to monitor an AWS Instance using a command like this one (replace the sa
 	--plugin=cloud::aws::health::plugin \
 	--mode=events \
 	--custommode='awscli' \
-	--aws-secret-key='' \
-	--aws-access-key='' \
+	--aws-secret-key='XXXX' \
+	--aws-access-key='XXXX' \
 	--aws-role-arn='' \
 	--proxyurl=''  \
 	--filter-service='' \
