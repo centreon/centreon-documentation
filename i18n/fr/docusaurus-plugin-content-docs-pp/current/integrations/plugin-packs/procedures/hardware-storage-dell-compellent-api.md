@@ -16,7 +16,7 @@ Note: Powershell and `DellStorage.ApiCommandSet.dll` have to be installed on
 Windows Server. You'll need to add the file `powershell.exe.config` in directory
 `C:WindowsSystem32WindowsPowerShellv1.0`:
 
-    <?xml version="1.0"?>
+    \<?xml version="1.0"?\>
     <configuration>
         <startup useLegacyV2RuntimeActivationPolicy="true">
             <supportedRuntime version="v4.0.30319"/>

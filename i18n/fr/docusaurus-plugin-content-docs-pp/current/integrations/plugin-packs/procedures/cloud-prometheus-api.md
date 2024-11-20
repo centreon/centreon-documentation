@@ -294,19 +294,19 @@ Voici un résumé des macros à définir au niveau du Service:
 
 ## Troubleshooting
 
-### UNKNOWN: 500 Can't connect to amzprometheus.int.centreon.com:9090 (<error_text) |
+### UNKNOWN: 500 Can't connect to amzprometheus.int.centreon.com:9090 (\<error_text\>) |
 
 Lorsque cette erreur est renvoyée, vérifier que les informations pour contacter 
 le serveur Prometheus sont correctes (Port, Nom d'Hôte) et que la connexion est 
 possible.
 
-Le contenu de la balise <error_text> donne des indications supplémentaires sur la 
+Le contenu de la balise \<error_text\> donne des indications supplémentaires sur la 
 cause du dysfonctionnement.
 
 ### UNKNOWN: 400 Bad Request |
 
 La requête PromQL contient probablement une erreur de syntaxe. Il est nécessaire
-de valider son fonctionnement dans l'interface Prometheus. 
+de valider son fonctionnement dans l'interface Prometheus.
 
 ### Diagnostic des erreurs communes
 

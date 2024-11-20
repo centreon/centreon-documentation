@@ -282,7 +282,7 @@ yum install centreon-plugin-Network-Fortinet-Fortimail-Snmp
 
 | Macro            | Description                                                                                                                                                                             | Valeur par défaut                    | Obligatoire |
 |:-----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------|:-----------:|
-| CRITICALHASTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{ha_status\} ne %{ha\_status\_last}'). You can use the following variables: %\{ha_status\}, %\{ha_status_last\}| %\{ha_status\} ne %\{ha_status_last\}|             |
+| CRITICALHASTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{ha_status\} ne %\{ha_status_last\}'). You can use the following variables: %\{ha_status\}, %\{ha_status_last\}| %\{ha_status\} ne %\{ha_status_last\}|             |
 | WARNINGHASTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{ha_status\}, %\{ha_status_last\}                                                   |                                      |             |
 | EXTRAOPTIONS     | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                     |                                      |             |
 
@@ -552,7 +552,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
 | --statefile-cipher     | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
 | --warning-ha-status    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{ha_status\}, %\{ha_status_last\}                                                                                                         |
-| --critical-ha-status   | Define the conditions to match for the status to be CRITICAL (default: '%\{ha_status\} ne %{ha\_status\_last}'). You can use the following variables: %\{ha_status\}, %\{ha_status_last\}                                                      |
+| --critical-ha-status   | Define the conditions to match for the status to be CRITICAL (default: '%\{ha_status\} ne %\{ha_status_last\}'). You can use the following variables: %\{ha_status\}, %\{ha_status_last\}                                                      |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">

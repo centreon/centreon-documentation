@@ -179,7 +179,7 @@ It may also happen when the API returns an error instead of the expected data st
 You may want to dig deeper into this by adding the `--debug` flag to your command line 
 to get more information on the query and data received.
 
-### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (<extra_reason_if_available>)
+### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (\<extra_reason_if_available\>)
 
 When grabbing metrics or statuses from an API, multiple issues can show up because
 of proxies, remote devices' certificates, or simply the check configuration.
@@ -273,7 +273,7 @@ allows your monitoring server to send remote command execution.
 
 Do not forget to restart your NRPE daemon to update the configuration.
 
-### NRPE: Command <a_command> not defined
+### NRPE: Command \<a_command\> not defined
 
 The NRPE Server throws this error when the client asks to run a command it doesn't understand. 
 

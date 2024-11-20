@@ -215,7 +215,7 @@ yum install centreon-plugin-Network-Adva-Fsp150-Snmp
 
 | Macro          | Description                                                                                                                                                           | Valeur par défaut                 | Obligatoire |
 |:---------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------|:-----------:|
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: {description}, %\{object\}, %\{severity\}, %\{type\}, %\{label\}, %\{since\} | %\{severity\} eq "serviceAffecting" |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{description\}, %\{object\}, %\{severity\}, %\{type\}, %\{label\}, %\{since\} | %\{severity\} eq "serviceAffecting" |             |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{description\}, %\{object\}, %\{severity\}, %\{type\}, %\{label\}, %\{since\} |                                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                      | --verbose                         |             |
 
@@ -411,7 +411,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
 | --statefile-cipher     | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
 | --warning-status       | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{description\}, %\{object\}, %\{severity\}, %\{type\}, %\{label\}, %\{since\}                                                                         |
-| --critical-status      | Define the conditions to match for the status to be CRITICAL (default: '%\{severity\} eq "serviceAffecting"'). You can use the following variables: {description}, %\{object\}, %\{severity\}, %\{type\}, %\{label\}, %\{since\}                          |
+| --critical-status      | Define the conditions to match for the status to be CRITICAL (default: '%\{severity\} eq "serviceAffecting"'). You can use the following variables: %\{description\}, %\{object\}, %\{severity\}, %\{type\}, %\{label\}, %\{since\}                          |
 | --timezone             | Timezone options (the date from the equipment overload that option). Default is 'GMT'.                                                                                                                                                        |
 | --memory               | Only check new alarms.                                                                                                                                                                                                                        |
 

@@ -24,7 +24,7 @@ Generate key for centreon-engine user with command:
     # ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
     # ssh-keygen -e -f .ssh/identity.pub > identity.pub.ietf
     # telnet \<FUJITSU_IP\>
-    CLI> import ssh-public-key -server <POLLER_IP> -port maintenance -user \<ADMIN_USER\> -filename identity.pub.ietf -account-name centreon
+    CLI> import ssh-public-key -server \<POLLER_IP\> -port maintenance -user \<ADMIN_USER\> -filename identity.pub.ietf -account-name centreon
     Password:
     importing ./identity.pub.ietf from ...
     CLI> exit

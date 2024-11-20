@@ -520,7 +520,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option            | Description                                                                                                                                                                                  |
 |:------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --warning-status  |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{ha_status\}, %\{ha_status_last\}                                                      |
-| --critical-status |   Define the conditions to match for the status to be CRITICAL (default: '%\{ha_status\} ne %{ha\_status\_last}'). You can use the following variables: %\{ha_status\}, %\{ha_status_last\}   |
+| --critical-status |   Define the conditions to match for the status to be CRITICAL (default: '%\{ha_status\} ne %\{ha_status_last\}'). You can use the following variables: %\{ha_status\}, %\{ha_status_last\}   |
 
 </TabItem>
 <TabItem value="Interfaces" label="Interfaces">

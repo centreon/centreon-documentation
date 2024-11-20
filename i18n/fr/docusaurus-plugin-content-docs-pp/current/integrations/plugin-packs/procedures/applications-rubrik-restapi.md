@@ -144,7 +144,7 @@ L'API peut être utilisée pour interroger, configurer et contrôler presque tou
 
 Si vous avez accès à un cluster Rubrik, vous pouvez également utiliser l'aire de jeu Rubrik API à l'adresse suivante:
 
-https://{{node_ip}}/docs/{{v1|v2|internal}}/playground
+https://\{\{node_ip\}\}/docs/\{\{v1|v2|internal\}\}/playground
 
 _Note : les paramètres internes de l'API peuvent changer entre les versions du MDP2_
 

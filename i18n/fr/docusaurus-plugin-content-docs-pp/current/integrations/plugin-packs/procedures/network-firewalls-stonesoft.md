@@ -539,9 +539,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option            | Description                                                                                                                                                                                                                                                           |
 |:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --unknown-status  | Define the conditions to match for the status to be UNKNOWN (default: '%\{node_status\} =~ /unknown/i'). You can use the following variables: %\{node_status\}, %{node\_member\_id}.                                                                                    |
-| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%\{node_status\} =~ /lockedOnline/i'). You can use the following variables: %\{node_status\}, %{node\_member\_id}.                                                                               |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{node_status\} =~ /^(?:offline\|goingOffline\|lockedOffline\|goingLockedOffline\|stand by\|goingStandby)$/i'). You can use the following variables: %\{node_status\}, %{node\_member\_id}.    |
+| --unknown-status  | Define the conditions to match for the status to be UNKNOWN (default: '%\{node_status\} =~ /unknown/i'). You can use the following variables: %\{node_status\}, %\{node_member_id\}.                                                                                    |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: '%\{node_status\} =~ /lockedOnline/i'). You can use the following variables: %\{node_status\}, %\{node_member_id\}.                                                                               |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{node_status\} =~ /^(?:offline\|goingOffline\|lockedOffline\|goingLockedOffline\|stand by\|goingStandby)$/i'). You can use the following variables: %\{node_status\}, %\{node_member_id\}.    |
 
 </TabItem>
 <TabItem value="Connections" label="Connections">

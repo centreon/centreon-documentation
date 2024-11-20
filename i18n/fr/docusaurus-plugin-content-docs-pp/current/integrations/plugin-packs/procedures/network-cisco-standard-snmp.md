@@ -483,8 +483,8 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 
 | Macro          | Description                                                                                                                                                                      | Valeur par défaut                                    | Obligatoire |
 |:---------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:-----------:|
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{running\_last\_changed}, %{running\_last\_saved}, %\{startup_last_changed\}| %\{running_last_changed\}\> %\{running_last_saved\}|             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %{running\_last\_changed}, %{running\_last\_saved}, %\{startup_last_changed\} |                                                      |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{running_last_changed\}, %\{running_last_saved\}, %\{startup_last_changed\}| %\{running_last_changed\}\> %\{running_last_saved\}|             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{running_last_changed\}, %\{running_last_saved\}, %\{startup_last_changed\} |                                                      |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                 |                                                      |             |
 
 </TabItem>
@@ -975,8 +975,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option            | Description                                                                                                                                                                                                                                           |
 |:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --warning-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %{running\_last\_changed}, %{running\_last\_saved}, %\{startup_last_changed\}                                                        |
-| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{running_last_changed\}\> %{running\_last\_saved}'). You can use the following variables: %{running\_last\_changed}, %{running\_last\_saved}, %\{startup_last_changed\}   |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: ''). You can use the following variables: %\{running_last_changed\}, %\{running_last_saved\}, %\{startup_last_changed\}                                                        |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{running_last_changed\}\> %\{running_last_saved\}'). You can use the following variables: %\{running_last_changed\}, %\{running_last_saved\}, %\{startup_last_changed\}   |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
