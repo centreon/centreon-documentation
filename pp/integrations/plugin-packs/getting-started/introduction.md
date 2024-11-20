@@ -5,53 +5,38 @@ title: Introduction to Monitoring Connectors
 
 > As of April 2023, we're changing the name of some Centreon objects and attributes. "Monitoring Connectors" becomes the new name for Plugin Packs. We're making this change because users were often confused between two similar terms, Plugins and Plugin Packs, sometimes using one for the other. We're only changing the name! The functionalities and capabilities stay the same.
 
-> To know how to install Monitoring Connectors, you can go to the dedicated part: 
-> [Monitoring Connectors installation](/docs/monitoring/pluginpacks).
+> Need a hand?
+> We have a section dedicated to help you [install monitoring connectors](/docs/monitoring/pluginpacks) or [troubleshooting connectors](../how-to-guides/troubleshooting-plugins.md).
 
-A Monitoring Connector is a downloadable package containing a set of configuration
-templates that make it fast and easy to monitor your IT infrastructure.
+## What are monitoring connectors (or connectors for short)?
 
-The templates (commands, hosts and services templates) configure a monitoring
-plugin that actually executes the monitoring commands on a Centreon Poller.
-Plugins are not packaged with Monitoring Connectors and must be installed separately:
-this is explained in the monitoring procedure that comes with each Monitoring Connector.
-Some Monitoring Connectors also require a Connector (e.g. AS400, VMWare) or an agent
-(e.g. Windows NRPE).
+A monitoring connector is the software brick that allows Centreon to communicate with the monitored equipments.
 
-For each type of equipment, the templates determine which indicators will be
-monitored and set default warning and critical thresholds. These may be
-fine-tuned later-on.
+The connector is made of a pack (preconfigured templates) and a plugin (the probe that executes the commands). Plugins are not downloaded along the monitoring connecters and must be installed separately, this is more extensively explained in the guides specific to each connector.
+Some connectors may also have a "discovery" feature that allows them to find by themselves a certain type of resources to monitor.
 
-Some Monitoring Connectors also contain discovery rules. Discovery rules instruct the
-Centreon discovery engine to fetch additional assets to be monitored. Host
-discovery rules will look for new hosts (e.g. EC2 assets on AWS, virtual
-machines on VMware) while Service discovery rules will look for new services
-(e.g. Disk Volumes or Ethernet Interfaces on a server).
+Centreon offers a vast array of monitoring connectors ready for use to monitor all sorts of equipments and our catalog grows every month.
 
-Monitoring Connectors on your Centreon platform are managed by the Monitoring Connector Manager
-user interface. Monitoring Connectors may be updated or new Monitoring Connectors may be added to
-the Centreon online library on a weekly basis. These are accessed from the
-Monitoring Connector Manager.
 
-This chapter contains an up-to-date list of all Monitoring Connectors with their
-respective monitoring procedure. They are organized in 14 categories
+## Where can I find connectors supported by Centreon?
+
+The table of contents on the left contains an up-to-date list of all Monitoring Connectors organized in 14 categories
 (Applications, Centreon, Cloud, Database, Hardware, Network, Operating System,
 Protocol, Sensor, Storage, ToIP-VoIP, UPS-PDU, Virtualization) and then listed
-alphabetically.
+alphabetically. Each connector page indicates its requirements, the objects it monitors and the installation procedure.
 
 Here is a list of commonly used Monitoring Connectors:
 
+  - [Base Pack](../procedures/base-generic.md)
   - [Linux SNMP](../procedures/operatingsystems-linux-snmp.md)
+  - [Centreon Central](../procedures/applications-monitoring-centreon-central.md)
   - [Windows SNMP](../procedures/operatingsystems-windows-snmp.md)
-  - [Windows NRPE/NSClient 0.5](../procedures/operatingsystems-windows-nsclient-05-nrpe.md)
-  - [VMware virtual machines](../procedures/virtualization-vmware2-vm.md)
-  - [VMware ESX](../procedures/virtualization-vmware2-esx.md)
-  - [Cisco standard switches](../procedures/network-cisco-standard-snmp.md)
-  - [HP Procurve](../procedures/network-switchs-hp-procurve-snmp.md)
   - [MySQL/MariaDB](../procedures/applications-databases-mysql.md)
-  - [Oracle database](../procedures/applications-databases-oracle.md)
-  - [Fortinet Fortigate](../procedures/network-firewalls-fortinet-fortigate-snmp.md)
-  - [Dell iDRAC](../procedures/hardware-servers-dell-idrac-snmp.md)
+  - [Centreon Database](../procedures/applications-monitoring-centreon-database.md)
+  - [Centreon Poller](../procedures/applications-monitoring-centreon-poller.md)
+  - [Cisco standard switches](../procedures/network-cisco-standard-snmp.md)
+  - [Printer standard](../procedures/hardware-printers-standard-rfc3805-snmp/)
+  - [UPS Standard SNMP](../procedures/hardware-ups-standard-rfc1628-snmp/)
 
 And a list of Monitoring Connectors with embedded Host Discovery providers:
 

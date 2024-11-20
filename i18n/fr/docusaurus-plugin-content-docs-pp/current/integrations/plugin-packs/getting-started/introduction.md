@@ -5,56 +5,38 @@ title: Démarrer avec les connecteurs de supervision
 
 > À partir d'avril 2023, nous changeons le nom de certains objets Centreon. "Connecteurs de supervision" est désormais le nouveau nom des Plugin Packs. Nous procédons à ce changement car les utilisateurs confondaient souvent deux termes similaires, Plugins et Plugin Packs, utilisant parfois l'un à la place de l'autre. Nous ne changeons que le nom ! Les fonctionnalités et les capacités restent les mêmes.
 
-> Pour savoir comment installer un connecteur de supervision, vous pouvez vous rendre sur la documentation dédiée: 
-> [installation des connecteurs de supervision](/docs/monitoring/pluginpacks).
+> # Besoin d'aide ?
+> Consultez la documentation dédiée pour [installater des connecteurs de supervision](/docs/monitoring/pluginpacks)  ou pour [troubleshooter des connecteurs](../how-to-guides/troubleshooting-plugins.md).
 
-Un connecteur de supervision (ou pack de supervision en français) est un jeu téléchargeable
-de modèles de configuration qui rendent la supervision de votre infrastructure
-facile et intuitive.
+## Que sont les connecteurs de supervision ?
 
-Ces modèles (modèles d’hôtes et de services, commandes associées) configurent
-une sonde (aussi appelée plugin) qui elle-même exécute les commandes de
-supervision depuis un Centreon Poller. Les sondes ne sont pas téléchargées avec
-les connecteurs de supervision et doivent être installées par ailleurs : ceci est expliqué
-dans la procédure de mise en supervision associée à chaque connecteur de supervision.
-Certains connecteurs de supervision nécessitent aussi un Connecteur (ex : AS400 ou VMware)
-ou un agent (ex : Windows NRPE).
+Un connecteur de supervision est la brique logicielle qui permet à Centreon de communiquer avec les équipements supervisés.
 
-Pour chaque type d’équipement, les modèles déterminent quels indicateurs seront
-supervisés et définissent les valeurs par défaut des seuils Warning et
-Critical. Ceux-ci sont modifiables par la suite.
+Le connecteur est constitué d’un pack (des modèles préconfigurés) et d’un plugin (la sonde qui exécute les contrôles). Les plugins ne sont pas téléchargées avec les connecteurs de supervision et doivent être installées par ailleurs : ceci est expliqué en détail dans la procédure de mise en supervision associée à chaque connecteur de supervision.
+Certains connecteurs ont également une option de “découverte” qui leur permet de détecter par eux-mêmes un certain type de ressources à superviser.
 
-Certains connecteurs de supervision contiennent aussi des règles de découverte. Ces règles
-sont exécutées par le moteur de découverte Centreon pour déterminer une liste
-de ressources supplémentaires à superviser. Les règles de découverte de hôtes
-listent de nouveaux hôtes (ex : des ressources AWS EC2, des machines virtuelles
-VMware) alors que les règles de découverte de services listent des services
-supplémentaires (ex : volumes disques ou interfaces Ethernet sur un serveur).
+Centreon propose une large gamme connecteurs de supervision prêts à l’emploi qui permettent de contrôler tout type d’équipement. Nous agrandissons notre collection de connecteurs tous les mois.
 
-Les connecteurs de supervision de votre plateforme Centreon sont gérés à travers l’IHM Plugin
-Pack Manager. Les connecteurs de supervision sont susceptibles d’être mis à jour, ou de
-nouveaux connecteurs de supervision sont susceptibles d’être ajouté à la bibliothèque en
-ligne Centreon chaque semaine. Ils sont tous accessibles depuis l’IHM Gestionnaire de connecteurs de supervision.
+## Où puis-je trouver des connecteurs compatibles avec Centreon ?
 
-Le chapitre ci-dessous est la liste à jour de tous les connecteurs de supervision disponibles
-avec leur procédure de mise en supervision associée. Ils sont répartis en 14
+La table des matières à gauche contient tous les connecteurs actuellement disponibles répartis en 14
 catégories (Applications, Centreon, Cloud, Database, Hardware, Network,
 Operating System, Protocol, Sensor, Storage, ToIP-VoIP, UPS-PDU,
-Virtualization) puis listés par ordre alphabétique.
+Virtualization) puis listés par ordre alphabétique. La page de chacun de ces connecteurs indique ses préréquis, objets qu'ils monitorent et la procédure d'installation.
+
 
 Vous trouverez ici une liste des connecteurs de supervision fréquemment utilisés :
 
+  - [Base Pack](../procedures/base-generic.md)
   - [Linux SNMP](../procedures/operatingsystems-linux-snmp.md)
+  - [Centreon Central](../procedures/applications-monitoring-centreon-central.md)
   - [Windows SNMP](../procedures/operatingsystems-windows-snmp.md)
-  - [Windows NRPE/NSClient 0.5](../procedures/operatingsystems-windows-nsclient-05-nrpe.md)
-  - [VMware virtual machines](../procedures/virtualization-vmware2-vm.md)
-  - [VMware ESX](../procedures/virtualization-vmware2-esx.md)
-  - [Cisco standard switches](../procedures/network-cisco-standard-snmp.md)
-  - [HP Procurve](../procedures/network-switchs-hp-procurve-snmp.md)
   - [MySQL/MariaDB](../procedures/applications-databases-mysql.md)
-  - [Oracle database](../procedures/applications-databases-oracle.md)
-  - [Fortinet Fortigate](../procedures/network-firewalls-fortinet-fortigate-snmp.md)
-  - [Dell iDRAC](../procedures/hardware-servers-dell-idrac-snmp.md)
+  - [Centreon Database](../procedures/applications-monitoring-centreon-database.md)
+  - [Centreon Poller](../procedures/applications-monitoring-centreon-poller.md)
+  - [Cisco standard switches](../procedures/network-cisco-standard-snmp.md)
+  - [Printer standard](../procedures/hardware-printers-standard-rfc3805-snmp/)
+  - [UPS Standard SNMP](../procedures/hardware-ups-standard-rfc1628-snmp/)
 
 Et une liste de connecteurs de supervision avec des fournisseurs de découverte d'hôte
 intégrés :
