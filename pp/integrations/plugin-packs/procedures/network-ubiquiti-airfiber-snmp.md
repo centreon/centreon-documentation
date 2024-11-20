@@ -332,9 +332,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: Load average 0.00 (1m), 0.00 (5m), 0.00 (15m) | 'system.loadaverage.1m.count'=0.00;;;0; 'system.loadaverage.5m.count'=0.00;;;0; 'system.loadaverage.15m.count'=0.00;0:3;0:7;0;
-
-```
+OK: 69537 (1m) 16781 (5m) 10110 (15m) | 'system.loadaverage.1m.count'=69537;;;0; 'system.loadaverage.5m.count'=16781;;;0; 'system.loadaverage.15m.count'=10110;;;0; 
 
 ### Troubleshooting
 
