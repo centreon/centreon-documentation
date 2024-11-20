@@ -129,7 +129,7 @@ Pour ouvrir les ports appropriés :
 /sbin/iptables -A INPUT -p tcp --dport <PORT> -j ACCEPT
 ```
 
-> Remplacez <PORT\> par le port que votre serveur Centreon MAP utilise (le plus souvent 8080, ou 8443 si vous l'avez configuré en SSL).
+> Remplacez \<PORT\> par le port que votre serveur Centreon MAP utilise (le plus souvent 8080, ou 8443 si vous l'avez configuré en SSL).
 
 Pour désactiver votre pare-feu, exécutez :
 

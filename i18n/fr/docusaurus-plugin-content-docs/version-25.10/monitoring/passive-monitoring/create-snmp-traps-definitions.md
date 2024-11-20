@@ -120,7 +120,7 @@ La commande suivante permet de récupérer cette valeur :
 snmpget -v 2c -Ovq -c <community> <cisco switch> ifAlias.$1
 ```
 
-Pour utiliser le résultat de la commande PREEXEC dans le **Output message**, il faut utiliser la variable $p{n} où ‘n’
+Pour utiliser le résultat de la commande PREEXEC dans le **Output message**, il faut utiliser la variable $p\{n\} où ‘n’
 correspond à l’ordre de définition de la commande.
 
 Exemple :
