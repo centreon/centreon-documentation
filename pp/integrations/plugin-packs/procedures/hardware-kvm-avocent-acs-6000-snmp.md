@@ -1,6 +1,6 @@
 ---
 id: hardware-kvm-avocent-acs-6000-snmp
-title: Avocent ACS 6000
+title: Avocent ACS 6000 SNMP
 ---
 
 ## Prerequisites

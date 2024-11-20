@@ -1,6 +1,6 @@
 ---
 id: hardware-servers-dell-cmc-snmp
-title: Dell CMC
+title: Dell CMC SNMP
 ---
 
 ## Prerequisites

@@ -1,6 +1,6 @@
 ---
 id: hardware-servers-ibm-imm-snmp
-title: IBM IMM
+title: IBM IMM SNMP
 ---
 
 ## Prerequisites

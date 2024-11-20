@@ -1,6 +1,6 @@
 ---
 id: hardware-devices-timelinkmicro-tms6001-snmp
-title: Timelinkmicro Tms6001
+title: Timelinkmicro Tms6001 SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

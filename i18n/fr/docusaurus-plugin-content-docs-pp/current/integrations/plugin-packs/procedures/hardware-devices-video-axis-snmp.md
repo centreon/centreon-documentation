@@ -1,6 +1,6 @@
 ---
 id: hardware-devices-video-axis-snmp
-title: Axis Video
+title: Axis Video SNMP
 ---
 
 ## Prerequisites

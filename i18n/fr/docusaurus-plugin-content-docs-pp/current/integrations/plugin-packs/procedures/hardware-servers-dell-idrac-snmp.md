@@ -1,6 +1,6 @@
 ---
 id: hardware-servers-dell-idrac-snmp
-title: Dell iDRAC
+title: Dell iDRAC SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

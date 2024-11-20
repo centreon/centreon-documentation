@@ -1,6 +1,6 @@
 ---
 id: hardware-servers-huawei-hmm-snmp
-title: Huawei HMM
+title: Huawei HMM SNMP
 ---
 
 ## Prerequisites

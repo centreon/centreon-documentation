@@ -1,6 +1,6 @@
 ---
 id: hardware-servers-huawei-ibmc-snmp
-title: Huawei iBMC
+title: Huawei iBMC SNMP
 ---
 
 ## Prerequisites

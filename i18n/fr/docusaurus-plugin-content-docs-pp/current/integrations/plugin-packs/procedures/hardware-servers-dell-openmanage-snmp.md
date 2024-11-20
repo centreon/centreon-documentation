@@ -1,6 +1,6 @@
 ---
 id: hardware-servers-dell-openmanage-snmp
-title: Dell OpenManage
+title: Dell OpenManage SNMP
 ---
 
 ## Prerequisites

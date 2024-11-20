@@ -1,6 +1,6 @@
 ---
 id: hardware-devices-masterclock-ntp100gps-snmp
-title: Masterclock NTP100GP
+title: Masterclock NTP100GP SNMP
 ---
 
 ## Prerequisites

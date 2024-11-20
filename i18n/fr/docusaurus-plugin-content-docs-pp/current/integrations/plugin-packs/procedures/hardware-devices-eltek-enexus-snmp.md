@@ -1,6 +1,6 @@
 ---
 id: hardware-devices-eltek-enexus-snmp
-title: Eltek eNexus
+title: Eltek eNexus SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

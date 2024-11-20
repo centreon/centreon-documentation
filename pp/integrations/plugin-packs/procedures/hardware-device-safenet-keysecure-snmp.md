@@ -1,6 +1,6 @@
 ---
 id: hardware-device-safenet-keysecure-snmp
-title: Safenet Keysecure
+title: Safenet Keysecure SNMP
 ---
 
 ## Prerequisites

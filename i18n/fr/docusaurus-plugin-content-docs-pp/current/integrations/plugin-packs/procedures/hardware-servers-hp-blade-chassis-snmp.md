@@ -1,6 +1,6 @@
 ---
 id: hardware-servers-hp-blade-chassis-snmp
-title: HP Blade Chassis
+title: HP Blade Chassis SNMP
 ---
 
 ## Prerequisites
