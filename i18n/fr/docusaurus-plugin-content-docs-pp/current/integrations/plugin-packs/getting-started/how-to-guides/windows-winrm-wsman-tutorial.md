@@ -865,9 +865,9 @@ Set-Item -Path WSMan:\localhost\Service\RootSDDL -Value $new_sddl -Force
 * Spécifiez les paramètres suivants :
     * Action : **Start a program**
     * Programme/script : **PowerShell.exe**
-    * Ajouter arguments : **-file C:\Windows\Temp\RootSDDL-Permision.ps1**\<span style={{color:'#FF0000'}}\>**@SERVICE_USERNAME@**</span>
+    * Ajouter arguments : **-file C:\Windows\Temp\RootSDDL-Permision.ps1**\<span style={{color:'#FF0000'}}\>**@SERVICE_USERNAME@**\</span\>
         * Ajustez ce paramètre pour qu'il corresponde au paramètre "Destination du fichier" précédemment configuré
-        * Dans notre exemple, l'argument est **-file C:\Windows\Temp\RootSDDL-Permision.ps1<span style={{color:'#FF0000'}}>sa_centreon</span>**.
+        * Dans notre exemple, l'argument est **-file C:\Windows\Temp\RootSDDL-Permision.ps1\<span style={{color:'#FF0000'}}\>sa_centreon\</span\>**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-rootsddl-2.png)
 

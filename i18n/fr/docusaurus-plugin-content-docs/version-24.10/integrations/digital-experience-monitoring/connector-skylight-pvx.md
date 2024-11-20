@@ -20,7 +20,7 @@ The connector has been tested with the following versions: \* PVX version 5.1.1
 
 To query PVX API, you need to generate an access key. This key will never expire
 and the procedure below is an extract from the official documentation
-<http://docs.performancevision.com/api_use>.
+\<http://docs.performancevision.com/api_use\>.
 
 Follow these steps to get your API key. In each step replace the value of the
 macros enclosed by '\< \>' with yours.

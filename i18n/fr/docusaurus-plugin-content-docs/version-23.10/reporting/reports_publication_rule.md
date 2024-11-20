@@ -1,4 +1,4 @@
-Règles de publication des rapports {#publication_rules}
+Règles de publication des rapports \{#publication_rules\}
 ==================================
 
 Dans l\'interface Centreon, les règles définies dans la page "Reporting
