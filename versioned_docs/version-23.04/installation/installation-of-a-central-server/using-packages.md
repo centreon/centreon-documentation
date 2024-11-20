@@ -540,9 +540,9 @@ GRANT ALL PRIVILEGES ON *.* TO 'dbadmin'@'<CENTRAL_SERVER_IP>' WITH GRANT OPTION
 FLUSH PRIVILEGES;
 ```
 
-> Replace **\<CENTRAL_SERVER_IP\\>** with the Centreon Central IP address that will connect to the database server.
+> Replace **\<CENTRAL_SERVER_IP\>** with the Centreon Central IP address that will connect to the database server.
 >
-> Replace **\<USER\>** and **<PASSWORD\\>** by the user's credentials.
+> Replace **\<USER\>** and **\<PASSWORD\>** by the user's credentials.
 
 This user will only be used for the installation process: once the [web installation](../web-and-post-installation.md) is complete you can delete this user using:
 

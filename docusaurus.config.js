@@ -56,6 +56,8 @@ const config = {
     version: archivedVersion ?? null,
   },
 
+  future: true,
+
   title: 'Centreon Documentation',
   tagline: '',
   url: 'https://docs.centreon.com',

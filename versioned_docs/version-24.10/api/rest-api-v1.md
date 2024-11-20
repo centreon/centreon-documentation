@@ -2628,8 +2628,8 @@ Use the GET method and URL below: :
 Additional information:
 
 -   kpi\_type: 0 = service, 1 = metaservice, 2 = BA, 3 = boolean rule
--   kpi\_name: name of the kpi (\\<host\> / \\<service\> or
-    \\<metaservice\> or \<ba_name\> or \<boolean_rule\>)
+-   kpi\_name: name of the kpi (\<host\> / \<service\> or
+    \<metaservice\> or \<ba_name\> or \<boolean_rule\>)
 -   kpi\_current\_status: 0 = OK, 1 = Warning, 2 = Critical, 3 = Unknown
 -   ba\_current\_status: 0 = OK, 1 = Warning, 2 = Critical, 3 = Unknown
 -   current\_impact: impact on linked BA in %

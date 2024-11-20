@@ -15,18 +15,16 @@
   },
   "dependencies": {
     "@cmfcmf/docusaurus-search-local": "^1.2.0",
-    "@docusaurus/core": "^3.6.1",
-    "@docusaurus/plugin-content-docs": "^3.6.1",
-    "@docusaurus/plugin-ideal-image": "^3.6.1",
-    "@docusaurus/preset-classic": "^3.6.1",
-    "@svgr/webpack": "^8.1.0",
-    "@swc/core": "^1.9.2",
+    "@docusaurus/core": "^3.6.2",
+    "@docusaurus/faster": "^3.6.2",
+    "@docusaurus/plugin-content-docs": "^3.6.2",
+    "@docusaurus/plugin-ideal-image": "^3.6.2",
+    "@docusaurus/preset-classic": "^3.6.2",
     "clsx": "^1.2.1",
     "docusaurus-plugin-image-zoom": "^2.0.0",
     "prism-react-renderer": "^2.4.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "swc-loader": "^0.2.6",
     "typeface-roboto": "^1.1.13"
   },
   "browserslist": {
