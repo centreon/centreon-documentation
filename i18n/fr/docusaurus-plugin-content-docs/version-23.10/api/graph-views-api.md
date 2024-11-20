@@ -79,7 +79,7 @@ Body {
    }
 ```
 
-Retrieve the ID of the view returned: {viewId}
+Retrieve the ID of the view returned: \{viewId\}
 
 **3.Open the Map**
 

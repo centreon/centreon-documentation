@@ -46,12 +46,12 @@ Transférez la clé sur le serveur **Centreon**.L\'utilisateur
 **centreonBI** sur le serveur Centreon doit être configuré avec un mot
 de passe): :
 
-    ssh-copy-id -i ~/.ssh/id_rsa.pub centreonBI@{MONITORING_IP_ADDRESS}
+    ssh-copy-id -i ~/.ssh/id_rsa.pub centreonBI@\{MONITORING_IP_ADDRESS\}
 
 Testez la connexion SSH depuis le serveur de reporting vers le serveur
 de supervision : :
 
-    ssh centreonBI@{MONITORING_IP_ADDRESS}
+    ssh centreonBI@\{MONITORING_IP_ADDRESS\}
 
 Aucun mot de passe ne doit vous être demandé pour la connexion.
 

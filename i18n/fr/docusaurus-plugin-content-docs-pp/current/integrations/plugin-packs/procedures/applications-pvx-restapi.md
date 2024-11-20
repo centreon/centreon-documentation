@@ -96,7 +96,7 @@ permet de la générer. A chaque étape, remplacez les valeurs des macro '< \>'
 avec les vôtres.
 
 ```bash 
-curl -k 'https://**<pvxapihost>**/api/login?user=**<user>**&password=**<password>**'`
+curl -k 'https://**\<pvxapihost>**/api/login?user=**<user>**&password=**<password\>**'`
 ```
 
 Résultat :
@@ -112,7 +112,7 @@ Grâce à l'ID de session obtenu, exécutez la commande suivante pour obtenir un
 clé secrète.
 
 ```bash 
-curl -k 'https://**<pvxapihost>**/api/create-api-key?name=**<keyname>**&_session=session:91554086-842b-4b73-9028-c51d20d91b94'`
+curl -k 'https://**\<pvxapihost>**/api/create-api-key?name=**<keyname\>**&_session=session:91554086-842b-4b73-9028-c51d20d91b94'`
 ```
 
 Résultat :

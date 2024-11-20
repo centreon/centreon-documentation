@@ -26,7 +26,7 @@ Follow these steps to get your API key. In each step replace the value of the
 macros enclosed by '\< \>' with yours.
 
 Command: `curl -k
-'https://**<pvxapihost>**/api/login?user=**<user>**&password=**<password>**'`
+'https://**\<pvxapihost>**/api/login?user=**<user>**&password=**<password\>**'`
 
 Result:
 
@@ -40,7 +40,7 @@ Result:
 Thanks to the obtained session ID, execute the command below get a secret key
 
 Command: `curl -k
-'https://<pvxapihost>/api/create-api-key?name=**<keyname>**&_session=session:91554086-842b-4b73-9028-c51d20d91b94'`
+'https://<pvxapihost>/api/create-api-key?name=**\<keyname\>**&_session=session:91554086-842b-4b73-9028-c51d20d91b94'`
 
 Result:
 

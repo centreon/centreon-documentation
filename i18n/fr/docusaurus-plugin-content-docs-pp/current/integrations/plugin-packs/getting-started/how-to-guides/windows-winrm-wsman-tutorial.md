@@ -28,7 +28,7 @@ winrm quickconfig
 Activez la méthode d'authentification "Basic" :
 
 ``` bash
-winrm s winrm/config/service/auth '@{Basic="true"}'
+winrm s winrm/config/service/auth '@\{Basic="true"\}'
 ```
 
 ### Configuration du firewall
@@ -73,7 +73,7 @@ Copiez le **Thumbprint** pour l'étape suivante :
 Créez le port WinRM HTTPS en remplaçant les valeurs @HOSTNAME@ et @THUMBPRINT@ par les valeurs correctes.
 
 ``` bash
-winrm create winrm/config/Listener?Address=*+Transport=HTTPS  '@{Hostname="@HOSTNAME@";CertificateThumbprint="@THUMBPRINT@"}'
+winrm create winrm/config/Listener?Address=*+Transport=HTTPS  '@\{Hostname="@HOSTNAME@";CertificateThumbprint="@THUMBPRINT@"\}'
 ```
 
 À partir d'ici, vous pouvez superviser votre serveur Windows en utilisant le compte administrateur local.
@@ -396,11 +396,11 @@ $Thumbprint=Invoke-Command -ComputerName $FQDN `
 
 
 Set-WSManInstance -ResourceURI winrm/config/Listener `
-                  -SelectorSet @{Address="*";Transport="HTTPS"} `
+                  -SelectorSet @\{Address="*";Transport="HTTPS"\} `
                   -ComputerName $FQDN `
-                  -ValueSet @{CertificateThumbprint=$Thumbprint}
+                  -ValueSet @\{CertificateThumbprint=$Thumbprint\}
 
-winrm create winrm/config/Listener?Address=*+Transport=HTTPS "@{Hostname=".$FQDN.".;CertificateThumbprint=".$Thumbprint."}"
+winrm create winrm/config/Listener?Address=*+Transport=HTTPS "@\{Hostname=".$FQDN.".;CertificateThumbprint=".$Thumbprint."\}"
 ```
 
 * Copiez ce script à l'emplacement suivant pour pouvoir le déployer massivement :
@@ -865,7 +865,7 @@ Set-Item -Path WSMan:\localhost\Service\RootSDDL -Value $new_sddl -Force
 * Spécifiez les paramètres suivants :
     * Action : **Start a program**
     * Programme/script : **PowerShell.exe**
-    * Ajouter arguments : **-file C:\Windows\Temp\RootSDDL-Permision.ps1**<span style={{color:'#FF0000'}}>**@SERVICE_USERNAME@**</span>
+    * Ajouter arguments : **-file C:\Windows\Temp\RootSDDL-Permision.ps1**\<span style={{color:'#FF0000'}}\>**@SERVICE_USERNAME@**</span>
         * Ajustez ce paramètre pour qu'il corresponde au paramètre "Destination du fichier" précédemment configuré
         * Dans notre exemple, l'argument est **-file C:\Windows\Temp\RootSDDL-Permision.ps1<span style={{color:'#FF0000'}}>sa_centreon</span>**.
 

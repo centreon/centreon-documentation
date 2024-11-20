@@ -62,7 +62,7 @@ Rendez-vous dans le menu **Configuration > SNMP traps > SNMP traps** et cliquez 
 > Il est possible de construire soit même le message de sortie. Pour cela, utilisez la MIB afin de connaitre les
 > arguments qui seront présents dans le corps de l’évènement et récupérer les arguments avec les variables **$n**.
 > Chaque argument étant identifié par un OID, il est possible d’utiliser directement cet OID afin de le placer dans le
-> message de sortie sans connaitre sa position via la variable **@{OID}**..
+> message de sortie sans connaitre sa position via la variable **@\{OID\}**..
 
 * Le champ **Default status** définit le statut "supervision" par défaut du service en cas de réception du trap.
 * Si la case **Submit result** est cochée alors le résultat est soumis au moteur de supervision.
@@ -174,7 +174,7 @@ arguments aux champs **String** ou **Special command**. Ces arguments sont list�
 
 | Nom de la variable       | Description                                                                                                                               |
 |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| @{NUMERIC_OID}           | Récupération de la valeur d’un argument via son OID, exemple @{.1.3.6.1.4.1.9.9.43.1.1.1}                                                 |
+| @\{NUMERIC_OID\}           | Récupération de la valeur d’un argument via son OID, exemple @\{.1.3.6.1.4.1.9.9.43.1.1.1\}                                                 |
 | $1, $2...                | Récupération de la valeur d’un argument via son ordre d’apparition                                                                        |
 | $p1, $p2,...             | VValeur de la commande PREEXEC ($p1 = pour la première commande, $p2 pour la seconde, ...)                                                |
 | $*                       | Tous les arguments séparés par un espace                                                                                                  |

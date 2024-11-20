@@ -132,10 +132,10 @@ Pour être sûr que tout va bien, vous pouvez jeter un oeil aux fichiers de log 
 | `skip_nil_id`               | Number | `1`                                                                     | N'envoie pes les évènements qui n'ont pas d'ID. (meta-service la plupart du temps) |               
 | `accepted_hostgroups`       | String |                                                                         | Liste des groupes d'hôtes dans lequel un hôte doit être (séparateur `,` ex : grp1,grp2,grp3) |               
 | `date_format`               | String | `%Y-%m-%d %H:%M:%S`                                                     | Format de conversion par défaut des timestamps (https://www.lua.org/pil/22.1) |               
-| `host_alert_message`        | String | `{last_update_date} {hostname} is {state}`                              | Le message par défaut des alertes d'hôte. Voir [host event macros](sc-opsgenie.md#host-event-macros) pour plus de détails sur les macros |
+| `host_alert_message`        | String | `{last_update_date} \{hostname\} is {state}`                              | Le message par défaut des alertes d'hôte. Voir [host event macros](sc-opsgenie.md#host-event-macros) pour plus de détails sur les macros |
 | `host_alert_description`    | String |                                                                         | La description par défaut des alertes d'hôte. See [host event macros](sc-opsgenie.md#host-event-macros) for more details about macros |
 | `host_alert_alias`          | String | `{hostname}_{state}`                                                    | L'alias par défaut des alertes d'hôte. Utile pour la déduplication d'alertes See [host event macros](sc-opsgenie.md#host-event-macros) for more details about macros  |
-| `service_alert_message`     | String | `{last_update_date} {hostname} // {serviceDescription} is {state}`      | Le message par défaut des alertes de service. See [service event macros](sc-opsgenie.md#service-event-macros) for more details about macros |
+| `service_alert_message`     | String | `{last_update_date} \{hostname\} // {serviceDescription} is {state}`      | Le message par défaut des alertes de service. See [service event macros](sc-opsgenie.md#service-event-macros) for more details about macros |
 | `service_alert_description` | String |                                                                         | La description par défaut des alertes de service. See [service event macros](sc-opsgenie.md#service-event-macros) for more details about macros |
 | `service_alert_alias`       | String | `{hostname}_{serviceDescription}_{state}`                               | L'alias par défaut des alertes de service. Utile pour la déduplication d'alertes. See [service event macros](sc-opsgenie.md#service-event-macros) for more details about macros  |
 | `ba_incident_message`       | String | `{baName} is {state}, health level reached {level_nominal}`             | Le message par défaut des incidents de BA. See [BA event macros](sc-opsgenie.md#ba-event-macros) for more details about macros |
@@ -179,7 +179,7 @@ rm -f /usr/share/centreon-broker/lua/opsgenie.lua
 
 ## Macros
 
-Les macros sont un outil pour créer des messages dynamiques dépendant de l'évènement que vous envoyez. Elles doivent être mises entre {} (ex : {hostname}). Si une macro est une macro de type *time* alors vous pouvez utiliser le suffixe **\_date** pour le convertir en un format lisible pour l'Homme. Vous pouvez changer le format de la date avec le paramètre de type string `date_format`. (ex : {last_update} est une macro sous la forme d'un timestamp. Vous pouvez utiliser {last_update_date} pour la convertir)
+Les macros sont un outil pour créer des messages dynamiques dépendant de l'évènement que vous envoyez. Elles doivent être mises entre {} (ex : \{hostname\}). Si une macro est une macro de type *time* alors vous pouvez utiliser le suffixe **\_date** pour le convertir en un format lisible pour l'Homme. Vous pouvez changer le format de la date avec le paramètre de type string `date_format`. (ex : \{last_update\} est une macro sous la forme d'un timestamp. Vous pouvez utiliser \{last_update_date\} pour la convertir)
 
 #### Host event macros
 
