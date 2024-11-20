@@ -410,7 +410,7 @@ All available options for each service template are listed below:
 | --critical-$metric$ | Critical thresholds ($metric$ can be: 'tunnel-state', 'tunnel-datain', 'tunnel-dataout').                                             |
 
 </TabItem>
-<TabItem value="Vpn-Traffic" label="Vpn-Traffic-Global">
+<TabItem value="Vpn-Traffic-Global" label="Vpn-Traffic-Global">
 
 | Option              | Description                                                                                                                           |
 |:--------------------|:--------------------------------------------------------------------------------------------------------------------------------------|
