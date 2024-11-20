@@ -20,7 +20,7 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ### 22.10.26
 
-Release date: `November 18, 2024`
+Release date: `November 21, 2024`
 
 #### Bug fixes
 
@@ -780,7 +780,7 @@ Release date: `October 26, 2022`
 
 ### 22.10.2
 
-Release date: `November 18, 2023`
+Release date: `November 21, 2023`
 
 #### Security fixes
 
@@ -808,7 +808,7 @@ Release date: `October 26, 2022`
 
 ### 22.10.4
 
-Release date: `November 18, 2024`
+Release date: `November 21, 2024`
 
 #### Security fixex
 
