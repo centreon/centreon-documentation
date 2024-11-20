@@ -109,51 +109,36 @@ Voici une commande échantillon
 `snmpwalk -v <1/2c> -c <community-string> <IP_ADDR> .1`
 
 ### UNKNOWN: SNMP GET Request : Can't get a single value
+Les plugins font une requête pour un ou plusieurs OIDs au MIB de l'objet ciblé. Si le 
+plugin ne peut obtenir une valeur pour un des OIDs, il prévient l'utilisateur avec un statut UNKNOWN.
 
-SNMP Plugins request one or several OIDs from the target devices' MIBS. When it 
-doesn't obtain a value for one of these OIDs, it returns an UNKNOWN state to warn 
-the user. 
+Un problème fréquent est un objet qui ne renvoie pas le MIB ou l'un des OID utilisé par le plugin. C'est-à-dire, le plugin employé n'est pas adapté pour cet objet.
 
-Frequently, the device doesn't ship the MIB or one of the OIDs the Plugin utilizes. 
-In other words, the Plugin used is not suitable for this device.  
 
 ### UNKNOWN: SNMP Session: Unable to create
+Cette erreur est particulière aux checks SNMP v3, elle indique que les informations d'identification sont incorrectes ou erronées.
 
-This error is specific to SNMP v3 checks. It means that the credentials provided 
-are either wrong or incomplete. 
-
-It can also happen when performing SNMPv3 requests on a device or server where the 
-SNMP process is not running, or the port is not listening. 
+Elle peut également apparaître lors d'une requête SNMP v3 sur un appareil ou serveur qui n'a pas de processus SNMP en cours ou dont le port n'est pas à l'écoute.
 
 ### UNKNOWN: Can't construct cache...
 
-To check the storage attached to a device or system, Centreon Plugins use standard 
-OIDs. From time to time, only some of these are implemented by the manufacturer.
+Pour checker le stockage d'un appareil ou d'un système, les plugins Centreon employent des OID standard. Occasionnellement, le manufactureur n'implémente qu'une partie de ces OIDs.
 
-You should look for available OIDs using the `snmpwalk` utility and modify the check 
-command to use the available ones.
+Utilisez la commande `snmpwalk` pour vérifier quels sont les OIDs disponibles et adaptez la commande de check en conséquence.
 
-The interfaces' bandwidth and status monitoring is a textbook case: the Plugin default 
-behavior uses the `ifName` OID to build its cache. If it cannot find it then you 
-run into this error. 
+La bande passante et la supervision de status sont l'exemple parfait : le comportement par défaut du plugin utilise l'OID `ifname` pour construire son cache, s'il ne peut pas le trouver, vous obtiendrez cette erreur.
 
-For interfaces and storage checks, options exist to ask the probe to use 
-an other OID (e.g. `--oid-filter='ifDesc' --oid-display='ifDesc'`).
+Pour les contrôles d'interface et de stockage, il est possible de demander à la sonde d'utiliser un autre OID (par exemple `--oid-filter='ifDesc' --oid-display='ifDesc'`).
 
-## HTTP and API checks
+## Contrôles HTTP et API
 
-### UNKNOWN: Cannot decode response (add --debug option to display returned content)
+### UNKNOWN: Cannot decode response (ajoutez l'option --debug pour voir le contenu reçu)
 
-Plugins perform API calls and decode the content obtained from the API to use it as 
-status, message, or metrics. This way, it expects a specific data formatting depending
-on what the API supports (XML or JSON).
+Les plugins réalisent des appels API et déchiffrent le contenu rendu par l'API pour l'utiliser comme un statut, une message ou une metrique. Le plugin attend un certain format pour les données selon ce qui est supporté par l'API (XML ou JSON).
 
-If the API doesn't send the data a Plugin expects, the library it uses will fail 
-to decode the data.
+Si l'API ne renvoie pas les données attendues par le plugin, la librairie utilisée par le plugin ne pourra pas déchiffrer les données.
 
-The most common cause is that a Proxy blocks the primary query and returns an error 
-message that is not in the expected format. You can specify the address and the port 
-of a proxy through the `--proxyurl=<proto>://<address>:<port>` option.
+La raison la plus commune de ce problème est qu'un proxy bloque la requête principale et rend un message d'erreur qui n'est pas dans le format attendu. L'option `--proxyurl=<proto>://<address>:<port>` peut vous permettre de spécifier l'adresse et le port d'un proxy.
 
 It may also happen when the API returns an error instead of the expected data structure. 
 You may want to dig deeper into this by adding the `--debug` flag to your command line 
