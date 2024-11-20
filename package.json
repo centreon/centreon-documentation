@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "node --max-old-space-size=16000 node_modules/@docusaurus/core/bin/docusaurus.mjs start",
-    "build": "node --max-old-space-size=16000 node_modules/@docusaurus/core/bin/docusaurus.mjs build",
+    "start": "docusaurus start",
+    "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -20,6 +20,7 @@
     "@docusaurus/plugin-content-docs": "^3.6.2",
     "@docusaurus/plugin-ideal-image": "^3.6.2",
     "@docusaurus/preset-classic": "^3.6.2",
+    "@docusaurus/theme-common": "^3.6.2",
     "clsx": "^1.2.1",
     "docusaurus-plugin-image-zoom": "^2.0.0",
     "prism-react-renderer": "^2.4.0",

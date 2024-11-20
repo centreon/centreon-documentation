@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import { ThemeClassNames } from '@docusaurus/theme-common';
-import { useDoc } from '@docusaurus/theme-common/internal';
+import { useDoc } from '@docusaurus/plugin-content-docs/client';
 import LastUpdated from '@theme/LastUpdated';
 import TagsListInline from '@theme/TagsListInline';
 import Translate from '@docusaurus/Translate';
@@ -74,7 +74,7 @@ function EditMetaRow({
               id="Commentaire_doc"
               data-name="Commentaire doc"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
               width="24"
               height="24"
               viewBox="0 0 24 24"
