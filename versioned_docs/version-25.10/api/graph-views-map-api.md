@@ -110,6 +110,9 @@ GET http://{{serverURL}}:8081/centreon-map/api/beta/maps/{mapId}/views/{viewId}
 GET https://{{serverURL}}:9443/centreon-map/api/beta/maps/{mapId}/views/{viewId}
 ```
 
+</TabItem>
+</Tabs>
+
 ### Create and attach a "shape" element to the opened map
 
 In this scenario, the "shape" element is a rectangle.
