@@ -34,6 +34,9 @@ POST : http://{{serverURL}}:8081/centreon-map/api/beta/auth/sign-in
 POST : https://{{serverURL}}:9443/centreon-map/api/beta/auth/sign-in
 ```
 
+</TabItem>
+</Tabs>
+
 ```
 Headers {
     Content-Type = application/json
