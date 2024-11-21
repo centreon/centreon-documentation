@@ -216,7 +216,7 @@ jobs:
             https://api.github.com/repos/centreon/centreon-documentation/actions/caches?key=docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
         shell: bash
 
-      - name: Store docusaurus build cache in github cache
+      - name: Store docusaurus build cache in cache
         uses: actions/cache/save@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4.1.2
         with:
           path: |
