@@ -132,6 +132,9 @@ PUT http://{{serverURL}}:8081/centreon-map/api/beta/maps/{mapId}/views
 PUT https://{{serverURL}}:9443/centreon-map/api/beta/maps/{mapId}/views
 ```
 
+</TabItem>
+</Tabs>
+
 ```
 Body: {
  "id": {viewId},
