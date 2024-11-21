@@ -5,6 +5,13 @@ title: Ruckus ICX SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Vue d'ensemble
+
+Les switchs Ruckus ICX simplifient la configuration et la maintenance des réseaux, améliorent la sécurité, 
+facilitent l'exploitation et rendent les montées de version plus simples.
+Ils peuvent s'intégrer en toute transparence avec les points d'accès Wi-Fi Ruckus, les contrôleurs Ruckus SmartZone 
+et Ruckus Cloud pour délivrer les meilleurs performances et unifier les coûts. 
+
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Ruckus ICX SNMP** 
