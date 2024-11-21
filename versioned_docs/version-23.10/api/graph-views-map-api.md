@@ -19,8 +19,19 @@ of the following privileges:
 
 ### Authenticate
 
-```
+<Tabs groupId="sync">
+<TabItem value="HTTP" label="HTTP">
+
+```shell
 POST : http://{{serverURL}}:8081/centreon-map/api/beta/auth/sign-in
+```
+
+</TabItem>
+
+<TabItem value="HTTPS" label="HTTPS">
+
+```shell
+POST : https://{{serverURL}}:9443/centreon-map/api/beta/auth/sign-in
 ```
 
 ```
@@ -47,9 +58,23 @@ Headers {
 
 ### Create a map
 
-```
+<Tabs groupId="sync">
+<TabItem value="HTTP" label="HTTP">
+
+```shell
 POST http://{{serverURL}}:8081/centreon-map/api/beta/maps
 ```
+
+</TabItem>
+
+<TabItem value="HTTPS" label="HTTPS">
+
+```shell
+POST https://{{serverURL}}:9443/centreon-map/api/beta/maps
+```
+
+</TabItem>
+</Tabs>
 
 ```
 Headers {
@@ -67,17 +92,45 @@ Body {
 
 ### Open the map
 
-```
+<Tabs groupId="sync">
+<TabItem value="HTTP" label="HTTP">
+    
+```shell
 GET http://{{serverURL}}:8081/centreon-map/api/beta/maps/{mapId}/views/{viewId}
 ```
+
+</TabItem>
+
+<TabItem value="HTTPS" label="HTTPS">
+
+```shell
+GET https://{{serverURL}}:9443/centreon-map/api/beta/maps/{mapId}/views/{viewId}
+```
+
+</TabItem>
+</Tabs>
 
 ### Create and attach a "shape" element to the opened map
 
 In this scenario, the "shape" element is a rectangle.
 
-```
+<Tabs groupId="sync">
+<TabItem value="HTTP" label="HTTP">
+    
+```shell
 PUT http://{{serverURL}}:8081/centreon-map/api/beta/maps/{mapId}/views
 ```
+
+</TabItem>
+
+<TabItem value="HTTPS" label="HTTPS">
+
+```shell
+PUT https://{{serverURL}}:9443/centreon-map/api/beta/maps/{mapId}/views
+```
+
+</TabItem>
+</Tabs>
 
 ```
 Body: {
