@@ -24,6 +24,68 @@ If you have feature requests or want to report a bug, please go to our
 
 ## Centreon Web
 
+### 24.04.8
+
+Release date: `November 21, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added configuration change logs for hostgroup endpoints.
+- [API] Added missing configuration change logs for host template configuration.
+- [API] Added missing configuration change logs written when the configuration of services is deployed.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Administration] The names of the metaservices are now correctly displayed in the "Administration > Parameters > Data" menu.
+- [API] Fixed ACLs allowing access to a resource (host or service) upon its creation via the APIs by a non-administrator user.
+- [API] The is_notifications_enabled value in the host configuration endpoint of the API is now correctly updated when notifications are enabled.
+- [API Token] Fixed an issue with the expiration date of tokens in the API tokens page.
+- [API Token] Using pagination, fixed the list of contacts that wasn't returning enough results.
+- [Configuration] Custom macros are now correctly exported to the Remote Server when the configuration is deployed.
+- [Configuration] Fixed incorrect links in the Export configuration page.
+- [Configuration] Notification configuration data is no longer automatically added to services that are auto-created when creating a host based on a template.
+- [Configuration] Updated the list of standard macros in the command creation form.
+- [Core] Changed log file for the cron job that removed outdated tokens.
+- [Core] The correct user theme is now applied even when options are changed in a user's profile.
+- [Discovery] Automatic execution of host discovery jobs (export and reload of the poller configuration) no longer fails with an "insufficient rights" message.
+- [Graphs] Fixed an issue where non-admin users were downloading empty CSV files.
+- [Graphs] Fixed an issue with MySQL 8 where users got a blank page when editing a curve definition.
+- [i18n] Fixed langage translation mismatch in performance graphs, in the predefined periods list.
+- [i18n] Fixed typo in the Event Logs and ACL Resource Access pages.
+- [Install] Added a missing ACL column in the Centreon database.
+- [Resource Status] Custom column definitions are now saved correctly.
+- [Resource Status] Duration units are now displayed correctly in the downtime window.
+- [Resource Status] Fixed an issue preventing selected filters from being removed by clicking the 'x' symbol in the timeline tab.
+- [Resource Status] Fixed an issue with the behavior of group chips in the resource detail panel.
+- [Resource Status] Fixed display of scale/units on graphs containing multiple curves.
+- [Resource Status] Fixed issue where actions in one browser tab were being replicated to another tab open on the same menu.
+- [Resource Status] Fixed search filter for anomaly detection services.
+- [Resource Status] Fixed the display of quick action button tooltips when they are hovered.
+- [Resource Status] Fixed the redirection from the Event Logs page to Resource Status: the details panel is now opened on the correct resource.
+- [Resource Status] If no notification has ever been sent, the "Last notification" field in the details panel is not displayed.
+- [Resource Status] If no notification has ever been sent, the "Last notification" field in the details panel is left blank instead of displaying 1970.
+- [Resource Status] Made downtime and acknowledge icons more visible in light and dark modes.
+- [Resource Status] Removed list refresh that was triggered by hovering over the left main menu.
+- [Resource Status] The monitoring server filter now takes into account spaces in poller names correctly.
+- [Resource Status] Tooltips on quick action buttons are now displayed only briefely when they are hovered, so as not to block the action button just below.
+- [Status Chart widget] Filters on selected resources are now handled properly.
+- [Widget Graph] Fixed "invalid metric format" error when using "threshold area color" parameter for curves.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Improved checks on changed objects that update the "conf changed" column in the list of pollers.
+- [Security] Fixed XSS vulnerability in "Administration > Logs" menu (CVE-2024-47863).
+- [Security] Fixed XSS vulnerability on poller name in several menus.
+
+</details>
+
 ### 24.04.7
 
 Release date: `September 30, 2024`
@@ -466,6 +528,17 @@ Release date: `April 30, 2024`
 
 ## Centreon DSM
 
+### 24.04.3
+
+Release date: `November 21, 2024`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed SQLi in the Centreon DSM slot configuration form, only accessible to authenticated users with high privilege access. (CVE-2024-45755)
+
+</details>
+
 ### 24.04.2
 
 Release date: `May 28, 2024`
@@ -500,6 +573,17 @@ Release date: `April 30, 2024`
 </details>
 
 ## Centreon Open Tickets
+
+### 24.04.2
+
+Release date: `November 21, 2024`
+
+<details>
+  <summary>Security fixes</summary>
+
+- 	[Security] Fixed SQLi in the ticket creation form, only accessible to authenticated users with high privilege access. (CVE-2024-45756)
+
+</details>
 
 ## 24.04.1
 
