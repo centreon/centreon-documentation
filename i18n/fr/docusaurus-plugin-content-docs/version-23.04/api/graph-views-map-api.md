@@ -18,9 +18,23 @@ Avec cette API, vous pouvez créer / mettre à jour / supprimer des cartes stand
 
 ### S'authentifier
 
-```
+<Tabs groupId="sync">
+<TabItem value="HTTP" label="HTTP">
+
+```shell
 POST : http://{{serverURL}}:8081/centreon-map/api/beta/auth/sign-in
 ```
+
+</TabItem>
+
+<TabItem value="HTTPS" label="HTTPS">
+
+```shell
+POST : https://{{serverURL}}:9443/centreon-map/api/beta/auth/sign-in
+```
+
+</TabItem>
+</Tabs>
 
 ```
 Headers {
@@ -46,8 +60,19 @@ Headers {
 
 ### Créer une carte
 
-```
+<Tabs groupId="sync">
+<TabItem value="HTTP" label="HTTP">
+
+```shell
 POST http://{{serverURL}}:8081/centreon-map/api/beta/maps
+```
+
+</TabItem>
+
+<TabItem value="HTTPS" label="HTTPS">
+
+```shell
+POST https://{{serverURL}}:9443/centreon-map/api/beta/maps
 ```
 
 ```
@@ -66,17 +91,45 @@ Body {
 
 ### Ouvrir la carte
 
-```
+<Tabs groupId="sync">
+<TabItem value="HTTP" label="HTTP">
+    
+```shell
 GET http://{{serverURL}}:8081/centreon-map/api/beta/maps/{mapId}/views/{viewId}
 ```
+
+</TabItem>
+
+<TabItem value="HTTPS" label="HTTPS">
+
+```shell
+GET https://{{serverURL}}:9443/centreon-map/api/beta/maps/{mapId}/views/{viewId}
+```
+
+</TabItem>
+</Tabs>
 
 ### Créer et attacher un élément "shape" à la carte ouverte
 
 Dans ce scénario, l'élément "shape" est un rectangle.
 
-```
+<Tabs groupId="sync">
+<TabItem value="HTTP" label="HTTP">
+    
+```shell
 PUT http://{{serverURL}}:8081/centreon-map/api/beta/maps/{mapId}/views
 ```
+
+</TabItem>
+
+<TabItem value="HTTPS" label="HTTPS">
+
+```shell
+PUT https://{{serverURL}}:9443/centreon-map/api/beta/maps/{mapId}/views
+```
+
+</TabItem>
+</Tabs>
 
 ```
 Body: {
