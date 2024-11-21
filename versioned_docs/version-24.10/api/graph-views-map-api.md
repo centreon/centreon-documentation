@@ -119,7 +119,7 @@ In this scenario, the "shape" element is a rectangle.
 
 <Tabs groupId="sync">
 <TabItem value="HTTP" label="HTTP">
-    
+
 ```shell
 PUT http://{{serverURL}}:8081/centreon-map/api/beta/maps/{mapId}/views
 ```
