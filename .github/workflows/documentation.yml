@@ -203,6 +203,10 @@ jobs:
           path: "./build"
           key: "${{ github.sha }}-${{ github.run_id }}-build-doc-${{ matrix.environment }}"
 
+      - name: Show .docusaurus folder size
+        run: du -sh .docusaurus
+        shell: bash
+
   deploy-preview:
     if: ${{ github.event_name == 'pull_request' }}
     needs: [get-versions, build]
