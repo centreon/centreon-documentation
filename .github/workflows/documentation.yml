@@ -189,6 +189,12 @@ jobs:
         run: pnpm install --frozen-lockfile
         shell: bash
 
+      - name: Restore docusaurus build cache from github cache
+        uses: actions/cache/restore@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4.1.2
+        with:
+          path: .docusaurus
+          key: docusaurus-build-cache-${{ github.head_ref || github.ref_name }}
+
       - name: Build documentation
         run: pnpm build
         env:
@@ -206,6 +212,21 @@ jobs:
       - name: Show .docusaurus folder size
         run: du -sh .docusaurus
         shell: bash
+
+      - name: Clear previous docker image from cache
+        run: |
+          curl \
+            -X DELETE \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            https://api.github.com/repos/centreon/centreon-documentation/actions/caches?key=docusaurus-build-cache-${{ github.head_ref || github.ref_name }}
+        shell: bash
+
+      - name: Store docusaurus build cache in github cache
+        uses: actions/cache/save@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4.1.2
+        with:
+          path: .docusaurus
+          key: docusaurus-build-cache-${{ github.head_ref || github.ref_name }}
 
   deploy-preview:
     if: ${{ github.event_name == 'pull_request' }}
