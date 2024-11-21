@@ -5,7 +5,7 @@ import { useDoc } from '@docusaurus/plugin-content-docs/client';
 import LastUpdated from '@theme/LastUpdated';
 import TagsListInline from '@theme/TagsListInline';
 import Translate from '@docusaurus/Translate';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from '@docusaurus/router';
 import styles from './styles.module.css';
 
 function TagsRow({ tags }) {
@@ -94,7 +94,7 @@ function EditMetaRow({
               <g
                 id="Groupe_4176"
                 data-name="Groupe 4176"
-                clip-path="url(#clip-path)"
+                clipPath="url(#clip-path)"
               >
                 <path
                   id="Tracé_4198"

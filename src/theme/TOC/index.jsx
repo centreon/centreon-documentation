@@ -82,7 +82,7 @@ export default function TOC(props) {
                 <g
                   id="Groupe_4176"
                   data-name="Groupe 4176"
-                  clip-path="url(#clip-path)"
+                  clipPath="url(#clip-path)"
                 >
                   <path
                     id="Tracé_4198"
