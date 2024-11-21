@@ -177,8 +177,9 @@ wmic useraccount where name="@USERNAME@" get name,sid
 ```
 
 Output:
-><p>Name&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;SID</p>
->@USRNAME@&ensp;&ensp;S-1-5-21-3051596711-3341658857-577043467-1000
+> Name&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;SID
+>
+> @USRNAME@&ensp;&ensp;S-1-5-21-3051596711-3341658857-577043467-1000
 
 #### Récupérer le SDDL actuel pour Service Control Manager
 
