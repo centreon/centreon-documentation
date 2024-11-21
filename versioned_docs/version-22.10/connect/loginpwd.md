@@ -36,10 +36,10 @@ Go to **Administration > Authentication> Password Security Policy**:
 
 ### Password expiration policy
 
-Configure when passwords will expire:
+Configure when passwords will expire. For security reasons, this feature can not be disabled except for specific cases described below. 
 
 - **Password expires after**: Once the password expires, the user will be redirected to a
-  [dedicated page](../getting-started/interface.md#reset-your-password-when-expired) to update their password.
+  [dedicated page](../getting-started/interface.md#reset-your-password-when-expired) to update their password. The password duration must be at least 7 days.
 - **Minimum time between password changes**: When a password has just been changed, how much time must elapse before it can be changed again.
 - **Last 3 passwords can be reused**: Use this option to allow users to reuse one of their 3 old passwords when renewing.
 - **Excluded users**: Select user accounts for which the password expiration policy will not apply (for instance, the **admin** account, or technical accounts accessing APIs). The passwords for these accounts will never expire.
