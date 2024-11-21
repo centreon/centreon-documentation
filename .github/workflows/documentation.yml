@@ -189,11 +189,15 @@ jobs:
         run: pnpm install --frozen-lockfile
         shell: bash
 
-      - name: Restore docusaurus build cache from github cache
+      - name: Restore docusaurus build from cache
         uses: actions/cache/restore@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4.1.2
         with:
-          path: .docusaurus
-          key: docusaurus-build-cache-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
+          path: |
+            .docusaurus
+            build
+          key: docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
+          restore-keys: |
+            docusaurus-build-${{ matrix.environment }}-staging
 
       - name: Build documentation
         run: pnpm build
@@ -203,29 +207,21 @@ jobs:
           VERSIONS: ${{ matrix.environment == 'staging' && matrix.versions || matrix.next_version }}
           BASE_URL: ${{ github.event_name == 'pull_request' && format('/previews/pr-{0}/{1}', github.event.pull_request.number, matrix.environment) || '' }}
 
-      - name: Store build in cache
-        uses: actions/cache/save@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4.1.2
-        with:
-          path: "./build"
-          key: "${{ github.sha }}-${{ github.run_id }}-build-doc-${{ matrix.environment }}"
-
-      - name: Show .docusaurus folder size
-        run: du -sh .docusaurus
-        shell: bash
-
       - name: Clear previous docker image from cache
         run: |
           curl \
             -X DELETE \
             -H "Accept: application/vnd.github.v3+json" \
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            https://api.github.com/repos/centreon/centreon-documentation/actions/caches?key=docusaurus-build-cache-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
+            https://api.github.com/repos/centreon/centreon-documentation/actions/caches?key=docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
         shell: bash
 
       - name: Store docusaurus build cache in github cache
         uses: actions/cache/save@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4.1.2
         with:
-          path: .docusaurus
+          path: |
+            .docusaurus
+            build
           key: docusaurus-build-cache-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
 
 
@@ -248,7 +244,9 @@ jobs:
       - name: Restore build from cache
         uses: actions/cache/restore@6849a6489940f00c2f30c0fb92c6274307ccb58a # v4.1.2
         with:
-          path: "./build"
+          path: |
+            .docusaurus
+            build
           key: "${{ github.sha }}-${{ github.run_id }}-build-doc-${{ matrix.environment }}"
           fail-on-cache-miss: true
 
