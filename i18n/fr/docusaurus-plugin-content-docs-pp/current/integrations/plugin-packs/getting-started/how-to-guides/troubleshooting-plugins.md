@@ -140,24 +140,18 @@ Si l'API ne renvoie pas les données attendues par le plugin, la librairie utili
 
 La raison la plus commune de ce problème est qu'un proxy bloque la requête principale et rend un message d'erreur qui n'est pas dans le format attendu. L'option `--proxyurl=<proto>://<address>:<port>` peut vous permettre de spécifier l'adresse et le port d'un proxy.
 
-It may also happen when the API returns an error instead of the expected data structure. 
-You may want to dig deeper into this by adding the `--debug` flag to your command line 
-to get more information on the query and data received.
+Il est également possible que l'API vous renvoie une erreur au lieu des des données attendues.
+Vous pouvez investiguer ceci en ajoutant le flag `--debug` à votre ligne de commande pour obtenir plus d'informations à propos de la requête et des données reçues.
 
 ### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (<extra_reason_if_available>)
 
-When grabbing metrics or statuses from an API, multiple issues can show up because
-of proxies, remote devices' certificates, or simply the check configuration.
+Lorsque vous récuperez des metriques ou des données d'un API, divers problèmes peuvent appraitre. Ils sont souvent causés par des proxy, des appareils à distance, des certificats ou tout simplement la configuration du check.
 
-This section focuses on the most common error reasons and shares some tips to solve them. 
+Cette section est axée sur les causes les plus courantes de ces problèmes et propose quelques conseils pour les résoudre.
 
-An important thing to know is that Plugins can rely on several *backends* to perform 
-HTTP requests. You can specify which backend you want to use to perform checks using 
-the `--http-backend` option. The default value is `lwp`, though `curl` is also 
-available and generally easier to debug.
+Ce que vous devez retenir est que les plugins peuvent dépendre de plusieurs *backends* pour réaliser leur requêtes HTTP. Vous pouvez spécifier quel backend vous souhaitez utiliser pour vos contrôles avec l'option `--http-backend` dont la valeur par défaut est `lwp` mais `crurl` est également disponible et est, généralement, plus facile à dépanner.
 
-In the same way, if you use a proxy, you can tell the Plugin how to go through 
-by adding the `--proxyurl` option to your command line. The expecte format is: 
+Si vous utilisez un proxy vous pouvez également spécifier au plugin comment communiquer avec en ajoutant l'option `--proxyurl` à votre ligne de commande. Le format attendu est : 
 `--proxyurl='<proto>://<proxy_addr>:<proxy_port>`. 
 
 #### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (Connection refused)
