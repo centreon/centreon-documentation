@@ -188,7 +188,7 @@ the `--http-backend` option. The default value is `lwp`, though `curl` is also
 available and generally easier to debug.
 
 In the same way, if you use a proxy, you can tell the Plugin how to go through 
-by adding the `--proxyurl` option to your command line. The expecte format is: 
+by adding the `--proxyurl` option to your command line. The expected format is: 
 `--proxyurl='<proto>://<proxy_addr>:<proxy_port>`. 
 
 #### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (Connection refused)
