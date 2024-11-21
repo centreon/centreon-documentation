@@ -222,7 +222,7 @@ jobs:
           path: |
             .docusaurus
             build
-          key: docusaurus-build-cache-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
+          key: docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
 
   deploy-preview:
     if: ${{ github.event_name == 'pull_request' }}
@@ -246,7 +246,7 @@ jobs:
           path: |
             .docusaurus
             build
-          key: docusaurus-build-cache-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
+          key: docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
           fail-on-cache-miss: true
 
       - name: Setup awscli
