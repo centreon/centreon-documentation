@@ -407,8 +407,7 @@ usermod -a -G www-data centreon-broker
 </TabItem>
 </Tabs>
 
-Si le module Centreon BAM est installé, référez-vous à la [documentation
-associée](../service-mapping/upgrade.md) pour le mettre à jour.
+> Trouvez ici les procédures de montée de version pour [Centreon BAM](../service-mapping/update.md) et [Centreon MAP](../graph-views/map-web-upgrade.md).
 
 ### Actions post montée de version
 
