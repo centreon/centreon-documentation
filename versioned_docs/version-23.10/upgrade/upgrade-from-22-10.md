@@ -408,8 +408,7 @@ usermod -a -G www-data centreon-broker
 </TabItem>
 </Tabs>
 
-If the Centreon BAM module is installed, refer to the
-[upgrade procedure](../service-mapping/upgrade.md).
+> Refer to the [Centreon BAM](../service-mapping/update.md) and [Centreon MAP](../graph-views/map-web-upgrade.md) dedicated procedures to update these modules.
 
 ### Post-upgrade actions
 
