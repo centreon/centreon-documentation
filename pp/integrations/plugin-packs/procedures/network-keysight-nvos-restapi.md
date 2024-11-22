@@ -27,7 +27,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias | Service Template                          | Service Description                                     |
 |:--------------|:------------------------------------------|:--------------------------------------------------------|
 | Hardware      | Net-Keysight-Nvos-Hardware-Restapi-custom | Check hardware                                          |
-| Licence       | Net-Keysight-Nvos-Licence-Restapi-custom  | Check license state                                     |
+| License       | Net-Keysight-Nvos-License-Restapi-custom  | Check license state                                     |
 | Time          | Net-Keysight-Nvos-Time-Restapi-custom     | Check time offset                                       |
 | Uptime        | Net-Keysight-Nvos-Uptime-Restapi-custom   | Time since the equipment has been working and available |
 
@@ -280,7 +280,7 @@ yum install centreon-plugin-Network-Keysight-Nvos-Restapi
 | EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose              |             |
 
 </TabItem>
-<TabItem value="Licence" label="Licence">
+<TabItem value="License" label="License">
 
 | Macro          | Description                                                                                                                            | Default value                   | Mandatory   |
 |:---------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------|:-----------:|
@@ -412,7 +412,7 @@ The plugin brings the following modes:
 |:------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|
 | dynamic-filters [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/keysight/nvos/restapi/mode/dynamicfilters.pm)]          | Net-Keysight-Nvos-Dynamic-Filters-Restapi-custom |
 | hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/keysight/nvos/restapi/mode/hardware.pm)]                       | Net-Keysight-Nvos-Hardware-Restapi-custom        |
-| license [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/keysight/nvos/restapi/mode/license.pm)]                         | Net-Keysight-Nvos-Licence-Restapi-custom         |
+| license [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/keysight/nvos/restapi/mode/license.pm)]                         | Net-Keysight-Nvos-License-Restapi-custom         |
 | list-dynamic-filters [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/keysight/nvos/restapi/mode/listdynamicfilters.pm)] | Used for service discovery                       |
 | list-ports [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/keysight/nvos/restapi/mode/listports.pm)]                    | Used for service discovery                       |
 | ports [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/keysight/nvos/restapi/mode/ports.pm)]                             | Net-Keysight-Nvos-Ports-Restapi-custom           |
@@ -501,7 +501,7 @@ All available options for each service template are listed below:
 | --warning-* --critical-*      |   Thresholds. Can be: 'temperature', 'fans-failed'.                                                                                                            |
 
 </TabItem>
-<TabItem value="Licence" label="Licence">
+<TabItem value="License" label="License">
 
 | Option            | Description                                                                                                                                                   |
 |:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|

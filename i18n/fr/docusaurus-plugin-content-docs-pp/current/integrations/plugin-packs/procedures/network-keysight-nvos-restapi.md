@@ -28,7 +28,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias    | Modèle de service                         | Description                                                 |
 |:---------|:------------------------------------------|:------------------------------------------------------------|
 | Hardware | Net-Keysight-Nvos-Hardware-Restapi-custom | Contrôle l'état du matériel                                 |
-| Licence  | Net-Keysight-Nvos-Licence-Restapi-custom  | Contrôle l'état de la licence                               |
+| License  | Net-Keysight-Nvos-License-Restapi-custom  | Contrôle l'état de la licence                               |
 | Time     | Net-Keysight-Nvos-Time-Restapi-custom     | Contrôle le décalage de temps                               |
 | Uptime   | Net-Keysight-Nvos-Uptime-Restapi-custom   | Durée depuis laquelle l'équipement tourne sans interruption |
 
@@ -87,7 +87,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | psu-status                                  | N/A   |
 
 </TabItem>
-<TabItem value="Licence" label="Licence">
+<TabItem value="License" label="License">
 
 | Nom    | Unité |
 |:-------|:------|
@@ -279,7 +279,7 @@ yum install centreon-plugin-Network-Keysight-Nvos-Restapi
 | EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose              |             |
 
 </TabItem>
-<TabItem value="Licence" label="Licence">
+<TabItem value="License" label="License">
 
 | Macro          | Description                                                                                                                                      | Valeur par défaut               | Obligatoire |
 |:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------|:-----------:|
@@ -413,7 +413,7 @@ Le plugin apporte les modes suivants :
 |:------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|
 | dynamic-filters [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/keysight/nvos/restapi/mode/dynamicfilters.pm)]          | Net-Keysight-Nvos-Dynamic-Filters-Restapi-custom |
 | hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/keysight/nvos/restapi/mode/hardware.pm)]                       | Net-Keysight-Nvos-Hardware-Restapi-custom        |
-| license [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/keysight/nvos/restapi/mode/license.pm)]                         | Net-Keysight-Nvos-Licence-Restapi-custom         |
+| license [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/keysight/nvos/restapi/mode/license.pm)]                         | Net-Keysight-Nvos-License-Restapi-custom         |
 | list-dynamic-filters [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/keysight/nvos/restapi/mode/listdynamicfilters.pm)] | Used for service discovery                       |
 | list-ports [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/keysight/nvos/restapi/mode/listports.pm)]                    | Used for service discovery                       |
 | ports [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/keysight/nvos/restapi/mode/ports.pm)]                             | Net-Keysight-Nvos-Ports-Restapi-custom           |
@@ -502,7 +502,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --warning-* --critical-*      |   Thresholds. Can be: 'temperature', 'fans-failed'.                                                                                                            |
 
 </TabItem>
-<TabItem value="Licence" label="Licence">
+<TabItem value="License" label="License">
 
 | Option            | Description                                                                                                                                                   |
 |:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
