@@ -90,7 +90,7 @@ Body {
    }
 ```
 
-- Récupérez l'identifiant de la carte {mapId} et de la vue {viewId} renvoyés.
+- Récupérez les identifiants de la carte (mapId) et de la vue (viewId) renvoyés.
 
 ### Ouvrir la carte
 

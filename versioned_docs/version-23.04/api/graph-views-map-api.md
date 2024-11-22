@@ -91,7 +91,7 @@ Body {
    }
 ```
 
-- Retrieve the ID of the map {mapId} and the view {viewId} returned.
+- Retrieve the ID of the map (mapId) and the view (viewId) returned.
 
 ### Open the map
 
