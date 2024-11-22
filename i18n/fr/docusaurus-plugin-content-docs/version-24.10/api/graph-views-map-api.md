@@ -21,7 +21,7 @@ Avec cette API, vous pouvez créer / mettre à jour / supprimer des cartes stand
 <Tabs groupId="sync">
 <TabItem value="HTTP" label="HTTP">
 
-```shell
+```
 POST : http://serverURL:8081/centreon-map/api/beta/auth/sign-in
 ```
 
@@ -29,7 +29,7 @@ POST : http://serverURL:8081/centreon-map/api/beta/auth/sign-in
 
 <TabItem value="HTTPS" label="HTTPS">
 
-```shell
+```
 POST : https://serverURL:9443/centreon-map/api/beta/auth/sign-in
 ```
 
@@ -63,7 +63,7 @@ Headers {
 <Tabs groupId="sync">
 <TabItem value="HTTP" label="HTTP">
 
-```shell
+```
 POST http://serverURL:8081/centreon-map/api/beta/maps
 ```
 
@@ -71,7 +71,7 @@ POST http://serverURL:8081/centreon-map/api/beta/maps
 
 <TabItem value="HTTPS" label="HTTPS">
 
-```shell
+```
 POST https://serverURL:9443/centreon-map/api/beta/maps
 ```
 
@@ -97,7 +97,7 @@ Body {
 <Tabs groupId="sync">
 <TabItem value="HTTP" label="HTTP">
     
-```shell
+```
 GET http://serverURL:8081/centreon-map/api/beta/maps/{mapId}/views/{viewId}
 ```
 
@@ -105,7 +105,7 @@ GET http://serverURL:8081/centreon-map/api/beta/maps/{mapId}/views/{viewId}
 
 <TabItem value="HTTPS" label="HTTPS">
 
-```shell
+```
 GET https://serverURL:9443/centreon-map/api/beta/maps/{mapId}/views/{viewId}
 ```
 
@@ -119,7 +119,7 @@ Dans ce scénario, l'élément "shape" est un rectangle.
 <Tabs groupId="sync">
 <TabItem value="HTTP" label="HTTP">
     
-```shell
+```
 PUT http://serverURL:8081/centreon-map/api/beta/maps/{mapId}/views
 ```
 
@@ -127,7 +127,7 @@ PUT http://serverURL:8081/centreon-map/api/beta/maps/{mapId}/views
 
 <TabItem value="HTTPS" label="HTTPS">
 
-```shell
+```
 PUT https://serverURL:9443/centreon-map/api/beta/maps/{mapId}/views
 ```
 
