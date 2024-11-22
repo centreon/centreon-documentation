@@ -108,7 +108,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Metric name                        | Unit |
+| Name                       | Unit |
 |:-----------------------------------|:-----|
 | hardware.temperature.celsius       | C    |
 | hardware.disk.temperature.celsius  | C    |

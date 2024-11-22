@@ -109,7 +109,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Metric name                        | Unité |
+| Nom                        | Unité |
 |:-----------------------------------|:------|
 | hardware.temperature.celsius       | C     |
 | hardware.disk.temperature.celsius  | C     |
