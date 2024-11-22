@@ -323,6 +323,8 @@ accéder à la page de connexion :
 </TabItem>
 <TabItem value="Avec une API dédiée" label="Avec une API dédiée">
 
+> Trouvez ici les procédures de montée de version pour [Centreon BAM](../service-mapping/update.md) et [Centreon MAP](../graph-views/map-web-upgrade.md).
+
 1. Connectez-vous au serveur Central via le terminal pour poursuivre le processus de
 mise à jour.
 
@@ -406,9 +408,6 @@ usermod -a -G www-data centreon-broker
 
 </TabItem>
 </Tabs>
-
-Si le module Centreon BAM est installé, référez-vous à la [documentation
-associée](../service-mapping/upgrade.md) pour le mettre à jour.
 
 ### Actions post montée de version
 
