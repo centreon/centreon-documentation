@@ -23,7 +23,7 @@ of the following privileges:
 <TabItem value="HTTP" label="HTTP">
 
 ```shell
-POST : http://{{serverURL}}:8081/centreon-map/api/beta/auth/sign-in
+POST : http://\{\{serverURL\}\}:8081/centreon-map/api/beta/auth/sign-in
 ```
 
 </TabItem>
@@ -31,7 +31,7 @@ POST : http://{{serverURL}}:8081/centreon-map/api/beta/auth/sign-in
 <TabItem value="HTTPS" label="HTTPS">
 
 ```shell
-POST : https://{{serverURL}}:9443/centreon-map/api/beta/auth/sign-in
+POST : https://\{\{serverURL\}\}:9443/centreon-map/api/beta/auth/sign-in
 ```
 
 </TabItem>
@@ -65,7 +65,7 @@ Headers {
 <TabItem value="HTTP" label="HTTP">
 
 ```shell
-POST http://{{serverURL}}:8081/centreon-map/api/beta/maps
+POST http://\{\{serverURL\}\}:8081/centreon-map/api/beta/maps
 ```
 
 </TabItem>
@@ -73,7 +73,7 @@ POST http://{{serverURL}}:8081/centreon-map/api/beta/maps
 <TabItem value="HTTPS" label="HTTPS">
 
 ```shell
-POST https://{{serverURL}}:9443/centreon-map/api/beta/maps
+POST https://\{\{serverURL\}\}:9443/centreon-map/api/beta/maps
 ```
 
 </TabItem>
@@ -99,7 +99,7 @@ Body {
 <TabItem value="HTTP" label="HTTP">
     
 ```shell
-GET http://{{serverURL}}:8081/centreon-map/api/beta/maps/{mapId}/views/{viewId}
+GET http://\{\{serverURL\}\}:8081/centreon-map/api/beta/maps/{mapId}/views/{viewId}
 ```
 
 </TabItem>
@@ -107,7 +107,7 @@ GET http://{{serverURL}}:8081/centreon-map/api/beta/maps/{mapId}/views/{viewId}
 <TabItem value="HTTPS" label="HTTPS">
 
 ```shell
-GET https://{{serverURL}}:9443/centreon-map/api/beta/maps/{mapId}/views/{viewId}
+GET https://\{\{serverURL\}\}:9443/centreon-map/api/beta/maps/{mapId}/views/{viewId}
 ```
 
 </TabItem>
@@ -121,7 +121,7 @@ In this scenario, the "shape" element is a rectangle.
 <TabItem value="HTTP" label="HTTP">
 
 ```shell
-PUT http://{{serverURL}}:8081/centreon-map/api/beta/maps/{mapId}/views
+PUT http://\{\{serverURL\}\}:8081/centreon-map/api/beta/maps/{mapId}/views
 ```
 
 </TabItem>
@@ -129,7 +129,7 @@ PUT http://{{serverURL}}:8081/centreon-map/api/beta/maps/{mapId}/views
 <TabItem value="HTTPS" label="HTTPS">
 
 ```shell
-PUT https://{{serverURL}}:9443/centreon-map/api/beta/maps/{mapId}/views
+PUT https://\{\{serverURL\}\}:9443/centreon-map/api/beta/maps/{mapId}/views
 ```
 
 </TabItem>
