@@ -128,6 +128,25 @@ Release date: `October 31, 2024`
 
 ## Centreon Collect
 
+## Centreon Collect
+
+### 24.10.2
+
+Release date: `November 27, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Adaption of Broker to a new behavior of the MariaDB database concerning errors.Broker could fail to reconnect after an error.
+- [CMA] Added a native CPU check for Windows & Linux.
+- [CMA] Agent checks scheduling has been optimized to avoid delay in case of checks timeouts.
+- [CMA] Centreon Monitoring Agent & installer are now signed. 
+- [CMA] Fixed a listening issue when using "Poller initiated connection".
+- [Engine] Delivered the correct libraries for Collect, so as to avoid issues with template inheritance or Engine crashes.
+- [Engine]Fixed an issue where a segmentation fault could occur when host relations were modified.
+
+</details>
+
 ### 24.10.1
 
 Release date: `November 7, 2024`
