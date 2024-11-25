@@ -775,6 +775,10 @@
             },
             {
               "type": "doc",
+              "id": "version-22.10/graph-views/map-web-migrate"
+            },
+            {
+              "type": "doc",
               "id": "version-22.10/graph-views/import-into-map-web"
             },
             {
