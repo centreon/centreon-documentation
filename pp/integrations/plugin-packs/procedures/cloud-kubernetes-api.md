@@ -666,7 +666,7 @@ kubernetes.io/service-account.name
 
 Manually create a long-lived API token for a ServiceAccount
 
-If you want to obtain an API token for a ServiceAccount, you create a new Secret with a special annotation, kubernetes.io/service-account.name.
+Then you create a new Secret with a special annotation, kubernetes.io/service-account.name.
 
 ```
 kubectl apply -f - <<EOF
