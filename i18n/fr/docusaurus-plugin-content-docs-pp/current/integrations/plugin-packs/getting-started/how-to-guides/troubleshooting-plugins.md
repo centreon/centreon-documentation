@@ -166,88 +166,69 @@ que tous les plugins utilisant des backend HTTP ont les options `--proto` et `--
 
 #### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (Timeout)
 
-The timeout error occurs when the Plugin doesn't succeed in contacting the server 
-or when a third-party device is blocking or filtering the client's request. 
+L'erreur "timeout" se produit lorsque le plugin n'arrive pas à contacter le serveur ou lorsqu'un appareil tiers bloque ou filtre la requête du client.
 
 #### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (`<SSL Error>`)
 
-SSL Errors indicate that the Plugin has some trouble establishing a secure connection 
-to get the monitoring information.
+L'erreur SSL indique que le plugin rencontre des problèmes pour établir un connexion sécurisée pour obtenir les données de supervision.
 
-The primary cause could be the certificate used. In this case, the best practice 
-would be either to: 
-* renew the certificate when it expired 
-* sign the remote certificate officially
-* deploy the certificate locally so the Plugin can recognize it
+La cause est probablement le certificat employé, dans ce cas, les meilleures pratiques sont :
+* renouveler le certificat lorsu'il a expiré
+* signer officiellement la certification à distance
+* deployer le certificat localement pour que le plugin puisse le reconnaître
 
-Regardless of what HTTP backend you're using, it's possible to ignore SSL certificate 
-errors by adding specific flags: 
+Indépendament du backend HTTP que vous employez, il est possible d'ignorer les erreurs de certificat SSL en ajoutant des flags specifiques : 
 
-* lwp backend: `--ssl-opt='--ssl-opt="SSL_verify_mode => SSL_VERIFY_NONE'`
-* curl backend: `--curl-opt='CURLOPT_SSL_VERIFYPEER => 0'`
+* backend lwp : `--ssl-opt='--ssl-opt="SSL_verify_mode => SSL_VERIFY_NONE'`
+* backend curl : `--curl-opt='CURLOPT_SSL_VERIFYPEER => 0'`
 
-Sometimes, the remote host doesn't support negotiation about the SSL implementation, 
-so you must specify explicitly which one the Plugin has to use thanks to the `--ssl` 
-option (e.g. `--ssl='tlsv1'`). Refer to the manufacturer or software publisher documentation.
+Occasionnellement, l'hôte à distance ne suppoorte pas la négotiation de l'implémentation SSL. Vous devez alors spécifier explicitement au plugin lequel utiliser avec l'option `--ssl` (e.g. `--ssl='tlsv1'`). Referez-vous à la documentation du manufactureur ou de l'éditeur du logiciel.
 
-## SSH and CLI checks
+## Contrôles SSH et CLI
 
 ### UNKNOWN: Command error: `<interpreter>`: `<command_name>`: command not found
 
-This error warns that the Plugin is not able to execute the `<command_name>` because it 
-doesn't exist in PATH or is not installed.
+Cette erreur indique que le plugin n'est pas capble d'executer `<commande_name>` care la commande n'existe pas dans PATH ou n'est pas installée.
 
-Depending on how the check is performed (locally or remotely), make sure that the 
-utility the Plugin uses is available to your monitoring user. 
+Selon la méthode du contrôle (locale ou à distance), vous devez vous assurer que l'utilitaire employé par le plugin est disponible pour votre utilisateur de supervision. 
 
 ### UNKNOWN: Command error: Host key verification failed.
 
-SSH-Based checks can use several *backends*. Whether you use the `ssh` or `plink` backend, 
-you have to manually validate the remote system fingerprint from the *centreon-engine*
-user on the monitoring Poller. If you don't do that, the Plugin will hang and cause a timeout
-because it cannot accept the fingerprint for obvious security reasons.
+Les contrôles basés sur SSH peuvent utiliser de nombreux *backends*, peu importe que vous utilisez le backend `ssh` ou `plink`, vous devez valider manuellement l'empreinte digitale du système à distance sur le poller de supervision et depuis l'utilisateur *centreon-engine*. Pour des raisons de sécurité, si vous ne suivez pas ces instructions, le plugin reste en attente jusqu'à déclencher un timeout car il ne peut accepter l'empreinte digitale.
 
-## NRPE checks
+## Contrôles NRPE
 
 ### CHECK_NRPE STATE (CRITICAL|UNKNOWN): Socket timeout after 10 seconds
 
-Here are the questions you may want to ask yourself when obtaining this result: 
-
-* Does my IP Address and port parameters are correct? 
-* Is the NRPE daemon running on the remote system?
-* Is there any firewall or security policy that might block the request? 
+Lorsque vous voyez ce message, demandez-vous : 
+* Est-ce que mon adresse IP et paramètres de port sont corrects ?
+* Est-ce que le daemon NRPE est actif dans le système à distance ?
+* Est-ce qu'il y a un firewall ou une politique de sécurité qui pourrait être en train de bloquer la requête ?
 
 ### connect to address x.x.x.x port 5666: Connection refused
 
-This error means that the client made a successful connection to the remote host and port 
-but the server refused the connection.
+Cette erreur indique que le client a réussi à se connecter à l'hôte à distance et au port mais que le serveur a refusé la connexion.
+Cela est généralement dû au fait que le client essaie d'établir une connexion avec le serveur depuis une IP non-autorisée.
 
-Frequently, this is because the client is trying to connect to a server from an 
-unauthorized IP. 
+Verifiez que le directif `allowed_hosts` défini dans le fichier config du serveur NRPE autorise votre serveur de supervision à envoyer des commandes d'exécution à distance.
 
-Check that the `allowed_hosts` directive defined in the NRPE Server config file 
-allows your monitoring server to send remote command execution. 
-
-Do not forget to restart your NRPE daemon to update the configuration.
+Pensez à redémarrer votre daemon NRPE pour mettre à jour la configuration.
 
 ### NRPE: Command <a_command> not defined
 
-The NRPE Server throws this error when the client asks to run a command it doesn't understand. 
+Le serveur NRPE renvoie cette erreur lorsque le client tente d'exécuter une commande qu'il ne comprend pas.
 
-It might highlight either a configuration issue on the server-side or a typo in the 
-command line on the client-side. 
+Cela peut être dû à un problème de configuration du côté du serveur ou une faute de frappe dans la ligne de commande du côté du client.
 
-Check the NRPE Server configuration to ensure that the command exists: 
+Vérifiez la configuration du serveur NRPE pour confirmer que la commande existe : 
 ```text
 [a_command]=/path/to/a/command --option1='<value_or_macro>' --optionN='<value_or_macro>'
 ```
-Do not forget to restart your NRPE daemon to update the configuration.
+
+Redémarrez votre daemon NRPE pour mettre à jour la configuration.
 
 ### NRPE: unable to read output
+Cette erreur survient lorsque le serveur NRPE n'arrive pas à exécuter la commande. 
+Dans ce cas, connectez-vous au serveur contenant le serveur NRPE et exécutez la commande manuellement en utilisant l'utilisateur NRPE.
 
-This error can occur when the NRPE server fails to execute the command for some reason.
-In this situation, connect to the server running the NRPE server and execute the 
-command manually with the NRPE user.
-
-Most of the time, it's due to unsufficient rights (missing execution bit or wrong 
-owner) or a missing dependency at code level. 
+La plupart du temps, cette erreur est causée par un manque de droits (il manque une partie d'exécution ou le propriétaire est incorrect) ou une dépendance manquante au niveau du code.
