@@ -284,7 +284,7 @@ Do not forget to restart your NRPE daemon to update the configuration.
 
 ### NRPE: unable to read output
 
-This error can occur when the NRPE server fails to execute the command for some reason.
+This error can occur when the NRPE server fails to execute the command.
 In this situation, connect to the server running the NRPE server and execute the 
 command manually with the NRPE user.
 
