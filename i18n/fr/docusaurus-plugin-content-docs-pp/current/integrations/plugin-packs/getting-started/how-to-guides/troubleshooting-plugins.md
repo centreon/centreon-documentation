@@ -156,15 +156,13 @@ Si vous utilisez un proxy vous pouvez également spécifier au plugin comment co
 
 #### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (Connection refused)
 
-This issue generally means that the port or protocol used by the Plugin is incorrect, 
-misconfigured, or unsupported. 
+Ce problème a tendance à appraître lorsque le port ou protocole employé par le plugin est incorrect, mal configuré ou n'est pas supporté par le plugin.
 
-In this situation, at the Host configuration level, double-check that:
-* the port used is correct, primarily if you use a non-standard port for security reasons
-* the protocol used (http or https) matches the one configured on the API-side
+Dans ce cas, vérifiez les configurations suivantes au niveau de la configuration de l'hôte :
+* le port utilisé est le bon, principalement si vous utilisez un port spécial pour des raisons de sécurité
+* le protocole employé (http ou https) correspond à celui employé du côté de l'API
 
-Each Plugin using HTTP backends does have `--proto` and `--port` options allowing 
-you to specify these values.
+que tous les plugins utilisant des backend HTTP ont les options `--proto` et `--port` vous permettant de spécifier ces valeurs.
 
 #### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (Timeout)
 
