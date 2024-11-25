@@ -5,10 +5,6 @@ title: Ruckus Zonedirector
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Vue d'ensemble
-
-Le ZoneDirector de Ruckus Wireless est le système de réseau sans fil (WLAN) intelligent et géré de façon centralisée spécialement conçu par Ruckus pour les petites et moyennes entreprises (PME).
-
 ## Contenu du pack
 
 ### Modèles
