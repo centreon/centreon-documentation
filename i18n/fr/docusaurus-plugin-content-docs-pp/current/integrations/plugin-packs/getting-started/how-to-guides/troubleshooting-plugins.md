@@ -1,45 +1,34 @@
 ---
 id: troubleshooting-plugins
-title: Troubleshooting Plugin errors
+title: Dépannage des erreurs de plugin
 ---
 
-> Hello community! We're looking for a contributor to help us to translate this 
-page into French and provide a sample execution command. If it's you, let us 
-know by offering a PR or pinging us on [our community platform The Watch](https://thewatch.centreon.com/)
-When using Plugins and deploying a new monitoring probe, some errors might show up. 
+Lorsque vous utilisez des plugins et que vous deployez une nouvelle sonde de supervisions, des erreurs peuvent apparaitre.
 
-Most of the time, the cause of these failures is a misconfiguration or a third-party 
-device. This section compiles the most common errors you may face and some hints to 
-identify the root cause.
+Généralement, une mauvaise configuration ou un dispositif tiers sont la source du problème. Cette section décrit les erreurs le plus communes que vous pourriez rencontrer et peut vous aider à identifier 
 
-Remember that most of the Plugin Packs have documentation and, more specifically, 
-"Prerequisites" and "Host Configuration" sections to help you avoid some of the 
-most common pitfalls.
+Mais avant tout, rappelons que la majorité des connecteurs ont leur propre documentation contenant des sections de "Prérequis" et "Configuration" pour vous aider à éviter les erreurs courantes.
 
-The Centreon Pollers run a scheduler responsible for planning and executing checks. 
-To troubleshoot a Plugin, you must always:
+Les pollers Centreon emploie un ordonnanceur planifier et executer les checks.
+Pour dépanner un plugin, vous devez impérativement :
 
-* Copy/Paste the command from the Centreon Web UI to troubleshoot it from the CLI
-* Use the centreon-engine user to execute the Plugin manually (and never root!).
+* Copier/coller la commande du UI Centreon Web pour tenter dépanner le problème avec le CLI
+* Employez l'utilisateur Centreon-engine pour exécuter manuellement le plugin (et jamais root !)
 
-## Common problems
+## Problèmes communs
 
-### (no output returned from plugin)
+### (pas de résultat renvoyé par le plugin)
 
-When getting this error, please focus on the command line executed and ensure that 
-the binary it uses exists or doesn't contain a typo.
+Pour cette erreur, vérifiez la ligne de commande qui a été exécutée et verifiez que le binaire qu'elle contient existe et qu'elle ne présente pas de fautes de frappe.
 
-On RPM-based systems, you can use the following command to identify what's the 
-package is providing the missing binary: `yum whatprovides "*/the_binary_name"`
+Pour les systèmes basés sur RPM, vous pouvez utiliser la commande `yum whatprovides "*/the_binary_name"` pour identifier le binaire manquant du paquet.
 
 ### UNKNOWN: Cannot write statefile '/var/lib/centreon/centplugins/<cache_file_name>'
 
-The most common cause is inappropriate rights on the cache directory (`/var/lib/centreon/centplugins`) 
-or the cache file itself.  It can also be the result of an inconsistent installation 
-or simply that the directory doesn't exist. 
+La raison la plus commune de cette erreur sont des droits inadaptés dans le répertoire de cache (`/var/lib/centreon/centplugins`)  ou dans le ficher cache lui-même. Cela peut ausi être dû à une installation inconsistente ou alors le directoire n'existe tout simplement pas.
 
-Check that the directory exists and has the appropriate rights using the stat utility: 
-`stat /var/lib/centreon/centplugins`. The expected result is: 
+Vérifiez que le directoire existe bien et qu'il a les droits appropriés avec la commande stat suivante : 
+`stat /var/lib/centreon/centplugins`. Vous devriez obtenir le résultat suivant : 
 
 ```bash
 File: '/var/lib/centreon/centplugins'
@@ -48,8 +37,8 @@ Access: (0775/drwxrwxr-x)  Uid: (  998/centreon)   Gid: (  997/centreon)`
 [...]
 ``` 
 
-If directory rights are ok, check also the rights of the cache file: 
-`stat /var/lib/centreon/centplugins/<cache_file_name>`. The expected result is: 
+Si les droits du directoire sont corrects, vérifiez les droits du fichier de cache : 
+`stat /var/lib/centreon/centplugins/<cache_file_name>`. Le résultat devrait être : 
 
 ```bash
 File: '/var/lib/centreon/centplugins/<cache_file_name>'
@@ -60,47 +49,40 @@ Access: (0664/-rw-rw-r--)  Uid: (  994/centreon-engine)   Gid: (  991/centreon-e
 
 ### (Process Timeout)
 
-This error means that a command reached the timeout defined at the engine's level. 
-Centreon-engine has its own timeout allowing him to kill 
-a Plugin execution as soon as it overrides a given number of seconds. It prevents 
-infinite Plugin execution. 
+Cette erreur signifie qu'une commande a atteint le délai d'attente établi par Centreon-engine.
+Centreon-engine possède un délai d'attente interne qui lui permet de mettre fin à l'exécution d'un plugin lorsque celle-ci dépasse un certain nombre de secondes. Ceci sert à éviter l'exécution infinie de plugin. 
 
-By default, this value is 60 seconds for Services and 10 seconds for Hosts.
+La configuration par défaut établit une attente de 60 secondes pour les Services et 10 secondes pour les Hôte.
 
-Frequently, this error is a consequence of a misconfiguration or a lack of a timeout 
-configured at the Plugin level. 
+Cette erreur est souvent causée par une mauvaise configuration ou l'absence d'un délai d'attente au niveau du plugin.
 
-In some cases, it can be normal just because of the complexity of the check or the 
-processing time on the monitoring object side. To measure the time required to finish 
-a check, copy/paste the command-line and execute it through CLI using centreon-engine users. 
+Dans certains cas, ceci peut être normal en raison de la complexité du check à effectuer ou du temps de traitement du côté de l'objet chargé de la supervision.
+Pour mesurer le temps nécessaire pour compléter un check, copiez/collez la ligne de commande et executez-la depuis CLI avec un utilisateur Centreon-engine
 
-You can modify the engine timeout value in the **Configuration > Pollers > Engine Configuration** menu.
-To apply it, export the Poller's configuration and **restart** it.  
+Vous pouvez modifier le délai d'attente d'engine dans le menu **Configuration > Pollers > Engine Configuration**.
+Pour que vos changements soient appliqués, exportez la configuration et **redémarrez** le poller
 
-### Check output or metrics is not complete
 
-When a Plugin execution looks partial or incomplete, it usually means that there's 
-a bug somewhere in the code. If this is the case, you will likely see some *stderr*
-lines printed when executing the check through the CLI. 
+### Le résultat ou metrique du check est incomplet
 
-A message similar to the one below confirms that this is a bug: 
+Si l'exécution du plugin semble incomplète, c'est qu'il y a probablement un bug quelque part dans le code. Si c'est le cas, vous verrez probablement des lignes *stderr* s'afficher lorsque vous exécutez le check avec CLI.
+
+
+Un message similaire à celui ci-dessous nous confirme qu'il s'agit d'un bug.
 
 ```bash
 Use of uninitialized value $options{"value"} in pattern match (m//) and critical return
 ```
 
-In this situation, reach us on [our community platform The Watch](https://thewatch.centreon.com/) or, even better, 
-track an issue within the [centreon-plugins](https://github.com/centreon/centreon-plugins/issues) 
-Github repository so we can patch it. 
+Si c'est le cas, contactez-nous sur notre [plateforme communautaire The Watch](https://thewatch.centreon.com/) ou, encore mieux, aidez-nous à traquer le problème dans notre répositoire Github [centreon-plugins](https://github.com/centreon/centreon-plugins/issues). 
 
-## Troubleshooting SNMP
+## Dépannage de SNMP
 
 ### SNMPv3 options mapping
 
-To set up SNMPv3, Centreon is advising first to try to query your device by using the "snmpwalk" 
-command line and options, then using the following mapping table to make it work with the centreon-plugin.
+Pour configurer SNMPv3, Centreon vous recommande interroger votre appareil avec la commande "snmpwalk" et ses options. Vous pouvez ensuite utilisez le tableau suivant pour le faire marcher avec le centreon-plugin.
 
-Configure those extra SNMP options in the host/host template configuration in the SNMPEXTRAOPTIONS macro. 
+Configurez les options SNMP additionnelles dans la macro SNMPEXTRAOPTIONS dans la partie de configuration de l'hôte/modèle d'hôte.
 
 | snmpwalk  | centreon-plugins       |
 | :-------: | :--------------------- |
@@ -116,181 +98,137 @@ Configure those extra SNMP options in the host/host template configuration in th
 
 ### UNKNOWN: SNMP GET Request : Timeout
 
-Often, a timeout comes from: 
-* An SNMP Agent or Centreon Host misconfiguration, like a wrong SNMP port, version, 
-or community string
-* Third-party equipment (e.g., a firewall) blocking the communication between the 
-Poller and the remote device
+Généralement, un "timeout" est causé par : 
+* Une mauvaise configuration de l'Agent SNMP ou de l'hôte Centreon dû à un port SNMP, une version ou une chaîne communautaire incorrecte.
+* Un équipement tiers (par exemple, un firewall) qui empêche la communication entre le poller et l'appareil à distance.
 
-To go further, troubleshoot using an SNMP utility to mimic the Plugin behavior and 
-see if you get a timeout. On Linux, the `net-snmp` package provides a `snmpwalk` binary. 
-Here is a sample command: 
+Pour aller plus loin, vous pouvez tenter un dépannage avec SNMP en imitant le comportement du plugin afin de voir si vous obtenez un timeout. Sur Linux, le paquet `net-snmp` fournit un binaire `snmp-walk`.
+
+Voici une commande échantillon
 
 `snmpwalk -v <1/2c> -c <community-string> <IP_ADDR> .1`
 
 ### UNKNOWN: SNMP GET Request : Can't get a single value
+Les plugins font une requête pour un ou plusieurs OIDs au MIB de l'objet ciblé. Si le 
+plugin ne peut obtenir une valeur pour un des OIDs, il prévient l'utilisateur avec un statut UNKNOWN.
 
-SNMP Plugins request one or several OIDs from the target devices' MIBS. When it 
-doesn't obtain a value for one of these OIDs, it returns an UNKNOWN state to warn 
-the user. 
+Un problème fréquent est un objet qui ne renvoie pas le MIB ou l'un des OID utilisé par le plugin. C'est-à-dire, le plugin employé n'est pas adapté pour cet objet.
 
-Frequently, the device doesn't ship the MIB or one of the OIDs the Plugin utilizes. 
-In other words, the Plugin used is not suitable for this device.  
 
 ### UNKNOWN: SNMP Session: Unable to create
+Cette erreur est particulière aux checks SNMP v3, elle indique que les informations d'identification sont incorrectes ou erronées.
 
-This error is specific to SNMP v3 checks. It means that the credentials provided 
-are either wrong or incomplete. 
-
-It can also happen when performing SNMPv3 requests on a device or server where the 
-SNMP process is not running, or the port is not listening. 
+Elle peut également apparaître lors d'une requête SNMP v3 sur un appareil ou serveur qui n'a pas de processus SNMP en cours ou dont le port n'est pas à l'écoute.
 
 ### UNKNOWN: Can't construct cache...
 
-To check the storage attached to a device or system, Centreon Plugins use standard 
-OIDs. From time to time, only some of these are implemented by the manufacturer.
+Pour checker le stockage d'un appareil ou d'un système, les plugins Centreon employent des OID standard. Occasionnellement, le manufactureur n'implémente qu'une partie de ces OIDs.
 
-You should look for available OIDs using the `snmpwalk` utility and modify the check 
-command to use the available ones.
+Utilisez la commande `snmpwalk` pour vérifier quels sont les OIDs disponibles et adaptez la commande de check en conséquence.
 
-The interfaces' bandwidth and status monitoring is a textbook case: the Plugin default 
-behavior uses the `ifName` OID to build its cache. If it cannot find it then you 
-run into this error. 
+La bande passante et la supervision de status sont l'exemple parfait : le comportement par défaut du plugin utilise l'OID `ifname` pour construire son cache, s'il ne peut pas le trouver, vous obtiendrez cette erreur.
 
-For interfaces and storage checks, options exist to ask the probe to use 
-an other OID (e.g. `--oid-filter='ifDesc' --oid-display='ifDesc'`).
+Pour les contrôles d'interface et de stockage, il est possible de demander à la sonde d'utiliser un autre OID (par exemple `--oid-filter='ifDesc' --oid-display='ifDesc'`).
 
-## HTTP and API checks
+## Contrôles HTTP et API
 
-### UNKNOWN: Cannot decode response (add --debug option to display returned content)
+### UNKNOWN: Cannot decode response (ajoutez l'option --debug pour voir le contenu reçu)
 
-Plugins perform API calls and decode the content obtained from the API to use it as 
-status, message, or metrics. This way, it expects a specific data formatting depending
-on what the API supports (XML or JSON).
+Les plugins réalisent des appels API et déchiffrent le contenu rendu par l'API pour l'utiliser comme un statut, une message ou une metrique. Le plugin attend un certain format pour les données selon ce qui est supporté par l'API (XML ou JSON).
 
-If the API doesn't send the data a Plugin expects, the library it uses will fail 
-to decode the data.
+Si l'API ne renvoie pas les données attendues par le plugin, la librairie utilisée par le plugin ne pourra pas déchiffrer les données.
 
-The most common cause is that a Proxy blocks the primary query and returns an error 
-message that is not in the expected format. You can specify the address and the port 
-of a proxy through the `--proxyurl=<proto>://<address>:<port>` option.
+La raison la plus commune de ce problème est qu'un proxy bloque la requête principale et rend un message d'erreur qui n'est pas dans le format attendu. L'option `--proxyurl=<proto>://<address>:<port>` peut vous permettre de spécifier l'adresse et le port d'un proxy.
 
-It may also happen when the API returns an error instead of the expected data structure. 
-You may want to dig deeper into this by adding the `--debug` flag to your command line 
-to get more information on the query and data received.
+Il est également possible que l'API vous renvoie une erreur au lieu des des données attendues.
+Vous pouvez investiguer ceci en ajoutant le flag `--debug` à votre ligne de commande pour obtenir plus d'informations à propos de la requête et des données reçues.
 
 ### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (<extra_reason_if_available>)
 
-When grabbing metrics or statuses from an API, multiple issues can show up because
-of proxies, remote devices' certificates, or simply the check configuration.
+Lorsque vous récuperez des metriques ou des données d'un API, divers problèmes peuvent appraitre. Ils sont souvent causés par des proxy, des appareils à distance, des certificats ou tout simplement la configuration du check.
 
-This section focuses on the most common error reasons and shares some tips to solve them. 
+Cette section est axée sur les causes les plus courantes de ces problèmes et propose quelques conseils pour les résoudre.
 
-An important thing to know is that Plugins can rely on several *backends* to perform 
-HTTP requests. You can specify which backend you want to use to perform checks using 
-the `--http-backend` option. The default value is `lwp`, though `curl` is also 
-available and generally easier to debug.
+Ce que vous devez retenir est que les plugins peuvent dépendre de plusieurs *backends* pour réaliser leur requêtes HTTP. Vous pouvez spécifier quel backend vous souhaitez utiliser pour vos contrôles avec l'option `--http-backend` dont la valeur par défaut est `lwp` mais `crurl` est également disponible et est, généralement, plus facile à dépanner.
 
-In the same way, if you use a proxy, you can tell the Plugin how to go through 
-by adding the `--proxyurl` option to your command line. The expecte format is: 
+Si vous utilisez un proxy vous pouvez également spécifier au plugin comment communiquer avec en ajoutant l'option `--proxyurl` à votre ligne de commande. Le format attendu est : 
 `--proxyurl='<proto>://<proxy_addr>:<proxy_port>`. 
 
 #### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (Connection refused)
 
-This issue generally means that the port or protocol used by the Plugin is incorrect, 
-misconfigured, or unsupported. 
+Ce problème a tendance à appraître lorsque le port ou protocole employé par le plugin est incorrect, mal configuré ou n'est pas supporté par le plugin.
 
-In this situation, at the Host configuration level, double-check that:
-* the port used is correct, primarily if you use a non-standard port for security reasons
-* the protocol used (http or https) matches the one configured on the API-side
+Dans ce cas, vérifiez les configurations suivantes au niveau de la configuration de l'hôte :
+* le port utilisé est le bon, principalement si vous utilisez un port spécial pour des raisons de sécurité
+* le protocole employé (http ou https) correspond à celui employé du côté de l'API
 
-Each Plugin using HTTP backends does have `--proto` and `--port` options allowing 
-you to specify these values.
+que tous les plugins utilisant des backend HTTP ont les options `--proto` et `--port` vous permettant de spécifier ces valeurs.
 
 #### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (Timeout)
 
-The timeout error occurs when the Plugin doesn't succeed in contacting the server 
-or when a third-party device is blocking or filtering the client's request. 
+L'erreur "timeout" se produit lorsque le plugin n'arrive pas à contacter le serveur ou lorsqu'un appareil tiers bloque ou filtre la requête du client.
 
 #### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (`<SSL Error>`)
 
-SSL Errors indicate that the Plugin has some trouble establishing a secure connection 
-to get the monitoring information.
+L'erreur SSL indique que le plugin rencontre des problèmes pour établir un connexion sécurisée pour obtenir les données de supervision.
 
-The primary cause could be the certificate used. In this case, the best practice 
-would be either to: 
-* renew the certificate when it expired 
-* sign the remote certificate officially
-* deploy the certificate locally so the Plugin can recognize it
+La cause est probablement le certificat employé, dans ce cas, les meilleures pratiques sont :
+* renouveler le certificat lorsu'il a expiré
+* signer officiellement la certification à distance
+* deployer le certificat localement pour que le plugin puisse le reconnaître
 
-Regardless of what HTTP backend you're using, it's possible to ignore SSL certificate 
-errors by adding specific flags: 
+Indépendament du backend HTTP que vous employez, il est possible d'ignorer les erreurs de certificat SSL en ajoutant des flags specifiques : 
 
-* lwp backend: `--ssl-opt='--ssl-opt="SSL_verify_mode => SSL_VERIFY_NONE'`
-* curl backend: `--curl-opt='CURLOPT_SSL_VERIFYPEER => 0'`
+* backend lwp : `--ssl-opt='--ssl-opt="SSL_verify_mode => SSL_VERIFY_NONE'`
+* backend curl : `--curl-opt='CURLOPT_SSL_VERIFYPEER => 0'`
 
-Sometimes, the remote host doesn't support negotiation about the SSL implementation, 
-so you must specify explicitly which one the Plugin has to use thanks to the `--ssl` 
-option (e.g. `--ssl='tlsv1'`). Refer to the manufacturer or software publisher documentation.
+Occasionnellement, l'hôte à distance ne suppoorte pas la négotiation de l'implémentation SSL. Vous devez alors spécifier explicitement au plugin lequel utiliser avec l'option `--ssl` (e.g. `--ssl='tlsv1'`). Referez-vous à la documentation du manufactureur ou de l'éditeur du logiciel.
 
-## SSH and CLI checks
+## Contrôles SSH et CLI
 
 ### UNKNOWN: Command error: `<interpreter>`: `<command_name>`: command not found
 
-This error warns that the Plugin is not able to execute the `<command_name>` because it 
-doesn't exist in PATH or is not installed.
+Cette erreur indique que le plugin n'est pas capble d'executer `<commande_name>` care la commande n'existe pas dans PATH ou n'est pas installée.
 
-Depending on how the check is performed (locally or remotely), make sure that the 
-utility the Plugin uses is available to your monitoring user. 
+Selon la méthode du contrôle (locale ou à distance), vous devez vous assurer que l'utilitaire employé par le plugin est disponible pour votre utilisateur de supervision. 
 
 ### UNKNOWN: Command error: Host key verification failed.
 
-SSH-Based checks can use several *backends*. Whether you use the `ssh` or `plink` backend, 
-you have to manually validate the remote system fingerprint from the *centreon-engine*
-user on the monitoring Poller. If you don't do that, the Plugin will hang and cause a timeout
-because it cannot accept the fingerprint for obvious security reasons.
+Les contrôles basés sur SSH peuvent utiliser de nombreux *backends*, peu importe que vous utilisez le backend `ssh` ou `plink`, vous devez valider manuellement l'empreinte digitale du système à distance sur le poller de supervision et depuis l'utilisateur *centreon-engine*. Pour des raisons de sécurité, si vous ne suivez pas ces instructions, le plugin reste en attente jusqu'à déclencher un timeout car il ne peut accepter l'empreinte digitale.
 
-## NRPE checks
+## Contrôles NRPE
 
 ### CHECK_NRPE STATE (CRITICAL|UNKNOWN): Socket timeout after 10 seconds
 
-Here are the questions you may want to ask yourself when obtaining this result: 
-
-* Does my IP Address and port parameters are correct? 
-* Is the NRPE daemon running on the remote system?
-* Is there any firewall or security policy that might block the request? 
+Lorsque vous voyez ce message, demandez-vous : 
+* Est-ce que mon adresse IP et paramètres de port sont corrects ?
+* Est-ce que le daemon NRPE est actif dans le système à distance ?
+* Est-ce qu'il y a un firewall ou une politique de sécurité qui pourrait être en train de bloquer la requête ?
 
 ### connect to address x.x.x.x port 5666: Connection refused
 
-This error means that the client made a successful connection to the remote host and port 
-but the server refused the connection.
+Cette erreur indique que le client a réussi à se connecter à l'hôte à distance et au port mais que le serveur a refusé la connexion.
+Cela est généralement dû au fait que le client essaie d'établir une connexion avec le serveur depuis une IP non-autorisée.
 
-Frequently, this is because the client is trying to connect to a server from an 
-unauthorized IP. 
+Verifiez que le directif `allowed_hosts` défini dans le fichier config du serveur NRPE autorise votre serveur de supervision à envoyer des commandes d'exécution à distance.
 
-Check that the `allowed_hosts` directive defined in the NRPE Server config file 
-allows your monitoring server to send remote command execution. 
-
-Do not forget to restart your NRPE daemon to update the configuration.
+Pensez à redémarrer votre daemon NRPE pour mettre à jour la configuration.
 
 ### NRPE: Command <a_command> not defined
 
-The NRPE Server throws this error when the client asks to run a command it doesn't understand. 
+Le serveur NRPE renvoie cette erreur lorsque le client tente d'exécuter une commande qu'il ne comprend pas.
 
-It might highlight either a configuration issue on the server-side or a typo in the 
-command line on the client-side. 
+Cela peut être dû à un problème de configuration du côté du serveur ou une faute de frappe dans la ligne de commande du côté du client.
 
-Check the NRPE Server configuration to ensure that the command exists: 
+Vérifiez la configuration du serveur NRPE pour confirmer que la commande existe : 
 ```text
 [a_command]=/path/to/a/command --option1='<value_or_macro>' --optionN='<value_or_macro>'
 ```
-Do not forget to restart your NRPE daemon to update the configuration.
+
+Redémarrez votre daemon NRPE pour mettre à jour la configuration.
 
 ### NRPE: unable to read output
+Cette erreur survient lorsque le serveur NRPE n'arrive pas à exécuter la commande. 
+Dans ce cas, connectez-vous au serveur contenant le serveur NRPE et exécutez la commande manuellement en utilisant l'utilisateur NRPE.
 
-This error can occur when the NRPE server fails to execute the command for some reason.
-In this situation, connect to the server running the NRPE server and execute the 
-command manually with the NRPE user.
-
-Most of the time, it's due to unsufficient rights (missing execution bit or wrong 
-owner) or a missing dependency at code level. 
+La plupart du temps, cette erreur est causée par un manque de droits (il manque une partie d'exécution ou le propriétaire est incorrect) ou une dépendance manquante au niveau du code.

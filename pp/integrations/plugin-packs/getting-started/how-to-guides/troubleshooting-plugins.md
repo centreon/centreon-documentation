@@ -16,7 +16,7 @@ most common pitfalls.
 The Centreon Pollers run a scheduler responsible for planning and executing checks. 
 To troubleshoot a Plugin, you must always:
 
-* Copy/Paste the command from the Centreon Web UI to troubleshoot it from the CLI
+* Copy/paste the command from the Centreon Web UI to troubleshoot it from the CLI
 * Use the centreon-engine user to execute the Plugin manually (and never root!).
 
 ## Common problems
@@ -26,8 +26,8 @@ To troubleshoot a Plugin, you must always:
 When getting this error, please focus on the command line executed and ensure that 
 the binary it uses exists or doesn't contain a typo.
 
-On RPM-based systems, you can use the following command to identify what's the 
-package is providing the missing binary: `yum whatprovides "*/the_binary_name"`
+On RPM-based systems, you can use the following command to identify what is the 
+package's missing binary: `yum whatprovides "*/the_binary_name"`
 
 ### UNKNOWN: Cannot write statefile '/var/lib/centreon/centplugins/<cache_file_name>'
 
@@ -76,7 +76,7 @@ To apply it, export the Poller's configuration and **restart** it.
 
 ### Check output or metrics is not complete
 
-When a Plugin execution looks partial or incomplete, it usually means that there's 
+When a Plugin execution looks incomplete, it usually means that there's 
 a bug somewhere in the code. If this is the case, you will likely see some *stderr*
 lines printed when executing the check through the CLI. 
 
@@ -188,7 +188,7 @@ the `--http-backend` option. The default value is `lwp`, though `curl` is also
 available and generally easier to debug.
 
 In the same way, if you use a proxy, you can tell the Plugin how to go through 
-by adding the `--proxyurl` option to your command line. The expecte format is: 
+by adding the `--proxyurl` option to your command line. The expected format is: 
 `--proxyurl='<proto>://<proxy_addr>:<proxy_port>`. 
 
 #### UNKNOWN: 500 Can't connect to `<ip_address>:<port>` (Connection refused)
@@ -284,7 +284,7 @@ Do not forget to restart your NRPE daemon to update the configuration.
 
 ### NRPE: unable to read output
 
-This error can occur when the NRPE server fails to execute the command for some reason.
+This error can occur when the NRPE server fails to execute the command.
 In this situation, connect to the server running the NRPE server and execute the 
 command manually with the NRPE user.
 
