@@ -367,8 +367,9 @@ Vous devez ensuite finaliser le processus de mise à jour :
 accéder à la page de connexion :
 
   ![image](../assets/upgrade/web_update_5.png)
-  
-</TabItem>
+
+> Trouvez ici les procédures de montée de version pour [Centreon BAM](../service-mapping/update.md) et [Centreon MAP](../graph-views/map-web-upgrade.md).</TabItem>
+
 <TabItem value="Avec une API dédiée" label="Avec une API dédiée">
 
 1. Connectez-vous au serveur Central via le terminal pour poursuivre le processus de
@@ -456,8 +457,6 @@ usermod -a -G www-data centreon-broker
 </Tabs>
 
 > La présentation de l'interface ayant été modifiée dans la version 22.10, vous devez vider le cache de votre navigateur pour afficher le nouveau thème.
-
-> Trouvez ici les procédures de montée de version pour [Centreon BAM](../service-mapping/update.md) et [Centreon MAP](../graph-views/map-web-upgrade.md).
 
 ### Actions post montée de version
 
