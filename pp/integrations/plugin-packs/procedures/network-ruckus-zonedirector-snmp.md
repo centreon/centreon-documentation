@@ -5,10 +5,6 @@ title: Ruckus Zonedirector
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Overview
-
-Ruckus Wireless ZoneDirector is RUCKUS’ centrally managed Smart Wireless LAN (WLAN) system developed specifically for small-to-medium enterprises (SMEs).
-
 ## Pack assets
 
 ### Templates
