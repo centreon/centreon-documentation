@@ -662,6 +662,32 @@ Se référer à la documentation officielle pour la
 ou pour des informations sur le
 [concept de secret](https://kubernetes.io/docs/concepts/configuration/secret/).
 
+##### Kubectl version 1.24 et supérieures
+
+Depuis la version 1.24 de kubectl, vous devez créer un compte de service avec une annotation spéciale:
+
+```
+kubernetes.io/service-account.name
+```
+
+Créez manuellement un jeton API à longue durée de vie pour un compte de service.
+
+Si vous souhaitez obtenir un jeton API pour un compte de service, vous devez créer un nouveau Secret avec une annotation spéciale, kubernetes.io/service-account.name.
+
+```
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: Secret
+metadata:
+  name: build-robot-secret
+  annotations:
+    kubernetes.io/service-account.name: build-robot
+type: kubernetes.io/service-account-token
+EOF
+```
+
+Plus d'informations dans la section de la documentation officielle de kubernetes [Manually create a long-lived API token for a ServiceAccount](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#manually-create-a-long-lived-api-token-for-a-serviceaccount).
+
 #### Utilisation de l'API Rest
 
 Si vous avez choisi de communiquer avec l'API Rest de votre plateforme

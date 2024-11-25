@@ -656,6 +656,32 @@ Refer to the official documentation for
 or information about
 [secret concept](https://kubernetes.io/docs/concepts/configuration/secret/).
 
+##### Kubectl version 1.24 and above
+
+From  kubectl version 1.24 you need to create a service account with a special annotation:
+
+```
+kubernetes.io/service-account.name
+```
+
+Manually create a long-lived API token for a ServiceAccount
+
+If you want to obtain an API token for a ServiceAccount, you create a new Secret with a special annotation, kubernetes.io/service-account.name.
+
+```
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: Secret
+metadata:
+  name: build-robot-secret
+  annotations:
+    kubernetes.io/service-account.name: build-robot
+type: kubernetes.io/service-account-token
+EOF
+```
+
+More information in kubernetes official documentation section [Manually create a long-lived API token for a ServiceAccount](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#manually-create-a-long-lived-api-token-for-a-serviceaccount).
+
 #### Using RestAPI
 
 If you chose to communicate with your Kubernetes platform's RestAPI, the
