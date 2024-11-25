@@ -5,12 +5,6 @@ title: Ruckus ICX SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Overview
-
-Ruckus ICX switches work to simplify network set-up and management, enhance security, minimize troubleshooting and make upgrades easy.
-They seamlessly work together with Ruckus Wi-Fi access points, Ruckus SmartZone network controllers and Ruckus Cloud to deliver
-the most performance and cost effective unified wired and wireless access solutions.
-
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Ruckus ICX SNMP** connector through the
