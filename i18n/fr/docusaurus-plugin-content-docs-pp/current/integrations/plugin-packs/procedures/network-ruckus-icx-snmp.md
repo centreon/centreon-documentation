@@ -117,11 +117,11 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ### Configuration SNMP de l'équipement Ruckus ICX  
 
-Pour superviser votre équipement Ruckus ICX, le SNMP v2 doit être configuré et l'adresse IP du collecteur Centreon autorisée à interroger l'équipement.
+L'agent SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
 
 ### Flux réseaux
 
-Les collecteurs Centreon doivent pouvoir joindre le port UDP/161 SNMP de l'équipement.
+La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers la ressource supervisée.
 
 ## Installer le connecteur de supervision
 
