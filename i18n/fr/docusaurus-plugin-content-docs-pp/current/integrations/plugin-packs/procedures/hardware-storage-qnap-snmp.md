@@ -15,11 +15,11 @@ depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
 
 ### Modèles d'équipement supportés
 
-* EKI utilisant le système d'opération QTS
+* EKI utilisant le système d'opération QTS.
 
 ### Modèles d'équipement non supportés
 
-* **Uniquement pour le service volume** : LAGMT utilisant le système d'opération QuTS hero (L'information "volume" n'est pas présente dans le fichier MIB du QuTS hero)
+* **Uniquement pour le service volume** : LAGMT utilisant le système d'opération QuTS hero (L'information "volume" n'est pas présente dans le fichier MIB du QuTS hero).
 
 ### Modèles
 
@@ -74,9 +74,9 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                   | Description                                                                |
 |:----------------------------------|:---------------------------------------------------------------------------|
-| HW-Storage-Qnap-SNMP-Disk-Name    | Découvre les partitions du disque et superviser l'occupation de son espace |
-| HW-Storage-Qnap-SNMP-Disk-Name_1  | Découvre les partitions du disque et superviser l'occupation de son espace |
-| HW-Storage-Qnap-SNMP-Traffic-Name | Découvre les interfaces réseau et supervise le statut et l'utilisation     |
+| HW-Storage-Qnap-SNMP-Disk-Name    | Découvre les partitions du disque et supervise l'occupation de son espace |
+| HW-Storage-Qnap-SNMP-Disk-Name_1  | Découvre les partitions du disque et supervise l'occupation de son espace |
+| HW-Storage-Qnap-SNMP-Traffic-Name | Découvre les interfaces réseau et en supervise le statut et l'utilisation     |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).

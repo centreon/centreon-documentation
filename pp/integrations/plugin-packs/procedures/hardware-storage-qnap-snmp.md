@@ -15,11 +15,11 @@ The following monitoring connectors will be installed when you install the **Qna
 
 ### Supported equipment models
 
-* EKI using the QTS operating system
+* EKI using the QTS operating system.
 
 ### Unsupported equipment models
 
-* **Only for volume service** : LAGMT using the QuTS hero operating system (The volume information isn't present in the QuTS hero MIB file)
+* **Only for volume service** : LAGMT using the QuTS hero operating system (The volume information isn't present in the QuTS hero MIB file).
 
 ### Templates
 
@@ -46,10 +46,10 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                                 | Service Description                                                                          | Discovery  |
 |:---------------------|:-------------------------------------------------|:---------------------------------------------------------------------------------------------|:----------:|
-| Disk-Global          | HW-Storage-Qnap-Disk-Global-SNMP-custom          | Check the rate of free space on disks. For each checks the mount point of disks will appear  | X          |
+| Disk-Global          | HW-Storage-Qnap-Disk-Global-SNMP-custom          | Check the rate of free space on disks. For each check the mount point of disks will appear  | X          |
 | Pools                | HW-Storage-Qnap-Pools-SNMP-custom                | Check pools                                                                                  |            |
-| Traffic-Generic-Id   | HW-Storage-Qnap-Traffic-Generic-Id-SNMP-custom   | Check traffic of an network interface                                                        |            |
-| Traffic-Generic-Name | HW-Storage-Qnap-Traffic-Generic-Name-SNMP-custom | Check traffic of an network interface                                                        |            |
+| Traffic-Generic-Id   | HW-Storage-Qnap-Traffic-Generic-Id-SNMP-custom   | Check traffic of a network interface                                                        |            |
+| Traffic-Generic-Name | HW-Storage-Qnap-Traffic-Generic-Name-SNMP-custom | Check traffic of a network interface                                                        |            |
 | Traffic-Global       | HW-Storage-Qnap-Traffic-Global-SNMP-custom       | Check traffic of multiple network interfaces                                                 | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
@@ -286,7 +286,7 @@ yum install centreon-plugin-Hardware-Storage-Qnap-Snmp
 | Macro        | Description                                                                                                                            | Default value     | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNING      | Warning threshold average CPU utilization                                                                                              | 80                |             |
-| CRITICAL     | Critical  threshold average CPU utilization                                                                                            | 90                |             |
+| CRITICAL     | Critical threshold for average CPU utilization                                                                                            | 90                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
@@ -295,8 +295,8 @@ yum install centreon-plugin-Hardware-Storage-Qnap-Snmp
 | Macro        | Description                                                                                                                                                                                     | Default value     | Mandatory   |
 |:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTER       | Set the storage (number expected) example: 1, 2,... (empty means 'check all storage')                                                                                                           | .*                |             |
-| TRANSFORMDST | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run'  will replace all occurrences of 'dev' with 'run' |                   |             |
-| TRANSFORMSRC | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run'  will replace all occurrences of 'dev' with 'run' |                   |             |
+| TRANSFORMDST | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run' will replace all occurrences of 'dev' with 'run' |                   |             |
+| TRANSFORMSRC | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run' will replace all occurrences of 'dev' with 'run' |                   |             |
 | CRITICAL     | Critical threshold                                                                                                                                                                              | 90                |             |
 | WARNING      | Warning threshold                                                                                                                                                                               | 80                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                          | --verbose         |             |
@@ -343,7 +343,7 @@ yum install centreon-plugin-Hardware-Storage-Qnap-Snmp
 
 | Macro        | Description                                                                                                                                            | Default value     | Mandatory   |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACEID  | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored.  To filter on interface names, see --name |                   |             |
+| INTERFACEID  | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |                   |             |
 | CRITICALIN   | Threshold                                                                                                                                              | 90                |             |
 | WARNINGIN    | Threshold                                                                                                                                              | 80                |             |
 | CRITICALOUT  | Threshold                                                                                                                                              | 90                |             |
@@ -355,7 +355,7 @@ yum install centreon-plugin-Hardware-Storage-Qnap-Snmp
 
 | Macro         | Description                                                                                                                                            | Default value     | Mandatory   |
 |:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACENAME | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored.  To filter on interface names, see --name |                   |             |
+| INTERFACENAME | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |                   |             |
 | CRITICALIN    | Threshold                                                                                                                                              | 90                |             |
 | WARNINGIN     | Threshold                                                                                                                                              | 80                |             |
 | CRITICALOUT   | Threshold                                                                                                                                              | 90                |             |
@@ -367,7 +367,7 @@ yum install centreon-plugin-Hardware-Storage-Qnap-Snmp
 
 | Macro          | Description                                                                                                                                                                                                         | Default value     | Mandatory   |
 |:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER         | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored.  To filter on interface names, see --name                                                              | .*                |             |
+| FILTER         | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name                                                              | .*                |             |
 | CRITICALIN     | Threshold                                                                                                                                                                                                           | 90                |             |
 | WARNINGIN      | Threshold                                                                                                                                                                                                           | 80                |             |
 | CRITICALOUT    | Threshold                                                                                                                                                                                                           | 90                |             |
