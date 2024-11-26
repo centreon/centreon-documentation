@@ -27,6 +27,8 @@ The following paragraphs detail issues which are known to Centreon and will be f
 
 ## Notifications
 
+* Time period exceptions are not considered for notifications.
+
 * Changes are not displayed immediately when editing a notification rule.
 
    **Workaround**: Refresh the page to display the correct parameters.
@@ -37,11 +39,9 @@ The following paragraphs detail issues which are known to Centreon and will be f
 
    **Workaround**: Delete and recreate the rule.
 
-* It is not yet possible to define a time period for notifications.
-
 ## Configuration
 
-* After editing it, a customized command disappears from the listing. Please note that the command exists and will still be used.
+* Incremental mass changes are not possible for hosts and services.
 
 * Users cannot yet configure Stream Connectors themselves.
 

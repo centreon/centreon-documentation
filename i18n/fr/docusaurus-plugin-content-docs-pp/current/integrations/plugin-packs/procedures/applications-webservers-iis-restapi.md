@@ -83,6 +83,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 Pour utiliser ce connecteur de supervision, vous devez activer l'API Microsoft IIS Administration. Microsoft fournit une documentation officielle pour la mise en place : https://docs.microsoft.com/en-us/iis-administration/
 
+> Attention : Le composant IIS Administration API doit être au moins dans la version 2.3.0 (sinon des erreurs peuvent être renvoyées si le serveur supervisé n'est pas dans le fuseau horaire UTC).
+
 ## Installer le connecteur de supervision
 
 ### Pack

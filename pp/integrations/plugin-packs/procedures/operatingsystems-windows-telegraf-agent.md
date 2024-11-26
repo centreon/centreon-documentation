@@ -105,8 +105,8 @@ Two TCP flows must be open from the host to the poller.
 
 | Source | Destination    | Protocole | Port | Purpose |
 | ------ | -------------- | --------- | ---- | --- |
-| Hôte supervisé | Collecteur  | TCP       | 1443 | Access to the configuration of the Telegraf agent. |
-| Hôte supervisé | Collecteur  | TCP       | 4317 | OpenTelemetry data flow. |
+| Monitored host | Poller  | TCP       | 1443 | Access to the configuration of the Telegraf agent. |
+| Monitored host | Poller  | TCP       | 4317 | OpenTelemetry data flow. |
 
 ### System prerequisites on the poller
 

@@ -22,6 +22,42 @@ If you have feature requests or want to report a bug, please contact support.
 
 ## Centreon MAP
 
+### 24.04.6
+
+Release date: `October 23, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Server] Fixed a synchronization issue that could cause resources to disappear from a map.
+- [Server] Optimized the way the global map status is calculated.
+
+</details>
+
+### 24.04.5
+
+Release date: `October 7, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Server] Increased the default log level to INFO.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Dashboards] Fixed an issue that prevented different maps from being displayed in the same dashboard.
+- [Diagnostic] Fixed the diagnostic results for the SELinux check.
+- [Editor] Removed the label from the Output widget as it was not used on the map.
+- [Migration] Fixed an issue that caused links to be positioned differently when migrating from MAP Legacy to MAP.
+- [Resource status] Fixed an issue where the status of BAs in maps was not aligned with their status in Resource status.
+- [Server] Fixed an issue that caused the migration from MAP Legacy to fail.
+- [Viewer] Fixed an issue that prevented disaknowledgments from being up-to-date.
+
+</details>
+
 ### 24.04.4
 
 Release date: `August 8, 2024`
@@ -149,6 +185,26 @@ Release date: `April 30, 2024`
 </details>
 
 ## Centreon MBI
+
+### 24.04.3
+
+Release date: `October 7, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Dependencies] Upgraded Spring framework.
+- [Diagnostic] Fixed typo in the diagnostic result.
+- [MBI] Fixed the schema of temporary SQL table to avoid missing data in reports.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed SQLi in configuration pages, only accessible to authenticated users with high privilege access (CVE-2024-45754).
+
+</details>
 
 ### 24.04.2
 
@@ -322,5 +378,18 @@ Release date: `April 30, 2024`
   <summary>Compatibility</summary>
 
 - Compatibility with other 24.04 components.
+
+</details>
+
+## Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager)
+
+### 24.04.1
+
+Release date: `October 7, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Documentation] Updated the links from the Monitoring Connector manager to the Monitoring Connectors documentation
 
 </details>

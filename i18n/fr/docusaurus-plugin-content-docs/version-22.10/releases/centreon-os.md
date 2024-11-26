@@ -18,6 +18,38 @@ Retrouvez plus de détails sur la version 22.10 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 22.10.26
+
+Release date: `November 21, 2024`
+
+#### Bug fixes
+
+- [Resource Status] Fixed an issue where actions in one browser tab were being replicated to another tab that was open on the same menu.
+- [Resource Status] If no notification has ever been sent, the "Last notification" field in the details panel is not displayed.
+
+#### Security fixes
+
+- [Security] Fixed XSS vulnerability in "Administration > Logs" menu (CVE-2024-47863).
+- [Security] Fixed XSS vulnerability on poller name in several menus.
+
+### 22.10.25
+
+Release date: `September 27, 2024`
+
+#### Bug fixes
+
+- [Packaging]: Fixed centreon-web broken dependency on httpd24.
+
+### 22.10.24
+
+Release date: `September 11, 2024`
+
+#### Security fixes
+
+- [Authorization] Fixed an issue on ACL reloading.
+- [Security] Fixed SQLi in contacts form (CVE-2024-39843).
+- [Security] Updated jQuery & jQuery-UI dependencies (CVE-2022-31160).
+
 ### 22.10.23
 
 Release date: `June 26, 2024`
@@ -451,6 +483,16 @@ Release date: `October 26, 2022`
 
 ## Centreon Collect
 
+### 22.10.11
+
+Release date: `September 16, 2024`
+
+#### Centreon Broker
+
+##### Bug fixes
+
+- [Broker] Fixed an issue where Broker could not connect to MySQL 8.0.35.
+  
 ### 22.10.10
 
 Release date: `June 27, 2024`
@@ -631,6 +673,14 @@ Release date: `October 26, 2022`
 
 ## Centreon Gorgone
 
+### 22.10.9
+
+Release date: `September 16, 2024`
+
+#### Bug fixes
+
+- [MBI] The password of an MBI database user can now include special characters.
+
 ### 22.10.8
 
 Release date: `June 26, 2024`
@@ -728,6 +778,14 @@ Release date: `October 26, 2022`
 
 ## Centreon DSM
 
+### 22.10.2
+
+Release date: `November 21, 2023`
+
+#### Security fixes
+
+- [Security] Fixed SQLi in the Centreon DSM slot configuration form, only accessible to authenticated users with high privilege access. (CVE-2024-45755)
+
 ### 22.10.1
 
 Release date: `June 5, 2023`
@@ -747,6 +805,14 @@ Release date: `October 26, 2022`
 - Compatibility with other 22.10 components.
 
 ## Centreon Open Tickets
+
+### 22.10.4
+
+Release date: `November 21, 2024`
+
+#### Security fixex
+
+- [Security] Fixed SQLi in the ticket creation form, only accessible to authenticated users with high privilege access. (CVE-2024-45756)
 
 ### 22.10.3
 

@@ -5,8 +5,6 @@ title: Introduction
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> Cette version de Centreon est ancienne, et ne sera bientôt plus supportée. Nous vous recommandons d'installer la dernière version.
-
 Ce chapitre décrit les différentes étapes de mise en place d'une plateforme de
 supervision Centreon.
 

@@ -339,7 +339,7 @@ apt update
 Puis installez Centreon MBI:
 
 ```shell
-apt update && apt install centreon-bi-server
+apt install centreon-bi-server
 ```
 
 </TabItem>
@@ -379,7 +379,7 @@ Lancez la commande ci-dessous pour autoriser le serveur de reporting à se conne
 aux bases de données du serveur de supervision. Utilisez l'option suivante :
 
 ```shell
-/usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
+perl /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
 ```
 
 **@ROOTPWD@** : Mot de passe root de la base MariaDB/MySQL de supervision.
@@ -554,10 +554,17 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11" label="Debian 11">
 
 ```shell
 curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=11 --mariadb-server-version="mariadb-10.11"
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=12 --mariadb-server-version="mariadb-10.11"
 ```
 
 </TabItem>
@@ -760,7 +767,6 @@ Ajouter le dépôt externe suivant (pour Java 8):
 ```shell
 wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
 add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
-apt update
 ```
 
 Dans le cas d'une installation basée sur une distribution vierge, installez la

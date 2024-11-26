@@ -512,8 +512,8 @@ Your web interface is configured but it displays an empty page:
 Either no views are created on the server or you do not have access to them.
 
 If you are a Centreon MAP administrator, you can see all views. In this
-case, no views have been created. Here are [quick start
-instructions](create-standard-view.md) to create one.
+case, no views have been created. Quick start
+instructions to create one are available in the Create standard view procedure.
 
 Otherwise, contact the Centreon MAP administrator or create your own views if
 you have sufficient privileges.

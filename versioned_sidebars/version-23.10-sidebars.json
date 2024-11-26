@@ -733,6 +733,10 @@
             },
             {
               "type": "doc",
+              "id": "version-23.10/graph-views/map-web-migrate"
+            },
+            {
+              "type": "doc",
               "id": "version-23.10/graph-views/import-into-map-web"
             },
             {
@@ -1198,6 +1202,10 @@
             {
               "type": "doc",
               "id": "version-23.10/integrations/event-management/sc-hp-omi"
+            },
+            {
+              "type": "doc",
+              "id": "version-23.10/integrations/data-analytics/sc-influxdb2-metrics"
             },
             {
               "type": "doc",
