@@ -26,8 +26,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                                    | Service Description |
 |:--------------|:----------------------------------------------------|:--------------------|
-| Hba-Usage     | HW-Storage-Dell-Compellent-Hba-Usage-NRPE-custom    | Check hba usages    |
-| Volume-Usage  | HW-Storage-Dell-Compellent-Volume-Usage-NRPE-custom | Check volume usages |
+| Hba-Usage     | HW-Storage-Dell-Compellent-Hba-Usage-NRPE-custom    | Check hba usage    |
+| Volume-Usage  | HW-Storage-Dell-Compellent-Volume-Usage-NRPE-custom | Check volume usage |
 
 > The services listed above are created automatically when the **HW-Storage-Dell-Compellent-NRPE-custom** host template is used.
 
@@ -101,7 +101,7 @@ to connect.
 > Set host macro `CEMUSER`, `CEMPASSWORD`, `CEMADDRESS`,
 `DELLSTORAGESDKDLL` (the complete path of `DellStorage.ApiCommandSet.dll` file)
 
-> Don't use the '!' character in centreon macro configuration!
+> Do not use the '!' character in when configuring Centreon macros.
 
 ## Installing the monitoring connector
 
