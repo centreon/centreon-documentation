@@ -21,7 +21,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias | Service Template                             | Service Description      |
 |:--------------|:---------------------------------------------|:-------------------------|
 | Environment   | Net-PaloAlto-Standard-Environment-SSH-custom | Check components         |
-| Ha            | Net-PaloAlto-Standard-Ha-SSH-custom          | Check high-availability  |
+| Ha            | Net-PaloAlto-Standard-Ha-SSH-custom          | Check high availability  |
 | Interfaces    | Net-PaloAlto-Standard-Interfaces-SSH-custom  | Check interfaces         |
 | Ipsec         | Net-PaloAlto-Standard-Ipsec-SSH-custom       | Check IPsec tunnels      |
 | Licenses      | Net-PaloAlto-Standard-Licenses-SSH-custom    | Check features licensing |
@@ -299,8 +299,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--mode=environment \
 	--hostname='10.0.0.1' \
 	--ssh-backend='sshcli' \
-	--ssh-username='' \
-	--ssh-password='' \
+	--ssh-username='XXXX' \
+	--ssh-password='XXXX' \
 	--ssh-port=''  \
 	--component='.*' \
 	--verbose
