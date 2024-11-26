@@ -100,11 +100,11 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### Ruckus device configuration
 
-To use this Plugin, the SNMP service must be properly configured on your Ruckus device. Ruckus provides an official documentation to achieve this: http://docs.ruckuswireless.com/smartzone/3.6.1/sz100-vsze-administrator-guide/GUID-F08BF334-2116-47A5-900C-B6AA4FC5E62A
+The SNMP agent must be configured and activated on the host. Please refer to the [official documentation](http://docs.ruckuswireless.com/smartzone/3.6.1/sz100-vsze-administrator-guide/GUID-F08BF334-2116-47A5-900C-B6AA4FC5E62A) from the manufacturer/publisher.
 
 ### Network flow
 
-Your Centreon Poller must be able to reach the Ruckus device over UDP/161 SNMP port.
+The target resource must be reachable from the Centreon poller on the UDP/161 SNMP port.
 
 ## Installing the monitoring connector
 
