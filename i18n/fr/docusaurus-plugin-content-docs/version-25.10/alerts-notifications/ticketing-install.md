@@ -68,3 +68,4 @@ Pour créer une sauvegarde de votre configuration de fournisseur Open Ticket, su
 * Après avoir fait la mise à jour, copiez-collez le(s) fichier(s) **register.php** dans le répertoire **/usr/share/centreon/www/modules/centreon-open-tickets/providers/**.
 
 Il est particulièrement important de sauvegarder votre configuration avant de [mettre à jour Centreon](../update/update-centreon-platform.md) afin de ne pas la perdre.
+

@@ -66,3 +66,4 @@ To create a backup of your Open Ticket provider configuration, follow these step
 * After updating, copy paste the backup **register.php** file(s) to **/usr/share/centreon/www/modules/centreon-open-tickets/providers/**
 
 It is particularly important to create a backup of your configuration before [updating Centreon](../update/update-centreon-platform.md) to avoid them being erased during the update process.
+
