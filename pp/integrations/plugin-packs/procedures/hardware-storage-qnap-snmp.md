@@ -74,7 +74,6 @@ More information about discovering hosts automatically is available on the [dedi
 | Rule name                         | Description                                                   |
 |:----------------------------------|:--------------------------------------------------------------|
 | HW-Storage-Qnap-SNMP-Disk-Name    | Discover the disk partitions and monitor space occupation     |
-| HW-Storage-Qnap-SNMP-Disk-Name_1  | Discover the disk partitions and monitor space occupation     |
 | HW-Storage-Qnap-SNMP-Traffic-Name | Discover network interfaces and monitor bandwidth utilization |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)

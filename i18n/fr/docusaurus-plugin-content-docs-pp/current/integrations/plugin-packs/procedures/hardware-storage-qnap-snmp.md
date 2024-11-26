@@ -75,7 +75,6 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 | Nom de la règle                   | Description                                                                |
 |:----------------------------------|:---------------------------------------------------------------------------|
 | HW-Storage-Qnap-SNMP-Disk-Name    | Découvre les partitions du disque et supervise l'occupation de son espace |
-| HW-Storage-Qnap-SNMP-Disk-Name_1  | Découvre les partitions du disque et supervise l'occupation de son espace |
 | HW-Storage-Qnap-SNMP-Traffic-Name | Découvre les interfaces réseau et en supervise le statut et l'utilisation     |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
