@@ -5,7 +5,7 @@ title: Configuring Open Tickets
 
 ## Configuration
 
-> Warning! There is a chance of your custom configuration disappearing when updating Centreon. To avoid this issue, refer to our [Update Centreon](../update/update-centreon-platform.md#Perform-a-backup) procedure.
+> Warning! Open Ticket users with a custom configuration should [perform a backup before updating Centreon](../update/update-centreon-platform.md#Perform-a-backup) to avoid them being erased during the update process.
 
 ### Select a provider
 
