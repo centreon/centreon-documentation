@@ -15,10 +15,10 @@ servers:
 - central server,
 - database server.
 
-If you use OpenTicket, there is a risk of settings customization being deleted when updating. To avoid this, please make sure to:
+If you use OpenTicket with custom configurations, you should make a backup before updating Centreon:
 
-* Make a backup of these folders: /usr/share/centreon/www/modules/centreon-open-tickets and /usr/share/centreon/www/widgets/open-tickets
-* After updating, copy and paste the backup register.php file(s) to /usr/share/centreon/www/modules/centreon-open-tickets/providers/
+* Make a backup of these folders: **/usr/share/centreon/www/modules/centreon-open-tickets** and **/usr/share/centreon/www/widgets/open-tickets**
+* After updating, copy paste the backup **register.php** file(s) to **/usr/share/centreon/www/modules/centreon-open-tickets/providers/**
 
 ## Update the Centreon central server
 
