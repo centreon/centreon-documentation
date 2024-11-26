@@ -22,7 +22,7 @@ The connector brings the following service templates (sorted by the host templat
 |:----------------|:------------------------------------------|:---------------------------------------------|
 | Errors          | Net-Ruggedcom-Errors-SNMP-custom          | Check hardware errors                        |
 | Hardware-Global | Net-Ruggedcom-Hardware-Global-SNMP-custom | Check all sensors                            |
-| Memory          | Net-Ruggedcom-Memory-SNMP-custom          | Check the rate of the utilization of memory  |
+| Memory          | Net-Ruggedcom-Memory-SNMP-custom          | Check the rate of memory utilization |
 | Temperature     | Net-Ruggedcom-Temperature-SNMP-custom     | Check hardware temperature                   |
 
 > The services listed above are created automatically when the **Net-Ruggedcom-SNMP-custom** host template is used.
@@ -32,9 +32,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                               | Service Description                                                                          | Discovery  |
 |:---------------------|:-----------------------------------------------|:---------------------------------------------------------------------------------------------|:----------:|
-| Traffic-Generic-Id   | Net-Ruggedcom-Traffic-Generic-Id-SNMP-custom   | Check the bandwidth of the interface. For each checks the name of the interface will appear  |            |
-| Traffic-Generic-Name | Net-Ruggedcom-Traffic-Generic-Name-SNMP-custom | Check the bandwidth of the interface. For each checks the name of the interface will appear  |            |
-| Traffic-Global       | Net-Ruggedcom-Traffic-Global-SNMP-custom       | Check the bandwidth of the interface. For each checks the name of the interface will appear  | X          |
+| Traffic-Generic-Id   | Net-Ruggedcom-Traffic-Generic-Id-SNMP-custom   | Check the bandwidth of the interface. For each check the name of the interface will appear  |            |
+| Traffic-Generic-Name | Net-Ruggedcom-Traffic-Generic-Name-SNMP-custom | Check the bandwidth of the interface. For each check the name of the interface will appear  |            |
+| Traffic-Global       | Net-Ruggedcom-Traffic-Global-SNMP-custom       | Check the bandwidth of the interface. For each check the name of the interface will appear  | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 

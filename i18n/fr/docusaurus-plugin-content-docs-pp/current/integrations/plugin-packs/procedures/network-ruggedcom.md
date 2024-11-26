@@ -50,7 +50,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle                 | Description                                                             |
 |:--------------------------------|:------------------------------------------------------------------------|
-| Net-Ruggedcom-SNMP-Traffic-Name | Découvre les interfaces réseau et supervise le statut et l'utilisation |
+| Net-Ruggedcom-SNMP-Traffic-Name | Découvre les interfaces réseau et en supervise le statut et l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
