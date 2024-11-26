@@ -119,7 +119,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ### SNMP Configuration
 
-The SNMP service must be configured and activated on the host. Please refer to the official documentation from the constructor/editor.
+The SNMP service must be configured and activated on the host. Please refer to the official documentation from the constructor/publisher.
 
 ### Network flow
 

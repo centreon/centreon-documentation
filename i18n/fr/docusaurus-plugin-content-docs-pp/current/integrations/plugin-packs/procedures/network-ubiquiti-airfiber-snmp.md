@@ -38,7 +38,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias      | Modèle de service                            | Description                    | Découverte |
 |:-----------|:---------------------------------------------|:-------------------------------|:----------:|
 | Interfaces | Net-Ubiquiti-Airfiber-Interfaces-SNMP-custom | Contrôle les interfaces        | X          |
-| Radios     | Net-Ubiquiti-Airfiber-Radios-SNMP-custom     | Contrôle les interfaces radios | X          |
+| Radios     | Net-Ubiquiti-Airfiber-Radios-SNMP-custom     | Contrôle les interfaces radio | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
