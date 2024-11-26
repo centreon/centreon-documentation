@@ -33,9 +33,9 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                | Modèle de service                              | Description                                                                                          | Découverte |
 |:---------------------|:-----------------------------------------------|:-----------------------------------------------------------------------------------------------------|:----------:|
-| Traffic-Generic-Id   | Net-Ruggedcom-Traffic-Generic-Id-SNMP-custom   | Contrôle de la bande passante de l'interface. Pour chaque contrôle apparaîtra le nom de l'interface  |            |
-| Traffic-Generic-Name | Net-Ruggedcom-Traffic-Generic-Name-SNMP-custom | Contrôle de la bande passante de l'interface. Pour chaque contrôle apparaîtra le nom de l'interface  |            |
-| Traffic-Global       | Net-Ruggedcom-Traffic-Global-SNMP-custom       | Contrôle de la bande passante de l'interface. Pour chaque contrôle apparaîtra le nom de l'interface  | X          |
+| Traffic-Generic-Id   | Net-Ruggedcom-Traffic-Generic-Id-SNMP-custom   | Contrôle de la bande passante de l'interface en utilisant une macro de filtre sur l'ID  |            |
+| Traffic-Generic-Name | Net-Ruggedcom-Traffic-Generic-Name-SNMP-custom | Contrôle de la bande passante de l'interface en utilisant une macro de filtre sur le nom  |            |
+| Traffic-Global       | Net-Ruggedcom-Traffic-Global-SNMP-custom       | Contrôle de la bande passante de l'interface | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
