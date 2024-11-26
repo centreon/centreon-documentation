@@ -189,3 +189,5 @@ curl -X POST -H "content-type: application/json" -H "DD-API-KEY: <api_key>" '<ht
 ```
 
 You must replace all the *`<xxxx>`* inside the above command with their appropriate value. *<http_server_url>* may become *https://api.datadoghq.com*.
+
+3. Check that the event has been received by Datadog.
