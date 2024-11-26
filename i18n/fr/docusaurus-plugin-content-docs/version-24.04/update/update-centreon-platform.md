@@ -16,10 +16,10 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 - Serveur Centreon Central,
 - Serveur de gestion de base de données.
 
-Si vous utilisez OpenTicket, il est possible que la mise à jour efface vos reglages personnalisés. Afin d'éviter ce problème :
+Si vous utilisez un fournisseur Open Ticket avec des configurations personnalisées, sauvegardez-les avant de mettre à jour Centreon :
 
-* Faites une copie de de sauvegarde des dossiers /usr/share/centreon/www/modules/centreon-open-tickets et /usr/share/centreon/www/widgets/open-tickets
-* Après avoir fait la mise à jour, copiez et collez le(s) fichier(s) register.php dans /usr/share/centreon/www/modules/centreon-open-tickets/providers/
+* Faites une sauvegarde des dossiers **/usr/share/centreon/www/modules/centreon-open-tickets** et **/usr/share/centreon/www/widgets/open-tickets**.
+* Après avoir fait la mise à jour, copiez-collez le(s) fichier(s) **register.php** dans le répertoire **/usr/share/centreon/www/modules/centreon-open-tickets/providers/**.
 
 ## Mise à jour du serveur Centreon Central
 
