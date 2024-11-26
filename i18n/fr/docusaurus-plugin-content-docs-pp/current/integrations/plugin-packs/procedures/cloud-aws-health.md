@@ -25,7 +25,7 @@ Le connecteur apporte le modèle de service suivant
 <Tabs groupId="sync">
 <TabItem value="Cloud-Aws-Health-custom" label="Cloud-Aws-Health-custom">
 
-Ce modèle d'hôte n'a pas de service déployé automatiquement.
+Ce modèle d'hôte n'a pas de service associé.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
@@ -60,7 +60,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ### Privilèges AWS
 
-Configurez un compte de service (via une combinaison d'access et secret key) et affectez-lui les privilèges suivants :
+Configurez un compte de service (via une combinaison d'access key et de secret key) et affectez-lui les privilèges suivants :
 * cloudwatch:getMetricStatistics
 
 ### Dépendances du Plugin

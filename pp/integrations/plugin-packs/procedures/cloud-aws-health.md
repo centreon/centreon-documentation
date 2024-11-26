@@ -24,7 +24,7 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="Cloud-Aws-Health-custom" label="Cloud-Aws-Health-custom">
 
-This host template doesn't have services set automatically.
+This host template doesn't have any associated services.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
