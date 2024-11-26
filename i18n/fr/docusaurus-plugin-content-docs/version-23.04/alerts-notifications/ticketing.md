@@ -5,7 +5,7 @@ title: Configuration
 
 ## Configuration
 
-> Attention ! Il est possible que mettre à jour Centreon efface vos configurations personnalisées. Pour éviter ce problème, référez-vous à notre procédure de [Mise à jour de Centreon](../update/update-centreon-platform.md#Sauvegarde).
+> Attention, si vous utilisez un fournisseur Open Ticket avec des configurations personnalisées, [sauvegardez-les avant de mettre à jour Centreon](../update/update-centreon-platform.md#Sauvegarde) afin de ne pas les perdre.
 
 ### Sélectionner un fournisseur de service
 
