@@ -95,7 +95,7 @@ Coming soon
 
 ### SNMP Configuration
 
-The SNMP service must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
+The SNMP agent must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
 
 ### Network flow
 
