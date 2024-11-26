@@ -118,6 +118,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 ### Configuration SNMP de l'équipement Ruckus ICX  
 
 L'agent SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+Pour superviser votre équipement Ruckus ICX, le SNMP v2 doit être configuré et l'adresse IP du collecteur Centreon autorisée à interroger l'équipement.
 
 ### Flux réseaux
 
