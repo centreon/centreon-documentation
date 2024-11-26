@@ -1303,10 +1303,6 @@
             },
             {
               "type": "doc",
-              "id": "version-24.04/integrations/itsm/ot-iws-isilog"
-            },
-            {
-              "type": "doc",
               "id": "version-24.04/integrations/itsm/ot-jira"
             },
             {
