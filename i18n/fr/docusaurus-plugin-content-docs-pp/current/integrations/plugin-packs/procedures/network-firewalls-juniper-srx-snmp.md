@@ -29,7 +29,7 @@ Le connecteur apporte les modèles de service suivants
 |:------------------|:----------------------------------------|:---------------------------------------------------------------|
 | Cpu-Forwarding    | Net-JuniperSRX-Cpu-Forwarding-custom    | Contrôle l'utilisation CPU du 'Packet Forwarding Engine'       |
 | Cpu-Routing       | Net-JuniperSRX-Cpu-Routing-custom       | Contrôle l'utilisation CPU du 'routing engine'                 |
-| Flow-Sessions     | Net-JuniperSRX-Flow-Sessions-custom     | Contrôle l'utilisation des 'Packet Forwarding Engine' sessions |
+| Flow-Sessions     | Net-JuniperSRX-Flow-Sessions-custom     | Contrôle l'utilisation des sessions de 'Packet Forwarding Engine' |
 | Hardware          | Net-JuniperSRX-Hardware-custom          | Contrôle l'état du matériel                                    |
 | Memory-Forwarding | Net-JuniperSRX-Memory-Forwarding-custom | Contrôle l'utilisation mémoire du 'Packet Forwarding Engine'   |
 | Memory-Routing    | Net-JuniperSRX-Memory-Routing-custom    | Contrôle l'utilisation mémoire du 'Routing Engine'             |

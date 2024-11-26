@@ -26,12 +26,12 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias     | Service Template                        | Service Description                            |
 |:------------------|:----------------------------------------|:-----------------------------------------------|
-| Cpu-Forwarding    | Net-JuniperSRX-Cpu-Forwarding-custom    | Check CPU Usage of packet forwarding engine    |
-| Cpu-Routing       | Net-JuniperSRX-Cpu-Routing-custom       | Check CPU Usage of routing engine              |
-| Flow-Sessions     | Net-JuniperSRX-Flow-Sessions-custom     | Check Packet Forwarding Engine sessions usage  |
+| Cpu-Forwarding    | Net-JuniperSRX-Cpu-Forwarding-custom    | Check CPU usage of packet forwarding engine    |
+| Cpu-Routing       | Net-JuniperSRX-Cpu-Routing-custom       | Check CPU usage of routing engine              |
+| Flow-Sessions     | Net-JuniperSRX-Flow-Sessions-custom     | Check Packet Forwarding Engine session usage  |
 | Hardware          | Net-JuniperSRX-Hardware-custom          | Check hardware                                 |
-| Memory-Forwarding | Net-JuniperSRX-Memory-Forwarding-custom | Check Memory Usage of packet forwarding engine |
-| Memory-Routing    | Net-JuniperSRX-Memory-Routing-custom    | Check Memory Usage of routing engine           |
+| Memory-Forwarding | Net-JuniperSRX-Memory-Forwarding-custom | Check Memory sage of packet forwarding engine |
+| Memory-Routing    | Net-JuniperSRX-Memory-Routing-custom    | Check Memory usage of routing engine           |
 
 > The services listed above are created automatically when the **Net-Juniper-SRX-custom** host template is used.
 
@@ -44,9 +44,9 @@ The connector brings the following service templates (sorted by the host templat
 | Disk-Generic-Id      | Net-JuniperSRX-Disk-Generic-Id-custom      | Check the rate of free space on the disk                                                     |            |
 | Disk-Generic-Name    | Net-JuniperSRX-Disk-Generic-Name-custom    | Check the rate of free space on the disk                                                     |            |
 | Disk-Global          | Net-JuniperSRX-Disk-Global-custom          | Check the rate of free space on the disk                                                     | X          |
-| Traffic-Generic-Id   | Net-JuniperSRX-Traffic-Generic-Id-custom   | Check the bandwidth of the interface. For each checks the name of the interface will appear  |            |
-| Traffic-Generic-Name | Net-JuniperSRX-Traffic-Generic-Name-custom | Check the bandwidth of the interface. For each checks the name of the interface will appear  |            |
-| Traffic-Global       | Net-JuniperSRX-Traffic-Global-custom       | Check the bandwidth of  interfaces. For each checks the name of the interface will appear    | X          |
+| Traffic-Generic-Id   | Net-JuniperSRX-Traffic-Generic-Id-custom   | Check the bandwidth of the interface. For each check the name of the interface will appear  |            |
+| Traffic-Generic-Name | Net-JuniperSRX-Traffic-Generic-Name-custom | Check the bandwidth of the interface. For each check the name of the interface will appear  |            |
+| Traffic-Global       | Net-JuniperSRX-Traffic-Global-custom       | Check the bandwidth of  interfaces. For each check the name of the interface will appear    | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
