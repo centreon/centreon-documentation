@@ -52,7 +52,7 @@ More information about discovering hosts automatically is available on the [dedi
 
 | Rule name                            | Description |
 |:-------------------------------------|:------------|
-| Net-Ruckus-Zonedirector-SNMP-Ap-Name | Discover access point attached to your controller            |
+| Net-Ruckus-Zonedirector-SNMP-Ap-Name | Discover access points attached to your controller            |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
