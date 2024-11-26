@@ -16,12 +16,10 @@ servers:
 - central server,
 - database server.
 
-If you use OpenTicket, there is a risk of customization being deleted when updating. To avoid this, please make sure to:
+If you use OpenTicket, there is a risk of settings customization being deleted when updating. To avoid this, please make sure to:
 
 * Make a backup of these folders: /usr/share/centreon/www/modules/centreon-open-tickets and /usr/share/centreon/www/widgets/open-tickets
-* Apply the patch
-* Copy the backup register.php file(s) to /usr/share/centreon/www/modules/centreon-open-tickets/providers/
-
+* After updating, copy and paste the backup register.php file(s) to /usr/share/centreon/www/modules/centreon-open-tickets/providers/
 
 ## Update the Centreon central server
 
