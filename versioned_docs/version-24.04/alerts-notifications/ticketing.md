@@ -5,6 +5,8 @@ title: Configuring Open Tickets
 
 ## Configuration
 
+> Warning! There is a chance of your custom configuration disappearing when updating Centreon. To avoid this issue, refer to our [Update Centreon](../update/update-centreon-platform.md#Perform-a-backup) procedure.
+
 ### Select a provider
 
 The module offers many ready-to-use providers listed in the dedicated [integration
