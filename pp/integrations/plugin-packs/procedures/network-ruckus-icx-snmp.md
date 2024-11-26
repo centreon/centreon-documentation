@@ -117,6 +117,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 ### Ruckus device configuration
 
 The SNMP agent must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
+To monitor your Ruckus ICX equipment, SNMP v2 must be configured and the IP address of the Centreon collector authorised to poll the equipment.
 
 ### Network flows
 
