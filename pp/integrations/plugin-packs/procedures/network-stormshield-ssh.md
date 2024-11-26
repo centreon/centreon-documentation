@@ -213,8 +213,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--mode=qos-usage \
 	--hostname='10.0.0.1' \
 	--ssh-backend='libssh' \
-	--ssh-username='' \
-	--ssh-password='' \
+	--ssh-username='XXXX' \
+	--ssh-password='XXXX' \
 	--ssh-port=''  \
 	--filter-counters='' \
 	--filter-name='' \

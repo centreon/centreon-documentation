@@ -27,7 +27,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Alias     | Modèle de service                    | Description                |
 |:----------|:-------------------------------------|:---------------------------|
-| Qos-Usage | Net-Stormshield-Qos-Usage-SSH-custom | Controle l'utilisation QoS |
+| Qos-Usage | Net-Stormshield-Qos-Usage-SSH-custom | Contrôle l'utilisation QoS |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Stormshield-SSH-custom** est utilisé.
 
@@ -218,8 +218,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--mode=qos-usage \
 	--hostname='10.0.0.1' \
 	--ssh-backend='libssh' \
-	--ssh-username='' \
-	--ssh-password='' \
+	--ssh-username='XXXX' \
+	--ssh-password='XXXX' \
 	--ssh-port=''  \
 	--filter-counters='' \
 	--filter-name='' \
