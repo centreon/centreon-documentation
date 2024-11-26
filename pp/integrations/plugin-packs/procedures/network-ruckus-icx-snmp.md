@@ -26,9 +26,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias  | Service Template                    | Service Description                                                                                                                                | Discovery  |
 |:---------------|:------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
-| Cpu            | Net-Ruckus-Icx-Cpu-SNMP-custom      | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |            |
+| Cpu            | Net-Ruckus-Icx-Cpu-SNMP-custom      | Check the rate of CPU utilization for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |            |
 | Hardware       | Net-Ruckus-Icx-Hardware-SNMP-custom | Check the hardware                                                                                                                                 |            |
-| Memory         | Net-Ruckus-Icx-Memory-SNMP-custom   | Check the rate of the utilization of memory                                                                                                        |            |
+| Memory         | Net-Ruckus-Icx-Memory-SNMP-custom   | Check the rate of memory utilization                                                                                                        |            |
 | Traffic-Global | Net-Ruckus-Icx-Traffic-SNMP-custom  | Check interfaces                                                                                                                                   | X          |
 
 > The services listed above are created automatically when the **Net-Ruckus-Icx-SNMP-custom** host template is used.
