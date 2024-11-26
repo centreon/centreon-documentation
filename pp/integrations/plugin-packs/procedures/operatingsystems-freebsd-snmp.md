@@ -28,7 +28,7 @@ The connector brings the following service templates (sorted by the host templat
 |:--------------|:------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|
 | Cpu           | OS-FreeBSD-Cpu-SNMP-custom    | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |
 | Load          | OS-FreeBSD-Load-SNMP-custom   | Check the server load average                                                                                                                      |
-| Memory        | OS-FreeBSD-Memory-SNMP-custom | Check the rate of the utilization of memory                                                                                                        |
+| Memory        | OS-FreeBSD-Memory-SNMP-custom | Check the rate memory utilization                                                                                                        |
 | Swap          | OS-FreeBSD-Swap-SNMP-custom   | Check virtual memory usage                                                                                                                         |
 
 > The services listed above are created automatically when the **OS-FreeBSD-SNMP-custom** host template is used.
@@ -38,10 +38,10 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                            | Service Description                                                                                                    | Discovery  |
 |:---------------------|:--------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------|:----------:|
-| Disk-Generic-Id      | OS-FreeBSD-Disk-Generic-Id-SNMP-custom      | Check the rate of free space on the disk. For each checks the name of the disk will appear                             |            |
-| Disk-Generic-Name    | OS-FreeBSD-Disk-Generic-Name-SNMP-custom    | Check the rate of free space on the disk. For each checks the mount pont of the disk will appear                       |            |
-| Disk-Global          | OS-FreeBSD-Disk-Global-SNMP-custom          | Check the rate of free space on disks. For each checks the mount point of disks will appear                            | X          |
-| Disk-IO              | OS-FreeBSD-Disk-IO-SNMP-custom              | Check access disk of the disk. For each check the name of the disk will appear "label" rather than the letter assigned |            |
+| Disk-Generic-Id      | OS-FreeBSD-Disk-Generic-Id-SNMP-custom      | Check the rate of free space on the disk. For each check the name of the disk will appear                             |            |
+| Disk-Generic-Name    | OS-FreeBSD-Disk-Generic-Name-SNMP-custom    | Check the rate of free space on the disk. For each check the mount point of the disk will appear                       |            |
+| Disk-Global          | OS-FreeBSD-Disk-Global-SNMP-custom          | Check the rate of free space on disks. For each check the mount point of disks will appear                            | X          |
+| Disk-IO              | OS-FreeBSD-Disk-IO-SNMP-custom              | Check disk access. For each check the name of the disk will appear as a "label" rather than the letter assigned |            |
 | Inodes-Global        | OS-Freebsd-Inodes-Global-SNMP-custom        | Check Inodes space usage on partitions                                                                                 |            |
 | Process-Generic      | OS-FreeBSD-Process-Generic-SNMP-custom      | Check Unix process/service is working                                                                                  |            |
 | Traffic-Generic-Id   | OS-FreeBSD-Traffic-Generic-Id-SNMP-custom   | Check the bandwidth of the interface. For each checks the name of the interface will appear                            |            |
@@ -70,8 +70,8 @@ More information about discovering hosts automatically is available on the [dedi
 
 | Rule name                    | Description                                                   |
 |:-----------------------------|:--------------------------------------------------------------|
-| OS-FreeBSD-SNMP-Disk-Name    | Discover the disk partitions and monitor space occupation     |
-| OS-FreeBSD-SNMP-Disk-Path    | Discover the disk partitions and monitor space occupation     |
+| OS-FreeBSD-SNMP-Disk-Name    | Use the disk name to discover the disk partitions and monitor space occupation     |
+| OS-FreeBSD-SNMP-Disk-Path    | Use the disk path to discover the disk partitions and monitor space occupation    |
 | OS-FreeBSD-SNMP-Traffic-Name | Discover network interfaces and monitor bandwidth utilization |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
@@ -335,9 +335,9 @@ yum install centreon-plugin-Operatingsystems-Freebsd-Snmp
 
 | Macro        | Description                                                                                                                                                                                     | Default value                                 | Mandatory   |
 |:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:-----------:|
-| DISKNAME     | Set the storage (number expected) example: 1, 2,... (empty means 'check all storage')                                                                                                           |                                               |             |
-| TRANSFORMSRC | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run'  will replace all occurrences of 'dev' with 'run' |                                               |             |
-| TRANSFORMDST | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run'  will replace all occurrences of 'dev' with 'run' |                                               |             |
+| DISKNAME     | Set the storage name (empty means 'check all storage')                                                                                                           |                                               |             |
+| TRANSFORMSRC | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run' will replace all occurrences of 'dev' with 'run' |                                               |             |
+| TRANSFORMDST | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run' will replace all occurrences of 'dev' with 'run' |                                               |             |
 | WARNING      | Warning threshold                                                                                                                                                                               | 80                                            |             |
 | CRITICAL     | Critical threshold                                                                                                                                                                              | 90                                            |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                              | --filter-perfdata='storage.space\|used\|free' |             |
@@ -347,9 +347,9 @@ yum install centreon-plugin-Operatingsystems-Freebsd-Snmp
 
 | Macro        | Description                                                                                                                                                                                     | Default value                                           | Mandatory   |
 |:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:-----------:|
-| FILTER       | Set the storage (number expected) example: 1, 2,... (empty means 'check all storage')                                                                                                           | .*                                                      |             |
-| TRANSFORMSRC | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run'  will replace all occurrences of 'dev' with 'run' |                                                         |             |
-| TRANSFORMDST | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run'  will replace all occurrences of 'dev' with 'run' |                                                         |             |
+| FILTER       | Set the storage name, it can be a regex (empty means 'check all storage')                                                                                                           | .*                                                      |             |
+| TRANSFORMSRC | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run' will replace all occurrences of 'dev' with 'run' |                                                         |             |
+| TRANSFORMDST | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run' will replace all occurrences of 'dev' with 'run' |                                                         |             |
 | WARNING      | Warning threshold                                                                                                                                                                               | 80                                                      |             |
 | CRITICAL     | Critical threshold                                                                                                                                                                              | 90                                                      |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                              | --verbose --filter-perfdata='storage.space\|used\|free' |             |
@@ -359,7 +359,7 @@ yum install centreon-plugin-Operatingsystems-Freebsd-Snmp
 
 | Macro         | Description                                                                                        | Default value     | Mandatory   |
 |:--------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| DISKNAME      | Set the device (number expected) example: 1, 2,... (empty means 'check all devices')               |                   |             |
+| DISKNAME      | Set the storage name, it can be a regex (empty means 'check all storage')             |                   |             |
 | CRITICALREAD  | Threshold                                                                                          |                   |             |
 | WARNINGREAD   | Threshold                                                                                          |                   |             |
 | CRITICALWRITE | Threshold                                                                                          |                   |             |
@@ -421,7 +421,7 @@ yum install centreon-plugin-Operatingsystems-Freebsd-Snmp
 
 | Macro        | Description                                                                                                                                            | Default value     | Mandatory   |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACEID  | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored.  To filter on interface names, see --name |                   |             |
+| INTERFACEID  | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |                   |             |
 | CRITICALIN   | Threshold                                                                                                                                              | 90                |             |
 | WARNINGIN    | Threshold                                                                                                                                              | 80                |             |
 | CRITICALOUT  | Threshold                                                                                                                                              | 90                |             |
@@ -433,7 +433,7 @@ yum install centreon-plugin-Operatingsystems-Freebsd-Snmp
 
 | Macro         | Description                                                                                                                                            | Default value     | Mandatory   |
 |:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACENAME | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored.  To filter on interface names, see --name |                   |             |
+| INTERFACENAME | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |                   |             |
 | CRITICALIN    | Threshold                                                                                                                                              | 90                |             |
 | WARNINGIN     | Threshold                                                                                                                                              | 80                |             |
 | CRITICALOUT   | Threshold                                                                                                                                              | 90                |             |
@@ -445,7 +445,7 @@ yum install centreon-plugin-Operatingsystems-Freebsd-Snmp
 
 | Macro          | Description                                                                                                                                                                                                         | Default value     | Mandatory   |
 |:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER         | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored.  To filter on interface names, see --name                                                              | .*                |             |
+| FILTER         | Define the interface filter on IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name                                                              | .*                |             |
 | CRITICALIN     | Threshold                                                                                                                                                                                                           | 90                |             |
 | WARNINGIN      | Threshold                                                                                                                                                                                                           | 80                |             |
 | CRITICALOUT    | Threshold                                                                                                                                                                                                           | 90                |             |
