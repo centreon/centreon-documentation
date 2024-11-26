@@ -161,11 +161,11 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration de l'équipement
 
-Pour utiliser ce connecteur de supervision, vous devez configurer le service SNMP sur l'équipement. Une description complète est disponible sur le site officiel de Ruckus: http://docs.ruckuswireless.com/smartzone/3.6.1/sz100-vsze-administrator-guide/GUID-F08BF334-2116-47A5-900C-B6AA4FC5E62A
+L'agent SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la [documentation officielle](http://docs.ruckuswireless.com/smartzone/3.6.1/sz100-vsze-administrator-guide/GUID-F08BF334-2116-47A5-900C-B6AA4FC5E62A) du constructeur/éditeur.
 
 ### Flux réseaux
 
-Les Collecteurs Centreon doivent pouvoir communiquer via le port UDP/161 SNMP avec l'équipement.
+La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers la ressource supervisée.
 
 ## Installer le connecteur de supervision
 
