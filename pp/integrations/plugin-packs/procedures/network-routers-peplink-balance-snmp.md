@@ -20,8 +20,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                       | Service Description                                                                                                                                  |
 |:--------------|:---------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu           | Net-Peplink-Balance-Cpu-SNMP-custom    | Check the rate of utilization of CPU for the equipment. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |
-| Memory        | Net-Peplink-Balance-Memory-SNMP-custom | Check the rate of the utilization of memory                                                                                                          |
+| Cpu           | Net-Peplink-Balance-Cpu-SNMP-custom    | Check the rate of CPU utilization for the equipment. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |
+| Memory        | Net-Peplink-Balance-Memory-SNMP-custom | Check the rate of memory utilization                                                                                                          |
 
 > The services listed above are created automatically when the **Net-Peplink-Balance-SNMP-custom** host template is used.
 
@@ -30,12 +30,12 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias              | Service Template                                           | Service Description                                                                          |
 |:---------------------------|:-----------------------------------------------------------|:---------------------------------------------------------------------------------------------|
-| Packet-Errors-Generic-Id   | Net-Peplink-Balance-Packet-Errors-Generic-Id-SNMP-custom   | Check packets on errors/discards of a network interface                                      |
-| Packet-Errors-Generic-Name | Net-Peplink-Balance-Packet-Errors-Generic-Name-SNMP-custom | Check packets on errors/discards of a network interface                                      |
-| Packet-Errors-Global       | Net-Peplink-Balance-Packet-Errors-Global-SNMP-custom       | Check packets on errors/discards of multiple network interfaces                              |
-| Traffic-Generic-Id         | Net-Peplink-Balance-Traffic-Generic-Id-SNMP-custom         | Check the bandwidth of the interface. For each checks the name of the interface will appear  |
-| Traffic-Generic-Name       | Net-Peplink-Balance-Traffic-Generic-Name-SNMP-custom       | Check the bandwidth of the interface. For each checks the name of the interface will appear  |
-| Traffic-Global             | Net-Peplink-Balance-Traffic-Global-SNMP-custom             | Check the bandwidth of interfaces. For each checks the name of the interface will appear     |
+| Packet-Errors-Generic-Id   | Net-Peplink-Balance-Packet-Errors-Generic-Id-SNMP-custom   | Check packets in error/discarded from a network interface                                      |
+| Packet-Errors-Generic-Name | Net-Peplink-Balance-Packet-Errors-Generic-Name-SNMP-custom | Check packets in error/discarded from a network interface                                      |
+| Packet-Errors-Global       | Net-Peplink-Balance-Packet-Errors-Global-SNMP-custom       | Check packets in error/discarded from a network interface                              |
+| Traffic-Generic-Id         | Net-Peplink-Balance-Traffic-Generic-Id-SNMP-custom         | Check the bandwidth of the interface. For each check the name of the interface will appear  |
+| Traffic-Generic-Name       | Net-Peplink-Balance-Traffic-Generic-Name-SNMP-custom       | Check the bandwidth of the interface. For each check the name of the interface will appear  |
+| Traffic-Global             | Net-Peplink-Balance-Traffic-Global-SNMP-custom             | Check the bandwidth of interfaces. For each check the name of the interface will appear     |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -101,7 +101,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-The SNMP service must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
+The SNMP agent must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
 
 ### Network flow
 

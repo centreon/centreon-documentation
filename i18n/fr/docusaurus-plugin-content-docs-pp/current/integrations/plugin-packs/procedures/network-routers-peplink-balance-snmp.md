@@ -31,9 +31,9 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                      | Modèle de service                                          | Description                                                                                          |
 |:---------------------------|:-----------------------------------------------------------|:-----------------------------------------------------------------------------------------------------|
-| Packet-Errors-Generic-Id   | Net-Peplink-Balance-Packet-Errors-Generic-Id-SNMP-custom   | Contrôle le pourcentage de paquets en erreur/écarté d'une interface réseau                           |
-| Packet-Errors-Generic-Name | Net-Peplink-Balance-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écarté d'une interface réseau                           |
-| Packet-Errors-Global       | Net-Peplink-Balance-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écarté de plusieurs interfaces réseau                   |
+| Packet-Errors-Generic-Id   | Net-Peplink-Balance-Packet-Errors-Generic-Id-SNMP-custom   | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau                           |
+| Packet-Errors-Generic-Name | Net-Peplink-Balance-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau                           |
+| Packet-Errors-Global       | Net-Peplink-Balance-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau                   |
 | Traffic-Generic-Id         | Net-Peplink-Balance-Traffic-Generic-Id-SNMP-custom         | Contrôle de la bande passante de l'interface. Pour chaque contrôle apparaîtra le nom de l'interface  |
 | Traffic-Generic-Name       | Net-Peplink-Balance-Traffic-Generic-Name-SNMP-custom       | Contrôle de la bande passante de l'interface. Pour chaque contrôle apparaîtra le nom de l'interface  |
 | Traffic-Global             | Net-Peplink-Balance-Traffic-Global-SNMP-custom             | Contrôle de la bande passante des interfaces. Pour chaque contrôle apparaîtra le nom de l'interface  |
