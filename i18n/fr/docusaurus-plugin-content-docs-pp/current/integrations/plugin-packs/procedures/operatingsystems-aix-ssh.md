@@ -329,8 +329,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--mode=storage \
 	--hostname='10.0.0.1' \
 	--ssh-backend='sshcli' \
-	--ssh-username='' \
-	--ssh-password='' \
+	--ssh-username='XXXX' \
+	--ssh-password='XXXX' \
 	--ssh-port=''  \
 	--filter-fs='' \
 	--filter-mount='' \

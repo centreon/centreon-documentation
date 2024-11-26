@@ -325,8 +325,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--hostname='10.0.0.1' \
 	--ssh-backend='sshcli' \
 	--ssh-username='' \
-	--ssh-password='' \
-	--ssh-port=''  \
+	--ssh-password='XXXX' \
+	--ssh-port='XXXX'  \
 	--filter-fs='' \
 	--filter-mount='' \
 	--warning-usage='' \
