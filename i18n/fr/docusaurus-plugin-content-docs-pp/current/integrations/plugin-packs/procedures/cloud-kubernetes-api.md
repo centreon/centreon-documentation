@@ -672,7 +672,7 @@ kubernetes.io/service-account.name
 
 Créez manuellement un jeton API à longue durée de vie pour un compte de service.
 
-Ensuite vous devez créer un nouveau Secret avec une annotation spéciale, kubernetes.io/service-account.name.
+Ensuite vous devez créer un nouveau secret avec une annotation spéciale, kubernetes.io/service-account.name.
 
 ```
 kubectl apply -f - <<EOF

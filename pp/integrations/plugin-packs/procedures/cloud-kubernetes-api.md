@@ -666,7 +666,7 @@ kubernetes.io/service-account.name
 
 Manually create a long-lived API token for a ServiceAccount
 
-Then you create a new Secret with a special annotation, kubernetes.io/service-account.name.
+Then create a new secret with a special annotation, kubernetes.io/service-account.name.
 
 ```
 kubectl apply -f - <<EOF
@@ -680,7 +680,7 @@ type: kubernetes.io/service-account-token
 EOF
 ```
 
-More information in kubernetes official documentation section [Manually create a long-lived API token for a ServiceAccount](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#manually-create-a-long-lived-api-token-for-a-serviceaccount).
+More information in the Kubernetes official documentation: [Manually create a long-lived API token for a Service Account](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#manually-create-a-long-lived-api-token-for-a-serviceaccount).
 
 #### Using RestAPI
 
