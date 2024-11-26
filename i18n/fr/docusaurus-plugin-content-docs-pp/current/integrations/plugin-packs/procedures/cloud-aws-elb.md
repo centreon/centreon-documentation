@@ -30,7 +30,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias              | Modèle de service                                   | Description                             | Découverte |
 |:-------------------|:----------------------------------------------------|:----------------------------------------|:----------:|
-| Elb-Connections    | Cloud-Aws-Elb-Application-Connections-Api-custom    | Contrôle les statistiques de connexions |            |
+| Elb-Connections    | Cloud-Aws-Elb-Application-Connections-Api-custom    | Contrôle les statistiques de connexion |            |
 | Elb-Http-Codes     | Cloud-Aws-Elb-Http-Codes-Api-custom                 | Contrôle le nombre de codes retour HTTP |            |
 | Elb-Http-Codes     | Cloud-Aws-Elb-Application-Http-Codes-Api-custom     | Contrôle le nombre de codes retour HTTP |            |
 | Elb-Targets-Health | Cloud-Aws-Elb-Targets-Health-Api-custom             | Contrôle la santé des instances cibles  |            |
@@ -78,7 +78,7 @@ Le connecteur apporte les modèles de service suivants
 </TabItem>
 <TabItem value="Cloud-Aws-Elb-Network-LoadBalancer-custom" label="Cloud-Aws-Elb-Network-LoadBalancer-custom">
 
-Ce modèle d'hôte n'a pas de modèle de service automatiquement créé.
+Ce modèle d'hôte n'a pas de modèle de service associé.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
@@ -180,7 +180,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ### Privilèges AWS
 
-Configurez un compte de service (via une combinaison d'access et secret key) et affectez-lui les privilèges suivants :
+Configurez un compte de service (via une combinaison d'access key et de secret key) et affectez-lui les privilèges suivants :
 * cloudwatch:getMetricStatistics
 * elb:DescribeLoadBalancers
 

@@ -29,7 +29,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias      | Service Template                                    | Service Description          | Discovery  |
 |:-------------------|:----------------------------------------------------|:-----------------------------|:----------:|
-| Elb-Connections    | Cloud-Aws-Elb-Application-Connections-Api-custom    | Check connections statistics |            |
+| Elb-Connections    | Cloud-Aws-Elb-Application-Connections-Api-custom    | Check connection statistics |            |
 | Elb-Http-Codes     | Cloud-Aws-Elb-Http-Codes-Api-custom                 | Check HTTP return codes      |            |
 | Elb-Http-Codes     | Cloud-Aws-Elb-Application-Http-Codes-Api-custom     | Check HTTP return codes      |            |
 | Elb-Targets-Health | Cloud-Aws-Elb-Targets-Health-Api-custom             | Check targets health         |            |
@@ -47,7 +47,7 @@ The connector brings the following service templates (sorted by the host templat
 |:-------------------|:----------------------------------------------------|:------------------------|:----------:|
 | Elb-Http-Codes     | Cloud-Aws-Elb-Http-Codes-Api-custom                 | Check HTTP return codes |            |
 | Elb-Http-Codes     | Cloud-Aws-Elb-Application-Http-Codes-Api-custom     | Check HTTP return codes |            |
-| Elb-Performances   | Cloud-Aws-Elb-Performances-Api-custom               | Check performances      |            |
+| Elb-Performances   | Cloud-Aws-Elb-Performances-Api-custom               | Check performance      |            |
 | Elb-Queues         | Cloud-Aws-Elb-Queues-Api-custom                     | Check queues            |            |
 | Elb-Targets-Health | Cloud-Aws-Elb-Targets-Health-Api-custom             | Check targets health    |            |
 | Elb-Targets-Health | Cloud-Aws-Elb-Application-Targets-Health-Api-custom | Check targets health    |            |
@@ -64,7 +64,7 @@ The connector brings the following service templates (sorted by the host templat
 |:-------------------|:----------------------------------------------------|:------------------------|:----------:|
 | Elb-Http-Codes     | Cloud-Aws-Elb-Http-Codes-Api-custom                 | Check HTTP return codes |            |
 | Elb-Http-Codes     | Cloud-Aws-Elb-Application-Http-Codes-Api-custom     | Check HTTP return codes |            |
-| Elb-Performances   | Cloud-Aws-Elb-Performances-Api-custom               | Check performances      |            |
+| Elb-Performances   | Cloud-Aws-Elb-Performances-Api-custom               | Check performance      |            |
 | Elb-Queues         | Cloud-Aws-Elb-Queues-Api-custom                     | Check queues            |            |
 | Elb-Targets-Health | Cloud-Aws-Elb-Targets-Health-Api-custom             | Check targets health    |            |
 | Elb-Targets-Health | Cloud-Aws-Elb-Application-Targets-Health-Api-custom | Check targets health    |            |
@@ -77,7 +77,7 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Cloud-Aws-Elb-Network-LoadBalancer-custom" label="Cloud-Aws-Elb-Network-LoadBalancer-custom">
 
-This host template doesn't have services automatically created.
+This host template doesn't have any associated services.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
