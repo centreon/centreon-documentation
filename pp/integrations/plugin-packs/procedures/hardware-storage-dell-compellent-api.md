@@ -262,11 +262,11 @@ is able to monitor a resource using a command like this one (replace the sample 
 
 ```bash
 /usr/lib64/nagios/plugins//check\_centreon\_nrpe -H  -p 5666 -t 50  -c check_centreon_plugins -a 'storage::dell::compellent::local::plugin' 'volume-usage'  '  \
-	--cem-user="" \
-	--cem-password="" \
-	--cem-host="" \
+	--cem-user="XXXX" \
+	--cem-password="XXXX" \
+	--cem-host="XXXX" \
 	--cem-port="3033" \
-	--sdk-path-dll="" \
+	--sdk-path-dll="XXXX" \
 	--ps-sc-filter="" \
 	--warning-sc-total="" \
 	--critical-sc-total=""  \
