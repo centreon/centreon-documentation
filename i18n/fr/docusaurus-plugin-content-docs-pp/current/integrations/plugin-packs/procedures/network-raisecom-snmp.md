@@ -38,7 +38,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias      | Modèle de service                   | Description                                               | Découverte |
 |:-----------|:------------------------------------|:----------------------------------------------------------|:----------:|
-| Interfaces | Net-Raisecom-Interfaces-SNMP-custom | Contrôle le traffic réseau de plusieurs interfaces réseau | X          |
+| Interfaces | Net-Raisecom-Interfaces-SNMP-custom | Contrôle le trafic réseau de plusieurs interfaces réseau | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
