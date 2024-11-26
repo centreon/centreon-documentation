@@ -7,6 +7,8 @@ import TabItem from '@theme/TabItem';
 
 ## Configuration
 
+> Attention ! Il est possible que mettre à jour Centreon efface vos configurations personnalisées. Pour éviter ce problème, référez-vous à notre procédure de [Mise à jour de Centreon](../update/update-centreon-platform.md#Sauvegarde).
+
 ### Sélectionner un fournisseur de service
 
 La liste des fournisseurs disponibles est actualisée dans la section de documentation
