@@ -29,12 +29,12 @@ The connector brings the following service templates (sorted by the host templat
 | Bandwidth-Optimization | Net-Riverbed-Steelhead-Bandwidth-Optimization-SNMP-custom | Check total optimized bytes across all application ports                                                                                           |
 | Bandwidth-Passthrough  | Net-Riverbed-Steelhead-Bandwidth-Passthrough-SNMP-custom  | Check passthrough bandwidth in both directions                                                                                                     |
 | Connections            | Net-Riverbed-Steelhead-Connections-SNMP-custom            | Check connections                                                                                                                                  |
-| Cpu                    | Net-Riverbed-Steelhead-Cpu-SNMP-custom                    | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |
+| Cpu                    | Net-Riverbed-Steelhead-Cpu-SNMP-custom                    | Check the rate of CPU utilization for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |
 | Disk-Utilization       | Net-Riverbed-Steelhead-Disk-Utilization-SNMP-custom       | Check disk usage                                                                                                                                   |
 | Load-Average           | Net-Riverbed-Steelhead-Load-Average-SNMP-custom           | Check CPU utilization and system load                                                                                                              |
-| Memory                 | Net-Riverbed-Steelhead-Memory-SNMP-custom                 | Check the rate of the utilization of memory                                                                                                        |
+| Memory                 | Net-Riverbed-Steelhead-Memory-SNMP-custom                 | Check the rate of memory utilization                                                                                                        |
 | Status                 | Net-Riverbed-Steelhead-Status-SNMP-custom                 | Check the equipment status                                                                                                                         |
-| Temperature            | Net-Riverbed-Steelhead-Temperature-SNMP-custom            | Check the temperature for the machine                                                                                                              |
+| Temperature            | Net-Riverbed-Steelhead-Temperature-SNMP-custom            | Check the temperature of the machine                                                                                                              |
 
 > The services listed above are created automatically when the **Net-Riverbed-Steelhead-SNMP-custom** host template is used.
 
@@ -43,10 +43,10 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                                        | Service Description                                                                                                                                         | Discovery  |
 |:---------------------|:--------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
-| Cpu-Detailed         | Net-Riverbed-Steelhead-Cpu-Detailed-SNMP-custom         | Check the detailed rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |            |
-| Disk-Global          | Net-Riverbed-Steelhead-Disk-Global-SNMP-custom          | Check the rate of free space on disks. For each checks the mount point of disks will appear                                                                 | X          |
-| Packet-Errors-Global | Net-Riverbed-Steelhead-Packet-Errors-Global-SNMP-custom | Check packets on errors/discards of multiple network interfaces                                                                                             | X          |
-| Traffic-Global       | Net-Riverbed-Steelhead-Traffic-Global-SNMP-custom       | Check the bandwidth of interfaces. For each checks the name of the interface will appear                                                                    | X          |
+| Cpu-Detailed         | Net-Riverbed-Steelhead-Cpu-Detailed-SNMP-custom         | Check the detailed rate of CPU utilization for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |            |
+| Disk-Global          | Net-Riverbed-Steelhead-Disk-Global-SNMP-custom          | Check the rate of free space on the disks. For each check the mount point of disks will appear                                                                 | X          |
+| Packet-Errors-Global | Net-Riverbed-Steelhead-Packet-Errors-Global-SNMP-custom | Check packets in error/discarded from multiple network interfaces                                                                                             | X          |
+| Traffic-Global       | Net-Riverbed-Steelhead-Traffic-Global-SNMP-custom       | Check the bandwidth of interfaces. For each check the name of the interface will appear                                                                    | X          |
 | Uptime               | Net-Riverbed-Steelhead-Uptime-SNMP-custom               | Time since the server has been working and available                                                                                                        |            |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
