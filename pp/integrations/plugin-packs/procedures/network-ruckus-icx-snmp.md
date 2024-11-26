@@ -116,11 +116,11 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ### Ruckus device configuration
 
-The SNMP v2 agent has to be configured on the Ruckus ICX devices for the Centreon poller to be allowed to monitor them.
+The SNMP agent must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
 
 ### Network flows
 
-The Centreon poller should be able to reach the UDP SNMP port 161 of the Ruckus ICX device.
+The target resource must be reachable from the Centreon poller on the UDP/161 SNMP port.
 
 ## Installing the monitoring connector
 
