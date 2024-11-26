@@ -5,9 +5,6 @@ title: Ruckus Smartzone
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Overview
-
-Ruckus SmartZone network controllers simplify the complexity of scaling and managing wired switches, and wireless access points through a common interface to support private-cloud network-as-a-service (NaaS) offerings in addition to general enterprise networks.
 
 
 ## Pack assets
@@ -26,7 +23,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias | Service Template                        | Service Description |
 |:--------------|:----------------------------------------|:--------------------|
 | Cpu           | Net-Ruckus-Smartzone-Cpu-SNMP-custom    | Check CPU           |
-| Load          | Net-Ruckus-Smartzone-Load-SNMP-custom   | Check Load Average  |
+| Load          | Net-Ruckus-Smartzone-Load-SNMP-custom   | Check load average  |
 | Memory        | Net-Ruckus-Smartzone-Memory-SNMP-custom | Check memory        |
 | System        | Net-Ruckus-Smartzone-System-SNMP-custom | Check system        |
 
@@ -39,7 +36,7 @@ The connector brings the following service templates (sorted by the host templat
 |:--------------|:----------------------------------------------|:--------------------|:----------:|
 | Access-Point  | Net-Ruckus-Smartzone-Access-Point-SNMP-custom | Check access points | X          |
 | Interfaces    | Net-Ruckus-Smartzone-Interfaces-SNMP-custom   | Check interfaces    | X          |
-| Storage       | Net-Ruckus-Smartzone-Storage-SNMP-custom      | Check Storage       | X          |
+| Storage       | Net-Ruckus-Smartzone-Storage-SNMP-custom      | Check storage       | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -62,7 +59,7 @@ More information about discovering hosts automatically is available on the [dedi
 
 | Rule name                              | Description                                                   |
 |:---------------------------------------|:--------------------------------------------------------------|
-| Net-Ruckus-Smartzone-SNMP-Ap-Name      | Discover access point attached to your controller                                                              |
+| Net-Ruckus-Smartzone-SNMP-Ap-Name      | Discover access points attached to your controller                                                              |
 | Net-Ruckus-Smartzone-SNMP-Disk-Name    | Discover the disk partitions and monitor space occupation     |
 | Net-Ruckus-Smartzone-SNMP-Traffic-Name | Discover network interfaces and monitor bandwidth utilization |
 

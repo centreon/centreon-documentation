@@ -5,9 +5,6 @@ title: Ruckus Smartzone
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Vue d'ensemble
-
-Les contrôleurs réseau Ruckus SmartZone sont les premières appliances du secteur à permettre au service informatique de gérer les réseaux LAN et WLAN en utilisant un seul système géré par des contrôleurs avec une seule interface utilisateur
 
 
 ## Contenu du pack
@@ -27,7 +24,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias  | Modèle de service                       | Description              |
 |:-------|:----------------------------------------|:-------------------------|
 | Cpu    | Net-Ruckus-Smartzone-Cpu-SNMP-custom    | Contrôle du CPU          |
-| Load   | Net-Ruckus-Smartzone-Load-SNMP-custom   | Contrôle du Load Average |
+| Load   | Net-Ruckus-Smartzone-Load-SNMP-custom   | Contrôle de la charge moyenne |
 | Memory | Net-Ruckus-Smartzone-Memory-SNMP-custom | Contrôle de la mémoire   |
 | System | Net-Ruckus-Smartzone-System-SNMP-custom | Contrôle du système       |
 
@@ -39,7 +36,7 @@ Le connecteur apporte les modèles de service suivants
 | Alias        | Modèle de service                             | Description                 | Découverte |
 |:-------------|:----------------------------------------------|:----------------------------|:----------:|
 | Access-Point | Net-Ruckus-Smartzone-Access-Point-SNMP-custom | Contrôle des points d'accès | X          |
-| Interfaces   | Net-Ruckus-Smartzone-Interfaces-SNMP-custom   | Contrôle les interfaces     | X          |
+| Interfaces   | Net-Ruckus-Smartzone-Interfaces-SNMP-custom   | Contrôle des interfaces     | X          |
 | Storage      | Net-Ruckus-Smartzone-Storage-SNMP-custom      | Contrôle du stockage        | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
@@ -65,7 +62,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 |:---------------------------------------|:------------------------------------------------------------------------|
 | Net-Ruckus-Smartzone-SNMP-Ap-Name      | Découverte des points d'accès gérés par un contrôleur                                                                        |
 | Net-Ruckus-Smartzone-SNMP-Disk-Name    | Découverte des points de montage d'un contrôleur               |
-| Net-Ruckus-Smartzone-SNMP-Traffic-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
+| Net-Ruckus-Smartzone-SNMP-Traffic-Name | Découvre les interfaces réseau et en supervise le statut et l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
