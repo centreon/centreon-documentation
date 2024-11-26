@@ -24,7 +24,7 @@ The connector brings the following service templates (sorted by the host templat
 | Ap-Usage      | Net-Ruckus-Scg-Ap-Usage-SNMP-custom     | Check the usage of the access points                 |
 | Load          | Net-Ruckus-Scg-Load-SNMP-custom         | Check the server load average                        |
 | Ssid-Usage    | Net-Ruckus-Scg-Ssid-Usage-SNMP-custom   | Check the usage of SSIDs                             |
-| System-Stats  | Net-Ruckus-Scg-System-Stats-SNMP-custom | Check the controler statistics                       |
+| System-Stats  | Net-Ruckus-Scg-System-Stats-SNMP-custom | Check the controller statistics                       |
 | Uptime        | Net-Ruckus-Scg-Uptime-SNMP-custom       | Time since the server has been working and available |
 
 > The services listed above are created automatically when the **Net-Ruckus-Scg-SNMP-custom** host template is used.
@@ -34,15 +34,15 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias              | Service Template                                      | Service Description                                                                                                                                         | Discovery  |
 |:---------------------------|:------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
-| Cpu                        | Net-Ruckus-Scg-Cpu-SNMP-custom                        | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU          |            |
-| Cpu-Detailed               | Net-Ruckus-Scg-Cpu-Detailed-SNMP-custom               | Check the detailed rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |            |
-| Memory                     | Net-Ruckus-Scg-Memory-SNMP-custom                     | Check the rate of the utilization of memory                                                                                                                 |            |
-| Packet-Errors-Generic-Id   | Net-Ruckus-Scg-Packet-Errors-Generic-Id-SNMP-custom   | Check packets on errors/discards of a network interface                                                                                                     |            |
-| Packet-Errors-Generic-Name | Net-Ruckus-Scg-Packet-Errors-Generic-Name-SNMP-custom | Check packets on errors/discards of a network interface                                                                                                     |            |
-| Packet-Errors-Global       | Net-Ruckus-Scg-Packet-Errors-Global-SNMP-custom       | Check packets on errors/discards of multiple network interfaces                                                                                             |            |
-| Traffic-Generic-Id         | Net-Ruckus-Scg-Traffic-Generic-Id-SNMP-custom         | Check the bandwidth of the interface. For each checks the name of the interface will appear                                                                 |            |
-| Traffic-Generic-Name       | Net-Ruckus-Scg-Traffic-Generic-Name-SNMP-custom       | Check the bandwidth of the interface. For each checks the name of the interface will appear                                                                 |            |
-| Traffic-Global             | Net-Ruckus-Scg-Traffic-Global-SNMP-custom             | Check the bandwidth of interfaces. For each checks the name of the interface will appear                                                                    | X          |
+| Cpu                        | Net-Ruckus-Scg-Cpu-SNMP-custom                        | Check the rate of CPU utilization for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU          |            |
+| Cpu-Detailed               | Net-Ruckus-Scg-Cpu-Detailed-SNMP-custom               | Check the detailed rate of CPU utilization for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |            |
+| Memory                     | Net-Ruckus-Scg-Memory-SNMP-custom                     | Check the rate of memory utilization                                                                                                                 |            |
+| Packet-Errors-Generic-Id   | Net-Ruckus-Scg-Packet-Errors-Generic-Id-SNMP-custom   | Check packets in error/discarded from a network interface                                                                                                     |            |
+| Packet-Errors-Generic-Name | Net-Ruckus-Scg-Packet-Errors-Generic-Name-SNMP-custom | Check packets in error/discarded from a network interface                                                                                                     |            |
+| Packet-Errors-Global       | Net-Ruckus-Scg-Packet-Errors-Global-SNMP-custom       | Check packets in error/discarded from multiple network interfaces                                                                                             |            |
+| Traffic-Generic-Id         | Net-Ruckus-Scg-Traffic-Generic-Id-SNMP-custom         | Check the bandwidth of the interface. For each check the name of the interface will appear                                                                 |            |
+| Traffic-Generic-Name       | Net-Ruckus-Scg-Traffic-Generic-Name-SNMP-custom       | Check the bandwidth of the interface. For each check the name of the interface will appear                                                                 |            |
+| Traffic-Global             | Net-Ruckus-Scg-Traffic-Global-SNMP-custom             | Check the bandwidth of interfaces. For each check the name of the interface will appear                                                                    | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -222,7 +222,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ### SNMP Configuration
 
-The SNMP service must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
+The SNMP agent must be configured and activated on the host. Please refer to the official documentation from the manufacturer/publisher.
 
 ### Network flow
 

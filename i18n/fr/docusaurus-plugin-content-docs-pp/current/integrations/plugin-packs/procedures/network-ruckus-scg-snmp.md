@@ -25,7 +25,7 @@ Le connecteur apporte les modèles de service suivants
 | Ap-Usage     | Net-Ruckus-Scg-Ap-Usage-SNMP-custom     | Contrôle l'utilisation des points d'accès                 |
 | Load         | Net-Ruckus-Scg-Load-SNMP-custom         | Contrôle de la charge serveur                             |
 | Ssid-Usage   | Net-Ruckus-Scg-Ssid-Usage-SNMP-custom   | Contrôle l'utilisation des SSID                           |
-| System-Stats | Net-Ruckus-Scg-System-Stats-SNMP-custom | Contrôle les statistiques du controlleur                  |
+| System-Stats | Net-Ruckus-Scg-System-Stats-SNMP-custom | Contrôle les statistiques du contrôleur                  |
 | Uptime       | Net-Ruckus-Scg-Uptime-SNMP-custom       | Durée depuis laquelle le serveur tourne sans interruption |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Ruckus-Scg-SNMP-custom** est utilisé.
@@ -38,9 +38,9 @@ Le connecteur apporte les modèles de service suivants
 | Cpu                        | Net-Ruckus-Scg-Cpu-SNMP-custom                        | Contrôle l'utilisation du CPU de l'équipement, incluant la remontée de la moyenne globale d'utilisation ainsi que le détail par cœur pour les CPU multi-cœurs       |            |
 | Cpu-Detailed               | Net-Ruckus-Scg-Cpu-Detailed-SNMP-custom               | Contrôle l'utilisation du CPU de l'équipement, incluant la remontée de la moyenne globale d'utilisation ainsi que le détail par cœur pour les CPU multi-cœurs |            |
 | Memory                     | Net-Ruckus-Scg-Memory-SNMP-custom                     | Contrôle du taux d'utilisation de la mémoire vive                                                                                                                                  |            |
-| Packet-Errors-Generic-Id   | Net-Ruckus-Scg-Packet-Errors-Generic-Id-SNMP-custom   | Contrôle le pourcentage de paquets en erreur/écarté d'une interface réseau                                                                                                         |            |
-| Packet-Errors-Generic-Name | Net-Ruckus-Scg-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écarté d'une interface réseau                                                                                                         |            |
-| Packet-Errors-Global       | Net-Ruckus-Scg-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écarté de plusieurs interfaces réseau                                                                                                 |            |
+| Packet-Errors-Generic-Id   | Net-Ruckus-Scg-Packet-Errors-Generic-Id-SNMP-custom   | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau                                                                                                         |            |
+| Packet-Errors-Generic-Name | Net-Ruckus-Scg-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau                                                                                                         |            |
+| Packet-Errors-Global       | Net-Ruckus-Scg-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau                                                                                                 |            |
 | Traffic-Generic-Id         | Net-Ruckus-Scg-Traffic-Generic-Id-SNMP-custom         | Contrôle de la bande passante de l'interface. Pour chaque contrôle apparaîtra le nom de l'interface                                                                                |            |
 | Traffic-Generic-Name       | Net-Ruckus-Scg-Traffic-Generic-Name-SNMP-custom       | Contrôle de la bande passante de l'interface. Pour chaque contrôle apparaîtra le nom de l'interface                                                                                |            |
 | Traffic-Global             | Net-Ruckus-Scg-Traffic-Global-SNMP-custom             | Contrôle de la bande passante des interfaces. Pour chaque contrôle apparaîtra le nom de l'interface                                                                                | X          |
@@ -67,7 +67,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 | Nom de la règle                     | Description                                                             |
 |:------------------------------------|:------------------------------------------------------------------------|
 | Net-Ruckus-Scg-Ap-SNMP-Ssids-Name   | Découvre les points d'accès Ruckus en identifiant les SSID configurés via SNMP                                                                        |
-| Net-Ruckus-Scg-Ap-SNMP-Traffic-Name | Découvre les interfaces réseaux et supervise le statut et l'utilisation |
+| Net-Ruckus-Scg-Ap-SNMP-Traffic-Name | Découvre les interfaces réseau et en supervise le statut et l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -223,7 +223,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 
 ### Configuration SNMP
 
-Le service SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
+L'agent SNMP doit être activé et configuré sur l'équipement. Veuillez vous référer à la documentation officielle du constructeur/éditeur.
 
 ### Flux réseau
 
