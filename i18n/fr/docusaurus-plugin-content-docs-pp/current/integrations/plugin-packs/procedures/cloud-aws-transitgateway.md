@@ -203,7 +203,7 @@ yum install centreon-plugin-Cloud-Aws-Transitgateway-Api
 |:--------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | AWSACCESSKEY  | Set AWS access key                                                                                                                                 |                   |      X      |
 | AWSASSUMEROLE | Set Amazon Resource Name of the role to be assumed                                                                                                 |                   |             |
-| AWSCUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option                         |                   |             |
+| AWSCUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option                         |                   | X            |
 | AWSREGION     | Set the region name                                                                                                                                |                   |      X      |
 | AWSSECRETKEY  | Set AWS secret key                                                                                                                                 |                   |      X      |
 | PROXYURL      | Proxy URL if any                                                                                                                                   |                   |             |
@@ -256,7 +256,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 /usr/lib/centreon/plugins/centreon_aws_transitgateway_api.pl \
 	--plugin=cloud::aws::transitgateway::plugin \
 	--mode=traffic \
-	--custommode='' \
+	--custommode='awscli' \
 	--aws-secret-key='XXXX' \
 	--aws-access-key='XXXX' \
 	--aws-role-arn='' \
