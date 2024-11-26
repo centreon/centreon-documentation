@@ -86,7 +86,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ### Privilèges AWS
 
-Configurez un compte de service (via une combinaison d'access et secret key) et affectez-lui les privilèges suivants :
+Configurez un compte de service (via une combinaison d'access key et de secret key) et affectez-lui les privilèges suivants :
 * cloudwatch:getMetricStatistics
 * ec2:DescribeVpnConnections
 
