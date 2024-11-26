@@ -27,7 +27,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias   | Modèle de service         | Description                                                                         |
 |:--------|:--------------------------|:------------------------------------------------------------------------------------|
-| Errpt   | OS-AIX-Errpt-SSH-custom   | Contrôle permettant de vérifier les erreurs AIX via SSH                             |
+| Errpt   | OS-AIX-Errpt-SSH-custom   | Contrôle permettant de vérifier les messages retournés par la commande AIX 'errpt' via SSH                             |
 | Lvsync  | OS-AIX-Lvsync-SSH-custom  | Contrôle permettant de vérifier la synchronisation des volumes logiques AIX via SSH |
 | Process | OS-AIX-Process-SSH-custom | Contrôle permettant de vérifier les processus AIX via SSH                           |
 

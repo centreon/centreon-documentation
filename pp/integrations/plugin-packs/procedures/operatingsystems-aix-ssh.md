@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template          | Service Description                             |
 |:--------------|:--------------------------|:------------------------------------------------|
-| Errpt         | OS-AIX-Errpt-SSH-custom   | Check AIX erreur pront by SSH                   |
+| Errpt         | OS-AIX-Errpt-SSH-custom   | Check AIX command 'errpt' output messages using SSH                   |
 | Lvsync        | OS-AIX-Lvsync-SSH-custom  | Check AIX logical volume synchronisation by SSH |
 | Process       | OS-AIX-Process-SSH-custom | Check AIX processes by SSH                      |
 
