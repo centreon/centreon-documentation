@@ -5,7 +5,6 @@ title: Configuration
 
 ## Configuration
 
-> Attention, si vous utilisez un fournisseur Open Ticket avec des configurations personnalisées, [sauvegardez-les avant de mettre à jour Centreon](../update/update-centreon-platform.md#Sauvegarde) afin de ne pas les perdre.
 
 ### Sélectionner un fournisseur de service
 

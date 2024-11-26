@@ -7,7 +7,6 @@ import TabItem from '@theme/TabItem';
 
 ## Configuration
 
-> Warning! Open Ticket users with a custom configuration should [perform a backup before updating Centreon](../update/update-centreon-platform.md#Perform-a-backup) to avoid them being erased during the update process.
 
 ### Select a provider
 
