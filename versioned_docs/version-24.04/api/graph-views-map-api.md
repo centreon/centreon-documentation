@@ -49,7 +49,7 @@ Body {
 }
 ```
 
-- In the result, retrieve the {jwtToken}. You will need to use it for all your API calls. The headers will look like this:
+- In the result, retrieve the **jwtToken**. You will need to use it for all your API calls. The headers will look like this:
 
 ```
 Headers {
@@ -99,7 +99,7 @@ Body {
 <TabItem value="HTTP" label="HTTP">
     
 ```
-GET http://serverURL:8081/centreon-map/api/beta/maps/{mapId}/views/{viewId}
+GET http://serverURL:8081/centreon-map/api/beta/maps/<mapId>/views/<viewId>
 ```
 
 </TabItem>
@@ -107,7 +107,7 @@ GET http://serverURL:8081/centreon-map/api/beta/maps/{mapId}/views/{viewId}
 <TabItem value="HTTPS" label="HTTPS">
 
 ```
-GET https://serverURL:9443/centreon-map/api/beta/maps/{mapId}/views/{viewId}
+GET https://serverURL:9443/centreon-map/api/beta/maps/<mapId>/views/<viewId>
 ```
 
 </TabItem>
@@ -121,7 +121,7 @@ In this scenario, the "shape" element is a rectangle.
 <TabItem value="HTTP" label="HTTP">
     
 ```
-PUT http://serverURL:8081/centreon-map/api/beta/maps/{mapId}/views
+PUT http://serverURL:8081/centreon-map/api/beta/maps/<mapId>/views
 ```
 
 </TabItem>
@@ -129,7 +129,7 @@ PUT http://serverURL:8081/centreon-map/api/beta/maps/{mapId}/views
 <TabItem value="HTTPS" label="HTTPS">
 
 ```
-PUT https://serverURL:9443/centreon-map/api/beta/maps/{mapId}/views
+PUT https://serverURL:9443/centreon-map/api/beta/maps/<mapId>/views
 ```
 
 </TabItem>
