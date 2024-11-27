@@ -3,6 +3,9 @@ id: map-api
 title: MAP API
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 If you want to automate standard maps creation or maintenance, you may use the Centreon MAP extension API.
 
 ## Permissions
