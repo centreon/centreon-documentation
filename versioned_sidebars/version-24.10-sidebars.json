@@ -1259,10 +1259,6 @@
             },
             {
               "type": "doc",
-              "id": "integrations/itsm/ot-iws-isilog"
-            },
-            {
-              "type": "doc",
               "id": "integrations/itsm/ot-jira"
             },
             {

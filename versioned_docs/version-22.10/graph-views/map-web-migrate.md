@@ -6,7 +6,7 @@ title: Migrating the extension
 This section explains how to move Centreon MAP server over to another server.
 
 This task may be useful if you need to migrate your reporting server from
-Alma 8 to Alma 9.
+CentOS 6 to CentOS 7.
 
 ### Install the new Centreon MAP server
 

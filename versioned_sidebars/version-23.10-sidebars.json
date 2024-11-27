@@ -733,6 +733,10 @@
             },
             {
               "type": "doc",
+              "id": "graph-views/map-web-migrate"
+            },
+            {
+              "type": "doc",
               "id": "graph-views/import-into-map-web"
             },
             {
@@ -1280,10 +1284,6 @@
             {
               "type": "doc",
               "id": "integrations/itsm/ot-itop"
-            },
-            {
-              "type": "doc",
-              "id": "integrations/itsm/ot-iws-isilog"
             },
             {
               "type": "doc",

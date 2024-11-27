@@ -229,6 +229,25 @@ Sometimes, the remote host doesn't support negotiation about the SSL implementat
 so you must specify explicitly which one the Plugin has to use thanks to the `--ssl` 
 option (e.g. `--ssl='tlsv1'`). Refer to the manufacturer or software publisher documentation.
 
+## Troubleshooting AWS
+
+### `UNKNOWN: No metrics. Check your options or use --zeroed option to set 0 on undefined values`
+
+This command result means that Amazon Cloudwatch does not have any value for the requested period.
+
+This result can be overriden by adding the --zeroed option to the command. 
+This will force a value of 0 when no metric has been collected and will prevent the UNKNOWN error message.
+
+### `UNKNOWN: Command error: - An error occurred (AuthFailure) [...] `
+
+This command result means that the credentials provided don't have enough privileges to perform the underlying AWS Operation.
+
+### `UNKNOWN: 500 Can't connect to monitoring.eu-west-1.amazonaws.com:443 |`
+
+This error message means that the Centreon Plugin couldn't successfully connect to the AWS Cloudwatch API. 
+Check that no third party device (such as a firewall) is blocking the request. 
+A proxy connection may also be necessary to connect to the API. This can be done by using this option in the command: --proxyurl='http://proxy.mycompany:8080'.
+
 ## SSH and CLI checks
 
 ### UNKNOWN: Command error: `<interpreter>`: \<command_name\>: command not found

@@ -338,6 +338,19 @@ Many features have been added in this version.
 
 ## Centreon Collect
 
+### 24.04.7
+
+Release date: `November 26, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Adapted Broker to a new behavior of the MariaDB database concerning errors: Broker no longer fails to reconnect after an error.
+Broker could fail to reconnect after an error.
+- [Broker] The Stream Connector cache behavior with host groups and service groups has been improved. When a host group or service group is deleted, it is also correctly removed from the Stream Connector caches.
+
+</details>
+
 ### 24.04.6
 
 Release date: `September 26, 2024`
@@ -462,6 +475,17 @@ Release date: `April 30, 2024`
 </details>
 
 ## Centreon Gorgone
+
+### 24.04.4
+
+Release date: `November 26, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] **centreon-engine** and **centreon-broker** are no longer installed on MBI servers.
+
+</details>
 
 ### 24.04.3
 

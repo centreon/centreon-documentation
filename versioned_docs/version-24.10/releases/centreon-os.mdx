@@ -23,6 +23,60 @@ Read more about version 24.10 in our [blog post](https://www.centreon.com/centre
 
 ## Centreon Web
 
+### 24.10.2
+
+Release date: `November 27, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added missing configuration change logs for service template configuration.
+- [API] Added missing configuration change logs written when the configuration of services is deployed.
+- [Core] Improved the way the logo on the login page can be customized.
+- [UX] Added a button to copy the breadcrumbs on ReactJS pages.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed the listing of commands containing quotes and/or double quotes.
+- [API] The is_notifications_enabled value in the host configuration endpoint of the API is now correctly updated when notifications are enabled.
+- [API] Time period definitions containing the value 00:00-00:00 are now correctly taken into account.
+- [API Token] Fixed an issue with the expiration date of tokens in the API tokens page.
+- [API Token] Using pagination, fixed the list of contacts that didn't return enough results.
+- [Authentication] Fixed an issue with SSO authentication with SAML protocol that occurred when users had a legacy page as default page.
+- [Clapi] Fixed a duplicate function issue that occurred when using CLAPI with APIv1.
+- [Configuration] Adding a Centreon Broker output with lua parameters now works properly: values are no longer mixed up.
+- [Configuration] Fixed incorrect links in the Export configuration page.
+- [Core] Changed log file for the cron job that removed outdated tokens.
+- [Core] The correct user theme is now applied even when options are changed in a user's profile.
+- [Custom Login Page] Fixed the visibility of the text area border.
+- [Discovery] Automatic execution of host discovery jobs (export and reload of the poller configuration) no longer fails with an "insufficient rights" message.
+- [Install] Added a missing ACL column in the Centreon database.
+- [Playlists] Fixed an issue where an unwanted 404 screen blinked when first loading a playlist using its public link.
+- [Playlists] Fixed an issue with the order of dashboards.
+- [Resource Status] Custom column definitions are now saved correctly.
+- [Resource Status] Fixed an issue with the behavior of group chips in the resource detail panel.
+- [Resource Status] Fixed an issue with the status_type filter: you can now enter values either in lower or upper case.
+- [Resource Status] Fixed the redirection from the Event Logs page to Resource Status: the details panel is now opened on the correct resource.
+- [Resource Status] If no notification has ever been sent, the "Last notification" field in the details panel is not displayed.
+- [Resource Status] Made downtime and acknowledge icons more visible in light and dark mode.
+- [Resource Status] Tooltips on quick action buttons are now displayed only briefely when they are hovered, so as not to block the action button just below.
+- [Status Chart widget] Filters on selected resources are now handled properly.
+- [Status Grid] Fixed an issue where an incorrect number of resources were displayed on hover.
+- [Vmware] Fixed an issue in /ect/sudoers.d/centreon for the vmware service.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Improved checks on changed objects that update the "conf changed" column in the list of pollers.
+- [Security] Fixed XSS vulnerability on poller name in several menus.
+
+</details>
+
 ### 24.10.1
 
 Release date: `November 8, 2024`
@@ -128,6 +182,23 @@ Release date: `October 31, 2024`
 
 ## Centreon Collect
 
+### 24.10.2
+
+Release date: `November 27, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Adapted Broker to a new behavior of the MariaDB database concerning errors: Broker no longer fails to reconnect after an error.
+- [CMA] Added a native CPU check for Windows & Linux.
+- [CMA] Agent check scheduling has been optimized to avoid delay in case of check timeouts.
+- [CMA] Centreon Monitoring Agent & the installer are now signed. 
+- [CMA] Fixed a listening issue when using "Poller initiated connection".
+- [Engine] Delivered the correct libraries for Collect, so as to avoid issues with template inheritance or Engine crashes.
+- [Engine]Fixed an issue where a segmentation fault could occur when host relations were modified.
+
+</details>
+
 ### 24.10.1
 
 Release date: `November 7, 2024`
@@ -171,6 +242,17 @@ Release date: `October 31, 2024`
 </details>
 
 ## Centreon Gorgone
+
+### 24.10.1
+
+Release date: `November 27, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] **centreon-engine** and **centreon-broker** are no longer installed on MBI servers.
+
+</details>
 
 ### 24.10.0
 
