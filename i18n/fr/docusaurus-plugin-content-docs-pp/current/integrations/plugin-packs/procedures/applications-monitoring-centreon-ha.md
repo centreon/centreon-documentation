@@ -206,28 +206,28 @@ associé à sa distribution :
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-applications-monitoring-centreon-ha
+dnf install centreon-pack-applications-monitoring-centreon-ha centreon-pack-applications-pacemaker-ssh centreon-pack-operatingsystems-linux-snmp
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-applications-monitoring-centreon-ha
+dnf install centreon-pack-applications-monitoring-centreon-ha centreon-pack-applications-pacemaker-ssh centreon-pack-operatingsystems-linux-snmp
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-pack-applications-monitoring-centreon-ha
+apt install centreon-pack-applications-monitoring-centreon-ha centreon-pack-applications-pacemaker-ssh centreon-pack-operatingsystems-linux-snmp
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-applications-monitoring-centreon-ha
+yum install centreon-pack-applications-monitoring-centreon-ha centreon-pack-applications-pacemaker-ssh centreon-pack-operatingsystems-linux-snmp
 ```
 
 </TabItem>
@@ -251,28 +251,28 @@ Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votr
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install 
+dnf install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applications-Pacemaker-Ssh
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install 
+dnf install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applications-Pacemaker-Ssh
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install 
+apt install centreon-plugin-operatingsystems-linux-snmp centreon-plugin-applications-pacemaker-ssh
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install 
+yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applications-Pacemaker-Ssh
 ```
 
 </TabItem>
