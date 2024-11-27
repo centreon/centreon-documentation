@@ -135,10 +135,10 @@ Release date: `November 27, 2024`
 <details>
   <summary>Bug fixes</summary>
 
-- [Broker] Adaption of Broker to a new behavior of the MariaDB database concerning errors.Broker could fail to reconnect after an error.
+- [Broker] Adapted Broker to a new behavior of the MariaDB database concerning errors: Broker no longer fails to reconnect after an error.
 - [CMA] Added a native CPU check for Windows & Linux.
-- [CMA] Agent checks scheduling has been optimized to avoid delay in case of checks timeouts.
-- [CMA] Centreon Monitoring Agent & installer are now signed. 
+- [CMA] Agent check scheduling has been optimized to avoid delay in case of check timeouts.
+- [CMA] Centreon Monitoring Agent & the installer are now signed. 
 - [CMA] Fixed a listening issue when using "Poller initiated connection".
 - [Engine] Delivered the correct libraries for Collect, so as to avoid issues with template inheritance or Engine crashes.
 - [Engine]Fixed an issue where a segmentation fault could occur when host relations were modified.
