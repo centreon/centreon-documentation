@@ -591,7 +591,6 @@ scénario choisi), le nom du StatefulSet sera ajouté au nom de la métrique :
 
 ## Prérequis
 
-
 Comme mentionné dans l'introduction, deux modes de communication sont
 disponibles:
 
@@ -664,29 +663,9 @@ ou pour des informations sur le
 
 ##### Kubectl version 1.24 et supérieures
 
-Depuis la version 1.24 de kubectl, vous devez créer un compte de service avec une annotation spéciale:
-
-```
-kubernetes.io/service-account.name
-```
-
-Créez manuellement un jeton API à longue durée de vie pour un compte de service.
-
-Ensuite vous devez créer un nouveau secret avec une annotation spéciale, kubernetes.io/service-account.name.
-
-```
-kubectl apply -f - <<EOF
-apiVersion: v1
-kind: Secret
-metadata:
-  name: build-robot-secret
-  annotations:
-    kubernetes.io/service-account.name: build-robot
-type: kubernetes.io/service-account-token
-EOF
-```
-
-Plus d'informations dans la section de la documentation officielle de kubernetes [Manually create a long-lived API token for a ServiceAccount](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#manually-create-a-long-lived-api-token-for-a-serviceaccount).
+Dans les versions antérieures à Kubernetes 1.24, chaque compte de service créé obtenait automatiquement un jeton secret 
+de type JWT (JSON Web Token) monté dans les pods associés. À partir de Kubernetes 1.24 : Ces jetons automatiques ne sont plus générés par défaut
+Pour créer manuellement le token référez-vous à la documentation officielle de kubernetes [Manually create a long-lived API token for a ServiceAccount](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#manually-create-a-long-lived-api-token-for-a-serviceaccount).
 
 #### Utilisation de l'API Rest
 
