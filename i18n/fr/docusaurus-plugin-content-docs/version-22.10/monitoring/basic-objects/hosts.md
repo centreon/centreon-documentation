@@ -36,7 +36,7 @@ Si plusieurs modèles tentaient de modifier le même champ, les caractéristique
    Changer l’ordre des templates modifie automatiquement les configurations selon ce nouvel ordre le cas échéant.
 
 
-   Ce bouton ![image](../../assets/configuration/common/move.png#thumbnail2) nous permet de changer l'ordre des modèles d'hôtes.
+- Ce bouton ![image](../../assets/configuration/common/move.png#thumbnail2) nous permet de changer l'ordre des modèles d'hôtes.
 - Ce bouton ![image](../../assets/configuration/common/delete.png#thumbnail2) sert à supprimer le modèle d'hôte.
 
 * Si la case **Oui** est cochée pour **Créer aussi les services liés aux modèles**, Centreon génère automatiquement les
