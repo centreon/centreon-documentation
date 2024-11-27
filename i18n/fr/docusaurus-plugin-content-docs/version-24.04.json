@@ -1,6 +1,6 @@
 {
   "version.label": {
-    "message": "⭐ 24.04",
+    "message": "24.04",
     "description": "The label for version 24.04"
   },
   "sidebar.docs.category.Getting Started": {
@@ -115,9 +115,9 @@
     "message": "Administrer",
     "description": "The label for category Administrate in sidebar docs"
   },
-  "sidebar.docs.category.Graphical views": {
-    "message": "Vues graphiques",
-    "description": "The label for category Graphical views in sidebar docs"
+  "sidebar.docs.category.Graphical views (maps)": {
+    "message": "Vues graphiques (cartes)",
+    "description": "The label for category Graphical views (maps) in sidebar docs"
   },
   "sidebar.docs.category.Reporting": {
     "message": "Reporting",
@@ -298,5 +298,9 @@
   "sidebar.docs.category.Getting started with Centreon OnPrem": {
     "message": "Démarrer avec Centreon OnPrem",
     "description": "The label for category Getting started with Centreon OnPrem in sidebar docs"
+  },
+  "sidebar.docs.category.Data Visualization": {
+    "message": "Visualisation des données",
+    "description": "The label for category Data Visualization in sidebar docs"
   }
-}
+  }

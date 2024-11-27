@@ -131,12 +131,8 @@
             {
               "type": "doc",
               "id": "version-23.04/installation/installation-of-a-central-server/using-virtual-machines"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/installation/installation-of-a-central-server/using-sources"
             }
-          ]
+                      ]
         },
         {
           "type": "doc",
@@ -733,6 +729,10 @@
             },
             {
               "type": "doc",
+              "id": "version-23.04/graph-views/map-web-migrate"
+            },
+            {
+              "type": "doc",
               "id": "version-23.04/graph-views/import-into-map-web"
             },
             {
@@ -1197,6 +1197,10 @@
             },
             {
               "type": "doc",
+              "id": "version-23.04/integrations/data-analytics/sc-influxdb2-metrics"
+            },
+            {
+              "type": "doc",
               "id": "version-23.04/integrations/data-analytics/sc-kafka-events"
             },
             {
@@ -1268,10 +1272,6 @@
             {
               "type": "doc",
               "id": "version-23.04/integrations/itsm/ot-itop"
-            },
-            {
-              "type": "doc",
-              "id": "version-23.04/integrations/itsm/ot-iws-isilog"
             },
             {
               "type": "doc",

@@ -6,6 +6,8 @@ title: Introduction
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> This is an older version of Centreon. We recommend you install the latest version.
+
 This chapter describes how to install your Centreon monitoring platform.
 
 The monitoring platform can be installed in several ways. However, **we strongly

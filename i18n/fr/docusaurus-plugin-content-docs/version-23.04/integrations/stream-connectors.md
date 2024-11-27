@@ -9,6 +9,35 @@ Les stream connectors ont pour but de transmettre en temps réel le flux des don
 
 ## 2024
 
+### September
+
+<Tabs groupId="sync">
+<TabItem value="Fix" label="Fix">
+
+- [**Centreon library: sc_flush**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_flush.lua) - fixed return code when payload is empty.
+
+</TabItem>
+</Tabs>
+
+### August
+
+<Tabs groupId="sync">
+<TabItem value="Fix" label="Fix">
+
+- [**Splunk Metrics**](data-analytics/sc-splunk-metrics.md) - Fixed an issue with **max_buffer_size** parameter in Splunk stream connector.
+- [**Clickhouse**](data-analytics/sc-clickhouse.md) - Added a protection on metric names containing spaces.
+- [**InfluxDB 2 Metrics**](data-analytics/sc-influxdb2-metrics.md) - Added a protection on metric names containing spaces.
+- [**Centreon library: sc_macro**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_macro.lua) - Fixed an issue with **_scshort flag** leading to the macro name of an event being displayed instead of its value.
+
+</TabItem>
+<TabItem value="Enhancement" label="Enhancement">
+
+- [**Centreon library: sc_params**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_params.lua) - Added a new **enable_bam_host** parameter to send BAM "services".
+- [**Centreon library: sc_flush**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_flush.lua) - Enhanced error report when using **send_data** method in stream connector log files.
+
+</TabItem>
+</Tabs>
+
 ### May
 
 <Tabs groupId="sync">
@@ -28,7 +57,7 @@ Les stream connectors ont pour but de transmettre en temps réel le flux des don
 <TabItem value="Enhancement" label="Enhancement">
 
 - [**All stream connectors**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/docs/README.md) - Added additional debug information when an issue occurs while sending data.
-- **Influxdb2 Metrics** - Added the possibility to send **metric_id**.
+- [**InfluxDB 2 Metrics**](data-analytics/sc-influxdb2-metrics.md) - Added the possibility to send **metric_id**.
 
 </TabItem>
 </Tabs>

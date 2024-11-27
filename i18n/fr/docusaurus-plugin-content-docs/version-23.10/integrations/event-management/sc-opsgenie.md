@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 ## Comment ça marche
 
-* A chaque fois que le statut d'un service, hôte ou BA est contrôlé, l'évènement passe par Centreon Broker qui utilise le Stream Connector puor envoyer ce changement d'état.
+* A chaque fois que le statut d'un service, hôte ou BA est contrôlé, l'évènement passe par Centreon Broker qui utilise le Stream Connector pour envoyer ce changement d'état.
 * Un changement d'état peut survenir en cas de détection d'anomalie
 * Un alias est généré pour chaque alerte afin de profiter de la déduplication d'Opsgenie
 

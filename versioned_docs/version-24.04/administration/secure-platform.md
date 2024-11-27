@@ -72,24 +72,13 @@ the various system resources. By default, the policy does not allow any interact
 
 For more information about SELinux, please see [Red Hat documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/using_selinux/getting-started-with-selinux_using-selinux)
 
-### Activate SELinux in permissive mode
+### Activate SELinux
 
-By default, SELinux is disabled during the Centreon installation process. To enable SELinux in permissive mode, you need to
-modify the `/etc/selinux/config` file as:
+By default, SELinux is disabled during the Centreon installation process and must be reenabled after it for security reasons.
 
-```shell
-# This file controls the state of SELinux on the system.
-# SELINUX= can take one of these three values:
-#     enforcing - SELinux security policy is enforced.
-#     permissive - SELinux prints warnings instead of enforcing.
-#     disabled - No SELinux policy is loaded.
-SELINUX=permissive
-# SELINUXTYPE= can take one of three two values:
-#     targeted - Targeted processes are protected,
-#     minimum - Modification of targeted policy. Only selected processes are protected.
-#     mls - Multi Level Security protection.
-SELINUXTYPE=targeted
-```
+To enable SELinux again, edit the **/etc/selinux/config** file and change the value with the following options:
+- ``SELINUX=enforcing`` to make SELinux security policy enforced.
+- ``SELINUX=permissive`` to make SELinux print warnings instead of enforce security policy.
 
 Then reboot your server:
 
@@ -269,7 +258,7 @@ audit2allow -a
 Then execute the proposed rules.
 
 If after a while, no error is present, you can activate SELinux in full mode by
-following this [procedure](#activate-selinux-in-permissive-mode) using **enforcing** mode.
+following this [procedure](#activate-selinux) using **enforcing** mode.
 
 > Do not hesitate to give us your feedback on [Github](https://github.com/centreon/centreon).
 
@@ -848,11 +837,23 @@ ServerTokens Prod
     SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-DSS-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-GCM-SHA256:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ADH:!IDEA
     SSLHonorCipherOrder On
     SSLCompression Off
-    SSLCertificateFile /etc/pki/tls/certs/centreon7.crt
-    SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key
+    SSLCertificateFile /etc/pki/tls/certs/ca.crt
+    SSLCertificateKeyFile /etc/pki/tls/private/ca.key
+
+    Header set X-Frame-Options: "sameorigin"
+    Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;SameSite=Strict
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    ServerSignature Off
+    TraceEnable Off
 
     Alias ${base_uri}/api ${install_dir}
     Alias ${base_uri} ${install_dir}/www/
+
+    <IfModule mod_brotli.c>
+        AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css text/javascript application/javascript application/json
+    </IfModule>
+
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
 
     <LocationMatch ^\${base_uri}/?(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
         ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/www/$1"
@@ -916,11 +917,23 @@ ServerTokens Prod
     SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-DSS-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-GCM-SHA256:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ADH:!IDEA
     SSLHonorCipherOrder On
     SSLCompression Off
-    SSLCertificateFile /etc/pki/tls/certs/centreon7.crt
-    SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key
+    SSLCertificateFile /etc/pki/tls/certs/ca.crt
+    SSLCertificateKeyFile /etc/pki/tls/private/ca.key
+
+    Header set X-Frame-Options: "sameorigin"
+    Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;SameSite=Strict
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    ServerSignature Off
+    TraceEnable Off
 
     Alias ${base_uri}/api ${install_dir}
     Alias ${base_uri} ${install_dir}/www/
+
+    <IfModule mod_brotli.c>
+        AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css text/javascript application/javascript application/json
+    </IfModule>
+
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
 
     <LocationMatch ^\${base_uri}/?(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
         ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/www/$1"
@@ -984,11 +997,23 @@ ServerTokens Prod
     SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-DSS-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-GCM-SHA256:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ADH:!IDEA
     SSLHonorCipherOrder On
     SSLCompression Off
-    SSLCertificateFile /etc/ssl/certs/centreon7.crt
-    SSLCertificateKeyFile /etc/ssl/private/centreon7.key
+    SSLCertificateFile /etc/pki/tls/certs/ca.crt
+    SSLCertificateKeyFile /etc/pki/tls/private/ca.key
+
+    Header set X-Frame-Options: "sameorigin"
+    Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;SameSite=Strict
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    ServerSignature Off
+    TraceEnable Off
 
     Alias ${base_uri}/api ${install_dir}
     Alias ${base_uri} ${install_dir}/www/
+
+    <IfModule mod_brotli.c>
+        AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css text/javascript application/javascript application/json
+    </IfModule>
+
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
 
     <LocationMatch ^\${base_uri}/?(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
         ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/www/$1"
@@ -1596,7 +1621,7 @@ By default, ZMQ communications are secured; both external communications (with t
 
 However, the gorgone HTTP API is unsecured by default. Only localhost can talk with gorgone, but the communication does not take place using SSL.
 
-You can [configure SSL](https://github.com/centreon/centreon/blob/develop/centreon-gorgone/docs/modules/core/httpserver.md) in the **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** file.
+You can [configure SSL](https://github.com/centreon/centreon-collect/blob/develop/gorgone/docs/modules/core/httpserver.md) in the **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** file.
 
 Then you must configure gorgone using the **Administration > Parameters > Gorgone** page.
 

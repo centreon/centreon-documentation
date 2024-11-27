@@ -18,6 +18,18 @@ Read more about version 22.10 in our [blog post](https://www.centreon.com/en/blo
 
 ## Centreon MAP
 
+### 22.10.17
+
+Release date: `October 7, 2024`
+
+#### Enhancements
+
+- [SELinux] Packaged SELinux rules for centreon-map.
+
+#### Bug fixes
+
+- [Diagnostic] Fixed an issue in the diagnostic script when MAP was configured in HTTPS.
+
 ### 22.10.16
 
 Release date: `April 17, 2024`
@@ -175,7 +187,7 @@ Release date: `June 5, 2023`
 
 #### Enhancements
 
-- [UI] Make metric link modal labels more explicit by replacing "metric 1" and "metric 2" by "metric in" and "metric out".
+- [UI] Make metric link window labels more explicit by replacing "metric 1" and "metric 2" by "metric in" and "metric out".
 
 #### Bug fixes
 
@@ -195,7 +207,7 @@ Release date: `April 24, 2023`
 #### Bug fixes
 
 - [API] Fixed an issue with create element in view that could break default icon.
-- [Editor] Fixed an issue in shapes edition modal that caused scrollbar to be reset when browsing images.
+- [Editor] Fixed an issue in shapes edition window that caused scrollbar to be reset when browsing images.
 - [Editor] Fixed view edition with some links having corrupted bend points.
 - [Install] Fixed an issue preventing the installation of **centreon-map-engine** on the same machine as **centreon-map-server**.
 - [Install] Fixed the **configure.sh** script to include storage event from Broker output.
@@ -268,6 +280,14 @@ The new MAP extension is now available in a full web version with a new server, 
 - Migration process: Integrated migration process of your legacy views.
 
 ## Centreon MAP Legacy
+
+### 22.10.17
+
+Release date: `October 7, 2024`
+
+#### Bug fixes
+
+- [Diagnostic] Fixed an issue in the diagnostic script when MAP was configured in HTTPS.
 
 ### 22.10.13
 
@@ -442,6 +462,22 @@ Release date: `October 26, 2022`
 
 ## Centreon MBI
 
+### 22.10.11
+
+Release date: `October 7, 2024`
+
+#### Enhancements
+
+- [SELinux] Packaged SELinux rules for centreon-mbi.
+  
+#### Bug fixes
+
+- [Dependencies] Upgraded Spring framework.
+
+#### Security fixes
+
+- [Security] Fixed SQLi in configuration pages, only accessible to authenticated users with high privilege access (CVE-2024-45754).
+
 ### 22.10.10
 
 Release date: `July 4, 2024`
@@ -600,7 +636,7 @@ Release date: `June 5, 2023`
 
 #### Enhancements
 
-- [UI] Improved license upload modal.
+- [UI] Improved license upload window.
 
 ### 22.10.0
 

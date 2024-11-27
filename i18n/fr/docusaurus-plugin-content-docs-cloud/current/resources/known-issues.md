@@ -25,11 +25,9 @@ Les paragraphes ci-après détaillent les problèmes connus de Centreon. Ceux-ci
 
 * Pour donner accès à un service indépendemment de son hôte, vous pouvez définir des règles uniquement au niveau des groupes de services ou des catégories de services.
 
-* Les changements ne sont pas affichés immédiatement lorsque vous éditez une règle d'accès aux ressources.
-
-   **Contournement**: Rafraîchissez la page afin d'afficher les paramètres corrects.
-
 ## Notifications
+
+* Les exceptions relatives aux périodes temporelles ne sont pas prises en compte pour les notifications.
 
 * Les changements ne sont pas affichés immédiatement lorsque vous éditez une règle de notification.
 
@@ -41,13 +39,9 @@ Les paragraphes ci-après détaillent les problèmes connus de Centreon. Ceux-ci
 
    **Contournement**: Supprimez la règle et recréez-la.
 
-* Il n'est pas encore possible de définir une période de temps pour les notifications.
-
 ## Configuration
 
-* Il n'est pas encore possible de créer et gérer des groupes d'utilisateurs.
-
-   > Les groupes d'utilisateurs par défaut ne doivent pas être utilisés, car ils seront bientôt remplacés par des groupes personnalisés définis par les administrateurs.
+* Les changements massifs incrémentaux ne sont pas possibles pour les hôtes et les services. 
 
 * Les utilisateurs ne peuvent pas encore configurer des Stream Connectors eux-mêmes.
 
@@ -69,12 +63,6 @@ Les paragraphes ci-après détaillent les problèmes connus de Centreon. Ceux-ci
 
 * Un bouton **Connect with OpenID** peut apparaître brièvement sur l'écran de connexion. Attendez quelques secondes pour vous connecter.
 
-* Un contact ne peut pas être supprimé d'une organisation (et son accès à Centreon ne peut pas être révoqué) via l'interface du CIAM.
-
-   **Contournement**: Centreon peut supprimer un contact d'une organisation pour vous. [Contactez le support technique](https://support.centreon.com).
-
 ## MAP
-
-* Le statut des Activités Métier peut être désynchronisé dans les cartes.
 
 * Le facteur de zoom et la position par défaut ne sont pas sauvegardés.

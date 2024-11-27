@@ -6,6 +6,8 @@ title: Montée de version de l'extension
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> **À partir de Centreon 24.10, MAP Legacy ne sera plus disponible.** Si vous utilisez encore MAP Legacy, consultez la page [Fin de vie de MAP Legacy](https://docs.centreon.com/fr/docs/graph-views/map-legacy-eol/).
+
 Ce chapitre décrit comment monter de version votre extension Centreon MAP. Pour ce faire, vous devez mettre à niveau les quatre principaux composants :
 
 - le serveur Centreon MAP
@@ -169,6 +171,8 @@ Terminez la montée de version :
 Si l'ordinateur de l'utilisateur dispose d'une connexion internet, le client lourd est automatiquement mis à jour vers la dernière version correspondant au serveur.
 
 Sinon, le client peut être téléchargé via le menu **Supervision > MAP** et le bouton **client lourd**.
+
+> Veuillez suivre ces recommandations pour [éviter des lenteurs de fonctionnement du client lourd MAP](./troubleshooter.md#mon-client-lourd-est-lent-et-je-suis-souvent-déconnecté) après sa mise à jour.
 
 ## Étape 4 : mise à jour des dialectes dans les fichiers .properties
 

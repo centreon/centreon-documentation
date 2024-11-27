@@ -22,6 +22,76 @@ Retrouvez plus de détails sur la version 23.04 dans notre [post de blog](https:
 
 ## Centreon Web
 
+### 23.04.23
+
+Release date: `November 21, 2024`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Install] The unattended script is now available for version 23.04.
+- [Resource Status] Anomaly Detection services for a host are now displayed in the Services tab of its details panel.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Administration] The names of the metaservices are now correctly displayed in the "Administration > Parameters > Data" menu.
+- [Debian] Fixed dependencies between Centreon packages.
+- [Configuration] Fixed incorrect links in the Export configuration page.
+- [Resource Status] Fixed an issue where actions in one browser tab were being replicated to another tab that was open on the same menu.
+- [Resource Status] Fixed an issue with the status_type filter that occurred when values were in upper case.
+- [Resource Status] Fixed behavior of page refresh button that was changing the resource displayed in the open panel.
+- [Resource Status] Fixed display of scale/units on graphs containing multiple curves.
+- [Resource Status] If no notification has ever been sent, the "Last notification" field in the details panel is left blank instead of displaying 1970.
+- [Resource Status] Removed list refresh that was triggered by hovering over the left main menu.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed XSS vulnerability in "Administration > Logs" menu (CVE-2024-47863).
+- [Security] Fixed XSS vulnerability on poller name in several menus.
+
+</details>
+
+### 23.04.22
+
+Release date: `September 30, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed access control for monitoring server configuration endpoints.
+- [Authorization] Fixed an issue on ACL reloading.
+- [Authentication] Fixed incorrect URL redirection issue with OpenID Connect.
+- [Authentication] The task that deletes expired tokens is now scheduled more frequently.
+- [Packaging] Fixed invalid permissions on the cron file that deletes outdated tokens.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed SQL injection vulnerability in host-monitoring widgets.
+- [Security] Fixed SQLi in contacts form (CVE-2024-39843).
+- [Security] Updated jQuery & jQuery-UI dependencies (CVE-2022-31160)
+
+</details>
+
+### 23.04.21
+
+Release date: `September 11, 2024`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed SQLi in contacts form (CVE-2024-39843).
+
+</details>
+
 ### 23.04.20
 
 Release date: `July 18, 2024`
@@ -464,6 +534,30 @@ Release date: `April 26, 2023`
 
 ## Centreon Collect
 
+### 23.04.16
+
+Release date: `November 26, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Adapted Broker to a new behavior of the MariaDB database concerning errors: Broker no longer fails to reconnect after an error.
+- [Broker] The Stream Connector cache behavior with host groups and service groups has been improved. When a host group or service group is deleted, it is also correctly removed from the Stream Connector caches.
+
+</details>
+
+### 23.04.15
+
+Release date: `September 30, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] If a plugin sends the same metric several times, an error log from broker explains the issue and only the first occurrence of the metric is kept.
+- [Engine] Fixed issues with the output of external commands.
+
+</details>
+
 ### 23.04.14
 
 Release date: `July 17, 2024`
@@ -720,6 +814,20 @@ Compatibility with other 23.04 components.
 
 ## Centreon Gorgone
 
+### 23.04.16
+
+Release date: `September 30, 2024`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Gorgone] Added a partition for the Gorgone MBI **mod_bi_metriccentileweeklyvalue** and **mod_bi_metriccentilemonthlyvalue** tables, which are required by the ETL to run correctly.
+- [Gorgone] Fixed an issue affecting CPU load when a poller was not responding.
+- [Gorgone] Fixed an issue stopping the **nmap** discovery provider from working after a Gorgone whitelist was created.
+- [Gorgone] The password of an MBI database user can now include special characters.
+
+</details>
+
 ### 23.04.15
 
 Release date: `June 26, 2024`
@@ -921,6 +1029,17 @@ Compatibility with other 23.04 components.
 
 ## Centreon DSM
 
+### 23.04.3
+
+Release date: `November 21, 2024`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed SQLi in the Centreon DSM slot configuration form, only accessible to authenticated users with high privilege access. (CVE-2024-45755) 
+
+</details>
+
 ### 23.04.2
 
 Release date: `July 10, 2023`
@@ -955,6 +1074,17 @@ Compatibility with other 23.04 components.
 </details>
 
 ## Centreon Open Tickets
+
+### 23.04.4
+
+Release date: `November 21, 2023`
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed SQLi in the ticket creation form, only accessible to authenticated users with high privilege access. (CVE-2024-45756)	
+
+</details>
 
 ### 23.04.3
 

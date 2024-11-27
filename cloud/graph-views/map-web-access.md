@@ -61,3 +61,5 @@ This table describes the types of privileges and related permissions:
 
 - Users with Owner privileges can also set or change map properties (name and icon).
 - Sharing a map allows the recipient to acquire privileges on that map.
+
+Access control to maps is only enforced at the map level. When you have the “Viewer” privilege, you can view a map and all its included resources, even if you do not have the corresponding ACL. When editing a map, you can only add resources if you have the corresponding ACL.

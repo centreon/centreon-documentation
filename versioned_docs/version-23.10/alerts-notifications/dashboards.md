@@ -43,7 +43,7 @@ Access to the Dashboards feature is not managed at the user level, but through a
 
 > You must be logged into Centreon with administrator or creator rights.
 
-1. In the **Dashboard library** page, click the **Create a dashboard** button. This opens the **Create dashboard** modal.
+1. In the **Dashboard library** page, click the **Create a dashboard** button. This opens the **Create dashboard** window.
 2. Name the dashboard and enter a description if needed.
 3. Click **Create** to confirm the creation.
 
@@ -128,7 +128,6 @@ The users you have just added now have access to your dashboard sharing, accordi
 | Widget                   | Description                                                                                                                                                                                                                                                                                                    |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Generic text           | Allows you to add free text to your dashboards (section titles, information, etc.).   |
-| MAP - Display a view            |  Allows you to select and visualize a map created from the MAP module.  |
 | Metrics graph         | Displays metrics for a given time period.                                                                                |
 | Resource table                 | Displays data on resource status and events, centralized in a table.
 | Single metric          | Displays the value of a single metric as a text, a gauge or a bar chart.   |

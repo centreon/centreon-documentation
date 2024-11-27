@@ -187,25 +187,52 @@ SNMP must be configured on each poller being monitored. You can refer to this [d
 
 ### SSH key exchange
 
-The checks related to **Broker-Stats** service should be done from a poller and it is done through SSH. If you only have a central server, then checks will be initiated and performed on and by the central server itself. You can skip below steps for SSH key exchange if the central server monitors itself.
+The checks related to the **Broker-Stats** service should be done from a poller and are done through SSH. 
+If you only have a central server, then checks will be initiated and performed on and by the central server itself. 
+You can skip the steps below for SSH key exchange if the central server monitors itself.
 
-The poller monitoring the central will have to log on through SSH as **centreon** user on the central server while being **centreon-engine**.
+> NB : It is strongly recommended to monitor the central server from an external poller rather than from the central server itself.
 
-Follow below steps to exchange the SSH key:
+Open a `root` command-line session on:
 
-1. From the **central server**, set a password for the **centreon** user:
+* the poller that will monitor the central
+* the central
 
-```
-passwd centreon
-```
-
-2. From the poller server, create and copy the new **centreon-engine's SSH key** on the central:
+Then switch to `centreon-engine`'s bash environment on both:
 
 ```
 su - centreon-engine
-ssh-keygen -t ed25519 -a 100
-ssh-copy-id -i ~/.ssh/id_ed25519.pub centreon@<IP_CENTRAL>
 ```
+
+Then run these commands:
+
+```bash
+ssh-keygen -t ed25519 -a 100
+```
+
+We have generated a pair of keys on each server, and created the `~/.ssh` directory. 
+
+Run this command on the poller to display the user's public key:
+
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+
+Once done, copy the content of the public key file displayed by `cat` and paste it to `~/.ssh/authorized_keys` (must be created) on the central and apply the correct file permissions (still as the `centreon-engine` user):
+
+```
+chmod 600 ~/.ssh/authorized_keys
+```
+
+Initiate a first connection from the poller to the central (still as the `centreon-engine` user):
+
+```
+ssh <central-ip-address>
+```
+
+Then exit the `centreon-engine` session typing `exit` or `Ctrl-D`.
+
+The `centreon-engine` user is now able to log in to the central server via SSH.
 
 ### Self-monitored central server
 
