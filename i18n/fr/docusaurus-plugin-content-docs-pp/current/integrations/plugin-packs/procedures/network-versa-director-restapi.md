@@ -396,7 +396,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: up: 84188 down: 90349 up: 93062 down: 18943 sub-group paths are ok | 'paths.up.count'=84188;;;0; 'paths.down.count'=90349;;;0; 'grp1~paths.up.count'=93062;;;0; 'grp1~paths.down.count'=18943;;;0; 'grp1~grp21#paths.up.count'=89668;;;0; 'grp1~grp22#paths.up.count'=2260;;;0; 'grp1~grp21#paths.down.count'=58091;;;0; 'grp1~grp22#paths.down.count'=75006;;;0; 
+OK: up: 30634 down: 76298 up: 55523 down: 53572 sub-group paths are ok | 'paths.up.count'=30634;;;0; 'paths.down.count'=76298;;;0; 'grp1~paths.up.count'=55523;;;0; 'grp1~paths.down.count'=53572;;;0; 'grp1~grp21#paths.up.count'=47205;;;0; 'grp1~grp22#paths.up.count'=15660;;;0; 'grp1~grp21#paths.down.count'=31301;;;0; 'grp1~grp22#paths.down.count'=93423;;;0; 
 ```
 
 ### Diagnostic des erreurs communes
