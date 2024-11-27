@@ -75,6 +75,9 @@ POST http://serverURL:8081/centreon-map/api/beta/maps
 POST https://serverURL:9443/centreon-map/api/beta/maps
 ```
 
+</TabItem>
+</Tabs>
+
 ```
 Headers {
     Content-Type = application/json
@@ -115,7 +118,7 @@ Dans ce scénario, l'élément "shape" est un rectangle.
 
 <Tabs groupId="sync">
 <TabItem value="HTTP" label="HTTP">
-    
+
 ```
 PUT http://serverURL:8081/centreon-map/api/beta/maps/<mapId>/views
 ```
