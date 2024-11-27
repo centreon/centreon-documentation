@@ -73,6 +73,7 @@ You must have a Cloud Foundry user account with the necessary permissions to acc
 Ensure that the Centreon server can communicate with the Cloud Foundry API over the network.
 Allow outbound access to the API URL (https://api.<domain>) through the required ports (typically 443 for HTTPS).
 Verify that the Cloud Foundry API's SSL certificate is valid and, if necessary, add it to the trusted certificates of the Centreon poller.
+For more informations, refers to the [official documentation](https://docs.cloudfoundry.org/)
 
 ## Installing the monitoring connector
 

@@ -74,6 +74,7 @@ Vous devez disposer d'un compte utilisateur Cloud Foundry ayant les permissions 
 Assurez-vous que le serveur Centreon peut communiquer avec l’API Cloud Foundry via le réseau. 
 Autorisez l'accès sortant vers l'URL de l'API (https://api.<domain>) via les ports nécessaires (généralement 443 pour HTTPS).
 Vérifiez que le certificat SSL de l’API Cloud Foundry est valide et, si nécessaire, ajoutez-le aux certificats approuvés du collecteur Centreon.
+Pour plus d'information, référez-vous à la [documentation officielle](https://docs.cloudfoundry.org/)
 
 ## Installer le connecteur de supervision
 
