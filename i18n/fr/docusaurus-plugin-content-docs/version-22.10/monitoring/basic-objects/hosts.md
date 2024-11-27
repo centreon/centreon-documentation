@@ -13,31 +13,31 @@ Pour créer un hôte manuellement :
 
 ### Information de base sur l'hôte
 
-* **Nom** : nom d’hôte utilisé par le moteur de supervision. Ne peut pas contenir : `~!$%^&|'"<>?,()=*{}` et les espaces.
+* **Nom** : nom d’hôte utilisé par le moteur de supervision. Les caractères suivants ne sont pas autorisés : `~!$%^&|'"<>?,()=*{}`. De plus, les espaces seront remplacés par des `_`.
 * **Alias** : un autre nom pour l'hôte. Les espaces et caractères interdits dans le nom peuvent être employés ici. L'alias peut être utilisé dans la **Barre de recherche** de la page **Statut des ressources** avec la syntaxe `alias:` pour retrouver un hôte.
 * **Adresse** : adresse IP ou nom DNS de l’hôte. Le bouton **Résoudre** permet de tester le nom du domaine en interrogeant le serveur DNS configuré dans le serveur central. Dans le cas où un nom DNS est utilisé pour remplir le champ, le bouton **Résoudre** le remplacera également par l'adresse IP correspondante.
-* **Communauté SNMP & Version** : nom de la communauté attribuée à l'équipement et sa version. S'il s'agit de la version 1 ou 2c, remplissez le premier champ. S'il s'agit de la version 3, laissez le premier champ vide et ajoutez la macro personnalisée suivante dans la section **Options de contrôle de l'hôte** : [`snmpextraoptions`](/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins/#snmpv3-options-mapping).
+* **Communauté SNMP & Version** : nom de la communauté attribuée à l'équipement et sa version. S'il s'agit de la version 1 ou 2c, remplissez le premier champ. S'il s'agit de la version 3, laissez le premier champ vide et remplissez la macro personnalisée [`snmpextraoptions`](/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins/#snmpv3-options-mapping) qui sera automatiquement ajoutée dans la section **Options de contrôle de l'hôte** lorsque vous sélectionnerez un modèle SNMP.
 * **Serveur de supervision** : détermine quel serveur Centreon (central, poller ou distant) sera chargé de superviser cet hôte.
-* **Fuseau horaire** : localisation de l'hôte. Tenez en compte que c'est le fuseau horaire établi ici qui détermine à quel moment sont réalisés les contrôles de cet hôte, le fuseau horaire du serveur qui contrôle l'hôte n'influe pas ici.
+* **Fuseau horaire** : localisation de l'hôte. Attention, c'est le fuseau horaire défini ici qui détermine à quel moment sont réalisés les contrôles sur cet hôte, et non le fuseau horaire du serveur qui supervise l'hôte.
 * **Modèles** : permet d’associer un ou plusieurs [modèles](../templates.md) à cet objet.
 
-Si plusieurs modèles tenteraient de modifier le même champ, les caractéristiques du modèle placé au-dessus des autres seront appliquées.
+Si plusieurs modèles tentaient de modifier le même champ, les caractéristiques du modèle placé au-dessus des autres seraient appliquées.
 
    Voici un exemple d’hôte avec 3 modèles appliqués.
 
    ![image](../../assets/monitoring/template_priority_example.png)
 
-   * **App-Monitoring-Centreon-Central** applique une première configuration.
+   * **App-DB-MySQL** applique une première configuration.
 
-   * **OS-Linux-SNMP** va ensuite ecraser la configuration de **App-Monitoring-Centreon-Central** là où il y a un conflit des champs à remplir mais ne modifie pas les champs pour lesquels il n’a pas de nouvelles informations à apporter.
+   * Si **OS-Linux-SNMP** apporte une autre valeur pour les mêmes champs, alors ces nouvelles valeurs écraseront celles définies dans **App-DB-MySQL**. Si aucune valeur n'était définie pour un champ par **App-DB-MySQL** et que **OS-Linux-SNMP** apporte de nouvelles valeurs pour ce champ, alors celles-ci sont appliquées.
 
-   * **App-DB-MySQL** fait la même chose avec **OS-Linux-SNMP**.
+   * **App-Monitoring-Centreon-Central** fait la même chose avec **OS-Linux-SNMP**.
 
    Changer l’ordre des templates modifie automatiquement les configurations selon ce nouvel ordre le cas échéant.
 
 
-   Ce bouton ![image](../../assets/configuration/common/move.png#thumbnail2) nous permet de changer l'ordre des modèles hôtes.
-   Ce bouton ![image](../../assets/configuration/common/delete.png#thumbnail2) sert à supprimer le modèle hôte.
+   Ce bouton ![image](../../assets/configuration/common/move.png#thumbnail2) nous permet de changer l'ordre des modèles d'hôtes.
+- Ce bouton ![image](../../assets/configuration/common/delete.png#thumbnail2) sert à supprimer le modèle d'hôte.
 
 * Si la case **Oui** est cochée pour **Créer aussi les services liés aux modèles**, Centreon génère automatiquement les
   services en se basant sur les [modèles](../templates.md) de services liés aux modèles d’hôtes définis au-dessus.
@@ -45,15 +45,15 @@ Si plusieurs modèles tenteraient de modifier le même champ, les caractéristiq
 ### Groupes d'accès (option pour les utilisateurs non-administrateurs)
 
 * **ACL Resource Groups** : ([listes de contrôles d'accès](../../administration/access-control-lists.md) en français) permet de lier l’hôte
-  à un groupe d’hôtes. Cette action est exclusive aux non-administrateurs.
+  à un groupe d’ACL. Cette action est exclusive aux non-administrateurs.
 > Les hôtes qui ne sont pas liés à un groupe ne seront pas visibles ! 
 
 ### Options de contrôle de l'hôte
 
-* **Commande de vérification** : commande utilisée pour vérifier la disponibilité de l’hôte. À n'utiliser que si vous n'avez pas appliqué de [modèles](../templates.md) à votre hôte.
+* **Commande de vérification** : commande utilisée pour vérifier la disponibilité de l’hôte. Vous pouvez l'utiliser si vous n'avez pas appliqué de [modèles](../templates.md) à votre hôte, ou bien pour surcharger la commande définie dans le modèle.
 * **Arguments** : arguments donnés à la commande de vérification (chaque argument commence avec un ”!”).
 
-* **Macros personnalisées : automatiquement rempli si vous ajoutez des modèles mais vous pouvez également ajouter vos [macros personnalisées](../macros/#custom-macros).
+* **Macros personnalisées** : les macros apparaissent automatiquement si vous ajoutez des modèles, mais vous pouvez également ajouter vos [macros personnalisées](../macros/#custom-macros). Pour chaque macro, renseignez la valeur correspondant à votre équipement.
 
    * Les champs **Nom** et **Valeur** établissent le nom et la valeur de la macro.
    * Cocher la case **Mot de passe** cache la valeur de la macro.
@@ -73,16 +73,16 @@ Si plusieurs modèles tenteraient de modifier le même champ, les caractéristiq
   lorsque le statut est validé, le processus de notification est enclenché.
 * **Intervalle normal de contrôle** : exprimé en minutes. Il définit l’intervalle entre chaque contrôle lorsque
   le statut de l’hôte est OK.
-* **Intervalle non-régulier de contrôle** : exprimé en minutes, désigne l'intervalle de temps entre chaque contrôle réalisé avant la validation de l'état. Une fois le nombre de contrôles de validation réalisé, l'intervalle revient à son rythme normal.
-* **Contrôle actif activé** et **Contrôle passif activé** activent / désactivent les contrôles actifs et passifs. [Les contrôles passifs](../../monitoring/passive-monitoring/enable-snmp-traps.md) sont les informations que la ressource supervisée envoie au Central sans que celles-ci aient été activement demandées.
+* **Intervalle non-régulier de contrôle** : exprimé en minutes, désigne l'intervalle de temps entre chaque contrôle réalisé afin de confirmer l'état non-OK de l'hôte. Une fois le nombre de contrôles de validation réalisé, l'intervalle entre deux contrôles revient à son rythme normal.
+* **Contrôle actif activé** et **Contrôle passif activé** activent / désactivent les contrôles actifs et passifs. [Les contrôles passifs](../../monitoring/passive-monitoring/enable-snmp-traps.md) sont les informations que la ressource supervisée envoie au moteur de supervision sans que celles-ci aient été activement demandées.
 
 ## Onglet Notification
 Jetez un oeil à notre documentation sur les [notifications](../../alerts-notifications/notif-concept.md) et les [contacts](contacts.md) pour en savoir plus sur ces sujets.
 
-* **Notification activée** : activer ou de désactiver les notifications concernant l’objet.
-* **Contacts liés** : contacts qui recevront les notifications. Ces contacts doivent être d'abord configurés dans l'onglet **Utilisateurs**.
+* **Notification activée** : activer ou désactiver les notifications concernant l’objet.
+* **Contacts liés** : contacts qui recevront les notifications. Ces contacts doivent être d'abord configurés à la page **Configuration > Utilisateurs**.
 * **Groupes de contacts liés** : tous les contacts appartenant aux groupes de contacts définis recevront les
-  notifications. Les groupes doivent d'abord être configurés dans l'onglet **Utilisateurs**.
+  notifications. Les groupes doivent d'abord être configurés à la page **Configuration > Utilisateurs**.
   
   **Vertical inheritance only** : établit les contacts et/ou groupes de contacts à notifier. Elle se trouve dans l'onglet **Administration > Paramètres > Centreon web**. Une fois activée, deux cases supplémentaires apparaissent :
 
@@ -94,33 +94,33 @@ Jetez un oeil à notre documentation sur les [notifications](../../alerts-notifi
 * **Options de notifications** : définit les statuts pour lesquels une notification sera envoyée. Si aucune case n'est cochée, vous serez notifié pour tous les statuts listés.
 * **Intervalle de notification** : exprimé en minutes. Il indique la durée entre chaque envoi de notification
   lorsque le statut est non-OK. Si la valeur est définie à 0, Centreon envoie une seule notification par changement de statut.
-* **Période de notification** : indique la période temporelle durant laquelle les notifications seront activées. Aucune notification de changement de status ne sera envoyée
+* **Période de notification** : indique la période temporelle durant laquelle les notifications seront activées. Aucune notification de changement de status ne sera envoyée en-dehors de cette période.
 * **Délai de première notification** : exprimé en minutes. Il fait référence au délai à respecter avant l’envoi
-  de la première notification lorsqu’un statut non-OK est confirmé. Mettre la valeur à 0 résulte en l'envoi immédiat de la notification.
-* **Délai de première notification de recouvrement** : est le temps qui doit s'écouler avant qu'une notification de type **Récupération** soit envoyée (lorsque l'hôte revient à un état DISPONIBLE). Mettre la valeur à 0 résulte en l'envoi immédiat de la notification.
+  de la première notification lorsqu’un statut non-OK est confirmé. Si la valeur est 0, la notification est envoyée immédiatement.
+* **Délai de première notification de recouvrement** : est le temps qui doit s'écouler avant qu'une notification de type **Récupération** soit envoyée (lorsque l'hôte revient à un état DISPONIBLE). Si la valeur est 0, la notification est envoyée immédiatement.
 
 ## Onglet Relations
 
 * **Groupes d'hôtes** : les [groupes d’hôtes](../groups.md) auxquels l’hôte appartient. Les groupes vous permettent de faire des changements sur plusieurs hôtes en même temps.
 * **Catégories d'hôte** : les [catégories](../categories.md) auxquelles l’hôte appartient.
 * **Hôtes parents** : établit un objet en tant que [parent](../../alerts-notifications/notif-dependencies.md) de cet hôte. Le parent d'un hôte est l'objet entre l'hôte et son superviseur qui est également le plus proche de l'objet supervisé. On considère qu'un hôte n'a pas de parent s'il se trouve sur le même segment du réseau que l'hôte qui le supervise ssans aucun intermédiaire. Laissez ce champs libre dans ce cas-là.
-* **Hôtes enfants** : établir l'hôte actuel en tant que parent d'un autre hôte.
+* **Hôtes enfants** : définir l'hôte actuel en tant que parent d'un autre hôte.
 
 ## Onglet Traitement des données
 
-* **Check Freshness** : contrôle actif réalisé lorsque la quantité de temps établie s'est écoulée depuis le dernier [contrôle passif](../../monitoring/passive-monitoring/enable-snmp-traps.md) de l'objet.
-* **Freshness Threshold** : exprimé en secondes. Si durant cette période aucune demande de changement de
-  statut de l’hôte (commande passive) n’a été reçue alors la commande de vérification active est exécutée. Si le contrôle est activé mais que le champs est laissé vide, un seuil sera determiné automatiquement.
-* **Flap Detection Enabled** : active ou désactive la détection du [flapping](../../alerts-notifications/notif-flapping.md) (ou bagotage) des statuts (statut
+* **Contrôler la fraicheur du résultat** : effectue un contrôle actif lorsque la quantité de temps définie dans **Seuil de fraicheur du résultat** s'est écoulée depuis le dernier [contrôle passif](../../monitoring/passive-monitoring/enable-snmp-traps.md) de l'objet.
+* **Seuil de fraicheur du résultat** : exprimé en secondes. Si durant cette période aucune demande de changement de
+  statut de l’hôte (commande passive) n’a été reçue alors la commande de vérification active est exécutée. Si le contrôle est activé mais que le champ est laissé vide, un seuil sera déterminé automatiquement.
+* **Détection de bagotage des statuts** : active ou désactive la détection du [bagotage](../../alerts-notifications/notif-flapping.md) (ou instabilité) des statuts (statut
   changeant trop fréquemment de valeur sur une période donnée).
-* **Low Flap Threshold** et **High Flap Threshold** : les seuils hauts et bas pour la détection du
+* **Seuil bas de détection de bagotage des statuts** et **Seuil haut de détection de bagotage des statuts** : les seuils hauts et bas pour la détection du
   bagotage en pourcentage de changement de statuts.
 * **Retain Status Information** et **Retain Non Status Information** : indiquent si les informations concernant
   ou non le statut sont sauvegardées après chaque relance de la commande de vérification.
 * **Stalking Options** : options à enregistrer si la **Rétention** est activée.
-* **Event Handler Enabled** : activer ou de désactiver le [gestionnaire d’évènements](../event-handler.md).
-* **Event Handler** : commande à exécuter si le gestionnaire d’évènements est activé.
-* **Args** : arguments de la commande du gestionnaire d’évènements.
+* **Event Handler Enabled** : activer ou désactiver le [gestionnaire d'évènements](../event-handler.md).
+* **Event Handler** : commande à exécuter lors d'un changement de statut de l'hôte.
+* **Args** : arguments de la commande du gestionnaire d'évènements.
 
 ## Onglet Informations détaillées de l’hôte
 
@@ -128,20 +128,20 @@ Jetez un oeil à notre documentation sur les [notifications](../../alerts-notifi
 
 * **URL de la note** : URL cliquable qui apparaitra dans la colonne **Notes** de la page **Statut des Ressources** (la colonne **Notes** doit être visible pour cette fonction).
 * **Note** : notes optionnelles concernant l’hôte qui seront visibles dans la page **Statut des Ressources** (la colonne **Notes** doit être visible pour cette fonction).
-* **URL d'action** : URL habituellement utilisée pour donner des informations d’actions sur l’hôte
+* **URL d'action** : URL habituellement utilisée pour accéder à une procédure de résolution d'incidents pour la ressource.
   (maintenance...).
-* **Icône** : icône à utiliser pour l’hôte, cet icône est visible à divers endroits tels que la page de **Statut des Ressources**. Un format 40x40 pixels est recommandé.
-* **Icône alternative** : texte optionnel apparaissant lorsque l'icône ne peut être affiché.
-* **Criticité d'hôte** : niveau de [criticité](../categories.md#severities) de l’hôte. Il s'agit d'une sorte de catégorie spéciale que vous pouvez utiliser pour organiser la page **Statut des Ressources** par niveau de criticité.
+* **Icône** : icône à afficher à divers endroits, tels que la page **Statut des Ressources**. Un format de 40x40 pixels est recommandé.
+* **Icône alternative** : texte optionnel apparaissant lorsque l'icône ne peut être affichée.
+* **Criticité d'hôte** : niveau de [criticité](../categories.md#criticité) de l’hôte. Il s'agit d'un type de catégorie spéciale que vous pouvez utiliser pour organiser la page **Statut des Ressources** par niveau de criticité.
 * **Image de la carte des états** : logo du module [Centreon MAP](../../graph-views/introduction-map.md).
-* **Coordonnées géographiques** : coordonnées géographiques utilisées par le module Centreon MAP pour positionner
+* **Coordonnées géographiques** : coordonnées géographiques utilisées par le module [Centreon MAP](../../graph-views/introduction-map.md) pour positionner
   l'élément sur la carte. Définissez "Latitude, Longitude", par exemple pour le jeu de coordonnées de Paris "48.51,2.20"
 
 Les champs **Coordonnées 2D** et **Coordonnées 3D** sont obsolètes et n'ont aucun impact sur l'hôte.
 
 ### Informations supplémentaires
 
-* **Activer/désactiver la ressource** : détermine si l'hôte doit être supervisé ou pas. Si l'hôte est désactivé, il n'apparaitra pas sur la page **Statut des Ressources**.
+* **Activer/désactiver la ressource** : détermine si l'hôte doit être supervisé ou non. Si l'hôte est désactivé, il figurera toujours dans la liste des hôtes, mais n'apparaîtra pas à la page **Statut des Ressources**. Attention, les hôtes désactivés sont inclus dans le total des hôtes de la plateforme dans l'évaluation de votre licence.
 * **Commentaires** : ajouter un commentaire concernant l’hôte.
 
 > N'oubliez pas de [déployer la configuration](../monitoring-servers/deploying-a-configuration.md) pour que les changements réalisés soient pris en compte.
