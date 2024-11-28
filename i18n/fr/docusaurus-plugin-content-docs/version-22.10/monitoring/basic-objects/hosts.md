@@ -100,7 +100,7 @@ Jetez un oeil à notre documentation sur les [notifications](../../alerts-notifi
 
 ## Onglet Relations
 
-* **Groupes d'hôtes** : les [groupes d’hôtes](../groups.md) auxquels l’hôte appartient. Les groupes vous permettent de faire des changements sur plusieurs hôtes en même temps.
+* **Groupes d'hôtes** : les [groupes d’hôtes](../groups.md) auxquels l’hôte appartient. Organiser vos hôtes par groupes vous permet visualiser des rapports par groupe, de trouver un ensemble d'objets et autres fonctionnalités.
 * **Catégories d'hôte** : les [catégories](../categories.md) auxquelles l’hôte appartient.
 * **Hôtes parents** : établit une relation de [parenté](../../alerts-notifications/notif-dependencies.md) entre cet hôte et un autre. Cette option permet de réduire l'effet redondant des alertes car le moteur de supervision n'enverra une notification que pour le parent et non pour ses enfants. On considère qu'un hôte n'a pas de parent s'il se trouve sur le même segment du réseau que l'hôte qui le supervise sans aucun intermédiaire. Laissez ce champs libre dans ce cas-là.
 * **Hôtes enfants** : définir l'hôte actuel en tant que parent d'un autre hôte.
