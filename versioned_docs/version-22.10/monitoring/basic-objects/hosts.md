@@ -96,7 +96,7 @@ Learn more about [notifications](../../alerts-notifications/notif-concept.md) an
 
 * **Host Groups**: [host groups](../groups.md) to which the host belongs. Groups allow you to make changes to many hosts at the same time.
 * **Host Categories**: [categories](../categories.md) to which the host belongs.
-* **Parent Hosts**: define an object as a [parent](../../alerts-notifications/notif-dependencies.md) for this host. The parent of a host is the object between it and its monitoring host that is also the closest to the monitored object. A host is considered to have no parent host if it is on the same network segment as the host doing the monitoring without any intermediates. Leave this field blank if that is the case.
+* **Parent Hosts**: define another host as a [parent](../../alerts-notifications/notif-dependencies.md) for this host. This can reduce the number of redundant notifications since the monitoring engine will send notifications for the parent hostand not for the child host. A host is considered to have no parent host if it is on the same network segment as the host doing the monitoring without any intermediates. Leave this field blank if that is the case.
 * **Child Hosts**: designate the current host as the parent for other hosts.
 
 ## Data processing tab
