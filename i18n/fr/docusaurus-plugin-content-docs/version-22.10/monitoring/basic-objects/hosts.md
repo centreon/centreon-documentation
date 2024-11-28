@@ -46,7 +46,6 @@ Si plusieurs modèles tentaient de modifier le même champ, les caractéristique
 
 * **ACL Resource Groups** : ([listes de contrôles d'accès](../../administration/access-control-lists.md) en français) permet de lier l’hôte
   à un groupe d’ACL. Cette action est exclusive aux non-administrateurs.
-> Les hôtes qui ne sont pas liés à un groupe ne seront pas visibles ! 
 
 ### Options de contrôle de l'hôte
 
@@ -134,11 +133,9 @@ Jetez un oeil à notre documentation sur les [notifications](../../alerts-notifi
 * **Icône** : icône à afficher à divers endroits, tels que la page **Statut des Ressources**. Un format de 40x40 pixels est recommandé.
 * **Icône alternative** : texte optionnel apparaissant lorsque l'icône ne peut être affichée.
 * **Criticité d'hôte** : niveau de [criticité](../categories.md#criticité) de l’hôte. Il s'agit d'un type de catégorie spéciale que vous pouvez utiliser pour organiser la page **Statut des Ressources** par niveau de criticité.
-* **Image de la carte des états** : logo du module [Centreon MAP](../../graph-views/introduction-map.md).
 * **Coordonnées géographiques** : coordonnées géographiques utilisées par le module [Centreon MAP](../../graph-views/introduction-map.md) pour positionner
   l'élément sur la carte. Définissez "Latitude, Longitude", par exemple pour le jeu de coordonnées de Paris "48.51,2.20"
 
-Les champs **Coordonnées 2D** et **Coordonnées 3D** sont obsolètes et n'ont aucun impact sur l'hôte.
 
 ### Informations supplémentaires
 
