@@ -117,7 +117,6 @@ Jetez un oeil à notre documentation sur les [notifications](../../alerts-notifi
   bagotage en pourcentage de changement de statuts.
 * **Retain Status Information** et **Retain Non Status Information** : indiquent si les informations concernant
   ou non le statut sont sauvegardées après chaque relance de la commande de vérification.
-* **Stalking Options** : options à enregistrer si la **Rétention** est activée.
 * **Event Handler Enabled** : activer ou désactiver le [gestionnaire d'évènements](../event-handler.md).
 * **Event Handler** : commande à exécuter lors d'un changement de statut de l'hôte.
 * **Args** : arguments de la commande du gestionnaire d'évènements.
