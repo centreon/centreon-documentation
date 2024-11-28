@@ -83,8 +83,6 @@ Learn more about [notifications](../../alerts-notifications/notif-concept.md) an
   
   **Vertical inheritance only**: determines contacts and/or groups of contacts that should be notified. When enabled on the  **Administration > Parameters > Centreon UI** page, two extra checkboxes appear:
 
-    * **Contact additive inheritance**: does not overwrite the configuration of the parent host template, but adds the contacts in addition to the contacts defined in the parent template.
-    * **Contact group additive inheritance**: does not overwrite the configuration of the parent host template, but adds the contact groups in addition to the contact groups defined in the parent template.
 
 * **Notification Options**: define the statuses for which a notification will be sent. If no boxes are checked, you will receive notifications for all the statuses listed.
 * **Notification Interval**: expressed in minutes. It indicates the time between sending notifications when the status is Not-OK. If the value is defined as 0, Centreon sends a single notification per status change.
@@ -103,6 +101,7 @@ Learn more about [notifications](../../alerts-notifications/notif-concept.md) an
 
 ## Data processing tab
 
+* **Acknowledgement timeout** : is expressed in minutes. Once this time limit expires, the acknowledgement tag is removed from this host. If its status is still not-OK when this happens, the notification process starts once again. Leave this blank so acknowledgements do not expire.
 * **Check Freshness**: active check performed by the engine when the amount of time determined in the **Freshness Threshold** has elapsed since the last [passive check](../../monitoring/passive-monitoring/enable-snmp-traps.md) of the object.
 * **Freshness Threshold**: expressed in seconds. If, during this period, no host status change request (passive command) is received, the active check command is executed. A threshold will be determined automatically if the field is left blank and the check is enabled.
 * **Flap Detection Enabled**: enable or disable the detection [flapping](../../alerts-notifications/notif-flapping.md) in the statuses (status
@@ -111,7 +110,6 @@ Learn more about [notifications](../../alerts-notifications/notif-concept.md) an
   flapping as a percentage of status change.
 * **Retain Status Information** and **Retain Non Status Information**: indicate if the information concerning
   the status is saved after each time the check command is repeated.
-* **Stalking Options**: options to be recorded if **Retain status Information** is enabled.
 * **Event Handler Enabled**: enables or disables the [event handler](../event-handler.md).
 * **Event Handler**: command to be executed if the event handler is enabled.
 * **Args**: arguments of the events handler command.
@@ -126,11 +124,9 @@ Learn more about [notifications](../../alerts-notifications/notif-concept.md) an
 * **Icon**: icon used for the host, it can be seen in a variety of places such as the ressource status page. A 40x40 pixels format is recommended.
 * **Alt Icon**: optional string shown when the **Icon** cannot be displayed.
 * **Host severity**: [severity](../categories.md#severities) level of the host. This is a special type of category that also allows you to sort the Resource Status by severity level.
-* **Status MAP Image**: logo for the [Centreon MAP module](../../graph-views/introduction-map.md).
 * **Geographic coordinates**: geographical coordinates used by the Centreon MAP module to position the resource on a map.
   Define "Latitude,Longitude"; for example, the set of coordinates for Paris is "48.51,2.20"
 
-The **2d Coords** and **3d Coords** fields are obsolete and have no impact on the host.
 
 ### Additional Information
 
