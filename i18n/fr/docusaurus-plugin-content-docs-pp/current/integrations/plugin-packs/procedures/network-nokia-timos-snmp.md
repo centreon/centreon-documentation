@@ -5,6 +5,7 @@ title: Nokia TiMos SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Nokia TiMos SNMP** 
@@ -29,7 +30,7 @@ Le connecteur apporte les modèles de service suivants
 |:---------|:-------------------------------------|:-----------------------------------------------|
 | Cpu      | Net-Nokia-Timos-Cpu-SNMP-custom      | Contrôle du taux d'utilisation des processeurs |
 | Hardware | Net-Nokia-Timos-Hardware-SNMP-custom | Contrôle le matériel                           |
-| Memory   | Net-Nokia-Timos-Memory-SNMP-custom   | Contrôle du taux d'utilisation des mémoire     |
+| Memory   | Net-Nokia-Timos-Memory-SNMP-custom   | Contrôle du taux d'utilisation des mémoires    |
 | Uptime   | Net-Nokia-Timos-Uptime-SNMP-custom   | Contrôle l'uptime                              |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Nokia-Timos-SNMP-custom** est utilisé.
@@ -328,6 +329,7 @@ yum install centreon-plugin-Network-Nokia-Timos-Snmp
 
 <Tabs groupId="sync">
 <TabItem value="Bgp-Usage" label="Bgp-Usage">
+
 
 | Macro            | Description                                                                                                                                      | Valeur par défaut          | Obligatoire |
 |:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:-----------:|
