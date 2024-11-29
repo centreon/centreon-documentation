@@ -126,7 +126,7 @@ Jetez un oeil à notre documentation sur les [notifications](../../alerts-notifi
 ### Moteur de supervision
 
 * **URL de la note** : URL cliquable qui apparaitra dans la colonne **Notes** de la page **Statut des Ressources** (la colonne **Notes** doit être visible pour cette fonction).
-* **Note** : notes optionnelles concernant l’hôte qui seront visibles dans la page **Statut des Ressources** (la colonne **Notes** doit être visible pour cette fonction).
+* **Note** : texte remplaçant l'**URL de la note** dans la colonne **Notes**. Si ce champs est laissé vide, le texte entier du lien apparait lorsque votre curseur est sur son icône.
 * **URL d'action** : URL habituellement utilisée pour accéder à une procédure de résolution d'incidents pour la ressource.
   (maintenance...).
 * **Icône** : icône à afficher à divers endroits, tels que la page **Statut des Ressources**. Un format de 40x40 pixels est recommandé.
