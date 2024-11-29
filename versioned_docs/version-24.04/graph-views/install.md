@@ -359,6 +359,8 @@ apt install centreon-map-server
 When installing Centreon MAP server, it will automatically install java
 (OpenJDK 11) if needed.
 
+> Go to this troubleshooting procedure if OpenJDK 17 causes an issue [preventing centreon-map-server from being installed](./troubleshooter.md#centreon-map-server-and-all-its-dependencies-cannot-get-installed-on-alma-linux-8).
+
 > You need to have a MariaDB database to store Centreon MAP data, whether
 > it is on localhost or somewhere else.
 
