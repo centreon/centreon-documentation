@@ -119,7 +119,7 @@ Learn more about [notifications](../../alerts-notifications/notif-concept.md) an
 ### Monitoring engine
 
 * **Note URL**: clickable URL that will appear as an icon in the **Notes** column on the **Resource Status** page (the **Notes** column must be displayed for this).
-* **Note**: optional information concerning the host visible in the Resource Status page (the **Notes** column must be displayed for this).
+* **Note**: text replacing the **Note URL** in the **Notes** column that shows as you hover the icon with your mouse. If this field is left blank, the entire link text will appear when the icon is hovered.
 * **Action URL**: URL normally used for giving information on actions on the host (maintenance, etc.).
 * **Icon**: icon used for the host, it can be seen in a variety of places such as the ressource status page. A 40x40 pixels format is recommended.
 * **Alt Icon**: optional string shown when the **Icon** cannot be displayed.
