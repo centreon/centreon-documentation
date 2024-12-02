@@ -391,7 +391,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: total members: 39948 cpu usage: 42011%   memory used : 50638 % All links are ok | 'stack.members.total.count'=39948;;;0; 'member~member.cpu.utilization.percentage'=42011%;;;0;100 'member~member.memory.usage.bytes'=91515B;;;0;total 'member~member.memory.free.bytes'=29972B;;;0;total 'member~member.memory.usage.percentage'=50638%;;;0;100 
+OK: total members: 39948 cpu usage: 42%   memory used : 73 % All links are ok | 'stack.members.total.count'=39948;;;0; 'member~member.cpu.utilization.percentage'=42%;;;0;100 'member~member.memory.usage.bytes'=91515B;;;0;total 'member~member.memory.free.bytes'=29972B;;;0;total 'member~member.memory.usage.percentage'=73%;;;0;100 
 ```
 
 ### Diagnostic des erreurs communes
