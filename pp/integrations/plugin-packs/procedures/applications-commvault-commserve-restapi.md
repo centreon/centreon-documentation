@@ -326,7 +326,9 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All storage pools are ok | 'sp1#storagepool.space.usage.bytes'=20852B;;;0;total_space 'sp2#storagepool.space.usage.bytes'=85206B;;;0;total_space 'sp1#storagepool.space.free.bytes'=59949B;;;0;total_space 'sp2#storagepool.space.free.bytes'=60768B;;;0;total_space 'sp1#storagepool.space.usage.percentage'=26%;;;0;100 'sp2#storagepool.space.usage.percentage'=58%;;;0;100 
+OK: All storage pools are ok | 'IPL1-TEST#storagepool.space.usage.bytes'=22104757B;;;0;37192871 'IPL1-TEST#storagepool.space.free.bytes'=15088114B;;;0;37192871 'IPL1-TEST#storagepool.space.usage.percentage'=59.43%;90;95;0;100 'IPL2-TEST#storagepool.space.usage.bytes'=6469140B;;;0;7340013 'IPL2-TEST#storagepool.space.free.bytes'=870873B;;;0;7340013 'IPL2-TEST#storagepool.space.usage.percentage'=88.14%;90;95;0;100
+Storage pool 'IPL1-TEST' status: online, space usage total: 35.47 MB used: 21.08 MB (59.43%) free: 14.39 MB (40.57%)
+Storage pool 'IPL2-TEST' status: online, space usage total: 7.00 MB used: 6.17 MB (88.14%) free: 850.46 KB (11.86%)
 ```
 
 ### Troubleshooting
