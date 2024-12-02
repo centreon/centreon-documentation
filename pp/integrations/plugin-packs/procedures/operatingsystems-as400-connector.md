@@ -146,8 +146,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 ## Prerequisites
 
-This plugin works in a slightly different way than the common ones. It requires 
-a connector to communicate with the AS400/iSeries system. 
+This plugin works in a slightly different way than the common ones. 
+It requires a connector to communicate with the AS400/iSeries system. 
 
 You can install the connector using this command: 
 
@@ -156,6 +156,14 @@ yum install centreon-plugin-Operatingsystems-AS400-daemon
 ```
 
 A connector can act as a relay between several Hosts and several AS400 systems. 
+
+> Please note that a recent update of the java version (8 -> 17) in the daemon (versions 2.0.3 and higher) 
+> means that if java 8 was already installed on your system, you must force the switch to java 17 for the 
+> daemon to work. Run the following command: 
+
+```shell
+update-alternatives --config java
+```
 
 ## Installing the monitoring connector
 
