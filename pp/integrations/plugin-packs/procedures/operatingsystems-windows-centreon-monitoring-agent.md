@@ -667,7 +667,7 @@ All available options for each service template are listed below:
 | --warning-* --critical-* | Thresholds. Can be: 'pending-updates'.                                                                                                   |
 
 </TabItem>
-<TabItem value="Uptime" label="Uptime>
+<TabItem value="Uptime" label="Uptime">
 
 | Option             | Description                                                                                          |
 |:-------------------|:-----------------------------------------------------------------------------------------------------|
