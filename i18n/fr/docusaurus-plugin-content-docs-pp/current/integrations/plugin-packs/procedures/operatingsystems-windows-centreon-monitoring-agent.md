@@ -681,7 +681,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --warning-* --critical-* | Thresholds. Can be: 'pending-updates'.                                                                                                   |
 
 </TabItem>
-<TabItem value="Uptime" label="Uptime>
+<TabItem value="Uptime" label="Uptime">
 
 | Option             | Description                                                                                          |
 |:-------------------|:-----------------------------------------------------------------------------------------------------|
