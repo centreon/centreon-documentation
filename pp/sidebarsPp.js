@@ -282,6 +282,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-jmeter'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-jvm-actuator'
         },
         {
