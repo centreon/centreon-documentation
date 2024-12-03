@@ -1438,7 +1438,7 @@
       "link": {
         "type": "doc",
         "id": "version-24.10/installation/installation-of-centreon-ha/overview"
-      },
+      }
     },
     {
       "type": "category",
