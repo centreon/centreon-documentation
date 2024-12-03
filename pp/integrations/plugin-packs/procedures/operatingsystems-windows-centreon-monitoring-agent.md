@@ -67,7 +67,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 | Metric                                       | Unit  |
 |:---------------------------------------------|:------|
-| core_index#core.cpu.utilization.percentage | %     |
+| *core_index*#core.cpu.utilization.percentage | %     |
 
 </TabItem>
 <TabItem value="CPU-detailed" label="CPU-detailed">

@@ -67,9 +67,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="CPU" label="CPU">
 
-| Métrique                                     | Unité |
-|:---------------------------------------------|:------|
-| core_index#core.cpu.utilization.percentage | %     |
+| Métrique                                   | Unité |
+|:-------------------------------------------|:------|
+| *core_index*#core.cpu.utilization.percentage | %     |
 
 </TabItem>
 <TabItem value="CPU-detailed" label="CPU-detailed">
