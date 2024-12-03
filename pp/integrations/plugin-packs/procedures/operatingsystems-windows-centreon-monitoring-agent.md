@@ -126,11 +126,14 @@ No metrics for this service.
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Metric                | Unit  |
-|:----------------------|:------|
-| swap.usage.bytes      | B     |
-| swap.free.bytes       | B     |
-| swap.usage.percentage | %     |
+| Metric                  | Unit  |
+|:------------------------|:------|
+| memory.usage.bytes      | B     |
+| memory.free.bytes       | B     |
+| memory.usage.percentage | %     |
+| swap.usage.bytes        | B     |
+| swap.free.bytes         | B     |
+| swap.usage.percentage   | %     |
 
 </TabItem>
 <TabItem value="Updates" label="Updates">

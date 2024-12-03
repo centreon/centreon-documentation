@@ -128,11 +128,14 @@ Pas de métrique pour ce service.
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Métrique              | Unité |
-|:----------------------|:------|
-| swap.usage.bytes      | B     |
-| swap.free.bytes       | B     |
-| swap.usage.percentage | %     |
+| Métrique                | Unité |
+|:------------------------|:------|
+| memory.usage.bytes      | B     |
+| memory.free.bytes       | B     |
+| memory.usage.percentage | %     |
+| swap.usage.bytes        | B     |
+| swap.free.bytes         | B     |
+| swap.usage.percentage   | %     |
 
 </TabItem>
 <TabItem value="Updates" label="Updates">
