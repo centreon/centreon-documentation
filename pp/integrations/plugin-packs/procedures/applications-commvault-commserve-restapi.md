@@ -105,7 +105,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 To control your Commvault CommServe, the Rest API must be configured.
 
-E.g: https://api.commvault.com/
+See https://api.commvault.com/
 
 ## Installing the monitoring connector
 
@@ -307,8 +307,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--plugin=apps::backup::commvault::commserve::restapi::plugin \
 	--mode=storage-pools \
 	--hostname='10.0.0.1' \
-	--api-username='' \
-	--api-password='' \
+	--api-username='XXXX' \
+	--api-password='XXXX' \
 	--port='443' \
 	--proto='https'  \
 	--filter-name='' \

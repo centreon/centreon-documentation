@@ -104,7 +104,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Afin de contrôler l'application Commvault CommServe, l'API Rest doit être configuré (cf: https://api.commvault.com/)
+Afin de superviser l'application Commvault CommServe, l'API Rest doit être configurée (voir https://api.commvault.com/).
 
 ## Installer le connecteur de supervision
 
@@ -306,8 +306,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=apps::backup::commvault::commserve::restapi::plugin \
 	--mode=storage-pools \
 	--hostname='10.0.0.1' \
-	--api-username='' \
-	--api-password='' \
+	--api-username='XXXX' \
+	--api-password='XXXX' \
 	--port='443' \
 	--proto='https'  \
 	--filter-name='' \
