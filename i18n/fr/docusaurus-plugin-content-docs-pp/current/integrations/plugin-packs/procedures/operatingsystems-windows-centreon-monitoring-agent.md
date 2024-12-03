@@ -25,16 +25,16 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="OS-Windows-Centreon-Monitoring-Agent-custom" label="OS-Windows-Centreon-Monitoring-Agent-custom">
 
-| Alias          | Modèle de service                                          | Description                                                                                                                                                                |
-|:---------------|:-----------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| CPU            | OS-Windows-CPU-Centreon-Monitoring-Agent-custom            | Contrôle du taux d'utilisation CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur. |
-| Memory         | OS-Windows-Memory-Centreon-Monitoring-Agent-custom         | Contrôle le du taux d'utilisation de la mémoire                                                                                                                            |
-| Ntp            | OS-Windows-Ntp-Centreon-Monitoring-Agent-custom            | Contrôle la synchronisation avec un serveur NTP                                                                                                                            |
-| Pending-Reboot | OS-Windows-Pending-Reboot-Centreon-Monitoring-Agent-custom | Contrôle si Windows nécessite un redémarrage                                                                                                                               |
-| Sessions       | OS-Windows-Sessions-Centreon-Monitoring-Agent-custom       | Contrôle le nombre de sessions actives                                                                                                                                     |
-| Swap           | OS-Windows-Swap-Centreon-Monitoring-Agent-custom           | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                     |
-| Updates        | OS-Windows-Updates-Centreon-Monitoring-Agent-custom        | Contrôle si des mises à jour sont en attente                                                                                                                               |
-| Uptime         | OS-Windows-Uptime-Centreon-Monitoring-Agent-custom         | Contrôle la durée depuis laquelle le serveur tourne sans interruption                                                                                                      |
+| Alias          | Modèle de service                                          | Description                                                                                                                                                               |
+|:---------------|:-----------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| CPU            | OS-Windows-CPU-Centreon-Monitoring-Agent-custom            | Contrôle du taux d'utilisation CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |
+| Memory         | OS-Windows-Memory-Centreon-Monitoring-Agent-custom         | Contrôle le du taux d'utilisation de la mémoire                                                                                                                           |
+| Ntp            | OS-Windows-Ntp-Centreon-Monitoring-Agent-custom            | Contrôle la synchronisation avec un serveur NTP                                                                                                                           |
+| Pending-Reboot | OS-Windows-Pending-Reboot-Centreon-Monitoring-Agent-custom | Contrôle si Windows nécessite un redémarrage                                                                                                                              |
+| Sessions       | OS-Windows-Sessions-Centreon-Monitoring-Agent-custom       | Contrôle le nombre de sessions actives                                                                                                                                    |
+| Swap           | OS-Windows-Swap-Centreon-Monitoring-Agent-custom           | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                    |
+| Updates        | OS-Windows-Updates-Centreon-Monitoring-Agent-custom        | Contrôle si des mises à jour sont en attente                                                                                                                              |
+| Uptime         | OS-Windows-Uptime-Centreon-Monitoring-Agent-custom         | Contrôle la durée depuis laquelle le serveur tourne sans interruption                                                                                                     |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **OS-Windows-Centreon-Monitoring-Agent-custom** est utilisé.
 
@@ -502,7 +502,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option                            | Description                                                                        |
 |:----------------------------------|:-----------------------------------------------------------------------------------|
 | --use-nt-query-system-information | (default true): true: use NtQuerySystemInformation instead of performance counters |
-| --cpu-detailed                    | (default false): true: add detailed cpu usage to output                            |
+| --cpu-detailed                    | (default false): true: add detailed cpu usage metrics                              |
 | --warning-core                    | Threshold for warning status on core usage in percentage                           |
 | --critical-core                   | Threshold for critical status on core usage in percentage                          |
 | --warning-average                 | Threshold for warning status on average usage in percentage                        |
@@ -522,7 +522,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option                            | Description                                                                        |
 |:----------------------------------|:-----------------------------------------------------------------------------------|
 | --use-nt-query-system-information | (default true): true: use NtQuerySystemInformation instead of performance counters |
-| --cpu-detailed                    | (default false): true: add detailed cpu usage to output                            |
+| --cpu-detailed                    | (default false): true: add detailed cpu usage metrics                              |
 | --warning-core                    | Threshold for warning status on core usage in percentage                           |
 | --critical-core                   | Threshold for critical status on core usage in percentage                          |
 | --warning-average                 | Threshold for warning status on average usage in percentage                        |
