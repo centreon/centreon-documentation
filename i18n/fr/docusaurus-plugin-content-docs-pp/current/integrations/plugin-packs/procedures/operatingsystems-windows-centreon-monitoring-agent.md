@@ -25,21 +25,27 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="OS-Windows-Centreon-Monitoring-Agent-custom" label="OS-Windows-Centreon-Monitoring-Agent-custom">
 
-| Alias          | Modèle de service                                          | Description                                      |
-|:---------------|:-----------------------------------------------------------|:-------------------------------------------------|
-| Ntp            | OS-Windows-Ntp-Centreon-Monitoring-Agent-custom            | Contrôle la synchronisation avec un serveur NTP. |
-| Pending-Reboot | OS-Windows-Pending-Reboot-Centreon-Monitoring-Agent-custom | Contrôle si Windows nécessite un redémarrage.    |
-| Sessions       | OS-Windows-Sessions-Centreon-Monitoring-Agent-custom       | Contrôle le nombre de sessions actives.          |
-| Updates        | OS-Windows-Updates-Centreon-Monitoring-Agent-custom        | Contrôle si des mises à jour sont en attente.    |
+| Alias          | Modèle de service                                          | Description                                                                                                                                                                |
+|:---------------|:-----------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| CPU            | OS-Windows-CPU-Centreon-Monitoring-Agent-custom            | Contrôle du taux d'utilisation CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur. |
+| Memory         | OS-Windows-Memory-Centreon-Monitoring-Agent-custom         | Contrôle le du taux d'utilisation de la mémoire                                                                                                                            |
+| Ntp            | OS-Windows-Ntp-Centreon-Monitoring-Agent-custom            | Contrôle la synchronisation avec un serveur NTP                                                                                                                            |
+| Pending-Reboot | OS-Windows-Pending-Reboot-Centreon-Monitoring-Agent-custom | Contrôle si Windows nécessite un redémarrage                                                                                                                               |
+| Sessions       | OS-Windows-Sessions-Centreon-Monitoring-Agent-custom       | Contrôle le nombre de sessions actives                                                                                                                                     |
+| Swap           | OS-Windows-Swap-Centreon-Monitoring-Agent-custom           | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                     |
+| Updates        | OS-Windows-Updates-Centreon-Monitoring-Agent-custom        | Contrôle si des mises à jour sont en attente                                                                                                                               |
+| Uptime         | OS-Windows-Uptime-Centreon-Monitoring-Agent-custom         | Contrôle la durée depuis laquelle le serveur tourne sans interruption                                                                                                      |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **OS-Windows-Centreon-Monitoring-Agent-custom** est utilisé.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias        | Modèle de service                                        | Description                      |
-|:-------------|:---------------------------------------------------------|:---------------------------------|
-| Certificates | OS-Windows-Certificates-Centreon-Monitoring-Agent-custom | Contrôle les certificats locaux. |
+| Alias        | Modèle de service                                        | Description                                                                                                                                                               |
+|:-------------|:---------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Certificates | OS-Windows-Certificates-Centreon-Monitoring-Agent-custom | Contrôle les certificats locaux                                                                                                                                           |
+| CPU-detailed | OS-Windows-CPU-detailed-Centreon-Monitoring-Agent-custom | Contrôle du taux d'utilisation CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |
+| Storage      | OS-Windows-Storage-Centreon-Monitoring-Agent-custom      | Contrôle du taux d'utilisation des disques                                                                                                                                |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -57,6 +63,27 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 |:-------------------------------------|:------|
 | certificates.detected.count          | count |
 | certificate#certificate.expires.days | d     |
+
+</TabItem>
+<TabItem value="CPU" label="CPU">
+
+| Métrique | Unité |
+|:---------|:------|
+|          |       |
+
+</TabItem>
+<TabItem value="CPU-detailed" label="CPU-detailed">
+
+| Métrique | Unité |
+|:---------|:------|
+|          |       |
+
+</TabItem>
+<TabItem value="Memory" label="Memory">
+
+| Métrique | Unité |
+|:---------|:------|
+|          |       |
 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
@@ -84,11 +111,32 @@ Pas de métrique pour ce service.
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
+<TabItem value="Storage" label="Storage">
+
+| Métrique | Unité |
+|:---------|:------|
+|          |       |
+
+</TabItem>
+<TabItem value="Swap" label="Swap">
+
+| Métrique | Unité |
+|:---------|:------|
+|          |       |
+
+</TabItem>
 <TabItem value="Updates" label="Updates">
 
 | Métrique                      | Unité |
 |:------------------------------|:------|
 | windows.pending.updates.count | count |
+
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
+
+| Métrique | Unité |
+|:---------|:------|
+|          |       |
 
 </TabItem>
 </Tabs>
@@ -217,6 +265,51 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                    |                   |             |
 
 </TabItem>
+<TabItem value="CPU" label="CPU">
+
+| Macro           | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGCORE     | Threshold for warning status on core usage in percentage                                                                                 |                   |             |
+| CRITICALCORE    | Threshold for critical status on core usage in percentage                                                                                |                   |             |
+| WARNINGAVERAGE  | Threshold for warning status on average usage in percentage                                                                              |                   |             |
+| CRITICALAVERAGE | Threshold for critical status on average usage in percentage                                                                             |                   |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+
+</TabItem>
+<TabItem value="CPU-detailed" label="CPU-detailed">
+
+| Macro                 | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGCORE           | Threshold for warning status on core usage in percentage                                                                                 |                   |             |
+| CRITICALCORE          | Threshold for critical status on core usage in percentage                                                                                |                   |             |
+| WARNINGAVERAGE        | Threshold for warning status on average usage in percentage                                                                              |                   |             |
+| CRITICALAVERAGE       | Threshold for critical status on average usage in percentage                                                                             |                   |             |
+| WARNINGCOREUSER       | Threshold for warning status on core user usage in percentage                                                                            |                   |             |
+| CRITICALCOREUSER      | Threshold for critical status on core user usage in percentage                                                                           |                   |             |
+| WARNINGAVERAGEUSER    | Threshold for warning status on average user usage in percentage                                                                         |                   |             |
+| CRITICALAVERAGEUSER   | Threshold for critical status on average user usage in percentage                                                                        |                   |             |
+| WARNINGCORESYSTEM     | Threshold for warning status on core system usage in percentage                                                                          |                   |             |
+| CRITICALCORESYSTEM    | Threshold for critical status on core system usage in percentage                                                                         |                   |             |
+| WARNINGAVERAGESYSTEM  | Threshold for warning status on average system usage in percentage                                                                       |                   |             |
+| CRITICALAVERAGESYSTEM | Threshold for critical status on average system usage in percentage                                                                      |                   |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+
+</TabItem>
+<TabItem value="Memory" label="Memory">
+
+| Macro                 | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGUSAGE          | Threshold for warning status on physical memory usage in bytes                                                                           |                   |             |
+| CRITICALUSAGE         | Threshold for critical status on physical memory usage in bytes                                                                          |                   |             |
+| WARNINGUSAGEFREE      | Threshold for warning status on free physical memory in bytes                                                                            |                   |             |
+| CRITICALUSAGEFREE     | Threshold for critical status on free physical memory in bytes                                                                           |                   |             |
+| WARNINGUSAGEPRCT      | Threshold for warning status on physical memory usage in percentage                                                                      |                   |             |
+| CRITICALUSAGEPRCT     | Threshold for critical status on physical memory usage in percentage                                                                     |                   |             |
+| WARNINGUSAGEFREEPRCT  | Threshold for warning status on free physical memory in percentage                                                                       |                   |             |
+| CRITICALUSAGEFREEPRCT | Threshold for critical status on free physical memory in percentage                                                                      |                   |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+
+</TabItem>
 <TabItem value="Ntp" label="Ntp">
 
 | Macro          | Description                                                                                                                              | Valeur par défaut | Obligatoire |
@@ -259,6 +352,32 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | EXTRAOPTIONS                        | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)             |                   |             |
 
 </TabItem>
+<TabItem value="Storage" label="Storage">
+
+| Macro             | Description                                                                                                                                                                                                                                                                                    | Valeur par défaut | Obligatoire |
+|:------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING           | Thresholds                                                                                                                                                                                                                                                                                     |                   |             |
+| CRITICAL          | Thresholds                                                                                                                                                                                                                                                                                     |                   |             |
+| FILTERSTORAGETYPE | Case insensitive regex to filter storage type it includes drive type (fixed, network...). Types recognized by agent: hrunknown, hrstoragefixeddisk, hrstorageremovabledisk, hrstoragecompactdisc, hrstorageramdisk, hrstoragenetworkdisk, hrfsunknown, hrfsfat, hrfsntfs, hrfsfat32, hrfsexfat |                   |             |
+| FILTERFS          | Case insensitive regex to filter filesystem. Example: [C-D]:\\.*                                                                                                                                                                                                                               |                   |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                                                       |                   |             |
+
+</TabItem>
+<TabItem value="Swap" label="Swap">
+
+| Macro                | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGSWAP          | Threshold for warning status on swap memory usage in bytes                                                                               |                   |             |
+| CRITICALSWAP         | Threshold for critical status on swap memory usage in bytes                                                                              |                   |             |
+| WARNINGSWAPFREE      | Threshold for warning status on free swap memory in bytes                                                                                |                   |             |
+| CRITICALSWAPFREE     | Threshold for critical status on free swap memory in bytes                                                                               |                   |             |
+| WARNINGSWAPPRCT      | Threshold for warning status on swap memory usage in percentage                                                                          |                   |             |
+| CRITICALSWAPPRCT     | Threshold for critical status on swap memory usage in percentage                                                                         |                   |             |
+| WARNINGSWAPFREEPRCT  | Threshold for warning status on free swap memory in percentage                                                                           |                   |             |
+| CRITICALSWAPFREEPRCT | Threshold for critical status on free swap memory in percentage                                                                          |                   |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+
+</TabItem>
 <TabItem value="Updates" label="Updates">
 
 | Macro                  | Description                                                                                                                              | Valeur par défaut  | Obligatoire |
@@ -267,6 +386,15 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | CRITICALPENDINGUPDATES | Thresholds                                                                                                                               |                    |             |
 | TIMEOUT                | Set timeout time for command execution.                                                                                | 30                 |             |
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --filter-mandatory |             |
+
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
+
+| Macro           | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGUPTIME   | Warning threshold, if computer has been up for less than this time, service will be in warning state                                     |                   |             |
+| CRITICALUPTIME  | Critical threshold                                                                                                                       |                   |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 </Tabs>
@@ -369,6 +497,78 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --ps-exec-only                   | Print powershell output.                                                                                                                                    |
 
 </TabItem>
+<TabItem value="CPU" label="CPU">
+
+| Option                            | Description                                                                        |
+|:----------------------------------|:-----------------------------------------------------------------------------------|
+| --use-nt-query-system-information | (default true): true: use NtQuerySystemInformation instead of performance counters |
+| --cpu-detailed                    | (default false): true: add detailed cpu usage to output                            |
+| --warning-core                    | Threshold for warning status on core usage in percentage                           |
+| --critical-core                   | Threshold for critical status on core usage in percentage                          |
+| --warning-average                 | Threshold for warning status on average usage in percentage                        |
+| --critical-average                | Threshold for critical status on average usage in percentage                       |
+| --warning-core-user               | Threshold for warning status on core user usage in percentage                      |
+| --critical-core-user              | Threshold for critical status on core user usage in percentage                     |
+| --warning-average-user            | Threshold for warning status on average user usage in percentage                   |
+| --critical-average-user           | Threshold for critical status on average user usage in percentage                  |
+| --warning-core-system             | Threshold for warning status on core system usage in percentage                    |
+| --critical-core-system            | Threshold for critical status on core system usage in percentage                   |
+| --warning-average-system          | Threshold for warning status on average system usage in percentage                 |
+| --critical-average-system         | Threshold for critical status on average system usage in percentage                |
+
+</TabItem>
+<TabItem value="CPU-detailed" label="CPU-detailed">
+
+| Option                            | Description                                                                        |
+|:----------------------------------|:-----------------------------------------------------------------------------------|
+| --use-nt-query-system-information | (default true): true: use NtQuerySystemInformation instead of performance counters |
+| --cpu-detailed                    | (default false): true: add detailed cpu usage to output                            |
+| --warning-core                    | Threshold for warning status on core usage in percentage                           |
+| --critical-core                   | Threshold for critical status on core usage in percentage                          |
+| --warning-average                 | Threshold for warning status on average usage in percentage                        |
+| --critical-average                | Threshold for critical status on average usage in percentage                       |
+| --warning-core-user               | Threshold for warning status on core user usage in percentage                      |
+| --critical-core-user              | Threshold for critical status on core user usage in percentage                     |
+| --warning-average-user            | Threshold for warning status on average user usage in percentage                   |
+| --critical-average-user           | Threshold for critical status on average user usage in percentage                  |
+| --warning-core-system             | Threshold for warning status on core system usage in percentage                    |
+| --critical-core-system            | Threshold for critical status on core system usage in percentage                   |
+| --warning-average-system          | Threshold for warning status on average system usage in percentage                 |
+| --critical-average-system         | Threshold for critical status on average system usage in percentage                |
+
+</TabItem>
+<TabItem value="Memory" label="Memory">
+
+| Option                       | Description                                                          |
+|:-----------------------------|:---------------------------------------------------------------------|
+| --swap                       | (default false): true: add swap to output                            |
+| --virtual                    | (default false): true: add virtual memory to output                  |
+| --warning-usage              | Threshold for warning status on physical memory usage in bytes       |
+| --critical-usage             | Threshold for critical status on physical memory usage in bytes      |
+| --warning-usage-free         | Threshold for warning status on free physical memory in bytes        |
+| --critical-usage-free        | Threshold for critical status on free physical memory in bytes       |
+| --warning-usage-prct         | Threshold for warning status on physical memory usage in percentage  |
+| --critical-usage-prct        | Threshold for critical status on physical memory usage in percentage |
+| --warning-usage-free-prct    | Threshold for warning status on free physical memory in percentage   |
+| --critical-usage-free-prct   | Threshold for critical status on free physical memory in percentage  |
+| --warning-swap               | Threshold for warning status on swap usage in bytes                  |
+| --critical-swap              | Threshold for critical status on swap usage in bytes                 |
+| --warning-swap-free          | Threshold for warning status on free swap in bytes                   |
+| --critical-swap-free         | Threshold for critical status on free swap in bytes                  |
+| --warning-swap-prct          | Threshold for warning status on swap usage in percentage             |
+| --critical-swap-prct         | Threshold for critical status on swap usage in percentage            |
+| --warning-swap-free-prct     | Threshold for warning status on free swap in percentage              |
+| --critical-swap-free-prct    | Threshold for critical status on free swap in percentage             |
+| --warning-virtual            | Threshold for warning status on virtual memory usage in bytes        |
+| --critical-virtual           | Threshold for critical status on virtual memory usage in bytes       |
+| --warning-virtual-free       | Threshold for warning status on free virtual memory in bytes         |
+| --critical-virtual-free      | Threshold for critical status on free virtual memory in bytes        |
+| --warning-virtual-prct       | Threshold for warning status on virtual memory usage in percentage   |
+| --critical-virtual-prct      | Threshold for critical status on virtual memory usage in percentage  |
+| --warning-virtual-free-prct  | Threshold for warning status on free virtual memory in percentage    |
+| --critical-virtual-free-prct | Threshold for critical status on free virtual memory in percentage   |
+
+</TabItem>
 <TabItem value="Ntp" label="Ntp">
 
 | Option         | Description                                                                |
@@ -409,6 +609,51 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --warning-* --critical-* | Thresholds. Can be: 'sessions-created', 'sessions-disconnected', 'sessions-reconnected', 'sessions-active', 'sessions-disconnected-current'.                                                                                                  |
 
 </TabItem>
+<TabItem value="Storage" label="Storage">
+
+| Option                | Description                                                                                                                                                                                                                                                                                    |
+|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --unit                | (default %): unit of threshold. If different from % threshold are in bytes                                                                                                                                                                                                                     |
+| --free                | (default used): true: threshold is applied on free space and service become warning if free sapce is lower than threshold. false: threshold is applied on used space and service become warning if used space is higher than threshold                                                         |
+| --warning             | warning threshold                                                                                                                                                                                                                                                                              |
+| --critical            | critical threshold                                                                                                                                                                                                                                                                             |
+| --filter-storage-type | Case insensitive regex to filter storage type it includes drive type (fixed, network...). Types recognized by agent: hrunknown, hrstoragefixeddisk, hrstorageremovabledisk, hrstoragecompactdisc, hrstorageramdisk, hrstoragenetworkdisk, hrfsunknown, hrfsfat, hrfsntfs, hrfsfat32, hrfsexfat |
+| --filter-fs           | Regex to filter filesystem. Example: [C-D]:\\.*                                                                                                                                                                                                                                                                   |
+| --exclude-fs          | Regex to exclude filesystem                                                                                                                                                                                                                                                                   |
+
+</TabItem>
+<TabItem value="Swap" label="Swap">
+
+| Option                       | Description                                                          |
+|:-----------------------------|:---------------------------------------------------------------------|
+| --swap                       | (default false): true: add swap to output                            |
+| --virtual                    | (default false): true: add virtual memory to output                  |
+| --warning-usage              | Threshold for warning status on physical memory usage in bytes       |
+| --critical-usage             | Threshold for critical status on physical memory usage in bytes      |
+| --warning-usage-free         | Threshold for warning status on free physical memory in bytes        |
+| --critical-usage-free        | Threshold for critical status on free physical memory in bytes       |
+| --warning-usage-prct         | Threshold for warning status on physical memory usage in percentage  |
+| --critical-usage-prct        | Threshold for critical status on physical memory usage in percentage |
+| --warning-usage-free-prct    | Threshold for warning status on free physical memory in percentage   |
+| --critical-usage-free-prct   | Threshold for critical status on free physical memory in percentage  |
+| --warning-swap               | Threshold for warning status on swap usage in bytes                  |
+| --critical-swap              | Threshold for critical status on swap usage in bytes                 |
+| --warning-swap-free          | Threshold for warning status on free swap in bytes                   |
+| --critical-swap-free         | Threshold for critical status on free swap in bytes                  |
+| --warning-swap-prct          | Threshold for warning status on swap usage in percentage             |
+| --critical-swap-prct         | Threshold for critical status on swap usage in percentage            |
+| --warning-swap-free-prct     | Threshold for warning status on free swap in percentage              |
+| --critical-swap-free-prct    | Threshold for critical status on free swap in percentage             |
+| --warning-virtual            | Threshold for warning status on virtual memory usage in bytes        |
+| --critical-virtual           | Threshold for critical status on virtual memory usage in bytes       |
+| --warning-virtual-free       | Threshold for warning status on free virtual memory in bytes         |
+| --critical-virtual-free      | Threshold for critical status on free virtual memory in bytes        |
+| --warning-virtual-prct       | Threshold for warning status on virtual memory usage in percentage   |
+| --critical-virtual-prct      | Threshold for critical status on virtual memory usage in percentage  |
+| --warning-virtual-free-prct  | Threshold for warning status on free virtual memory in percentage    |
+| --critical-virtual-free-prct | Threshold for critical status on free virtual memory in percentage   |
+
+</TabItem>
 <TabItem value="Updates" label="Updates">
 
 | Option                   | Description                                                                                                                              |
@@ -424,6 +669,15 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --exclude-title          | Exclude windows updates by title (regexp can be used).                                                                                   |
 | --display-updates        | Display updates in verbose output.                                                                                                       |
 | --warning-* --critical-* | Thresholds. Can be: 'pending-updates'.                                                                                                   |
+
+</TabItem>
+<TabItem value="Uptime" label="Uptime>
+
+| Option             | Description                                                                                          |
+|:-------------------|:-----------------------------------------------------------------------------------------------------|
+| --unit             | (defaults s): can be s, second, m, minute, h, hour, d, day, w, week                                  |
+| --warning-uptime   | warning threshold, if computer has been up for less than this time, service will be in warning state |
+| --critical-uptime  | critical threshold                                                                                   |
 
 </TabItem>
 </Tabs>
