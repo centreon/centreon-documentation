@@ -81,7 +81,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
  | *core_index*\~idle#core.cpu.utilization.percentage          | %     |
  | *core_index*\~interrupt#core.cpu.utilization.percentage     | %     |
  | *core_index*\~dpc_interrupt#core.cpu.utilization.percentage | %     |
- | *core_index*\~uused#core.cpu.utilization.percentage         | %     |
+ | *core_index*\~used#core.cpu.utilization.percentage          | %     |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
