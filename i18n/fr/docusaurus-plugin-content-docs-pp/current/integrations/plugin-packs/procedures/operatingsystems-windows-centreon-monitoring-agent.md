@@ -67,23 +67,30 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="CPU" label="CPU">
 
-| Métrique | Unité |
-|:---------|:------|
-|          |       |
+| Métrique                                     | Unité |
+|:---------------------------------------------|:------|
+| <core index>#core.cpu.utilization.percentage | %     |
 
 </TabItem>
 <TabItem value="CPU-detailed" label="CPU-detailed">
 
-| Métrique | Unité |
-|:---------|:------|
-|          |       |
+| Métrique                                                   | Unité |
+|:-----------------------------------------------------------|:------|
+| <core index>~user#core.cpu.utilization.percentage          | %     |
+ | <core index>~system#core.cpu.utilization.percentage        | %     |
+ | <core index>~idle#core.cpu.utilization.percentage          | %     |
+ | <core index>~interrupt#core.cpu.utilization.percentage     | %     |
+ | <core index>~dpc_interrupt#core.cpu.utilization.percentage | %     |
+ | <code index>~used#core.cpu.utilization.percentage          | %     |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Métrique | Unité |
-|:---------|:------|
-|          |       |
+| Métrique                | Unité |
+|:------------------------|:------|
+| memory.usage.bytes      | B     |
+| memory.free.bytes       | B     |
+| memory.usage.percentage | %     |
 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
@@ -113,16 +120,19 @@ Pas de métrique pour ce service.
 </TabItem>
 <TabItem value="Storage" label="Storage">
 
-| Métrique | Unité |
-|:---------|:------|
-|          |       |
+| Métrique  | Unité |
+|:----------|:------|
+| used_C:\  | B     |
+| used_D:\  | B     |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Métrique | Unité |
-|:---------|:------|
-|          |       |
+| Métrique              | Unité |
+|:----------------------|:------|
+| swap.usage.bytes      | B     |
+| swap.free.bytes       | B     |
+| swap.usage.percentage | %     |
 
 </TabItem>
 <TabItem value="Updates" label="Updates">
@@ -136,7 +146,7 @@ Pas de métrique pour ce service.
 
 | Métrique | Unité |
 |:---------|:------|
-|          |       |
+| uptime   | s     |
 
 </TabItem>
 </Tabs>
