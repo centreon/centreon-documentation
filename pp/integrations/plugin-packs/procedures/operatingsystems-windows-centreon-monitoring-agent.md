@@ -67,18 +67,18 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 | Metric                                       | Unit  |
 |:---------------------------------------------|:------|
-| <core index>#core.cpu.utilization.percentage | %     |
+| core_index#core.cpu.utilization.percentage | %     |
 
 </TabItem>
 <TabItem value="CPU-detailed" label="CPU-detailed">
 
 | Metric                                                     | Unit |
 |:-----------------------------------------------------------|:-----|
-| <core index>~user#core.cpu.utilization.percentage          | %    |
- | <core index>~system#core.cpu.utilization.percentage        | %    |
- | <core index>~idle#core.cpu.utilization.percentage          | %    |
- | <core index>~interrupt#core.cpu.utilization.percentage     | %    |
- | <core index>~dpc_interrupt#core.cpu.utilization.percentage | %    |
+| core_index~user#core.cpu.utilization.percentage            | %    |
+ | core_index~system#core.cpu.utilization.percentage        | %    |
+ | core_index~idle#core.cpu.utilization.percentage          | %    |
+ | core_index~interrupt#core.cpu.utilization.percentage     | %    |
+ | core_index~dpc_interrupt#core.cpu.utilization.percentage | %    |
  | <code index>~used#core.cpu.utilization.percentage          | %    |
 
 </TabItem>
