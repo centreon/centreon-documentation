@@ -74,14 +74,14 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="CPU-detailed" label="CPU-detailed">
 
-| Métrique                                                   | Unité |
-|:-----------------------------------------------------------|:------|
-| core_index~user#core.cpu.utilization.percentage          | %     |
- | core_index~system#core.cpu.utilization.percentage        | %     |
- | core_index~idle#core.cpu.utilization.percentage          | %     |
- | core_index~interrupt#core.cpu.utilization.percentage     | %     |
- | core_index~dpc_interrupt#core.cpu.utilization.percentage | %     |
- | <code index>~used#core.cpu.utilization.percentage          | %     |
+| Métrique                                                 | Unité |
+|:---------------------------------------------------------|:------|
+| *core_index*\~user#core.cpu.utilization.percentage       | %     |
+ | *core_index*\~system#core.cpu.utilization.percentage        | %     |
+ | *core_index*\~idle#core.cpu.utilization.percentage          | %     |
+ | *core_index*\~interrupt#core.cpu.utilization.percentage     | %     |
+ | *core_index*\~dpc_interrupt#core.cpu.utilization.percentage | %     |
+ | *core_index*\~uused#core.cpu.utilization.percentage        | %     |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
