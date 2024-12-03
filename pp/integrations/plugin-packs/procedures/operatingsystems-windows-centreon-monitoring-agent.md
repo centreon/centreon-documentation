@@ -68,18 +68,20 @@ Here is the list of services for this connector, detailing all metrics linked to
 | Metric                                       | Unit  |
 |:---------------------------------------------|:------|
 | *core_index*#core.cpu.utilization.percentage | %     |
+| user#cpu.utilization.percentage              | %     |
 
 </TabItem>
 <TabItem value="CPU-detailed" label="CPU-detailed">
 
 | Metric                                                      | Unit |
 |:------------------------------------------------------------|:-----|
-| *core_index*\~user#core.cpu.utilization.percentage          | %    |
- | *core_index*\~system#core.cpu.utilization.percentage        | %    |
- | *core_index*\~idle#core.cpu.utilization.percentage          | %    |
- | *core_index*\~interrupt#core.cpu.utilization.percentage     | %    |
- | *core_index*\~dpc_interrupt#core.cpu.utilization.percentage | %    |
- | *core_index*\~used#core.cpu.utilization.percentage          | %    |
+| *core_index*\~user#core.cpu.utilization.percentage          | %     |
+| user#cpu.utilization.percentage                             | %     |
+ | *core_index*\~system#core.cpu.utilization.percentage        | %     |
+ | *core_index*\~idle#core.cpu.utilization.percentage          | %     |
+ | *core_index*\~interrupt#core.cpu.utilization.percentage     | %     |
+ | *core_index*\~dpc_interrupt#core.cpu.utilization.percentage | %     |
+ | *core_index*\~used#core.cpu.utilization.percentage          | %     |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
