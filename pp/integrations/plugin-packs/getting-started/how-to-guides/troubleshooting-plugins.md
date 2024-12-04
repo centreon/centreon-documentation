@@ -171,7 +171,7 @@ the counter resets to zero.
 ### How to identify the issue?
 
 You can identify that the uptime has exceeded the 497-day limit by checking the uptime directly 
-on the device (if possible) without querying via SNMP. For example, on Linux, the following command:
+on the device (if possible) without querying via SNMP. For example, on Linux, use the following command:
 
 ```commandline
 uptime
@@ -207,7 +207,7 @@ cat /var/lib/centreon/centplugins/cache_<hostname>_uptime
 {"last_time":170905862051,"overload":0,"uptime":"4131920"}
 ```
 
-Replace the "overload" value with 1 and verify that the change worked:
+Replace the "overload" value with 1 and check that the change worked:
 
 ```commandline
 sed -i 's/"overload":0/"overload":1/g' /var/lib/centreon/centplugins/cache_<hostname>_uptime
@@ -217,7 +217,7 @@ cat /var/lib/centreon/centplugins/cache_<hostname>_uptime
 
 You can then rerun the plugin command with the `--check-overload` option, and the result 
 should account for the overflow and reflect the correct system uptime information, as 
-you manually verified:
+you manually checked:
 
 ```commandline
 /usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=uptime --hostname=XXXX --snmp-version='2c' --snmp-community='public' --check-overload
