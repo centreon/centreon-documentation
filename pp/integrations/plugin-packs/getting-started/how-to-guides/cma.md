@@ -26,7 +26,6 @@ The CMA can be installed on and monitor the following OSs:
 * Alma 8
 * Alma 9
 * Debian 12
-* Ubuntu 22.04 LTS
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
@@ -343,7 +342,13 @@ You can configure two kinds of log output:
 
 If you choose to log into a file, log rotation can be customized using the **log_max_file_size** and **log_max_files** options.
 
-Allowed log levels are: trace, debug, info, warning, error, critical and off.
+Allowed log levels are:
+* off: no logs
+* critical: critical errors
+* error: all errors
+* info: additional information
+* debug: more information about connections
+* trace: the most verbose trace level showing messages sent and received to the poller
 
 2. Restart the CMA:
 
@@ -369,7 +374,13 @@ systemctl restart centagent
 
 If you choose to log into a file, log rotation can be customized using the **Max File Size** and **Max number of files** options.
 
-Allowed log levels are: trace, debug, info, warning, error, critical and off.
+Allowed log levels are:
+* off: no logs
+* critical: critical errors
+* error: all errors
+* info: additional information
+* debug: more information about connections
+* trace: the most verbose trace level showing messages sent and received to the poller
 
 5. Configure encryption
 Encryption is activated by default. In case of a poller-initiated connection, the private key file and certificate file are mandatory.

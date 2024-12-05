@@ -27,7 +27,6 @@ L'agent peut être installé sur et superviser les OS suivants :
 * Alma 8
 * Alma 9
 * Debian 12
-* Ubuntu 22.04 LTS
 
 </TabItem>
 <TabItem value="Windows" label="Windows">
@@ -340,9 +339,15 @@ Deux types de log sont disponibles :
 
 Dans le cas de logging vers un fichier, une rotation peut être paramétrée avec les clés **log_max_file_size** et **log_max_files**.
 
-Les niveaux de logs possibles sont: trace, debug, info, warning, error, critical et off.
+Les niveaux de logs possibles sont:
+* off: aucun log
+* critical: erreurs critiques
+* error: toutes les erreurs
+* info: quelques informations supplémentaires
+* debug: quelques informations sur les connections en plus
+* trace: le niveau de trace le plus bavard qui permet de voir les messages envoyés et reçus vers le poller
 
-2. Redémarrer l'agent : 
+1. Redémarrer l'agent : 
    ```shell
    systemctl restart centagent
    ```
@@ -363,7 +368,13 @@ Les niveaux de logs possibles sont: trace, debug, info, warning, error, critical
    * **File** : les logs sont écrits dans un fichier
    * **EventLog** : les logs sont envoyés vers les [journaux d'évènements](/docs/alerts-notifications/event-log).
   Si vous choisissez de logger dans un fichier, vous pouvez configurer la rotation de logs en renseignant **Max File Size** et **Max number of files**.
-  Les niveaux de logs possibles sont: trace, debug, info, warning, error, critical et off.
+  Les niveaux de logs possibles sont:
+   * off: aucun log
+   * critical: erreurs critiques
+   * error: toutes les erreurs
+   * info: quelques informations supplémentaires
+   * debug: quelques informations sur les connections en plus
+   * trace: le niveau de trace le plus bavard qui permet de voir les messages envoyés et reçus vers le poller
 
 5. Configurez les paramètres de chiffrement.
 Le chiffrement est activé par défaut. Dans le cas où l'option **Poller-initiated connection** est activée, renseignez **Max File Size** et **Max number of files**.
