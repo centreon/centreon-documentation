@@ -167,7 +167,7 @@ yum install centreon-plugin-Applications-Jmeter
 
 | Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| DIRECTORY    | Directory where scenarii are stored                                                                |                   |             |
+| DIRECTORY    | Directory where scenarios are stored                                                                |                   |             |
 | SCENARIO     | Scenario used by JMeter (without extension)                                                        |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
