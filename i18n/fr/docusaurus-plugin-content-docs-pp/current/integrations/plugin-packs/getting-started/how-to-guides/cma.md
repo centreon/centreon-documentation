@@ -27,7 +27,6 @@ L'agent peut être installé sur et superviser les OS suivants :
 
 * Alma 8
 * Alma 9
-* Debian 11
 * Debian 12
 * Ubuntu 22.04 LTS
 
@@ -104,7 +103,55 @@ L'Agent de supervision Centreon est maintenant capable de communiquer avec Centr
 <Tabs groupId="sync">
 <TabItem value="Linux" label="Linux">
 
-* Installez le paquet **centreon-monitoring-agent**.
+#### Dépôt Centreon et installation de l'agent
+
+Installez le dépôt Centreon puis l'agent à l'aide des commandes suivantes :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
+dnf install  centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-24.10.repo
+dnf install  compat-openssl11 centreon-monitoring-agent
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+apt-get update
+apt-get -y install lsb-release gpg wget
+echo "deb https://packages.centreon.com/apt-standard-24.10-stable $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon.list
+echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
+```
+
+Ensuite, importez la clé du dépôt :
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
+
+Ensuite, installez l'agent :
+
+```shell
+apt-get update
+apt install centreon-monitoring-agent
+```
+
+</TabItem>
+</Tabs>
+
+* Configurez le **centreon-monitoring-agent**.
 1. Modifiez le fichier **/etc/centreon-monitoring-agent/centagent.json** local (4 cas) :
 
 <Tabs groupId="sync">
@@ -112,7 +159,7 @@ L'Agent de supervision Centreon est maintenant capable de communiquer avec Centr
 
 ```json
 {
-    "log_level":"trace",
+    "log_level":"info",
     "endpoint":"<IP POLLER>:4317",
     "host":"host_1",
     "log_type":"file",
@@ -125,7 +172,7 @@ L'Agent de supervision Centreon est maintenant capable de communiquer avec Centr
 
 ```json
 {
-    "log_level":"trace",
+    "log_level":"info",
     "endpoint":"<IP POLLER>:4317",
     "host":"host_1",
     "log_type":"file",
@@ -140,7 +187,7 @@ L'Agent de supervision Centreon est maintenant capable de communiquer avec Centr
 
 ```json
 {
-    "log_level":"trace",
+    "log_level":"info",
     "endpoint":"0.0.0.0:4317",
     "host":"host_1",
     "log_type":"file",
@@ -153,7 +200,7 @@ L'Agent de supervision Centreon est maintenant capable de communiquer avec Centr
 
 ```json
 {
-    "log_level":"trace",
+    "log_level":"info",
     "endpoint":"0.0.0.0:4317",
     "host":"host_1",
     "log_type":"file",
@@ -168,6 +215,8 @@ L'Agent de supervision Centreon est maintenant capable de communiquer avec Centr
 
 </TabItem>
 </Tabs>
+
+Dans le champ **host**, entrez le nom de l'hôte à superviser tel que vous l'avez saisi dans l'interface Centreon. Si absent, l'agent utilisera le hostname de la machine.
 
 #### Options de log
 
@@ -224,6 +273,9 @@ Ce dépôt permettra d'installer les plugins Centreon ainsi que **les dépendanc
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
+dnf -y install dnf-plugins-core oracle-epel-release-el8
+dnf config-manager --set-enabled ol8_codeready_builder
+
 cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
 [centreon-plugins-stable]
 name=Centreon plugins repository.
@@ -285,6 +337,10 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
+dnf install dnf-plugins-core
+dnf install epel-release
+dnf config-manager --set-enabled crb
+
 cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
 [centreon-plugins-stable]
 name=Centreon plugins repository.
@@ -346,6 +402,8 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
+apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
+
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 apt-get update
