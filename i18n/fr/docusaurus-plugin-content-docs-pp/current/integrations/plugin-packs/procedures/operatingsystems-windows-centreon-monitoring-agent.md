@@ -288,7 +288,6 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | CRITICALCORE    | Threshold for critical status on core usage in percentage                                                                                |                   |             |
 | WARNINGAVERAGE  | Threshold for warning status on average usage in percentage                                                                              |                   |             |
 | CRITICALAVERAGE | Threshold for critical status on average usage in percentage                                                                             |                   |             |
-
 </TabItem>
 <TabItem value="CPU-detailed" label="CPU-detailed">
 
