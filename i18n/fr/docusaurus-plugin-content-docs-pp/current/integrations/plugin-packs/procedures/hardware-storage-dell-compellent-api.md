@@ -77,7 +77,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 Ce connecteur de supervision nécessite l'utilisation :
 
   - du gestionnaire Dell Storage Enterprise Manager fourni
-    (ici) (http://www.dell.com/support/home/us/en/19/Drivers/DriversDetails?driverId=7KXTW)
+    [ici](https://www.dell.com/support/home/fr-fr/drivers/driversdetails?driverid=xcrx8).
   - NSClient++ fourni par Centreon, installé et configuré sur votre serveur cible comme décrit [ici](./getting started/how-to-guides/centreon-nsclient++).
     serveur cible comme décrit [ici](../getting-started/how-to-guides/centreon-nsclient-tutorial.md).
 
