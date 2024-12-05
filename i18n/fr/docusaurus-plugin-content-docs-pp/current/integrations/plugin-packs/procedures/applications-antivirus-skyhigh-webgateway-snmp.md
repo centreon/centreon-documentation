@@ -27,12 +27,12 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias            | Modèle de service                                             | Description                                                                                                        |
 |:-----------------|:--------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------|
-| Clients          | App-Antivirus-Skyhigh-Webgateway-Clients-SNMP-custom          | Contrôle le nombre de clients connectés, le nombre de socket réseau ouvert                                         |
+| Clients          | App-Antivirus-Skyhigh-Webgateway-Clients-SNMP-custom          | Contrôle le nombre de clients connectés, le nombre de sockets réseau ouverts                                         |
 | Connections      | App-Antivirus-Skyhigh-Webgateway-Connections-SNMP-custom      | Contrôle le nombre de connexions légitimes et bloquées                                                             |
-| Detections       | App-Antivirus-Skyhigh-Webgateway-Detections-SNMP-custom       | Contrôle le nombre de malware détecté, par catégories                                                              |
-| Http-Statistics  | App-Antivirus-Skyhigh-Webgateway-Http-Statistics-SNMP-custom  | Contrôle le numbre de requête et le trafic réseau HTTP client/proxy, serveur/proxy, proxy/client et proxy/serveur  |
-| Https-Statistics | App-Antivirus-Skyhigh-Webgateway-Https-Statistics-SNMP-custom | Contrôle le numbre de requête et le trafic réseau HTTPS client/proxy, serveur/proxy, proxy/client et proxy/serveur |
-| Versions         | App-Antivirus-Skyhigh-Webgateway-Versions-SNMP-custom         | Contrôle les versions des bases de données de signature                                                            |
+| Detections       | App-Antivirus-Skyhigh-Webgateway-Detections-SNMP-custom       | Contrôle le nombre de malwares détectés, par catégories                                                              |
+| Http-Statistics  | App-Antivirus-Skyhigh-Webgateway-Http-Statistics-SNMP-custom  | Contrôle le nombre de requêtes et le trafic réseau HTTP client/proxy, serveur/proxy, proxy/client et proxy/serveur  |
+| Https-Statistics | App-Antivirus-Skyhigh-Webgateway-Https-Statistics-SNMP-custom | Contrôle le nombre de requêtes et le trafic réseau HTTPS client/proxy, serveur/proxy, proxy/client et proxy/serveur |
+| Versions         | App-Antivirus-Skyhigh-Webgateway-Versions-SNMP-custom         | Contrôle les versions des bases de données de signatures                                                            |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Antivirus-Skyhigh-Webgateway-SNMP-custom** est utilisé.
 

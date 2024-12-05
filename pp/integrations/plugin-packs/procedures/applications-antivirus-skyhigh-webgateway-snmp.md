@@ -26,12 +26,12 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias    | Service Template                                              | Service Description                                                                                      |
 |:-----------------|:--------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------|
-| Clients          | App-Antivirus-Skyhigh-Webgateway-Clients-SNMP-custom          | Check connected clients count, open network sockets count                                                |
-| Connections      | App-Antivirus-Skyhigh-Webgateway-Connections-SNMP-custom      | Check legetimate and blocked connections                                                                 |
-| Detections       | App-Antivirus-Skyhigh-Webgateway-Detections-SNMP-custom       | Check malware detection count, by categories                                                             |
-| Http-Statistics  | App-Antivirus-Skyhigh-Webgateway-Http-Statistics-SNMP-custom  | Check client/proxy, server/proxy, proxy/client and proxy/server HTTP network traffic and requests count  |
-| Https-Statistics | App-Antivirus-Skyhigh-Webgateway-Https-Statistics-SNMP-custom | Check client/proxy, server/proxy, proxy/client and proxy/server HTTPS network traffic and requests count |
-| Versions         | App-Antivirus-Skyhigh-Webgateway-Versions-SNMP-custom         | Check virus definition databases version                                                                 |
+| Clients          | App-Antivirus-Skyhigh-Webgateway-Clients-SNMP-custom          | Check the number of connected clients and the number of open network sockets                                                |
+| Connections      | App-Antivirus-Skyhigh-Webgateway-Connections-SNMP-custom      | Check legitimate and blocked connections                                                                 |
+| Detections       | App-Antivirus-Skyhigh-Webgateway-Detections-SNMP-custom       | Check the number of detected malware, by categories                                                             |
+| Http-Statistics  | App-Antivirus-Skyhigh-Webgateway-Http-Statistics-SNMP-custom  | Check client/proxy, server/proxy, proxy/client and proxy/server HTTP network traffic and the number of requests  |
+| Https-Statistics | App-Antivirus-Skyhigh-Webgateway-Https-Statistics-SNMP-custom | Check client/proxy, server/proxy, proxy/client and proxy/server HTTPS network traffic and the number of requests |
+| Versions         | App-Antivirus-Skyhigh-Webgateway-Versions-SNMP-custom         | Check the version of virus definition databases                                                                 |
 
 > The services listed above are created automatically when the **App-Antivirus-Skyhigh-Webgateway-SNMP-custom** host template is used.
 
