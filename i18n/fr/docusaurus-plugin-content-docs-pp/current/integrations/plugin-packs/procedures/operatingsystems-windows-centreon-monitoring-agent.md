@@ -288,7 +288,6 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | CRITICALCORE    | Threshold for critical status on core usage in percentage                                                                                |                   |             |
 | WARNINGAVERAGE  | Threshold for warning status on average usage in percentage                                                                              |                   |             |
 | CRITICALAVERAGE | Threshold for critical status on average usage in percentage                                                                             |                   |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="CPU-detailed" label="CPU-detailed">
@@ -307,7 +306,6 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | CRITICALCORESYSTEM    | Threshold for critical status on core system usage in percentage                                                                         |                   |             |
 | WARNINGAVERAGESYSTEM  | Threshold for warning status on average system usage in percentage                                                                       |                   |             |
 | CRITICALAVERAGESYSTEM | Threshold for critical status on average system usage in percentage                                                                      |                   |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
@@ -322,7 +320,6 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | CRITICALUSAGEPRCT     | Threshold for critical status on physical memory usage in percentage                                                                     |                   |             |
 | WARNINGUSAGEFREEPRCT  | Threshold for warning status on free physical memory in percentage                                                                       |                   |             |
 | CRITICALUSAGEFREEPRCT | Threshold for critical status on free physical memory in percentage                                                                      |                   |             |
-| EXTRAOPTIONS          | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
@@ -375,7 +372,6 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | CRITICAL          | Thresholds                                                                                                                                                                                                                                                                                     |                   |             |
 | FILTERSTORAGETYPE | Case insensitive regex to filter storage type it includes drive type (fixed, network...). Types recognized by agent: hrunknown, hrstoragefixeddisk, hrstorageremovabledisk, hrstoragecompactdisc, hrstorageramdisk, hrstoragenetworkdisk, hrfsunknown, hrfsfat, hrfsntfs, hrfsfat32, hrfsexfat |                   |             |
 | FILTERFS          | Case insensitive regex to filter filesystem. Example: [C-D]:\\.*                                                                                                                                                                                                                               |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                                                       |                   |             |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
@@ -390,7 +386,6 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | CRITICALSWAPPRCT     | Threshold for critical status on swap memory usage in percentage                                                                         |                   |             |
 | WARNINGSWAPFREEPRCT  | Threshold for warning status on free swap memory in percentage                                                                           |                   |             |
 | CRITICALSWAPFREEPRCT | Threshold for critical status on free swap memory in percentage                                                                          |                   |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Updates" label="Updates">
@@ -409,7 +404,6 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 |:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNINGUPTIME   | Warning threshold, if computer has been up for less than this time, service will be in warning state                                     |                   |             |
 | CRITICALUPTIME  | Critical threshold                                                                                                                       |                   |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 </Tabs>
