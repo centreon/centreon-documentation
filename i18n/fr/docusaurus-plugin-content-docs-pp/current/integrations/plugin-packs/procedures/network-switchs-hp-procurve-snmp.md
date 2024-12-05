@@ -293,10 +293,10 @@ yum install centreon-plugin-Network-Switchs-Hp-Procurve-Snmp
 | Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | INTERFACEID  | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                        |                   |             |
-| CRITICALIN   | Threshold                                                                                                                                        | 90                |             |
-| WARNINGIN    | Threshold                                                                                                                                        | 80                |             |
-| CRITICALOUT  | Threshold                                                                                                                                        | 90                |             |
-| WARNINGOUT   | Threshold                                                                                                                                        | 80                |             |
+| CRITICALIN   | Threshold on critical-in-traffic                                                                                                                              | 90                |             |
+| WARNINGIN    | Threshold on warning-in-traffic                                                                                                                             | 80                |             |
+| CRITICALOUT  | Threshold on critical-in-traffic                                                                                                                             | 90                |             |
+| WARNINGOUT   | Threshold on warning-out-traffic                                                                                                                             | 80                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -305,10 +305,10 @@ yum install centreon-plugin-Network-Switchs-Hp-Procurve-Snmp
 | Macro         | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | INTERFACENAME | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                        |                   |             |
-| CRITICALIN    | Threshold                                                                                                                                        | 90                |             |
-| WARNINGIN     | Threshold                                                                                                                                        | 80                |             |
-| CRITICALOUT   | Threshold                                                                                                                                        | 90                |             |
-| WARNINGOUT    | Threshold                                                                                                                                        | 80                |             |
+| CRITICALIN   | Threshold on critical-in-traffic                                                                                                                              | 90                |             |
+| WARNINGIN    | Threshold on warning-in-traffic                                                                                                                             | 80                |             |
+| CRITICALOUT  | Threshold on critical-in-traffic                                                                                                                             | 90                |             |
+| WARNINGOUT   | Threshold on warning-out-traffic                                                                                                                             | 80                |             |
 | EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -317,10 +317,10 @@ yum install centreon-plugin-Network-Switchs-Hp-Procurve-Snmp
 | Macro          | Description                                                                                                                                                                                                         | Valeur par défaut | Obligatoire |
 |:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTER         | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                                                                                           | .*                |             |
-| CRITICALIN     | Threshold                                                                                                                                                                                                           | 90                |             |
-| WARNINGIN      | Threshold                                                                                                                                                                                                           | 80                |             |
-| CRITICALOUT    | Threshold                                                                                                                                                                                                           | 90                |             |
-| WARNINGOUT     | Threshold                                                                                                                                                                                                           | 80                |             |
+| CRITICALIN   | Threshold on critical-in-traffic                                                                                                                              | 90                |             |
+| WARNINGIN    | Threshold on warning-in-traffic                                                                                                                             | 80                |             |
+| CRITICALOUT  | Threshold on critical-in-traffic                                                                                                                             | 90                |             |
+| WARNINGOUT   | Threshold on warning-out-traffic                                                                                                                             | 80                |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} |                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                    | --verbose         |             |
 

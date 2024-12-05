@@ -294,10 +294,10 @@ yum install centreon-plugin-Network-Switchs-Hp-Procurve-Snmp
 | Macro        | Description                                                                                                                            | Default value     | Mandatory   |
 |:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | INTERFACEID  | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                              |                   |             |
-| CRITICALIN   | Threshold                                                                                                                              | 90                |             |
-| WARNINGIN    | Threshold                                                                                                                              | 80                |             |
-| CRITICALOUT  | Threshold                                                                                                                              | 90                |             |
-| WARNINGOUT   | Threshold                                                                                                                              | 80                |             |
+| CRITICALIN   | Threshold on critical-in-traffic                                                                                                                              | 90                |             |
+| WARNINGIN    | Threshold on warning-in-traffic                                                                                                                             | 80                |             |
+| CRITICALOUT  | Threshold on critical-in-traffic                                                                                                                             | 90                |             |
+| WARNINGOUT   | Threshold on warning-out-traffic                                                                                                                             | 80                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
@@ -306,10 +306,10 @@ yum install centreon-plugin-Network-Switchs-Hp-Procurve-Snmp
 | Macro         | Description                                                                                                                            | Default value     | Mandatory   |
 |:--------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | INTERFACENAME | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                              |                   |             |
-| CRITICALIN    | Threshold                                                                                                                              | 90                |             |
-| WARNINGIN     | Threshold                                                                                                                              | 80                |             |
-| CRITICALOUT   | Threshold                                                                                                                              | 90                |             |
-| WARNINGOUT    | Threshold                                                                                                                              | 80                |             |
+| CRITICALIN   | Threshold on critical-in-traffic                                                                                                                              | 90                |             |
+| WARNINGIN    | Threshold on warning-in-traffic                                                                                                                             | 80                |             |
+| CRITICALOUT  | Threshold on critical-in-traffic                                                                                                                             | 90                |             |
+| WARNINGOUT   | Threshold on warning-out-traffic                                                                                                                             | 80                |             |
 | EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
@@ -318,10 +318,10 @@ yum install centreon-plugin-Network-Switchs-Hp-Procurve-Snmp
 | Macro          | Description                                                                                                                                                                                                         | Default value     | Mandatory   |
 |:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTER         | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                                                                                           | .*                |             |
-| CRITICALIN     | Threshold                                                                                                                                                                                                           | 90                |             |
-| WARNINGIN      | Threshold                                                                                                                                                                                                           | 80                |             |
-| CRITICALOUT    | Threshold                                                                                                                                                                                                           | 90                |             |
-| WARNINGOUT     | Threshold                                                                                                                                                                                                           | 80                |             |
+| CRITICALIN   | Threshold on critical-in-traffic                                                                                                                              | 90                |             |
+| WARNINGIN    | Threshold on warning-in-traffic                                                                                                                             | 80                |             |
+| CRITICALOUT  | Threshold on critical-in-traffic                                                                                                                             | 90                |             |
+| WARNINGOUT   | Threshold on warning-out-traffic                                                                                                                             | 80                |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%{admstatus} eq "up" and %{opstatus} ne "up"'). You can use the following variables: %{admstatus}, %{opstatus}, %{duplexstatus}, %{display} |                   |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                              | --verbose         |             |
 
