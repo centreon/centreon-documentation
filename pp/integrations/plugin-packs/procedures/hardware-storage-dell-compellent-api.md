@@ -76,7 +76,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 This Monitoring Connector requires the use of:
 
   - the Dell Storage Enterprise Manager provided
-    [here](http://www.dell.com/support/home/us/en/19/Drivers/DriversDetails?driverId=7KXTW)
+    [here](https://www.dell.com/support/home/fr-fr/drivers/driversdetails?driverid=xcrx8)
   - NSClient++ package provided by Centreon, installed and configured on your
     target server as described [here](../getting-started/how-to-guides/centreon-nsclient-tutorial.md).
 
