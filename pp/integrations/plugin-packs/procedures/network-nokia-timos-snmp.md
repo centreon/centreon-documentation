@@ -26,9 +26,9 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                     | Service Description                         |
 |:--------------|:-------------------------------------|:--------------------------------------------|
-| Cpu           | Net-Nokia-Timos-Cpu-SNMP-custom      | Check the rate of the utilization of CPU    |
+| Cpu           | Net-Nokia-Timos-Cpu-SNMP-custom      | Check the rate of CPU utilization    |
 | Hardware      | Net-Nokia-Timos-Hardware-SNMP-custom | Check hardware                              |
-| Memory        | Net-Nokia-Timos-Memory-SNMP-custom   | Check the rate of the utilization of memory |
+| Memory        | Net-Nokia-Timos-Memory-SNMP-custom   | Check the rate of memory utilization |
 | Uptime        | Net-Nokia-Timos-Uptime-SNMP-custom   | Check uptime                                |
 
 > The services listed above are created automatically when the **Net-Nokia-Timos-SNMP-custom** host template is used.
