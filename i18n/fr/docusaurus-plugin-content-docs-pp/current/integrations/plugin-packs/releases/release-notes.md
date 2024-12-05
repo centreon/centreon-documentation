@@ -27,7 +27,7 @@ import TabItem from '@theme/TabItem';
 - [**HP Procurve SNMP**](../procedures/network-switchs-hp-procurve-snmp.md) - Added new mode stack from community contribution [PR 5082](https://github.com/centreon/centreon-plugins/pull/5082).
 - [**Keysight NVOS Rest API**](../procedures/network-keysight-nvos-restapi.md) - Enhanced ports mode and added license mode.
 - [**Nokia TiMos SNMP**](../procedures/network-nokia-timos-snmp.md) - Added new mode sas-alarm from community contribution [PR 5083](https://github.com/centreon/centreon-plugins/pull/5083).
-- [**Windows Centreon Monitoring Agent**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Added Natives checks for CPU, Cpu-detailed, Memory, Storage, Swap and Uptime (This native checks will be available with the Collect release coming in the next few days).
+- [**Windows Centreon Monitoring Agent**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Added Natives checks for CPU, Cpu-detailed, Memory, Storage, Swap and Uptime (This native checks will be available with the Collect 24.10.3 release coming soon).
 
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
